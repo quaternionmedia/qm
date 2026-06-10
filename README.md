@@ -8,7 +8,7 @@ tighten its rules — never relax them.
 ## Layout
 
 ```
-qm-constitution/
+qm/
 ├── README.md            ← this file: namespaces, precedence, fork procedure
 ├── PRINCIPLES.md        ← the charter: interpretation the records are cut from
 ├── TEMPLATE.md          ← record template for THIS corpus (QM-XXXX)
