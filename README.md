@@ -16,6 +16,7 @@ qm/
 ├── registers/           ← org-level live registers (carried patches, …)
 ├── handbook/            ← business policy routed out of ADR form
 ├── perspectives/        ← attributed, dated, non-binding opinions (incl. AI drafting sessions)
+├── math/                ← experiments workspace: demonstrations against open questions named in perspectives
 └── project-seed/adr/    ← the forkable template a new project copies verbatim
 ```
 
