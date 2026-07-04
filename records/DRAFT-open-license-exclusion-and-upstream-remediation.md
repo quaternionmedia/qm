@@ -49,10 +49,17 @@ theater.
    rejected: promote the fork to a maintained public QM project, or implement
    in the project's control plane if genuinely seam logic. Sponsorship may
    accompany contribution, particularly for review bandwidth.
-4. **Enforcement.** Every project CI generates an SBOM per image and fails on
-   any license outside the encoded OSI allowlist; a quarterly scan watches
-   pinned upstreams for license-file changes and archive status. Allowlist
-   changes are amendments to this record.
+4. **Enforcement.** Every project CI generates a machine-readable license
+   report and fails the build on any license outside the encoded OSI
+   allowlist, along the path matching its runtime shape: an SBOM per image
+   for container and server runtimes, or a dependency-manifest report per
+   package ecosystem for everything else (illustrative tooling, not a
+   binding list — `com.github.jk1.dependency-license-report` for Gradle,
+   `license-checker` for npm, `pip-licenses` for Python, `cargo-license`
+   for Rust). Either path is generated, never hand-compiled, and is paired
+   with a quarterly scan that watches pinned upstreams for license-file
+   changes and archive status. Allowlist changes are amendments to this
+   record.
 5. **Scope boundary.** The floor is userspace plus kernel modules. Microcode,
    firmware, and BIOS/UEFI are out of scope — no bootable x86 stance
    satisfies the rule, and an unenforceable constitution is worse than an

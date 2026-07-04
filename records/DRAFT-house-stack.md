@@ -33,8 +33,9 @@ deliberate rather than enthusiasm-driven.
    - *Contributions* — written in the target community's language and idiom,
      per the open-license record. The house stack governs our repos, not our
      PRs.
-   - *Client-mandated stacks* — contract scope, recorded in the engagement,
-     never imported as house drift.
+   - *Client- or platform-mandated stacks* — scope fixed by the client's
+     contract or the target platform's toolchain, recorded in the
+     engagement, never imported as house drift.
    - *Engines* — selected components are whatever language their community
      builds in; the house stack governs the seam, not the engines.
 
@@ -53,7 +54,8 @@ deliberate rather than enthusiasm-driven.
 1. **Best tool per job** — rejected: locally optimal, organizationally
    corrosive; five half-known stacks are worse than one deep one.
 2. **Stricter monoculture (no carve-outs)** — rejected: it would contradict
-   the contribution doctrine and make client work impossible to scope.
+   the contribution doctrine and make client- or platform-mandated work
+   impossible to scope.
 
 ## Revision triggers
 

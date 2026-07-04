@@ -78,7 +78,8 @@ complement: what *we contribute* is written in the target community's
 language and idiom. House preference governs our repos, not our PRs.
 
 → Org record: **House stack**, with the dependency-review gate as teeth and
-explicit carve-outs for contributions and client-mandated stacks.
+explicit carve-outs for contributions and client- or platform-mandated
+stacks.
 
 ## P6 — Decisions are documented or they didn't happen
 
