@@ -1,7 +1,8 @@
 # Architecture Decision Records — Process & Handoff
 
-<!-- SEED FILE: copy verbatim into a new project as adr/README.md, fill the
-     adoption table, and delete this comment. -->
+<!-- SEED FILE: copy verbatim into this project's own branch of the qm repo
+     (project/<name>, created from main) as adr/README.md, and delete this
+     comment. See root README.md's "Forking a new project" section. -->
 
 This directory is the project's decision memory. This file is the contract
 for producing and maintaining it. The discipline exists because decision
@@ -17,11 +18,15 @@ This project adopts the QM constitution by reference. Org records bind this
 project; project records may tighten them, never relax them. A genuine
 exception is an amendment ratified at org level.
 
-| Corpus | Pin (tag/commit) | Records adopted |
-|---|---|---|
-| qm-constitution | `<tag>` | all Accepted QM records at pin |
+This directory lives inside the `governance/qm` submodule, on this
+project's own dedicated branch (`project/<name>`, created from `main`) -
+not copied into this project's own git history. The branch's ancestry *is*
+the pin: there is no separate commit hash to hand-maintain here. `git log
+--first-parent` on this branch shows exactly which org state was adopted
+and when it was last refreshed.
 
-Bumping the pin is a reviewed commit in this project.
+Bumping the pin is merging `main` into this branch - a normal git
+operation, reviewed the same way any other commit to this branch is.
 
 ## The one rule that prevents most drift
 
@@ -95,11 +100,16 @@ outside Amendments.
 
 ## CI enforcement
 
-The standard scaffold ships: the ADR lint (banned vocabulary in drafts;
-numbered filenames not Accepted+; Accepted bodies modified outside
-Amendments; index/directory mismatch) and the SBOM license gate required by
-the org open-license record. They run in the same pipeline — the constitution
-and its enforcement ship together.
+The ADR lint (banned vocabulary in drafts; numbered filenames not
+Accepted+; Accepted bodies modified outside Amendments; index/directory
+mismatch) ships as a ready-to-run workflow at `project-seed/ci/adr-lint.yml`
+— copy it into `.github/workflows/` verbatim, the same discipline as `adr/`
+itself. The license gate required by the org open-license record is
+doctrine, not one fixed script: wire an SBOM-per-image gate for container
+and server runtimes, or a dependency-manifest-plus-allowlist gate per
+package ecosystem otherwise (see that record's Enforcement clause). Both
+run in the same pipeline as the ADR lint — the constitution and its
+enforcement ship together.
 
 ## Index
 
