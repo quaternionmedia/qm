@@ -98,11 +98,14 @@ outside Amendments.
 
 ## CI enforcement
 
-The standard scaffold ships: the ADR lint (banned vocabulary in drafts;
-numbered filenames not Accepted+; Accepted bodies modified outside
-Amendments; index/directory mismatch) and the SBOM license gate required by
-the org open-license record. They run in the same pipeline — the constitution
-and its enforcement ship together.
+The ADR lint (banned vocabulary in drafts; numbered filenames not
+Accepted+; Accepted bodies modified outside Amendments; index/directory
+mismatch) now ships as a ready-to-run workflow at
+`project-seed/ci/adr-lint.yml` for any project forking the seed - not yet
+backfilled into this reference project's own CI, since this instance
+predates that file. The SBOM license gate required by the org open-license
+record is wired per this project's actual container/server runtime shape
+(see that record's Enforcement clause).
 
 ## Index
 

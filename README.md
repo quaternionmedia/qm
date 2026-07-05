@@ -50,7 +50,10 @@ is identical at both levels and is itself an org record: see
 ## Forking a new project
 
 The seed is proven — its first instance is the streaming-infrastructure
-project, which serves as the reference implementation.
+project, which serves as the reference implementation for a server/container
+runtime; `project/qmetronome` (a branch of this repo, not a separate fork)
+is the reference implementation of the branch-per-project ADR model below
+for a non-server runtime.
 
 1. **Add this repo as a submodule** at `governance/qm` in the new project.
 2. **Create branch `project/<name>`** off `main` in this repo. On that

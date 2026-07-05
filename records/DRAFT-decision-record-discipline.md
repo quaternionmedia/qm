@@ -36,9 +36,10 @@ discipline below makes prevention mechanical rather than memorial.
 ## Consequences
 
 - CI lint in every repo rejects: banned vocabulary in drafts
-  (`previously|originally|earlier draft|re-review|renumber`), numbered
-  filenames not Accepted+, edits to an Accepted record outside its Amendments
-  region, index/directory mismatches.
+  (`previously|originally|earlier draft|re-review|renumber|retroactive|
+  supersedes the ... (stance|finding)|corrected`), numbered filenames not
+  Accepted+, edits to an Accepted record outside its Amendments region,
+  index/directory mismatches.
 - Onboarding cost for contributors and assistants is the process contract —
   one page, supplied with every drafting session.
 - Cost accepted: ceremony on small decisions. Mitigation: one-decision

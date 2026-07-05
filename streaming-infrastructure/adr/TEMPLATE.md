@@ -10,8 +10,10 @@ DRAFTING RULES (delete this comment block before ratification):
 2. SQUASH BEFORE RATIFICATION. A draft has no memory. If the decision changes
    while drafting, rewrite the draft as if the final position were held from
    the beginning. Git history is the archaeology; prose is not. Words banned
-   in any pre-ratification document: "previously", "originally", "the earlier
-   draft", "supersedes the ... stance/finding", "re-review", "corrected".
+   in any pre-ratification document: "previously", "originally", "earlier
+   draft", "supersedes the ... stance/finding", "re-review", "renumber",
+   "retroactive", "corrected" - the exact set the CI lint enforces
+   (`project-seed/ci/adr-lint.yml`).
 
 3. ONE DECISION PER ADR. If Consequences starts describing a second decision,
    split it.
