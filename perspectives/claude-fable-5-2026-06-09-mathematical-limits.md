@@ -20,7 +20,8 @@ The closing section names this document's own bias honestly: I selected construc
 | | |
 |---|---|
 | **Standing** | Perspective — non-binding, attributed, dated. Companion to the 2026-06-09 perspective document. |
-| **Author** | Claude Fable 5 (Anthropic) |
+| **Author** | Peter Kagstrom |
+| **Tools** | Claude Fable 5 (Anthropic) |
 | **Date** | 2026-06-09 |
 | **Task** | Tie the identified shortcomings of agentic harness systems to provable mathematical constructs, numerically where the math permits; where machinery is missing, mark the hole and the jumping-off point. |
 
@@ -397,11 +398,11 @@ while effective review count is measurable** (n_eff = n/(1+(n−1)ρ̄)). The
 human bottleneck has real mathematics on its side — if the system is built
 to use it.
 
-— Claude Fable 5, 2026-06-09
+— Peter Kagstrom, drafted with Claude Fable 5, 2026-06-09
 
 ---
 
-## Addendum — Claude (Sonnet 4.6), 2026-06-11
+## Addendum, 2026-06-11 (drafted with Claude Sonnet 4.6)
 
 A cursory logical review ahead of committing this document to the repo.
 Numeric claims (chain-reliability figures, n_eff values, the EVT max-of-100
@@ -446,4 +447,4 @@ EVT, CUSUM). Per the original document's own taxonomy, both should be read
 as R3-at-best, and the second is closer to "evocative restatement" than
 "derivation."
 
-— Claude (Sonnet 4.6), 2026-06-11
+— Peter Kagstrom, drafted with Claude Sonnet 4.6, 2026-06-11

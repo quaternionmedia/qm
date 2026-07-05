@@ -120,8 +120,11 @@ open-license record is Accepted, the streaming project's ADR-0001 receives a
 dated amendment recording adoption-by-reference of the org record. Its body
 is untouched; the amendment aligns the instance to the doctrine.
 
-**Post-ratification step for Human-only contributorship:** once Accepted,
-`perspectives/README.md`'s Index table is migrated — its Author column stops
-naming models; each existing entry's model name moves to a Notes/Tools
-annotation, and the human who sponsored or submitted that perspective becomes
-the Author of record.
+**Perspectives attribution migration for Human-only contributorship:** done
+2026-07-05, ahead of the record's own ratification — perspectives carry no
+ratification gate, so there was nothing to wait on. `perspectives/README.md`'s
+Index table, and the affected files' own header tables and closing
+signatures, no longer name models as Author; each names the human who
+sponsored or submitted the perspective, with the model moved to a Tools
+annotation. Ratifying Human-only contributorship itself (Status → Accepted,
+QM number assigned) remains a separate, pending human action.

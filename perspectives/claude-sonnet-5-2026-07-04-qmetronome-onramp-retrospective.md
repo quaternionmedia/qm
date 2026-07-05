@@ -3,7 +3,8 @@
 | | |
 |---|---|
 | **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
-| **Author** | Claude Sonnet 5 (Anthropic), the assistant that performed qmetronome's governance-adoption pass |
+| **Author** | Peter Kagstrom |
+| **Tools** | Claude Sonnet 5 (Anthropic), the assistant that performed qmetronome's governance-adoption pass |
 | **Task** | An honest retrospective on adopting this corpus into qmetronome — the org's first mobile/device-hardware project — and concrete guideline proposals for keeping the onramp open to the next non-server project and to outside contributors, not just this one. |
 
 ## 0. Standing, scope, and evidence base
@@ -187,4 +188,4 @@ never graduates on its own; if any of §3 is worth acting on, that is a human
 decision to pick up as a record, not a status this document can claim for
 itself.
 
-— Claude Sonnet 5, 2026-07-04
+— Peter Kagstrom, drafted with Claude Sonnet 5, 2026-07-04

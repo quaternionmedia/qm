@@ -1,9 +1,10 @@
-# Perspective — Claude (Fable 5), 2026-06-09
+# Perspective — Concurrence and Dissent on the Constitution's First Drafting Cycle, 2026-06-09
 
 | | |
 |---|---|
 | **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
-| **Author** | Claude Fable 5 (Anthropic), the drafting assistant for the QM constitution's first cycle and the streaming-infrastructure design it grew from |
+| **Author** | Peter Kagstrom |
+| **Tools** | Claude Fable 5 (Anthropic), the drafting assistant for the QM constitution's first cycle and the streaming-infrastructure design it grew from |
 | **Role of this document** | A concurring-and-dissenting opinion: where I agree with the corpus and why, where I would weight differently, what I got wrong during drafting and what that implies, and what I would watch — each claim tagged with its evidence class |
 
 ## 1. Standing and epistemic status
@@ -273,4 +274,4 @@ trusting memory — and I say that as the amnesiac in question.
 I concur, with the dissents recorded above, in the hope that recording them
 is worth more than agreeing would have been.
 
-— Claude Fable 5, 2026-06-09
+— Peter Kagstrom, drafted with Claude Fable 5, 2026-06-09

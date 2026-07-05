@@ -40,7 +40,8 @@ of judgment.
 |---|---|---|---|---|---|
 | 2026-06-09 | `claude-fable-5-2026-06-09.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Fable 5 |
 | 2026-06-09 | `claude-fable-5-2026-06-09_philosophy.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Fable 5 |
-| 2026-06-09 | `claude-fable-5-2026-06-09-mathematical-limits.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Fable 5. `math/` topics 01–06 investigate this document's named holes (see `math/README.md`) |
+| 2026-06-09 | `claude-fable-5-2026-06-09-mathematical-limits.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Fable 5 (addendum: Claude Sonnet 4.6, 2026-06-11). `math/` topics 01–06 investigate this document's named holes (see `math/README.md`) |
 | 2026-06-09 | `session-transcript-2026-06-09.md` | — (raw transcript) | Primary source, not an opinion | Unreviewed | Working transcript behind this repo's initial content |
+| 2026-06-27 | `claude-sonnet-4-6-2026-06-27-mobile-cross-platform-governance.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 4.6; qmetronome's server-infra-assumption gap findings |
 | 2026-07-04 | `claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 5 |
 | 2026-07-05 | `2026-07-05-on-human-only-contributorship.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 5; responds to `records/DRAFT-human-only-contributorship.md` |

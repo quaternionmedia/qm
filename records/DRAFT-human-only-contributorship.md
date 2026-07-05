@@ -45,13 +45,17 @@ author/contributor field exists to record.
    hand. Naming a human is always fine, including a human who works at or
    through a tool vendor; the ban is on unreachable addresses standing in for
    accountability, not on disclosing that a tool was used.
-4. This governs attribution metadata going forward — commit trailers,
-   bylines, and index entries created from ratification onward. Existing
-   commits are not amended. Non-conforming entries created before
-   ratification (`perspectives/README.md`'s Author column naming model
-   names) are migrated at ratification: the model name moves to a
-   Notes/Tools annotation, and the human who sponsored or submitted the
-   perspective becomes the Author of record.
+4. This governs attribution metadata — commit trailers, bylines, index
+   entries, and each perspective file's own header table and closing
+   signature. Existing commits are not amended; commit history is left
+   alone. Perspectives are different: they carry no ratification gate (see
+   Standing in `perspectives/README.md`), so their non-conforming Author
+   fields — the `perspectives/README.md` index, and the individual header
+   table, byline, and signature line inside each affected file — are
+   migrated on their own schedule rather than waiting on this record's own
+   ratification. Migrating them is a metadata correction (who is named as
+   accountable), not a rewrite of a perspective's substance, so it carries
+   none of the append-only weight a ratified record's body would.
 
 ## Consequences
 
@@ -59,12 +63,19 @@ author/contributor field exists to record.
   byline, naming a non-monitored address or a tool/model as author fails
   review.
 - `perspectives/README.md`'s index schema gains a Tools/Notes annotation
-  distinct from Author; its existing entries crediting model names require a
-  one-time migration to a named human sponsor at ratification.
+  distinct from Author; its existing entries crediting model names, plus the
+  affected files' own header tables and closing signatures, were migrated to
+  a named human sponsor directly (see that directory's own history) rather
+  than held pending this record's ratification.
 - Default assistant commit tooling that appends a
   `Co-Authored-By: <model> <noreply@...>` trailer must be suppressed or
-  overridden for qm and any project adopting this record — stated as an
-  explicit instruction to drafting sessions, not left as an assumed default.
+  overridden for qm and any project adopting this record — stated, for now,
+  as an explicit instruction to drafting sessions rather than a mechanical
+  check. That is a known soft spot, not a design choice: this corpus's own
+  decision-record-discipline record rejected "convention without
+  enforcement" as insufficient in a different context, and the same
+  argument applies here until a commit-msg hook or CI grep exists to back
+  the instruction up.
 - Cost accepted: some provenance detail (exactly which model or version
   produced a given diff) moves from a prominent commit trailer to a
   lower-visibility Tools note. The org has decided that the signer being
@@ -92,6 +103,10 @@ author/contributor field exists to record.
 - The Tools/Notes annotation is used to smuggle credit back in, or becomes
   contentious in review — the record needs a firmer format, not repeated
   exceptions.
+- The instruction-only commit-trailer ban is missed by a new contributor or
+  a fresh drafting session — the point at which "stated instruction" needs
+  to become a mechanical check (commit-msg hook or CI grep) rather than
+  staying an accepted gap.
 
 ## Amendments
 
