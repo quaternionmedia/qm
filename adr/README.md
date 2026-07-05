@@ -160,4 +160,5 @@ Drafts in flight (numberless, by title): Glyph Matrix SDK dependency
 *(pends: org-level disposition for closed hardware-vendor SDKs)*; Android/
 Kotlin platform stack *(pends: platform-mandated-stack carve-out, analogous
 to the existing client-mandated one)*; MIDI clock as an open-standard seam;
-home screen widget via Jetpack Glance, scoped to glanceable state.
+home screen widget via Jetpack Glance, scoped to glanceable state; persistent
+playback via a foreground service.
