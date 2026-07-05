@@ -110,6 +110,7 @@ record in the commit message. Assistants draft; humans ratify.
 | — | Build the seam, buy the engines | Proposed | 2026-06-09 |
 | — | House stack | Proposed | 2026-06-09 |
 | — | Contribution and sponsorship policy | Proposed | 2026-06-09 |
+| — | Human-only contributorship | Proposed | 2026-07-05 |
 
 Handbook (policy, not records): public-by-default (with a defined promotion
 path to record form), style guide (minimal, legible deliverables).
@@ -118,3 +119,9 @@ path to record form), style guide (minimal, legible deliverables).
 open-license record is Accepted, the streaming project's ADR-0001 receives a
 dated amendment recording adoption-by-reference of the org record. Its body
 is untouched; the amendment aligns the instance to the doctrine.
+
+**Post-ratification step for Human-only contributorship:** once Accepted,
+`perspectives/README.md`'s Index table is migrated — its Author column stops
+naming models; each existing entry's model name moves to a Notes/Tools
+annotation, and the human who sponsored or submitted that perspective becomes
+the Author of record.

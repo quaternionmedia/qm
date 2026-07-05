@@ -125,3 +125,16 @@ maintainer.
 
 → Routed to the **style guide**. Taste encoded as constitutional law degrades
 both.
+
+## P10 — Credit tracks accountability, not output
+
+Authorship and contributor credit — commit trailers, perspective bylines,
+CREDITS-style recognition — are reserved for parties who can be asked why a
+change was made and reached at a real address if it breaks. Tools that shape
+or produce output — keyboards, calculators, tractors, language models alike —
+are instruments a human directs, not parties who can answer for the result.
+That a tool did most of the visible work is not the test; whether the named
+party can answer for it is.
+
+→ Org record: **Human-only contributorship**, with the commit-trailer check
+and the perspectives-index migration as teeth.
