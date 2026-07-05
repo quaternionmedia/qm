@@ -1,0 +1,9 @@
+// SEED FILE: copy verbatim to the forking project's own repo root as
+// .vscode/extensions.json (see README.md's "Forking a new project", step 5).
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "GitHub.copilot",
+    "GitHub.copilot-chat"
+  ]
+}

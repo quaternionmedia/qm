@@ -138,3 +138,16 @@ party can answer for it is.
 
 → Org record: **Human-only contributorship**, with the commit-trailer check
 and the perspectives-index migration as teeth.
+
+## P11 — Governance finds the reader, not the reverse
+
+A constitution nobody encounters doesn't bind — it just exists. Every QM repo
+puts its governance in the paths a reader is already going to walk: the file
+an editor opens automatically, the file a coding agent reads before its first
+action — the same file for a new hire and for a fresh model instance with no
+briefing. Discovery is engineered once, at the tooling layer, not re-explained
+by a human every session.
+
+→ Org record: **IDE-integrated governance discovery**, with the
+AGENTS.md-and-pointers convention and the checked-in VS Code workspace
+config as teeth.

@@ -12,6 +12,9 @@ qm/
 ├── README.md            ← this file: namespaces, precedence, fork procedure
 ├── PRINCIPLES.md        ← the charter: interpretation the records are cut from
 ├── TEMPLATE.md          ← record template for THIS corpus (QM-XXXX)
+├── AGENTS.md            ← governance discovery for any coding agent; CLAUDE.md and
+│                           .github/copilot-instructions.md are one-line pointers to it
+├── .vscode/             ← checked-in settings.json + extensions.json (this record's teeth)
 ├── records/             ← org records (philosophies); DRAFT-* until ratified
 ├── registers/           ← org-level live registers (carried patches, …)
 ├── handbook/            ← business policy routed out of ADR form
@@ -19,7 +22,9 @@ qm/
 ├── math/                ← experiments workspace: demonstrations against open questions named in perspectives
 └── project-seed/        ← the forkable template a new project's own branch copies verbatim
     ├── adr/              ← README + TEMPLATE, copied onto that project's own project/<name> branch as adr/
-    └── ci/                ← adr-lint.yml, copied into the project's own .github/workflows/
+    ├── ci/                ← adr-lint.yml, copied into the project's own .github/workflows/
+    └── ide/               ← AGENTS.md, CLAUDE.md, copilot-instructions.md, vscode-settings.json,
+                              vscode-extensions.json — copied into the project's own root, .vscode/, .github/
 ```
 
 Each adopting project's own `adr/` directory — its decision records, as
@@ -74,17 +79,30 @@ for a non-server runtime.
    (SBOM-per-image, or a dependency-manifest-plus-allowlist per package
    ecosystem; see that record's Enforcement clause); a project without both
    is not instantiated, it is improvised.
-5. **Seed the first project records** on that branch as numberless drafts
+5. **Wire IDE-integrated governance discovery:** copy `project-seed/ide/`
+   verbatim — `AGENTS.md` and `CLAUDE.md` to the project root,
+   `copilot-instructions.md` to `.github/copilot-instructions.md`,
+   `vscode-settings.json` to `.vscode/settings.json`, and
+   `vscode-extensions.json` to `.vscode/extensions.json`. Fill in
+   project-specific setup/test commands below `AGENTS.md`'s marked line; the
+   governance section above it stays verbatim. Check the new project's own
+   `.gitignore` for a blanket `.vscode/` rule first — this corpus's own
+   started with one, which silently kept these two files from ever being
+   committed; the fix is `.vscode/*` plus `!.vscode/settings.json` and
+   `!.vscode/extensions.json`, not deleting the ignore rule outright. A
+   project without this step is not instantiated, it is improvised — the
+   same standard `adr/` and `ci/` are already held to.
+6. **Seed the first project records** on that branch as numberless drafts
    by title; ratify per process. Project ADR-0001 is conventionally the
    project's adoption + scope record, but nothing enforces a particular
    first decision.
-6. **Register** any carried patches in `registers/carried-patches.md` here —
+7. **Register** any carried patches in `registers/carried-patches.md` here —
    the register is org-level by design: a patch carried by one project is a
    commitment made by the org.
 
 A fork onto a materially different project shape than the reference
 instance — non-server, non-container, a different language ecosystem —
-should expect step 5 to cost real translation effort, not just decision
+should expect step 6 to cost real translation effort, not just decision
 effort: naming what a "deployment," an "image," or a "control plane" even
 means for that shape, before a first record can be written. That cost is
 expected overhead, not a signal of poor fit. The org corpus's own origin is
@@ -111,6 +129,7 @@ record in the commit message. Assistants draft; humans ratify.
 | — | House stack | Proposed | 2026-06-09 |
 | — | Contribution and sponsorship policy | Proposed | 2026-06-09 |
 | — | Human-only contributorship | Proposed | 2026-07-05 |
+| — | IDE-integrated governance discovery | Proposed | 2026-07-05 |
 
 Handbook (policy, not records): public-by-default (with a defined promotion
 path to record form), style guide (minimal, legible deliverables).
@@ -128,3 +147,14 @@ signatures, no longer name models as Author; each names the human who
 sponsored or submitted the perspective, with the model moved to a Tools
 annotation. Ratifying Human-only contributorship itself (Status → Accepted,
 QM number assigned) remains a separate, pending human action.
+
+**IDE-integrated governance discovery is already live on this repo:** this
+corpus's own root carries `AGENTS.md`, `CLAUDE.md`,
+`.github/copilot-instructions.md`, `.vscode/settings.json`, and
+`.vscode/extensions.json` as of 2026-07-05, and `project-seed/ide/` carries
+the versions a fork copies into a new project (step 5 of "Forking a new
+project"). Wiring it here ahead of ratification is the same non-ratification-
+gated pattern as the perspectives migration above — this repo is itself a
+place a low-context agent can be dropped into, and was, before this record
+existed. Ratifying the record (Status, QM number) remains separate and
+pending.
