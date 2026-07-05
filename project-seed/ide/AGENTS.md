@@ -1,7 +1,12 @@
-<!-- SEED FILE: copy verbatim to the forking project's own repo root as
-     AGENTS.md (see README.md's "Forking a new project", step 5). Fill in
-     project-specific setup/test commands below the marked line; leave the
-     governance section above it untouched. -->
+<!-- SEED FILE: this whole project-seed/ide/ directory mirrors the target
+     project's own root layout 1:1 -- copy it recursively onto the project
+     root (see README.md's "Forking a new project", step 5) rather than
+     copying files one at a time. CLAUDE.md and .github/copilot-
+     instructions.md are real symlinks to this file in the seed; a
+     symlink-preserving copy (git checkout, `cp -a`/`cp -P`, `rsync -a`)
+     carries that forward so an edit to this file alone keeps both current.
+     Fill in project-specific setup/test commands below the marked line;
+     leave the governance section above it untouched. -->
 # AGENTS.md
 
 This project is governed by the Quaternion Media constitution, vendored at

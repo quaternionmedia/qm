@@ -80,18 +80,30 @@ for a non-server runtime.
    ecosystem; see that record's Enforcement clause); a project without both
    is not instantiated, it is improvised.
 5. **Wire IDE-integrated governance discovery:** copy `project-seed/ide/`
-   verbatim — `AGENTS.md` and `CLAUDE.md` to the project root,
-   `copilot-instructions.md` to `.github/copilot-instructions.md`,
-   `vscode-settings.json` to `.vscode/settings.json`, and
-   `vscode-extensions.json` to `.vscode/extensions.json`. Fill in
-   project-specific setup/test commands below `AGENTS.md`'s marked line; the
-   governance section above it stays verbatim. Check the new project's own
-   `.gitignore` for a blanket `.vscode/` rule first — this corpus's own
-   started with one, which silently kept these two files from ever being
-   committed; the fix is `.vscode/*` plus `!.vscode/settings.json` and
-   `!.vscode/extensions.json`, not deleting the ignore rule outright. A
-   project without this step is not instantiated, it is improvised — the
-   same standard `adr/` and `ci/` are already held to.
+   recursively onto the project root — it already mirrors the target layout
+   (`AGENTS.md` and `CLAUDE.md` at its own root, `.github/`, `.vscode/`), so
+   a symlink-preserving recursive copy (`git checkout`, `cp -a`/`cp -P`,
+   `rsync -a`) lands every file at its right final path in one step, no
+   per-file renaming. `CLAUDE.md` and `.github/copilot-instructions.md` are
+   real symlinks to `AGENTS.md` in the seed, not independent copies of its
+   content — a copy method that preserves symlinks carries that forward, so
+   editing the project's `AGENTS.md` later keeps both current for free. Fill
+   in project-specific setup/test commands below `AGENTS.md`'s marked line;
+   the governance section above it stays verbatim. Check the new project's
+   own `.gitignore` for a blanket `.vscode/` rule first — this corpus's own
+   started with one, which silently kept its checked-in `.vscode/` files
+   from ever being committed; the fix is `.vscode/*` plus
+   `!.vscode/settings.json` and `!.vscode/extensions.json`, not deleting the
+   ignore rule outright. If the copy method or checkout doesn't preserve
+   symlinks (common on Windows without Developer Mode and `git config
+   core.symlinks true` — see the IDE-integrated governance discovery
+   record's Consequences), `CLAUDE.md` and `copilot-instructions.md`
+   materialize as one-line files containing just the relative path to
+   `AGENTS.md` rather than resolving to it; that degraded form is still a
+   legible pointer, not a silent break, but replacing it with a real symlink
+   once symlink support is available is worth doing. A project without this
+   step is not instantiated, it is improvised — the same standard `adr/` and
+   `ci/` are already held to.
 6. **Seed the first project records** on that branch as numberless drafts
    by title; ratify per process. Project ADR-0001 is conventionally the
    project's adoption + scope record, but nothing enforces a particular
@@ -153,8 +165,12 @@ corpus's own root carries `AGENTS.md`, `CLAUDE.md`,
 `.github/copilot-instructions.md`, `.vscode/settings.json`, and
 `.vscode/extensions.json` as of 2026-07-05, and `project-seed/ide/` carries
 the versions a fork copies into a new project (step 5 of "Forking a new
-project"). Wiring it here ahead of ratification is the same non-ratification-
-gated pattern as the perspectives migration above — this repo is itself a
-place a low-context agent can be dropped into, and was, before this record
-existed. Ratifying the record (Status, QM number) remains separate and
-pending.
+project"). `CLAUDE.md`, `.github/copilot-instructions.md`, and this repo's
+own `.vscode/settings.json` and `.vscode/extensions.json` are real git
+symlinks (mode `120000`) to their canonical file, not independent copies —
+see the record's Consequences for how those were created and what happens
+on a checkout that can't materialize them as real symlinks. Wiring all of
+this here ahead of ratification is the same non-ratification-gated pattern
+as the perspectives migration above — this repo is itself a place a
+low-context agent can be dropped into, and was, before this record existed.
+Ratifying the record (Status, QM number) remains separate and pending.

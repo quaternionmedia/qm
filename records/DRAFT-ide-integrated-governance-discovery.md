@@ -52,19 +52,31 @@ already exists.
    and a pointer to `PRINCIPLES.md`, `README.md`'s ratification/precedence
    rules, and the drafting-session handoff contract for anything past a
    first commit.
-2. **Tool-specific files are thin pointers to `AGENTS.md`, never a second
-   copy of its content.** `CLAUDE.md` and `.github/copilot-instructions.md`
-   at minimum, each one line: "See AGENTS.md — this file exists only so
-   tooling that doesn't yet read AGENTS.md automatically still finds the
-   same instructions." A new tool convention gets the same one-line
-   treatment when it appears; the canonical file never gets rewritten to
-   match a second format.
-3. **`project-seed/` gains an `ide/` directory** — the `AGENTS.md` template,
-   the pointer files, `.vscode/settings.json`, `.vscode/extensions.json` —
-   copied verbatim into a forking project's root and `.vscode/` at step 1 of
-   "Forking a new project," the same discipline `adr/` and `ci/` already get.
-   A project missing it is improvised, not instantiated — the standard
-   `README.md` already holds those two to.
+2. **Tool-specific files are pointers to `AGENTS.md`, never a second copy of
+   its content — implemented as real symlinks wherever the repo's checkout
+   can materialize them, a one-line text pointer otherwise.** `CLAUDE.md`
+   and `.github/copilot-instructions.md` at minimum are git symlink objects
+   (mode `120000`) targeting `AGENTS.md`; on a checkout that can materialize
+   real symlinks (the POSIX default, and any Windows checkout with
+   Developer Mode plus `git config core.symlinks true`), the OS resolves
+   them transparently, so a tool reading `CLAUDE.md` gets `AGENTS.md`'s
+   exact current bytes with no second file to keep in sync and no reliance
+   on the reading tool following a textual pointer. Where symlinks can't be
+   materialized, the file degrades to a one-line file containing just the
+   relative path (e.g. `AGENTS.md`) — legible to a human as a pointer, not
+   silently broken, but not self-explanatory either (see Consequences). A
+   new tool convention gets the same symlink treatment when it appears; the
+   canonical file never gets rewritten to match a second format.
+3. **`project-seed/` gains an `ide/` directory that mirrors the target
+   project's own root layout exactly** — `AGENTS.md` and `CLAUDE.md` at its
+   own root, `.github/copilot-instructions.md`, `.vscode/settings.json`,
+   `.vscode/extensions.json` — so a single symlink-preserving recursive copy
+   lands every file at its correct final path, the pointer files' relative
+   symlink targets resolving correctly both inside the seed and after the
+   copy. Copied onto a forking project's root at step 1 of "Forking a new
+   project," the same discipline `adr/` and `ci/` already get. A project
+   missing it is improvised, not instantiated — the standard `README.md`
+   already holds those two to.
 4. **VS Code is the org's blessed default editor for this discovery
    mechanism specifically** — not a re-litigation of house-stack's
    language/framework choices, a decision about the delivery layer alone.
@@ -76,7 +88,11 @@ already exists.
    `GitHub.copilot`, and `GitHub.copilot-chat`. Opening the repo in VS Code
    for the first time — accepting the workspace-trust and
    recommended-extensions prompts, both one-time, per human, per machine —
-   is the entire setup.
+   is the entire setup. This corpus's own root `.vscode/settings.json` and
+   `.vscode/extensions.json` are themselves symlinks to their canonical copy
+   in `project-seed/ide/.vscode/` — this repo dogfoods the seed rather than
+   keeping an independent copy, so improving the seed improves this repo's
+   own live config for free.
 5. **Carve-out:** a client- or platform-mandated editor (house-stack's
    existing carve-out logic, extended to the IDE layer) means that project's
    `.vscode/` config is supplementary, not the only path. `AGENTS.md` has to
@@ -110,6 +126,27 @@ already exists.
   `!.vscode/settings.json` and `!.vscode/extensions.json`, not deleting the
   ignore rule outright; `README.md`'s fork-procedure step for this record
   names the same fix.
+- Real symlinks require OS and git support this corpus cannot assume, and
+  the assistant session that drafted this record hit that limit directly,
+  not hypothetically: this authoring environment's `git config
+  core.symlinks` was `false`, and creating an OS-level symlink failed
+  outright ("Administrator privilege required") even though the machine's
+  Developer Mode registry key was already set — Developer Mode alone did
+  not grant the needed privilege in that process. The symlinks in this
+  commit were created by staging a `120000`-mode blob directly via `git
+  hash-object` and `git update-index --cacheinfo`, which needs no OS symlink
+  privilege at all; only *checking them out as real symlinks later* does.
+  Two consequences follow: first, a checkout without symlink support
+  degrades to a one-line file containing the bare relative path (e.g.
+  `AGENTS.md`) with none of the explanatory prose a hand-written pointer
+  sentence would carry — legible to a human who thinks to open that path,
+  not self-explanatory, and a real (if small) loss of clarity for exactly
+  that checkout compared to a plain-text pointer. Second, this is not a rare
+  edge case: it reproduced on the first Windows machine this record was
+  drafted on. Accepted anyway, because the failure mode is a visible,
+  inert one-line file, not silently missing or wrong content, and because
+  the majority of this org's CI runners and non-Windows dev machines get
+  working symlinks with zero configuration.
 
 ## Alternatives considered
 
@@ -138,6 +175,11 @@ already exists.
 - `AGENTS.md` content grows past what a low-context agent will read in
   full before acting — restructure or trim; the format's own convention is
   to stay short.
+- The degraded (non-symlink) one-line pointer form is observed confusing a
+  reader or agent in practice — reconsider whether the pointer files need a
+  short explanatory comment alongside the path, accepting the small
+  duplication cost that would reintroduce, rather than staying pure symlink
+  or bare-path text.
 
 ## Amendments
 
