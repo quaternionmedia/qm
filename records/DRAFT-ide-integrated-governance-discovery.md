@@ -53,20 +53,28 @@ already exists.
    rules, and the drafting-session handoff contract for anything past a
    first commit.
 2. **Tool-specific files are pointers to `AGENTS.md`, never a second copy of
-   its content — implemented as real symlinks wherever the repo's checkout
-   can materialize them, a one-line text pointer otherwise.** `CLAUDE.md`
-   and `.github/copilot-instructions.md` at minimum are git symlink objects
-   (mode `120000`) targeting `AGENTS.md`; on a checkout that can materialize
-   real symlinks (the POSIX default, and any Windows checkout with
-   Developer Mode plus `git config core.symlinks true`), the OS resolves
-   them transparently, so a tool reading `CLAUDE.md` gets `AGENTS.md`'s
-   exact current bytes with no second file to keep in sync and no reliance
-   on the reading tool following a textual pointer. Where symlinks can't be
-   materialized, the file degrades to a one-line file containing just the
-   relative path (e.g. `AGENTS.md`) — legible to a human as a pointer, not
-   silently broken, but not self-explanatory either (see Consequences). A
-   new tool convention gets the same symlink treatment when it appears; the
-   canonical file never gets rewritten to match a second format.
+   its content — implemented as real symlinks, treating every OS as capable
+   of the same result rather than accepting a lesser Windows experience by
+   default.** `CLAUDE.md` and `.github/copilot-instructions.md` at minimum
+   are git symlink objects (mode `120000`) targeting `AGENTS.md`. POSIX
+   checkouts resolve them with no setup, since git auto-detects symlink
+   support at clone time there. Windows checkouts resolve them exactly the
+   same way given one one-time, per-clone step — Developer Mode enabled
+   (Settings → For developers) and `git config core.symlinks true` — which
+   this record's own Consequences confirms actually works, tested on a real
+   Windows checkout, not assumed. That one-time step is named directly in
+   `README.md`'s fork procedure and in `AGENTS.md` itself, not buried in a
+   footnote, because a setup step nobody is told about is indistinguishable
+   from a platform that doesn't work. A tool reading `CLAUDE.md` on a
+   correctly configured checkout gets `AGENTS.md`'s exact current bytes with
+   no second file to keep in sync and no reliance on the reading tool
+   following a textual pointer. Only a checkout that skips that one-time
+   step, or an environment that blocks Developer Mode outright, falls back to
+   a one-line file containing just the relative path — legible to a human
+   as a pointer, not silently broken, but not self-explanatory either (see
+   Consequences). A new tool convention gets the same symlink treatment when
+   it appears; the canonical file never gets rewritten to match a second
+   format.
 3. **`project-seed/` gains an `ide/` directory that mirrors the target
    project's own root layout exactly** — `AGENTS.md` and `CLAUDE.md` at its
    own root, `.github/copilot-instructions.md`, `.vscode/settings.json`,
@@ -126,27 +134,34 @@ already exists.
   `!.vscode/settings.json` and `!.vscode/extensions.json`, not deleting the
   ignore rule outright; `README.md`'s fork-procedure step for this record
   names the same fix.
-- Real symlinks require OS and git support this corpus cannot assume, and
-  the assistant session that drafted this record hit that limit directly,
-  not hypothetically: this authoring environment's `git config
-  core.symlinks` was `false`, and creating an OS-level symlink failed
-  outright ("Administrator privilege required") even though the machine's
-  Developer Mode registry key was already set — Developer Mode alone did
-  not grant the needed privilege in that process. The symlinks in this
-  commit were created by staging a `120000`-mode blob directly via `git
-  hash-object` and `git update-index --cacheinfo`, which needs no OS symlink
-  privilege at all; only *checking them out as real symlinks later* does.
-  Two consequences follow: first, a checkout without symlink support
-  degrades to a one-line file containing the bare relative path (e.g.
-  `AGENTS.md`) with none of the explanatory prose a hand-written pointer
-  sentence would carry — legible to a human who thinks to open that path,
-  not self-explanatory, and a real (if small) loss of clarity for exactly
-  that checkout compared to a plain-text pointer. Second, this is not a rare
-  edge case: it reproduced on the first Windows machine this record was
-  drafted on. Accepted anyway, because the failure mode is a visible,
-  inert one-line file, not silently missing or wrong content, and because
-  the majority of this org's CI runners and non-Windows dev machines get
-  working symlinks with zero configuration.
+- **Real symlinks work identically on Windows and POSIX, given one
+  documented one-time step per clone: `git config core.symlinks true`, plus
+  Windows Developer Mode enabled** (Settings → For developers). POSIX
+  checkouts get this for free because git auto-detects symlink support at
+  clone time there; Windows needs the explicit config because `core.symlinks`
+  is not itself something a repository can ship — it lives in the untracked
+  `.git/config`, generated fresh on every clone, so no committed file can
+  set it for a future clone. This is the one piece of the discovery
+  mechanism that is not "clone and open" alone; `README.md`'s fork-procedure
+  step for this record and this corpus's own root `AGENTS.md` both name the
+  single command.
+- The symlink objects themselves were created via `git hash-object` plus
+  `git update-index --cacheinfo 120000,<sha>,<path>` rather than a
+  filesystem `ln -s`, so that creating the *committed object* never depends
+  on the authoring machine's own `core.symlinks` setting or OS privilege —
+  only *checking one out as a live symlink* does, per the bullet above.
+  Verified on a Windows machine with Developer Mode on and
+  `core.symlinks true` set: `git checkout` materializes real, resolving
+  symlinks (`lrwxrwxrwx`), not a text placeholder.
+- Without that one-time config (an unconfigured clone, or a CI runner or
+  corporate policy that blocks Developer Mode outright), the pointer files
+  degrade to a one-line file containing just the relative target path (e.g.
+  `AGENTS.md`) rather than resolving to it — legible to a human who thinks
+  to open that path, not self-explanatory, and missing the sentence a
+  hand-written pointer would have carried. Accepted as a fallback for that
+  narrower case, because the failure mode is a visible, inert file, not
+  silently missing or wrong content — not accepted as the expected Windows
+  experience, since the one-time config closes the gap entirely.
 
 ## Alternatives considered
 

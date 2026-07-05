@@ -32,3 +32,15 @@ commit or edit — it is short on purpose.
 See `README.md`'s "Forking a new project" — do not improvise a lighter
 version of `adr/`, `ci/`, or this file's own seed copy in
 `project-seed/ide/`.
+
+## One-time setup on a fresh clone (Windows)
+
+`CLAUDE.md`, `.github/copilot-instructions.md`, and this repo's own
+`.vscode/settings.json`/`extensions.json` are real symlinks, not copies —
+POSIX checkouts resolve them with no setup. On Windows, enable Developer
+Mode (Settings → For developers) and run `git config core.symlinks true`
+once per clone, then `git checkout -- .` if the files were already checked
+out before that. Skipping this doesn't break anything — the files degrade
+to one-line pointers containing just the target path — but it isn't the
+intended, tested experience; see the IDE-integrated governance discovery
+record in `records/` for what was actually verified.

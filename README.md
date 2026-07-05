@@ -94,16 +94,18 @@ for a non-server runtime.
    started with one, which silently kept its checked-in `.vscode/` files
    from ever being committed; the fix is `.vscode/*` plus
    `!.vscode/settings.json` and `!.vscode/extensions.json`, not deleting the
-   ignore rule outright. If the copy method or checkout doesn't preserve
-   symlinks (common on Windows without Developer Mode and `git config
-   core.symlinks true` — see the IDE-integrated governance discovery
-   record's Consequences), `CLAUDE.md` and `copilot-instructions.md`
-   materialize as one-line files containing just the relative path to
-   `AGENTS.md` rather than resolving to it; that degraded form is still a
-   legible pointer, not a silent break, but replacing it with a real symlink
-   once symlink support is available is worth doing. A project without this
-   step is not instantiated, it is improvised — the same standard `adr/` and
-   `ci/` are already held to.
+   ignore rule outright. **On Windows, one more one-time step gives the
+   identical result POSIX gets for free:** enable Developer Mode (Settings →
+   For developers) and run `git config core.symlinks true` once per clone,
+   then `git checkout -- .` if the files were already checked out before
+   that — verified on a real Windows checkout, not assumed; see the
+   IDE-integrated governance discovery record's Consequences. Skipping it
+   doesn't break anything (`CLAUDE.md` and `copilot-instructions.md`
+   materialize as one-line files containing just the relative path rather
+   than resolving to it — legible, not silent breakage), but it isn't equal
+   treatment, so name the step rather than quietly accept the lesser
+   version. A project without this step is not instantiated, it is
+   improvised — the same standard `adr/` and `ci/` are already held to.
 6. **Seed the first project records** on that branch as numberless drafts
    by title; ratify per process. Project ADR-0001 is conventionally the
    project's adoption + scope record, but nothing enforces a particular
@@ -168,9 +170,13 @@ the versions a fork copies into a new project (step 5 of "Forking a new
 project"). `CLAUDE.md`, `.github/copilot-instructions.md`, and this repo's
 own `.vscode/settings.json` and `.vscode/extensions.json` are real git
 symlinks (mode `120000`) to their canonical file, not independent copies —
-see the record's Consequences for how those were created and what happens
-on a checkout that can't materialize them as real symlinks. Wiring all of
-this here ahead of ratification is the same non-ratification-gated pattern
-as the perspectives migration above — this repo is itself a place a
-low-context agent can be dropped into, and was, before this record existed.
-Ratifying the record (Status, QM number) remains separate and pending.
+see the record's Consequences for how those were created, and `AGENTS.md`'s
+own "One-time setup on a fresh clone (Windows)" section for what a fresh
+clone needs to resolve them as real symlinks rather than one-line path
+placeholders — confirmed working on a real Windows checkout once Developer
+Mode is on and `git config core.symlinks true` is set for the clone; this
+clone already has that set. Wiring all of this here ahead of ratification
+is the same non-ratification-gated pattern as the perspectives migration
+above — this repo is itself a place a low-context agent can be dropped
+into, and was, before this record existed. Ratifying the record (Status, QM
+number) remains separate and pending.

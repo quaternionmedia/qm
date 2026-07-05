@@ -33,5 +33,17 @@ no other briefing, read this file fully before your first commit or edit.
 5. A QM record may be tightened by this project's own `adr/`, never
    relaxed — see `governance/qm/README.md`'s "Namespaces and precedence."
 
+## One-time setup on a fresh clone (Windows)
+
+`CLAUDE.md` and `.github/copilot-instructions.md` are real symlinks to this
+file, not copies — POSIX checkouts resolve them with no setup. On Windows,
+enable Developer Mode (Settings → For developers) and run `git config
+core.symlinks true` once per clone, then `git checkout -- .` if the files
+were already checked out before that. Skipping this doesn't break
+anything — the files degrade to one-line pointers containing just the
+target path — but it isn't the intended, tested experience; see the
+IDE-integrated governance discovery record in `governance/qm/records/` for
+what was actually verified.
+
 <!-- Project-specific setup commands, test commands, and conventions belong
      below this line; this seed only carries the governance-discovery part. -->
