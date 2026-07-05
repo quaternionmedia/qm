@@ -49,8 +49,8 @@ optional co-location in the other (DataFactorio → factorio-server).
    complement ("single-file HTML/JS for visualization deliverables") — note the
    README's description of the frontend as "D3.js" is aspirational/historical:
    no `d3` package appears in `package.json` or as a vendored/CDN script; the
-   force-directed graph rendering is hand-rolled JS. Corrected here so the
-   baseline audit reflects what's actually shipped, not the README's phrasing.
+   force-directed graph rendering is hand-rolled JS. The baseline audit below
+   reflects what's actually shipped, not the README's phrasing.
 4. **Seams on standard protocols — adopted, and this is where the sibling
    relationship is named.** The concrete seam is the watched-directory JSON
    contract: `datafactorio sync` imports any JSON dropped in the watch
