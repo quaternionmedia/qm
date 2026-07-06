@@ -27,11 +27,12 @@ by the device's OS rather than by a client contract.
 qmetronome is written in Kotlin against the Android SDK (Jetpack Compose,
 Android Gradle Plugin, kotlinx.coroutines), with platform/AOSP APIs preferred
 over third-party libraries wherever the platform provides the capability
-(e.g. `android.media.midi` for MIDI, `android.media.ToneGenerator` for the
-click, rather than a MIDI or audio library). The house stack governs nothing
-here, by the same logic the existing carve-out already states for client
-contracts: house preference governs what *we* build when we have the
-choice; the platform decides when we don't.
+(e.g. `android.media.midi` for MIDI, `android.media.AudioTrack` playing back
+locally-generated waveforms for the click, rather than a MIDI or audio
+library). The house stack governs nothing here, by the same logic the
+existing carve-out already states for client contracts: house preference
+governs what *we* build when we have the choice; the platform decides when
+we don't.
 
 ## Consequences
 
