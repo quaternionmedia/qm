@@ -42,9 +42,11 @@ strained literal reading.
    The *core* rule (every component in the shipped runtime path must carry an
    OSI-approved or FSF-free license; no source-available/field-of-use-restricted
    licenses; no waivers) applies directly to this project's Gradle dependency tree and
-   any vendored non-code assets (icons, fonts, sound samples - qmetronome currently
-   vendors none of the latter two; `ToneGenerator` tones are platform-generated, not
-   sampled). Explicitly **out of scope**: the record's deployment/provenance language
+   any vendored non-code assets (icons, fonts, sound samples - qmetronome's vendored
+   icons (`ui/icons/ExtraIcons.kt`) and click tones (`engine/ClickSynth`) are both
+   locally authored/generated from scratch rather than copied third-party files, so
+   neither carries an external license to track; no vendored fonts). Explicitly
+   **out of scope**: the record's deployment/provenance language
    (SBOM-*per-image*, digest-pinned base images, offline mirrors, internal CA, restore-
    verified backups) - these assume a self-hosted server runtime this app doesn't have;
    the runtime *is* the end user's device, already sandboxed and updated by the OS/app
@@ -100,9 +102,8 @@ strained literal reading.
 
   | Dependency | License | Notes |
   |---|---|---|
-  | AndroidX (appcompat, core-ktx, lifecycle-runtime-ktx, activity-compose, compose BOM + ui/ui-graphics/ui-tooling(-preview)/material3, glance-appwidget) | Apache-2.0 | Google |
-  | Material Components (`com.google.android.material:material`) | Apache-2.0 | Google |
-  | Material Icons Extended | Apache-2.0 | Google |
+  | AndroidX (core-ktx, lifecycle-runtime-ktx, activity-compose, compose BOM + ui/ui-graphics/ui-tooling(-preview)/material3, glance-appwidget) | Apache-2.0 | Google |
+  | Material Icons Core | Apache-2.0 | Google |
   | kotlinx.coroutines-android | Apache-2.0 | JetBrains |
   | JUnit 4 (test) | EPL-1.0 | OSI-approved copyleft; test-only, never ships in the app |
   | Robolectric (test) | Apache-2.0 | test-only |
