@@ -81,7 +81,7 @@ keep working, just less aggressively, if either is declined.
 - The zero-permission alternative (raise the phone's own screen-timeout, keep
   the app foregrounded) is not replaced by this feature - it remains the
   simpler option for the common case, stated first in both the Settings copy
-  and `README.md`'s "Using the Glyph Toy" section.
+  and `README.md`'s "Living on the Glyph Matrix" section.
 
 ## Alternatives considered
 
