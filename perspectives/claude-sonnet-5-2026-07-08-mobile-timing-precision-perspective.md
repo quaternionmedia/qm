@@ -135,7 +135,7 @@ to pick up:
 1. **Re-run `docs/timing-accuracy-benchmark.md`'s Benchmark 1 on real hardware** as the very next
    step after this perspective - it's written, compiles, and is blocked only on a connected device,
    which this session didn't have. Until that number exists, this whole perspective is analysis
-   without verification of its own conclusion.
+   without verification of its own conclusion. **Done, one day later - see §6.**
 2. **Track the benchmark's numbers over time, in the doc's own results table**, the same
    "measured, dated, not overwritten" discipline `publication_checklist.md` already uses for every
    prior timing fix - so a future regression is visible as a table row that got worse, not
@@ -147,7 +147,8 @@ to pick up:
 4. **If Benchmark 1's numbers show Gap B's residual gap still exceeds the ≤10ms target** in
    `docs/timing-accuracy-benchmark.md`, the only further lever is the bigger, user-visible
    "count-in" change already scoped and deliberately deferred in this round's own plan - not a new
-   mitigation layered on top of the current one.
+   mitigation layered on top of the current one. **This condition turned out true - see §6; the
+   actual next lever it points to is narrower than this proposal guessed.**
 
 ## 5. Closing honesty
 
@@ -162,3 +163,32 @@ benchmark.md` exists to close. Read this perspective as reasoning that should be
 Benchmark 1's first real result, not as a conclusion that already has been.
 
 — Claude Sonnet 5, 2026-07-08
+
+## 6. Postscript — the benchmark's first real result (2026-07-09)
+
+A device became available the day after this was written. Benchmark 1 ran on a Nothing A024
+(SDK 36). Full numbers are in `docs/timing-accuracy-benchmark.md`'s results table; the shape of
+the result matters more here than the digits:
+
+- The count-in fix is real and substantial, not just directionally correct: beat 0's error
+  *specific to the gap this round targeted* (its excess over the baseline every beat on this
+  device carries) dropped from ~128ms to ~36ms - a 72% reduction, consistent across every session
+  in both the count-in-enabled and count-in-disabled runs. §1-2's causal account held up against
+  measurement, not just against re-reading the code.
+- It does **not** reach the ≤10ms target §1's own companion doc sets. §3's proposal 4 anticipated
+  this exact outcome and pointed at "the bigger, user-visible count-in change" as the only further
+  lever - that guess was too broad. The actual, narrower cause: the count-in currently schedules
+  beat 0's audio *once*, at the start of the pause, while every steady-state beat gets *repeatedly*
+  refined by the existing lookahead loop right up until its own deadline. The fix this points to is
+  smaller than "a bigger count-in" - it's "let the existing beat 0 pause use the same
+  repeated-refinement mechanism steady-state beats already get," not a new mechanism.
+- One thing neither this document nor the benchmark's own design anticipated: steady-state beats
+  carry a consistent ~47ms `|error|` in this benchmark's own measurement, not just beat 0. That's
+  almost certainly `StreamingClickEngine`'s real buffer-ahead depth on this device showing up in
+  the measurement itself (this benchmark reads target-vs-actual-mixed-frame, not true acoustic
+  latency), not a second bug - but it's a reminder that a benchmark's first real run teaches you
+  things about your own measurement, not only about the system it's measuring. §5's point stands
+  undiminished by having a number now: the number itself needed a second look before its shape was
+  trustworthy, which is exactly what measurement is for and confident analysis alone cannot supply.
+
+— Claude Sonnet 5, 2026-07-09
