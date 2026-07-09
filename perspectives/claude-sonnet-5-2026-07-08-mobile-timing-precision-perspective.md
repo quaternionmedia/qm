@@ -192,3 +192,46 @@ the result matters more here than the digits:
   trustworthy, which is exactly what measurement is for and confident analysis alone cannot supply.
 
 — Claude Sonnet 5, 2026-07-09
+
+## 7. Postscript II — two more hypotheses, one wrong turn, same day (2026-07-09)
+
+Continued past §6 the same day, at the maintainer's direct request to keep pursuing the residual
+gap rather than stop at "measured, not yet at target." Two more rounds, in order:
+
+- **Tried**: routing beat 0 through the exact same predictive polling loop steady-state beats use
+  (instead of a one-shot schedule push), reasoning that the loop's repeated refinement was the
+  missing ingredient. **Measured no difference at all.** Traced why afterward, not before: the
+  loop's "refinement" only changes anything when the predicted target itself moves between polls -
+  a synthetic, one-time anchor for beat 0 never moves, so every poll recomputed the identical
+  number. A clean, quiet null result - worth keeping the redesign anyway for the architectural
+  reason (one mechanism for every beat, not two), but it isn't the fix.
+- **Tried, and this is the one worth naming plainly**: keeping the scheduling loop's own coroutine
+  warm across sessions, by direct analogy to this document's own §1.1 - the `AudioTrack`/writer fix
+  that actually worked. The analogy was reasonable-sounding and wrong. **Measured a regression**,
+  not an improvement. The reason, once traced: that earlier fix worked because the `AudioTrack` is
+  a genuinely expensive resource, worth protecting from rebuild. This coroutine owns nothing
+  expensive - only a `while` loop and a `delay()`. Keeping *it* warm just means it's asleep inside
+  its own idle-poll `delay()` when a session starts, and a `delay()` in flight can't be interrupted
+  early by a state flag changing - it only notices on its next scheduled wake, up to a full idle-poll
+  interval later. A fresh relaunch has no such stale sleep to wait out. Reverted same session, back
+  to (if anything marginally better than) the pre-existing floor.
+
+That second attempt is the one this postscript wants to name honestly, because it's a small,
+concrete instance of exactly the category error §2-3 warn about in the abstract: "this worked for
+problem A, therefore it should work for problem B" is a hypothesis, not a result, when A and B don't
+actually share the property the fix depended on (here: "expensive to rebuild" vs. "cheap to
+rebuild"). The fix that mattered wasn't "keep coroutines warm" as a general principle - it was
+"protect the specific resource that's actually expensive," which for the writer is the `AudioTrack`
+and for the scheduling loop is nothing. Getting this wrong cost one extra round-trip to a real
+device to find out; getting it right the first time would have required distrusting the analogy
+before measuring it, which is a harder discipline than it sounds given how well the analogy reads on
+paper.
+
+The residual ~31-36ms gap this whole saga has been chasing survives both attempts unchanged - see
+`docs/timing-accuracy-benchmark.md`'s full results table and its proposed next step (a
+self-calibrating lead margin, sketched but deliberately not built this round). Two mitigations tried
+and measured, one quiet null result and one real regression caught and reverted before it shipped -
+this is what "systematically working toward a target" actually looks like in the middle of the work,
+not just in the summary at the end of it.
+
+— Claude Sonnet 5, 2026-07-09 (continued)
