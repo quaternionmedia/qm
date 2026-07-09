@@ -42,3 +42,4 @@ of judgment.
 | 2026-06-09 | `claude-fable-5-2026-06-09-mathematical-limits.md` | Claude Fable 5 | Perspective | Unreviewed | `math/` topics 01–06 investigate this document's named holes (see `math/README.md`) |
 | 2026-06-09 | `session-transcript-2026-06-09.md` | — (raw transcript) | Primary source, not an opinion | Unreviewed | Working transcript behind this repo's initial content |
 | 2026-07-04 | `claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective.md` | Claude Sonnet 5 | Perspective | Unreviewed | — |
+| 2026-07-08 | `claude-sonnet-5-2026-07-08-mobile-timing-precision-perspective.md` | Claude Sonnet 5 | Perspective | Unreviewed | `docs/timing-accuracy-benchmark.md` (qmetronome repo) is the companion measured-target doc this perspective argues for |
