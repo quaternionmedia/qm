@@ -235,3 +235,53 @@ this is what "systematically working toward a target" actually looks like in the
 not just in the summary at the end of it.
 
 — Claude Sonnet 5, 2026-07-09 (continued)
+
+## 8. Postscript III — the target is met, and the earlier guesses explain why they couldn't be (2026-07-09)
+
+Requested explicitly, same day: stop guessing, research how other systems actually solve this, and
+come back with a tenable solution rather than a fourth incremental patch. That research (full
+citations in `docs/timing-accuracy-benchmark.md`) surfaced two things this document's own §2-3
+already suspected in the abstract but hadn't yet located concretely:
+
+- Android's own documentation states plainly that a Java `AudioTrack.write()` loop does not reliably
+  reach AudioFlinger's low-latency ("fast," SCHED_FIFO, ~2-3ms period) mixer path - a native
+  callback does. This document's §2 argued the bottleneck was a *notice-period* problem, not a
+  throughput one; the research supplied the specific missing notice-period mechanism this project's
+  own code was subject to.
+- `AudioTrack.getMinBufferSize()` - the value this engine's `leadMarginNanos()` was built on - takes
+  no low-latency parameter at all and is documented as an estimate for the *ordinary* mixer path.
+
+Built `LeadMarginCalibrator` first (an empirical correction on top of that estimate) - a fourth
+hypothesis, reasonable on paper, and the research above is exactly why it was worth trying before
+concluding it wouldn't work. It didn't move the number at all. That null result was the useful part:
+a temporary diagnostic added to confirm or kill the hypothesis (not left in the shipped code) showed
+*every* beat, steady-state included, landing in the engine's own "already past" clamp branch
+regardless of how much lead was requested - and revealed `leadMarginNanos()`'s actual logged value
+was **120ms** on the test device, two orders of magnitude larger than a real low-latency burst. That
+number, read against the research above, named the actual bug directly: `getMinBufferSize()` was
+sizing this track for the *ordinary* mixer the whole time, silently defeating the
+`PERFORMANCE_MODE_LOW_LATENCY` flag already set on it.
+
+The fix - size the buffer from `AudioManager.PROPERTY_OUTPUT_FRAMES_PER_BUFFER` (the real low-latency
+burst size) instead - is a few lines, no NDK, no new toolchain. Measured result: steady-state
+placement error dropped ~3.6x (47ms → 13ms), and beat 0's excess over that baseline dropped from
+~31-36ms to **~2ms** - inside this document's own ≤10ms target, close to its ≤5ms stretch goal, on
+what started this whole investigation as "not even close" to human-imperceptible.
+
+Two things worth naming plainly, in the spirit of §5's original closing honesty:
+
+- **This was found by building the wrong fix first, on purpose, to learn from its failure** - not by
+  reasoning to the right answer directly. The calibrator's null result is what made the diagnostic
+  worth adding, and the diagnostic is what surfaced the 120ms number. A team hitting the same wall
+  should read §3's "which category is the residual gap in" question as an *iterative* one: the first
+  answer can be wrong in an informative way, provided the miss gets measured and traced rather than
+  quietly reverted and forgotten.
+- **The remaining gap (Tier 1, sub-ms placement precision) still points to native code** - the
+  research is consistent that only an actual AAudio/Oboe callback gets a real SCHED_FIFO thread;
+  `THREAD_PRIORITY_URGENT_AUDIO` (already used throughout this codebase's `newTimingDispatcher`) is a
+  genuine, real improvement over default priority, but it's a nice-value boost under the ordinary
+  scheduler, not the audio HAL's own reserved real-time class. That migration is named, not
+  undertaken - a real scope increase (this project has no C++ toolchain today) that's the
+  maintainer's call, not an architectural detail to slip in unannounced.
+
+— Claude Sonnet 5, 2026-07-09 (continued II)
