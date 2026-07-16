@@ -1,4 +1,4 @@
-# ADR-XXXX — Retroactive ring capture, first-cycle semantics
+# ADR-XXXX — Ring capture, first-cycle semantics
 
 | | |
 |---|---|
@@ -37,8 +37,8 @@ keeps all material a future compositor would need.
 ## Alternatives considered
 
 1. **Record-forward on trigger** (start the camera when told) — rejected:
-   loses the start of every retroactively detected take, and couples capture
-   correctness to detection latency.
+   loses the start of every take whose detection lags the moment itself, and
+   couples capture correctness to detection latency.
 2. **Multi-cycle stitch or picture-in-picture compositing of overdub
    passes** — deferred: real design space, real cost, and it changes the
    aesthetic contract; nothing in the ring architecture forecloses it.

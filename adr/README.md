@@ -117,5 +117,5 @@ copyleft exception — FFmpeg/x264 — and why it's accepted).
 | | | | |
 
 Drafts in flight (numberless, by title): Constitution adoption scope · LDP/1
-is the sole driver boundary · Retroactive ring capture, first-cycle
-semantics · Dependency disposition.
+is the sole driver boundary · Ring capture, first-cycle semantics ·
+Dependency disposition.

@@ -36,7 +36,7 @@ snapshot (`records/DRAFT-decision-record-discipline.md`,
    Draft→Proposed→Accepted lifecycle, and its squash-before-ratification /
    append-only-after-ratification rule are how this ADR and its three
    sibling drafts (`DRAFT-ldp1-driver-seam.md`,
-   `DRAFT-retroactive-capture-semantics.md`,
+   `DRAFT-ring-capture-semantics.md`,
    `DRAFT-dependency-disposition.md`) are written. No further action beyond
    the CI lint job (`adr/README.md`'s CI enforcement section).
 2. **Open-license exclusion — adopted, scoped to a single-host runtime.**
