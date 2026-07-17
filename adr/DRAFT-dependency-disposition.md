@@ -19,7 +19,7 @@ and the wall are the only things built here.
 | mido, python-rtmidi | MIT-class | in (1.0.0) |
 | Pydantic, FastAPI, uvicorn, Click, pytest | MIT | in (0.1.0) |
 | Rich | MIT | in (0.0.x) — CLI monitor terminal rendering (PLAN.md §3.6) |
-| FFmpeg | LGPL/GPL build | in; x264 implies the GPL build — accepted for an internal tool |
+| FFmpeg (incl. `ffplay`) | LGPL/GPL build | in; x264 implies the GPL build — accepted for an internal tool. `ffplay` is the CLI demo's playback mechanism (PLAN.md §3.7) — same bundled install, no separate disposition |
 | x264 | GPL | **default extraction encoder** |
 | VAAPI on open drivers (Mesa) | open | permitted hardware-encode path |
 | **NVENC / proprietary encode SDKs** | proprietary | **excluded**; any future use requires an explicit exception ADR |
