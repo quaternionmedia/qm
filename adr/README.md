@@ -162,5 +162,7 @@ Kotlin platform stack *(pends: platform-mandated-stack carve-out, analogous
 to the existing client-mandated one)*; MIDI clock as an open-standard seam;
 home screen widget via Jetpack Glance, scoped to glanceable state; persistent
 playback via a foreground service; per-beat-type MIDI action routing
-*(extends the MIDI clock seam decision to Note/CC messages)*; enforced upper
-time bound on all automated test runs.
+*(extends the MIDI clock seam decision to Note/CC messages)*; per-beat and
+per-phrase MIDI action overrides, and manual triggering *(extends per-beat-
+type MIDI action routing to a specific beat/phrase, plus a manual-fire
+mechanism)*; enforced upper time bound on all automated test runs.
