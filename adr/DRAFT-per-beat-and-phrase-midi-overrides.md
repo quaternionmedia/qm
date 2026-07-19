@@ -64,7 +64,7 @@ authored data, not playback state, and a UI restricted to "the active bar" would
   the second control in the app carrying that pattern, not the first - worth remembering before
   adding a third gesture to either.
 - `ui/HelpScreen.kt`'s MIDI category needed restructuring to demo all five MIDI-adjacent topics
-  live (it previously only demoed two) - a direct consequence of §1-§4 existing, not a separate
+  live instead of just two - a direct consequence of §1-§4 existing, not a separate
   decision; see that file's own kdoc.
 - `docs/usb-midi-test-plan.md` needs its own real-hardware verification pass for override/phrase-
   action/trigger delivery (§7.1/7.2/7.3), not yet run as of this ADR's filing - the same
