@@ -31,7 +31,12 @@ registered in `position_service.py` as `'compound_layout'`):
 2. **Pass 2** — files orbit their parent directory at
    `max(1.8, sqrt(n_files) * 0.9) + max_child_sym_r` units, where
    `max_child_sym_r` is the largest symbol-orbit radius among the dir's
-   files.
+   files. `external_module` stub nodes (unresolved imports — one per
+   top-level package, connected only by `depends_on` edges, never
+   `contains`; see `_add_python_dependency_edges`) never have a directory
+   parent by design, so they get their own peripheral ring just outside
+   every real directory's own outer edge, rather than sharing the
+   near-origin fallback ring built for genuine orphans.
 3. **Pass 3** — symbols orbit their parent file at
    `max(0.45, sqrt(n_syms) * 0.28)` units, placed in a source-line-ordered
    arc (earliest line at 12 o'clock, clockwise) so the arc reads as a
@@ -102,7 +107,22 @@ ring.
   extension-bearing file label; adding the dedicated stem-to-file-id
   index as a third tier resolves all of them, confirmed at 0 of 3,194
   along with 0 of 35,424 sub-symbols on a large real Python codebase
-  (site-packages/networkx) and 0 of this project's own ~5,800.
+  (site-packages/networkx) and 0 of this project's own ~5,800. A second,
+  independent real Python codebase (github.com/pallets/flask, fetched
+  through the app's own GitHub path with content force-fetched past its
+  normal size-tier gate) confirms the same: 0 of 1,988 symbols and 0 of
+  4,624 sub-symbols unresolved.
+- Not every depth-1 orphan is a parsing gap: `external_module` nodes are
+  intentionally parentless (they represent an import target outside the
+  parsed repo, not a directory member), and their count scales with how
+  many distinct top-level packages the repo imports — 67 for Flask alone.
+  Before this pass they shared the same small, near-origin ring used for
+  genuine orphans, sized only for that ring's own count with no regard
+  for how large the real directory cluster already was; on Flask the
+  ring (radius ~3.7) landed inside the directory cluster (directories up
+  to ~233 from origin), overlapping real content. Giving them a
+  dedicated ring anchored to the outside of the real cluster fixes this
+  without touching the genuine-orphan fallback path at all.
 
 ## Alternatives considered
 
