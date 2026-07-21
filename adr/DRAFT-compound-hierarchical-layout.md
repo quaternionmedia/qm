@@ -38,7 +38,11 @@ registered in `position_service.py` as `'compound_layout'`):
    minimap of the file.
 4. **Pass 4** — sub-symbols orbit their nearest depth-2 symbol ancestor at
    `max(0.22, sqrt(n_subsyms) * 0.14)` units, with the same source-order
-   arc convention.
+   arc convention. A sub-symbol with no depth-2 ancestor at all — a bare
+   module-level statement, e.g. a top-level call or constant with no
+   enclosing function/class — instead orbits its file directly, at the
+   same radius formula pushed just outside the file's real symbol-orbit
+   ring so the two rings don't collide.
 
 Parent detection prefers `kind='contains'` edges — the unified schema's
 edge-kind field, set by `make_edge()` on every containment edge the
@@ -65,6 +69,12 @@ ring.
   stays structurally tied to the backend's own parent structure; only
   orphan nodes with no matching edge fall back to nearest-neighbor,
   mirroring the backend's own fallback-ring behavior.
+- Parent detection is only as good as the `contains` edges a given
+  language parser actually emits — a parser that produces a duplicate,
+  disconnected depth-1 node for a file (rather than attaching that file's
+  top-level symbols to the one depth-1 node the directory walker already
+  created and connected) defeats every pass downstream of it for that
+  file's entire contents, not just the file itself.
 
 ## Alternatives considered
 
