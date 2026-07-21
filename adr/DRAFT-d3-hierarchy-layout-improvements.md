@@ -7,8 +7,9 @@
 
 ## Context
 
-The compound hierarchical layout (dirs → files → symbols) produced a
-correct three-tier grouping but had three interaction and visual gaps:
+The compound hierarchical layout (dirs → files → symbols → sub-symbols)
+produces a correct four-tier grouping but has three interaction and
+visual gaps:
 
 1. **Drag**: directory and file nodes are visually presented as cluster
    containers (translucent bounding circles) but dragging one moved only
@@ -31,16 +32,20 @@ correct three-tier grouping but had three interaction and visual gaps:
 ## Decision
 
 **§1 — Hierarchical drag:** extend `CompoundLayoutManager` in
-`compound_layout.ts` with `computeChildrenMap(nodes)` — returns a Map
-from parent nodeId to all transitive descendant nodeIds (dir → [files +
-their symbols]; file → [its symbols]), using the same nearest-assignment
-spatial logic already in `computeGroupBounds`. Store this map in both
-`StreamingGraphRenderer._childrenMap` and `GraphRenderer._childrenMap`
-(computed when compound backgrounds are drawn). In each renderer's drag
-handler, compute the frame-by-frame delta `(dx, dy)` before updating the
-dragged node's position, then propagate the same delta to every descendant
-node's `x/y/fx/fy` and its SVG element. Redraw compound background circles
-on drag end so they follow the moved cluster.
+`compound_layout.ts` with `computeChildrenMap(nodes, edges)` — returns a
+Map from parent nodeId to all transitive descendant nodeIds (dir → [files
++ their symbols + their sub-symbols]; file → [its symbols + their
+sub-symbols]; symbol → [its sub-symbols]), resolved from the real
+`relation === "contains"` edges the backend already sends, with
+nearest-neighbor-by-position as a fallback only for orphan nodes with no
+matching edge — the same parent-chain helper `computeGroupBounds` uses.
+Store this map in both `StreamingGraphRenderer._childrenMap` and
+`GraphRenderer._childrenMap` (computed when compound backgrounds are
+drawn). In each renderer's drag handler, compute the frame-by-frame delta
+`(dx, dy)` before updating the dragged node's position, then propagate the
+same delta to every descendant node's `x/y/fx/fy` and its SVG element.
+Redraw compound background circles on drag end so they follow the moved
+cluster.
 
 **§2 — Per-depth labels:** add `showLabelsByDepth?: Partial<Record<number,
 boolean>>` to `GraphStylingOptions` (both in `state/types.ts` and
@@ -63,13 +68,13 @@ Settings tab gains 4 per-depth chip-checkboxes (Dir / File / Sym / Sub).
 
 ## Consequences
 
-- The `computeChildrenMap` spatial assignment (nearest-dir for files,
-  nearest-file for symbols) and the `computeGroupBounds` spatial assignment
-  are derived from the same logic but are separate codepaths — in both
-  TypeScript and across backend Python. Keeping them in sync is a manual
-  discipline (same issue already noted for `computeGroupBounds` and
-  `compound_layout.py`'s pass-2/pass-3 parent detection in *Compound
-  hierarchical layout*).
+- `computeChildrenMap` and `computeGroupBounds` share one
+  `_buildParentChain`/`_assignParents` helper, so they cannot assign a
+  node to a different parent from each other. Both key off the same
+  `contains` edges `compound_layout.py`'s own passes already produced, so
+  drag groups and bounding circles stay structurally tied to the
+  backend's parent structure rather than to a second, independently
+  re-derived one.
 - `showLabelsByDepth` is not persisted in the saved GL layout (it is part
   of `graphStyling` in Meiosis state, not `LayoutManager.toConfig()`).
   Saved layouts remember panel arrangement but not graph styling — this is
@@ -96,10 +101,10 @@ Settings tab gains 4 per-depth chip-checkboxes (Dir / File / Sym / Sub).
 
 ## Revision triggers
 
-- The frontend/backend spatial-assignment duplication causes a visible bug
-  (drag groups don't match bounding circles, or computeGroupBounds assigns
-  nodes to different parents than computeChildrenMap), forcing
-  deduplication.
+- A future layout emits parent relationships the `contains`-edge
+  convention can't express (e.g. a many-to-one or non-tree grouping) —
+  `_buildParentChain`'s single-parent-per-node assumption would need to
+  change.
 - Per-depth label preferences become a frequently-used feature that warrants
   persistence across sessions (add to the saved styling state).
 - The axis-stretch values produce obviously wrong layouts for a real
