@@ -55,7 +55,14 @@ literally named `contains`; reference edges like `calls`/`type_of`/
 `aliases` are deliberately excluded, since those connect symbols to each
 other rather than a parent to its child. Parent detection falls back to
 the node's `file` attribute for symbols and sub-symbols with no matching
-edge, and places true orphans on a fallback ring rather than failing.
+edge, resolved against real file nodes through three tiers: the file's
+exact label, the `file` attribute's own extension stripped and matched
+against a label-stem index, and — since not every parser's `file`
+attribute carries an extension at all (`c_parser.py` emits a bare stem via
+`Path(cursor.location.file.name).stem`, with nothing for a stem-of-stem
+strip to remove) — a dedicated stem-to-file-id index built once from every
+file node's own label. True orphans that clear none of the three land on
+a fallback ring rather than failing.
 The frontend (`compound_layout.ts`'s `CompoundLayoutManager`) resolves
 the same dir→file→symbol→sub-symbol grouping from the identical
 `contains` edges the backend already sends — nearest-neighbor-by-position
@@ -87,7 +94,15 @@ ring.
   scale against a large real C codebase (github.com/redis/redis, ~210
   files): before `field_of` was added to the recognized containment
   kinds, 100% of struct/enum fields and enum constants (3,194 of 3,194)
-  had no resolved parent.
+  had no resolved parent; with `field_of` recognized but only the
+  label-exact and stripped-stem fallback tiers in place, 4.66% (149 of
+  3,194) remained unresolved — every one a deeply nested anonymous
+  struct/union field with no containment edge at all and a bare-stem
+  `file` attribute neither of those two tiers can match against an
+  extension-bearing file label; adding the dedicated stem-to-file-id
+  index as a third tier resolves all of them, confirmed at 0 of 3,194
+  along with 0 of 35,424 sub-symbols on a large real Python codebase
+  (site-packages/networkx) and 0 of this project's own ~5,800.
 
 ## Alternatives considered
 
