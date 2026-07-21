@@ -44,11 +44,18 @@ registered in `position_service.py` as `'compound_layout'`):
    same radius formula pushed just outside the file's real symbol-orbit
    ring so the two rings don't collide.
 
-Parent detection prefers `kind='contains'` edges — the unified schema's
-edge-kind field, set by `make_edge()` on every containment edge the
-parser emits (including dir→dir edges for nested directories, consumed
-by Pass 1's weighting) — falls back to the node's `file` attribute for
-symbols, and places true orphans on a fallback ring rather than failing.
+Parent detection prefers `kind` in `{'contains', 'field_of'}` edges — the
+unified schema's edge-kind field, set by `make_edge()` on every
+containment edge the parser emits (including dir→dir edges for nested
+directories, consumed by Pass 1's weighting). `field_of` is the C
+parser's more specific kind for struct/union/enum → field/enum_constant
+membership (see `c_language_parser.py`'s `_EDGE_KIND_MAP`) — structurally
+a containment relationship for layout purposes even though it isn't
+literally named `contains`; reference edges like `calls`/`type_of`/
+`aliases` are deliberately excluded, since those connect symbols to each
+other rather than a parent to its child. Parent detection falls back to
+the node's `file` attribute for symbols and sub-symbols with no matching
+edge, and places true orphans on a fallback ring rather than failing.
 The frontend (`compound_layout.ts`'s `CompoundLayoutManager`) resolves
 the same dir→file→symbol→sub-symbol grouping from the identical
 `contains` edges the backend already sends — nearest-neighbor-by-position
@@ -69,12 +76,18 @@ ring.
   stays structurally tied to the backend's own parent structure; only
   orphan nodes with no matching edge fall back to nearest-neighbor,
   mirroring the backend's own fallback-ring behavior.
-- Parent detection is only as good as the `contains` edges a given
-  language parser actually emits — a parser that produces a duplicate,
-  disconnected depth-1 node for a file (rather than attaching that file's
-  top-level symbols to the one depth-1 node the directory walker already
-  created and connected) defeats every pass downstream of it for that
-  file's entire contents, not just the file itself.
+- Parent detection is only as good as the containment edges a given
+  language parser actually emits, under whichever kind name it uses — a
+  parser that produces a duplicate, disconnected depth-1 node for a file
+  (rather than attaching that file's top-level symbols to the one depth-1
+  node the directory walker already created and connected) defeats every
+  pass downstream of it for that file's entire contents, not just the
+  file itself; a parser that emits a real containment edge under a kind
+  name Pass 4 doesn't recognize orphans just as completely. Verified at
+  scale against a large real C codebase (github.com/redis/redis, ~210
+  files): before `field_of` was added to the recognized containment
+  kinds, 100% of struct/enum fields and enum constants (3,194 of 3,194)
+  had no resolved parent.
 
 ## Alternatives considered
 
