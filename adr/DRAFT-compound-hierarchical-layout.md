@@ -40,13 +40,15 @@ registered in `position_service.py` as `'compound_layout'`):
    `max(0.22, sqrt(n_subsyms) * 0.14)` units, with the same source-order
    arc convention.
 
-Parent detection prefers `relation='contains'` edges (including dir→dir
-edges for nested directories, consumed by Pass 1's weighting), falls back
-to the node's `file` attribute for symbols, and places true orphans on a
-fallback ring rather than failing. The frontend (`compound_layout.ts`'s
-`CompoundLayoutManager`) resolves the same dir→file→symbol→sub-symbol
-grouping from the identical `contains` edges the backend already sends —
-nearest-neighbor-by-position is used only as a fallback for orphan nodes
+Parent detection prefers `kind='contains'` edges — the unified schema's
+edge-kind field, set by `make_edge()` on every containment edge the
+parser emits (including dir→dir edges for nested directories, consumed
+by Pass 1's weighting) — falls back to the node's `file` attribute for
+symbols, and places true orphans on a fallback ring rather than failing.
+The frontend (`compound_layout.ts`'s `CompoundLayoutManager`) resolves
+the same dir→file→symbol→sub-symbol grouping from the identical
+`contains` edges the backend already sends — nearest-neighbor-by-position
+is used only as a fallback for orphan nodes
 with no matching edge, the same concept as the backend's own fallback
 ring.
 

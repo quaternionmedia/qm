@@ -36,8 +36,10 @@ visual gaps:
 Map from parent nodeId to all transitive descendant nodeIds (dir → [files
 + their symbols + their sub-symbols]; file → [its symbols + their
 sub-symbols]; symbol → [its sub-symbols]), resolved from the real
-`relation === "contains"` edges the backend already sends, with
-nearest-neighbor-by-position as a fallback only for orphan nodes with no
+`kind === "contains"` edges the backend already sends (the unified
+schema's edge-kind field, arriving flat as `edge.kind` or, for gJGF
+payloads, nested at `edge.metadata.kind`), with nearest-neighbor-by-position
+as a fallback only for orphan nodes with no
 matching edge — the same parent-chain helper `computeGroupBounds` uses.
 Store this map in both `StreamingGraphRenderer._childrenMap` and
 `GraphRenderer._childrenMap` (computed when compound backgrounds are
