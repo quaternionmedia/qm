@@ -54,9 +54,9 @@ preamble to it.
    | 2 | The database image is `mongo:bionic`. Ubuntu 18.04 is out of support, and the tag is not digest-pinned. | Open-license §1; P8 | A supported, digest-pinned base for every image the stack runs. |
    | 3 | Object storage is Google Cloud Storage, reached through the vendor's own SDK. | Seams §2, §3 | A seam on a protocol with multiple independent implementations. Decided in the object-storage seam record, not here. |
    | 4 | The frontend loads a font from `fonts.gstatic.com`, demo images from a Squarespace CDN, and sample media from `storage.googleapis.com`. | Open-license §1, which requires frontend assets be vendored and never CDN-loaded | Every asset served from the application's own origin, vendored into the repository. |
-   | 5 | The application image builds `FROM python` with no tag and no digest. | P1; P8 | A pinned base image, rebuilt deliberately rather than implicitly on every build. |
+   | 5 | The application image builds `FROM python` with no tag and no digest, and **no longer builds at all**. The unpinned base now resolves to Python 3.14, which does not ship setuptools, so a dependency fails at `pip install` with `No module named 'pkg_resources'`. Pinning to 3.11 gets past that and then fails on `rm /etc/ImageMagick-6/policy.xml` — the base carries ImageMagick 7 and the version-6 path is gone. Both reproduced against Docker. | P1; P8 | A pinned base image, rebuilt deliberately rather than implicitly, and no hardcoded path into a dependency's private layout. |
    | 6 | `fastapi-crudrouter` is installed at build time from a QM fork branch. The org register lists no carried patches. | Contribution §2, under which an unregistered build-time patch is a lint failure | The patch registered in `registers/carried-patches.md` with its upstream status. |
-   | 7 | The frontend has no committed lockfile; `package-lock.json` and `yarn.lock` are both git-ignored. | P8 — recreatable from version control | A committed lockfile, so a build is reproducible from the repository alone. |
+   | 7 | The frontend has no committed lockfile; `package-lock.json` and `yarn.lock` are both git-ignored, and **the frontend no longer builds either**. `parcel` floats from `^2.8.3` to 2.16.4 while `@parcel/transformer-sass` is pinned to exactly `2.8.3`; parcel requires them to match, so the build fails and no `dist/` is produced. Reproduced from a clean install. | P8 — recreatable from version control | A committed lockfile, so a build is reproducible from the repository alone. |
    | 8 | Packaging is PDM and the frontend is a mithril/parcel application. The house-stack record blesses `uv`, and contemplates frontend JS only as single-file visualization deliverables. | House stack §2 | Resolved at org level, not here. See §5. |
 
 4. **The license report is wired as a report, not a gate, and its blind spots
@@ -103,6 +103,14 @@ preamble to it.
 - Contributors get a single place to check before adding a dependency, a
   datastore, or a third-party service, so the gap set stops growing while it
   is being worked.
+- Rows 5 and 7 are no longer forward-looking risks. Both have already
+  happened: neither the application image nor the frontend bundle builds from
+  a clean checkout today, and in all three failures the mechanism was the
+  same — a dependency the repository declined to pin moved underneath it.
+  That is the cost of unpinned dependencies stated as an observed outcome
+  rather than a principle, and it is the strongest available argument for
+  closing those two rows ahead of the others, independent of any schedule
+  this record declines to set.
 
 ## Alternatives considered
 
