@@ -109,7 +109,15 @@ for a non-server runtime.
 6. **Seed the first project records** on that branch as numberless drafts
    by title; ratify per process. Project ADR-0001 is conventionally the
    project's adoption + scope record, but nothing enforces a particular
-   first decision.
+   first decision. **If the project predates its adoption of this corpus**,
+   that record's substance is the conflict table required by the
+   decision-record-discipline record's adoption clause — every known
+   conflict with an org record, what it violates, and what compliance would
+   look like. Enumerating a conflict is not waiving it, no schedule is
+   required, and scope is frozen per conflict while it stays open. A project
+   in that state is instantiated, not improvised: the corpus distinguishes
+   projects that carry the governance machinery from those that do not,
+   never compliant projects from non-compliant ones.
 7. **Register** any carried patches in `registers/carried-patches.md` here —
    the register is org-level by design: a patch carried by one project is a
    commitment made by the org.
