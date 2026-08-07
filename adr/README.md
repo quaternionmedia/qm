@@ -113,4 +113,6 @@ enforcement ship together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): —
+Drafts in flight (numberless, by title): Constitution adoption and scope;
+Control plane and engine boundary; Datastore and task queue; Object storage
+seam.
