@@ -5,8 +5,12 @@
      instructions.md are real symlinks to this file in the seed; a
      symlink-preserving copy (git checkout, `cp -a`/`cp -P`, `rsync -a`)
      carries that forward so an edit to this file alone keeps both current.
-     Fill in project-specific setup/test commands below the marked line;
-     leave the governance section above it untouched. -->
+     Delete this comment in the copy. Replace every <name> placeholder with
+     the project's own name, and fill in project-specific setup and test
+     commands below the marked line. The governance section above that line
+     is otherwise left untouched: a placeholder is meant to be replaced, and
+     a live project file carrying a literal <name> sends its reader to a
+     branch that does not exist. -->
 # AGENTS.md
 
 This project is governed by the Quaternion Media constitution, vendored at
@@ -18,9 +22,10 @@ no other briefing, read this file fully before your first commit or edit.
 
 1. Read `governance/qm/README.md` and `governance/qm/PRINCIPLES.md` in full
    — the namespaces/precedence rules and the charter. Both are short.
-2. This project's own decision records live in `adr/`, as `ADR-NNNN`
-   (numbered locally, at ratification) or `DRAFT-*.md` before ratification.
-   A human ratifies; you draft.
+2. This project's own decision records live in `governance/qm/adr/` — inside
+   the submodule, on this project's own branch, not at this repo's root — as
+   `ADR-NNNN` (numbered locally, at ratification) or `DRAFT-*.md` before
+   ratification. A human ratifies; you draft.
 3. **Human-only contributorship applies to every commit you make here** (see
    `governance/qm/records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored
@@ -28,9 +33,9 @@ no other briefing, read this file fully before your first commit or edit.
    tooling normally appends a `Co-Authored-By:` trailer, suppress it for
    this repo. Tool involvement is disclosed as a `Tools:` note where the
    artifact calls for one, never as a byline.
-4. Follow the drafting-session handoff contract in `adr/README.md` before
-   writing or amending any record.
-5. A QM record may be tightened by this project's own `adr/`, never
+4. Follow the drafting-session handoff contract in
+   `governance/qm/adr/README.md` before writing or amending any record.
+5. A QM record may be tightened by this project's own records, never
    relaxed — see `governance/qm/README.md`'s "Namespaces and precedence."
 
 ## One-time setup on a fresh clone (Windows)

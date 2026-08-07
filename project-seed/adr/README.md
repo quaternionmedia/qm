@@ -100,16 +100,33 @@ outside Amendments.
 
 ## CI enforcement
 
-The ADR lint (banned vocabulary in drafts; numbered filenames not
-Accepted+; Accepted bodies modified outside Amendments; index/directory
-mismatch) ships as a ready-to-run workflow at `project-seed/ci/adr-lint.yml`
-— copy it into `.github/workflows/` verbatim, the same discipline as `adr/`
-itself. The license gate required by the org open-license record is
-doctrine, not one fixed script: wire an SBOM-per-image gate for container
-and server runtimes, or a dependency-manifest-plus-allowlist gate per
-package ecosystem otherwise (see that record's Enforcement clause). Both
-run in the same pipeline as the ADR lint — the constitution and its
-enforcement ship together.
+The ADR lint enforces four checks: banned vocabulary in drafts; numbered
+filenames not Accepted+; Accepted bodies modified outside Amendments; and
+index/directory mismatch. It ships as a ready-to-run workflow at
+`project-seed/ci/adr-lint.yml` — copy that file into `.github/workflows/`
+verbatim, the same discipline as `adr/` itself.
+
+Only the workflow is copied. It runs
+`governance/qm/project-seed/ci/adr_lint.py` out of the submodule, so the
+checks are always the version this project's governance pin points at, and a
+fix to the lint reaches every project on its next pin bump instead of
+needing N copies updated.
+
+The vocabulary check reads prose only — fenced code, inline code spans, and
+HTML comments are excluded. A document that *quotes* the banned list is
+describing the rule, not breaking it, which is why the template's own
+drafting-rules comment and the discipline record's own enumeration do not
+trip it.
+
+The license gates required by the org open-license record are doctrine
+rather than one fixed script, and they are cumulative: wire an SBOM per
+image for container and server runtimes **and** a
+dependency-manifest-plus-allowlist gate for each package ecosystem the
+project ships, along with the service inventory that record's §6 requires
+and no scanner can produce. A project with more than one runtime shape has
+more than one obligation, not a choice among them. All of it runs in the
+same pipeline as the ADR lint — the constitution and its enforcement ship
+together.
 
 ## Index
 

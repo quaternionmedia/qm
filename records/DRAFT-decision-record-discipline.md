@@ -11,7 +11,7 @@
 
 Decision documents drift in predictable ways: drafts accumulate references to
 their own revision history, numbers get assigned before ratification and then
-"renumber," supersession language leaks into documents never published. Drift
+`renumber`, supersession language leaks into documents never published. Drift
 of this kind was observed and fixed in the org's first drafting round; the
 discipline below makes prevention mechanical rather than memorial.
 
@@ -123,7 +123,7 @@ supplies that answer.
 - A second governance artifact class emerges (e.g., runbooks) needing its own
   lifecycle — revisit whether this record generalizes or a sibling is needed.
 - A second existing project adopts the corpus — §5 was written from one
-  instance and should be confirmed or corrected against the next.
+  instance and should be confirmed or revised against the next.
 - A §5 conflict table goes stale, or a project uses enumeration to park a
   conflict it has no intention of closing — the no-schedule stance is being
   abused and needs a forcing function it currently lacks.

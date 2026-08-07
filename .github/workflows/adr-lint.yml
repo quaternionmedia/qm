@@ -1,0 +1,67 @@
+name: ADR lint
+
+# This corpus runs the lint it requires of every project, against its own
+# records. It previously required the lint everywhere and ran it nowhere,
+# including here -- which meant the one repository whose entire subject is
+# decision-record discipline was the only one with no mechanical check on it.
+#
+# On main this lints records/ against the index in README.md. On a
+# project/<name> branch it also lints that project's adr/ directory, which
+# only exists on those branches.
+
+on:
+  push:
+    branches: [main, 'project/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  adr-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Resolve base ref
+        id: base
+        run: |
+          if [ "${{ github.event_name }}" = 'pull_request' ]; then
+            git fetch --no-tags --depth=0 origin "${{ github.base_ref }}"
+            echo "ref=origin/${{ github.base_ref }}" >> "$GITHUB_OUTPUT"
+          elif git rev-parse --verify -q HEAD^ >/dev/null; then
+            echo "ref=HEAD^" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Lint org records
+        run: |
+          python project-seed/ci/adr_lint.py \
+            --records-dir records \
+            --index README.md \
+            ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
+
+      - name: Lint the reference project's records
+        run: |
+          python project-seed/ci/adr_lint.py \
+            --records-dir streaming-infrastructure/adr \
+            --index streaming-infrastructure/adr/README.md \
+            ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
+
+      - name: Lint this branch's project records
+        run: |
+          if [ -d adr ]; then
+            python project-seed/ci/adr_lint.py \
+              --records-dir adr \
+              --index adr/README.md \
+              ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
+          else
+            echo 'No adr/ on this branch; nothing to lint.'
+          fi

@@ -1,18 +1,24 @@
 name: ADR lint
 
 # SEED FILE: copy verbatim into a forking project's .github/workflows/
-# (see adr/README.md's "CI enforcement" section). Generalized from the first
-# working instance of this lint, in the qmetronome project, where it ran
-# clean in CI before this file existed as a reusable seed.
+# (see adr/README.md's "CI enforcement" section).
 #
-# Enforces the decision-record-discipline record's squash rule: a
-# pre-ratification ADR (adr/DRAFT-*.md) is rewritten in place as
-# understanding changes and must never narrate its own revision history.
+# Enforces all four checks the decision-record-discipline record names:
+# banned vocabulary in a pre-ratification draft, a numbered filename whose
+# Status is not ratified, an edit to a ratified record's body outside its
+# Amendments section, and an index/directory mismatch.
 #
-# Assumes the branch-per-project ADR model: this project's own adr/
-# directory lives inside the governance/qm submodule, on this project's
-# dedicated branch - not in this repo's own working tree. If a project ever
-# keeps adr/ locally instead, change the glob below to adr/DRAFT-*.md.
+# Only this YAML file is copied. The lint itself runs from
+# governance/qm/project-seed/ci/adr_lint.py -- inside the submodule the
+# project already vendors -- so the logic is always the version the project's
+# governance pin points at, and improving it improves every project on the
+# next pin bump. A copied script would be a fifth thing to keep in sync
+# across N repositories, which is the drift this arrangement avoids.
+#
+# Assumes the branch-per-project ADR model: this project's own adr/ directory
+# lives inside the governance/qm submodule, on this project's dedicated
+# branch. If a project ever keeps adr/ locally instead, change RECORDS_DIR
+# below to adr and drop the --index override.
 
 on:
   push:
@@ -22,6 +28,9 @@ on:
 permissions:
   contents: read
 
+env:
+  RECORDS_DIR: governance/qm/adr
+
 jobs:
   adr-lint:
     runs-on: ubuntu-latest
@@ -29,12 +38,28 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
+          # Full history: the append-only check diffs against the base.
+          fetch-depth: 0
 
-      - name: ADR draft vocabulary lint
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Resolve base ref
+        id: base
         run: |
-          offending=$(grep -lEi "previously|originally|earlier draft|re-review|renumber|retroactive|supersedes the .* (stance|finding)|\bcorrected\b" governance/qm/adr/DRAFT-*.md 2>/dev/null || true)
-          if [ -n "$offending" ]; then
-            echo "Pre-ratification ADRs must be squashed, not narrate their own revision history - found banned vocabulary in:"
-            echo "$offending"
-            exit 1
+          if [ "${{ github.event_name }}" = 'pull_request' ]; then
+            git fetch --no-tags --depth=0 origin "${{ github.base_ref }}"
+            echo "ref=origin/${{ github.base_ref }}" >> "$GITHUB_OUTPUT"
+          elif git rev-parse --verify -q HEAD^ >/dev/null; then
+            echo "ref=HEAD^" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: ADR lint
+        run: |
+          python governance/qm/project-seed/ci/adr_lint.py \
+            --records-dir "$RECORDS_DIR" \
+            --index "$RECORDS_DIR/README.md" \
+            ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}

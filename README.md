@@ -73,12 +73,17 @@ for a non-server runtime.
    repo still records an exact commit each time, so builds stay
    reproducible.
 4. **Wire CI:** copy `project-seed/ci/adr-lint.yml` into
-   `.github/workflows/` verbatim — the ADR lint runs as shipped, no
-   project-specific edits needed. Wire the license gate required by the
-   open-license record along the path matching the project's runtime shape
-   (SBOM-per-image, or a dependency-manifest-plus-allowlist per package
-   ecosystem; see that record's Enforcement clause); a project without both
-   is not instantiated, it is improvised.
+   `.github/workflows/` verbatim — no project-specific edits needed. Only
+   the workflow file is copied; it invokes
+   `governance/qm/project-seed/ci/adr_lint.py` from inside the submodule the
+   project already vendors, so the lint logic is always the version the
+   project's governance pin points at and never a stale copy. Wire the
+   license gates required by the open-license record along **every** path
+   the project's runtime shape presents — an SBOM per image *and* a
+   dependency-manifest gate per package ecosystem, cumulatively, not a
+   choice among them (see that record's Enforcement clause) — plus the §6
+   service inventory, which no gate can generate. A project without them is
+   not instantiated, it is improvised.
 5. **Wire IDE-integrated governance discovery:** copy `project-seed/ide/`
    recursively onto the project root — it already mirrors the target layout
    (`AGENTS.md` and `CLAUDE.md` at its own root, `.github/`, `.vscode/`), so
@@ -89,12 +94,23 @@ for a non-server runtime.
    content — a copy method that preserves symlinks carries that forward, so
    editing the project's `AGENTS.md` later keeps both current for free. Fill
    in project-specific setup/test commands below `AGENTS.md`'s marked line;
-   the governance section above it stays verbatim. Check the new project's
-   own `.gitignore` for a blanket `.vscode/` rule first — this corpus's own
-   started with one, which silently kept its checked-in `.vscode/` files
-   from ever being committed; the fix is `.vscode/*` plus
-   `!.vscode/settings.json` and `!.vscode/extensions.json`, not deleting the
-   ignore rule outright. **On Windows, one more one-time step gives the
+   the governance section above it stays verbatim, apart from replacing the
+   `<name>` placeholders. Before committing, check that the project's
+   `.gitignore` does not swallow the files just copied, by asking git rather
+   than by reading the ignore file:
+
+   ```sh
+   git check-ignore -v AGENTS.md CLAUDE.md .github/copilot-instructions.md \
+     .vscode/settings.json .vscode/extensions.json
+   ```
+
+   Any path that comes back matched would never have been committed. This
+   corpus's own `.gitignore` blanket-excluded `.vscode/`; alfred's excluded
+   `*.json` across the whole tree, which swallowed the same two files by a
+   completely different rule. Grepping for `.vscode/` finds the first and
+   misses the second, which is why the check runs against the seed's actual
+   paths. The fix is a negation per swallowed path — `!.vscode/settings.json`,
+   `!.vscode/extensions.json` — not deleting the ignore rule outright. **On Windows, one more one-time step gives the
    identical result POSIX gets for free:** enable Developer Mode (Settings →
    For developers) and run `git config core.symlinks true` once per clone,
    then `git checkout -- .` if the files were already checked out before
