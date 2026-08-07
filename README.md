@@ -13,7 +13,8 @@ qm/
 ├── PRINCIPLES.md        ← the charter: interpretation the records are cut from
 ├── TEMPLATE.md          ← record template for THIS corpus (QM-XXXX)
 ├── AGENTS.md            ← governance discovery for any coding agent; CLAUDE.md and
-│                           .github/copilot-instructions.md are one-line pointers to it
+│                           .github/copilot-instructions.md are symlinks to it
+├── .github/workflows/   ← this corpus's own CI: the ADR lint, run against its own records
 ├── .vscode/             ← checked-in settings.json + extensions.json (this record's teeth)
 ├── records/             ← org records (philosophies); DRAFT-* until ratified
 ├── registers/           ← org-level live registers (carried patches, …)
@@ -22,7 +23,8 @@ qm/
 ├── math/                ← experiments workspace: demonstrations against open questions named in perspectives
 └── project-seed/        ← the forkable template a new project's own branch copies verbatim
     ├── adr/              ← README + TEMPLATE, copied onto that project's own project/<name> branch as adr/
-    ├── ci/                ← adr-lint.yml, copied into the project's own .github/workflows/
+    ├── ci/                ← adr-lint.yml (copied into the project's .github/workflows/) and
+    │                         adr_lint.py (run in place from the submodule, never copied)
     └── ide/               ← AGENTS.md, CLAUDE.md, copilot-instructions.md, vscode-settings.json,
                               vscode-extensions.json — copied into the project's own root, .vscode/, .github/
 ```
@@ -110,18 +112,24 @@ for a non-server runtime.
    completely different rule. Grepping for `.vscode/` finds the first and
    misses the second, which is why the check runs against the seed's actual
    paths. The fix is a negation per swallowed path — `!.vscode/settings.json`,
-   `!.vscode/extensions.json` — not deleting the ignore rule outright. **On Windows, one more one-time step gives the
-   identical result POSIX gets for free:** enable Developer Mode (Settings →
-   For developers) and run `git config core.symlinks true` once per clone,
-   then `git checkout -- .` if the files were already checked out before
-   that — verified on a real Windows checkout, not assumed; see the
-   IDE-integrated governance discovery record's Consequences. Skipping it
-   doesn't break anything (`CLAUDE.md` and `copilot-instructions.md`
-   materialize as one-line files containing just the relative path rather
-   than resolving to it — legible, not silent breakage), but it isn't equal
-   treatment, so name the step rather than quietly accept the lesser
-   version. A project without this step is not instantiated, it is
-   improvised — the same standard `adr/` and `ci/` are already held to.
+   `!.vscode/extensions.json` — not deleting the ignore rule outright.
+
+   **On Windows, one one-time step per clone gives the identical result
+   POSIX gets for free.** It is spelled out in `AGENTS.md`'s own "One-time
+   setup on a fresh clone" section, which is the copy a reader of the new
+   project will actually meet; that section is the single source for it,
+   rather than a third paragraph saying the same thing. Do it, and confirm
+   the pointer files resolve, before treating step 5 as done: a project
+   without it is not instantiated, it is improvised — the same standard
+   `adr/` and `ci/` are held to. Note that `cp -a` is not always sufficient
+   even with the config set — on at least one Windows toolchain it
+   dereferenced `CLAUDE.md` into a full copy and failed outright on the
+   `.github/` pointer. Verify with `git ls-files -s`, which should show mode
+   `120000` for both; if it does not, create them as symlink objects
+   directly (`git hash-object -w`, then `git update-index --cacheinfo
+   120000,<sha>,<path>`), the same method the record's Consequences
+   documents for making the committed object independent of the authoring
+   machine.
 6. **Seed the first project records** on that branch as numberless drafts
    by title; ratify per process. Project ADR-0001 is conventionally the
    project's adoption + scope record, but nothing enforces a particular
@@ -172,35 +180,33 @@ record in the commit message. Assistants draft; humans ratify.
 Handbook (policy, not records): public-by-default (with a defined promotion
 path to record form), style guide (minimal, legible deliverables).
 
-**Post-ratification step for the reference project:** once the org
-open-license record is Accepted, the streaming project's ADR-0001 receives a
-dated amendment recording adoption-by-reference of the org record. Its body
-is untouched; the amendment aligns the instance to the doctrine.
+### Obligations that fall due at ratification
 
-**Perspectives attribution migration for Human-only contributorship:** done
-2026-07-05, ahead of the record's own ratification — perspectives carry no
-ratification gate, so there was nothing to wait on. `perspectives/README.md`'s
-Index table, and the affected files' own header tables and closing
-signatures, no longer name models as Author; each names the human who
-sponsored or submitted the perspective, with the model moved to a Tools
-annotation. Ratifying Human-only contributorship itself (Status → Accepted,
-QM number assigned) remains a separate, pending human action.
+- **Open-license record → the reference project.** When it is Accepted, the
+  streaming project's ADR-0001 receives a dated amendment recording
+  adoption-by-reference. Its body is untouched; the amendment aligns the
+  instance to the doctrine.
 
-**IDE-integrated governance discovery is already live on this repo:** this
-corpus's own root carries `AGENTS.md`, `CLAUDE.md`,
-`.github/copilot-instructions.md`, `.vscode/settings.json`, and
-`.vscode/extensions.json` as of 2026-07-05, and `project-seed/ide/` carries
-the versions a fork copies into a new project (step 5 of "Forking a new
-project"). `CLAUDE.md`, `.github/copilot-instructions.md`, and this repo's
-own `.vscode/settings.json` and `.vscode/extensions.json` are real git
-symlinks (mode `120000`) to their canonical file, not independent copies —
-see the record's Consequences for how those were created, and `AGENTS.md`'s
-own "One-time setup on a fresh clone (Windows)" section for what a fresh
-clone needs to resolve them as real symlinks rather than one-line path
-placeholders — confirmed working on a real Windows checkout once Developer
-Mode is on and `git config core.symlinks true` is set for the clone; this
-clone already has that set. Wiring all of this here ahead of ratification
-is the same non-ratification-gated pattern as the perspectives migration
-above — this repo is itself a place a low-context agent can be dropped
-into, and was, before this record existed. Ratifying the record (Status, QM
-number) remains separate and pending.
+### Mechanisms wired ahead of their own record
+
+Some records describe machinery that costs nothing to run before
+ratification and protects something in the meantime. Where that is true, the
+machinery is live and the record's Status is still Proposed — the two are
+independent, and waiting would mean leaving a known gap open for
+bookkeeping's sake. Ratification remains a separate human action in every
+case.
+
+- **IDE-integrated governance discovery** — this corpus's root carries
+  `AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md`, and
+  `.vscode/settings.json`/`extensions.json`; the pointer files and the shared
+  VS Code config are real git symlinks (mode `120000`) to their canonical
+  copy in `project-seed/ide/`, so this repo dogfoods the seed rather than
+  keeping a second copy. This repo is itself a place a low-context agent gets
+  dropped into, and was before the record existed.
+- **Human-only contributorship** — `perspectives/README.md`'s index and each
+  affected file's header and signature name the accountable human, with tool
+  involvement moved to a Tools annotation. Perspectives carry no ratification
+  gate, so there was nothing to wait on.
+- **Decision-record discipline** — the ADR lint runs in this repo's own CI
+  against `records/`, the reference project's `adr/`, and each
+  `project/*` branch's `adr/`.
