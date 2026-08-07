@@ -72,10 +72,13 @@ triggers.
 
 What *we build* uses one stack, deeply: Python — FastAPI, SQLModel/Pydantic,
 Metaflow, Click, Jinja2 — plus single-file HTML/JS for visualization
-deliverables. Depth compounds: patterns transfer across fleet management,
-streaming, and media tooling, and anyone can enter any QM codebase. The
-complement: what *we contribute* is written in the target community's
-language and idiom. House preference governs our repos, not our PRs.
+deliverables and one named framework for frontend applications, which are a
+different shape from visualizations and are named separately so neither has
+to pretend to be the other. Depth compounds: patterns transfer across fleet
+management, streaming, and media tooling, and anyone can enter any QM
+codebase. The complement: what *we contribute* is written in the target
+community's language and idiom. House preference governs our repos, not our
+PRs.
 
 → Org record: **House stack**, with the dependency-review gate as teeth and
 explicit carve-outs for contributions and client- or platform-mandated
