@@ -49,7 +49,7 @@ jobs:
         id: base
         run: |
           if [ "${{ github.event_name }}" = 'pull_request' ]; then
-            git fetch --no-tags --depth=0 origin "${{ github.base_ref }}"
+            git fetch --no-tags origin "${{ github.base_ref }}"
             echo "ref=origin/${{ github.base_ref }}" >> "$GITHUB_OUTPUT"
           elif git rev-parse --verify -q HEAD^ >/dev/null; then
             echo "ref=HEAD^" >> "$GITHUB_OUTPUT"
