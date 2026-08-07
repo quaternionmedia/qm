@@ -57,12 +57,14 @@ and the exception mechanism as teeth.
 
 Custom code concentrates where sovereignty matters most: the small control
 plane holding state, policy, and orchestration. Engines — muxers, databases,
-transcoders, detectors — are selected, not written. The seam is deliberately
-boring, and it is the one place where bus-factor is *ours*, which is the only
-acceptable place for it. Ordering rule resolving the tension with P2: every
-new capability first asks *which engine should own this upstream* before
-defaulting to the seam; seam logic is whatever no engine should reasonably
-own.
+transcoders, detectors — are selected rather than written, and where none
+should own a capability upstream, an engine QM writes is published to the
+commons as a standalone package rather than absorbed into the seam. The seam
+is deliberately boring, and it is the one place where bus-factor is *ours*,
+which is the only acceptable place for it. Ordering rule resolving the
+tension with P2: every new capability first asks *which engine should own
+this upstream* before defaulting to the seam; seam logic is whatever no
+engine should reasonably own.
 
 → Org record: **Build the seam, buy the engines** (doctrine). Each project
 ratifies its own control-plane instance record with size-smell revision
