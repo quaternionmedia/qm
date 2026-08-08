@@ -46,3 +46,4 @@ of judgment.
 | 2026-07-04 | `claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 5 |
 | 2026-07-05 | `2026-07-05-on-human-only-contributorship.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 5; responds to `records/DRAFT-human-only-contributorship.md` |
 | 2026-07-21 | `2026-07-21-verify-before-fixing.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 5; companion to codecartographer's `adr/DRAFT-verify-actual-consumption-before-editing.md` (project/codecartographer branch) |
+| 2026-08-08 | `2026-08-08-hardware-onramp-invisible-artifacts.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Opus 5; first hardware-project onramp; all five proposals of `claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective.md` verified landed in `5a7d34a`/`d1b8afc`; companion to the five drafts on the `project/datum` branch |
