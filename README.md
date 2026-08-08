@@ -20,7 +20,6 @@ qm/
 ├── registers/           ← org-level live registers (carried patches, …)
 ├── handbook/            ← business policy routed out of ADR form
 ├── perspectives/        ← attributed, dated, non-binding opinions; index + response status in perspectives/README.md
-├── math/                ← experiments workspace: demonstrations against open questions named in perspectives
 └── project-seed/        ← the forkable template a new project's own branch copies verbatim
     ├── adr/              ← README + TEMPLATE, copied onto that project's own project/<name> branch as adr/
     ├── ci/                ← adr-lint.yml (copied into the project's .github/workflows/) and
@@ -34,6 +33,24 @@ opposed to the org's — lives on a dedicated branch of *this* repo
 (`project/<name>`), not copied into the project's own git history. The
 project vendors this repo as a submodule and checks out its own branch; see
 "Forking a new project" below.
+
+## Branch namespaces
+
+`main` carries the constitution and nothing else. Four namespaces hang off it,
+and a branch outside them is a mistake rather than a variation.
+
+| Namespace | Holds | Lifetime |
+|---|---|---|
+| `project/<name>` | one adopting project's `adr/` | permanent — a downstream submodule pins its tip |
+| `perspective/<date>-<slug>` | one perspective, staged for `main` | deleted after merge |
+| `evolve/<slug>` | org-level work in progress | deleted after merge |
+| `workspace/<slug>` | a research workspace that never merges back | permanent, terminal |
+
+The reference instance for a server/container runtime is
+`project/streaming-infrastructure`; `project/qmetronome` is the reference for
+a non-server runtime. The mathematical-limits experiments live on
+`workspace/math-experiments` — non-binding, and reached from the perspective
+whose open questions they investigate.
 
 ## Namespaces and precedence
 
