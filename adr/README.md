@@ -119,4 +119,5 @@ reference power path; Enclosure parts live in apothecary; Licensing for board
 designs, firmware, enclosures and documentation; A JSON Schema validator is a
 test dependency of the conformance gate; An MQTT client library is a test
 dependency of the wire harness; Apothecary carries a part through design,
-visualization and deployment.
+visualization and deployment; Detention suppresses at the topic, never in the
+payload.
