@@ -256,15 +256,15 @@ given day.
 
 | # | Title | Status | Date |
 |---|---|---|---|
-| — | Decision-record discipline | Proposed | 2026-06-09 |
-| — | Open-license exclusion and upstream-contribution remediation | Proposed | 2026-06-09 |
-| — | Seams on standard protocols | Proposed | 2026-06-09 |
-| — | Build the seam, buy the engines | Proposed | 2026-06-09 |
-| — | House stack | Proposed | 2026-06-09 |
-| — | Contribution and sponsorship policy | Proposed | 2026-06-09 |
-| — | Human-only contributorship | Proposed | 2026-07-05 |
-| — | IDE-integrated governance discovery | Proposed | 2026-07-05 |
-| — | Outbound licensing of QM work | Proposed | 2026-08-08 |
+| — | [Decision-record discipline](records/DRAFT-decision-record-discipline.md) | Proposed | 2026-06-09 |
+| — | [Open-license exclusion and upstream-contribution remediation](records/DRAFT-open-license-exclusion-and-upstream-remediation.md) | Proposed | 2026-06-09 |
+| — | [Seams on standard protocols](records/DRAFT-seams-on-standard-protocols.md) | Proposed | 2026-06-09 |
+| — | [Build the seam, buy the engines](records/DRAFT-build-the-seam-buy-the-engines.md) | Proposed | 2026-06-09 |
+| — | [House stack](records/DRAFT-house-stack.md) | Proposed | 2026-06-09 |
+| — | [Contribution and sponsorship policy](records/DRAFT-contribution-and-sponsorship-policy.md) | Proposed | 2026-06-09 |
+| — | [Human-only contributorship](records/DRAFT-human-only-contributorship.md) | Proposed | 2026-07-05 |
+| — | [IDE-integrated governance discovery](records/DRAFT-ide-integrated-governance-discovery.md) | Proposed | 2026-07-05 |
+| — | [Outbound licensing of QM work](records/DRAFT-outbound-licensing.md) | Proposed | 2026-08-08 |
 
 **Every record is `Proposed`, and that is a decision rather than a backlog:
 ratification waits on a second active code owner.** GitHub does not count a

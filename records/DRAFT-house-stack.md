@@ -62,7 +62,20 @@ than a record.
      contract or the target platform's toolchain, recorded in the
      engagement, never imported as house drift.
    - *Engines* — selected components are whatever language their community
-     builds in; the house stack governs the seam, not the engines.
+     builds in; the house stack governs the seam, not the engines. **The
+     boundary is mechanical, not a matter of framing:** a component imported
+     into seam code is house stack and needs a record to sit outside the
+     blessed set; a component reachable only across a protocol seam, per the
+     seams record's replaceability test, is an engine selection and is
+     governed there instead. PostgreSQL and SQLite in §1 are named default
+     *engine* selections, reached over SQL — they appear in the blessed set
+     because defaulting to them is the decision, not because a store is
+     house-stack code.
+
+     Without that line §2's gate is unenforceable in the direction it
+     matters: any out-of-set dependency can be relabelled an engine by the
+     person introducing it, and the review has nothing to test the claim
+     against.
 
 ## Consequences
 
