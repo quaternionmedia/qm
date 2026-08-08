@@ -1,11 +1,11 @@
-# Perspective — Seventeen False Assumptions in One Session
+# Perspective — Twenty False Assumptions in One Session
 
 | | |
 |---|---|
 | **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
 | **Author** | Peter Kagstrom |
 | **Tools** | Claude Opus 5 (Anthropic), the assistant whose errors this document counts |
-| **Task** | An audit of every false assumption made during alfred's governance adoption and test-building session, how each was caught, and which the corpus could have prevented. Companion to `2026-08-07-alfred-brownfield-adoption.md`, which covers what the adoption found; this one covers what the assistant got wrong while finding it. |
+| **Task** | An audit of every false assumption made during alfred's governance adoption and test-building session, how each was caught, and which the corpus could have prevented. Companion to `2026-08-07-alfred-brownfield-adoption.md`, which covers what the adoption found; this one covers what the assistant got wrong while finding it. §1.1 records what happened when the standard proposed in §4 was then applied to the session's own output. |
 
 ## 0. Standing and method
 
@@ -25,9 +25,12 @@ from a single data point.
 
 ## 1. The count
 
-Seventeen. All seventeen were caught. **None were caught by review** — not by
-the maintainer, not by the ADR lint, not by re-reading. Fifteen were caught by
-executing something, and two by cross-checking a second source.
+Seventeen during the work itself, and three more found afterwards by auditing
+the work against the standard this document proposes (§1.1). Twenty in total.
+
+Of the first seventeen: all were caught, and **none were caught by review** —
+not by the maintainer, not by the ADR lint, not by re-reading. Fifteen were
+caught by executing something, two by cross-checking a second source.
 
 | # | What I assumed | What was true | Caught by | Cost if it had shipped |
 |---|---|---|---|---|
@@ -48,6 +51,48 @@ executing something, and two by cross-checking a second source.
 | 15 | Filename construction was unit-testable | It is a closure, and the surrounding document needs a database | Attempting it | A planned instruction set that could not be executed |
 | 16 | I had regressed the lockfile's dev group | Pre-existing; the old lock never had it | `git show HEAD:pdm.lock` | A false self-reported regression |
 | 17 | `alertifyjs` declares no license | GPL-3.0, in npm's deprecated `licenses` array | `npm view --json` | A copyleft dependency missed in a compliance report |
+
+## 1.1 What happened when the standard was applied to this session's output
+
+§0 said the count was a floor, and that a reader wanting the residue should
+look for claims citing no reproduction. That audit was then run against the
+session's own deliverables. **Five load-bearing claims were checked. Two were
+wrong, one was imprecise, and two were right but had never been verified.**
+
+| # | Claim as written | What checking it showed |
+|---|---|---|
+| 18 | The frontend loads sample media from `storage.googleapis.com` | Wrong for the shipped artifact. That string is in `website/src/logic.js`, which nothing imports, so it never reaches the bundle. Two external loads survive the build, not three. |
+| 19 | `GET /videos/{video}` is path-traversable by any authenticated user | **Does not reproduce.** Starlette decodes the path before routing and `{video}` matches `[^/]+`, so any encoding introducing a separator stops matching the route. Single- and double-encoded separators, UTF-8 overlong sequences, backslashes and a null byte were all tried against a running instance; none reached outside `/app/videos`. |
+| 20 | Seeding is skipped because `count_documents` returns a coroutine | Imprecise: it returns a `Future`. The conclusion holds — always truthy, so the block never runs — but the mechanism named in a defect table was wrong. |
+| 21 | No pull request was ever opened upstream for the carried patch | True, but asserted from a search narrower than the claim. Re-checked across all of upstream's pull requests; it holds. The same search surfaced an open third-party PR upstreaming the same capability, which the original entry had not thought to look for and which changes the remediation options. |
+| 22 | MongoDB is SSPL | True. The headline compliance finding of the entire adoption, asserted repeatedly across several documents, and nobody opened the image until this audit. `mongo:bionic` is 4.4.6 and its own copyright file reads `License: SSPL`. |
+
+Error 19 is the one that matters. A security finding was reported to the
+maintainer with a recommendation to prioritise it ahead of other work, and it
+does not exist as described. The underlying code is still unsafe by
+construction — nothing checks containment — but the protection is real and
+comes from the framework's routing rather than from the application. The
+difference between "exploitable today" and "becomes exploitable the moment
+someone declares the route `{video:path}`" is the difference between an
+incident and a code comment.
+
+### The error class the original four habits missed
+
+18 and 19 share a shape §2's habits do not name: **both asserted a property of
+the running system from reading the source.**
+
+A build step sits between source and bundle, and it dropped a file nothing
+imported. A routing layer sits between a URL and a handler, and it rejected
+every input that would have made the handler dangerous. In both cases the
+source read exactly as claimed and the artifact behaved differently.
+
+This is not the same as "run the tool before describing its output"
+(§2.2), which concerns a tool's own behavior. It is narrower and easier to
+miss: *the thing you read is not the thing that runs.* A grep over `src/` is
+evidence about `src/`. Claims about what a deployed system does are settled
+against the deployed system.
+
+It is now the fourth bullet in the seed's verification obligations.
 
 ## 2. What the corpus could have prevented
 
@@ -150,8 +195,11 @@ perspective ratifies nothing.
 
 Three limits.
 
-This counts only errors I found. The session's real total is higher by an
-unknown amount, and the residue sits inside documents I wrote confidently.
+This counts only errors I found. §1.1 is the evidence that the count was a
+floor rather than a total: auditing five claims turned up three more defects,
+one of them a security finding that does not exist. Five claims is not an
+exhaustive audit, so twenty remains a floor too, and the residue still sits
+inside documents I wrote confidently.
 
 The proposals are not free. An evidence standard adds friction to every
 record, and most of that friction will be spent on claims that were never in
@@ -161,12 +209,19 @@ settled. That is exactly the reasoning the corpus applies to unwritten
 decisions, turned on unverified facts.
 
 And this is a sample of one session, on one project, by one model, reviewed by
-its own author. Whether seventeen is a lot depends entirely on a baseline
-nobody has. What is not sample-dependent is the shape: **all seventeen were
-caught by running something, and none by reading.** If that holds up across a
-second session, it is an argument for weighting the corpus's enforcement
-toward execution rather than toward more careful prose — and for reading the
+its own author. Whether twenty is a lot depends entirely on a baseline nobody
+has. What is not sample-dependent is the shape: **every one was caught by
+running something, and none by reading.** If that holds up across a second
+session, it is an argument for weighting the corpus's enforcement toward
+execution rather than toward more careful prose — and for reading the
 qmetronome retrospective's finding about human review as complementary to
 that, not a substitute for it.
+
+One thing did surprise me. I expected applying the evidence standard to be
+bookkeeping — attaching commands to claims already known to be true. It was
+not. It overturned the most severe finding of the session on the first pass,
+and it did so cheaply: the check that refuted the traversal claim took about
+a minute. That is weak evidence for the standard being worth its friction,
+and it is the only evidence available so far.
 
 — Peter Kagstrom, drafted with Claude Opus 5, 2026-08-07

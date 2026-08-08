@@ -105,7 +105,12 @@ like they need it —
 - *a documented step* — verify the artifact it produced, not that the step
   ran. Its instructions were written by someone for whom they worked;
 - *your own setup* — before reporting a defect in the project, rule out the
-  harness. A false defect report spends someone else's day.
+  harness. A false defect report spends someone else's day;
+- *the source versus the artifact* — a grep over `src/` is evidence about
+  `src/`. A build step, a routing layer or a module nothing imports sits
+  between what you read and what runs, and each can leave the source reading
+  exactly as claimed while the running system behaves differently. Claims
+  about a deployed system are settled against the deployed system.
 
 A claim that has not been reproduced is marked as inference rather than
 stated flatly. And **a passing test is not evidence until it has been seen to
