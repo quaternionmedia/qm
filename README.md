@@ -219,6 +219,7 @@ given day.
 | — | Contribution and sponsorship policy | Proposed | 2026-06-09 |
 | — | Human-only contributorship | Proposed | 2026-07-05 |
 | — | IDE-integrated governance discovery | Proposed | 2026-07-05 |
+| — | Outbound licensing of QM work | Proposed | 2026-08-08 |
 
 Handbook (policy, not records): public-by-default (with a defined promotion
 path to record form), style guide (minimal, legible deliverables).
