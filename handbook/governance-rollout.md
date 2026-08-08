@@ -76,18 +76,23 @@ of the four checks. Being pinned is not being adopted, and nothing reports the
 difference — which is why the audit has to be walked per project rather than
 inferred.
 
-**apothecary** was audited next (2026-08-08) and is the healthiest instance:
-level with `main`, touching `adr/` only, every seed artifact present with the
-pointer files at mode `120000`, and a **working dependency-manifest license
-gate** — the first real instance of the open-license record's §4 enforcement
-anywhere. Its only gaps are the `<name>` placeholder and an ADR lint still on
-the single-check version.
+**apothecary** was audited next (2026-08-08), and the audit was wrong. It was
+recorded here as the healthiest instance, with every seed artifact present.
+That described the local working tree, which was sitting on an unpushed
+governance branch. `origin/main` has none of it: no `.gitmodules`, no
+`AGENTS.md`, no ADR lint, no `LICENSE`, and `pytest.yml` as its only workflow.
+The adoption commit exists and has never been pushed.
 
-The audit paid for itself immediately. apothecary's CI had failed on
-`upload-pack: not our ref` — a submodule pinned to a commit that was not
-pushed. qmetronome had hit the same failure, written a check for it, and
-nothing carried that check across. It is now `project-seed/ci/submodule-check.yml`,
-which is what the seed is for.
+The correct reading: **apothecary is the least adopted of the three, not the
+most.** Its governance work is real and is nineteen days stranded on one disk,
+which is the same failure this corpus keeps finding and had not thought to look
+for in itself.
+
+What survives from that audit is a genuine incident on the branch that does
+carry governance: CI failed on `upload-pack: not our ref`, a submodule pinned
+to a commit that was not pushed. qmetronome had hit the same failure, written a
+check for it, and nothing carried that check across. It is now
+`project-seed/ci/submodule-check.yml`, which is what the seed is for.
 
 **datum** was audited third (2026-08-08) and was the only one carrying a
 defect this corpus itself caused. Its governance pin named a commit on no
