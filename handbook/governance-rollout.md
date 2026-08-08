@@ -89,7 +89,20 @@ pushed. qmetronome had hit the same failure, written a check for it, and
 nothing carried that check across. It is now `project-seed/ci/submodule-check.yml`,
 which is what the seed is for.
 
-The other six adopting projects have not been audited. That is the largest
+**datum** was audited third (2026-08-08) and was the only one carrying a
+defect this corpus itself caused. Its governance pin named a commit on no
+remote: the org branch was renamed and re-signed before its first push, which
+rewrote every SHA, and nothing connected that act to the repository consuming
+it. Its submodule also fetched from a filesystem path rather than the
+canonical remote, which is what let an unreachable commit be pinned at all.
+Both are repaired, and `handbook/propagation-runbook.md` gained the recovery
+path it lacked.
+
+datum has **no remote**: six commits, including its whole `adr/` adoption
+work, exist on one disk. Creating the repository is a human decision, so it
+is named here rather than done.
+
+The other five adopting projects have not been audited. That is the largest
 open item on this page.
 
 ## What is deliberately waiting

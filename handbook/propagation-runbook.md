@@ -184,6 +184,51 @@ A step is done when its check passes, not when its command exits zero.
 
 ---
 
+## When a project branch's history has been rewritten
+
+Rewriting a `project/*` branch — re-signing, rebasing, renaming and force-
+pushing — invalidates **every submodule pin that referenced the old commits**.
+The trees are usually identical; only the identifiers change. That is enough:
+a pin names a commit, not a tree.
+
+The page tells you not to do it. This is what to do when it has already
+happened, because it has:
+
+1. **Find the consuming repos.** There is no index of them. Search the disk
+   for `.gitmodules` naming this corpus, and treat the list as incomplete —
+   a repo nobody has cloned here will not appear.
+2. **Repoint each pin** at the equivalent commit on the live branch:
+
+   ```sh
+   git -C governance/qm fetch origin
+   git -C governance/qm checkout -B <branch> origin/<branch>
+   git add governance/qm && git commit
+   ```
+
+3. **Check the submodule's own remote before trusting the fetch.** A submodule
+   populated from a filesystem path can pin commits that exist nowhere else,
+   and everything resolves locally:
+
+   ```sh
+   git -C governance/qm remote get-url origin      # must be the canonical remote
+   git config --get submodule.<path>.url           # the sync override, same rule
+   ```
+
+   Both must match `.gitmodules`. This is the mechanism that lets a broken pin
+   be created in the first place, and the fork procedure's step 3 already warns
+   about it — it is worth re-checking on any repo that has ever been set up by
+   hand.
+4. **Confirm with the check, not by eye** — `submodule-check.yml` answers
+   exactly this question, and a repo that has been rewritten under it is the
+   case it exists for.
+
+**The first time this bit, the rewrite and the breakage had different
+authors.** A branch was re-signed in the corpus to satisfy a signing rule;
+`project/datum`'s consuming repository broke, silently, and stayed broken
+until someone ran the check. Nothing connected the two events. If you rewrite
+a pinned branch, walking the consumers is part of the same task, not a
+follow-up.
+
 ## What the first run of this found
 
 Exercised end to end against qmetronome on 2026-08-08 — the branch furthest
