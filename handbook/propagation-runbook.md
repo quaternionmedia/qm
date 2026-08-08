@@ -126,6 +126,22 @@ git -C governance/qm log --oneline -1           # confirm the tip you expect
 git add governance/qm && git commit             # the parent records an exact commit
 ```
 
+**Ask the remote, not the working tree.** Every check below is written against
+paths, and a path resolves to whatever branch is checked out — which during an
+audit is often a branch you just made. Establish the repository's actual state
+first:
+
+```sh
+git fetch origin
+for f in .gitmodules AGENTS.md .github/workflows/adr-lint.yml LICENSE; do
+  printf '%-34s ' "$f"; git cat-file -e "origin/HEAD:$f" 2>/dev/null && echo present || echo ABSENT
+done
+git rev-list --count origin/HEAD..HEAD    # unpushed work, which is not adoption
+```
+
+An audit that reads the working tree reports your own unpushed branch as the
+project's state. That has happened, and the wrong answer reached `main`.
+
 **Look for the behaviour before looking for the filename.** A project that
 adopted before the seed existed may have implemented the same thing its own
 way, in which case the seed artifact is neither absent nor a stale copy — it
