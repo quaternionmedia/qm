@@ -76,7 +76,20 @@ of the four checks. Being pinned is not being adopted, and nothing reports the
 difference — which is why the audit has to be walked per project rather than
 inferred.
 
-The other seven adopting projects have not been audited. That is the largest
+**apothecary** was audited next (2026-08-08) and is the healthiest instance:
+level with `main`, touching `adr/` only, every seed artifact present with the
+pointer files at mode `120000`, and a **working dependency-manifest license
+gate** — the first real instance of the open-license record's §4 enforcement
+anywhere. Its only gaps are the `<name>` placeholder and an ADR lint still on
+the single-check version.
+
+The audit paid for itself immediately. apothecary's CI had failed on
+`upload-pack: not our ref` — a submodule pinned to a commit that was not
+pushed. qmetronome had hit the same failure, written a check for it, and
+nothing carried that check across. It is now `project-seed/ci/submodule-check.yml`,
+which is what the seed is for.
+
+The other six adopting projects have not been audited. That is the largest
 open item on this page.
 
 ## What is deliberately waiting

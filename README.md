@@ -140,9 +140,13 @@ passes, not when its command exits zero.
    `git config -f .gitmodules --get submodule.governance/qm.branch` returns
    `project/<name>`. Check the recorded URL is the canonical remote and not a
    local path used while setting it up.
-4. **Wire CI:** copy `project-seed/ci/adr-lint.yml` into
-   `.github/workflows/` verbatim — no project-specific edits needed. Only
-   the workflow file is copied; it invokes
+4. **Wire CI:** copy `project-seed/ci/adr-lint.yml` **and
+   `project-seed/ci/submodule-check.yml`** into `.github/workflows/`
+   verbatim — no project-specific edits needed. The submodule check is
+   self-contained by necessity: it checks out without submodules, because the
+   submodule fetch is the thing it guards, so it cannot run a script from
+   inside one. The ADR lint is the other way round — only the workflow file is
+   copied; it invokes
    `governance/qm/project-seed/ci/adr_lint.py` from inside the submodule the
    project already vendors, so the lint logic is always the version the
    project's governance pin points at and never a stale copy. Wire the
