@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Standing** | Attributed, dated, non-binding opinion — never ratified, never binding, cited by author and date. Distinct from `records/` (doctrine, ratified) and `math/` (experiments). |
+| **Standing** | Attributed, dated, non-binding opinion — never ratified, never binding, cited by author and date. Distinct from `records/` (doctrine, ratified) and the `workspace/math-experiments` branch (experiments). |
 | **Scope** | Every file in this directory, including primary-source transcripts that are evidence rather than opinion (marked as such below). |
 | **Attribution** | Author names the human accountable for a perspective; tool involvement, if any, is disclosed as "Tools: \<name\>" in Notes, never in Author — per `records/DRAFT-human-only-contributorship.md`. |
 
@@ -40,7 +40,7 @@ of judgment.
 |---|---|---|---|---|---|
 | 2026-06-09 | `claude-fable-5-2026-06-09.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Fable 5 |
 | 2026-06-09 | `claude-fable-5-2026-06-09_philosophy.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Fable 5 |
-| 2026-06-09 | `claude-fable-5-2026-06-09-mathematical-limits.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Fable 5 (addendum: Claude Sonnet 4.6, 2026-06-11). `math/` topics 01–06 investigate this document's named holes (see `math/README.md`) |
+| 2026-06-09 | `claude-fable-5-2026-06-09-mathematical-limits.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Fable 5 (addendum: Claude Sonnet 4.6, 2026-06-11). the `workspace/math-experiments` branch investigates this document's named holes (see its `math/README.md`) |
 | 2026-06-09 | `session-transcript-2026-06-09.md` | — (raw transcript) | Primary source, not an opinion | Unreviewed | Working transcript behind this repo's initial content |
 | 2026-06-27 | `claude-sonnet-4-6-2026-06-27-mobile-cross-platform-governance.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 4.6; qmetronome's server-infra-assumption gap findings |
 | 2026-07-04 | `claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 5 |
