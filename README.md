@@ -238,8 +238,23 @@ given day.
 | — | IDE-integrated governance discovery | Proposed | 2026-07-05 |
 | — | Outbound licensing of QM work | Proposed | 2026-08-08 |
 
-Handbook (policy, not records): public-by-default (with a defined promotion
-path to record form), style guide (minimal, legible deliverables).
+**Every record is `Proposed`, and that is a decision rather than a backlog:
+ratification waits on a second active code owner.** GitHub does not count a
+PR author's own approval, so a ratification gate one person can satisfy alone
+is a gate in name only. The mechanisms are not waiting — the discipline is
+enforced by CI today. See `handbook/governance-rollout.md` for what is
+enforced, what is written but not yet mechanical, and what the wait costs.
+
+Handbook (policy, not records):
+
+| Page | What it answers |
+|---|---|
+| `handbook/governance-rollout.md` | How far this corpus has got in governing itself, and what ratification waits on |
+| `handbook/propagation-runbook.md` | How an org change reaches an adopted project, in both repositories |
+| `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
+
+Style guide (minimal, legible deliverables) is named by the charter and not
+yet written.
 
 ### Obligations that fall due at ratification
 

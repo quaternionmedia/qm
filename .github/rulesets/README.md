@@ -8,10 +8,40 @@ only in a settings page nobody can read from the corpus.
 the same rule the corpus states for its own content: assistants draft, humans
 decide.
 
-All five ship at `"enforcement": "evaluate"` — they log what they *would*
-have blocked and block nothing. This repository has never had a check run, so
-evaluating first is how the deadlocks below get found before they can strand
-a ratification.
+**The JSON describes the end state, and ships evaluating.** Every file is
+written as the protection this repository is building toward — including two
+required code-owner approvals on `main` and an empty bypass list — while
+`"enforcement": "evaluate"` means all five log what they *would* have blocked
+and block nothing. Applying them today is therefore safe and reversible, and
+it is how the deadlocks below get found in logs rather than on the day
+someone tries to ratify.
+
+## The staged path, and what unlocks ratification
+
+This repository has never had a single check run, and has one active
+reviewer. Turning on the end state today would deadlock immediately. The
+stages below each add one thing and can be verified before the next.
+
+| Stage | Change | Precondition |
+|---|---|---|
+| 0 — today | No rulesets. The rules hold as doctrine (`AGENTS.md`, `README.md`) | — |
+| 1 | Apply all five **evaluating**. Read `rule-suites` for a week | none — safe now |
+| 2 | Flip C, D, E to **active**: force-push, deletion, signing, branch naming | Stage 1 quiet |
+| 3 | A and B **active**, but A with `required_approving_review_count: 1` and a `pull_request`-scoped admin bypass | `adr-lint`, `symlinks` and `reuse` have each reported green on a real PR |
+| 4 | A as written here: **2 approvals, no bypass** | **a second code owner is genuinely active** |
+
+**Records stay `Proposed` until stage 4.** Ratification is the act of a
+human taking responsibility for what the corpus says, and with one active
+reviewer that is a single point of failure holding a pen. The corpus is
+already operating under its own doctrine — the discipline is enforced by CI,
+the drafts are honoured in practice — so nothing is blocked by waiting except
+the Status field and a QM number.
+
+This is a deliberate trade, and it has a cost worth naming: a corpus of
+`Proposed` records has no worked example of a ratified record, of an
+`## Amendments` region, or of the append-only discipline the template
+describes. Reaching stage 4 is what closes that, and adding a second code
+owner is the only thing standing in the way.
 
 ## Why rulesets rather than classic branch protection
 
@@ -61,12 +91,23 @@ blocks forever at *"Expected — waiting for status to be reported"*, with no
 failure to fix. The same applies to `CODEOWNERS`, which GitHub also reads
 from the base branch.
 
-**A's code-owner review will stop you merging your own ratification PR.**
-GitHub does not count a PR author's own approval, and `subcontrabass`
-authored every file in this repository. `A-main.json` therefore ships with a
-repo-admin bypass scoped to `pull_request` — the PR, its CI and its audit
-trail all still happen; a solo maintainer can complete the merge. Remove that
-bypass entry when a second maintainer is genuinely active.
+**A's code-owner review will stop you merging your own PR, by design.**
+GitHub does not count a PR author's own approval, and one account authored
+every file in this repository. As written — two approvals, no bypass — A is
+unsatisfiable by one person. That is the point rather than a defect: it is
+what "two code owners" means mechanically, and it is why A is the *last*
+stage rather than the first.
+
+Until then, stage 3 runs A with one required approval and a
+`pull_request`-scoped repo-admin bypass, which keeps the PR, its CI and its
+audit trail while letting a solo maintainer complete the merge. To run stage
+3, set `required_approving_review_count` to `1` and add:
+
+```json
+"bypass_actors": [
+  { "actor_id": 5, "actor_type": "RepositoryRole", "bypass_mode": "pull_request" }
+]
+```
 
 ## Applying
 
@@ -75,8 +116,13 @@ gh auth status                       # must be an admin on the repo
 ./.github/rulesets/apply.sh          # creates or updates all five
 ```
 
-To promote to enforcing, edit `"enforcement": "evaluate"` to `"active"` in
-each file and re-run. Do that after one clean ratification cycle, not before.
+To advance a stage, edit `"enforcement"` to `"active"` in the files that
+stage covers and re-run. Check what evaluating rules have been catching
+first:
+
+```sh
+gh api repos/quaternionmedia/qm/rulesets/rule-suites
+```
 
 ## Not covered here
 
