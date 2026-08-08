@@ -46,6 +46,14 @@ that does not exist yet. That is seam logic by the doctrine's own definition.
    - A module advertises `caps` at announce time, before emitting any event, so
      a consumer can present an appropriate interface without waiting for a
      rich event to arrive.
+   - **The emitted JSON Schema never closes the envelope object.** No
+     `additionalProperties: false`, at the top level or on any nested object.
+     The ignore-unknown-fields rule is a property of the models in one
+     language and a property of the *artifact* in every other, and a consumer
+     written in another language holds only the artifact. A schema that closes
+     the object makes every consumer built against it reject the next
+     generation of modules, which is the failure this record exists to
+     prevent, arriving through a serialization default rather than a decision.
 4. **Every transport carries this envelope**, either directly (MQTT, USB-serial
    diagnostics) or by a documented, lossless-where-possible projection (BTHome
    object IDs, Zigbee cluster attributes, MIDI note and controller numbers).
@@ -53,7 +61,16 @@ that does not exist yet. That is seam logic by the doctrine's own definition.
    and a projection that cannot carry an axis states which axis it drops.
 5. **CI fails on any schema change that breaks a checked-in vector**, and on
    any consumer-compatibility test in which a schema-pinned consumer errors on
-   a capability-extended event.
+   a capability-extended event. **Vectors are checked against the emitted JSON
+   Schema, not against the models that produced it** — checking the models
+   against the models establishes that they agree with themselves and says
+   nothing about the artifact a foreign consumer actually holds.
+6. **Sequence-level invariants are enforced by a stateful check, not by the
+   schema.** Monotonic `seq` is a relationship between one payload and the one
+   before it, which no single-event schema can express. It is checked where a
+   sequence exists — in the validator's array mode and in any consumer
+   tracking loss — and the distinction is documented rather than papered over
+   by weakening either gate to make one story fit both.
 
 ## Consequences
 
