@@ -133,10 +133,18 @@ handoff this contract exists to produce. This is distinct from a record's
 `Pends on` row: that names an input *the organisation* has not settled, and a
 Proposed record naming one is this process working correctly.
 
-**Session prohibitions (verbatim-banned):** "takes the ADR-NNNN slot,"
-"the set renumbers," "supersedes the stance from the earlier review/draft,"
-"retroactive" framing for adoption-time rules, edits to an Accepted body
-outside Amendments.
+**Session prohibitions.** Two kinds, and they are enforced differently.
+
+*Mechanically checked:* the banned-vocabulary set the ADR lint enforces over
+prose. `project-seed/ci/adr_lint.py` is its single source — read the set
+there rather than from a copy, because a copy drifts. Quoting the set inside
+a code span is not a violation; the check reads prose only.
+
+*Not checked, and therefore on you:* assigning a number before ratification,
+writing supersession language into a draft, framing an adoption-time rule as
+though it reached backwards, and editing an Accepted body outside its
+Amendments region. The last of these the lint does catch; the first three are
+shapes rather than strings, and no regex recognises them reliably.
 
 ## CI enforcement
 

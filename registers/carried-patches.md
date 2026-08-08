@@ -2,8 +2,12 @@
 
 Every patch any QM project applies at build time, per the contribution and
 sponsorship record. A carried patch is a commitment made by the org. A
-build-time patch absent from this table is a lint failure in the carrying
-project. Reviewed quarterly; the promote-or-drop trigger fires at two
+build-time patch absent from this table fails review in the carrying
+project. No gate detects one: a patch applied during a build leaves no trace
+this repository can see, so the check is a reviewer following the fork
+procedure's step 7 — search the project's dependency manifests for build-time
+sources that are not release artifacts. Naming that honestly beats claiming a
+lint that does not exist. Reviewed quarterly; the promote-or-drop trigger fires at two
 quarters without upstream movement.
 
 | Upstream | Patch (fork branch) | Upstream PR | Carrying project | Since | Status | Quarterly notes |

@@ -141,8 +141,9 @@ are instruments a human directs, not parties who can answer for the result.
 That a tool did most of the visible work is not the test; whether the named
 party can answer for it is.
 
-→ Org record: **Human-only contributorship**, with the commit-trailer check
-and the perspectives-index migration as teeth.
+→ Org record: **Human-only contributorship**, with the perspectives-index
+migration as delivered teeth and a branch-protection rule against unmonitored
+co-author trailers as the mechanism still owed.
 
 ## P11 — Governance finds the reader, not the reverse
 

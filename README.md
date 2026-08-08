@@ -9,23 +9,29 @@ tighten its rules — never relax them.
 
 ```
 qm/
-├── README.md            ← this file: namespaces, precedence, fork procedure
+├── README.md            ← this file: namespaces, precedence, branch model, fork procedure
 ├── PRINCIPLES.md        ← the charter: interpretation the records are cut from
 ├── TEMPLATE.md          ← record template for THIS corpus (QM-XXXX)
-├── AGENTS.md            ← governance discovery for any coding agent; CLAUDE.md and
-│                           .github/copilot-instructions.md are symlinks to it
-├── .github/workflows/   ← this corpus's own CI: the ADR lint, run against its own records
-├── .vscode/             ← checked-in settings.json + extensions.json (this record's teeth)
+├── AGENTS.md            ← governance discovery for any coding agent. CLAUDE.md and
+│                           .github/copilot-instructions.md are symlinks to it, so a
+│                           tool reading either gets this file's current bytes
+├── LICENSE              ← CC-BY-SA-4.0, the corpus-prose default
+├── LICENSES/            ← SPDX text of every licence in use; REUSE.toml maps paths to them
+├── .github/             ← CODEOWNERS, the CI this corpus runs on itself, and rulesets/
+│                           (branch protection as reviewable config, applied by a human)
+├── .vscode/             ← settings.json + extensions.json, symlinks into project-seed/ide/
 ├── records/             ← org records (philosophies); DRAFT-* until ratified
 ├── registers/           ← org-level live registers (carried patches, …)
-├── handbook/            ← business policy routed out of ADR form
-├── perspectives/        ← attributed, dated, non-binding opinions; index + response status in perspectives/README.md
+├── handbook/            ← policy and status routed out of record form
+├── perspectives/        ← attributed, dated, non-binding opinions; index in perspectives/README.md
 └── project-seed/        ← the forkable template a new project's own branch copies verbatim
-    ├── adr/              ← README + TEMPLATE, copied onto that project's own project/<name> branch as adr/
-    ├── ci/                ← adr-lint.yml (copied into the project's .github/workflows/) and
-    │                         adr_lint.py (run in place from the submodule, never copied)
-    └── ide/               ← AGENTS.md, CLAUDE.md, copilot-instructions.md, vscode-settings.json,
-                              vscode-extensions.json — copied into the project's own root, .vscode/, .github/
+    ├── adr/              ← README + TEMPLATE, copied onto that project's project/<name> branch as adr/
+    ├── ci/               ← adr-lint.yml (copied into the project's .github/workflows/) and
+    │                        adr_lint.py (run in place from the submodule, never copied)
+    └── ide/              ← a 1:1 mirror of the target project's own root: AGENTS.md and
+                             CLAUDE.md at its root, .github/copilot-instructions.md,
+                             .vscode/settings.json, .vscode/extensions.json. Copied
+                             recursively, never file by file
 ```
 
 Each adopting project's own `adr/` directory — its decision records, as
@@ -52,7 +58,7 @@ a non-server runtime. The mathematical-limits experiments live on
 `workspace/math-experiments` — non-binding, and reached from the perspective
 whose open questions they investigate.
 
-## Namespaces and precedence
+## Record namespaces and precedence
 
 - **Org records:** `QM-NNNN`, numbered at ratification by this README's index.
 - **Project records:** `ADR-NNNN`, numbered locally per project, starting at 0001.
@@ -71,13 +77,35 @@ numbering at ratification, one decision per record, banned-vocabulary lint)
 is identical at both levels and is itself an org record: see
 *Decision-record discipline* in `records/`.
 
+**What binds, and what does not.** Only `records/` binds. The rest of this
+corpus carries force by pointing at a record, never on its own authority:
+
+| Directory | Force | If it conflicts with a record |
+|---|---|---|
+| `records/` | binding on every project | it *is* the rule |
+| `registers/` | binding, as the record that creates it says | the record wins; the register is its data, not a second rule |
+| `handbook/` | policy and status, binding on QM's own conduct | the record wins, and the conflict means the page needs promoting or correcting |
+| `perspectives/` | none, by construction | no conflict is possible; a perspective is an opinion |
+| `project-seed/` | none in itself | it is a template; the copy is governed where it lands |
+
+A project record may tighten a `handbook/` page the same way it may tighten a
+record. It may not relax either. If a handbook page ever needs to settle a
+dispute rather than describe a practice, that is the signal to promote it to
+a record — each page states its own promotion path.
+
 ## Forking a new project
 
-The seed is proven — its first instance is the streaming-infrastructure
-project, which serves as the reference implementation for a server/container
-runtime; `project/qmetronome` (a branch of this repo, not a separate fork)
-is the reference implementation of the branch-per-project ADR model below
-for a non-server runtime.
+**How proven each third of the seed is, stated honestly, because a forker
+inherits the untested parts too.** `adr/` has the most mileage: every adopting
+project runs it, and `project/streaming-infrastructure` was its first
+instance. `ci/` was generalized from the working lint in `project/qmetronome`
+and now runs in this corpus's own CI, but has not yet run in a project that
+copied it from here. `ide/` is running here, and whether any adopting
+project has copied it cannot be established from this repository — it lands in
+the project's *own* repo, which this corpus does not see. Treat it as the
+least exercised of the three. Expect the untested parts to need fixes, and
+send them back rather than fixing them locally: a copy does not track its
+origin.
 
 **Every step below states how to confirm it worked.** Run the check, do not
 infer it from the step having completed without error. Three of the defects
@@ -265,24 +293,13 @@ yet written.
 
 ### Mechanisms wired ahead of their own record
 
-Some records describe machinery that costs nothing to run before
-ratification and protects something in the meantime. Where that is true, the
-machinery is live and the record's Status is still Proposed — the two are
-independent, and waiting would mean leaving a known gap open for
-bookkeeping's sake. Ratification remains a separate human action in every
-case.
+Some records describe machinery that costs nothing to run before ratification
+and protects something in the meantime. Where that is true the machinery is
+live and the record's Status is still `Proposed`: the two are independent, and
+waiting would leave a known gap open for bookkeeping's sake. Ratification
+remains a separate human action in every case.
 
-- **IDE-integrated governance discovery** — this corpus's root carries
-  `AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md`, and
-  `.vscode/settings.json`/`extensions.json`; the pointer files and the shared
-  VS Code config are real git symlinks (mode `120000`) to their canonical
-  copy in `project-seed/ide/`, so this repo dogfoods the seed rather than
-  keeping a second copy. This repo is itself a place a low-context agent gets
-  dropped into, and was before the record existed.
-- **Human-only contributorship** — `perspectives/README.md`'s index and each
-  affected file's header and signature name the accountable human, with tool
-  involvement moved to a Tools annotation. Perspectives carry no ratification
-  gate, so there was nothing to wait on.
-- **Decision-record discipline** — the ADR lint runs in this repo's own CI
-  against `records/`, the reference project's `adr/`, and each
-  `project/*` branch's `adr/`.
+`handbook/governance-rollout.md` holds the current inventory — what is
+enforced, what is written but not yet mechanical, and what is waiting. It is
+kept there rather than here so there is one place to update when a mechanism
+lands, instead of two that drift.

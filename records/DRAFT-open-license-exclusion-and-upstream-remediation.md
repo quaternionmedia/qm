@@ -62,15 +62,14 @@ discover.
    PR to the closest layer of the stack where it belongs, in that community's
    language and idiom — never by adopting a closed product, never by a
    private workaround. Subsidiarity decides "closest"; house preference
-   governs what we build, not what we contribute. Pending patches are carried
-   on public branches of public QM forks, applied at build time, registered
-   in the org carried-patch register, and archived on merge. Upstream-dead or
-   rejected: promote the fork to a maintained public QM project, or implement
-   in the project's control plane if genuinely seam logic. Sponsorship may
-   accompany contribution, particularly for review bandwidth.
+   governs what we build, not what we contribute. A gap closed this way
+   usually means carrying a patch until it lands upstream; how a patch is
+   carried, registered, reviewed and eventually promoted or dropped is
+   decided once, in the contribution and sponsorship record, and is not
+   restated here.
 4. **Enforcement.** Every project CI generates a machine-readable license
-   report and fails the build on any license outside the encoded OSI
-   allowlist, along **every** path its runtime shape presents — not one
+   report and fails the build on any license outside the encoded allowlist,
+   along **every** path its runtime shape presents — not one
    chosen path: an SBOM per image for container and server runtimes, and a
    dependency-manifest report per package ecosystem (illustrative tooling,
    not a binding list — `com.github.jk1.dependency-license-report` for
@@ -84,8 +83,15 @@ discover.
    an ecosystem still permits; an unresolvable or absent declaration is
    treated as a failure to be investigated, never as a pass. All of it is
    paired with a quarterly scan that watches pinned upstreams for
-   license-file changes and archive status. Allowlist changes are amendments
-   to this record.
+   license-file changes and archive status. The allowlist encodes the
+   OSI-approved set, which is machine-readable and covers almost every case.
+   §1 also admits FSF-free licenses, and the two sets are not identical: a
+   license the FSF recognises as free but OSI has not reviewed is permitted
+   by §1 and absent from the allowlist, so it fails the gate. That failure is
+   correct — it is the signal to adjudicate, not a verdict. The disposition
+   is an amendment to this record adding the license to the allowlist, with
+   the FSF listing cited. Allowlist changes are amendments to this record in
+   every case; a project may not encode a local exception.
 5. **Scope boundary.** The floor is userspace plus kernel modules. Microcode,
    firmware, and BIOS/UEFI are out of scope — no bootable x86 stance
    satisfies the rule, and an unenforceable constitution is worse than an
@@ -168,9 +174,12 @@ discover.
 ## Revision triggers
 
 - Any §2 relicense event (starts the 90-day clock).
-- A carried patch exceeds two quarters without upstream movement
-  (promote-or-drop).
-- Material change to the OSI allowlist.
+- A carried patch trips the stall condition the contribution and sponsorship
+  record defines.
+- Material change to the OSI-approved set, or an FSF-free-but-not-OSI
+  license reaching the gate for a second time — one adjudication is an
+  amendment, a pattern means §1's two criteria need reconciling rather than
+  case-by-case handling.
 - A §6 provider changes terms, withdraws, or fails — the ownability test is
   run against the real event rather than the hypothetical.
 - A project's §6 inventory is found to be stale or incomplete at review — the
