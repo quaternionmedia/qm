@@ -1,13 +1,15 @@
 name: ADR lint
 
 # This corpus runs the lint it requires of every project, against its own
-# records. It previously required the lint everywhere and ran it nowhere,
-# including here -- which meant the one repository whose entire subject is
-# decision-record discipline was the only one with no mechanical check on it.
+# records. A repository whose entire subject is decision-record discipline is
+# the last one that should rely on an unchecked convention.
 #
 # On main this lints records/ against the index in README.md. On a
 # project/<name> branch it also lints that project's adr/ directory, which
-# only exists on those branches.
+# only exists on those branches. Every directory-scoped step is guarded, so a
+# branch that lacks a given directory reports a logged pass rather than a
+# failure -- and no step needs editing when a directory moves to its own
+# branch.
 
 on:
   push:
@@ -50,10 +52,14 @@ jobs:
 
       - name: Lint the reference project's records
         run: |
-          python project-seed/ci/adr_lint.py \
-            --records-dir streaming-infrastructure/adr \
-            --index streaming-infrastructure/adr/README.md \
-            ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
+          if [ -d streaming-infrastructure/adr ]; then
+            python project-seed/ci/adr_lint.py \
+              --records-dir streaming-infrastructure/adr \
+              --index streaming-infrastructure/adr/README.md \
+              ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
+          else
+            echo 'No streaming-infrastructure/adr on this branch; it lives on its own project branch.'
+          fi
 
       - name: Lint this branch's project records
         run: |

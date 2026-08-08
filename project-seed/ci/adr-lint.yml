@@ -9,16 +9,23 @@ name: ADR lint
 # Amendments section, and an index/directory mismatch.
 #
 # Only this YAML file is copied. The lint itself runs from
-# governance/qm/project-seed/ci/adr_lint.py -- inside the submodule the
+# $QM_SUBMODULE/project-seed/ci/adr_lint.py -- inside the submodule the
 # project already vendors -- so the logic is always the version the project's
 # governance pin points at, and improving it improves every project on the
 # next pin bump. A copied script would be a fifth thing to keep in sync
 # across N repositories, which is the drift this arrangement avoids.
 #
 # Assumes the branch-per-project ADR model: this project's own adr/ directory
-# lives inside the governance/qm submodule, on this project's dedicated
-# branch. If a project ever keeps adr/ locally instead, change RECORDS_DIR
-# below to adr and drop the --index override.
+# lives inside the governance submodule, on this project's dedicated branch.
+#
+# Two knobs, both in env: below. Nothing else in this file needs editing.
+#   QM_SUBMODULE -- where this project mounts the governance submodule.
+#                   governance/qm is the documented default; codecartographer
+#                   mounts it at docs/qm, so the path is a project choice and
+#                   is named once here rather than repeated per step.
+#   RECORDS_DIR  -- leave empty for the branch-per-project model. Set it to a
+#                   local path (adr) only if this project keeps adr/ in its
+#                   own working tree instead of on its governance branch.
 
 on:
   push:
@@ -29,7 +36,8 @@ permissions:
   contents: read
 
 env:
-  RECORDS_DIR: governance/qm/adr
+  QM_SUBMODULE: governance/qm
+  RECORDS_DIR: ''
 
 jobs:
   adr-lint:
@@ -59,7 +67,14 @@ jobs:
 
       - name: ADR lint
         run: |
-          python governance/qm/project-seed/ci/adr_lint.py \
-            --records-dir "$RECORDS_DIR" \
-            --index "$RECORDS_DIR/README.md" \
+          records="${RECORDS_DIR:-$QM_SUBMODULE/adr}"
+          if [ ! -d "$records" ]; then
+            echo "No records directory at '$records'."
+            echo "Set QM_SUBMODULE if this project mounts the governance"
+            echo "submodule elsewhere, or RECORDS_DIR if it keeps adr/ locally."
+            exit 1
+          fi
+          python "$QM_SUBMODULE/project-seed/ci/adr_lint.py" \
+            --records-dir "$records" \
+            --index "$records/README.md" \
             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}

@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """ADR lint — enforces the decision-record-discipline record's four checks.
 
-SEED FILE: copied verbatim into a forking project's .github/workflows/
-alongside adr-lint.yml. See adr/README.md's "CI enforcement" section.
+SEED FILE, run in place: a forking project copies adr-lint.yml into its own
+.github/workflows/ and leaves this script where it is. The workflow invokes it
+out of the governance submodule the project already vendors, so the logic is
+always the version that project's governance pin points at. Copying this file
+into a project would create a second copy to keep in sync across N
+repositories, which is the drift the arrangement avoids. See adr/README.md's
+"CI enforcement" section.
 
 The discipline record's Consequences name four things CI rejects. This
 implements all four:
