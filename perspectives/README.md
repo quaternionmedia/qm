@@ -45,3 +45,4 @@ of judgment.
 | 2026-06-27 | `claude-sonnet-4-6-2026-06-27-mobile-cross-platform-governance.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 4.6; qmetronome's server-infra-assumption gap findings |
 | 2026-07-04 | `claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 5 |
 | 2026-07-05 | `2026-07-05-on-human-only-contributorship.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Sonnet 5; responds to `records/DRAFT-human-only-contributorship.md` |
+| 2026-08-08 | `2026-08-08-a-board-is-an-engine-you-sell.md` | Peter Kagstrom | Perspective | Unreviewed | Tools: Claude Opus 5; argues openness in physical products is reproducibility, and tests `records/DRAFT-build-the-seam-buy-the-engines.md` from the seller's side; proposes amendments to that record and to `records/DRAFT-seams-on-standard-protocols.md` |
