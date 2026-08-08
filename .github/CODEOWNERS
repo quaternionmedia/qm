@@ -1,0 +1,34 @@
+# Ratification is a human action (README.md, "Ratification"). This file names
+# which humans, per path. Tool involvement is never a byline.
+#
+# This file has no effect unless "Require review from Code Owners" is enabled
+# on a ruleset -- see .github/rulesets/. GitHub reads CODEOWNERS from the PR's
+# BASE branch, so a project/* branch does not get code-owner review until main
+# has been propagated into it.
+
+*                       @subcontrabass @mrharpo @CameronRWest @MJWKagstrom
+
+# The ratification surface: Status flips, number assignment, the index.
+/records/               @subcontrabass @mrharpo
+/README.md              @subcontrabass @mrharpo
+/PRINCIPLES.md          @subcontrabass @mrharpo
+/TEMPLATE.md            @subcontrabass @mrharpo
+
+# The seed is copied verbatim into every fork, so an error here replicates
+# into repositories this corpus does not govern.
+/project-seed/          @subcontrabass @mrharpo
+
+# Enforcement: a PR must not weaken the checks that gate it.
+/.github/workflows/     @subcontrabass @mrharpo
+/.github/CODEOWNERS     @subcontrabass @mrharpo
+/.github/rulesets/      @subcontrabass @mrharpo
+
+# Licensing: the outbound grant and the texts it refers to.
+/LICENSE                @subcontrabass @mrharpo
+/LICENSES/              @subcontrabass @mrharpo
+/REUSE.toml             @subcontrabass @mrharpo
+
+# Explicitly unowned: non-binding by construction, and gated on merge to main
+# by the ruleset rather than by per-path ownership.
+/perspectives/
+/math/

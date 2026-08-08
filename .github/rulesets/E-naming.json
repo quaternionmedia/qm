@@ -1,0 +1,21 @@
+{
+  "name": "E - branch naming",
+  "target": "branch",
+  "enforcement": "evaluate",
+  "conditions": {
+    "ref_name": {
+      "include": ["~ALL"],
+      "exclude": [
+        "~DEFAULT_BRANCH",
+        "refs/heads/project/**",
+        "refs/heads/perspective/**",
+        "refs/heads/evolve/**",
+        "refs/heads/workspace/**"
+      ]
+    }
+  },
+  "bypass_actors": [],
+  "rules": [
+    { "type": "creation" }
+  ]
+}
