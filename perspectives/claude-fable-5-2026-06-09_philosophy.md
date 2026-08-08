@@ -1,3 +1,17 @@
+# Perspective — The Limits of Agentic Math, and What to Focus On
+
+| | |
+|---|---|
+| **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
+| **Author** | Peter Kagstrom |
+| **Tools** | Claude Fable 5 |
+| **Date** | 2026-06-09 |
+| **Task** | A philosophical follow-on to the same session's mathematical-limits document: what agentic math can and cannot buy, and where to spend attention next. Kept in its original question-and-answer form. |
+
+*The exchange below is reproduced as it occurred.*
+
+---
+
 pk: Thanks. Now please ascend the analysis to more philosophical about the general limits of this agentic math and any lessons and limits to focus on going forwards.
 
 ```
@@ -34,3 +48,5 @@ This deserves prose, not another artifact — by my own stop signal, the thinkin
 **Distilled, going forward:** conserve the human attention the system now bottlenecks on; guard spirit over letter by auditing lint-clean work, not just flagged work; diversify reviewers against monoculture; protect unharnessed space; keep amendment cheap so the constitution stays ownable; let operation, never speculation, generate the next governance; and hold the residue consciously — there is a remainder of trust and judgment that no harness absorbs, and the system's integrity depends on knowing exactly where it lives rather than believing it's gone.
 
 The compressed version of all of it: agentic math buys you bounded badness, never guaranteed goodness — and the purchase price is paid in human attention and in the permanent vigilance of someone who cares about the difference. The harnesses we built are good. The thing they protect is still, and properly, you.
+
+— Peter Kagstrom, drafted with Claude Fable 5, 2026-06-09

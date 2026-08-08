@@ -9,9 +9,12 @@
 
 ## Context
 
-The open-license record establishes *that* gaps are closed upstream; this
-record establishes the economics and mechanics around it — budget, registers,
-and how client engagements interact with contributions. The causal claim
+The open-license record decides *that* a capability gap is closed upstream
+rather than by a closed product or a private workaround. It stops there. This
+record owns everything that follows from it — the budget, the carry mechanics,
+the register, the stall trigger, and how client engagements interact with
+contributions — so the two records can be amended independently without one
+silently contradicting the other. The causal claim
 underneath: QM's consulting is credible because its maintenance is real, so
 the contribution pipeline is revenue infrastructure, not charity overhead.
 
@@ -24,11 +27,20 @@ the contribution pipeline is revenue infrastructure, not charity overhead.
    in this corpus): every patch any QM project applies at build time is
    registered with upstream PR link, owning project, and carry start date. A
    carried patch is a commitment made by the org, whichever project carries
-   it. A build-time patch absent from the register is a lint failure.
-3. **Quarterly register review** enforces the promote-or-drop trigger: any
-   patch carried two quarters without upstream movement is promoted to a
-   maintained public QM fork or dropped — silent indefinite carrying is the
-   banned middle state.
+   it. A build-time patch absent from the register fails review. It is not a
+   gate: nothing can discover a build-applied patch from a repository, which
+   is exactly why registering it is an obligation on the person who adds it
+   rather than a check on the artifact.
+3. **Carrying, and how it ends.** A pending patch is carried on a public
+   branch of a public QM fork, applied at build time, registered before it
+   ships, and archived on merge. **Quarterly register review** enforces the
+   stall trigger: any patch carried two quarters without upstream movement
+   ends one of three ways — promoted to a maintained public QM fork,
+   implemented in the carrying project's control plane if it is genuinely
+   seam logic, or dropped. Silent indefinite carrying is the banned middle
+   state. "Upstream movement" means a maintainer response, a review, or a
+   merge on the linked PR; a patch nobody upstream has acknowledged has not
+   moved, however active the fork is.
 4. **Client work touching upstream:** contributions produced inside an
    engagement are contributed to the commons under the upstream's license;
    the client is credited where they consent. Engagement contracts state this
