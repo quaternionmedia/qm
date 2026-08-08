@@ -62,18 +62,39 @@ runtime; `project/qmetronome` (a branch of this repo, not a separate fork)
 is the reference implementation of the branch-per-project ADR model below
 for a non-server runtime.
 
+**Every step below states how to confirm it worked.** Run the check, do not
+infer it from the step having completed without error. Three of the defects
+found during alfred's adoption were "did the documented thing, got the wrong
+artifact" — a `cp -a` that silently dereferenced a symlink, an ignore rule
+that swallowed the files just copied, a step whose instructions were written
+by someone for whom they happened to work. A step is done when its check
+passes, not when its command exits zero.
+
+0. **Confirm which commit you are forking from**, in both repos. A fork or a
+   review performed against a stale branch is a confident claim about code
+   nobody is running.
+   *Verify:* `git log --oneline -1` and `git status -sb` in each; the project
+   repo is on its default branch unless there is a stated reason otherwise.
 1. **Add this repo as a submodule** at `governance/qm` in the new project.
+   *Verify:* `git submodule status` lists `governance/qm`.
 2. **Create branch `project/<name>`** off `main` in this repo. On that
    branch, copy `project-seed/adr/` into a new top-level `adr/` directory
    (README + TEMPLATE, verbatim) — the same copy-verbatim discipline as
    before, now landing on a branch of this repo instead of the new
    project's own repository. Push the branch.
+   *Verify:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
+   is empty, and `adr/README.md` differs from the seed only by the seed
+   comment the seed itself says to delete.
 3. **Point the submodule at that branch's tip** (checkout the branch inside
    the submodule, commit the updated pointer in the new project); add
    `branch = project/<name>` to the new project's `.gitmodules` so
    `git submodule update --remote` tracks it going forward — the parent
    repo still records an exact commit each time, so builds stay
    reproducible.
+   *Verify:* `git submodule status` shows the branch in parentheses, and
+   `git config -f .gitmodules --get submodule.governance/qm.branch` returns
+   `project/<name>`. Check the recorded URL is the canonical remote and not a
+   local path used while setting it up.
 4. **Wire CI:** copy `project-seed/ci/adr-lint.yml` into
    `.github/workflows/` verbatim — no project-specific edits needed. Only
    the workflow file is copied; it invokes
@@ -86,6 +107,11 @@ for a non-server runtime.
    choice among them (see that record's Enforcement clause) — plus the §6
    service inventory, which no gate can generate. A project without them is
    not instantiated, it is improvised.
+   *Verify:* run the lint locally against the project's `adr/` before relying
+   on CI — `python governance/qm/project-seed/ci/adr_lint.py --records-dir
+   governance/qm/adr` — and confirm each license gate produces a report you
+   have actually read. A gate whose output nobody has looked at is a green
+   check, not a finding.
 5. **Wire IDE-integrated governance discovery:** copy `project-seed/ide/`
    recursively onto the project root — it already mirrors the target layout
    (`AGENTS.md` and `CLAUDE.md` at its own root, `.github/`, `.vscode/`), so
@@ -142,9 +168,16 @@ for a non-server runtime.
    in that state is instantiated, not improvised: the corpus distinguishes
    projects that carry the governance machinery from those that do not,
    never compliant projects from non-compliant ones.
+   *Verify:* every conflict row carries the reproduction that established it,
+   per the discipline record's evidence clause, and says how it is pinned. A
+   row asserting a defect nobody reproduced is a claim, not a finding.
 7. **Register** any carried patches in `registers/carried-patches.md` here —
    the register is org-level by design: a patch carried by one project is a
    commitment made by the org.
+   *Verify:* search the project's dependency manifests for build-time sources
+   that are not release artifacts — a `git+` URL, a vendored fork, a patch
+   applied during build. alfred's had been carried since 2021 and had never
+   been offered upstream; nothing surfaced it until someone looked.
 
 A fork onto a materially different project shape than the reference
 instance — non-server, non-container, a different language ecosystem —

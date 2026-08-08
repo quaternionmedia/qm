@@ -93,6 +93,25 @@ decisions as Proposed with `Pends on`; end by outputting drafts, the proposed
 index diff, and the open-question list. Ratification — status flip, number
 assignment, index update — is a **human commit** naming the record.
 
+**Verification obligations:** state at the start which commit the session is
+working against, and check it is the one that matters — a review of a stale
+branch is a confident claim about code nobody is running. Establish claims of
+fact by execution rather than from memory: run the command, read the output,
+record what was run. This applies hardest to the three cases that look least
+like they need it —
+
+- *a tool's behavior* — flags, defaults and output formats are the single
+  most common source of confident error, and cost under a minute to check;
+- *a documented step* — verify the artifact it produced, not that the step
+  ran. Its instructions were written by someone for whom they worked;
+- *your own setup* — before reporting a defect in the project, rule out the
+  harness. A false defect report spends someone else's day.
+
+A claim that has not been reproduced is marked as inference rather than
+stated flatly. And **a passing test is not evidence until it has been seen to
+fail**: run the negative case, or the test may be passing for a reason
+unrelated to what it claims to cover.
+
 **Session prohibitions (verbatim-banned):** "takes the ADR-NNNN slot,"
 "the set renumbers," "supersedes the stance from the earlier review/draft,"
 "retroactive" framing for adoption-time rules, edits to an Accepted body
