@@ -69,7 +69,14 @@ project copies. Fork step 6 routes a new project there. **A project is not
 compliant because it copied the seed**; a project that cannot satisfy one yet
 names the gap in its adoption record.
 
-Which projects have done this has not been audited. That is the largest
+**Audited so far: qmetronome only** (2026-08-08, the first exercise of the
+propagation runbook). It was correctly pinned to its branch and had none of
+the IDE governance-discovery artifacts, plus a pre-seed inline lint running one
+of the four checks. Being pinned is not being adopted, and nothing reports the
+difference — which is why the audit has to be walked per project rather than
+inferred.
+
+The other seven adopting projects have not been audited. That is the largest
 open item on this page.
 
 ## What is deliberately waiting
