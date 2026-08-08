@@ -158,10 +158,10 @@ passes, not when its command exits zero.
    choice among them (see that record's Enforcement clause) — plus the §6
    service inventory, which no gate can generate. A project without them is
    not instantiated, it is improvised.
-   *Verify:* run the lint locally against the project's `adr/` before relying
-   on CI — `python governance/qm/project-seed/ci/adr_lint.py --records-dir
-   governance/qm/adr` — and confirm each license gate produces a report you
-   have actually read. A gate whose output nobody has looked at is a green
+   *Verify:* run the whole set locally before relying on CI —
+   `python governance/qm/project-seed/ci/run_workflows_locally.py`, which
+   executes the workflows' actual steps rather than an approximation of them —
+   and confirm each license gate produces a report you have actually read. A gate whose output nobody has looked at is a green
    check, not a finding.
 5. **Wire IDE-integrated governance discovery:** copy `project-seed/ide/`
    recursively onto the project root — it already mirrors the target layout

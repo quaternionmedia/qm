@@ -107,6 +107,12 @@ one of these produced a confident wrong answer during the audits already run:
 - **A negative test that never ran** passes. If you assert a check fails on
   bad input, watch it fail before you believe it.
 
+- **Hand-running a workflow's commands** is not running the workflow. The
+  first local execution of this repo's own workflows failed a step that every
+  hand-run equivalent had passed — the workflow called a console script that
+  was not on PATH. Use `project-seed/ci/run_workflows_locally.py`, and say
+  which steps it cannot reproduce.
+
 State which commit you are working against at the start, and re-derive branch
 counts rather than reading them from any document, this one included.
 

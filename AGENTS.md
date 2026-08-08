@@ -28,7 +28,14 @@ commit or edit — it is short on purpose.
    not settled — that belongs in the record, and a Proposed record naming it
    is the process working. What does not belong anywhere is your own
    unresolved question arriving as PR text.
-4. **Human-only contributorship applies to every commit you make here**
+4. **Run the CI locally before you call a pull request ready.**
+   `python project-seed/ci/run_workflows_locally.py` executes the workflows'
+   actual steps. Reading a workflow and running the commands you think it
+   contains is not the same thing, and the difference is where false "CI is
+   green" claims come from — the first local run of this repo's own workflows
+   failed a step that every hand-run check had passed. Report what you ran and
+   what it said, including which steps the runner cannot reproduce.
+5. **Human-only contributorship applies to every commit you make here**
    (see `records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored
    address (e.g. a vendor `noreply@` address) to any commit. If your default
@@ -36,9 +43,9 @@ commit or edit — it is short on purpose.
    this repo. Tool involvement is disclosed as a `Tools:` note where the
    artifact calls for one (see `perspectives/README.md`'s Attribution row),
    never as a byline.
-5. Follow the drafting-session handoff contract in
+6. Follow the drafting-session handoff contract in
    `project-seed/adr/README.md` before writing or amending any record.
-6. Banned in any pre-ratification `records/DRAFT-*.md` document:
+7. Banned in any pre-ratification `records/DRAFT-*.md` document:
    "previously", "originally", "earlier draft", "re-review", "renumber",
    "retroactive", "supersedes the ... (stance|finding)", "corrected".
    Drafts are rewritten in place, not narrated.

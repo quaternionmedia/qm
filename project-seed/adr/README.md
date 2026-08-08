@@ -149,6 +149,17 @@ new record all arrive the same way, because the review is where a human takes
 responsibility for what the corpus says. A session that cannot open a PR
 stops and hands the branch back rather than merging it.
 
+**Run the gates before claiming they pass.** A session runs the project's
+workflows locally — `python governance/qm/project-seed/ci/run_workflows_locally.py`
+— and reports what it ran, before saying a change is ready. Commands that
+resemble a workflow's steps are not that workflow: the expression syntax, the
+step order and the guards are all places a file does something other than what
+it reads like. A claim of "CI is green" that was not produced by executing the
+steps is a claim about a file someone read.
+
+The runner does not reproduce `uses:` steps, the runner image, or secrets. Say
+so when reporting, rather than letting a local pass stand in for a remote one.
+
 **A pull request states decisions, not questions.** Every input the session
 was unsure of is settled before the PR is opened — asked in the session, and
 waited on. A PR carrying the session's own open questions hands the drafting
