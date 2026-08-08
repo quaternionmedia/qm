@@ -1,0 +1,21 @@
+QM No-Grant Notice
+==================
+
+All rights reserved. No licence is granted.
+
+Material carrying this identifier is published for reading and citation and
+is not licensed for reuse, modification, or redistribution.
+
+It is marked this way because Quaternion Media's rights to relicense it are
+not settled -- typically because it is substantially the output of a language
+model produced under human direction, or a primary-source transcript quoted
+as evidence. Marking it honestly is preferred to asserting a grant that may
+not be Quaternion Media's to make.
+
+This notice says nothing about the standing of the material within the QM
+corpus. A perspective marked this way remains a perspective: attributed,
+dated, non-binding, and citable by author and date.
+
+To move a document out from under this notice, its author states in the
+document's own header that its text is wholly human-authored, at which point
+the corpus prose licence applies instead.
