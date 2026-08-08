@@ -102,7 +102,24 @@ datum has **no remote**: six commits, including its whole `adr/` adoption
 work, exist on one disk. Creating the repository is a human decision, so it
 is named here rather than done.
 
-The other five adopting projects have not been audited. That is the largest
+**A sweep of every consuming repository followed**, because one broken pin
+implies a class rather than an incident. Five repositories vendor this corpus:
+
+| Repo | Pin | Submodule remote |
+|---|---|---|
+| alfred | reachable | was a filesystem path — repaired |
+| datum | was unreachable — repaired | was a filesystem path — repaired |
+| apothecary | reachable | canonical |
+| qmetronome | reachable | canonical |
+| codecartographer | reachable | canonical, mounted at `docs/qm` |
+
+Two of five fetched from a filesystem path. That is the enabling mechanism
+rather than a cosmetic detail: a submodule fetching from a local path can pin
+a commit that exists on one machine and nowhere else, and everything resolves
+for the person who set it up. `submodule-check.yml` now fails on a filesystem
+URL in `.gitmodules` as well as on an unreachable pin.
+
+The other four adopting projects have not been audited. That is the largest
 open item on this page.
 
 ## What is deliberately waiting

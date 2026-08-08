@@ -56,6 +56,16 @@ jobs:
               echo "::warning::No .gitmodules URL for submodule '$path' - skipping"
               continue
             fi
+            # A filesystem path here resolves on the machine that set it up and
+            # nowhere else -- it is how an unreachable commit gets pinned in the
+            # first place, and it fails in CI as a missing directory rather than
+            # as anything that names the cause.
+            case "$url" in
+              *://*|*@*:*) ;;
+              *) echo "::error::Submodule '$path' has a filesystem URL in .gitmodules: $url"
+                 echo "::error::Set it to the canonical remote, then run: git submodule sync $path"
+                 status=1; continue ;;
+            esac
             echo "Checking $path @ $sha against $url ..."
             scratch=$(mktemp -d)
             git init --quiet --bare "$scratch"
