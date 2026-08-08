@@ -132,6 +132,16 @@ Ratification is a human action at both levels: a commit that flips Status to
 Accepted, assigns the number from the index, updates the index, and names the
 record in the commit message. Assistants draft; humans ratify.
 
+Ratification is the last human gate, not the only one. **Every change to this
+corpus arrives as a pull request**, from a typo fix to a new record, and the
+merge is a human's act. Assistants and contributors work on a branch —
+`evolve/<slug>`, `perspective/<date>-<slug>`, or the relevant
+`project/<name>` — and open a PR; nobody merges their own work into `main`,
+and nothing reaches `main` by direct push. The branch protection that makes
+this mechanical rather than customary is described in the repository's
+rulesets; the rule stands whether or not the tooling is enforcing it on a
+given day.
+
 ## Index — org records
 
 | # | Title | Status | Date |

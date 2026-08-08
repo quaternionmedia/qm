@@ -12,7 +12,15 @@ commit or edit — it is short on purpose.
 2. This corpus governs its own drafting. Records live in `records/` as
    `DRAFT-*.md` until a human ratifies them (flips Status, assigns a QM
    number, updates the index) — you draft, you never ratify.
-3. **Human-only contributorship applies to every commit you make here**
+3. **Everything you produce arrives as a pull request.** Work on a branch —
+   `evolve/<slug>` for org-level work, `perspective/<date>-<slug>` for a
+   perspective, `project/<name>` for one project's records — and open a PR
+   for human review. Never commit to `main`, never merge into `main`, and
+   never push `main` directly, however small, mechanical, or obviously
+   correct the change looks. Ratification is not the only human gate; it is
+   the last one. A human decides what this corpus says, and the pull request
+   is where that decision is made and recorded.
+4. **Human-only contributorship applies to every commit you make here**
    (see `records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored
    address (e.g. a vendor `noreply@` address) to any commit. If your default
@@ -20,9 +28,9 @@ commit or edit — it is short on purpose.
    this repo. Tool involvement is disclosed as a `Tools:` note where the
    artifact calls for one (see `perspectives/README.md`'s Attribution row),
    never as a byline.
-4. Follow the drafting-session handoff contract in
+5. Follow the drafting-session handoff contract in
    `project-seed/adr/README.md` before writing or amending any record.
-5. Banned in any pre-ratification `records/DRAFT-*.md` document:
+6. Banned in any pre-ratification `records/DRAFT-*.md` document:
    "previously", "originally", "earlier draft", "re-review", "renumber",
    "retroactive", "supersedes the ... (stance|finding)", "corrected".
    Drafts are rewritten in place, not narrated.

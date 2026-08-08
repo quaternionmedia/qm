@@ -93,6 +93,14 @@ decisions as Proposed with `Pends on`; end by outputting drafts, the proposed
 index diff, and the open-question list. Ratification — status flip, number
 assignment, index update — is a **human commit** naming the record.
 
+**Delivery is always a pull request.** A session works on a branch and opens
+a PR; it does not commit to, merge into, or push a shared branch directly,
+and it does not merge its own work. This holds for every change a session
+makes, not only for the ratifying commit — a mechanical fix, a typo, and a
+new record all arrive the same way, because the review is where a human takes
+responsibility for what the corpus says. A session that cannot open a PR
+stops and hands the branch back rather than merging it.
+
 **Session prohibitions (verbatim-banned):** "takes the ADR-NNNN slot,"
 "the set renumbers," "supersedes the stance from the earlier review/draft,"
 "retroactive" framing for adoption-time rules, edits to an Accepted body
