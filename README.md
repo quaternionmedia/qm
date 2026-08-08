@@ -13,7 +13,8 @@ qm/
 ├── PRINCIPLES.md        ← the charter: interpretation the records are cut from
 ├── TEMPLATE.md          ← record template for THIS corpus (QM-XXXX)
 ├── AGENTS.md            ← governance discovery for any coding agent; CLAUDE.md and
-│                           .github/copilot-instructions.md are one-line pointers to it
+│                           .github/copilot-instructions.md are symlinks to it
+├── .github/workflows/   ← this corpus's own CI: the ADR lint, run against its own records
 ├── .vscode/             ← checked-in settings.json + extensions.json (this record's teeth)
 ├── records/             ← org records (philosophies); DRAFT-* until ratified
 ├── registers/           ← org-level live registers (carried patches, …)
@@ -22,7 +23,8 @@ qm/
 ├── math/                ← experiments workspace: demonstrations against open questions named in perspectives
 └── project-seed/        ← the forkable template a new project's own branch copies verbatim
     ├── adr/              ← README + TEMPLATE, copied onto that project's own project/<name> branch as adr/
-    ├── ci/                ← adr-lint.yml, copied into the project's own .github/workflows/
+    ├── ci/                ← adr-lint.yml (copied into the project's .github/workflows/) and
+    │                         adr_lint.py (run in place from the submodule, never copied)
     └── ide/               ← AGENTS.md, CLAUDE.md, copilot-instructions.md, vscode-settings.json,
                               vscode-extensions.json — copied into the project's own root, .vscode/, .github/
 ```
@@ -60,25 +62,56 @@ runtime; `project/qmetronome` (a branch of this repo, not a separate fork)
 is the reference implementation of the branch-per-project ADR model below
 for a non-server runtime.
 
+**Every step below states how to confirm it worked.** Run the check, do not
+infer it from the step having completed without error. Three of the defects
+found during alfred's adoption were "did the documented thing, got the wrong
+artifact" — a `cp -a` that silently dereferenced a symlink, an ignore rule
+that swallowed the files just copied, a step whose instructions were written
+by someone for whom they happened to work. A step is done when its check
+passes, not when its command exits zero.
+
+0. **Confirm which commit you are forking from**, in both repos. A fork or a
+   review performed against a stale branch is a confident claim about code
+   nobody is running.
+   *Verify:* `git log --oneline -1` and `git status -sb` in each; the project
+   repo is on its default branch unless there is a stated reason otherwise.
 1. **Add this repo as a submodule** at `governance/qm` in the new project.
+   *Verify:* `git submodule status` lists `governance/qm`.
 2. **Create branch `project/<name>`** off `main` in this repo. On that
    branch, copy `project-seed/adr/` into a new top-level `adr/` directory
    (README + TEMPLATE, verbatim) — the same copy-verbatim discipline as
    before, now landing on a branch of this repo instead of the new
    project's own repository. Push the branch.
+   *Verify:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
+   is empty, and `adr/README.md` differs from the seed only by the seed
+   comment the seed itself says to delete.
 3. **Point the submodule at that branch's tip** (checkout the branch inside
    the submodule, commit the updated pointer in the new project); add
    `branch = project/<name>` to the new project's `.gitmodules` so
    `git submodule update --remote` tracks it going forward — the parent
    repo still records an exact commit each time, so builds stay
    reproducible.
+   *Verify:* `git submodule status` shows the branch in parentheses, and
+   `git config -f .gitmodules --get submodule.governance/qm.branch` returns
+   `project/<name>`. Check the recorded URL is the canonical remote and not a
+   local path used while setting it up.
 4. **Wire CI:** copy `project-seed/ci/adr-lint.yml` into
-   `.github/workflows/` verbatim — the ADR lint runs as shipped, no
-   project-specific edits needed. Wire the license gate required by the
-   open-license record along the path matching the project's runtime shape
-   (SBOM-per-image, or a dependency-manifest-plus-allowlist per package
-   ecosystem; see that record's Enforcement clause); a project without both
-   is not instantiated, it is improvised.
+   `.github/workflows/` verbatim — no project-specific edits needed. Only
+   the workflow file is copied; it invokes
+   `governance/qm/project-seed/ci/adr_lint.py` from inside the submodule the
+   project already vendors, so the lint logic is always the version the
+   project's governance pin points at and never a stale copy. Wire the
+   license gates required by the open-license record along **every** path
+   the project's runtime shape presents — an SBOM per image *and* a
+   dependency-manifest gate per package ecosystem, cumulatively, not a
+   choice among them (see that record's Enforcement clause) — plus the §6
+   service inventory, which no gate can generate. A project without them is
+   not instantiated, it is improvised.
+   *Verify:* run the lint locally against the project's `adr/` before relying
+   on CI — `python governance/qm/project-seed/ci/adr_lint.py --records-dir
+   governance/qm/adr` — and confirm each license gate produces a report you
+   have actually read. A gate whose output nobody has looked at is a green
+   check, not a finding.
 5. **Wire IDE-integrated governance discovery:** copy `project-seed/ide/`
    recursively onto the project root — it already mirrors the target layout
    (`AGENTS.md` and `CLAUDE.md` at its own root, `.github/`, `.vscode/`), so
@@ -89,30 +122,62 @@ for a non-server runtime.
    content — a copy method that preserves symlinks carries that forward, so
    editing the project's `AGENTS.md` later keeps both current for free. Fill
    in project-specific setup/test commands below `AGENTS.md`'s marked line;
-   the governance section above it stays verbatim. Check the new project's
-   own `.gitignore` for a blanket `.vscode/` rule first — this corpus's own
-   started with one, which silently kept its checked-in `.vscode/` files
-   from ever being committed; the fix is `.vscode/*` plus
-   `!.vscode/settings.json` and `!.vscode/extensions.json`, not deleting the
-   ignore rule outright. **On Windows, one more one-time step gives the
-   identical result POSIX gets for free:** enable Developer Mode (Settings →
-   For developers) and run `git config core.symlinks true` once per clone,
-   then `git checkout -- .` if the files were already checked out before
-   that — verified on a real Windows checkout, not assumed; see the
-   IDE-integrated governance discovery record's Consequences. Skipping it
-   doesn't break anything (`CLAUDE.md` and `copilot-instructions.md`
-   materialize as one-line files containing just the relative path rather
-   than resolving to it — legible, not silent breakage), but it isn't equal
-   treatment, so name the step rather than quietly accept the lesser
-   version. A project without this step is not instantiated, it is
-   improvised — the same standard `adr/` and `ci/` are already held to.
+   the governance section above it stays verbatim, apart from replacing the
+   `<name>` placeholders. Before committing, check that the project's
+   `.gitignore` does not swallow the files just copied, by asking git rather
+   than by reading the ignore file:
+
+   ```sh
+   git check-ignore -v AGENTS.md CLAUDE.md .github/copilot-instructions.md \
+     .vscode/settings.json .vscode/extensions.json
+   ```
+
+   Any path that comes back matched would never have been committed. This
+   corpus's own `.gitignore` blanket-excluded `.vscode/`; alfred's excluded
+   `*.json` across the whole tree, which swallowed the same two files by a
+   completely different rule. Grepping for `.vscode/` finds the first and
+   misses the second, which is why the check runs against the seed's actual
+   paths. The fix is a negation per swallowed path — `!.vscode/settings.json`,
+   `!.vscode/extensions.json` — not deleting the ignore rule outright.
+
+   **On Windows, one one-time step per clone gives the identical result
+   POSIX gets for free.** It is spelled out in `AGENTS.md`'s own "One-time
+   setup on a fresh clone" section, which is the copy a reader of the new
+   project will actually meet; that section is the single source for it,
+   rather than a third paragraph saying the same thing. Do it, and confirm
+   the pointer files resolve, before treating step 5 as done: a project
+   without it is not instantiated, it is improvised — the same standard
+   `adr/` and `ci/` are held to. Note that `cp -a` is not always sufficient
+   even with the config set — on at least one Windows toolchain it
+   dereferenced `CLAUDE.md` into a full copy and failed outright on the
+   `.github/` pointer. Verify with `git ls-files -s`, which should show mode
+   `120000` for both; if it does not, create them as symlink objects
+   directly (`git hash-object -w`, then `git update-index --cacheinfo
+   120000,<sha>,<path>`), the same method the record's Consequences
+   documents for making the committed object independent of the authoring
+   machine.
 6. **Seed the first project records** on that branch as numberless drafts
    by title; ratify per process. Project ADR-0001 is conventionally the
    project's adoption + scope record, but nothing enforces a particular
-   first decision.
+   first decision. **If the project predates its adoption of this corpus**,
+   that record's substance is the conflict table required by the
+   decision-record-discipline record's adoption clause — every known
+   conflict with an org record, what it violates, and what compliance would
+   look like. Enumerating a conflict is not waiving it, no schedule is
+   required, and scope is frozen per conflict while it stays open. A project
+   in that state is instantiated, not improvised: the corpus distinguishes
+   projects that carry the governance machinery from those that do not,
+   never compliant projects from non-compliant ones.
+   *Verify:* every conflict row carries the reproduction that established it,
+   per the discipline record's evidence clause, and says how it is pinned. A
+   row asserting a defect nobody reproduced is a claim, not a finding.
 7. **Register** any carried patches in `registers/carried-patches.md` here —
    the register is org-level by design: a patch carried by one project is a
    commitment made by the org.
+   *Verify:* search the project's dependency manifests for build-time sources
+   that are not release artifacts — a `git+` URL, a vendored fork, a patch
+   applied during build. alfred's had been carried since 2021 and had never
+   been offered upstream; nothing surfaced it until someone looked.
 
 A fork onto a materially different project shape than the reference
 instance — non-server, non-container, a different language ecosystem —
@@ -158,35 +223,33 @@ given day.
 Handbook (policy, not records): public-by-default (with a defined promotion
 path to record form), style guide (minimal, legible deliverables).
 
-**Post-ratification step for the reference project:** once the org
-open-license record is Accepted, the streaming project's ADR-0001 receives a
-dated amendment recording adoption-by-reference of the org record. Its body
-is untouched; the amendment aligns the instance to the doctrine.
+### Obligations that fall due at ratification
 
-**Perspectives attribution migration for Human-only contributorship:** done
-2026-07-05, ahead of the record's own ratification — perspectives carry no
-ratification gate, so there was nothing to wait on. `perspectives/README.md`'s
-Index table, and the affected files' own header tables and closing
-signatures, no longer name models as Author; each names the human who
-sponsored or submitted the perspective, with the model moved to a Tools
-annotation. Ratifying Human-only contributorship itself (Status → Accepted,
-QM number assigned) remains a separate, pending human action.
+- **Open-license record → the reference project.** When it is Accepted, the
+  streaming project's ADR-0001 receives a dated amendment recording
+  adoption-by-reference. Its body is untouched; the amendment aligns the
+  instance to the doctrine.
 
-**IDE-integrated governance discovery is already live on this repo:** this
-corpus's own root carries `AGENTS.md`, `CLAUDE.md`,
-`.github/copilot-instructions.md`, `.vscode/settings.json`, and
-`.vscode/extensions.json` as of 2026-07-05, and `project-seed/ide/` carries
-the versions a fork copies into a new project (step 5 of "Forking a new
-project"). `CLAUDE.md`, `.github/copilot-instructions.md`, and this repo's
-own `.vscode/settings.json` and `.vscode/extensions.json` are real git
-symlinks (mode `120000`) to their canonical file, not independent copies —
-see the record's Consequences for how those were created, and `AGENTS.md`'s
-own "One-time setup on a fresh clone (Windows)" section for what a fresh
-clone needs to resolve them as real symlinks rather than one-line path
-placeholders — confirmed working on a real Windows checkout once Developer
-Mode is on and `git config core.symlinks true` is set for the clone; this
-clone already has that set. Wiring all of this here ahead of ratification
-is the same non-ratification-gated pattern as the perspectives migration
-above — this repo is itself a place a low-context agent can be dropped
-into, and was, before this record existed. Ratifying the record (Status, QM
-number) remains separate and pending.
+### Mechanisms wired ahead of their own record
+
+Some records describe machinery that costs nothing to run before
+ratification and protects something in the meantime. Where that is true, the
+machinery is live and the record's Status is still Proposed — the two are
+independent, and waiting would mean leaving a known gap open for
+bookkeeping's sake. Ratification remains a separate human action in every
+case.
+
+- **IDE-integrated governance discovery** — this corpus's root carries
+  `AGENTS.md`, `CLAUDE.md`, `.github/copilot-instructions.md`, and
+  `.vscode/settings.json`/`extensions.json`; the pointer files and the shared
+  VS Code config are real git symlinks (mode `120000`) to their canonical
+  copy in `project-seed/ide/`, so this repo dogfoods the seed rather than
+  keeping a second copy. This repo is itself a place a low-context agent gets
+  dropped into, and was before the record existed.
+- **Human-only contributorship** — `perspectives/README.md`'s index and each
+  affected file's header and signature name the accountable human, with tool
+  involvement moved to a Tools annotation. Perspectives carry no ratification
+  gate, so there was nothing to wait on.
+- **Decision-record discipline** — the ADR lint runs in this repo's own CI
+  against `records/`, the reference project's `adr/`, and each
+  `project/*` branch's `adr/`.

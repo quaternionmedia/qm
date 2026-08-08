@@ -93,6 +93,30 @@ decisions as Proposed with `Pends on`; end by outputting drafts, the proposed
 index diff, and the open-question list. Ratification — status flip, number
 assignment, index update — is a **human commit** naming the record.
 
+**Verification obligations:** state at the start which commit the session is
+working against, and check it is the one that matters — a review of a stale
+branch is a confident claim about code nobody is running. Establish claims of
+fact by execution rather than from memory: run the command, read the output,
+record what was run. This applies hardest to the three cases that look least
+like they need it —
+
+- *a tool's behavior* — flags, defaults and output formats are the single
+  most common source of confident error, and cost under a minute to check;
+- *a documented step* — verify the artifact it produced, not that the step
+  ran. Its instructions were written by someone for whom they worked;
+- *your own setup* — before reporting a defect in the project, rule out the
+  harness. A false defect report spends someone else's day;
+- *the source versus the artifact* — a grep over `src/` is evidence about
+  `src/`. A build step, a routing layer or a module nothing imports sits
+  between what you read and what runs, and each can leave the source reading
+  exactly as claimed while the running system behaves differently. Claims
+  about a deployed system are settled against the deployed system.
+
+A claim that has not been reproduced is marked as inference rather than
+stated flatly. And **a passing test is not evidence until it has been seen to
+fail**: run the negative case, or the test may be passing for a reason
+unrelated to what it claims to cover.
+
 **Delivery is always a pull request.** A session works on a branch and opens
 a PR; it does not commit to, merge into, or push a shared branch directly,
 and it does not merge its own work. This holds for every change a session
@@ -116,16 +140,33 @@ outside Amendments.
 
 ## CI enforcement
 
-The ADR lint (banned vocabulary in drafts; numbered filenames not
-Accepted+; Accepted bodies modified outside Amendments; index/directory
-mismatch) ships as a ready-to-run workflow at `project-seed/ci/adr-lint.yml`
-— copy it into `.github/workflows/` verbatim, the same discipline as `adr/`
-itself. The license gate required by the org open-license record is
-doctrine, not one fixed script: wire an SBOM-per-image gate for container
-and server runtimes, or a dependency-manifest-plus-allowlist gate per
-package ecosystem otherwise (see that record's Enforcement clause). Both
-run in the same pipeline as the ADR lint — the constitution and its
-enforcement ship together.
+The ADR lint enforces four checks: banned vocabulary in drafts; numbered
+filenames not Accepted+; Accepted bodies modified outside Amendments; and
+index/directory mismatch. It ships as a ready-to-run workflow at
+`project-seed/ci/adr-lint.yml` — copy that file into `.github/workflows/`
+verbatim, the same discipline as `adr/` itself.
+
+Only the workflow is copied. It runs
+`governance/qm/project-seed/ci/adr_lint.py` out of the submodule, so the
+checks are always the version this project's governance pin points at, and a
+fix to the lint reaches every project on its next pin bump instead of
+needing N copies updated.
+
+The vocabulary check reads prose only — fenced code, inline code spans, and
+HTML comments are excluded. A document that *quotes* the banned list is
+describing the rule, not breaking it, which is why the template's own
+drafting-rules comment and the discipline record's own enumeration do not
+trip it.
+
+The license gates required by the org open-license record are doctrine
+rather than one fixed script, and they are cumulative: wire an SBOM per
+image for container and server runtimes **and** a
+dependency-manifest-plus-allowlist gate for each package ecosystem the
+project ships, along with the service inventory that record's §6 requires
+and no scanner can produce. A project with more than one runtime shape has
+more than one obligation, not a choice among them. All of it runs in the
+same pipeline as the ADR lint — the constitution and its enforcement ship
+together.
 
 ## Index
 

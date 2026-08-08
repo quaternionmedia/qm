@@ -121,8 +121,20 @@ already exists.
   preference this corpus already applies to the submodule model over a
   citation.
 - One more file class to keep current per project, alongside `adr/` and
-  `ci/` — mitigated by the same project-seed verbatim-copy discipline
-  already proven for those two.
+  `ci/` — carried by the same project-seed verbatim-copy discipline already
+  used for those two, and inheriting that discipline's one real weakness:
+  **a copy does not track its origin.** Fixing a defect in the seed does not
+  fix the projects already carrying the defective copy, and nothing records
+  which seed version any project copied. Two seed defects found during
+  alfred's adoption — an `AGENTS.md` pointing at a root `adr/` that does not
+  exist under the branch-per-project model, and an unfilled `project/<name>`
+  placeholder — are live in an earlier adopter's copy today, because that
+  copy was taken before the fix existed. The copies are correct as of their
+  copy date and wrong as of now, and no mechanism says so. Where a seed
+  artifact is executable, running it from the submodule rather than copying
+  it removes the problem entirely, which is why the ADR lint is invoked in
+  place; prose files have no equivalent and are refreshed by hand or not at
+  all.
 - Cost accepted: the specific VS Code settings this record pins are VS
   Code's own feature surface and may be renamed or restructured on VS
   Code's schedule, not this corpus's. A revision trigger below, not a
@@ -184,6 +196,10 @@ already exists.
 
 - A coding agent with meaningful QM usage doesn't read `AGENTS.md`
   natively — add its convention as a pointer file, per §2.
+- A defect is fixed in `project-seed/ide/` — every existing adopter is
+  carrying the unfixed copy, and there is no list of who they are. Either
+  refresh them deliberately or accept, in writing, that the seed and the
+  projects have diverged.
 - VS Code renames or removes the settings this record pins — update the
   checked-in `settings.json`; the decision (explicit over assumed-default)
   survives even when today's exact keys don't.
