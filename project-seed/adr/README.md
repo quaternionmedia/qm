@@ -79,6 +79,30 @@ reused. Project numbering is local (`ADR-NNNN`); org records are `QM-NNNN`.
 7. **Build-time patches are registered** in the org carried-patch register
    before the patch ships.
 
+## What the org records oblige this project to produce
+
+Each row is an obligation an org record creates and that nothing generates
+automatically. A project is not compliant because it copied this directory;
+it is compliant when these exist. Tick them at adoption, and again whenever
+the governance pin is bumped.
+
+| Obligation | Which record | What satisfies it |
+|---|---|---|
+| **Baseline component audit** | open-license | A table in this project's adoption record: every component in a deployed runtime path, its licence, and its disposition. Done once at adoption, extended when a component is added |
+| **Licence gates, cumulatively** | open-license §4 | An SBOM gate per image *and* a dependency-manifest gate per package ecosystem this project ships. A project with two runtime shapes has two obligations, not a choice |
+| **Service inventory** | open-license §6 | A list, in this project's records, of every third-party *service* in a runtime path, with the ownability test answered for each. No scanner can produce this, which is why it is written down |
+| **Quarterly upstream scan** | open-license §4 | A scheduled job watching pinned upstreams for licence-file changes and archive status |
+| **Seam protocol named** | seams | Every record selecting a third-party component names the protocol it is reached over, and answers the replaceability test |
+| **Control-plane instance record** | build-the-seam | One record naming what this project's seam owns, what it refuses to own, and concrete size-smell thresholds as revision triggers. If the project has no control plane, the record says so and why |
+| **Risk register** | open-license, seams | Where this project records governance and abandonment risk for its selected components. A section of a design document is enough; nowhere is not |
+| **Carried patches registered** | contribution | Every build-time patch has a row in the org register *before* it ships. Search the manifests for build-time sources that are not release artifacts |
+
+A project that cannot satisfy one of these yet says so in its adoption record,
+with what compliance would look like. Naming a gap is not waiving it, and a
+project carrying the machinery with an open gap is instantiated rather than
+improvised — the corpus distinguishes projects that carry governance from
+those that do not, never compliant projects from non-compliant ones.
+
 ## Drafting-session handoff (humans and AI assistants alike)
 
 **Inputs to provide the session:** this file; the pinned org records

@@ -215,7 +215,12 @@ passes, not when its command exits zero.
    never compliant projects from non-compliant ones.
    *Verify:* every conflict row carries the reproduction that established it,
    per the discipline record's evidence clause, and says how it is pinned. A
-   row asserting a defect nobody reproduced is a claim, not a finding.
+   row asserting a defect nobody reproduced is a claim, not a finding. Then
+   walk `adr/README.md`'s "What the org records oblige this project to
+   produce" table — eight obligations the org records create that nothing
+   generates for you, including the baseline component audit, the service
+   inventory no scanner can build, and the control-plane record. A project is
+   not compliant because it copied the seed.
 7. **Register** any carried patches in `registers/carried-patches.md` here —
    the register is org-level by design: a patch carried by one project is a
    commitment made by the org.
