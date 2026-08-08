@@ -47,11 +47,30 @@ list without tripping on it.
   assistant's *default tooling* violates automatically, and it is currently
   an instruction rather than a check. Ruleset A carries the negated
   `co-authored-by:.*noreply` pattern that closes it.
-- **The carried-patch register as a lint.** Three documents say a build-time
-  patch absent from the register is a lint failure. Nothing detects one.
+- **The carried-patch register.** No gate can detect a patch applied during a
+  build, so registration is an obligation on whoever adds it and a reviewer
+  following fork step 7, not a check. The records now say that rather than
+  claiming a lint.
 - **`reuse lint` beyond this repository.** It blocks here. No other QM
   repository has been inventoried, so each runs it in reporting mode until
   its own licensing pass is done.
+
+## What a project owes, and who checks
+
+Eight obligations follow from the org records and are produced by nothing
+automatic — the baseline component audit, cumulative licence gates, the
+service inventory no scanner can build, the quarterly upstream scan, naming a
+seam protocol, the control-plane instance record, a risk register, and
+registering carried patches.
+
+They are listed with what satisfies each in `project-seed/adr/README.md`,
+under "What the org records oblige this project to produce", which every
+project copies. Fork step 6 routes a new project there. **A project is not
+compliant because it copied the seed**; a project that cannot satisfy one yet
+names the gap in its adoption record.
+
+Which projects have done this has not been audited. That is the largest
+open item on this page.
 
 ## What is deliberately waiting
 
