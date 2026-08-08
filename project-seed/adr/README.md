@@ -149,6 +149,12 @@ new record all arrive the same way, because the review is where a human takes
 responsibility for what the corpus says. A session that cannot open a PR
 stops and hands the branch back rather than merging it.
 
+**Check what the branch carries before opening the PR.** Run
+`python governance/qm/project-seed/ci/check_pr_base.py --base <base> --head <branch>`
+and paste the output into the description. A pull request carries everything
+between its base and its head, which is not the same as what you committed, and
+nothing else in this contract measures that.
+
 **Run the gates before claiming they pass.** A session runs the project's
 workflows locally — `python governance/qm/project-seed/ci/run_workflows_locally.py`
 — and reports what it ran, before saying a change is ready. Commands that
