@@ -12,8 +12,11 @@ DRAFTING RULES (delete this comment block before ratification):
    the beginning. Git history is the archaeology; prose is not. Words banned
    in any pre-ratification document: "previously", "originally", "earlier
    draft", "supersedes the ... stance/finding", "re-review", "renumber",
-   "retroactive", "corrected" - the exact set the CI lint enforces
-   (`ci/adr-lint.yml`, copied alongside this template).
+   "retroactive", "corrected" - the exact set the CI lint enforces. The lint
+   reads prose only, so quoting the list as this block does is not a
+   violation. Its workflow is copied to this project's own
+   `.github/workflows/adr-lint.yml`; the checks themselves run from the
+   governance submodule.
 
 3. ONE DECISION PER ADR. If Consequences starts describing a second decision,
    split it.

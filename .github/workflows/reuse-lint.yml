@@ -1,0 +1,42 @@
+name: REUSE lint
+
+# The outbound-licensing record's enforcement clause. Checks that every file
+# in this repository carries copyright and licence information, that every
+# licence referenced has its text in LICENSES/, and that no licence text sits
+# there unused.
+#
+# This gate is deliberately independent of runtime shape: it works identically
+# for a corpus of prose, a Python service, and a single-file HTML deliverable,
+# which is what the open-license record's SBOM path cannot do.
+#
+# Licensing here is declared in REUSE.toml rather than as per-file headers,
+# because most of this repository is prose whose opening lines are
+# load-bearing -- and because the symlink pointer files cannot carry a header
+# at all.
+
+on:
+  push:
+    branches: [main, 'project/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  reuse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install REUSE
+        run: python -m pip install reuse
+
+      - name: reuse lint
+        # Invoked as a module rather than the console script: the entry point
+        # is not on PATH in every environment, which makes a local run of this
+        # workflow fail where CI passes -- or the reverse, which is worse.
+        run: python -m reuse lint

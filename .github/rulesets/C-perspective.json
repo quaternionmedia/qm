@@ -1,0 +1,13 @@
+{
+  "name": "C - perspective branches",
+  "target": "branch",
+  "enforcement": "evaluate",
+  "conditions": { "ref_name": { "include": ["refs/heads/perspective/**"], "exclude": [] } },
+  "bypass_actors": [
+    { "actor_id": 5, "actor_type": "RepositoryRole", "bypass_mode": "pull_request" }
+  ],
+  "rules": [
+    { "type": "non_fast_forward" },
+    { "type": "required_signatures" }
+  ]
+}
