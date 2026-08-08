@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-08 |
-| **Pends on** | Which legal person holds copyright in QM work; whether the hardware classes drafted in the datum project's licensing record are adopted at org level or held at project level |
+| **Pends on** | Nothing — ready for ratification |
 | **Principle** | P1 — ownership is the deliverable; P2 — commons-first economics; P7 — public by default |
 
 ## Context
@@ -42,10 +42,15 @@ client's own product is a licence the client declines.
 
 ## Decision
 
-1. **Corpus prose** — this constitution's records, charter, README, handbook,
-   registers and perspectives — is licensed **CC-BY-SA-4.0**. Share-alike
-   keeps a derivative constitution open; attribution is the same
-   accountability trail the human-only contributorship record protects.
+0. **Copyright in QM work is held by Quaternion Media.** Every notice, SPDX
+   header and attribution string names the entity, not an individual
+   contributor, and the §8 inbound grant is what routes a contributor's
+   rights to it.
+1. **Corpus prose** — this constitution's records, charter, README, handbook
+   and registers — is licensed **CC-BY-SA-4.0**. Share-alike keeps a
+   derivative constitution open; attribution is the same accountability trail
+   the human-only contributorship record protects. `perspectives/` is
+   excluded, per §11.
 2. **Copy-forward prose templates** — `TEMPLATE.md`, `project-seed/adr/`, and
    `project-seed/ide/AGENTS.md` — are licensed **CC0-1.0**. These exist to be
    copied verbatim into repositories QM does not govern. Terms that follow
@@ -70,21 +75,48 @@ client's own product is a licence the client declines.
    proprietary consumer may add files alongside and ship a closed product.**
    It is the one place the guarantee is deliberately thin, and the per-library
    record is what keeps the concession narrow enough to see.
-7. **Forks and carried patches, including a fork promoted to a maintained QM
+7. **Hardware.** Board designs — schematics, layouts, footprint and symbol
+   libraries, fabrication outputs — are licensed **CERN-OHL-S-2.0**, the
+   reciprocal hardware licence with the clearest source-availability
+   obligation on a modified design. Hardware documentation is
+   **CC-BY-SA-4.0**, matching §1. **Firmware, host software and mechanical
+   designs take a permissive licence where the target ecosystem's
+   contribution path requires one**, named in that project's own record with
+   the ecosystem stated; MIT for an ESPHome or Home Assistant integration is
+   the case that prompted this clause. This is an org-level term, not a
+   project waiver: a project selecting it is applying this record rather
+   than relaxing it.
+   Licensing hardware is necessary and is not sufficient. A published design
+   carrying a sole-source part in a package no accessible process can place
+   is legally open and practically unbuildable, so a project shipping
+   hardware records its sourcing and fabrication constraints alongside the
+   grant. Openness here is a reproducibility property that a licence alone
+   does not deliver.
+8. **Forks and carried patches, including a fork promoted to a maintained QM
    project, keep the upstream's licence unchanged.** QM's default never
    displaces the licence of code QM received.
-8. **Code QM contributes upstream carries the target's licence at the moment
+9. **Code QM contributes upstream carries the target's licence at the moment
    of contribution.** Every QM repository takes contributions under a
    Developer Certificate of Origin sign-off together with an express grant
    permitting QM to license the contribution under any OSI-approved licence
    for the purpose of upstream contribution. Without the inbound grant the
    outbound promise is unenforceable the moment a third party contributes.
-9. **Client-commissioned work** takes the clause matching its shape, is
-   published in a public QM repository, and leaves the client holding the
-   same rights as everyone else. A client requiring exclusivity is a scoping
-   outcome. QM operates no proprietary-exception or commercial dual-licence
-   programme.
-10. **Enforcement.** Every QM repository is REUSE-compliant: a `LICENSES/`
+10. **Client-commissioned work** takes the clause matching its shape, is
+    published in a public QM repository, and leaves the client holding the
+    same rights as everyone else. A client requiring exclusivity is a scoping
+    outcome. QM operates no proprietary-exception or commercial dual-licence
+    programme.
+11. **`perspectives/` carries no outbound grant.** The directory holds
+    attributed opinion and primary-source transcripts substantially produced
+    by language models under human direction, and QM's rights to relicense
+    that material are not settled. It is marked all-rights-reserved rather
+    than licensed under §1, and stays readable in a public repository without
+    a grant QM may not be entitled to make. This is a statement about
+    uncertain provenance, not a change to the standing of perspectives, which
+    remain non-binding and citable by author and date. A perspective whose
+    text is wholly human-authored may be moved under §1 by its author saying
+    so in its own header.
+12. **Enforcement.** Every QM repository is REUSE-compliant: a `LICENSES/`
     directory holding the SPDX text of each licence in use, an
     `SPDX-License-Identifier` on every file, unannotatable paths such as
     symlinks covered by `REUSE.toml`, and `reuse lint` as a required CI
@@ -110,11 +142,19 @@ client's own product is a licence the client declines.
   discovered later by a reader comparing the class table against MPL's own
   scope.
 - Cost accepted: every repository needs a licensing pass before the check can
-  block, and no repository other than this corpus has been inventoried. The
-  check runs in reporting mode until this record names the date it blocks.
+  block. This corpus has had one and its check blocks from the start. No
+  other QM repository has been inventoried, so each runs `reuse lint` in
+  reporting mode until its own pass is done, and this record is amended with
+  the date the check becomes blocking org-wide.
 - The symlinks this corpus ships cannot carry an SPDX header, since writing
   one writes into the target. They are covered by `REUSE.toml` instead, which
   is the mechanism REUSE provides for exactly this case.
+- §11 leaves the most-read directory in the corpus without a grant, which is
+  a visible cost. It is preferred to the alternative of asserting rights QM
+  may not hold in order to make a licence table look complete.
+- §7's permissive-firmware term is the one place this record blesses a
+  permissive licence by default. It is bounded by requiring the target
+  ecosystem to be named, so the clause cannot be reached for on preference.
 
 ## Alternatives considered
 
