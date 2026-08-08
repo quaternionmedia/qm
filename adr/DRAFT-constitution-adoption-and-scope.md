@@ -6,6 +6,7 @@
 | **Date** | 2026-08-07 |
 | **Pends on** | Org amendments to the house-stack record covering Python packaging and frontend applications. Adoption itself is not contingent on them; only §5's disposition is. |
 | **Principle** | P6 — decisions are documented or they didn't happen |
+| **Written against** | alfred `main` at `7fff7ae`. The first review pass for this record was performed against `pdm`, which was 21 commits behind with nothing unique on it; every finding was re-established against `main` before being written down. |
 
 ## Context
 
@@ -58,6 +59,25 @@ preamble to it.
    | 6 | `fastapi-crudrouter` is installed at build time from a QM fork branch. The org register lists no carried patches. | Contribution §2, under which an unregistered build-time patch is a lint failure | The patch registered in `registers/carried-patches.md` with its upstream status. |
    | 7 | The frontend has no committed lockfile; `package-lock.json` and `yarn.lock` are both git-ignored, and **the frontend no longer builds either**. `parcel` floats from `^2.8.3` to 2.16.4 while `@parcel/transformer-sass` is pinned to exactly `2.8.3`; parcel requires them to match, so the build fails and no `dist/` is produced. Reproduced from a clean install. | P8 — recreatable from version control | A committed lockfile, so a build is reproducible from the repository alone. |
    | 8 | Packaging is PDM and the frontend is a mithril/parcel application. The house-stack record blesses `uv`, and contemplates frontend JS only as single-file visualization deliverables. | House stack §2 | Resolved at org level, not here. See §5. |
+
+   **How each row is pinned.** Kept out of the table above, which is already
+   wide enough to be hard to read. A row with no pin will drift silently as
+   the code changes, so the absence is stated rather than left to be noticed.
+
+   | # | Pinned by |
+   |---|---|
+   | 1 | Nothing mechanical. A licensing fact about a component, not a behavior a test can observe. Reachable only by a gate that inventories images, which §4 records as absent. |
+   | 2 | As row 1. |
+   | 3 | No test yet. Pinnable: an import check asserting object storage is reached through an S3 client rather than a vendor SDK would fail today and pass once the seam record is implemented. |
+   | 4 | No test yet. Pinnable: a scan of the built bundle for external origins. |
+   | 5 | `docker build .`. A fix is drafted on alfred's `test/core-tests` branch — base pinned by digest, `rm -f` across both ImageMagick paths — and this row clears when that merges, not before. |
+   | 6 | The org carried-patch register, which now holds the entry. |
+   | 7 | `yarn parcel build`. No fix is drafted; the lockfile decision is open. |
+   | 8 | Nothing mechanical, and nothing needed: this resolves by org amendment rather than by project work. |
+
+   Rows 5 and 7 were reproduced rather than inferred, and both had already
+   caused failures before anyone described them as risks. Their reproductions
+   are stated in the rows themselves.
 
 4. **The license report is wired as a report, not a gate, and its blind spots
    are recorded rather than left to be rediscovered.** Both dependency scans
