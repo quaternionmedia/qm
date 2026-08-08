@@ -1,0 +1,54 @@
+name: Namespace guard
+
+# The branch-per-project model gives each adopting project a project/<name>
+# branch of this repo carrying exactly one thing: that project's own adr/
+# directory. Everything else on the branch is org content that arrives by
+# merging main, and is not the project's to edit.
+#
+# GitHub rulesets cannot express this. Their file-path restriction is a push
+# ruleset that applies repository-wide with no branch targeting, so the check
+# has to live here.
+#
+# This has a live violation to catch: project/qmetronome carries three
+# perspectives/ files that exist on no other ref. Propagation flows one way,
+# from main outwards, so org-namespace content added on a project branch never
+# reaches main and is stranded where nobody looks for it.
+
+on:
+  pull_request:
+    branches: ['project/**']
+
+permissions:
+  contents: read
+
+jobs:
+  namespace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: A project branch's own commits touch adr/ only
+        run: |
+          base="origin/${{ github.base_ref }}"
+          git fetch --no-tags origin "${{ github.base_ref }}"
+
+          # Compare against the merge base so org content arriving by a merge
+          # from main is not mistaken for the project editing it.
+          mergebase=$(git merge-base "$base" HEAD)
+          offending=$(git diff --name-only "$mergebase" HEAD -- . ':(exclude)adr/**')
+
+          if [ -n "$offending" ]; then
+            echo "A project/* branch may only add or change files under adr/."
+            echo
+            echo "These paths are outside it:"
+            echo "$offending" | sed 's/^/  /'
+            echo
+            echo "Org-level content belongs on main and reaches this branch by"
+            echo "merging main. Added here it is stranded: propagation is one-"
+            echo "directional, so nothing carries it back."
+            exit 1
+          fi
+
+          echo "Clean: this branch's own commits touch adr/ only."
