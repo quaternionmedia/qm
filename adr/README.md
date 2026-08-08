@@ -117,4 +117,6 @@ Drafts in flight (numberless, by title): The event envelope is the seam;
 Signal-only control: the module never switches mains; USB-C bus power is the
 reference power path; Enclosure parts live in apothecary; Licensing for board
 designs, firmware, enclosures and documentation; A JSON Schema validator is a
-test dependency of the conformance gate.
+test dependency of the conformance gate; An MQTT client library is a test
+dependency of the wire harness; Apothecary carries a part through design,
+visualization and deployment.
