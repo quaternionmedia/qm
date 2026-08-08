@@ -34,7 +34,9 @@ commit or edit — it is short on purpose.
    contains is not the same thing, and the difference is where false "CI is
    green" claims come from — the first local run of this repo's own workflows
    failed a step that every hand-run check had passed. Report what you ran and
-   what it said, including which steps the runner cannot reproduce.
+   what it said, including which steps the runner cannot reproduce. A local
+   failure may be a defect or an environment difference — say which you
+   established, rather than reporting the exit code.
 5. **Human-only contributorship applies to every commit you make here**
    (see `records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored

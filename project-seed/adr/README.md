@@ -158,7 +158,9 @@ it reads like. A claim of "CI is green" that was not produced by executing the
 steps is a claim about a file someone read.
 
 The runner does not reproduce `uses:` steps, the runner image, or secrets. Say
-so when reporting, rather than letting a local pass stand in for a remote one.
+so when reporting, rather than letting a local pass stand in for a remote one —
+and a local *failure* is a question rather than a verdict, since a step can
+fail here for reasons the runner image does not have.
 
 **A pull request states decisions, not questions.** Every input the session
 was unsure of is settled before the PR is opened — asked in the session, and
