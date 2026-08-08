@@ -39,7 +39,10 @@ jobs:
           python-version: '3.11'
 
       - name: Install REUSE
-        run: pip install reuse
+        run: python -m pip install reuse
 
       - name: reuse lint
-        run: reuse lint
+        # Invoked as a module rather than the console script: the entry point
+        # is not on PATH in every environment, which makes a local run of this
+        # workflow fail where CI passes -- or the reverse, which is worse.
+        run: python -m reuse lint
