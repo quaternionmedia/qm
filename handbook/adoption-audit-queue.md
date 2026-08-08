@@ -18,10 +18,10 @@ Nine projects vendor this corpus. Three are audited.
 | Project | qm branch | Own repo | Audited | Known state |
 |---|---|---|---|---|
 | qmetronome | ✅ | ✅ | **yes** | Pin fine; no IDE discovery; pre-seed inline lint |
-| apothecary | ✅ | ✅ | **yes** | Healthiest; has a working license gate |
+| apothecary | ✅ | ✅ | **re-do** | First audit read the working tree and was wrong. `origin/main` carries no governance at all; the adoption commit is unpushed |
 | datum | ✅ | ✅ local only | **yes** | Pin was broken; repaired; **has no remote** |
-| alfred | ✅ | ✅ | no | Submodule remote was a filesystem path; repaired |
-| codecartographer | ✅ | ✅ | no | Mounts at `docs/qm`, not `governance/qm` |
+| alfred | ✅ | ✅ | no | Submodule remote was a filesystem path; repaired. `origin/main` has the submodule and no `AGENTS.md`/lint/`LICENSE`; **29 commits unpushed locally** |
+| codecartographer | ✅ | ✅ | no | Mounts at `docs/qm`. `origin/main` has the submodule and `LICENSE`, no `AGENTS.md`/lint; **48 commits unpushed locally** |
 | datafactorio | ✅ | ✅ | no | 7 behind; no `.gitmodules` seen locally |
 | factorio-server | ✅ | ? | no | 7 behind |
 | factorio-sysops | ✅ | ? | no | 7 behind |
@@ -106,6 +106,19 @@ one of these produced a confident wrong answer during the audits already run:
   same behaviour its own way. Search for the behaviour.
 - **A negative test that never ran** passes. If you assert a check fails on
   bad input, watch it fail before you believe it.
+
+- **A working tree is not a repository.** `git ls-files`, `ls`, and every
+  filesystem check answer for whatever branch happens to be checked out, which
+  during an audit is frequently a branch you created. Read the remote default
+  branch — `git cat-file -e origin/main:<path>` — or you will report your own
+  unpushed work as the project's state. This produced a false "healthiest
+  adoption" finding that reached `main`.
+- **A branch is not its base.** A PR carries everything between its base and
+  its head, which is not the same as what you committed. Before opening one:
+  `git merge-base <base> <head>`, then the commit count, file count and author
+  of each commit. A branch cut from the wrong parent is internally consistent
+  and passes every check — one such PR sat open carrying 18 commits of someone
+  else's feature work under a title describing a single CI check.
 
 - **Hand-running a workflow's commands** is not running the workflow. The
   first local execution of this repo's own workflows failed a step that every
