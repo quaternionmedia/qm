@@ -101,6 +101,14 @@ new record all arrive the same way, because the review is where a human takes
 responsibility for what the corpus says. A session that cannot open a PR
 stops and hands the branch back rather than merging it.
 
+**A pull request states decisions, not questions.** Every input the session
+was unsure of is settled before the PR is opened — asked in the session, and
+waited on. A PR carrying the session's own open questions hands the drafting
+back to the reviewer and calls it review, which is the opposite of the
+handoff this contract exists to produce. This is distinct from a record's
+`Pends on` row: that names an input *the organisation* has not settled, and a
+Proposed record naming one is this process working correctly.
+
 **Session prohibitions (verbatim-banned):** "takes the ADR-NNNN slot,"
 "the set renumbers," "supersedes the stance from the earlier review/draft,"
 "retroactive" framing for adoption-time rules, edits to an Accepted body

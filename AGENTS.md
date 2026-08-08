@@ -20,6 +20,14 @@ commit or edit — it is short on purpose.
    correct the change looks. Ratification is not the only human gate; it is
    the last one. A human decides what this corpus says, and the pull request
    is where that decision is made and recorded.
+   **A pull request states decisions, not questions.** Settle every input you
+   are unsure of *before* you open it: ask in the session and wait for the
+   answer. A PR that asks its reviewer what you should have asked earlier
+   hands the drafting back to them and calls it review. This is separate from
+   a record's `Pends on` row, which names something *the organisation* has
+   not settled — that belongs in the record, and a Proposed record naming it
+   is the process working. What does not belong anywhere is your own
+   unresolved question arriving as PR text.
 4. **Human-only contributorship applies to every commit you make here**
    (see `records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored
