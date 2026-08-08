@@ -144,10 +144,17 @@ def check_accepted_bodies_untouched(records: Path, base_ref: str) -> list[str]:
         for header in re.finditer(r"^@@ -\S+ \+(\d+)(?:,(\d+))? @@", hunks, re.MULTILINE):
             start = int(header.group(1))
             count = int(header.group(2) or 1)
-            if count and start < amendments_line:
+            # A deletion-only hunk carries a new-file count of 0 and reads
+            # `@@ -10 +9,0 @@`: nothing was added, so `start` is the line the
+            # removal sits after rather than a line that exists. Skipping those
+            # would let a ratified body be edited by deletion alone, which is
+            # the append-only rule's most obvious violation.
+            where = start if count else start + 1
+            if where <= amendments_line - 1 or (count and start < amendments_line):
+                verb = "removed from" if not count else "edited in"
                 failures.append(
-                    f"{path}:{start}: ratified records are append-only. Changes go "
-                    "in dated entries under Amendments; the body is never edited."
+                    f"{path}:{start}: ratified records are append-only; content was "
+                    f"{verb} the body. Changes go in dated entries under Amendments."
                 )
     return failures
 

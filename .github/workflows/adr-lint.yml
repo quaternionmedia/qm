@@ -37,10 +37,19 @@ jobs:
           if [ "${{ github.event_name }}" = 'pull_request' ]; then
             git fetch --no-tags origin "${{ github.base_ref }}"
             echo "ref=origin/${{ github.base_ref }}" >> "$GITHUB_OUTPUT"
-          elif git rev-parse --verify -q HEAD^ >/dev/null; then
-            echo "ref=HEAD^" >> "$GITHUB_OUTPUT"
           else
-            echo "ref=" >> "$GITHUB_OUTPUT"
+            # On a push, diff the whole pushed range. HEAD^ would cover only the
+            # last commit, so an edit to a ratified body earlier in the same
+            # push would pass unseen. github.event.before is all zeros for a
+            # newly created ref, which has no range to compare against.
+            before='${{ github.event.before }}'
+            if [ -n "$before" ] && [ "$before" != '0000000000000000000000000000000000000000' ]                && git rev-parse --verify -q "$before^{commit}" >/dev/null; then
+              echo "ref=$before" >> "$GITHUB_OUTPUT"
+            elif git rev-parse --verify -q HEAD^ >/dev/null; then
+              echo "ref=HEAD^" >> "$GITHUB_OUTPUT"
+            else
+              echo "ref=" >> "$GITHUB_OUTPUT"
+            fi
           fi
 
       - name: Lint org records
