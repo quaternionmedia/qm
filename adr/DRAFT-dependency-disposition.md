@@ -25,6 +25,8 @@ and the wall are the only things built here.
 | **NVENC / proprietary encode SDKs** | proprietary | **excluded**; any future use requires an explicit exception ADR |
 | MediaMTX | MIT | in (0.2.0) |
 | **Chromium** (not Chrome) | BSD | kiosk renderer |
+| playwright (Python package) | Apache-2.0 | in (0.0.x) — drives Playwright's own Chromium download for browser-driven `/wall` tests (`tests/browser/`) that double as functional documentation/tutorials; same Chromium-not-Chrome disposition as the eventual kiosk renderer above, bought once, used for both |
+| python-multipart | Apache-2.0 | in (0.0.x) — FastAPI's own required dependency for `UploadFile`/multipart form parsing; backs `/wall/import`'s local-file-as-a-tile feature |
 | anime.js | MIT | vendored into `wall/` |
 | ShowRunner | in-house | driver plugin (1.1.0) |
 
@@ -44,6 +46,14 @@ license and target release; there is no deferred cost this ADR is hiding.
    buys aesthetics only (shorter live-preview mask), not correctness.
 2. **Chrome for WebRTC maturity** — rejected; the proprietary-browser
    dependency is exactly the shape of exclusion the record exists for.
+3. **The `pytest-playwright` plugin, for `tests/browser/`** — tried first,
+   reverted. It requires `pytest-base-url`, which requires `python-slugify`,
+   which unconditionally requires `text-unidecode` (dual-licensed
+   GPL/Artistic — outside this project's allowlist even under its
+   permissive option) for a convenience feature (slugifying test names
+   for screenshot/trace filenames) those tests don't use. The bare
+   `playwright` package plus a small hand-written `conftest.py` fixture
+   gets the same coverage without the dependency.
 
 ## Revision triggers
 
