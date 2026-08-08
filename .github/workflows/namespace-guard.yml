@@ -9,8 +9,8 @@ name: Namespace guard
 # ruleset that applies repository-wide with no branch targeting, so the check
 # has to live here.
 #
-# This has a live violation to catch: project/qmetronome carries three
-# perspectives/ files that exist on no other ref. Propagation flows one way,
+# It compares content, not commits: a path is flagged only when it differs
+# from main's version, meaning this branch and nothing else put it there. Propagation flows one way,
 # from main outwards, so org-namespace content added on a project branch never
 # reaches main and is stranded where nobody looks for it.
 
@@ -32,12 +32,23 @@ jobs:
       - name: A project branch's own commits touch adr/ only
         run: |
           base="origin/${{ github.base_ref }}"
-          git fetch --no-tags origin "${{ github.base_ref }}"
+          git fetch --no-tags origin "${{ github.base_ref }}" main
 
           # Compare against the merge base so org content arriving by a merge
           # from main is not mistaken for the project editing it.
           mergebase=$(git merge-base "$base" HEAD)
-          offending=$(git diff --name-only "$mergebase" HEAD -- . ':(exclude)adr/**')
+          candidates=$(git diff --name-only "$mergebase" HEAD -- . ':(exclude)adr/**')
+
+          # Then keep only paths whose content actually differs from main's.
+          # A propagation PR carries main's non-adr/ changes by definition --
+          # that is what propagation IS -- so comparing commits rather than
+          # content fails every one of them, which is how this check first
+          # broke #18, #19 and #20.
+          offending=$(
+            for f in $candidates; do
+              git diff --quiet origin/main HEAD -- "$f" || echo "$f"
+            done
+          )
 
           if [ -n "$offending" ]; then
             echo "A project/* branch may only add or change files under adr/."
