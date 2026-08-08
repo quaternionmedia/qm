@@ -30,7 +30,7 @@ same form and for the same reason: I performed the onramp I am evaluating,
 minutes earlier, in this session, for this maintainer. §1 is where to look
 first for self-flattery. The project-side artifacts are `AGENTS.md` and
 `HANDOFF.md` in the project repository, and the five numberless drafts on the
-`project/tessera` branch of this repo; this document is the corpus-side half,
+`project/datum` branch of this repo; this document is the corpus-side half,
 written for whoever forks the seed onto the next thing that isn't software.
 
 One mechanical note: this file quotes the banned-vocabulary list in §2.3 in
