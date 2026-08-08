@@ -1,0 +1,78 @@
+version = 1
+SPDX-PackageName = "Quaternion Media Constitution"
+SPDX-PackageSupplier = "Quaternion Media <peter.kagstrom@gmail.com>"
+SPDX-PackageDownloadLocation = "https://github.com/quaternionmedia/qm"
+
+# Licensing is declared here rather than as per-file SPDX headers, because
+# most of this repository is prose whose opening lines are load-bearing: a
+# record's H1 and header table, a template's drafting-rules comment, and the
+# symlink pointer files, which cannot carry a header at all -- writing one
+# writes into the target. See records/DRAFT-outbound-licensing.md.
+#
+# Paths are matched by the last block that matches, so the exclusions at the
+# bottom win over the default at the top.
+
+# --- Corpus prose: the default for this repository (§1) ---------------------
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# --- Copy-forward prose templates (§2) --------------------------------------
+# These exist to be copied verbatim into repositories QM does not govern,
+# including clients'. Terms that follow the copy would export QM's licence
+# into those repositories and turn the fork procedure into a legal review.
+[[annotations]]
+path = [
+  "TEMPLATE.md",
+  "project-seed/adr/**",
+  "project-seed/ide/AGENTS.md",
+  "project-seed/ide/CLAUDE.md",
+  "project-seed/ide/.github/copilot-instructions.md",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "CC0-1.0"
+
+# --- Executable and machine-read config (§3) --------------------------------
+# Same copy-forward requirement as §2, but CC0 grants no patent licence and
+# is not fit for executable content. `.github/**` is covered whole -- it holds
+# workflows, CODEOWNERS, and the checked-in ruleset config and apply script,
+# none of which is corpus prose.
+[[annotations]]
+path = [
+  "project-seed/ci/**",
+  "project-seed/ide/.vscode/**",
+  ".github/**",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "Apache-2.0"
+
+# --- Root pointer files follow their target, not their directory ------------
+# .github/copilot-instructions.md is a symlink to ../AGENTS.md, which is
+# corpus prose. Its licence is its target's, not `.github/**`'s.
+[[annotations]]
+path = ".github/copilot-instructions.md"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+# --- No outbound grant (§11) ------------------------------------------------
+# Attributed opinion and primary-source transcripts substantially produced by
+# language models under human direction. QM's rights to relicense them are
+# not settled, so they are marked honestly rather than swept under §1.
+[[annotations]]
+path = "perspectives/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "LicenseRef-QM-No-Grant"
+
+# --- This repository's own editor config ------------------------------------
+# Symlinks into project-seed/ide/.vscode/; they follow their target's licence.
+[[annotations]]
+path = ".vscode/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "Apache-2.0"
