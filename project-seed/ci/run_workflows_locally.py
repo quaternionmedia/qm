@@ -23,7 +23,14 @@ What this does NOT reproduce, and where it can therefore be wrong:
   - Secrets, tokens and anything network-gated by them.
   - Event payloads beyond the few fields substituted below.
 
-So a pass here is evidence, not proof. A failure here is proof.
+So a pass here is evidence, not proof.
+
+A failure is not proof either, and saying otherwise was wrong: a step can fail
+locally for reasons the runner image does not have -- missing browsers, no
+display, a different OS. Apothecary's suite fails here and is green in CI for
+exactly that reason. A local failure is a question, and the answer is either a
+defect or a difference between the environments. Both are worth knowing; only
+one is a defect.
 
 Usage:
     python run_workflows_locally.py                     # simulate a PR into main
@@ -46,6 +53,17 @@ try:
     import yaml
 except ImportError:  # pragma: no cover
     sys.exit("pyyaml is required: pip install pyyaml")
+
+
+def _force_utf8_output() -> None:
+    """Windows consoles default to a legacy codepage, and a workflow name with
+    an emoji in it then crashes the runner mid-report -- which looks like the
+    workflow failing rather than the tool failing. Names are data; the tool
+    reads them, so it has to survive them."""
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is not None:
+            reconfigure(encoding="utf-8", errors="replace")
 
 
 def triggers(workflow: dict) -> dict:
@@ -104,6 +122,7 @@ def main() -> int:
     ap.add_argument("--base-ref", default="main", help="PR base branch")
     ap.add_argument("--workflows", default=".github/workflows")
     args = ap.parse_args()
+    _force_utf8_output()
 
     head = subprocess.run(
         ["git", "rev-parse", "HEAD"], capture_output=True, text=True
@@ -178,7 +197,7 @@ def main() -> int:
         return 1
     print(f"All {ran} executed step(s) passed.")
     print("`uses:` steps and the runner image are not reproduced -- see the module")
-    print("docstring. A pass here is evidence; a failure here is proof.")
+    print("docstring. A pass here is evidence, not proof.")
     return 0
 
 
