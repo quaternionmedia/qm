@@ -35,18 +35,29 @@ precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
 SPDX-License-Identifier = "CC0-1.0"
 
-# --- Executable seed files (§3) ---------------------------------------------
+# --- Executable and machine-read config (§3) --------------------------------
 # Same copy-forward requirement as §2, but CC0 grants no patent licence and
-# is not fit for executable content.
+# is not fit for executable content. `.github/**` is covered whole -- it holds
+# workflows, CODEOWNERS, and the checked-in ruleset config and apply script,
+# none of which is corpus prose.
 [[annotations]]
 path = [
   "project-seed/ci/**",
   "project-seed/ide/.vscode/**",
-  ".github/workflows/**",
+  ".github/**",
 ]
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
 SPDX-License-Identifier = "Apache-2.0"
+
+# --- Root pointer files follow their target, not their directory ------------
+# .github/copilot-instructions.md is a symlink to ../AGENTS.md, which is
+# corpus prose. Its licence is its target's, not `.github/**`'s.
+[[annotations]]
+path = ".github/copilot-instructions.md"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 # --- No outbound grant (§11) ------------------------------------------------
 # Attributed opinion and primary-source transcripts substantially produced by
