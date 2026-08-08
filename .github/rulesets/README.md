@@ -59,6 +59,7 @@ hence `refs/heads/project/**`.
 | **C** | `perspective/**` | Force-push blocked, signed. No PR required — non-binding by construction, and the merge *into* main is gated by A |
 | **D** | `evolve/**` | Signed only. Force-push allowed: rebasing a working branch onto a moved `main` is the one legitimate case |
 | **E** | everything else | `creation` restricted, so a branch outside the four namespaces cannot be created |
+| **F** | `refs/tags/v*` | Version tags: signed, immutable, semver-shaped, and creatable only by named actors |
 
 ## Three decisions worth understanding before applying
 
@@ -80,6 +81,13 @@ contributorship is the one corpus rule an AI agent's *default tooling*
 violates automatically, and the record itself admits it has no mechanical
 check. A negated `(?i)co-authored-by:.*noreply` pattern is that check. Note
 it also blocks merging any pre-existing branch carrying such a trailer.
+
+**F is the teeth of the version-tags record.** That record makes a tag a
+human claim about review, manual testing and deterministic validation; the
+ruleset is what stops it being customary. `bypass_actors` is empty, so no
+automation can cut a release tag — release workflows trigger *on* a tag and
+must never create one. Deletion and force-push are blocked because a moved tag
+silently changes what a published version means.
 
 ## Two ordering traps
 
