@@ -119,8 +119,9 @@ a commit that exists on one machine and nowhere else, and everything resolves
 for the person who set it up. `submodule-check.yml` now fails on a filesystem
 URL in `.gitmodules` as well as on an unreachable pin.
 
-The other four adopting projects have not been audited. That is the largest
-open item on this page.
+The other six adopting projects have not been audited. That is the largest
+open item on this page, and `handbook/adoption-audit-queue.md` is the queue
+and the method for working through it.
 
 ## What is deliberately waiting
 

@@ -140,9 +140,11 @@ passes, not when its command exits zero.
    `git config -f .gitmodules --get submodule.governance/qm.branch` returns
    `project/<name>`. Check the recorded URL is the canonical remote and not a
    local path used while setting it up.
-4. **Wire CI:** copy `project-seed/ci/adr-lint.yml` **and
-   `project-seed/ci/submodule-check.yml`** into `.github/workflows/`
-   verbatim — no project-specific edits needed. The submodule check is
+4. **Wire CI:** copy all three of `project-seed/ci/adr-lint.yml`,
+   `submodule-check.yml` and `reuse-lint.yml` into `.github/workflows/`
+   verbatim — no project-specific edits needed. Start `reuse-lint` in
+   reporting mode; a project that has not had its licensing pass fails it
+   immediately, which is useful rather than a reason to leave it out. The submodule check is
    self-contained by necessity: it checks out without submodules, because the
    submodule fetch is the thing it guards, so it cannot run a script from
    inside one. The ADR lint is the other way round — only the workflow file is
@@ -288,6 +290,7 @@ Handbook (policy, not records):
 |---|---|
 | `handbook/governance-rollout.md` | How far this corpus has got in governing itself, and what ratification waits on |
 | `handbook/propagation-runbook.md` | How an org change reaches an adopted project, in both repositories |
+| `handbook/adoption-audit-queue.md` | Which projects are audited, and how the next agent runs the rest |
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
 
 Style guide (minimal, legible deliverables) is named by the charter and not
