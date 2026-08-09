@@ -1,0 +1,46 @@
+name: CI tooling tests
+
+# The checks in project-seed/ci/ are copied, by reference, into every adopting
+# project. Until now nothing tested them, and six defects reached the seed --
+# each one a check that reported success while enforcing nothing, which is the
+# only failure mode that matters for a check.
+#
+# These tests build real git repositories rather than mocking git. The tools
+# are almost entirely about git, and a mock would encode the same
+# misunderstanding the tool does and then agree with it.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'project-seed/ci/**'
+      - '.github/workflows/ci-tooling-tests.yml'
+  pull_request:
+    paths:
+      - 'project-seed/ci/**'
+      - '.github/workflows/ci-tooling-tests.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pytest and pyyaml
+        run: python -m pip install --quiet pytest pyyaml
+
+      - name: Run the CI tooling tests
+        # The fixtures create submodules from local paths, which git refuses by
+        # default since CVE-2022-39253. The repositories are built in the
+        # runner's own temp directory moments earlier, so the protection is not
+        # doing anything here except preventing the test from running.
+        run: python -m pytest project-seed/ci/tests -q
+        env:
+          GIT_ALLOW_PROTOCOL: file:https:ssh
