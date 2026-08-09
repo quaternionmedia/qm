@@ -1,9 +1,11 @@
 name: Symlink integrity
 
 # The IDE-integrated governance discovery record makes CLAUDE.md,
-# .github/copilot-instructions.md and this repo's .vscode/ config real git
-# symlinks (mode 120000) to their canonical file, so there is no second copy
-# to keep in sync.
+# .github/copilot-instructions.md and this repo's .vscode/ and .claude/ config
+# real git symlinks (mode 120000) to their canonical file in project-seed/ide/,
+# so there is no second copy to keep in sync. That is the whole mechanism
+# behind handbook/async-contract.md's "down" direction: an edit to the seed is
+# an edit to this repository's own harness, in the same commit.
 #
 # The failure mode this guards is silent and platform-specific: a Windows
 # contributor without `git config core.symlinks true` checks these out as
@@ -32,6 +34,9 @@ jobs:
           .github/copilot-instructions.md
           .vscode/settings.json
           .vscode/extensions.json
+          .claude/commands/cowork.md
+          .claude/commands/preflight.md
+          .claude/commands/handoff.md
           project-seed/ide/CLAUDE.md
           project-seed/ide/.github/copilot-instructions.md"
 

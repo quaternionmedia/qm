@@ -6,6 +6,12 @@ Thumbs.db
 !.vscode/extensions.json
 .idea/
 
+# A session's own scratch: the brief cowork_context.py writes, and anything
+# else a harness command produces for the session it is running in. These
+# describe one moment in one clone. Committing one would put a stale answer
+# where the next session looks for a fresh one.
+.harness/
+
 # Python bytecode. Four of these reached a commit in this repository --
 # generated files under version control, which perspectives/'s own sanity
 # check #4 forbids -- because `git add -A` in a directory where pytest had

@@ -52,11 +52,19 @@ def run_tool(name: str, *args: str, cwd: Path) -> subprocess.CompletedProcess:
     Deliberately not an import-and-call: these tools are entry points whose exit
     status is the contract, and a check that reports the right text with the
     wrong exit code enforces nothing.
+
+    The decoding is pinned to UTF-8 because the tools print this corpus's prose,
+    which is full of em dashes, and because pull request titles carry whatever
+    their author typed. Left to the platform default, a Windows run raises
+    inside subprocess's reader thread and hands back `stdout=None` — so the
+    assertion that fails is about a tool that ran perfectly.
     """
     return subprocess.run(
         [sys.executable, str(CI_DIR / name), *args],
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         cwd=str(cwd),
         env=ENV,
     )
