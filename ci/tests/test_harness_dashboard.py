@@ -39,6 +39,15 @@ def document(**overrides) -> dict:
             "layers": ["slots", "local"],
             "local_layer_scope": "one machine, one set of clones",
         },
+        "reading": {
+            "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
+            "staleness_budget_hours": 24,
+            "unknown_convention": "it is not zero, not empty, and not compliant",
+            "do_not": [
+                "quote a figure from this document without its generated_at",
+                "treat a phase as evidence: phase is what a human claimed",
+            ],
+        },
         "totals": {
             "repositories": 3,
             "slots_measured": 2,
@@ -581,3 +590,140 @@ def test_a_stated_v001_is_not_surfaced_as_claimed_above_the_evidence() -> None:
     doc["repositories"][1]["phase_source"] = "stated"
     section = hd.render(doc).split("Claimed above the evidence")[1].split("<h2>")[0]
     assert "busy-repo" not in section
+
+
+# --- the agent view, and the committed document ---------------------------
+
+
+def test_the_markdown_view_states_unknown_in_words() -> None:
+    """An agent parsing HTML loses the distinction the page spends colour on."""
+    text = hd.render_markdown(DOC)
+    assert "unknown (gh api repos/example/private-repo: HTTP 404)" in text
+    assert "unknown (no project/<name> branch in the corpus)" in text
+
+
+def test_the_markdown_view_never_leaves_a_state_implied_by_an_empty_cell() -> None:
+    """A blank cell reads as fine, in any format."""
+    for line in hd.render_markdown(DOC).splitlines():
+        if line.startswith("| ") and "---" not in line and "Repository" not in line:
+            assert "|  |" not in line, line
+            assert not line.endswith("| |"), line
+
+
+def test_the_markdown_view_names_the_violating_pull_requests() -> None:
+    text = hd.render_markdown(DOC)
+    assert "OVER" in text
+    assert "#8" in text and "#9" in text
+
+
+def test_the_markdown_view_carries_the_staleness_budget_and_refresh() -> None:
+    """The next agent has the file, not the handbook page that explains it."""
+    text = hd.render_markdown(DOC)
+    assert "older than 24h" in text
+    assert "harness_status.py --no-local --write" in text
+
+
+def test_the_markdown_view_carries_the_do_not_list() -> None:
+    text = hd.render_markdown(DOC)
+    assert "Do not quote a figure from this document without its generated_at" in text
+    assert "Do not treat a phase as evidence" in text
+
+
+def test_the_markdown_view_collects_what_needs_a_human() -> None:
+    text = hd.render_markdown(DOC)
+    section = text.split("## What needs a human")[1].split("## ")[0]
+    assert "busy-repo" in section
+    assert "Close the pull request FIRST" in section
+    assert "clean-repo" in section  # scaffolded phase
+
+
+def test_the_markdown_view_lists_every_gap_with_its_reason() -> None:
+    section = hd.render_markdown(DOC).split("could not establish")[1]
+    assert "HTTP 404" in section
+    assert "not found on this machine" in section
+
+
+def test_a_document_with_no_gaps_says_so_rather_than_showing_nothing() -> None:
+    doc = document()
+    doc["repositories"] = [doc["repositories"][0]]
+    section = hd.render_markdown(doc).split("could not establish")[1]
+    assert "every layer was read" in section
+
+
+def test_both_views_render_the_same_document() -> None:
+    """One document, two formats — never two pipelines that can disagree."""
+    for name in ("clean-repo", "busy-repo", "private-repo"):
+        assert name in hd.render(DOC)
+        assert name in hd.render_markdown(DOC)
+
+
+def test_the_markdown_view_runs_nothing() -> None:
+    text = hd.render_markdown(DOC)
+    assert "reads no network" in text
+
+
+def test_the_committed_document_exists_and_parses() -> None:
+    """The path AGENTS.md sends the next agent to. If it is absent, they get nothing."""
+    committed = CI_DIR.parent / "harness-status.json"
+    assert committed.exists(), "harness-status.json is not committed"
+    doc = json.loads(committed.read_text(encoding="utf-8"))
+    assert doc["schema"] == 1
+    assert doc["repositories"]
+
+
+def test_the_committed_document_carries_its_own_reading_instructions() -> None:
+    """A convention that lives only in a handbook page is one the reader lacks."""
+    doc = json.loads((CI_DIR.parent / "harness-status.json").read_text(encoding="utf-8"))
+    reading = doc["reading"]
+    assert reading["refresh"]
+    assert reading["staleness_budget_hours"] == hs.STALENESS_BUDGET_HOURS
+    assert "not compliant" in reading["unknown_convention"]
+    assert reading["do_not"]
+
+
+def test_the_committed_document_omits_the_machine_layer() -> None:
+    """One machine's branch names must not become an organisation fact."""
+    doc = json.loads((CI_DIR.parent / "harness-status.json").read_text(encoding="utf-8"))
+    assert "local" not in doc["generator"]["layers"]
+    for repo in doc["repositories"]:
+        assert "local" not in repo, repo["name"]
+
+
+def test_the_committed_document_renders_in_both_formats() -> None:
+    """A document nobody can render is a document nobody will read."""
+    doc = json.loads((CI_DIR.parent / "harness-status.json").read_text(encoding="utf-8"))
+    assert "<table>" in hd.render(doc)
+    assert "| Repository |" in hd.render_markdown(doc)
+
+
+def test_inside_corpus_recognises_a_path_that_would_be_committed(tmp_path: Path) -> None:
+    assert hs.inside_corpus(CI_DIR.parent / "harness-status.json")
+    assert hs.inside_corpus(CI_DIR / "nested" / "thing.json")
+    assert not hs.inside_corpus(tmp_path / "harness-status.json")
+
+
+def test_writing_the_machine_layer_into_the_repository_is_refused() -> None:
+    """Rather than trusting anybody to remember --no-local.
+
+    Run against the real path, because the real path is the whole subject: a
+    guard tested against a temporary directory is a guard tested where it never
+    fires. That makes this a test that can damage what it tests — a mutation
+    run with the guard disabled wrote one machine's branch names into the
+    committed document — so the file is restored before anything is asserted.
+    """
+    committed = CI_DIR.parent / "harness-status.json"
+    before = committed.read_bytes()
+    try:
+        result = subprocess.run(
+            [sys.executable, str(CI_DIR / "harness_status.py"),
+             "--write", "harness-status.json"],
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+            cwd=str(CI_DIR.parent),
+        )
+    finally:
+        if committed.read_bytes() != before:
+            committed.write_bytes(before)
+
+    assert result.returncode == 1
+    assert "refusing to write the machine layer" in result.stderr
+    assert "--no-local" in result.stderr

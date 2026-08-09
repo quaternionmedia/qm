@@ -29,6 +29,12 @@ other repositories, for the same reviewer;
 because of that, and it is short. `/preflight` and `/handoff` close the same
 loop at the other end.
 
+**Read the corpus's committed status documents before re-deriving what they
+hold.** `governance/qm/governance-status.yaml` and
+`governance/qm/harness-status.json` each carry their own refresh command and
+staleness budget inside the file; `governance/qm/handbook/generated-documents.md`
+indexes them. Check the age before quoting a figure.
+
 1. Read `governance/qm/README.md` and `governance/qm/PRINCIPLES.md` in full
    — the namespaces/precedence rules and the charter. Both are short.
 2. This project's own decision records live in `governance/qm/adr/` — inside

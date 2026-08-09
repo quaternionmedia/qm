@@ -1,0 +1,905 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-09T23:20:27Z",
+  "generator": {
+    "tool": "ci/harness_status.py",
+    "org": "quaternionmedia",
+    "rule": "one open pull request per repository, per contributor",
+    "rule_source": "handbook/async-contract.md",
+    "corpus_exemption": [
+      "project/*"
+    ],
+    "phase_ladder_source": "records/DRAFT-project-phase-ladder.md",
+    "phase_layer_is_a_claim": "phase and phase_source come from ci/workspace.yaml and record what a human stated. They are never derived from artifacts.",
+    "governance_layer_is_evidence": "read from governance-status.yaml, on each project's default branch. Work in an open pull request is work, not evidence.",
+    "layers": [
+      "phase",
+      "slots",
+      "governance"
+    ],
+    "local_layer_scope": null,
+    "search_roots": []
+  },
+  "reading": {
+    "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
+    "staleness_budget_hours": 24,
+    "human_view": "python ci/harness_dashboard.py harness-status.json --out status.html",
+    "agent_view": "python ci/harness_dashboard.py harness-status.json --format md",
+    "unknown_convention": "{\"unknown\": \"<reason>\"} is a value. It means the fact could not be established and says why. It is not zero, not empty, and not compliant -- a repository nobody could measure must never be read as a repository with nothing wrong.",
+    "do_not": [
+      "quote a figure from this document without its generated_at",
+      "treat a phase as evidence: phase is what a human claimed",
+      "treat the governance layer as a claim: it is what has landed",
+      "regenerate this in CI -- it reads other repositories, so every unrelated pull request would go red for a reason its author cannot fix"
+    ],
+    "committed_copy_omits": [
+      "local"
+    ]
+  },
+  "totals": {
+    "repositories": 13,
+    "slots_measured": 13,
+    "slots_unknown": 0,
+    "compliant": 12,
+    "over_limit": 1,
+    "governance_readable": 8,
+    "governance_precondition_met": 1,
+    "phase_scaffolded": 7,
+    "phase_stated_above_governance": 4
+  },
+  "repositories": [
+    {
+      "name": "qm",
+      "slug": "quaternionmedia/qm",
+      "role": "corpus",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "the constitution; every other entry adopts it by reference",
+      "slots": {
+        "repository": "quaternionmedia/qm",
+        "per_base": [
+          "project/*"
+        ],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 36,
+            "title": "The asynchronous multi-agent harness, and the CI tooling it is built on",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "draft": true
+          },
+          {
+            "number": 35,
+            "title": "Bring project/codecartographer current: propagate main, and refresh the seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/codecartographer",
+            "draft": false
+          },
+          {
+            "number": 33,
+            "title": "Bring project/alfred current: propagate main, and refresh the seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/alfred",
+            "draft": false
+          },
+          {
+            "number": 32,
+            "title": "Bring project/factorio-sysops current: propagate main, and refresh the seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/factorio-sysops",
+            "draft": false
+          },
+          {
+            "number": 31,
+            "title": "Bring project/factorio-server current: propagate main, and refresh the seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/factorio-server",
+            "draft": false
+          },
+          {
+            "number": 30,
+            "title": "Bring project/datafactorio current: propagate main, and refresh the seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/datafactorio",
+            "draft": false
+          },
+          {
+            "number": 29,
+            "title": "Bring project/apothecary current: propagate main, and refresh the seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/apothecary",
+            "draft": false
+          },
+          {
+            "number": 25,
+            "title": "Propagate main into project/qmetronome, and stop this branch owning org content",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/qmetronome",
+            "draft": true
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "precondition": "n/a",
+        "missing": [],
+        "asserts": "this repository is the corpus"
+      }
+    },
+    {
+      "name": "alfred",
+      "slug": "quaternionmedia/alfred",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "video editor; UI migration and Playwright coverage in flight",
+      "slots": {
+        "repository": "quaternionmedia/alfred",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 116,
+            "title": "Bump actions/download-artifact from 3 to 4.1.7 in /.github/workflows",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 113,
+            "title": "Config",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "submodule",
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": null,
+          "submodule_branch": null,
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 0,
+          "workflows_absent": 3,
+          "licensing_present": 0
+        },
+        "behind_corpus": 62,
+        "observed_at": "2026-08-09T20:19:30Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "apothecary",
+      "slug": "quaternionmedia/apothecary",
+      "role": "project",
+      "phase": "v0.0.2",
+      "phase_source": "stated",
+      "note": "parametric assembly; named as a v0.0.2 integration consumer",
+      "slots": {
+        "repository": "quaternionmedia/apothecary",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 13,
+            "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "governance/adopt-license-and-datum-scaffold",
+            "draft": true
+          },
+          {
+            "number": 12,
+            "title": "All open PRs reconciled: constitution, LICENSE, Gridfinity, fractal hierarchy, dependency bumps",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 8,
+            "title": "Fractal Assembly hierarchy + zoom viewer (prototype, unratified)",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 7,
+            "title": "Bump pygments from 2.19.2 to 2.20.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 6,
+            "title": "Bump requests from 2.32.5 to 2.33.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 5,
+            "title": "Bump black from 25.11.0 to 26.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 4,
+            "title": "🔳 Gridfinity",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 3,
+            "title": "Bump filelock from 3.20.0 to 3.20.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 2,
+            "title": "Bump virtualenv from 20.35.4 to 20.36.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          }
+        ],
+        "violations": [
+          {
+            "author": "subcontrabass",
+            "base": "",
+            "numbers": [
+              8,
+              12,
+              13
+            ]
+          }
+        ],
+        "exit_status": 1,
+        "compliant": false
+      },
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "submodule",
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": null,
+          "submodule_branch": null,
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 0,
+          "workflows_absent": 3,
+          "licensing_present": 0
+        },
+        "behind_corpus": 62,
+        "observed_at": "2026-08-09T20:19:31Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "datum",
+      "slug": "quaternionmedia/datum",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "schema and wire contract; governance propagation open",
+      "slots": {
+        "repository": "quaternionmedia/datum",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 1,
+            "title": "Pick up the governance propagation, and split the docs out of the README",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "draft": true
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "precondition": "met",
+        "missing": [],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/datum",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 3,
+          "workflows_absent": 0,
+          "licensing_present": 2
+        },
+        "behind_corpus": 62,
+        "observed_at": "2026-08-09T20:19:35Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "rad",
+      "slug": "quaternionmedia/rad",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "stated",
+      "note": "radial menu; defined the phase ladder above",
+      "slots": {
+        "repository": "quaternionmedia/rad",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 1,
+            "title": "rad: adopt qm governance, rename, radical theme, tempo axes, and real verification",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "codecartographer",
+      "slug": "quaternionmedia/codecartographer",
+      "role": "project",
+      "phase": "v0.0.2",
+      "phase_source": "stated",
+      "note": "code maps; named itself a v0.0.2 RAD consumer",
+      "slots": {
+        "repository": "quaternionmedia/codecartographer",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 90,
+            "title": "build(deps): bump pymdown-extensions from 10.20 to 11.0.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 89,
+            "title": "build(deps-dev): bump postcss from 8.5.19 to 8.5.25 in /web",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 88,
+            "title": "build(deps): bump brace-expansion from 1.1.16 to 1.1.18 in /web",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 87,
+            "title": "build(deps): bump black from 25.12.0 to 26.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 85,
+            "title": "build(deps): bump setuptools from 80.9.0 to 83.0.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 84,
+            "title": "Full review cleanup: governance migration, dead-code/dependency cleanup, Lexicon Option B, layout unification",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "submodule branch",
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": "docs/qm",
+          "submodule_branch": null,
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 0,
+          "workflows_absent": 3,
+          "licensing_present": 1
+        },
+        "behind_corpus": 62,
+        "observed_at": "2026-08-09T20:19:33Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "datafactorio",
+      "slug": "quaternionmedia/datafactorio",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": null,
+      "slots": {
+        "repository": "quaternionmedia/datafactorio",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 8,
+            "title": "chore(deps): bump starlette from 0.50.0 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 6,
+            "title": "chore(deps): bump idna from 3.11 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 5,
+            "title": "chore(deps): bump pytest from 9.0.2 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 4,
+            "title": "chore(deps): bump pygments from 2.19.2 to 2.20.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/datafactorio",
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 1,
+          "workflows_absent": 2,
+          "licensing_present": 0
+        },
+        "behind_corpus": 69,
+        "observed_at": "2026-08-09T20:19:34Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "factorio-server",
+      "slug": "quaternionmedia/factorio-server",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": null,
+      "slots": {
+        "repository": "quaternionmedia/factorio-server",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "submodule",
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": null,
+          "submodule_branch": null,
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 0,
+          "workflows_absent": 3,
+          "licensing_present": 0
+        },
+        "behind_corpus": 69,
+        "observed_at": "2026-08-09T20:19:37Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "factorio-sysops",
+      "slug": "quaternionmedia/factorio-sysops",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": null,
+      "slots": {
+        "repository": "quaternionmedia/factorio-sysops",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/factorio-sysops",
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 1,
+          "workflows_absent": 2,
+          "licensing_present": 0
+        },
+        "behind_corpus": 69,
+        "observed_at": "2026-08-09T20:19:38Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "qmetronome",
+      "slug": "quaternionmedia/qmetronome",
+      "role": "project",
+      "phase": "v0.0.3",
+      "phase_source": "stated",
+      "note": "named as the v0.0.3 Android target",
+      "slots": {
+        "repository": "quaternionmedia/qmetronome",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 10,
+            "title": "Finish governance adoption: IDE discovery, and the seed's four-check ADR lint",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "draft": true
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/qmetronome",
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 1,
+          "workflows_absent": 2,
+          "licensing_present": 1
+        },
+        "behind_corpus": 69,
+        "observed_at": "2026-08-09T20:19:39Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "dossier",
+      "slug": "quaternionmedia/dossier",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "the intended durable surface for governance review",
+      "slots": {
+        "repository": "quaternionmedia/dossier",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 9,
+            "title": "build(deps): bump starlette from 0.50.0 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 7,
+            "title": "build(deps): bump idna from 3.11 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 6,
+            "title": "build(deps): bump mako from 1.3.10 to 1.3.12",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 4,
+            "title": "build(deps-dev): bump pytest from 9.0.2 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 3,
+            "title": "build(deps): bump pygments from 2.19.2 to 2.20.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "benchmark",
+      "slug": "quaternionmedia/benchmark",
+      "role": "unmanaged",
+      "phase": "v0.0.2",
+      "phase_source": "stated",
+      "note": "named alongside apothecary as a v0.0.2 consumer",
+      "slots": {
+        "repository": "quaternionmedia/benchmark",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 8,
+            "title": "chore(deps-dev): bump vite from 7.3.1 to 7.3.2",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 7,
+            "title": "fix: handle missing regions/ directory in compile-yaml",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "qmcp",
+      "slug": "quaternionmedia/qmcp",
+      "role": "unmanaged",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": null,
+      "slots": {
+        "repository": "quaternionmedia/qmcp",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 20,
+            "title": "chore(deps): bump python-dotenv from 1.2.1 to 1.2.2",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 19,
+            "title": "chore(deps): bump authlib from 1.6.6 to 1.6.11",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 18,
+            "title": "chore(deps): bump python-multipart from 0.0.21 to 0.0.26",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 17,
+            "title": "chore(deps): bump pytest from 9.0.2 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 16,
+            "title": "chore(deps): bump cryptography from 46.0.3 to 46.0.7",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 15,
+            "title": "chore(deps): bump aiohttp from 3.13.3 to 3.13.4",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 14,
+            "title": "chore(deps): bump fastmcp from 2.14.3 to 3.2.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 13,
+            "title": "chore(deps): bump pygments from 2.19.2 to 2.20.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 11,
+            "title": "chore(deps): bump requests from 2.32.5 to 2.33.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 10,
+            "title": "chore(deps): bump pyasn1 from 0.6.2 to 0.6.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 8,
+            "title": "chore(deps): bump pyjwt from 2.10.1 to 2.12.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 5,
+            "title": "chore(deps): bump pydantic-ai-slim from 1.44.0 to 1.56.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 4,
+            "title": "chore(deps): bump pydantic-ai from 1.44.0 to 1.56.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          },
+          {
+            "number": 3,
+            "title": "build(deps): bump protobuf from 6.33.4 to 6.33.5",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    }
+  ]
+}

@@ -17,6 +17,7 @@ tighten its rules — never relax them.
 | Bring an existing project up to date | `handbook/propagation-runbook.md` |
 | Know how far this corpus has got in governing itself | `handbook/governance-rollout.md` |
 | See where every project actually stands right now | `governance-status.yaml`, and `ci/governance_render.py` to read it as a page |
+| Read the status documents as an agent | `handbook/generated-documents.md` — paths, staleness budgets, and the `--format md` views |
 
 Three things are worth knowing before anything else:
 
@@ -40,6 +41,7 @@ qm/
 ├── project-seed/     what a new project copies: adr/, ci/, ide/
 ├── ci/               org-level tooling, copied nowhere: the status generators
 ├── governance-status.yaml   generated; where every project stands, and when
+├── harness-status.json      generated; PR slots, phases claimed, governance evidence
 ├── AGENTS.md         governance discovery for coding agents
 ├── .claude/          the harness commands, symlinked into project-seed/ide/
 ├── LICENSE           CC-BY-SA-4.0 corpus prose; LICENSES/ + REUSE.toml cover the rest
@@ -171,6 +173,7 @@ Handbook (policy, not records):
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
 | `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
 | `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
+| `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |
 | `handbook/handoffs/` | Work an asynchronous agent can pick up cold, and the order between the pieces |
 
 ### Obligations that fall due at ratification

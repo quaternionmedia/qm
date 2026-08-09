@@ -17,6 +17,14 @@ and `/handoff` close the same loop at the other end. The commands live in
 `project-seed/ide/.claude/commands/`, and this repository's `.claude/` is
 symlinks into it.
 
+**Read the committed status documents before re-deriving what they hold.**
+`governance-status.yaml` and `harness-status.json` sit at the root, each
+carrying its own refresh command and staleness budget inside the file;
+`handbook/generated-documents.md` indexes them, and
+`ci/harness_dashboard.py harness-status.json --format md` renders the second
+as prose. Check the age before quoting a figure — a stale number delivered
+with a date looks checked.
+
 1. Read `README.md` (namespaces, precedence, ratification) and
    `PRINCIPLES.md` (the charter) in full. Both are short.
 2. This corpus governs its own drafting. Records live in `records/` as
