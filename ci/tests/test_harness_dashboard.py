@@ -262,6 +262,29 @@ def test_the_renderer_never_shells_out() -> None:
     assert "import os" not in source
 
 
+def test_a_fragment_carries_no_document_shell() -> None:
+    """A host that supplies its own <head> must not receive a second one."""
+    fragment = hd.render(DOC, fragment=True)
+    for tag in ("<!doctype", "<html", "<head>", "<body>"):
+        assert tag not in fragment.lower()
+
+
+def test_a_fragment_still_carries_the_stylesheet() -> None:
+    """Inheriting an unknown palette renders three states in one colour."""
+    fragment = hd.render(DOC, fragment=True)
+    assert "<style>" in fragment
+    assert "--unknown:" in fragment
+    assert ":root {" in fragment
+
+
+def test_a_fragment_is_the_same_page_as_the_document() -> None:
+    """One body, two wrappers — otherwise the two drift and only one is checked."""
+    fragment = hd.render(DOC, fragment=True)
+    full = hd.render(DOC)
+    body = fragment.split("</style>", 1)[1]
+    assert body in full
+
+
 def test_both_views_share_one_stylesheet() -> None:
     """Two governance pages in one window must not be two colour systems."""
     import governance_render as gr
