@@ -28,18 +28,16 @@ before acting — read `origin/main:<path>`, never the working tree.*
 
 ## The licensing wrinkle, which is not apothecary's
 
-apothecary had no `LICENSE` at all. dossier **has one** — 21 lines, MIT,
-`Copyright (c) 2026 Peter Kagstrom` — and GitHub still reports its licence as
-`NONE`. Two things follow, and neither should be guessed at:
+apothecary had no `LICENSE` at all. dossier **has one** — 21 lines, canonical
+MIT, which GitHub classifies as `mit`. The wrinkle is not detection; it is
+whose name is on it and whether MIT is the right answer.
 
-1. **Establish why GitHub cannot classify it.** Usually the text has drifted
-   from canonical MIT. `reuse lint` and GitHub's own licence detection will
-   both tell you; a diff against the SPDX text tells you exactly.
-2. **The copyright holder disagrees with the corpus.** The outbound-licensing
-   record §0 places copyright in **Quaternion Media**; this file names an
-   individual. That is a real question for a human, not a typo to fix in
-   passing — it is the same question the record's own `Pends on` raised, and it
-   was answered for the corpus, not necessarily for every repo.
+**The copyright holder disagrees with the corpus.** `Copyright (c) 2026 Peter
+Kagstrom`. The outbound-licensing record §0 places copyright in **Quaternion
+Media**, and `quaternionmedia/datum` already carries that form. dossier names an
+individual instead. That is a real question for a human, not a typo to fix in
+passing — it is the same question the record's own `Pends on` raised, and it was
+answered for the corpus, not necessarily for every repo.
 
 There is no `REUSE.toml` and no `LICENSES/`, so the outbound record's §12 gate
 has nothing to run against yet. Add them the way apothecary's PR did, in

@@ -5,3 +5,11 @@ Thumbs.db
 !.vscode/settings.json
 !.vscode/extensions.json
 .idea/
+
+# Python bytecode. Four of these reached a commit in this repository --
+# generated files under version control, which perspectives/'s own sanity
+# check #4 forbids -- because `git add -A` in a directory where pytest had
+# just run picks them up and nothing was stopping it.
+__pycache__/
+*.py[cod]
+

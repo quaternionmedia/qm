@@ -3,14 +3,46 @@
 **Goal.** dossier reads `governance-status.yaml` and shows one view of it:
 which projects are current, which have drifted, and what nobody has measured.
 
-**Blocked on all three of the other handoffs.** There must be a document to
-render, a reviewed schema to render it into, and — per the decision already
-taken — a repo that has adopted the corpus it reports on. Do not start this one
-by generating the data yourself; that is the seam this design exists to avoid.
+**The document now exists** — `governance-status.yaml`, emitted by
+`ci/governance_status.py`, with `ci/governance_render.py` as a first reader you
+can read for reference and are expected to eventually replace. Its contract is
+`handbook/handoffs/governance-status-generator.md`.
+
+**Still blocked on the other two dossier handoffs**: a reviewed delta schema to
+build against, and a repo that has adopted the corpus it reports on. Do not
+start this one by generating the data yourself; that is the seam this design
+exists to avoid.
 
 Read `handbook/handoffs/README.md` first.
 
 ---
+
+## Read this before choosing a table
+
+**`dossier github sync` is delete-and-repopulate.** It empties and rebuilds
+`ProjectBranch`, `ProjectPullRequest`, `DocumentSection`, `ProjectIssue`,
+`ProjectContributor`, `ProjectLanguage`, `ProjectDependency` and
+`ProjectRelease` on every run (`cli.py`, the sync command). Any governance state
+written into one of those is destroyed the next time somebody syncs, silently
+and completely.
+
+So governance state goes in a table sync does not touch — even though
+`ProjectBranch` and `ProjectPullRequest` look like the natural homes and an
+earlier version of this page recommended them. Establish this yourself before
+building; it is the single constraint that decides the schema.
+
+Three more conventions, each of which reads the opposite way at a glance:
+
+- **Zero ORM relationships.** `Relationship` is imported in
+  `src/dossier/models/schemas.py` and never called; every join is a manual
+  `select(X).where(X.project_id == ...)`. The import makes grep look like a hit.
+- **Two competing parser precedents.** `MarkdownParser` subclasses `BaseParser`
+  and is registered in `ParserRegistry.default()`; `GitHubParser` subclasses
+  nothing, is registered nowhere, and is imported directly by the CLI. Pick one
+  deliberately and say which.
+- **The test suite purges the developer's real database.** `pytest_configure`
+  shells `dossier dev purge` against `./dossier.db` before and after every run.
+  Know that before you run it on a machine with data you care about.
 
 ## Scope, deliberately small
 
@@ -18,13 +50,27 @@ Read `handbook/handoffs/README.md` first.
 week. The temptation is to model governance richly on day one; the corpus's own
 history says the useful shape is discovered by using the plain one.
 
-- A parser beside `src/dossier/parsers/github.py`, reading the document.
-- The smallest schema addition that holds it. Most of the content maps onto
-  rows dossier already syncs — `Project`, `ProjectPullRequest`,
-  `ProjectBranch` — so the genuinely new state is a per-project governance
-  record plus one corpus-level row. Resist adding a table per nested key.
-- One TUI tab: the project table, ordered by what needs attention rather than
-  alphabetically.
+- A parser reading the document. It parses YAML; it does not talk to git or to
+  GitHub.
+- The smallest schema addition that holds it, in a table `github sync` does not
+  rebuild, plus one alembic revision chained to whatever is head at the time
+  (`005_delta_tables` if the delta branch has landed).
+- One TUI tab. **The tab topology differs between refs** — `main` has a flat
+  `#project-tabs`, and `feature/delta-entity-type` restructures it into nested
+  `#main-tabs`. Code written against one silently fails to activate on the
+  other, which is the other reason the delta branch is reviewed first.
+
+### Every field may be `{unknown: <reason>}`
+
+Not just the ones that look optional. `behind_corpus` is an integer or the
+mapping `{unknown: "..."}`; `open_prs` is a list or that same mapping. An `int`
+column cannot hold it, and a reader that coerces gets a blank — and blank reads
+as fine. Type-check every field, and keep the reason: a nullable value column
+beside an `unknown_reason` column preserves the distinction across the
+relational mapping.
+
+`null` is not unknown. `last_propagation: null` means *never propagated*, which
+is an established fact.
 
 ## The distinction to preserve
 

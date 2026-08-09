@@ -17,12 +17,12 @@ between them are recorded here rather than inside each one.
 |---|---|---|
 | [`dossier-delta-review.md`](dossier-delta-review.md) | nothing | dossier |
 | [`dossier-adoption.md`](dossier-adoption.md) | nothing | dossier + qm |
-| [`governance-status-generator.md`](governance-status-generator.md) | nothing | qm |
-| [`dossier-governance-view.md`](dossier-governance-view.md) | the three above | dossier |
+| [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
+| [`dossier-governance-view.md`](dossier-governance-view.md) | the two dossier pages above | dossier |
 
-The first three are genuinely independent. The fourth needs a document to
-render, a reviewed schema to render it into, and a repo that has adopted the
-corpus it reports on.
+The two dossier pages are genuinely independent of each other. The status
+document now exists, so the fourth page needs only a reviewed schema to build
+against and a repo that has adopted the corpus it reports on.
 
 ### Not a handoff yet, but don't lose it
 
@@ -80,5 +80,20 @@ dashboard that is green because its query returned empty is worse than no
 dashboard, because it discourages the manual check that would have caught the
 problem. **Every signal needs a fixture in which it reports bad.** A signal
 only ever observed green has not been tested; it has been watched.
+
+Building the status generator produced four more of them, in one afternoon and
+none of them a crash: `ls-tree` without `-r` reported a directory of ten
+records as empty; walking every reachable merge counted the corpus's own
+thirteen merges as thirteen propagations; `gh api` without `--paginate`
+returned a hundred of a hundred and nine repositories and declared three
+existing projects nonexistent; and a `--jq` path naming a key the endpoint does
+not have reported every repository in the org as unlicensed. Each produced a
+tidy, confident, wrong table.
+
+**A test that passes against the broken tool is inert**, and this corpus has
+shipped two of those. After writing a signal's test, break the tool in the way
+the test names and confirm the test fails. Ten such mutations were run against
+`ci/governance_status.py`; two tests were inert on the first pass and both were
+rewritten.
 
 *Stamped 2026-08-09. `qm` at `b94d910`, `dossier` at `f055376`.*
