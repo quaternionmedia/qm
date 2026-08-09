@@ -70,7 +70,13 @@ commit or edit — it is short on purpose.
    never as a byline.
 7. Follow the drafting-session handoff contract in
    `project-seed/adr/README.md` before writing or amending any record.
-8. Banned in any pre-ratification `records/DRAFT-*.md` document:
+8. **Put explanation in one place**, per `handbook/style-guide.md`: inline
+   comments carry clarifying facts about the code, `README.md` is a shallow
+   onramp to what follows it, `docs/` is reference, and **every why goes to a
+   retrospective in `perspectives/`**. A record's Context and Alternatives are
+   the one exception, and they answer *why this decision* rather than *why it
+   went that way*.
+9. Banned in any pre-ratification `records/DRAFT-*.md` document:
    "previously", "originally", "earlier draft", "re-review", "renumber",
    "retroactive", "supersedes the ... (stance|finding)", "corrected".
    Drafts are rewritten in place, not narrated.

@@ -54,7 +54,14 @@ no other briefing, read this file fully before your first commit or edit.
    `governance/qm/adr/README.md` before writing or amending any record.
 6. A QM record may be tightened by this project's own records, never
    relaxed — see `governance/qm/README.md`'s "Namespaces and precedence."
-7. Banned in any pre-ratification `DRAFT-*.md` record: "previously",
+7. **Put explanation in one place**, per
+   `governance/qm/handbook/style-guide.md`: inline comments carry clarifying
+   facts about the code, `README.md` is a shallow onramp to what follows it,
+   `docs/` is reference, and **every why goes to a retrospective in
+   `governance/qm/perspectives/`**. A record's Context and Alternatives are
+   the one exception, answering *why this decision* rather than *why it went
+   that way*.
+8. Banned in any pre-ratification `DRAFT-*.md` record: "previously",
    "originally", "earlier draft", "re-review", "renumber", "retroactive",
    "supersedes the ... (stance|finding)", "corrected". Drafts are rewritten
    in place, not narrated. The ADR lint enforces this over prose only, so
