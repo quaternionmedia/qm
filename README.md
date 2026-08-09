@@ -163,9 +163,7 @@ Handbook (policy, not records):
 | `handbook/propagation-runbook.md` | How an org change reaches an adopted project, in both repositories |
 | `handbook/adoption-audit-queue.md` | Which projects are audited, and how the next agent runs the rest |
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
-
-Style guide (minimal, legible deliverables) is named by the charter and not
-yet written.
+| `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
 
 ### Obligations that fall due at ratification
 

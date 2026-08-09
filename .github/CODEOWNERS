@@ -1,70 +1,56 @@
-# DELIBERATELY INERT. Every rule below is commented out, so this file assigns
-# no owners and GitHub requests review from nobody. The rules are kept verbatim,
-# in order, so re-enabling is mechanical rather than a rewrite:
+# INERT. Every rule is commented out, so this file assigns no owners and GitHub
+# requests review from nobody. Re-enable with:
 #
 #     sed -i 's/^#= //' .github/CODEOWNERS
 #
-# Re-enable when governance settles -- specifically, when there is a second
-# active reviewer and rulesets A and B are being moved off "evaluate". Both
-# already carry "require_code_owner_review": true, so they and this file are
-# meant to be turned on together; see .github/rulesets/README.md's staged path.
+# Re-enable together with rulesets A and B, which carry
+# "require_code_owner_review": true -- see .github/rulesets/README.md's staged
+# path. Why it is off: perspectives/2026-08-09-explanation-in-the-wrong-place.md.
 #
-# WHY IT IS OFF, and the belief that has to go with it:
+# Two mechanics this file depends on:
 #
-# This file used to say it "has no effect unless Require review from Code Owners
-# is enabled on a ruleset." That is not true, and acting on it cost a
-# maintainer's attention. GitHub requests review from code owners when a
-# non-draft PR opens against a base branch carrying this file. It does that on
-# its own, independent of any ruleset, and independent of enforcement mode --
-# every ruleset here is still "evaluate" and blocking nothing. On 2026-08-09 an
-# agent opened a PR touching /project-seed/, /.github/workflows/ and
-# /.github/rulesets/, named no reviewer, and @mrharpo was requested anyway. The
-# notification cannot be recalled.
+#   Last match wins, and ownership does not accumulate. A later, narrower rule
+#   REPLACES the owners of an earlier one rather than adding to them. The
+#   catch-all therefore names the default owners, and every rule below it names
+#   the only owners for that path.
 #
-# So this file is not dormant configuration waiting on a ruleset. It is live the
-# moment it exists, and it was live while the corpus's own documentation said it
-# was not. Until code-owner review is something the org actually wants to field,
-# inert is the honest state.
-#
-# The catch-all below names four people, so the blast radius is not limited to
-# the paths an agent is working in. It is currently smaller than it looks only
-# because GitHub silently skips users without write access -- that is an
-# accident of permissions, not a design, and it grows as access is granted.
-#
-# Drafts remain the first line of defence regardless: a draft PR fires none of
-# this even with the rules live. See AGENTS.md rule 3.
-#
-# ---------------------------------------------------------------------------
+#   GitHub requests code-owner review when a non-draft PR opens against a base
+#   branch carrying this file. No ruleset is involved and enforcement mode is
+#   irrelevant. It reads the file from the BASE branch, so a project/* branch
+#   has no code-owner review until main is propagated into it.
 #
 # Ratification is a human action (README.md, "Ratification"). This file names
 # which humans, per path. Tool involvement is never a byline.
-#
-# GitHub reads CODEOWNERS from the PR's BASE branch, so a project/* branch does
-# not get code-owner review until main has been propagated into it.
 
-#= *                       @subcontrabass @mrharpo @CameronRWest @MJWKagstrom
+# Default owners, applying only to paths that no rule below names.
+#= *                                @subcontrabass @mrharpo @CameronRWest @MJWKagstrom
 
 # The ratification surface: Status flips, number assignment, the index.
-#= /records/               @subcontrabass @mrharpo
-#= /README.md              @subcontrabass @mrharpo
-#= /PRINCIPLES.md          @subcontrabass @mrharpo
-#= /TEMPLATE.md            @subcontrabass @mrharpo
+#= /records/                        @subcontrabass @mrharpo
+#= /README.md                       @subcontrabass @mrharpo
+#= /PRINCIPLES.md                   @subcontrabass @mrharpo
+#= /TEMPLATE.md                     @subcontrabass @mrharpo
+
+# Governance discovery: what an agent reads before its first commit. The seed
+# carries the same text under /project-seed/; these are the live copies.
+#= /AGENTS.md                       @subcontrabass @mrharpo
+#= /CLAUDE.md                       @subcontrabass @mrharpo
+#= /.github/copilot-instructions.md @subcontrabass @mrharpo
 
 # The seed is copied verbatim into every fork, so an error here replicates
 # into repositories this corpus does not govern.
-#= /project-seed/          @subcontrabass @mrharpo
+#= /project-seed/                   @subcontrabass @mrharpo
 
 # Enforcement: a PR must not weaken the checks that gate it.
-#= /.github/workflows/     @subcontrabass @mrharpo
-#= /.github/CODEOWNERS     @subcontrabass @mrharpo
-#= /.github/rulesets/      @subcontrabass @mrharpo
+#= /.github/workflows/              @subcontrabass @mrharpo
+#= /.github/CODEOWNERS              @subcontrabass @mrharpo
+#= /.github/rulesets/               @subcontrabass @mrharpo
 
 # Licensing: the outbound grant and the texts it refers to.
-#= /LICENSE                @subcontrabass @mrharpo
-#= /LICENSES/              @subcontrabass @mrharpo
-#= /REUSE.toml             @subcontrabass @mrharpo
+#= /LICENSE                         @subcontrabass @mrharpo
+#= /LICENSES/                       @subcontrabass @mrharpo
+#= /REUSE.toml                      @subcontrabass @mrharpo
 
 # Explicitly unowned: non-binding by construction, and gated on merge to main
 # by the ruleset rather than by per-path ownership.
 #= /perspectives/
-#= /math/
