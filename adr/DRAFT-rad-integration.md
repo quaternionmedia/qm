@@ -76,7 +76,7 @@ runs. **This is the import-boundary check the contract's Conformance clause
 
 `npm run test:rad` runs the lint, compiles the platform-free half, and
 replays every governed vector under `node --test` — no browser, no new
-dependency. 23 assertions: 40/40 vectors, the declared constants against the
+dependency. 25 assertions: 40/40 vectors, the declared constants against the
 vector set's own geometry and time blocks, the seam properties the
 integration standard asks for, and the §5 host obligations.
 
@@ -90,14 +90,35 @@ Integration standard §5.1. Verbs split in two, and the split is written down
 rather than inferred: `hide`, `pin`, `color:*`, `expand`, `collapse` and
 `delete` fold into a serializable `NodeViewState` the renderer projects, so
 they survive a re-render, a relayout and a cache replay; `fit`, `relayout`,
-`spread`, `cluster`, `toggle-physics`, `select-neighbors` and
-`clear-selection` are camera and selection operations that own no graph facts
+`spread`, `cluster`, `toggle-physics`, `select-neighbors`, `clear-selection`
+and `focus-group` are camera and selection operations that own no graph facts
 and are applied directly.
+
+Surviving a relayout is a claim this record had to earn twice. The first
+implementation reset view state on every remount, and `relayout` remounts —
+so the sentence above was false in the same commit that asserted it. The
+remount now distinguishes the same graph arriving again from a new plot
+target, and only the second starts clean.
 
 An unrouted verb throws. The legacy menu's stubbed actions opened, animated,
 committed and did nothing, which from the menu is indistinguishable from
 working; a test asserts every verb the resolver can commit reaches a named
 operation.
+
+That test is weaker than it reads, and the first review of this work proved
+it: `spread`, `cluster` and `focus-group` all shipped pointing at the same
+`fitView()` call and the suite stayed green. The spy sits at the `GraphOps`
+boundary, so it sees which operation fired and never what the operation does
+— op bodies are application code and never enter the conformance build. The
+defect this record claims to have closed was reintroduced inside the same
+commit that claimed it.
+
+What replaced the aliases is the rule, not a patch: **a capability this host
+does not have is offered disabled, never substituted.** `spread`, `cluster`
+and `toggle-physics` keep their wedges and come back `enabled: false`, and a
+test asserts exactly that — which is purely testable in a way "the op body is
+meaningful" is not. `focus-group` was implemented instead, since a declared
+host verb that fits the whole graph is not a focus.
 
 ### §5 Vocabulary — extended, not repurposed
 
