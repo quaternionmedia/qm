@@ -20,6 +20,17 @@ commit or edit — it is short on purpose.
    correct the change looks. Ratification is not the only human gate; it is
    the last one. A human decides what this corpus says, and the pull request
    is where that decision is made and recorded.
+   **Open it as a draft, and never request a review.** `gh pr create --draft`.
+   Draft is not a formality here: a ready PR against a branch carrying
+   `CODEOWNERS` requests review from those owners the moment it opens, with no
+   reviewer named by you and no way to recall the notification. This corpus's
+   `main` owns `/project-seed/`, `/.github/workflows/` and `/.github/rulesets/`
+   that way, so "open a PR for human review" — read literally, as an agent will
+   read it — is the act of pulling a second person into untested work. A draft
+   PR fires none of it. Add the person who asked for the work as **assignee**,
+   which is also how you reach them when they authored the branch and GitHub
+   therefore refuses a review request. Leaving draft is their decision and
+   follows their own testing, not your confidence in the diff.
    **A pull request states decisions, not questions.** Settle every input you
    are unsure of *before* you open it: ask in the session and wait for the
    answer. A PR that asks its reviewer what you should have asked earlier
@@ -28,6 +39,10 @@ commit or edit — it is short on purpose.
    not settled — that belongs in the record, and a Proposed record naming it
    is the process working. What does not belong anywhere is your own
    unresolved question arriving as PR text.
+   **One open PR per repository.** Two PRs that must merge in an order are a
+   sequencing puzzle handed to the reviewer. Land the org change first and let
+   propagation carry it, rather than opening a second PR that depends on the
+   first.
 4. **Check what your branch actually carries, before opening the PR.**
    `python project-seed/ci/check_pr_base.py --base <base> --head <branch>`
    reports the merge-base, the commit and file counts, the authors, and any
