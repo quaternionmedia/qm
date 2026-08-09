@@ -1,0 +1,105 @@
+# The QM repository roster, and where each one sits in a local checkout.
+#
+# Input to ci/make_workspace.py, which writes a multi-root VS Code workspace.
+# It is committed because the roster is org knowledge -- which repositories
+# exist, what governs them, which release phase each is working toward -- and
+# that knowledge has so far lived only in whichever session last asked.
+#
+# `paths` is a list of candidates relative to the search roots the generator is
+# given, because these clones are not all siblings: some are under repos/qm/,
+# some under repos/, and one is wherever the Android tooling puts it. The
+# generator reports which candidate it resolved, and reports a repository it
+# could not find as MISSING rather than dropping it from the list.
+#
+# `phase` uses the version ladder the RAD session defined on 2026-08-09:
+#
+#   v0.0.1  fully tested and reviewed by a human in the loop
+#   v0.0.2  first proper integration standard and implementation
+#   v0.0.3  first Android application
+#   v0.0.4  the auth release
+#   v0.0.5  the native application release
+#
+# `unknown` is a real value and the only honest one for a repository nobody has
+# placed on that ladder. It is not a synonym for dormant, and the generator
+# never renders it as one -- see governance-status.yaml's `undefined` section
+# for the same discipline applied to the same problem.
+
+schema: 1
+
+repositories:
+  - name: qm
+    role: corpus
+    phase: n/a
+    note: the constitution; every other entry adopts it by reference
+    paths: [qm/qm]
+
+  # --- Worked on 2026-08-09 -------------------------------------------------
+  - name: alfred
+    role: project
+    phase: unknown
+    note: video editor; UI migration and Playwright coverage in flight
+    paths: [qm/alfred]
+
+  - name: apothecary
+    role: project
+    phase: v0.0.2
+    note: parametric assembly; named as a v0.0.2 integration consumer
+    paths: [qm/apothecary]
+
+  - name: datum
+    role: project
+    phase: unknown
+    note: schema and wire contract; governance propagation open
+    paths: [qm/datum]
+
+  - name: rad
+    role: project
+    phase: v0.0.1
+    note: radial menu; defined the phase ladder above
+    paths: [qm/rad]
+
+  - name: codecartographer
+    role: project
+    phase: v0.0.2
+    note: code maps; named itself a v0.0.2 RAD consumer
+    paths: [codecartographer, qm/codecartographer]
+
+  # --- Governed, not touched on 2026-08-09 ----------------------------------
+  - name: datafactorio
+    role: project
+    phase: unknown
+    paths: [qm/datafactorio, datafactorio]
+
+  - name: factorio-server
+    role: project
+    phase: unknown
+    paths: [qm/factorio-server, factorio-server]
+
+  - name: factorio-sysops
+    role: project
+    phase: unknown
+    paths: [factorio-sysops, qm/factorio-sysops]
+
+  - name: qmetronome
+    role: project
+    phase: v0.0.3
+    note: named as the v0.0.3 Android target
+    paths: ["../AndroidStudioProjects/qmetronome", qm/qmetronome]
+
+  - name: dossier
+    role: project
+    phase: unknown
+    note: the intended durable surface for governance review
+    paths: [qm/dossier, dossier]
+
+  # --- In the org, governance status not established ------------------------
+  - name: benchmark
+    role: unmanaged
+    phase: v0.0.2
+    note: named alongside apothecary as a v0.0.2 consumer
+    paths: [benchmark, qm/benchmark]
+
+  - name: qmcp
+    role: unmanaged
+    phase: unknown
+    paths: [qm/qmcp, qmcp]

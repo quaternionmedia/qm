@@ -30,6 +30,7 @@ path = [
   "project-seed/ide/AGENTS.md",
   "project-seed/ide/CLAUDE.md",
   "project-seed/ide/.github/copilot-instructions.md",
+  "project-seed/ide/.claude/**",
 ]
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
@@ -76,6 +77,17 @@ path = ".vscode/**"
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
 SPDX-License-Identifier = "Apache-2.0"
+
+# --- This repository's own harness commands ---------------------------------
+# Symlinks into project-seed/ide/.claude/commands/; they follow their target,
+# which is §2 copy-forward prose. The same reasoning as .vscode/** above, with
+# a different answer because the target is a different kind of file: these are
+# instructions a session reads, not executable config.
+[[annotations]]
+path = ".claude/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "CC0-1.0"
 
 # --- Org-level tooling, which is not copied anywhere ------------------------
 # `ci/` is the opposite of `project-seed/ci/`: a singleton that reads this
