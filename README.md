@@ -164,6 +164,7 @@ Handbook (policy, not records):
 | `handbook/adoption-audit-queue.md` | Which projects are audited, and how the next agent runs the rest |
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
 | `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
+| `handbook/handoffs/` | Work an asynchronous agent can pick up cold, and the order between the pieces |
 
 ### Obligations that fall due at ratification
 
