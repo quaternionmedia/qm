@@ -11,7 +11,7 @@ decide.
 **The JSON describes the end state, and ships evaluating.** Every file is
 written as the protection this repository is building toward — including two
 required code-owner approvals on `main` and an empty bypass list — while
-`"enforcement": "evaluate"` means all five log what they *would* have blocked
+`"enforcement": "evaluate"` means all six log what they *would* have blocked
 and block nothing. Applying them today is therefore safe and reversible, and
 it is how the deadlocks below get found in logs rather than on the day
 someone tries to ratify.
@@ -25,7 +25,7 @@ stages below each add one thing and can be verified before the next.
 | Stage | Change | Precondition |
 |---|---|---|
 | 0 — today | No rulesets. The rules hold as doctrine (`AGENTS.md`, `README.md`) | — |
-| 1 | Apply all five **evaluating**. Read `rule-suites` for a week | none — safe now |
+| 1 | Apply all six **evaluating**. Read `rule-suites` for a week | none — safe now |
 | 2 | Flip C, D, E to **active**: force-push, deletion, signing, branch naming | Stage 1 quiet |
 | 3 | A and B **active**, but A with `required_approving_review_count: 1` and a `pull_request`-scoped admin bypass | `adr-lint`, `symlinks` and `reuse` have each reported green on a real PR |
 | 4 | A as written here: **2 approvals, no bypass** | **a second code owner is genuinely active** |
@@ -50,7 +50,7 @@ bypass it unless explicitly disabled; a ruleset binds admins whenever its
 bypass list is empty. Patterns are fnmatch, where `*` does not cross `/` —
 hence `refs/heads/project/**`.
 
-## The five
+## The six
 
 | | Target | Shape |
 |---|---|---|
@@ -121,7 +121,7 @@ audit trail while letting a solo maintainer complete the merge. To run stage
 
 ```sh
 gh auth status                       # must be an admin on the repo
-./.github/rulesets/apply.sh          # creates or updates all five
+./.github/rulesets/apply.sh          # creates or updates all six
 ```
 
 To advance a stage, edit `"enforcement"` to `"active"` in the files that
