@@ -31,6 +31,17 @@ commit or edit — it is short on purpose.
    which is also how you reach them when they authored the branch and GitHub
    therefore refuses a review request. Leaving draft is their decision and
    follows their own testing, not your confidence in the diff.
+   **Closing a pull request is a git operation, not just a `gh` command.**
+   Pushing a PR's head commits onto its base branch *merges that PR*. GitHub
+   detects that the base now contains the head and marks it merged, with the
+   pushed commit as the merge commit and whoever pushed as the merger — no
+   review, no approval, and no way to undo the record. A later `gh pr close`
+   is then a no-op against an already-merged PR, so the operation reports
+   success and `--delete-branch` silently does nothing.
+   This has happened here. Combining two stacked PRs by fast-forwarding the
+   base is the natural move and it converts a close into a merge. **Close the
+   PR first, then push**, or retarget it to the outer base before folding it
+   in. The order is the whole safeguard.
    **A pull request states decisions, not questions.** Settle every input you
    are unsure of *before* you open it: ask in the session and wait for the
    answer. A PR that asks its reviewer what you should have asked earlier
