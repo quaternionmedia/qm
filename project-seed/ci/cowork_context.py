@@ -38,6 +38,7 @@ import os
 import re
 import subprocess
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 UNKNOWN = "unknown"
@@ -197,6 +198,61 @@ def sibling_branches(root: Path, current: str) -> tuple[list[str], int]:
             code, when = git(root, "log", "-1", "--format=%cI", name)
             others.append(f"{name}: {count} commit(s) not on {current}, last {when}")
     return others[:SIBLING_LIMIT], max(0, len(others) - SIBLING_LIMIT)
+
+
+# Generated documents a session can read instead of re-deriving, and the age
+# past which each stops being quotable. A document is listed here by filename
+# because a session that has to be told the path has already been given the
+# facts by whoever told it.
+GENERATED_DOCUMENTS = (
+    ("governance-status.yaml", "where every project stands", 168),
+    ("harness-status.json", "pull request slots, phases, governance evidence", 24),
+)
+
+
+def document_age_hours(path: Path) -> float | None:
+    """Hours since the document says it was generated, from its own stamp.
+
+    Read out of the file rather than from its mtime: a checkout sets mtime to
+    the moment somebody cloned, so a document generated last month would look
+    minutes old to every fresh clone -- which is the reading that matters,
+    because a fresh clone is what a new session has.
+    """
+    try:
+        text = path.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return None
+    match = re.search(r'"?generated_at"?\s*:\s*"?(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)', text)
+    if not match:
+        return None
+    stamped = datetime.strptime(match.group(1), "%Y-%m-%dT%H:%M:%S").replace(
+        tzinfo=timezone.utc
+    )
+    return (datetime.now(timezone.utc) - stamped).total_seconds() / 3600
+
+
+def generated_documents(root: Path, mount: dict) -> list[str]:
+    base = root if mount.get("role") == "corpus" else root / str(mount.get("path", ""))
+    lines = []
+    for name, what, budget in GENERATED_DOCUMENTS:
+        path = base / name
+        if not path.exists():
+            lines.append(f"- `{name}` — **absent**. Nothing to read; do not assume clean.")
+            continue
+        age = document_age_hours(path)
+        if age is None:
+            lines.append(
+                f"- `{name}` — {what}. **Age {UNKNOWN}**: no `generated_at` found, "
+                "so treat every figure in it as unverified."
+            )
+        elif age > budget:
+            lines.append(
+                f"- `{name}` — {what}. **{age:.0f}h old, past its {budget}h "
+                "budget.** Read it for shape; re-derive any figure you act on."
+            )
+        else:
+            lines.append(f"- `{name}` — {what}. {age:.0f}h old, within its {budget}h budget.")
+    return lines
 
 
 def workflows(root: Path) -> list[str]:
@@ -368,6 +424,23 @@ def emit(root: Path, args: argparse.Namespace) -> str:
     else:
         add(f"- {UNKNOWN} — no `.github/workflows/` in this repository")
         add("- a repository with no gates is not a repository that passed them")
+    add("")
+
+    add("## Generated documents, and whether you may quote them")
+    add("")
+    add(
+        "Read these instead of re-deriving what they hold — and check the age. "
+        "A figure quoted from a stale document is a claim about an organisation "
+        "that has moved on, delivered with a date that makes it look checked."
+    )
+    add("")
+    lines.extend(generated_documents(root, mount))
+    add("")
+    add(
+        "`ci/harness_dashboard.py harness-status.json --format md` renders the "
+        "second one for reading; each document also carries its own refresh "
+        "command and its own `do_not` list."
+    )
     add("")
 
     add("## Open handoffs")

@@ -52,9 +52,29 @@ CHECK_ONE_PR = CORPUS / "project-seed" / "ci" / "check_one_pr.py"
 # The corpus's own exemption, and the only one. See handbook/async-contract.md.
 CORPUS_PER_BASE = ["project/*"]
 
+# Where the committed copy lives. An agent that cannot guess this path reads
+# nothing, so it is fixed rather than passed, and named in AGENTS.md.
+COMMITTED = CORPUS / "harness-status.json"
+
+# How long this document may be quoted before it has to be re-derived. Pull
+# request slots turn over in hours -- six sessions produced eight in a day --
+# so a figure from yesterday describes an organisation that no longer exists.
+# This is a budget for *quoting*, not for reading: a stale document still says
+# true things about the commit it names, and it says them with a date attached.
+STALENESS_BUDGET_HOURS = 24
+
 
 def unknown(reason: str) -> dict:
     return {"unknown": reason}
+
+
+def inside_corpus(path: Path) -> bool:
+    """Whether this path would land in the repository, and so in a commit."""
+    try:
+        path.resolve().relative_to(CORPUS.resolve())
+    except ValueError:
+        return False
+    return True
 
 
 def run(*args: str, cwd: Path | None = None) -> tuple[int, str, str]:
@@ -295,6 +315,31 @@ def build(
             ),
             "search_roots": [str(r) for r in search_roots] if want_local else [],
         },
+        # Everything a reader needs in order to read this correctly, inside the
+        # document. A convention that lives only in a handbook page is a
+        # convention the next reader does not have: it opens the file, not the
+        # page, and it opens it in a session that knows nothing.
+        "reading": {
+            "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
+            "staleness_budget_hours": STALENESS_BUDGET_HOURS,
+            "human_view": "python ci/harness_dashboard.py harness-status.json --out status.html",
+            "agent_view": "python ci/harness_dashboard.py harness-status.json --format md",
+            "unknown_convention": (
+                '{"unknown": "<reason>"} is a value. It means the fact could '
+                "not be established and says why. It is not zero, not empty, "
+                "and not compliant -- a repository nobody could measure must "
+                "never be read as a repository with nothing wrong."
+            ),
+            "do_not": [
+                "quote a figure from this document without its generated_at",
+                "treat a phase as evidence: phase is what a human claimed",
+                "treat the governance layer as a claim: it is what has landed",
+                "regenerate this in CI -- it reads other repositories, so every "
+                "unrelated pull request would go red for a reason its author "
+                "cannot fix",
+            ],
+            "committed_copy_omits": ["local"],
+        },
         "totals": {
             "repositories": len(repositories),
             "slots_measured": len(measured),
@@ -375,6 +420,17 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     text = json.dumps(status, indent=2, ensure_ascii=False) + "\n"
+    if args.write and not args.no_local and inside_corpus(args.write):
+        sys.exit(
+            f"harness_status: refusing to write the machine layer to "
+            f"{args.write}, which is inside the corpus.\n"
+            "That layer is one person's clones -- branch names, uncommitted "
+            "counts, unpushed work -- and committing it would publish one "
+            "machine's state as an organisation fact that every reader after "
+            "you inherits.\n"
+            "Pass --no-local for the committed copy, or --write somewhere "
+            "outside the repository for a machine-scoped one."
+        )
     if args.write:
         args.write.write_text(text, encoding="utf-8", newline="\n")
         totals = status["totals"]
