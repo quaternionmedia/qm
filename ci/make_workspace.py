@@ -123,7 +123,10 @@ def build(roster: list[dict], search_roots: list[Path], out: Path) -> tuple[dict
 def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) -> str:
     found = [e for e in resolved if e["resolved"] is not None]
     missing = [e for e in resolved if e["resolved"] is None]
-    unplaced = [e for e in found if str(e.get("phase", UNKNOWN)) == UNKNOWN]
+    # Scaffolded, not unknown: since the phase-ladder record every project
+    # has a phase, and the open question is whether the ladder's floor is
+    # the right answer rather than whether there is one at all.
+    unplaced = [e for e in found if str(e.get("phase_source", UNKNOWN)) == "scaffolded"]
 
     lines = [
         f"# {out.stem}",
@@ -154,7 +157,8 @@ def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) ->
     for entry in found:
         lines.append(
             f"| {entry['name']} | {entry.get('role', UNKNOWN)} | "
-            f"{entry.get('phase', UNKNOWN)} | `{relative_to(entry['resolved'], out.parent.resolve())}` |"
+            f"{entry.get('phase', UNKNOWN)} ({entry.get('phase_source', UNKNOWN)}) | "
+            f"`{relative_to(entry['resolved'], out.parent.resolve())}` |"
         )
 
     lines += ["", "## Not on this machine", ""]
@@ -175,25 +179,34 @@ def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) ->
     else:
         lines.append("None — every repository in the roster resolved.")
 
-    lines += ["", "## Phases nobody has answered", ""]
+    lines += ["", "## Phases nobody has stated", ""]
     if unplaced:
         lines.append(
-            "The phase ladder is defined in `ci/workspace.yaml`. These repositories"
+            "The ladder is `records/DRAFT-project-phase-ladder.md`: **v0.0.1 is"
         )
         lines.append(
-            "are present, governed, and unplaced on it. `unknown` is the honest"
+            "governance**, the same claim in every project, and every rung above it"
         )
         lines.append(
-            "value and not a synonym for dormant — answering these is a human's call:"
+            "is defined by the project in its own records. These carry v0.0.1 because"
+        )
+        lines.append(
+            "nothing was stated — the floor applied, rather than anybody deciding:"
         )
         lines.append("")
         for entry in unplaced:
             note = f" — {entry['note']}" if entry.get("note") else ""
             lines.append(f"- **{entry['name']}**{note}")
         lines.append("")
-        lines.append("Answer them by editing `ci/workspace.yaml` and re-running.")
+        lines.append(
+            "Answer one by setting its `phase` and `phase_source: stated` in"
+        )
+        lines.append(
+            "`ci/workspace.yaml` and re-running. A rung above v0.0.1 also needs its"
+        )
+        lines.append("definition written in that project's own records.")
     else:
-        lines.append("None — every resolved repository carries a phase.")
+        lines.append("None — every resolved repository has a phase somebody stated.")
 
     lines.append("")
     return "\n".join(lines)
@@ -241,7 +254,7 @@ def main(argv: list[str] | None = None) -> int:
     unplaced = [
         e["name"]
         for e in resolved
-        if e["resolved"] is not None and str(e.get("phase", UNKNOWN)) == UNKNOWN
+        if e["resolved"] is not None and str(e.get("phase_source", UNKNOWN)) == "scaffolded"
     ]
 
     print(f"roster       {args.roster}")
@@ -250,7 +263,7 @@ def main(argv: list[str] | None = None) -> int:
     if missing:
         print(f"MISSING      {', '.join(missing)}")
     if unplaced:
-        print(f"phase unknown {', '.join(unplaced)}")
+        print(f"phase scaffolded {', '.join(unplaced)}")
 
     if args.check:
         print("\n--check: nothing written.")

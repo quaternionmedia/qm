@@ -125,6 +125,85 @@ def local_layer(path: Path) -> dict:
     return facts
 
 
+# The seed artifacts a project carries once it has adopted the constitution.
+# Per the phase-ladder record these are a PRECONDITION for v0.0.1 and never a
+# proof of it: a complete set means a human may now assert governance, never
+# that they have. So this layer reports `met` and `incomplete` and no verdict
+# above them, and the word `adopted` appears nowhere in what it emits.
+GOVERNANCE_ARTIFACTS = ("submodule", "ide", "workflows", "licensing")
+
+
+def governance_evidence(project: dict | None) -> dict:
+    """What has actually landed on a project's default branch.
+
+    Read out of governance-status.yaml, which is generated from git and the
+    host. Nothing here consults the roster: the roster holds what somebody
+    claimed, and a check that reads a claim to decide whether the claim is true
+    is not a check.
+
+    Work sitting in an open pull request is work and is not evidence. That gap
+    is the whole reason this corpus opens draft pull requests, and crediting
+    the intent here would erase it.
+    """
+    if project is None:
+        return unknown(
+            "no project/<name> branch in the corpus, so there is nothing to read"
+        )
+
+    adoption = project.get("adoption") or {}
+    if "unknown" in adoption:
+        return unknown(str(adoption["unknown"]))
+
+    submodule = adoption.get("submodule") or {}
+    missing = []
+    if not submodule.get("corpus_mounted_at"):
+        missing.append("submodule")
+    elif not submodule.get("branch"):
+        missing.append("submodule branch")
+    if adoption.get("ide_missing"):
+        missing.append("ide")
+    if adoption.get("seed_workflow_filenames_absent"):
+        missing.append("workflows")
+    if len(adoption.get("licensing") or []) < 2:
+        missing.append("licensing")
+
+    branch = project.get("branch") or {}
+    return {
+        "precondition": "met" if not missing else "incomplete",
+        "missing": missing,
+        "detail": {
+            "submodule": submodule.get("corpus_mounted_at"),
+            "submodule_branch": submodule.get("branch"),
+            "ide_present": len(adoption.get("ide") or []),
+            "ide_absent": len(adoption.get("ide_missing") or []),
+            "workflows_present": len(adoption.get("seed_workflow_filenames_present") or []),
+            "workflows_absent": len(adoption.get("seed_workflow_filenames_absent") or []),
+            "licensing_present": len(adoption.get("licensing") or []),
+        },
+        "behind_corpus": branch.get("behind_corpus"),
+        "observed_at": project.get("observed_at"),
+        "asserted_by": None,
+        "asserts": (
+            "a complete artifact set means a human may assert v0.0.1, never "
+            "that they have"
+        ),
+    }
+
+
+def load_governance(path: Path) -> tuple[dict[str, dict], str | None]:
+    """The status document's projects, keyed by name, or the reason there are none."""
+    if not path.exists():
+        return {}, f"no governance status document at {path}"
+    try:
+        document = yaml.safe_load(path.read_text(encoding="utf-8"))
+    except yaml.YAMLError as error:
+        return {}, f"{path} did not parse: {error}"
+    projects = document.get("projects")
+    if not projects:
+        return {}, f"{path} lists no projects"
+    return {p["name"]: p for p in projects}, None
+
+
 def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
     for candidate in entry.get("paths", []):
         for root in search_roots:
@@ -134,7 +213,14 @@ def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
     return None
 
 
-def build(roster: list[dict], org: str, search_roots: list[Path], want_local: bool) -> dict:
+def build(
+    roster: list[dict],
+    org: str,
+    search_roots: list[Path],
+    want_local: bool,
+    governance: dict[str, dict] | None = None,
+    governance_gap: str | None = None,
+) -> dict:
     repositories = []
     for entry in roster:
         name = entry["name"]
@@ -143,12 +229,24 @@ def build(roster: list[dict], org: str, search_roots: list[Path], want_local: bo
             "name": name,
             "slug": slug,
             "role": entry.get("role", "unknown"),
+            # The claim, carried verbatim with its provenance. A view that
+            # loses `phase_source` has turned a default into a finding.
             "phase": entry.get("phase", "unknown"),
+            "phase_source": entry.get("phase_source", "unknown"),
             "note": entry.get("note"),
             "slots": slot_layer(
                 slug, CORPUS_PER_BASE if entry.get("role") == "corpus" else []
             ),
         }
+        if governance is not None:
+            record["governance"] = (
+                unknown(governance_gap)
+                if governance_gap
+                else governance_evidence(governance.get(name))
+                if entry.get("role") != "corpus"
+                else {"precondition": "n/a", "missing": [],
+                      "asserts": "this repository is the corpus"}
+            )
         if want_local:
             path = resolve(entry, search_roots)
             record["local"] = (
@@ -162,6 +260,12 @@ def build(roster: list[dict], org: str, search_roots: list[Path], want_local: bo
         repositories.append(record)
 
     measured = [r for r in repositories if "unknown" not in r["slots"]]
+    governed = [
+        r
+        for r in repositories
+        if isinstance(r.get("governance"), dict)
+        and r["governance"].get("precondition") in ("met", "incomplete")
+    ]
     return {
         "schema": 1,
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -171,7 +275,18 @@ def build(roster: list[dict], org: str, search_roots: list[Path], want_local: bo
             "rule": "one open pull request per repository, per contributor",
             "rule_source": "handbook/async-contract.md",
             "corpus_exemption": CORPUS_PER_BASE,
-            "layers": ["slots"] + (["local"] if want_local else []),
+            "phase_ladder_source": "records/DRAFT-project-phase-ladder.md",
+            "phase_layer_is_a_claim": (
+                "phase and phase_source come from ci/workspace.yaml and record "
+                "what a human stated. They are never derived from artifacts."
+            ),
+            "governance_layer_is_evidence": (
+                "read from governance-status.yaml, on each project's default "
+                "branch. Work in an open pull request is work, not evidence."
+            ),
+            "layers": ["phase", "slots"]
+            + (["governance"] if governance is not None else [])
+            + (["local"] if want_local else []),
             "local_layer_scope": (
                 "one machine, one set of clones — true for whoever ran this and "
                 "nobody else"
@@ -186,6 +301,21 @@ def build(roster: list[dict], org: str, search_roots: list[Path], want_local: bo
             "slots_unknown": len(repositories) - len(measured),
             "compliant": sum(1 for r in measured if r["slots"]["compliant"]),
             "over_limit": sum(1 for r in measured if not r["slots"]["compliant"]),
+            # Counted over what could be read, never over the roster: a project
+            # with no evidence is absent from both numerator and denominator,
+            # so neither reads as a project measured and found wanting.
+            "governance_readable": len(governed),
+            "governance_precondition_met": sum(
+                1 for r in governed if r["governance"]["precondition"] == "met"
+            ),
+            "phase_scaffolded": sum(
+                1 for r in repositories if r.get("phase_source") == "scaffolded"
+            ),
+            "phase_stated_above_governance": sum(
+                1
+                for r in repositories
+                if r.get("phase_source") == "stated" and r.get("phase") > "v0.0.1"
+            ),
         },
         "repositories": repositories,
     }
@@ -206,6 +336,17 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="omit the machine-scoped layer entirely",
     )
+    parser.add_argument(
+        "--governance",
+        type=Path,
+        default=CORPUS / "governance-status.yaml",
+        help="the generated status document the evidence layer is read from",
+    )
+    parser.add_argument(
+        "--no-governance",
+        action="store_true",
+        help="omit the evidence layer entirely",
+    )
     args = parser.parse_args(argv)
 
     document = yaml.safe_load(args.roster.read_text(encoding="utf-8"))
@@ -214,7 +355,24 @@ def main(argv: list[str] | None = None) -> int:
         sys.exit(f"harness_status: {args.roster} lists no repositories")
 
     search_roots = [p.resolve() for p in args.search_root] or [CORPUS.parent.parent]
-    status = build(roster, args.org, search_roots, not args.no_local)
+
+    governance, governance_gap = (None, None)
+    if not args.no_governance:
+        governance, governance_gap = load_governance(args.governance)
+        # An absent or unparseable document makes every project's evidence
+        # unknown -- with the reason -- rather than making the layer vanish. A
+        # missing column reads as a column with nothing in it.
+        if governance_gap:
+            governance = {}
+
+    status = build(
+        roster,
+        args.org,
+        search_roots,
+        not args.no_local,
+        governance,
+        governance_gap,
+    )
 
     text = json.dumps(status, indent=2, ensure_ascii=False) + "\n"
     if args.write:
@@ -225,6 +383,16 @@ def main(argv: list[str] | None = None) -> int:
             f"{totals['compliant']} compliant, {totals['over_limit']} over limit, "
             f"{totals['slots_unknown']} unknown"
         )
+        if governance is not None:
+            print(
+                f"  governance evidence: "
+                f"{totals['governance_precondition_met']} of "
+                f"{totals['governance_readable']} readable meet the v0.0.1 "
+                f"precondition; {totals['phase_scaffolded']} phases scaffolded, "
+                f"{totals['phase_stated_above_governance']} stated above governance"
+            )
+        if governance_gap:
+            print(f"  governance evidence unreadable: {governance_gap}")
     else:
         sys.stdout.write(text)
     return 0

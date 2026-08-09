@@ -97,12 +97,48 @@ def local_cell(local: object) -> str:
     return "<td>" + "".join(bits) + "</td>"
 
 
-def phase_cell(phase: str) -> str:
+def phase_cell(phase: str, source: str) -> str:
+    """The claim, with its provenance attached.
+
+    The provenance is not decoration. `scaffolded` means nobody decided this --
+    the ladder's floor applied because nothing was stated -- and a table that
+    renders it identically to a phase somebody chose has turned a default into
+    a finding.
+    """
     if phase == UNKNOWN:
-        return f'<td class="s-unknown">unknown</td>'
+        return '<td class="s-unknown">unknown</td>'
     if phase == "n/a":
         return '<td class="s-muted">—</td>'
-    return f'<td><span class="mono">{esc(phase)}</span></td>'
+    label = {
+        "stated": '<div class="sub">stated</div>',
+        "scaffolded": '<div class="sub s-unknown">scaffolded — nobody decided this</div>',
+    }.get(source, f'<div class="sub s-unknown">{esc(source)}</div>')
+    return f'<td><span class="mono">{esc(phase)}</span>{label}</td>'
+
+
+def governance_cell(governance: object) -> str:
+    """What has landed, never what was claimed.
+
+    A complete artifact set renders as `precondition met`, which is the whole
+    claim this column is entitled to make: it means a human may now assert
+    v0.0.1, not that anybody has.
+    """
+    reason = unknown_reason(governance)
+    if reason is not None:
+        return f'<td class="s-unknown" title="{esc(reason)}">unknown</td>'
+    if not isinstance(governance, dict):
+        return '<td class="s-muted">not collected</td>'
+    state = governance.get("precondition")
+    if state == "n/a":
+        return '<td class="s-muted">—</td>'
+    if state == "met":
+        return f"<td>{pill('precondition met', OK)}</td>"
+    missing = ", ".join(governance.get("missing") or [])
+    return (
+        "<td>"
+        + pill("incomplete", WARN)
+        + f'<div class="sub">missing: {esc(missing)}</div></td>'
+    )
 
 
 def pr_counts(slots: dict) -> str:
@@ -131,7 +167,10 @@ def render(document: dict, fragment: bool = False) -> str:
             f'<tr class="{row_class}">'
             f'<th scope="row">{esc(repo.get("name"))}'
             f'<div class="sub">{esc(repo.get("role"))}</div></th>'
-            + phase_cell(str(repo.get("phase", UNKNOWN)))
+            + phase_cell(
+                str(repo.get("phase", UNKNOWN)), str(repo.get("phase_source", UNKNOWN))
+            )
+            + governance_cell(repo.get("governance"))
             + pr_counts(slots)
             + cell
             + local_cell(repo.get("local"))
@@ -146,6 +185,25 @@ def render(document: dict, fragment: bool = False) -> str:
     unmeasured = [
         r for r in repositories if unknown_reason(r.get("slots", {})) is not None
     ]
+    # A claim above governance, where governance itself is not evidenced. This
+    # is the gap the ladder exists to keep visible: the rung was named in a
+    # session, its definition lives in no record, and the rung below it has not
+    # landed. None of those three facts is a failure on its own.
+    ahead_of_evidence = []
+    for repo in repositories:
+        if str(repo.get("phase_source")) != "stated":
+            continue
+        if str(repo.get("phase", "")) <= "v0.0.1":
+            continue
+        governance = repo.get("governance")
+        reason = unknown_reason(governance)
+        if reason is not None:
+            ahead_of_evidence.append((repo, reason))
+        elif isinstance(governance, dict) and governance.get("precondition") != "met":
+            ahead_of_evidence.append(
+                (repo, "v0.0.1 missing: " + ", ".join(governance.get("missing") or []))
+            )
+
     unplaced = [
         r
         for r in repositories
@@ -180,6 +238,19 @@ def render(document: dict, fragment: bool = False) -> str:
         or "<p class=\"s-ok\">Every repository present carries a phase.</p>"
     )
 
+    ahead_html = (
+        "".join(
+            f'<div class="gap"><h3>{esc(repo["name"])} — {esc(repo["phase"])} stated</h3>'
+            f"<p>{esc(why)}</p>"
+            "<p>What this rung asserts belongs in this project's own records. "
+            "Until it is written there, the phase is a statement of intent.</p>"
+            "</div>"
+            for repo, why in ahead_of_evidence
+        )
+        or '<p class="s-ok">No project claims a rung above governance without '
+        "governance evidence behind it.</p>"
+    )
+
     unmeasured_html = (
         "".join(
             f'<p><b>{esc(r["name"])}</b> — {esc(unknown_reason(r["slots"]))}</p>'
@@ -209,9 +280,14 @@ def render(document: dict, fragment: bool = False) -> str:
         n_over=esc(totals.get("over_limit")),
         n_unknown=esc(totals.get("slots_unknown")),
         n_unplaced=len(unplaced),
+        n_met=esc(totals.get("governance_precondition_met")),
+        n_readable=esc(totals.get("governance_readable")),
+        n_scaffolded=esc(totals.get("phase_scaffolded")),
+        ladder_source=esc(generator.get("phase_ladder_source") or "unstated"),
         rows="\n".join(rows),
         over=over_html,
         unplaced=unplaced_html,
+        ahead=ahead_html,
         unmeasured=unmeasured_html,
         scope=scope_html,
     )
@@ -239,14 +315,16 @@ BODY = """<main>
   <div class="card"><div class="n s-ok">{n_compliant}</div><div class="l">within the rule</div></div>
   <div class="card"><div class="n s-warn">{n_over}</div><div class="l">over the limit</div></div>
   <div class="card"><div class="n s-unknown">{n_unknown}</div><div class="l">could not read</div></div>
-  <div class="card"><div class="n s-unknown">{n_unplaced}</div><div class="l">phase unanswered</div></div>
+  <div class="card"><div class="n">{n_met} <span class="s-muted">/ {n_readable}</span></div><div class="l">v0.0.1 precondition</div></div>
+  <div class="card"><div class="n s-unknown">{n_scaffolded}</div><div class="l">phase scaffolded</div></div>
 </div>
 
 <div class="scroll">
 <table>
 <thead><tr>
   <th scope="col">Repository</th>
-  <th scope="col">Phase</th>
+  <th scope="col">Phase <span class="s-muted">(claimed)</span></th>
+  <th scope="col">v0.0.1 governance <span class="s-muted">(evidence)</span></th>
   <th scope="col">Open PRs</th>
   <th scope="col">Slot</th>
   <th scope="col">This machine</th>
@@ -269,10 +347,21 @@ survives — pushing first merges it, with no review and no way to undo the
 record.</p>
 {over}
 
+<h2>Claimed above the evidence</h2>
+<p>The ladder is <span class="mono">{ladder_source}</span>.
+<b>v0.0.1 is governance</b> and means the same thing in every project; every
+rung above it is defined by the project, in the project's own records. The
+Phase column is a claim somebody made. The governance column is what has landed
+on the default branch — work sitting in an open pull request is work, and it is
+not evidence.</p>
+{ahead}
+
 <h2>Phases nobody has answered</h2>
-<p>The ladder is defined in <span class="mono">ci/workspace.yaml</span>.
-<span class="s-unknown">unknown</span> is the honest value for a repository
-nobody has placed on it, and is not a synonym for the bottom rung.</p>
+<p><span class="s-unknown">unknown</span> is the honest value for a repository
+nobody could place, and is not a synonym for the bottom rung. A phase marked
+<span class="s-unknown">scaffolded</span> is different again: it is the ladder's
+floor applied because nothing was stated, and it is answered by editing
+<span class="mono">ci/workspace.yaml</span>.</p>
 <div class="q">
 {unplaced}
 </div>
