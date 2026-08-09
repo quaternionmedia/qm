@@ -19,6 +19,7 @@ between them are recorded here rather than inside each one.
 | [`dossier-adoption.md`](dossier-adoption.md) | nothing | dossier + qm |
 | [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
 | [`dossier-governance-view.md`](dossier-governance-view.md) | the two dossier pages above | dossier |
+| [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
 
 The two dossier pages are genuinely independent of each other. The status
 document now exists, so the fourth page needs only a reviewed schema to build
@@ -34,11 +35,15 @@ call and not an agent's; the fact is recorded here so it stops being invisible.
 
 ## Rules that apply to every one of these
 
-**One pull request per base branch, and only ever one to `main`.** Not one per
-task. If a base already has an open PR from an agent, add to it or wait — do
-not open a second. This is a review-bandwidth constraint, not a style
-preference. In this repo that currently means one PR to `main` plus one per
-`project/*` branch; in a project repo it means one, full stop.
+**One open pull request per repository, per contributor.** Not one per task.
+If your slot already holds an open PR, add to it or wait — do not open a
+second. This is a review-bandwidth constraint, not a style preference. In this
+repo each `project/*` branch holds its own slot, because each is pinned by a
+different downstream submodule; in a project repo it means one, full stop.
+
+`handbook/async-contract.md` §1 is the rule and the reasoning;
+`project-seed/ci/check_one_pr.py` is the check, and `one-pr-check.yml` runs it
+on every pull request. Run it before you open anything.
 
 **Open it as a draft, and never request a review.** Add the person who asked
 for the work as assignee. Leaving draft is their decision.
