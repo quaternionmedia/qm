@@ -15,6 +15,7 @@ tighten its rules — never relax them.
 | Stand up a new QM project | `handbook/forking-a-project.md` |
 | Bring an existing project up to date | `handbook/propagation-runbook.md` |
 | Know how far this corpus has got in governing itself | `handbook/governance-rollout.md` |
+| See where every project actually stands right now | `governance-status.yaml`, and `ci/governance_render.py` to read it as a page |
 
 Three things are worth knowing before anything else:
 
@@ -36,6 +37,8 @@ qm/
 ├── handbook/         policy, status and procedures routed out of record form
 ├── perspectives/     attributed, dated, non-binding opinion
 ├── project-seed/     what a new project copies: adr/, ci/, ide/
+├── ci/               org-level tooling, copied nowhere: the status generator
+├── governance-status.yaml   generated; where every project stands, and when
 ├── AGENTS.md         governance discovery for coding agents
 ├── LICENSE           CC-BY-SA-4.0 corpus prose; LICENSES/ + REUSE.toml cover the rest
 └── .github/          this corpus's own CI, CODEOWNERS, and branch-protection config

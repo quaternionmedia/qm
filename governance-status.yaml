@@ -1,0 +1,517 @@
+schema: 1
+generated_at: "2026-08-09T20:19:41Z"
+generator:
+  tool: ci/governance_status.py
+  layers:
+    - git
+    - github
+  org: quaternionmedia
+  remote: origin
+  credential: "gh cli login"
+  private_repository_names_listed: false
+  repository_name_assumed: "quaternionmedia/<project branch name>"
+  probed:
+    submodule_url_contains: "/qm"
+    ide:
+      - AGENTS.md
+      - CLAUDE.md
+      - ".github/copilot-instructions.md"
+    seed_workflow_filenames:
+      - adr-lint.yml
+      - submodule-check.yml
+      - reuse-lint.yml
+    licensing:
+      - LICENSE
+      - REUSE.toml
+  unknowns: 9
+corpus:
+  ref: origin/main
+  commit: "b94d91085ba728788ede43e7ab4865ecb21c9261"
+  committed_at: "2026-08-08T17:56:10Z"
+  records:
+    total: 10
+    ratified: 0
+    numbered_files: 0
+    by_status:
+      proposed: 10
+projects:
+  - name: alfred
+    branch:
+      ref: origin/project/alfred
+      commit: "96b9ccab818a8fafeb1527e32922ff46a5d73874"
+      committed_at: "2026-08-08T01:19:05Z"
+      behind_corpus: 62
+      ahead_of_corpus: 6
+      merge_base: "4541f92df9fc9a3b3b8c04358ec173687c5e35cb"
+      merge_base_at: "2026-07-05T11:34:24Z"
+      last_propagation: null
+    records:
+      total: 4
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 4
+    seed:
+      adr_template_vs_corpus: drift
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: false
+      archived: false
+      pushed_at: "2024-09-03T22:28:00Z"
+      licence: NOASSERTION
+    adoption:
+      submodule:
+        corpus_mounted_at: null
+        branch: null
+      ide: []
+      ide_missing:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      seed_workflow_filenames_present: []
+      seed_workflow_filenames_absent:
+        - adr-lint.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      licensing: []
+    open_prs:
+      unknown: "pulls?base=project/alfred: unexpected response shape"
+    observed_at: "2026-08-09T20:19:30Z"
+  - name: apothecary
+    branch:
+      ref: origin/project/apothecary
+      commit: "a6c7afbc2b0e82b2ec2b49c4238b05506596562b"
+      committed_at: "2026-07-21T15:43:08Z"
+      behind_corpus: 62
+      ahead_of_corpus: 3
+      merge_base: "4541f92df9fc9a3b3b8c04358ec173687c5e35cb"
+      merge_base_at: "2026-07-05T11:34:24Z"
+      last_propagation: null
+    records:
+      total: 2
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 2
+    seed:
+      adr_template_vs_corpus: drift
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: false
+      archived: false
+      pushed_at: "2026-08-09T11:10:09Z"
+      licence: NOASSERTION
+    adoption:
+      submodule:
+        corpus_mounted_at: null
+        branch: null
+      ide: []
+      ide_missing:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      seed_workflow_filenames_present: []
+      seed_workflow_filenames_absent:
+        - adr-lint.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      licensing: []
+    open_prs:
+      unknown: "pulls?base=project/apothecary: unexpected response shape"
+    observed_at: "2026-08-09T20:19:31Z"
+  - name: codecartographer
+    branch:
+      ref: origin/project/codecartographer
+      commit: "06673592acd542892bf1b9a99040eb7cf35778f6"
+      committed_at: "2026-07-21T21:08:15Z"
+      behind_corpus: 62
+      ahead_of_corpus: 8
+      merge_base: "4541f92df9fc9a3b3b8c04358ec173687c5e35cb"
+      merge_base_at: "2026-07-05T11:34:24Z"
+      last_propagation: null
+    records:
+      total: 11
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 11
+    seed:
+      adr_template_vs_corpus: drift
+      adr_template_vs_merge_base: drift
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: false
+      archived: false
+      pushed_at: "2026-08-09T12:57:23Z"
+      licence: MIT
+    adoption:
+      submodule:
+        corpus_mounted_at: docs/qm
+        branch: null
+      ide: []
+      ide_missing:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      seed_workflow_filenames_present: []
+      seed_workflow_filenames_absent:
+        - adr-lint.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      licensing:
+        - LICENSE
+    open_prs:
+      unknown: "pulls?base=project/codecartographer: unexpected response shape"
+    observed_at: "2026-08-09T20:19:33Z"
+  - name: datafactorio
+    branch:
+      ref: origin/project/datafactorio
+      commit: "710d368b3ba462dcae622a787b70266a476d345d"
+      committed_at: "2026-07-05T10:59:32Z"
+      behind_corpus: 69
+      ahead_of_corpus: 2
+      merge_base: "d1b8afc56f68c53df70d26a0b2c14892b5b22822"
+      merge_base_at: "2026-07-04T16:04:56Z"
+      last_propagation: null
+    records:
+      total: 1
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 1
+    seed:
+      adr_template_vs_corpus: drift
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: true
+      archived: false
+      pushed_at: "2026-07-14T00:30:52Z"
+      licence: NOASSERTION
+    adoption:
+      submodule:
+        corpus_mounted_at: governance/qm
+        branch: project/datafactorio
+      ide: []
+      ide_missing:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      seed_workflow_filenames_present:
+        - adr-lint.yml
+      seed_workflow_filenames_absent:
+        - reuse-lint.yml
+        - submodule-check.yml
+      licensing: []
+    open_prs:
+      unknown: "pulls?base=project/datafactorio: unexpected response shape"
+    observed_at: "2026-08-09T20:19:34Z"
+  - name: datum
+    branch:
+      ref: origin/project/datum
+      commit: "ffa8b92c10e319cd219b13d158990a0acbcee383"
+      committed_at: "2026-08-08T10:50:55Z"
+      behind_corpus: 62
+      ahead_of_corpus: 5
+      merge_base: "4541f92df9fc9a3b3b8c04358ec173687c5e35cb"
+      merge_base_at: "2026-07-05T11:34:24Z"
+      last_propagation: null
+    records:
+      total: 9
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        draft: 7
+        proposed: 2
+    seed:
+      adr_template_vs_corpus: drift
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: true
+      archived: false
+      pushed_at: "2026-08-09T11:04:07Z"
+      licence: MIT
+    adoption:
+      submodule:
+        corpus_mounted_at: governance/qm
+        branch: project/datum
+      ide:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      ide_missing: []
+      seed_workflow_filenames_present:
+        - adr-lint.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      seed_workflow_filenames_absent: []
+      licensing:
+        - LICENSE
+        - REUSE.toml
+    open_prs: []
+    observed_at: "2026-08-09T20:19:35Z"
+  - name: factorio-server
+    branch:
+      ref: origin/project/factorio-server
+      commit: "29d33b43526b01997911d588de8c42f8345a11c9"
+      committed_at: "2026-07-05T01:49:47Z"
+      behind_corpus: 69
+      ahead_of_corpus: 1
+      merge_base: "d1b8afc56f68c53df70d26a0b2c14892b5b22822"
+      merge_base_at: "2026-07-04T16:04:56Z"
+      last_propagation: null
+    records:
+      total: 1
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 1
+    seed:
+      adr_template_vs_corpus: drift
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: true
+      archived: false
+      pushed_at: "2026-07-14T00:30:22Z"
+      licence: NOASSERTION
+    adoption:
+      submodule:
+        corpus_mounted_at: null
+        branch: null
+      ide: []
+      ide_missing:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      seed_workflow_filenames_present: []
+      seed_workflow_filenames_absent:
+        - adr-lint.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      licensing: []
+    open_prs:
+      unknown: "pulls?base=project/factorio-server: unexpected response shape"
+    observed_at: "2026-08-09T20:19:37Z"
+  - name: factorio-sysops
+    branch:
+      ref: origin/project/factorio-sysops
+      commit: "67ea42402e8a0f4a99c06b4b3e6d5d9146a9661f"
+      committed_at: "2026-07-05T01:47:10Z"
+      behind_corpus: 69
+      ahead_of_corpus: 1
+      merge_base: "d1b8afc56f68c53df70d26a0b2c14892b5b22822"
+      merge_base_at: "2026-07-04T16:04:56Z"
+      last_propagation: null
+    records:
+      total: 1
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 1
+    seed:
+      adr_template_vs_corpus: drift
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: false
+      archived: false
+      pushed_at: "2026-07-05T11:59:11Z"
+      licence: NOASSERTION
+    adoption:
+      submodule:
+        corpus_mounted_at: governance/qm
+        branch: project/factorio-sysops
+      ide: []
+      ide_missing:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      seed_workflow_filenames_present:
+        - adr-lint.yml
+      seed_workflow_filenames_absent:
+        - reuse-lint.yml
+        - submodule-check.yml
+      licensing: []
+    open_prs:
+      unknown: "pulls?base=project/factorio-sysops: unexpected response shape"
+    observed_at: "2026-08-09T20:19:38Z"
+  - name: qmetronome
+    branch:
+      ref: origin/project/qmetronome
+      commit: "5771806c7d5d08c9e8613f3f158be27d48553667"
+      committed_at: "2026-07-19T15:14:39Z"
+      behind_corpus: 69
+      ahead_of_corpus: 13
+      merge_base: "d1b8afc56f68c53df70d26a0b2c14892b5b22822"
+      merge_base_at: "2026-07-04T16:04:56Z"
+      last_propagation: null
+    records:
+      total: 9
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        draft: 1
+        proposed: 8
+    seed:
+      adr_template_vs_corpus: drift
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: false
+      archived: false
+      pushed_at: "2026-08-08T15:55:24Z"
+      licence: MIT
+    adoption:
+      submodule:
+        corpus_mounted_at: governance/qm
+        branch: project/qmetronome
+      ide: []
+      ide_missing:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      seed_workflow_filenames_present:
+        - submodule-check.yml
+      seed_workflow_filenames_absent:
+        - adr-lint.yml
+        - reuse-lint.yml
+      licensing:
+        - LICENSE
+    open_prs:
+      unknown: "pulls?base=project/qmetronome: unexpected response shape"
+    observed_at: "2026-08-09T20:19:39Z"
+  - name: streaming-infrastructure
+    branch:
+      ref: origin/project/streaming-infrastructure
+      commit: "b0265d1e4e86f403b57f66181af9874efe1ce3a9"
+      committed_at: "2026-08-08T16:51:11Z"
+      behind_corpus: 7
+      ahead_of_corpus: 2
+      merge_base: "81d6967462509f43dbf82fda0968ed532a41e640"
+      merge_base_at: "2026-08-08T16:48:39Z"
+      last_propagation:
+        commit: "b0265d1e4e86f403b57f66181af9874efe1ce3a9"
+        committed_at: "2026-08-08T16:51:11Z"
+        subject: "Record main's split; this branch carries its payload"
+    records:
+      total: 1
+      ratified: 1
+      numbered_files: 1
+      by_status:
+        accepted: 1
+    seed:
+      adr_template_vs_corpus: drift
+      adr_template_vs_merge_base: drift
+      readme_seed_comment_left_in: false
+    repository:
+      unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
+    adoption:
+      unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
+    open_prs: []
+    observed_at: "2026-08-09T20:19:40Z"
+org:
+  repositories:
+    total: 109
+    private: 36
+    governed: 8
+    unmanaged: 100
+  governed_without_repository:
+    - streaming-infrastructure
+  unmanaged_named:
+    - ".github"
+    - AsyncServer
+    - Cuelist-python
+    - ESP32FastLEDSketches
+    - Esp32-Dual-Core-Audio-Sampling-and-FastLED-Demo
+    - LaunchChess
+    - New-Dev-Setup
+    - OctoPrint-Ira
+    - QLab-python
+    - ShowRunner
+    - ShowStopper
+    - TheatreMix-python
+    - aes
+    - al-admin
+    - al-deploy
+    - al-web
+    - alfred-docker
+    - benchmark
+    - carlos
+    - cesar
+    - cookiecutter-pypackage
+    - dRehmFlight
+    - dash_smoothie
+    - datafactorio_v1
+    - docker-vue
+    - dossier
+    - fastapi-crudrouter
+    - fastapi-traefik-cookiecutter
+    - fountain
+    - freewheeling
+    - frigate
+    - haiku
+    - holophonor
+    - ira
+    - joe
+    - karaoke
+    - karaoke-kiosk
+    - kburns-slideshow
+    - kpl
+    - launchchess-python
+    - leo
+    - looksatwords
+    - ludwig
+    - meiosis-cookiecutter
+    - midiphonor
+    - milestones
+    - mith
+    - moat
+    - moe
+    - moviepy
+    - obsidian-templates
+    - otto
+    - qmcp
+    - qmmv
+    - readysetjazz
+    - scad-chess
+    - sqlmodel-ui
+    - stomp
+    - sv
+    - techops
+    - textual
+    - tocCATa
+    - uPhonor
+    - waveofhormuz
+    - william-penn-convocation-slides
+    - wolf
+    - ztgui
+  unmanaged_names_withheld: 33
+  observed_at: "2026-08-09T20:19:41Z"
+undefined:
+  - term: adopted
+    why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
+    would_be_settled_by: "a record defining the adoption predicate"
+  - term: current
+    why_not_computed: "handbook/propagation-runbook.md names 'a dispute about whether a project is current' as the thing that would force its own promotion to a record. behind_corpus is a count with no threshold attached, so no branch is labelled current or stale here."
+    would_be_settled_by: "a record attaching a state to a commit distance"
+  - term: "seed drift reference"
+    why_not_computed: "Nothing states whether a copied seed file is measured against the corpus tip or against the branch's own merge-base, and the two disagree on almost every branch. Both are reported; neither is the answer."
+    would_be_settled_by: "one sentence in the propagation runbook"
+  - term: "propagate/* and fix/* namespaces"
+    why_not_computed: "handbook/propagation-runbook.md instructs creating propagate/<name>-<date> branches and eight are pushed, while README.md's namespace table has four entries and says a branch outside them 'is a mistake rather than a variation'. Namespace conformance cannot be computed against a model that contradicts the procedure."
+    would_be_settled_by: "adding the namespace to README.md's table, or the runbook using an existing one"
+  - term: "project repository URL"
+    why_not_computed: "There is no index mapping project/<name> to a repository; handbook/propagation-runbook.md says so outright. This generator assumes <org>/<name> and reports unknown -- never unadopted -- when that repository cannot be read."
+    would_be_settled_by: "a register mapping branches to repositories"
