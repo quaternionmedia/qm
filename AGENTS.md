@@ -7,6 +7,16 @@ commit or edit — it is short on purpose.
 
 ## Before you do anything
 
+**Run `/cowork` first.** It builds this session's brief from the repository —
+the commit you are on, whether your pull request slot is free, what else is in
+flight in this clone, which gates exist — instead of letting you inherit a
+previous session's beliefs. Other sessions are very likely running right now,
+in other repositories, for the same reviewer; `handbook/async-contract.md` is
+the set of rules that exist only because of that, and it is short. `/preflight`
+and `/handoff` close the same loop at the other end. The commands live in
+`project-seed/ide/.claude/commands/`, and this repository's `.claude/` is
+symlinks into it.
+
 1. Read `README.md` (namespaces, precedence, ratification) and
    `PRINCIPLES.md` (the charter) in full. Both are short.
 2. This corpus governs its own drafting. Records live in `records/` as
@@ -50,10 +60,14 @@ commit or edit — it is short on purpose.
    not settled — that belongs in the record, and a Proposed record naming it
    is the process working. What does not belong anywhere is your own
    unresolved question arriving as PR text.
-   **One open PR per repository.** Two PRs that must merge in an order are a
-   sequencing puzzle handed to the reviewer. Land the org change first and let
-   propagation carry it, rather than opening a second PR that depends on the
-   first.
+   **One open PR per repository, per contributor.** Not one per task. Two PRs
+   that must merge in an order are a sequencing puzzle handed to the reviewer.
+   Land the org change first and let propagation carry it, rather than opening
+   a second PR that depends on the first. `one-pr-check.yml` enforces it and
+   `project-seed/ci/check_one_pr.py` is the rule; in *this* repository each
+   `project/<name>` branch holds its own slot, because each is pinned by a
+   different downstream submodule. That exemption is named in the workflow and
+   printed by the tool, and it is the only one.
 4. **Check what your branch actually carries, before opening the PR.**
    `python project-seed/ci/check_pr_base.py --base <base> --head <branch>`
    reports the merge-base, the commit and file counts, the authors, and any

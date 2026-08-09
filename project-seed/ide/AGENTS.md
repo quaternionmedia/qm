@@ -20,6 +20,15 @@ no other briefing, read this file fully before your first commit or edit.
 
 ## Before you do anything
 
+**Run `/cowork` first.** It builds this session's brief from the repository —
+the commit you are on, whether your pull request slot is free, what else is in
+flight in this clone, which gates exist — instead of letting you inherit a
+previous session's beliefs. Other sessions are likely running right now, in
+other repositories, for the same reviewer;
+`governance/qm/handbook/async-contract.md` is the set of rules that exist only
+because of that, and it is short. `/preflight` and `/handoff` close the same
+loop at the other end.
+
 1. Read `governance/qm/README.md` and `governance/qm/PRINCIPLES.md` in full
    — the namespaces/precedence rules and the charter. Both are short.
 2. This project's own decision records live in `governance/qm/adr/` — inside
@@ -40,9 +49,11 @@ no other briefing, read this file fully before your first commit or edit.
    asked for the work as **assignee**, which is also how you reach them when
    they authored the branch and GitHub therefore refuses a review request on
    it. Leaving draft is their call, made after their own testing.
-   **Keep it to one open PR per repository.** Two PRs that must merge in a
-   given order are a sequencing puzzle handed to your reviewer. Land the
-   upstream change first and let propagation carry it.
+   **Keep it to one open PR per repository, per contributor.** Not one per
+   task. Two PRs that must merge in a given order are a sequencing puzzle
+   handed to your reviewer. Land the upstream change first and let propagation
+   carry it. `.github/workflows/one-pr-check.yml` enforces this; run
+   `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
 4. **Human-only contributorship applies to every commit you make here** (see
    `governance/qm/records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored
