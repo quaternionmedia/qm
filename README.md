@@ -11,7 +11,8 @@ tighten its rules — never relax them.
 |---|---|
 | Know what QM believes and why | `PRINCIPLES.md` — the charter, eleven principles, short |
 | Read a specific decision | the index at the end of this file; each row links to its record |
-| Work in this repo as a coding agent | `AGENTS.md` — read it before your first commit |
+| Work in this repo as a coding agent | `AGENTS.md` — read it before your first commit; start with `/cowork` |
+| Run several agent sessions at once | `handbook/async-contract.md` — one PR per repo per contributor, and why |
 | Stand up a new QM project | `handbook/forking-a-project.md` |
 | Bring an existing project up to date | `handbook/propagation-runbook.md` |
 | Know how far this corpus has got in governing itself | `handbook/governance-rollout.md` |
@@ -37,9 +38,10 @@ qm/
 ├── handbook/         policy, status and procedures routed out of record form
 ├── perspectives/     attributed, dated, non-binding opinion
 ├── project-seed/     what a new project copies: adr/, ci/, ide/
-├── ci/               org-level tooling, copied nowhere: the status generator
+├── ci/               org-level tooling, copied nowhere: the status generators
 ├── governance-status.yaml   generated; where every project stands, and when
 ├── AGENTS.md         governance discovery for coding agents
+├── .claude/          the harness commands, symlinked into project-seed/ide/
 ├── LICENSE           CC-BY-SA-4.0 corpus prose; LICENSES/ + REUSE.toml cover the rest
 └── .github/          this corpus's own CI, CODEOWNERS, and branch-protection config
 ```
@@ -167,6 +169,7 @@ Handbook (policy, not records):
 | `handbook/adoption-audit-queue.md` | Which projects are audited, and how the next agent runs the rest |
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
 | `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
+| `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
 | `handbook/handoffs/` | Work an asynchronous agent can pick up cold, and the order between the pieces |
 
 ### Obligations that fall due at ratification
