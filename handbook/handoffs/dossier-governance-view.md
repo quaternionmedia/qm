@@ -129,8 +129,34 @@ python governance/qm/project-seed/ci/run_workflows_locally.py
 Its `🧪 Test` workflow needs Playwright browsers; absent locally, that is an
 environment difference rather than a defect — report which you established.
 
+## There is a second document now, and it is the same shape
+
+`harness-status.json`, emitted by `ci/harness_status.py`, reports where every
+repository stands against the one-open-pull-request-per-contributor rule.
+`ci/harness_dashboard.py` is its first reader, exactly as `governance_render.py`
+is `governance-status.yaml`'s, and it is built to be replaced the same way —
+`--fragment` emits the page without a document shell, for a host that supplies
+its own.
+
+**Take it second, not first.** One parser, one entity, one view still holds;
+land the governance view, use it for a week, and only then decide whether the
+harness document is a second parser or a second entity behind the same one.
+
+Two things about it that change how you would model it:
+
+- **It has two layers with different scopes.** `slots` is read over the network
+  and is true for everyone. `local` is one machine's clones and is true for
+  whoever ran the collector. They are in one document because they are read
+  together, but a row that merges them is a row that claims org-wide standing
+  for a fact about somebody's laptop. `generator.local_layer_scope` carries the
+  caveat; a view that drops it has lost the only thing separating the two.
+- **`{"unknown": "<reason>"}` is the same convention** as
+  `governance-status.yaml`, deliberately, so one parser shape reads both. The
+  table above applies unchanged: unknown renders as unknown, never as blank and
+  never as healthy.
+
 ## What is not yours here
 
-Changing the document's schema — that is the generator's handoff, and a
+Changing either document's schema — that is the generator's handoff, and a
 renderer that needs a schema change files it there. Deciding what a governance
 signal means. And, as always: no merging, no ratifying, one draft PR per repo.
