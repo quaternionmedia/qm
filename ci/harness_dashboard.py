@@ -118,7 +118,7 @@ def pr_counts(slots: dict) -> str:
     )
 
 
-def render(document: dict) -> str:
+def render(document: dict, fragment: bool = False) -> str:
     generator = document.get("generator", {})
     totals = document.get("totals", {})
     repositories = document.get("repositories", [])
@@ -197,7 +197,7 @@ def render(document: dict) -> str:
         else '<p class="reason">The machine layer was not collected.</p>'
     )
 
-    return TEMPLATE.format(
+    return (FRAGMENT if fragment else TEMPLATE).format(
         style=STYLE,
         org=esc(generator.get("org")),
         generated_at=esc(document.get("generated_at")),
@@ -217,16 +217,15 @@ def render(document: dict) -> str:
     )
 
 
-TEMPLATE = """<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Harness status — {org}</title>
-<style>{style}</style>
-</head>
-<body>
-<main>
+# BODY is the page itself; TEMPLATE is BODY inside a document.
+#
+# Kept apart so `--fragment` can emit the same page for a host that supplies
+# its own document shell -- an artifact publisher, a docs site, a dossier panel
+# -- without a second copy of the markup to keep in step. The stylesheet
+# travels with the fragment: a host cannot be assumed to carry this palette,
+# and a page that inherits an unknown one renders its three semantic states as
+# three shades of whatever the host chose.
+BODY = """<main>
 <h1>Harness status — {org}</h1>
 <div class="stamp">
   <span>generated <b>{generated_at}</b></span>
@@ -290,15 +289,37 @@ and reads no network: every fact above is in that document, and a fact that is
 not in it is not shown. Correct a number by fixing the generator, not this page.
 </footer>
 </main>
-</body>
+"""
+
+TEMPLATE = (
+    """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harness status — {org}</title>
+<style>{style}</style>
+</head>
+<body>
+"""
+    + BODY
+    + """</body>
 </html>
 """
+)
+
+FRAGMENT = "<style>{style}</style>\n" + BODY
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("document", type=Path, help="harness-status.json")
     parser.add_argument("--out", type=Path, help="write here instead of stdout")
+    parser.add_argument(
+        "--fragment",
+        action="store_true",
+        help="emit the page without a document shell, for a host that supplies one",
+    )
     args = parser.parse_args(argv)
 
     if not args.document.exists():
@@ -313,7 +334,7 @@ def main(argv: list[str] | None = None) -> int:
             "(schema 1 with a repositories list)."
         )
 
-    page = render(document)
+    page = render(document, fragment=args.fragment)
     if args.out:
         args.out.write_text(page, encoding="utf-8", newline="\n")
         print(f"wrote {args.out}")
