@@ -133,11 +133,11 @@ def test_an_unanswered_phase_is_collected_as_a_question(tmp_path: Path) -> None:
     search.mkdir()
     clone(search, "alfred")
     result, out, _ = generate(
-        tmp_path, [{"name": "alfred", "phase": "unknown", "paths": ["alfred"]}]
+        tmp_path, [{"name": "alfred", "phase": "v0.0.1", "phase_source": "scaffolded", "paths": ["alfred"]}]
     )
-    assert "phase unknown" in result.stdout
+    assert "phase scaffolded" in result.stdout
     page = out.with_suffix(".md").read_text(encoding="utf-8")
-    assert "Phases nobody has answered" in page
+    assert "Phases nobody has stated" in page
     assert "**alfred**" in page
 
 
@@ -146,19 +146,19 @@ def test_an_answered_phase_is_not_collected_as_a_question(tmp_path: Path) -> Non
     search.mkdir()
     clone(search, "rad")
     result, out, _ = generate(
-        tmp_path, [{"name": "rad", "phase": "v0.0.1", "paths": ["rad"]}]
+        tmp_path, [{"name": "rad", "phase": "v0.0.1", "phase_source": "stated", "paths": ["rad"]}]
     )
-    assert "phase unknown" not in result.stdout
+    assert "phase scaffolded" not in result.stdout
     page = out.with_suffix(".md").read_text(encoding="utf-8")
-    assert "every resolved repository carries a phase" in page
+    assert "has a phase somebody stated" in page
 
 
 def test_a_missing_repository_is_not_asked_about_its_phase(tmp_path: Path) -> None:
     """A clone nobody has cannot be placed on a ladder, and asking implies it can."""
     result, out, _ = generate(
-        tmp_path, [{"name": "ghost", "phase": "unknown", "paths": ["ghost"]}]
+        tmp_path, [{"name": "ghost", "phase": "v0.0.1", "phase_source": "scaffolded", "paths": ["ghost"]}]
     )
-    assert "phase unknown" not in result.stdout
+    assert "phase scaffolded" not in result.stdout
     page = out.with_suffix(".md").read_text(encoding="utf-8")
     assert "**ghost**" not in page
 
@@ -201,5 +201,6 @@ def test_the_committed_roster_is_loadable_and_shaped(tmp_path: Path) -> None:
         assert entry.get("name"), entry
         assert entry.get("paths"), entry
         assert entry.get("phase") is not None, entry
+        assert entry.get("phase_source") in ("stated", "scaffolded", "n/a"), entry
     corpus = [e for e in repositories if e.get("role") == "corpus"]
     assert len(corpus) == 1, "exactly one entry is the corpus"
