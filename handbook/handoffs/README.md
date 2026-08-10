@@ -16,7 +16,7 @@ between them are recorded here rather than inside each one.
 | Handoff | Blocks on | Repo |
 |---|---|---|
 | [`dossier-delta-review.md`](dossier-delta-review.md) | nothing | dossier |
-| [`dossier-adoption.md`](dossier-adoption.md) | nothing | dossier + qm |
+| [`dossier-adoption.md`](dossier-adoption.md) | **done, unpushed** — branches exist locally under keep-everything-local; needs a push and two draft PRs | dossier + qm |
 | [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
 | [`dossier-governance-view.md`](dossier-governance-view.md) | the two dossier pages above | dossier |
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
@@ -24,6 +24,19 @@ between them are recorded here rather than inside each one.
 The two dossier pages are genuinely independent of each other. The status
 document now exists, so the fourth page needs only a reviewed schema to build
 against and a repo that has adopted the corpus it reports on.
+
+Adoption is drafted and gated but not delivered: `project/dossier` at `a9a6e33`
+in this repo and `governance/adopt-corpus` at `5278a4d` in dossier, neither
+pushed. Its page carries the order the two pushes have to happen in, and why
+`submodule-check.yml` is red until the first one does.
+
+**The harness does not reach dossier at adoption.** Nothing in
+`project-seed/ide/.claude/commands/` and no `ci/` directory exists on `main` —
+both live on `evolve/ci-tooling-fixes` (#36). A project pinned to `main` gets
+governance discovery and the three seed gates, and gets `/cowork`, the slot
+check and the two status documents at its first pin bump after #36 lands. That
+is the propagation path working as designed, and it is also the single thing
+standing between here and a governance view with anything to render.
 
 ### Not a handoff yet, but don't lose it
 
