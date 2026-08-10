@@ -67,8 +67,21 @@ uv sync                       # or: .venv/Scripts/python.exe -m pytest
 .venv/Scripts/python.exe -m pytest -q
 ```
 
-Its `🧪 Test` workflow needs Playwright browsers. If they are absent locally,
-that is an environment difference and not a defect — say which you established.
+**dossier has no CI**, so nothing has ever run against this branch — no test,
+no lint, no review. `gh api repos/quaternionmedia/dossier/actions/workflows`
+returns one entry, GitHub's dynamic `Dependabot Updates`, and
+`git ls-tree -r origin/main .github` returns only `copilot-instructions.md`.
+That raises the value of this handoff rather than lowering it, and it means
+any suite result is one you produced yourself and should describe as such.
+
+Two hazards before you run anything. `pytest_configure` in `tests/conftest.py`
+shells `dossier dev purge` against the operator's `./dossier.db` before the
+run, and `pytest_unconfigure` repeats it after — on a machine with real data,
+that data is gone. And the uncommitted delta work that was sitting in the
+working tree is now committed on `wip/delta-entity-type-local` (`3dc8192`: 10
+files plus a new `src/dossier/database.py`, +1,833/−112, dated 2026-01-25 to
+2026-02-01). `feature/delta-entity-type` is untouched at `393450f`. Read that
+wip branch before concluding the design under review is the current one.
 
 For anything you assert about the branch's content, read
 `origin/feature/delta-entity-type:<path>`, not the working tree. The working
