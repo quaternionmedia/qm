@@ -63,9 +63,42 @@ COMMITTED = CORPUS / "harness-status.json"
 # true things about the commit it names, and it says them with a date attached.
 STALENESS_BUDGET_HOURS = 24
 
+# A thread is one line of work in flight: a branch, and the pull request it
+# became if it became one. The stages are observable states, not a percentage.
+# Nothing here estimates completion, because nothing can: the corpus has no
+# definition of done that a tool could read, and a number that looks like
+# progress is the most confidently wrong thing a dashboard can print.
+#
+#   local    commits exist and nothing is on a remote
+#   pushed   on a remote, no pull request -- invisible to every reviewer
+#   draft    a draft pull request: the normal state here
+#   ready    left draft, which is the human's act and their signal
+#
+# `pushed` is the interesting one. It is work that exists, is safe from a lost
+# laptop, and that nobody has been told about; the corpus has already lost a
+# branch in that state once, and the handoffs README carries the note about it.
+THREAD_STAGES = ("local", "pushed", "draft", "ready")
+
+# Idle time after which a thread is called stalled. Two days rather than one:
+# a thread untouched overnight is somebody sleeping, and a dashboard that
+# flags that has taught its reader to ignore the flag.
+STALLED_AFTER_HOURS = 48
+
+# How many local threads to report per repository before saying how many were
+# left off. A corpus clone holds two dozen branches and printing all of them
+# buries the one that moved an hour ago.
+THREAD_LIMIT = 10
+
 
 def unknown(reason: str) -> dict:
     return {"unknown": reason}
+
+
+def unknown_reason(value: object) -> str | None:
+    """The reason, if this value is the document's unknown form."""
+    if isinstance(value, dict) and "unknown" in value and len(value) == 1:
+        return str(value["unknown"])
+    return None
 
 
 def inside_corpus(path: Path) -> bool:
@@ -114,6 +147,123 @@ def slot_layer(slug: str, per_base: list[str]) -> dict:
     payload["exit_status"] = status
     payload["compliant"] = not payload["violations"]
     return payload
+
+
+def hours_since(stamp: str | None) -> float | None:
+    """Hours since an ISO-8601 instant, or None if it cannot be read."""
+    if not stamp:
+        return None
+    text = stamp.strip().replace("Z", "+00:00")
+    try:
+        moment = datetime.fromisoformat(text)
+    except ValueError:
+        return None
+    if moment.tzinfo is None:
+        moment = moment.replace(tzinfo=timezone.utc)
+    return (datetime.now(timezone.utc) - moment).total_seconds() / 3600
+
+
+def pr_detail(slug: str, number: int) -> dict:
+    """The size of a pull request's delta, which the list endpoint omits.
+
+    One request per human pull request. Bot pull requests are not fetched:
+    they are excluded from every count this document makes, so their size is a
+    fact nobody would read.
+    """
+    status, out, err = run(
+        "gh",
+        "api",
+        f"repos/{slug}/pulls/{number}",
+        "--jq",
+        "{commits, additions, deletions, changed_files, updated_at, "
+        "mergeable_state: .mergeable_state}",
+    )
+    if status != 0 or not out:
+        return unknown(f"pulls/{number}: {(err or 'no output').splitlines()[0]}")
+    try:
+        return json.loads(out)
+    except json.JSONDecodeError:
+        return unknown(f"pulls/{number}: response was not JSON")
+
+
+def org_threads(slug: str, slots: dict, want_detail: bool) -> list | dict:
+    """Work in flight that a reviewer can see: one entry per open pull request.
+
+    Org-scoped, so it is true for everyone. The delta sizes come from the host
+    rather than from a clone, which matters because most of these branches are
+    not on the machine running this.
+    """
+    if unknown_reason(slots) is not None:
+        return unknown("open pull requests could not be read, so neither could threads")
+
+    threads = []
+    for pr in slots.get("open_prs", []):
+        if pr.get("bot"):
+            continue
+        detail = pr_detail(slug, pr["number"]) if want_detail else unknown(
+            "--no-pr-detail was passed"
+        )
+        idle = hours_since(
+            detail.get("updated_at") if isinstance(detail, dict) else None
+        )
+        threads.append(
+            {
+                "name": pr.get("head") or f"#{pr['number']}",
+                "stage": "draft" if pr.get("draft") else "ready",
+                "pr": pr["number"],
+                "base": pr.get("base"),
+                "title": pr.get("title"),
+                "author": pr.get("author"),
+                "delta": detail,
+                "idle_hours": round(idle, 1) if idle is not None else None,
+                "stalled": bool(idle is not None and idle > STALLED_AFTER_HOURS),
+            }
+        )
+    return threads
+
+
+def local_threads(path: Path, pr_heads: set[str], pr_bases: set[str]) -> list:
+    """Branches carrying work that no pull request has made visible.
+
+    A branch that is the *base* of an open pull request is excluded. Those are
+    targets, not threads -- every `project/<name>` branch here is one, and
+    counting them would report nine permanent branches as work in flight.
+    """
+    status, default = git(path, "symbolic-ref", "--quiet", "--short", "refs/remotes/origin/HEAD")
+    base = default.split("/", 1)[1] if status == 0 and "/" in default else "main"
+
+    status, listed = git(
+        path, "for-each-ref", "--sort=-committerdate", "--format=%(refname:short)", "refs/heads"
+    )
+    if status != 0:
+        return []
+
+    threads = []
+    for name in listed.splitlines():
+        if not name or name == base or name in pr_heads or name in pr_bases:
+            continue
+        code, ahead = git(path, "rev-list", "--count", f"{base}..{name}")
+        if code != 0 or not ahead.isdigit() or int(ahead) == 0:
+            continue
+
+        code, shortstat = git(path, "diff", "--shortstat", f"{base}...{name}")
+        code, when = git(path, "log", "-1", "--format=%cI", name)
+        idle = hours_since(when)
+        pushed = git(path, "rev-parse", "--verify", "--quiet", f"origin/{name}")[0] == 0
+        threads.append(
+            {
+                "name": name,
+                "stage": "pushed" if pushed else "local",
+                "pr": None,
+                "base": base,
+                "delta": {"commits": int(ahead), "shortstat": shortstat or "no diff"},
+                "idle_hours": round(idle, 1) if idle is not None else None,
+                "stalled": bool(idle is not None and idle > STALLED_AFTER_HOURS),
+            }
+        )
+        if len(threads) >= THREAD_LIMIT:
+            break
+    return threads
 
 
 def local_layer(path: Path) -> dict:
@@ -224,6 +374,20 @@ def load_governance(path: Path) -> tuple[dict[str, dict], str | None]:
     return {p["name"]: p for p in projects}, None
 
 
+def all_threads(record: dict) -> list[dict]:
+    """Every thread on a repository record, org and machine alike.
+
+    Both or neither: a total that counted only the pull requests would report a
+    repository with four unpushed branches as having no work in flight, which
+    is the state most worth seeing.
+    """
+    threads = []
+    for holder in (record.get("threads"), (record.get("local") or {}).get("threads")):
+        if isinstance(holder, list):
+            threads.extend(holder)
+    return threads
+
+
 def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
     for candidate in entry.get("paths", []):
         for root in search_roots:
@@ -240,6 +404,7 @@ def build(
     want_local: bool,
     governance: dict[str, dict] | None = None,
     governance_gap: str | None = None,
+    want_pr_detail: bool = True,
 ) -> dict:
     repositories = []
     for entry in roster:
@@ -258,6 +423,7 @@ def build(
                 slug, CORPUS_PER_BASE if entry.get("role") == "corpus" else []
             ),
         }
+        record["threads"] = org_threads(slug, record["slots"], want_pr_detail)
         if governance is not None:
             record["governance"] = (
                 unknown(governance_gap)
@@ -269,8 +435,15 @@ def build(
             )
         if want_local:
             path = resolve(entry, search_roots)
+            if path:
+                slots = record["slots"]
+                open_prs = [] if unknown_reason(slots) else slots.get("open_prs", [])
+                heads = {p.get("head", "") for p in open_prs}
+                bases = {p.get("base", "") for p in open_prs}
+                record["local"] = local_layer(path)
+                record["local"]["threads"] = local_threads(path, heads, bases)
             record["local"] = (
-                local_layer(path)
+                record.get("local")
                 if path
                 else unknown(
                     "not found on this machine; candidates: "
@@ -300,6 +473,14 @@ def build(
                 "phase and phase_source come from ci/workspace.yaml and record "
                 "what a human stated. They are never derived from artifacts."
             ),
+            "thread_stages": list(THREAD_STAGES),
+            "thread_stages_are_states_not_progress": (
+                "observable states, not a percentage. Nothing estimates "
+                "completion: the corpus has no definition of done a tool could "
+                "read, and a number that looks like progress is the most "
+                "confidently wrong thing a dashboard can print."
+            ),
+            "stalled_after_hours": STALLED_AFTER_HOURS,
             "governance_layer_is_evidence": (
                 "read from governance-status.yaml, on each project's default "
                 "branch. Work in an open pull request is work, not evidence."
@@ -361,6 +542,24 @@ def build(
                 for r in repositories
                 if r.get("phase_source") == "stated" and r.get("phase") > "v0.0.1"
             ),
+            # Threads by stage, over every repository whose threads could be
+            # read. A repository that could not be read contributes to none of
+            # these, so no stage count doubles as a claim about it.
+            "threads_by_stage": {
+                stage: sum(
+                    1
+                    for r in repositories
+                    for t in all_threads(r)
+                    if t.get("stage") == stage
+                )
+                for stage in THREAD_STAGES
+            },
+            "threads_stalled": sum(
+                1 for r in repositories for t in all_threads(r) if t.get("stalled")
+            ),
+            "threads_unreadable": sum(
+                1 for r in repositories if unknown_reason(r.get("threads")) is not None
+            ),
         },
         "repositories": repositories,
     }
@@ -386,6 +585,11 @@ def main(argv: list[str] | None = None) -> int:
         type=Path,
         default=CORPUS / "governance-status.yaml",
         help="the generated status document the evidence layer is read from",
+    )
+    parser.add_argument(
+        "--no-pr-detail",
+        action="store_true",
+        help="skip the per-pull-request size lookup (one request each)",
     )
     parser.add_argument(
         "--no-governance",
@@ -417,6 +621,7 @@ def main(argv: list[str] | None = None) -> int:
         not args.no_local,
         governance,
         governance_gap,
+        not args.no_pr_detail,
     )
 
     text = json.dumps(status, indent=2, ensure_ascii=False) + "\n"

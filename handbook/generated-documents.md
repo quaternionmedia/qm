@@ -17,7 +17,7 @@ re-deriving what they hold**, and check the age before you quote anything.
 | Document | Holds | Quotable for | Refresh |
 |---|---|---|---|
 | `governance-status.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `python ci/governance_status.py --write governance-status.yaml` |
-| `harness-status.json` | pull request slots, phases claimed, governance evidence | 24h | `python ci/harness_status.py --no-local --write harness-status.json` |
+| `harness-status.json` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `python ci/harness_status.py --no-local --write harness-status.json` |
 
 Each carries its own refresh command, its own staleness budget, and its own
 `do_not` list **inside the file**, so you do not need this page to read one
@@ -28,6 +28,8 @@ To read the harness document as prose rather than JSON:
 ```
 python ci/harness_dashboard.py harness-status.json --format md
 ```
+
+`/status` runs both commands and reports what needs a person.
 
 The budgets differ because the things differ. Pull request slots turn over in
 hours — six sessions produced eight in a day — so a figure from yesterday
@@ -80,6 +82,12 @@ survives being printed, read in monochrome, or parsed.
 **The generation time is shown at the top, not in a footer.** A dashboard that
 looks live and is three days old is worse than one that admits its age, because
 the first stops people checking.
+
+**A state is not a percentage.** The thread stages — `local`, `pushed`,
+`draft`, `ready` — are observable states of a branch. Nothing estimates
+completion, because the corpus has no definition of done a tool could read, and
+a number that looks like progress is the most confidently wrong thing a
+dashboard can print. A view that showed 60% would be believed.
 
 **A claim and its evidence are separate, and neither derives from the other.**
 The phase in `ci/workspace.yaml` is what a human stated; the governance column

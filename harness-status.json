@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-09T23:20:27Z",
+  "generated_at": "2026-08-10T00:25:46Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -11,6 +11,14 @@
     ],
     "phase_ladder_source": "records/DRAFT-project-phase-ladder.md",
     "phase_layer_is_a_claim": "phase and phase_source come from ci/workspace.yaml and record what a human stated. They are never derived from artifacts.",
+    "thread_stages": [
+      "local",
+      "pushed",
+      "draft",
+      "ready"
+    ],
+    "thread_stages_are_states_not_progress": "observable states, not a percentage. Nothing estimates completion: the corpus has no definition of done a tool could read, and a number that looks like progress is the most confidently wrong thing a dashboard can print.",
+    "stalled_after_hours": 48,
     "governance_layer_is_evidence": "read from governance-status.yaml, on each project's default branch. Work in an open pull request is work, not evidence.",
     "layers": [
       "phase",
@@ -45,7 +53,15 @@
     "governance_readable": 8,
     "governance_precondition_met": 1,
     "phase_scaffolded": 7,
-    "phase_stated_above_governance": 4
+    "phase_stated_above_governance": 4,
+    "threads_by_stage": {
+      "local": 0,
+      "pushed": 0,
+      "draft": 5,
+      "ready": 13
+    },
+    "threads_stalled": 5,
+    "threads_unreadable": 0
   },
   "repositories": [
     {
@@ -68,6 +84,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
+            "head": "evolve/ci-tooling-fixes",
             "draft": true
           },
           {
@@ -76,6 +93,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "project/codecartographer",
+            "head": "propagate/codecartographer-2026-08-08",
             "draft": false
           },
           {
@@ -84,6 +102,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "project/alfred",
+            "head": "propagate/alfred-2026-08-08",
             "draft": false
           },
           {
@@ -92,6 +111,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "project/factorio-sysops",
+            "head": "propagate/factorio-sysops-2026-08-08",
             "draft": false
           },
           {
@@ -100,6 +120,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "project/factorio-server",
+            "head": "propagate/factorio-server-2026-08-08",
             "draft": false
           },
           {
@@ -108,6 +129,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "project/datafactorio",
+            "head": "propagate/datafactorio-2026-08-08",
             "draft": false
           },
           {
@@ -116,6 +138,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "project/apothecary",
+            "head": "propagate/apothecary-2026-08-08",
             "draft": false
           },
           {
@@ -124,6 +147,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "project/qmetronome",
+            "head": "propagate/qmetronome-2026-08-08",
             "draft": true
           }
         ],
@@ -131,6 +155,152 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [
+        {
+          "name": "evolve/ci-tooling-fixes",
+          "stage": "draft",
+          "pr": 36,
+          "base": "main",
+          "title": "The asynchronous multi-agent harness, and the CI tooling it is built on",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 10490,
+            "changed_files": 60,
+            "commits": 17,
+            "deletions": 60,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-09T23:26:27Z"
+          },
+          "idle_hours": 1.0,
+          "stalled": false
+        },
+        {
+          "name": "propagate/codecartographer-2026-08-08",
+          "stage": "ready",
+          "pr": 35,
+          "base": "project/codecartographer",
+          "title": "Bring project/codecartographer current: propagate main, and refresh the seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 5918,
+            "changed_files": 71,
+            "commits": 65,
+            "deletions": 1593,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-08T17:59:57Z"
+          },
+          "idle_hours": 30.4,
+          "stalled": false
+        },
+        {
+          "name": "propagate/alfred-2026-08-08",
+          "stage": "ready",
+          "pr": 33,
+          "base": "project/alfred",
+          "title": "Bring project/alfred current: propagate main, and refresh the seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 5917,
+            "changed_files": 72,
+            "commits": 65,
+            "deletions": 1594,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-08T17:59:51Z"
+          },
+          "idle_hours": 30.4,
+          "stalled": false
+        },
+        {
+          "name": "propagate/factorio-sysops-2026-08-08",
+          "stage": "ready",
+          "pr": 32,
+          "base": "project/factorio-sysops",
+          "title": "Bring project/factorio-sysops current: propagate main, and refresh the seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 6648,
+            "changed_files": 85,
+            "commits": 74,
+            "deletions": 1519,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-08T17:59:45Z"
+          },
+          "idle_hours": 30.4,
+          "stalled": false
+        },
+        {
+          "name": "propagate/factorio-server-2026-08-08",
+          "stage": "ready",
+          "pr": 31,
+          "base": "project/factorio-server",
+          "title": "Bring project/factorio-server current: propagate main, and refresh the seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 6648,
+            "changed_files": 85,
+            "commits": 74,
+            "deletions": 1519,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-08T17:59:42Z"
+          },
+          "idle_hours": 30.4,
+          "stalled": false
+        },
+        {
+          "name": "propagate/datafactorio-2026-08-08",
+          "stage": "ready",
+          "pr": 30,
+          "base": "project/datafactorio",
+          "title": "Bring project/datafactorio current: propagate main, and refresh the seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 6648,
+            "changed_files": 85,
+            "commits": 74,
+            "deletions": 1519,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-08T17:59:39Z"
+          },
+          "idle_hours": 30.4,
+          "stalled": false
+        },
+        {
+          "name": "propagate/apothecary-2026-08-08",
+          "stage": "ready",
+          "pr": 29,
+          "base": "project/apothecary",
+          "title": "Bring project/apothecary current: propagate main, and refresh the seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 5917,
+            "changed_files": 72,
+            "commits": 66,
+            "deletions": 1594,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-08T17:59:36Z"
+          },
+          "idle_hours": 30.4,
+          "stalled": false
+        },
+        {
+          "name": "propagate/qmetronome-2026-08-08",
+          "stage": "draft",
+          "pr": 25,
+          "base": "project/qmetronome",
+          "title": "Propagate main into project/qmetronome, and stop this branch owning org content",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 6087,
+            "changed_files": 84,
+            "commits": 74,
+            "deletions": 1530,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-08T17:59:48Z"
+          },
+          "idle_hours": 30.4,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -155,6 +325,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/github_actions/dot-github/workflows/actions/download-artifact-4.1.7",
             "draft": false
           },
           {
@@ -163,6 +334,7 @@
             "author": "mrharpo",
             "bot": false,
             "base": "main",
+            "head": "config",
             "draft": false
           }
         ],
@@ -170,6 +342,26 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [
+        {
+          "name": "config",
+          "stage": "ready",
+          "pr": 113,
+          "base": "main",
+          "title": "Config",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 58,
+            "changed_files": 10,
+            "commits": 9,
+            "deletions": 44,
+            "mergeable_state": "clean",
+            "updated_at": "2023-12-30T22:55:40Z"
+          },
+          "idle_hours": 22873.5,
+          "stalled": true
+        }
+      ],
       "governance": {
         "precondition": "incomplete",
         "missing": [
@@ -211,6 +403,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "governance/adopt-license-and-datum-scaffold",
+            "head": "feature/fractal-viewer-scale-and-overlays",
             "draft": true
           },
           {
@@ -219,6 +412,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
+            "head": "governance/adopt-license-and-datum-scaffold",
             "draft": false
           },
           {
@@ -227,6 +421,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
+            "head": "prototype/site-structure-hierarchy",
             "draft": false
           },
           {
@@ -235,6 +430,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pygments-2.20.0",
             "draft": false
           },
           {
@@ -243,6 +439,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/requests-2.33.0",
             "draft": false
           },
           {
@@ -251,6 +448,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/black-26.3.1",
             "draft": false
           },
           {
@@ -259,6 +457,7 @@
             "author": "mrharpo",
             "bot": false,
             "base": "main",
+            "head": "gridfinity",
             "draft": false
           },
           {
@@ -267,6 +466,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/filelock-3.20.3",
             "draft": false
           },
           {
@@ -275,6 +475,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/virtualenv-20.36.1",
             "draft": false
           }
         ],
@@ -292,6 +493,80 @@
         "exit_status": 1,
         "compliant": false
       },
+      "threads": [
+        {
+          "name": "feature/fractal-viewer-scale-and-overlays",
+          "stage": "draft",
+          "pr": 13,
+          "base": "governance/adopt-license-and-datum-scaffold",
+          "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 534,
+            "changed_files": 27,
+            "commits": 3,
+            "deletions": 159,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-09T11:11:42Z"
+          },
+          "idle_hours": 13.2,
+          "stalled": false
+        },
+        {
+          "name": "governance/adopt-license-and-datum-scaffold",
+          "stage": "ready",
+          "pr": 12,
+          "base": "main",
+          "title": "All open PRs reconciled: constitution, LICENSE, Gridfinity, fractal hierarchy, dependency bumps",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 8929,
+            "changed_files": 74,
+            "commits": 45,
+            "deletions": 1123,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-09T11:12:08Z"
+          },
+          "idle_hours": 13.2,
+          "stalled": false
+        },
+        {
+          "name": "prototype/site-structure-hierarchy",
+          "stage": "ready",
+          "pr": 8,
+          "base": "main",
+          "title": "Fractal Assembly hierarchy + zoom viewer (prototype, unratified)",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 6167,
+            "changed_files": 45,
+            "commits": 18,
+            "deletions": 986,
+            "mergeable_state": "clean",
+            "updated_at": "2026-07-21T21:27:35Z"
+          },
+          "idle_hours": 459.0,
+          "stalled": true
+        },
+        {
+          "name": "gridfinity",
+          "stage": "ready",
+          "pr": 4,
+          "base": "main",
+          "title": "🔳 Gridfinity",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 1547,
+            "changed_files": 19,
+            "commits": 2,
+            "deletions": 85,
+            "mergeable_state": "clean",
+            "updated_at": "2026-01-16T12:04:41Z"
+          },
+          "idle_hours": 4932.3,
+          "stalled": true
+        }
+      ],
       "governance": {
         "precondition": "incomplete",
         "missing": [
@@ -333,6 +608,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
+            "head": "governance/propagate-2026-08-08",
             "draft": true
           }
         ],
@@ -340,6 +616,26 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [
+        {
+          "name": "governance/propagate-2026-08-08",
+          "stage": "draft",
+          "pr": 1,
+          "base": "main",
+          "title": "Pick up the governance propagation, and split the docs out of the README",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 749,
+            "changed_files": 22,
+            "commits": 5,
+            "deletions": 648,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-09T11:04:08Z"
+          },
+          "idle_hours": 13.4,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -376,6 +672,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
+            "head": "evolve/rad-v1",
             "draft": false
           }
         ],
@@ -383,6 +680,26 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [
+        {
+          "name": "evolve/rad-v1",
+          "stage": "ready",
+          "pr": 1,
+          "base": "main",
+          "title": "rad: adopt qm governance, rename, radical theme, tempo axes, and real verification",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 8575,
+            "changed_files": 84,
+            "commits": 4,
+            "deletions": 747,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-09T16:04:27Z"
+          },
+          "idle_hours": 8.4,
+          "stalled": false
+        }
+      ],
       "governance": {
         "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
@@ -405,6 +722,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pymdown-extensions-11.0.1",
             "draft": false
           },
           {
@@ -413,6 +731,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/npm_and_yarn/web/postcss-8.5.25",
             "draft": false
           },
           {
@@ -421,6 +740,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/npm_and_yarn/web/brace-expansion-1.1.18",
             "draft": false
           },
           {
@@ -429,6 +749,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/black-26.3.1",
             "draft": false
           },
           {
@@ -437,6 +758,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/setuptools-83.0.0",
             "draft": false
           },
           {
@@ -445,6 +767,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
+            "head": "cleanup/2026-07-21-full-review",
             "draft": false
           }
         ],
@@ -452,6 +775,26 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [
+        {
+          "name": "cleanup/2026-07-21-full-review",
+          "stage": "ready",
+          "pr": 84,
+          "base": "main",
+          "title": "Full review cleanup: governance migration, dead-code/dependency cleanup, Lexicon Option B, layout unification",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 3941,
+            "changed_files": 114,
+            "commits": 48,
+            "deletions": 4045,
+            "mergeable_state": "clean",
+            "updated_at": "2026-07-21T21:23:02Z"
+          },
+          "idle_hours": 459.0,
+          "stalled": true
+        }
+      ],
       "governance": {
         "precondition": "incomplete",
         "missing": [
@@ -493,6 +836,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/starlette-1.3.1",
             "draft": false
           },
           {
@@ -501,6 +845,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/idna-3.15",
             "draft": false
           },
           {
@@ -509,6 +854,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
             "draft": false
           },
           {
@@ -517,6 +863,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pygments-2.20.0",
             "draft": false
           }
         ],
@@ -524,6 +871,7 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [],
       "governance": {
         "precondition": "incomplete",
         "missing": [
@@ -562,6 +910,7 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [],
       "governance": {
         "precondition": "incomplete",
         "missing": [
@@ -601,6 +950,7 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [],
       "governance": {
         "precondition": "incomplete",
         "missing": [
@@ -641,6 +991,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
+            "head": "governance/wire-ide-and-adr-lint",
             "draft": true
           }
         ],
@@ -648,6 +999,26 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [
+        {
+          "name": "governance/wire-ide-and-adr-lint",
+          "stage": "draft",
+          "pr": 10,
+          "base": "main",
+          "title": "Finish governance adoption: IDE discovery, and the seed's four-check ADR lint",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 170,
+            "changed_files": 7,
+            "commits": 2,
+            "deletions": 18,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-08T15:55:53Z"
+          },
+          "idle_hours": 32.5,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "incomplete",
         "missing": [
@@ -688,6 +1059,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/starlette-1.3.1",
             "draft": false
           },
           {
@@ -696,6 +1068,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/idna-3.15",
             "draft": false
           },
           {
@@ -704,6 +1077,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/mako-1.3.12",
             "draft": false
           },
           {
@@ -712,6 +1086,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
             "draft": false
           },
           {
@@ -720,6 +1095,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pygments-2.20.0",
             "draft": false
           }
         ],
@@ -727,6 +1103,7 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [],
       "governance": {
         "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
@@ -749,6 +1126,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/npm_and_yarn/vite-7.3.2",
             "draft": false
           },
           {
@@ -757,6 +1135,7 @@
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
+            "head": "fix/ci-empty-regions-dir",
             "draft": false
           }
         ],
@@ -764,6 +1143,26 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [
+        {
+          "name": "fix/ci-empty-regions-dir",
+          "stage": "ready",
+          "pr": 7,
+          "base": "main",
+          "title": "fix: handle missing regions/ directory in compile-yaml",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2,
+            "changed_files": 2,
+            "commits": 1,
+            "deletions": 1,
+            "mergeable_state": "blocked",
+            "updated_at": "2026-04-06T16:02:26Z"
+          },
+          "idle_hours": 3008.4,
+          "stalled": true
+        }
+      ],
       "governance": {
         "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
@@ -786,6 +1185,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/python-dotenv-1.2.2",
             "draft": false
           },
           {
@@ -794,6 +1194,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/authlib-1.6.11",
             "draft": false
           },
           {
@@ -802,6 +1203,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/python-multipart-0.0.26",
             "draft": false
           },
           {
@@ -810,6 +1212,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
             "draft": false
           },
           {
@@ -818,6 +1221,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/cryptography-46.0.7",
             "draft": false
           },
           {
@@ -826,6 +1230,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/aiohttp-3.13.4",
             "draft": false
           },
           {
@@ -834,6 +1239,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/fastmcp-3.2.0",
             "draft": false
           },
           {
@@ -842,6 +1248,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pygments-2.20.0",
             "draft": false
           },
           {
@@ -850,6 +1257,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/requests-2.33.0",
             "draft": false
           },
           {
@@ -858,6 +1266,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pyasn1-0.6.3",
             "draft": false
           },
           {
@@ -866,6 +1275,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pyjwt-2.12.0",
             "draft": false
           },
           {
@@ -874,6 +1284,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pydantic-ai-slim-1.56.0",
             "draft": false
           },
           {
@@ -882,6 +1293,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/pydantic-ai-1.56.0",
             "draft": false
           },
           {
@@ -890,6 +1302,7 @@
             "author": "dependabot[bot]",
             "bot": true,
             "base": "main",
+            "head": "dependabot/uv/protobuf-6.33.5",
             "draft": false
           }
         ],
@@ -897,6 +1310,7 @@
         "exit_status": 0,
         "compliant": true
       },
+      "threads": [],
       "governance": {
         "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
