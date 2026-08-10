@@ -8,9 +8,9 @@ which projects are current, which have drifted, and what nobody has measured.
 can read for reference and are expected to eventually replace. Its contract is
 `handbook/handoffs/governance-status-generator.md`.
 
-**A first cut exists, on a local branch, unpushed.** *Stamped 2026-08-10;
-`dossier` `governance/status-view` at `651ea01`, off `governance/adopt-corpus`.
-Re-derive before acting.*
+**A first cut is delivered as dossier#10**, draft and assigned. *Stamped
+2026-08-10; `dossier` `governance/status-view` at `651ea01`, off
+`governance/adopt-corpus`. Re-derive before acting.*
 
 | Piece | Where |
 |---|---|
