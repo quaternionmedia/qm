@@ -31,6 +31,36 @@ python ci/harness_dashboard.py harness-status.json --format md
 
 `/status` runs both commands and reports what needs a person.
 
+### Which repository do I run a view in?
+
+Three answers, and confusing them is the most common way to conclude the
+dashboard is broken. All of these are run **from the corpus root**, in this
+repository:
+
+```
+python ci/harness_dashboard.py harness-status.json --format md    # agent view
+python ci/harness_dashboard.py harness-status.json --out status.html
+python ci/governance_render.py                                    # the other document
+```
+
+In **`quaternionmedia/dossier`** — one command does refresh, load and launch:
+`dossier governance dashboard --corpus-dir <this corpus> --refresh`. With
+`--refresh` it runs the two commands above in this checkout, so the "refreshing
+is a human or agent action" rule still holds — a person asked for it, and the
+diff it leaves in this repository is theirs to review. Its refresh path is
+deliberately outside its renderer, so the no-commands-in-a-view rule holds
+there too.
+Its `docs/governance.md` carries the prep, which is not optional: a project's
+vendored `governance/qm` is pinned to its own branch, cut from **`main`**, and
+neither document is on `main`. So the path a project would naturally read is
+empty by construction until the change adding them lands and the pin is bumped
+past it. Until then a reader there needs pointing at a corpus checkout.
+
+In **every other project** — nothing. The documents describe all of them and
+are generated and stored only here. Looking for a dashboard in `alfred` or
+`apothecary` finds nothing because there is nothing to find, not because
+something is misconfigured.
+
 The budgets differ because the things differ. Pull request slots turn over in
 hours — six sessions produced eight in a day — so a figure from yesterday
 describes an organisation that no longer exists. Adoption artifacts move when
