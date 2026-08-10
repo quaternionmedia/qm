@@ -16,19 +16,21 @@ between them are recorded here rather than inside each one.
 | Handoff | Blocks on | Repo |
 |---|---|---|
 | [`dossier-delta-review.md`](dossier-delta-review.md) | nothing | dossier |
-| [`dossier-adoption.md`](dossier-adoption.md) | **done, unpushed** — branches exist locally under keep-everything-local; needs a push and two draft PRs | dossier + qm |
+| [`dossier-adoption.md`](dossier-adoption.md) | **delivered** — dossier#10 (draft, assigned); `project/dossier` pushed | dossier + qm |
 | [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
-| [`dossier-governance-view.md`](dossier-governance-view.md) | the two dossier pages above | dossier |
+| [`dossier-governance-view.md`](dossier-governance-view.md) | **first cut delivered in dossier#10**; the delta-review page still open | dossier |
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
 
 The two dossier pages are genuinely independent of each other. The status
 document now exists, so the fourth page needs only a reviewed schema to build
 against and a repo that has adopted the corpus it reports on.
 
-Adoption is drafted and gated but not delivered: `project/dossier` at `a9a6e33`
-in this repo and `governance/adopt-corpus` at `5278a4d` in dossier, neither
-pushed. Its page carries the order the two pushes have to happen in, and why
-`submodule-check.yml` is red until the first one does.
+Adoption is delivered: `project/dossier` at `a9a6e33` here, pushed as a
+long-lived project branch, and dossier `governance/status-view` at `651ea01` as
+**dossier#10**, draft and assigned. All eight of dossier's gates pass. Its page
+carries the one thing worth a reviewer's attention: `project/dossier` is pushed
+without a pull request, because the fork procedure says to push it and a pull
+request from it into `main` would merge one project's records into the corpus.
 
 **The harness does not reach dossier at adoption.** Nothing in
 `project-seed/ide/.claude/commands/` and no `ci/` directory exists on `main` —
@@ -114,4 +116,4 @@ the test names and confirm the test fails. Ten such mutations were run against
 `ci/governance_status.py`; two tests were inert on the first pass and both were
 rewritten.
 
-*Stamped 2026-08-09. `qm` at `b94d910`, `dossier` at `f055376`.*
+*Stamped 2026-08-10. `qm` `main` at `b94d910`, `project/dossier` at `a9a6e33`, `dossier` `main` at `f055376`.*

@@ -14,47 +14,52 @@ page.** What follows is only what is specific to dossier.
 
 ---
 
-## The work is done, on local branches, and unpushed
+## The work is delivered
 
-*Stamped 2026-08-09. `qm` at `b1ef1f5` on `evolve/ci-tooling-fixes`, `dossier`
-main at `f055376`. Every number here is true at those commits and nowhere
-else — re-derive before acting, and do not quote a figure from this page as
-current.*
+*Stamped 2026-08-10. `qm` `project/dossier` at `a9a6e33`, `dossier`
+`governance/status-view` at `651ea01`. Every number here is true at those
+commits and nowhere else — re-derive before acting, and do not quote a figure
+from this page as current.*
 
-**Keep everything local was in force for the session that did this**, so
-nothing is pushed and no pull request exists. Do not read the unpushed
-commits as an oversight and "fix" them by pushing — that is the reviewer's
-call.
+**Keep everything local was in force while this was built, and was relaxed on
+2026-08-10 for pull request maintenance only.** The relaxation is not general:
+it covers pushing to and adding commits to a pull request that already exists,
+plus the one project-governance draft below. It does not authorise opening
+further pull requests anywhere.
 
-| Branch | Repo | Head | Carries |
-|---|---|---|---|
-| `project/dossier` | qm | `a9a6e33` | 3 commits, 3 files, all under `adr/` |
-| `governance/adopt-corpus` | dossier | `5278a4d` | 1 commit, 17 files |
-| `wip/delta-entity-type-local` | dossier | `3dc8192` | see the delta-review page |
+| Branch | Repo | Head | Carries | State |
+|---|---|---|---|---|
+| `project/dossier` | qm | `a9a6e33` | 3 commits, 3 files, all under `adr/` | pushed, no PR — a long-lived project branch, per the fork procedure's step 2 |
+| `governance/status-view` | dossier | `651ea01` | 9 commits, 30 files | pushed, **dossier#10**, draft, assigned |
+| `governance/adopt-corpus` | dossier | `5278a4d` | the adoption half, an ancestor of the above | local only; #10 carries its commits |
+| `wip/delta-entity-type-local` | dossier | `3dc8192` | see the delta-review page | local only, deliberately |
 
 Both branches are cut from their base tip with no unrelated commits, by
-`check_pr_base.py --remote refs/heads`. The `--remote` prefix is applied
-unconditionally, which is why the local-ref form is needed while nothing is
-pushed; `origin/<head>` does not resolve for a branch that does not exist
-remotely.
+`check_pr_base.py`. While a branch is unpushed that check needs
+`--remote refs/heads`, because it prefixes the remote unconditionally and
+`origin/<head>` does not resolve for a branch that does not exist yet.
 
-**What remains**, in this order: push `project/dossier`, then push
-`governance/adopt-corpus`, then deliver each for review. The order matters —
-`submodule-check.yml` fails until the pinned corpus commit exists on the
-corpus remote, which is the one gate that is red today and is red *correctly*.
+**`project/dossier` is pushed without a pull request, and that is worth a
+reviewer's attention.** The fork procedure says to create the branch and push
+it, and other `project/*` branches exist that way; the constitution says
+everything arrives as a pull request. A pull request from `project/dossier`
+into `main` would merge one project's records into the corpus, which the
+branch-per-project model exists to prevent — so the two rules cannot both be
+followed literally here. The three commits it carries touch `adr/` and nothing
+else, and the ADR lint runs against them from dossier's own workflow. If the
+intended shape is different, say so before the branch is pinned any further:
+rewriting a branch a submodule pins is forbidden.
 
-Both status documents still report dossier's governance as `unknown` with the
-reason *"no project/<name> branch in the corpus"*. That is accurate: they read
-what has landed, and nothing has. Neither was regenerated, because
-regenerating them here would record a fact about one workstation's clones as
-though it were org-wide. They will change on the first push, not before.
+**What remains**: leaving dossier#10 draft is the assignee's decision, after
+their own testing. Nothing else is outstanding on this page.
 
 ## What the gates said
 
-`run_workflows_locally.py` in dossier: 8 steps, 7 pass, 1 fails —
-`submodule-check.yml`, on the unpushed pin above. In the corpus on
-`project/dossier`: 7 steps, all pass. The runner reproduces neither `uses:`
-steps, the runner image, nor secrets.
+`run_workflows_locally.py` in dossier: **8 steps, all pass**, once
+`project/dossier` was pushed — `submodule-check.yml` was the one red gate and
+it was red correctly, because the pinned corpus commit did not exist on the
+corpus remote. In the corpus on `project/dossier`: 7 steps, all pass. The
+runner reproduces neither `uses:` steps, the runner image, nor secrets.
 
 The ADR lint runs from the submodule and reports `clean (governance/qm/adr/)`,
 which is the arrangement working: the project's workflow lints the records on
