@@ -152,6 +152,12 @@ def normalise(prs: list[dict]) -> list[dict]:
                 "author": str(author.get("login", "")),
                 "bot": is_bot(author),
                 "base": str((pr.get("base") or {}).get("ref", "")),
+                # The branch this pull request is made from. Not used by the
+                # slot rule, which counts authors rather than branches, but a
+                # reader matching a pull request to a local branch has no other
+                # way to do it -- and every such reader would otherwise guess
+                # from the title.
+                "head": str((pr.get("head") or {}).get("ref", "")),
                 "draft": bool(pr.get("draft")),
             }
         )

@@ -727,3 +727,180 @@ def test_writing_the_machine_layer_into_the_repository_is_refused() -> None:
     assert result.returncode == 1
     assert "refusing to write the machine layer" in result.stderr
     assert "--no-local" in result.stderr
+
+
+# --- threads: work in flight, as states rather than a percentage -----------
+
+
+def threaded(**kw) -> dict:
+    """A document with one repository and the threads given."""
+    doc = document()
+    doc["repositories"] = [doc["repositories"][0]]
+    doc["repositories"][0].update(kw)
+    doc["generator"]["stalled_after_hours"] = 48
+    doc["generator"]["thread_stages_are_states_not_progress"] = "observable states"
+    doc["totals"]["threads_by_stage"] = {"local": 1, "pushed": 1, "draft": 1, "ready": 1}
+    doc["totals"]["threads_stalled"] = 1
+    return doc
+
+
+ORG_THREAD = {
+    "name": "evolve/thing", "stage": "draft", "pr": 36, "base": "main",
+    "delta": {"commits": 17, "additions": 10490, "deletions": 60, "changed_files": 60},
+    "idle_hours": 0.7, "stalled": False,
+}
+PUSHED_THREAD = {
+    "name": "feature/delta", "stage": "pushed", "pr": None, "base": "main",
+    "delta": {"commits": 16, "shortstat": "18 files changed, 2392 insertions(+)"},
+    "idle_hours": 4711.0, "stalled": True,
+}
+
+
+def test_a_thread_is_rendered_in_both_views() -> None:
+    doc = threaded(threads=[ORG_THREAD])
+    assert "evolve/thing" in hd.render(doc)
+    assert "evolve/thing" in hd.render_markdown(doc)
+
+
+def test_the_two_delta_shapes_are_rendered_as_measured() -> None:
+    """A pull request's counts come from the host; a branch's from git.
+
+    Rendering one as the other would print a number the reader cannot check.
+    """
+    assert "17 commits, 60 files, +10490/-60" == hd.delta_text(ORG_THREAD["delta"])
+    assert hd.delta_text(PUSHED_THREAD["delta"]).startswith("16 commits, 18 files changed")
+
+
+def test_an_unmeasured_delta_says_unknown_with_its_reason() -> None:
+    assert "unknown (pulls/9: HTTP 404)" == hd.delta_text({"unknown": "pulls/9: HTTP 404"})
+
+
+def test_a_pushed_thread_is_warned_on_not_treated_as_progress() -> None:
+    """It exists on a remote and no reviewer has been told.
+
+    Asserted on the stage pill itself, not on the page: the repository table
+    above carries p-warn cells of its own, so a page-wide assertion passes
+    against a renderer that marks every stage as fine.
+    """
+    page = hd.render(threaded(local={"threads": [PUSHED_THREAD]}))
+    assert '<span class="pill p-warn">pushed</span>' in page
+    assert "no pull request" in page
+
+
+def test_a_pushed_thread_becomes_an_action_for_a_human() -> None:
+    text = hd.render_markdown(threaded(local={"threads": [PUSHED_THREAD]}))
+    section = text.split("## What needs a human")[1].split("## ")[0]
+    assert "feature/delta" in section
+    assert "no reviewer has been told" in section
+
+
+def test_a_draft_thread_is_not_an_action() -> None:
+    """Draft is the normal state here; flagging it would flag everything."""
+    text = hd.render_markdown(threaded(threads=[ORG_THREAD]))
+    section = text.split("## What needs a human")[1].split("## ")[0]
+    assert "evolve/thing" not in section
+
+
+def test_stalled_threads_sort_above_active_ones() -> None:
+    """The stalled one must win even when its stage would sort it last.
+
+    A stalled `pushed` thread against a fresh `draft` one proves nothing: the
+    stage order already puts pushed first, so the test passes with the stalled
+    key ignored entirely. `ready` sorts last, so a stalled `ready` thread only
+    reaches the top if being stalled is what lifted it.
+    """
+    stalled_ready = {**ORG_THREAD, "name": "old/ready", "stage": "ready",
+                     "stalled": True, "idle_hours": 900.0}
+    fresh_draft = {**ORG_THREAD, "name": "new/draft", "stage": "draft",
+                   "stalled": False, "idle_hours": 1.0}
+    doc = threaded(threads=[fresh_draft, stalled_ready])
+    ordered = [t["name"] for t in hd.thread_rows(doc)]
+    assert ordered.index("old/ready") < ordered.index("new/draft")
+
+
+def test_pushed_sorts_above_draft_when_neither_is_stalled() -> None:
+    """A branch nobody can see outranks one already in front of a reviewer."""
+    fresh = {**PUSHED_THREAD, "stalled": False, "idle_hours": 1.0}
+    doc = threaded(threads=[ORG_THREAD], local={"threads": [fresh]})
+    ordered = [t["name"] for t in hd.thread_rows(doc)]
+    assert ordered.index("feature/delta") < ordered.index("evolve/thing")
+
+
+def test_each_thread_is_tagged_with_its_scope() -> None:
+    """Org-wide and one-machine facts side by side must stay distinguishable."""
+    doc = threaded(threads=[ORG_THREAD], local={"threads": [PUSHED_THREAD]})
+    by_name = {t["name"]: t["scope"] for t in hd.thread_rows(doc)}
+    assert by_name == {"evolve/thing": "org", "feature/delta": "machine"}
+
+
+def test_idle_is_shown_in_days_once_it_stops_being_a_working_day() -> None:
+    assert hd.idle_text(0.7) == "1h"
+    assert hd.idle_text(30.0) == "30h"
+    assert hd.idle_text(4711.0) == "196d"
+    assert hd.idle_text(None) == "unknown"
+
+
+def test_unreadable_threads_are_named_rather_than_shown_as_none() -> None:
+    doc = threaded(threads={"unknown": "open pull requests could not be read"})
+    page = hd.render(doc)
+    assert "could not be read" in page
+    assert hd.thread_rows(doc) == []
+
+
+def test_no_view_claims_a_completion_percentage() -> None:
+    """The corpus has no definition of done, so nothing may imply one.
+
+    The stylesheet is excluded before matching: `width: 100%` is a percentage
+    and is not a claim about anybody's progress. An assertion over the whole
+    page matches it and fails for a reason unrelated to what it tests.
+    """
+    doc = threaded(threads=[ORG_THREAD], local={"threads": [PUSHED_THREAD]})
+    html_body = hd.render(doc).split("</style>", 1)[1]
+    for view in (html_body, hd.render_markdown(doc)):
+        assert not re.search(r"[0-9]+\s*%", view), view[:400]
+
+
+def test_the_markdown_view_states_that_stages_are_not_progress() -> None:
+    text = hd.render_markdown(threaded(threads=[ORG_THREAD]))
+    assert "not progress" in text
+
+
+def test_no_threads_says_so_rather_than_rendering_an_empty_table() -> None:
+    page = hd.render(threaded(threads=[]))
+    assert "No threads in flight" in page
+
+
+# --- the collector's thread rules ------------------------------------------
+
+
+def test_threads_are_unknown_when_the_pull_requests_could_not_be_read() -> None:
+    """Not an empty list, which would say this repository has no work in flight."""
+    result = hs.org_threads("example/thing", {"unknown": "HTTP 404"}, False)
+    assert "unknown" in result
+
+
+def test_bot_pull_requests_are_not_threads() -> None:
+    """They are excluded from every other count, so their size is unread."""
+    slots = {"open_prs": [
+        {"number": 1, "author": "dependabot[bot]", "bot": True, "base": "main",
+         "head": "dependabot/x", "draft": False, "title": "bump"},
+    ]}
+    assert hs.org_threads("example/thing", slots, False) == []
+
+
+def test_a_draft_and_a_ready_pull_request_get_their_stages() -> None:
+    slots = {"open_prs": [
+        {"number": 1, "author": "ada", "bot": False, "base": "main",
+         "head": "a", "draft": True, "title": "t"},
+        {"number": 2, "author": "ada", "bot": False, "base": "main",
+         "head": "b", "draft": False, "title": "t"},
+    ]}
+    stages = {t["name"]: t["stage"] for t in hs.org_threads("example/t", slots, False)}
+    assert stages == {"a": "draft", "b": "ready"}
+
+
+def test_hours_since_reads_both_instant_spellings() -> None:
+    assert hs.hours_since("2026-01-01T00:00:00Z") > 0
+    assert hs.hours_since("2026-01-01T00:00:00+00:00") > 0
+    assert hs.hours_since(None) is None
+    assert hs.hours_since("not a date") is None

@@ -13,7 +13,8 @@ flight in this clone, which gates exist — instead of letting you inherit a
 previous session's beliefs. Other sessions are very likely running right now,
 in other repositories, for the same reviewer; `handbook/async-contract.md` is
 the set of rules that exist only because of that, and it is short. `/preflight`
-and `/handoff` close the same loop at the other end. The commands live in
+and `/handoff` close the same loop at the other end, and `/status` reports
+what is in flight across the org. The commands live in
 `project-seed/ide/.claude/commands/`, and this repository's `.claude/` is
 symlinks into it.
 

@@ -26,7 +26,7 @@ flight in this clone, which gates exist — instead of letting you inherit a
 previous session's beliefs. Other sessions are likely running right now, in
 other repositories, for the same reviewer;
 `governance/qm/handbook/async-contract.md` is the set of rules that exist only
-because of that, and it is short. `/preflight` and `/handoff` close the same
+because of that, and it is short. `/preflight`, `/handoff` and `/status` close the same
 loop at the other end.
 
 **Read the corpus's committed status documents before re-deriving what they

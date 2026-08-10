@@ -35,6 +35,8 @@ from dashboard_style import STYLE
 
 OK, WARN, UNKNOWN = "ok", "warn", "unknown"
 
+LINE_BREAK = chr(10)
+
 
 def esc(value: object) -> str:
     return html.escape("" if value is None else str(value))
@@ -259,6 +261,35 @@ def render(document: dict, fragment: bool = False) -> str:
         or "<p>Every repository in the roster was read.</p>"
     )
 
+    stages = totals.get("threads_by_stage") or {}
+    thread_html = []
+    for thread in thread_rows(document):
+        state, meaning = STAGE_STATE.get(thread.get("stage"), (UNKNOWN, "unknown stage"))
+        flag = pill("stalled", WARN) if thread.get("stalled") else ""
+        where = f"#{esc(thread['pr'])}" if thread.get("pr") else "&mdash;"
+        thread_html.append(
+            f'<tr class="{"over" if thread.get("stalled") else ""}">'
+            f'<th scope="row">{esc(thread.get("repository"))}</th>'
+            f'<td><span class="mono">{esc(thread.get("name"))}</span>'
+            f'<div class="sub">onto {esc(thread.get("base") or "unknown")}'
+            f' &middot; {esc(thread.get("scope"))}</div></td>'
+            f"<td>{pill(esc(thread.get('stage')), state)}"
+            f'<div class="sub">{esc(meaning)}</div></td>'
+            f"<td>{esc(delta_text(thread.get('delta')))}</td>"
+            f"<td>{esc(idle_text(thread.get('idle_hours')))} {flag}</td>"
+            f"<td>{where}</td></tr>"
+        )
+    threads_table = LINE_BREAK.join(thread_html) or (
+        '<tr><td colspan="6" class="s-muted">No threads in flight.</td></tr>'
+    )
+
+    threads_note = "".join(
+        f'<p class="reason">{esc(r["name"])}: threads '
+        f'{esc(unknown_reason(r["threads"]))}</p>'
+        for r in repositories
+        if unknown_reason(r.get("threads")) is not None
+    )
+
     scope = generator.get("local_layer_scope")
     scope_html = (
         f'<p class="reason">The machine column is {esc(scope)}. Nothing in it is '
@@ -285,6 +316,14 @@ def render(document: dict, fragment: bool = False) -> str:
         n_scaffolded=esc(totals.get("phase_scaffolded")),
         ladder_source=esc(generator.get("phase_ladder_source") or "unstated"),
         rows="\n".join(rows),
+        threads=threads_table,
+        threads_note=threads_note,
+        n_pushed=esc(stages.get("pushed", 0)),
+        n_local=esc(stages.get("local", 0)),
+        n_draft=esc(stages.get("draft", 0)),
+        n_ready=esc(stages.get("ready", 0)),
+        n_stalled=esc(totals.get("threads_stalled", 0)),
+        stalled_after=esc(generator.get("stalled_after_hours")),
         over=over_html,
         unplaced=unplaced_html,
         ahead=ahead_html,
@@ -339,6 +378,39 @@ BODY = """<main>
   <span><span class="pill p-warn">warn</span> measured, needs a human</span>
   <span><span class="pill p-unknown">unknown</span> not measured — not the same as nothing wrong</span>
 </div>
+
+<h2>Threads in flight</h2>
+<p>One line of work each: a branch, and the pull request it became if it became
+one. The stages are <b>observable states, not progress</b> &mdash; nothing here
+estimates completion, because the corpus has no definition of done a tool could
+read. Sorted worst first: stalled before idle, and <b>pushed</b> before draft,
+because a branch on a remote with no pull request is work nobody has been told
+about. Stalled means untouched for more than {stalled_after}h.</p>
+
+<div class="cards">
+  <div class="card"><div class="n s-warn">{n_pushed}</div><div class="l">pushed, no PR</div></div>
+  <div class="card"><div class="n s-warn">{n_local}</div><div class="l">local only</div></div>
+  <div class="card"><div class="n">{n_draft}</div><div class="l">draft PR</div></div>
+  <div class="card"><div class="n">{n_ready}</div><div class="l">ready for review</div></div>
+  <div class="card"><div class="n s-warn">{n_stalled}</div><div class="l">stalled</div></div>
+</div>
+
+<div class="scroll">
+<table>
+<thead><tr>
+  <th scope="col">Repository</th>
+  <th scope="col">Thread</th>
+  <th scope="col">Stage</th>
+  <th scope="col">Delta</th>
+  <th scope="col">Idle</th>
+  <th scope="col">PR</th>
+</tr></thead>
+<tbody>
+{threads}
+</tbody>
+</table>
+</div>
+{threads_note}
 
 <h2>Over the limit</h2>
 <p>One open pull request per repository, per contributor. Folding has an order:
@@ -398,6 +470,80 @@ TEMPLATE = (
 )
 
 FRAGMENT = "<style>{style}</style>\n" + BODY
+
+
+# Stage → (label, severity). `pushed` is warned on deliberately: it is work
+# that exists on a remote and that no reviewer has been told about, which is
+# the state this org has already lost a branch in.
+STAGE_STATE = {
+    "local": (WARN, "not on any remote"),
+    "pushed": (WARN, "no pull request — nobody has been told"),
+    "draft": (OK, "draft pull request"),
+    "ready": (OK, "left draft — the human's signal"),
+}
+
+
+def delta_text(delta: object) -> str:
+    """The size of a thread's change, however it was measured.
+
+    Two shapes, because two sources: a pull request's counts come from the
+    host, and a local branch's come from `git diff --shortstat`. Rendering one
+    as the other would report a number the reader cannot check.
+    """
+    reason = unknown_reason(delta)
+    if reason is not None:
+        return f"unknown ({reason})"
+    if not isinstance(delta, dict):
+        return "unknown"
+    if "additions" in delta:
+        return (
+            f"{delta.get('commits')} commits, {delta.get('changed_files')} files, "
+            f"+{delta.get('additions')}/-{delta.get('deletions')}"
+        )
+    return f"{delta.get('commits')} commits, {delta.get('shortstat', 'no diff')}"
+
+
+def idle_text(hours: object) -> str:
+    if hours is None:
+        return "unknown"
+    hours = float(hours)
+    if hours < 48:
+        return f"{hours:.0f}h"
+    return f"{hours / 24:.0f}d"
+
+
+def threads_of(repo: dict) -> list[dict]:
+    """Both scopes, tagged, so a reader never has to guess which they have."""
+    found = []
+    for holder, scope in (
+        (repo.get("threads"), "org"),
+        ((repo.get("local") or {}).get("threads"), "machine"),
+    ):
+        if isinstance(holder, list):
+            found.extend({**t, "scope": scope} for t in holder)
+    return found
+
+
+def thread_rows(document: dict) -> list[dict]:
+    """Every thread across every repository, worst first.
+
+    Stalled before idle, and `pushed` before `draft`: a stalled branch nobody
+    can see is the row that needs a person, and a dashboard that sorts by
+    repository name buries it under whatever comes first alphabetically.
+    """
+    rows = []
+    for repo in document.get("repositories", []):
+        for thread in threads_of(repo):
+            rows.append({**thread, "repository": repo.get("name")})
+    order = {"pushed": 0, "local": 1, "draft": 2, "ready": 3}
+    return sorted(
+        rows,
+        key=lambda t: (
+            not t.get("stalled"),
+            order.get(t.get("stage"), 9),
+            -(t.get("idle_hours") or 0),
+        ),
+    )
 
 
 def md_state(governance: object) -> str:
@@ -479,6 +625,31 @@ def render_markdown(document: dict) -> str:
         )
     add("")
 
+    add("## Threads in flight")
+    add("")
+    add(
+        "One line of work each. The stages are observable states, not progress: "
+        f"{generator.get('thread_stages_are_states_not_progress', '')}"
+    )
+    add("")
+    add(
+        f"Stalled means untouched for more than "
+        f"{generator.get('stalled_after_hours')}h."
+    )
+    add("")
+    add("| Repository | Thread | Stage | Delta | Idle | PR | Scope |")
+    add("|---|---|---|---|---|---|---|")
+    for thread in thread_rows(document):
+        flag = " STALLED" if thread.get("stalled") else ""
+        add(
+            f"| {thread.get('repository')} | {thread.get('name')} "
+            f"| {thread.get('stage')}{flag} | {delta_text(thread.get('delta'))} "
+            f"| {idle_text(thread.get('idle_hours'))} "
+            f"| {('#' + str(thread['pr'])) if thread.get('pr') else '-'} "
+            f"| {thread.get('scope')} |"
+        )
+    add("")
+
     add("## What needs a human")
     add("")
     actions = []
@@ -490,6 +661,15 @@ def render_markdown(document: dict) -> str:
                 "rest are closed or folded into it. Close the pull request "
                 "FIRST, then push — pushing first merges it."
             )
+        for thread in threads_of(repo):
+            if thread.get("stage") == "pushed":
+                actions.append(
+                    f"- **{repo['name']}** `{thread.get('name')}`: pushed with no "
+                    f"pull request ({delta_text(thread.get('delta'))}, idle "
+                    f"{idle_text(thread.get('idle_hours'))}). It exists on a "
+                    "remote and no reviewer has been told. Open a draft pull "
+                    "request, or record why not."
+                )
         if str(repo.get("phase_source")) == "scaffolded":
             actions.append(
                 f"- **{repo['name']}**: phase `{repo.get('phase')}` is the "
