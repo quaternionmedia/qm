@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-09T20:19:41Z"
+generated_at: "2026-08-10T10:58:29Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -78,7 +78,7 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/alfred: unexpected response shape"
-    observed_at: "2026-08-09T20:19:30Z"
+    observed_at: "2026-08-10T10:58:17Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
@@ -122,7 +122,7 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/apothecary: unexpected response shape"
-    observed_at: "2026-08-09T20:19:31Z"
+    observed_at: "2026-08-10T10:58:18Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
@@ -167,7 +167,7 @@ projects:
         - LICENSE
     open_prs:
       unknown: "pulls?base=project/codecartographer: unexpected response shape"
-    observed_at: "2026-08-09T20:19:33Z"
+    observed_at: "2026-08-10T10:58:20Z"
   - name: datafactorio
     branch:
       ref: origin/project/datafactorio
@@ -211,7 +211,7 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/datafactorio: unexpected response shape"
-    observed_at: "2026-08-09T20:19:34Z"
+    observed_at: "2026-08-10T10:58:21Z"
   - name: datum
     branch:
       ref: origin/project/datum
@@ -257,7 +257,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-09T20:19:35Z"
+    observed_at: "2026-08-10T10:58:22Z"
   - name: factorio-server
     branch:
       ref: origin/project/factorio-server
@@ -301,7 +301,7 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/factorio-server: unexpected response shape"
-    observed_at: "2026-08-09T20:19:37Z"
+    observed_at: "2026-08-10T10:58:23Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
@@ -345,7 +345,53 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/factorio-sysops: unexpected response shape"
-    observed_at: "2026-08-09T20:19:38Z"
+    observed_at: "2026-08-10T10:58:25Z"
+  - name: loopwall
+    branch:
+      ref: origin/project/loopwall
+      commit: "217039d46d39c434f6dd548690f286ba3ccf9a03"
+      committed_at: "2026-08-08T19:04:00Z"
+      behind_corpus: 0
+      ahead_of_corpus: 8
+      merge_base: "b94d91085ba728788ede43e7ab4865ecb21c9261"
+      merge_base_at: "2026-08-08T17:56:10Z"
+      last_propagation:
+        commit: "217039d46d39c434f6dd548690f286ba3ccf9a03"
+        committed_at: "2026-08-08T19:04:00Z"
+        subject: "Merge remote-tracking branch 'origin/main' into project/loopwall"
+    records:
+      total: 4
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 4
+    seed:
+      adr_template_vs_corpus: match
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: true
+      archived: false
+      pushed_at: "2026-08-10T10:58:24Z"
+      licence: NOASSERTION
+    adoption:
+      submodule:
+        corpus_mounted_at: governance/qm
+        branch: project/loopwall
+      ide:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      ide_missing: []
+      seed_workflow_filenames_present:
+        - adr-lint.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      seed_workflow_filenames_absent: []
+      licensing: []
+    open_prs: []
+    observed_at: "2026-08-10T10:58:26Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
@@ -391,7 +437,7 @@ projects:
         - LICENSE
     open_prs:
       unknown: "pulls?base=project/qmetronome: unexpected response shape"
-    observed_at: "2026-08-09T20:19:39Z"
+    observed_at: "2026-08-10T10:58:28Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
@@ -420,13 +466,13 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-09T20:19:40Z"
+    observed_at: "2026-08-10T10:58:28Z"
 org:
   repositories:
     total: 109
     private: 36
-    governed: 8
-    unmanaged: 100
+    governed: 9
+    unmanaged: 99
   governed_without_repository:
     - streaming-infrastructure
   unmanaged_named:
@@ -497,8 +543,8 @@ org:
     - william-penn-convocation-slides
     - wolf
     - ztgui
-  unmanaged_names_withheld: 33
-  observed_at: "2026-08-09T20:19:41Z"
+  unmanaged_names_withheld: 32
+  observed_at: "2026-08-10T10:58:29Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
