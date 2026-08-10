@@ -12,6 +12,14 @@ Thumbs.db
 # where the next session looks for a fresh one.
 .harness/
 
+# The disk status document, wherever somebody parks a copy. ci/disk_status.py
+# already refuses to write inside the corpus, and this covers the other way in:
+# a file dropped here by hand. Unlike the other two status documents it has no
+# committable half -- free space, cache sizes and home-directory paths are one
+# machine at one moment, and there is nothing left after removing that.
+disk-status.json
+disk.html
+
 # Python bytecode. Four of these reached a commit in this repository --
 # generated files under version control, which perspectives/'s own sanity
 # check #4 forbids -- because `git add -A` in a directory where pytest had

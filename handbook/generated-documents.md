@@ -82,7 +82,8 @@ Three artifacts, and the separation is the whole design:
 
 `ci/harness_status.py` → `ci/harness_dashboard.py --format html|md` is the
 worked example; `ci/governance_status.py` → `ci/governance_render.py` is the
-one it copied.
+one it copied. `ci/disk_status.py` → `ci/disk_dashboard.py` is the third, and
+it carries a fourth artifact the other two do not — see below.
 
 **A renderer may not run a command.** A view that can shell out is a second
 place a governance rule gets defined, and two definitions drift. If a fact is
@@ -131,6 +132,50 @@ can collect a `local` layer — branch names, uncommitted counts, unpushed work 
 which is true for whoever ran it and nobody else. The committed copy omits it,
 and the tool **refuses** to write it to a path inside the repository rather
 than trusting anyone to remember.
+
+## The document that is never committed, and the policy that is
+
+`disk-status.json` is the exception this page needs, because it breaks the rule
+above and is right to.
+
+The other two documents are mostly organisation facts with a machine-scoped
+`local` layer bolted on, so each has a `--no-local` flag and a committed copy.
+The disk document has no such half. Free space on a volume, the size of
+somebody's Docker disk, a path under a home directory — **every fact in it is
+one machine at one moment**, and there is nothing left once you remove that. So
+`ci/disk_status.py` refuses to write anywhere inside the corpus. Not by default,
+and not unless a flag is passed: always. There is no `--no-local`, because there
+is no document without it.
+
+What is committed instead is **`ci/disk-policy.yaml`** — the fourth artifact,
+and the one worth reviewing. It names every place the tooling may free space and
+what it costs to get each one back, and it is identical on every machine. The
+generator measures exactly what it lists and the reclaimer deletes exactly what
+it lists, so adding a target is an edit to a reviewed YAML file and never a code
+change.
+
+**Safety is the cost of recovery, not a guess at risk.** Three tiers:
+`refetched` (the owning tool downloads it again, unprompted), `rebuilt` (a
+command a human runs), `destructive` (nothing comes back). An entry with no tier
+is a policy error and both tools refuse the file rather than assuming one. The
+tiers are a **ratchet**: `--allow rebuilt` permits refetched too, so there is no
+invocation that empties the recycle bin while sparing a download cache — which
+is the shape every cleanup script grows into, one urgent afternoon at a time.
+
+**A third tool acts, and it is the smallest.** `ci/disk_reclaim.py` is a dry run
+unless `--apply` is passed, and no policy key, environment variable or config
+file changes that. It deliberately **does not read the status document**: that
+document has a six-hour staleness budget and deletion has none, so it resolves
+the same policy against the filesystem now. The two tools agree because they
+share a policy, never because one trusts the other's output.
+
+```
+python ci/disk_status.py --check                        # exit 2 critical, 1 low
+python ci/disk_status.py --write ~/disk-status.json --search-root ~/repos
+python ci/disk_dashboard.py ~/disk-status.json --format md
+python ci/disk_reclaim.py                               # dry run, always
+python ci/disk_reclaim.py --allow rebuilt --apply
+```
 
 **Documents are not regenerated in CI.** Both read other repositories, so an
 unrelated pull request elsewhere would make the committed copy "stale" with no
