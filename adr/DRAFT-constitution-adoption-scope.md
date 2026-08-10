@@ -107,9 +107,12 @@ frozen per open conflict.
    a negation per swallowed path.
 
 9. **Outbound licensing — adopted in mechanism, pending in class.** §12's
-   machinery is wired in this round: a `LICENSES/` directory, `REUSE.toml`
-   covering the paths that cannot carry a header, and `reuse lint` in
-   reporting mode until this project's licensing pass is done. What is *not*
+   machinery is wired in this round and the licensing pass is complete: a
+   `LICENSES/` directory holding Apache-2.0, CC0-1.0 and MIT, a `REUSE.toml`
+   covering the paths that cannot carry a header, and the seed's `reuse lint`
+   workflow copied verbatim as a **blocking** check. `python -m reuse lint`
+   reports 60 of 60 files carrying both copyright and licence information,
+   no missing and no unused licence texts, and exits 0. What is *not*
    settled, and is this ADR's `Pends on`:
    - **Which class dossier falls into.** §4 places services and control
      planes under AGPL-3.0-or-later; §5 and §6 place single-file
@@ -155,8 +158,8 @@ a waiver and carries no schedule; scope is frozen per row while it is open.
 | C3 | Packaging is `uv` + `hatchling`; the blessed set names PDM | house-stack §1 | An org-level amendment naming the packaging tool, or a migration | Not testable. `uv.lock` is committed, so the record's *lockfile* requirement is met and only the tool differs |
 | C4 | The GitHub client is written against one vendor's API surface, not a multiply-implemented seam | seams §1, §2 | Either a seam a second implementation could satisfy unchanged, or a project-level exception record under §3 naming the exit plan and an expiry-style revision trigger | Not testable today. A test would have to run the client against a second implementation, which is the work the conflict describes |
 | C5 | No DCO sign-off and no express relicensing grant on inbound contributions | outbound §9 | A DCO check in CI and the grant stated in `docs/contributing.md` | A CI check, once added; absent today |
-| C6 | No licence gate ran on any path before this round | open-license §4 | A generated, SPDX-normalized dependency-manifest report failing on anything outside the allowlist | Closed by this round: the gate is wired. The row stays until a run has been seen to fail on a bad input |
-| C7 | No REUSE compliance: no `LICENSES/`, no `REUSE.toml`, no SPDX headers | outbound §12 | `reuse lint` passing as a required check | Closed in mechanism by this round; `reuse lint` runs in reporting mode until the licensing pass finishes, which C1 blocks |
+| C6 | No licence gate ran on any path before this round | open-license §4 | A generated, SPDX-normalized dependency-manifest report failing on anything outside the allowlist | Closed by this round. `scripts/license_gate.py` reads installed metadata, normalizes to SPDX and treats an unresolvable declaration as a failure; `--selftest` runs twelve fixtures of which seven must report bad, and CI runs the selftest before the gate |
+| C7 | No REUSE compliance: no `LICENSES/`, no `REUSE.toml`, no SPDX headers | outbound §12 | `reuse lint` passing as a required check | Closed by this round. The seed workflow is copied verbatim and blocking; the lint exits 0 today, and naming an identifier with no text in `LICENSES/` makes it exit 1 |
 | C8 | No service inventory existed | open-license §6 | The inventory written down, with the ownability test answered per service | Closed by this round; the inventory is under Consequences. It is a reviewed document, not a scanner output, and it goes stale by design |
 
 C6, C7 and C8 close in this round. C1 through C5 stay open, and C7's
@@ -227,6 +230,23 @@ remaining half waits on C1.
   conflict with any org record; it is recorded here because the gates this
   adoption wires will invite exactly that command.
 
+- **Two defects in the fork procedure surfaced by running it here**, both
+  recorded so the fix goes back to `project-seed/` rather than staying local:
+  - Its ignore check is `git check-ignore -v <paths>`, read as "exit 1 =
+    nothing swallowed". With `-v`, git prints negation matches too and exits
+    0, so a repository that has applied the documented negation fix reads as
+    still broken. The unambiguous form is `git check-ignore` without `-v`,
+    which lists only genuinely ignored paths.
+  - The negation fix itself does not work as the procedure states it. dossier
+    excluded `.vscode/`, and git will not re-include a file whose parent
+    directory is excluded, so `!.vscode/settings.json` under `.vscode/` is
+    inert. The rule has to exclude the directory's *contents* — `.vscode/*` —
+    for a negation below it to have any effect.
+  - A third, smaller one: the submodule is a fresh clone and does not inherit
+    `core.symlinks`, so the seed's own pointer files inside `governance/qm`
+    materialize as one-line text stubs on Windows even when the superproject
+    is configured correctly. This project's `AGENTS.md` says so.
+
 - Cost accepted: five conflicts stay open with no dates against them, which
   the discipline record's §5 permits deliberately and its own Consequences
   name as the price. Three of the five (C2, C3, C4) cannot be closed inside
@@ -261,11 +281,15 @@ remaining half waits on C1.
    Textual directly. Relabelling it is exactly the move that clause exists to
    refuse.
 
-5. **Make `reuse lint` blocking immediately.** Rejected for this round: it
-   would fail on C1, a decision this ADR does not make, and a required check
-   that cannot pass without a human ruling blocks every unrelated change.
-   Reporting mode keeps the finding visible without holding the repository
-   hostage to it.
+5. **Start `reuse lint` in reporting mode**, which the fork procedure
+   recommends and the seed workflow documents a `continue-on-error` switch
+   for. Rejected because the licensing pass finished in this same round: the
+   lint exits 0 here, so reporting mode would install a check that cannot
+   fail — the exact shape of green signal this corpus keeps finding in its
+   own tooling. Reporting mode is for a repository whose pass is still
+   outstanding. C1 does not change the answer: REUSE verifies that copyright
+   information is present, not whose name it carries, so the open question
+   belongs in the table above rather than in a permanently red check.
 
 6. **Wire the harness commands and the slot check as part of this adoption.**
    Rejected as unavailable rather than unwanted. Neither exists in the pinned
