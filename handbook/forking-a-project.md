@@ -11,8 +11,12 @@ to be missing at least one step, so the second use is not hypothetical.
 
 **How proven each third of the seed is, stated honestly, because a forker
 inherits the untested parts too.** `adr/` has the most mileage: every adopting
-project runs it, and `project/streaming-infrastructure` was its first
-instance. `ci/` was generalized from the working lint in `project/qmetronome`
+project runs it. Its *first* instance was `project/streaming-infrastructure`,
+which is worth discounting rather than citing — there is no
+`quaternionmedia/streaming-infrastructure` repository behind that branch, so it
+exercised the record format and none of the rest of a fork. The mileage that
+counts is the adopting projects. `ci/` was generalized from the working lint in
+`project/qmetronome`
 and now runs in this corpus's own CI, but has not yet run in a project that
 copied it from here. `ide/` is running here, and whether any adopting
 project has copied it cannot be established from this repository — it lands in
