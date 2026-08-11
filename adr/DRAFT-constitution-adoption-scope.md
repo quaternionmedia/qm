@@ -38,9 +38,11 @@ cited, at qmcp commit `a3f827d`. None is inferred from the shape of the code.
    qmcp's root.
 
 2. **The adoption change is additions only.** qmcp's working tree carries 18
-   modified, 10 untracked and 2 deleted files on `feat/pydantic-ai-integration-docs`
-   with no pull request open, including the whole `qmcp/cookbook/` package,
-   `qmcp_mcp.py`, and five of the test files. Adoption touches no file that
+   modified, 10 untracked and 2 deleted files on `feat/pydantic-ai-integration-docs`,
+   including the whole `qmcp/cookbook/` package, `qmcp_mcp.py`, and five of the
+   test files. That branch's committed work is already on `main` — PR #1, merged,
+   and `git diff a3f827d origin/main` is empty — so what is outstanding is the
+   working tree alone, and it has no pull request. Adoption touches no file that
    work touches — in particular not `pyproject.toml` — so the two cannot
    conflict and neither waits on the other. The cost is that the dependency
    declaration in C5 is named here rather than fixed here.
@@ -101,7 +103,7 @@ Ordered by how much they cost today, not by how much code they touch.
 | C5 | `mcp` is imported by `qmcp_mcp.py` and therefore by `tests/test_qmcp_mcp.py`, and is declared nowhere in `pyproject.toml`; `python -c "import mcp"` gives `ModuleNotFoundError`, so collection aborts and any claim the suite is green is unverifiable in a clean environment | Decision-record discipline §7 | Fix in the in-flight branch |
 | C6 | No Alembic anywhere; the schema is `SQLModel.metadata.create_all` at startup, which never ALTERs. The checked-out `qmcp.db` `executions` table lacks `priority` and `parent_execution_id`, both declared required by the DTOs, so an endpoint returning one raises `OperationalError` | House stack | Human |
 | C7 | `qmcp_mcp.py:433` exposes `submit_human_response`, so an agent can answer its own human gate; and no `Depends(`, no `CORSMiddleware`, no bearer scheme appears anywhere in the HTTP app | Human-in-the-loop is a boundary, not a convention | Human |
-| C8 | 30 files uncommitted on a branch with no pull request, since 2026-02-06 | Everything arrives as a pull request | Human |
+| C8 | 30 files uncommitted in the working tree, unchanged since 2026-02-06. The branch's *committed* work did arrive as PR #1 and was merged; it is the working tree that has no pull request | Everything arrives as a pull request | Human |
 
 **C2 is the one to fix first**, ahead of C3 and independent of it. A default
 port is a collision a session notices. A test command that deletes
@@ -121,7 +123,7 @@ involved.
   satisfiable and the collector can identify what it is talking to.
 - C4 is fixed: no `GET` persists a state change, and the seam record's second
   reason weakens to the ordinary one.
-- The in-flight branch lands: C5 and C8 close, and `pyproject.toml` becomes
+- The working tree lands: C5 and C8 close, and `pyproject.toml` becomes
   editable by an adoption change without collision.
 
 ## Amendments
