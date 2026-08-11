@@ -28,6 +28,20 @@ on:
   push:
   pull_request:
 
+# One run per branch per workflow. A second push supersedes the first: nobody
+# reads the result of a run whose commit has already been replaced, and the
+# minutes are real -- 55 of this repository's 129 runs on 2026-08-11 came from
+# five iterative pushes to two pull request branches, where only the last
+# mattered.
+#
+# Cancellation is scoped to pull requests deliberately. On the default branch
+# and on a project branch the run IS the record of what that commit reported,
+# and cancelling it to start a newer one destroys the only evidence that the
+# earlier commit was ever checked.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 permissions:
   contents: read
 
@@ -98,7 +112,7 @@ jobs:
             else
               echo "::error::Submodule '$path' is pinned to $sha, which could not be fetched from its remote ($url)."
               echo "::error::Most likely: committed inside the submodule without pushing. Run: (cd $path && git push origin HEAD), then re-push this repo."
-              echo "::error::This check cannot tell that apart from a private submodule remote that an unauthenticated runner cannot read. If the commit IS pushed, run 'git ls-remote $url $sha' locally: output means the pin is fine and this job needs credentials."
+              echo "::error::This check cannot tell that apart from a private submodule remote that an unauthenticated runner cannot read. To tell them apart locally, run: git init -q /tmp/probe && git -C /tmp/probe fetch --depth=1 $url $sha -- success means the pin is fine and this job needs credentials. Do NOT use 'git ls-remote $url $sha': ls-remote matches ref NAMES, so it prints nothing and exits 0 for a commit that is perfectly fine, which reads as confirmation of the failure."
               status=1
             fi
             rm -rf "$scratch"
