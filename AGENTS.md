@@ -114,6 +114,24 @@ with a date looks checked.
    "previously", "originally", "earlier draft", "re-review", "renumber",
    "retroactive", "supersedes the ... (stance|finding)", "corrected".
    Drafts are rewritten in place, not narrated.
+10. **Check a signal before reading it, and establish a fact before asserting
+    it** — `records/DRAFT-decision-record-discipline.md` §7. Every assertion
+    that something is broken or behaves a certain way carries the command and
+    its output. Before reporting what a result means, name one other thing
+    that would produce the same output: a tool version, a flag's semantics,
+    stale local state, the working directory, a substring matching prose. Four
+    false readings in one session came from skipping that — `merge-tree` on
+    git 2.37 read as eight branch conflicts, `check-ignore -v` inverting its
+    own verdict, a text scan matching the docstring that forbade it, and a
+    document generated from unfetched refs. An unexpected *uniform* result is
+    a tooling fault until shown otherwise.
+11. **A claim about what facts *mean* names what else could produce them** —
+    the same record's §8, and a different failure: every fact true, the
+    sentence wrong. Name the ordinary cause before the interesting one, state
+    direction and date, and give a correction the same scrutiny as the claim
+    it replaces. An overclaim is caught by a reader who knows the provenance;
+    a deflation reads as rigour, closes the topic, and can delete something
+    real. Recurrence by one practitioner is evidence, not its absence.
 
 ## If you're forking this corpus into a new project
 
