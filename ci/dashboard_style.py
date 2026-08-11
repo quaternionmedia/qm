@@ -1,6 +1,9 @@
-"""The one stylesheet both governance views are drawn with.
+"""The one stylesheet every generated view is drawn with.
 
-Extracted so there is a single definition of the palette. Two renderers each
+Extracted so there is a single definition of the palette. Three renderers draw
+with it now -- the governance page, the harness dashboard and the disk
+dashboard -- and this docstring said "both" and "two" while the third was
+already importing it. Renderers each
 carrying their own copy is the same failure this corpus keeps finding in its
 prose: a fact stated twice, edited once. A reader comparing two governance
 pages in the same window should not be reading two colour systems, and the
