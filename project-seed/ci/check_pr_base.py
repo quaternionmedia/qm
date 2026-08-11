@@ -107,6 +107,16 @@ def main() -> int:
         "since a propagation PR carries them by design.",
     )
     ap.add_argument(
+        "--refuse-only",
+        action="store_true",
+        help="Exit non-zero ONLY for a refusal -- a project/<name> head, or a "
+        "top-level adr/ aimed at the default branch. The behind-the-base and "
+        "shared-commits findings are still printed but do not fail. This is the "
+        "mode CI runs: those two are advisories that mean 'explain this', and "
+        "gating on them fails every propagation pull request, which is behind "
+        "its base and shares commits with it by design.",
+    )
+    ap.add_argument(
         "--expect-author",
         action="append",
         default=[],
@@ -158,24 +168,57 @@ def main() -> int:
     # and a `--remote upstream` spelling of the same branch must both match.
     bare_head = args.head.removeprefix(f"{args.remote}/")
     bare_base = args.base.removeprefix(f"{args.remote}/")
-    if bare_head.startswith("project/") and bare_base == args.default:
+
+    def refuse(why: str, meant: str) -> int:
         print(f"base            {base}")
         print(f"head            {head}")
-        print(
-            f"\nREFUSED: {bare_head} may not target {bare_base}.\n"
-            f"\nA project/<name> branch is permanent and never merges into "
-            f"{args.default}. Merging\nit would put one project's adr/ into the "
-            f"org namespace, where a local decision\nreads as an org record "
-            f"binding every project -- and nothing in the tree would\nlook wrong "
-            f"afterwards.\n"
-            f"\nWhat you probably meant:\n"
+        print(f"\nREFUSED: {why}\n\n{meant}")
+        print('\nSee the corpus README\'s "Branch namespaces".')
+        return 1
+
+    # Refused on the HEAD namespace alone, with no reference to what the base is.
+    # Keying on `base == main` looked equivalent and is not: an intermediate base
+    # routes straight around it. Verified -- with a branch at main's tip,
+    # `--base evolve/staging --head project/qmcp` exited 0 with no warning, and
+    # that staging branch then reaches the default branch by the ordinary route.
+    # Two green pull requests and the records land in the org namespace anyway.
+    #
+    # The rule has no base in it, so neither does the check: a project branch is
+    # never a merge *source*. Nothing legitimate has one as its head -- records
+    # arrive on a PR whose base is the project branch, and propagation runs the
+    # same direction.
+    if bare_head.startswith("project/"):
+        return refuse(
+            f"{bare_head} may not be the head of a pull request, whatever the "
+            f"base is.\n\nA project/<name> branch is permanent and takes changes "
+            f"in, never out. Merging\nit anywhere puts one project's adr/ where "
+            f"a project-local decision reads as an\norg record binding every "
+            f"project -- and nothing in the resulting tree looks\nwrong "
+            f"afterwards, so there is no later signal.",
+            f"What you probably meant:\n"
             f"  - adding records to that project: open the PR with --base "
             f"{bare_head}\n"
             f"  - bringing {args.default} to that project: a propagate/<name>-"
-            f"<date> branch,\n    --base {bare_head}\n"
-            f"See the corpus README's \"Branch namespaces\"."
+            f"<date> branch,\n    --base {bare_head}",
         )
-        return 1
+
+    # And a content test, because the one above matches a name. A branch called
+    # anything at all can carry a top-level adr/, and the innocuous name is the
+    # likelier accident: `git commit-tree <project-branch-tree> -p origin/main`
+    # on a branch named evolve/* passed the namespace check and put a whole
+    # project's records on the default branch. Names are a convention; the tree
+    # is the thing that lands.
+    if bare_base == args.default and git(
+        "ls-tree", "--name-only", head, "adr"
+    ).strip():
+        return refuse(
+            f"{bare_head} carries a top-level adr/ and targets {bare_base}.\n\n"
+            f"adr/ holds one project's records and belongs on that project's own\n"
+            f"project/<name> branch. {bare_base} carries the org namespace and no\n"
+            f"top-level adr/ at all.",
+            "Move those records to the project's own branch, or -- if they are\n"
+            "org-level -- to records/ under an org record's name.",
+        )
 
     base_tip = git("rev-parse", base)
     merge_base = git("merge-base", base, head)
@@ -224,8 +267,14 @@ def main() -> int:
             f"behind it.\nThat is fine for a long-running branch and wrong for a branch "
             f"you meant to cut\nfrom {base} just now. Say which in the description."
         )
-        return 1
-    return 1 if others else 0
+    if args.refuse_only:
+        # Nothing above refused, or it would have returned already. The two
+        # findings below it are advisories the docstring is explicit about --
+        # "neither means broken; both mean explain this" -- so gating on them
+        # fails every propagation pull request, which legitimately sits behind
+        # its base and legitimately shares commits with it.
+        return 0
+    return 1 if (not aligned or others) else 0
 
 
 if __name__ == "__main__":

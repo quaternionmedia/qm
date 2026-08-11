@@ -94,8 +94,11 @@ So a `project/<name>` branch takes changes **in**, never gives them out:
 | `main`'s changes reach it | `main` is merged **into** it, as a `propagate/<name>-<date>` pull request against it. Never a rebase: a downstream submodule pins the tip, and rebasing invalidates every pin |
 | the project's own repository sees it | the submodule pointer, bumped by that same propagation |
 
-A pull request from `project/<name>` into `main` is therefore always a mistake,
-whatever it carries. `project-seed/ci/check_pr_base.py` refuses it.
+A `project/<name>` branch is therefore never the *head* of a pull request,
+whatever the base is and whatever it carries.
+`project-seed/ci/check_pr_base.py` refuses that, and separately refuses any
+branch carrying a top-level `adr/` at `main` — because the first check reads a
+name, and a branch called anything at all can carry those files.
 
 ## Record namespaces and precedence
 
