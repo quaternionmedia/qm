@@ -15,7 +15,7 @@ project; project records may tighten them, never relax them. A genuine
 exception is an amendment ratified at org level.
 
 This directory lives inside the `governance/qm` submodule, on this
-project's own dedicated branch (`project/<name>`, created from `main`) -
+project's own dedicated branch (`project/apothecary`, created from `main`) -
 not copied into this project's own git history. The branch's ancestry *is*
 the pin: there is no separate commit hash to hand-maintain here. `git log
 --first-parent` on this branch shows exactly which org state was adopted

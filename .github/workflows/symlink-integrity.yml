@@ -1,0 +1,61 @@
+name: Symlink integrity
+
+# The IDE-integrated governance discovery record makes CLAUDE.md,
+# .github/copilot-instructions.md and this repo's .vscode/ and .claude/ config
+# real git symlinks (mode 120000) to their canonical file in project-seed/ide/,
+# so there is no second copy to keep in sync. That is the whole mechanism
+# behind handbook/async-contract.md's "down" direction: an edit to the seed is
+# an edit to this repository's own harness, in the same commit.
+#
+# The failure mode this guards is silent and platform-specific: a Windows
+# contributor without `git config core.symlinks true` checks these out as
+# one-line text files containing the target path. Editing and committing one
+# converts the symlink to a regular file. Nothing else in CI would notice, and
+# the pointer would then hold a stale copy of content it is supposed to
+# resolve to.
+
+on:
+  push:
+    branches: [main, 'project/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  symlinks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Every pointer file is still mode 120000
+        run: |
+          expected="CLAUDE.md
+          .github/copilot-instructions.md
+          .vscode/settings.json
+          .vscode/extensions.json
+          .claude/commands/cowork.md
+          .claude/commands/preflight.md
+          .claude/commands/handoff.md
+          .claude/commands/status.md
+          project-seed/ide/CLAUDE.md
+          project-seed/ide/.github/copilot-instructions.md"
+
+          status=0
+          while IFS= read -r path; do
+            [ -n "$path" ] || continue
+            mode=$(git ls-files -s -- "$path" | awk '{print $1}')
+            if [ -z "$mode" ]; then
+              echo "MISSING  $path is not tracked"
+              status=1
+            elif [ "$mode" != "120000" ]; then
+              echo "NOT A SYMLINK  $path has mode $mode, expected 120000"
+              echo "               A checkout without core.symlinks turns these into text"
+              echo "               files; committing one replaces the pointer with a copy."
+              status=1
+            else
+              echo "ok  $path -> $(git cat-file -p "$(git ls-files -s -- "$path" | awk '{print $2}')")"
+            fi
+          done <<< "$expected"
+
+          exit $status
