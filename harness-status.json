@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-11T02:55:48Z",
+  "generated_at": "2026-08-11T20:12:32Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -48,19 +48,19 @@
     "repositories": 13,
     "slots_measured": 13,
     "slots_unknown": 0,
-    "compliant": 12,
-    "over_limit": 1,
-    "governance_readable": 9,
-    "governance_precondition_met": 1,
+    "compliant": 13,
+    "over_limit": 0,
+    "governance_readable": 10,
+    "governance_precondition_met": 3,
     "phase_scaffolded": 7,
     "phase_stated_above_governance": 4,
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 6,
-      "ready": 12
+      "draft": 3,
+      "ready": 3
     },
-    "threads_stalled": 13,
+    "threads_stalled": 2,
     "threads_unreadable": 0
   },
   "repositories": [
@@ -77,230 +77,18 @@
           "project/*"
         ],
         "contributor": null,
-        "open_prs": [
-          {
-            "number": 36,
-            "title": "The asynchronous multi-agent harness, and the CI tooling it is built on",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "evolve/ci-tooling-fixes",
-            "draft": true
-          },
-          {
-            "number": 35,
-            "title": "Bring project/codecartographer current: propagate main, and refresh the seed copies",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "project/codecartographer",
-            "head": "propagate/codecartographer-2026-08-08",
-            "draft": false
-          },
-          {
-            "number": 33,
-            "title": "Bring project/alfred current: propagate main, and refresh the seed copies",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "project/alfred",
-            "head": "propagate/alfred-2026-08-08",
-            "draft": false
-          },
-          {
-            "number": 32,
-            "title": "Bring project/factorio-sysops current: propagate main, and refresh the seed copies",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "project/factorio-sysops",
-            "head": "propagate/factorio-sysops-2026-08-08",
-            "draft": false
-          },
-          {
-            "number": 31,
-            "title": "Bring project/factorio-server current: propagate main, and refresh the seed copies",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "project/factorio-server",
-            "head": "propagate/factorio-server-2026-08-08",
-            "draft": false
-          },
-          {
-            "number": 30,
-            "title": "Bring project/datafactorio current: propagate main, and refresh the seed copies",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "project/datafactorio",
-            "head": "propagate/datafactorio-2026-08-08",
-            "draft": false
-          },
-          {
-            "number": 29,
-            "title": "Bring project/apothecary current: propagate main, and refresh the seed copies",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "project/apothecary",
-            "head": "propagate/apothecary-2026-08-08",
-            "draft": false
-          },
-          {
-            "number": 25,
-            "title": "Propagate main into project/qmetronome, and stop this branch owning org content",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "project/qmetronome",
-            "head": "propagate/qmetronome-2026-08-08",
-            "draft": true
-          }
-        ],
+        "open_prs": [],
         "violations": [],
         "exit_status": 0,
         "compliant": true
       },
-      "threads": [
-        {
-          "name": "evolve/ci-tooling-fixes",
-          "stage": "draft",
-          "pr": 36,
-          "base": "main",
-          "title": "The asynchronous multi-agent harness, and the CI tooling it is built on",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 15602,
-            "changed_files": 72,
-            "commits": 32,
-            "deletions": 83,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-11T02:29:34Z"
-          },
-          "idle_hours": 0.4,
-          "stalled": false
-        },
-        {
-          "name": "propagate/codecartographer-2026-08-08",
-          "stage": "ready",
-          "pr": 35,
-          "base": "project/codecartographer",
-          "title": "Bring project/codecartographer current: propagate main, and refresh the seed copies",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 5918,
-            "changed_files": 71,
-            "commits": 65,
-            "deletions": 1593,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-08T17:59:57Z"
-          },
-          "idle_hours": 56.9,
-          "stalled": true
-        },
-        {
-          "name": "propagate/alfred-2026-08-08",
-          "stage": "ready",
-          "pr": 33,
-          "base": "project/alfred",
-          "title": "Bring project/alfred current: propagate main, and refresh the seed copies",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 5917,
-            "changed_files": 72,
-            "commits": 65,
-            "deletions": 1594,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-08T17:59:51Z"
-          },
-          "idle_hours": 56.9,
-          "stalled": true
-        },
-        {
-          "name": "propagate/factorio-sysops-2026-08-08",
-          "stage": "ready",
-          "pr": 32,
-          "base": "project/factorio-sysops",
-          "title": "Bring project/factorio-sysops current: propagate main, and refresh the seed copies",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 6648,
-            "changed_files": 85,
-            "commits": 74,
-            "deletions": 1519,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-08T17:59:45Z"
-          },
-          "idle_hours": 56.9,
-          "stalled": true
-        },
-        {
-          "name": "propagate/factorio-server-2026-08-08",
-          "stage": "ready",
-          "pr": 31,
-          "base": "project/factorio-server",
-          "title": "Bring project/factorio-server current: propagate main, and refresh the seed copies",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 6648,
-            "changed_files": 85,
-            "commits": 74,
-            "deletions": 1519,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-08T17:59:42Z"
-          },
-          "idle_hours": 56.9,
-          "stalled": true
-        },
-        {
-          "name": "propagate/datafactorio-2026-08-08",
-          "stage": "ready",
-          "pr": 30,
-          "base": "project/datafactorio",
-          "title": "Bring project/datafactorio current: propagate main, and refresh the seed copies",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 6648,
-            "changed_files": 85,
-            "commits": 74,
-            "deletions": 1519,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-08T17:59:39Z"
-          },
-          "idle_hours": 56.9,
-          "stalled": true
-        },
-        {
-          "name": "propagate/apothecary-2026-08-08",
-          "stage": "ready",
-          "pr": 29,
-          "base": "project/apothecary",
-          "title": "Bring project/apothecary current: propagate main, and refresh the seed copies",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 5917,
-            "changed_files": 72,
-            "commits": 66,
-            "deletions": 1594,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-08T17:59:36Z"
-          },
-          "idle_hours": 56.9,
-          "stalled": true
-        },
-        {
-          "name": "propagate/qmetronome-2026-08-08",
-          "stage": "draft",
-          "pr": 25,
-          "base": "project/qmetronome",
-          "title": "Propagate main into project/qmetronome, and stop this branch owning org content",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 6087,
-            "changed_files": 84,
-            "commits": 74,
-            "deletions": 1530,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-08T17:59:48Z"
-          },
-          "idle_hours": 56.9,
-          "stalled": true
-        }
-      ],
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -342,6 +130,13 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "ahead",
+        "latest": "v0.2.0",
+        "annotated": false,
+        "unreleased_commits": 37,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
       "threads": [
         {
           "name": "config",
@@ -358,7 +153,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 22900.0,
+          "idle_hours": 22917.3,
           "stalled": true
         }
       ],
@@ -379,8 +174,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 62,
-        "observed_at": "2026-08-11T02:55:17Z",
+        "behind_corpus": 16,
+        "observed_at": "2026-08-11T17:21:34Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -398,107 +193,67 @@
         "contributor": null,
         "open_prs": [
           {
+            "number": 17,
+            "title": "Bump idna from 3.11 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/idna-3.15",
+            "draft": false
+          },
+          {
+            "number": 16,
+            "title": "Bump pytest from 9.0.0 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
+            "draft": false
+          },
+          {
+            "number": 15,
+            "title": "Bump starlette from 0.49.3 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/starlette-1.3.1",
+            "draft": false
+          },
+          {
+            "number": 14,
+            "title": "Bump urllib3 from 2.6.2 to 2.7.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/urllib3-2.7.0",
+            "draft": false
+          },
+          {
             "number": 13,
             "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
             "author": "subcontrabass",
             "bot": false,
-            "base": "governance/adopt-license-and-datum-scaffold",
+            "base": "main",
             "head": "feature/fractal-viewer-scale-and-overlays",
             "draft": true
-          },
-          {
-            "number": 12,
-            "title": "All open PRs reconciled: constitution, LICENSE, Gridfinity, fractal hierarchy, dependency bumps",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "governance/adopt-license-and-datum-scaffold",
-            "draft": false
-          },
-          {
-            "number": 8,
-            "title": "Fractal Assembly hierarchy + zoom viewer (prototype, unratified)",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "prototype/site-structure-hierarchy",
-            "draft": false
-          },
-          {
-            "number": 7,
-            "title": "Bump pygments from 2.19.2 to 2.20.0",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/pygments-2.20.0",
-            "draft": false
-          },
-          {
-            "number": 6,
-            "title": "Bump requests from 2.32.5 to 2.33.0",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/requests-2.33.0",
-            "draft": false
-          },
-          {
-            "number": 5,
-            "title": "Bump black from 25.11.0 to 26.3.1",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/black-26.3.1",
-            "draft": false
-          },
-          {
-            "number": 4,
-            "title": "🔳 Gridfinity",
-            "author": "mrharpo",
-            "bot": false,
-            "base": "main",
-            "head": "gridfinity",
-            "draft": false
-          },
-          {
-            "number": 3,
-            "title": "Bump filelock from 3.20.0 to 3.20.3",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/filelock-3.20.3",
-            "draft": false
-          },
-          {
-            "number": 2,
-            "title": "Bump virtualenv from 20.35.4 to 20.36.1",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/virtualenv-20.36.1",
-            "draft": false
           }
         ],
-        "violations": [
-          {
-            "author": "subcontrabass",
-            "base": "",
-            "numbers": [
-              8,
-              12,
-              13
-            ]
-          }
-        ],
-        "exit_status": 1,
-        "compliant": false
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
       "threads": [
         {
           "name": "feature/fractal-viewer-scale-and-overlays",
           "stage": "draft",
           "pr": 13,
-          "base": "governance/adopt-license-and-datum-scaffold",
+          "base": "main",
           "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
           "author": "subcontrabass",
           "delta": {
@@ -507,85 +262,26 @@
             "commits": 3,
             "deletions": 159,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-09T11:11:42Z"
+            "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 39.7,
+          "idle_hours": 8.4,
           "stalled": false
-        },
-        {
-          "name": "governance/adopt-license-and-datum-scaffold",
-          "stage": "ready",
-          "pr": 12,
-          "base": "main",
-          "title": "All open PRs reconciled: constitution, LICENSE, Gridfinity, fractal hierarchy, dependency bumps",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 8929,
-            "changed_files": 74,
-            "commits": 45,
-            "deletions": 1123,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-09T11:12:08Z"
-          },
-          "idle_hours": 39.7,
-          "stalled": false
-        },
-        {
-          "name": "prototype/site-structure-hierarchy",
-          "stage": "ready",
-          "pr": 8,
-          "base": "main",
-          "title": "Fractal Assembly hierarchy + zoom viewer (prototype, unratified)",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 6167,
-            "changed_files": 45,
-            "commits": 18,
-            "deletions": 986,
-            "mergeable_state": "clean",
-            "updated_at": "2026-07-21T21:27:35Z"
-          },
-          "idle_hours": 485.5,
-          "stalled": true
-        },
-        {
-          "name": "gridfinity",
-          "stage": "ready",
-          "pr": 4,
-          "base": "main",
-          "title": "🔳 Gridfinity",
-          "author": "mrharpo",
-          "delta": {
-            "additions": 1547,
-            "changed_files": 19,
-            "commits": 2,
-            "deletions": 85,
-            "mergeable_state": "clean",
-            "updated_at": "2026-01-16T12:04:41Z"
-          },
-          "idle_hours": 4958.9,
-          "stalled": true
         }
       ],
       "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "submodule",
-          "ide",
-          "workflows",
-          "licensing"
-        ],
+        "precondition": "met",
+        "missing": [],
         "detail": {
-          "submodule": null,
-          "submodule_branch": null,
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 0,
-          "workflows_absent": 3,
-          "licensing_present": 0
+          "submodule": "governance/qm",
+          "submodule_branch": "project/apothecary",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 3,
+          "workflows_absent": 0,
+          "licensing_present": 2
         },
-        "behind_corpus": 62,
-        "observed_at": "2026-08-11T02:55:18Z",
+        "behind_corpus": 16,
+        "observed_at": "2026-08-11T17:21:36Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -601,41 +297,19 @@
         "repository": "quaternionmedia/datum",
         "per_base": [],
         "contributor": null,
-        "open_prs": [
-          {
-            "number": 1,
-            "title": "Pick up the governance propagation, and split the docs out of the README",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "governance/propagate-2026-08-08",
-            "draft": true
-          }
-        ],
+        "open_prs": [],
         "violations": [],
         "exit_status": 0,
         "compliant": true
       },
-      "threads": [
-        {
-          "name": "governance/propagate-2026-08-08",
-          "stage": "draft",
-          "pr": 1,
-          "base": "main",
-          "title": "Pick up the governance propagation, and split the docs out of the README",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 749,
-            "changed_files": 22,
-            "commits": 5,
-            "deletions": 648,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-09T11:04:08Z"
-          },
-          "idle_hours": 39.9,
-          "stalled": false
-        }
-      ],
+      "release": {
+        "state": "ahead",
+        "latest": "v0.0.1",
+        "annotated": false,
+        "unreleased_commits": 5,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
+      "threads": [],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -648,8 +322,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 62,
-        "observed_at": "2026-08-11T02:55:22Z",
+        "behind_corpus": 16,
+        "observed_at": "2026-08-11T17:21:40Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -679,6 +353,12 @@
         "violations": [],
         "exit_status": 0,
         "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
       "threads": [],
       "governance": {
@@ -756,6 +436,12 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [
         {
           "name": "cleanup/2026-07-21-full-review",
@@ -765,15 +451,15 @@
           "title": "Full review cleanup: governance migration, dead-code/dependency cleanup, Lexicon Option B, layout unification",
           "author": "subcontrabass",
           "delta": {
-            "additions": 3941,
-            "changed_files": 114,
-            "commits": 48,
-            "deletions": 4045,
-            "mergeable_state": "clean",
-            "updated_at": "2026-07-21T21:23:02Z"
+            "additions": 4666,
+            "changed_files": 128,
+            "commits": 51,
+            "deletions": 4048,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 485.5,
-          "stalled": true
+          "idle_hours": 1.0,
+          "stalled": false
         }
       ],
       "governance": {
@@ -793,8 +479,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 62,
-        "observed_at": "2026-08-11T02:55:19Z",
+        "behind_corpus": 16,
+        "observed_at": "2026-08-11T17:21:37Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -852,6 +538,13 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "ahead",
+        "latest": "v1.4.1",
+        "annotated": true,
+        "unreleased_commits": 44,
+        "asserts": "a human reviewed, manually tested and gated this commit"
+      },
       "threads": [],
       "governance": {
         "precondition": "incomplete",
@@ -869,8 +562,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 69,
-        "observed_at": "2026-08-11T02:55:20Z",
+        "behind_corpus": 16,
+        "observed_at": "2026-08-11T17:21:39Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -891,6 +584,12 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [],
       "governance": {
         "precondition": "incomplete",
@@ -909,8 +608,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 69,
-        "observed_at": "2026-08-11T02:55:24Z",
+        "behind_corpus": 16,
+        "observed_at": "2026-08-11T17:21:42Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -931,6 +630,12 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [],
       "governance": {
         "precondition": "incomplete",
@@ -948,8 +653,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 69,
-        "observed_at": "2026-08-11T02:55:25Z",
+        "behind_corpus": 16,
+        "observed_at": "2026-08-11T17:21:44Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -965,59 +670,36 @@
         "repository": "quaternionmedia/qmetronome",
         "per_base": [],
         "contributor": null,
-        "open_prs": [
-          {
-            "number": 10,
-            "title": "Finish governance adoption: IDE discovery, and the seed's four-check ADR lint",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "governance/wire-ide-and-adr-lint",
-            "draft": true
-          }
-        ],
+        "open_prs": [],
         "violations": [],
         "exit_status": 0,
         "compliant": true
       },
-      "threads": [
-        {
-          "name": "governance/wire-ide-and-adr-lint",
-          "stage": "draft",
-          "pr": 10,
-          "base": "main",
-          "title": "Finish governance adoption: IDE discovery, and the seed's four-check ADR lint",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 170,
-            "changed_files": 7,
-            "commits": 2,
-            "deletions": 18,
-            "mergeable_state": "unstable",
-            "updated_at": "2026-08-08T15:55:53Z"
-          },
-          "idle_hours": 59.0,
-          "stalled": true
-        }
-      ],
+      "release": {
+        "state": "ahead",
+        "latest": "v0.2.0",
+        "annotated": true,
+        "unreleased_commits": 3,
+        "asserts": "a human reviewed, manually tested and gated this commit"
+      },
+      "threads": [],
       "governance": {
         "precondition": "incomplete",
         "missing": [
-          "ide",
           "workflows",
           "licensing"
         ],
         "detail": {
           "submodule": "governance/qm",
           "submodule_branch": "project/qmetronome",
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 1,
-          "workflows_absent": 2,
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 2,
+          "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 69,
-        "observed_at": "2026-08-11T02:55:28Z",
+        "behind_corpus": 16,
+        "observed_at": "2026-08-11T17:21:49Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1035,12 +717,12 @@
         "contributor": null,
         "open_prs": [
           {
-            "number": 10,
-            "title": "Adopt the constitution, and render the governance documents",
+            "number": 12,
+            "title": "Refresh the seed workflow copies, and cap superseded runs",
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
-            "head": "governance/status-view",
+            "head": "governance/refresh-seed-copies",
             "draft": true
           },
           {
@@ -1093,45 +775,46 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [
         {
-          "name": "governance/status-view",
+          "name": "governance/refresh-seed-copies",
           "stage": "draft",
-          "pr": 10,
+          "pr": 12,
           "base": "main",
-          "title": "Adopt the constitution, and render the governance documents",
+          "title": "Refresh the seed workflow copies, and cap superseded runs",
           "author": "subcontrabass",
           "delta": {
-            "additions": 9876,
-            "changed_files": 43,
-            "commits": 14,
-            "deletions": 167,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-11T02:22:42Z"
+            "additions": 50,
+            "changed_files": 4,
+            "commits": 2,
+            "deletions": 2,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-11T19:08:38Z"
           },
-          "idle_hours": 0.6,
+          "idle_hours": 1.1,
           "stalled": false
         }
       ],
       "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "submodule",
-          "ide",
-          "workflows",
-          "licensing"
-        ],
+        "precondition": "met",
+        "missing": [],
         "detail": {
-          "submodule": null,
-          "submodule_branch": null,
-          "ide_present": 1,
-          "ide_absent": 2,
-          "workflows_present": 0,
-          "workflows_absent": 3,
-          "licensing_present": 1
+          "submodule": "governance/qm",
+          "submodule_branch": "project/dossier",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 3,
+          "workflows_absent": 0,
+          "licensing_present": 2
         },
-        "behind_corpus": 0,
-        "observed_at": "2026-08-11T02:55:23Z",
+        "behind_corpus": 49,
+        "observed_at": "2026-08-11T17:21:41Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1171,6 +854,12 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [
         {
           "name": "fix/ci-empty-regions-dir",
@@ -1187,7 +876,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3034.9,
+          "idle_hours": 3052.2,
           "stalled": true
         }
       ],
@@ -1198,7 +887,7 @@
     {
       "name": "qmcp",
       "slug": "quaternionmedia/qmcp",
-      "role": "unmanaged",
+      "role": "project",
       "phase": "v0.0.1",
       "phase_source": "scaffolded",
       "note": null,
@@ -1207,6 +896,15 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 21,
+            "title": "Adopt the QM constitution",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "governance/adopt-constitution",
+            "draft": true
+          },
           {
             "number": 20,
             "title": "chore(deps): bump python-dotenv from 1.2.1 to 1.2.2",
@@ -1338,9 +1036,53 @@
         "exit_status": 0,
         "compliant": true
       },
-      "threads": [],
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [
+        {
+          "name": "governance/adopt-constitution",
+          "stage": "draft",
+          "pr": 21,
+          "base": "main",
+          "title": "Adopt the QM constitution",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 755,
+            "changed_files": 15,
+            "commits": 2,
+            "deletions": 1,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T16:00:12Z"
+          },
+          "idle_hours": 4.2,
+          "stalled": false
+        }
+      ],
       "governance": {
-        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+        "precondition": "incomplete",
+        "missing": [
+          "submodule",
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": null,
+          "submodule_branch": null,
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 0,
+          "workflows_absent": 3,
+          "licensing_present": 0
+        },
+        "behind_corpus": 16,
+        "observed_at": "2026-08-11T17:21:48Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
     }
   ]
