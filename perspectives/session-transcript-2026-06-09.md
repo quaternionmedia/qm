@@ -7,10 +7,10 @@
 | **Conversation title** | Self-hosted streaming infrastructure setup |
 | **Created** | 2026-05-26 |
 | **Updated** | 2026-06-10 |
-| **Standing** | Perspective — raw session record, non-binding, for reference only |
+| **Standing** | Primary source, not an opinion — a raw session record kept as evidence. Non-binding; cite by date. Distinct from the perspectives around it, which argue a position. |
 
 This is the working transcript that produced this repository's content:
-`PRINCIPLES.md`, `TEMPLATE.md`, the six `records/DRAFT-*.md` files,
+`PRINCIPLES.md`, `TEMPLATE.md`, the first six `records/DRAFT-*.md` files,
 `registers/carried-patches.md`, `handbook/public-by-default.md`,
 `perspectives/claude-fable-5-2026-06-09.md`, `project-seed/adr/`, and the
 `streaming-infrastructure/` reference project.
