@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-11T03:42:18Z"
+generated_at: "2026-08-11T12:05:44Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -80,7 +80,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:42:05Z"
+    observed_at: "2026-08-11T12:05:30Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
@@ -108,25 +108,27 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-09T11:10:09Z"
-      licence: NOASSERTION
+      pushed_at: "2026-08-11T11:50:30Z"
+      licence: MIT
     adoption:
       submodule:
-        corpus_mounted_at: null
-        branch: null
-      ide: []
-      ide_missing:
+        corpus_mounted_at: governance/qm
+        branch: project/apothecary
+      ide:
         - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
-      seed_workflow_filenames_present: []
-      seed_workflow_filenames_absent:
+      ide_missing: []
+      seed_workflow_filenames_present:
         - adr-lint.yml
         - reuse-lint.yml
         - submodule-check.yml
-      licensing: []
+      seed_workflow_filenames_absent: []
+      licensing:
+        - LICENSE
+        - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T03:42:06Z"
+    observed_at: "2026-08-11T12:05:31Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
@@ -173,7 +175,7 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-11T03:42:07Z"
+    observed_at: "2026-08-11T12:05:33Z"
   - name: datafactorio
     branch:
       ref: origin/project/datafactorio
@@ -219,17 +221,20 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:42:09Z"
+    observed_at: "2026-08-11T12:05:34Z"
   - name: datum
     branch:
       ref: origin/project/datum
-      commit: "ffa8b92c10e319cd219b13d158990a0acbcee383"
-      committed_at: "2026-08-08T10:50:55Z"
-      behind_corpus: 95
-      ahead_of_corpus: 5
-      merge_base: "4541f92df9fc9a3b3b8c04358ec173687c5e35cb"
-      merge_base_at: "2026-07-05T11:34:24Z"
-      last_propagation: null
+      commit: "2c4e398a2ba2d993d677d19cc1ea974c5cf790c2"
+      committed_at: "2026-08-11T11:53:22Z"
+      behind_corpus: 0
+      ahead_of_corpus: 11
+      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+      merge_base_at: "2026-08-11T03:12:03Z"
+      last_propagation:
+        commit: "6ec11cac8c1ae27c663ada9aeef4794bcdccd6de"
+        committed_at: "2026-08-11T11:52:15Z"
+        subject: "Bring propagation current with main"
     records:
       total: 9
       ratified: 0
@@ -238,14 +243,14 @@ projects:
         draft: 7
         proposed: 2
     seed:
-      adr_template_vs_corpus: drift
+      adr_template_vs_corpus: match
       adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
       default_branch: main
       private: true
       archived: false
-      pushed_at: "2026-08-09T11:04:07Z"
+      pushed_at: "2026-08-11T11:53:50Z"
       licence: MIT
     adoption:
       submodule:
@@ -265,7 +270,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T03:42:10Z"
+    observed_at: "2026-08-11T12:05:36Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
@@ -310,7 +315,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T03:42:12Z"
+    observed_at: "2026-08-11T12:05:37Z"
   - name: factorio-server
     branch:
       ref: origin/project/factorio-server
@@ -356,7 +361,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:42:13Z"
+    observed_at: "2026-08-11T12:05:38Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
@@ -402,7 +407,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:42:14Z"
+    observed_at: "2026-08-11T12:05:40Z"
   - name: loopwall
     branch:
       ref: origin/project/loopwall
@@ -448,7 +453,7 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:42:15Z"
+    observed_at: "2026-08-11T12:05:41Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
@@ -477,26 +482,26 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-08T15:55:24Z"
+      pushed_at: "2026-08-11T12:02:40Z"
       licence: MIT
     adoption:
       submodule:
         corpus_mounted_at: governance/qm
         branch: project/qmetronome
-      ide: []
-      ide_missing:
+      ide:
         - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
+      ide_missing: []
       seed_workflow_filenames_present:
+        - adr-lint.yml
         - submodule-check.yml
       seed_workflow_filenames_absent:
-        - adr-lint.yml
         - reuse-lint.yml
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-11T03:42:17Z"
+    observed_at: "2026-08-11T12:05:42Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
@@ -525,7 +530,7 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-11T03:42:17Z"
+    observed_at: "2026-08-11T12:05:43Z"
 org:
   repositories:
     total: 109
@@ -603,7 +608,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 31
-  observed_at: "2026-08-11T03:42:18Z"
+  observed_at: "2026-08-11T12:05:44Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."

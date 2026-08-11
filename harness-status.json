@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-11T03:42:37Z",
+  "generated_at": "2026-08-11T12:06:04Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -48,19 +48,19 @@
     "repositories": 13,
     "slots_measured": 13,
     "slots_unknown": 0,
-    "compliant": 12,
-    "over_limit": 1,
+    "compliant": 13,
+    "over_limit": 0,
     "governance_readable": 9,
-    "governance_precondition_met": 2,
+    "governance_precondition_met": 3,
     "phase_scaffolded": 7,
     "phase_stated_above_governance": 4,
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 3,
-      "ready": 6
+      "draft": 2,
+      "ready": 3
     },
-    "threads_stalled": 6,
+    "threads_stalled": 3,
     "threads_unreadable": 0
   },
   "repositories": [
@@ -77,7 +77,17 @@
           "project/*"
         ],
         "contributor": null,
-        "open_prs": [],
+        "open_prs": [
+          {
+            "number": 38,
+            "title": "v0.1.0 — the harness, and what a tag asserts",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "evolve/release-v0.1.0",
+            "draft": true
+          }
+        ],
         "violations": [],
         "exit_status": 0,
         "compliant": true
@@ -88,7 +98,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "evolve/release-v0.1.0",
+          "stage": "draft",
+          "pr": 38,
+          "base": "main",
+          "title": "v0.1.0 — the harness, and what a tag asserts",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 459,
+            "changed_files": 6,
+            "commits": 3,
+            "deletions": 397,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T03:45:47Z"
+          },
+          "idle_hours": 8.3,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -153,7 +182,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 22900.8,
+          "idle_hours": 22909.2,
           "stalled": true
         }
       ],
@@ -175,7 +204,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 0,
-        "observed_at": "2026-08-11T03:42:05Z",
+        "observed_at": "2026-08-11T12:05:30Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -193,100 +222,54 @@
         "contributor": null,
         "open_prs": [
           {
+            "number": 17,
+            "title": "Bump idna from 3.11 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/idna-3.15",
+            "draft": false
+          },
+          {
+            "number": 16,
+            "title": "Bump pytest from 9.0.0 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
+            "draft": false
+          },
+          {
+            "number": 15,
+            "title": "Bump starlette from 0.49.3 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/starlette-1.3.1",
+            "draft": false
+          },
+          {
+            "number": 14,
+            "title": "Bump urllib3 from 2.6.2 to 2.7.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/urllib3-2.7.0",
+            "draft": false
+          },
+          {
             "number": 13,
             "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
             "author": "subcontrabass",
             "bot": false,
-            "base": "governance/adopt-license-and-datum-scaffold",
+            "base": "main",
             "head": "feature/fractal-viewer-scale-and-overlays",
             "draft": true
-          },
-          {
-            "number": 12,
-            "title": "All open PRs reconciled: constitution, LICENSE, Gridfinity, fractal hierarchy, dependency bumps",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "governance/adopt-license-and-datum-scaffold",
-            "draft": false
-          },
-          {
-            "number": 8,
-            "title": "Fractal Assembly hierarchy + zoom viewer (prototype, unratified)",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "prototype/site-structure-hierarchy",
-            "draft": false
-          },
-          {
-            "number": 7,
-            "title": "Bump pygments from 2.19.2 to 2.20.0",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/pygments-2.20.0",
-            "draft": false
-          },
-          {
-            "number": 6,
-            "title": "Bump requests from 2.32.5 to 2.33.0",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/requests-2.33.0",
-            "draft": false
-          },
-          {
-            "number": 5,
-            "title": "Bump black from 25.11.0 to 26.3.1",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/black-26.3.1",
-            "draft": false
-          },
-          {
-            "number": 4,
-            "title": "🔳 Gridfinity",
-            "author": "mrharpo",
-            "bot": false,
-            "base": "main",
-            "head": "gridfinity",
-            "draft": false
-          },
-          {
-            "number": 3,
-            "title": "Bump filelock from 3.20.0 to 3.20.3",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/filelock-3.20.3",
-            "draft": false
-          },
-          {
-            "number": 2,
-            "title": "Bump virtualenv from 20.35.4 to 20.36.1",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/virtualenv-20.36.1",
-            "draft": false
           }
         ],
-        "violations": [
-          {
-            "author": "subcontrabass",
-            "base": "",
-            "numbers": [
-              8,
-              12,
-              13
-            ]
-          }
-        ],
-        "exit_status": 1,
-        "compliant": false
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
       },
       "release": {
         "state": "unreleased",
@@ -299,7 +282,7 @@
           "name": "feature/fractal-viewer-scale-and-overlays",
           "stage": "draft",
           "pr": 13,
-          "base": "governance/adopt-license-and-datum-scaffold",
+          "base": "main",
           "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
           "author": "subcontrabass",
           "delta": {
@@ -308,85 +291,26 @@
             "commits": 3,
             "deletions": 159,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-09T11:11:42Z"
+            "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 40.5,
+          "idle_hours": 0.3,
           "stalled": false
-        },
-        {
-          "name": "governance/adopt-license-and-datum-scaffold",
-          "stage": "ready",
-          "pr": 12,
-          "base": "main",
-          "title": "All open PRs reconciled: constitution, LICENSE, Gridfinity, fractal hierarchy, dependency bumps",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 8929,
-            "changed_files": 74,
-            "commits": 45,
-            "deletions": 1123,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-09T11:12:08Z"
-          },
-          "idle_hours": 40.5,
-          "stalled": false
-        },
-        {
-          "name": "prototype/site-structure-hierarchy",
-          "stage": "ready",
-          "pr": 8,
-          "base": "main",
-          "title": "Fractal Assembly hierarchy + zoom viewer (prototype, unratified)",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 6167,
-            "changed_files": 45,
-            "commits": 18,
-            "deletions": 986,
-            "mergeable_state": "clean",
-            "updated_at": "2026-07-21T21:27:35Z"
-          },
-          "idle_hours": 486.2,
-          "stalled": true
-        },
-        {
-          "name": "gridfinity",
-          "stage": "ready",
-          "pr": 4,
-          "base": "main",
-          "title": "🔳 Gridfinity",
-          "author": "mrharpo",
-          "delta": {
-            "additions": 1547,
-            "changed_files": 19,
-            "commits": 2,
-            "deletions": 85,
-            "mergeable_state": "clean",
-            "updated_at": "2026-01-16T12:04:41Z"
-          },
-          "idle_hours": 4959.6,
-          "stalled": true
         }
       ],
       "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "submodule",
-          "ide",
-          "workflows",
-          "licensing"
-        ],
+        "precondition": "met",
+        "missing": [],
         "detail": {
-          "submodule": null,
-          "submodule_branch": null,
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 0,
-          "workflows_absent": 3,
-          "licensing_present": 0
+          "submodule": "governance/qm",
+          "submodule_branch": "project/apothecary",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 3,
+          "workflows_absent": 0,
+          "licensing_present": 2
         },
         "behind_corpus": 0,
-        "observed_at": "2026-08-11T03:42:06Z",
+        "observed_at": "2026-08-11T12:05:31Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -402,48 +326,19 @@
         "repository": "quaternionmedia/datum",
         "per_base": [],
         "contributor": null,
-        "open_prs": [
-          {
-            "number": 1,
-            "title": "Pick up the governance propagation, and split the docs out of the README",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "governance/propagate-2026-08-08",
-            "draft": true
-          }
-        ],
+        "open_prs": [],
         "violations": [],
         "exit_status": 0,
         "compliant": true
       },
       "release": {
-        "state": "current",
+        "state": "ahead",
         "latest": "v0.0.1",
         "annotated": false,
-        "unreleased_commits": 0,
+        "unreleased_commits": 5,
         "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
       },
-      "threads": [
-        {
-          "name": "governance/propagate-2026-08-08",
-          "stage": "draft",
-          "pr": 1,
-          "base": "main",
-          "title": "Pick up the governance propagation, and split the docs out of the README",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 749,
-            "changed_files": 22,
-            "commits": 5,
-            "deletions": 648,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-09T11:04:08Z"
-          },
-          "idle_hours": 40.6,
-          "stalled": false
-        }
-      ],
+      "threads": [],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -456,8 +351,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 95,
-        "observed_at": "2026-08-11T03:42:10Z",
+        "behind_corpus": 0,
+        "observed_at": "2026-08-11T12:05:36Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -592,7 +487,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-07-21T21:23:02Z"
           },
-          "idle_hours": 486.3,
+          "idle_hours": 494.7,
           "stalled": true
         }
       ],
@@ -614,7 +509,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 0,
-        "observed_at": "2026-08-11T03:42:07Z",
+        "observed_at": "2026-08-11T12:05:33Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -697,7 +592,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 0,
-        "observed_at": "2026-08-11T03:42:09Z",
+        "observed_at": "2026-08-11T12:05:34Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -743,7 +638,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 0,
-        "observed_at": "2026-08-11T03:42:13Z",
+        "observed_at": "2026-08-11T12:05:38Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -788,7 +683,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 0,
-        "observed_at": "2026-08-11T03:42:14Z",
+        "observed_at": "2026-08-11T12:05:40Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -804,66 +699,36 @@
         "repository": "quaternionmedia/qmetronome",
         "per_base": [],
         "contributor": null,
-        "open_prs": [
-          {
-            "number": 10,
-            "title": "Finish governance adoption: IDE discovery, and the seed's four-check ADR lint",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "governance/wire-ide-and-adr-lint",
-            "draft": true
-          }
-        ],
+        "open_prs": [],
         "violations": [],
         "exit_status": 0,
         "compliant": true
       },
       "release": {
-        "state": "current",
+        "state": "ahead",
         "latest": "v0.2.0",
         "annotated": true,
-        "unreleased_commits": 0,
+        "unreleased_commits": 3,
         "asserts": "a human reviewed, manually tested and gated this commit"
       },
-      "threads": [
-        {
-          "name": "governance/wire-ide-and-adr-lint",
-          "stage": "draft",
-          "pr": 10,
-          "base": "main",
-          "title": "Finish governance adoption: IDE discovery, and the seed's four-check ADR lint",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 170,
-            "changed_files": 7,
-            "commits": 2,
-            "deletions": 18,
-            "mergeable_state": "unstable",
-            "updated_at": "2026-08-08T15:55:53Z"
-          },
-          "idle_hours": 59.8,
-          "stalled": true
-        }
-      ],
+      "threads": [],
       "governance": {
         "precondition": "incomplete",
         "missing": [
-          "ide",
           "workflows",
           "licensing"
         ],
         "detail": {
           "submodule": "governance/qm",
           "submodule_branch": "project/qmetronome",
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 1,
-          "workflows_absent": 2,
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 2,
+          "workflows_absent": 1,
           "licensing_present": 1
         },
         "behind_corpus": 0,
-        "observed_at": "2026-08-11T03:42:17Z",
+        "observed_at": "2026-08-11T12:05:42Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -950,7 +815,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 33,
-        "observed_at": "2026-08-11T03:42:12Z",
+        "observed_at": "2026-08-11T12:05:37Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1012,7 +877,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3035.7,
+          "idle_hours": 3044.1,
           "stalled": true
         }
       ],
