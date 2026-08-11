@@ -470,6 +470,18 @@ def test_sizes_are_read_in_whatever_unit_the_tool_chose() -> None:
     assert ds.parse_bytes("lots") is None
 
 
+def test_a_size_carrying_a_percentage_is_still_a_size() -> None:
+    """`docker system df --format {{.Reclaimable}}` prints `23.62GB (97%)`.
+
+    Two facts in one field. Refusing the whole reading over the second hid a
+    23GB target behind an unknown whose wording -- "not a size" -- read like a
+    dead daemon rather than a format this tool could not parse.
+    """
+    assert ds.parse_bytes("23.62GB (97%)") == 23_620_000_000
+    assert ds.parse_bytes("0B (0%)") == 0
+    assert ds.parse_bytes("(97%)") is None
+
+
 def test_an_unclassified_policy_entry_is_refused_rather_than_defaulted(tmp_path: Path) -> None:
     """An entry with no safety would be reclaimed at whatever tier was permitted."""
     path = tmp_path / "policy.yaml"
