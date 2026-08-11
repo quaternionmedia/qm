@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Render the governance status document as one self-contained HTML page.
 
-SEED FILE, run in place. It reads a document and writes a page. That is the
-whole contract.
+Org-level tooling: it lives in ci/, is copied nowhere, and every caller is
+inside this repository. It reads a document and writes a page. That is the whole
+contract. (It described itself as a SEED FILE, which it never was -- nothing
+under project-seed/ is this file, and a forker copying it would be copying a
+tool that reads a document only the corpus generates.)
 
 WHAT THIS MAY NOT DO, and why the list matters more than the features:
 

@@ -19,9 +19,15 @@ re-deriving what they hold**, and check the age before you quote anything.
 | `governance-status.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `python ci/governance_status.py --write governance-status.yaml` |
 | `harness-status.json` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `python ci/harness_status.py --no-local --write harness-status.json` |
 
-Each carries its own refresh command, its own staleness budget, and its own
-`do_not` list **inside the file**, so you do not need this page to read one
-correctly. `/cowork` prints both with their current age.
+`harness-status.json` carries its own refresh command, staleness budget and
+`do_not` list in a `reading:` block **inside the file**, so you do not need this
+page to read that one correctly. **`governance-status.yaml` has no `reading:`
+block** — its top-level keys are `schema`, `generated_at`, `generator`, `corpus`,
+`projects`, `org` — so the refresh command and the 168h budget in the table above
+are the only statement of them anywhere, and this page is load-bearing for it.
+Giving that document a `reading:` block of its own is the fix; until then, do not
+read the sentence above as covering both. `/cowork` prints both with their
+current age.
 
 To read the harness document as prose rather than JSON:
 
@@ -40,7 +46,7 @@ repository:
 ```
 python ci/harness_dashboard.py harness-status.json --format md    # agent view
 python ci/harness_dashboard.py harness-status.json --out status.html
-python ci/governance_render.py                                    # the other document
+python ci/governance_render.py governance-status.yaml --out status.html
 ```
 
 In **`quaternionmedia/dossier`** — one command does refresh, load and launch:
@@ -50,11 +56,14 @@ is a human or agent action" rule still holds — a person asked for it, and the
 diff it leaves in this repository is theirs to review. Its refresh path is
 deliberately outside its renderer, so the no-commands-in-a-view rule holds
 there too.
-Its `docs/governance.md` carries the prep, which is not optional: a project's
-vendored `governance/qm` is pinned to its own branch, cut from **`main`**, and
-neither document is on `main`. So the path a project would naturally read is
-empty by construction until the change adding them lands and the pin is bumped
-past it. Until then a reader there needs pointing at a corpus checkout.
+Its `docs/governance.md` carries the prep. **Both documents are on `main`**, and
+on nine of the twelve `project/*` branches — so for most projects the vendored
+path now resolves. The three that do not carry them are `project/dossier`,
+`project/loopwall` and `project/streaming-infrastructure`, each of which is tens
+of commits behind; a reader pinned to one of those still needs pointing at a
+corpus checkout, and a propagation fixes it. This paragraph said *neither*
+document was on `main`, which was true only until the change adding them landed
+on 2026-08-10.
 
 In **every other project** — nothing. The documents describe all of them and
 are generated and stored only here. Looking for a dashboard in `alfred` or
@@ -120,6 +129,28 @@ completion, because the corpus has no definition of done a tool could read, and
 a number that looks like progress is the most confidently wrong thing a
 dashboard can print. A view that showed 60% would be believed.
 
+**`main` is readiness; a `v` tag is governance.** These are different claims
+and the documents keep them apart. Merging to a default branch asserts the work
+is ready to build on and nothing more. A `v` tag asserts what the version-tags
+record's §2 requires: a human reviewed it, a human manually tested it against
+its real runtime, and its automated validation passed and is deterministic.
+
+So `harness-status.json` carries a `release` layer per repository, and the gap
+between the two is the fact worth reading — commits carried on the default
+branch that no tag has asserted. Three states that must not be collapsed:
+
+| State | Means |
+|---|---|
+| `unreleased` | no `v` tag has ever existed; nothing has ever been asserted |
+| `current` | a tag exists and the default branch carries nothing beyond it |
+| `ahead` | N commits of readiness are waiting on governance |
+
+`unreleased` and `current` both have nothing outstanding and mean opposite
+things, which is why one is never rendered as the other. And a **lightweight
+tag is reported as a finding, not as a release**: §6 requires annotated tags
+because a lightweight one carries no annotation, so it can name neither the
+reviewer nor the manual test. It is a claim with nothing behind it.
+
 **A claim and its evidence are separate, and neither derives from the other.**
 The phase in `ci/workspace.yaml` is what a human stated; the governance column
 is what has landed on a default branch. A view shows both and shows the gap.
@@ -176,6 +207,20 @@ python ci/disk_dashboard.py ~/disk-status.json --format md
 python ci/disk_reclaim.py                               # dry run, always
 python ci/disk_reclaim.py --allow rebuilt --apply
 ```
+
+**One run per branch per workflow.** Every workflow here declares
+`concurrency` keyed on workflow and ref, so a second push supersedes the first
+rather than both running to completion. Cancellation is scoped to pull requests
+with `cancel-in-progress: ${{ github.event_name == 'pull_request' }}`: on the
+default branch and on a `project/**` branch **the run is the record** of what
+that commit reported, and cancelling it to start a newer one destroys the only
+evidence the earlier commit was ever checked.
+
+What this buys is billed minutes, not run count -- a cancelled run still appears
+in the list, it just stops early. Reducing the *count* is a matter of triggers,
+and the push triggers here are already scoped to `main` and `project/**`, with
+`submodule-check.yml` deliberately broad because a stale pointer can be
+introduced on any branch.
 
 **Documents are not regenerated in CI.** Both read other repositories, so an
 unrelated pull request elsewhere would make the committed copy "stale" with no
