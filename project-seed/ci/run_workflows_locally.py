@@ -85,6 +85,57 @@ def applies(wf: dict, event: str, ref: str, base_ref: str) -> tuple[bool, str]:
     return False, f"{event} branches {branches} do not match {target!r}"
 
 
+# An `env:` value the runner would fill from something that does not exist off
+# the runner: the installation token, and any secret. There is no correct local
+# value for these -- and the two wrong ones both cost a real failure.
+#
+# Setting the literal expression text is what this script did, and `gh` duly
+# sent the characters `${{ github.token }}` as a bearer token and got
+# `Bad credentials (HTTP 401)`. That reads as "the slot check is broken", which
+# is a false red about a check that was fine.
+#
+# Measured, on this machine, against `gh api repos/quaternionmedia/qm`: with
+# GH_TOKEN unset the call succeeds from the keyring credential, with GH_TOKEN
+# set to the empty string it also succeeds, and only the literal expression
+# gives the 401. So emptying the variable would have been enough for `gh`
+# specifically -- but it relies on one tool choosing to treat empty as absent,
+# which is a courtesy and not a rule, and it leaves nothing in the output
+# saying a workflow-declared variable went unfilled.
+#
+# So the variable is dropped from the environment entirely, and the drop is
+# printed. The step then runs against whatever this machine actually has, which
+# is the only honest local answer, and the line in the output says which fact
+# came from the machine rather than from the workflow.
+UNAVAILABLE_LOCALLY = re.compile(r"^(github\.token|secrets\.\w+)$")
+
+
+def step_env(
+    block: dict, ctx: dict, outputs: dict
+) -> tuple[dict[str, str], list[tuple[str, str]]]:
+    """Resolve an `env:` block, and say which keys this machine must supply.
+
+    Returns the resolvable variables, and the (key, expression) pairs whose
+    value only exists on a GitHub runner and so must not be invented here.
+    """
+    resolved: dict[str, str] = {}
+    dropped: list[tuple[str, str]] = []
+    for key, raw in block.items():
+        text = str(raw)
+        exprs = re.findall(r"\$\{\{(.+?)\}\}", text)
+        if any(UNAVAILABLE_LOCALLY.fullmatch(e.strip()) for e in exprs):
+            dropped.append((key, exprs[0].strip()))
+            continue
+        # An expression this script does not model -- a pull-request event
+        # payload field, say -- resolves to empty, which is what the runner
+        # itself does for a `push` where no pull request exists.
+        for expr in exprs:
+            key_ = expr.strip()
+            value = outputs.get(key_, ctx.get(key_, ""))
+            text = text.replace("${{" + expr + "}}", str(value))
+        resolved[key] = text
+    return resolved, dropped
+
+
 def substitute(script: str, ctx: dict, outputs: dict) -> str:
     """Resolve the small subset of ${{ }} expressions these workflows use."""
 
@@ -160,6 +211,35 @@ def main() -> int:
         "github.event.before": "0" * 40,
     }
 
+    # The same facts the `${{ }}` substitution above already knows, exported the
+    # other way a step can read them. A workflow reaching for `$GITHUB_REPOSITORY`
+    # rather than `${{ github.repository }}` is doing the same thing, and leaving
+    # the variable unset made the step fail on an empty argument -- reported as a
+    # step failure, which is a false red. A false red costs as much as a false
+    # green here, because it is what teaches a reader to skim past FAIL.
+    #
+    # `GITHUB_REPOSITORY` is derived from origin rather than guessed: a clone
+    # whose remote is a fork legitimately produces a different answer, and the
+    # step should see the one it would see in that fork.
+    origin = subprocess.run(
+        ["git", "remote", "get-url", "origin"], capture_output=True, text=True
+    ).stdout.strip()
+    slug = re.sub(r"^(?:git@[^:]+:|https?://[^/]+/)", "", origin).removesuffix(".git")
+    gh_env = {
+        "GITHUB_REPOSITORY": slug,
+        "GITHUB_REF_NAME": args.ref,
+        "GITHUB_BASE_REF": args.base_ref,
+        "GITHUB_SHA": head,
+        "GITHUB_EVENT_NAME": args.event,
+        "CI": "true",
+    }
+    if not slug:
+        print(
+            "  note: no `origin` remote, so $GITHUB_REPOSITORY is empty here.\n"
+            "        A step that needs it will fail on the empty value, which is\n"
+            "        this environment and not the workflow."
+        )
+
     files = sorted(Path(args.workflows).glob("*.y*ml"))
     if not files:
         return exit_with(f"no workflows in {args.workflows}", 1)
@@ -189,11 +269,13 @@ def main() -> int:
                     path = fh.name
                 out_file = Path(tempfile.mkdtemp()) / "gh_output"
                 out_file.touch()
-                env = {**os.environ, "GITHUB_OUTPUT": str(out_file)}
-                env.update(
-                    {k: str(v) for k, v in (step.get("env") or {}).items()}
-                )
-                env.update({k: str(v) for k, v in (wf.get("env") or {}).items()})
+                env = {**os.environ, "GITHUB_OUTPUT": str(out_file), **gh_env}
+                for block in (wf.get("env") or {}, step.get("env") or {}):
+                    resolved, dropped = step_env(block, ctx, outputs)
+                    env.update(resolved)
+                    for key, expr in dropped:
+                        env.pop(key, None)
+                        print(f"  - [env ] {label}: ${key} left to this machine ({expr})")
                 # Match the runner's shell, or a step that fails halfway
                 # through passes here and fails in CI. Actions runs `run:`
                 # steps as `bash -e {0}`, and as `bash --noprofile --norc
