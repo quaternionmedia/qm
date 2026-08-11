@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-11T20:12:32Z",
+  "generated_at": "2026-08-11T23:10:35Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -57,7 +57,7 @@
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 3,
+      "draft": 14,
       "ready": 3
     },
     "threads_stalled": 2,
@@ -77,7 +77,107 @@
           "project/*"
         ],
         "contributor": null,
-        "open_prs": [],
+        "open_prs": [
+          {
+            "number": 53,
+            "title": "Propagate main into project/qmetronome, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/qmetronome",
+            "head": "propagate/qmetronome-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 52,
+            "title": "Propagate main into project/qmcp, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/qmcp",
+            "head": "propagate/qmcp-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 51,
+            "title": "Propagate main into project/loopwall, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/loopwall",
+            "head": "propagate/loopwall-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 50,
+            "title": "Propagate main into project/factorio-sysops, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/factorio-sysops",
+            "head": "propagate/factorio-sysops-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 49,
+            "title": "Propagate main into project/factorio-server, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/factorio-server",
+            "head": "propagate/factorio-server-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 48,
+            "title": "Propagate main into project/dossier, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/dossier",
+            "head": "propagate/dossier-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 47,
+            "title": "Propagate main into project/datum, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/datum",
+            "head": "propagate/datum-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 46,
+            "title": "Propagate main into project/datafactorio, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/datafactorio",
+            "head": "propagate/datafactorio-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 45,
+            "title": "Propagate main into project/codecartographer, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/codecartographer",
+            "head": "propagate/codecartographer-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 44,
+            "title": "Propagate main into project/apothecary, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/apothecary",
+            "head": "propagate/apothecary-2026-08-11",
+            "draft": true
+          },
+          {
+            "number": 43,
+            "title": "Propagate main into project/alfred, and refresh its seed copies",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/alfred",
+            "head": "propagate/alfred-2026-08-11",
+            "draft": true
+          }
+        ],
         "violations": [],
         "exit_status": 0,
         "compliant": true
@@ -88,7 +188,206 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "propagate/qmetronome-2026-08-11",
+          "stage": "draft",
+          "pr": 53,
+          "base": "project/qmetronome",
+          "title": "Propagate main into project/qmetronome, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2341,
+            "changed_files": 47,
+            "commits": 21,
+            "deletions": 1412,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:49Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/qmcp-2026-08-11",
+          "stage": "draft",
+          "pr": 52,
+          "base": "project/qmcp",
+          "title": "Propagate main into project/qmcp, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2204,
+            "changed_files": 47,
+            "commits": 21,
+            "deletions": 1339,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:47Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/loopwall-2026-08-11",
+          "stage": "draft",
+          "pr": 51,
+          "base": "project/loopwall",
+          "title": "Propagate main into project/loopwall, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 16672,
+            "changed_files": 83,
+            "commits": 54,
+            "deletions": 195,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:44Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/factorio-sysops-2026-08-11",
+          "stage": "draft",
+          "pr": 50,
+          "base": "project/factorio-sysops",
+          "title": "Propagate main into project/factorio-sysops, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2334,
+            "changed_files": 47,
+            "commits": 21,
+            "deletions": 1354,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:41Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/factorio-server-2026-08-11",
+          "stage": "draft",
+          "pr": 49,
+          "base": "project/factorio-server",
+          "title": "Propagate main into project/factorio-server, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2334,
+            "changed_files": 47,
+            "commits": 21,
+            "deletions": 1354,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:38Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/dossier-2026-08-11",
+          "stage": "draft",
+          "pr": 48,
+          "base": "project/dossier",
+          "title": "Propagate main into project/dossier, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 16539,
+            "changed_files": 83,
+            "commits": 54,
+            "deletions": 173,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:35Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/datum-2026-08-11",
+          "stage": "draft",
+          "pr": 47,
+          "base": "project/datum",
+          "title": "Propagate main into project/datum, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2190,
+            "changed_files": 46,
+            "commits": 20,
+            "deletions": 1337,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:32Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/datafactorio-2026-08-11",
+          "stage": "draft",
+          "pr": 46,
+          "base": "project/datafactorio",
+          "title": "Propagate main into project/datafactorio, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2334,
+            "changed_files": 47,
+            "commits": 21,
+            "deletions": 1354,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:29Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/codecartographer-2026-08-11",
+          "stage": "draft",
+          "pr": 45,
+          "base": "project/codecartographer",
+          "title": "Propagate main into project/codecartographer, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2334,
+            "changed_files": 47,
+            "commits": 21,
+            "deletions": 1365,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:25Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/apothecary-2026-08-11",
+          "stage": "draft",
+          "pr": 44,
+          "base": "project/apothecary",
+          "title": "Propagate main into project/apothecary, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2334,
+            "changed_files": 47,
+            "commits": 21,
+            "deletions": 1355,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:22Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        },
+        {
+          "name": "propagate/alfred-2026-08-11",
+          "stage": "draft",
+          "pr": 43,
+          "base": "project/alfred",
+          "title": "Propagate main into project/alfred, and refresh its seed copies",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2334,
+            "changed_files": 47,
+            "commits": 21,
+            "deletions": 1355,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T23:06:19Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -153,7 +452,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 22917.3,
+          "idle_hours": 22920.2,
           "stalled": true
         }
       ],
@@ -174,8 +473,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:34Z",
+        "behind_corpus": 19,
+        "observed_at": "2026-08-11T23:09:55Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -264,7 +563,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 8.4,
+          "idle_hours": 11.4,
           "stalled": false
         }
       ],
@@ -280,8 +579,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:36Z",
+        "behind_corpus": 19,
+        "observed_at": "2026-08-11T23:09:56Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -322,8 +621,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:40Z",
+        "behind_corpus": 19,
+        "observed_at": "2026-08-11T23:10:00Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -455,10 +754,10 @@
             "changed_files": 128,
             "commits": 51,
             "deletions": 4048,
-            "mergeable_state": "unstable",
+            "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 1.0,
+          "idle_hours": 3.9,
           "stalled": false
         }
       ],
@@ -479,8 +778,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:37Z",
+        "behind_corpus": 19,
+        "observed_at": "2026-08-11T23:09:58Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -562,8 +861,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:39Z",
+        "behind_corpus": 19,
+        "observed_at": "2026-08-11T23:09:59Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -608,8 +907,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:42Z",
+        "behind_corpus": 19,
+        "observed_at": "2026-08-11T23:10:03Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -653,8 +952,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:44Z",
+        "behind_corpus": 19,
+        "observed_at": "2026-08-11T23:10:05Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -698,8 +997,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:49Z",
+        "behind_corpus": 19,
+        "observed_at": "2026-08-11T23:10:09Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -794,10 +1093,10 @@
             "changed_files": 4,
             "commits": 2,
             "deletions": 2,
-            "mergeable_state": "unstable",
+            "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:08:38Z"
           },
-          "idle_hours": 1.1,
+          "idle_hours": 4.0,
           "stalled": false
         }
       ],
@@ -813,8 +1112,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 49,
-        "observed_at": "2026-08-11T17:21:41Z",
+        "behind_corpus": 52,
+        "observed_at": "2026-08-11T23:10:02Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -876,7 +1175,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3052.2,
+          "idle_hours": 3055.1,
           "stalled": true
         }
       ],
@@ -1058,7 +1357,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T16:00:12Z"
           },
-          "idle_hours": 4.2,
+          "idle_hours": 7.2,
           "stalled": false
         }
       ],
@@ -1079,8 +1378,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:48Z",
+        "behind_corpus": 19,
+        "observed_at": "2026-08-11T23:10:07Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
