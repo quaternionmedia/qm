@@ -30,6 +30,7 @@ path = [
   "project-seed/ide/AGENTS.md",
   "project-seed/ide/CLAUDE.md",
   "project-seed/ide/.github/copilot-instructions.md",
+  "project-seed/ide/.claude/**",
 ]
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
@@ -76,3 +77,41 @@ path = ".vscode/**"
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
 SPDX-License-Identifier = "Apache-2.0"
+
+# --- This repository's own harness commands ---------------------------------
+# Symlinks into project-seed/ide/.claude/commands/; they follow their target,
+# which is §2 copy-forward prose. The same reasoning as .vscode/** above, with
+# a different answer because the target is a different kind of file: these are
+# instructions a session reads, not executable config.
+[[annotations]]
+path = ".claude/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "CC0-1.0"
+
+# --- Org-level tooling, which is not copied anywhere ------------------------
+# `ci/` is the opposite of `project-seed/ci/`: a singleton that reads this
+# repository's own project/* namespace and this org's API. It carries the same
+# licence as the seed's executables because it is the same kind of artifact --
+# executable content, where CC0's lack of a patent grant is unfit -- and not
+# because it travels with them. It does not travel.
+[[annotations]]
+path = "ci/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "Apache-2.0"
+
+# --- A generated document ---------------------------------------------------
+# governance-status.yaml is machine-read data emitted by ci/governance_status.py,
+# not corpus prose, so the `**` default's ShareAlike terms are the wrong
+# instrument: its intended consumers are renderers and, later, dossier -- whose
+# own licence class is itself unsettled. CC0 makes reading it free of any
+# obligation, which is the only sensible posture for a file whose whole purpose
+# is to be read by other software. Whether the org wants that is a question for
+# the outbound record's §12; this states the current answer rather than
+# inheriting one by accident.
+[[annotations]]
+path = "governance-status.yaml"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
+SPDX-License-Identifier = "CC0-1.0"
