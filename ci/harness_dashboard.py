@@ -546,6 +546,36 @@ def thread_rows(document: dict) -> list[dict]:
     )
 
 
+def md_release(release: object) -> str:
+    """The release column: what a tag asserts, and what main carries past it.
+
+    `unreleased` and `current` are kept apart on purpose. Both have nothing
+    outstanding, and they mean opposite things: one has never been asserted at
+    all, the other has been asserted and nothing has changed since.
+
+    A lightweight tag is called out rather than counted as a release. The
+    version-tags record requires annotated tags precisely because a lightweight
+    one carries no annotation, so it can name neither the reviewer nor the
+    manual test -- a claim with nothing behind it.
+    """
+    reason = unknown_reason(release)
+    if reason:
+        return f"unknown ({reason})"
+    if not isinstance(release, dict):
+        return "unknown (no release layer in this document)"
+    state = release.get("state")
+    latest = release.get("latest")
+    if state == "unreleased":
+        return "never tagged"
+    flag = "" if release.get("annotated") else " **lightweight**"
+    if state == "current":
+        return f"{latest}{flag}"
+    n = release.get("unreleased_commits")
+    if n is None:
+        return f"{latest}{flag}, unknown commits since"
+    return f"{latest}{flag} + {n} unreleased"
+
+
 def md_state(governance: object) -> str:
     reason = unknown_reason(governance)
     if reason is not None:
@@ -615,14 +645,23 @@ def render_markdown(document: dict) -> str:
         f"precondition; {totals.get('phase_scaffolded')} phases scaffolded."
     )
     add("")
-    add("| Repository | Phase (claimed) | Source | v0.0.1 governance (evidence) | Slot |")
-    add("|---|---|---|---|---|")
+    add("| Repository | Phase (claimed) | Source | v0.0.1 governance (evidence) | Slot | Release |")
+    add("|---|---|---|---|---|---|")
     for repo in document.get("repositories", []):
         add(
             f"| {repo.get('name')} | {repo.get('phase')} | "
             f"{repo.get('phase_source')} | {md_state(repo.get('governance'))} | "
-            f"{md_slot(repo.get('slots', {}))} |"
+            f"{md_slot(repo.get('slots', {}))} | {md_release(repo.get('release'))} |"
         )
+    add("")
+    add(
+        "**`main` is readiness; a `v` tag is governance.** Merging asserts the "
+        "work is ready to build on and nothing more. A tag asserts that a human "
+        "reviewed it, manually tested it against its real runtime, and that its "
+        "automated gate passed and is deterministic. The Release column is the "
+        "gap between the two: commits carried on the default branch that no tag "
+        "has asserted."
+    )
     add("")
 
     add("## Threads in flight")
