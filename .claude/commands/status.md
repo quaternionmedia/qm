@@ -1,0 +1,1 @@
+../../project-seed/ide/.claude/commands/status.md

@@ -1,0 +1,12 @@
+# governance-status.yaml is generated and byte-compared by CI. A checkout on
+# Windows with core.autocrlf=true would rewrite it on the way in and the check
+# would report it stale for line endings alone -- which teaches contributors
+# that the check is noise, and a gate people have learned to ignore is worse
+# than no gate. The generator already writes with newline="\n"; this makes the
+# checkout agree.
+governance-status.yaml text eol=lf
+
+# The seed's CI is copied verbatim into other repositories and its tests
+# compare file content across platforms.
+ci/**            text eol=lf
+project-seed/ci/** text eol=lf
