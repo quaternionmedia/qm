@@ -1,34 +1,56 @@
+# INERT. Every rule is commented out, so this file assigns no owners and GitHub
+# requests review from nobody. Re-enable with:
+#
+#     sed -i 's/^#= //' .github/CODEOWNERS
+#
+# Re-enable together with rulesets A and B, which carry
+# "require_code_owner_review": true -- see .github/rulesets/README.md's staged
+# path. Why it is off: perspectives/2026-08-09-explanation-in-the-wrong-place.md.
+#
+# Two mechanics this file depends on:
+#
+#   Last match wins, and ownership does not accumulate. A later, narrower rule
+#   REPLACES the owners of an earlier one rather than adding to them. The
+#   catch-all therefore names the default owners, and every rule below it names
+#   the only owners for that path.
+#
+#   GitHub requests code-owner review when a non-draft PR opens against a base
+#   branch carrying this file. No ruleset is involved and enforcement mode is
+#   irrelevant. It reads the file from the BASE branch, so a project/* branch
+#   has no code-owner review until main is propagated into it.
+#
 # Ratification is a human action (README.md, "Ratification"). This file names
 # which humans, per path. Tool involvement is never a byline.
-#
-# This file has no effect unless "Require review from Code Owners" is enabled
-# on a ruleset -- see .github/rulesets/. GitHub reads CODEOWNERS from the PR's
-# BASE branch, so a project/* branch does not get code-owner review until main
-# has been propagated into it.
 
-*                       @subcontrabass @mrharpo @CameronRWest @MJWKagstrom
+# Default owners, applying only to paths that no rule below names.
+#= *                                @subcontrabass @mrharpo @CameronRWest @MJWKagstrom
 
 # The ratification surface: Status flips, number assignment, the index.
-/records/               @subcontrabass @mrharpo
-/README.md              @subcontrabass @mrharpo
-/PRINCIPLES.md          @subcontrabass @mrharpo
-/TEMPLATE.md            @subcontrabass @mrharpo
+#= /records/                        @subcontrabass @mrharpo
+#= /README.md                       @subcontrabass @mrharpo
+#= /PRINCIPLES.md                   @subcontrabass @mrharpo
+#= /TEMPLATE.md                     @subcontrabass @mrharpo
+
+# Governance discovery: what an agent reads before its first commit. The seed
+# carries the same text under /project-seed/; these are the live copies.
+#= /AGENTS.md                       @subcontrabass @mrharpo
+#= /CLAUDE.md                       @subcontrabass @mrharpo
+#= /.github/copilot-instructions.md @subcontrabass @mrharpo
 
 # The seed is copied verbatim into every fork, so an error here replicates
 # into repositories this corpus does not govern.
-/project-seed/          @subcontrabass @mrharpo
+#= /project-seed/                   @subcontrabass @mrharpo
 
 # Enforcement: a PR must not weaken the checks that gate it.
-/.github/workflows/     @subcontrabass @mrharpo
-/.github/CODEOWNERS     @subcontrabass @mrharpo
-/.github/rulesets/      @subcontrabass @mrharpo
+#= /.github/workflows/              @subcontrabass @mrharpo
+#= /.github/CODEOWNERS              @subcontrabass @mrharpo
+#= /.github/rulesets/               @subcontrabass @mrharpo
 
 # Licensing: the outbound grant and the texts it refers to.
-/LICENSE                @subcontrabass @mrharpo
-/LICENSES/              @subcontrabass @mrharpo
-/REUSE.toml             @subcontrabass @mrharpo
+#= /LICENSE                         @subcontrabass @mrharpo
+#= /LICENSES/                       @subcontrabass @mrharpo
+#= /REUSE.toml                      @subcontrabass @mrharpo
 
 # Explicitly unowned: non-binding by construction, and gated on merge to main
 # by the ruleset rather than by per-path ownership.
-/perspectives/
-/math/
+#= /perspectives/
