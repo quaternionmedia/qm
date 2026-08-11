@@ -126,7 +126,7 @@ repositories:
     paths: [benchmark, qm/benchmark]
 
   - name: qmcp
-    role: unmanaged
+    role: project
     phase: v0.0.1
     phase_source: scaffolded
     paths: [qm/qmcp, qmcp]

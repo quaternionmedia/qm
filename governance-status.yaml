@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-11T12:05:44Z"
+generated_at: "2026-08-11T16:00:55Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -80,7 +80,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T12:05:30Z"
+    observed_at: "2026-08-11T16:00:39Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
@@ -108,7 +108,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T11:50:30Z"
+      pushed_at: "2026-08-11T14:13:23Z"
       licence: MIT
     adoption:
       submodule:
@@ -128,7 +128,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T12:05:31Z"
+    observed_at: "2026-08-11T16:00:41Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
@@ -156,7 +156,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-09T12:57:23Z"
+      pushed_at: "2026-08-11T14:15:52Z"
       licence: MIT
     adoption:
       submodule:
@@ -175,7 +175,7 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-11T12:05:33Z"
+    observed_at: "2026-08-11T16:00:42Z"
   - name: datafactorio
     branch:
       ref: origin/project/datafactorio
@@ -221,7 +221,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T12:05:34Z"
+    observed_at: "2026-08-11T16:00:44Z"
   - name: datum
     branch:
       ref: origin/project/datum
@@ -248,7 +248,7 @@ projects:
       readme_seed_comment_left_in: false
     repository:
       default_branch: main
-      private: true
+      private: false
       archived: false
       pushed_at: "2026-08-11T11:53:50Z"
       licence: MIT
@@ -270,7 +270,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T12:05:36Z"
+    observed_at: "2026-08-11T16:00:45Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
@@ -295,7 +295,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T03:41:39Z"
+      pushed_at: "2026-08-11T14:09:04Z"
       licence: MIT
     adoption:
       submodule:
@@ -315,7 +315,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T12:05:37Z"
+    observed_at: "2026-08-11T16:00:46Z"
   - name: factorio-server
     branch:
       ref: origin/project/factorio-server
@@ -361,7 +361,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T12:05:38Z"
+    observed_at: "2026-08-11T16:00:47Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
@@ -407,7 +407,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T12:05:40Z"
+    observed_at: "2026-08-11T16:00:49Z"
   - name: loopwall
     branch:
       ref: origin/project/loopwall
@@ -453,7 +453,50 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T12:05:41Z"
+    observed_at: "2026-08-11T16:00:50Z"
+  - name: qmcp
+    branch:
+      ref: origin/project/qmcp
+      commit: "d4479cd1a04c782d81b097186875408362f1fb3b"
+      committed_at: "2026-08-11T15:14:41Z"
+      behind_corpus: 0
+      ahead_of_corpus: 2
+      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+      merge_base_at: "2026-08-11T03:12:03Z"
+      last_propagation: null
+    records:
+      total: 1
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 1
+    seed:
+      adr_template_vs_corpus: match
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: false
+      archived: false
+      pushed_at: "2026-08-11T16:00:11Z"
+      licence: NOASSERTION
+    adoption:
+      submodule:
+        corpus_mounted_at: null
+        branch: null
+      ide: []
+      ide_missing:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      seed_workflow_filenames_present: []
+      seed_workflow_filenames_absent:
+        - adr-lint.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      licensing: []
+    open_prs: []
+    observed_at: "2026-08-11T16:00:51Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
@@ -501,7 +544,7 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-11T12:05:42Z"
+    observed_at: "2026-08-11T16:00:53Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
@@ -530,13 +573,13 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-11T12:05:43Z"
+    observed_at: "2026-08-11T16:00:53Z"
 org:
   repositories:
     total: 109
-    private: 35
-    governed: 10
-    unmanaged: 98
+    private: 34
+    governed: 11
+    unmanaged: 97
   governed_without_repository:
     - streaming-infrastructure
   unmanaged_named:
@@ -591,7 +634,6 @@ org:
     - moviepy
     - obsidian-templates
     - otto
-    - qmcp
     - qmmv
     - rad
     - readysetjazz
@@ -608,7 +650,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 31
-  observed_at: "2026-08-11T12:05:44Z"
+  observed_at: "2026-08-11T16:00:55Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
