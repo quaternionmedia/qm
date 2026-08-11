@@ -20,10 +20,15 @@ between them are recorded here rather than inside each one.
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
 | [`disk-tooling.md`](disk-tooling.md) | nothing — built; four items wanting a decision, one of which blocks the delta review | qm + dossier |
 | [`session-2026-08-11.md`](session-2026-08-11.md) | nothing — where the 2026-08-10/11 session left things, and the decisions waiting | every repo |
-| [`workspace-unlanded.md`](workspace-unlanded.md) | nothing — a survey, and two items wanting a decision | every repo |
 
-**Two pages are gone rather than marked done**, per the routing rule above:
-`dossier-adoption.md` and `dossier-governance-view.md`. dossier has adopted —
+**Three pages are gone rather than marked done**, per the routing rule above.
+`workspace-unlanded.md` first: both decisions it opened with are settled —
+apothecary's adoption commit is on its `origin/main` (`git branch -r --contains
+2409244`), and qmetronome's two `120000` pointer files are present on disk with
+a clean tree. Its survey was a moment, and the moment has passed.
+
+Then `dossier-adoption.md` and `dossier-governance-view.md`. dossier has
+adopted —
 `AGENTS.md`, `.gitmodules` and the disk tooling are on its `main`, and
 dossier#10 and #11 are merged. A page describing delivered work as pending is
 worse than no page, because a session picks it up and re-derives a state that no

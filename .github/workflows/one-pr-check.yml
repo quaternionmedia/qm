@@ -89,4 +89,5 @@ jobs:
         run: |
           python project-seed/ci/check_pr_base.py \
             --base "$GITHUB_BASE_REF" \
-            --head "$GITHUB_HEAD_REF"
+            --head "$GITHUB_HEAD_REF" \
+            --refuse-only
