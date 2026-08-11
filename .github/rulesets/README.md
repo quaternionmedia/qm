@@ -11,24 +11,42 @@ decide.
 **The JSON describes the end state, and ships evaluating.** Every file is
 written as the protection this repository is building toward — including two
 required code-owner approvals on `main` and an empty bypass list — while
-`"enforcement": "evaluate"` means all five log what they *would* have blocked
+`"enforcement": "evaluate"` means all six log what they *would* have blocked
 and block nothing. Applying them today is therefore safe and reversible, and
 it is how the deadlocks below get found in logs rather than on the day
 someone tries to ratify.
 
 ## The staged path, and what unlocks ratification
 
-This repository has never had a single check run, and has one active
-reviewer. Turning on the end state today would deadlock immediately. The
-stages below each add one thing and can be verified before the next.
+Turning on the end state today would deadlock: it wants two code-owner
+approvals and this corpus has had one active reviewer. The stages below each
+add one thing and can be verified before the next.
 
-| Stage | Change | Precondition |
-|---|---|---|
-| 0 — today | No rulesets. The rules hold as doctrine (`AGENTS.md`, `README.md`) | — |
-| 1 | Apply all five **evaluating**. Read `rule-suites` for a week | none — safe now |
-| 2 | Flip C, D, E to **active**: force-push, deletion, signing, branch naming | Stage 1 quiet |
-| 3 | A and B **active**, but A with `required_approving_review_count: 1` and a `pull_request`-scoped admin bypass | `adr-lint`, `symlinks` and `reuse` have each reported green on a real PR |
-| 4 | A as written here: **2 approvals, no bypass** | **a second code owner is genuinely active** |
+*Where this stands, 2026-08-10.* Checks now run: pull request #36 reported
+`adr-lint`, `symlinks`, `reuse`, `tests`, `check` and `slot` green, which is
+**stage 3's stated precondition, met**. Stage 1 is therefore the only thing
+between here and a staged rollout, and it has no precondition at all.
+
+| Stage | Change | Precondition | State |
+|---|---|---|---|
+| 0 | No rulesets. The rules hold as doctrine (`AGENTS.md`, `README.md`) | — | left behind at stage 1 |
+| 1 | Apply all six **evaluating**. Read `rule-suites` for a week | none — safe now | **the next step** |
+| 2 | Flip C, D, E to **active**: force-push, deletion, signing, branch naming | Stage 1 quiet | waiting on a week of logs |
+| 3 | A and B **active**, but A with `required_approving_review_count: 1` and a `pull_request`-scoped admin bypass | `adr-lint`, `symlinks` and `reuse` have each reported green on a real PR | **precondition met** (#36) |
+| 4 | A as written here: **2 approvals, no bypass** | **a second code owner is genuinely active** | the standing blocker |
+
+Stage 3's precondition being met does not let it jump the queue: stage 2 exists
+so that force-push, deletion and signing are known-quiet before a rule starts
+gating merges. What it does mean is that once stage 1 has had its week, nothing
+else has to be waited for.
+
+**One thing to watch in the first week's logs.** Ruleset E targets `~ALL` with a
+`creation` rule, so every branch made in this repository is evaluated against
+the naming pattern. Branches created on 2026-08-10 — `project/dossier` here,
+and `governance/*` names in adopting projects — are the first real test of
+whether that pattern matches how work is actually named. A rule that would have
+blocked ordinary work is better found in a log than on the day it is switched
+on.
 
 **Records stay `Proposed` until stage 4.** Ratification is the act of a
 human taking responsibility for what the corpus says, and with one active
@@ -50,7 +68,7 @@ bypass it unless explicitly disabled; a ruleset binds admins whenever its
 bypass list is empty. Patterns are fnmatch, where `*` does not cross `/` —
 hence `refs/heads/project/**`.
 
-## The five
+## The six
 
 | | Target | Shape |
 |---|---|---|
@@ -121,7 +139,7 @@ audit trail while letting a solo maintainer complete the merge. To run stage
 
 ```sh
 gh auth status                       # must be an admin on the repo
-./.github/rulesets/apply.sh          # creates or updates all five
+./.github/rulesets/apply.sh          # creates or updates all six
 ```
 
 To advance a stage, edit `"enforcement"` to `"active"` in the files that

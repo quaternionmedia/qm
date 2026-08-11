@@ -1,0 +1,74 @@
+name: Governance status
+
+# The committed governance-status.yaml is a rendering of specific commits. This
+# job asks the only question CI can honestly answer about it: given the commits
+# the document names, are the numbers in it right?
+#
+# It deliberately does NOT regenerate and compare. The document's github layer
+# reads eight other repositories, so someone opening a pull request in
+# quaternionmedia/apothecary would make this repository's committed copy
+# "stale" with no commit here to explain it, and every unrelated PR would go
+# red for a reason its author cannot fix. Worse, main moves: `behind_corpus`
+# changes on every merge, so a byte-comparison against a fresh generation could
+# never be made green -- the remedy for a failure would be another merge, which
+# fails it again.
+#
+# So: no network, no credential, no `gh`. The check runs identically in a fork
+# pull request and in a scheduled run, which is the property that makes it
+# worth having. Refreshing the document is a human action -- see
+# handbook/handoffs/governance-status-generator.md.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'governance-status.yaml'
+      - 'ci/**'
+      - '.github/workflows/governance-status.yml'
+  pull_request:
+    paths:
+      - 'governance-status.yaml'
+      - 'ci/**'
+      - '.github/workflows/governance-status.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pyyaml
+        run: python -m pip install --quiet pyyaml
+
+      - name: Fetch the refs the document describes
+        # actions/checkout fetches the checked-out ref and nothing else, so
+        # refs/remotes/origin/project/* does not exist in a runner by default.
+        # Without this the check finds no project branches, and a check that
+        # compares nothing is the failure this whole file guards against. It
+        # refuses to pass in that state rather than reporting clean, so the
+        # symptom would be a confusing red rather than a false green -- but
+        # fetching is the fix either way.
+        run: |
+          git fetch --no-tags --quiet origin \
+            '+refs/heads/main:refs/remotes/origin/main' \
+            '+refs/heads/project/*:refs/remotes/origin/project/*'
+          git for-each-ref --format='%(refname:short)' 'refs/remotes/origin/project/*'
+
+      - name: The document faithfully renders the commits it names
+        run: python ci/governance_status.py --check governance-status.yaml
+
+      - name: It also renders
+        # A document that cannot be rendered is a document nobody will read.
+        # The renderer touches no network either, so this costs nothing.
+        run: |
+          python ci/governance_render.py governance-status.yaml --out /tmp/governance-status.html
+          test -s /tmp/governance-status.html
