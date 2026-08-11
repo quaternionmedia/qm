@@ -348,7 +348,14 @@ def main(argv: list[str] | None = None) -> int:
 
     print()
     verb = "Removed" if args.apply else "Would remove"
-    print(f"{verb} {removed_paths} paths, {ds.gb(removed_bytes)}")
+    # The exact count travels beside the rounded one. `0.0GB` is what a 5KB
+    # sweep rounds to, and a caller parsing this line -- dossier records it as
+    # the run's `claimed` figure -- would store a zero for a run that removed
+    # something. The rounded form stays because it is the one a person reads.
+    print(
+        f"{verb} {removed_paths} paths, {ds.gb(removed_bytes)} "
+        f"({removed_bytes} bytes)"
+    )
 
     after = free_on(CORPUS)
     if args.apply and before is not None and after is not None:
