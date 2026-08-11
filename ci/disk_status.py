@@ -287,6 +287,13 @@ def parse_bytes(text: str) -> int | None:
     are the same fact and neither is worth a second document field.
     """
     cleaned = text.strip().split(chr(10))[0].strip().replace(",", "")
+    # Docker reports reclaimable space as `23.62GB (97%)` -- the size, and what
+    # share of the total it is. The parenthetical is a second fact in the same
+    # field, and without dropping it the whole reading was refused as "not a
+    # size", which hid a 23GB target behind an unknown that looked like a dead
+    # daemon.
+    if "(" in cleaned:
+        cleaned = cleaned.split("(", 1)[0].strip()
     if not cleaned:
         return None
     units = {"B": 1, "KB": 10**3, "MB": 10**6, "GB": 10**9, "TB": 10**12,
