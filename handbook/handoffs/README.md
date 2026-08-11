@@ -21,6 +21,7 @@ between them are recorded here rather than inside each one.
 | [`dossier-governance-view.md`](dossier-governance-view.md) | **first cut delivered in dossier#10**; the delta-review page still open | dossier |
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
 | [`disk-tooling.md`](disk-tooling.md) | nothing — built; five items wanting a decision, one of which blocks the delta review | qm + dossier |
+| [`session-2026-08-11.md`](session-2026-08-11.md) | nothing — where the 2026-08-10/11 session left things, and the four decisions waiting | every repo |
 | [`workspace-unlanded.md`](workspace-unlanded.md) | nothing — a survey, and two items wanting a decision | every repo |
 
 The two dossier pages are genuinely independent of each other. The status
