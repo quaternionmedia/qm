@@ -1,0 +1,93 @@
+name: One PR per contributor
+
+# This corpus's own copy of project-seed/ci/one-pr-check.yml. It differs from
+# the seed in exactly three ways, and all three are consequences of this being
+# the corpus rather than a project:
+#
+#   1. The script is at project-seed/ci/, not governance/qm/project-seed/ci/ --
+#      there is no submodule here to run it out of.
+#
+#   2. `--per-base 'project/*'` is passed. Every project/<name> branch here is
+#      an adopting project's own adr/ directory, pinned by that project's
+#      submodule. A propagation pull request into project/alfred and one into
+#      project/datum are two unrelated projects; combining them to satisfy a
+#      slot count would invent a dependency between them and hand the reviewer
+#      a worse artifact than the two it replaced.
+#
+#      This is the only known instance of that shape, and it is an exemption
+#      rather than a different rule: `main` still holds exactly one slot per
+#      contributor, and two pull requests against the *same* project branch
+#      still fail. The flag is printed in the tool's own output, because an
+#      exemption nobody can see in the result has stopped being one.
+#
+#   3. `check_pr_base.py` runs here as a second step, refusing a pull request
+#      from `project/<name>` into `main`. That branch namespace exists only in
+#      this repository -- a project's own repo has no `project/*` branches -- so
+#      in the seed the same step would be a check that can never fail, which is
+#      the shape this corpus keeps finding in its own tooling and does not want
+#      to add deliberately.
+#
+# See handbook/async-contract.md §1 and the README's "Branch namespaces".
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+# One run per branch per workflow. A second push supersedes the first: nobody
+# reads the result of a run whose commit has already been replaced, and the
+# minutes are real -- 55 of this repository's 129 runs on 2026-08-11 came from
+# five iterative pushes to two pull request branches, where only the last
+# mattered.
+#
+# Cancellation is scoped to pull requests deliberately. On the default branch
+# and on a project branch the run IS the record of what that commit reported,
+# and cancelling it to start a newer one destroys the only evidence that the
+# earlier commit was ever checked.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  slot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: This contributor holds at most one open pull request here
+        run: |
+          python project-seed/ci/check_one_pr.py \
+            --repo "$GITHUB_REPOSITORY" \
+            --contributor "$PR_AUTHOR" \
+            --per-base 'project/*'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+
+      # A step in this job rather than a workflow of its own, on purpose. The
+      # question is a different one, but the job already checks out the tree,
+      # already installs Python, and already fires on exactly the event this
+      # needs -- so a second workflow would double the billed runs per pull
+      # request to ask one more question. It also keeps the reported check name
+      # (`slot`) unchanged, which matters because a project that copies this seed
+      # may have made that name a required context.
+      #
+      # fetch-depth 0 is needed here and not above: the base check computes a
+      # merge-base, and the default shallow checkout has no history to compute
+      # it from.
+      - name: Deepen history for the base check
+        run: git fetch --no-tags --prune --unshallow origin || git fetch --no-tags origin
+
+      - name: This pull request targets a base it is allowed to target
+        run: |
+          python project-seed/ci/check_pr_base.py \
+            --base "$GITHUB_BASE_REF" \
+            --head "$GITHUB_HEAD_REF" \
+            --refuse-only

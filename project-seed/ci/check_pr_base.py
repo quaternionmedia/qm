@@ -28,16 +28,31 @@ without evidence:
   - whether any carried commit already belongs to another branch. THIS is the
     one that catches a branch stacked on someone else's work.
 
-Exit status is 1 when the merge-base is not the base tip, or when commits are
+There are two kinds of non-zero exit here, and conflating them is how this tool
+gets wired in as a gate it was never meant to be.
+
+**A REFUSAL is a verdict.** The pull request is malformed and no description
+fixes it: the head is a `project/<name>` branch (permanent, and never a merge
+source), or the head carries a top-level `adr/` at the default branch. Both
+print `REFUSED` and exit 1 in every mode.
+
+**An ADVISORY is not.** The merge-base is not the base tip, or commits are
 shared with another branch. **Neither means broken; both mean "explain this".**
 A long-running branch legitimately falls behind, and merging one of your own
 branches into another is normal. Read the ratio: "1 of 61" is a branch you
 folded in deliberately, "18 of 20" is a branch you did not mean to be on. The
 number is the finding; the exit code only makes you look at it.
 
+So the default mode exits 1 for either, which suits a human running it before
+opening a pull request. **CI must pass `--refuse-only`**, which exits non-zero
+for refusals alone. Without it a propagation pull request fails by design --
+`propagate/foo -> project/foo` is behind its base and shares commits with it,
+which is what propagation *is*.
+
 Usage:
     python check_pr_base.py --base main --head my-branch
     python check_pr_base.py --base project/foo --head propagate/foo --remote origin
+    python check_pr_base.py --base "$GITHUB_BASE_REF" --head "$GITHUB_HEAD_REF" --refuse-only
 """
 
 from __future__ import annotations
@@ -107,6 +122,16 @@ def main() -> int:
         "since a propagation PR carries them by design.",
     )
     ap.add_argument(
+        "--refuse-only",
+        action="store_true",
+        help="Exit non-zero ONLY for a refusal -- a project/<name> head, or a "
+        "top-level adr/ aimed at the default branch. The behind-the-base and "
+        "shared-commits findings are still printed but do not fail. This is the "
+        "mode CI runs: those two are advisories that mean 'explain this', and "
+        "gating on them fails every propagation pull request, which is behind "
+        "its base and shares commits with it by design.",
+    )
+    ap.add_argument(
         "--expect-author",
         action="append",
         default=[],
@@ -116,10 +141,121 @@ def main() -> int:
     )
     args = ap.parse_args()
 
-    base = f"{args.remote}/{args.base}" if "/" not in args.base.split("/")[0] else args.base
-    head = f"{args.remote}/{args.head}"
-    for ref in (base, head):
-        git("rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}")
+    def qualify(ref: str) -> str:
+        """Prefix a bare branch name with the remote; leave a qualified ref alone.
+
+        "Does it contain a slash" cannot answer this, because the branch names
+        here nearly all contain one -- project/datum, evolve/foo, perspective/
+        bar. Asking whether it already names this remote can.
+        """
+        return ref if ref.startswith(f"{args.remote}/") else f"{args.remote}/{ref}"
+
+    # An empty --base or --head qualifies to a bare "origin/", and git's error
+    # for that names the mangled ref rather than the missing argument. In CI the
+    # cause is always the same: $GITHUB_BASE_REF and $GITHUB_HEAD_REF are set on
+    # a pull_request event and empty on every other one, so the step is running
+    # on a trigger it was not written for.
+    for name, value in (("--base", args.base), ("--head", args.head)):
+        if not value.strip():
+            sys.exit(
+                f"check_pr_base: {name} is empty.\n"
+                "In a workflow this comes from $GITHUB_BASE_REF / $GITHUB_HEAD_REF,\n"
+                "which are set only on a pull_request event."
+            )
+
+    base = qualify(args.base)
+    head = qualify(args.head)
+    for label, ref in (("--base", base), ("--head", head)):
+        probe = subprocess.run(
+            ["git", "rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}"],
+            capture_output=True,
+            text=True,
+        )
+        if probe.returncode:
+            # The ordinary cause off a runner is a branch that exists locally and
+            # has never been pushed, which is exactly the state you are in when
+            # you run this before opening the pull request. git's own message
+            # names the ref and not the reason, so it reads as a broken check.
+            local = subprocess.run(
+                ["git", "rev-parse", "--verify", "--quiet", f"{args.head}^{{commit}}"],
+                capture_output=True,
+                text=True,
+            )
+            hint = (
+                f"\n{args.head} exists locally but not on {args.remote}. Push it, "
+                f"or pass\n--head <a branch that is pushed>. Nothing is wrong with "
+                f"the branch."
+                if label == "--head" and not local.returncode
+                else "\nCheck the name, and that you have fetched."
+            )
+            sys.exit(f"check_pr_base: {ref} does not exist.{hint}")
+
+    # A `project/<name>` branch is permanent and takes changes in, never out. It
+    # holds one project's deviation from the corpus, and merging it into the
+    # default branch moves that project's `adr/` into the org namespace -- where
+    # a local decision reads as an org record binding every other project, and
+    # the precedence rule runs backwards.
+    #
+    # Refused here rather than warned about, because nothing in the resulting
+    # tree looks wrong. The records are all present and all well-formed; they are
+    # merely in the wrong namespace, and the next project to adopt inherits them.
+    # There is no later signal, so this is the only place it can be caught.
+    #
+    # Bare names are compared, not the remote-qualified ones: `origin/project/x`
+    # and a `--remote upstream` spelling of the same branch must both match.
+    bare_head = args.head.removeprefix(f"{args.remote}/")
+    bare_base = args.base.removeprefix(f"{args.remote}/")
+
+    def refuse(why: str, meant: str) -> int:
+        print(f"base            {base}")
+        print(f"head            {head}")
+        print(f"\nREFUSED: {why}\n\n{meant}")
+        print('\nSee the corpus README\'s "Branch namespaces".')
+        return 1
+
+    # Refused on the HEAD namespace alone, with no reference to what the base is.
+    # Keying on `base == main` looked equivalent and is not: an intermediate base
+    # routes straight around it. Verified -- with a branch at main's tip,
+    # `--base evolve/staging --head project/qmcp` exited 0 with no warning, and
+    # that staging branch then reaches the default branch by the ordinary route.
+    # Two green pull requests and the records land in the org namespace anyway.
+    #
+    # The rule has no base in it, so neither does the check: a project branch is
+    # never a merge *source*. Nothing legitimate has one as its head -- records
+    # arrive on a PR whose base is the project branch, and propagation runs the
+    # same direction.
+    if bare_head.startswith("project/"):
+        return refuse(
+            f"{bare_head} may not be the head of a pull request, whatever the "
+            f"base is.\n\nA project/<name> branch is permanent and takes changes "
+            f"in, never out. Merging\nit anywhere puts one project's adr/ where "
+            f"a project-local decision reads as an\norg record binding every "
+            f"project -- and nothing in the resulting tree looks\nwrong "
+            f"afterwards, so there is no later signal.",
+            f"What you probably meant:\n"
+            f"  - adding records to that project: open the PR with --base "
+            f"{bare_head}\n"
+            f"  - bringing {args.default} to that project: a propagate/<name>-"
+            f"<date> branch,\n    --base {bare_head}",
+        )
+
+    # And a content test, because the one above matches a name. A branch called
+    # anything at all can carry a top-level adr/, and the innocuous name is the
+    # likelier accident: `git commit-tree <project-branch-tree> -p origin/main`
+    # on a branch named evolve/* passed the namespace check and put a whole
+    # project's records on the default branch. Names are a convention; the tree
+    # is the thing that lands.
+    if bare_base == args.default and git(
+        "ls-tree", "--name-only", head, "adr"
+    ).strip():
+        return refuse(
+            f"{bare_head} carries a top-level adr/ and targets {bare_base}.\n\n"
+            f"adr/ holds one project's records and belongs on that project's own\n"
+            f"project/<name> branch. {bare_base} carries the org namespace and no\n"
+            f"top-level adr/ at all.",
+            "Move those records to the project's own branch, or -- if they are\n"
+            "org-level -- to records/ under an org record's name.",
+        )
 
     base_tip = git("rev-parse", base)
     merge_base = git("merge-base", base, head)
@@ -168,8 +304,14 @@ def main() -> int:
             f"behind it.\nThat is fine for a long-running branch and wrong for a branch "
             f"you meant to cut\nfrom {base} just now. Say which in the description."
         )
-        return 1
-    return 1 if others else 0
+    if args.refuse_only:
+        # Nothing above refused, or it would have returned already. The two
+        # findings below it are advisories the docstring is explicit about --
+        # "neither means broken; both mean explain this" -- so gating on them
+        # fails every propagation pull request, which legitimately sits behind
+        # its base and legitimately shares commits with it.
+        return 0
+    return 1 if (not aligned or others) else 0
 
 
 if __name__ == "__main__":

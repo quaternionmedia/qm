@@ -20,18 +20,46 @@ no other briefing, read this file fully before your first commit or edit.
 
 ## Before you do anything
 
+**Run `/cowork` first.** It builds this session's brief from the repository —
+the commit you are on, whether your pull request slot is free, what else is in
+flight in this clone, which gates exist — instead of letting you inherit a
+previous session's beliefs. Other sessions are likely running right now, in
+other repositories, for the same reviewer;
+`governance/qm/handbook/async-contract.md` is the set of rules that exist only
+because of that, and it is short. `/preflight`, `/handoff` and `/status` close the same
+loop at the other end.
+
+**Read the corpus's committed status documents before re-deriving what they
+hold.** `governance/qm/governance-status.yaml` and
+`governance/qm/harness-status.json` each carry their own refresh command and
+staleness budget inside the file; `governance/qm/handbook/generated-documents.md`
+indexes them. Check the age before quoting a figure.
+
 1. Read `governance/qm/README.md` and `governance/qm/PRINCIPLES.md` in full
    — the namespaces/precedence rules and the charter. Both are short.
 2. This project's own decision records live in `governance/qm/adr/` — inside
    the submodule, on this project's own branch, not at this repo's root — as
    `ADR-NNNN` (numbered locally, at ratification) or `DRAFT-*.md` before
    ratification. A human ratifies; you draft.
-3. **Everything you produce arrives as a pull request.** Work on a branch and
-   open a PR for human review — in this repo, and in the `governance/qm`
-   submodule when you touch this project's records there. Never commit to,
-   merge into, or push a shared branch directly, and never merge your own
-   work, however small or mechanical the change looks. If you cannot open a
-   PR, hand the branch back rather than merging it.
+3. **Everything you produce arrives as a pull request, opened as a draft.**
+   Work on a branch and open a PR with `gh pr create --draft` — in this repo,
+   and in the `governance/qm` submodule when you touch this project's records
+   there. Never commit to, merge into, or push a shared branch directly, and
+   never merge your own work, however small or mechanical the change looks.
+   If you cannot open a PR, hand the branch back rather than merging it.
+   **Draft is load-bearing, and never request a review.** A ready PR against a
+   branch carrying `CODEOWNERS` requests review from those owners the moment it
+   opens — you name no one, and the notification cannot be recalled. So "open a
+   PR for human review", read literally, is the act of pulling a second person
+   into work nobody has tested. A draft PR fires none of it. Add the person who
+   asked for the work as **assignee**, which is also how you reach them when
+   they authored the branch and GitHub therefore refuses a review request on
+   it. Leaving draft is their call, made after their own testing.
+   **Keep it to one open PR per repository, per contributor.** Not one per
+   task. Two PRs that must merge in a given order are a sequencing puzzle
+   handed to your reviewer. Land the upstream change first and let propagation
+   carry it. `.github/workflows/one-pr-check.yml` enforces this; run
+   `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
 4. **Human-only contributorship applies to every commit you make here** (see
    `governance/qm/records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored
@@ -43,11 +71,36 @@ no other briefing, read this file fully before your first commit or edit.
    `governance/qm/adr/README.md` before writing or amending any record.
 6. A QM record may be tightened by this project's own records, never
    relaxed — see `governance/qm/README.md`'s "Namespaces and precedence."
-7. Banned in any pre-ratification `DRAFT-*.md` record: "previously",
+7. **Put explanation in one place**, per
+   `governance/qm/handbook/style-guide.md`: inline comments carry clarifying
+   facts about the code, `README.md` is a shallow onramp to what follows it,
+   `docs/` is reference, and **every why goes to a retrospective in
+   `governance/qm/perspectives/`**. A record's Context and Alternatives are
+   the one exception, answering *why this decision* rather than *why it went
+   that way*.
+8. Banned in any pre-ratification `DRAFT-*.md` record: "previously",
    "originally", "earlier draft", "re-review", "renumber", "retroactive",
    "supersedes the ... (stance|finding)", "corrected". Drafts are rewritten
    in place, not narrated. The ADR lint enforces this over prose only, so
    quoting the list in a code span is fine.
+9. **Establish a fact before asserting it, and check a signal before reading
+   it.** A claim that something is broken, unsupported or behaves a certain way
+   carries the command you ran and what it returned. Before reporting what a
+   result means, name one other thing that would produce the same output — a
+   tool version, a flag's semantics, stale local state, the working directory,
+   a substring matching prose. An unexpected uniform result is a tooling fault
+   until shown otherwise, and a check that has only ever been seen green has
+   not been tested: break the thing it names and watch it go red.
+10. **A claim about what facts *mean* names what else could produce them.**
+    This is the sibling of the rule above and catches a different failure: the
+    facts are all true and the sentence built from them is wrong. Name the
+    ordinary cause before the interesting one — same author, same source, same
+    tooling, same period — and state direction and date, because "A resembles
+    B" is symmetric and the useful version rarely is. **A correction carries
+    the same burden as the claim it replaces**: an overclaim gets caught by a
+    reader who knows better, while a deflation reads as rigour, closes the
+    topic, and can quietly delete something real. See
+    `governance/qm/records/DRAFT-decision-record-discipline.md` §7 and §8.
 
 ## One-time setup on a fresh clone (Windows)
 
