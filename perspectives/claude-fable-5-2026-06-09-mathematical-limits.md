@@ -19,11 +19,17 @@ The closing section names this document's own bias honestly: I selected construc
 
 | | |
 |---|---|
-| **Standing** | Perspective — non-binding, attributed, dated. Companion to the 2026-06-09 perspective document. |
+| **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. Companion to the 2026-06-09 perspective document. |
 | **Author** | Peter Kagstrom |
 | **Tools** | Claude Fable 5 (Anthropic) |
 | **Date** | 2026-06-09 |
 | **Task** | Tie the identified shortcomings of agentic harness systems to provable mathematical constructs, numerically where the math permits; where machinery is missing, mark the hole and the jumping-off point. |
+
+> **Editorial note, not part of the argument.** The holes this document marks
+> are worked on in the `workspace/math-experiments` branch of this repository,
+> which groups them into six topics with candidate demonstrations for each.
+> None has been run. Added so a reader arriving here finds the follow-on work,
+> which otherwise pointed only in the opposite direction.
 
 ## 0. Rigor taxonomy (the harness for this document)
 

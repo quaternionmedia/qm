@@ -59,9 +59,14 @@ author/contributor field exists to record.
 
 ## Consequences
 
-- CI/PR review gains a check: a commit trailer, or a new perspective/record
-  byline, naming a non-monitored address or a tool/model as author fails
-  review.
+- A byline naming a tool or model, or a commit trailer naming an unmonitored
+  address, fails review. What backs that up differs by artifact, and the
+  difference is worth stating rather than blurring: a byline is prose a human
+  reviewer reads in the diff, while a commit trailer is metadata nobody reads
+  by eye. The trailer therefore needs a machine check, and the shape of it is
+  a branch-protection rule matching `co-authored-by:.*noreply` with the match
+  negated — the repository's rulesets carry it. Until a ruleset enforcing it
+  is active, this clause is carried by instruction alone (see below).
 - `perspectives/README.md`'s index schema gains a Tools/Notes annotation
   distinct from Author; its existing entries crediting model names, plus the
   affected files' own header tables and closing signatures, were migrated to
@@ -74,8 +79,10 @@ author/contributor field exists to record.
   check. That is a known soft spot, not a design choice: this corpus's own
   decision-record-discipline record rejected "convention without
   enforcement" as insufficient in a different context, and the same
-  argument applies here until a commit-msg hook or CI grep exists to back
-  the instruction up.
+  argument applies here until the rule above is actually enforcing. The
+  instruction is the weakest of the three mechanisms this record relies on,
+  and it guards the one violation an assistant commits by default rather
+  than by choice.
 - Cost accepted: some provenance detail (exactly which model or version
   produced a given diff) moves from a prominent commit trailer to a
   lower-visibility Tools note. The org has decided that the signer being

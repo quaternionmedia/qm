@@ -7,12 +7,94 @@ commit or edit — it is short on purpose.
 
 ## Before you do anything
 
+**Run `/cowork` first.** It builds this session's brief from the repository —
+the commit you are on, whether your pull request slot is free, what else is in
+flight in this clone, which gates exist — instead of letting you inherit a
+previous session's beliefs. Other sessions are very likely running right now,
+in other repositories, for the same reviewer; `handbook/async-contract.md` is
+the set of rules that exist only because of that, and it is short. `/preflight`
+and `/handoff` close the same loop at the other end, and `/status` reports
+what is in flight across the org. The commands live in
+`project-seed/ide/.claude/commands/`, and this repository's `.claude/` is
+symlinks into it.
+
+**Read the committed status documents before re-deriving what they hold.**
+`governance-status.yaml` and `harness-status.json` sit at the root, each
+carrying its own refresh command and staleness budget inside the file;
+`handbook/generated-documents.md` indexes them, and
+`ci/harness_dashboard.py harness-status.json --format md` renders the second
+as prose. Check the age before quoting a figure — a stale number delivered
+with a date looks checked.
+
 1. Read `README.md` (namespaces, precedence, ratification) and
    `PRINCIPLES.md` (the charter) in full. Both are short.
 2. This corpus governs its own drafting. Records live in `records/` as
    `DRAFT-*.md` until a human ratifies them (flips Status, assigns a QM
    number, updates the index) — you draft, you never ratify.
-3. **Human-only contributorship applies to every commit you make here**
+3. **Everything you produce arrives as a pull request.** Work on a branch —
+   `evolve/<slug>` for org-level work, `perspective/<date>-<slug>` for a
+   perspective, `project/<name>` for one project's records — and open a PR
+   for human review. Never commit to `main`, never merge into `main`, and
+   never push `main` directly, however small, mechanical, or obviously
+   correct the change looks. Ratification is not the only human gate; it is
+   the last one. A human decides what this corpus says, and the pull request
+   is where that decision is made and recorded.
+   **Open it as a draft, and never request a review.** `gh pr create --draft`.
+   Draft is not a formality here: a ready PR against a branch carrying
+   `CODEOWNERS` requests review from those owners the moment it opens, with no
+   reviewer named by you and no way to recall the notification. This corpus's
+   `main` owns `/project-seed/`, `/.github/workflows/` and `/.github/rulesets/`
+   that way, so "open a PR for human review" — read literally, as an agent will
+   read it — is the act of pulling a second person into untested work. A draft
+   PR fires none of it. Add the person who asked for the work as **assignee**,
+   which is also how you reach them when they authored the branch and GitHub
+   therefore refuses a review request. Leaving draft is their decision and
+   follows their own testing, not your confidence in the diff.
+   **Closing a pull request is a git operation, not just a `gh` command.**
+   Pushing a PR's head commits onto its base branch *merges that PR*. GitHub
+   detects that the base now contains the head and marks it merged, with the
+   pushed commit as the merge commit and whoever pushed as the merger — no
+   review, no approval, and no way to undo the record. A later `gh pr close`
+   is then a no-op against an already-merged PR, so the operation reports
+   success and `--delete-branch` silently does nothing.
+   This has happened here. Combining two stacked PRs by fast-forwarding the
+   base is the natural move and it converts a close into a merge. **Close the
+   PR first, then push**, or retarget it to the outer base before folding it
+   in. The order is the whole safeguard.
+   **A pull request states decisions, not questions.** Settle every input you
+   are unsure of *before* you open it: ask in the session and wait for the
+   answer. A PR that asks its reviewer what you should have asked earlier
+   hands the drafting back to them and calls it review. This is separate from
+   a record's `Pends on` row, which names something *the organisation* has
+   not settled — that belongs in the record, and a Proposed record naming it
+   is the process working. What does not belong anywhere is your own
+   unresolved question arriving as PR text.
+   **One open PR per repository, per contributor.** Not one per task. Two PRs
+   that must merge in an order are a sequencing puzzle handed to the reviewer.
+   Land the org change first and let propagation carry it, rather than opening
+   a second PR that depends on the first. `one-pr-check.yml` enforces it and
+   `project-seed/ci/check_one_pr.py` is the rule; in *this* repository each
+   `project/<name>` branch holds its own slot, because each is pinned by a
+   different downstream submodule. That exemption is named in the workflow and
+   printed by the tool, and it is the only one.
+4. **Check what your branch actually carries, before opening the PR.**
+   `python project-seed/ci/check_pr_base.py --base <base> --head <branch>`
+   reports the merge-base, the commit and file counts, the authors, and any
+   commits that also live on another branch. A branch cut from the wrong parent
+   passes every other check — its tests are green and its lint is clean,
+   because those measure the branch and not where it came from. One PR in this
+   org sat open carrying 18 commits of unrelated work under a title describing
+   one CI check. Paste the output into the description.
+5. **Run the CI locally before you call a pull request ready.**
+   `python project-seed/ci/run_workflows_locally.py` executes the workflows'
+   actual steps. Reading a workflow and running the commands you think it
+   contains is not the same thing, and the difference is where false "CI is
+   green" claims come from — the first local run of this repo's own workflows
+   failed a step that every hand-run check had passed. Report what you ran and
+   what it said, including which steps the runner cannot reproduce. A local
+   failure may be a defect or an environment difference — say which you
+   established, rather than reporting the exit code.
+6. **Human-only contributorship applies to every commit you make here**
    (see `records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored
    address (e.g. a vendor `noreply@` address) to any commit. If your default
@@ -20,9 +102,15 @@ commit or edit — it is short on purpose.
    this repo. Tool involvement is disclosed as a `Tools:` note where the
    artifact calls for one (see `perspectives/README.md`'s Attribution row),
    never as a byline.
-4. Follow the drafting-session handoff contract in
+7. Follow the drafting-session handoff contract in
    `project-seed/adr/README.md` before writing or amending any record.
-5. Banned in any pre-ratification `records/DRAFT-*.md` document:
+8. **Put explanation in one place**, per `handbook/style-guide.md`: inline
+   comments carry clarifying facts about the code, `README.md` is a shallow
+   onramp to what follows it, `docs/` is reference, and **every why goes to a
+   retrospective in `perspectives/`**. A record's Context and Alternatives are
+   the one exception, and they answer *why this decision* rather than *why it
+   went that way*.
+9. Banned in any pre-ratification `records/DRAFT-*.md` document:
    "previously", "originally", "earlier draft", "re-review", "renumber",
    "retroactive", "supersedes the ... (stance|finding)", "corrected".
    Drafts are rewritten in place, not narrated.
