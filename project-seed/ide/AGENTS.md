@@ -101,6 +101,23 @@ indexes them. Check the age before quoting a figure.
     reader who knows better, while a deflation reads as rigour, closes the
     topic, and can quietly delete something real. See
     `governance/qm/records/DRAFT-decision-record-discipline.md` §7 and §8.
+11. **The scaffolding you measure with is part of the measurement.** Item 9 is
+    the tool answering a different question than you asked. This is the tool
+    being fine and the setup not — nothing errors, and the result describes your
+    own scaffolding rather than the subject. Real instances: a diff run against
+    files a redirect never wrote, reported as a hundred lines of drift when the
+    truth was none; a working tree read after a merge that exited non-zero; file
+    copies written through a text API that converted every line ending, so the
+    diff was entirely encoding; a mutation test whose baseline was already
+    failing, so it proved nothing in either direction. **Prefer the artefact you
+    did not create** — read a document's own answer instead of recomputing one —
+    and assert the intermediate: non-empty, exit zero, baseline green.
+12. **A guard is not finished until someone has tried to route around it.**
+    Breaking it and watching it go red proves it fires on the case you thought
+    of; it cannot find the case you did not. Ask for a pass whose brief is to
+    satisfy the check while doing the thing it forbids. A guard with a hole is
+    worse than no guard — it is a green check standing exactly where a reader
+    believes something is enforced. See the same record's §9 and §10.
 
 ## One-time setup on a fresh clone (Windows)
 
