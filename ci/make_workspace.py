@@ -1,0 +1,288 @@
+#!/usr/bin/env python3
+"""Write the multi-root VS Code workspace for the QM repositories.
+
+Org-level tooling, copied nowhere. It reads ci/workspace.yaml and writes one
+`.code-workspace` file plus a page next to it explaining what the file assumes.
+
+WHY THE OUTPUT IS NOT COMMITTED
+
+A workspace file is a list of folder paths. Committing one into the corpus
+would put one contributor's directory layout into a document every project
+adopts by reference, and the first person to clone somewhere else would find a
+governance repository asserting something false about their machine. So the
+roster is committed, the resolution is done here, and the result lands outside
+this repository.
+
+WHAT IT REFUSES TO DO
+
+  - It does not drop a repository it could not find. A roster silently missing
+    three entries reads exactly like a roster of everything that exists. Absent
+    clones are written into the companion page as MISSING, with the candidate
+    paths that were tried.
+  - It does not guess a phase. `unknown` is rendered as unknown, and collected
+    into a question list at the end, because a repository nobody has placed on
+    the ladder is not a repository at the bottom of it.
+  - It does not write absolute paths. Every folder is relative to the workspace
+    file, so the result is shareable with anyone whose clones sit in the same
+    shape -- and the companion page states that shape rather than assuming it.
+
+Usage:
+    python ci/make_workspace.py
+    python ci/make_workspace.py --out ../quaternion-media.code-workspace
+    python ci/make_workspace.py --search-root C:/Users/me/repos --check
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+from pathlib import Path
+
+import yaml
+
+UNKNOWN = "unknown"
+
+# Pinned rather than left to whatever a VS Code release defaults to, and the
+# same two keys project-seed/ide/.vscode/settings.json pins for a single
+# folder: a multi-root window reads workspace settings, not the settings of
+# whichever folder happens to be first.
+WORKSPACE_SETTINGS = {
+    "chat.useAgentsMdFile": True,
+    "chat.useClaudeMdFile": True,
+    "git.detectSubmodules": True,
+    "git.openRepositoryInParentFolders": "never",
+    "search.exclude": {
+        "**/node_modules": True,
+        "**/.venv": True,
+        "**/dist": True,
+        "**/__pycache__": True,
+    },
+}
+
+EXTENSIONS = ["anthropic.claude-code", "GitHub.copilot", "GitHub.copilot-chat"]
+
+
+def load_roster(path: Path) -> list[dict]:
+    document = yaml.safe_load(path.read_text(encoding="utf-8"))
+    repositories = document.get("repositories") or []
+    if not repositories:
+        sys.exit(f"make_workspace: {path} lists no repositories")
+    return repositories
+
+
+def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
+    """The first candidate path that is a git repository, or None.
+
+    A directory that exists but holds no `.git` is not a clone -- it is an
+    empty folder someone made, and adding it to the workspace would present it
+    as a checked-out repository.
+    """
+    for candidate in entry.get("paths", []):
+        for root in search_roots:
+            probe = (root / candidate).resolve()
+            if (probe / ".git").exists():
+                return probe
+    return None
+
+
+def relative_to(target: Path, base: Path) -> str:
+    """A relative path in POSIX form, going up as far as needed.
+
+    os.path.relpath rather than Path.relative_to: the latter refuses to emit
+    `..`, and half of these clones are not below the workspace file.
+    """
+    return Path(os.path.relpath(target, base)).as_posix()
+
+
+def build(roster: list[dict], search_roots: list[Path], out: Path) -> tuple[dict, list[dict]]:
+    base = out.parent.resolve()
+    resolved: list[dict] = []
+    for entry in roster:
+        found = resolve(entry, search_roots)
+        resolved.append({**entry, "resolved": found})
+
+    folders = []
+    for entry in resolved:
+        if entry["resolved"] is None:
+            continue
+        label = entry["name"]
+        if entry.get("role") == "corpus":
+            label = f"{label} · constitution"
+        folders.append({"name": label, "path": relative_to(entry["resolved"], base)})
+
+    workspace = {
+        "folders": folders,
+        "settings": WORKSPACE_SETTINGS,
+        "extensions": {"recommendations": EXTENSIONS},
+    }
+    return workspace, resolved
+
+
+def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) -> str:
+    found = [e for e in resolved if e["resolved"] is not None]
+    missing = [e for e in resolved if e["resolved"] is None]
+    # Scaffolded, not unknown: since the phase-ladder record every project
+    # has a phase, and the open question is whether the ladder's floor is
+    # the right answer rather than whether there is one at all.
+    unplaced = [e for e in found if str(e.get("phase_source", UNKNOWN)) == "scaffolded"]
+
+    lines = [
+        f"# {out.stem}",
+        "",
+        "Generated by `ci/make_workspace.py` in the QM constitution repository,",
+        "from the roster at `ci/workspace.yaml`. Regenerate it rather than editing",
+        "it: an edit here is lost on the next run and is invisible to everyone else.",
+        "",
+        "## What it assumes about your machine",
+        "",
+        "Every folder path in the workspace file is **relative to this file**, so",
+        "sharing it works for anyone whose clones sit in the same shape. That shape",
+        "is: this file beside the `qm/` directory, with sibling clones under it, and",
+        "a few repositories one level up. Searched from:",
+        "",
+    ]
+    lines += [f"- `{root}`" for root in search_roots]
+    lines += [
+        "",
+        "If your layout differs, re-run the generator with `--search-root`; do not",
+        "hand-edit the paths.",
+        "",
+        "## What is in it",
+        "",
+        "| Repository | Role | Phase | Resolved to |",
+        "|---|---|---|---|",
+    ]
+    for entry in found:
+        lines.append(
+            f"| {entry['name']} | {entry.get('role', UNKNOWN)} | "
+            f"{entry.get('phase', UNKNOWN)} ({entry.get('phase_source', UNKNOWN)}) | "
+            f"`{relative_to(entry['resolved'], out.parent.resolve())}` |"
+        )
+
+    lines += ["", "## Not on this machine", ""]
+    if missing:
+        lines.append(
+            "These are in the roster and were not found. They are listed rather than"
+        )
+        lines.append(
+            "dropped, because a workspace quietly missing three repositories looks"
+        )
+        lines.append("exactly like a complete one.")
+        lines.append("")
+        lines.append("| Repository | Candidates tried |")
+        lines.append("|---|---|")
+        for entry in missing:
+            candidates = ", ".join(f"`{p}`" for p in entry.get("paths", []))
+            lines.append(f"| {entry['name']} | {candidates} |")
+    else:
+        lines.append("None — every repository in the roster resolved.")
+
+    lines += ["", "## Phases nobody has stated", ""]
+    if unplaced:
+        lines.append(
+            "The ladder is `records/DRAFT-project-phase-ladder.md`: **v0.0.1 is"
+        )
+        lines.append(
+            "governance**, the same claim in every project, and every rung above it"
+        )
+        lines.append(
+            "is defined by the project in its own records. These carry v0.0.1 because"
+        )
+        lines.append(
+            "nothing was stated — the floor applied, rather than anybody deciding:"
+        )
+        lines.append("")
+        for entry in unplaced:
+            note = f" — {entry['note']}" if entry.get("note") else ""
+            lines.append(f"- **{entry['name']}**{note}")
+        lines.append("")
+        lines.append(
+            "Answer one by setting its `phase` and `phase_source: stated` in"
+        )
+        lines.append(
+            "`ci/workspace.yaml` and re-running. A rung above v0.0.1 also needs its"
+        )
+        lines.append("definition written in that project's own records.")
+    else:
+        lines.append("None — every resolved repository has a phase somebody stated.")
+
+    lines.append("")
+    return "\n".join(lines)
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument(
+        "--roster",
+        type=Path,
+        default=Path(__file__).resolve().parent / "workspace.yaml",
+    )
+    parser.add_argument(
+        "--out",
+        type=Path,
+        help="where to write the .code-workspace "
+        "(default: quaternion-media.code-workspace beside the corpus clone's parent)",
+    )
+    parser.add_argument(
+        "--search-root",
+        action="append",
+        type=Path,
+        default=[],
+        help="a directory the roster's paths are relative to. Repeatable.",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="report only; write nothing. Exit 1 if a roster entry is missing.",
+    )
+    args = parser.parse_args(argv)
+
+    corpus = Path(__file__).resolve().parent.parent
+    default_root = corpus.parent.parent
+    out = args.out.resolve() if args.out else (
+        default_root / "quaternion-media.code-workspace"
+    )
+    search_roots = [p.resolve() for p in args.search_root] or [default_root]
+
+    roster = load_roster(args.roster)
+    workspace, resolved = build(roster, search_roots, out)
+    page = companion_page(resolved, out, search_roots)
+
+    missing = [e["name"] for e in resolved if e["resolved"] is None]
+    unplaced = [
+        e["name"]
+        for e in resolved
+        if e["resolved"] is not None and str(e.get("phase_source", UNKNOWN)) == "scaffolded"
+    ]
+
+    print(f"roster       {args.roster}")
+    print(f"search root  {', '.join(str(r) for r in search_roots)}")
+    print(f"folders      {len(workspace['folders'])} of {len(roster)} resolved")
+    if missing:
+        print(f"MISSING      {', '.join(missing)}")
+    if unplaced:
+        print(f"phase scaffolded {', '.join(unplaced)}")
+
+    if args.check:
+        print("\n--check: nothing written.")
+        return 1 if missing else 0
+
+    out.parent.mkdir(parents=True, exist_ok=True)
+    # ensure_ascii=False: this file is meant to be opened and read by whoever
+    # it is shared with, and `qm · constitution` is not that.
+    out.write_text(
+        json.dumps(workspace, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+    companion = out.with_suffix(".md")
+    companion.write_text(page, encoding="utf-8", newline="\n")
+    print(f"\nwrote {out}")
+    print(f"wrote {companion}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

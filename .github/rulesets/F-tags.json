@@ -1,0 +1,34 @@
+{
+  "name": "F - version tags",
+  "target": "tag",
+  "enforcement": "evaluate",
+  "conditions": {
+    "ref_name": {
+      "include": [
+        "refs/tags/v*"
+      ],
+      "exclude": []
+    }
+  },
+  "bypass_actors": [],
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "required_signatures"
+    },
+    {
+      "type": "tag_name_pattern",
+      "parameters": {
+        "name": "Semver, v-prefixed",
+        "operator": "regex",
+        "pattern": "^v(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(-[0-9A-Za-z.-]+)?$",
+        "negate": false
+      }
+    }
+  ]
+}
