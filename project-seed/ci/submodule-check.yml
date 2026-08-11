@@ -66,14 +66,39 @@ jobs:
                  echo "::error::Set it to the canonical remote, then run: git submodule sync $path"
                  status=1; continue ;;
             esac
+            # A runner has no SSH key, so an `git@host:owner/repo` URL cannot be
+            # fetched here even when the commit is present. Reading that as "not
+            # pushed" is a false negative, and it fires for every project whose
+            # .gitmodules names the canonical SSH remote -- which is what the
+            # fork procedure produces. So the SSH form is translated and tried
+            # as well, and the URL that worked is reported.
+            candidates="$url"
+            https_url=$(printf '%s' "$url" | sed -E \
+              -e 's#^ssh://[^@]+@([^/]+)/#https://\1/#' \
+              -e 's#^[^@/]+@([^:/]+):#https://\1/#')
+            if [ "$https_url" != "$url" ]; then
+              candidates="$url $https_url"
+            fi
             echo "Checking $path @ $sha against $url ..."
             scratch=$(mktemp -d)
             git init --quiet --bare "$scratch"
-            if git -C "$scratch" fetch --quiet --depth=1 "$url" "$sha" >/dev/null 2>&1; then
-              echo "  ok - reachable"
+            reached=""
+            for candidate in $candidates; do
+              if git -C "$scratch" fetch --quiet --depth=1 "$candidate" "$sha" >/dev/null 2>&1; then
+                reached="$candidate"
+                break
+              fi
+            done
+            if [ -n "$reached" ]; then
+              if [ "$reached" = "$url" ]; then
+                echo "  ok - reachable"
+              else
+                echo "  ok - reachable over $reached (the configured URL is not fetchable here)"
+              fi
             else
-              echo "::error::Submodule '$path' is pinned to $sha, which is NOT on its remote ($url)."
-              echo "::error::Committed inside the submodule without pushing? Run: (cd $path && git push origin HEAD), then re-push this repo."
+              echo "::error::Submodule '$path' is pinned to $sha, which could not be fetched from its remote ($url)."
+              echo "::error::Most likely: committed inside the submodule without pushing. Run: (cd $path && git push origin HEAD), then re-push this repo."
+              echo "::error::This check cannot tell that apart from a private submodule remote that an unauthenticated runner cannot read. If the commit IS pushed, run 'git ls-remote $url $sha' locally: output means the pin is fine and this job needs credentials."
               status=1
             fi
             rm -rf "$scratch"
