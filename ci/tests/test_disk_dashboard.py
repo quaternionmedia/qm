@@ -777,6 +777,68 @@ def test_a_refused_path_is_announced_rather_than_skipped_quietly(tmp_path: Path)
     assert "REFUSED" in Path(dr.__file__).read_text(encoding="utf-8")
 
 
+def test_a_target_absent_from_this_machine_is_not_a_failure(tmp_path: Path) -> None:
+    """The policy is written for an organisation, not a laptop.
+
+    Nobody has every tool it names, so an absent pip cache is the normal state
+    of a machine without pip. Exiting non-zero for it made a dry run fail on a
+    healthy workstation, which is the surest way to teach somebody that this
+    tool's exit code means nothing.
+    """
+    policy = tmp_path / "policy.yaml"
+    policy.write_text(
+        yaml.safe_dump({"schema": 1, "reclaimers": [
+            {"name": "not-here", "kind": "directory_contents", "safety": "refetched",
+             "roots": [str(tmp_path / "no" / "such" / "cache")]}]}),
+        encoding="utf-8",
+    )
+    result = subprocess.run(
+        [sys.executable, str(CI_DIR / "disk_reclaim.py"), "--policy", str(policy)],
+        capture_output=True, text=True, encoding="utf-8", errors="replace",
+    )
+    assert result.returncode == 0, result.stdout
+    assert "absent" in result.stdout
+    assert "not a problem" in result.stdout
+    assert "FAILED" not in result.stdout
+
+
+def test_a_target_that_genuinely_failed_still_reaches_the_exit_status(
+    tmp_path: Path,
+) -> None:
+    """The other side of the distinction. If absence stopped counting and
+    nothing else started, the exit code would just always be zero."""
+    policy = tmp_path / "policy.yaml"
+    policy.write_text(
+        yaml.safe_dump({"schema": 1, "reclaimers": [
+            {"name": "broken", "kind": "command", "safety": "refetched",
+             "reclaim": {"argv": [sys.executable, "-c", "raise SystemExit(3)"]}}]}),
+        encoding="utf-8",
+    )
+    result = subprocess.run(
+        [sys.executable, str(CI_DIR / "disk_reclaim.py"),
+         "--policy", str(policy), "--apply"],
+        capture_output=True, text=True, encoding="utf-8", errors="replace",
+    )
+    assert result.returncode == 1
+    assert "FAILED" in result.stdout
+
+
+def test_a_missing_tool_is_absence_and_a_broken_one_is_failure() -> None:
+    """Both produce no bytes; only one is somebody's problem."""
+    missing = reclaim_gap({"name": "x", "requires": "definitely-not-a-binary-12345"})
+    assert missing and missing.absent
+
+    broken = reclaim_gap(
+        {"name": "x", "reclaim": {"argv": [sys.executable, "-c", "raise SystemExit(2)"]}},
+        apply=True,
+    )
+    assert broken and not broken.absent
+
+
+def reclaim_gap(entry: dict, apply: bool = False):
+    return dr.reclaim_command(entry, apply)
+
+
 def test_an_unknown_target_name_is_an_error_not_a_silent_no_op(tmp_path: Path) -> None:
     """`--target typo` that quietly does nothing reads as a clean machine."""
     policy = tmp_path / "policy.yaml"

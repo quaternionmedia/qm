@@ -47,6 +47,7 @@ import os
 import shutil
 import stat
 import sys
+from dataclasses import dataclass
 from pathlib import Path
 
 import disk_status as ds
@@ -129,7 +130,27 @@ def permitted(allow: str) -> list[str]:
     return list(ds.SAFETY_TIERS[: ds.SAFETY_TIERS.index(allow) + 1])
 
 
-def units_for(entry: dict, search_roots: list[Path], blocked: set[str]) -> tuple[list[Path], list[Path], str | None]:
+# A target that is not on this machine, and one that could not be handled, are
+# both "nothing was removed" and they are not the same event. The policy is
+# written against an organisation, not a laptop: nobody here has every tool it
+# names, so an absent pip cache is the normal state of a machine without pip.
+#
+# Reporting it as a failure made a dry run exit non-zero on a healthy machine,
+# which is the surest way to teach somebody that this tool's exit code means
+# nothing. So absence is printed and carried, and only a real failure -- a
+# path that would not delete, a prune that errored, a directory that would not
+# list -- reaches the exit status.
+@dataclass
+class Gap:
+    """Why an entry produced no paths, and whether that is a problem."""
+
+    reason: str
+    absent: bool = False
+
+
+def units_for(
+    entry: dict, search_roots: list[Path], blocked: set[str]
+) -> tuple[list[Path], list[Path], Gap | None]:
     """(paths to remove, the roots authorising them, the reason there are none).
 
     Resolved from the filesystem now, never from a status document. The roots
@@ -144,14 +165,17 @@ def units_for(entry: dict, search_roots: list[Path], blocked: set[str]) -> tuple
             else ds.resolve_roots(entry)[0]
         )
         if not roots:
-            return [], [], "no search roots to sweep"
+            return [], [], Gap("no search roots to sweep", absent=True)
         units = ds.units_of_glob(roots, entry.get("patterns") or [], blocked)
         return [Path(u["path"]) for u in units], roots, None
 
     if kind == "directory_contents":
         roots, gaps = ds.resolve_roots(entry)
         if not roots:
-            return [], [], "; ".join(gaps) or "no roots resolved"
+            # resolve_roots only reports two things, and both are absence: a
+            # path that is not here, and an environment variable that is not
+            # set on this machine.
+            return [], [], Gap("; ".join(gaps) or "no roots resolved", absent=True)
         paths = []
         for root in roots:
             try:
@@ -160,13 +184,13 @@ def units_for(entry: dict, search_roots: list[Path], blocked: set[str]) -> tuple
                     for u in ds.units_of_directory(root, entry.get("retain_days"))
                 )
             except (OSError, PermissionError) as error:
-                return [], roots, f"could not be listed: {error}"
+                return [], roots, Gap(f"could not be listed: {error}")
         return paths, roots, None
 
-    return [], [], f"kind {kind!r} is not removed by path"
+    return [], [], Gap(f"kind {kind!r} is not removed by path")
 
 
-def reclaim_command(entry: dict, apply: bool) -> tuple[int, str | None]:
+def reclaim_command(entry: dict, apply: bool) -> Gap | None:
     """Hand a target back to the tool that owns it.
 
     Docker's layers live inside a virtual disk and uv hardlinks its cache into
@@ -176,16 +200,21 @@ def reclaim_command(entry: dict, apply: bool) -> tuple[int, str | None]:
     """
     requires = entry.get("requires")
     if requires and not shutil.which(requires):
-        return 0, f"{requires} is not on PATH"
+        return Gap(f"{requires} is not on PATH", absent=True)
     argv = [str(a) for a in ((entry.get("reclaim") or {}).get("argv") or [])]
     if not argv:
-        return 0, "policy entry has no reclaim.argv"
+        return Gap("policy entry has no reclaim.argv")
     if not apply:
-        return 0, None
+        return None
     status, out, err = ds.run(argv)
     if status != 0:
-        return 0, f"{argv[0]} exited {status}: {(err or out or '').splitlines()[0][:160]}"
-    return 0, None
+        # The fallback is not decoration. A prune that fails silently -- no
+        # stdout, no stderr, just a status -- indexed into an empty list and
+        # brought the whole run down with an IndexError, which reads as a bug
+        # in the reclaimer rather than a failure in the tool it called.
+        first = (err or out or "no output").splitlines()[0]
+        return Gap(f"{argv[0]} exited {status}: {first[:160]}")
+    return None
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -250,24 +279,28 @@ def main(argv: list[str] | None = None) -> int:
     removed_paths = 0
     refused: list[str] = []
     failed: list[str] = []
+    absent: list[str] = []
+
+    def record(name: str, gap: Gap) -> None:
+        """Print a gap, and file it under absence or failure."""
+        print(f"{name}: {'absent' if gap.absent else 'FAILED'} — {gap.reason}")
+        (absent if gap.absent else failed).append(f"{name}: {gap.reason}")
 
     for entry in entries:
         name = entry["name"]
         if entry.get("kind") == "command":
-            _, reason = reclaim_command(entry, args.apply)
+            gap = reclaim_command(entry, args.apply)
             verb = "ran" if args.apply else "would run"
             argv_text = " ".join(str(a) for a in ((entry.get("reclaim") or {}).get("argv") or []))
-            if reason:
-                print(f"{name}: skipped — {reason}")
-                failed.append(f"{name}: {reason}")
+            if gap:
+                record(name, gap)
             else:
                 print(f"{name}: {verb} `{argv_text}` [{entry['safety']}]")
             continue
 
         paths, roots, gap = units_for(entry, search_roots, blocked)
         if gap:
-            print(f"{name}: skipped — {gap}")
-            failed.append(f"{name}: {gap}")
+            record(name, gap)
             continue
         if not paths:
             print(f"{name}: nothing to remove")
@@ -332,6 +365,13 @@ def main(argv: list[str] | None = None) -> int:
     if refused:
         print(f"\n{len(refused)} paths refused by the containment guard:")
         for line in refused[:10]:
+            print(f"  {line}")
+    if absent:
+        print(
+            f"\n{len(absent)} targets are not on this machine, which is not a "
+            "problem — the policy is written for an organisation, not a laptop:"
+        )
+        for line in absent[:10]:
             print(f"  {line}")
     if failed:
         print(f"\n{len(failed)} targets or paths could not be handled:")
