@@ -75,6 +75,28 @@ a non-server runtime. The mathematical-limits experiments live on
 `workspace/math-experiments` — non-binding, and reached from the perspective
 whose open questions they investigate.
 
+**A `project/<name>` branch is never merged into `main`.** Not once, not
+squashed, not "just the shared part". It exists in perpetuity and holds exactly
+one thing: how one project's governance deviates from `main`. Merging it would
+move that project's `adr/` onto `main`, and `main` is the org namespace — so
+one project's local decision would become an org record by accident, and the
+precedence rule below would then read backwards, with the project's own record
+appearing to bind every other project. Nothing in the tree would look wrong
+afterwards; the records would simply be in the wrong namespace, and the next
+project to adopt would inherit them.
+
+So a `project/<name>` branch takes changes **in**, never gives them out:
+
+| Direction | How |
+|---|---|
+| project-specific records arrive | a pull request whose **base** is `project/<name>`. Each such base holds its own slot under the one-PR rule, which is what the `--per-base 'project/*'` exemption is for |
+| the branch is created | cut from `main`, `adr/` copied from `project-seed/adr/`, and **pushed** — see "Forking a new project" step 2. The initial content is not a pull request, because the only base it could target is a branch that does not exist yet |
+| `main`'s changes reach it | `main` is merged **into** it, as a `propagate/<name>-<date>` pull request against it. Never a rebase: a downstream submodule pins the tip, and rebasing invalidates every pin |
+| the project's own repository sees it | the submodule pointer, bumped by that same propagation |
+
+A pull request from `project/<name>` into `main` is therefore always a mistake,
+whatever it carries. `project-seed/ci/check_pr_base.py` refuses it.
+
 ## Record namespaces and precedence
 
 - **Org records:** `QM-NNNN`, numbered at ratification by this README's index.

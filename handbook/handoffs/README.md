@@ -16,40 +16,29 @@ between them are recorded here rather than inside each one.
 | Handoff | Blocks on | Repo |
 |---|---|---|
 | [`dossier-delta-review.md`](dossier-delta-review.md) | nothing | dossier |
-| [`dossier-adoption.md`](dossier-adoption.md) | **delivered** — dossier#10 (draft, assigned); `project/dossier` pushed | dossier + qm |
 | [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
-| [`dossier-governance-view.md`](dossier-governance-view.md) | **first cut delivered in dossier#10**; the delta-review page still open | dossier |
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
-| [`disk-tooling.md`](disk-tooling.md) | nothing — built; five items wanting a decision, one of which blocks the delta review | qm + dossier |
-| [`session-2026-08-11.md`](session-2026-08-11.md) | nothing — where the 2026-08-10/11 session left things, and the four decisions waiting | every repo |
+| [`disk-tooling.md`](disk-tooling.md) | nothing — built; four items wanting a decision, one of which blocks the delta review | qm + dossier |
+| [`session-2026-08-11.md`](session-2026-08-11.md) | nothing — where the 2026-08-10/11 session left things, and the decisions waiting | every repo |
 | [`workspace-unlanded.md`](workspace-unlanded.md) | nothing — a survey, and two items wanting a decision | every repo |
 
-The two dossier pages are genuinely independent of each other. The status
-document now exists, so the fourth page needs only a reviewed schema to build
-against and a repo that has adopted the corpus it reports on.
+**Two pages are gone rather than marked done**, per the routing rule above:
+`dossier-adoption.md` and `dossier-governance-view.md`. dossier has adopted —
+`AGENTS.md`, `.gitmodules` and the disk tooling are on its `main`, and
+dossier#10 and #11 are merged. A page describing delivered work as pending is
+worse than no page, because a session picks it up and re-derives a state that no
+longer exists.
 
-Adoption is delivered: `project/dossier` at `a9a6e33` here, pushed as a
-long-lived project branch, and dossier `governance/status-view` at `651ea01` as
-**dossier#10**, draft and assigned. All eight of dossier's gates pass. Its page
-carries the one thing worth a reviewer's attention: `project/dossier` is pushed
-without a pull request, because the fork procedure says to push it and a pull
-request from it into `main` would merge one project's records into the corpus.
+**The harness is on `main`.** `ci/` (17 files) and
+`project-seed/ide/.claude/commands/` both landed with #36 on 2026-08-11, so a
+project pinned to `main` now gets `/cowork`, the slot check and the two status
+documents at its next pin bump rather than waiting on anything. Every page here
+older than that date describes the harness in the present tense as unmerged;
+that is a *stamp* doing its job, not a claim to act on. Re-derive before quoting
+one.
 
-**The harness does not reach dossier at adoption.** Nothing in
-`project-seed/ide/.claude/commands/` and no `ci/` directory exists on `main` —
-both live on `evolve/ci-tooling-fixes` (#36). A project pinned to `main` gets
-governance discovery and the three seed gates, and gets `/cowork`, the slot
-check and the two status documents at its first pin bump after #36 lands. That
-is the propagation path working as designed, and it is also the single thing
-standing between here and a governance view with anything to render.
-
-### Not a handoff yet, but don't lose it
-
-`propagate/datum-2026-08-08` is pushed, contains all of `main`, and has **no
-open pull request** — #34 was closed unmerged on 2026-08-09. `project/datum` is
-62 behind as a result, while its six sibling project branches each have an open
-propagation PR. Someone closed that PR on purpose, so re-opening it is a human's
-call and not an agent's; the fact is recorded here so it stops being invisible.
+`project/datum` is level with `main`: the propagation landed as #39, after #34
+was closed unmerged on 2026-08-09.
 
 ## Rules that apply to every one of these
 

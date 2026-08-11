@@ -1,8 +1,8 @@
 name: One PR per contributor
 
 # This corpus's own copy of project-seed/ci/one-pr-check.yml. It differs from
-# the seed in exactly two ways, and both are consequences of this being the
-# corpus rather than a project:
+# the seed in exactly three ways, and all three are consequences of this being
+# the corpus rather than a project:
 #
 #   1. The script is at project-seed/ci/, not governance/qm/project-seed/ci/ --
 #      there is no submodule here to run it out of.
@@ -20,7 +20,14 @@ name: One PR per contributor
 #      still fail. The flag is printed in the tool's own output, because an
 #      exemption nobody can see in the result has stopped being one.
 #
-# See handbook/async-contract.md §1.
+#   3. `check_pr_base.py` runs here as a second step, refusing a pull request
+#      from `project/<name>` into `main`. That branch namespace exists only in
+#      this repository -- a project's own repo has no `project/*` branches -- so
+#      in the seed the same step would be a check that can never fail, which is
+#      the shape this corpus keeps finding in its own tooling and does not want
+#      to add deliberately.
+#
+# See handbook/async-contract.md §1 and the README's "Branch namespaces".
 
 on:
   pull_request:
@@ -63,3 +70,23 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+
+      # A step in this job rather than a workflow of its own, on purpose. The
+      # question is a different one, but the job already checks out the tree,
+      # already installs Python, and already fires on exactly the event this
+      # needs -- so a second workflow would double the billed runs per pull
+      # request to ask one more question. It also keeps the reported check name
+      # (`slot`) unchanged, which matters because a project that copies this seed
+      # may have made that name a required context.
+      #
+      # fetch-depth 0 is needed here and not above: the base check computes a
+      # merge-base, and the default shallow checkout has no history to compute
+      # it from.
+      - name: Deepen history for the base check
+        run: git fetch --no-tags --prune --unshallow origin || git fetch --no-tags origin
+
+      - name: This pull request targets a base it is allowed to target
+        run: |
+          python project-seed/ci/check_pr_base.py \
+            --base "$GITHUB_BASE_REF" \
+            --head "$GITHUB_HEAD_REF"

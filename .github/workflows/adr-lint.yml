@@ -84,6 +84,36 @@ jobs:
             echo 'No streaming-infrastructure/adr on this branch; it lives on its own project branch.'
           fi
 
+      # A top-level adr/ belongs to exactly one project and lives on that
+      # project's own branch. On the default branch it is a namespace violation,
+      # and the step below would not catch it -- it guards on the directory
+      # existing, so a stray adr/ would simply be linted and pass, and a clean
+      # lint is the most reassuring possible report about records that are in the
+      # wrong namespace entirely.
+      #
+      # The way it gets there is a pull request from project/<name> into main.
+      # check_pr_base.py refuses that, and this is the second line: if one ever
+      # lands, the default branch goes red instead of green.
+      - name: The default branch carries no project records
+        run: |
+          if [ "$GITHUB_REF_NAME" = "${DEFAULT_BRANCH}" ] && [ -d adr ]; then
+            echo "::error::adr/ exists on ${DEFAULT_BRANCH}. A top-level adr/ holds one"
+            echo "::error::project's records and belongs on that project's own"
+            echo "::error::project/<name> branch. On the default branch it is in the org"
+            echo "::error::namespace, where a project-local decision reads as binding"
+            echo "::error::every project. See the README's \"Branch namespaces\"."
+            exit 1
+          fi
+          echo "ok - no top-level adr/ on the default branch, or this is not it."
+        env:
+          # A literal, not ${{ github.event.repository.default_branch }}. That
+          # field is absent from a `push` payload and from every local run, so it
+          # resolved to the empty string, the comparison never matched, and the
+          # step reported ok with a stray adr/ sitting right there. A guard whose
+          # condition cannot be reached is worse than no guard: it reports the
+          # reassuring answer and nobody looks again.
+          DEFAULT_BRANCH: main
+
       - name: Lint this branch's project records
         run: |
           if [ -d adr ]; then

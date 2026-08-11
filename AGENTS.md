@@ -69,6 +69,19 @@ with a date looks checked.
    not settled — that belongs in the record, and a Proposed record naming it
    is the process working. What does not belong anywhere is your own
    unresolved question arriving as PR text.
+   **Never open a pull request from `project/<name>` into `main`.** That branch
+   is permanent and takes changes in, never out: it holds how one project's
+   governance deviates from this corpus. Merging it moves that project's `adr/`
+   into the org namespace, where a local decision reads as an org record binding
+   every project — and nothing in the tree looks wrong afterwards, so there is
+   no later signal. Records to a project go in *on a PR whose base is
+   `project/<name>`*, and each such base holds its own slot. `main`'s changes
+   reach it as a `propagate/<name>-<date>` PR against it, merged and never
+   rebased, because a downstream submodule pins the tip. The branch's first
+   `adr/` content is pushed, not PR'd, because the only base it could target
+   does not exist yet — `handbook/forking-a-project.md` step 2.
+   `project-seed/ci/check_pr_base.py` refuses the wrong direction, and the
+   README's "Branch namespaces" is the canonical statement.
    **One open PR per repository, per contributor.** Not one per task. Two PRs
    that must merge in an order are a sequencing puzzle handed to the reviewer.
    Land the org change first and let propagation carry it, rather than opening

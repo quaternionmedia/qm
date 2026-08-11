@@ -40,10 +40,19 @@ passes, not when its command exits zero.
    branch, copy `project-seed/adr/` into a new top-level `adr/` directory
    (README + TEMPLATE, verbatim) — the same copy-verbatim discipline as
    before, now landing on a branch of this repo instead of the new
-   project's own repository. Push the branch.
+   project's own repository. **Push the branch** — do not open a pull request
+   for it. This is the one place in this corpus where content arrives on a
+   shared branch by push, and it is not an oversight: the only base such a pull
+   request could target is the branch being created, which does not exist yet,
+   and targeting `main` instead would merge the new project's `adr/` into the
+   org namespace. The branch is permanent from this moment and never merges
+   anywhere; every later change to it arrives as a pull request whose *base* is
+   this branch. See the README's "Branch namespaces".
    *Verify:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
    is empty, and `adr/README.md` differs from the seed only by the seed
-   comment the seed itself says to delete.
+   comment the seed itself says to delete. And
+   `python project-seed/ci/check_pr_base.py --base main --head project/<name>`
+   REFUSES — if it does not, the guard is not in the copy you are running.
 3. **Point the submodule at that branch's tip** (checkout the branch inside
    the submodule, commit the updated pointer in the new project); add
    `branch = project/<name>` to the new project's `.gitmodules` so
