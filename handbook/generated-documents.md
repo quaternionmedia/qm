@@ -199,6 +199,20 @@ python ci/disk_reclaim.py                               # dry run, always
 python ci/disk_reclaim.py --allow rebuilt --apply
 ```
 
+**One run per branch per workflow.** Every workflow here declares
+`concurrency` keyed on workflow and ref, so a second push supersedes the first
+rather than both running to completion. Cancellation is scoped to pull requests
+with `cancel-in-progress: ${{ github.event_name == 'pull_request' }}`: on the
+default branch and on a `project/**` branch **the run is the record** of what
+that commit reported, and cancelling it to start a newer one destroys the only
+evidence the earlier commit was ever checked.
+
+What this buys is billed minutes, not run count -- a cancelled run still appears
+in the list, it just stops early. Reducing the *count* is a matter of triggers,
+and the push triggers here are already scoped to `main` and `project/**`, with
+`submodule-check.yml` deliberately broad because a stale pointer can be
+introduced on any branch.
+
 **Documents are not regenerated in CI.** Both read other repositories, so an
 unrelated pull request elsewhere would make the committed copy "stale" with no
 commit here to explain it, and every pull request would go red for a reason its
