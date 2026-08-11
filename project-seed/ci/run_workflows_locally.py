@@ -115,6 +115,27 @@ def substitute(script: str, ctx: dict, outputs: dict) -> str:
     return re.sub(r"\$\{\{(.+?)\}\}", repl, script, flags=re.S)
 
 
+def bare_branch(ref: str) -> str:
+    """Strip a leading remote name, because GitHub's context never carries one.
+
+    `github.ref_name` and `github.base_ref` hold bare branch names. Passing a
+    remote-qualified ref straight through makes this script disagree with the
+    runner twice over: the branch filters compare `origin/main` against a
+    pattern like `main` and skip the workflow, and any step that prefixes
+    `origin/` itself -- adr-lint.yml's base-ref step does -- resolves
+    `origin/origin/main` and fails on a ref that cannot exist. This script's
+    own usage line offers `--base-ref origin/main`, so that is the documented
+    path into both.
+    """
+    remotes = subprocess.run(
+        ["git", "remote"], capture_output=True, text=True
+    ).stdout.split()
+    for remote in remotes:
+        if ref.startswith(f"{remote}/"):
+            return ref[len(remote) + 1 :]
+    return ref
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--event", default="pull_request")
@@ -123,6 +144,8 @@ def main() -> int:
     ap.add_argument("--workflows", default=".github/workflows")
     args = ap.parse_args()
     _force_utf8_output()
+    args.ref = bare_branch(args.ref)
+    args.base_ref = bare_branch(args.base_ref)
 
     head = subprocess.run(
         ["git", "rev-parse", "HEAD"], capture_output=True, text=True
@@ -171,8 +194,19 @@ def main() -> int:
                     {k: str(v) for k, v in (step.get("env") or {}).items()}
                 )
                 env.update({k: str(v) for k, v in (wf.get("env") or {}).items()})
+                # Match the runner's shell, or a step that fails halfway
+                # through passes here and fails in CI. Actions runs `run:`
+                # steps as `bash -e {0}`, and as `bash --noprofile --norc
+                # -eo pipefail {0}` where the step asks for `shell: bash`.
+                # Plain `bash` has neither, so a failing command mid-step is
+                # masked by whatever succeeds after it -- a false local pass,
+                # which is the one result this script must never produce.
+                if (step.get("shell") or "").strip() == "bash":
+                    argv = ["bash", "--noprofile", "--norc", "-eo", "pipefail", path]
+                else:
+                    argv = ["bash", "-e", path]
                 proc = subprocess.run(
-                    ["bash", path], env=env, capture_output=True, text=True
+                    argv, env=env, capture_output=True, text=True
                 )
                 ran += 1
                 for line in out_file.read_text(encoding="utf-8").splitlines():
