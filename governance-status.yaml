@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-11T03:26:19Z"
+generated_at: "2026-08-11T03:42:18Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -80,7 +80,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:26:06Z"
+    observed_at: "2026-08-11T03:42:05Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
@@ -126,7 +126,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:26:07Z"
+    observed_at: "2026-08-11T03:42:06Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
@@ -173,7 +173,7 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-11T03:26:08Z"
+    observed_at: "2026-08-11T03:42:07Z"
   - name: datafactorio
     branch:
       ref: origin/project/datafactorio
@@ -219,7 +219,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:26:10Z"
+    observed_at: "2026-08-11T03:42:09Z"
   - name: datum
     branch:
       ref: origin/project/datum
@@ -265,7 +265,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T03:26:11Z"
+    observed_at: "2026-08-11T03:42:10Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
@@ -290,7 +290,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T03:25:31Z"
+      pushed_at: "2026-08-11T03:41:39Z"
       licence: MIT
     adoption:
       submodule:
@@ -310,7 +310,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T03:26:12Z"
+    observed_at: "2026-08-11T03:42:12Z"
   - name: factorio-server
     branch:
       ref: origin/project/factorio-server
@@ -356,7 +356,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:26:13Z"
+    observed_at: "2026-08-11T03:42:13Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
@@ -402,7 +402,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:26:15Z"
+    observed_at: "2026-08-11T03:42:14Z"
   - name: loopwall
     branch:
       ref: origin/project/loopwall
@@ -448,7 +448,7 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T03:26:16Z"
+    observed_at: "2026-08-11T03:42:15Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
@@ -496,7 +496,7 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-11T03:26:17Z"
+    observed_at: "2026-08-11T03:42:17Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
@@ -525,7 +525,7 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-11T03:26:18Z"
+    observed_at: "2026-08-11T03:42:17Z"
 org:
   repositories:
     total: 109
@@ -603,7 +603,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 31
-  observed_at: "2026-08-11T03:26:19Z"
+  observed_at: "2026-08-11T03:42:18Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
