@@ -29,8 +29,13 @@ as compliance and the first is an absence of evidence. This is the same
 convention as governance-status.yaml, deliberately.
 
 Usage:
-    python ci/harness_status.py --write harness-status.json
-    python ci/harness_status.py --write harness-status.json --no-local
+    python ci/harness_status.py --no-local --write harness-status.json
+    python ci/harness_status.py --write ~/harness-status.local.json
+
+The committed copy needs --no-local, and the machine-scoped copy needs a path
+outside the repository. There is no third form: `--write harness-status.json`
+without --no-local always refuses, because that would commit one person's
+clones. This block used to lead with exactly that invocation.
 """
 
 from __future__ import annotations

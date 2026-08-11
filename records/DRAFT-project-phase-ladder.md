@@ -114,8 +114,9 @@ to say where it is going until it arrives.
 
 ## Consequences
 
-- Every project has a phase from the moment it exists, and eight repositories
-  acquire one without anybody deciding anything about them.
+- Every project has a phase from the moment it exists, and the repositories
+  whose roster row carries `phase_source: scaffolded` — seven of them as this is
+  written — acquire one without anybody deciding anything about them.
 - The org-level table gains a column it can ask of every project — governance
   evidence — and loses the ability to compare anything above it, which it never
   honestly had.

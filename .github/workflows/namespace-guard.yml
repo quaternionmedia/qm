@@ -14,8 +14,17 @@ name: Namespace guard
 # from main outwards, so org-namespace content added on a project branch never
 # reaches main and is stranded where nobody looks for it.
 
+# Both events, deliberately. The pull_request trigger is the gate; the push
+# trigger exists because a project branch is one of the two places in this
+# corpus where content legitimately arrives by push -- the initial `adr/` when
+# the branch is created (see the README's "Branch namespaces"). A push is
+# therefore not refusable, but it is the one route by which org content can land
+# on a project branch with nothing having looked at it, and this check is the
+# only thing that looks. Reporting after the fact beats not reporting.
 on:
   pull_request:
+    branches: ['project/**']
+  push:
     branches: ['project/**']
 
 # One run per branch per workflow. A second push supersedes the first: nobody
@@ -45,8 +54,14 @@ jobs:
 
       - name: A project branch's own commits touch adr/ only
         run: |
-          base="origin/${{ github.base_ref }}"
-          git fetch --no-tags origin "${{ github.base_ref }}" main
+          # `github.base_ref` is set on a pull_request and EMPTY on a push, so
+          # taking it unconditionally would make `base` the ref `origin/` and
+          # fail the step on every push -- a false red introduced by adding the
+          # trigger. On a push the branch's own base is the default branch.
+          base_ref="${{ github.base_ref }}"
+          base_ref="${base_ref:-main}"
+          base="origin/${base_ref}"
+          git fetch --no-tags origin "$base_ref" main
 
           # Compare against the merge base so org content arriving by a merge
           # from main is not mistaken for the project editing it.

@@ -18,10 +18,12 @@ hurry, or running a different tool than the one that last worked in the
 repo.
 
 This repo's own recent history is the counter-evidence, not a hypothetical.
-Every commit before Human-only contributorship was drafted carried a
+Four of the nine commits before Human-only contributorship was drafted carried a
 `Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>` trailer — the
 exact pattern that record now forbids — not because the rule didn't exist in
 spirit, but because nothing put it in front of the assistant before it acted.
+That it was four rather than nine is the sharper version of the point: the
+behaviour was inconsistent, which is what an unstated rule produces.
 It took a human manually walking the assistant through `PRINCIPLES.md`,
 `records/`, and `perspectives/` across several conversation turns for the
 corpus to register as binding rather than as files that happened to be read

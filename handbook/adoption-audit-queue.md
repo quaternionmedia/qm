@@ -13,22 +13,36 @@ a summary of repository state — including this page's — over `git`.
 
 ## The queue
 
-Nine projects vendor this corpus. Three are audited.
+Twelve `project/*` branches exist. Eleven name a repository that can be read;
+`streaming-infrastructure` names none. Three have been audited.
 
-| Project | qm branch | Own repo | Audited | Known state |
+**This table is the queue, not the state.** It says which projects an audit has
+been through and what class of defect each turned up — facts that stay true.
+Current state is `governance-status.yaml` and `harness-status.json` at the root,
+and `ci/harness_dashboard.py harness-status.json --format md` prints it.
+
+Earlier versions of this table carried cells like "29 commits unpushed locally"
+and "has no remote". Those are one workstation at one moment, they went stale
+within days, and a committed page is the wrong place for them — the same rule
+that keeps the machine-scoped documents out of git. They are gone rather than
+refreshed.
+
+| Project | qm branch | Own repo | Audited | What an audit found, or would look for |
 |---|---|---|---|---|
-| qmetronome | ✅ | ✅ | **yes** | Pin fine; no IDE discovery; pre-seed inline lint |
-| apothecary | ✅ | ✅ | **re-do** | First audit read the working tree and was wrong. `origin/main` carries no governance at all; the adoption commit is unpushed |
-| datum | ✅ | ✅ local only | **yes** | Pin was broken; repaired; **has no remote** |
-| alfred | ✅ | ✅ | no | Submodule remote was a filesystem path; repaired. `origin/main` has the submodule and no `AGENTS.md`/lint/`LICENSE`; **29 commits unpushed locally** |
-| codecartographer | ✅ | ✅ | no | Mounts at `docs/qm`. `origin/main` has the submodule and `LICENSE`, no `AGENTS.md`/lint; **48 commits unpushed locally** |
-| datafactorio | ✅ | ✅ | no | 7 behind; no `.gitmodules` seen locally |
-| factorio-server | ✅ | ? | no | 7 behind |
-| factorio-sysops | ✅ | ? | no | 7 behind |
-| streaming-infrastructure | ✅ | n/a | n/a | **Not an adopting project.** No `quaternionmedia/streaming-infrastructure` repository exists (`gh api` → 404), so there is nothing to audit. A design branch holding the plan and `ADR-0001` that `main` moved off itself; 40 behind, and `LICENSE` plus two records will not arrive by merging — see the session handoff |
+| qmetronome | ✅ | ✅ | **yes** | Carried an inline ADR lint predating the seed; the seed's `submodule-check.yml` was generalized from its own fix |
+| apothecary | ✅ | ✅ | **yes, re-done** | The first audit read the working tree and reported a machine. The re-do is the origin of the rule: audit `origin`, never the checkout |
+| datum | ✅ | ✅ | **yes** | Pin named a commit on no remote, and the submodule fetched from a filesystem path — the enabling mechanism for an unreachable pin |
+| alfred | ✅ | ✅ | no | Its `.gitmodules` on `main` names only `alfred/otto`; the corpus submodule is not there. Adoption work is on an unpushed local branch |
+| codecartographer | ✅ | ✅ | no | Mounts the corpus at `docs/qm` rather than the seed's `governance/qm`, so any check keyed on the seed path must look it up by path |
+| datafactorio | ✅ | ✅ | no | — |
+| dossier | ✅ | ✅ | no | Adopted late and completely; useful as the control case |
+| factorio-server | ✅ | ? | no | — |
+| factorio-sysops | ✅ | ? | no | — |
+| loopwall | ✅ | ? | no | Branch took `main` by a direct merge with no pull request |
+| qmcp | ✅ | ✅ | no | Adopted 2026-08-11 with nine conflicts recorded rather than fixed; three are shared-workstation hazards |
+| streaming-infrastructure | ✅ | n/a | n/a | **Not an adopting project.** No `quaternionmedia/streaming-infrastructure` repository exists (`gh api` → 404). A design branch holding the plan and `ADR-0001` that `main` moved off itself; `LICENSE` and two records will not arrive by merging — see the session handoff |
 
-Re-derive every column before acting on it. The "known state" notes are what
-one pass found on one day.
+Re-derive every column before acting on it.
 
 ## What one audit is
 

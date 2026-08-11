@@ -179,9 +179,11 @@ queue — the one wrong answer. Discovery has no such hole.
 **A pre-allocated port per session.** A default port with extra steps, and it
 fails §4 for the same reason.
 
-**Making the collector able to answer a gate too.** Rejected on the ratified
-split: a collector that can also act is one flag away from acting on a number
-that was wrong.
+**Making the collector able to answer a gate too.** Rejected on the split this
+corpus already practises — `ci/disk_status.py` measures and `ci/disk_reclaim.py`
+deletes, in separate tools: a collector that can also act is one flag away from
+acting on a number that was wrong. No record in this corpus is Accepted, so the
+argument is the practice and the reasoning behind it, not a ratification.
 
 ## Revision triggers
 

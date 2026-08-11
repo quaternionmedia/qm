@@ -28,16 +28,31 @@ without evidence:
   - whether any carried commit already belongs to another branch. THIS is the
     one that catches a branch stacked on someone else's work.
 
-Exit status is 1 when the merge-base is not the base tip, or when commits are
+There are two kinds of non-zero exit here, and conflating them is how this tool
+gets wired in as a gate it was never meant to be.
+
+**A REFUSAL is a verdict.** The pull request is malformed and no description
+fixes it: the head is a `project/<name>` branch (permanent, and never a merge
+source), or the head carries a top-level `adr/` at the default branch. Both
+print `REFUSED` and exit 1 in every mode.
+
+**An ADVISORY is not.** The merge-base is not the base tip, or commits are
 shared with another branch. **Neither means broken; both mean "explain this".**
 A long-running branch legitimately falls behind, and merging one of your own
 branches into another is normal. Read the ratio: "1 of 61" is a branch you
 folded in deliberately, "18 of 20" is a branch you did not mean to be on. The
 number is the finding; the exit code only makes you look at it.
 
+So the default mode exits 1 for either, which suits a human running it before
+opening a pull request. **CI must pass `--refuse-only`**, which exits non-zero
+for refusals alone. Without it a propagation pull request fails by design --
+`propagate/foo -> project/foo` is behind its base and shares commits with it,
+which is what propagation *is*.
+
 Usage:
     python check_pr_base.py --base main --head my-branch
     python check_pr_base.py --base project/foo --head propagate/foo --remote origin
+    python check_pr_base.py --base "$GITHUB_BASE_REF" --head "$GITHUB_HEAD_REF" --refuse-only
 """
 
 from __future__ import annotations

@@ -19,9 +19,15 @@ re-deriving what they hold**, and check the age before you quote anything.
 | `governance-status.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `python ci/governance_status.py --write governance-status.yaml` |
 | `harness-status.json` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `python ci/harness_status.py --no-local --write harness-status.json` |
 
-Each carries its own refresh command, its own staleness budget, and its own
-`do_not` list **inside the file**, so you do not need this page to read one
-correctly. `/cowork` prints both with their current age.
+`harness-status.json` carries its own refresh command, staleness budget and
+`do_not` list in a `reading:` block **inside the file**, so you do not need this
+page to read that one correctly. **`governance-status.yaml` has no `reading:`
+block** — its top-level keys are `schema`, `generated_at`, `generator`, `corpus`,
+`projects`, `org` — so the refresh command and the 168h budget in the table above
+are the only statement of them anywhere, and this page is load-bearing for it.
+Giving that document a `reading:` block of its own is the fix; until then, do not
+read the sentence above as covering both. `/cowork` prints both with their
+current age.
 
 To read the harness document as prose rather than JSON:
 
@@ -40,7 +46,7 @@ repository:
 ```
 python ci/harness_dashboard.py harness-status.json --format md    # agent view
 python ci/harness_dashboard.py harness-status.json --out status.html
-python ci/governance_render.py                                    # the other document
+python ci/governance_render.py governance-status.yaml --out status.html
 ```
 
 In **`quaternionmedia/dossier`** — one command does refresh, load and launch:
@@ -50,11 +56,14 @@ is a human or agent action" rule still holds — a person asked for it, and the
 diff it leaves in this repository is theirs to review. Its refresh path is
 deliberately outside its renderer, so the no-commands-in-a-view rule holds
 there too.
-Its `docs/governance.md` carries the prep, which is not optional: a project's
-vendored `governance/qm` is pinned to its own branch, cut from **`main`**, and
-neither document is on `main`. So the path a project would naturally read is
-empty by construction until the change adding them lands and the pin is bumped
-past it. Until then a reader there needs pointing at a corpus checkout.
+Its `docs/governance.md` carries the prep. **Both documents are on `main`**, and
+on nine of the twelve `project/*` branches — so for most projects the vendored
+path now resolves. The three that do not carry them are `project/dossier`,
+`project/loopwall` and `project/streaming-infrastructure`, each of which is tens
+of commits behind; a reader pinned to one of those still needs pointing at a
+corpus checkout, and a propagation fixes it. This paragraph said *neither*
+document was on `main`, which was true only until the change adding them landed
+on 2026-08-10.
 
 In **every other project** — nothing. The documents describe all of them and
 are generated and stored only here. Looking for a dashboard in `alfred` or

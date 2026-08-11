@@ -59,15 +59,22 @@ project vendors this repo as a submodule and checks out its own branch; see
 
 ## Branch namespaces
 
-`main` carries the constitution and nothing else. Four namespaces hang off it,
+`main` carries the constitution and nothing else. Five namespaces hang off it,
 and a branch outside them is a mistake rather than a variation.
 
 | Namespace | Holds | Lifetime |
 |---|---|---|
 | `project/<name>` | one adopting project's `adr/` | permanent — a downstream submodule pins its tip |
+| `propagate/<name>-<date>` | `main` merged toward one `project/<name>` | deleted after merge |
 | `perspective/<date>-<slug>` | one perspective, staged for `main` | deleted after merge |
 | `evolve/<slug>` | org-level work in progress | deleted after merge |
 | `workspace/<slug>` | a research workspace that never merges back | permanent, terminal |
+
+`propagate/*` was mandated by the propagation runbook and by the table below
+while this list said there were four namespaces and that anything outside them
+was a mistake — with eight such branches pushed. It is listed because the rule
+that a branch outside these namespaces is wrong is only usable if the list is
+complete.
 
 `project/qmetronome` is the reference instance for a non-server runtime. **There
 is no reference instance for a server/container runtime.**
@@ -75,8 +82,10 @@ is no reference instance for a server/container runtime.**
 `quaternionmedia/streaming-infrastructure` repository exists — `gh api` returns
 404, and the generated document records that as its `repository` value — so
 there is nothing it is an instance *of*. It is a design branch holding the plan
-and `ADR-0001` that `main` moved off itself in `dec5c9c`, and it is 40 commits
-behind. Naming it as the reference invited a forker to copy the setup of a
+and `ADR-0001` that `main` moved off itself in `dec5c9c`, and it is tens of
+commits behind — `governance-status.yaml` carries the current `behind_corpus`
+figure, and this sentence deliberately does not, having already been wrong once
+by naming one. Naming it as the reference invited a forker to copy the setup of a
 project that was never set up.
 
 The mathematical-limits experiments live on `workspace/math-experiments` —
@@ -148,13 +157,19 @@ a record — each page states its own promotion path.
 The whole procedure — eight steps, each with the check that proves it worked —
 is `handbook/forking-a-project.md`. In outline: add this repo as a submodule at
 `governance/qm`, create a `project/<name>` branch here for the project's own
-`adr/`, copy `project-seed/` into place, wire the three CI workflows, and seed
-the first records.
+`adr/`, copy `project-seed/` into place, wire the four CI workflows the seed
+ships, and seed the first records.
 
-Do not improvise a lighter version. Three of the nine projects adopted so far
-were missing at least one step, and in every case nothing reported it — the
-submodule pin is the cheap part, and the copied files are where adoption
-actually lives.
+Do not improvise a lighter version. Most projects adopted so far are missing at
+least one step — `harness-status.json`'s governance column is the current count,
+and `ci/harness_dashboard.py harness-status.json --format md` prints it, so read
+it there rather than trusting a number written into this sentence. It said
+"three of the nine projects" until the ninth project stopped being the last one;
+a count in prose rots silently while the document beside it is regenerated.
+
+The submodule pin is the cheap part, and the copied files are where adoption
+actually lives. That is why nothing reported the gaps for as long as it didn't:
+the pin was the only thing being checked.
 
 ## Ratification
 
@@ -212,9 +227,12 @@ Handbook (policy, not records):
 
 ### Obligations that fall due at ratification
 
-- **Open-license record → the reference project.** When it is Accepted, the
-  streaming project's ADR-0001 receives a dated amendment recording
-  adoption-by-reference. Its body is untouched.
+- **Open-license record → the streaming design branch.** When it is Accepted,
+  the `ADR-0001` on `project/streaming-infrastructure` receives a dated
+  amendment recording adoption-by-reference. Its body is untouched. Called "the
+  reference project" here until "Branch namespaces" above stopped calling it
+  one: there is no `quaternionmedia/streaming-infrastructure` repository, so the
+  obligation falls on a design branch and on nothing else.
 
 Some records describe machinery that costs nothing to run before ratification.
 Where that is true the machinery is live and the record's Status is still
