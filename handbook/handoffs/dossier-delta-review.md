@@ -67,10 +67,12 @@ uv sync                       # or: .venv/Scripts/python.exe -m pytest
 .venv/Scripts/python.exe -m pytest -q
 ```
 
-**dossier has no CI**, so nothing has ever run against this branch — no test,
-no lint, no review. `gh api repos/quaternionmedia/dossier/actions/workflows`
-returns one entry, GitHub's dynamic `Dependabot Updates`, and
-`git ls-tree -r origin/main .github` returns only `copilot-instructions.md`.
+**Nothing has run against this branch** — no test, no lint, no review — because
+it still has no pull request. Note the reason, because this page used to give a
+different one: dossier *does* have CI now, four committed workflows on `main`
+(`adr-lint`, `license-check`, `reuse-lint`, `submodule-check`), and both commands
+quoted here as evidence return the opposite of what they returned when it was
+written. The gap is the missing pull request, not a missing pipeline.
 That raises the value of this handoff rather than lowering it, and it means
 any suite result is one you produced yourself and should describe as such.
 

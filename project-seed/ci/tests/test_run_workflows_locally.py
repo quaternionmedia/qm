@@ -128,3 +128,70 @@ def test_no_workflows_at_all_is_not_a_pass(repo: Path):
         "an empty workflows directory must not report success -- that is "
         "indistinguishable from a pipeline that ran and passed"
     )
+
+
+# --- working-directory decides where a step runs ---------------------------
+
+
+def test_a_step_runs_in_its_working_directory(repo: Path):
+    """Ignoring `working-directory` runs the command somewhere else.
+
+    Found in codecartographer: `npm ci` with `working-directory: web` ran in
+    the repository root and reported "no package-lock.json" about a file that
+    exists one directory down. A confident failure, in a step that passes in
+    CI.
+    """
+    write(repo / "sub" / "marker.txt", "here\n")
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow(
+            "      - name: look for the marker\n"
+            "        working-directory: sub\n"
+            "        run: test -f marker.txt\n"
+        ),
+    )
+    commit_all(repo, "add a workflow with a working-directory")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 0, (
+        "the step should have run inside sub/, where the marker is\n"
+        f"{result.stdout}"
+    )
+    assert "PASS" in result.stdout
+
+
+def test_the_wrong_directory_would_have_been_noticed(repo: Path):
+    """The same check, inverted: run it at the root and it must fail.
+
+    Without this the test above passes for the wrong reason -- a command that
+    succeeds anywhere proves nothing about where it ran.
+    """
+    write(repo / "sub" / "marker.txt", "here\n")
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow(
+            "      - name: look for the marker at the root\n"
+            "        run: test -f marker.txt\n"
+        ),
+    )
+    commit_all(repo, "add a workflow without a working-directory")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 1, (
+        "marker.txt is in sub/, so a root-relative test must fail\n"
+        f"{result.stdout}"
+    )
+
+
+def test_a_working_directory_that_does_not_exist_is_a_failure_not_a_pass(repo: Path):
+    """Silently running at the root would be the reassuring wrong answer."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow(
+            "      - name: nowhere\n"
+            "        working-directory: no-such-dir\n"
+            "        run: echo ok\n"
+        ),
+    )
+    commit_all(repo, "add a workflow pointing at a missing directory")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 1, result.stdout
+    assert "working-directory does not exist" in result.stdout
