@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-10T11:31:13Z"
+generated_at: "2026-08-11T02:55:32Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -78,7 +78,7 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/alfred: unexpected response shape"
-    observed_at: "2026-08-10T11:31:00Z"
+    observed_at: "2026-08-11T02:55:17Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
@@ -122,7 +122,7 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/apothecary: unexpected response shape"
-    observed_at: "2026-08-10T11:31:01Z"
+    observed_at: "2026-08-11T02:55:18Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
@@ -167,7 +167,7 @@ projects:
         - LICENSE
     open_prs:
       unknown: "pulls?base=project/codecartographer: unexpected response shape"
-    observed_at: "2026-08-10T11:31:02Z"
+    observed_at: "2026-08-11T02:55:19Z"
   - name: datafactorio
     branch:
       ref: origin/project/datafactorio
@@ -211,7 +211,7 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/datafactorio: unexpected response shape"
-    observed_at: "2026-08-10T11:31:04Z"
+    observed_at: "2026-08-11T02:55:20Z"
   - name: datum
     branch:
       ref: origin/project/datum
@@ -257,7 +257,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-10T11:31:05Z"
+    observed_at: "2026-08-11T02:55:22Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
@@ -282,7 +282,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-10T11:26:26Z"
+      pushed_at: "2026-08-11T02:22:41Z"
       licence: MIT
     adoption:
       submodule:
@@ -301,7 +301,7 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-10T11:31:06Z"
+    observed_at: "2026-08-11T02:55:23Z"
   - name: factorio-server
     branch:
       ref: origin/project/factorio-server
@@ -345,7 +345,7 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/factorio-server: unexpected response shape"
-    observed_at: "2026-08-10T11:31:07Z"
+    observed_at: "2026-08-11T02:55:24Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
@@ -389,7 +389,7 @@ projects:
       licensing: []
     open_prs:
       unknown: "pulls?base=project/factorio-sysops: unexpected response shape"
-    observed_at: "2026-08-10T11:31:08Z"
+    observed_at: "2026-08-11T02:55:25Z"
   - name: loopwall
     branch:
       ref: origin/project/loopwall
@@ -417,7 +417,7 @@ projects:
       default_branch: main
       private: true
       archived: false
-      pushed_at: "2026-08-10T10:58:24Z"
+      pushed_at: "2026-08-10T13:53:55Z"
       licence: NOASSERTION
     adoption:
       submodule:
@@ -435,7 +435,7 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-10T11:31:10Z"
+    observed_at: "2026-08-11T02:55:27Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
@@ -481,7 +481,7 @@ projects:
         - LICENSE
     open_prs:
       unknown: "pulls?base=project/qmetronome: unexpected response shape"
-    observed_at: "2026-08-10T11:31:11Z"
+    observed_at: "2026-08-11T02:55:28Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
@@ -510,11 +510,11 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-10T11:31:12Z"
+    observed_at: "2026-08-11T02:55:29Z"
 org:
   repositories:
     total: 109
-    private: 36
+    private: 35
     governed: 10
     unmanaged: 98
   governed_without_repository:
@@ -573,6 +573,7 @@ org:
     - otto
     - qmcp
     - qmmv
+    - rad
     - readysetjazz
     - scad-chess
     - sqlmodel-ui
@@ -586,8 +587,8 @@ org:
     - william-penn-convocation-slides
     - wolf
     - ztgui
-  unmanaged_names_withheld: 32
-  observed_at: "2026-08-10T11:31:13Z"
+  unmanaged_names_withheld: 31
+  observed_at: "2026-08-11T02:55:32Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
