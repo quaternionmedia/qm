@@ -149,6 +149,79 @@ def slot_layer(slug: str, per_base: list[str]) -> dict:
     return payload
 
 
+def release_layer(slug: str) -> dict:
+    """What the repository's `v*` tags assert, and what main carries beyond them.
+
+    The org's two-part rule, made measurable:
+
+    * **`main` implies readiness.** Merging says the work is ready to build on.
+      It asserts nothing about release.
+    * **A `v` tag implies human governance has been passed.** The version-tags
+      record's §2 — a human reviewed it, a human manually tested it against its
+      real runtime, and its automated validation passed and is deterministic.
+
+    So the interesting fact is the *gap*: commits sitting on `main` that no tag
+    has ever asserted. That is readiness awaiting governance, and it is normal;
+    what matters is that it is visible and counted rather than assumed to be
+    zero.
+
+    Two states this deliberately keeps apart, because collapsing them is how a
+    dashboard lies:
+
+    * **`unreleased`** — no `v*` tag has ever existed. Nothing has been
+      asserted about this repository, ever.
+    * **`current`** — a tag exists and `main` carries nothing beyond it.
+
+    `lightweight` is reported as its own finding rather than folded into the
+    count: §6 requires annotated tags, because a lightweight tag carries no
+    annotation and therefore cannot name who reviewed or what was tested. A tag
+    that cannot state its basis is a claim with nothing behind it.
+    """
+    code, out, err = run(
+        "gh", "api", f"repos/{slug}/tags", "--paginate",
+        "--jq", ".[] | select(.name | startswith(\"v\")) | .name",
+    )
+    if code != 0:
+        return unknown(f"tags for {slug}: {(err or out).strip()[:80]}")
+    tags = [t for t in out.splitlines() if t.strip()]
+    if not tags:
+        return {
+            "state": "unreleased",
+            "latest": None,
+            "unreleased_commits": None,
+            "asserts": "no v tag has ever been cut, so nothing has been asserted",
+        }
+
+    latest = tags[0]
+    code, ref, err = run(
+        "gh", "api", f"repos/{slug}/git/ref/tags/{latest}",
+        "--jq", ".object.type + \" \" + .object.sha",
+    )
+    if code != 0:
+        return unknown(f"ref for {slug}@{latest}: {(err or out).strip()[:80]}")
+    kind, _, sha = ref.strip().partition(" ")
+
+    code, cmp_out, err = run(
+        "gh", "api", f"repos/{slug}/compare/{latest}...HEAD", "--jq", ".ahead_by",
+    )
+    ahead = int(cmp_out.strip()) if code == 0 and cmp_out.strip().isdigit() else None
+
+    return {
+        # An annotated tag resolves to a `tag` object; a lightweight one points
+        # straight at the commit.
+        "state": "current" if ahead == 0 else ("ahead" if ahead else "unknown"),
+        "latest": latest,
+        "annotated": kind == "tag",
+        "unreleased_commits": ahead,
+        "asserts": (
+            "a human reviewed, manually tested and gated this commit"
+            if kind == "tag"
+            else "lightweight tag: carries no annotation, so it names no reviewer "
+            "and no manual test"
+        ),
+    }
+
+
 def hours_since(stamp: str | None) -> float | None:
     """Hours since an ISO-8601 instant, or None if it cannot be read."""
     if not stamp:
@@ -423,6 +496,7 @@ def build(
                 slug, CORPUS_PER_BASE if entry.get("role") == "corpus" else []
             ),
         }
+        record["release"] = release_layer(slug)
         record["threads"] = org_threads(slug, record["slots"], want_pr_detail)
         if governance is not None:
             record["governance"] = (

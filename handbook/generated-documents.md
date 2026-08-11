@@ -120,6 +120,28 @@ completion, because the corpus has no definition of done a tool could read, and
 a number that looks like progress is the most confidently wrong thing a
 dashboard can print. A view that showed 60% would be believed.
 
+**`main` is readiness; a `v` tag is governance.** These are different claims
+and the documents keep them apart. Merging to a default branch asserts the work
+is ready to build on and nothing more. A `v` tag asserts what the version-tags
+record's §2 requires: a human reviewed it, a human manually tested it against
+its real runtime, and its automated validation passed and is deterministic.
+
+So `harness-status.json` carries a `release` layer per repository, and the gap
+between the two is the fact worth reading — commits carried on the default
+branch that no tag has asserted. Three states that must not be collapsed:
+
+| State | Means |
+|---|---|
+| `unreleased` | no `v` tag has ever existed; nothing has ever been asserted |
+| `current` | a tag exists and the default branch carries nothing beyond it |
+| `ahead` | N commits of readiness are waiting on governance |
+
+`unreleased` and `current` both have nothing outstanding and mean opposite
+things, which is why one is never rendered as the other. And a **lightweight
+tag is reported as a finding, not as a release**: §6 requires annotated tags
+because a lightweight one carries no annotation, so it can name neither the
+reviewer nor the manual test. It is a claim with nothing behind it.
+
 **A claim and its evidence are separate, and neither derives from the other.**
 The phase in `ci/workspace.yaml` is what a human stated; the governance column
 is what has landed on a default branch. A view shows both and shows the gap.

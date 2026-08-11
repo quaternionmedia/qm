@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-11T03:26:30Z",
+  "generated_at": "2026-08-11T03:33:45Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -82,6 +82,12 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [],
       "governance": {
         "precondition": "n/a",
@@ -124,6 +130,13 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "ahead",
+        "latest": "v0.2.0",
+        "annotated": false,
+        "unreleased_commits": 37,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
       "threads": [
         {
           "name": "config",
@@ -140,7 +153,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 22900.5,
+          "idle_hours": 22900.6,
           "stalled": true
         }
       ],
@@ -275,6 +288,12 @@
         "exit_status": 1,
         "compliant": false
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [
         {
           "name": "feature/fractal-viewer-scale-and-overlays",
@@ -291,7 +310,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-09T11:11:42Z"
           },
-          "idle_hours": 40.2,
+          "idle_hours": 40.4,
           "stalled": false
         },
         {
@@ -309,7 +328,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-09T11:12:08Z"
           },
-          "idle_hours": 40.2,
+          "idle_hours": 40.4,
           "stalled": false
         },
         {
@@ -327,7 +346,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-07-21T21:27:35Z"
           },
-          "idle_hours": 486.0,
+          "idle_hours": 486.1,
           "stalled": true
         },
         {
@@ -345,7 +364,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-01-16T12:04:41Z"
           },
-          "idle_hours": 4959.4,
+          "idle_hours": 4959.5,
           "stalled": true
         }
       ],
@@ -398,6 +417,13 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "current",
+        "latest": "v0.0.1",
+        "annotated": false,
+        "unreleased_commits": 0,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
       "threads": [
         {
           "name": "governance/propagate-2026-08-08",
@@ -414,7 +440,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-09T11:04:08Z"
           },
-          "idle_hours": 40.4,
+          "idle_hours": 40.5,
           "stalled": false
         }
       ],
@@ -461,6 +487,12 @@
         "violations": [],
         "exit_status": 0,
         "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
       "threads": [],
       "governance": {
@@ -538,6 +570,12 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [
         {
           "name": "cleanup/2026-07-21-full-review",
@@ -554,7 +592,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-07-21T21:23:02Z"
           },
-          "idle_hours": 486.1,
+          "idle_hours": 486.2,
           "stalled": true
         }
       ],
@@ -634,6 +672,13 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "ahead",
+        "latest": "v1.4.1",
+        "annotated": true,
+        "unreleased_commits": 44,
+        "asserts": "a human reviewed, manually tested and gated this commit"
+      },
       "threads": [],
       "governance": {
         "precondition": "incomplete",
@@ -672,6 +717,12 @@
         "violations": [],
         "exit_status": 0,
         "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
       "threads": [],
       "governance": {
@@ -712,6 +763,12 @@
         "violations": [],
         "exit_status": 0,
         "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
       "threads": [],
       "governance": {
@@ -762,6 +819,13 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "current",
+        "latest": "v0.2.0",
+        "annotated": true,
+        "unreleased_commits": 0,
+        "asserts": "a human reviewed, manually tested and gated this commit"
+      },
       "threads": [
         {
           "name": "governance/wire-ide-and-adr-lint",
@@ -778,7 +842,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-08T15:55:53Z"
           },
-          "idle_hours": 59.5,
+          "idle_hours": 59.6,
           "stalled": true
         }
       ],
@@ -866,6 +930,12 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [],
       "governance": {
         "precondition": "met",
@@ -920,6 +990,12 @@
         "exit_status": 0,
         "compliant": true
       },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
       "threads": [
         {
           "name": "fix/ci-empty-regions-dir",
@@ -936,7 +1012,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3035.4,
+          "idle_hours": 3035.5,
           "stalled": true
         }
       ],
@@ -1086,6 +1162,12 @@
         "violations": [],
         "exit_status": 0,
         "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
       "threads": [],
       "governance": {
