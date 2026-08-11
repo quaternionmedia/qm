@@ -19,9 +19,12 @@ what is in flight across the org. The commands live in
 symlinks into it.
 
 **Read the committed status documents before re-deriving what they hold.**
-`governance-status.yaml` and `harness-status.json` sit at the root, each
-carrying its own refresh command and staleness budget inside the file;
-`handbook/generated-documents.md` indexes them, and
+`governance-status.yaml` and `harness-status.json` sit at the root.
+`harness-status.json` carries its own refresh command, staleness budget and
+`do_not` list in a `reading:` block inside the file. **`governance-status.yaml`
+does not** — it has no `reading:` block at all, so its refresh command and its
+168-hour budget are only in `handbook/generated-documents.md`, and for that one
+you do need the page. `handbook/generated-documents.md` indexes both, and
 `ci/harness_dashboard.py harness-status.json --format md` renders the second
 as prose. Check the age before quoting a figure — a stale number delivered
 with a date looks checked.
@@ -40,13 +43,18 @@ with a date looks checked.
    the last one. A human decides what this corpus says, and the pull request
    is where that decision is made and recorded.
    **Open it as a draft, and never request a review.** `gh pr create --draft`.
-   Draft is not a formality here: a ready PR against a branch carrying
+   Draft is not a formality: a ready PR against a branch carrying a *live*
    `CODEOWNERS` requests review from those owners the moment it opens, with no
-   reviewer named by you and no way to recall the notification. This corpus's
-   `main` owns `/project-seed/`, `/.github/workflows/` and `/.github/rulesets/`
-   that way, so "open a PR for human review" — read literally, as an agent will
-   read it — is the act of pulling a second person into untested work. A draft
-   PR fires none of it. Add the person who asked for the work as **assignee**,
+   reviewer named by you and no way to recall the notification. So "open a PR for
+   human review" — read literally, as an agent will read it — can be the act of
+   pulling a second person into untested work. A draft PR fires none of it.
+   **In this repository that gun is currently unloaded, and the rule holds
+   anyway.** `.github/CODEOWNERS` is inert — all 16 rules carry a `#=` prefix,
+   `grep -vc '^#\|^$'` returns 0, and its own first line says so — and
+   `gh api repos/quaternionmedia/qm/rulesets` returns `[]`. `main` therefore owns
+   nothing and a ready PR here notifies nobody. Do not treat that as permission:
+   the file is one `sed` away from live, every project that copies this seed may
+   have its own owners, and readiness is the author's claim to make either way. Add the person who asked for the work as **assignee**,
    which is also how you reach them when they authored the branch and GitHub
    therefore refuses a review request. Leaving draft is their decision and
    follows their own testing, not your confidence in the diff.

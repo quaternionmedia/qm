@@ -20,8 +20,14 @@ What this does NOT reproduce, and where it can therefore be wrong:
     exercised here.
   - The runner image. Ubuntu tool versions differ from a developer machine,
     which is the usual reason a locally-green step fails in CI.
-  - Secrets, tokens and anything network-gated by them.
+  - Secrets, tokens and anything network-gated by them. A step whose `env:` fills
+    from `github.token` or `secrets.*` runs with that variable DROPPED, and the
+    drop is printed; the step then uses whatever credential this machine has.
   - Event payloads beyond the few fields substituted below.
+  - `paths:` and `types:` trigger filters. `applies()` reads only `branches:`, so
+    a workflow GitHub would skip for touching no matching path is executed here.
+    That errs toward running too much, which is the safe direction, but it means
+    a green run here does not prove the workflow would have been triggered.
 
 So a pass here is evidence, not proof.
 

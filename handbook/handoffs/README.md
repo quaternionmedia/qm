@@ -42,8 +42,10 @@ older than that date describes the harness in the present tense as unmerged;
 that is a *stamp* doing its job, not a claim to act on. Re-derive before quoting
 one.
 
-`project/datum` is level with `main`: the propagation landed as #39, after #34
-was closed unmerged on 2026-08-09.
+`project/datum`'s propagation landed as **#39**, after #34
+was closed unmerged on 2026-08-09. It is not level with `main` now, and no
+project branch is: all twelve fell behind again when #38 and #41 landed. Read
+`governance-status.yaml`'s `behind_corpus` rather than a number on this page.
 
 ## Rules that apply to every one of these
 

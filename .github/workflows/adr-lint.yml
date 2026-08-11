@@ -73,16 +73,12 @@ jobs:
             --index README.md \
             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
 
-      - name: Lint the reference project's records
-        run: |
-          if [ -d streaming-infrastructure/adr ]; then
-            python project-seed/ci/adr_lint.py \
-              --records-dir streaming-infrastructure/adr \
-              --index streaming-infrastructure/adr/README.md \
-              ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
-          else
-            echo 'No streaming-infrastructure/adr on this branch; it lives on its own project branch.'
-          fi
+      # There was a step here linting `streaming-infrastructure/adr/`. It is gone:
+      # no branch in this repository has that path -- those records are at `adr/`
+      # on `project/streaming-infrastructure`, which the generic step below
+      # already lints -- so the condition was unreachable on every ref CI runs
+      # against, and the step could only ever print its reassuring else-branch.
+      # A check that cannot fire is worse than none, because the log says it ran.
 
       # A top-level adr/ belongs to exactly one project and lives on that
       # project's own branch. On the default branch it is a namespace violation,
