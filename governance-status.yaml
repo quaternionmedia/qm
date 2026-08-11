@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-11T02:55:32Z"
+generated_at: "2026-08-11T03:26:19Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -23,28 +23,31 @@ generator:
     licensing:
       - LICENSE
       - REUSE.toml
-  unknowns: 9
+  unknowns: 2
 corpus:
   ref: origin/main
-  commit: "b94d91085ba728788ede43e7ab4865ecb21c9261"
-  committed_at: "2026-08-08T17:56:10Z"
+  commit: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+  committed_at: "2026-08-11T03:12:03Z"
   records:
-    total: 10
+    total: 11
     ratified: 0
     numbered_files: 0
     by_status:
-      proposed: 10
+      proposed: 11
 projects:
   - name: alfred
     branch:
       ref: origin/project/alfred
-      commit: "96b9ccab818a8fafeb1527e32922ff46a5d73874"
-      committed_at: "2026-08-08T01:19:05Z"
-      behind_corpus: 62
-      ahead_of_corpus: 6
-      merge_base: "4541f92df9fc9a3b3b8c04358ec173687c5e35cb"
-      merge_base_at: "2026-07-05T11:34:24Z"
-      last_propagation: null
+      commit: "e3d5a6df72d9684085882bd3fe0b7d53faf74a14"
+      committed_at: "2026-08-11T03:15:59Z"
+      behind_corpus: 0
+      ahead_of_corpus: 11
+      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+      merge_base_at: "2026-08-11T03:12:03Z"
+      last_propagation:
+        commit: "09419bcd955cb9924a9d647e9634cad83f280dd9"
+        committed_at: "2026-08-11T03:15:22Z"
+        subject: "Bring propagation current with main"
     records:
       total: 4
       ratified: 0
@@ -52,7 +55,7 @@ projects:
       by_status:
         proposed: 4
     seed:
-      adr_template_vs_corpus: drift
+      adr_template_vs_corpus: match
       adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
@@ -76,19 +79,21 @@ projects:
         - reuse-lint.yml
         - submodule-check.yml
       licensing: []
-    open_prs:
-      unknown: "pulls?base=project/alfred: unexpected response shape"
-    observed_at: "2026-08-11T02:55:17Z"
+    open_prs: []
+    observed_at: "2026-08-11T03:26:06Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
-      commit: "a6c7afbc2b0e82b2ec2b49c4238b05506596562b"
-      committed_at: "2026-07-21T15:43:08Z"
-      behind_corpus: 62
-      ahead_of_corpus: 3
-      merge_base: "4541f92df9fc9a3b3b8c04358ec173687c5e35cb"
-      merge_base_at: "2026-07-05T11:34:24Z"
-      last_propagation: null
+      commit: "aaf6c357411c44e81c4b0d7ec7d49f855cf8ed89"
+      committed_at: "2026-08-11T03:18:32Z"
+      behind_corpus: 0
+      ahead_of_corpus: 9
+      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+      merge_base_at: "2026-08-11T03:12:03Z"
+      last_propagation:
+        commit: "726c4009809ced4ec4b0c89ab99032b2e3be24c6"
+        committed_at: "2026-08-11T03:16:58Z"
+        subject: "Bring propagation current with main"
     records:
       total: 2
       ratified: 0
@@ -96,7 +101,7 @@ projects:
       by_status:
         proposed: 2
     seed:
-      adr_template_vs_corpus: drift
+      adr_template_vs_corpus: match
       adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
@@ -120,19 +125,21 @@ projects:
         - reuse-lint.yml
         - submodule-check.yml
       licensing: []
-    open_prs:
-      unknown: "pulls?base=project/apothecary: unexpected response shape"
-    observed_at: "2026-08-11T02:55:18Z"
+    open_prs: []
+    observed_at: "2026-08-11T03:26:07Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
-      commit: "06673592acd542892bf1b9a99040eb7cf35778f6"
-      committed_at: "2026-07-21T21:08:15Z"
-      behind_corpus: 62
-      ahead_of_corpus: 8
-      merge_base: "4541f92df9fc9a3b3b8c04358ec173687c5e35cb"
-      merge_base_at: "2026-07-05T11:34:24Z"
-      last_propagation: null
+      commit: "5e1eb040d701bcc8ce1797a65bb8917f4a75bccd"
+      committed_at: "2026-08-11T03:18:19Z"
+      behind_corpus: 0
+      ahead_of_corpus: 13
+      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+      merge_base_at: "2026-08-11T03:12:03Z"
+      last_propagation:
+        commit: "a67118ba8463ade485c9812df60b6dc99add44b2"
+        committed_at: "2026-08-11T03:16:49Z"
+        subject: "Bring propagation current with main"
     records:
       total: 11
       ratified: 0
@@ -140,8 +147,8 @@ projects:
       by_status:
         proposed: 11
     seed:
-      adr_template_vs_corpus: drift
-      adr_template_vs_merge_base: drift
+      adr_template_vs_corpus: match
+      adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
       default_branch: main
@@ -165,19 +172,21 @@ projects:
         - submodule-check.yml
       licensing:
         - LICENSE
-    open_prs:
-      unknown: "pulls?base=project/codecartographer: unexpected response shape"
-    observed_at: "2026-08-11T02:55:19Z"
+    open_prs: []
+    observed_at: "2026-08-11T03:26:08Z"
   - name: datafactorio
     branch:
       ref: origin/project/datafactorio
-      commit: "710d368b3ba462dcae622a787b70266a476d345d"
-      committed_at: "2026-07-05T10:59:32Z"
-      behind_corpus: 69
-      ahead_of_corpus: 2
-      merge_base: "d1b8afc56f68c53df70d26a0b2c14892b5b22822"
-      merge_base_at: "2026-07-04T16:04:56Z"
-      last_propagation: null
+      commit: "ea77853e765749f1bf28e3973c3b962dd1701e86"
+      committed_at: "2026-08-11T03:18:29Z"
+      behind_corpus: 0
+      ahead_of_corpus: 9
+      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+      merge_base_at: "2026-08-11T03:12:03Z"
+      last_propagation:
+        commit: "8a17f1437c0034ae6f6dc051ae51d8f9d5225720"
+        committed_at: "2026-08-11T03:16:56Z"
+        subject: "Bring propagation current with main"
     records:
       total: 1
       ratified: 0
@@ -185,7 +194,7 @@ projects:
       by_status:
         proposed: 1
     seed:
-      adr_template_vs_corpus: drift
+      adr_template_vs_corpus: match
       adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
@@ -209,15 +218,14 @@ projects:
         - reuse-lint.yml
         - submodule-check.yml
       licensing: []
-    open_prs:
-      unknown: "pulls?base=project/datafactorio: unexpected response shape"
-    observed_at: "2026-08-11T02:55:20Z"
+    open_prs: []
+    observed_at: "2026-08-11T03:26:10Z"
   - name: datum
     branch:
       ref: origin/project/datum
       commit: "ffa8b92c10e319cd219b13d158990a0acbcee383"
       committed_at: "2026-08-08T10:50:55Z"
-      behind_corpus: 62
+      behind_corpus: 95
       ahead_of_corpus: 5
       merge_base: "4541f92df9fc9a3b3b8c04358ec173687c5e35cb"
       merge_base_at: "2026-07-05T11:34:24Z"
@@ -257,13 +265,13 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T02:55:22Z"
+    observed_at: "2026-08-11T03:26:11Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
       commit: "a9a6e33501dc3955b018c07ab08f2a7dc0c71c2e"
       committed_at: "2026-08-10T01:15:37Z"
-      behind_corpus: 0
+      behind_corpus: 33
       ahead_of_corpus: 3
       merge_base: "b94d91085ba728788ede43e7ab4865ecb21c9261"
       merge_base_at: "2026-08-08T17:56:10Z"
@@ -282,36 +290,40 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T02:22:41Z"
+      pushed_at: "2026-08-11T03:25:31Z"
       licence: MIT
     adoption:
       submodule:
-        corpus_mounted_at: null
-        branch: null
+        corpus_mounted_at: governance/qm
+        branch: project/dossier
       ide:
         - ".github/copilot-instructions.md"
-      ide_missing:
         - AGENTS.md
         - CLAUDE.md
-      seed_workflow_filenames_present: []
-      seed_workflow_filenames_absent:
+      ide_missing: []
+      seed_workflow_filenames_present:
         - adr-lint.yml
         - reuse-lint.yml
         - submodule-check.yml
+      seed_workflow_filenames_absent: []
       licensing:
         - LICENSE
+        - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T02:55:23Z"
+    observed_at: "2026-08-11T03:26:12Z"
   - name: factorio-server
     branch:
       ref: origin/project/factorio-server
-      commit: "29d33b43526b01997911d588de8c42f8345a11c9"
-      committed_at: "2026-07-05T01:49:47Z"
-      behind_corpus: 69
-      ahead_of_corpus: 1
-      merge_base: "d1b8afc56f68c53df70d26a0b2c14892b5b22822"
-      merge_base_at: "2026-07-04T16:04:56Z"
-      last_propagation: null
+      commit: "4c28a349d69c92af82490b3b63dc923a83a46569"
+      committed_at: "2026-08-11T03:18:26Z"
+      behind_corpus: 0
+      ahead_of_corpus: 8
+      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+      merge_base_at: "2026-08-11T03:12:03Z"
+      last_propagation:
+        commit: "f922dfbd56c7c2274d85fbac4b17769bebbf0aa8"
+        committed_at: "2026-08-11T03:16:54Z"
+        subject: "Bring propagation current with main"
     records:
       total: 1
       ratified: 0
@@ -319,7 +331,7 @@ projects:
       by_status:
         proposed: 1
     seed:
-      adr_template_vs_corpus: drift
+      adr_template_vs_corpus: match
       adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
@@ -343,19 +355,21 @@ projects:
         - reuse-lint.yml
         - submodule-check.yml
       licensing: []
-    open_prs:
-      unknown: "pulls?base=project/factorio-server: unexpected response shape"
-    observed_at: "2026-08-11T02:55:24Z"
+    open_prs: []
+    observed_at: "2026-08-11T03:26:13Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
-      commit: "67ea42402e8a0f4a99c06b4b3e6d5d9146a9661f"
-      committed_at: "2026-07-05T01:47:10Z"
-      behind_corpus: 69
-      ahead_of_corpus: 1
-      merge_base: "d1b8afc56f68c53df70d26a0b2c14892b5b22822"
-      merge_base_at: "2026-07-04T16:04:56Z"
-      last_propagation: null
+      commit: "b5ac0dceb45ac915cd4f046686ae7cfde071160a"
+      committed_at: "2026-08-11T03:18:22Z"
+      behind_corpus: 0
+      ahead_of_corpus: 8
+      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+      merge_base_at: "2026-08-11T03:12:03Z"
+      last_propagation:
+        commit: "ad68f3dd7eae743b04ac9a6a0c749db928dbf923"
+        committed_at: "2026-08-11T03:16:51Z"
+        subject: "Bring propagation current with main"
     records:
       total: 1
       ratified: 0
@@ -363,7 +377,7 @@ projects:
       by_status:
         proposed: 1
     seed:
-      adr_template_vs_corpus: drift
+      adr_template_vs_corpus: match
       adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
@@ -387,15 +401,14 @@ projects:
         - reuse-lint.yml
         - submodule-check.yml
       licensing: []
-    open_prs:
-      unknown: "pulls?base=project/factorio-sysops: unexpected response shape"
-    observed_at: "2026-08-11T02:55:25Z"
+    open_prs: []
+    observed_at: "2026-08-11T03:26:15Z"
   - name: loopwall
     branch:
       ref: origin/project/loopwall
       commit: "217039d46d39c434f6dd548690f286ba3ccf9a03"
       committed_at: "2026-08-08T19:04:00Z"
-      behind_corpus: 0
+      behind_corpus: 33
       ahead_of_corpus: 8
       merge_base: "b94d91085ba728788ede43e7ab4865ecb21c9261"
       merge_base_at: "2026-08-08T17:56:10Z"
@@ -435,17 +448,20 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T02:55:27Z"
+    observed_at: "2026-08-11T03:26:16Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
-      commit: "5771806c7d5d08c9e8613f3f158be27d48553667"
-      committed_at: "2026-07-19T15:14:39Z"
-      behind_corpus: 69
-      ahead_of_corpus: 13
-      merge_base: "d1b8afc56f68c53df70d26a0b2c14892b5b22822"
-      merge_base_at: "2026-07-04T16:04:56Z"
-      last_propagation: null
+      commit: "5f910b1580728727b162158c013b9cdd959b937d"
+      committed_at: "2026-08-11T03:18:35Z"
+      behind_corpus: 0
+      ahead_of_corpus: 20
+      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
+      merge_base_at: "2026-08-11T03:12:03Z"
+      last_propagation:
+        commit: "f44c9609a47672176b2d6e1adcd3de8e0f164161"
+        committed_at: "2026-08-11T03:17:00Z"
+        subject: "Bring propagation current with main"
     records:
       total: 9
       ratified: 0
@@ -454,7 +470,7 @@ projects:
         draft: 1
         proposed: 8
     seed:
-      adr_template_vs_corpus: drift
+      adr_template_vs_corpus: match
       adr_template_vs_merge_base: match
       readme_seed_comment_left_in: false
     repository:
@@ -479,15 +495,14 @@ projects:
         - reuse-lint.yml
       licensing:
         - LICENSE
-    open_prs:
-      unknown: "pulls?base=project/qmetronome: unexpected response shape"
-    observed_at: "2026-08-11T02:55:28Z"
+    open_prs: []
+    observed_at: "2026-08-11T03:26:17Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
       commit: "b0265d1e4e86f403b57f66181af9874efe1ce3a9"
       committed_at: "2026-08-08T16:51:11Z"
-      behind_corpus: 7
+      behind_corpus: 40
       ahead_of_corpus: 2
       merge_base: "81d6967462509f43dbf82fda0968ed532a41e640"
       merge_base_at: "2026-08-08T16:48:39Z"
@@ -510,7 +525,7 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-11T02:55:29Z"
+    observed_at: "2026-08-11T03:26:18Z"
 org:
   repositories:
     total: 109
@@ -588,7 +603,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 31
-  observed_at: "2026-08-11T02:55:32Z"
+  observed_at: "2026-08-11T03:26:19Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
