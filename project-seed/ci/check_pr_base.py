@@ -116,8 +116,17 @@ def main() -> int:
     )
     args = ap.parse_args()
 
-    base = f"{args.remote}/{args.base}" if "/" not in args.base.split("/")[0] else args.base
-    head = f"{args.remote}/{args.head}"
+    def qualify(ref: str) -> str:
+        """Prefix a bare branch name with the remote; leave a qualified ref alone.
+
+        "Does it contain a slash" cannot answer this, because the branch names
+        here nearly all contain one -- project/datum, evolve/foo, perspective/
+        bar. Asking whether it already names this remote can.
+        """
+        return ref if ref.startswith(f"{args.remote}/") else f"{args.remote}/{ref}"
+
+    base = qualify(args.base)
+    head = qualify(args.head)
     for ref in (base, head):
         git("rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}")
 

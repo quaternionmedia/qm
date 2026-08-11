@@ -54,6 +54,27 @@ passes, not when its command exits zero.
    `git config -f .gitmodules --get submodule.governance/qm.branch` returns
    `project/<name>`. Check the recorded URL is the canonical remote and not a
    local path used while setting it up.
+
+   **Fixing the URL is half the job; the refs the local clone left behind are
+   the half that lies.** Cloning the submodule from a path on disk — the
+   natural move when `project/<name>` is not pushed yet — creates
+   remote-tracking refs from *that* clone, and re-pointing `origin` at the
+   canonical remote does not remove them. What is left is an
+   `origin/project/<name>` that no server has ever heard of, frozen at
+   whatever commit the branch held at clone time, with the local branch
+   tracking it. `git status` inside the submodule then reports `ahead 1` when
+   three commits are unpushed, and `check_pr_base` resolves the phantom and
+   measures against the wrong base. Both answer confidently.
+
+   ```sh
+   git -C governance/qm ls-remote origin 'refs/heads/project/<name>'   # blank = not there
+   git -C governance/qm branch --unset-upstream project/<name>
+   git -C governance/qm update-ref -d refs/remotes/origin/project/<name>
+   git -C governance/qm remote set-head origin main   # the clone copied HEAD too
+   ```
+
+   After this the submodule reports no remote counterpart, which is true, and
+   `submodule-check.yml` is the thing that tells you when it stops being true.
 4. **Wire CI:** copy all three of `project-seed/ci/adr-lint.yml`,
    `submodule-check.yml` and `reuse-lint.yml` into `.github/workflows/`
    verbatim — no project-specific edits needed. Start `reuse-lint` in
@@ -93,17 +114,39 @@ passes, not when its command exits zero.
    than by reading the ignore file:
 
    ```sh
-   git check-ignore -v AGENTS.md CLAUDE.md .github/copilot-instructions.md \
+   git check-ignore AGENTS.md CLAUDE.md .github/copilot-instructions.md \
      .vscode/settings.json .vscode/extensions.json
    ```
 
-   Any path that comes back matched would never have been committed. This
-   corpus's own `.gitignore` blanket-excluded `.vscode/`; alfred's excluded
-   `*.json` across the whole tree, which swallowed the same two files by a
-   completely different rule. Grepping for `.vscode/` finds the first and
-   misses the second, which is why the check runs against the seed's actual
-   paths. The fix is a negation per swallowed path — `!.vscode/settings.json`,
-   `!.vscode/extensions.json` — not deleting the ignore rule outright.
+   Any path that comes back would never have been committed; exit 1 with no
+   output is the pass. **Run it without `-v`.** With `-v` git prints the
+   matching pattern for negations too and exits 0, so a repository that has
+   already applied the fix below reads as still broken — the flag that looks
+   like it adds diagnostic detail is the one that inverts the answer.
+
+   This corpus's own `.gitignore` blanket-excluded `.vscode/`; alfred's
+   excluded `*.json` across the whole tree, which swallowed the same two files
+   by a completely different rule; dossier's excluded `.vscode/` again. Grepping
+   for `.vscode/` finds the first and misses the second, which is why the check
+   runs against the seed's actual paths.
+
+   The fix is a negation per swallowed path — `!.vscode/settings.json`,
+   `!.vscode/extensions.json` — rather than deleting the ignore rule outright.
+   **A negation alone is not enough when a directory is excluded.** Git will
+   not re-include a file whose parent directory is excluded, so `!.vscode/…`
+   sitting under a `.vscode/` rule is inert: it changes nothing, reports
+   nothing, and looks correct in the diff. Exclude the directory's *contents*
+   instead, so git still descends into it:
+
+   ```
+   .vscode/*
+   !.vscode/settings.json
+   !.vscode/extensions.json
+   ```
+
+   Verify the negation with the flagless `check-ignore` above, and verify the
+   rule still holds by asking about a path it should catch —
+   `git check-ignore .vscode/launch.json` must exit 0.
 
    **On Windows, one one-time step per clone gives the identical result
    POSIX gets for free.** It is spelled out in `AGENTS.md`'s own "One-time
@@ -120,7 +163,25 @@ passes, not when its command exits zero.
    directly (`git hash-object -w`, then `git update-index --cacheinfo
    120000,<sha>,<path>`), the same method the record's Consequences
    documents for making the committed object independent of the authoring
-   machine.
+   machine. That method is worth reaching for first rather than last: it
+   produces a blob whose SHA you can compare against the seed's own
+   (`git ls-files -s project-seed/ide/`), which is a stronger check than
+   looking at the copy.
+
+   **The submodule is a separate clone and does not inherit `core.symlinks`.**
+   Even on a superproject configured correctly, the seed's pointer files
+   *inside* `governance/qm` can materialise as one-line text stubs, so a copy
+   taken from them lands a regular file containing the string `AGENTS.md`
+   where a symlink belongs — and the resulting file reads plausibly enough
+   that nothing complains. Run `git -C governance/qm config core.symlinks
+   true && git -C governance/qm checkout -- .` after adding the submodule, or
+   take the paths from `git ls-files -s` rather than from the working tree.
+
+   If the project already has a real file at one of the seed's pointer paths —
+   `.github/copilot-instructions.md` is the likely one — its content is not
+   yours to discard. Fold it into `AGENTS.md` below the marked line and then
+   make the pointer a symlink, so the project keeps its own instructions and
+   gains one place to edit them.
 6. **Seed the first project records** on that branch as numberless drafts
    by title; ratify per process. Project ADR-0001 is conventionally the
    project's adoption + scope record, but nothing enforces a particular

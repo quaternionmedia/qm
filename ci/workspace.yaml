@@ -1,0 +1,132 @@
+# The QM repository roster, and where each one sits in a local checkout.
+#
+# Input to ci/make_workspace.py, which writes a multi-root VS Code workspace.
+# It is committed because the roster is org knowledge -- which repositories
+# exist, what governs them, which release phase each is working toward -- and
+# that knowledge has so far lived only in whichever session last asked.
+#
+# `paths` is a list of candidates relative to the search roots the generator is
+# given, because these clones are not all siblings: some are under repos/qm/,
+# some under repos/, and one is wherever the Android tooling puts it. The
+# generator reports which candidate it resolved, and reports a repository it
+# could not find as MISSING rather than dropping it from the list.
+#
+# `phase` is what this project is working toward, per the phase-ladder record
+# in `records/`. Two halves, and they behave differently:
+#
+#   v0.0.1  governance. The same claim in every project: records on its own
+#           project/<name> branch, pin current, seed files present on the
+#           default branch, and a human who reviewed and tested that it is so.
+#   v0.0.2+ defined by the project, in the project's own records. A project
+#           that has not written that definition has a word, not a rung.
+#
+# A project with nothing stated is `v0.0.1`. That is a default and not a
+# discovery: governance binds every project whether or not anybody has thought
+# about its roadmap, and it is a claim any project can be measured against on
+# day one.
+#
+# `phase_source` keeps the claim readable as a claim:
+#
+#   stated      a human said it, in a session or a record
+#   scaffolded  nothing was said, so the ladder's floor applies
+#
+# NOTHING HERE IS EVIDENCE. This file holds what people have asserted. What is
+# actually true of a repository is computed from `governance-status.yaml`,
+# which is generated from git and the host rather than from anybody's account
+# of them, and the two are shown side by side so the gap survives. A claim is
+# never rewritten to match its evidence, and a claim is never inferred from
+# artifacts -- that second one would quietly redefine adoption as a filename
+# check, which is the substitution the status generator refuses to make.
+
+schema: 1
+
+repositories:
+  - name: qm
+    role: corpus
+    phase: n/a
+    phase_source: n/a
+    note: the constitution; every other entry adopts it by reference
+    paths: [qm/qm]
+
+  # --- Worked on 2026-08-09 -------------------------------------------------
+  - name: alfred
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: video editor; UI migration and Playwright coverage in flight
+    paths: [qm/alfred]
+
+  - name: apothecary
+    role: project
+    phase: v0.0.2
+    phase_source: stated
+    note: parametric assembly; named as a v0.0.2 integration consumer
+    paths: [qm/apothecary]
+
+  - name: datum
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: schema and wire contract; governance propagation open
+    paths: [qm/datum]
+
+  - name: rad
+    role: project
+    phase: v0.0.1
+    phase_source: stated
+    note: radial menu; defined the phase ladder above
+    paths: [qm/rad]
+
+  - name: codecartographer
+    role: project
+    phase: v0.0.2
+    phase_source: stated
+    note: code maps; named itself a v0.0.2 RAD consumer
+    paths: [codecartographer, qm/codecartographer]
+
+  # --- Governed, not touched on 2026-08-09 ----------------------------------
+  - name: datafactorio
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    paths: [qm/datafactorio, datafactorio]
+
+  - name: factorio-server
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    paths: [qm/factorio-server, factorio-server]
+
+  - name: factorio-sysops
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    paths: [factorio-sysops, qm/factorio-sysops]
+
+  - name: qmetronome
+    role: project
+    phase: v0.0.3
+    phase_source: stated
+    note: named as the v0.0.3 Android target
+    paths: ["../AndroidStudioProjects/qmetronome", qm/qmetronome]
+
+  - name: dossier
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: the intended durable surface for governance review
+    paths: [qm/dossier, dossier]
+
+  # --- In the org, governance status not established ------------------------
+  - name: benchmark
+    role: unmanaged
+    phase: v0.0.2
+    phase_source: stated
+    note: named alongside apothecary as a v0.0.2 consumer
+    paths: [benchmark, qm/benchmark]
+
+  - name: qmcp
+    role: unmanaged
+    phase: v0.0.1
+    phase_source: scaffolded
+    paths: [qm/qmcp, qmcp]
