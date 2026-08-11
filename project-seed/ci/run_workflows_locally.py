@@ -192,6 +192,12 @@ def main() -> int:
     ap.add_argument("--event", default="pull_request")
     ap.add_argument("--ref", default="main", help="branch for a push event")
     ap.add_argument("--base-ref", default="main", help="PR base branch")
+    ap.add_argument(
+        "--head-ref",
+        default="",
+        help="PR head branch. Defaults to the branch you are on, which is what a "
+        "pull request from this checkout would carry.",
+    )
     ap.add_argument("--workflows", default=".github/workflows")
     args = ap.parse_args()
     _force_utf8_output()
@@ -225,10 +231,21 @@ def main() -> int:
         ["git", "remote", "get-url", "origin"], capture_output=True, text=True
     ).stdout.strip()
     slug = re.sub(r"^(?:git@[^:]+:|https?://[^/]+/)", "", origin).removesuffix(".git")
+    # GITHUB_HEAD_REF is the branch you are actually on, not `--ref`. The two
+    # differ on purpose: `--ref` decides which workflows a *push* event matches
+    # and defaults to the default branch so a local run exercises everything,
+    # while the head ref answers "what would this pull request be from", which
+    # is only ever the current branch. Exporting `--ref` for both made a step
+    # reading $GITHUB_HEAD_REF see `main`, and a base check comparing main to
+    # main is a check that cannot fail.
+    current = subprocess.run(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True
+    ).stdout.strip()
     gh_env = {
         "GITHUB_REPOSITORY": slug,
         "GITHUB_REF_NAME": args.ref,
         "GITHUB_BASE_REF": args.base_ref,
+        "GITHUB_HEAD_REF": args.head_ref or current,
         "GITHUB_SHA": head,
         "GITHUB_EVENT_NAME": args.event,
         "CI": "true",

@@ -367,6 +367,17 @@ def emit(root: Path, args: argparse.Namespace) -> str:
                     "the corpus — not because a flag was passed."
                 )
                 add("")
+                add(
+                    "**The slot belongs to the *base*, not to the branch.** A pull "
+                    "request whose base is `project/<name>` gets the exemption; one "
+                    "whose *head* is a project branch does not, and never should — a "
+                    "`project/<name>` branch is permanent and is never merged into "
+                    "`main`. Reading this as \"my project branch has its own slot, so "
+                    "I may open a pull request from it\" is how the `main` slot gets "
+                    "spent twice; `project-seed/ci/check_pr_base.py` refuses that "
+                    "direction, and the README's \"Branch namespaces\" says why."
+                )
+                add("")
             report, status = pr_slots(state["slug"], login, per_base)
             add("```")
             lines.extend(report.splitlines())

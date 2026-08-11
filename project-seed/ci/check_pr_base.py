@@ -125,10 +125,57 @@ def main() -> int:
         """
         return ref if ref.startswith(f"{args.remote}/") else f"{args.remote}/{ref}"
 
+    # An empty --base or --head qualifies to a bare "origin/", and git's error
+    # for that names the mangled ref rather than the missing argument. In CI the
+    # cause is always the same: $GITHUB_BASE_REF and $GITHUB_HEAD_REF are set on
+    # a pull_request event and empty on every other one, so the step is running
+    # on a trigger it was not written for.
+    for name, value in (("--base", args.base), ("--head", args.head)):
+        if not value.strip():
+            sys.exit(
+                f"check_pr_base: {name} is empty.\n"
+                "In a workflow this comes from $GITHUB_BASE_REF / $GITHUB_HEAD_REF,\n"
+                "which are set only on a pull_request event."
+            )
+
     base = qualify(args.base)
     head = qualify(args.head)
     for ref in (base, head):
         git("rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}")
+
+    # A `project/<name>` branch is permanent and takes changes in, never out. It
+    # holds one project's deviation from the corpus, and merging it into the
+    # default branch moves that project's `adr/` into the org namespace -- where
+    # a local decision reads as an org record binding every other project, and
+    # the precedence rule runs backwards.
+    #
+    # Refused here rather than warned about, because nothing in the resulting
+    # tree looks wrong. The records are all present and all well-formed; they are
+    # merely in the wrong namespace, and the next project to adopt inherits them.
+    # There is no later signal, so this is the only place it can be caught.
+    #
+    # Bare names are compared, not the remote-qualified ones: `origin/project/x`
+    # and a `--remote upstream` spelling of the same branch must both match.
+    bare_head = args.head.removeprefix(f"{args.remote}/")
+    bare_base = args.base.removeprefix(f"{args.remote}/")
+    if bare_head.startswith("project/") and bare_base == args.default:
+        print(f"base            {base}")
+        print(f"head            {head}")
+        print(
+            f"\nREFUSED: {bare_head} may not target {bare_base}.\n"
+            f"\nA project/<name> branch is permanent and never merges into "
+            f"{args.default}. Merging\nit would put one project's adr/ into the "
+            f"org namespace, where a local decision\nreads as an org record "
+            f"binding every project -- and nothing in the tree would\nlook wrong "
+            f"afterwards.\n"
+            f"\nWhat you probably meant:\n"
+            f"  - adding records to that project: open the PR with --base "
+            f"{bare_head}\n"
+            f"  - bringing {args.default} to that project: a propagate/<name>-"
+            f"<date> branch,\n    --base {bare_head}\n"
+            f"See the corpus README's \"Branch namespaces\"."
+        )
+        return 1
 
     base_tip = git("rev-parse", base)
     merge_base = git("merge-base", base, head)
