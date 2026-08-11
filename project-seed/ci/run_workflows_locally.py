@@ -205,8 +205,38 @@ def main() -> int:
                     argv = ["bash", "--noprofile", "--norc", "-eo", "pipefail", path]
                 else:
                     argv = ["bash", "-e", path]
+                # `working-directory` decides where the step runs, and ignoring
+                # it silently runs the command somewhere else. That is not a
+                # near miss: `npm ci` in a repository root whose lockfile lives
+                # in web/ reports "no package-lock.json" -- a confident failure
+                # about a file that exists, in a step that passes in CI. The
+                # reverse is worse, since a command that happens to succeed in
+                # the wrong directory reports a pass nobody can trust.
+                #
+                # Defaults follow the runner: a step's own value wins, then the
+                # job's `defaults.run`, then the workflow's.
+                where = (
+                    step.get("working-directory")
+                    or ((job.get("defaults") or {}).get("run") or {}).get(
+                        "working-directory"
+                    )
+                    or ((wf.get("defaults") or {}).get("run") or {}).get(
+                        "working-directory"
+                    )
+                )
+                cwd = None
+                if where:
+                    resolved = (Path.cwd() / str(where)).resolve()
+                    if not resolved.is_dir():
+                        print(f"  - [FAIL] {label}")
+                        print(f"      working-directory does not exist: {where}")
+                        failures.append(f"{f.name} :: {job_id} :: {label}")
+                        ran += 1
+                        os.unlink(path)
+                        continue
+                    cwd = str(resolved)
                 proc = subprocess.run(
-                    argv, env=env, capture_output=True, text=True
+                    argv, env=env, capture_output=True, text=True, cwd=cwd
                 )
                 ran += 1
                 for line in out_file.read_text(encoding="utf-8").splitlines():
