@@ -57,12 +57,14 @@ and the exception mechanism as teeth.
 
 Custom code concentrates where sovereignty matters most: the small control
 plane holding state, policy, and orchestration. Engines — muxers, databases,
-transcoders, detectors — are selected, not written. The seam is deliberately
-boring, and it is the one place where bus-factor is *ours*, which is the only
-acceptable place for it. Ordering rule resolving the tension with P2: every
-new capability first asks *which engine should own this upstream* before
-defaulting to the seam; seam logic is whatever no engine should reasonably
-own.
+transcoders, detectors — are selected rather than written, and where none
+should own a capability upstream, an engine QM writes is published to the
+commons as a standalone package rather than absorbed into the seam. The seam
+is deliberately boring, and it is the one place where bus-factor is *ours*,
+which is the only acceptable place for it. Ordering rule resolving the
+tension with P2: every new capability first asks *which engine should own
+this upstream* before defaulting to the seam; seam logic is whatever no
+engine should reasonably own.
 
 → Org record: **Build the seam, buy the engines** (doctrine). Each project
 ratifies its own control-plane instance record with size-smell revision
@@ -72,10 +74,13 @@ triggers.
 
 What *we build* uses one stack, deeply: Python — FastAPI, SQLModel/Pydantic,
 Metaflow, Click, Jinja2 — plus single-file HTML/JS for visualization
-deliverables. Depth compounds: patterns transfer across fleet management,
-streaming, and media tooling, and anyone can enter any QM codebase. The
-complement: what *we contribute* is written in the target community's
-language and idiom. House preference governs our repos, not our PRs.
+deliverables and one named framework for frontend applications, which are a
+different shape from visualizations and are named separately so neither has
+to pretend to be the other. Depth compounds: patterns transfer across fleet
+management, streaming, and media tooling, and anyone can enter any QM
+codebase. The complement: what *we contribute* is written in the target
+community's language and idiom. House preference governs our repos, not our
+PRs.
 
 → Org record: **House stack**, with the dependency-review gate as teeth and
 explicit carve-outs for contributions and client- or platform-mandated
@@ -125,3 +130,30 @@ maintainer.
 
 → Routed to the **style guide**. Taste encoded as constitutional law degrades
 both.
+
+## P10 — Credit tracks accountability, not output
+
+Authorship and contributor credit — commit trailers, perspective bylines,
+CREDITS-style recognition — are reserved for parties who can be asked why a
+change was made and reached at a real address if it breaks. Tools that shape
+or produce output — keyboards, calculators, tractors, language models alike —
+are instruments a human directs, not parties who can answer for the result.
+That a tool did most of the visible work is not the test; whether the named
+party can answer for it is.
+
+→ Org record: **Human-only contributorship**, with the perspectives-index
+migration as delivered teeth and a branch-protection rule against unmonitored
+co-author trailers as the mechanism still owed.
+
+## P11 — Governance finds the reader, not the reverse
+
+A constitution nobody encounters doesn't bind — it just exists. Every QM repo
+puts its governance in the paths a reader is already going to walk: the file
+an editor opens automatically, the file a coding agent reads before its first
+action — the same file for a new hire and for a fresh model instance with no
+briefing. Discovery is engineered once, at the tooling layer, not re-explained
+by a human every session.
+
+→ Org record: **IDE-integrated governance discovery**, with the
+AGENTS.md-and-pointers convention and the checked-in VS Code workspace
+config as teeth.

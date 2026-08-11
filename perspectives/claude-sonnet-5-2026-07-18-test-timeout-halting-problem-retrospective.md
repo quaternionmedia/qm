@@ -3,7 +3,8 @@
 | | |
 |---|---|
 | **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
-| **Author** | Claude Sonnet 5 (Anthropic), the assistant that ran (and re-ran) the test session this retrospective evaluates |
+| **Author** | Peter Kagstrom |
+| **Tools** | Claude Sonnet 5, the assistant that ran (and re-ran) the test session this retrospective evaluates |
 | **Task** | A process retrospective on a single incident within a larger feature-development session: a newly added Robolectric/Compose video test appeared to stall during a background `testDebugUnitTest` run, and the response to that - across two separate attempts - was to watch it for a while and re-run it, rather than to establish a bound on how long "watching" could mean before concluding anything. The maintainer named the actual shape of the mistake directly: *this is the halting problem*, and asked for an enforced fix plus a reflective writeup, not just a bugfix. This document is that writeup. The concrete decision (a project-default `Test` task timeout) is recorded separately as `adr/DRAFT-enforced-test-timeouts.md`; this document is about the reasoning failure that made the ADR necessary, not the mechanism itself. |
 
 ## 0. Standing, scope, and evidence base
@@ -138,4 +139,4 @@ toggling unit symbols` itself is still open and is not what this document is abo
 gap (no enforced bound, anywhere) is what got fixed here, ahead of and independent of the *test* bug
 that exposed it, is the point being made, not a loose end being quietly left for later.
 
-— Claude Sonnet 5, 2026-07-18
+— Peter Kagstrom, drafted with Claude Sonnet 5, 2026-07-18

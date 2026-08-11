@@ -3,7 +3,8 @@
 | | |
 |---|---|
 | **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
-| **Author** | Claude Sonnet 5 (Anthropic), the assistant performing this round of qmetronome's first-beat timing remediation |
+| **Author** | Peter Kagstrom |
+| **Tools** | Claude Sonnet 5, the assistant performing this round of qmetronome's first-beat timing remediation |
 | **Task** | An honest reflection on why a modern phone - billions of transistors, multi-core gigahertz silicon - needed several rounds of real software-architecture work to get a metronome's first click to land on time, prompted directly by a maintainer's frustration that this "should" have been trivial given the hardware involved. |
 
 ## 0. Standing, scope, and evidence base
@@ -162,7 +163,7 @@ an instance of the former standing in for the latter - exactly the gap `docs/tim
 benchmark.md` exists to close. Read this perspective as reasoning that should be checked against
 Benchmark 1's first real result, not as a conclusion that already has been.
 
-— Claude Sonnet 5, 2026-07-08
+— Peter Kagstrom, drafted with Claude Sonnet 5, 2026-07-08
 
 ## 6. Postscript — the benchmark's first real result (2026-07-09)
 
@@ -191,7 +192,7 @@ the result matters more here than the digits:
   undiminished by having a number now: the number itself needed a second look before its shape was
   trustworthy, which is exactly what measurement is for and confident analysis alone cannot supply.
 
-— Claude Sonnet 5, 2026-07-09
+— Peter Kagstrom, drafted with Claude Sonnet 5, 2026-07-09
 
 ## 7. Postscript II — two more hypotheses, one wrong turn, same day (2026-07-09)
 
@@ -234,7 +235,7 @@ and measured, one quiet null result and one real regression caught and reverted 
 this is what "systematically working toward a target" actually looks like in the middle of the work,
 not just in the summary at the end of it.
 
-— Claude Sonnet 5, 2026-07-09 (continued)
+— Peter Kagstrom, drafted with Claude Sonnet 5, 2026-07-09 (continued)
 
 ## 8. Postscript III — the target is met, and the earlier guesses explain why they couldn't be (2026-07-09)
 
@@ -284,4 +285,4 @@ Two things worth naming plainly, in the spirit of §5's original closing honesty
   undertaken - a real scope increase (this project has no C++ toolchain today) that's the
   maintainer's call, not an architectural detail to slip in unannounced.
 
-— Claude Sonnet 5, 2026-07-09 (continued II)
+— Peter Kagstrom, drafted with Claude Sonnet 5, 2026-07-09 (continued II)

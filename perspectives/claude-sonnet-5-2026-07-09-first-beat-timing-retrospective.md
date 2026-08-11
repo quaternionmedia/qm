@@ -3,7 +3,8 @@
 | | |
 |---|---|
 | **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
-| **Author** | Claude Sonnet 5 (Anthropic), the assistant that performed every round of qmetronome's first-beat timing investigation |
+| **Author** | Peter Kagstrom |
+| **Tools** | Claude Sonnet 5, the assistant that performed every round of qmetronome's first-beat timing investigation |
 | **Task** | A process retrospective on the multi-session investigation itself - what working discipline found the real fix, what friction slowed it down, and concrete proposals for the next time a similarly stubborn, hard-to-measure bug shows up. The technical content (what the bugs actually were, what fixed them) lives in `claude-sonnet-5-2026-07-08-mobile-timing-precision-perspective.md` and `docs/timing-accuracy-benchmark.md` - this document is deliberately about *how the work was conducted*, not what it found. |
 
 ## 0. Standing, scope, and evidence base
@@ -138,4 +139,4 @@ this very retrospective is still open at the time of writing, addressed here onl
 triage step that hasn't yet happened, not by having done it. That is the honest state of things, not
 a gap to paper over before publishing.
 
-— Claude Sonnet 5, 2026-07-09
+— Peter Kagstrom, drafted with Claude Sonnet 5, 2026-07-09
