@@ -25,7 +25,7 @@ Nine projects vendor this corpus. Three are audited.
 | datafactorio | ✅ | ✅ | no | 7 behind; no `.gitmodules` seen locally |
 | factorio-server | ✅ | ? | no | 7 behind |
 | factorio-sysops | ✅ | ? | no | 7 behind |
-| streaming-infrastructure | ✅ | ? | no | Branch is new; carries two known content defects |
+| streaming-infrastructure | ✅ | n/a | n/a | **Not an adopting project.** No `quaternionmedia/streaming-infrastructure` repository exists (`gh api` → 404), so there is nothing to audit. A design branch holding the plan and `ADR-0001` that `main` moved off itself; 40 behind, and `LICENSE` plus two records will not arrive by merging — see the session handoff |
 
 Re-derive every column before acting on it. The "known state" notes are what
 one pass found on one day.

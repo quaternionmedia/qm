@@ -69,11 +69,19 @@ and a branch outside them is a mistake rather than a variation.
 | `evolve/<slug>` | org-level work in progress | deleted after merge |
 | `workspace/<slug>` | a research workspace that never merges back | permanent, terminal |
 
-The reference instance for a server/container runtime is
-`project/streaming-infrastructure`; `project/qmetronome` is the reference for
-a non-server runtime. The mathematical-limits experiments live on
-`workspace/math-experiments` — non-binding, and reached from the perspective
-whose open questions they investigate.
+`project/qmetronome` is the reference instance for a non-server runtime. **There
+is no reference instance for a server/container runtime.**
+`project/streaming-infrastructure` used to be named here as one and is not: no
+`quaternionmedia/streaming-infrastructure` repository exists — `gh api` returns
+404, and the generated document records that as its `repository` value — so
+there is nothing it is an instance *of*. It is a design branch holding the plan
+and `ADR-0001` that `main` moved off itself in `dec5c9c`, and it is 40 commits
+behind. Naming it as the reference invited a forker to copy the setup of a
+project that was never set up.
+
+The mathematical-limits experiments live on `workspace/math-experiments` —
+non-binding, and reached from the perspective whose open questions they
+investigate.
 
 **A `project/<name>` branch is never merged into `main`.** Not once, not
 squashed, not "just the shared part". It exists in perpetuity and holds exactly

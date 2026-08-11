@@ -150,8 +150,30 @@ def main() -> int:
 
     base = qualify(args.base)
     head = qualify(args.head)
-    for ref in (base, head):
-        git("rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}")
+    for label, ref in (("--base", base), ("--head", head)):
+        probe = subprocess.run(
+            ["git", "rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}"],
+            capture_output=True,
+            text=True,
+        )
+        if probe.returncode:
+            # The ordinary cause off a runner is a branch that exists locally and
+            # has never been pushed, which is exactly the state you are in when
+            # you run this before opening the pull request. git's own message
+            # names the ref and not the reason, so it reads as a broken check.
+            local = subprocess.run(
+                ["git", "rev-parse", "--verify", "--quiet", f"{args.head}^{{commit}}"],
+                capture_output=True,
+                text=True,
+            )
+            hint = (
+                f"\n{args.head} exists locally but not on {args.remote}. Push it, "
+                f"or pass\n--head <a branch that is pushed>. Nothing is wrong with "
+                f"the branch."
+                if label == "--head" and not local.returncode
+                else "\nCheck the name, and that you have fetched."
+            )
+            sys.exit(f"check_pr_base: {ref} does not exist.{hint}")
 
     # A `project/<name>` branch is permanent and takes changes in, never out. It
     # holds one project's deviation from the corpus, and merging it into the
