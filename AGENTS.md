@@ -7,16 +7,30 @@ commit or edit — it is short on purpose.
 
 ## Before you do anything
 
-**Run `/cowork` first.** It builds this session's brief from the repository —
-the commit you are on, whether your pull request slot is free, what else is in
-flight in this clone, which gates exist — instead of letting you inherit a
-previous session's beliefs. Other sessions are very likely running right now,
-in other repositories, for the same reviewer; `handbook/async-contract.md` is
-the set of rules that exist only because of that, and it is short. `/preflight`
-and `/handoff` close the same loop at the other end, and `/status` reports
-what is in flight across the org. The commands live in
-`project-seed/ide/.claude/commands/`, and this repository's `.claude/` is
-symlinks into it.
+**Establish four facts about this session before you write anything.** Not
+because a command says so — because every one of them has been got wrong here by
+inheriting a previous session's belief instead of asking the repository:
+
+1. **The commit you are working against**, and the branch. Every number in every
+   page here was true at some commit and nowhere else.
+2. **Whether your pull request slot is free.** One open pull request per
+   repository, per contributor. `python project-seed/ci/check_one_pr.py --repo
+   <owner/name>` answers it.
+3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
+   sibling branch, an unpushed commit. Other sessions are very likely running
+   right now, in other repositories, for the same reviewer.
+   `handbook/async-contract.md` is the set of rules that exist only because of
+   that, and it is short.
+4. **Which gates exist**, and what each one cannot see.
+   `python project-seed/ci/run_workflows_locally.py` runs them.
+
+Those are the invariants. **How** you gather them is yours to choose: read the
+repository, run the scripts above, or use an adapter if one exists for your
+tooling. `adapters/` holds any that do, each named for the product it targets
+and none of them required — this corpus states what must be true and does not
+name a vendor to get there. See `handbook/async-contract.md` §1 for the
+reasoning, and the seams doctrine in `records/` for why a governance document
+that mandated a particular product would be violating its own charter.
 
 **Read the committed status documents before re-deriving what they hold.**
 `governance-status.yaml` and `harness-status.json` sit at the root.
@@ -152,6 +166,38 @@ with a date looks checked.
     it replaces. An overclaim is caught by a reader who knows the provenance;
     a deflation reads as rigour, closes the topic, and can delete something
     real. Recurrence by one practitioner is evidence, not its absence.
+12. **The scaffolding you measure with is part of the measurement** — the same
+    record's §9. Where item 10 is the tool answering a different question, this
+    is the tool being fine and the setup not: nothing errors, and the result
+    describes your own scaffolding. In one day here: a diff against files a
+    redirect never wrote, reported as 100+ lines of drift when the truth was 0,
+    0 and 2; a working tree read after a merge that exited non-zero; copies
+    written through a text API that converted every line ending; a mutation test
+    whose baseline was already red, so it proved nothing either way; and a
+    verdict recomputed from raw fields when the document carried its own.
+    **Prefer the artefact you did not create.** Read a document's own answer
+    rather than rebuilding one, and assert the intermediate — non-empty, exit
+    zero, baseline green — because every one of those was one assertion from
+    being caught.
+13. **A guard is not finished until someone has tried to route around it** — the
+    same record's §10. Breaking it and watching it go red proves it fires on the
+    case you thought of; it cannot find the case you did not. Three holes were
+    found in one new guard the day it was written: it keyed on the default
+    branch, so an intermediate base walked past it; it matched a branch *name*,
+    so identical content renamed was clean; and CI ran it in a mode that would
+    have failed every legitimate propagation. Ask for a pass whose brief is to
+    satisfy the check while doing the thing it forbids. A guard with a hole is
+    worse than none — a green check standing where a reader believes something
+    is enforced.
+
+14. **Show it by running it** — charter P12, record
+    `records/DRAFT-one-executable-walkthrough.md`. A worked example lives in
+    `walkthrough/`, executed by the ordinary test command, and nothing describes
+    a behaviour in a second place beside the code. What prose cannot hold is
+    emitted by the test that asserts the behaviour, and **recorded rather than
+    compared**. Regeneration rides the command run before a pull request. The
+    evidence is one repository where the artifacts riding that command carry
+    zero drift and the two needing a remembered command are stale.
 
 ## If you're forking this corpus into a new project
 

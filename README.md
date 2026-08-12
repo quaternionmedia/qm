@@ -33,8 +33,10 @@ qm/
 ├── perspectives/          attributed, dated, non-binding opinion
 ├── project-seed/          what a new project copies
 ├── ci/                    org-level tooling
+├── adapters/              optional per-tool glue; nothing here is depended on
 ├── docs/                  the documentation site (GitHub Pages)
 ├── governance-status.yaml generated; where every project stands
+├── harness-status.json    generated; PR slots, phases, governance evidence
 ├── AGENTS.md              instructions for coding agents
 ├── .github/               CI workflows and branch protection
 └── LICENSE, LICENSES/     CC-BY-SA-4.0 for corpus prose; REUSE.toml covers the rest
@@ -56,6 +58,7 @@ qm/
 | — | [Version tags are claims](records/DRAFT-version-tags-are-claims.md) | Proposed | 2026-08-08 |
 | — | [The project phase ladder](records/DRAFT-project-phase-ladder.md) | Proposed | 2026-08-09 |
 | — | [The monitoring seam, and instance identity](records/DRAFT-monitoring-seam-and-instance-identity.md) | Proposed | 2026-08-11 |
+| — | [One executable walkthrough per repository](records/DRAFT-one-executable-walkthrough.md) | Proposed | 2026-08-11 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so a gate one person can satisfy alone would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
