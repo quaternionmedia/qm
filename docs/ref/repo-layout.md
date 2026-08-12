@@ -22,7 +22,7 @@ qm/
 ├── governance-status.yaml generated: where every project stands
 ├── harness-status.json    generated: PR slots and work in flight
 ├── .github/               CI workflows, CODEOWNERS, ruleset config
-├── .claude/               harness commands (symlinks into project-seed/ide/)
+├── adapters/              optional per-tool glue; nothing depends on it
 ├── LICENSE                CC-BY-SA-4.0, for corpus prose
 ├── LICENSES/              full license texts
 └── REUSE.toml             per-path license and copyright metadata
@@ -30,7 +30,9 @@ qm/
 
 ## Symlinks
 
-`CLAUDE.md` and `.github/copilot-instructions.md` are symlinks to `AGENTS.md`. Any tool that reads either file gets the current content of `AGENTS.md`. The `.vscode/` and `.claude/` entries are symlinks into `project-seed/ide/`, so the seed copy is the single source.
+`CLAUDE.md` and `.github/copilot-instructions.md` are symlinks to `AGENTS.md`, so any tool reading either gets its current content. `.vscode/` symlinks into `project-seed/ide/`, which is the single source for what a project copies.
+
+Nothing vendor-specific is in `project-seed/`. Anything there is copied into every adopting project and would become an org standard by accident, so per-tool glue lives in `adapters/<product>/` instead — optional, and the governance text depends on none of it.
 
 ## Generated files
 

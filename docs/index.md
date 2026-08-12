@@ -57,7 +57,7 @@ The Quaternion Media constitution: the decisions that govern every QM project, t
 
 ## For coding agents
 
-If you are an AI agent working in this repository, start with [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md) and run `/cowork` first.
+If you are an AI agent working in this repository, start with [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md). It states four facts to establish before writing anything — the commit, your pull request slot, what else is in flight, and which gates exist — and names the plain scripts that establish them. How you gather them is your choice; `adapters/` holds optional glue for particular tools and nothing depends on it.
 
 ## See also
 
