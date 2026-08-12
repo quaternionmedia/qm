@@ -19,9 +19,12 @@ what is in flight across the org. The commands live in
 symlinks into it.
 
 **Read the committed status documents before re-deriving what they hold.**
-`governance-status.yaml` and `harness-status.json` sit at the root, each
-carrying its own refresh command and staleness budget inside the file;
-`handbook/generated-documents.md` indexes them, and
+`governance-status.yaml` and `harness-status.json` sit at the root.
+`harness-status.json` carries its own refresh command, staleness budget and
+`do_not` list in a `reading:` block inside the file. **`governance-status.yaml`
+does not** — it has no `reading:` block at all, so its refresh command and its
+168-hour budget are only in `handbook/generated-documents.md`, and for that one
+you do need the page. `handbook/generated-documents.md` indexes both, and
 `ci/harness_dashboard.py harness-status.json --format md` renders the second
 as prose. Check the age before quoting a figure — a stale number delivered
 with a date looks checked.
@@ -40,13 +43,18 @@ with a date looks checked.
    the last one. A human decides what this corpus says, and the pull request
    is where that decision is made and recorded.
    **Open it as a draft, and never request a review.** `gh pr create --draft`.
-   Draft is not a formality here: a ready PR against a branch carrying
+   Draft is not a formality: a ready PR against a branch carrying a *live*
    `CODEOWNERS` requests review from those owners the moment it opens, with no
-   reviewer named by you and no way to recall the notification. This corpus's
-   `main` owns `/project-seed/`, `/.github/workflows/` and `/.github/rulesets/`
-   that way, so "open a PR for human review" — read literally, as an agent will
-   read it — is the act of pulling a second person into untested work. A draft
-   PR fires none of it. Add the person who asked for the work as **assignee**,
+   reviewer named by you and no way to recall the notification. So "open a PR for
+   human review" — read literally, as an agent will read it — can be the act of
+   pulling a second person into untested work. A draft PR fires none of it.
+   **In this repository that gun is currently unloaded, and the rule holds
+   anyway.** `.github/CODEOWNERS` is inert — all 16 rules carry a `#=` prefix,
+   `grep -vc '^#\|^$'` returns 0, and its own first line says so — and
+   `gh api repos/quaternionmedia/qm/rulesets` returns `[]`. `main` therefore owns
+   nothing and a ready PR here notifies nobody. Do not treat that as permission:
+   the file is one `sed` away from live, every project that copies this seed may
+   have its own owners, and readiness is the author's claim to make either way. Add the person who asked for the work as **assignee**,
    which is also how you reach them when they authored the branch and GitHub
    therefore refuses a review request. Leaving draft is their decision and
    follows their own testing, not your confidence in the diff.
@@ -69,6 +77,19 @@ with a date looks checked.
    not settled — that belongs in the record, and a Proposed record naming it
    is the process working. What does not belong anywhere is your own
    unresolved question arriving as PR text.
+   **Never open a pull request from `project/<name>` into `main`.** That branch
+   is permanent and takes changes in, never out: it holds how one project's
+   governance deviates from this corpus. Merging it moves that project's `adr/`
+   into the org namespace, where a local decision reads as an org record binding
+   every project — and nothing in the tree looks wrong afterwards, so there is
+   no later signal. Records to a project go in *on a PR whose base is
+   `project/<name>`*, and each such base holds its own slot. `main`'s changes
+   reach it as a `propagate/<name>-<date>` PR against it, merged and never
+   rebased, because a downstream submodule pins the tip. The branch's first
+   `adr/` content is pushed, not PR'd, because the only base it could target
+   does not exist yet — `handbook/forking-a-project.md` step 2.
+   `project-seed/ci/check_pr_base.py` refuses the wrong direction, and the
+   README's "Branch namespaces" is the canonical statement.
    **One open PR per repository, per contributor.** Not one per task. Two PRs
    that must merge in an order are a sequencing puzzle handed to the reviewer.
    Land the org change first and let propagation carry it, rather than opening
@@ -114,6 +135,24 @@ with a date looks checked.
    "previously", "originally", "earlier draft", "re-review", "renumber",
    "retroactive", "supersedes the ... (stance|finding)", "corrected".
    Drafts are rewritten in place, not narrated.
+10. **Check a signal before reading it, and establish a fact before asserting
+    it** — `records/DRAFT-decision-record-discipline.md` §7. Every assertion
+    that something is broken or behaves a certain way carries the command and
+    its output. Before reporting what a result means, name one other thing
+    that would produce the same output: a tool version, a flag's semantics,
+    stale local state, the working directory, a substring matching prose. Four
+    false readings in one session came from skipping that — `merge-tree` on
+    git 2.37 read as eight branch conflicts, `check-ignore -v` inverting its
+    own verdict, a text scan matching the docstring that forbade it, and a
+    document generated from unfetched refs. An unexpected *uniform* result is
+    a tooling fault until shown otherwise.
+11. **A claim about what facts *mean* names what else could produce them** —
+    the same record's §8, and a different failure: every fact true, the
+    sentence wrong. Name the ordinary cause before the interesting one, state
+    direction and date, and give a correction the same scrutiny as the claim
+    it replaces. An overclaim is caught by a reader who knows the provenance;
+    a deflation reads as rigour, closes the topic, and can delete something
+    real. Recurrence by one practitioner is evidence, not its absence.
 
 ## If you're forking this corpus into a new project
 
