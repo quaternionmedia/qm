@@ -3,10 +3,6 @@ description: Open a governed session — build the whole context from the reposi
 argument-hint: [what you have been asked to do]
 ---
 
-<!-- SEED FILE: part of project-seed/ide/, copied recursively onto the project
-     root. The corpus's own .claude/commands/ holds symlinks back to this file,
-     so there is one copy to edit. Delete this comment in the copy. -->
-
 Open a co-working session in this repository. The point is that you start from
 what the repository says, not from what a page, a handoff, or a previous
 session believed. **Do not write, commit, push, or open anything during this

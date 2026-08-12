@@ -43,7 +43,7 @@ qm/
 ├── governance-status.yaml   generated; where every project stands, and when
 ├── harness-status.json      generated; PR slots, phases claimed, governance evidence
 ├── AGENTS.md         governance discovery for coding agents
-├── .claude/          the harness commands, symlinked into project-seed/ide/
+├── adapters/         optional per-tool glue; the constitution depends on none of it
 ├── LICENSE           CC-BY-SA-4.0 corpus prose; LICENSES/ + REUSE.toml cover the rest
 └── .github/          this corpus's own CI, CODEOWNERS, and branch-protection config
 ```

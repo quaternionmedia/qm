@@ -20,20 +20,34 @@ no other briefing, read this file fully before your first commit or edit.
 
 ## Before you do anything
 
-**Run `/cowork` first.** It builds this session's brief from the repository —
-the commit you are on, whether your pull request slot is free, what else is in
-flight in this clone, which gates exist — instead of letting you inherit a
-previous session's beliefs. Other sessions are likely running right now, in
-other repositories, for the same reviewer;
-`governance/qm/handbook/async-contract.md` is the set of rules that exist only
-because of that, and it is short. `/preflight`, `/handoff` and `/status` close the same
-loop at the other end.
+**Establish four facts about this session before you write anything**, because
+each has been got wrong here by inheriting a previous session's belief instead of
+asking the repository:
+
+1. **The commit you are working against**, and the branch.
+2. **Whether your pull request slot is free** — one open pull request per
+   repository, per contributor:
+   `python governance/qm/project-seed/ci/check_one_pr.py --repo <owner/name>`.
+3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
+   sibling branch, an unpushed commit. Other sessions are likely running right
+   now, in other repositories, for the same reviewer;
+   `governance/qm/handbook/async-contract.md` is the set of rules that exist only
+   because of that, and it is short.
+4. **Which gates exist**, and what each cannot see:
+   `python governance/qm/project-seed/ci/run_workflows_locally.py`.
+
+Those are the invariants. **How** you gather them is yours to choose — read the
+repository, run the scripts above, or use an adapter if one exists for your
+tooling. `governance/qm/adapters/` holds any that do, each named for the product
+it targets and none of them required. This file names no vendor, and neither
+should anything you add to it.
 
 **Read the corpus's committed status documents before re-deriving what they
-hold.** `governance/qm/governance-status.yaml` and
-`governance/qm/harness-status.json` each carry their own refresh command and
-staleness budget inside the file; `governance/qm/handbook/generated-documents.md`
-indexes them. Check the age before quoting a figure.
+hold.** `governance/qm/harness-status.json` carries its own refresh command and
+staleness budget in a `reading:` block inside the file.
+`governance/qm/governance-status.yaml` does **not** — for that one,
+`governance/qm/handbook/generated-documents.md` is the only statement of its
+refresh command and its 168-hour budget. Check the age before quoting a figure.
 
 1. Read `governance/qm/README.md` and `governance/qm/PRINCIPLES.md` in full
    — the namespaces/precedence rules and the charter. Both are short.

@@ -7,16 +7,30 @@ commit or edit — it is short on purpose.
 
 ## Before you do anything
 
-**Run `/cowork` first.** It builds this session's brief from the repository —
-the commit you are on, whether your pull request slot is free, what else is in
-flight in this clone, which gates exist — instead of letting you inherit a
-previous session's beliefs. Other sessions are very likely running right now,
-in other repositories, for the same reviewer; `handbook/async-contract.md` is
-the set of rules that exist only because of that, and it is short. `/preflight`
-and `/handoff` close the same loop at the other end, and `/status` reports
-what is in flight across the org. The commands live in
-`project-seed/ide/.claude/commands/`, and this repository's `.claude/` is
-symlinks into it.
+**Establish four facts about this session before you write anything.** Not
+because a command says so — because every one of them has been got wrong here by
+inheriting a previous session's belief instead of asking the repository:
+
+1. **The commit you are working against**, and the branch. Every number in every
+   page here was true at some commit and nowhere else.
+2. **Whether your pull request slot is free.** One open pull request per
+   repository, per contributor. `python project-seed/ci/check_one_pr.py --repo
+   <owner/name>` answers it.
+3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
+   sibling branch, an unpushed commit. Other sessions are very likely running
+   right now, in other repositories, for the same reviewer.
+   `handbook/async-contract.md` is the set of rules that exist only because of
+   that, and it is short.
+4. **Which gates exist**, and what each one cannot see.
+   `python project-seed/ci/run_workflows_locally.py` runs them.
+
+Those are the invariants. **How** you gather them is yours to choose: read the
+repository, run the scripts above, or use an adapter if one exists for your
+tooling. `adapters/` holds any that do, each named for the product it targets
+and none of them required — this corpus states what must be true and does not
+name a vendor to get there. See `handbook/async-contract.md` §1 for the
+reasoning, and the seams doctrine in `records/` for why a governance document
+that mandated a particular product would be violating its own charter.
 
 **Read the committed status documents before re-deriving what they hold.**
 `governance-status.yaml` and `harness-status.json` sit at the root.
