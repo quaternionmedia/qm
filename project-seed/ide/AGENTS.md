@@ -35,8 +35,7 @@ hold.** `governance/qm/governance-status.yaml` and
 staleness budget inside the file; `governance/qm/handbook/generated-documents.md`
 indexes them. Check the age before quoting a figure.
 
-1. Read `governance/qm/README.md` and `governance/qm/PRINCIPLES.md` in full
-   — the namespaces/precedence rules and the charter. Both are short.
+1. Read `governance/qm/PRINCIPLES.md` in full and the three invariants in `governance/qm/README.md`. For namespaces and precedence, see `governance/qm/docs/ref/namespaces.md` and `governance/qm/docs/ref/precedence.md`.
 2. This project's own decision records live in `governance/qm/adr/` — inside
    the submodule, on this project's own branch, not at this repo's root — as
    `ADR-NNNN` (numbered locally, at ratification) or `DRAFT-*.md` before
@@ -70,11 +69,11 @@ indexes them. Check the age before quoting a figure.
 5. Follow the drafting-session handoff contract in
    `governance/qm/adr/README.md` before writing or amending any record.
 6. A QM record may be tightened by this project's own records, never
-   relaxed — see `governance/qm/README.md`'s "Namespaces and precedence."
+   relaxed — see `governance/qm/docs/ref/precedence.md`.
 7. **Put explanation in one place**, per
    `governance/qm/handbook/style-guide.md`: inline comments carry clarifying
-   facts about the code, `README.md` is a shallow onramp to what follows it,
-   `docs/` is reference, and **every why goes to a retrospective in
+   facts about the code, `README.md` is a shallow onramp to the docs, `docs/`
+   is reference, and **every why goes to a retrospective in
    `governance/qm/perspectives/`**. A record's Context and Alternatives are
    the one exception, answering *why this decision* rather than *why it went
    that way*.

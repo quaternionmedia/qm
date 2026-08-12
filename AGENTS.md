@@ -29,8 +29,7 @@ you do need the page. `handbook/generated-documents.md` indexes both, and
 as prose. Check the age before quoting a figure — a stale number delivered
 with a date looks checked.
 
-1. Read `README.md` (namespaces, precedence, ratification) and
-   `PRINCIPLES.md` (the charter) in full. Both are short.
+1. Read `PRINCIPLES.md` (the charter) in full and the three invariants in `README.md`. For depth, see `docs/ref/namespaces.md`, `docs/ref/precedence.md`, and `docs/ref/ratification.md` on the docs site.
 2. This corpus governs its own drafting. Records live in `records/` as
    `DRAFT-*.md` until a human ratifies them (flips Status, assigns a QM
    number, updates the index) — you draft, you never ratify.
@@ -89,7 +88,7 @@ with a date looks checked.
    `adr/` content is pushed, not PR'd, because the only base it could target
    does not exist yet — `handbook/forking-a-project.md` step 2.
    `project-seed/ci/check_pr_base.py` refuses the wrong direction, and the
-   README's "Branch namespaces" is the canonical statement.
+   `docs/ref/namespaces.md` is the canonical statement for branch naming.
    **One open PR per repository, per contributor.** Not one per task. Two PRs
    that must merge in an order are a sequencing puzzle handed to the reviewer.
    Land the org change first and let propagation carry it, rather than opening
@@ -127,7 +126,7 @@ with a date looks checked.
    `project-seed/adr/README.md` before writing or amending any record.
 8. **Put explanation in one place**, per `handbook/style-guide.md`: inline
    comments carry clarifying facts about the code, `README.md` is a shallow
-   onramp to what follows it, `docs/` is reference, and **every why goes to a
+   onramp to the docs site, `docs/` is reference, and **every why goes to a
    retrospective in `perspectives/`**. A record's Context and Alternatives are
    the one exception, and they answer *why this decision* rather than *why it
    went that way*.
@@ -156,7 +155,7 @@ with a date looks checked.
 
 ## If you're forking this corpus into a new project
 
-See `README.md`'s "Forking a new project" — do not improvise a lighter
+See `docs/usage/first-project.md` and `handbook/forking-a-project.md` — do not improvise a lighter
 version of `adr/`, `ci/`, or this file's own seed copy in
 `project-seed/ide/`.
 

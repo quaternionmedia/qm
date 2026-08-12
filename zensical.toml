@@ -8,25 +8,39 @@ copyright = "Copyright &copy; 2026 Quaternion Media, LLC"
 
 repo_url = "https://github.com/quaternionmedia/qm"
 repo_name = "quaternionmedia/qm"
-# edit_uri = "edit/main/docs/"
+edit_uri = "edit/main/docs/"
 
 nav = [
-    { "Home" = [
-        "index.md",
+    "index.md",
+    { "About" = [
+        "about/index.md",
         "about/overview.md",
-        "about/history.md",
         "about/architecture.md",
+        "about/history.md",
     ] },
     { "Usage" = [
+        "usage/index.md",
         "usage/getting-started.md",
         "usage/first-project.md",
         "usage/next-steps.md",
     ] },
     { "Cookbook" = [
         "cookbook/index.md",
+        "cookbook/draft-a-record.md",
+        "cookbook/add-a-perspective.md",
+        "cookbook/propagate-a-change.md",
+        "cookbook/read-status-documents.md",
+        "cookbook/run-ci-locally.md",
+        "cookbook/build-these-docs.md",
     ] },
     { "Reference" = [
         "ref/index.md",
+        "ref/repo-layout.md",
+        "ref/namespaces.md",
+        "ref/precedence.md",
+        "ref/ratification.md",
+        "ref/handbook.md",
+        "ref/glossary.md",
     ] },
 ]
 
