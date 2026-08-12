@@ -3,7 +3,11 @@ name = "qm"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.14"
+# 3.11 is what every workflow pins and what the 312 CI tooling tests run on.
+# zensical itself needs only >=3.10 (PyPI metadata), so nothing here required
+# a 3.14 floor -- and a floor above CI's version fails `uv sync` for a
+# contributor using the interpreter CI uses.
+requires-python = ">=3.11"
 dependencies = [
     "zensical>=0.0.53",
 ]

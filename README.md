@@ -2,7 +2,8 @@
 
 This repository holds the decisions that govern every Quaternion Media project: the principles, the process that keeps projects consistent, and the template each new project starts from. Projects adopt this corpus **by reference**. A project may tighten these rules, but never relax them.
 
-**Full documentation:** [quaternionmedia.github.io/qm](https://quaternionmedia.github.io/qm/)
+**Full documentation:** [docs/](docs/index.md) — also rendered at
+[quaternionmedia.github.io/qm](https://quaternionmedia.github.io/qm/) once Pages is enabled.
 
 ## Read this first
 
@@ -15,9 +16,9 @@ This repository holds the decisions that govern every Quaternion Media project: 
 | You want to | Go to |
 |---|---|
 | Know what QM believes and why | [PRINCIPLES.md](PRINCIPLES.md) — the charter, eleven principles |
-| Understand how the corpus works | [Overview](https://quaternionmedia.github.io/qm/about/overview/) and [Architecture](https://quaternionmedia.github.io/qm/about/architecture/) |
-| Set up a new QM project | [Forking a new project](https://quaternionmedia.github.io/qm/usage/first-project/) |
-| Learn the branch and record rules | [Branch namespaces](https://quaternionmedia.github.io/qm/ref/namespaces/) and [Record precedence](https://quaternionmedia.github.io/qm/ref/precedence/) |
+| Understand how the corpus works | [Overview](docs/about/overview.md) and [Architecture](docs/about/architecture.md) |
+| Set up a new QM project | [Forking a new project](docs/usage/first-project.md) |
+| Learn the branch and record rules | [Branch namespaces](docs/ref/namespaces.md) and [Record precedence](docs/ref/precedence.md) |
 | See where every project stands | [governance-status.yaml](governance-status.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
 | Work here as a coding agent | [AGENTS.md](AGENTS.md) — read it before your first commit; start with `/cowork` |
 
@@ -60,7 +61,7 @@ Every record is `Proposed` because ratification requires a second active code ow
 
 ## Contributing
 
-Work on a branch: `evolve/<slug>` for org-level changes, `perspective/<date>-<slug>` for perspectives, `project/<name>` for one project's records. Open a draft pull request (`gh pr create --draft`) and assign the person who asked for the work. A human reviews and merges. See [Branch namespaces](https://quaternionmedia.github.io/qm/ref/namespaces/) and [handbook/async-contract.md](handbook/async-contract.md).
+Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/namespaces.md) lists them, and a branch outside them is a mistake rather than a variation. Open a draft pull request (`gh pr create --draft`) and assign the person who asked for the work. A human reviews and merges. See [Branch namespaces](https://quaternionmedia.github.io/qm/ref/namespaces/) and [handbook/async-contract.md](handbook/async-contract.md).
 
 ## Licence
 

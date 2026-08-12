@@ -22,6 +22,26 @@ All flags are optional:
 | `--head-ref` | current branch | Pull request head branch |
 | `--workflows` | `.github/workflows` | Directory of workflow files to run |
 
+That table is checked against the tool rather than maintained beside it. This
+page is executed by pytest, and the example below fails if a flag is added,
+removed or renamed — so a reader can trust the table because a build would have
+gone red otherwise.
+
+    >>> import re, subprocess, sys
+    >>> help_text = subprocess.run(
+    ...     [sys.executable, "project-seed/ci/run_workflows_locally.py", "--help"],
+    ...     capture_output=True, text=True, check=True).stdout
+    >>> documented = {"--event", "--ref", "--base-ref", "--head-ref", "--workflows"}
+    >>> actual = set(re.findall(r"^\s+(--[a-z-]+)", help_text, re.M)) - {"--help"}
+    >>> sorted(actual - documented)   # a flag the tool has and this page does not
+    []
+    >>> sorted(documented - actual)   # a flag this page claims and the tool lacks
+    []
+
+`check=True` is not decoration. doctest reports success for an example that
+raises nothing and declares no output, so without it a `--help` that exited
+non-zero would pass here.
+
 ## Individual checks
 
 You can also run the underlying checks directly:
