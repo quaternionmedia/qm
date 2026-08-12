@@ -83,6 +83,24 @@ indexes them. Check the age before quoting a figure.
    "supersedes the ... (stance|finding)", "corrected". Drafts are rewritten
    in place, not narrated. The ADR lint enforces this over prose only, so
    quoting the list in a code span is fine.
+9. **Establish a fact before asserting it, and check a signal before reading
+   it.** A claim that something is broken, unsupported or behaves a certain way
+   carries the command you ran and what it returned. Before reporting what a
+   result means, name one other thing that would produce the same output — a
+   tool version, a flag's semantics, stale local state, the working directory,
+   a substring matching prose. An unexpected uniform result is a tooling fault
+   until shown otherwise, and a check that has only ever been seen green has
+   not been tested: break the thing it names and watch it go red.
+10. **A claim about what facts *mean* names what else could produce them.**
+    This is the sibling of the rule above and catches a different failure: the
+    facts are all true and the sentence built from them is wrong. Name the
+    ordinary cause before the interesting one — same author, same source, same
+    tooling, same period — and state direction and date, because "A resembles
+    B" is symmetric and the useful version rarely is. **A correction carries
+    the same burden as the claim it replaces**: an overclaim gets caught by a
+    reader who knows better, while a deflation reads as rigour, closes the
+    topic, and can quietly delete something real. See
+    `governance/qm/records/DRAFT-decision-record-discipline.md` §7 and §8.
 
 ## One-time setup on a fresh clone (Windows)
 
