@@ -9,10 +9,29 @@ Ratification turns a draft record into a binding one. It is a human action, at b
 
 1. flips the record's Status to `Accepted`,
 2. assigns the number from the index (`QM-NNNN` or `ADR-NNNN`),
-3. updates the index,
-4. names the record in the commit message.
+3. **renames the file** from `DRAFT-<slug>.md` to `QM-NNNN-<slug>.md` (or `ADR-NNNN-<slug>.md` in a project),
+4. updates the index,
+5. names the record in the commit message.
 
-**Assistants draft; humans ratify.** An assistant never performs any of the four steps.
+**Assistants draft; humans ratify.** An assistant never performs any of the five steps.
+
+!!! warning "Step 3 is mechanically enforced and was documented nowhere"
+    The lint finds ratified records by filename — `NUMBERED_FILENAME` in
+    `project-seed/ci/adr_lint.py` is `^(?:ADR|QM)-(\d{4})-.+\.md$` — and it
+    compares that set against the numbers in the index. Do the other four steps
+    without renaming and CI fails with:
+
+    ```
+    index lists record 0001 with no matching file.
+    ```
+
+    Reproduced against a fixture: an `Accepted` record still named `DRAFT-*.md`,
+    listed in the index as `0001`, gives exactly that. The message names the
+    index rather than the filename, so the cause is not obvious from the error.
+
+    This bites the first person ever to ratify, which is the one act the corpus
+    is waiting to perform. Nothing in the repository stated the convention
+    before this page did.
 
 ## Ratification is the last gate, not the only one
 

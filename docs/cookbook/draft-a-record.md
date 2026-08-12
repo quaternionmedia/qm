@@ -60,8 +60,11 @@ Ratification is a human act, and only a human performs it:
 
 1. Status flips to `Accepted`.
 2. The record gets its number (`QM-NNNN` or `ADR-NNNN`) from the index.
-3. The index is updated.
-4. The commit message names the record.
+3. **The file is renamed** to `QM-NNNN-<slug>.md`. The lint finds ratified
+   records by filename, so skipping this fails CI with `index lists record 0001
+   with no matching file` — see [Ratification](../ref/ratification.md).
+4. The index is updated.
+5. The commit message names the record.
 
 After that, the body above the Amendments section does not change. Changes arrive as dated amendments.
 
