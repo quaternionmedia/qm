@@ -191,13 +191,28 @@ part a session executes:
 
 **The sync is two-way, and each direction has a different gate.**
 
-*Down* — org to project. `project-seed/` is the canonical copy. This corpus's
-own root does not hold second copies of the seed's IDE files; it holds
-symlinks into `project-seed/ide/`, which `symlink-integrity.yml` checks are
-still mode `120000`. So editing the seed edits this repository's own harness in
-the same commit, and a project picks the change up when its governance pin is
-bumped and the seed files are re-copied — `handbook/propagation-runbook.md`,
-Part B. A merge does not fix a copy.
+*Down* — org to project. `project-seed/` is the canonical copy, and this
+corpus's own root points into it **for some IDE files but not the one that
+matters most**:
+
+| Root path | Mode | Resolves to |
+|---|---|---|
+| `.vscode/settings.json`, `.vscode/extensions.json` | `120000` | `project-seed/ide/.vscode/…` |
+| `.claude/commands/*.md` | `120000` | `project-seed/ide/.claude/commands/…` |
+| `CLAUDE.md`, `.github/copilot-instructions.md` | `120000` | the **root** `AGENTS.md` — not the seed |
+| `AGENTS.md` | `100644` | **a second, genuinely different document** |
+
+So editing the seed edits this repository's own harness in the same commit for
+`.vscode/` and `.claude/`, and **not** for `AGENTS.md`: the root one is
+org-facing, the seed's is project-facing, and a rule that belongs in both has to
+be written twice. That is a real cost and the reason to know it is that
+forgetting the second edit leaves the two saying different things — which has
+happened. `symlink-integrity.yml` checks that the files which *are* symlinks
+stay mode `120000`; it cannot notice a rule missing from one AGENTS.md.
+
+A project picks seed changes up when its governance pin is bumped and the seed
+files are re-copied — `handbook/propagation-runbook.md`, Part B. A merge does not
+fix a copy.
 
 *Up* — project to org. A session that finds the harness wrong where it is
 running fixes it **in `project-seed/`**, on a branch of this repository, and

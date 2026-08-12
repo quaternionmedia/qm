@@ -21,9 +21,10 @@ occupies it. Alfred's render engine is neither selected from the commons nor
 part of alfred's seam: QM wrote it, published it as a standalone package with
 its own repository, tests, documentation, and release line, and alfred
 consumes it at a version across its public API. The open-license record
-reaches something adjacent — promoting a fork to a maintained public QM
-project — but only as a remediation outcome, after an upstream rejects a
-patch or dies. That is a fallback describing a failure. What alfred did is a
+reaches something adjacent — its §2 relicense protocol, which requires a
+migration-or-fork record within 90 days when an upstream changes terms. That is
+a tourniquet for a licence event, and it decides nothing about whether QM
+maintains an engine of its own by choice. What alfred did is a
 deliberate first choice, and it serves commons-first economics directly:
 the artifact is a public package anyone can use, not a private module that
 happens to live in a second directory. §5 names it, and bounds it, because a
