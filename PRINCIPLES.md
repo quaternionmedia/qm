@@ -186,6 +186,10 @@ zero drift, while the two artifacts in the same repo that need a remembered
 command are stale — a changelog one release behind its newest tag, and a
 results table pasted by hand.
 
-→ Org record: **One executable walkthrough per repository**, with the
-walkthrough pages executed by the test runner, a generator that fails when an
-artifact it names is absent, and the rule that a skip is not a pass, as teeth.
+→ Org record: **One executable walkthrough per repository**. Its teeth: the
+pages are named as an explicit path to the test runner, because `testpaths` is
+ignored the moment pytest is given one; an example may not discard a non-zero
+exit, because doctest passes an example that declares no output; a generator
+fails when an artifact it names is absent; a skip is not a pass; and the check
+is satisfied by a run observed on the default branch, not by a workflow file
+that would have run.
