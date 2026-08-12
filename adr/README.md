@@ -241,4 +241,5 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): —
+Drafts in flight (numberless, by title): constitution adoption scope for a
+Python service project.
