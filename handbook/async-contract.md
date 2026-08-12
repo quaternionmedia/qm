@@ -182,7 +182,7 @@ part a session executes:
 
 | Piece | Path | Reaches a project by |
 |---|---|---|
-| The commands a session runs | `project-seed/ide/.claude/commands/` | copied at fork, refreshed at propagation |
+| The scripts a session runs | `project-seed/ci/` | run from the submodule, never copied |
 | The context builder behind `/cowork` | `project-seed/ci/cowork_context.py` | run from the submodule |
 | The slot check | `project-seed/ci/check_one_pr.py` + `one-pr-check.yml` | workflow copied, script run from the submodule |
 | The branch check | `project-seed/ci/check_pr_base.py` | run from the submodule |
@@ -198,7 +198,7 @@ matters most**:
 | Root path | Mode | Resolves to |
 |---|---|---|
 | `.vscode/settings.json`, `.vscode/extensions.json` | `120000` | `project-seed/ide/.vscode/…` |
-| `.claude/commands/*.md` | `120000` | `project-seed/ide/.claude/commands/…` |
+| `.claude/commands/*.md` | `120000` | `adapters/claude-code/commands/…` — optional, outside the seed |
 | `CLAUDE.md`, `.github/copilot-instructions.md` | `120000` | the **root** `AGENTS.md` — not the seed |
 | `AGENTS.md` | `100644` | **a second, genuinely different document** |
 

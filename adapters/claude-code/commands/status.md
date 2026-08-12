@@ -3,10 +3,6 @@ description: Refresh the harness status document and read what is in flight acro
 argument-hint: [repository name to focus on, optional]
 ---
 
-<!-- SEED FILE: part of project-seed/ide/, copied recursively onto the project
-     root. The corpus's own .claude/commands/ holds symlinks back to this file,
-     so there is one copy to edit. Delete this comment in the copy. -->
-
 Refresh the org's harness status and report what needs a person. Focus, if one
 was given: **$ARGUMENTS**.
 

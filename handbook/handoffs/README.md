@@ -35,7 +35,7 @@ worse than no page, because a session picks it up and re-derives a state that no
 longer exists.
 
 **The harness is on `main`.** `ci/` (17 files) and
-`project-seed/ide/.claude/commands/` both landed with #36 on 2026-08-11, so a
+the session scripts in `project-seed/ci/` both landed with #36 on 2026-08-11, so a
 project pinned to `main` now gets `/cowork`, the slot check and the two status
 documents at its next pin bump rather than waiting on anything. Every page here
 older than that date describes the harness in the present tense as unmerged;
