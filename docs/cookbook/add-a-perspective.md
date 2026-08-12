@@ -1,23 +1,17 @@
 # Add a perspective
 
-Writing a perspective: attributed opinion, incident report, or process retrospective.
+Write a perspective: dated, attributed, non-binding opinion.
 
-## What goes in perspectives
+## What a perspective is for
 
-Perspectives are the place for:
+- **Rationale** — why something was done the way it was
+- **Incidents** — what went wrong and what was learned
+- **Retrospectives** — how a piece of work actually went
+- **Opinion** — an argued position, signed and dated
 
-- **Rationale** — why a design decision was made, what alternatives were weighed
-- **Incidents** — what went wrong, what was learned
-- **Process retrospectives** — how an activity played out, what could improve
-- **Dated opinion** — "here's what I think about this situation"
+What does *not* belong here: new rules (those are records) and procedures (those are handbook pages). See [handbook/style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) for the routing table.
 
-**What doesn't belong**: new rules (those go in records), procedure steps (those go in handbook), code comments (use records instead).
-
-See [handbook/style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) for the complete tier table.
-
-## File naming
-
-Perspectives are dated and named by author:
+## Name the file
 
 ```
 perspectives/<YYYY-MM-DD>-<slug>.md
@@ -25,51 +19,43 @@ perspectives/<YYYY-MM-DD>-<slug>.md
 
 Example: `2026-08-09-explanation-in-the-wrong-place.md`
 
-## File structure
+## Write the header
 
-Start with a header naming the author and tools used:
+A perspective opens with a title and a key-value table. The fields are **Standing**, **Author**, **Tools**, and **Task** (a **Date** row is optional; the index carries the citable date):
 
 ```markdown
----
-Author: Your Name
-Date: YYYY-MM-DD
-Tools: Claude Sonnet 5
----
+# Perspective — <Title>
 
-# <Title>
-
-<Content>
+| | |
+|---|---|
+| **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
+| **Author** | <Human name> |
+| **Tools** | <Model name, and what it did> |
+| **Task** | <One paragraph: what this perspective covers> |
 ```
 
-The Tools field is **required if a language model was involved**, per [records/DRAFT-human-only-contributorship.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-human-only-contributorship.md). Omit it if it was purely human work.
+Two rules from [records/DRAFT-human-only-contributorship.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-human-only-contributorship.md):
 
-## Open a draft PR
+- **Author names a human** — the person accountable for the content, never a tool or model.
+- **Tool involvement is disclosed in the Tools row**, both in the file and in the index. In this directory the disclosure is required, not optional.
+
+## Open the pull request
 
 Perspectives go on a `perspective/<date>-<slug>` branch:
 
 ```bash
-git checkout -b perspective/YYYY-MM-DD-<slug>
+git checkout -b perspective/<YYYY-MM-DD>-<slug>
 git add perspectives/<YYYY-MM-DD>-<slug>.md
 git commit -m 'perspective: <title>'
-git push origin perspective/YYYY-MM-DD-<slug>
+git push origin perspective/<YYYY-MM-DD>-<slug>
 gh pr create --draft
 ```
 
-## After the PR merges
+## Update the index
 
-Once merged to `main`, add a row to [perspectives/README.md](https://github.com/quaternionmedia/qm/blob/main/perspectives/README.md) with:
-
-- Date (from your filename)
-- File (the markdown filename)
-- Author (your name)
-- Kind (Perspective, Primary source, etc.)
-- Status (Unreviewed, Acknowledged, Responded, Declined)
-- Notes (any follow-on work this perspective triggered)
-
-A maintainer will set the Status when they review the index. You can fill in Notes if there's follow-on work.
+Add a row to the table in [perspectives/README.md](https://github.com/quaternionmedia/qm/blob/main/perspectives/README.md): Date, File, Author, Kind, Status, and Notes. New perspectives start with Status `Unreviewed`; only a maintainer changes that. The Notes column carries the Tools disclosure and links to any follow-on work.
 
 ## Related
 
-- [perspectives/README.md](https://github.com/quaternionmedia/qm/blob/main/perspectives/README.md) — the index, standing, and attribution rules
-- [handbook/style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) — the tier table: where explanation goes
-- [records/DRAFT-human-only-contributorship.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-human-only-contributorship.md) — the rule on tool attribution
+- [perspectives/README.md](https://github.com/quaternionmedia/qm/blob/main/perspectives/README.md) — the index and its rules
+- [handbook/style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) — what goes where

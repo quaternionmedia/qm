@@ -1,55 +1,50 @@
 # Getting started
 
-Your first hour with the QM corpus.
+What to do in your first hour with the QM corpus.
 
-## Clone the repo
+## 1. Clone the repository
 
 ```bash
 git clone https://github.com/quaternionmedia/qm.git
 cd qm
 ```
 
-## Read the charter
+## 2. Read the charter
 
-Open [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) — it is short and states what QM believes. These eleven principles govern everything below them.
+Read [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md). It is short and states what QM believes. Everything else in the corpus is cut from it.
 
-## Understand the three invariants
+## 3. Learn the three invariants
 
-From the README:
+1. **Only `records/` binds.** Records are the only binding documents. Everything else points at them. `perspectives/` is opinion and binds nothing.
+2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: ratification requires approval from a second active code owner.
+3. **Every change arrives as a pull request** — from a typo fix to a new record. Nobody merges their own work into `main`.
 
-1. **Records in `records/` are the only binding documents.** Everything else points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified, and that is deliberate — ratification waits on a second active code owner, because a gate one person can satisfy alone is a gate in name only.
-3. **Every change arrives as a pull request**, from a typo to a new record. Nobody merges their own work into `main`.
-
-## Find what you need
+## 4. Find what you need
 
 | You want to | Go to |
 |---|---|
-| Know what QM believes in detail | Read [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) in full |
-| Understand the records | See [Overview](../about/overview.md); then browse [records/](https://github.com/quaternionmedia/qm/tree/main/records/) |
-| Fork a new QM project | [Forking a new project](first-project.md) — the step-by-step walkthrough |
-| Know how projects relate to the org | [Architecture](../about/architecture.md) — the branch-per-project model |
-| Understand branches and their rules | [Branch namespaces](../ref/namespaces.md) |
-| Read the status of every project | [governance-status.yaml](https://github.com/quaternionmedia/qm/blob/main/governance-status.yaml) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) for how to read it |
-| See what's currently being worked on | [harness-status.json](https://github.com/quaternionmedia/qm/blob/main/harness-status.json) for pull request slots and in-flight work |
+| Read the principles in full | [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) |
+| Understand the records | [Overview](../about/overview.md), then [records/](https://github.com/quaternionmedia/qm/tree/main/records) |
+| Set up a new QM project | [Forking a new project](first-project.md) |
+| Understand how projects relate to the org | [Architecture](../about/architecture.md) |
+| Learn the branch rules | [Branch namespaces](../ref/namespaces.md) |
+| See where every project stands | [governance-status.yaml](https://github.com/quaternionmedia/qm/blob/main/governance-status.yaml); how to read it: [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) |
 | Learn policy and procedure | [Handbook index](../ref/handbook.md) |
 | Work here as a coding agent | [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md) |
 
-## Make your first change
+## 5. Make your first change
 
-Pick something small: a typo fix, an admonition clarification, a missing link. Then:
+Pick something small — a typo, a broken link, an unclear sentence. Then:
 
-1. Branch: `git checkout -b evolve/<your-slug>`
-2. Make the change
-3. Commit: `git add . && git commit -m 'what you changed'`
-4. Open a draft PR: `gh pr create --draft` (no review request)
-5. Assign it to yourself or the person who asked for it
-6. A human reviews and merges when ready
+1. Create a branch: `git checkout -b evolve/<slug>`
+2. Make the change and commit it.
+3. Open a draft pull request: `gh pr create --draft`. Do not request a review.
+4. Assign the person who asked for the work.
+5. A human reviews and merges.
 
-That's it. See [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) for the multi-session rules if multiple agents are working at once.
+If several agent sessions run at the same time, the rules in [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) apply. The most important one: one open pull request per repository, per contributor.
 
-## Related
+## Next
 
-- [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) — the charter
-- [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md) — if you're a coding agent
-- [Forking a new project](first-project.md) — when you're ready to adopt the corpus in a new project
+- [Forking a new project](first-project.md) — adopt the corpus in a new project
+- [Cookbook](../cookbook/index.md) — recipes for common tasks

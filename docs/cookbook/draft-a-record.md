@@ -1,67 +1,72 @@
 # Draft a record
 
-Writing a decision record at the org or project level.
+Write a decision record, at the org level or the project level.
 
-## Get the template
-
-Copy [TEMPLATE.md](https://github.com/quaternionmedia/qm/blob/main/TEMPLATE.md) (org) or `adr/TEMPLATE.md` (project):
+## Copy the template
 
 ```bash
-# Org-level (on evolve/<slug> branch)
-cp TEMPLATE.md records/DRAFT-<what-you-decided>.md
+# Org record (on an evolve/<slug> branch)
+cp TEMPLATE.md records/DRAFT-<slug>.md
 
-# Project-level (on your project branch)
-cp adr/TEMPLATE.md adr/DRAFT-<what-you-decided>.md
+# Project record (on the project's own branch)
+cp adr/TEMPLATE.md adr/DRAFT-<slug>.md
 ```
 
-## Fill in the sections
+The file stays named `DRAFT-*.md` until a human ratifies it. Numbers are assigned at ratification, not before.
 
-The template has required sections:
+## Fill in the template
 
-- **Status** — start as `Proposed` (no number yet)
-- **Context** — what decision needed to be made and why
-- **Decision** — what you decided
-- **Alternatives considered** — what else you thought about
-- **Consequences** — what changes as a result
+The template opens with a header table:
 
-See [TEMPLATE.md](https://github.com/quaternionmedia/qm/blob/main/TEMPLATE.md) for the full structure and what each section means.
+| Field | What it holds |
+|---|---|
+| **Status** | Starts at `Draft` or `Proposed` |
+| **Date** | Date of the last status change |
+| **Pends on** | For `Proposed`: the open question this record waits on, or "Nothing — ready for ratification" |
+| **Principle** | The `PRINCIPLES.md` heading the record is cut from |
 
-## Follow the drafting discipline
+Then five sections:
 
-Before opening a PR:
+1. **Context** — the situation that requires a decision
+2. **Decision** — what is decided, stated so it can be enforced
+3. **Consequences** — what changes as a result, good and bad
+4. **Alternatives considered** — each alternative, and why it lost
+5. **Revision triggers** — the conditions under which this record should be revisited
 
-- **One decision per file** — if your decision has two parts, split them
-- **No banned vocabulary** — grep for `previously`, `originally`, `earlier draft` etc. (see `project-seed/ci/adr_lint.py` for the full list)
-- **Squash before review** — keep the file's git history clean before you open the PR
+An **Amendments** section starts as "*None.*" and is only used after ratification.
 
-See [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) section on discipline for what's checked and what's still manual.
+## Follow the drafting rules
 
-## Open a draft PR
+- **One decision per record.** If your draft contains two decisions, split it.
+- **No drafting narration.** These words fail the lint in a draft record: "previously", "originally", "earlier draft", "re-review", "renumber", "retroactive". Drafts are rewritten in place, not narrated.
+- **Squash before ratification.** A draft's history is not kept; the ratified record is.
+
+The template's own comment blocks state the full rules. The lint that enforces them is `project-seed/ci/adr_lint.py`.
+
+## Open the pull request
 
 ```bash
-git add records/DRAFT-*.md  # or adr/DRAFT-*.md for a project
+git add records/DRAFT-<slug>.md
 git commit -m 'draft: <title>'
-git push origin evolve/<slug>
+git push
 gh pr create --draft
 ```
 
-Assign it to yourself or the person who asked for the work. A human reviews the record.
+Assign the person who asked for the work. Do not request a review.
 
-## After review
+## What happens at ratification
 
-A human may ask for changes (the record is still `Proposed` and editable). Once approved, a human ratifies it:
+Ratification is a human act, and only a human performs it:
 
-1. Flips Status to `Accepted`
-2. Assigns a number (`QM-NNNN` for org; `ADR-NNNN` for project)
-3. Updates the index (`README.md` for org; `adr/README.md` for project)
-4. Makes a commit naming the record in the message
+1. Status flips to `Accepted`.
+2. The record gets its number (`QM-NNNN` or `ADR-NNNN`) from the index.
+3. The index is updated.
+4. The commit message names the record.
 
-The number is not assigned until this moment.
+After that, the body above the Amendments section does not change. Changes arrive as dated amendments.
 
 ## Related
 
-- [TEMPLATE.md](https://github.com/quaternionmedia/qm/blob/main/TEMPLATE.md) — the template and its sections
-- [Record precedence](../ref/precedence.md) — org vs. project records
-- [Ratification](../ref/ratification.md) — moving from `Proposed` to `Accepted`
-- [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) — what discipline is enforced
-- [records/DRAFT-decision-record-discipline.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-decision-record-discipline.md) — the full discipline record
+- [TEMPLATE.md](https://github.com/quaternionmedia/qm/blob/main/TEMPLATE.md) — the template, with the full drafting rules
+- [Ratification](../ref/ratification.md) — the ratification mechanics
+- [records/DRAFT-decision-record-discipline.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-decision-record-discipline.md) — the discipline this recipe summarizes

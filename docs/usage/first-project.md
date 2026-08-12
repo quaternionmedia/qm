@@ -1,116 +1,36 @@
 # Forking a new project
 
-Standing up a new QM project: the eight-step procedure with checks at each step.
+How a new project adopts the QM corpus.
 
-!!! info "Authoritative source"
-    The detailed walkthrough with checks is in [handbook/forking-a-project.md](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md). This page is the outline; follow the handbook page for the full procedure.
+!!! warning "Follow the handbook, not this page"
+    This page is an outline. The authoritative procedure — with the exact commands and the check that proves each step worked — is [handbook/forking-a-project.md](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md). Do not improvise a lighter version: most adoption defects come from skipped or partial steps.
 
-## The outline
+## The eight steps
 
-A new project adopts the corpus in eight steps:
+The handbook numbers the steps 0 through 7. Each has a verification check; run the check rather than assuming the step worked.
 
-### Step 1: Add the submodule
+**0. Confirm your starting commit.** Check which commit you are forking from, in both repositories.
 
-Add this repo as a submodule at `governance/qm`:
+**1. Add the submodule.** Add this repository as a git submodule at `governance/qm` in the new project.
 
-```bash
-git submodule add https://github.com/quaternionmedia/qm governance/qm
-```
+**2. Create the project branch.** In this repository, create `project/<name>` off `main`. Copy `project-seed/adr/` onto it as a top-level `adr/` directory, then **push the branch** — do not open a pull request for it. This is the one place content arrives on a shared branch by push: the only base a pull request could target is the branch being created, which does not exist yet.
 
-**Check:** `ls governance/qm/PRINCIPLES.md` exists.
+**3. Point the submodule at the branch.** Check out `project/<name>` inside the submodule, commit the updated pointer, and add `branch = project/<name>` to the project's `.gitmodules`.
 
-### Step 2: Create the project branch
+**4. Wire CI.** Copy all four seed workflows into `.github/workflows/`, verbatim: `adr-lint.yml`, `submodule-check.yml`, `reuse-lint.yml`, and `one-pr-check.yml`. Also wire the license gates the open-license record requires for the project's runtime shape.
 
-On the QM corpus repo, create a branch for this project's records:
+**5. Wire governance discovery.** Copy `project-seed/ide/` recursively onto the project root, using a method that preserves symlinks (`cp -a`, `rsync -a`). Fill in the project-specific sections of `AGENTS.md` and replace the `<name>` placeholders. Check that the project's `.gitignore` does not swallow the copied files.
 
-```bash
-cd governance/qm
-git checkout -b project/<name>
-git push origin project/<name>
-cd ../..
-```
+**6. Seed the first records.** Write the project's first records on its branch as numberless drafts — conventionally an adoption record and a scope record.
 
-**Check:** `git branch -r | grep project/<name>` shows the branch.
-
-### Step 3: Copy the seed
-
-Copy `governance/qm/project-seed/` into your project:
-
-```bash
-cp -r governance/qm/project-seed/* .
-```
-
-This brings in:
-- `adr/` — your decision records directory, seeded with `README.md` and `TEMPLATE.md`
-- `ci/` — the four governance workflows
-- `ide/` — editor config, agent commands, and `AGENTS.md`
-
-**Check:** `ls adr/README.md` and `ls .github/workflows/adr-lint.yml` exist.
-
-### Step 4: Wire the four workflows
-
-The seed ships four workflows in `.github/workflows/`. Enable them by ensuring they're not commented out and that the org/repo names are correct.
-
-The four workflows are:
-
-- `adr-lint.yml` — validates your record index
-- `one-pr-check.yml` — ensures one open PR per contributor  
-- `namespace-guard.yml` — guards the `project/<name>` branch on the corpus
-- `reuse-lint.yml` — validates copyright and license metadata
-
-**Check:** `git push` triggers these workflows and they all pass.
-
-### Step 5: Seed the first records
-
-Edit `adr/README.md` to remove the seed comment and add your first records:
-
-```bash
-rm -f adr/README.md.bak  # if you made a backup
-# Then edit adr/README.md to seed your project's own records index
-```
-
-Add `adr/` files for your first decisions. Use `adr/TEMPLATE.md` as the template.
-
-**Check:** `python project-seed/ci/adr_lint.py --records-dir adr --index adr/README.md` passes.
-
-### Step 6: Wire the corpus index in your submodule
-
-Update `governance/qm/.gitmodules` and point to your `project/<name>` branch:
-
-```bash
-cd governance/qm
-git config submodule.governance/qm.branch project/<name>
-cd ../..
-```
-
-**Check:** `cat .gitmodules | grep branch` shows `project/<name>`.
-
-### Step 7: Commit and push
-
-```bash
-git add .gitmodules adr/ ci/ ide/ .github/
-git commit -m 'bootstrap: adopt QM corpus'
-git push
-```
-
-**Check:** The workflows pass.
-
-### Step 8: Announce adoption
-
-Create a record in the corpus documenting your adoption. On the corpus `main` branch, add a record to `records/` noting the new project, then open a propagation PR to merge `main` into your `project/<name>` branch.
-
-**Check:** Your `project/<name>` branch receives the announcement record via the propagation merge.
-
----
+**7. Register carried patches.** If the project carries patches against upstream software, register them in the org-level [registers/carried-patches.md](https://github.com/quaternionmedia/qm/blob/main/registers/carried-patches.md).
 
 ## After adoption
 
-- See [Next steps](next-steps.md) for propagation, audits, and the phase ladder
-- See [handbook/forking-a-project.md](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md) for the full procedure with every check explained
-- See [Architecture](../about/architecture.md) to understand why the structure is this way
+- [Next steps](next-steps.md) — propagation, audits, and project phases
+- [Architecture](../about/architecture.md) — why the structure is this way
 
 ## Related
 
-- [Architecture](../about/architecture.md) — how the branch-per-project model works
-- [Branch namespaces](../ref/namespaces.md) — the rules for your `project/<name>` branch
-- [handbook/forking-a-project.md](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md) — the authoritative walkthrough with checks
+- [handbook/forking-a-project.md](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md) — the authoritative procedure
+- [Branch namespaces](../ref/namespaces.md) — the rules for the `project/<name>` branch

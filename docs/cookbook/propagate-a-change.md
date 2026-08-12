@@ -1,59 +1,48 @@
 # Propagate a change
 
-Getting an org-level update to an adopting project.
+Carry an org-level change from `main` to an adopting project's branch.
+
+!!! info "Authoritative source"
+    The full runbook, including conflict handling, is [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md). This page covers the common case.
 
 ## When to propagate
 
-A project receives org updates in two cases:
+- A record was ratified on `main` and projects need it.
+- A project's branch has fallen behind and should catch up.
 
-1. **A new record was ratified on `main`** — the org made a binding decision and it needs to reach projects
-2. **Regular sync** — even if no records changed, periodic propagation ensures projects stay current
-
-Propagation is a human action: someone decides "it's time" and creates the branch.
+Propagation is a human decision. Nothing triggers it automatically.
 
 ## The procedure
 
-On the QM corpus repo (`quaternionmedia/qm`):
-
-### Step 1: Create the propagate branch
+Always use an intermediate `propagate/<name>-<date>` branch. Cut it **from the project's branch**, then merge `main` **into it**:
 
 ```bash
-git checkout main
-git pull
-git checkout -b propagate/<project-name>-<YYYY-MM-DD>
+git checkout -b propagate/<name>-<YYYY-MM-DD> origin/project/<name>
+git merge origin/main
+# resolve any conflicts here
+git push origin propagate/<name>-<YYYY-MM-DD>
 ```
 
-Use the project's name and today's date.
+Then open a pull request:
 
-### Step 2: Merge main into the project's branch
+- **base:** `project/<name>`
+- **head:** `propagate/<name>-<YYYY-MM-DD>`
 
 ```bash
-git merge project/<project-name>
+gh pr create --draft --base project/<name> \
+  --title "propagate: <name> <YYYY-MM-DD>"
 ```
 
-If there are conflicts, they should be minimal — `adr/` is the only place where project-specific content lives.
+A human reviews and merges — with a merge commit, not a squash and not a rebase. The merge commit is the new submodule pin: the branch's ancestry is the pin, so there is no hash to maintain by hand.
 
-### Step 3: Push and open a PR
+## Rules
 
-```bash
-git push origin propagate/<project-name>-<YYYY-MM-DD>
-gh pr create --title "propagate: <project-name> <YYYY-MM-DD>" --base project/<project-name>
-```
-
-**Note the base:** `--base project/<project-name>`, not `main`. The PR targets the project's branch, not the org.
-
-### Step 4: Project review and merge
-
-A human on the **project** team reviews and merges the PR into `project/<project-name>`. This bumps their submodule pointer to the new tip.
-
-## Key rule
-
-**Never rebase a project branch.** Always merge. The submodule pointer is pinned by ancestry, and rebasing breaks the pin.
-
-See [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) for the full procedure with edge cases.
+- **Never rebase a project branch.** A downstream submodule pins its tip; a rebase breaks every pin.
+- **Never use `main` directly as the head.** Always cut the intermediate branch, even when the merge is clean.
+- **The pull request base is the project branch, not `main`.** `project-seed/ci/check_pr_base.py` refuses the wrong direction.
 
 ## Related
 
-- [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) — the authoritative runbook with all steps
-- [Architecture](../about/architecture.md) — how propagation fits the adoption-by-reference model
-- [Branch namespaces](../ref/namespaces.md) — the `project/<name>` and `propagate/<name>-<date>` rules
+- [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) — the full runbook
+- [Branch namespaces](../ref/namespaces.md) — why the branches work this way
+- [Architecture](../about/architecture.md) — the model behind propagation

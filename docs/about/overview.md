@@ -1,66 +1,51 @@
 # Overview
 
 !!! info "Source of truth"
-    This is a summary of [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) and the records in `records/`. See those sources for the complete text.
+    This page is a summary. The full text is in [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) and the records in [records/](https://github.com/quaternionmedia/qm/tree/main/records). If this page and a source disagree, the source is correct.
 
 ## What QM is
 
-The Quaternion Media constitution is the org-level decision corpus: the philosophies that govern every QM project, the process that keeps them coherent, and the proven template each new project forks from.
+The Quaternion Media constitution is a shared decision corpus. It holds the principles that govern every QM project, the process that keeps projects consistent, and the template each new project starts from.
 
-Projects adopt this corpus **by reference** and may tighten its rules — never relax them. This means:
+Projects adopt the corpus **by reference**:
 
-1. A project can impose stronger constraints than the corpus demands
-2. A project cannot waive a corpus constraint — exceptions require an amendment to the corpus itself, ratified at the org level
-3. The corpus is a shared set of rules, not a template copied and diverged
+1. A project may add constraints on top of the corpus.
+2. A project may not waive a corpus constraint. An exception requires an amendment to the corpus itself, ratified at the org level.
+3. The corpus is one shared rule set, not a template that projects copy and change.
 
 ## The four artifact classes
 
-| Artifact | Binding | What it holds | Lives in |
-|---|---|---|---|
-| **Record** | Yes (if `Accepted`) | A decision made with full context, alternatives considered, and rationale | `records/` (org) or `adr/` (project) |
-| **Register** | Yes (by the record that creates it) | Living data: what's currently true about a set of things | `registers/` or project-local |
-| **Handbook** | On QM's own conduct only | Policy and procedure, non-binding unless ratified | `handbook/` |
-| **Perspective** | No | Attributed, dated opinion; incidents and lessons learned | `perspectives/` |
+| Artifact | Binding? | What it holds |
+|---|---|---|
+| **Record** (`records/`, `adr/`) | Yes, once `Accepted` | One decision, with context, alternatives, and consequences |
+| **Register** (`registers/`) | Yes, as defined by the record that creates it | Living data, such as carried patches |
+| **Handbook** (`handbook/`) | On QM's own conduct only | Policy and procedure |
+| **Perspective** (`perspectives/`) | No | Dated, attributed opinion: incidents, retrospectives, lessons |
 
 ## The charter
 
-QM believes in:
+[PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) states eleven principles. In brief:
 
-1. **Autonomy in tactics, alignment in values** — projects choose their own tools and methods; they share principles
-2. **Decisions recorded before they're made** — the form disciplines the thought
-3. **Ratification by two** — a gate one person can satisfy alone is no gate
-4. **Every change through review** — nothing reaches `main` by direct push
-5. **No rationale in code** — explanations live in decision records, not comments
-6. **Single-source-of-truth** — one place to update rather than two that drift
-7. **Git as the state machine** — branches are states; commits are transitions
-8. **Adoption by reference** — projects don't copy the corpus; they pin and merge it
-9. **Precedence without bureaucracy** — QM records bind all projects; project records bind only their own
-10. **Open by default** — work is public unless there's a reason (named in policy)
-11. **Taste is personal; constitution is shared** — what counts is what's ratified, not what someone believes
+1. **Ownership is the deliverable** — systems must keep working if every vendor and upstream disappears.
+2. **Commons-first economics** — capability gaps are closed upstream; sponsorship is a first-class budget line.
+3. **Seams on standard protocols** — third-party components connect only through protocols with multiple independent implementations.
+4. **Build the seam, buy the engines** — custom code goes in the small control plane; engines are selected, not written.
+5. **One house stack, deeply known** — QM's own repositories use one stack; contributions use the target community's stack.
+6. **Decisions are documented or they didn't happen** — a decision that lives only in a chat log is not owned by the organization.
+7. **Public by default** — work ships in the open unless a specific, named reason requires otherwise.
+8. **Systems over heroics** — operations are declarative, automated, and observable; nothing depends on one person's late-night effort.
+9. **Minimal, legible deliverables** — legibility is respect for the reader and the future maintainer.
+10. **Credit tracks accountability, not output** — authorship names people who can answer for a change, never tools.
+11. **Governance finds the reader, not the reverse** — governance is placed in the files a reader already opens.
 
-See [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) for the full charter.
+Each principle names its enforcement mechanism. Read the full charter for the reasoning.
 
-## The records (draft)
+## The records
 
-Twelve decisions are currently drafted and awaiting ratification:
-
-- **Build the seam, buy the engines** — What the corpus builds vs. what it buys
-- **Contribution and sponsorship policy** — Who can contribute
-- **Decision-record discipline** — How records are drafted, numbered, and amended
-- **House stack** — The standard seams and protocols
-- **Human-only contributorship** — No agent bylines, no tool-as-author trailers
-- **IDE-integrated governance discovery** — Reading and discovering governance in your editor
-- **Monitoring seam and instance identity** — How projects report what's running
-- **Open-license exclusion and upstream-contribution remediation** — License gate patterns
-- **Outbound licensing of QM work** — How derivative work is licensed
-- **Project phase ladder** — Governance maturity levels
-- **Seams on standard protocols** — Standardized integration points
-- **Version tags are claims** — What a tag asserts about a build
-
-All records are marked `Proposed` deliberately — ratification waits on a second active code owner. See the [org records index](../README.md#index--org-records) for links.
+Twelve org records are drafted and awaiting ratification. Every one is marked `Proposed`, because ratification requires a second active code owner. The [records index](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records) links to each record.
 
 ## Related
 
 - [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) — the full charter
-- [Architecture](architecture.md) — how these principles are implemented in the structure
+- [Architecture](architecture.md) — how the principles shape the repository structure
 - [Record precedence](../ref/precedence.md) — how records bind projects

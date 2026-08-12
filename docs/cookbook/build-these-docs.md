@@ -1,16 +1,12 @@
 # Build these docs
 
-Running the documentation site locally.
+Run the documentation site on your machine.
 
 ## Prerequisites
 
-The site is built with [Zensical](https://zensical.org), which requires Python. The project uses `uv` for dependency management.
+The site is built with [Zensical](https://zensical.org). Dependencies are managed with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-# Install uv if you don't have it
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Sync dependencies
 uv sync
 ```
 
@@ -20,51 +16,33 @@ uv sync
 uv run zensical serve
 ```
 
-The site builds and runs on `http://localhost:8000`. It watches for changes and rebuilds automatically.
+The site runs at `http://localhost:8000` and rebuilds when you save a file.
 
-## Build for deployment
+## Build the static site
 
 ```bash
 uv run zensical build --clean
 ```
 
-This generates the static site in `site/`, which is deployed to GitHub Pages by `.github/workflows/docs.yml` on push to `main` or `docs`.
+This writes the site to `site/`, which is not committed. On a push to `main`, the workflow `.github/workflows/docs.yml` builds and deploys the site to GitHub Pages.
 
-## Configuration
+## Where things are
 
-The site config lives in `zensical.toml`. Key settings:
+- Source pages: `docs/` (`about/`, `usage/`, `cookbook/`, `ref/`)
+- Configuration: `zensical.toml` — site metadata, navigation, theme, and Markdown extensions
 
-- `site_url` — where the docs are published (GitHub Pages)
-- `site_name` — "QM Governance"
-- `docs_dir` — "docs" (the source directory)
-- `nav` — the navigation structure and page order
-- Extensions — pymdownx for syntax highlighting, admonitions, superfences (mermaid), etc.
+## Add a page
 
-## Editing the docs
+1. Create the `.md` file under `docs/`.
+2. Add its path to the `nav` list in `zensical.toml`. A page not listed there does not appear in the navigation.
+3. Commit and open a pull request, like any other change.
 
-All source files are in `docs/`:
+## Linking rules
 
-```
-docs/
-├── index.md          landing page
-├── about/            explanation and background
-├── usage/            tutorials and how-tos
-├── cookbook/         practical recipes
-└── ref/              reference material
-```
-
-Edit a `.md` file, save it, and the local server rebuilds automatically.
-
-## Adding a new page
-
-1. Create the `.md` file in the appropriate directory
-2. Add an entry to the `nav` in `zensical.toml`
-3. Commit and push
-
-The workflow `.github/workflows/docs.yml` deploys on push to `main` or `docs`.
+- Links **between docs pages** are relative paths to the `.md` file: `../ref/namespaces.md`.
+- Links **to anything outside `docs/`** — records, handbook pages, source files — use the full GitHub URL: `https://github.com/quaternionmedia/qm/blob/main/...`. The site build cannot reach files outside `docs/`.
 
 ## Related
 
 - [zensical.toml](https://github.com/quaternionmedia/qm/blob/main/zensical.toml) — the site configuration
-- [.github/workflows/docs.yml](https://github.com/quaternionmedia/qm/blob/main/.github/workflows/docs.yml) — the deployment workflow
-- [Zensical docs](https://zensical.org/docs/) — Zensical configuration and features
+- [Zensical documentation](https://zensical.org/docs/) — configuration reference

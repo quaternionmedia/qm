@@ -1,10 +1,13 @@
 # Reference
 
-Lookup material: how the corpus is organized, what binds, how changes work, and where to find guidance.
+Lookup pages: the rules, the layout, and the terms.
 
-- **[Repository layout](repo-layout.md)** — The directory tree, what each holds, and which files are generated.
-- **[Branch namespaces](namespaces.md)** — The five namespace conventions and the rule that `project/<name>` branches take changes in, never out.
-- **[Record precedence](precedence.md)** — How `QM-NNNN` and `ADR-NNNN` records relate, what adopting by reference means, and what binds.
-- **[Ratification](ratification.md)** — How a record moves from `Proposed` to `Accepted`, and what obligations trigger at that moment.
-- **[Handbook index](handbook.md)** — The pages that hold policy and procedure; what each answers.
-- **[Glossary](glossary.md)** — Key terms: record, register, perspective, corpus, harness, and more.
+- **[Repository layout](repo-layout.md)** — the directory tree and what each part holds.
+- **[Branch namespaces](namespaces.md)** — the five branch conventions, and the rules for project branches.
+- **[Record precedence](precedence.md)** — how org and project records relate, and what binds.
+- **[Ratification](ratification.md)** — how a record becomes binding, and what triggers then.
+- **[Handbook index](handbook.md)** — QM's policy and procedure pages.
+- **[Glossary](glossary.md)** — short definitions of the corpus's terms.
+
+!!! note "These pages summarize, they do not replace"
+    Reference pages here restate rules whose sources are records and handbook pages, and they link to those sources. No page states a rule its source does not state.

@@ -1,9 +1,9 @@
 # Branch namespaces
 
-!!! info "Source of truth"
-    This page is the canonical statement for branch conventions in the QM corpus. Cited as: [quaternionmedia/qm](https://github.com/quaternionmedia/qm) `docs/ref/namespaces.md`.
+!!! info "Canonical"
+    This page is the canonical statement of the branch rules for [quaternionmedia/qm](https://github.com/quaternionmedia/qm). Tools and other documents cite it as `docs/ref/namespaces.md`.
 
-`main` carries the constitution and nothing else. Five namespaces hang off it, and a branch outside them is a mistake rather than a variation.
+`main` carries the constitution and nothing else. Five namespaces hang off it. A branch outside them is a mistake, not a variation.
 
 ## The five namespaces
 
@@ -15,23 +15,25 @@
 | `evolve/<slug>` | org-level work in progress | deleted after merge |
 | `workspace/<slug>` | a research workspace that never merges back | permanent, terminal |
 
-## How a `project/<name>` branch works
+## Rules for `project/<name>` branches
 
-A `project/<name>` branch is never merged into `main`. Not once, not squashed, not "just the shared part". It exists in perpetuity and holds exactly one thing: how one project's governance deviates from `main`. Merging it would move that project's `adr/` onto `main`, and `main` is the org namespace — so one project's local decision would become an org record by accident, and the precedence rule would then read backwards, with the project's own record appearing to bind every other project.
+**A `project/<name>` branch is never merged into `main`.** Not once, not squashed, not partially. It exists permanently and holds exactly one thing: how one project's governance differs from `main`.
 
-A `project/<name>` branch takes changes **in**, never gives them out:
+The reason: merging it would move that project's `adr/` onto `main`, the org namespace. The project's local decisions would then read as org records binding every other project — and nothing in the repository would look wrong afterward.
+
+A `project/<name>` branch takes changes **in** and never gives them out:
 
 | Direction | How |
 |---|---|
-| project-specific records arrive | a pull request whose **base** is `project/<name>`. Each such base holds its own slot under the one-PR rule, which is what the `--per-base 'project/*'` exemption is for |
-| the branch is created | cut from `main`, `adr/` copied from `project-seed/adr/`, and **pushed** — see [Forking a new project](../usage/first-project.md), step 2. The initial content is not a pull request, because the only base it could target is a branch that does not exist yet |
-| `main`'s changes reach it | `main` is merged **into** it, as a `propagate/<name>-<date>` pull request against it. Never a rebase: a downstream submodule pins the tip, and rebasing invalidates every pin |
-| the project's own repository sees it | the submodule pointer, bumped by that same propagation |
+| Project records arrive | A pull request whose **base** is `project/<name>`. Each such base holds its own slot under the one-PR rule (the `--per-base 'project/*'` exemption). |
+| The branch is created | Cut from `main`, `adr/` copied from `project-seed/adr/`, then **pushed** — not opened as a pull request, because the only base it could target does not exist yet. See [Forking a new project](../usage/first-project.md), step 2. |
+| `main`'s changes arrive | `main` is merged **into** the branch, through a `propagate/<name>-<date>` pull request. Never a rebase: a downstream submodule pins the tip, and a rebase breaks every pin. |
+| The project's repository sees it | Through the submodule pointer, bumped by that same propagation merge. |
 
-A `project/<name>` branch is therefore never the *head* of a pull request, whatever the base is and whatever it carries. The check that enforces this is `project-seed/ci/check_pr_base.py`.
+A `project/<name>` branch is therefore never the **head** of a pull request, whatever the base. The check `project-seed/ci/check_pr_base.py` refuses that, and separately refuses any branch that carries a top-level `adr/` aimed at `main`.
 
 ## Related
 
-- [Record precedence](precedence.md) — how records in different namespaces relate to each other
-- [Repository layout](repo-layout.md) — where project branches live in the broader structure
-- [Handbook: Async contract](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) — the rules that exist only because several agent sessions run at once
+- [Record precedence](precedence.md) — how records in the two namespaces relate
+- [Propagate a change](../cookbook/propagate-a-change.md) — the merge procedure
+- [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) — the one-PR rule and the rest of the multi-session contract

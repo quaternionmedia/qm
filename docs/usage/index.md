@@ -1,7 +1,7 @@
 # Usage
 
-Getting started with the QM corpus and standing up your first project.
+How to start working with the corpus and how to bring a project into it.
 
-- **[Getting started](getting-started.md)** — First hour: what to read, where the binding documents are, how to make your first change.
-- **[Forking a new project](first-project.md)** — The eight-step walkthrough for adopting the corpus, with checks at each step.
-- **[Next steps](next-steps.md)** — After adoption: propagation, audits, the status documents, and the phase ladder.
+- **[Getting started](getting-started.md)** — your first hour: what to read, how to make your first change.
+- **[Forking a new project](first-project.md)** — the eight-step adoption procedure, in outline.
+- **[Next steps](next-steps.md)** — after adoption: propagation, audits, status documents, and phases.

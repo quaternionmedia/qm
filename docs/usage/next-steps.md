@@ -1,66 +1,53 @@
 # Next steps
 
-After your project has adopted the corpus: propagation, audits, status documents, and governance phases.
+What happens after a project has adopted the corpus.
 
-## Propagation — keeping your project in sync
+## Propagation: staying in sync
 
-When the org ratifies a new record on `main`, it reaches your project through a **propagation merge** — not a copy, not a rebase.
+When the org changes `main` — a ratified record, an updated procedure — the change reaches your project through a **propagation merge**:
 
-A human on the org team:
+1. Someone cuts a `propagate/<name>-<date>` branch from your `project/<name>` branch.
+2. They merge `main` into it and open a pull request whose base is `project/<name>`.
+3. A human reviews and merges. The merge commit is the new submodule pin.
 
-1. Creates a `propagate/<name>-<date>` branch
-2. Merges `main` into your `project/<name>` branch via this branch as a PR
-3. You review and merge
+The merge is never a rebase: your submodule pins the branch tip by ancestry, and a rebase would break the pin.
 
-Your `project/<name>` branch receives the org records without ever rebasing, so your submodule pointer stays pinned.
-
-See [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) for the full procedure.
+See [Propagate a change](../cookbook/propagate-a-change.md) for the commands, and [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) for the full procedure.
 
 ## Adoption audits
 
-The org periodically audits projects to ensure they have:
+The org audits adopted projects to confirm each one has:
 
-- The `governance/qm` submodule at the right branch
-- All four CI workflows wired and passing
-- The seed files in place
-- Records seeded correctly
+- the `governance/qm` submodule on the right branch,
+- the four seed CI workflows,
+- the seed files (`AGENTS.md`, editor config) in place,
+- records seeded on its branch.
 
-See [handbook/adoption-audit-queue.md](https://github.com/quaternionmedia/qm/blob/main/handbook/adoption-audit-queue.md) for how audits work and how to prepare for one.
+See [handbook/adoption-audit-queue.md](https://github.com/quaternionmedia/qm/blob/main/handbook/adoption-audit-queue.md) for how audits run.
 
-## Status documents
+## The status documents
 
-Two documents track the state of the corpus and all its projects:
+Two generated files on `main` track the state of the corpus and its projects:
 
-### `governance-status.yaml`
+| Document | Holds | May be stale after |
+|---|---|---|
+| `governance-status.yaml` | Where every project stands: branches, records, adoption artifacts | 168 hours |
+| `harness-status.json` | Pull request slots, phases claimed, work in flight | 24 hours |
 
-Where every project stands: branches created, records adopted, adoption artifacts present, behind-corpus count.
-
-- **Refresh:** `python ci/governance_status.py --write governance-status.yaml` (reads other repositories)
-- **Staleness:** 168 hours
-- **Rendering:** `python ci/governance_render.py governance-status.yaml` → markdown view
-- **See:** [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) for details
-
-### `harness-status.json`
-
-Pull request slots, phases claimed, governance evidence, and threads in flight.
-
-- **Refresh:** `python ci/harness_status.py --no-local --write harness-status.json`
-- **Staleness:** 24 hours
-- **Rendering:** included in the file itself
-- **See:** [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) for details
-
-Both are committed to `main`. They're not regenerated on every push — updates are human actions.
+Both are refreshed by a person running a command, not by CI. Check the `generated_at` timestamp before quoting a number from either. See [Read status documents](../cookbook/read-status-documents.md).
 
 ## The project phase ladder
 
-Projects progress through governance maturity levels: Bootstrapping, Consolidated, Scaled. Each phase has specific requirements and gates.
+Each project reports a phase as a version number. Only the first rung is defined org-wide:
 
-See [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-project-phase-ladder.md) for the ladder, what moves you between phases, and what obligations each phase carries.
+- **`v0.0.1` — governance.** The project has adopted the QM constitution. This rung means the same thing for every project.
+- **Rungs above `v0.0.1`** are defined by each project in its own records. A rung a project has not defined is not yet meaningful for it.
+- A project that states no phase defaults to `v0.0.1`.
+
+See [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-project-phase-ladder.md) for the full model.
 
 ## Related
 
-- [Architecture](../about/architecture.md) — how the branch-per-project model works
-- [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) — the full propagation procedure
-- [handbook/adoption-audit-queue.md](https://github.com/quaternionmedia/qm/blob/main/handbook/adoption-audit-queue.md) — audit procedures
-- [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) — status document refresh and staleness
-- [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-project-phase-ladder.md) — the phase model
+- [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) — propagation in full
+- [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) — the status documents in full
+- [Architecture](../about/architecture.md) — the model behind all of this

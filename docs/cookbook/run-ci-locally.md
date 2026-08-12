@@ -1,59 +1,50 @@
 # Run CI locally
 
-Testing your changes before pushing.
+Run the repository's CI checks before you push.
 
-## The script
-
-The seed ships a helper script:
+## The runner
 
 ```bash
 python project-seed/ci/run_workflows_locally.py
 ```
 
-This runs the same checks that CI runs on your branch, so you can catch issues before pushing.
+This reads the workflow files in `.github/workflows/` and executes their actual steps. That is the point: running the commands you *think* a workflow contains is not the same as running the workflow, and the difference is where false "CI is green" claims come from.
 
-## What it checks
+## Options
 
-The script runs:
+All flags are optional:
 
-- `adr-lint.py` — validates your record index
-- `check_one_pr.py` — ensures one open PR per contributor
-- `check_pr_base.py` — guards branch naming and refusal rules
-- `reuse-lint` — validates copyright and license metadata
+| Flag | Default | Meaning |
+|---|---|---|
+| `--event` | `pull_request` | Which trigger to simulate |
+| `--ref` | `main` | Branch for a `push` event |
+| `--base-ref` | `main` | Pull request base branch |
+| `--head-ref` | current branch | Pull request head branch |
+| `--workflows` | `.github/workflows` | Directory of workflow files to run |
 
-For org-level work (on `main`), there's also:
+## Individual checks
 
-- `namespace-guard.py` — on `project/*` branches, guards that you're only touching `adr/`
-
-## Usage
-
-```bash
-# Run all checks
-python project-seed/ci/run_workflows_locally.py
-
-# Run a specific workflow by name
-python project-seed/ci/run_workflows_locally.py --workflow adr-lint
-
-# See all options
-python project-seed/ci/run_workflows_locally.py --help
-```
-
-The script reads your current git state (branch, staged files, commits) so it gives you feedback on what you've actually written.
-
-## Before pushing
-
-Run the script, fix any errors it reports, commit again, and push:
+You can also run the underlying checks directly:
 
 ```bash
-python project-seed/ci/run_workflows_locally.py
-# fix any issues
-git add . && git commit -m 'fix: ...'
-git push
+# Record index matches the records directory; no banned vocabulary
+python project-seed/ci/adr_lint.py --records-dir records --index README.md
+
+# One open pull request per contributor
+python project-seed/ci/check_one_pr.py --repo <owner/name> --contributor <login>
+
+# The branch targets the right base and carries what you think it carries
+python project-seed/ci/check_pr_base.py --base main --head <branch>
+
+# Every file has license and copyright metadata
+python -m reuse lint
 ```
 
-Now when you open the PR, CI should pass on the first try.
+## Reporting results
+
+When you report a local run, say what you ran and what it said — including which steps the runner could not reproduce. A local failure can be a real defect or an environment difference; establish which before reporting it.
 
 ## Related
 
-- [project-seed/ci/run_workflows_locally.py](https://github.com/quaternionmedia/qm/blob/main/project-seed/ci/run_workflows_locally.py) — the script itself
-- [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) — what's enforced vs. written-only
+- [project-seed/ci/run_workflows_locally.py](https://github.com/quaternionmedia/qm/blob/main/project-seed/ci/run_workflows_locally.py) — the runner
+- [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) — what CI enforces today
