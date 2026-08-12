@@ -27,3 +27,7 @@ disk.html
 __pycache__/
 *.py[cod]
 
+# Static-site build output. Nothing here is committed: it is regenerated
+# from docs/ by the documentation workflow, and a committed copy is a second
+# home for facts that already have one.
+/site/
