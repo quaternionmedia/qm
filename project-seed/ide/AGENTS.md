@@ -119,6 +119,20 @@ indexes them. Check the age before quoting a figure.
     worse than no guard — it is a green check standing exactly where a reader
     believes something is enforced. See the same record's §9 and §10.
 
+13. **Show it by running it** — P12 of the charter, with
+    `governance/qm/records/DRAFT-one-executable-walkthrough.md` as the record.
+    This project's `walkthrough/` is one ordered set of pages that the ordinary
+    test command executes: `walkthrough/NN-<slug>.md`, run by pytest with
+    `--doctest-glob=*.md`. The example a reader reads is the example that ran.
+    Do not write a second copy of a behaviour beside the code — no prose example
+    that is not executed, no screenshot that is not a byproduct of a test
+    asserting what the code did. What text cannot hold is emitted by that test
+    and **recorded, never compared**: a test that diffs images fails on a font
+    and gets switched off. Regeneration rides the command you already run before
+    a pull request, so drift shows up as an uncommitted diff rather than as
+    staleness nobody sees. A skip is not a pass, and a page that always skips is
+    deleted.
+
 ## One-time setup on a fresh clone (Windows)
 
 `CLAUDE.md` and `.github/copilot-instructions.md` are real symlinks to this

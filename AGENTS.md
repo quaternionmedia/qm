@@ -177,6 +177,15 @@ with a date looks checked.
     worse than none — a green check standing where a reader believes something
     is enforced.
 
+14. **Show it by running it** — charter P12, record
+    `records/DRAFT-one-executable-walkthrough.md`. A worked example lives in
+    `walkthrough/`, executed by the ordinary test command, and nothing describes
+    a behaviour in a second place beside the code. What prose cannot hold is
+    emitted by the test that asserts the behaviour, and **recorded rather than
+    compared**. Regeneration rides the command run before a pull request. The
+    evidence is one repository where the artifacts riding that command carry
+    zero drift and the two needing a remembered command are stale.
+
 ## If you're forking this corpus into a new project
 
 See `README.md`'s "Forking a new project" — do not improvise a lighter
