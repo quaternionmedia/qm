@@ -63,19 +63,44 @@ stale. That is the whole argument, and it needed no advocacy to produce.
    convention with a project-shaped hole in it is re-derived per project, which
    is how the org arrived at three meanings of "cookbook".
 
-2. **The pages are executed by the repository's ordinary test command.** In a
-   Python repository that is pytest with `--doctest-glob=*.md` and `walkthrough`
-   on `testpaths` — four lines of configuration, no site generator, no second
-   language in the toolchain, no build step, no committed rendered output.
-   `datum` is the existence proof: `uv run --frozen python -m pytest -q -rs`
-   gives `11 passed, 1 skipped` and there is no generator to maintain.
+2. **The pages are executed by the repository's ordinary test command, named
+   as an explicit path.** In a Python repository that is pytest with
+   `--doctest-glob=*.md` and `walkthrough/` **given on the command line**, not
+   left to `testpaths`. Measured: with `testpaths = ["walkthrough"]` set,
+   `pytest --collect-only` collects the pages, and `pytest tests --collect-only`
+   collects zero of them — `testpaths` is ignored the moment pytest receives a
+   path argument. This corpus's own CI invocation is
+   `python -m pytest project-seed/ci/tests ci/tests -q`, which is exactly that
+   shape, so a `testpaths`-wired walkthrough would be collected by nobody and
+   stay green forever. The invocation names the directory or the pages do not
+   run. Beyond that: no site generator, no second language, no build step, no
+   committed rendered output. `datum` is the existence proof that the mechanism
+   costs configuration rather than a toolchain.
 
-3. **The page is the executable, so there is no authority to settle.** The
-   example a reader reads is the example that ran, and its printed output is in
-   the page because the run produced it. When behaviour changes the page fails
-   the build. This is mechanical because there is **no second copy** — the
-   defect every prior attempt built a policing layer against has nowhere to
-   occur.
+3. **The page is the executable, so its examples have no authority question.**
+   The example a reader reads is the example that ran, and its printed output is
+   in the page because the run produced it. When the behaviour an example
+   exercises changes, the page fails the build.
+
+   **This does not make the page true, and the record does not claim it.**
+   doctest asserts source lines and their expected output. It asserts nothing
+   about prose. Measured across `datum`'s pages: 399 non-blank lines, 171 of
+   them inside an example — so roughly four lines in ten are checked and the
+   rest are as unchecked as any README. The honest statement of what this buys
+   is that **the examples cannot drift**, which is the part that rots fastest
+   and the part a reader copies; the surrounding prose is ordinary prose and
+   ages the way prose does. A record claiming the drift class is eliminated
+   would be a motherhood statement, and the charter names that as the failure
+   mode of principles-records.
+
+   The corollary is a rule, because the gap is exploitable: **an example may not
+   discard a failure.** doctest reports success for an example that raises
+   nothing and declares no output, so `subprocess.run([...])` against a command
+   exiting non-zero passes — demonstrated, `1 passed in 0.07s`, against a page
+   whose prose said the command exits 0. Every example that runs a process
+   carries `check=True` or puts its `returncode` in the expected output. This is
+   the form a page-writer converges on precisely because pasting real stdout is
+   what makes a page fragile, so the rule has to be stated rather than assumed.
 
 4. **What text cannot hold is emitted by the test that asserts the behaviour,
    and recorded rather than verified.** A gesture, a rendered screen, a
@@ -109,7 +134,15 @@ stale. That is the whole argument, and it needed no advocacy to produce.
    silently skip, and it is precisely the shape the rest of the design exists to
    remove.
 
-7. **A skip is not a pass, and a page that always skips is deleted.** Pages
+7. **A page that ran somewhere nobody merges has not run.** Every property
+   above is about a page's content, and content properties are satisfiable on a
+   branch no remote carries — `alfred`'s documentation guard reports `7 passed`
+   on exactly such a branch today. So the walkthrough's check is satisfied only
+   by evidence of a run **on the repository's default branch**: the identifier
+   of an actual job run, not the presence of a workflow file. A file that would
+   have run is not a run.
+
+8. **A skip is not a pass, and a page that always skips is deleted.** Pages
    declare their runtime in their opening line:
    - **Hermetic** — no port bound, no network, no container, no browser. Pages
      `01` upward are hermetic until one genuinely cannot be. These run in CI on
@@ -123,20 +156,20 @@ stale. That is the whole argument, and it needed no advocacy to produce.
    A page that skips in every environment the org can provision is deleted, not
    carried. A demonstration nobody can run is not documentation; it is a claim.
 
-8. **Onboarding and cookbook are separate pages and stay separate.** Onboarding
+9. **Onboarding and cookbook are separate pages and stay separate.** Onboarding
    is the first build — per-platform, with expected output and the failure modes
    named. The cookbook is a command table for somebody already set up. One
    document trying to be both serves neither, and `qmetronome` keeps them apart
    deliberately, with its contributing guide explicitly refusing to duplicate
    the onboarding page.
 
-9. **Name what cannot be automated, and give it a written manual plan.**
+10. **Name what cannot be automated, and give it a written manual plan.**
    `qmetronome` carries a 265-line USB-MIDI test plan because a closed vendor
    library and real device calls cannot be shadowed. Honesty about the boundary
    is what keeps the automated half credible; an unstated boundary reads as
    coverage.
 
-10. **The walkthrough is vendored, not copied.** A project gets the runner
+11. **The walkthrough is vendored, not copied.** A project gets the runner
     configuration from `project-seed/`, and its pages are its own. Copies rot
     and this corpus has the measurement: `apothecary`'s ADR workflow inlined its
     check instead of calling the shared one, froze at the 2026-07-04 seed, and
