@@ -241,4 +241,15 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): —
+Drafts in flight (numberless, by title):
+- *Unify parser/cache architecture around `ParserRegistry` + `batch_whole_tree`* — `DRAFT-parser-cache-unification.md`
+- *Golden Layout as the primary application shell* — `DRAFT-golden-layout-primary-shell.md`
+- *Compound hierarchical layout (dirs → files → symbols)* — `DRAFT-compound-hierarchical-layout.md`
+- *`CacheService` and `graphbase` stay separate stores* — `DRAFT-cache-service-vs-graphbase.md`
+- *Generalize dock panels into a registry; add a window-add menu* — `DRAFT-panel-registry-and-add-window-menu.md`
+- *Hierarchical drag propagation, per-depth labels, and compound layout spread improvements* — `DRAFT-d3-hierarchy-layout-improvements.md`
+- *Wire graphbase as a named bookmark store via /db/bookmarks* — `DRAFT-graphbase-bookmark-integration.md`
+- *Formalize the graphbase submodule interface; keep it a submodule* — `DRAFT-graphbase-submodule-interface-contract.md`
+- *Code-map navigation: source-ordered layout, depth-4 hierarchy, view-source* — `DRAFT-code-map-navigation.md`
+- *GitHub token resolution order: gh CLI keyring primary, env vars secondary* — `DRAFT-github-token-resolution.md`
+- *Verify a file's actual consumption path before editing it to fix a flagged issue* — `DRAFT-verify-actual-consumption-before-editing.md`
