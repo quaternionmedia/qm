@@ -16,6 +16,20 @@ on:
     branches: [main, 'project/**']
   pull_request:
 
+# One run per branch per workflow. A second push supersedes the first: nobody
+# reads the result of a run whose commit has already been replaced, and the
+# minutes are real -- 55 of this repository's 129 runs on 2026-08-11 came from
+# five iterative pushes to two pull request branches, where only the last
+# mattered.
+#
+# Cancellation is scoped to pull requests deliberately. On the default branch
+# and on a project branch the run IS the record of what that commit reported,
+# and cancelling it to start a newer one destroys the only evidence that the
+# earlier commit was ever checked.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 permissions:
   contents: read
 
@@ -59,16 +73,42 @@ jobs:
             --index README.md \
             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
 
-      - name: Lint the reference project's records
+      # There was a step here linting `streaming-infrastructure/adr/`. It is gone:
+      # no branch in this repository has that path -- those records are at `adr/`
+      # on `project/streaming-infrastructure`, which the generic step below
+      # already lints -- so the condition was unreachable on every ref CI runs
+      # against, and the step could only ever print its reassuring else-branch.
+      # A check that cannot fire is worse than none, because the log says it ran.
+
+      # A top-level adr/ belongs to exactly one project and lives on that
+      # project's own branch. On the default branch it is a namespace violation,
+      # and the step below would not catch it -- it guards on the directory
+      # existing, so a stray adr/ would simply be linted and pass, and a clean
+      # lint is the most reassuring possible report about records that are in the
+      # wrong namespace entirely.
+      #
+      # The way it gets there is a pull request from project/<name> into main.
+      # check_pr_base.py refuses that, and this is the second line: if one ever
+      # lands, the default branch goes red instead of green.
+      - name: The default branch carries no project records
         run: |
-          if [ -d streaming-infrastructure/adr ]; then
-            python project-seed/ci/adr_lint.py \
-              --records-dir streaming-infrastructure/adr \
-              --index streaming-infrastructure/adr/README.md \
-              ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
-          else
-            echo 'No streaming-infrastructure/adr on this branch; it lives on its own project branch.'
+          if [ "$GITHUB_REF_NAME" = "${DEFAULT_BRANCH}" ] && [ -d adr ]; then
+            echo "::error::adr/ exists on ${DEFAULT_BRANCH}. A top-level adr/ holds one"
+            echo "::error::project's records and belongs on that project's own"
+            echo "::error::project/<name> branch. On the default branch it is in the org"
+            echo "::error::namespace, where a project-local decision reads as binding"
+            echo "::error::every project. See the README's \"Branch namespaces\"."
+            exit 1
           fi
+          echo "ok - no top-level adr/ on the default branch, or this is not it."
+        env:
+          # A literal, not ${{ github.event.repository.default_branch }}. That
+          # field is absent from a `push` payload and from every local run, so it
+          # resolved to the empty string, the comparison never matched, and the
+          # step reported ok with a stray adr/ sitting right there. A guard whose
+          # condition cannot be reached is worse than no guard: it reports the
+          # reassuring answer and nobody looks again.
+          DEFAULT_BRANCH: main
 
       - name: Lint this branch's project records
         run: |

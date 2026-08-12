@@ -47,8 +47,12 @@ UNKNOWN = "unknown"
 SIBLING_LIMIT = 8
 
 # The base-branch glob the corpus repository's own slot check runs with. It is
-# derived from the repository's role rather than passed as a flag, because a
+# DEFAULTED from the repository's role rather than required as a flag, because a
 # flag is something a session can add quietly to make a red check go green.
+# `--per-base` does exist on this module and overrides this constant when passed
+# (see the argument definition and its first use below), so this is a default and
+# not an enforcement -- the comment used to say "rather than passed as a flag",
+# which reads as though the flag were absent.
 # Every `project/<name>` branch here is pinned by a different downstream
 # submodule, so two propagation pull requests are two unrelated projects.
 CORPUS_PER_BASE = ["project/*"]
@@ -365,6 +369,17 @@ def emit(root: Path, args: argparse.Namespace) -> str:
                     "downstream submodule, so each holds its own slot. That is the "
                     "only exemption, and it is applied because this repository is "
                     "the corpus — not because a flag was passed."
+                )
+                add("")
+                add(
+                    "**The slot belongs to the *base*, not to the branch.** A pull "
+                    "request whose base is `project/<name>` gets the exemption; one "
+                    "whose *head* is a project branch does not, and never should — a "
+                    "`project/<name>` branch is permanent and is never merged into "
+                    "`main`. Reading this as \"my project branch has its own slot, so "
+                    "I may open a pull request from it\" is how the `main` slot gets "
+                    "spent twice; `project-seed/ci/check_pr_base.py` refuses that "
+                    "direction, and the README's \"Branch namespaces\" says why."
                 )
                 add("")
             report, status = pr_slots(state["slug"], login, per_base)
