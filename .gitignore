@@ -26,4 +26,7 @@ disk.html
 # just run picks them up and nothing was stopping it.
 __pycache__/
 *.py[cod]
+.python-version
 
+# Documentation site builds
+site
