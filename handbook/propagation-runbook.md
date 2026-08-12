@@ -69,13 +69,21 @@ done
    git merge --abort; git checkout -; git branch -D tmp/dry
    ```
 
-   **Clean:** open a PR with base `project/<name>` and head `main`. That merge
+   **Always use an intermediate `propagate/<name>-<date>` branch**, clean or
+   conflicted. Cut it from `project/<name>`, merge `main` into it, and open the
+   pull request with base `project/<name>` and head that branch. The merge
    commit *is* the pin bump — the branch's ancestry is the pin, and there is no
    hash to hand-maintain.
 
-   **Conflicted:** do *not* use `main` as the head. GitHub commits a conflict
-   resolution to the head branch, so resolving in that PR would push to `main`,
-   which `AGENTS.md` forbids. Use an intermediate branch instead:
+   This page used to offer `head = main` as a shortcut for the clean case. Do
+   not: all eight propagations that have actually landed used the intermediate
+   branch, and the shortcut is a shape nothing here supports. It also fails the
+   moment it is not clean, and whether it is clean is not known until after the
+   pull request is open — GitHub commits a conflict resolution to the *head*
+   branch, so resolving would push to `main`, which `AGENTS.md` forbids. One
+   procedure that always works beats two where the cheaper one is a trap.
+
+   The steps for it:
 
    ```sh
    git checkout -b propagate/<name>-<date> origin/project/<name>

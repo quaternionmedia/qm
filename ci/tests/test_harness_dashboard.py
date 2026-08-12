@@ -904,3 +904,84 @@ def test_hours_since_reads_both_instant_spellings() -> None:
     assert hs.hours_since("2026-01-01T00:00:00+00:00") > 0
     assert hs.hours_since(None) is None
     assert hs.hours_since("not a date") is None
+
+
+# --- main is readiness; a v tag is governance ------------------------------
+#
+# The gap between the two is the whole point of the release layer, so these
+# lean on the states that must not be collapsed: never-tagged is not current,
+# and a lightweight tag is not a release.
+
+
+def test_a_repository_that_was_never_tagged_does_not_read_as_released() -> None:
+    """`unreleased` and `current` both have nothing outstanding, and they are
+    opposite facts: one has never been asserted, the other has and is unchanged."""
+    never = hd.md_release({"state": "unreleased", "latest": None})
+    current = hd.md_release({"state": "current", "latest": "v1.0.0", "annotated": True})
+    assert never == "never tagged"
+    assert never != current
+    # No version-shaped token: a substring check for "v" would match "never".
+    assert not re.search(r"v\d", never)
+
+
+def test_a_lightweight_tag_is_flagged_rather_than_counted_as_a_release() -> None:
+    """It carries no annotation, so it names no reviewer and no manual test."""
+    rendered = hd.md_release(
+        {"state": "current", "latest": "v0.0.1", "annotated": False}
+    )
+    assert "v0.0.1" in rendered
+    assert "lightweight" in rendered
+
+
+def test_an_annotated_tag_is_not_flagged() -> None:
+    assert "lightweight" not in hd.md_release(
+        {"state": "current", "latest": "v0.0.1", "annotated": True}
+    )
+
+
+def test_commits_past_the_tag_are_counted_and_shown() -> None:
+    """Readiness awaiting governance is normal; it must be visible, not assumed
+    to be zero."""
+    rendered = hd.md_release(
+        {"state": "ahead", "latest": "v1.4.1", "annotated": True,
+         "unreleased_commits": 44}
+    )
+    assert "v1.4.1" in rendered and "44" in rendered and "unreleased" in rendered
+
+
+def test_an_unknown_release_layer_renders_as_unknown_with_its_reason() -> None:
+    rendered = hd.md_release({"unknown": "tags for x/y: gh: Not Found"})
+    assert rendered.startswith("unknown")
+    assert "Not Found" in rendered
+
+
+def test_a_document_without_a_release_layer_says_so_rather_than_blank() -> None:
+    """An older document is a thing nobody measured, not a thing with no tags."""
+    rendered = hd.md_release(None)
+    assert rendered.startswith("unknown")
+    assert rendered.strip() != ""
+
+
+def test_the_release_column_reaches_the_rendered_page() -> None:
+    """A helper nothing calls is a check that enforces nothing."""
+    document = {
+        "schema": 1,
+        "generated_at": "2026-08-11T00:00:00Z",
+        "generator": {},
+        "reading": {"staleness_budget_hours": 24},
+        "totals": {},
+        "repositories": [
+            {
+                "name": "alfred",
+                "phase": "v0.0.1",
+                "phase_source": "scaffolded",
+                "slots": {"open_prs": [], "compliant": True, "violations": []},
+                "release": {"state": "ahead", "latest": "v0.2.0",
+                            "annotated": False, "unreleased_commits": 37},
+            }
+        ],
+    }
+    page = hd.render_markdown(document)
+    assert "| Release |" in page
+    assert "v0.2.0" in page and "lightweight" in page and "37" in page
+    assert "`main` is readiness" in page

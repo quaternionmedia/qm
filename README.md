@@ -59,21 +59,63 @@ project vendors this repo as a submodule and checks out its own branch; see
 
 ## Branch namespaces
 
-`main` carries the constitution and nothing else. Four namespaces hang off it,
+`main` carries the constitution and nothing else. Five namespaces hang off it,
 and a branch outside them is a mistake rather than a variation.
 
 | Namespace | Holds | Lifetime |
 |---|---|---|
 | `project/<name>` | one adopting project's `adr/` | permanent — a downstream submodule pins its tip |
+| `propagate/<name>-<date>` | `main` merged toward one `project/<name>` | deleted after merge |
 | `perspective/<date>-<slug>` | one perspective, staged for `main` | deleted after merge |
 | `evolve/<slug>` | org-level work in progress | deleted after merge |
 | `workspace/<slug>` | a research workspace that never merges back | permanent, terminal |
 
-The reference instance for a server/container runtime is
-`project/streaming-infrastructure`; `project/qmetronome` is the reference for
-a non-server runtime. The mathematical-limits experiments live on
-`workspace/math-experiments` — non-binding, and reached from the perspective
-whose open questions they investigate.
+`propagate/*` was mandated by the propagation runbook and by the table below
+while this list said there were four namespaces and that anything outside them
+was a mistake — with eight such branches pushed. It is listed because the rule
+that a branch outside these namespaces is wrong is only usable if the list is
+complete.
+
+`project/qmetronome` is the reference instance for a non-server runtime. **There
+is no reference instance for a server/container runtime.**
+`project/streaming-infrastructure` used to be named here as one and is not: no
+`quaternionmedia/streaming-infrastructure` repository exists — `gh api` returns
+404, and the generated document records that as its `repository` value — so
+there is nothing it is an instance *of*. It is a design branch holding the plan
+and `ADR-0001` that `main` moved off itself in `dec5c9c`, and it is tens of
+commits behind — `governance-status.yaml` carries the current `behind_corpus`
+figure, and this sentence deliberately does not, having already been wrong once
+by naming one. Naming it as the reference invited a forker to copy the setup of a
+project that was never set up.
+
+The mathematical-limits experiments live on `workspace/math-experiments` —
+non-binding, and reached from the perspective whose open questions they
+investigate.
+
+**A `project/<name>` branch is never merged into `main`.** Not once, not
+squashed, not "just the shared part". It exists in perpetuity and holds exactly
+one thing: how one project's governance deviates from `main`. Merging it would
+move that project's `adr/` onto `main`, and `main` is the org namespace — so
+one project's local decision would become an org record by accident, and the
+precedence rule below would then read backwards, with the project's own record
+appearing to bind every other project. Nothing in the tree would look wrong
+afterwards; the records would simply be in the wrong namespace, and the next
+project to adopt would inherit them.
+
+So a `project/<name>` branch takes changes **in**, never gives them out:
+
+| Direction | How |
+|---|---|
+| project-specific records arrive | a pull request whose **base** is `project/<name>`. Each such base holds its own slot under the one-PR rule, which is what the `--per-base 'project/*'` exemption is for |
+| the branch is created | cut from `main`, `adr/` copied from `project-seed/adr/`, and **pushed** — see "Forking a new project" step 2. The initial content is not a pull request, because the only base it could target is a branch that does not exist yet |
+| `main`'s changes reach it | `main` is merged **into** it, as a `propagate/<name>-<date>` pull request against it. Never a rebase: a downstream submodule pins the tip, and rebasing invalidates every pin |
+| the project's own repository sees it | the submodule pointer, bumped by that same propagation |
+
+A `project/<name>` branch is therefore never the *head* of a pull request,
+whatever the base is and whatever it carries.
+`project-seed/ci/check_pr_base.py` refuses that, and separately refuses any
+branch carrying a top-level `adr/` at `main` — because the first check reads a
+name, and a branch called anything at all can carry those files.
 
 ## Record namespaces and precedence
 
@@ -115,13 +157,19 @@ a record — each page states its own promotion path.
 The whole procedure — eight steps, each with the check that proves it worked —
 is `handbook/forking-a-project.md`. In outline: add this repo as a submodule at
 `governance/qm`, create a `project/<name>` branch here for the project's own
-`adr/`, copy `project-seed/` into place, wire the three CI workflows, and seed
-the first records.
+`adr/`, copy `project-seed/` into place, wire the four CI workflows the seed
+ships, and seed the first records.
 
-Do not improvise a lighter version. Three of the nine projects adopted so far
-were missing at least one step, and in every case nothing reported it — the
-submodule pin is the cheap part, and the copied files are where adoption
-actually lives.
+Do not improvise a lighter version. Most projects adopted so far are missing at
+least one step — `harness-status.json`'s governance column is the current count,
+and `ci/harness_dashboard.py harness-status.json --format md` prints it, so read
+it there rather than trusting a number written into this sentence. It said
+"three of the nine projects" until the ninth project stopped being the last one;
+a count in prose rots silently while the document beside it is regenerated.
+
+The submodule pin is the cheap part, and the copied files are where adoption
+actually lives. That is why nothing reported the gaps for as long as it didn't:
+the pin was the only thing being checked.
 
 ## Ratification
 
@@ -154,6 +202,7 @@ given day.
 | — | [Outbound licensing of QM work](records/DRAFT-outbound-licensing.md) | Proposed | 2026-08-08 |
 | — | [Version tags are claims](records/DRAFT-version-tags-are-claims.md) | Proposed | 2026-08-08 |
 | — | [The project phase ladder](records/DRAFT-project-phase-ladder.md) | Proposed | 2026-08-09 |
+| — | [The monitoring seam, and instance identity](records/DRAFT-monitoring-seam-and-instance-identity.md) | Proposed | 2026-08-11 |
 
 **Every record is `Proposed`, and that is a decision rather than a backlog:
 ratification waits on a second active code owner.** GitHub does not count a
@@ -178,9 +227,12 @@ Handbook (policy, not records):
 
 ### Obligations that fall due at ratification
 
-- **Open-license record → the reference project.** When it is Accepted, the
-  streaming project's ADR-0001 receives a dated amendment recording
-  adoption-by-reference. Its body is untouched.
+- **Open-license record → the streaming design branch.** When it is Accepted,
+  the `ADR-0001` on `project/streaming-infrastructure` receives a dated
+  amendment recording adoption-by-reference. Its body is untouched. Called "the
+  reference project" here until "Branch namespaces" above stopped calling it
+  one: there is no `quaternionmedia/streaming-infrastructure` repository, so the
+  obligation falls on a design branch and on nothing else.
 
 Some records describe machinery that costs nothing to run before ratification.
 Where that is true the machinery is live and the record's Status is still
