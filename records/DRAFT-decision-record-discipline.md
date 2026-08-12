@@ -106,6 +106,36 @@ supplies that answer.
      be spent on claims that were never in doubt. The judgement is that the
      expensive errors are not the claims that felt uncertain — those get
      checked — but the ones that felt settled.
+8. **A claim about what facts *mean* names what else could produce them.**
+   §7 governs assertions of fact and is satisfied by a reproduction. It says
+   nothing about the step from facts to significance — what caused a pattern,
+   what a resemblance implies, whether a finding is a finding — and that step
+   has produced this corpus's most consequential errors while every fact
+   underneath stayed true. A reproduction cannot catch it, because there is
+   nothing to re-run.
+   - **Name the ordinary cause before the interesting one.** A claim that two
+     things share a property is incomplete until it says what they share
+     *besides* that property: the same author, the same source, the same
+     tooling, the same period. Where the artifacts are in version control this
+     costs one command.
+   - **State direction and date.** "A resembles B" is symmetric and almost
+     every useful version of it is not. Which came first is usually
+     recoverable and often decisive; a convention extracted from an existing
+     practice is a different claim from two practices agreeing.
+   - **A correction is a claim and carries the same burden.** Withdrawing an
+     overclaim does not make the replacement true. Deflation is the harder
+     error to catch, because it reads as rigour, concedes ground, and closes
+     the topic — so it survives where an overclaim would have been challenged.
+   - **Recurrence by one practitioner is evidence, not its absence.** The
+     standard that a finding requires independent causes belongs to
+     statistical inference. Design knowledge is made the other way: somebody
+     notices they have solved unrelated problems with the same shape and names
+     the invariant. Discarding that as "the same person twice" throws away the
+     evidence that the shape answers a constraint rather than a preference.
+   - Cost accepted: unlike §7 this has no mechanical check, and it never will
+     — the failure is a sentence rather than a command. What it buys is that
+     the question gets asked out loud, in the record, where a reader who knows
+     the provenance can see it was asked and answer it.
 
 ## Consequences
 
@@ -134,6 +164,10 @@ supplies that answer.
   at all now. That is a feature — a reproduction that no longer reproduces is
   a revision trigger firing, and it is more informative than prose that
   cannot go stale because it never committed to anything.
+- §8 has no mechanical enforcement and is the only clause here that cannot
+  acquire one. It is carried by the record naming the alternatives it ruled
+  out, which a reader can disagree with — the same way Alternatives are
+  carried.
 
 ## Alternatives considered
 
@@ -182,6 +216,11 @@ supplies that answer.
 - A ratified record is found resting on a claim nobody reproduced — §7 is
   being written around rather than applied, and needs a mechanical check
   rather than a stated obligation.
+- A record's stated significance is overturned by a fact that was available
+  when it was written — provenance, dates, a shared cause — which is §8 not
+  being applied rather than a judgement call going the other way.
+- A correction is found to have deleted a real finding, which is the §8
+  failure that leaves no trace and is the reason that clause names it.
 - §7's reproduction fields become boilerplate that nobody runs — the clause
   has become the ceremony alternative 7 rejects, and should be narrowed to
   the claim classes where it earns its cost.

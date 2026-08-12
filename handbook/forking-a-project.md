@@ -11,13 +11,20 @@ to be missing at least one step, so the second use is not hypothetical.
 
 **How proven each third of the seed is, stated honestly, because a forker
 inherits the untested parts too.** `adr/` has the most mileage: every adopting
-project runs it, and `project/streaming-infrastructure` was its first
-instance. `ci/` was generalized from the working lint in `project/qmetronome`
-and now runs in this corpus's own CI, but has not yet run in a project that
-copied it from here. `ide/` is running here, and whether any adopting
-project has copied it cannot be established from this repository — it lands in
-the project's *own* repo, which this corpus does not see. Treat it as the
-least exercised of the three. Expect the untested parts to need fixes, and
+project runs it. Its *first* instance was `project/streaming-infrastructure`,
+which is worth discounting rather than citing — there is no
+`quaternionmedia/streaming-infrastructure` repository behind that branch, so it
+exercised the record format and none of the rest of a fork. The mileage that
+counts is the adopting projects. `ci/` was generalized from the working lint in
+`project/qmetronome`
+and now runs both in this corpus's own CI and in eight adopting projects that
+copied it from here — 191 recorded runs across apothecary, datum, qmetronome,
+dossier, datafactorio, factorio-server, factorio-sysops and loopwall. That
+sentence used to say it had never run in a copying project, and stayed there
+after it stopped being true. `ide/` is the least exercised of the three, and
+which projects carry it *can* now be established from here:
+`governance-status.yaml` records an `adoption.ide` list per project, read over
+the GitHub API rather than from the checkout. Expect the untested parts to need fixes, and
 send them back rather than fixing them locally: a copy does not track its
 origin.
 
@@ -40,20 +47,37 @@ passes, not when its command exits zero.
    branch, copy `project-seed/adr/` into a new top-level `adr/` directory
    (README + TEMPLATE, verbatim) — the same copy-verbatim discipline as
    before, now landing on a branch of this repo instead of the new
-   project's own repository. Push the branch.
+   project's own repository. **Push the branch** — do not open a pull request
+   for it. This is the one place in this corpus where content arrives on a
+   shared branch by push, and it is not an oversight: the only base such a pull
+   request could target is the branch being created, which does not exist yet,
+   and targeting `main` instead would merge the new project's `adr/` into the
+   org namespace. The branch is permanent from this moment and never merges
+   anywhere; every later change to it arrives as a pull request whose *base* is
+   this branch. See the README's "Branch namespaces".
    *Verify:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
    is empty, and `adr/README.md` differs from the seed only by the seed
-   comment the seed itself says to delete.
+   comment the seed itself says to delete. And
+   `python project-seed/ci/check_pr_base.py --base main --head project/<name>`
+   REFUSES — if it does not, the guard is not in the copy you are running.
 3. **Point the submodule at that branch's tip** (checkout the branch inside
    the submodule, commit the updated pointer in the new project); add
    `branch = project/<name>` to the new project's `.gitmodules` so
    `git submodule update --remote` tracks it going forward — the parent
    repo still records an exact commit each time, so builds stay
    reproducible.
-   *Verify:* `git submodule status` shows the branch in parentheses, and
-   `git config -f .gitmodules --get submodule.governance/qm.branch` returns
-   `project/<name>`. Check the recorded URL is the canonical remote and not a
-   local path used while setting it up.
+   *Verify:* `git config -f .gitmodules --get submodule.governance/qm.branch`
+   returns `project/<name>`. That is the configured branch and the only check
+   that answers this step.
+   **`git submodule status`'s parentheses are not that.** They hold `git
+   describe` output for the *pinned commit*, so a pin at the branch tip prints
+   `(heads/project/<name>)` and looks like confirmation, while a pin one commit
+   behind prints a bare abbreviated sha — codecartographer's reads `(5e1eb04)`
+   today with `branch = project/codecartographer` correctly configured. Reading
+   the parenthesis as the configured branch makes a stale pin look right and a
+   correct one look broken.
+   Also check the recorded URL is the canonical remote and not a local path used
+   while setting it up.
 
    **Fixing the URL is half the job; the refs the local clone left behind are
    the half that lies.** Cloning the submodule from a path on disk — the
@@ -75,9 +99,13 @@ passes, not when its command exits zero.
 
    After this the submodule reports no remote counterpart, which is true, and
    `submodule-check.yml` is the thing that tells you when it stops being true.
-4. **Wire CI:** copy all three of `project-seed/ci/adr-lint.yml`,
-   `submodule-check.yml` and `reuse-lint.yml` into `.github/workflows/`
-   verbatim — no project-specific edits needed. Start `reuse-lint` in
+4. **Wire CI:** copy all four of `project-seed/ci/adr-lint.yml`,
+   `submodule-check.yml`, `reuse-lint.yml` and `one-pr-check.yml` into
+   `.github/workflows/` verbatim — no project-specific edits needed.
+   `one-pr-check.yml` is the org-wide slot rule of `handbook/async-contract.md`
+   §1, and its own header says to copy it verbatim like the others; this step
+   said "all three" and named it nowhere, so a fork done exactly to procedure
+   came up one gate short. Start `reuse-lint` in
    reporting mode; a project that has not had its licensing pass fails it
    immediately, which is useful rather than a reason to leave it out. The submodule check is
    self-contained by necessity: it checks out without submodules, because the
