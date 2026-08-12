@@ -149,6 +149,19 @@ new record all arrive the same way, because the review is where a human takes
 responsibility for what the corpus says. A session that cannot open a PR
 stops and hands the branch back rather than merging it.
 
+**Closing a pull request is a git operation, not just a `gh` command.**
+Pushing a PR's head commits onto its base branch *merges that PR*: the host
+sees the base now contains the head, marks it merged with the pushed commit as
+the merge commit and whoever pushed as the merger, and no review happened. A
+`gh pr close` afterwards is a no-op against an already-merged PR, so it reports
+success while `--delete-branch` silently does nothing — which then leaves a
+branch that looks stale and is not.
+
+Combining two stacked PRs by fast-forwarding the base is the natural move and
+is exactly this mistake. **Close the PR first, then push**, or retarget it to
+the outer base before folding it in. A session that merges by accident has
+still merged.
+
 **Check what the branch carries before opening the PR.** Run
 `python governance/qm/project-seed/ci/check_pr_base.py --base <base> --head <branch>`
 and paste the output into the description. A pull request carries everything
