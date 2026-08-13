@@ -15,6 +15,7 @@ between them are recorded here rather than inside each one.
 
 | Handoff | Blocks on | Repo |
 |---|---|---|
+| [`for-a-stronger-model.md`](for-a-stronger-model.md) | nothing — **read this first**: what to distrust in the other pages, and why | every repo |
 | [`dossier-delta-review.md`](dossier-delta-review.md) | nothing | dossier |
 | [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
