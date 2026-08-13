@@ -3,10 +3,6 @@ description: Run every gate and report what ran, what failed, and what could not
 argument-hint: [base branch, defaults to main]
 ---
 
-<!-- SEED FILE: part of project-seed/ide/, copied recursively onto the project
-     root. The corpus's own .claude/commands/ holds symlinks back to this file,
-     so there is one copy to edit. Delete this comment in the copy. -->
-
 Establish whether this branch is ready to be a pull request. Base branch:
 **${ARGUMENTS:-main}**.
 
