@@ -21,7 +21,7 @@ this page.
 
 | # | Step | Repo | Blocked by |
 |---|---|---|---|
-| 1 | ~~Get the uncommitted flow work onto a ref~~ | qmcp | **done** — `feat/cookbook-and-metaflow-runner` at `21c442d`, pushed |
+| 1 | ~~Get the uncommitted flow work onto a ref~~ | qmcp | **done** — folded into **#21**, which is now the demo branch |
 | 2 | Land #12 to free the slot | dossier | a human un-drafting it |
 | 3 | Re-parent the delta migration, open the delta PR | dossier | step 2 |
 | 4 | Create one delta per qmcp work item | dossier + qmcp | step 3 |
@@ -30,21 +30,25 @@ Nothing in 3 or 4 can start before step 2.
 
 ## Step 1 — done, and the parent commit was red
 
-3,646 lines of untracked Python plus 20 modified files are now one commit,
-`21c442d`, on `origin/feat/cookbook-and-metaflow-runner`: 33 files,
-+4,215 / −797, cut from `feat/pydantic-ai-integration-docs` (`a3f827d`).
-**No pull request** — qmcp's slot is held by #21, and a branch on origin is
-what the risk needed.
+3,646 lines of untracked Python plus 20 modified files are one commit,
+`05010a4`, on `origin/governance/adopt-constitution` — **#21**, which now
+carries the constitution adoption *and* the cookbook work and is the branch
+the flows are demonstrated from. It is 3 commits and 48 files over `main`.
 
-The reason it mattered was not only that the work was unbacked. **The parent
-commit's own suite is red**, established in a throwaway worktree at `a3f827d`
-rather than by disturbing the tree:
+The two were folded because qmcp holds one slot and the adoption alone could
+not be demonstrated: **the suite on `main` is red**, established in a
+throwaway worktree at `85013c5` rather than by disturbing the tree.
+
+The cookbook commit was cherry-picked, and `git patch-id --stable` reports the
+same id (`54416c25…`) before and after, so the fold changed nothing. The
+separate branch it came from was deleted once that held.
 
 | Tree | Result |
 |---|---|
 | `a3f827d`, the committed parent | **19 failed**, 146 passed, 10 skipped |
-| `21c442d`, without optional extras | 232 passed, 15 skipped, **0 failed** |
-| `21c442d`, with the `mcp` extra | **275 passed**, 14 skipped, 0 failed |
+| the work, without optional extras | 232 passed, 15 skipped, **0 failed** |
+| the work, with the `mcp` extra | 275 passed, 14 skipped, 0 failed |
+| the work, `uv sync --all-extras` | **278 passed**, 11 skipped, 0 failed |
 
 The 19 were one line: `ToolInvocation.execution_id` was `UUID` NOT NULL
 against a code path that inserts without it, so every insert raised
@@ -65,27 +69,53 @@ dependency that does not degrade to a skip:
   top-level check passes and the import still dies. The guard names
   `mcp.server.fastmcp`, the module actually imported.
 
-**One finding is not fixed and is not this branch's to fix.** The `openai`,
-`pydantic-ai`, `anthropic` and `flows` extras are **not co-installable with
-the pinned server stack**. `pydantic-ai` resolves `starlette` 0.50.0 → 1.6.0,
-and `fastapi` 0.128.0 then raises `TypeError: Router.__init__() got an
-unexpected keyword argument 'on_startup'` — 52 errors. Isolated with
-`uv pip install --dry-run` per package: `mcp` alone touches starlette not at
-all. Those four extras predate this work.
+**Install through the lock, and a warning about what happens otherwise.**
+`uv sync --all-extras` is sound: **278 passed, 11 skipped, exit 0**, with
+`starlette` 0.50.0, `fastapi` 0.128.0, `pydantic-ai` 1.44.0 and `mcp` 1.25.0.
+
+`uv pip install pydantic-ai` — unpinned, bypassing `uv.lock` — is not. It
+resolves `pydantic-ai` 2.x, which drags `starlette` to 1.6.0, and `fastapi`
+0.128.0 then raises `TypeError: Router.__init__() got an unexpected keyword
+argument 'on_startup'` in 52 tests. That is a property of installing outside
+the lock, **not** of the extras: an earlier draft of this page recorded it as
+"the extras are not co-installable with the pinned stack", which is false and
+was measured against a venv the session itself had broken. `uv sync` restores
+it.
 
 The branch carries three new flows (`plan_council.py`, `qc_release.py`,
 `change_impact.py`), retires two (`local_dev_db.py`, `local_mcp.py` — git
 recorded the first as a 52% rename into `qmcp/cookbook/persistence.py`, so its
-history survives), and adds the roadmap's **Phase 8**. Until `21c442d` that
+history survives), and adds the roadmap's **Phase 8**. Until `05010a4` that
 Phase 8 existed only on disk: the repository's roadmap ended at Phase 7 and
 declared all phases complete, so a reader of the refs saw seven and a reader of
 the disk saw eight.
 
-**What remains a decision.** The branch has no pull request, because qmcp's
-slot is held by **#21** (adopt the constitution, draft, additions-only).
-Opening one needs #21 to land first, or this work goes onto #21 — which turns
-an additions-only governance change into a feature branch. That is the
-decision, and the push means nothing is at risk while it waits.
+## What the demo actually does, and what it cannot do here
+
+Run against the branch, server on a **non-default port** (8931) and asked what
+it was rather than merely pinged — `/openapi.json` returns `QMCP Server 0.1.0`,
+9 paths:
+
+```
+tools registered: ['echo', 'planner', 'executor', 'reviewer']
+planner error   : None
+audit log       : 2 -> 3 invocations recorded
+```
+
+The last line is the point: recording an invocation is the exact code path that
+raised `sqlite3.IntegrityError` on `main`, so the demo exercises the fix rather
+than describing it. Every run redirected to a scratch database through
+`QMCP_DATABASE_URL`; the operator's `./qmcp.db` is byte-identical afterwards.
+
+**Metaflow cannot run natively on this platform at all.** `import metaflow`
+fails in `metaflow/sidecar/sidecar_subprocess.py` on `import fcntl`, which is
+POSIX-only. The flows' docstrings say *"On Windows, run via Docker"* — that is
+a requirement, not a preference, and it is worth stating as one. The Docker
+path needs the engine actually running: `docker --version` reports 28.0.4 while
+the daemon pipe is absent, so `docker compose run` fails with
+`open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file
+specified`. The flow layer is therefore **unverified on this box**; everything
+under it is verified.
 
 ## Step 2 — dossier's slot is held by a pull request that is ready
 
