@@ -21,48 +21,71 @@ this page.
 
 | # | Step | Repo | Blocked by |
 |---|---|---|---|
-| 1 | Get the uncommitted flow work onto a ref | qmcp | nothing — it is the first thing |
+| 1 | ~~Get the uncommitted flow work onto a ref~~ | qmcp | **done** — `feat/cookbook-and-metaflow-runner` at `21c442d`, pushed |
 | 2 | Land #12 to free the slot | dossier | a human un-drafting it |
 | 3 | Re-parent the delta migration, open the delta PR | dossier | step 2 |
 | 4 | Create one delta per qmcp work item | dossier + qmcp | step 3 |
 
-Steps 1 and 2 are independent and can run in either order. Nothing in 3 or 4
-can start before both.
+Nothing in 3 or 4 can start before step 2.
 
-## Step 1 — qmcp has 3,646 lines of Python on no ref
+## Step 1 — done, and the parent commit was red
 
-This is the highest-risk item on this page and it is not a governance
-observation. Measured in `c:\Users\peter\repos\qm\qmcp` with
-`feat/pydantic-ai-integration-docs` (`a3f827d`) checked out:
+3,646 lines of untracked Python plus 20 modified files are now one commit,
+`21c442d`, on `origin/feat/cookbook-and-metaflow-runner`: 33 files,
++4,215 / −797, cut from `feat/pydantic-ai-integration-docs` (`a3f827d`).
+**No pull request** — qmcp's slot is held by #21, and a branch on origin is
+what the risk needed.
 
-| | |
+The reason it mattered was not only that the work was unbacked. **The parent
+commit's own suite is red**, established in a throwaway worktree at `a3f827d`
+rather than by disturbing the tree:
+
+| Tree | Result |
 |---|---|
-| Untracked Python, on **no ref** | 3,646 lines across 14 files |
-| Tracked but uncommitted | 20 files, +715 / −976 |
+| `a3f827d`, the committed parent | **19 failed**, 146 passed, 10 skipped |
+| `21c442d`, without optional extras | 232 passed, 15 skipped, **0 failed** |
+| `21c442d`, with the `mcp` extra | **275 passed**, 14 skipped, 0 failed |
 
-`git log --all -- qmcp/cookbook/` returns nothing, and no ref under
-`refs/heads` or `refs/remotes/origin` carries `tests/test_cookbook.py` —
-checked by `git cat-file -e` per ref rather than by reading the working tree.
+The 19 were one line: `ToolInvocation.execution_id` was `UUID` NOT NULL
+against a code path that inserts without it, so every insert raised
+`sqlite3.IntegrityError`. The uncommitted work had already fixed it to
+`UUID | None`. Leaving that work on a disk was leaving the repository broken.
 
-The largest untracked files are `qmcp_mcp.py` (544), `tests/test_qmcp_mcp.py`
-(535), `tests/test_cookbook.py` (330) and `qmcp/cookbook/persistence.py` (329).
-Three flows — `plan_council.py`, `qc_release.py`, `change_impact.py` — are
-untracked, and two others (`local_dev_db.py`, `local_mcp.py`) are deleted in
-the working tree only.
+Three defects were in the work itself, all of the same shape — an optional
+dependency that does not degrade to a skip:
 
-**`docs/ROADMAP.md` is one of the 20 modified files**, and the modification is
-the part that matters. The committed roadmap ends at **Phase 7** and declares
-all phases complete. The working tree adds a **Phase 8 — Composable Cookbook &
-MetaflowRunner**, ticked complete, describing exactly the untracked files
-above. So a reader of the repository sees seven phases; a reader of the disk
-sees eight. Read `origin/<ref>:docs/ROADMAP.md`, not the file, until this
-lands.
+- **`mcp` was declared nowhere**, and `qmcp_mcp.py` imports it at module
+  level, so `tests/test_qmcp_mcp.py` failed *collection* and took all 275
+  tests with it. Now an extra, and guarded.
+- **The extra is capped below 2.0.** `mcp` 2.x removed
+  `mcp.server.fastmcp.FastMCP` — `grep -rl "class FastMCP"` over the
+  installed 2.0.0 distribution returns nothing — so an unconstrained
+  `mcp>=1.0.0` resolves to a version the module cannot import.
+- **`importorskip("mcp")` was not enough**: 2.x installs as `mcp`, so the
+  top-level check passes and the import still dies. The guard names
+  `mcp.server.fastmcp`, the module actually imported.
 
-*Done* is those files on a branch with a pull request. qmcp's slot is spent by
-**#21** (adopt the constitution, draft, additions-only), so this needs #21 to
-land first or it needs to go on #21 — which would change #21 from an
-additions-only governance change into a feature branch, and that is a decision
-rather than a keystroke.
+**One finding is not fixed and is not this branch's to fix.** The `openai`,
+`pydantic-ai`, `anthropic` and `flows` extras are **not co-installable with
+the pinned server stack**. `pydantic-ai` resolves `starlette` 0.50.0 → 1.6.0,
+and `fastapi` 0.128.0 then raises `TypeError: Router.__init__() got an
+unexpected keyword argument 'on_startup'` — 52 errors. Isolated with
+`uv pip install --dry-run` per package: `mcp` alone touches starlette not at
+all. Those four extras predate this work.
+
+The branch carries three new flows (`plan_council.py`, `qc_release.py`,
+`change_impact.py`), retires two (`local_dev_db.py`, `local_mcp.py` — git
+recorded the first as a 52% rename into `qmcp/cookbook/persistence.py`, so its
+history survives), and adds the roadmap's **Phase 8**. Until `21c442d` that
+Phase 8 existed only on disk: the repository's roadmap ended at Phase 7 and
+declared all phases complete, so a reader of the refs saw seven and a reader of
+the disk saw eight.
+
+**What remains a decision.** The branch has no pull request, because qmcp's
+slot is held by **#21** (adopt the constitution, draft, additions-only).
+Opening one needs #21 to land first, or this work goes onto #21 — which turns
+an additions-only governance change into a feature branch. That is the
+decision, and the push means nothing is at risk while it waits.
 
 ## Step 2 — dossier's slot is held by a pull request that is ready
 
