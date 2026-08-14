@@ -27,3 +27,9 @@ disk.html
 __pycache__/
 *.py[cod]
 
+
+# The environment `uv run qm` builds. The lockfile beside it IS committed --
+# it pins the one runtime dependency and is what makes two machines run the
+# same generators. See pyproject.toml's header for why this repository has
+# packaging at all.
+.venv/

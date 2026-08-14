@@ -14,19 +14,27 @@ inheriting a previous session's belief instead of asking the repository:
 1. **The commit you are working against**, and the branch. Every number in every
    page here was true at some commit and nowhere else.
 2. **Whether your pull request slot is free.** One open pull request per
-   repository, per contributor. `python project-seed/ci/check_one_pr.py --repo
-   <owner/name>` answers it.
+   repository, per contributor. `uv run qm slot --repo <owner/name>` answers it.
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are very likely running
    right now, in other repositories, for the same reviewer.
    `handbook/async-contract.md` is the set of rules that exist only because of
    that, and it is short.
 4. **Which gates exist**, and what each one cannot see.
-   `python project-seed/ci/run_workflows_locally.py` runs them.
+   `uv run qm gates` lists them with what each one misses;
+   `uv run --extra preflight qm preflight` runs their real steps.
+
+**`uv run qm --help` is the whole surface** — slot, branch, gates, tags, docs,
+preflight, brief. It dispatches to the scripts in `ci/` and
+`project-seed/ci/` and decides nothing itself, so a command's output is that
+script's output and its exit status is that script's status. **In a project
+repository the CLI does not exist**: a fork runs the seed scripts in place, out
+of `governance/qm/project-seed/ci/`, and installs nothing. `project-seed/ide/AGENTS.md`
+is written that way on purpose.
 
 Those are the invariants. **How** you gather them is yours to choose: read the
-repository, run the scripts above, or use an adapter if one exists for your
-tooling. `adapters/` holds any that do, each named for the product it targets
+repository, run the CLI or the scripts directly, or use an adapter if one exists
+for your tooling. `adapters/` holds any that do, each named for the product it targets
 and none of them required — this corpus states what must be true and does not
 name a vendor to get there. See `handbook/async-contract.md` §1 for the
 reasoning, and the seams doctrine in `records/` for why a governance document
