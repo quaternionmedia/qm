@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-14T19:29:38Z",
+  "generated_at": "2026-08-14T19:30:11Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -39,14 +39,14 @@
     "unknown": "the state could not be established, which is not the same as fine."
   },
   "totals": {
-    "documents": 66,
+    "documents": 69,
     "by_state": {
       "generated": 6,
       "proposed": 14,
       "standing": 13,
-      "transient": 8,
+      "transient": 9,
       "unknown": 1,
-      "unreviewed": 24
+      "unreviewed": 26
     },
     "disagreements": 0,
     "unknown": 1
@@ -217,6 +217,15 @@
     },
     {
       "path": "handbook/handoffs/for-a-stronger-model.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/governance-loop-poc.md",
       "class": "handoff",
       "class_reason": "working instructions, deleted when the work lands",
       "declared_status": null,
@@ -433,6 +442,26 @@
     },
     {
       "path": "perspectives/2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-13-the-mechanical-governance-loop.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md",
       "class": "perspective",
       "class_reason": "dated, attributed, non-binding opinion",
       "declared_status": "Unreviewed",
