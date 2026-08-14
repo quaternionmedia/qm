@@ -1,0 +1,58 @@
+# Pattern registry — the governance loop's pattern vocabulary.
+#
+# Every pattern_id used in a session artifact must appear here. An artifact
+# that names a slug not in this file is written with {"unknown": "slug not in
+# pattern-registry.yaml"} and does not count toward the frequency tally for
+# any known pattern.
+#
+# Fields per entry:
+#   clause       the AGENTS.md or handbook clause this pattern violates
+#   description  one sentence: what the session did wrong
+#   threshold    count at which check_pattern_coverage gates on it (default 3)
+#   check_exists false until a mechanical check is written; then set to true
+#                and populate check_file. A deferred response from the HITL
+#                gate is written "deferred-YYYY-MM-DD-reason" here.
+#   check_file   path to the check script once check_exists is true
+
+patterns:
+  exit-code-trap:
+    clause: "async-contract §8"
+    description: "Exit status of a command shadowed by a filter (tail, head, grep, pipe)"
+    threshold: 3
+    check_exists: false
+    check_file: null
+    # Seen 4 times before this registry existed:
+    # 2× before 2026-08-12, 2× during the session counted in
+    # perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md
+
+  uv-pip-install-bypass:
+    clause: "AGENTS.md §12"
+    description: "Dependency installed with uv pip install, bypassing uv.lock"
+    threshold: 1
+    # One instance already cost 3 corrective commits and a false finding on
+    # 3 surfaces (the most expensive of 13 breaks in the thirteen-breaks perspective).
+    check_exists: false
+    check_file: null
+
+  bind-past-localhost:
+    clause: "async-contract §4"
+    description: "Server bound to 0.0.0.0 rather than 127.0.0.1 on a shared workstation"
+    threshold: 3
+    check_exists: false
+    check_file: null
+
+  act-without-asking:
+    clause: "AGENTS.md standing list"
+    description: "Destructive or environment-mutating act taken without explicit authorisation"
+    threshold: 3
+    check_exists: false
+    check_file: null
+
+  read-working-tree-not-origin:
+    clause: "AGENTS.md §10"
+    description: "Repository state asserted from working tree or branch instead of origin/main"
+    threshold: 3
+    check_exists: false
+    check_file: null
+    # Named in 2026-08-08-reading-the-proxy-instead-of-the-thing.md as
+    # the error that reached main and was caught nine hours later.
