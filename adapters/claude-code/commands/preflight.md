@@ -55,8 +55,10 @@ Then run this project's own suite — tests, linters, type checks — whatever i
 
 ## 5. Only then
 
-If it is ready: `gh pr create --draft`, assignee the person who asked, **no
-reviewer requested**, and the `check_pr_base.py` output in the body. Leaving
-draft is their decision, after their testing.
+If it is ready: `gh pr create`, assignee the person who asked, **no reviewer
+requested**, and the `check_pr_base.py` output in the body. Then merge it once
+every gate is green — the pull request is the audit record, not a queue, and
+the human gates are ratification and the version tag. Use `--draft` only when
+the work is genuinely unfinished.
 
 If it is not ready, say what is missing. Do not open it.

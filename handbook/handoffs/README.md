@@ -21,6 +21,7 @@ nothing.
 | Handoff | Blocks on | Repo |
 |---|---|---|
 | [`for-a-stronger-model.md`](for-a-stronger-model.md) | nothing — **read this first**: what to distrust in the other pages, and why | every repo |
+| [`governance-loop-poc.md`](governance-loop-poc.md) | **#56 must land first** — 13 uncommitted files on the working tree, 35/35 green; Phase 1 complete, Phases 2–5 documented; branch + PR once #56 merges | qm (Phase 1), then dossier + qmcp |
 | [`qmcp-flows-as-deltas.md`](qmcp-flows-as-deltas.md) | the milestone, and the four-step path to it. Step 1 is **done** — folded into qmcp #21, now the demo branch, fixing that repo's 19 red tests. Step 2 next | qmcp + dossier |
 | [`dossier-delta-review.md`](dossier-delta-review.md) | step 3 of that path. Two alembic heads to fix, and dossier's slot is held by #12 | dossier |
 | [`disk-tooling.md`](disk-tooling.md) | **built**; its item 3 is now answered by the delta review — the orphan tables are in progress. Items 1, 2 and 4 want a decision | qm + dossier |
@@ -58,16 +59,20 @@ project branch is: all twelve fell behind again when #38 and #41 landed. Read
 
 **One open pull request per repository, per contributor.** Not one per task.
 If your slot already holds an open PR, add to it or wait — do not open a
-second. This is a review-bandwidth constraint, not a style preference. In this
-repo each `project/*` branch holds its own slot, because each is pinned by a
-different downstream submodule; in a project repo it means one, full stop.
+second. This is a sequencing constraint, not a bandwidth one: a green PR is
+merged by its author and frees its own slot, so the limit binds only on
+unfinished work. In this repo each `project/*` branch holds its own slot,
+because each is pinned by a different downstream submodule; in a project repo
+it means one, full stop.
 
 `handbook/async-contract.md` §1 is the rule and the reasoning;
 `project-seed/ci/check_one_pr.py` is the check, and `one-pr-check.yml` runs it
 on every pull request. Run it before you open anything.
 
-**Open it as a draft, and never request a review.** Add the person who asked
-for the work as assignee. Leaving draft is their decision.
+**Never request a review, and merge it yourself once the gates are green.**
+Add the person who asked for the work as assignee. The pull request is the
+audit record; the human gates are ratification and the version tag. Draft
+means unfinished.
 
 **Close a PR before pushing its commits onto its base branch.** Pushing a
 head's commits onto its base *merges* the PR, with no review and no way to
