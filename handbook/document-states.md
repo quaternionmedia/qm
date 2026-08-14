@@ -1,8 +1,8 @@
 # Handbook — Document States
 
-**Generated `2026-08-14T19:30:11Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-14T19:32:10Z`.** Quotable for 168h. **Do not edit by hand.**
 
-Every governed document in this corpus: **69**, unfiltered.
+Every governed document in this corpus: **70**, unfiltered.
 
 | | |
 |---|---|
@@ -34,7 +34,7 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 14 |
 | [??] `unknown` | 1 |
-| [-] `unreviewed` | 26 |
+| [-] `unreviewed` | 27 |
 | [G] `generated` | 6 |
 | [S] `standing` | 13 |
 | [T] `transient` | 9 |
@@ -72,6 +72,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-13-the-mechanical-governance-loop.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md` | perspective | Unreviewed |
+| [-] | `unreviewed` | `perspectives/2026-08-14-before-it-meets-a-stranger.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-14-one-schema-for-intended-work.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-14-precedence-lost-to-readership.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-14-teeth-and-what-the-mutations-said.md` | perspective | Unreviewed |
