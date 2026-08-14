@@ -46,13 +46,25 @@ inheritance; paste that output into any description.
 - `01541f2` three retrospectives
 - `547cc15` `ci/tag_audit.py`, the org-wide sweep
 
-**`evolve/governance-loop-poc`** — cut from the branch above, carrying the
-governance loop's Phase 1: the registries, five generators, the `/reflect`
-adapter, 35 tests, and the plan. **Its schema is consolidated** — see below.
+**`evolve/governance-loop-poc`** — cut from the branch above, so its base is
+`evolve/two-gate-reconciliation` and not `main`.
 
-Both were pushed and no pull request was opened, because `qm`'s slot holds #56
-and #57 and `check_one_pr.py` reports `OVER subcontrabass: 2`. Landing #56
-frees it.
+- the governance loop's Phase 1: registries, five generators, the `/reflect`
+  adapter, 35 tests, and the plan. **Its schema is consolidated** — see below
+- `b069c90` a seed fix to `cowork_context.py`, which is why you can see any of
+  this at all: it scanned `refs/heads` only, so a fresh clone reported a clean
+  repository over any amount of pushed work
+
+**Until 2026-08-14 all thirteen Phase 1 files were uncommitted, on one disk, and
+the page describing them was one of them.** They are on a ref now. That is worth
+knowing because it is the state a session should never leave work in, and this
+corpus was in it for two days.
+
+Both branches were pushed and no pull request was opened, because `qm`'s slot
+holds #56 and #57 and `check_one_pr.py` reports `OVER subcontrabass: 2`. Landing
+#56 frees it. The order after that is: open the pull request for
+`evolve/two-gate-reconciliation` against `main`, land it, then the loop branch
+against `main`.
 
 ## What is blocked, and by what
 
