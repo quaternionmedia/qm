@@ -20,8 +20,9 @@ nothing.
 
 | Handoff | Blocks on | Repo |
 |---|---|---|
+| [`two-gate-and-tag-teeth.md`](two-gate-and-tag-teeth.md) | nothing — **read this second**: the pull request is an audit record and the human gate is the tag. Several pages below predate that and describe a draft PR as waiting for a person. Names both pushed branches, the four blocked items, and the one-schema decision | every repo |
 | [`for-a-stronger-model.md`](for-a-stronger-model.md) | nothing — **read this first**: what to distrust in the other pages, and why | every repo |
-| [`governance-loop-poc.md`](governance-loop-poc.md) | **#56 must land first** — 13 uncommitted files on the working tree, 35/35 green; Phase 1 complete, Phases 2–5 documented; branch + PR once #56 merges | qm (Phase 1), then dossier + qmcp |
+| [`governance-loop-poc.md`](governance-loop-poc.md) | its branch is `evolve/governance-loop-poc`, pushed, no PR — `qm`'s slot holds #56 and #57. Phase 1 complete, 35/35 green; Phase 2's schema is consolidated into the delta entity, which moves it behind `dossier`'s delta branch | qm (Phase 1), then dossier + qmcp |
 | [`qmcp-flows-as-deltas.md`](qmcp-flows-as-deltas.md) | the milestone, and the four-step path to it. Step 1 is **done** — folded into qmcp #21, now the demo branch, fixing that repo's 19 red tests. Step 2 next | qmcp + dossier |
 | [`dossier-delta-review.md`](dossier-delta-review.md) | step 3 of that path. Two alembic heads to fix, and dossier's slot is held by #12 | dossier |
 | [`disk-tooling.md`](disk-tooling.md) | **built**; its item 3 is now answered by the delta review — the orphan tables are in progress. Items 1, 2 and 4 want a decision | qm + dossier |
@@ -127,5 +128,14 @@ the test names and confirm the test fails. Ten such mutations were run against
 `ci/governance_status.py`; two tests were inert on the first pass and both were
 rewritten.
 
-*Stamped 2026-08-12. `qm` `main` at `104361a`, `dossier` `main` at `604efb8`,
-`qmcp` `main` at `85013c5`.*
+**Pages written before 2026-08-14 describe a draft pull request as work waiting
+for a person.** That is the model
+[`two-gate-and-tag-teeth.md`](two-gate-and-tag-teeth.md) corrects, and the
+correction is in `AGENTS.md` item 3 rather than in each page. Where one of them
+tells you to open a draft and wait, read it as: open it, run the gates, merge it.
+The rest of what those pages say about their own subject stands.
+
+*Stamped 2026-08-14. `qm` `main` at `104361a`, `dossier` `main` at `604efb8`,
+`qmcp` `main` at `85013c5`. Two branches are pushed with no pull request —
+`evolve/two-gate-reconciliation` and `evolve/governance-loop-poc` — because the
+slot holds #56 and #57.*
