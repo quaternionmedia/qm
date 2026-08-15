@@ -46,6 +46,72 @@ ORDER = ["ratified", "proposed", "draft", "unknown", "responded", "acknowledged"
          "declined", "unreviewed", "generated", "standing", "transient"]
 
 
+def reason(value: object) -> str | None:
+    """The reason, if this value is the document's unknown form.
+
+    Duplicated from `gate_dashboard.py` rather than imported: these are two
+    renderers of two documents, and a shared helper module between them is a
+    coupling that makes a change to one silently change the other. Four lines
+    is the right price for that independence.
+
+    >>> reason({"unknown": "why"})
+    'why'
+    >>> reason({"unknown": "why", "and": "more"}) is None
+    True
+    """
+    if isinstance(value, dict) and "unknown" in value and len(value) == 1:
+        return str(value["unknown"])
+    return None
+
+
+def readiness_lines(doc: dict) -> list[str]:
+    """The milestone claim and the measurements, side by side and unreconciled.
+
+    Deliberately not a score. One of the five requirements cannot be measured at
+    all, and a percentage that quietly dropped it would be the most confidently
+    wrong thing this page could print.
+    """
+    block = doc.get("readiness") or {}
+    claim, measured = block.get("claim"), block.get("measured") or {}
+    why = reason(claim)
+    if why:
+        return ["## Where this corpus stands\n",
+                f"**unknown** — {why}. Not established is not the same as ready.\n"]
+
+    records = measured.get("records") or {}
+    version = claim.get("version")
+    lines = [
+        "## Where this corpus stands\n",
+        f"Working toward **{claim.get('name')}** (`{claim.get('target_version')}`) — "
+        f"{' '.join((claim.get('audience') or '').split())}\n",
+        "| | Claimed | Measured |",
+        "|---|---|---|",
+        f"| Corpus version | `{claim.get('target_version')}` is the target | "
+        + (f"`{version}`" if version else
+           f"**none.** No `v*` tag, so no release claim — {claim.get('version_source')}")
+        + " |",
+        f"| Records ratified | every requirement below | "
+        f"**{records.get('ratified')} of {records.get('total')}**; "
+        f"{records.get('proposed')} proposed |",
+        f"| Mandatory reading | under budget | "
+        f"{measured.get('reading_total_lines')} of {measured.get('reading_budget_lines')} lines"
+        + ("" if measured.get("reading_within_budget") else " — **over**") + " |",
+        f"| Documents whose state is unknown | none | "
+        f"{measured.get('documents_in_unknown_state')} |",
+        "",
+        "**What the milestone requires**, and where each is measured:\n",
+    ]
+    for req in claim.get("requires") or []:
+        lines.append(f"- **`{req.get('id')}`** — {' '.join((req.get('what') or '').split())}  ")
+        lines.append(f"  *measured by:* `{req.get('measured_by')}`")
+    lines += [
+        "",
+        f"*{block.get('no_score_is_computed')}* "
+        f"{block.get('claim_is_not_evidence')}\n",
+    ]
+    return lines
+
+
 def render(doc: dict, only: str | None) -> str:
     out: list[str] = []
     add = out.append
@@ -60,6 +126,8 @@ def render(doc: dict, only: str | None) -> str:
     add("# Handbook — Document States\n")
     add(f"**Generated `{doc.get('generated_at')}`.** Quotable for "
         f"{reading.get('staleness_budget_hours')}h. **Do not edit by hand.**\n")
+
+    out.extend(readiness_lines(doc))
 
     if only:
         add(f"> **Filtered to `{only}`.** {len(shown)} shown, **{hidden} hidden**. "

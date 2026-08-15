@@ -20,6 +20,7 @@ nothing.
 
 | Handoff | Blocks on | Repo |
 |---|---|---|
+| [`semantic-review-of-the-records.md`](semantic-review-of-the-records.md) | nothing — the one milestone requirement no check can measure. Fifteen records read as one body, in dependency order, before strangers read them. Unblocks the ratification rehearsal | qm |
 | [`two-gate-and-tag-teeth.md`](two-gate-and-tag-teeth.md) | nothing — **read this second**: the pull request is an audit record and the human gate is the tag. Several pages below predate that and describe a draft PR as waiting for a person. Names both pushed branches, the four blocked items, and the one-schema decision | every repo |
 | [`for-a-stronger-model.md`](for-a-stronger-model.md) | nothing — **read this first**: what to distrust in the other pages, and why | every repo |
 | [`governance-loop-poc.md`](governance-loop-poc.md) | its branch is `evolve/governance-loop-poc`, pushed, no PR — `qm`'s slot holds #56 and #57. Phase 1 complete, 35/35 green; Phase 2's schema is consolidated into the delta entity, which moves it behind `dossier`'s delta branch | qm (Phase 1), then dossier + qmcp |

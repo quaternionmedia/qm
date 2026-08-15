@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-15T02:55:19Z",
+  "generated_at": "2026-08-15T03:06:24Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -50,23 +50,78 @@
       },
       {
         "path": "handbook/handoffs/README.md",
-        "lines": 141
+        "lines": 142
       }
     ],
-    "total_lines": 626,
+    "total_lines": 627,
     "budget_lines": 700,
     "within_budget": true,
-    "headroom_lines": 74,
+    "headroom_lines": 73,
     "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
     "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open."
   },
+  "readiness": {
+    "claim": {
+      "name": "alpha",
+      "target_version": "v0.1.0",
+      "version": null,
+      "version_source": "records/DRAFT-version-tags-are-claims.md 4",
+      "audience": "Developers and power users outside QM, onboarded as testers. They read the corpus cold, with none of the session history that built it.\n",
+      "requires": [
+        {
+          "id": "ratification-rehearsed",
+          "what": "At least one record ratified end to end, so the five-step path has been walked once",
+          "measured_by": "doc-status.json readiness.records.ratified"
+        },
+        {
+          "id": "reading-within-budget",
+          "what": "Mandatory reading before a first edit stays under its budget",
+          "measured_by": "doc-status.json reading_load.within_budget"
+        },
+        {
+          "id": "no-unknown-document-states",
+          "what": "Every governed document's state can be established",
+          "measured_by": "doc-status.json totals.unknown"
+        },
+        {
+          "id": "gates-declared-are-built",
+          "what": "No gate is declared and unbuilt, or the gap is deliberate and named",
+          "measured_by": "gate-status.json totals.declared_not_built"
+        },
+        {
+          "id": "semantic-review-done",
+          "what": "All records read in one sitting for contradiction, which no check can do",
+          "measured_by": "not mechanisable -- a human says so, in a handoff or a record"
+        }
+      ]
+    },
+    "claim_is_not_evidence": "milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.",
+    "measured": {
+      "records": {
+        "total": 15,
+        "ratified": 0,
+        "proposed": 15
+      },
+      "documents_in_unknown_state": 1,
+      "reading_within_budget": true,
+      "reading_total_lines": 627,
+      "reading_budget_lines": 700,
+      "gates": {
+        "unknown": "held in gate-status.json, which this generator does not read -- one document does not restate another's figures"
+      },
+      "semantic_review": {
+        "unknown": "not mechanisable. A human reads every record in one sitting and says so; no count here can stand in for that"
+      }
+    },
+    "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
+  },
   "totals": {
-    "documents": 71,
+    "documents": 72,
     "by_state": {
       "generated": 6,
       "proposed": 15,
       "standing": 13,
-      "transient": 9,
+      "transient": 10,
       "unknown": 1,
       "unreviewed": 27
     },
@@ -275,6 +330,15 @@
     },
     {
       "path": "handbook/handoffs/qmcp-flows-as-deltas.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/semantic-review-of-the-records.md",
       "class": "handoff",
       "class_reason": "working instructions, deleted when the work lands",
       "declared_status": null,

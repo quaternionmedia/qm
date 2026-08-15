@@ -49,6 +49,8 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+import yaml
+
 SCHEMA = 1
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -293,6 +295,57 @@ def row(path: Path, root: Path, index: dict[str, str] | None = None) -> dict:
     return entry
 
 
+def readiness(root: Path, rows: list[dict], by_state: dict[str, int], load: dict) -> dict:
+    """The milestone claim from ci/workspace.yaml, beside what is measured.
+
+    The two are never reconciled here. A requirement whose `measured_by` names a
+    figure this document holds gets that figure attached; one that names another
+    document, or names nothing mechanisable, says so. A readiness layer that
+    quietly computed a percentage would be the single most confidently wrong
+    thing a governance dashboard can print.
+    """
+    workspace = root / "ci" / "workspace.yaml"
+    if not workspace.is_file():
+        return {"claim": unknown(f"{workspace} is not present"), "measured": {}}
+    claim = (yaml.safe_load(workspace.read_text(encoding="utf-8")) or {}).get("milestone")
+    if not claim:
+        return {"claim": unknown("ci/workspace.yaml declares no milestone block"), "measured": {}}
+
+    records = [r for r in rows if r["class"] == "record"]
+    measured = {
+        "records": {
+            "total": len(records),
+            "ratified": sum(1 for r in records if r["state"] == "ratified"),
+            "proposed": sum(1 for r in records if r["state"] == "proposed"),
+        },
+        "documents_in_unknown_state": by_state.get("unknown", 0),
+        "reading_within_budget": load["within_budget"],
+        "reading_total_lines": load["total_lines"],
+        "reading_budget_lines": load["budget_lines"],
+        "gates": unknown(
+            "held in gate-status.json, which this generator does not read -- one "
+            "document does not restate another's figures"
+        ),
+        "semantic_review": unknown(
+            "not mechanisable. A human reads every record in one sitting and says "
+            "so; no count here can stand in for that"
+        ),
+    }
+    return {
+        "claim": claim,
+        "claim_is_not_evidence": (
+            "milestone, target_version and requires are what a human stated in "
+            "ci/workspace.yaml. Nothing here is derived from the repository."
+        ),
+        "measured": measured,
+        "no_score_is_computed": (
+            "This layer does not say whether the milestone is met. It puts the "
+            "claim and the measurements side by side; the judgement is a human's, "
+            "and one of the five requirements cannot be measured at all."
+        ),
+    }
+
+
 def build(root: Path) -> dict:
     # Collected as a set and sorted, so the output does not depend on which
     # generator ran first. An order-dependent document cannot be checked, and
@@ -315,6 +368,8 @@ def build(root: Path) -> dict:
     by_state: dict[str, int] = {}
     for r in rows:
         by_state[r["state"]] = by_state.get(r["state"], 0) + 1
+
+    load = reading_load(root)
 
     return {
         "schema": SCHEMA,
@@ -352,7 +407,8 @@ def build(root: Path) -> dict:
             ],
         },
         "states": STATES,
-        "reading_load": reading_load(root),
+        "reading_load": load,
+        "readiness": readiness(root, rows, by_state, load),
         "totals": {
             "documents": len(rows),
             "by_state": dict(sorted(by_state.items())),

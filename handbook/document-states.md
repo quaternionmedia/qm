@@ -1,8 +1,34 @@
 # Handbook — Document States
 
-**Generated `2026-08-15T02:55:19Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-15T03:06:24Z`.** Quotable for 168h. **Do not edit by hand.**
 
-Every governed document in this corpus: **71**, unfiltered.
+## Where this corpus stands
+
+Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, onboarded as testers. They read the corpus cold, with none of the session history that built it.
+
+| | Claimed | Measured |
+|---|---|---|
+| Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
+| Records ratified | every requirement below | **0 of 15**; 15 proposed |
+| Mandatory reading | under budget | 627 of 700 lines |
+| Documents whose state is unknown | none | 1 |
+
+**What the milestone requires**, and where each is measured:
+
+- **`ratification-rehearsed`** — At least one record ratified end to end, so the five-step path has been walked once  
+  *measured by:* `doc-status.json readiness.records.ratified`
+- **`reading-within-budget`** — Mandatory reading before a first edit stays under its budget  
+  *measured by:* `doc-status.json reading_load.within_budget`
+- **`no-unknown-document-states`** — Every governed document's state can be established  
+  *measured by:* `doc-status.json totals.unknown`
+- **`gates-declared-are-built`** — No gate is declared and unbuilt, or the gap is deliberate and named  
+  *measured by:* `gate-status.json totals.declared_not_built`
+- **`semantic-review-done`** — All records read in one sitting for contradiction, which no check can do  
+  *measured by:* `not mechanisable -- a human says so, in a handoff or a record`
+
+*This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
+
+Every governed document in this corpus: **72**, unfiltered.
 
 | | |
 |---|---|
@@ -37,7 +63,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] `unreviewed` | 27 |
 | [G] `generated` | 6 |
 | [S] `standing` | 13 |
-| [T] `transient` | 9 |
+| [T] `transient` | 10 |
 
 ## Documents
 
@@ -112,6 +138,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/governance-status-generator.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/harness-next-test.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qmcp-flows-as-deltas.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/semantic-review-of-the-records.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/session-2026-08-12.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-gate-and-tag-teeth.md` | handoff | — |
 
