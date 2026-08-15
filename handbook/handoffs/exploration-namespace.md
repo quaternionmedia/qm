@@ -46,6 +46,49 @@ anything to make room without being asked.
 same list plus the two `main`-targeting branches above exits 1 and names #58,
 #92, #93. The exemption does not loosen `main`.
 
+## Decisions taken, 2026-08-15 — build these, in this order
+
+Approved by the maintainer in session. They are design commitments, not
+ratified records; each becomes an `evolve/*` branch when a slot is free.
+
+1. **A namespace registry is the single declaration.** `ci/namespace-registry.yaml`
+   holds each namespace's pattern, what it holds, its lifetime, its legal bases,
+   whether it may be a head, and its slot rule. README's table and `AGENTS.md`'s
+   list are **generated** from it; `check_pr_base.py` and `check_one_pr.py`
+   **read** it rather than carrying their own globs. A namespace cannot then be
+   documented without being enforced, or enforced without being documented —
+   which is every defect this branch's own history records.
+2. **The guard layers are a parallel redundancy checker, and their drift is
+   calculated.** Three independent detectors of the same property: negative
+   tests generated from the registry's bounds, the guard registry's
+   route-around coverage, and the scheduled adversarial sweep. They must
+   **agree**; disagreement is the signal, and the divergence is measured over
+   time rather than resolved silently. This is the corpus's own
+   correlated-defenses problem — `n_eff = n/(1+(n−1)ρ̄)` from the
+   mathematical-limits perspective §4 is the metric for what three
+   non-independent detectors are actually worth, and
+   `math/03-effective-reviewer-count/` is where estimating ρ̄ is designed.
+3. **Propagation triggers on the event, not the commit count.** A ratification,
+   a `project-seed/**` change, or a new gate fires it. The trigger list lives in
+   the registry with everything else, so it cannot drift the way the namespace
+   list did. Its known weakness is recorded rather than designed around: this
+   workspace went 74 commits with no qualifying event, so the redundancy checker
+   in (2) is what surfaces a branch that fell behind without one.
+4. **Work stays on branches without pull requests for now.** Not a queue, not a
+   re-scoped slot. Branches are the durable artifact; this page is how they are
+   found.
+
+Two principles the maintainer set, which the above is shaped by: **avoid the
+shape by design rather than resolving its symptom**, and **git should be
+disappearing as a layer that interacts with humans** — link to hashes where a
+reference is needed.
+
+Applying the first to this page's own index row: hand-maintained index tables
+conflict whenever two branches add an entry, and the fix is to stop having one,
+not to document a merge ritual. That applies to `perspectives/README.md` and
+`handbook/handoffs/README.md` alike, and folds into (1) — both are derived
+documents whose only hand-set field is a human judgement.
+
 ## What is unfinished
 
 | Item | Done looks like |
@@ -54,6 +97,7 @@ same list plus the two `main`-targeting branches above exits 1 and names #58,
 | `workspace/math-experiments` is 74 behind and ungated | A `propagate/math-experiments-<date>` PR based on the workspace branch, merged not rebased. **This is the first use of the rule this work adds** — nothing has exercised it |
 | The seed's `one-pr-check.yml` does not pass `--per-head` | Correct as it stands: `math/*` is corpus-specific, as `project/*` is. Revisit only if a project grows a research workspace |
 | Nothing detects a namespace spelled with two placeholders | `propagate/<name>` / `<target>` / `<slug>` all named one namespace mid-session. Fixed by hand; no check exists |
+| **#58 states two command surfaces** | Its `AGENTS.md` line 27 calls `uv run qm --help` "the whole surface"; lines 130 and 138 still instruct `python project-seed/ci/check_pr_base.py` and `run_workflows_locally.py`. Both work — `qm` wraps those scripts with flag passthrough, and cli.py's own docstring says forks execute them directly. Done: one is the source and the other is generated from it, under the registry decision above, so a reader is never choosing between two spellings of one rule |
 | `perspectives/README.md` Status for the mathematical-limits row | Setting it to `Responded` is a maintainer action. The linked-work fact is already recorded there; the Status is not mine to set |
 
 ## What I could not verify
@@ -64,10 +108,18 @@ same list plus the two `main`-targeting branches above exits 1 and names #58,
   pattern and there is no second workspace to test that against.
 - **That a `workspace/*` head is a legal shape.** `check_pr_base.py` does not
   refuse one. Nothing has needed it and I did not test it.
-- **Remote CI.** Everything below is `run_workflows_locally.py`, 18/18 on
+- **Remote CI.** Everything here is the local runner (`uv run qm preflight`
+  once #58 lands; `python project-seed/ci/run_workflows_locally.py` is the same
+  thing on today's `main`, which has no CLI). 18/18 on
   `evolve/exploration-branch-namespace` at `8045c33`, exit code read directly.
   The runner does not execute `uses:` steps or reproduce the runner image, and
   no workflow has run on GitHub for any of these branches.
+- **The command spellings on this page assume #58.** `qm slot`, `qm branch`
+  and `qm preflight` do not exist on `main` — there is no `pyproject.toml`,
+  no `ci/cli.py` and no entry point there. They arrive with
+  `evolve/governance-loop-poc`, which is planned to land first. Until it does,
+  the seed scripts under `project-seed/ci/` are the runnable form, and remain
+  so for any fork that never gets the CLI.
 
 ## Standing constraints in force
 

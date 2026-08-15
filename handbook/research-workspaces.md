@@ -70,7 +70,7 @@ Explorations are neither sequenced nor binding: each is independent of its
 siblings, and none can reach `main` from where it sits. Counting them would
 make the namespace useless for the one thing it is for.
 
-Mechanically, `check_one_pr.py --per-head 'math/*'` gives each exploration its
+Mechanically, `uv run qm slot --per-head 'math/*'` gives each exploration its
 own slot. That is a *head* exemption rather than the `--per-base` one the
 `project/*` branches use, because every exploration shares a single base —
 a base exemption would collapse all of them into one slot and change nothing.
@@ -80,13 +80,17 @@ can name: point it only at a namespace whose branches cannot reach the default
 branch. `math/*` qualifies because a math branch's only legal base is a
 workspace branch, and a workspace branch is terminal.
 
-**The base is what makes that safe, so the base is checked.**
-`check_pr_base.py` refuses a `math/*` head aimed at anything other than a
+**The base is what makes that safe, so the base is checked.** The branch gate
+(`uv run qm branch`) refuses a `math/*` head aimed at anything other than a
 `workspace/*` branch — not merely at the default branch, because an
 intermediate base would otherwise be a clean route and the slot is spent before
 any merge arrives. The slot check and that refusal run in the same CI job. A
 workflow that passes `--per-head` without running the refusal has opened the
 rule rather than exempted a case from it.
+
+Both commands wrap the seed scripts under `project-seed/ci/`, which a fork
+without this repository's CLI still executes directly. The rule is the same
+either way; only the spelling differs.
 
 ## What still applies
 
