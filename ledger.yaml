@@ -273,3 +273,29 @@ entries:
       - ci/tests/test_docs_audit.py
       - ci/tests/test_docs_draft_banner.py
     status: closed
+
+  - id: 2026-08-15-009
+    kind: decide
+    action: "Exempt one commit subject from the vendor-name rule, as the example it is taught from"
+    projected_impact: >
+      35ebca6a names a model in its subject, predates the check, and cannot be
+      reworded without rewriting another contributor's history. Exempt it by
+      full SHA with the reason printed on every run, rather than by rewriting or
+      by weakening the rule.
+    outcome: >
+      Exemption added to check_attribution.py and announced on every run.
+      Recorded in the gate registry's cannot_see for adr-lint, so it surfaces in
+      the generated gates page. 8 tests, including one asserting the exemption
+      is keyed on the commit and not the wording -- a subject-text key would
+      exempt every future commit that copied it.
+    failure_cost: >
+      One more unresolvable-expression refusal from the local runner, in the new
+      draft workflow. Fixed by moving the context values into env with
+      fallbacks, so the step reproduces locally.
+    outcome_matched_projection: true
+    lessons:
+      - "An exemption a run does not print is a hole in a check that reports green"
+      - "Key an exemption on the immutable thing, not on the text that can be copied"
+    tests_generated:
+      - project-seed/ci/tests/test_check_attribution.py
+    status: closed

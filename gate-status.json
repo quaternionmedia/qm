@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-15T19:44:35Z",
+  "generated_at": "2026-08-15T22:41:49Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -75,7 +75,7 @@
         "records/DRAFT-governance-arrives-as-a-mechanism.md"
       ],
       "refuses": "A record whose header table, status or index row is malformed; banned narration vocabulary in a pre-ratification draft; a vendor or model name in a record's prose or a commit subject; a seed copy still showing its template placeholder to a reader; a record whose declared restatement does not name it back.",
-      "cannot_see": "Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed.",
+      "cannot_see": "Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.",
       "evidence": {
         "present": true,
         "workflow_name": "ADR lint",

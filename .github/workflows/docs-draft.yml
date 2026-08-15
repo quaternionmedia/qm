@@ -61,11 +61,20 @@ jobs:
 
       # Between build and upload, always. A build that skipped this would
       # produce a draft indistinguishable from the published documentation.
+      # The context values go through `env:` rather than into the `run:` script.
+      # An expression inside a run block is opaque to the local workflow runner,
+      # which refuses it rather than guessing -- so the step becomes
+      # unreproducible on the machine where a contributor would first notice it
+      # was wrong. As env, the runner drops it with a note and the fallbacks
+      # below keep the step working.
       - name: Mark every page as a draft
+        env:
+          DRAFT_LABEL: ${{ github.event.pull_request.title || github.ref_name }}
+          DRAFT_URL: ${{ github.event.pull_request.html_url || github.server_url }}
         run: |
           python ci/docs_draft_banner.py site \
-            --label "${{ github.event.pull_request.title || github.ref_name }}" \
-            --url "${{ github.event.pull_request.html_url || github.server_url }}"
+            --label "${DRAFT_LABEL:-local build, not a pull request}" \
+            --url "${DRAFT_URL:-}"
 
       - name: The pages match the corpus
         run: python ci/docs_audit.py

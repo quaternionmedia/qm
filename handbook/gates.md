@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-15T19:44:35Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-08-15T22:41:49Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -37,7 +37,7 @@ Not established is not the same as nothing wrong. Every gate below may or may no
 
 Read this before quoting a green check. Every defect this corpus has found in its own tooling was a check that reported success while enforcing nothing.
 
-- **`adr-lint`** — Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed.
+- **`adr-lint`** — Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.
 - **`one-pr-slot`** — Whether the two pull requests are actually related. It counts slots, not subject matter, and the `--per-base` exemption is a glob somebody passes.
 - **`namespace-guard`** — A branch cut from the wrong parent whose direction is nonetheless legal. `check_pr_base.py` reports the inheritance; nothing fails on it.
 - **`ci-tooling-tests`** — Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one.

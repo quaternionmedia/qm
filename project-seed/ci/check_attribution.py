@@ -154,6 +154,31 @@ def check_records(records: Path) -> list[str]:
     return failures
 
 
+# Commit subjects allowed to name a tool, by full SHA, each with the reason.
+#
+# THE OBJECTION TO A LIST LIKE THIS IS REAL, and it is the one
+# `check_signatures.py` states when it chooses a date instead: a list of blessed
+# SHAs grows quietly and nobody can tell later which entries were deliberate.
+# Two things answer it here. Every entry carries its reason, printed on every
+# run, so an exemption nobody can justify is an exemption a reader can see. And
+# a commit subject is immutable -- the alternative to exempting is rewriting
+# somebody else's history, which this org does not do, so the population is
+# bounded by acts that already happened rather than by future convenience.
+#
+# An entry is added by editing this file, in a pull request, with the reason
+# written down. That is the whole control.
+EXEMPT_SUBJECTS = {
+    "35ebca6ac214bafca34985cb68c48b7d6b99b040": (
+        "Kept deliberately as the worked example this rule is taught from. It is "
+        "a real commit, by a real contributor, that named a model in its subject "
+        "before the check existed -- and it is now permanently in the history of "
+        "the corpus that forbids it. A rule illustrated by a live instance in its "
+        "own tree is harder to dismiss than one illustrated by a hypothetical, "
+        "and the cost of the illustration is that this exemption exists."
+    ),
+}
+
+
 def check_commit_subjects(base_ref: str) -> list[str]:
     """No vendor or model name in any commit subject in base_ref..HEAD."""
     probe = subprocess.run(
@@ -183,6 +208,14 @@ def check_commit_subjects(base_ref: str) -> list[str]:
         # interoperability claim, and every real instance is attribution.
         found = families_in(subject)
         if not found:
+            continue
+        if sha in EXEMPT_SUBJECTS:
+            # Announced, never silent. An exemption a run does not print is a
+            # hole in a check that still reports green.
+            print(
+                f"check_attribution: {sha[:8]} names a tool in its subject and is "
+                f"exempt.\n  {subject!r}\n  {EXEMPT_SUBJECTS[sha]}"
+            )
             continue
         named = ", ".join(repr(v) for v in found.values())
         failures.append(
