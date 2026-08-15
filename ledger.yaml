@@ -199,3 +199,28 @@ entries:
     tests_generated:
       - "ci/tests/test_doc_tooling.py::test_an_index_row_naming_a_missing_file_is_reported"
     status: closed
+
+  - id: 2026-08-15-006
+    kind: fix
+    action: "Loop pass 1: run every gate locally and remotely, and act on what differs"
+    projected_impact: >
+      Expect local to be green and remote to disagree somewhere, on the evidence
+      of the CLI defect that only the runner found.
+    outcome: >
+      Local: 9 of 9 green. Remote: signatures FAILED. The cause was a design
+      error, not a bug -- verifying a signature needs the signer's key and a
+      runner has none, so `git log --format=%G?` on CI reports the runner's
+      empty keyring rather than the commit. The forge already verifies
+      server-side; the check now reads it with --source host in CI and --source
+      git locally. Both agree: 9 debt, same commits.
+    failure_cost: >
+      Three cycles. One misdiagnosis -- the local runner was called silent when
+      it had refused an unresolvable expression on stderr, which the grep was
+      not reading. One more heredoc backslash failure, the seventh.
+    outcome_matched_projection: true
+    lessons:
+      - "A check that needs key material cannot run where the key is not"
+      - "Read stderr before calling a tool silent"
+      - "Stop using shell heredocs for anything containing a backslash"
+    tests_generated: []
+    status: closed

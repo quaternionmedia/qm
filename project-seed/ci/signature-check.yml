@@ -17,6 +17,12 @@
 #
 # WHAT IT DOES NOT COVER
 #
+#   - Signature verification needs the signer's public key. A runner has none,
+#     so `git log --format=%G?` on CI reports on the runner's empty keyring and
+#     not on the commit. That is the scaffolding describing itself, and it is
+#     why this job asks the forge -- which verified every commit server-side
+#     when it received them -- rather than re-deriving a verdict it cannot
+#     reach. `--source git` is the local mode, for a machine that has the key.
 #   - Whether the signer is the person in the author field. It reads what the
 #     key attests and does not maintain a trust store; a good signature by an
 #     unknown key passes, because a trust store nobody maintains fails honest
@@ -53,5 +59,7 @@ jobs:
           python-version: '3.11'
 
       - name: Every commit this branch adds carries a signature
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python governance/qm/project-seed/ci/check_signatures.py             --base-ref "origin/$GITHUB_BASE_REF"             --head-ref "$GITHUB_SHA"
+          python governance/qm/project-seed/ci/check_signatures.py --base-ref "origin/$GITHUB_BASE_REF" --head-ref "$GITHUB_SHA" --source host --repo "$GITHUB_REPOSITORY"

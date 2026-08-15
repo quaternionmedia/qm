@@ -98,6 +98,38 @@ MEANING = {
 }
 
 
+def host_verification(repo: str, sha: str) -> str:
+    """The host's own verdict for one commit, mapped onto a `%G?` letter.
+
+    WHY THIS EXISTS. Verifying a signature needs the signer's public key. A CI
+    runner has none, so `git log --format=%G?` there reports on the runner's
+    empty keyring rather than on the commit -- the measurement describes the
+    scaffolding. The host has already verified every commit server-side against
+    the keys it holds for the author, and exposes the verdict. That is the
+    authoritative source and it needs no key material on the machine asking.
+
+    So: `--source git` locally, where a developer has their own key, and
+    `--source host` in CI. Same rule, read from the place that can answer.
+    """
+    proc = subprocess.run(
+        ["gh", "api", f"repos/{repo}/commits/{sha}",
+         "--jq", ".commit.verification.verified,.commit.verification.reason"],
+        capture_output=True, text=True, encoding="utf-8", errors="replace",
+    )
+    if proc.returncode != 0:
+        return UNVERIFIABLE
+    lines = proc.stdout.strip().splitlines()
+    if len(lines) < 2:
+        return UNVERIFIABLE
+    verified, reason = lines[0].strip().lower(), lines[1].strip()
+    if verified == "true":
+        return "G"
+    # `unsigned` is a different fact from `could not be checked`, and the two
+    # must not collapse: one is a commit with no signature, the other is a
+    # commit whose signature nobody could evaluate.
+    return NO_SIGNATURE if reason == "unsigned" else UNVERIFIABLE
+
+
 def run_git(args: list[str], cwd: str | None = None) -> tuple[int, str]:
     proc = subprocess.run(
         ["git", *args], cwd=cwd, capture_output=True, text=True,
@@ -169,6 +201,10 @@ def main(argv: list[str] | None = None) -> int:
                         help="the branch's base; only base..head is checked")
     parser.add_argument("--head-ref", default="HEAD")
     parser.add_argument("--repo-dir", default=None, help="repository to read (default: cwd)")
+    parser.add_argument("--source", choices=("git", "host"), default="git",
+                        help="git reads the local keyring; host asks the forge, "
+                             "which is the only answer available on a runner")
+    parser.add_argument("--repo", default=None, help="owner/name, required by --source host")
     parser.add_argument("--enforced-from", default=ENFORCED_FROM,
                         help=f"unsigned commits committed before this date are a "
                              f"recorded debt, not a failure (default: {ENFORCED_FROM})")
@@ -182,6 +218,14 @@ def main(argv: list[str] | None = None) -> int:
     if problem:
         print(f"signature check: {problem}", file=sys.stderr)
         return 1
+
+    if args.source == "host":
+        if not args.repo:
+            print("signature check: --source host needs --repo owner/name",
+                  file=sys.stderr)
+            return 1
+        rows = [(sha, host_verification(args.repo, sha), when, subject)
+                for sha, _, when, subject in rows]
 
     if not rows:
         # A real answer: a branch that adds no non-merge commit has nothing to
