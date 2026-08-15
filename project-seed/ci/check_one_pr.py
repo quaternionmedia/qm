@@ -30,7 +30,7 @@ WHAT COUNTS
     read, and this repository's own practice is that drafts are the normal
     state, so exempting them would exempt everything.
 
-THE ONE EXEMPTION, AND WHY IT IS NARROW
+THE TWO EXEMPTIONS, AND WHY THEY ARE NARROW
 
 `--per-base <glob>` gives each base branch matching the glob its own slot. It
 exists for one shape: a repository where several long-lived branches are each
@@ -39,8 +39,21 @@ to another and they cannot be combined into a single PR without inventing a
 dependency between unrelated projects. The corpus repository's `project/*`
 branches are that shape.
 
-It is deliberately a glob you must pass, printed in the output whenever it
-applies. An exemption nobody can see in the result is an exemption that has
+`--per-head <glob>` gives each *head* branch matching the glob its own slot. It
+exists for the opposite shape: many short-lived branches aimed at one base,
+independent of each other, none of which can reach the default branch. Parallel
+exploration against a research workspace is that shape. The slot rule exists so
+a reviewer is never handed a sequencing puzzle on binding work, and explorations
+are neither sequenced nor binding -- a base exemption cannot express it, because
+every exploration shares the one base.
+
+A head exemption is the wider of the two, so it is bounded by what the glob can
+name: point it at a namespace that cannot reach the default branch, and never at
+one that can. `math/*` qualifies because a math branch's only legal base is a
+`workspace/*` branch, which never merges back.
+
+Both are deliberately globs you must pass, printed in the output whenever they
+apply. An exemption nobody can see in the result is an exemption that has
 stopped being one.
 
 Exit status is 1 when any contributor in scope holds more than one slot.
@@ -49,6 +62,7 @@ Usage:
     python check_one_pr.py --repo quaternionmedia/qm
     python check_one_pr.py --repo owner/name --contributor subcontrabass
     python check_one_pr.py --repo quaternionmedia/qm --per-base 'project/*'
+    python check_one_pr.py --repo quaternionmedia/qm --per-head 'math/*'
     python check_one_pr.py --repo owner/name --json          # for a dashboard
     python check_one_pr.py --from-json prs.json --repo owner/name   # no network
 """
@@ -164,12 +178,20 @@ def normalise(prs: list[dict]) -> list[dict]:
     return out
 
 
-def slot_key(base: str, per_base: list[str]) -> str:
-    """Which slot a PR against `base` occupies.
+def slot_key(base: str, head: str, per_base: list[str], per_head: list[str]) -> str:
+    """Which slot a PR from `head` into `base` occupies.
 
-    Everything shares one slot named "" unless its base matches an exempted
-    glob, in which case the base names its own.
+    Everything shares one slot named "" unless the pull request matches an
+    exemption, in which case the matching branch names its own slot.
+
+    Head is tested first. An exploration branch is independent of its siblings
+    whatever it targets, so its own name is the honest slot; a base exemption
+    answers a different question -- whether two *targets* are unrelated -- and
+    would collapse every exploration sharing a workspace into one slot.
     """
+    for pattern in per_head:
+        if fnmatch.fnmatch(head, pattern):
+            return head
     for pattern in per_base:
         if fnmatch.fnmatch(base, pattern):
             return base
@@ -177,7 +199,10 @@ def slot_key(base: str, per_base: list[str]) -> str:
 
 
 def find_violations(
-    prs: list[dict], per_base: list[str], contributor: str | None
+    prs: list[dict],
+    per_base: list[str],
+    per_head: list[str],
+    contributor: str | None,
 ) -> dict[tuple[str, str], list[dict]]:
     """Slots holding more than one open PR, keyed by (author, slot)."""
     slots: dict[tuple[str, str], list[dict]] = defaultdict(list)
@@ -186,12 +211,18 @@ def find_violations(
             continue
         if contributor and pr["author"] != contributor:
             continue
-        slots[(pr["author"], slot_key(pr["base"], per_base))].append(pr)
+        slots[
+            (pr["author"], slot_key(pr["base"], pr["head"], per_base, per_head))
+        ].append(pr)
     return {key: held for key, held in slots.items() if len(held) > 1}
 
 
 def report(
-    repo: str, prs: list[dict], per_base: list[str], contributor: str | None
+    repo: str,
+    prs: list[dict],
+    per_base: list[str],
+    per_head: list[str],
+    contributor: str | None,
 ) -> int:
     human = [pr for pr in prs if not pr["bot"]]
     bots = len(prs) - len(human)
@@ -202,10 +233,14 @@ def report(
         print(f"contributor  {contributor}")
     if per_base:
         print(f"per-base     {', '.join(per_base)}  (each matching base gets a slot)")
+    if per_head:
+        print(f"per-head     {', '.join(per_head)}  (each matching head gets a slot)")
 
     slots: dict[tuple[str, str], list[dict]] = defaultdict(list)
     for pr in human:
-        slots[(pr["author"], slot_key(pr["base"], per_base))].append(pr)
+        slots[
+            (pr["author"], slot_key(pr["base"], pr["head"], per_base, per_head))
+        ].append(pr)
 
     print()
     for (author, slot) in sorted(slots):
@@ -217,7 +252,7 @@ def report(
             kind = "draft" if pr["draft"] else "READY"
             print(f"       #{pr['number']} [{kind}] -> {pr['base']}  {pr['title']}")
 
-    violations = find_violations(prs, per_base, contributor)
+    violations = find_violations(prs, per_base, per_head, contributor)
     if not violations:
         print("\nEvery contributor holds at most one slot.")
         return 0
@@ -267,6 +302,14 @@ def main(argv: list[str] | None = None) -> int:
         help="Give each base branch matching GLOB its own slot. Repeatable.",
     )
     parser.add_argument(
+        "--per-head",
+        action="append",
+        default=[],
+        metavar="GLOB",
+        help="Give each head branch matching GLOB its own slot. Repeatable. "
+        "Point it only at a namespace that cannot reach the default branch.",
+    )
+    parser.add_argument(
         "--from-json",
         metavar="PATH",
         help="Read the pull request list from a file instead of calling gh.",
@@ -283,15 +326,21 @@ def main(argv: list[str] | None = None) -> int:
         raw = fetch_open_prs(args.repo)
     prs = normalise(raw)
 
-    violations = find_violations(prs, args.per_base, args.contributor)
+    violations = find_violations(prs, args.per_base, args.per_head, args.contributor)
 
     if args.json:
         json.dump(
             {
                 "repository": args.repo,
                 "per_base": args.per_base,
+                "per_head": args.per_head,
                 "contributor": args.contributor,
                 "open_prs": prs,
+                # `base` names the slot, which is a base branch under --per-base
+                # and the shared "" otherwise. A --per-head slot is keyed on the
+                # head, and can only hold two PRs if one branch targets two
+                # bases -- so the imprecision is unreachable in the shapes this
+                # exemption exists for. Readers already render this key.
                 "violations": [
                     {
                         "author": author,
@@ -307,7 +356,7 @@ def main(argv: list[str] | None = None) -> int:
         print()
         return 1 if violations else 0
 
-    return report(args.repo, prs, args.per_base, args.contributor)
+    return report(args.repo, prs, args.per_base, args.per_head, args.contributor)
 
 
 if __name__ == "__main__":

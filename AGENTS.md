@@ -50,7 +50,8 @@ with a date looks checked.
    number, updates the index) — you draft, you never ratify.
 3. **Everything you produce arrives as a pull request.** Work on a branch —
    `evolve/<slug>` for org-level work, `perspective/<date>-<slug>` for a
-   perspective, `project/<name>` for one project's records — and open a PR
+   perspective, `project/<name>` for one project's records, `math/<slug>` for
+   one exploration against a research workspace — and open a PR
    for human review. Never commit to `main`, never merge into `main`, and
    never push `main` directly, however small, mechanical, or obviously
    correct the change looks. Ratification is not the only human gate; it is
@@ -110,8 +111,15 @@ with a date looks checked.
    a second PR that depends on the first. `one-pr-check.yml` enforces it and
    `project-seed/ci/check_one_pr.py` is the rule; in *this* repository each
    `project/<name>` branch holds its own slot, because each is pinned by a
-   different downstream submodule. That exemption is named in the workflow and
-   printed by the tool, and it is the only one.
+   different downstream submodule.
+   The second exemption is `math/<slug>`, one exploration against a research
+   workspace: each holds its own slot, because several are meant to be open at
+   once and none can reach `main` from where it sits. A workspace branch is
+   terminal, so the sequencing puzzle the slot rule exists to prevent cannot
+   form. `handbook/research-workspaces.md` is the standard, and an exploration's
+   base is always its workspace branch — never `main`.
+   Both exemptions are named in the workflow and printed by the tool, and there
+   are no others.
 4. **Check what your branch actually carries, before opening the PR.**
    `python project-seed/ci/check_pr_base.py --base <base> --head <branch>`
    reports the merge-base, the commit and file counts, the authors, and any

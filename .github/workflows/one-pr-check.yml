@@ -1,7 +1,7 @@
 name: One PR per contributor
 
 # This corpus's own copy of project-seed/ci/one-pr-check.yml. It differs from
-# the seed in exactly three ways, and all three are consequences of this being
+# the seed in exactly four ways, and all four are consequences of this being
 # the corpus rather than a project:
 #
 #   1. The script is at project-seed/ci/, not governance/qm/project-seed/ci/ --
@@ -14,13 +14,24 @@ name: One PR per contributor
 #      slot count would invent a dependency between them and hand the reviewer
 #      a worse artifact than the two it replaced.
 #
-#      This is the only known instance of that shape, and it is an exemption
-#      rather than a different rule: `main` still holds exactly one slot per
-#      contributor, and two pull requests against the *same* project branch
-#      still fail. The flag is printed in the tool's own output, because an
-#      exemption nobody can see in the result has stopped being one.
+#      It is an exemption rather than a different rule: `main` still holds
+#      exactly one slot per contributor, and two pull requests against the
+#      *same* project branch still fail. The flag is printed in the tool's own
+#      output, because an exemption nobody can see in the result has stopped
+#      being one.
 #
-#   3. `check_pr_base.py` runs here as a second step, refusing a pull request
+#   3. `--per-head 'math/*'` is passed. An exploration against a research
+#      workspace holds its own slot, because several are meant to be open at
+#      once and a workspace branch is terminal -- none of them can reach `main`
+#      from where it sits, so the sequencing puzzle the slot rule prevents
+#      cannot form. It is a *head* exemption because every exploration shares
+#      one base, and a base exemption would collapse them into a single slot.
+#      A head exemption is the wider of the two, and is bounded by pointing the
+#      glob only at a namespace that cannot reach the default branch.
+#      `math/*` is corpus-specific for the same reason `project/*` is, so
+#      neither belongs in the seed. See handbook/research-workspaces.md.
+#
+#   4. `check_pr_base.py` runs here as a second step, refusing a pull request
 #      from `project/<name>` into `main`. That branch namespace exists only in
 #      this repository -- a project's own repo has no `project/*` branches -- so
 #      in the seed the same step would be a check that can never fail, which is
@@ -66,7 +77,8 @@ jobs:
           python project-seed/ci/check_one_pr.py \
             --repo "$GITHUB_REPOSITORY" \
             --contributor "$PR_AUTHOR" \
-            --per-base 'project/*'
+            --per-base 'project/*' \
+            --per-head 'math/*'
         env:
           GH_TOKEN: ${{ github.token }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}

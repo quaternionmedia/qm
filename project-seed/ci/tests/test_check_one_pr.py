@@ -22,12 +22,13 @@ from conftest import CI_DIR, ENV, run_tool
 
 
 def pr(number: int, author: str, base: str = "main", bot: bool = False,
-       draft: bool = False, title: str = "A change") -> dict:
+       draft: bool = False, title: str = "A change", head: str | None = None) -> dict:
     return {
         "number": number,
         "title": title,
         "draft": draft,
         "base": {"ref": base},
+        "head": {"ref": head if head is not None else f"branch-{number}"},
         "user": {"login": author, "type": "Bot" if bot else "User"},
     }
 
@@ -132,6 +133,64 @@ def test_per_base_does_not_exempt_bases_outside_the_glob(tmp_path: Path) -> None
         [pr(1, "ada", base="main"), pr(2, "ada", base="main")],
         "--per-base",
         "project/*",
+    )
+    assert result.returncode == 1, result.stdout + result.stderr
+
+
+def test_per_head_glob_lets_parallel_explorations_share_one_base(
+    tmp_path: Path,
+) -> None:
+    """The shape --per-base cannot express: many heads, one base.
+
+    Three explorations against one research workspace are independent of each
+    other, and a base exemption would collapse all three into a single slot.
+    """
+    result = check(
+        tmp_path,
+        [
+            pr(1, "ada", base="workspace/math-experiments", head="math/goodhart"),
+            pr(2, "ada", base="workspace/math-experiments", head="math/drift"),
+            pr(3, "ada", base="workspace/math-experiments", head="math/variety"),
+        ],
+        "--per-head",
+        "math/*",
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_per_head_does_not_exempt_heads_outside_the_glob(tmp_path: Path) -> None:
+    """The exemption is the glob, not 'heads differ'.
+
+    Every pull request has its own head, so a rule keyed on difference alone
+    would exempt everything and enforce nothing.
+    """
+    result = check(
+        tmp_path,
+        [
+            pr(1, "ada", base="main", head="evolve/one"),
+            pr(2, "ada", base="main", head="evolve/two"),
+        ],
+        "--per-head",
+        "math/*",
+    )
+    assert result.returncode == 1, result.stdout + result.stderr
+
+
+def test_an_exempted_head_does_not_free_the_shared_slot(tmp_path: Path) -> None:
+    """An exploration is exempt; it does not also excuse ordinary work.
+
+    Two PRs to main are still two PRs to main when a math branch is open
+    alongside them.
+    """
+    result = check(
+        tmp_path,
+        [
+            pr(1, "ada", base="workspace/math-experiments", head="math/goodhart"),
+            pr(2, "ada", base="main", head="evolve/one"),
+            pr(3, "ada", base="main", head="evolve/two"),
+        ],
+        "--per-head",
+        "math/*",
     )
     assert result.returncode == 1, result.stdout + result.stderr
 

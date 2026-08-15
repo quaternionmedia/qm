@@ -59,16 +59,17 @@ project vendors this repo as a submodule and checks out its own branch; see
 
 ## Branch namespaces
 
-`main` carries the constitution and nothing else. Five namespaces hang off it,
+`main` carries the constitution and nothing else. Six namespaces hang off it,
 and a branch outside them is a mistake rather than a variation.
 
 | Namespace | Holds | Lifetime |
 |---|---|---|
 | `project/<name>` | one adopting project's `adr/` | permanent — a downstream submodule pins its tip |
-| `propagate/<name>-<date>` | `main` merged toward one `project/<name>` | deleted after merge |
+| `propagate/<target>-<date>` | `main` merged toward one `project/<name>` or `workspace/<slug>` | deleted after merge |
 | `perspective/<date>-<slug>` | one perspective, staged for `main` | deleted after merge |
 | `evolve/<slug>` | org-level work in progress | deleted after merge |
-| `workspace/<slug>` | a research workspace that never merges back | permanent, terminal |
+| `workspace/<slug>` | a research workspace that never merges back **to `main`** | permanent, terminal |
+| `math/<slug>` | one exploration against a research workspace | deleted after merge into that workspace |
 
 `propagate/*` was mandated by the propagation runbook and by the table below
 while this list said there were four namespaces and that anything outside them
@@ -90,7 +91,11 @@ project that was never set up.
 
 The mathematical-limits experiments live on `workspace/math-experiments` —
 non-binding, and reached from the perspective whose open questions they
-investigate.
+investigate. A workspace is terminal in one direction only: nothing goes from
+it to `main`, and `main` reaches it as a `propagate/*` pull request like any
+project branch. Explorations against it run in parallel on `math/<slug>`
+branches, several at a time by design, and do not consume the one-open-pull-
+request slot. `handbook/research-workspaces.md` is the standard.
 
 **A `project/<name>` branch is never merged into `main`.** Not once, not
 squashed, not "just the shared part". It exists in perpetuity and holds exactly
@@ -223,6 +228,7 @@ Handbook (policy, not records):
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
 | `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
 | `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
+| `handbook/research-workspaces.md` | What a workspace binds, how `main` reaches one, and how explorations run in parallel |
 | `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |
 | `handbook/handoffs/` | Work an asynchronous agent can pick up cold, and the order between the pieces |
 
