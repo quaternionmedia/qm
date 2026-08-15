@@ -209,6 +209,7 @@ given day.
 | — | [One executable walkthrough per repository](records/DRAFT-one-executable-walkthrough.md) | Proposed | 2026-08-11 |
 | — | [The read document governs](records/DRAFT-the-read-document-governs.md) | Proposed | 2026-08-14 |
 | — | [Governance arrives as a mechanism](records/DRAFT-governance-arrives-as-a-mechanism.md) | Proposed | 2026-08-14 |
+| — | [The ledger](records/DRAFT-the-ledger.md) | Proposed | 2026-08-15 |
 
 **Every record is `Proposed`, and that is a decision rather than a backlog:
 ratification waits on a second active code owner.** GitHub does not count a
@@ -230,6 +231,7 @@ Handbook (policy, not records):
 | `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
 | `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |
 | `handbook/gates.md` | **Generated.** Every automated check, what it refuses, what it cannot see, and whether any of it blocks a merge |
+| `handbook/glossary.md` | Words this corpus uses narrowly, and the ones it uses in more than one sense |
 | `handbook/handoffs/` | Work an asynchronous agent can pick up cold, and the order between the pieces |
 
 ### Obligations that fall due at ratification

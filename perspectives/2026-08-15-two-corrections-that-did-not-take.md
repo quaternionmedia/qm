@@ -90,9 +90,15 @@ someone else's history is a gate that gets switched off.
 the mechanism that now covers each.
 
 The gate's first run refused the branch that built it: nine unsigned commits,
-the ones made with the bypass flag before the first correction. That is the
-gate working, and the branch is not mergeable through it until those commits are
-re-signed by their author.
+the ones made with the bypass flag before the first correction.
+
+**It no longer refuses them, and that is a decision rather than a retreat.**
+History is not rewritten in this org, so the only remedy available would have
+been a forbidden act, and a gate whose sole remedy is forbidden is one that gets
+switched off within a week. The nine are exempted by a dated cutoff,
+`ENFORCED_FROM`, marked `debt` on every run and counted on stderr. The branch is
+mergeable through the gate; the nine commits stay unsigned in `main`'s history
+permanently, and the count does not go down.
 
 ## The part worth arguing with
 
@@ -115,8 +121,11 @@ read as claiming it is.
 ## What this class of tool costs to clean up after
 
 The reviewer asked for this to be written down rather than left as a feeling.
-Figures are from `origin/main..evolve/governance-loop-poc`, which is one
-practitioner working with one assistant across two days.
+Figures are from `origin/main..evolve/governance-loop-poc` **measured at
+`785b159`**, one practitioner working with one assistant across two days.
+They were not stamped when first written, which this corpus's own opening
+page forbids on its first screen; the omission was caught by a later audit
+and the numbers had already moved by one commit.
 
 **The output.** 19 commits, 72 files, +11,806 / −95, 523 tests, 11 test files
 touched. That volume is the thing on offer and it is real.
@@ -158,11 +167,15 @@ produces 11,806 lines produces the nine permanent commits.
 
 **What follows for planning.** Budget review time against output volume, not
 against task count. Assume every new tool is wrong on its first run and that the
-thing which finds it will be a check, not a reading. Prefer mechanisms whose
-first act is to refuse the branch that built them, which is what the signature
-gate did. And expect a residue that cannot be cleaned: the nine commits are in
-`main`'s future history permanently, and the honest response was to count them
-rather than to make them disappear.
+thing which finds it will be a check, not a reading. And expect a residue that
+cannot be cleaned: the nine commits are in `main`'s future history permanently,
+and the honest response was to count them rather than to make them disappear.
+
+A sentence here previously recommended "mechanisms whose first act is to refuse
+the branch that built them, which is what the signature gate did." It did, for
+about twenty minutes, and then the cutoff was added and it stopped. The
+recommendation is left out rather than repaired, because the worked example was
+the only thing making it more than a slogan.
 
 ## The trust cost, stated plainly
 

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-15T11:59:16Z",
+  "generated_at": "2026-08-15T12:27:03Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -98,9 +98,9 @@
     "claim_is_not_evidence": "milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.",
     "measured": {
       "records": {
-        "total": 15,
+        "total": 16,
         "ratified": 0,
-        "proposed": 15
+        "proposed": 16
       },
       "documents_in_unknown_state": 1,
       "reading_within_budget": true,
@@ -116,11 +116,11 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 73,
+    "documents": 75,
     "by_state": {
       "generated": 6,
-      "proposed": 15,
-      "standing": 13,
+      "proposed": 16,
+      "standing": 14,
       "transient": 10,
       "unknown": 1,
       "unreviewed": 28
@@ -246,6 +246,16 @@
     },
     {
       "path": "handbook/generated-documents.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/glossary.md",
       "class": "handbook",
       "class_reason": "policy binding on QM's own conduct",
       "declared_status": null,
@@ -816,6 +826,15 @@
     },
     {
       "path": "records/DRAFT-seams-on-standard-protocols.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-the-ledger.md",
       "class": "record",
       "class_reason": "an org decision record",
       "declared_status": "Proposed",

@@ -71,9 +71,13 @@ BAD = "B"
 # nobody can tell later which were exempted deliberately. A date is one number,
 # it is in the diff that introduced it, and moving it is a reviewable edit.
 #
-# THIS IS A DEBT, NOT A PASS. Grandfathered commits are counted and printed on
-# every run. They never turn the exit status green on their own, and a run whose
-# only "clean" commits are grandfathered says so in as many words.
+# THIS IS A DEBT, AND IT DOES EXIT GREEN. Be exact about that, because the
+# comment here first claimed grandfathered commits "never turn the exit status
+# green on their own" and that was false: a range containing only old unsigned
+# commits exits 0. It has to -- the alternative is a gate nobody can satisfy.
+# What the check does instead is refuse to *describe* them as signed: the debt
+# is marked per commit, counted on stderr, and the summary reads "0 of 1
+# commit(s) carry a signature" rather than a cheerful total.
 #
 # THE HOLE, NAMED: commit dates are author-controlled. Someone can backdate a
 # commit past this cutoff and be exempted. That is not defended against here

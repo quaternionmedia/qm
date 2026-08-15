@@ -104,14 +104,19 @@ def test_it_runs_without_the_package_installed():
     near it.
 
     `-S` skips `site`, so site-packages is not on the path and the installed
-    distribution is invisible. Without the path insertion in cli.py this exits
-    1 with ModuleNotFoundError; with it, 0.
+    distribution is invisible. Without the path insertion in cli.py the import
+    fails outright.
+
+    Asserted on the import failure rather than on exit 0: the routed command's
+    own verdict depends on corpus state, and a test that failed whenever an
+    unrelated record went out of pair would be noise dressed as a regression.
     """
     result = subprocess.run(
         [sys.executable, "-S", str(CI_DIR / "cli.py"), "restatements"],
         capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=str(CORPUS),
     )
-    assert result.returncode == 0, result.stdout + result.stderr
+    assert "ModuleNotFoundError" not in result.stderr, result.stderr
+    assert "No module named 'ci'" not in result.stderr, result.stderr
 
 
 # --- it runs in the corpus, or not at all ----------------------------------
