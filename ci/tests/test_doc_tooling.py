@@ -131,6 +131,17 @@ def test_the_index_disagreeing_with_the_file_is_reported(tmp_path: Path):
     assert "the index is the authority" in find(doc, "perspectives/a.md")["disagreement"]
 
 
+def test_an_index_row_naming_a_missing_file_is_reported(tmp_path: Path):
+    """Checking one direction only is how a perspective got indexed here before
+    it was written, and nothing said so."""
+    corpus(tmp_path)
+    write(tmp_path / "perspectives" / "README.md",
+          "| 2026-01-01 | `ghost.md` | Someone | Perspective | Unreviewed | note |\n")
+    doc = build(tmp_path)
+    assert states(doc)["perspectives/ghost.md"] == "unknown"
+    assert "not on disk" in find(doc, "perspectives/ghost.md")["why_unknown"]
+
+
 def test_an_index_is_not_a_member_of_what_it_indexes(tmp_path: Path):
     """Asking perspectives/README.md for a status reported the index as unknown."""
     corpus(tmp_path)

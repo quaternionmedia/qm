@@ -263,6 +263,17 @@ def row(path: Path, root: Path, index: dict[str, str] | None = None) -> dict:
                 )
         return entry
 
+    if kind == "perspective" and not present:
+        # Indexed and absent. Not `unknown` -- the state is perfectly readable,
+        # the document is missing, and those are different facts.
+        entry["state"] = "unknown"
+        entry["present"] = False
+        entry["why_unknown"] = (
+            "the perspectives index names this file and it is not on disk. An "
+            "index row is a claim that something exists"
+        )
+        return entry
+
     if kind == "perspective":
         # The index is the authority here, not the file. Most perspectives carry
         # no Status row of their own, and perspectives/README.md states that the
@@ -363,6 +374,16 @@ def build(root: Path) -> dict:
         raise SystemExit(f"{root}: no governed documents found -- nothing was measured")
 
     index = perspective_index(root)
+
+    # An index row naming a file that does not exist. The reverse -- a file with
+    # no row -- was already caught, and checking one direction only is how a
+    # perspective got indexed here before it was written. `check_restatements.py`
+    # got this right in the same session that got it wrong here.
+    for name in index:
+        rel = f"perspectives/{name}"
+        if rel not in found:
+            found.add(rel)
+
     rows = [row(root / rel, root, index) for rel in sorted(found | set(GENERATED))]
 
     by_state: dict[str, int] = {}

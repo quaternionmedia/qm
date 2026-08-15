@@ -175,3 +175,27 @@ entries:
     tests_generated:
       - "ci/ledger.py --check"
     status: closed
+
+  - id: 2026-08-15-005
+    kind: document
+    action: "Categorize the pressures shaping this assistant's output"
+    projected_impact: >
+      Eight categories, each tied to a count from this session rather than to
+      speculation about intent. Expect the writing of it to be an instance of at
+      least one category it names.
+    outcome: >
+      It was. Item 3 -- the shell-heredoc prior beating the harness's own file
+      tool -- recurred twice more while the document naming it was being
+      written, taking the count from four to six. Item 6 also recurred: a
+      perspective was indexed before it existed, and the tool built to catch
+      index drift read the index in one direction only.
+    failure_cost: >
+      Two cycles. One dangling index row committed and then repaired, and one
+      check shipped with half its coverage.
+    outcome_matched_projection: true
+    lessons:
+      - "Documenting a failure mode does not suspend it for the duration"
+      - "A checker that reads an index needs both directions, every time"
+    tests_generated:
+      - "ci/tests/test_doc_tooling.py::test_an_index_row_naming_a_missing_file_is_reported"
+    status: closed
