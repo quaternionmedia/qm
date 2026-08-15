@@ -120,6 +120,27 @@ jobs:
         run: |
           python project-seed/ci/check_attribution.py             --records-dir records             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
 
+      # A record whose summary lives in an entry point declares where, and the
+      # entry point names the record back. records/DRAFT-the-read-document-governs.md
+      # §6. This pairs declarations; it cannot tell that a summary and its record
+      # disagree, and it cannot find a restatement nobody declared -- the tool
+      # prints both limits on every run so a green tick here is not read as more
+      # than it is.
+      - name: Every declared restatement names its record, and the reverse
+        run: python ci/check_restatements.py
+
+      # A seed carries placeholders on purpose; a copy that keeps one is a
+      # template being shown to its reader. Guarded on the directory existing, so
+      # it is a logged skip on main and a real check on a project/<name> branch --
+      # which is the only place an adr/ copy exists.
+      - name: No copy shows a template to its reader
+        run: |
+          if [ -d adr ]; then
+            python project-seed/ci/check_placeholders.py               --seed project-seed/adr --copy adr
+          else
+            echo 'No adr/ on this branch; no copy to check.'
+          fi
+
       - name: Lint this branch's project records
         run: |
           if [ -d adr ]; then

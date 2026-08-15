@@ -3,6 +3,11 @@
 !!! info "Quick reference only"
     These are short definitions. The linked sources are authoritative.
 
+    For the words this corpus uses in **more than one sense** — *draft*, *review*,
+    *gate*, *phase*, *delta*, *status*, *seed* — see
+    [`handbook/glossary.md`](https://github.com/quaternionmedia/qm/blob/main/handbook/glossary.md).
+    That page disambiguates; this one defines. Where the two differ, that one governs.
+
 **Adoption by reference**
 : The QM adoption model. A project's records live on a `project/<name>` branch of the corpus repository, and the project mounts the corpus as a git submodule checked out on that branch. Updates arrive by merge, never by copy. See [Architecture](../about/architecture.md).
 

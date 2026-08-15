@@ -40,6 +40,44 @@
 
 schema: 1
 
+# --- Org-level parameters: what this corpus is working toward ---------------
+#
+# THIS IS A CLAIM, like every `phase` below it. A human states the milestone and
+# what it requires; nothing here is derived from the repository, and nothing in
+# the repository is edited to match it. `ci/doc_status.py` reads this block into
+# `doc-status.json`'s `readiness` layer and reports the *measured* figures beside
+# it, so the gap between what was declared and what is true survives.
+#
+# `version` is the corpus's own, and it is deliberately null: `qm` carries no
+# `v*` tag, and per records/DRAFT-version-tags-are-claims.md 4 an untagged
+# repository has made no release claim. Writing a number here would be the
+# release claim the record says a tag is the only way to make.
+
+milestone:
+  name: alpha
+  target_version: v0.1.0
+  version: null            # no v* tag on this corpus; nothing is claimed
+  version_source: "records/DRAFT-version-tags-are-claims.md 4"
+  audience: >
+    Developers and power users outside QM, onboarded as testers. They read the
+    corpus cold, with none of the session history that built it.
+  requires:
+    - id: ratification-rehearsed
+      what: "At least one record ratified end to end, so the five-step path has been walked once"
+      measured_by: "doc-status.json readiness.records.ratified"
+    - id: reading-within-budget
+      what: "Mandatory reading before a first edit stays under its budget"
+      measured_by: "doc-status.json reading_load.within_budget"
+    - id: no-unknown-document-states
+      what: "Every governed document's state can be established"
+      measured_by: "doc-status.json totals.unknown"
+    - id: gates-declared-are-built
+      what: "No gate is declared and unbuilt, or the gap is deliberate and named"
+      measured_by: "gate-status.json totals.declared_not_built"
+    - id: semantic-review-done
+      what: "All records read in one sitting for contradiction, which no check can do"
+      measured_by: "not mechanisable -- a human says so, in a handoff or a record"
+
 repositories:
   - name: qm
     role: corpus

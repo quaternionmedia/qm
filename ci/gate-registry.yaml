@@ -1,0 +1,231 @@
+# The gate registry: every automated check this org runs, what it refuses, and
+# what it cannot see.
+#
+# This file is the modular half of the gate index. `ci/gate_index.py` renders
+# exactly what is listed here and discovers, separately, what is actually on
+# disk. Adding a gate is an edit to this file, reviewed like any other change,
+# and requires no code.
+#
+# NOTHING HERE IS EVIDENCE. This file holds what a human asserts each gate does.
+# What is actually present -- which workflow files exist, what triggers them,
+# which jobs they declare -- is discovered from `.github/workflows/` and shown
+# beside the claim, so a gate that was described and never built, or built and
+# never described, is visible rather than assumed. That is the same split
+# `ci/workspace.yaml` and `ci/governance_status.py` keep, and for the same
+# reason.
+#
+# `cannot_see` IS THE LOAD-BEARING FIELD. Every defect this corpus has found in
+# its own tooling was a check that reported success while enforcing nothing: a
+# lint whose glob matched no files, a runner using the wrong shell mode, an
+# append-only check asking a superproject for a diff inside a submodule. A gate
+# with an empty `cannot_see` is not a thorough gate; it is an undescribed one,
+# and the index prints it as a gap.
+#
+# `gates` NAMES WHAT THE CHECK STANDS IN FRONT OF, and the values are not
+# interchangeable:
+#
+#   main     it runs on pull requests into the default branch
+#   tag      it runs on a `v*` push and judges the tag, not the branch
+#   push     it runs on direct pushes as well, so it also reports on landed work
+#
+# `exists: false` IS A DECLARATION, NOT A LIE. A gate listed here without an
+# implementation is a rule this org has decided on and not yet made mechanical.
+# The index prints it as DECLARED and the count of them is the honest measure of
+# how much of this governance is still customary. Deleting the entry to make the
+# page green is the one edit this file forbids.
+
+schema: 1
+
+gates:
+  - id: adr-lint
+    workflow: adr-lint.yml
+    job: adr-lint
+    gates: [main, push]
+    seed: true
+    exists: true
+    refuses: >
+      A record whose header table, status or index row is malformed; banned
+      narration vocabulary in a pre-ratification draft; a vendor or model name
+      in a record's prose or a commit subject; a seed copy still showing its
+      template placeholder to a reader; a record whose declared restatement
+      does not name it back.
+    runs:
+      - project-seed/ci/adr_lint.py
+      - project-seed/ci/check_attribution.py
+      - project-seed/ci/check_placeholders.py
+      - ci/check_restatements.py
+    enforces:
+      - records/DRAFT-decision-record-discipline.md
+      - records/DRAFT-human-only-contributorship.md
+      - records/DRAFT-the-read-document-governs.md
+      - records/DRAFT-governance-arrives-as-a-mechanism.md
+    cannot_see: >
+      Whether a record is correct, or whether a restatement and its record
+      agree -- it pairs declarations and compares no text. Three of its four
+      sub-checks cannot fire on any ref CI runs against, which is a known
+      finding and not yet fixed.
+
+  - id: one-pr-slot
+    workflow: one-pr-check.yml
+    job: slot
+    gates: [main]
+    seed: true
+    exists: true
+    refuses: >
+      A pull request whose author already holds an open slot in this
+      repository. It fails every one of them rather than picking a survivor.
+    runs:
+      - project-seed/ci/check_one_pr.py
+    enforces:
+      - handbook/async-contract.md
+    cannot_see: >
+      Whether the two pull requests are actually related. It counts slots, not
+      subject matter, and the `--per-base` exemption is a glob somebody passes.
+
+  - id: namespace-guard
+    workflow: namespace-guard.yml
+    job: namespace
+    gates: [main, push]
+    seed: false
+    exists: true
+    refuses: >
+      A pull request opened in the wrong direction between namespaces, and a
+      project branch whose own commits touch anything outside `adr/`.
+    runs:
+      - project-seed/ci/check_pr_base.py
+    enforces:
+      - README.md
+    cannot_see: >
+      A branch cut from the wrong parent whose direction is nonetheless legal.
+      `check_pr_base.py` reports the inheritance; nothing fails on it.
+
+  - id: ci-tooling-tests
+    workflow: ci-tooling-tests.yml
+    job: tests
+    gates: [main, push]
+    seed: false
+    exists: true
+    refuses: >
+      A change to the CI tooling that breaks its own test suite.
+    runs:
+      - python -m pytest project-seed/ci/tests ci/tests
+    enforces: []
+    cannot_see: >
+      Whether a passing test discriminates. A test that passes against the
+      broken tool is inert, and this corpus has shipped two of those -- only a
+      mutation pass finds them, and no gate runs one.
+
+  - id: governance-status
+    workflow: governance-status.yml
+    job: check
+    gates: [main, push]
+    seed: false
+    exists: true
+    refuses: >
+      A committed `governance-status.yaml` that no longer renders the commits
+      it names, and a rendered view that has drifted from it.
+    runs:
+      - ci/governance_status.py --check
+    enforces:
+      - handbook/generated-documents.md
+    cannot_see: >
+      Whether the document is current. It checks faithfulness to the refs it
+      names, not age -- a document generated from unfetched refs passed this
+      once, which is why the workflow fetches first.
+
+  - id: reuse-lint
+    workflow: reuse-lint.yml
+    job: reuse
+    gates: [main, push]
+    seed: true
+    exists: true
+    refuses: >
+      A file with no copyright or licence information, a bad or deprecated
+      SPDX expression, or an unused licence file.
+    runs:
+      - python -m reuse lint
+    enforces:
+      - records/DRAFT-outbound-licensing.md
+      - records/DRAFT-open-license-exclusion-and-upstream-remediation.md
+    cannot_see: >
+      Whether the licence asserted is the licence intended, or whether a
+      dependency's licence is compatible with it.
+
+  - id: symlink-integrity
+    workflow: symlink-integrity.yml
+    job: symlinks
+    gates: [main, push]
+    seed: false
+    exists: true
+    refuses: >
+      A pointer file that has stopped being a symlink -- mode other than
+      120000 -- which is how a Windows checkout silently forks a shared
+      document into two.
+    runs:
+      - .github/workflows/symlink-integrity.yml
+    enforces:
+      - records/DRAFT-ide-integrated-governance-discovery.md
+    cannot_see: >
+      A rule missing from one of the two genuinely different AGENTS.md files.
+      They are not symlinked to each other, so this check cannot notice them
+      disagreeing.
+
+  - id: tag-claims
+    workflow: tag-claims.yml
+    job: claims
+    gates: [tag]
+    seed: true
+    exists: true
+    refuses: >
+      A pushed `v*` tag that is lightweight, misnamed, or whose annotation is
+      missing `Reviewed-by`, `Manually-tested`, `Automated-gate` or
+      `Not-covered`.
+    runs:
+      - project-seed/ci/check_tag_claims.py
+    enforces:
+      - records/DRAFT-version-tags-are-claims.md
+    cannot_see: >
+      Whether the review or the manual test happened -- it reads an annotation
+      a human wrote. It does not gate tag creation, which needs a host-side
+      tag-protection ruleset, and it runs after the tag exists.
+
+  - id: secret-scan
+    workflow: null
+    job: GitGuardian Security Checks
+    gates: [main]
+    seed: false
+    exists: true
+    external: true
+    refuses: >
+      A commit introducing a credential the scanner recognises.
+    runs: []
+    enforces: []
+    cannot_see: >
+      Everything about how it is configured. It is an installed application
+      with no workflow file in this repository and no record describing it, so
+      nothing here states what it scans, who can dismiss a finding, or what
+      happens if it is uninstalled. It appears on pull requests and that is the
+      whole of what this corpus knows about it.
+
+  - id: commit-signatures
+    workflow: signature-check.yml
+    job: signatures
+    gates: [main]
+    seed: true
+    exists: true
+    refuses: >
+      A branch carrying a commit with no verifiable signature.
+    runs:
+      - project-seed/ci/check_signatures.py
+    enforces:
+      - records/DRAFT-human-only-contributorship.md
+    cannot_see: >
+      Whether the signer is the person named in the author field, beyond what
+      the key attests. It would establish that an attestation exists, which is
+      currently established for nothing.
+    note: >
+      `commit.gpgsign` is true in this clone and signing works. Signatures
+      stopped on 2026-08-12 at 23:29, mid-branch, immediately after a signed
+      commit, and every commit since is unsigned. `origin/main`'s last 60
+      commits carry no signature; across all refs the repository holds 201
+      signed, 73 unsigned and 41 that cannot be checked. Nothing looks at this.

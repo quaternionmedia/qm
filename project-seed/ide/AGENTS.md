@@ -54,24 +54,35 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
    the submodule, on this project's own branch, not at this repo's root — as
    `ADR-NNNN` (numbered locally, at ratification) or `DRAFT-*.md` before
    ratification. A human ratifies; you draft.
-3. **Everything you produce arrives as a pull request, opened as a draft.**
-   Work on a branch and open a PR with `gh pr create --draft` — in this repo,
-   and in the `governance/qm` submodule when you touch this project's records
-   there. Never commit to, merge into, or push a shared branch directly, and
-   never merge your own work, however small or mechanical the change looks.
-   If you cannot open a PR, hand the branch back rather than merging it.
-   **Draft is load-bearing, and never request a review.** A ready PR against a
-   branch carrying `CODEOWNERS` requests review from those owners the moment it
-   opens — you name no one, and the notification cannot be recalled. So "open a
-   PR for human review", read literally, is the act of pulling a second person
-   into work nobody has tested. A draft PR fires none of it. Add the person who
-   asked for the work as **assignee**, which is also how you reach them when
-   they authored the branch and GitHub therefore refuses a review request on
-   it. Leaving draft is their call, made after their own testing.
+3. **Everything you produce arrives as a pull request, and the pull request is
+   an audit record rather than a request for anyone's attention.** Work on a
+   branch and open a PR — in this repo, and in the `governance/qm` submodule
+   when you touch this project's records there — then **merge it yourself once
+   every gate is green.** Your job is a default branch that is clean and
+   working, entered through a pull request so the gates ran and the diff stays
+   readable afterwards. **Never push a shared branch directly**: that is the
+   one act that destroys the audit record.
+   **The default branch is not a claim, so merging into it is not a release.**
+   Per `governance/qm/records/DRAFT-version-tags-are-claims.md` §4, the default
+   branch, a pull request and a local build are all drafts — they may be
+   perfectly good and they assert nothing. **The two human gates are
+   ratification, for what a record says, and the version tag, for what this
+   project ships.** A `v*` tag asserts a human reviewed the change set, a human
+   manually tested it against its real runtime, and deterministic automated
+   validation passed. Keeping the default branch clean is what makes cutting
+   one cheap.
+   **Never request a review**, and add the person who asked for the work as
+   **assignee**. Reviewers are named at the tag, by the human cutting it. A
+   review request pulls a second person into work that asserts nothing yet, and
+   against a branch carrying a live `CODEOWNERS` it fires the moment the PR
+   opens — you name no one, and the notification cannot be recalled.
+   **Draft means unfinished, and nothing else.** It is not a holding pen for
+   finished work: a green PR left in draft is a change that never landed.
    **Keep it to one open PR per repository, per contributor.** Not one per
-   task. Two PRs that must merge in a given order are a sequencing puzzle
-   handed to your reviewer. Land the upstream change first and let propagation
-   carry it. `.github/workflows/one-pr-check.yml` enforces this; run
+   task. This is a sequencing constraint — two PRs that must merge in a given
+   order are a puzzle — and not a bandwidth one, since a green PR frees its own
+   slot. Land the upstream change first and let propagation carry it.
+   `.github/workflows/one-pr-check.yml` enforces this; run
    `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
 4. **Human-only contributorship applies to every commit you make here** (see
    `governance/qm/records/DRAFT-human-only-contributorship.md`): do not add

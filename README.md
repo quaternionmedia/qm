@@ -17,10 +17,30 @@ This repository holds the decisions that govern every Quaternion Media project: 
 |---|---|
 | Know what QM believes and why | [PRINCIPLES.md](PRINCIPLES.md) — the charter, eleven principles |
 | Understand how the corpus works | [Overview](docs/about/overview.md) and [Architecture](docs/about/architecture.md) |
-| Set up a new QM project | [Forking a new project](docs/usage/first-project.md) |
-| Learn the branch and record rules | [Branch namespaces](docs/ref/namespaces.md) and [Record precedence](docs/ref/precedence.md) |
-| See where every project stands | [governance-status.yaml](governance-status.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
+| Read a specific decision | the index at the end of this file; each row links to its record |
 | Work here as a coding agent | [AGENTS.md](AGENTS.md) — read it before your first commit; start with `/cowork` |
+| Run any of it | `uv run qm --help` — one entry point for every governance operation here |
+| Run several agent sessions at once | [handbook/async-contract.md](handbook/async-contract.md) — one PR per repo per contributor, and why |
+| Set up a new QM project | [Forking a new project](docs/usage/first-project.md) |
+| Bring an existing project up to date | [handbook/propagation-runbook.md](handbook/propagation-runbook.md) |
+| Learn the branch and record rules | [Branch namespaces](docs/ref/namespaces.md) and [Record precedence](docs/ref/precedence.md) |
+| Know how far this corpus has got in governing itself | [handbook/governance-rollout.md](handbook/governance-rollout.md) |
+| See where every project stands | [governance-status.yaml](governance-status.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
+| Know which checks actually govern, and what each one misses | [handbook/gates.md](handbook/gates.md) — says plainly whether anything blocks a merge |
+| Know what state a document is in before trusting it | [handbook/document-states.md](handbook/document-states.md), or `uv run qm docs states --state proposed` |
+| Look up a word this corpus uses in its own way | [handbook/glossary.md](handbook/glossary.md) |
+
+Three things are worth knowing before anything else:
+
+1. **Records in `records/` are the only binding documents.** Everything else
+   points at them. `perspectives/` is opinion and binds nothing.
+2. **Every record is `Proposed`.** None is ratified, and that is deliberate —
+   ratification waits on a second active code owner, because a gate one person
+   can satisfy alone is a gate in name only.
+3. **Every change arrives as a pull request**, from a typo to a new record. The
+   pull request is an audit record, not a request for attention: its author
+   merges it once every gate is green. The two human gates are ratification and
+   the version tag, and neither is the pull request.
 
 ## Layout
 
@@ -59,12 +79,29 @@ qm/
 | — | [The project phase ladder](records/DRAFT-project-phase-ladder.md) | Proposed | 2026-08-09 |
 | — | [The monitoring seam, and instance identity](records/DRAFT-monitoring-seam-and-instance-identity.md) | Proposed | 2026-08-11 |
 | — | [One executable walkthrough per repository](records/DRAFT-one-executable-walkthrough.md) | Proposed | 2026-08-11 |
+| — | [The read document governs](records/DRAFT-the-read-document-governs.md) | Proposed | 2026-08-14 |
+| — | [Governance arrives as a mechanism](records/DRAFT-governance-arrives-as-a-mechanism.md) | Proposed | 2026-08-14 |
+| — | [The ledger](records/DRAFT-the-ledger.md) | Proposed | 2026-08-15 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so a gate one person can satisfy alone would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
 ## Contributing
 
-Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/namespaces.md) lists them, and a branch outside them is a mistake rather than a variation. Open a draft pull request (`gh pr create --draft`) and assign the person who asked for the work. A human reviews and merges. See [Branch namespaces](https://quaternionmedia.github.io/qm/ref/namespaces/) and [handbook/async-contract.md](handbook/async-contract.md).
+Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/namespaces.md) lists them, and a branch outside them is a mistake rather than a variation. Open a pull request, assign the person who asked for the work, request no reviewer, and merge it yourself once every gate is green. See [handbook/async-contract.md](handbook/async-contract.md).
+
+| Page | What it answers |
+|---|---|
+| `handbook/forking-a-project.md` | Standing up a new project, with the check that proves each step worked |
+| `handbook/governance-rollout.md` | How far this corpus has got in governing itself, and what ratification waits on |
+| `handbook/propagation-runbook.md` | How an org change reaches an adopted project, in both repositories |
+| `handbook/adoption-audit-queue.md` | Which projects are audited, and how the next agent runs the rest |
+| `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
+| `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
+| `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
+| `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |
+| `handbook/gates.md` | **Generated.** Every automated check, what it refuses, what it cannot see, and whether any of it blocks a merge |
+| `handbook/glossary.md` | Words this corpus uses narrowly, and the ones it uses in more than one sense |
+| `handbook/handoffs/` | Work an asynchronous agent can pick up cold, and the order between the pieces |
 
 ## Licence
 

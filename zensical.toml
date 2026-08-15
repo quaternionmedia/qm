@@ -114,50 +114,25 @@ attr_list = {}
 def_list = {}
 footnotes = {}
 md_in_html = {}
-toc = {
-  permalink = true
-}
+toc = { permalink = true }
 [project.markdown_extensions.pymdownx]
 
-arithmatex = {
-  generic = true
-}
+arithmatex = { generic = true }
 betterem = {}
 caret = {}
 details = {}
-emoji = {
-  emoji_generator = "zensical.extensions.emoji.to_svg",
-  emoji_index = "zensical.extensions.emoji.twemoji",
-}
-highlight = {
-  anchor_linenums = true,
-  line_spans = "__span",
-  pygments_lang_class = true,
-}
+emoji = { emoji_generator = "zensical.extensions.emoji.to_svg", emoji_index = "zensical.extensions.emoji.twemoji" }
+highlight = { anchor_linenums = true, line_spans = "__span", pygments_lang_class = true }
 inlinehilite = {}
 keys = {}
 magiclink = {}
 mark = {}
 smartsymbols = {}
-snippets = {
-#   base_path = "includes",
-}
-superfences = {
-  custom_fences = [
-    {
-      name = "mermaid",
-      class = "mermaid",
-      format = "pymdownx.superfences.fence_code_format",
-    },
-  ],
-}
-tabbed = {
-  alternate_style = true,
-  combine_header_slug = true
-}
-tasklist = {
-  custom_checkbox = true
-}
+# snippets takes base_path = "includes" when there is an includes/ directory.
+snippets = {}
+superfences = { custom_fences = [ { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" } ] }
+tabbed = { alternate_style = true, combine_header_slug = true }
+tasklist = { custom_checkbox = true }
 tilde = {}
 
 [project.markdown_extensions.zensical.extensions.preview]

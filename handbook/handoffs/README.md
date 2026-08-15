@@ -13,13 +13,23 @@ between them are recorded here rather than inside each one.
 
 ## The queue
 
+**Ordered by expected delta**, highest first, against the current milestone:
+*managing qmcp's flows with dossier by planning deltas*. The first three are one
+chain — each is the next page's blocker — so taking them out of order buys
+nothing.
+
 | Handoff | Blocks on | Repo |
 |---|---|---|
-| [`dossier-delta-review.md`](dossier-delta-review.md) | nothing | dossier |
-| [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
+| [`semantic-review-of-the-records.md`](semantic-review-of-the-records.md) | nothing — the one milestone requirement no check can measure. Fifteen records read as one body, in dependency order, before strangers read them. Unblocks the ratification rehearsal | qm |
+| [`two-gate-and-tag-teeth.md`](two-gate-and-tag-teeth.md) | nothing — **read this second**: the pull request is an audit record and the human gate is the tag. Several pages below predate that and describe a draft PR as waiting for a person. Names both pushed branches, the four blocked items, and the one-schema decision | every repo |
+| [`for-a-stronger-model.md`](for-a-stronger-model.md) | nothing — **read this first**: what to distrust in the other pages, and why | every repo |
+| [`governance-loop-poc.md`](governance-loop-poc.md) | its branch is `evolve/governance-loop-poc`, pushed, no PR — `qm`'s slot holds #56 and #57. Phase 1 complete, 35/35 green; Phase 2's schema is consolidated into the delta entity, which moves it behind `dossier`'s delta branch | qm (Phase 1), then dossier + qmcp |
+| [`qmcp-flows-as-deltas.md`](qmcp-flows-as-deltas.md) | the milestone, and the four-step path to it. Step 1 is **done** — folded into qmcp #21, now the demo branch, fixing that repo's 19 red tests. Step 2 next | qmcp + dossier |
+| [`dossier-delta-review.md`](dossier-delta-review.md) | step 3 of that path. Two alembic heads to fix, and dossier's slot is held by #12 | dossier |
+| [`disk-tooling.md`](disk-tooling.md) | **built**; its item 3 is now answered by the delta review — the orphan tables are in progress. Items 1, 2 and 4 want a decision | qm + dossier |
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
-| [`disk-tooling.md`](disk-tooling.md) | nothing — built; four items wanting a decision, one of which blocks the delta review | qm + dossier |
-| [`session-2026-08-11.md`](session-2026-08-11.md) | nothing — where the 2026-08-10/11 session left things, and the decisions waiting | every repo |
+| [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
+| [`session-2026-08-12.md`](session-2026-08-12.md) | nothing — where the 2026-08-11/12 session left things, and the decisions waiting | every repo |
 
 **Three pages are gone rather than marked done**, per the routing rule above.
 `workspace-unlanded.md` first: both decisions it opened with are settled —
@@ -51,16 +61,20 @@ project branch is: all twelve fell behind again when #38 and #41 landed. Read
 
 **One open pull request per repository, per contributor.** Not one per task.
 If your slot already holds an open PR, add to it or wait — do not open a
-second. This is a review-bandwidth constraint, not a style preference. In this
-repo each `project/*` branch holds its own slot, because each is pinned by a
-different downstream submodule; in a project repo it means one, full stop.
+second. This is a sequencing constraint, not a bandwidth one: a green PR is
+merged by its author and frees its own slot, so the limit binds only on
+unfinished work. In this repo each `project/*` branch holds its own slot,
+because each is pinned by a different downstream submodule; in a project repo
+it means one, full stop.
 
 `handbook/async-contract.md` §1 is the rule and the reasoning;
 `project-seed/ci/check_one_pr.py` is the check, and `one-pr-check.yml` runs it
 on every pull request. Run it before you open anything.
 
-**Open it as a draft, and never request a review.** Add the person who asked
-for the work as assignee. Leaving draft is their decision.
+**Never request a review, and merge it yourself once the gates are green.**
+Add the person who asked for the work as assignee. The pull request is the
+audit record; the human gates are ratification and the version tag. Draft
+means unfinished.
 
 **Close a PR before pushing its commits onto its base branch.** Pushing a
 head's commits onto its base *merges* the PR, with no review and no way to
@@ -115,4 +129,14 @@ the test names and confirm the test fails. Ten such mutations were run against
 `ci/governance_status.py`; two tests were inert on the first pass and both were
 rewritten.
 
-*Stamped 2026-08-10. `qm` `main` at `b94d910`, `project/dossier` at `a9a6e33`, `dossier` `main` at `f055376`.*
+**Pages written before 2026-08-14 describe a draft pull request as work waiting
+for a person.** That is the model
+[`two-gate-and-tag-teeth.md`](two-gate-and-tag-teeth.md) corrects, and the
+correction is in `AGENTS.md` item 3 rather than in each page. Where one of them
+tells you to open a draft and wait, read it as: open it, run the gates, merge it.
+The rest of what those pages say about their own subject stands.
+
+*Stamped 2026-08-14. `qm` `main` at `104361a`, `dossier` `main` at `604efb8`,
+`qmcp` `main` at `85013c5`. Two branches are pushed with no pull request —
+`evolve/two-gate-reconciliation` and `evolve/governance-loop-poc` — because the
+slot holds #56 and #57.*

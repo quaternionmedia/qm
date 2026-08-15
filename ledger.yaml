@@ -1,0 +1,275 @@
+# The ledger: every action, what it was predicted to do, and what it cost.
+#
+# Read by `ci/ledger.py`. Appended to as work happens, not reconstructed
+# afterwards -- though the first entries below were, because the protocol was
+# adopted mid-session and pretending otherwise would be the first thing it
+# exists to catch. Entries marked `reconstructed: true` are the assistant's
+# account of its own earlier actions and carry the reliability of a memory
+# rather than a record.
+#
+# `projected_impact` is written BEFORE acting. That is the whole mechanism: a
+# prediction made after the outcome is known is not a prediction.
+#
+# `outcome_matched_projection: false` is not a defect. An honest miss is worth
+# more than a vague hit. The defect is a closed entry with no outcome.
+#
+# records/DRAFT-the-ledger.md is the decision; this is the instrument.
+
+schema: 1
+
+entries:
+  - id: 2026-08-14-001
+    reconstructed: true
+    kind: decide
+    action: "Review the workspace and line up parallel work"
+    projected_impact: "Name the blocked lanes so several sessions can run at once"
+    outcome: >
+      Delivered an analysis whose central claim -- that throughput is limited by
+      a human review queue at the pull request -- contradicted a record in the
+      same tree that the session had already read.
+    failure_cost: >
+      A full round trip. The reviewer corrected it in one line; reconciling it
+      across AGENTS.md, the seed copy, the async contract, the runbook and the
+      handoff rules took the rest of the session's first half.
+    outcome_matched_projection: false
+    lessons:
+      - "Precedence decides which document wins; readership decides which is read"
+    tests_generated:
+      - ci/tests/test_check_restatements.py
+    status: closed
+
+  - id: 2026-08-14-002
+    reconstructed: true
+    kind: build
+    action: "Give records/DRAFT-version-tags-are-claims.md its 7 mechanism"
+    projected_impact: "Make a customary rule mechanical; audit the org's existing tags"
+    outcome: "check_tag_claims.py, tag-claims.yml, tag_audit.py. Org audit: 0 repos ready."
+    failure_cost: "none"
+    outcome_matched_projection: true
+    tests_generated:
+      - project-seed/ci/tests/test_check_tag_claims.py
+      - ci/tests/test_tag_audit.py
+    lessons:
+      - "A mutation returning green is one of four things; only one is an inert test"
+    status: closed
+
+  - id: 2026-08-14-003
+    reconstructed: true
+    kind: build
+    action: "Build the gate index as one generator-plus-renderer file"
+    projected_impact: "One command to show what governs and what each gate misses"
+    outcome: >
+      Wrong shape. handbook/generated-documents.md already specifies three
+      artifacts -- document, human view, agent view -- and this collapsed two of
+      them. Rebuilt as ci/gate_status.py plus ci/gate_dashboard.py.
+    failure_cost: "One rebuild. The handbook stated the shape and was not read first."
+    outcome_matched_projection: false
+    lessons:
+      - "Prefer the artefact you did not create: the handbook had the answer"
+    tests_generated:
+      - ci/tests/test_gate_tooling.py
+    status: closed
+
+  - id: 2026-08-14-004
+    reconstructed: true
+    kind: build
+    action: "Add the qm CLI so governance operations have one entry point"
+    projected_impact: "Replace thirteen script paths with `uv run qm <command>`"
+    outcome: >
+      Built and works. Exposed two environment defects invisible until then: a
+      shell resolving to the WSL alias under `uv run`, and a venv with no pip.
+    failure_cost: >
+      The CLI itself was broken when run rather than installed, and only remote
+      CI found it -- no workflow triggers on an `evolve/*` push, so it could not
+      have been caught locally.
+    outcome_matched_projection: true
+    tests_generated:
+      - ci/tests/test_cli.py
+    lessons:
+      - "A local pass is evidence, not proof; the runner installs nothing"
+    status: closed
+
+  - id: 2026-08-15-001
+    reconstructed: true
+    kind: fix
+    action: "Respond to two violations in one command: improvised test invocation, and -c on git"
+    projected_impact: >
+      Convert both into mechanisms rather than clauses, per the record written
+      two hours earlier
+    outcome: "uv run qm test; the commit-signatures gate built; both breaks registered"
+    failure_cost: >
+      9 unsigned commits, permanent -- history is not rewritten here. 7 further
+      commits carried a redundant override after the first correction. The
+      reviewer named it a trust incident.
+    outcome_matched_projection: true
+    tests_generated:
+      - ci/tests/test_run_tests.py
+      - project-seed/ci/tests/test_check_signatures.py
+    lessons:
+      - "A correction names a class, not the instance it arrived on"
+      - "The violation is overriding config from the command line, in either direction"
+    status: closed
+
+  - id: 2026-08-15-002
+    reconstructed: true
+    kind: fix
+    action: "Grandfather unsigned history the corpus cannot rewrite"
+    projected_impact: >
+      Keep the gate enforceable without requiring a forbidden act, and count the
+      exempted commits as debt rather than hiding them
+    outcome: >
+      ENFORCED_FROM cutoff. Caught the gate's own summary claiming "All 16
+      commits carry a signature" when nine did not.
+    failure_cost: >
+      Two heredoc-escaping cycles and one half-applied patch that left
+      commits_in_range without the parameter its caller passed.
+    outcome_matched_projection: true
+    lessons:
+      - "The reassuring default leaks into the tool written to prevent it"
+    status: closed
+
+  - id: 2026-08-15-003
+    kind: fix
+    action: >
+      Repair the four defects the self-audit found: a comment contradicting its
+      code, a perspective claim the tool no longer satisfies, an unstamped
+      figure set, and no mutation pass on either new gate
+    projected_impact: >
+      Three prose corrections and two mutation harnesses. Expect the mutation
+      pass to report at least one false green, on the evidence of the three
+      earlier harnesses, which reported five between them.
+    outcome: >
+      Four corrections, not three -- re-reading the perspective found a second
+      stale claim of the same class as the first. 10 mutations, all caught. The
+      two that reported false were both harness errors: one anchor written
+      against a superseded version of the function, and one aimed at a sibling
+      test that iterates SUITES and therefore cannot see a dropped entry.
+    failure_cost: >
+      One cycle diagnosing two false negatives that were mine. Nothing in either
+      tool was wrong.
+    outcome_matched_projection: true
+    lessons:
+      - "A false green in a mutation harness is more often the harness than the test"
+      - "Aim a mutation at the test that can see it, not the one whose name matches"
+    tests_generated:
+      - "scratchpad/mutate_signatures.py (10 mutations, both new gates)"
+    status: closed
+
+  - id: 2026-08-15-004
+    kind: build
+    action: "Adopt the ledger and write the glossary"
+    projected_impact: >
+      Make a prediction durable so an overclaim is mechanical to spot. Expect
+      the ledger's own first --check run to fail, because this file is being
+      written by the failure mode it exists to catch.
+    outcome: >
+      The check passed on the first run. The prediction was wrong, and wrong in
+      the flattering direction -- it predicted a self-caught failure, which
+      would have read as the instrument working. What it actually demonstrates
+      is that --check verifies structure and cannot see whether a projection was
+      written before the act, which is exactly the limit the record states.
+    failure_cost: "none"
+    outcome_matched_projection: false
+    lessons:
+      - "A prediction of self-caught failure is still a flattering prediction"
+    tests_generated:
+      - "ci/ledger.py --check"
+    status: closed
+
+  - id: 2026-08-15-005
+    kind: document
+    action: "Categorize the pressures shaping this assistant's output"
+    projected_impact: >
+      Eight categories, each tied to a count from this session rather than to
+      speculation about intent. Expect the writing of it to be an instance of at
+      least one category it names.
+    outcome: >
+      It was. Item 3 -- the shell-heredoc prior beating the harness's own file
+      tool -- recurred twice more while the document naming it was being
+      written, taking the count from four to six. Item 6 also recurred: a
+      perspective was indexed before it existed, and the tool built to catch
+      index drift read the index in one direction only.
+    failure_cost: >
+      Two cycles. One dangling index row committed and then repaired, and one
+      check shipped with half its coverage.
+    outcome_matched_projection: true
+    lessons:
+      - "Documenting a failure mode does not suspend it for the duration"
+      - "A checker that reads an index needs both directions, every time"
+    tests_generated:
+      - "ci/tests/test_doc_tooling.py::test_an_index_row_naming_a_missing_file_is_reported"
+    status: closed
+
+  - id: 2026-08-15-006
+    kind: fix
+    action: "Loop pass 1: run every gate locally and remotely, and act on what differs"
+    projected_impact: >
+      Expect local to be green and remote to disagree somewhere, on the evidence
+      of the CLI defect that only the runner found.
+    outcome: >
+      Local: 9 of 9 green. Remote: signatures FAILED. The cause was a design
+      error, not a bug -- verifying a signature needs the signer's key and a
+      runner has none, so `git log --format=%G?` on CI reports the runner's
+      empty keyring rather than the commit. The forge already verifies
+      server-side; the check now reads it with --source host in CI and --source
+      git locally. Both agree: 9 debt, same commits.
+    failure_cost: >
+      Three cycles. One misdiagnosis -- the local runner was called silent when
+      it had refused an unresolvable expression on stderr, which the grep was
+      not reading. One more heredoc backslash failure, the seventh.
+    outcome_matched_projection: true
+    lessons:
+      - "A check that needs key material cannot run where the key is not"
+      - "Read stderr before calling a tool silent"
+      - "Stop using shell heredocs for anything containing a backslash"
+    tests_generated: []
+    status: closed
+
+  - id: 2026-08-15-007
+    kind: verify
+    action: "Loop passes 2-4: sweep every gate and every mutation harness until nothing new appears"
+    projected_impact: >
+      Expect at least one more finding. Every previous sweep this session found
+      something, and the mutation harnesses have never all run clean together.
+    outcome: >
+      Pass 2 clean locally, remote CLEAN on all 8 checks. Pass 3 found one
+      thing: mutate_cowork reported an inert test on every run, for a filter
+      already documented as defence with no test naming it. The no-op mutation
+      was removed. Pass 4 clean across 11 checks and 4 harnesses, 0 findings.
+    failure_cost: >
+      None to the corpus. The stale mutation had been reporting a false alarm on
+      every run since it was written, which is the shape that teaches a reader
+      to skip the output.
+    outcome_matched_projection: true
+    lessons:
+      - "A harness that always reports one known failure trains the reader to ignore it"
+    tests_generated: []
+    status: closed
+
+  - id: 2026-08-15-008
+    kind: build
+    action: "Give the published docs an audit, and a draft publish path, on #55"
+    projected_impact: >
+      Merge main into the docs branch to clear the conflict without rewriting
+      anyone's commits, then add a rebuild+accuracy audit and a draft build that
+      publishes on ready_for_review. Expect the audit to find something real on
+      its first run against the merged tree.
+    outcome: >
+      It found two. zensical.toml was invalid TOML -- eight multi-line inline
+      tables -- so the config parsed only in the generator's own reader; the
+      site still builds after repair. And docs/ref/glossary.md shadowed
+      handbook/glossary.md, a collision this session created. Both fixed. Five
+      merge conflicts resolved by hand, two of which carried the pre-correction
+      "a human reviews and merges" model into prose.
+    failure_cost: >
+      One automated fix that half-worked: collapsing the inline tables mangled a
+      commented entry and an array-of-tables, both repaired by hand against the
+      original.
+    outcome_matched_projection: true
+    lessons:
+      - "A config only its own parser accepts is a rebuild that works until that parser changes"
+      - "Publishing is the outward-facing act; merging is not"
+    tests_generated:
+      - ci/tests/test_docs_audit.py
+      - ci/tests/test_docs_draft_banner.py
+    status: closed

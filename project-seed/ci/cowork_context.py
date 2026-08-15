@@ -178,24 +178,54 @@ def local_state(root: Path) -> dict:
 
 
 def sibling_branches(root: Path, current: str) -> tuple[list[str], int]:
-    """Local branches carrying commits the current branch does not, newest first.
+    """Branches carrying commits the current branch does not, newest first.
 
     A second session on this repository shows up here first -- as a branch this
     session did not create, holding work it cannot see. Newest first because
     that is the one a session running right now is on.
+
+    **Remote branches count, and this is the half that was missing.** A fresh
+    clone has exactly one local branch, so a `refs/heads` scan reports a clean
+    repository no matter how much pushed work is waiting. Work that has been
+    pushed and has no pull request is invisible to every other signal a session
+    has -- the slot check reads pull requests, and the handoff pages live on
+    whichever branch they were written on. Two such branches existed in this
+    corpus on 2026-08-14 and no opening brief on any other machine would have
+    named either.
+
+    A remote-tracking ref whose local branch is already listed is dropped, so
+    the usual case prints one line rather than two.
 
     Returns the listed lines and how many were left off. A corpus clone holds
     two dozen long-lived branches and printing all of them buries the one that
     moved an hour ago, but a list that silently stops reads as a complete one.
     """
     status, out = git(
-        root, "for-each-ref", "--sort=-committerdate", "--format=%(refname:short)", "refs/heads"
+        root,
+        "for-each-ref",
+        "--sort=-committerdate",
+        "--format=%(refname:short)",
+        "refs/heads",
+        "refs/remotes",
     )
     if status != 0:
         return [], 0
+
+    # `origin/HEAD` is a symbolic ref, not a branch. Dropping it is defence
+    # rather than a load-bearing guard: it resolves to the default branch, so
+    # the commit count below is zero and it would be filtered anyway. No
+    # mutation reaches this line, which is why there is no test naming it.
+    names = [n for n in out.splitlines() if n and not n.endswith("/HEAD")]
+    local = {n for n in names if "/" not in n or not n.startswith(("origin/", "upstream/"))}
+
     others = []
-    for name in out.splitlines():
-        if not name or name == current:
+    for name in names:
+        if name == current:
+            continue
+        # `origin/foo` when `foo` is already a local branch is the same work
+        # reported twice. The local one wins; it is what a session checks out.
+        bare = name.split("/", 1)[1] if name.startswith(("origin/", "upstream/")) else name
+        if name != bare and bare in local:
             continue
         code, count = git(root, "rev-list", "--count", f"{current}..{name}")
         if code == 0 and count.isdigit() and int(count) > 0:
