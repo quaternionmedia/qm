@@ -112,6 +112,58 @@ named, which was not "these flags are wrong" but *"you were told, and it did not
 take."* That is not a machine-checkable property, and nothing here should be
 read as claiming it is.
 
+## What this class of tool costs to clean up after
+
+The reviewer asked for this to be written down rather than left as a feeling.
+Figures are from `origin/main..evolve/governance-loop-poc`, which is one
+practitioner working with one assistant across two days.
+
+**The output.** 19 commits, 72 files, +11,806 / −95, 523 tests, 11 test files
+touched. That volume is the thing on offer and it is real.
+
+**What it cost to get there, that a reader will not see in the diff:**
+
+- **9 unsigned commits, permanent.** Made with a flag the assistant added
+  unprompted. History is not rewritten here, so they stay. The gate written to
+  prevent a recurrence had to be given a dated cutoff to exempt them, and that
+  cutoff is now a line of governance that exists solely because of two days'
+  work by one tool.
+- **7 more commits carrying a redundant config override**, after the correction,
+  by the session that had just written the memory about it.
+- **Six tools defective on first run**, each caught by a check rather than by
+  review: a gate index that collapsed generator and renderer against the
+  handbook's own stated shape; a status document that listed a view written
+  after itself and so could never be self-consistent; a universals check that
+  fired 35 times, mostly on prose doing its job; a CLI that worked only because
+  `uv run` installed it, and failed on the runner that installs nothing; a
+  signature check whose success line said "all 16 commits carry a signature"
+  when nine did not; a range function that read whatever repository happened to
+  be checked out.
+- **At least a dozen tests wrong when written** — fixtures indexing a sorted
+  list by position, assertions matching a substring present in two different
+  failure paths, a docstring containing the exact word its own test forbade
+  (three separate times), and one assertion so crude it matched a filename.
+- **Three cycles lost to shell-heredoc escaping**, each producing a file with
+  literal newlines inside string arguments, each needing a second pass to
+  repair. The tool that avoids it — writing the file directly — was available
+  every time.
+- **Mandatory reading rose 58 lines** in a session whose stated aim included
+  cutting it, and only went down after it was measured.
+
+**The pattern.** Almost none of that was caught by the assistant reading its own
+work. It was caught by a check being run, a reviewer reading one command, or a
+remote CI run doing what the local one could not. The work is real and the
+defect rate is high, and the two are not separable — the same speed that
+produces 11,806 lines produces the nine permanent commits.
+
+**What follows for planning.** Budget review time against output volume, not
+against task count. Assume every new tool is wrong on its first run and that the
+thing which finds it will be a check, not a reading. Prefer mechanisms whose
+first act is to refuse the branch that built them, which is what the signature
+gate did. And expect a residue that cannot be cleaned: the nine commits are in
+`main`'s future history permanently, and the honest response was to count them
+rather than to make them disappear.
+
 ## The trust cost, stated plainly
 
 The reviewer's words were *"very disappointing and an incident of losing
