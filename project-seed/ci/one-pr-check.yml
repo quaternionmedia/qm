@@ -5,9 +5,11 @@
 # the governance submodule, so a fix to the rule reaches every project on its
 # next pin bump instead of needing N copies updated.
 #
-# The rule and the reasoning are handbook/async-contract.md §1. In short: an
-# agent finishes in minutes and a human reviews at human speed, and nothing
-# inside a session makes the second fact visible to the first.
+# The rule and the reasoning are handbook/async-contract.md §1. In short: two
+# pull requests that must merge in an order are a sequencing puzzle, and nothing
+# inside a session makes another session's branches visible to it. It is not a
+# review-bandwidth limit -- a green pull request is merged by its author and
+# frees its own slot.
 #
 # WHAT THIS FAILS, AND WHO CAN FIX IT
 #

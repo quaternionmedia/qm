@@ -20,6 +20,12 @@ Thumbs.db
 disk-status.json
 disk.html
 
+# Session break observations. Machine-scoped: each file describes one session
+# on one machine. Committing one would present that machine's break history as
+# an org fact. The registries (ci/pattern-registry.yaml, ci/shape-registry.yaml)
+# are committed; the observations are not. See perspectives/2026-08-13-the-mechanical-governance-loop.md.
+perspectives/artifacts/
+
 # Python bytecode. Four of these reached a commit in this repository --
 # generated files under version control, which perspectives/'s own sanity
 # check #4 forbids -- because `git add -A` in a directory where pytest had
@@ -27,3 +33,9 @@ disk.html
 __pycache__/
 *.py[cod]
 
+
+# The environment `uv run qm` builds. The lockfile beside it IS committed --
+# it pins the one runtime dependency and is what makes two machines run the
+# same generators. See pyproject.toml's header for why this repository has
+# packaging at all.
+.venv/

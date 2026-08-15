@@ -14,19 +14,27 @@ inheriting a previous session's belief instead of asking the repository:
 1. **The commit you are working against**, and the branch. Every number in every
    page here was true at some commit and nowhere else.
 2. **Whether your pull request slot is free.** One open pull request per
-   repository, per contributor. `python project-seed/ci/check_one_pr.py --repo
-   <owner/name>` answers it.
+   repository, per contributor. `uv run qm slot --repo <owner/name>` answers it.
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are very likely running
    right now, in other repositories, for the same reviewer.
    `handbook/async-contract.md` is the set of rules that exist only because of
    that, and it is short.
 4. **Which gates exist**, and what each one cannot see.
-   `python project-seed/ci/run_workflows_locally.py` runs them.
+   `uv run qm gates` lists them with what each one misses;
+   `uv run --extra preflight qm preflight` runs their real steps.
+
+**`uv run qm --help` is the whole surface** — slot, branch, gates, tags, docs,
+preflight, brief. It dispatches to the scripts in `ci/` and
+`project-seed/ci/` and decides nothing itself, so a command's output is that
+script's output and its exit status is that script's status. **In a project
+repository the CLI does not exist**: a fork runs the seed scripts in place, out
+of `governance/qm/project-seed/ci/`, and installs nothing. `project-seed/ide/AGENTS.md`
+is written that way on purpose.
 
 Those are the invariants. **How** you gather them is yours to choose: read the
-repository, run the scripts above, or use an adapter if one exists for your
-tooling. `adapters/` holds any that do, each named for the product it targets
+repository, run the CLI or the scripts directly, or use an adapter if one exists
+for your tooling. `adapters/` holds any that do, each named for the product it targets
 and none of them required — this corpus states what must be true and does not
 name a vendor to get there. See `handbook/async-contract.md` §1 for the
 reasoning, and the seams doctrine in `records/` for why a governance document
@@ -48,30 +56,34 @@ with a date looks checked.
 2. This corpus governs its own drafting. Records live in `records/` as
    `DRAFT-*.md` until a human ratifies them (flips Status, assigns a QM
    number, updates the index) — you draft, you never ratify.
-3. **Everything you produce arrives as a pull request.** Work on a branch —
-   `evolve/<slug>` for org-level work, `perspective/<date>-<slug>` for a
-   perspective, `project/<name>` for one project's records — and open a PR
-   for human review. Never commit to `main`, never merge into `main`, and
-   never push `main` directly, however small, mechanical, or obviously
-   correct the change looks. Ratification is not the only human gate; it is
-   the last one. A human decides what this corpus says, and the pull request
-   is where that decision is made and recorded.
-   **Open it as a draft, and never request a review.** `gh pr create --draft`.
-   Draft is not a formality: a ready PR against a branch carrying a *live*
-   `CODEOWNERS` requests review from those owners the moment it opens, with no
-   reviewer named by you and no way to recall the notification. So "open a PR for
-   human review" — read literally, as an agent will read it — can be the act of
-   pulling a second person into untested work. A draft PR fires none of it.
-   **In this repository that gun is currently unloaded, and the rule holds
-   anyway.** `.github/CODEOWNERS` is inert — all 16 rules carry a `#=` prefix,
-   `grep -vc '^#\|^$'` returns 0, and its own first line says so — and
-   `gh api repos/quaternionmedia/qm/rulesets` returns `[]`. `main` therefore owns
-   nothing and a ready PR here notifies nobody. Do not treat that as permission:
-   the file is one `sed` away from live, every project that copies this seed may
-   have its own owners, and readiness is the author's claim to make either way. Add the person who asked for the work as **assignee**,
-   which is also how you reach them when they authored the branch and GitHub
-   therefore refuses a review request. Leaving draft is their decision and
-   follows their own testing, not your confidence in the diff.
+3. **Everything you produce arrives as a pull request, and the pull request is
+   an audit record rather than a request for anyone's attention.** Work on a
+   branch — `evolve/<slug>` for org-level work, `perspective/<date>-<slug>` for
+   a perspective, `project/<name>` for one project's records — open a PR, and
+   **merge it yourself once every gate is green.** That is the job: an agent's
+   output is a `main` that is clean and working, entered through a pull request
+   so the gates ran and the diff stays readable afterwards.
+   **Never push `main` directly**, however small, mechanical, or obviously
+   correct the change looks. The direct push is the one act that destroys the
+   audit record, and nothing downstream can reconstruct it.
+   **`main` is not a claim, so merging into it is not a release.**
+   `records/DRAFT-version-tags-are-claims.md` §4: `main`, a pull request, a
+   working branch and a local build are all drafts — they may be perfectly good
+   and they assert nothing. **There are exactly two human gates in this
+   corpus**, and the pull request is neither: *ratification*, for what this
+   corpus says, and the *version tag*, for what a project ships. A tag asserts
+   a human reviewed the change set, a human manually tested it against its real
+   runtime, and deterministic automated validation passed. Keeping `main` clean
+   is what makes cutting one cheap.
+   **Never request a review**, and add the person who asked for the work as
+   **assignee**. Reviewers are named at the tag, by the human cutting it. A
+   review request pulls a second person into work that asserts nothing yet, and
+   against a branch carrying a *live* `CODEOWNERS` it fires the moment the PR
+   opens, with no reviewer named by you and no way to recall the notification.
+   **Draft means incomplete, and nothing else.** Use it when the work is not
+   finished. It is not a holding pen for finished work waiting on a human —
+   under the two-gate model there is nobody at the far end of that queue, and
+   a green PR left in draft is a change that never reached `main`.
    **Closing a pull request is a git operation, not just a `gh` command.**
    Pushing a PR's head commits onto its base branch *merges that PR*. GitHub
    detects that the base now contains the head and marks it merged, with the
@@ -104,10 +116,12 @@ with a date looks checked.
    does not exist yet — `handbook/forking-a-project.md` step 2.
    `project-seed/ci/check_pr_base.py` refuses the wrong direction, and the
    README's "Branch namespaces" is the canonical statement.
-   **One open PR per repository, per contributor.** Not one per task. Two PRs
-   that must merge in an order are a sequencing puzzle handed to the reviewer.
-   Land the org change first and let propagation carry it, rather than opening
-   a second PR that depends on the first. `one-pr-check.yml` enforces it and
+   **One open PR per repository, per contributor.** Not one per task. This is a
+   sequencing constraint and not a bandwidth one: two PRs that must merge in an
+   order are a puzzle, and under the two-gate model a green PR frees its own
+   slot in minutes, so the limit binds only on work that is genuinely
+   unfinished. Land the org change first and let propagation carry it, rather
+   than opening a second PR that depends on the first. `one-pr-check.yml` enforces it and
    `project-seed/ci/check_one_pr.py` is the rule; in *this* repository each
    `project/<name>` branch holds its own slot, because each is pinned by a
    different downstream submodule. That exemption is named in the workflow and
@@ -199,6 +213,23 @@ with a date looks checked.
     compared**. Regeneration rides the command run before a pull request. The
     evidence is one repository where the artifacts riding that command carry
     zero drift and the two needing a remembered command are stale.
+
+15. **This page is read first, so it restates decisions it does not own** —
+    record `records/DRAFT-the-read-document-governs.md`. Precedence says which
+    document wins; readership says which document is read, and a decision that
+    wins on precedence and loses on readership does not govern. So where a
+    passage here summarizes a record, it names that record's path, and the
+    record names this page back in its `Restated in` row.
+    **When those two disagree, the record is what the organisation decided**
+    and the summary is repaired — never the other way round. This exists
+    because item 3 above said a pull request was opened "for human review"
+    while `records/DRAFT-version-tags-are-claims.md` §4 said `main` asserts
+    nothing and the human gate is the tag. Both were true of the tree at the
+    same commit, neither looked wrong alone, and a session read this page and
+    built a model of the organisation the record contradicted.
+    `python ci/check_restatements.py` verifies the declarations pair up. It
+    cannot tell that a summary and its record disagree, and it cannot find a
+    restatement nobody declared — the declaration is yours to make.
 
 ## If you're forking this corpus into a new project
 

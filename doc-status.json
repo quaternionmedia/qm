@@ -1,0 +1,874 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-15T16:19:19Z",
+  "generator": {
+    "tool": "ci/doc_status.py",
+    "signals": [
+      "declared_status",
+      "state_from_filename"
+    ],
+    "vocabulary_is_closed": "every state written here is a key of `states` below. A document whose Status string is not in that vocabulary is `unknown`, never a new category.",
+    "status_is_not_correctness": "Status tracks whether a human has acted, never whether the content is right. This tool reads the string."
+  },
+  "reading": {
+    "refresh": "uv run qm docs generate",
+    "refresh_without_the_cli": "python ci/doc_status.py --write doc-status.json",
+    "staleness_budget_hours": 168,
+    "agent_view": "uv run qm docs states",
+    "toggle": "uv run qm docs states --state draft",
+    "regenerate_everything": "uv run qm docs generate",
+    "unknown_convention": "{\"unknown\": \"<reason>\"} is a value, and `state: unknown` means the state could not be established. It is not `standing`, not `draft`, and not fine.",
+    "do_not": [
+      "read `ratified` off a filename alone -- the Status row is the claim",
+      "read `proposed` as reviewed: nothing in this corpus has been ratified",
+      "treat `standing` as a state; it is the absence of one for that class",
+      "quote a count without this document's generated_at"
+    ]
+  },
+  "states": {
+    "draft": "pre-ratification. Rewritten in place, binds nobody, and may change entirely.",
+    "proposed": "drafted and awaiting a human's ratification. Binds nobody yet.",
+    "ratified": "a human ratified it. This binds every QM project.",
+    "unreviewed": "written, and no maintainer has looked at it. Opinion, never binding.",
+    "acknowledged": "a maintainer has read it. Logged, no further commitment.",
+    "responded": "concrete work exists because of it.",
+    "declined": "a maintainer read it and decided not to act, for a stated reason.",
+    "generated": "written by a tool. Do not edit by hand; check its age before quoting.",
+    "standing": "policy or charter with no lifecycle defined for its class.",
+    "transient": "working instructions, deleted when the work lands.",
+    "unknown": "the state could not be established, which is not the same as fine."
+  },
+  "reading_load": {
+    "documents": [
+      {
+        "path": "AGENTS.md",
+        "lines": 250
+      },
+      {
+        "path": "handbook/async-contract.md",
+        "lines": 235
+      },
+      {
+        "path": "handbook/handoffs/README.md",
+        "lines": 142
+      }
+    ],
+    "total_lines": 627,
+    "budget_lines": 700,
+    "within_budget": true,
+    "headroom_lines": 73,
+    "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
+    "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open."
+  },
+  "readiness": {
+    "claim": {
+      "name": "alpha",
+      "target_version": "v0.1.0",
+      "version": null,
+      "version_source": "records/DRAFT-version-tags-are-claims.md 4",
+      "audience": "Developers and power users outside QM, onboarded as testers. They read the corpus cold, with none of the session history that built it.\n",
+      "requires": [
+        {
+          "id": "ratification-rehearsed",
+          "what": "At least one record ratified end to end, so the five-step path has been walked once",
+          "measured_by": "doc-status.json readiness.records.ratified"
+        },
+        {
+          "id": "reading-within-budget",
+          "what": "Mandatory reading before a first edit stays under its budget",
+          "measured_by": "doc-status.json reading_load.within_budget"
+        },
+        {
+          "id": "no-unknown-document-states",
+          "what": "Every governed document's state can be established",
+          "measured_by": "doc-status.json totals.unknown"
+        },
+        {
+          "id": "gates-declared-are-built",
+          "what": "No gate is declared and unbuilt, or the gap is deliberate and named",
+          "measured_by": "gate-status.json totals.declared_not_built"
+        },
+        {
+          "id": "semantic-review-done",
+          "what": "All records read in one sitting for contradiction, which no check can do",
+          "measured_by": "not mechanisable -- a human says so, in a handoff or a record"
+        }
+      ]
+    },
+    "claim_is_not_evidence": "milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.",
+    "measured": {
+      "records": {
+        "total": 16,
+        "ratified": 0,
+        "proposed": 16
+      },
+      "documents_in_unknown_state": 1,
+      "reading_within_budget": true,
+      "reading_total_lines": 627,
+      "reading_budget_lines": 700,
+      "gates": {
+        "unknown": "held in gate-status.json, which this generator does not read -- one document does not restate another's figures"
+      },
+      "semantic_review": {
+        "unknown": "not mechanisable. A human reads every record in one sitting and says so; no count here can stand in for that"
+      }
+    },
+    "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
+  },
+  "totals": {
+    "documents": 76,
+    "by_state": {
+      "generated": 6,
+      "proposed": 16,
+      "standing": 14,
+      "transient": 10,
+      "unknown": 1,
+      "unreviewed": 29
+    },
+    "disagreements": 0,
+    "unknown": 1
+  },
+  "documents": [
+    {
+      "path": "AGENTS.md",
+      "class": "entry",
+      "class_reason": "read first, by everyone",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "PRINCIPLES.md",
+      "class": "entry",
+      "class_reason": "read first, by everyone",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "README.md",
+      "class": "entry",
+      "class_reason": "read first, by everyone",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "doc-status.json",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/doc_status.py --write doc-status.json",
+      "present": true
+    },
+    {
+      "path": "gate-status.json",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/gate_status.py --write gate-status.json",
+      "present": true
+    },
+    {
+      "path": "governance-status.yaml",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/governance_status.py --write governance-status.yaml",
+      "present": true
+    },
+    {
+      "path": "handbook/adoption-audit-queue.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/async-contract.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/document-states.md",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/doc_dashboard.py doc-status.json --out handbook/document-states.md",
+      "present": true
+    },
+    {
+      "path": "handbook/forking-a-project.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/gates.md",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/gate_dashboard.py gate-status.json --format md --out handbook/gates.md",
+      "present": true
+    },
+    {
+      "path": "handbook/generated-documents.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/glossary.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/governance-rollout.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/handoffs/README.md",
+      "class": "index",
+      "class_reason": "the index for its directory, not a member of it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/handoffs/disk-tooling.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/dossier-delta-review.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/for-a-stronger-model.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/governance-loop-poc.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/governance-status-generator.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/harness-next-test.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/qmcp-flows-as-deltas.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/semantic-review-of-the-records.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/session-2026-08-12.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/two-gate-and-tag-teeth.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/propagation-runbook.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/public-by-default.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/style-guide.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "harness-status.json",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
+      "present": true
+    },
+    {
+      "path": "perspectives/2026-07-05-on-human-only-contributorship.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-07-21-verify-before-fixing.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-07-alfred-brownfield-adoption.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-07-verification-discipline-in-assisted-sessions.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-08-a-board-is-an-engine-you-sell.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-08-hardware-onramp-invisible-artifacts.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-08-reading-the-proxy-instead-of-the-thing.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-09-adopting-a-corpus-whose-harness-is-unmerged.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-09-explanation-in-the-wrong-place.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-09-the-reviewer-is-the-shared-resource.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": null,
+      "state": "unknown",
+      "why_unknown": "no row in perspectives/README.md and no Status row in the file, so nothing states whether anyone has read it"
+    },
+    {
+      "path": "perspectives/2026-08-11-inflation-deflation-and-what-discovery-looks-like.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-11-measuring-your-own-scaffolding.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-13-the-mechanical-governance-loop.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-14-before-it-meets-a-stranger.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-14-one-schema-for-intended-work.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-14-precedence-lost-to-readership.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-14-teeth-and-what-the-mutations-said.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-15-two-corrections-that-did-not-take.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-15-what-is-shaping-this-tool.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/README.md",
+      "class": "index",
+      "class_reason": "the index for its directory, not a member of it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "perspectives/claude-fable-5-2026-06-09-mathematical-limits.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/claude-fable-5-2026-06-09.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/claude-fable-5-2026-06-09_philosophy.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/claude-sonnet-4-6-2026-06-27-mobile-cross-platform-governance.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/claude-sonnet-5-2026-07-08-mobile-timing-precision-perspective.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/claude-sonnet-5-2026-07-09-first-beat-timing-retrospective.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/claude-sonnet-5-2026-07-18-test-timeout-halting-problem-retrospective.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/session-transcript-2026-06-09.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "records/DRAFT-build-the-seam-buy-the-engines.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-contribution-and-sponsorship-policy.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-decision-record-discipline.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-governance-arrives-as-a-mechanism.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-house-stack.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-human-only-contributorship.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-ide-integrated-governance-discovery.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-monitoring-seam-and-instance-identity.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-one-executable-walkthrough.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-open-license-exclusion-and-upstream-remediation.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-outbound-licensing.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-project-phase-ladder.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-seams-on-standard-protocols.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-the-ledger.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-the-read-document-governs.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-version-tags-are-claims.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    }
+  ]
+}

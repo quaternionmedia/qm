@@ -18,6 +18,9 @@ tighten its rules — never relax them.
 | Know how far this corpus has got in governing itself | `handbook/governance-rollout.md` |
 | See where every project actually stands right now | `governance-status.yaml`, and `ci/governance_render.py` to read it as a page |
 | Read the status documents as an agent | `handbook/generated-documents.md` — paths, staleness budgets, and the `--format md` views |
+| Know which checks actually govern, and what each one misses | `handbook/gates.md` — generated from `ci/gate-registry.yaml`; says plainly whether anything blocks a merge |
+| Run any of it | `uv run qm --help` — one entry point for every governance operation here |
+| Know what state a document is in before trusting it | `handbook/document-states.md`, or `uv run qm docs states --state proposed` |
 
 Three things are worth knowing before anything else:
 
@@ -204,6 +207,9 @@ given day.
 | — | [The project phase ladder](records/DRAFT-project-phase-ladder.md) | Proposed | 2026-08-09 |
 | — | [The monitoring seam, and instance identity](records/DRAFT-monitoring-seam-and-instance-identity.md) | Proposed | 2026-08-11 |
 | — | [One executable walkthrough per repository](records/DRAFT-one-executable-walkthrough.md) | Proposed | 2026-08-11 |
+| — | [The read document governs](records/DRAFT-the-read-document-governs.md) | Proposed | 2026-08-14 |
+| — | [Governance arrives as a mechanism](records/DRAFT-governance-arrives-as-a-mechanism.md) | Proposed | 2026-08-14 |
+| — | [The ledger](records/DRAFT-the-ledger.md) | Proposed | 2026-08-15 |
 
 **Every record is `Proposed`, and that is a decision rather than a backlog:
 ratification waits on a second active code owner.** GitHub does not count a
@@ -224,6 +230,8 @@ Handbook (policy, not records):
 | `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
 | `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
 | `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |
+| `handbook/gates.md` | **Generated.** Every automated check, what it refuses, what it cannot see, and whether any of it blocks a merge |
+| `handbook/glossary.md` | Words this corpus uses narrowly, and the ones it uses in more than one sense |
 | `handbook/handoffs/` | Work an asynchronous agent can pick up cold, and the order between the pieces |
 
 ### Obligations that fall due at ratification

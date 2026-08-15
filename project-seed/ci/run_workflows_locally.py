@@ -50,10 +50,64 @@ import argparse
 import fnmatch
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
+
+# Windows ships an `bash.exe` App Execution Alias that launches WSL. It is on
+# PATH for every account, and it is not a POSIX shell this can run a workflow
+# step in: with no WSL distribution installed it dies with
+# `execvpe(/bin/bash) failed`, and with one installed it would run the step in
+# a different filesystem. Either way the failure is reported against the step.
+WSL_ALIAS_DIR = "windowsapps"
+
+
+def resolve_bash() -> str:
+    """An absolute path to a POSIX bash, never the name `bash`.
+
+    Passing the bare name leaves the choice to PATH ordering, and that ordering
+    is not stable: the same repository resolves to Git's bash under a plain
+    interpreter and to the WSL alias under `uv run`, which prepends a venv and
+    shifts everything after it. The symptom is four workflow steps failing with
+    a WSL relay error that names no step and no workflow.
+
+    `QM_BASH` overrides, for a machine whose shell is somewhere unusual.
+    """
+    override = os.environ.get("QM_BASH")
+    if override:
+        return override
+
+    candidates = [shutil.which("bash")]
+    # Git for Windows, in the two places its installer puts it. Listed after
+    # PATH so a deliberate `bash` on PATH still wins.
+    for base in (os.environ.get("PROGRAMFILES", r"C:\Program Files"),
+                 os.environ.get("LOCALAPPDATA", "")):
+        if base:
+            candidates.append(str(Path(base) / "Programs" / "Git" / "usr" / "bin" / "bash.exe"))
+            candidates.append(str(Path(base) / "Git" / "usr" / "bin" / "bash.exe"))
+
+    for candidate in candidates:
+        if not candidate:
+            continue
+        # The alias is a zero-byte reparse point under WindowsApps. Rejecting it
+        # by directory is cruder than probing it and does not need a subprocess
+        # per run.
+        if WSL_ALIAS_DIR in candidate.replace("/", "\\").lower():
+            continue
+        if Path(candidate).is_file():
+            return candidate
+
+    # Naming the name is the last resort and is reported as such: a runner that
+    # silently fell back here would produce exactly the confusing failure this
+    # function exists to remove.
+    print(
+        "  - [env ] no POSIX bash found; falling back to `bash` on PATH. If steps "
+        "fail with a WSL relay error, set QM_BASH to your shell.",
+        file=sys.stderr,
+    )
+    return "bash"
 
 try:
     import yaml
@@ -306,10 +360,11 @@ def main() -> int:
                 # Plain `bash` has neither, so a failing command mid-step is
                 # masked by whatever succeeds after it -- a false local pass,
                 # which is the one result this script must never produce.
+                shell = resolve_bash()
                 if (step.get("shell") or "").strip() == "bash":
-                    argv = ["bash", "--noprofile", "--norc", "-eo", "pipefail", path]
+                    argv = [shell, "--noprofile", "--norc", "-eo", "pipefail", path]
                 else:
-                    argv = ["bash", "-e", path]
+                    argv = [shell, "-e", path]
                 # `working-directory` decides where the step runs, and ignoring
                 # it silently runs the command somewhere else. That is not a
                 # near miss: `npm ci` in a repository root whose lockfile lives
