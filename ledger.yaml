@@ -224,3 +224,24 @@ entries:
       - "Stop using shell heredocs for anything containing a backslash"
     tests_generated: []
     status: closed
+
+  - id: 2026-08-15-007
+    kind: verify
+    action: "Loop passes 2-4: sweep every gate and every mutation harness until nothing new appears"
+    projected_impact: >
+      Expect at least one more finding. Every previous sweep this session found
+      something, and the mutation harnesses have never all run clean together.
+    outcome: >
+      Pass 2 clean locally, remote CLEAN on all 8 checks. Pass 3 found one
+      thing: mutate_cowork reported an inert test on every run, for a filter
+      already documented as defence with no test naming it. The no-op mutation
+      was removed. Pass 4 clean across 11 checks and 4 harnesses, 0 findings.
+    failure_cost: >
+      None to the corpus. The stale mutation had been reporting a false alarm on
+      every run since it was written, which is the shape that teaches a reader
+      to skip the output.
+    outcome_matched_projection: true
+    lessons:
+      - "A harness that always reports one known failure trains the reader to ignore it"
+    tests_generated: []
+    status: closed
