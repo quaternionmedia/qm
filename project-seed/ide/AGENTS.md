@@ -146,6 +146,29 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
     a pull request, so drift shows up as an uncommitted diff rather than as
     staleness nobody sees. A skip is not a pass, and a page that always skips is
     deleted.
+14. **An exit status is read from the command, never through a pipe.**
+    `tool | tail` reports `tail`'s status, so a failing check arrives as a
+    reported pass with plausible output above it. Read `$?` from the command
+    itself, or `PIPESTATUS`. The same care for anything fetched: **re-fetch a
+    remote ref before reading it**, because a ref fetched earlier in the session
+    answers about the commit it was fetched at and says so nowhere — that is how
+    a file present on a branch gets reported absent.
+15. **A bound stated in prose is not a bound.** Item 12 assumes the guard
+    exists; this is the guard that was described and never built. Where a
+    sentence says a thing may only ever point one way, name the mechanism that
+    refuses the other way — or say plainly that nothing enforces it. Writing the
+    constraint into the docstring of the code it constrains is the version that
+    reads as done and holds nothing.
+    **And a relaxation needs the adversarial pass more than a restriction
+    does.** A restriction that is too tight announces itself the first time it
+    blocks legitimate work. A relaxation that is too wide announces nothing,
+    ever: nobody files a report about a check that let them through.
+16. **A summary of a canonical list is a copy, and copies drift.** Both
+    documents can be internally correct while the relation between them is
+    wrong, and review of either one cannot see it, because nothing reads the
+    relation. Either generate the summary from its source or mark it derived and
+    name that source in the text. A hand-maintained restatement carrying no
+    pointer is the one that rots, and it rots silently.
 
 ## One-time setup on a fresh clone (Windows)
 

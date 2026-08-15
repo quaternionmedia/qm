@@ -9,17 +9,26 @@ name: CI tooling tests
 # are almost entirely about git, and a mock would encode the same
 # misunderstanding the tool does and then agree with it.
 
+# The two AGENTS.md paths are here because ci/tests asserts a property OF them
+# -- that both carry the same discipline. A guard that does not run on the file
+# it guards is a green check standing where a reader believes something is
+# enforced, and this filter previously excluded exactly the edit that can break
+# the parity check.
 on:
   push:
     branches: [main]
     paths:
       - 'project-seed/ci/**'
+      - 'project-seed/ide/**'
       - 'ci/**'
+      - 'AGENTS.md'
       - '.github/workflows/ci-tooling-tests.yml'
   pull_request:
     paths:
       - 'project-seed/ci/**'
+      - 'project-seed/ide/**'
       - 'ci/**'
+      - 'AGENTS.md'
       - '.github/workflows/ci-tooling-tests.yml'
 
 # One run per branch per workflow. A second push supersedes the first: nobody
