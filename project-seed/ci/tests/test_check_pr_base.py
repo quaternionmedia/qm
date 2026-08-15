@@ -37,6 +37,45 @@ def _publish(repo: Path) -> None:
     git(repo, "push", "-q", "--all", "origin")
 
 
+def test_an_exploration_into_its_workspace_is_allowed(repo: Path):
+    _branch_with_commit(repo, "workspace/math-experiments", "w.txt")
+    _branch_with_commit(
+        repo, "math/goodhart", "e.txt", from_ref="workspace/math-experiments"
+    )
+    _publish(repo)
+    result = check(repo, "workspace/math-experiments", "math/goodhart")
+    assert result.returncode == 0, result.stdout
+
+
+def test_an_exploration_aimed_at_the_default_branch_is_refused(repo: Path):
+    """The slot exemption is keyed on the head, so the base must be enforced.
+
+    A math/* branch carries its own pull-request slot. Aimed anywhere but a
+    terminal workspace that stops being an exemption and becomes a free slot on
+    the base -- the one-open-PR rule defeated by choosing a branch name.
+    """
+    _branch_with_commit(repo, "math/goodhart", "e.txt")
+    _publish(repo)
+    result = check(repo, "main", "math/goodhart")
+    assert result.returncode == 1, result.stdout
+    assert "REFUSED" in result.stdout
+
+
+def test_an_exploration_aimed_at_an_intermediate_base_is_also_refused(repo: Path):
+    """Allow-listed, not deny-listed.
+
+    Refusing only the default branch leaves a staging branch as a clean route,
+    and the slot is spent before any merge reaches the default branch. This is
+    the same hole the project/* rule records having been verified against.
+    """
+    _branch_with_commit(repo, "evolve/staging", "s.txt")
+    _branch_with_commit(repo, "math/goodhart", "e.txt")
+    _publish(repo)
+    result = check(repo, "evolve/staging", "math/goodhart")
+    assert result.returncode == 1, result.stdout
+    assert "REFUSED" in result.stdout
+
+
 def test_a_branch_cut_from_the_base_is_clean(repo: Path):
     _branch_with_commit(repo, "feature", "a.txt")
     _publish(repo)

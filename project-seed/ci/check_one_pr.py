@@ -52,6 +52,13 @@ name: point it at a namespace that cannot reach the default branch, and never at
 one that can. `math/*` qualifies because a math branch's only legal base is a
 `workspace/*` branch, which never merges back.
 
+**That bound is not enforced here.** This tool sees a head name and a base name,
+not a namespace policy, so a `math/*` branch aimed at the default branch would
+be handed a free slot by this check alone. `check_pr_base.py` refuses that shape
+and is the reason the exemption is safe; the two run in the same CI job for that
+reason. Passing `--per-head` in a workflow that does not also run that refusal
+opens the rule this tool exists to enforce.
+
 Both are deliberately globs you must pass, printed in the output whenever they
 apply. An exemption nobody can see in the result is an exemption that has
 stopped being one.

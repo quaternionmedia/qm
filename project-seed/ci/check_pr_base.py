@@ -33,8 +33,10 @@ gets wired in as a gate it was never meant to be.
 
 **A REFUSAL is a verdict.** The pull request is malformed and no description
 fixes it: the head is a `project/<name>` branch (permanent, and never a merge
-source), or the head carries a top-level `adr/` at the default branch. Both
-print `REFUSED` and exit 1 in every mode.
+source); the head is a `math/<slug>` exploration aimed at anything but a
+`workspace/*` branch, which would turn its slot exemption into a free slot on
+that base; or the head carries a top-level `adr/` at the default branch. All
+three print `REFUSED` and exit 1 in every mode.
 
 **An ADVISORY is not.** The merge-base is not the base tip, or commits are
 shared with another branch. **Neither means broken; both mean "explain this".**
@@ -237,6 +239,31 @@ def main() -> int:
             f"{bare_head}\n"
             f"  - bringing {args.default} to that project: a propagate/<name>-"
             f"<date> branch,\n    --base {bare_head}",
+        )
+
+    # A math/<slug> exploration is exempt from the one-open-pull-request rule in
+    # the corpus, and that exemption is keyed on the HEAD name (check_one_pr.py's
+    # --per-head). The base is therefore an enforcement surface rather than a
+    # convention: a math/* branch aimed anywhere but a research workspace would
+    # carry a free slot onto that base, and the one-PR rule would be defeated by
+    # choosing a branch name. The exemption is only safe because a workspace is
+    # terminal, so it has to be the base that is checked.
+    #
+    # Allow-listed rather than deny-listed, for the reason recorded above:
+    # refusing `base == the default branch` leaves an intermediate base as a
+    # clean route, and here the slot is spent long before any merge reaches it.
+    if bare_head.startswith("math/") and not bare_base.startswith("workspace/"):
+        return refuse(
+            f"{bare_head} targets {bare_base}, which is not a workspace branch."
+            f"\n\nAn exploration's only legal base is the workspace/<slug> branch"
+            f" it was cut\nfrom. It holds its own pull-request slot because a"
+            f" workspace is terminal --\naimed at any other base that exemption"
+            f" becomes a free slot, and the one-open-\npull-request rule is"
+            f" defeated by a branch name.",
+            f"What you probably meant:\n"
+            f"  - an exploration: open the PR with --base workspace/<slug>\n"
+            f"  - work that should bind: rewrite it on an evolve/<slug> or\n"
+            f"    perspective/<date>-<slug> branch, on its own merits",
         )
 
     # And a content test, because the one above matches a name. A branch called

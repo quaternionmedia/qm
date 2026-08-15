@@ -34,7 +34,7 @@ purchased by the fact that a workspace cannot reach `main`.
 | Direction | Rule |
 |---|---|
 | workspace → `main` | **Never.** The branch is terminal. Content that should bind is rewritten and lifted to `main` on an `evolve/<slug>` or `perspective/<date>-<slug>` branch, on its own merits |
-| `main` → workspace | A `propagate/<slug>-<date>` pull request, base the workspace branch — the same mechanism, and the same rules, as propagation into `project/<name>` |
+| `main` → workspace | A `propagate/<slug>-<date>` pull request, base the workspace branch — the same mechanism, and the same rules, as propagation into `project/<name>`. `<slug>` is the workspace's, and shares the `propagate/` namespace with every project's name, so the two sets may not collide |
 | exploration → workspace | A `math/<slug>` pull request, base the workspace branch |
 
 The second row is the one worth stating plainly, because "never merges back"
@@ -79,6 +79,14 @@ A head exemption is the wider of the two, and it is bounded by what the glob
 can name: point it only at a namespace whose branches cannot reach the default
 branch. `math/*` qualifies because a math branch's only legal base is a
 workspace branch, and a workspace branch is terminal.
+
+**The base is what makes that safe, so the base is checked.**
+`check_pr_base.py` refuses a `math/*` head aimed at anything other than a
+`workspace/*` branch — not merely at the default branch, because an
+intermediate base would otherwise be a clean route and the slot is spent before
+any merge arrives. The slot check and that refusal run in the same CI job. A
+workflow that passes `--per-head` without running the refusal has opened the
+rule rather than exempted a case from it.
 
 ## What still applies
 

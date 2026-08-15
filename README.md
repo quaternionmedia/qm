@@ -65,7 +65,7 @@ and a branch outside them is a mistake rather than a variation.
 | Namespace | Holds | Lifetime |
 |---|---|---|
 | `project/<name>` | one adopting project's `adr/` | permanent — a downstream submodule pins its tip |
-| `propagate/<target>-<date>` | `main` merged toward one `project/<name>` or `workspace/<slug>` | deleted after merge |
+| `propagate/<target>-<date>` | `main` merged toward one `project/<name>` or `workspace/<slug>`; `<target>` is that project's name or that workspace's slug, which therefore may not collide | deleted after merge |
 | `perspective/<date>-<slug>` | one perspective, staged for `main` | deleted after merge |
 | `evolve/<slug>` | org-level work in progress | deleted after merge |
 | `workspace/<slug>` | a research workspace that never merges back **to `main`** | permanent, terminal |
