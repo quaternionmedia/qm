@@ -20,6 +20,15 @@ Three branches, all pushed, **none with a pull request**.
 `.github/` directory, so none of the gates exist on it to run.
 `project/codecartographer` is **15 behind**.
 
+A fourth branch carries the retrospective:
+`perspective/2026-08-15-stating-a-constraint-is-not-enforcing-it` at `e2ae50d`,
+1 commit, 2 files, base `main`.
+
+**The two perspective branches conflict with each other**, in
+`perspectives/README.md` only — both add an index row at the same anchor, having
+been cut from the same tip. Verified by dry-run merge. Resolve by taking both
+rows in date order; nothing else in either branch overlaps.
+
 ## What is blocked, and on whom
 
 **Two of the three cannot open a pull request.** `subcontrabass` holds one
