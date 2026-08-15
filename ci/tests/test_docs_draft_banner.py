@@ -71,6 +71,15 @@ def test_it_says_the_draft_asserts_nothing():
     assert "ASSERTS NOTHING" in out
 
 
+def test_the_banner_makes_no_claim_about_which_branch_built_it():
+    """It said "built from an unmerged branch", and the workflow can be
+    dispatched from main -- where that is false. The banner must be true for
+    every ref it can run on, since the label is the only part that varies."""
+    out = inject(PAGE, "main", "u").lower()
+    assert "unmerged" not in out
+    assert "not from a tag" in out
+
+
 # --- coverage ---------------------------------------------------------------
 
 

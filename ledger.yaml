@@ -299,3 +299,27 @@ entries:
     tests_generated:
       - project-seed/ci/tests/test_check_attribution.py
     status: closed
+
+  - id: 2026-08-15-010
+    kind: verify
+    action: "Merge #55 and verify the draft build actually produces a bannered artifact"
+    projected_impact: >
+      Expect the merge to be clean and the dispatched draft build to succeed.
+      Expect verification to be a formality, since every step was already
+      exercised locally.
+    outcome: >
+      Merge clean, 10/10 checks. Draft build succeeded on dispatch: 24 of 24
+      pages bannered, 0 missed, banner inside body and before the first heading.
+      Verification was not a formality -- reading the rendered text found the
+      banner asserting "Built from an unmerged branch", which is false when the
+      workflow is dispatched from main, as it just had been.
+    failure_cost: >
+      None reached anyone. The wrong sentence existed only in one artifact,
+      caught by reading the output rather than the exit status.
+    outcome_matched_projection: false
+    lessons:
+      - "A step that passes can still emit a false sentence; read the artifact, not the exit code"
+      - "Copy in a generated artifact must be true for every ref it can run on"
+    tests_generated:
+      - "ci/tests/test_docs_draft_banner.py::test_the_banner_makes_no_claim_about_which_branch_built_it"
+    status: closed

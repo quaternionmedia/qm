@@ -35,8 +35,8 @@ BANNER = """<div id="{marker}" style="
   DRAFT DOCUMENTATION &mdash; {label} &mdash; NOT PUBLISHED, ASSERTS NOTHING.
   <a href="{url}" style="color:#fff;text-decoration:underline;">source</a>
   <div style="font-weight:400;font-size:12px;opacity:.9;">
-    Built from an unmerged branch. The published site is elsewhere; a version tag
-    is the only thing that asserts a release.
+    Built from a branch, not from a tag. A version tag is the only thing in this
+    org that asserts a release; this artifact asserts nothing.
   </div>
 </div>
 <div style="height:74px;"></div>
