@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-15T16:19:19Z",
+  "generated_at": "2026-08-15T22:41:49Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -42,7 +42,7 @@
     "documents": [
       {
         "path": "AGENTS.md",
-        "lines": 250
+        "lines": 249
       },
       {
         "path": "handbook/async-contract.md",
@@ -53,10 +53,10 @@
         "lines": 142
       }
     ],
-    "total_lines": 627,
+    "total_lines": 626,
     "budget_lines": 700,
     "within_budget": true,
-    "headroom_lines": 73,
+    "headroom_lines": 74,
     "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
     "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open."
   },
@@ -104,7 +104,7 @@
       },
       "documents_in_unknown_state": 1,
       "reading_within_budget": true,
-      "reading_total_lines": 627,
+      "reading_total_lines": 626,
       "reading_budget_lines": 700,
       "gates": {
         "unknown": "held in gate-status.json, which this generator does not read -- one document does not restate another's figures"

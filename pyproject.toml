@@ -44,6 +44,14 @@ qm = "ci.cli:main"
 dev = [
   "pytest>=8.0",
 ]
+# The documentation site generator. An extra rather than a runtime dependency:
+# `uv run qm slot` must not need a static-site builder installed, and a
+# contributor reading records should not have to resolve one. `docs.yml` and
+# `docs-audit.yml` install it themselves on the runner.
+docs = [
+  "zensical>=0.0.53",
+]
+
 # What `qm preflight` needs to reproduce CI faithfully.
 #
 # The workflows install their own tools with `python -m pip install ...`, and a

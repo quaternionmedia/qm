@@ -63,7 +63,10 @@ gates:
       Whether a record is correct, or whether a restatement and its record
       agree -- it pairs declarations and compares no text. Three of its four
       sub-checks cannot fire on any ref CI runs against, which is a known
-      finding and not yet fixed.
+      finding and not yet fixed. One commit subject is exempt from the
+      vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the
+      rule is taught from -- and check_attribution.py prints that exemption and
+      its reason on every run.
 
   - id: one-pr-slot
     workflow: one-pr-check.yml

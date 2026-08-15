@@ -83,7 +83,7 @@ SCHEMA = 1
 
 # The branch namespace IS the project registry -- there is no list to keep in
 # sync, because a project that has no project/<name> branch is by definition
-# not governed. See README.md's namespace table.
+# not governed. See docs/ref/namespaces.md for the canonical model.
 PROJECT_NS = "project/"
 
 # What adoption puts in the PROJECT's repository, per the numbered steps in

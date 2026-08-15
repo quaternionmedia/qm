@@ -32,7 +32,10 @@ perspectives/artifacts/
 # just run picks them up and nothing was stopping it.
 __pycache__/
 *.py[cod]
+.python-version
 
+# Documentation site builds
+site
 
 # The environment `uv run qm` builds. The lockfile beside it IS committed --
 # it pins the one runtime dependency and is what makes two machines run the

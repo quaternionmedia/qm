@@ -118,6 +118,11 @@ def build_parser() -> argparse.ArgumentParser:
         "check", help="have any generated documents drifted? CI-safe", add_help=False
     )
     docs.add_parser(
+        "audit",
+        help="does the published site rebuild, and does it match the corpus",
+        add_help=False,
+    )
+    docs.add_parser(
         "states",
         help="what state every governed document is in; --state to filter",
         add_help=False,
@@ -180,6 +185,7 @@ DOCS_ROUTES: dict[str, tuple[str, list[str]]] = {
     "generate": ("generate_docs", []),
     "check": ("generate_docs", ["--check"]),
     "states": ("doc_dashboard", ["doc-status.json"]),
+    "audit": ("docs_audit", []),
 }
 
 

@@ -64,5 +64,18 @@ jobs:
         # runner's own temp directory moments earlier, so the protection is not
         # doing anything here except preventing the test from running.
         run: python -m pytest project-seed/ci/tests ci/tests -q
+
+      # The cookbook pages are executable, and this names their directory
+      # explicitly. It must: pytest ignores `testpaths` the moment it is given a
+      # path argument, and the step above gives it two -- so a `testpaths`-wired
+      # walkthrough would be collected by nobody and stay green forever.
+      # Verified: with `testpaths = ["walkthrough"]` set, a bare `pytest
+      # --collect-only` collects the pages and `pytest tests --collect-only`
+      # collects zero of them.
+      #
+      # Separate step rather than more paths on the line above, so a failure
+      # names which half broke.
+      - name: Run the executable cookbook pages
+        run: python -m pytest --doctest-glob='*.md' docs/cookbook -q
         env:
           GIT_ALLOW_PROTOCOL: file:https:ssh

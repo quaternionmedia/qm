@@ -97,7 +97,7 @@ jobs:
             echo "::error::project's records and belongs on that project's own"
             echo "::error::project/<name> branch. On the default branch it is in the org"
             echo "::error::namespace, where a project-local decision reads as binding"
-            echo "::error::every project. See the README's \"Branch namespaces\"."
+            echo "::error::every project. See docs/ref/namespaces.md."
             exit 1
           fi
           echo "ok - no top-level adr/ on the default branch, or this is not it."

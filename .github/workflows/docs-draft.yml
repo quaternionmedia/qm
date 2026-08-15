@@ -1,0 +1,86 @@
+# A draft documentation build, published on demand when a pull request leaves
+# draft and becomes ready for review.
+#
+# THE TWO ROLES ARE SPLIT ON PURPOSE. An agent takes a pull request out of draft
+# and that publishes this artifact; a human reviews it and cuts the tag. Never
+# the same actor for both -- the whole value of the second step is that somebody
+# who did not write the pages looked at them.
+#
+# WHY AN ARTIFACT AND NOT A PAGES DEPLOYMENT. GitHub Pages serves one site per
+# repository, and `deploy-pages` replaces it wholesale. Publishing a draft there
+# would take down the real documentation to show a preview of an unmerged
+# branch -- the exact confusion the banner exists to prevent, with the live site
+# as collateral. So the draft uploads as a downloadable artifact on the run.
+# A genuine preview URL needs a second Pages site or an external host, and that
+# is a decision this workflow does not make on anyone's behalf.
+#
+# WHAT IT DOES NOT COVER. It does not review anything. It builds the site the
+# pull request would publish, marks every page as a draft, and hands it to a
+# human. Whether the pages are right is the review, and the review is the point.
+
+name: Docs draft
+
+on:
+  pull_request:
+    types: [ready_for_review]
+    paths:
+      - 'docs/**'
+      - 'zensical.toml'
+      - '.github/workflows/docs-draft.yml'
+  # On demand, for a pull request that is already ready.
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  draft:
+    # `ready_for_review` fires only on the transition, so this cannot run for a
+    # pull request that is still a draft. The guard is belt-and-braces for the
+    # manual dispatch path.
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install the site generator
+        run: pip install --quiet zensical
+
+      - name: Build the site this pull request would publish
+        run: zensical build --clean
+
+      # Between build and upload, always. A build that skipped this would
+      # produce a draft indistinguishable from the published documentation.
+      # The context values go through `env:` rather than into the `run:` script.
+      # An expression inside a run block is opaque to the local workflow runner,
+      # which refuses it rather than guessing -- so the step becomes
+      # unreproducible on the machine where a contributor would first notice it
+      # was wrong. As env, the runner drops it with a note and the fallbacks
+      # below keep the step working.
+      - name: Mark every page as a draft
+        env:
+          DRAFT_LABEL: ${{ github.event.pull_request.title || github.ref_name }}
+          DRAFT_URL: ${{ github.event.pull_request.html_url || github.server_url }}
+        run: |
+          python ci/docs_draft_banner.py site \
+            --label "${DRAFT_LABEL:-local build, not a pull request}" \
+            --url "${DRAFT_URL:-}"
+
+      - name: The pages match the corpus
+        run: python ci/docs_audit.py
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: docs-draft-${{ github.event.pull_request.number || github.run_id }}
+          path: site
+          retention-days: 14

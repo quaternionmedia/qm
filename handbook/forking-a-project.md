@@ -1,7 +1,7 @@
 # Handbook — Forking a New Project
 
 **Routing.** Procedure, not a decision record. It carries out the
-branch-per-project model `README.md` describes; the decisions behind it live
+branch-per-project model described in `docs/about/architecture.md`; the decisions behind it live
 in `records/`. Its sibling is `handbook/propagation-runbook.md`, which covers
 keeping a project current once it exists — this page is only the first day.
 
@@ -54,7 +54,7 @@ passes, not when its command exits zero.
    and targeting `main` instead would merge the new project's `adr/` into the
    org namespace. The branch is permanent from this moment and never merges
    anywhere; every later change to it arrives as a pull request whose *base* is
-   this branch. See the README's "Branch namespaces".
+   this branch. See `docs/ref/namespaces.md`.
    *Verify:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
    is empty, and `adr/README.md` differs from the seed only by the seed
    comment the seed itself says to delete. And

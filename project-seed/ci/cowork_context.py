@@ -409,7 +409,7 @@ def emit(root: Path, args: argparse.Namespace) -> str:
                     "`main`. Reading this as \"my project branch has its own slot, so "
                     "I may open a pull request from it\" is how the `main` slot gets "
                     "spent twice; `project-seed/ci/check_pr_base.py` refuses that "
-                    "direction, and the README's \"Branch namespaces\" says why."
+                    "direction, and the corpus docs/ref/namespaces.md explains why."
                 )
                 add("")
             report, status = pr_slots(state["slug"], login, per_base)
