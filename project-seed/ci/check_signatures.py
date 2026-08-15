@@ -58,6 +58,30 @@ NO_SIGNATURE = "N"
 UNVERIFIABLE = "E"
 BAD = "B"
 
+# Commits committed before this date are reported and not failed.
+#
+# WHY A CUTOFF EXISTS AT ALL. This check was written on 2026-08-15, and the
+# branch that introduced it carries nine unsigned commits made before it. They
+# cannot be signed without rewriting history, which this org's governance does
+# not permit. A gate whose only remedy is a forbidden act is a gate that gets
+# switched off within a week, and the corpus would then have neither the history
+# nor the check.
+#
+# WHY IT IS A DATE AND NOT A LIST. A list of blessed SHAs grows silently and
+# nobody can tell later which were exempted deliberately. A date is one number,
+# it is in the diff that introduced it, and moving it is a reviewable edit.
+#
+# THIS IS A DEBT, NOT A PASS. Grandfathered commits are counted and printed on
+# every run. They never turn the exit status green on their own, and a run whose
+# only "clean" commits are grandfathered says so in as many words.
+#
+# THE HOLE, NAMED: commit dates are author-controlled. Someone can backdate a
+# commit past this cutoff and be exempted. That is not defended against here
+# because the defence -- refusing commits whose date precedes their parent's --
+# breaks legitimate rebases and cherry-picks, and this check is not the right
+# place to police clock skew.
+ENFORCED_FROM = "2026-08-15"
+
 MEANING = {
     "G": "good signature",
     "U": "good signature, key not in this keyring",
@@ -80,37 +104,53 @@ def run_git(args: list[str], cwd: str | None = None) -> tuple[int, str]:
 
 def commits_in_range(
     base: str, head: str, cwd: str | None = None
-) -> tuple[list[tuple[str, str, str]], str | None]:
-    """[(sha, %G?, subject)] for base..head, or ([], reason) if git refused.
+) -> tuple[list[tuple[str, str, str, str]], str | None]:
+    """[(sha, %G?, committed_at, subject)] for base..head, or ([], reason).
 
     `cwd` names the repository, the way every other seed check takes one. Left
     to the process's working directory this could only ever inspect whatever
     happens to be checked out, which is the proxy-for-the-thing error this
     corpus keeps recording.
+
+    The commit date is carried because the cutoff needs it. It is committer
+    date, not author date: a rebase resets the first and preserves the second,
+    and the question here is when the object entered this history.
     """
     code, out = run_git(
-        ["log", "--format=%h\t%G?\t%s", "--no-merges", f"{base}..{head}"], cwd=cwd
+        ["log", "--format=%h\t%G?\t%cI\t%s", "--no-merges", f"{base}..{head}"], cwd=cwd
     )
     if code != 0:
         return [], f"git could not read {base}..{head}"
     rows = []
     for line in out.splitlines():
-        parts = line.split("\t", 2)
-        if len(parts) == 3:
-            rows.append((parts[0], parts[1], parts[2]))
+        parts = line.split("\t", 3)
+        if len(parts) == 4:
+            rows.append((parts[0], parts[1], parts[2], parts[3]))
     return rows, None
 
 
-def judge(rows: list[tuple[str, str, str]], allow_untrusted: bool) -> list[tuple[str, str, str]]:
-    """The commits that fail. Merges are excluded before this by --no-merges."""
-    failing = []
-    for sha, status, subject in rows:
-        if status in GOOD or status in GOOD_WITH_WARNING:
-            if status == "U" and not allow_untrusted:
-                failing.append((sha, status, subject))
+def judge(
+    rows: list[tuple[str, str, str, str]],
+    allow_untrusted: bool,
+    enforced_from: str = ENFORCED_FROM,
+) -> tuple[list, list]:
+    """(failing, grandfathered). Merges are excluded before this by --no-merges.
+
+    A commit older than `enforced_from` and unsigned is grandfathered: reported,
+    counted, and not failed. A commit older than the cutoff that IS signed is
+    simply fine and appears in neither list.
+    """
+    failing, grandfathered = [], []
+    for row in rows:
+        _, status, committed_at, _ = row
+        signed = status in GOOD or status in GOOD_WITH_WARNING
+        if signed and not (status == "U" and not allow_untrusted):
             continue
-        failing.append((sha, status, subject))
-    return failing
+        if committed_at[:10] < enforced_from:
+            grandfathered.append(row)
+            continue
+        failing.append(row)
+    return failing, grandfathered
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -125,6 +165,9 @@ def main(argv: list[str] | None = None) -> int:
                         help="the branch's base; only base..head is checked")
     parser.add_argument("--head-ref", default="HEAD")
     parser.add_argument("--repo-dir", default=None, help="repository to read (default: cwd)")
+    parser.add_argument("--enforced-from", default=ENFORCED_FROM,
+                        help=f"unsigned commits committed before this date are a "
+                             f"recorded debt, not a failure (default: {ENFORCED_FROM})")
     parser.add_argument("--allow-untrusted", action="store_true", default=True,
                         help="accept a good signature by a key this keyring lacks (default)")
     parser.add_argument("--require-trusted", dest="allow_untrusted", action="store_false",
@@ -143,12 +186,26 @@ def main(argv: list[str] | None = None) -> int:
               f"commit; nothing to check.")
         return 0
 
-    failing = judge(rows, args.allow_untrusted)
+    failing, grandfathered = judge(rows, args.allow_untrusted, args.enforced_from)
 
     print(f"signature check: {len(rows)} commit(s) in {args.base_ref}..{args.head_ref}")
-    for sha, status, subject in rows:
-        mark = "FAIL" if (sha, status, subject) in failing else "ok  "
-        print(f"  {mark} {sha}  {status}  {MEANING.get(status, 'unknown status')}  {subject[:60]}")
+    print(f"enforced from {args.enforced_from}; anything unsigned before that is a "
+          f"recorded debt, not a pass\n")
+    for row in rows:
+        sha, status, committed_at, subject = row
+        mark = "FAIL" if row in failing else ("debt" if row in grandfathered else "ok  ")
+        print(f"  {mark} {sha}  {status}  {committed_at[:10]}  "
+              f"{MEANING.get(status, 'unknown status')}  {subject[:48]}")
+
+    if grandfathered:
+        print(
+            f"\n{len(grandfathered)} unsigned commit(s) predate "
+            f"{args.enforced_from} and are not failed.\nThey are permanent: "
+            f"signing them means rewriting history, which this org does not do. "
+            f"This count is the cost of the session that made them, and it does "
+            f"not go down.",
+            file=sys.stderr,
+        )
 
     if failing:
         print(
@@ -160,7 +217,16 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
 
-    print(f"\nAll {len(rows)} commit(s) carry a signature.")
+    # Never "all N carry a signature" when some do not. The grandfathered ones
+    # are exempt from failing, not signed, and a summary line that rounded them
+    # into the good number would be this check reporting success while
+    # attesting nothing -- the defect it was built against.
+    signed = len(rows) - len(grandfathered)
+    if grandfathered:
+        print(f"\n{signed} of {len(rows)} commit(s) carry a signature. "
+              f"{len(grandfathered)} do not and are exempt by date.")
+    else:
+        print(f"\nAll {len(rows)} commit(s) carry a signature.")
     return 0
 
 
