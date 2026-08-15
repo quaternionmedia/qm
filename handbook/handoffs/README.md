@@ -13,13 +13,20 @@ between them are recorded here rather than inside each one.
 
 ## The queue
 
+**Ordered by expected delta**, highest first, against the current milestone:
+*managing qmcp's flows with dossier by planning deltas*. The first three are one
+chain — each is the next page's blocker — so taking them out of order buys
+nothing.
+
 | Handoff | Blocks on | Repo |
 |---|---|---|
-| [`dossier-delta-review.md`](dossier-delta-review.md) | nothing | dossier |
-| [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
+| [`for-a-stronger-model.md`](for-a-stronger-model.md) | nothing — **read this first**: what to distrust in the other pages, and why | every repo |
+| [`qmcp-flows-as-deltas.md`](qmcp-flows-as-deltas.md) | the milestone, and the four-step path to it. Step 1 is **done** — folded into qmcp #21, now the demo branch, fixing that repo's 19 red tests. Step 2 next | qmcp + dossier |
+| [`dossier-delta-review.md`](dossier-delta-review.md) | step 3 of that path. Two alembic heads to fix, and dossier's slot is held by #12 | dossier |
+| [`disk-tooling.md`](disk-tooling.md) | **built**; its item 3 is now answered by the delta review — the orphan tables are in progress. Items 1, 2 and 4 want a decision | qm + dossier |
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
-| [`disk-tooling.md`](disk-tooling.md) | nothing — built; four items wanting a decision, one of which blocks the delta review | qm + dossier |
-| [`session-2026-08-11.md`](session-2026-08-11.md) | nothing — where the 2026-08-10/11 session left things, and the decisions waiting | every repo |
+| [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
+| [`session-2026-08-12.md`](session-2026-08-12.md) | nothing — where the 2026-08-11/12 session left things, and the decisions waiting | every repo |
 
 **Three pages are gone rather than marked done**, per the routing rule above.
 `workspace-unlanded.md` first: both decisions it opened with are settled —
@@ -115,4 +122,5 @@ the test names and confirm the test fails. Ten such mutations were run against
 `ci/governance_status.py`; two tests were inert on the first pass and both were
 rewritten.
 
-*Stamped 2026-08-10. `qm` `main` at `b94d910`, `project/dossier` at `a9a6e33`, `dossier` `main` at `f055376`.*
+*Stamped 2026-08-12. `qm` `main` at `104361a`, `dossier` `main` at `604efb8`,
+`qmcp` `main` at `85013c5`.*
