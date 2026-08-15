@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""Refuse a branch whose own commits carry no verifiable signature.
+
+SEED FILE, run in place: a forking project runs it out of the governance
+submodule. Nothing copies it.
+
+WHAT THIS IS FOR. A signature is what makes the author field a claim somebody
+made rather than a string anybody can type. `records/DRAFT-human-only-contributorship.md`
+turns on attribution being real, and nothing in this org has ever checked it.
+
+The history says what happens without a check. Signing stopped in this corpus at
+2026-08-12T23:29, mid-branch, immediately after a signed commit -- a session
+added a flag disabling it and nothing noticed. `origin/main`'s recent history
+carries no signature at all, and across every ref the repository holds a mix of
+signed, unsigned and uncheckable.
+
+**ONLY THE COMMITS THE BRANCH ADDS.** `--base-ref` is required and the range is
+`base..head`. Checking whole history would fail every pull request in this
+repository forever, for commits their author did not write and cannot re-sign --
+a gate that can only be satisfied by rewriting somebody else's history is a gate
+that gets switched off.
+
+WHAT THIS CANNOT DO, and the list is most of it:
+
+  - It cannot tell that the signer is the person in the author field beyond what
+    the key attests, and it does not check who the key belongs to. A valid
+    signature by an unknown key passes `--allow-untrusted`, which is the default,
+    because a trust store nobody maintains would fail honest work.
+  - It cannot make an unsigned commit signed. The remedy is the author
+    re-signing their own commits, which is history rewriting and is the author's
+    call, so this reports and does not offer to fix.
+  - It says nothing about content. A signed commit is an attested commit, not a
+    correct one.
+
+Exit status is the contract: 0 when every commit in range carries a signature
+this git could read, 1 otherwise.
+"""
+
+from __future__ import annotations
+
+import argparse
+import subprocess
+import sys
+
+# `git log --format=%G?` per commit. The values that mean "a signature is
+# present and this git could verify it".
+#
+#   G  good              U  good, untrusted key
+#   X  good, expired     Y  good, key expired     R  good, revoked key
+#   B  bad               E  cannot be checked     N  no signature
+#
+# `U` is the ordinary state anywhere the signer's key is not in the local
+# keyring, which is every CI runner. Treating it as failure would fail every
+# correctly-signed commit on the one machine that matters.
+GOOD = {"G", "U"}
+GOOD_WITH_WARNING = {"X", "Y", "R"}
+NO_SIGNATURE = "N"
+UNVERIFIABLE = "E"
+BAD = "B"
+
+MEANING = {
+    "G": "good signature",
+    "U": "good signature, key not in this keyring",
+    "X": "good signature, expired",
+    "Y": "good signature, key expired",
+    "R": "good signature, revoked key",
+    "B": "BAD signature",
+    "E": "signature could not be checked",
+    "N": "no signature",
+}
+
+
+def run_git(args: list[str], cwd: str | None = None) -> tuple[int, str]:
+    proc = subprocess.run(
+        ["git", *args], cwd=cwd, capture_output=True, text=True,
+        encoding="utf-8", errors="replace",
+    )
+    return proc.returncode, proc.stdout.strip()
+
+
+def commits_in_range(
+    base: str, head: str, cwd: str | None = None
+) -> tuple[list[tuple[str, str, str]], str | None]:
+    """[(sha, %G?, subject)] for base..head, or ([], reason) if git refused.
+
+    `cwd` names the repository, the way every other seed check takes one. Left
+    to the process's working directory this could only ever inspect whatever
+    happens to be checked out, which is the proxy-for-the-thing error this
+    corpus keeps recording.
+    """
+    code, out = run_git(
+        ["log", "--format=%h\t%G?\t%s", "--no-merges", f"{base}..{head}"], cwd=cwd
+    )
+    if code != 0:
+        return [], f"git could not read {base}..{head}"
+    rows = []
+    for line in out.splitlines():
+        parts = line.split("\t", 2)
+        if len(parts) == 3:
+            rows.append((parts[0], parts[1], parts[2]))
+    return rows, None
+
+
+def judge(rows: list[tuple[str, str, str]], allow_untrusted: bool) -> list[tuple[str, str, str]]:
+    """The commits that fail. Merges are excluded before this by --no-merges."""
+    failing = []
+    for sha, status, subject in rows:
+        if status in GOOD or status in GOOD_WITH_WARNING:
+            if status == "U" and not allow_untrusted:
+                failing.append((sha, status, subject))
+            continue
+        failing.append((sha, status, subject))
+    return failing
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Refuse a branch whose own commits carry no signature.",
+        epilog=(
+            "A signature attests who made the commit. It says nothing about "
+            "whether the commit is correct."
+        ),
+    )
+    parser.add_argument("--base-ref", required=True,
+                        help="the branch's base; only base..head is checked")
+    parser.add_argument("--head-ref", default="HEAD")
+    parser.add_argument("--repo-dir", default=None, help="repository to read (default: cwd)")
+    parser.add_argument("--allow-untrusted", action="store_true", default=True,
+                        help="accept a good signature by a key this keyring lacks (default)")
+    parser.add_argument("--require-trusted", dest="allow_untrusted", action="store_false",
+                        help="refuse a signature whose key is not in this keyring")
+    args = parser.parse_args(argv)
+
+    rows, problem = commits_in_range(args.base_ref, args.head_ref, cwd=args.repo_dir)
+    if problem:
+        print(f"signature check: {problem}", file=sys.stderr)
+        return 1
+
+    if not rows:
+        # A real answer: a branch that adds no non-merge commit has nothing to
+        # attest. Reported rather than silently passing.
+        print(f"signature check: {args.base_ref}..{args.head_ref} adds no non-merge "
+              f"commit; nothing to check.")
+        return 0
+
+    failing = judge(rows, args.allow_untrusted)
+
+    print(f"signature check: {len(rows)} commit(s) in {args.base_ref}..{args.head_ref}")
+    for sha, status, subject in rows:
+        mark = "FAIL" if (sha, status, subject) in failing else "ok  "
+        print(f"  {mark} {sha}  {status}  {MEANING.get(status, 'unknown status')}  {subject[:60]}")
+
+    if failing:
+        print(
+            f"\n{len(failing)} of {len(rows)} commit(s) carry no signature this git "
+            f"could read.\nRe-sign your own commits, or say in the pull request why "
+            f"they are unsigned. Do not disable signing to make this pass -- that is "
+            f"the act this check exists for.",
+            file=sys.stderr,
+        )
+        return 1
+
+    print(f"\nAll {len(rows)} commit(s) carry a signature.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

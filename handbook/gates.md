@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-15T03:06:24Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-08-15T04:28:54Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -16,7 +16,7 @@
 
 Not established is not the same as nothing wrong. Every gate below may or may not be advisory; this document does not know.
 
-**9 gates are built; 1 is declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 8 ok, 1 warn, 1 unknown.
+**10 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 9 ok, 0 warn, 1 unknown.
 
 ## Every gate
 
@@ -31,17 +31,7 @@ Not established is not the same as nothing wrong. Every gate below may or may no
 | [ok] | `symlink-integrity` | main, push | pull_request, push | no | A pointer file that has stopped being a symlink -- mode other than 120000 -- which is how a Windows checkout silently forks a shared document into two. |
 | [ok] | `tag-claims` | tag | push, workflow_dispatch | yes | A pushed `v*` tag that is lightweight, misnamed, or whose annotation is missing `Reviewed-by`, `Manually-tested`, `Automated-gate` or `Not-covered`. |
 | [??] | `secret-scan` | main | — | no | A commit introducing a credential the scanner recognises. |
-| [!!] | `commit-signatures` | main | — | yes | A branch carrying a commit with no verifiable signature. |
-
-## Declared, not built
-
-A rule this org has decided on and not yet made mechanical. These are kept rather than dropped: deleting one to make this page green is the single edit the registry forbids.
-
-### `commit-signatures` — stands before main
-
-**Would refuse.** A branch carrying a commit with no verifiable signature.
-
-**What it would find today.** `commit.gpgsign` is true in this clone and signing works. Signatures stopped on 2026-08-12 at 23:29, mid-branch, immediately after a signed commit, and every commit since is unsigned. `origin/main`'s last 60 commits carry no signature; across all refs the repository holds 201 signed, 73 unsigned and 41 that cannot be checked. Nothing looks at this.
+| [ok] | `commit-signatures` | main | pull_request | yes | A branch carrying a commit with no verifiable signature. |
 
 ## What each gate cannot see
 
@@ -76,7 +66,6 @@ Read this before quoting a green check. Every defect this corpus has found in it
 ## Where claim and evidence disagree
 
 - [??] **`secret-scan`** — **unknown** — an installed application with no workflow file in this repository; nothing here can read its configuration
-- [!!] **`commit-signatures`** — **unknown** — declared and not built, so there is nothing to inspect
 
 ## Reading this document
 

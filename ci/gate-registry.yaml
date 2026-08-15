@@ -207,17 +207,16 @@ gates:
       happens if it is uninstalled. It appears on pull requests and that is the
       whole of what this corpus knows about it.
 
-  # --- Declared, not built -------------------------------------------------
-
   - id: commit-signatures
-    workflow: null
-    job: null
+    workflow: signature-check.yml
+    job: signatures
     gates: [main]
     seed: true
-    exists: false
+    exists: true
     refuses: >
       A branch carrying a commit with no verifiable signature.
-    runs: []
+    runs:
+      - project-seed/ci/check_signatures.py
     enforces:
       - records/DRAFT-human-only-contributorship.md
     cannot_see: >

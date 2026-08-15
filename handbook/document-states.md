@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-15T03:06:24Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-15T04:28:54Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **72**, unfiltered.
+Every governed document in this corpus: **73**, unfiltered.
 
 | | |
 |---|---|
@@ -60,7 +60,7 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 15 |
 | [??] `unknown` | 1 |
-| [-] `unreviewed` | 27 |
+| [-] `unreviewed` | 28 |
 | [G] `generated` | 6 |
 | [S] `standing` | 13 |
 | [T] `transient` | 10 |
@@ -103,6 +103,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-14-one-schema-for-intended-work.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-14-precedence-lost-to-readership.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-14-teeth-and-what-the-mutations-said.md` | perspective | Unreviewed |
+| [-] | `unreviewed` | `perspectives/2026-08-15-two-corrections-that-did-not-take.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |

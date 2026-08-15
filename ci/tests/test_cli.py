@@ -95,6 +95,25 @@ def test_sys_argv_is_restored_even_when_the_module_raises():
     assert sys.argv == before
 
 
+def test_it_runs_without_the_package_installed():
+    """CI invokes `python ci/cli.py` and installs nothing.
+
+    `uv run qm` installs the package first, so an `import ci.foo` that only
+    resolves when installed works locally and fails on the runner -- which is
+    exactly how this was found, on the first pull request that let a workflow
+    near it.
+
+    `-S` skips `site`, so site-packages is not on the path and the installed
+    distribution is invisible. Without the path insertion in cli.py this exits
+    1 with ModuleNotFoundError; with it, 0.
+    """
+    result = subprocess.run(
+        [sys.executable, "-S", str(CI_DIR / "cli.py"), "restatements"],
+        capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=str(CORPUS),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
 # --- it runs in the corpus, or not at all ----------------------------------
 
 

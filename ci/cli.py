@@ -35,6 +35,14 @@ import os
 import sys
 from pathlib import Path
 
+# Run as a script -- `python ci/cli.py`, which is how CI and anyone without the
+# package installed invokes it -- `ci` is not importable, because the directory
+# holding it is not on the path. `uv run qm` hides that entirely: it installs
+# the package first, so every `import ci.foo` below resolves and the defect is
+# invisible until a runner that installs nothing tries it. Remote CI is where
+# this was caught, on the first pull request that let a workflow near it.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 # A directory is the corpus if it holds the charter and the records. Checking
 # one of them would match a fork that copied only the seed.
 MARKERS = ("PRINCIPLES.md", "records")
@@ -139,6 +147,9 @@ def build_parser() -> argparse.ArgumentParser:
         "branch", help="what a branch actually carries, against its base", add_help=False
     )
     sub.add_parser(
+        "test", help="run the suites CI runs, with CI's arguments", add_help=False,
+    )
+    sub.add_parser(
         "preflight", help="run every workflow's real steps locally", add_help=False
     )
     sub.add_parser(
@@ -155,6 +166,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
     "branch": ("check_pr_base", True, []),
+    "test": ("run_tests", False, []),
     "preflight": ("run_workflows_locally", True, []),
     "brief": ("cowork_context", True, []),
 }

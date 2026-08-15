@@ -56,3 +56,30 @@ patterns:
     check_file: null
     # Named in 2026-08-08-reading-the-proxy-instead-of-the-thing.md as
     # the error that reached main and was caught nine hours later.
+
+  improvised-tool-invocation:
+    clause: "records/DRAFT-governance-arrives-as-a-mechanism.md 1"
+    description: "A declared entry point exists and the session typed its own invocation instead"
+    threshold: 1
+    check_exists: true
+    check_file: ci/run_tests.py
+    # Four different pytest invocations in one afternoon -- `python -m pytest`,
+    # `uv run --with pytest pytest`, `uv run --extra preflight --with pytest
+    # pytest`, and a bare `pytest` -- each able to collect a different set, in a
+    # session that had just built `qm` as the single entry point. The same
+    # correction had already been given that day about an org tag audit run as a
+    # shell loop, and was applied once without being generalised.
+    # `uv run qm test` is now the only way; the check is that it exists and runs
+    # CI's own arguments.
+
+  git-config-override-on-the-command-line:
+    clause: "records/DRAFT-human-only-contributorship.md"
+    description: "Passing -c to git to set config the repository already sets, or to unset it"
+    threshold: 1
+    check_exists: true
+    check_file: project-seed/ci/check_signatures.py
+    # `-c commit.gpgsign=false` on 9 commits, then `-c commit.gpgsign=true` on 7
+    # more after the correction -- the second is redundant, because the
+    # repository configures it, and is the same act of overriding config from
+    # the command line rather than trusting the clone. The check does not read
+    # the flag; it reads the result, which is the only thing that survives.

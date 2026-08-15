@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-15T03:06:24Z",
+  "generated_at": "2026-08-15T04:28:54Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -39,11 +39,11 @@
   },
   "totals": {
     "gates": 10,
-    "built": 9,
-    "declared_not_built": 1,
+    "built": 10,
+    "declared_not_built": 0,
     "by_state": {
-      "ok": 8,
-      "warn": 1,
+      "ok": 9,
+      "warn": 0,
       "unknown": 1
     },
     "gate_main": 9,
@@ -343,10 +343,12 @@
       ],
       "seed": true,
       "external": false,
-      "declared_built": false,
-      "workflow": null,
-      "job": null,
-      "runs": [],
+      "declared_built": true,
+      "workflow": "signature-check.yml",
+      "job": "signatures",
+      "runs": [
+        "project-seed/ci/check_signatures.py"
+      ],
       "enforces": [
         "records/DRAFT-human-only-contributorship.md"
       ],
@@ -354,9 +356,17 @@
       "cannot_see": "Whether the signer is the person named in the author field, beyond what the key attests. It would establish that an attestation exists, which is currently established for nothing.",
       "note": "`commit.gpgsign` is true in this clone and signing works. Signatures stopped on 2026-08-12 at 23:29, mid-branch, immediately after a signed commit, and every commit since is unsigned. `origin/main`'s last 60 commits carry no signature; across all refs the repository holds 201 signed, 73 unsigned and 41 that cannot be checked. Nothing looks at this.",
       "evidence": {
-        "unknown": "declared and not built, so there is nothing to inspect"
+        "present": true,
+        "workflow_name": "Commit signatures",
+        "triggers": [
+          "pull_request"
+        ],
+        "jobs": [
+          "signatures"
+        ],
+        "job_declared": true
       },
-      "state": "warn"
+      "state": "ok"
     }
   ],
   "undeclared_workflows": []
