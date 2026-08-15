@@ -27,6 +27,7 @@ nothing.
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
 | [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
 | [`session-2026-08-12.md`](session-2026-08-12.md) | nothing — where the 2026-08-11/12 session left things, and the decisions waiting | every repo |
+| [`exploration-namespace.md`](exploration-namespace.md) | **#58's slot.** Three pushed branches with no pull requests, two of which cannot open one until it lands. Adds the `math/<slug>` namespace and the workspace propagation rule | qm |
 
 **Three pages are gone rather than marked done**, per the routing rule above.
 `workspace-unlanded.md` first: both decisions it opened with are settled —
