@@ -58,6 +58,7 @@ gates:
       - records/DRAFT-decision-record-discipline.md
       - records/DRAFT-human-only-contributorship.md
       - records/DRAFT-the-read-document-governs.md
+      - records/DRAFT-governance-arrives-as-a-mechanism.md
     cannot_see: >
       Whether a record is correct, or whether a restatement and its record
       agree -- it pairs declarations and compares no text. Three of its four

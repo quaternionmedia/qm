@@ -124,6 +124,10 @@ def build_parser() -> argparse.ArgumentParser:
         "tags", help="audit every v* tag in the org against the tag record", add_help=False
     )
     sub.add_parser(
+        "review", help="review every record as one body: enforcement, cites, reach",
+        add_help=False,
+    )
+    sub.add_parser(
         "restatements",
         help="every declared restatement of a record names it back",
         add_help=False,
@@ -148,6 +152,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "gates": ("gate_dashboard", False, ["gate-status.json", "--format", "md"]),
     "tags": ("tag_audit", False, []),
     "restatements": ("check_restatements", False, []),
+    "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
     "branch": ("check_pr_base", True, []),
     "preflight": ("run_workflows_locally", True, []),

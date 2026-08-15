@@ -208,6 +208,7 @@ given day.
 | — | [The monitoring seam, and instance identity](records/DRAFT-monitoring-seam-and-instance-identity.md) | Proposed | 2026-08-11 |
 | — | [One executable walkthrough per repository](records/DRAFT-one-executable-walkthrough.md) | Proposed | 2026-08-11 |
 | — | [The read document governs](records/DRAFT-the-read-document-governs.md) | Proposed | 2026-08-14 |
+| — | [Governance arrives as a mechanism](records/DRAFT-governance-arrives-as-a-mechanism.md) | Proposed | 2026-08-14 |
 
 **Every record is `Proposed`, and that is a decision rather than a backlog:
 ratification waits on a second active code owner.** GitHub does not count a

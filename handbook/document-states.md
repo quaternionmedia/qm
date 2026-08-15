@@ -1,8 +1,8 @@
 # Handbook — Document States
 
-**Generated `2026-08-14T19:32:10Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-15T02:55:19Z`.** Quotable for 168h. **Do not edit by hand.**
 
-Every governed document in this corpus: **70**, unfiltered.
+Every governed document in this corpus: **71**, unfiltered.
 
 | | |
 |---|---|
@@ -32,7 +32,7 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 14 |
+| [P] `proposed` | 15 |
 | [??] `unknown` | 1 |
 | [-] `unreviewed` | 27 |
 | [G] `generated` | 6 |
@@ -46,6 +46,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-build-the-seam-buy-the-engines.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-contribution-and-sponsorship-policy.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-decision-record-discipline.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-governance-arrives-as-a-mechanism.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-house-stack.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-human-only-contributorship.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-ide-integrated-governance-discovery.md` | record | Proposed |

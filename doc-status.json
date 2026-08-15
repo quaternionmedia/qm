@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-14T19:32:10Z",
+  "generated_at": "2026-08-15T02:55:19Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -38,11 +38,33 @@
     "transient": "working instructions, deleted when the work lands.",
     "unknown": "the state could not be established, which is not the same as fine."
   },
+  "reading_load": {
+    "documents": [
+      {
+        "path": "AGENTS.md",
+        "lines": 250
+      },
+      {
+        "path": "handbook/async-contract.md",
+        "lines": 235
+      },
+      {
+        "path": "handbook/handoffs/README.md",
+        "lines": 141
+      }
+    ],
+    "total_lines": 626,
+    "budget_lines": 700,
+    "within_budget": true,
+    "headroom_lines": 74,
+    "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
+    "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open."
+  },
   "totals": {
-    "documents": 70,
+    "documents": 71,
     "by_state": {
       "generated": 6,
-      "proposed": 14,
+      "proposed": 15,
       "standing": 13,
       "transient": 9,
       "unknown": 1,
@@ -630,6 +652,15 @@
     },
     {
       "path": "records/DRAFT-decision-record-discipline.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-governance-arrives-as-a-mechanism.md",
       "class": "record",
       "class_reason": "an org decision record",
       "declared_status": "Proposed",

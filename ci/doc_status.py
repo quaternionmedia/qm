@@ -78,6 +78,42 @@ GENERATED = {
     "handbook/document-states.md": "python ci/doc_dashboard.py doc-status.json --out handbook/document-states.md",
 }
 
+# What a session must read before its first edit, per AGENTS.md's opening.
+# Measured because it is a cost paid by every reader, and because it rose 58
+# lines in a session whose stated aim included cutting it -- an unmeasured
+# figure moves in whichever direction nobody is watching.
+# records/DRAFT-governance-arrives-as-a-mechanism.md 4 sets the budget.
+MANDATORY_READING = ("AGENTS.md", "handbook/async-contract.md",
+                     "handbook/handoffs/README.md")
+READING_BUDGET_LINES = 700
+
+
+def reading_load(root: Path) -> dict:
+    """Lines a session must read before writing anything, against the budget."""
+    documents = []
+    total = 0
+    for rel in MANDATORY_READING:
+        path = root / rel
+        if not path.is_file():
+            documents.append({"path": rel, "lines": unknown("not present")})
+            continue
+        lines = len(path.read_text(encoding="utf-8", errors="replace").splitlines())
+        total += lines
+        documents.append({"path": rel, "lines": lines})
+    return {
+        "documents": documents,
+        "total_lines": total,
+        "budget_lines": READING_BUDGET_LINES,
+        "within_budget": total <= READING_BUDGET_LINES,
+        "headroom_lines": READING_BUDGET_LINES - total,
+        "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
+        "the_budget_is_a_ratchet": (
+            "It is lowered as prose is deleted, never raised on contact. Raising "
+            "it is an amendment to that record, argued in the open."
+        ),
+    }
+
+
 # Every state this tool will ever write, and what each one tells a reader about
 # whether the page binds them. A state not in this list is a bug, not a new
 # category -- the vocabulary is closed for the same reason the pattern registry's
@@ -316,6 +352,7 @@ def build(root: Path) -> dict:
             ],
         },
         "states": STATES,
+        "reading_load": reading_load(root),
         "totals": {
             "documents": len(rows),
             "by_state": dict(sorted(by_state.items())),

@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-14T19:32:10Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-08-15T02:55:19Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 
 | Gate | Record or page |
 |---|---|
-| `adr-lint` | `records/DRAFT-decision-record-discipline.md`, `records/DRAFT-human-only-contributorship.md`, `records/DRAFT-the-read-document-governs.md` |
+| `adr-lint` | `records/DRAFT-decision-record-discipline.md`, `records/DRAFT-human-only-contributorship.md`, `records/DRAFT-the-read-document-governs.md`, `records/DRAFT-governance-arrives-as-a-mechanism.md` |
 | `one-pr-slot` | `handbook/async-contract.md` |
 | `namespace-guard` | `README.md` |
 | `ci-tooling-tests` | *nothing stated — it guards a habit rather than a decision* |
