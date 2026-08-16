@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-16T01:09:28Z",
+  "generated_at": "2026-08-16T12:11:54Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -35,7 +35,11 @@
     ]
   },
   "enforcement": {
-    "unknown": "--no-host was passed, so the host was not asked what it requires"
+    "repository": "quaternionmedia/qm",
+    "rulesets_applied": 0,
+    "ruleset_names": [],
+    "branch_protection_on_main": false,
+    "blocks_a_merge": false
   },
   "totals": {
     "gates": 10,

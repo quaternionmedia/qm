@@ -1,0 +1,128 @@
+# Every place a rule in this corpus deliberately does not apply.
+#
+# WHY ONE FILE. Before this, each exemption lived as a constant inside the tool
+# that honoured it: EXEMPT_SUBJECTS, ENFORCED_FROM, CORPUS_PER_BASE, EXEMPT,
+# ROOT_ALLOWED -- six of them, in five files, in four vocabularies, and
+# CORPUS_PER_BASE existed twice with no mechanism keeping the copies equal. A
+# reader asking "what is this corpus not enforcing, and why" had to read the
+# source of every check to find out, so the honest answer was that nobody knew.
+#
+# WHAT BELONGS HERE. An exemption: a rule that applies, and a named case where
+# it does not. Configuration does not belong -- a list of directories a walker
+# skips, or of documents a generator writes, is how a tool works rather than
+# somewhere a rule stops.
+#
+# WHAT AN ENTRY COSTS. A reason somebody would defend out loud, the rule it
+# suspends, and what it would take to remove it. An exemption without a stated
+# removal condition is permanent by default, and permanent-by-default is how a
+# corpus ends up not enforcing things nobody chose to stop enforcing.
+#
+# THIS FILE IS THE CLAIM, NOT THE ENFORCEMENT. Each tool still holds its own
+# constant; this registry records them so they can be read in one place and
+# counted. Making the tools read from here is the next step and is not done --
+# `governance/exceptions.md` says so, and `ci/exceptions.py --drift` reports
+# where the two disagree.
+
+schema: 1
+
+exceptions:
+  - id: attribution-worked-example
+    rule: "No vendor or model name in a commit subject"
+    rule_source: records/DRAFT-human-only-contributorship.md
+    enforced_by: project-seed/ci/check_attribution.py
+    constant: EXEMPT_SUBJECTS
+    scope: "one commit, by full SHA: 35ebca6a"
+    reason: >
+      A real commit by a real contributor that named a model in its subject
+      before the check existed. It is kept as the worked example the rule is
+      taught from: a rule illustrated by a live instance in its own tree is
+      harder to dismiss than one illustrated by a hypothetical.
+    removal_condition: >
+      The commit is reworded, which needs history rewriting, which this org does
+      not do. So: permanent unless that policy changes.
+    announced: "printed with its reason on every run of the check"
+
+  - id: signatures-predate-the-check
+    rule: "Every commit a branch adds carries a verifiable signature"
+    rule_source: records/DRAFT-human-only-contributorship.md
+    enforced_by: project-seed/ci/check_signatures.py
+    constant: ENFORCED_FROM
+    scope: "any commit committed before 2026-08-15"
+    reason: >
+      Nine unsigned commits exist because a tool was run with signing disabled
+      before any check read a signature. A gate whose only remedy is a forbidden
+      act -- rewriting history -- is a gate that gets switched off within a week.
+    removal_condition: >
+      Never for the existing nine. The date moves forward only if a later
+      unsigned run has to be absorbed, and moving it is a reviewable edit.
+    announced: "counted as debt on stderr on every run; the count does not go down"
+
+  - id: project-branches-hold-their-own-slot
+    rule: "One open pull request per repository, per contributor"
+    rule_source: handbook/async-contract.md
+    enforced_by: project-seed/ci/check_one_pr.py
+    constant: "--per-base"
+    defaulted_in:
+      - ci/harness_status.py            # CORPUS_PER_BASE
+      - project-seed/ci/cowork_context.py   # CORPUS_PER_BASE
+    scope: "pull requests whose base matches project/*"
+    reason: >
+      Each project branch is pinned by a different downstream submodule, so a
+      change to one is not a change to another. Combining them would invent a
+      dependency between unrelated projects.
+    removal_condition: >
+      Project branches stop being pinned independently, which would mean the
+      submodule model had changed.
+    announced: "named in the workflow and printed by the tool"
+    note: >
+      The exemption is a flag somebody passes, and two callers hardcode the
+      default independently with nothing keeping them equal. The registry first
+      attributed the constant to check_one_pr.py, which does not hold one --
+      --drift caught that on its first run.
+
+  - id: machine-scoped-inventory-files
+    rule: "Data files live in ci/ or status/, as YAML"
+    rule_source: handbook/config-standard.md
+    enforced_by: ci/config_standard.py
+    constant: EXEMPT
+    scope: "inventory-private.json, inventory-local.json"
+    reason: >
+      They hold private repository names and one operator's absolute paths. They
+      belong to a machine rather than to the org, are gitignored, and the file
+      split is what keeps the public inventory safe to commit.
+    removal_condition: "None. Their existence outside both folders is the control."
+    announced: "named in the generator's docstring and in .gitignore's comment"
+
+  - id: packaging-files-at-the-root
+    rule: "No data file at the repository root"
+    rule_source: handbook/config-standard.md
+    enforced_by: ci/config_standard.py
+    constant: ROOT_ALLOWED
+    scope: "pyproject.toml, uv.lock, REUSE.toml, zensical.toml, license-report.json"
+    reason: >
+      Each is placed by a tool that requires it there. Moving them would break
+      the tool to satisfy a rule about a different kind of file.
+    removal_condition: "A tool stops requiring its config at the root."
+    announced: "listed in the checker"
+
+  - id: migration-keeps-its-own-vocabulary
+    rule: "References to a pre-standard path are rewritten to the new one"
+    rule_source: handbook/config-standard.md
+    enforced_by: ci/config_standard.py
+    constant: NEVER_REWRITE
+    scope: >
+      ci/config_standard.py, ci/tests/test_config_standard.py,
+      handbook/config-standard.md
+    reason: >
+      Each names a pre-standard path deliberately: the checker maps both sides,
+      the tests use old names as fixtures, and the standard describes the drift
+      it replaced. A reference and a historical mention are identical to a text
+      substitution.
+    removal_condition: >
+      None available. The distinction is semantic and a substitution cannot see
+      it, which is why the exclusion is declared rather than inferred.
+    announced: "the migration reports each file it left alone"
+    note: >
+      Added after the first --migrate run rewrote all three, turning test
+      fixtures into assertions about a file they had just created under its new
+      name.

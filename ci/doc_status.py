@@ -76,6 +76,7 @@ GENERATED = {
     "harness-status.json": "python ci/harness_status.py --no-local --write harness-status.json",
     "gate-status.json": "python ci/gate_status.py --write gate-status.json",
     "doc-status.json": "python ci/doc_status.py --write doc-status.json",
+    "inventory.json": "uv run qm inventory --write inventory.json",
     "handbook/gates.md": "python ci/gate_dashboard.py gate-status.json --format md --out handbook/gates.md",
     "handbook/document-states.md": "python ci/doc_dashboard.py doc-status.json --out handbook/document-states.md",
 }

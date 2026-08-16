@@ -15,7 +15,7 @@
 | Absolutes | 22 |
 | Average sentence | 24 words |
 
-It is the most-read passage in the corpus. A reader meets 840 unbroken words,
+It is the most-read passage in the corpus, written by the operator with assistant-2026-08. A reader meets 840 unbroken words,
 is told what to never do 34 times, and is asked nothing.
 
 ## The claim this plan rests on, which may be wrong
@@ -43,6 +43,31 @@ Offered as starting points, not as a specification:
 - **Block length without a break**
 - **Questions per document** — zero is the signal
 - **Absence of a `Pends on`-style marker** for what is genuinely unsettled
+
+### Candidates added 2026-08-16, from a live incident
+
+Three that are not about tone. Each shifts responsibility while reading as
+neutral description, and all three were caught by the reviewer rather than by
+any check.
+
+- **An artifact as the grammatical subject of a harm.** *"after it nearly
+  carried private names into a public repository"* — the nearest antecedent is
+  the inventory, so the artifact takes blame for what a tool did. An artifact
+  cannot carry anything anywhere.
+- **Agentless passives in failure sentences.** *"a solved problem was
+  reintroduced"*, *"the artifact carried"*. The actor is simply absent.
+- **An unattributed instrument.** *"this tool"*, with nothing that says which.
+  A failure attributed to an unnamed tool cannot be compared across incidents
+  or counted per tool.
+
+Worked example: `ledger.yaml` 2026-08-16-003. All three were in its first two
+drafts.
+
+**Answered for one of them.** The third is no longer a candidate: `tool:` is
+required on every ledger entry and must resolve against `ci/tool-registry.yaml`,
+on every entry rather than only the failures, because a register that named an
+instrument in fault and stayed silent in credit would let it bank one and shed
+the other. The first two remain candidates and nothing detects them.
 
 **Open: which of these predict anything?** None has been correlated with a
 reader failing to act. A linter built on untested signals would flag prose for

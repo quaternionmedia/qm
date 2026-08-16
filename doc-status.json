@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-16T01:09:28Z",
+  "generated_at": "2026-08-16T12:11:55Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -120,14 +120,14 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 84,
+    "documents": 88,
     "by_state": {
-      "generated": 6,
+      "generated": 7,
       "proposed": 16,
-      "standing": 19,
+      "standing": 21,
       "transient": 12,
       "unknown": 1,
-      "unreviewed": 30
+      "unreviewed": 31
     },
     "disagreements": 0,
     "unknown": 1
@@ -208,6 +208,16 @@
     },
     {
       "path": "handbook/async-contract.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/config-standard.md",
       "class": "handbook",
       "class_reason": "policy binding on QM's own conduct",
       "declared_status": null,
@@ -438,6 +448,18 @@
       "present": true
     },
     {
+      "path": "inventory.json",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "uv run qm inventory --write inventory.json",
+      "present": false,
+      "why_absent": "declared generated, and not on disk. Run its refresh command."
+    },
+    {
       "path": "perspectives/2026-07-05-on-human-only-contributorship.md",
       "class": "perspective",
       "class_reason": "dated, attributed, non-binding opinion",
@@ -659,6 +681,16 @@
       "state": "unreviewed"
     },
     {
+      "path": "perspectives/2026-08-16-the-base-was-the-deliverable.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": null,
+      "state": "unreviewed"
+    },
+    {
       "path": "perspectives/README.md",
       "class": "index",
       "class_reason": "the index for its directory, not a member of it",
@@ -760,6 +792,16 @@
     },
     {
       "path": "plans/authorship-first-governance.md",
+      "class": "other",
+      "class_reason": "not in a governed directory",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "plans/data-collection-pathways.md",
       "class": "other",
       "class_reason": "not in a governed directory",
       "declared_status": null,

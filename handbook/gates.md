@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-16T01:09:28Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-08-16T12:11:54Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -12,9 +12,9 @@
 
 ## The merge boundary
 
-**Whether anything blocks a merge is unknown** — --no-host was passed, so the host was not asked what it requires.
+**Nothing blocks a merge on `quaternionmedia/qm`.** The host reports 0 ruleset(s) and no branch protection on `main`.
 
-Not established is not the same as nothing wrong. Every gate below may or may not be advisory; this document does not know.
+**Every gate below is therefore advisory.** A green check means *someone was told*, not *this was prevented*. Advisory is a legitimate state — most governance here is advisory on purpose — but it is not the same claim, and a reader who conflates them will trust a merge nobody checked.
 
 **10 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 9 ok, 0 warn, 1 unknown.
 

@@ -13,12 +13,19 @@
 # `outcome_matched_projection: false` is not a defect. An honest miss is worth
 # more than a vague hit. The defect is a closed entry with no outcome.
 #
+# `tool` names who produced the entry, resolved against ci/tool-registry.yaml.
+# It is required on every entry, not only the ones recording a failure: tool
+# authorship is audited on the same terms as tool fault, and a register that
+# named an instrument only when something went wrong would let it accumulate
+# credit while shedding responsibility.
+#
 # records/DRAFT-the-ledger.md is the decision; this is the instrument.
 
 schema: 1
 
 entries:
   - id: 2026-08-14-001
+    tool: assistant-2026-08
     reconstructed: true
     kind: decide
     action: "Review the workspace and line up parallel work"
@@ -39,6 +46,7 @@ entries:
     status: closed
 
   - id: 2026-08-14-002
+    tool: assistant-2026-08
     reconstructed: true
     kind: build
     action: "Give records/DRAFT-version-tags-are-claims.md its 7 mechanism"
@@ -54,6 +62,7 @@ entries:
     status: closed
 
   - id: 2026-08-14-003
+    tool: assistant-2026-08
     reconstructed: true
     kind: build
     action: "Build the gate index as one generator-plus-renderer file"
@@ -71,6 +80,7 @@ entries:
     status: closed
 
   - id: 2026-08-14-004
+    tool: assistant-2026-08
     reconstructed: true
     kind: build
     action: "Add the qm CLI so governance operations have one entry point"
@@ -90,6 +100,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-001
+    tool: assistant-2026-08
     reconstructed: true
     kind: fix
     action: "Respond to two violations in one command: improvised test invocation, and -c on git"
@@ -111,6 +122,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-002
+    tool: assistant-2026-08
     reconstructed: true
     kind: fix
     action: "Grandfather unsigned history the corpus cannot rewrite"
@@ -129,6 +141,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-003
+    tool: assistant-2026-08
     kind: fix
     action: >
       Repair the four defects the self-audit found: a comment contradicting its
@@ -156,6 +169,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-004
+    tool: assistant-2026-08
     kind: build
     action: "Adopt the ledger and write the glossary"
     projected_impact: >
@@ -177,6 +191,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-005
+    tool: assistant-2026-08
     kind: document
     action: "Categorize the pressures shaping this assistant's output"
     projected_impact: >
@@ -201,6 +216,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-006
+    tool: assistant-2026-08
     kind: fix
     action: "Loop pass 1: run every gate locally and remotely, and act on what differs"
     projected_impact: >
@@ -226,6 +242,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-007
+    tool: assistant-2026-08
     kind: verify
     action: "Loop passes 2-4: sweep every gate and every mutation harness until nothing new appears"
     projected_impact: >
@@ -247,6 +264,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-008
+    tool: assistant-2026-08
     kind: build
     action: "Give the published docs an audit, and a draft publish path, on #55"
     projected_impact: >
@@ -275,6 +293,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-009
+    tool: assistant-2026-08
     kind: decide
     action: "Exempt one commit subject from the vendor-name rule, as the example it is taught from"
     projected_impact: >
@@ -301,6 +320,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-010
+    tool: assistant-2026-08
     kind: verify
     action: "Merge #55 and verify the draft build actually produces a bannered artifact"
     projected_impact: >
@@ -325,6 +345,7 @@ entries:
     status: closed
 
   - id: 2026-08-16-001
+    tool: assistant-2026-08
     kind: document
     action: >
       Plan stubs for v0.0.2: governance prose signals, the semantic-review
@@ -357,4 +378,222 @@ entries:
       - "A roster that omits a repository makes the org invisible to its own plans"
     tests_generated:
       - "project-seed/ci/tests/test_check_tag_claims.py::test_a_test_run_is_not_described_as_a_tag"
+    status: closed
+
+  - id: 2026-08-16-002
+    tool: assistant-2026-08
+    kind: build
+    action: "Integration pathways: inventory every org repository, and plan collection over propagation"
+    projected_impact: >
+      Expect the roster to be short of the org, and expect the gap to be modest
+      -- a handful of repositories nobody added.
+    outcome: >
+      The gap is 96 of 110. The roster covers 13 percent of the org, and every
+      plan this corpus has written was scoped to the 14 without saying so.
+      Built ci/inventory.py across three layers -- host, roster, local -- and
+      wrote plans/data-collection-pathways.md for the five archive sources.
+      Tested that plan's own falsifier in the same session: of the 96, 55 are
+      three years or older but 20 were touched within a year and 6 within 90
+      days, so the "they are all dormant" objection fails in its strong form.
+    failure_cost: >
+      None yet. The projection was badly wrong in a direction that matters --
+      "a handful" against 96 -- and it was wrong because it guessed at a number
+      a single command could have established.
+    outcome_matched_projection: false
+    lessons:
+      - "A roster that omits a repository makes the org invisible to its own planning"
+      - "Do not project a count that a command can answer; run the command"
+    tests_generated: []
+    status: closed
+
+  - id: 2026-08-16-003
+    tool: assistant-2026-08
+    kind: fix
+    action: >
+      Redact the org inventory: assistant-2026-08 wrote 34 private repository
+      names and 28 paths containing the reviewer's username into the working
+      tree of a public repository
+    projected_impact: >
+      The reviewer asked whether personal details had been pushed. Expect the
+      answer to be no, and expect a small fix.
+    outcome: >
+      Nothing was pushed. The reviewer stopped the command that would have
+      pushed it, then asked the question that established what had been written.
+      assistant-2026-08 wrote 34 private repository names, several of them
+      people's names, and 28 absolute paths containing the reviewer's username,
+      into the working tree of a repository that is public. It also contradicted
+      two decisions the corpus had already written down: governance-status.yaml
+      records private_repository_names_listed false, and make_workspace.py
+      states it writes no absolute paths. assistant-2026-08 consulted neither
+      before generating a second inventory, and so reintroduced a problem the
+      corpus had already solved.
+    failure_cost: >
+      Nothing left the machine, because the reviewer caught it. Had the reviewer
+      not stopped that command, assistant-2026-08 would have published the
+      private repository names of a private organisation, irreversibly. The
+      remediation: private repositories are counted and referenced by a stable
+      creation-ordered id, the name mapping is machine-scoped and gitignored,
+      and 16 tests fail if any of that is weakened.
+    outcome_matched_projection: false
+    lessons:
+      - "Read how an existing generator solved a problem before generating a rival"
+      - "Redaction that drops the subject is not redaction; count it and reference it"
+      - "A privacy failure is silent and one-way; it needs tests, not care"
+      - "Name the actor in the failure sentence -- an artifact cannot carry anything anywhere"
+    tests_generated:
+      - ci/tests/test_inventory.py
+    status: closed
+
+  - id: 2026-08-16-004
+    tool: assistant-2026-08
+    kind: build
+    action: "Make tool attribution auditable on every ledger entry, not only the failures"
+    projected_impact: >
+      The reviewer's instruction: tool authorship should be equally auditable.
+      Expect a registry, a required field, and a check that the field resolves.
+    outcome: >
+      ci/tool-registry.yaml names each tool with vendor, product, operator and
+      where it is disclosed, plus `human` so an entry produced without a tool
+      has something true to name. `tool` is required on all 17 entries and
+      ledger.py --check refuses one that does not resolve. 13 tests.
+    failure_cost: >
+      None. This came from the reviewer noticing that the first two drafts of
+      the entry above claimed credit readily and shed fault through an
+      inanimate subject and an agentless passive.
+    outcome_matched_projection: true
+    lessons:
+      - "A register that names an instrument only in failure lets it bank credit and shed fault"
+      - "An attribution that resolves to nothing cannot be audited"
+    tests_generated:
+      - ci/tests/test_ledger.py
+    status: closed
+
+  - id: 2026-08-16-005
+    tool: assistant-2026-08
+    kind: build
+    action: "Build a policy registry demanding a vendor-neutral detector for every policy"
+    projected_impact: >
+      Predicted before building, from this session's own base rates.
+
+      (1) It will show that most policies cannot have a detector. Of 32 lessons
+      recorded here, roughly 6 to 8 are detectable from an artifact -- signing,
+      config parseability, attribution resolving, roster omissions. The other
+      three quarters are judgement: read stderr before calling a tool silent,
+      prefer the artefact you did not create, a correction names a class. No
+      script reads those from a repository.
+
+      (2) It will be defective on its first run. Six of six new tools this
+      session were. The most likely defect is the one that already happened
+      twice: naming a detector in the wrong file, or naming one that does not
+      exist yet. --drift caught both within a minute, so the cost is a cycle.
+
+      (3) The dangerous failure is not a bug. A registry with a `detector`
+      column creates pressure to fill it, and a weak detector is worse than an
+      honest "none" because the column then reads as coverage. Expect to want
+      to write one for "read stderr first". That want is the thing to refuse.
+
+      (4) I will violate it. I wrote "converting beats adding" and then added;
+      wrote "the tool is not an author" with three merged instances of "its
+      author" already in the tree; wrote "stop using heredocs" and did it nine
+      times. Predict the next rule I make gets a preventer and no detector,
+      because the preventer is the visible satisfying half.
+    outcome: |-
+      Built, routed as `qm policies`, 17 tests, 9 of 9 mutations caught against an
+      asserted-green baseline. Scored per clause, because a four-clause projection
+      called "matched" as a whole hides which clause was wrong.
+
+      (1) MATCHED, and the count was exact. 6 of 9 policies carry a durable detector,
+      2 state why they cannot, 1 has one planned. The 24 judgement lessons are one
+      grouped entry rather than 24 rows of `detector: null`, so the registry reads as
+      an honest limit and not a backlog.
+
+      (2) MATCHED, in the exact predicted failure mode -- and the check did not find
+      it. `--check` passed clean on the first run. Three entries named
+      `status/ledger.yaml`, a path the reverted config migration would create, while
+      the tree has `ledger.yaml`. It passed because it verified only the `detector`
+      column and never `source`: the tool's blind spot and the error were the same
+      blind spot. Found by walking every path the registry names. Both halves fixed --
+      `source` is now verified, with a test and a mutation.
+
+      (3) MATCHED, and the pressure was real. The pull was to write a detector for
+      `read stderr before calling a tool silent`. Refused; it sits inside
+      `judgement-policies` with a stated reason.
+
+      (4) MATCHED, twice over. `main-is-entered-through-a-pull-request` is in the
+      registry with a preventer that is not applied and no detector -- exactly the
+      shape predicted, committed by the file whose purpose is to refuse it, and
+      declarable only because `detector_planned` exists. Separately the heredoc rule
+      broke for a ninth time during this build; the fix predicted for eight rounds --
+      write the script to a file -- was applied here and worked.
+    failure_cost: |-
+      One cycle on the heredoc anchor, ninth occurrence. The `source` defect cost nothing yet because it was caught before the commit, but it is the load-bearing finding: a registry of enforcement whose own check read one of its two path columns. A reader would have taken "every one either detected or explained" as verified while three of nine sources pointed at nothing.
+    outcome_matched_projection: true
+    status: closed
+  - id: 2026-08-16-006
+    tool: assistant-2026-08
+    kind: build
+    action: Add `qm ledger --close`, after a YAML round-trip destroyed the file it settled
+    reconstructed: true
+    projected_impact: |-
+      Reconstructed. No projection was written before acting, which is the one
+      thing the protocol asks for and the second time it has been skipped on a
+      route added mid-task. Recorded as reconstructed rather than backfilled as
+      though it had been foreseen.
+
+      What would have been predicted, had it been written: closing one entry is
+      a four-field change and a script would do it. That is what was built, and
+      it was wrong twice.
+    outcome: |-
+      Closing entry 2026-08-16-005 was attempted three times.
+
+      First, with `yaml.safe_dump`. It settled the four fields correctly and
+      produced a 989-line diff -- 522 insertions, 467 deletions -- reformatting
+      every one of the 19 entries and deleting the header comment that records
+      which entries are reconstructed. A semantic comparison confirmed only the
+      four intended fields changed, so nothing would have failed. On an audit
+      record a diff nobody can read is the defect. Reverted; rebuilt as a text
+      edit, and as a route rather than a one-off script.
+
+      Second, the guard against re-closing a settled entry scanned a fixed
+      forty-line window from the entry's id. It passed its unit test against a
+      short synthetic entry and walked straight past the real one, whose
+      projection block alone is longer than the window. So the file was closed
+      twice: `outcome` acquired the prefix `x`, `failure_cost` acquired `y`, and
+      the previous block bodies were orphaned underneath. `--check` passed on
+      the corrupted file, because a non-empty outcome is all it reads. Bounded
+      to the entry's real extent; a regression test builds an entry longer than
+      any window.
+
+      Third close was clean: 62 insertions, 0 deletions, header intact, and the
+      second attempt now refused.
+
+      The policy registry it was built to settle: 9 policies, 6 detected, 2
+      stating why they cannot be, 1 planned. 660 tests pass, up from 629.
+    failure_cost: |-
+      Two cycles, and one live-data corruption caught by inspection rather than
+      by a check. Nothing reached a commit.
+
+      The heredoc-escaping class broke twice more during this entry, the ninth
+      and tenth occurrences. The fix predicted eight rounds ago -- write the
+      script to a file instead -- was applied for the mutation run and worked,
+      and was then not applied to the next two shell edits.
+    outcome_matched_projection: unknown
+    lessons:
+      - A tool that rewrites a file it was asked to edit passes every semantic
+        check and destroys the artifact's readability. Assert the diff's shape,
+        not only its meaning.
+      - A guard tested against synthetic data is tested against the case its
+        author imagined. The real entry was 4x the size of the fixture, and the
+        guard's window was the one number nobody varied.
+      - "`--check` passed on a corrupted file: it verified the outcome was
+        non-empty, never that it was the outcome given. A completeness check is
+        not a correctness check, and saying so in its own output is the honest
+        floor."
+      - A registry's own check read one of its two path columns. The blind spot
+        that produced the error and the blind spot that missed it were the same.
+    tests_generated:
+      - ci/tests/test_policies.py -- 17 tests, 9 of 9 mutations caught against
+        an asserted-green baseline
+      - ci/tests/test_ledger.py -- 12 further tests covering the close, its
+        comment preservation, the diff's containment, and the long-entry guard
     status: closed

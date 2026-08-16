@@ -289,6 +289,41 @@ def generated_documents(root: Path, mount: dict) -> list[str]:
     return lines
 
 
+EXCEPTION_REGISTRY = "ci/exception-registry.yaml"
+
+
+def exceptions(root: Path, mount: dict) -> tuple[list[str], str | None]:
+    """Every rule this corpus deliberately does not enforce, and where.
+
+    A session arriving with no history learns the rules from AGENTS.md and
+    learns nothing about their holes. Before this, that knowledge lived in six
+    constants inside five checks -- so a blind session either tripped over an
+    exemption or reimplemented a rule that had been deliberately suspended.
+
+    Read rather than derived: the registry is a human's list, and a tool that
+    inferred exemptions from source would report the ones it recognised and
+    stay silent about the rest.
+    """
+    prefix = "" if mount.get("role") == "corpus" else f"{mount.get('path')}/"
+    path = root / prefix / EXCEPTION_REGISTRY
+    if not path.is_file():
+        return [], f"no {prefix}{EXCEPTION_REGISTRY} — this corpus records no exemptions"
+    try:
+        import yaml  # noqa: PLC0415 -- optional; the brief still builds without it
+    except ImportError:
+        return [], "pyyaml is not installed, so the exemptions could not be read"
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except Exception as exc:  # noqa: BLE001 -- a malformed registry is a fact, not a crash
+        return [], f"{EXCEPTION_REGISTRY} did not parse: {exc}"
+    rows = []
+    for entry in data.get("exceptions") or []:
+        rule = " ".join(str(entry.get("rule", "?")).split())
+        scope = " ".join(str(entry.get("scope", "?")).split())
+        rows.append(f"- **{entry.get('id')}** — {rule} *does not apply to* {scope}")
+    return rows, None
+
+
 def workflows(root: Path) -> list[str]:
     directory = root / ".github" / "workflows"
     if not directory.is_dir():
@@ -445,6 +480,24 @@ def emit(root: Path, args: argparse.Namespace) -> str:
             )
     else:
         add("- no local branch carries commits this one does not")
+    add("")
+
+    add("## Rules that do not apply everywhere")
+    add("")
+    rows, problem = exceptions(root, mount)
+    if problem:
+        add(f"- {UNKNOWN} — {problem}")
+    elif rows:
+        for row in rows:
+            add(row)
+        add("")
+        add(
+            "Each is deliberate and argued for in the registry. Read it before "
+            "concluding a check is broken, and before adding a seventh: "
+            "`uv run qm exceptions`."
+        )
+    else:
+        add("- this corpus lists no exemptions, which is itself a claim")
     add("")
 
     add("## Gates you must run before calling anything ready")

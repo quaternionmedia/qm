@@ -333,8 +333,27 @@ def main() -> int:
         print(f"\n=== {f.name} ({name})")
         for job_id, job in wf.get("jobs", {}).items():
             outputs: dict[str, str] = {}
+            job_failed = False
             for step in job.get("steps", []):
                 label = step.get("name") or step.get("uses", "<step>")
+                # Actions halts a job at its first failed step. Running on past
+                # one produces the result this script's own shell handling calls
+                # the one it must never produce: a downstream step reporting
+                # PASS against inputs a real job would never have made. Observed
+                # here -- a site build failed for want of the generator, and the
+                # two steps after it went green against a leftover `site/`, one
+                # of them stamping a draft banner across 24 stale pages.
+                #
+                # `if:` naming always() or failure() runs anyway, as it does on
+                # the runner. No other `if:` expression is evaluated, so a step
+                # carrying one is reported rather than guessed at.
+                condition = str(step.get("if") or "")
+                runs_regardless = "always()" in condition or "failure()" in condition
+                if job_failed and not runs_regardless:
+                    print(f"  - [skip] {label}")
+                    print(f"      a previous step in this job failed, so the runner "
+                          f"would not reach this one")
+                    continue
                 if "run" not in step:
                     print(f"  - [env ] {label}")
                     continue
@@ -392,6 +411,7 @@ def main() -> int:
                         print(f"      working-directory does not exist: {where}")
                         failures.append(f"{f.name} :: {job_id} :: {label}")
                         ran += 1
+                        job_failed = job_failed or not step.get("continue-on-error")
                         os.unlink(path)
                         continue
                     cwd = str(resolved)
@@ -411,6 +431,9 @@ def main() -> int:
                         print(f"      {line}")
                 if proc.returncode != 0:
                     failures.append(f"{f.name} :: {job_id} :: {label}")
+                    # `continue-on-error` records the failure and lets the job
+                    # carry on, which is what the runner does.
+                    job_failed = job_failed or not step.get("continue-on-error")
                 os.unlink(path)
 
     print(f"\n{'=' * 60}")
