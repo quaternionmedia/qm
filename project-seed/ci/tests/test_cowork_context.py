@@ -280,3 +280,47 @@ def test_a_document_without_a_stamp_is_age_unknown_not_age_zero(repo: Path) -> N
     text = brief(repo)
     assert "**Age unknown**" in text
     assert "treat every figure in it as unverified" in text
+
+
+REGISTRY = (
+    "schema: 1\n"
+    "exceptions:\n"
+    "  - id: an-exemption\n"
+    "    rule: some rule\n"
+    "    scope: a named case\n"
+)
+
+
+def test_the_brief_names_the_rules_that_do_not_apply(repo: Path) -> None:
+    """A blind session learns the rules from AGENTS.md and nothing about their
+    holes.
+
+    Before this, that knowledge lived in six constants inside five checks, so a
+    session either tripped over an exemption or reimplemented a rule that had
+    been deliberately suspended.
+    """
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    write(repo / "ci" / "exception-registry.yaml", REGISTRY)
+    commit_all(repo, "registry")
+
+    text = brief(repo)
+    assert "Rules that do not apply everywhere" in text
+    assert "an-exemption" in text
+    assert "a named case" in text
+
+
+def test_a_corpus_with_no_registry_says_so_rather_than_nothing(repo: Path) -> None:
+    """Silence would read as a corpus that enforces everything."""
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    commit_all(repo, "charter")
+    text = brief(repo)
+    assert "Rules that do not apply everywhere" in text
+    assert "records no exemptions" in text
+
+
+def test_a_malformed_registry_is_reported_not_crashed(repo: Path) -> None:
+    """A registry nobody can parse is a fact about the corpus, not a traceback."""
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    write(repo / "ci" / "exception-registry.yaml", "exceptions: [unclosed\n")
+    commit_all(repo, "broken registry")
+    assert "did not parse" in brief(repo)
