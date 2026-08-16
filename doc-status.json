@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-16T12:11:55Z",
+  "generated_at": "2026-08-16T15:22:08Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -102,7 +102,7 @@
     "claim_is_not_evidence": "milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.",
     "measured": {
       "records": {
-        "total": 16,
+        "total": 17,
         "ratified": 0,
         "proposed": 16
       },
@@ -120,8 +120,9 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 88,
+    "documents": 89,
     "by_state": {
+      "draft": 1,
       "generated": 7,
       "proposed": 16,
       "standing": 21,
@@ -966,6 +967,15 @@
       "state_from_status_row": "proposed",
       "state_from_filename": "draft",
       "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-the-base-is-the-deliverable.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Draft",
+      "state_from_status_row": "draft",
+      "state_from_filename": "draft",
+      "state": "draft"
     },
     {
       "path": "records/DRAFT-the-ledger.md",

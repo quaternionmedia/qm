@@ -123,3 +123,44 @@ def test_the_brief_form_drops_the_reasoning_and_keeps_the_scope():
 def test_the_output_refuses_to_read_as_permission():
     """A list of holes is an argument record, not a licence to add another."""
     assert "without the same argument" in render([entry()], brief=False)
+
+
+# --- declared gaps are not code suppressions --------------------------------
+#
+# Two things wear the word exemption: a constant that silences a check, and a
+# gap that is declared and still reported. Only the first can drift, and giving
+# the second a fake constant to satisfy the schema would mean suppressing the
+# finding to make the name real.
+
+from exceptions import suppressed  # noqa: E402
+
+
+@pytest.mark.parametrize(
+    "constant, silences",
+    [
+        ("EXEMPT_SUBJECTS", True),
+        ("none -- reported as findings", False),
+        ("None", False),
+        ("", False),
+    ],
+    ids=["a-real-constant", "none-with-reason", "bare-none", "absent"],
+)
+def test_only_a_named_constant_counts_as_silencing(constant, silences):
+    assert suppressed({"constant": constant}) is silences
+
+
+def test_a_declared_gap_does_not_drift(tmp_path: Path):
+    """It names no constant, so there is nothing in the source to disagree with."""
+    entry = {
+        "id": "a-gap", "enforced_by": "ci/exceptions.py",
+        "constant": "none -- reported as findings",
+    }
+    assert drift([entry], CI_DIR.parent) == []
+
+
+def test_a_code_exemption_still_drifts(tmp_path: Path):
+    entry = {
+        "id": "a-suppression", "enforced_by": "ci/exceptions.py",
+        "constant": "NO_SUCH_CONSTANT_EXISTS_HERE",
+    }
+    assert any("no longer contains" in p for p in drift([entry], CI_DIR.parent))

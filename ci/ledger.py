@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 import yaml
@@ -48,6 +49,80 @@ def load(path: Path) -> list[dict]:
     if not entries:
         raise SystemExit(f"{path}: the ledger is empty -- nothing was checked.")
     return entries
+
+
+def passes(path: Path) -> list[dict]:
+    """Every recorded pass over the base, in order.
+
+    Separate from `entries` because they answer different questions. An entry
+    says something was found; a pass says the looking happened. Without the
+    second, a ledger that grew by nothing is indistinguishable from one nobody
+    opened, and the stability criterion in
+    records/DRAFT-the-base-is-the-deliverable.md cannot be read at all.
+    """
+    if not path.is_file():
+        return []
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return data.get("passes") or []
+
+
+def streak(recorded: list[dict]) -> int:
+    """Trailing passes that added nothing. The stability measure.
+
+    Counted from the end and stopping at the first pass that added an entry --
+    the question is whether the ground is still moving now, not how quiet it
+    once was.
+    """
+    count = 0
+    for entry in reversed(recorded):
+        if entry.get("added_since_previous"):
+            break
+        count += 1
+    return count
+
+
+def pass_problems(recorded: list[dict], tools: set[str] | None = None) -> list[str]:
+    found: list[str] = []
+    for i, entry in enumerate(recorded):
+        where = entry.get("at", f"pass {i}")
+        for field in ("at", "tool", "ran", "entries_at_pass", "added_since_previous"):
+            if entry.get(field) is None:
+                found.append(f"{where}: missing `{field}`")
+        if not str(entry.get("ran") or "").strip():
+            found.append(
+                f"{where}: `ran` is empty. A pass that does not say what it ran "
+                f"cannot be told from a narrower one, and narrowing the pass is "
+                f"the way to lengthen the streak without earning it."
+            )
+        if tools and entry.get("tool") and entry["tool"] not in tools:
+            found.append(f"{where}: tool {entry['tool']} not in ci/tool-registry.yaml")
+    # Only the first pass may be unknown, and it must be: a later pass claiming
+    # it cannot be compared is a quiet result wearing the baseline's clothes.
+    for i, entry in enumerate(recorded):
+        is_unknown = isinstance(entry.get("added_since_previous"), dict)
+        if i == 0 and not is_unknown:
+            found.append(
+                f"{entry.get('at')}: the first pass reports a count. It has no "
+                f"previous pass to differ from, so the only honest value is unknown."
+            )
+        if i > 0 and is_unknown:
+            found.append(
+                f"{entry.get('at')}: added_since_previous is unknown on a pass "
+                f"that has a predecessor. The count is computed, not withheld."
+            )
+
+    # The count is derived, so a disagreement means it was edited by hand.
+    for previous, current in zip(recorded, recorded[1:]):
+        expected = (current.get("entries_at_pass") or 0) - (previous.get("entries_at_pass") or 0)
+        if isinstance(current.get("added_since_previous"), dict):
+            continue
+        if current.get("added_since_previous") != expected:
+            found.append(
+                f"{current.get('at')}: added_since_previous is "
+                f"{current.get('added_since_previous')} but the entry counts "
+                f"differ by {expected}. This number is computed, never typed."
+            )
+    return found
 
 
 def known_tools(path: Path) -> set[str]:
@@ -211,9 +286,65 @@ def close(raw: str, entry_id: str, outcome: str, cost: str, matched) -> str:
     return "\n".join(lines)
 
 
+def record_pass(raw: str, ran: str, tool: str, when: str, total: int) -> str:
+    """Append a pass. Text edit, for the reason `close` is one -- see its note.
+
+    `added_since_previous` is computed from the ledger's own length rather than
+    taken as an argument. A contributor counting their own findings is the
+    number least worth trusting, and it is the only number the streak reads.
+    """
+    data = yaml.safe_load(raw) or {}
+    previous = data.get("passes") or []
+
+    # The first pass has nothing to be measured against, and saying `0` there
+    # would be a fabrication that hands the streak its first point for free --
+    # the exact way this measure flatters itself. `unknown` carries its reason,
+    # and `streak` stops on it rather than counting it.
+    if previous:
+        added = f"{total - previous[-1].get('entries_at_pass', total)}"
+    else:
+        added = ('{unknown: "the first pass has no previous pass to differ '
+                 'from; this is a baseline, not a quiet result"}')
+
+    lines = [
+        f"  - at: \"{when}\"",
+        f"    tool: {tool}",
+        f"    ran: {block(ran, '      ')}",
+        f"    entries_at_pass: {total}",
+        f"    added_since_previous: {added}",
+    ]
+    body = "\n".join(lines)
+
+    if "\npasses:" in raw or raw.startswith("passes:"):
+        return raw.rstrip("\n") + "\n" + body + "\n"
+    header = (
+        "\n# Every pass over the base, recorded whether or not it found anything.\n"
+        "#\n"
+        "# `entries:` above grows only when something goes wrong, so on its own it\n"
+        "# cannot tell a quiet pass from a pass nobody ran. That distinction is the\n"
+        "# whole stability criterion in records/DRAFT-the-base-is-the-deliverable.md,\n"
+        "# so the looking is recorded here as well as the findings.\n"
+        "#\n"
+        "# `added_since_previous` is computed from the ledger's length by\n"
+        "# `qm ledger --pass`. A hand-edited value is refused by --check.\n"
+        "#\n"
+        "# A bad pass is recorded on the same terms as a good one. A log updated\n"
+        "# only after the runs that went well is a streak counter, not a test.\n"
+        "passes:\n"
+    )
+    return raw.rstrip("\n") + "\n" + header + body + "\n"
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--path", default=str(LEDGER))
+    parser.add_argument("--pass", dest="record", action="store_true",
+                        help="record a pass over the base, found something or not")
+    parser.add_argument("--ran", help="what this pass actually ran, in your words")
+    parser.add_argument("--tool", default="assistant-2026-08",
+                        help="who ran it, resolved against ci/tool-registry.yaml")
+    parser.add_argument("--stability", action="store_true",
+                        help="the trailing run of passes that added nothing")
     parser.add_argument("--close", metavar="ID",
                         help="settle an open entry against its projection")
     parser.add_argument("--outcome", help="what actually happened")
@@ -227,6 +358,55 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     path = Path(args.path)
+
+    if args.stability:
+        recorded = passes(path)
+        if not recorded:
+            print("no passes recorded, so stability is unknown -- not zero.")
+            print("A ledger that only grows on failure cannot tell a quiet pass "
+                  "from a pass nobody ran.")
+            print("Record one: uv run qm ledger --pass --ran \"<what you ran>\"")
+            return 0
+        run = streak(recorded)
+        print(f"{len(recorded)} pass(es) recorded; {run} in a row added nothing.")
+        last = recorded[-1]
+        added = last.get("added_since_previous")
+        shown = (f"unknown ({added['unknown']})" if isinstance(added, dict)
+                 else f"added {added}")
+        print(f"last pass  {last.get('at')}  by {last.get('tool')}  {shown}")
+        print()
+        print("The base is stable when a full pass adds no entry "
+              "(records/DRAFT-the-base-is-the-deliverable.md §3).")
+        print("A streak is not correctness: a pass finds only what its checks "
+              "look for, and most of this corpus is judgement with no detector.")
+        return 0
+
+    if args.record:
+        if not args.ran:
+            raise SystemExit(
+                "--pass needs --ran. A pass that does not say what it ran cannot "
+                "be told from a narrower one."
+            )
+        raw = path.read_text(encoding="utf-8")
+        total = len(load(path))
+        when = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        updated = record_pass(raw, args.ran, args.tool, when, total)
+        try:
+            parsed = yaml.safe_load(updated) or {}
+        except yaml.YAMLError as exc:
+            raise SystemExit(f"the edit produced unparseable YAML: {exc}") from exc
+        if len(parsed.get("entries") or []) != total:
+            raise SystemExit("the edit changed the entries; nothing written")
+        recorded = parsed.get("passes") or []
+        path.write_text(updated, encoding="utf-8", newline="\n")
+        added = recorded[-1]["added_since_previous"]
+        if isinstance(added, dict):
+            print("pass recorded as the baseline. There is no previous pass to "
+                  "differ from, so it counts toward no streak.")
+        else:
+            print(f"pass recorded: {added} entr(ies) added since the previous pass.")
+        print(f"{streak(recorded)} pass(es) in a row have added nothing.")
+        return 0
 
     if args.close:
         if not (args.outcome and args.cost and args.matched):
@@ -262,7 +442,8 @@ def main(argv: list[str] | None = None) -> int:
     entries = load(path)
 
     if args.check:
-        found = problems(entries, known_tools(TOOL_REGISTRY))
+        tools = known_tools(TOOL_REGISTRY)
+        found = problems(entries, tools) + pass_problems(passes(path), tools)
         for problem in found:
             print(f"  - {problem}", file=sys.stderr)
         if found:
@@ -270,7 +451,9 @@ def main(argv: list[str] | None = None) -> int:
                   f"is a prediction nobody scored.", file=sys.stderr)
             return 1
         closed = sum(1 for e in entries if e.get("status") == "closed")
-        print(f"ledger: {len(entries)} entries, {closed} closed and all scored.")
+        recorded = passes(path)
+        print(f"ledger: {len(entries)} entries, {closed} closed and all scored; "
+              f"{len(recorded)} pass(es), {streak(recorded)} in a row adding nothing.")
         print("This does NOT mean the projections were good -- nothing here reads "
               "them for vagueness, and nothing verifies that the tool named is the "
               "tool that ran.")

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-16T12:11:54Z",
+  "generated_at": "2026-08-16T15:22:07Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -114,7 +114,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T02:45:51Z"
           },
-          "idle_hours": 81.4,
+          "idle_hours": 84.6,
           "stalled": true
         }
       ],
@@ -182,7 +182,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23029.3,
+          "idle_hours": 23032.4,
           "stalled": true
         }
       ],
@@ -203,8 +203,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:21Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:36Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -293,7 +293,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 120.4,
+          "idle_hours": 123.6,
           "stalled": true
         }
       ],
@@ -309,8 +309,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:22Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:37Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -351,8 +351,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:26Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:41Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -487,7 +487,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 113.0,
+          "idle_hours": 116.1,
           "stalled": true
         }
       ],
@@ -508,8 +508,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:24Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:38Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -520,7 +520,7 @@
       "role": "project",
       "phase": "v0.0.1",
       "phase_source": "scaffolded",
-      "note": null,
+      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-32.\n",
       "slots": {
         "repository": "quaternionmedia/datafactorio",
         "per_base": [],
@@ -591,8 +591,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:25Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:40Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -603,7 +603,7 @@
       "role": "project",
       "phase": "v0.0.1",
       "phase_source": "scaffolded",
-      "note": null,
+      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-33.\n",
       "slots": {
         "repository": "quaternionmedia/factorio-server",
         "per_base": [],
@@ -637,8 +637,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:29Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:43Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -682,8 +682,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:30Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:44Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -727,8 +727,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:34Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:48Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -826,7 +826,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-12T00:38:52Z"
           },
-          "idle_hours": 107.5,
+          "idle_hours": 110.7,
           "stalled": true
         }
       ],
@@ -842,8 +842,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:27Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:42Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -905,7 +905,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3164.2,
+          "idle_hours": 3167.3,
           "stalled": true
         }
       ],
@@ -1187,7 +1187,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T04:11:43Z"
           },
-          "idle_hours": 80.0,
+          "idle_hours": 83.2,
           "stalled": true
         }
       ],
@@ -1208,8 +1208,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 58,
-        "observed_at": "2026-08-16T12:11:32Z",
+        "behind_corpus": 67,
+        "observed_at": "2026-08-16T15:21:47Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }

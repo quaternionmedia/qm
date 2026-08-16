@@ -152,6 +152,22 @@ def build_parser() -> argparse.ArgumentParser:
         "branch", help="what a branch actually carries, against its base", add_help=False
     )
     sub.add_parser(
+        "lanes", help="the lanes this work is separated into",
+        add_help=False,
+    )
+    sub.add_parser(
+        "private-names", help="no private repository name is in a tracked file",
+        add_help=False,
+    )
+    sub.add_parser(
+        "workspace", help="write the multi-root workspace from the roster",
+        add_help=False,
+    )
+    sub.add_parser(
+        "devloop", help="the local dev environment, measured against what the loop needs",
+        add_help=False,
+    )
+    sub.add_parser(
         "policies", help="what enforces each policy, and what survives a tool change",
         add_help=False,
     )
@@ -191,6 +207,10 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
     "branch": ("check_pr_base", True, []),
+    "lanes": ("lanes", False, []),
+    "private-names": ("check_private_names", False, []),
+    "workspace": ("make_workspace", False, []),
+    "devloop": ("devloop", False, []),
     "policies": ("policies", False, []),
     "exceptions": ("exceptions", False, []),
     "config": ("config_standard", False, []),

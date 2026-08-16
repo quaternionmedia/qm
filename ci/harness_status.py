@@ -50,6 +50,13 @@ from pathlib import Path
 
 import yaml
 
+# This module is imported two ways: as `ci.<name>` by the qm CLI, and as a
+# bare script by anyone running it directly. A plain sibling import works
+# only in the second. Putting this file's own directory first makes
+# `roster` resolvable under both, which is what ci/cli.py does for the seed.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from roster import merge_private
+
 CI_DIR = Path(__file__).resolve().parent
 CORPUS = CI_DIR.parent
 CHECK_ONE_PR = CORPUS / "project-seed" / "ci" / "check_one_pr.py"
@@ -678,7 +685,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     document = yaml.safe_load(args.roster.read_text(encoding="utf-8"))
-    roster = document.get("repositories") or []
+    roster = merge_private(document.get("repositories") or [])
     if not roster:
         sys.exit(f"harness_status: {args.roster} lists no repositories")
 
