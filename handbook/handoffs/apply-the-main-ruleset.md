@@ -122,6 +122,71 @@ The org corpus, `project/<name>` branches, `propagate/<name>-<date>` merges and
 the submodule pins downstream. It has to pass its own tests. Nothing has been
 drafted for it; this line is the whole of what exists.
 
+## The force-push audit, and what it found in ruleset E
+
+Run on 2026-08-16 against `gh api --paginate repos/quaternionmedia/qm/activity`.
+**312 events, back to the creation of `main` on 2026-06-10**, so this is the
+whole of the repository's history and not a window.
+
+**Four force pushes, ever. None on `main`, none on any `project/**` branch, none
+on a tag.** Nothing a downstream submodule pins has been rewritten.
+
+| when | ref | landed? |
+|---|---|---|
+| 2026-08-13 | `evolve/git-hygiene-and-handoff` | ruleset D permits this deliberately |
+| 2026-08-08 ×2 | `propagate/qmetronome-2026-08-08` | both **before** PR #25 merged into `project/qmetronome` on 08-11; the merged commits were never rewritten |
+| 2026-08-08 | `fix/apothecary-seed-refresh` | PR #11 was **closed unmerged**; nothing landed |
+
+Two findings came out of checking those against the rulesets rather than out of
+the history itself.
+
+**1. Applying `E-naming.json` as `active` would block propagation.** E targets
+`~ALL` with a `creation` rule and excludes exactly five patterns:
+`~DEFAULT_BRANCH`, `project/**`, `perspective/**`, `evolve/**`, `workspace/**`.
+**`propagate/**` is not among them** — and it is the second most-created
+namespace in this repository's history (20 creations, behind `evolve`'s 28),
+because it is the only route by which `main` reaches a `project/<name>` branch.
+`AGENTS.md` item 3 mandates it and `handbook/propagation-runbook.md` describes
+it. With E active, creating one is refused, there are no bypass actors, and
+propagation stops.
+
+`docs` is in the same position and is load-bearing differently: `docs.yml`
+triggers on pushes to `[main, docs]`. Creation is not push, so an existing
+`docs` branch keeps working — but it could not be recreated if deleted.
+Thirteen historical creations sit outside every exclusion: `fix` (8), and one
+each of `qmetronome`, `polish`, `math`, `docs`, `broaden`. Most of those are
+what E is *for*. Two are not.
+
+The README already flags E as the thing to watch in the first week's logs, which
+is why it ships evaluating and why stage 2 exists. It does not name
+`propagate/**`, and that one is not "a rule that would have blocked ordinary
+work" — it is a rule that would have blocked a mandated one.
+
+*Done:* `refs/heads/propagate/**` and `refs/heads/docs` added to E's exclude
+list, or a stated reason they should be refused. **A human decides which**, and
+the README's `## The six` row for E says "the four namespaces" while the file
+excludes five plus the default branch — that sentence needs the same repair.
+
+**2. Nothing protects `propagate/**` from a force push, even after all six are
+applied.** A covers the default branch, B `project/**`, C `perspective/**`, D
+`evolve/**` (and permits force-push on purpose), F `refs/tags/v*`. E carries
+only `creation`. So the class of branch that carries governance into pinned
+project branches has no `non_fast_forward` rule, and two of the four historical
+force pushes were on one.
+
+Adding `non_fast_forward` to E is the wrong fix: E targets `~ALL`, rulesets are
+additive, and it would override D's deliberate permission for `evolve/**`.
+*Done:* a `G-propagate.json` targeting `refs/heads/propagate/**` with
+`non_fast_forward` and `required_signatures`, or a recorded decision that a
+pre-merge working branch does not need it.
+
+**What this audit cannot see.** Whether a force push was *justified* — the log
+records that history was rewritten, not why. It also has no route: it was run by
+hand with one `gh api` call, which by this corpus's own standard is a hand-run
+check reported as a result. *Done:* `uv run qm force-pushes`, or the same read
+folded into `qm rulesets`, so the next person reproduces it with a command
+rather than by being told one.
+
 ## What could not be verified — inference, not fact
 
 - **Whether the host accepts `A-main.json` as written.** It has never been
