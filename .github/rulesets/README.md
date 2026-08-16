@@ -22,10 +22,20 @@ Turning on the end state today would deadlock: it wants two code-owner
 approvals and this corpus has had one active reviewer. The stages below each
 add one thing and can be verified before the next.
 
-*Where this stands, 2026-08-10.* Checks now run: pull request #36 reported
-`adr-lint`, `symlinks`, `reuse`, `tests`, `check` and `slot` green, which is
-**stage 3's stated precondition, met**. Stage 1 is therefore the only thing
-between here and a staged rollout, and it has no precondition at all.
+*Where this stands, 2026-08-16.* `gh api repos/quaternionmedia/qm/rulesets`
+returns `[]`. **None of these six has ever been applied**, so every rule below
+is a file and nothing else, and every gate in this repository is a signal to
+whoever merges rather than a barrier. Nothing is required to merge into `main`.
+
+That matters beyond this page. `main-is-entered-through-a-pull-request` is
+registered in `ci/policy-registry.yaml` with a preventer that was never applied
+and no detector — this is that preventer. A reader who sees a green check and
+believes it was required is reading something that is not true.
+
+Stage 1 has no precondition and was the next step on 2026-08-10. It still is.
+Pull request #64 reported `tests`, `adr-lint`, `check`, `reuse`, `signatures`,
+`slot` and `symlinks` green, which is stage 3's precondition met several times
+over; those seven are what ruleset A now names as required.
 
 | Stage | Change | Precondition | State |
 |---|---|---|---|
