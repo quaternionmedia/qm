@@ -20,6 +20,7 @@ nothing.
 
 | Handoff | Blocks on | Repo |
 |---|---|---|
+| [`session-2026-08-15.md`](session-2026-08-15.md) | nothing — **read this first**: where 2026-08-14/15 left things, the docs quickcheck, and what is yours in order | every repo |
 | [`semantic-review-of-the-records.md`](semantic-review-of-the-records.md) | nothing — the one milestone requirement no check can measure. Fifteen records read as one body, in dependency order, before strangers read them. Unblocks the ratification rehearsal | qm |
 | [`two-gate-and-tag-teeth.md`](two-gate-and-tag-teeth.md) | nothing — **read this second**: the pull request is an audit record and the human gate is the tag. Several pages below predate that and describe a draft PR as waiting for a person. Names both pushed branches, the four blocked items, and the one-schema decision | every repo |
 | [`for-a-stronger-model.md`](for-a-stronger-model.md) | nothing — **read this first**: what to distrust in the other pages, and why | every repo |

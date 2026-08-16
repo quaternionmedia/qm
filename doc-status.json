@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-15T22:49:02Z",
+  "generated_at": "2026-08-16T00:15:13Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -50,13 +50,13 @@
       },
       {
         "path": "handbook/handoffs/README.md",
-        "lines": 142
+        "lines": 143
       }
     ],
-    "total_lines": 626,
+    "total_lines": 627,
     "budget_lines": 700,
     "within_budget": true,
-    "headroom_lines": 74,
+    "headroom_lines": 73,
     "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
     "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open."
   },
@@ -104,7 +104,7 @@
       },
       "documents_in_unknown_state": 1,
       "reading_within_budget": true,
-      "reading_total_lines": 626,
+      "reading_total_lines": 627,
       "reading_budget_lines": 700,
       "gates": {
         "unknown": "held in gate-status.json, which this generator does not read -- one document does not restate another's figures"
@@ -116,14 +116,14 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 76,
+    "documents": 78,
     "by_state": {
       "generated": 6,
       "proposed": 16,
       "standing": 14,
-      "transient": 10,
+      "transient": 11,
       "unknown": 1,
-      "unreviewed": 29
+      "unreviewed": 30
     },
     "disagreements": 0,
     "unknown": 1
@@ -366,6 +366,15 @@
       "state": "transient"
     },
     {
+      "path": "handbook/handoffs/session-2026-08-15.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
       "path": "handbook/handoffs/two-gate-and-tag-teeth.md",
       "class": "handoff",
       "class_reason": "working instructions, deleted when the work lands",
@@ -598,6 +607,16 @@
     },
     {
       "path": "perspectives/2026-08-14-teeth-and-what-the-mutations-said.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-15-the-exit-code-was-green.md",
       "class": "perspective",
       "class_reason": "dated, attributed, non-binding opinion",
       "declared_status": "Unreviewed",
