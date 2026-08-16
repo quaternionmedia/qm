@@ -19,7 +19,7 @@ counts is the adopting projects. `ci/` was generalized from the working lint in
 `project/qmetronome`
 and now runs both in this corpus's own CI and in eight adopting projects that
 copied it from here — 191 recorded runs across apothecary, datum, qmetronome,
-dossier, datafactorio, factorio-server, factorio-sysops and loopwall. That
+dossier, `private-32`, `private-33`, factorio-sysops and `private-34`. That
 sentence used to say it had never run in a copying project, and stayed there
 after it stopped being true. `ide/` is the least exercised of the three, and
 which projects carry it *can* now be established from here:
