@@ -57,3 +57,11 @@ site
 # problem without reading it.
 inventory-private.json
 inventory-local.json
+
+# The private half of the repository roster. ci/workspace.yaml carries every
+# tracked repository, but a private one appears there as a `ref` alone -- naming
+# it in a public repository would defeat the redaction inventory-public.json
+# already applies to the same repository. Two names sat in the committed roster
+# from 2b50bd6 while the inventory redacted them as private-32 and private-33;
+# the corpus contradicted itself and nothing read both files at once.
+ci/workspace-private.yaml

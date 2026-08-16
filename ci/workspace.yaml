@@ -135,17 +135,25 @@ repositories:
     paths: [codecartographer, qm/codecartographer]
 
   # --- Governed, not touched on 2026-08-09 ----------------------------------
-  - name: datafactorio
+  - ref: private-32
     role: project
     phase: v0.0.1
     phase_source: scaffolded
-    paths: [qm/datafactorio, datafactorio]
+    note: >
+      Name and paths live in ci/workspace-private.yaml, which is not
+      committed. This repository is private, and a public roster that
+      named it would defeat the inventory's own redaction of the same
+      repository as private-32.
 
-  - name: factorio-server
+  - ref: private-33
     role: project
     phase: v0.0.1
     phase_source: scaffolded
-    paths: [qm/factorio-server, factorio-server]
+    note: >
+      Name and paths live in ci/workspace-private.yaml, which is not
+      committed. This repository is private, and a public roster that
+      named it would defeat the inventory's own redaction of the same
+      repository as private-33.
 
   - name: factorio-sysops
     role: project
