@@ -236,7 +236,7 @@ gates:
   - id: private-names
     workflow: .github/workflows/private-names.yml
     job: private-names
-    gates: [main]
+    gates: []
     seed: false
     exists: true
     external: false
@@ -245,10 +245,18 @@ gates:
       repository -- after a slash, as a quoted token, or as the value of a
       name, slug, repository or branch field -- in any tracked file.
     runs:
-      - python ci/check_private_names.py --source host --strict
+      - python ci/check_private_names.py --source host
     enforces:
       - ci/policy-registry.yaml no-private-name-in-a-public-artifact
     cannot_see: >
+      Everything, at present. `github.token` is scoped to this repository, so
+      the org listing returns nothing private and the check reports
+      `unverified` on every run. It is deployed non-blocking rather than
+      failing every pull request for a reason no author can fix, and the three
+      ways to give it a real source are in plans/v0.0.1-blockers.md for a human
+      to choose between. `gates: []` says this does not gate main.
+
+      Beyond that, and once it has a source:
       History. Two names are in this repository's public history from 2b50bd6
       and no forward fix removes them, which is registered as a permanent
       exemption. It also cannot see a name in prose that is an ordinary English

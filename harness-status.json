@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-16T16:18:34Z",
+  "generated_at": "2026-08-16T16:55:19Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -58,7 +58,7 @@
       "local": 0,
       "pushed": 0,
       "draft": 4,
-      "ready": 3
+      "ready": 4
     },
     "threads_stalled": 7,
     "threads_unreadable": 0
@@ -78,6 +78,15 @@
         ],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 64,
+            "title": "Take every private repository name out of the tree, and gate the next one",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "evolve/redact-private-names",
+            "draft": false
+          },
           {
             "number": 57,
             "title": "Refresh datum's seed copies, which #47 missed",
@@ -100,6 +109,24 @@
       },
       "threads": [
         {
+          "name": "evolve/redact-private-names",
+          "stage": "ready",
+          "pr": 64,
+          "base": "main",
+          "title": "Take every private repository name out of the tree, and gate the next one",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 821,
+            "changed_files": 21,
+            "commits": 7,
+            "deletions": 185,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-16T16:40:23Z"
+          },
+          "idle_hours": 0.2,
+          "stalled": false
+        },
+        {
           "name": "propagate/datum-2026-08-12",
           "stage": "draft",
           "pr": 57,
@@ -114,7 +141,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T02:45:51Z"
           },
-          "idle_hours": 85.5,
+          "idle_hours": 86.2,
           "stalled": true
         }
       ],
@@ -182,7 +209,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23033.4,
+          "idle_hours": 23034.0,
           "stalled": true
         }
       ],
@@ -204,7 +231,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 77,
-        "observed_at": "2026-08-16T16:18:02Z",
+        "observed_at": "2026-08-16T16:54:47Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -293,7 +320,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 124.5,
+          "idle_hours": 125.1,
           "stalled": true
         }
       ],
@@ -310,7 +337,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 77,
-        "observed_at": "2026-08-16T16:18:03Z",
+        "observed_at": "2026-08-16T16:54:48Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -352,7 +379,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 77,
-        "observed_at": "2026-08-16T16:18:07Z",
+        "observed_at": "2026-08-16T16:54:52Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -487,7 +514,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 117.1,
+          "idle_hours": 117.7,
           "stalled": true
         }
       ],
@@ -509,7 +536,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 77,
-        "observed_at": "2026-08-16T16:18:05Z",
+        "observed_at": "2026-08-16T16:54:49Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -646,7 +673,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 77,
-        "observed_at": "2026-08-16T16:18:11Z",
+        "observed_at": "2026-08-16T16:54:55Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -691,7 +718,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 77,
-        "observed_at": "2026-08-16T16:18:15Z",
+        "observed_at": "2026-08-16T16:54:59Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -789,7 +816,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-12T00:38:52Z"
           },
-          "idle_hours": 111.7,
+          "idle_hours": 112.3,
           "stalled": true
         }
       ],
@@ -806,7 +833,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 77,
-        "observed_at": "2026-08-16T16:18:09Z",
+        "observed_at": "2026-08-16T16:54:53Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -868,7 +895,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3168.3,
+          "idle_hours": 3168.9,
           "stalled": true
         }
       ],
@@ -1150,7 +1177,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T04:11:43Z"
           },
-          "idle_hours": 84.1,
+          "idle_hours": 84.7,
           "stalled": true
         }
       ],
@@ -1172,7 +1199,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 77,
-        "observed_at": "2026-08-16T16:18:13Z",
+        "observed_at": "2026-08-16T16:54:58Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
