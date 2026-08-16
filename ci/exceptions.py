@@ -62,12 +62,28 @@ def incomplete(entries: list[dict]) -> list[str]:
     return found
 
 
+def suppressed(entry: dict) -> bool:
+    """Does this exemption silence a check, or only declare a known gap?
+
+    Two different things wear the word exemption. One is code: a constant that
+    makes a check skip something, and if it is renamed the exemption silently
+    widens -- that is what `drift` exists to catch. The other is a gap that is
+    *declared and still reported*: the check goes on failing, and the registry
+    records why nobody has fixed it yet. The second has no constant to drift
+    against, and giving it a fake one to satisfy the schema would be the worse
+    outcome, because the only way to make the name real is to suppress the
+    finding.
+    """
+    constant = str(entry.get("constant") or "").strip()
+    return bool(constant) and not constant.lower().startswith("none")
+
+
 def drift(entries: list[dict], root: Path) -> list[str]:
     """Where the registry and the source disagree about a constant."""
     found = []
     for entry in entries:
         constant, owner = entry.get("constant"), entry.get("enforced_by")
-        if not constant or not owner:
+        if not constant or not owner or not suppressed(entry):
             continue
         path = root / owner
         if not path.is_file():
@@ -96,8 +112,11 @@ def render(entries: list[dict], brief: bool) -> str:
             if entry.get("announced"):
                 out.append(f"    announced  {' '.join(entry['announced'].split())}")
         out.append("")
+    silencing = sum(1 for e in entries if suppressed(e))
+    out.append(f"{silencing} of {len(entries)} silence a check; the rest are gaps "
+               f"that are declared and still reported.")
     out.append("Each is deliberate and each was argued for. None is a bug, and")
-    out.append("none is permission to add a seventh without the same argument.")
+    out.append("none is permission to add another without the same argument.")
     return "\n".join(out)
 
 

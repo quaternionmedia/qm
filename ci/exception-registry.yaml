@@ -126,3 +126,68 @@ exceptions:
       Added after the first --migrate run rewrote all three, turning test
       fixtures into assertions about a file they had just created under its new
       name.
+
+  - id: private-names-in-published-history
+    rule: No private repository name appears in a public artifact
+    rule_source: ci/policy-registry.yaml no-private-name-in-a-public-artifact
+    enforced_by: ci/check_private_names.py
+    constant: none -- history is out of the check's reach entirely
+    scope: >
+      Two private repository names, in the git history of a public repository
+      from 2b50bd6 onward. The working tree is redacted; the history is not.
+    reason: >
+      Removing them from history needs a rewrite and a force-push, which this
+      corpus forbids outright. The forward fix -- redacting ci/workspace.yaml
+      and moving the names to an uncommitted companion -- stops future exposure
+      and does nothing about what is already published. Declared rather than
+      quietly carried, because a check that reports `clean` on the tree would
+      otherwise read as a statement about the repository.
+    removal_condition: >
+      The two repositories are made public, or a human decides a rewrite is
+      warranted. Both are decisions for a person, not defaults for a tool.
+    announced: >
+      printed by ci/check_private_names.py on every clean run -- "History is
+      not read. A name already published stays published."
+
+  - id: private-names-in-generated-status-documents
+    rule: No private repository name appears in a public artifact
+    rule_source: ci/policy-registry.yaml no-private-name-in-a-public-artifact
+    enforced_by: ci/check_private_names.py
+    constant: none -- these are reported as findings, not exempted from the scan
+    scope: >
+      governance-status.yaml and harness-status.json, in their governed-project
+      lists. Five fields and seven fields respectively.
+    reason: >
+      These are generated from git and the host rather than from the roster, so
+      redacting the roster did not reach them. governance-status.yaml already
+      carries `private_repository_names_listed: false`, and that claim is true
+      only of its census of unmanaged repositories -- the governed-project list
+      is not filtered at all, which makes the document's own self-description
+      wrong. Fixing it means teaching two large generators to map a name to its
+      reference from host data, and changing the contract of two committed
+      documents. That is a lane of its own and was not attempted here rather
+      than half-done.
+    removal_condition: >
+      The generators redact a private repository everywhere they emit a name,
+      using the reference assignment in ci/inventory.py rather than a second
+      copy of it. Tracked in ci/lane-registry.yaml under governing-projects.
+    announced: >
+      reported by `uv run qm private-names` as a finding on every run, and named
+      in the open list of the governing-projects lane
+
+  - id: private-names-in-handbook-pages
+    rule: No private repository name appears in a public artifact
+    rule_source: ci/policy-registry.yaml no-private-name-in-a-public-artifact
+    enforced_by: ci/check_private_names.py
+    constant: none -- reported as findings
+    scope: >
+      handbook/adoption-audit-queue.md, handbook/forking-a-project.md, and two
+      pages under handbook/handoffs/.
+    reason: >
+      Hand-written prose naming two projects as worked examples. Redacting it is
+      a documentation edit that changes what those pages teach, and doing it in
+      the same change as the roster redaction would mix two lanes.
+    removal_condition: >
+      The pages are rewritten to use references, or the repositories are made
+      public. Tracked in ci/lane-registry.yaml under documentation.
+    announced: reported by `uv run qm private-names` as a finding on every run
