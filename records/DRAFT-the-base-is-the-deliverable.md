@@ -7,7 +7,7 @@
 | **Namespace** | org |
 | **Binds** | This corpus, and any project that adopts it |
 | **Pends on** | Ratification. Nothing here is settled. |
-| **Restated in** | `AGENTS.md` — the reading budget and the loop condition |
+| **Restated in** | Nothing yet. See §6. |
 
 ---
 
@@ -72,6 +72,12 @@ So a pass is recorded whether or not it found anything, in `passes:` alongside
 length** rather than typed in — a hand-entered count of one's own findings is
 the number most worth not trusting.
 
+**A pass is recorded after its findings are, not before.** The count is taken
+when the pass is recorded, so a pass logged the moment its commands finish —
+before anything it found has been entered — reads as quiet, and its findings
+land against the pass after it. That inflates a streak by one and no check can
+see it, because both numbers are correct for the moments they were taken.
+
 **A pass records the runs that went badly on the same terms as the ones that
 went well.** A pass log that a contributor updates only after a good run is a
 streak counter. The streak is only evidence if a bad pass is as recorded as a
@@ -94,7 +100,26 @@ unratified, which is what it is today.
 A pass that runs fewer checks finds fewer things. The defence is that a pass
 records what it ran, in its own words, next to its result.
 
-## 6. Alternatives considered
+## 6. Nothing restates this yet, and that is a gap
+
+`AGENTS.md` is read first and this record is not, so by
+`records/DRAFT-the-read-document-governs.md` the criterion does not yet govern:
+a session that reads the entry page learns nothing about passes, streaks, or
+what the base is for.
+
+A `Restated in` row is a claim about another document, and
+`ci/check_restatements.py` verifies the pair in both directions. Declaring a
+restatement that the other document does not carry is the one way to make this
+record look read when it is not, so the row states nothing rather than an
+intention.
+
+The passage belongs in `AGENTS.md`. Putting it there is a documentation-lane
+change against a page already over its reading budget — a different decision
+from this one, made against a different constraint, and not one to slip in
+beside the record that wants it. Until it is made, this record loses on
+readership, and the row above says so.
+
+## 7. Alternatives considered
 
 **Leave the criterion as prose in a retrospective.** It was, for one day. A
 sentence in `perspectives/` binds nothing and is not read at the moment the

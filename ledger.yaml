@@ -671,6 +671,50 @@ entries:
       No cycle lost to a defect this time; the projection was written first and every predicted failure was looked for rather than stumbled into. The cost is carried elsewhere: two private repository names are published in the history of a public repository and cannot be withdrawn, and eleven occurrences remain in six tracked files, two of which are generated documents whose fix was declared rather than attempted.
     outcome_matched_projection: false
     status: closed
+  - id: 2026-08-16-008
+    tool: assistant-2026-08
+    kind: fix
+    action: Withdraw a restatement this corpus declared and did not have
+    found_by: the loop pass recorded at 2026-08-16, before this entry existed
+    projected_impact: |-
+      Not pre-written. This is a finding of a pass rather than an action taken
+      on purpose, which is the case the projection rule has no answer for: a
+      prediction about work nobody had decided to do.
+
+      The pass's own expectation stands in its place, and it was wrong. The
+      loop was run to demonstrate the stability mechanism, on the assumption
+      that a tree with 743 green tests and every registry checked would add
+      nothing. It added this within one run.
+    outcome: |-
+      records/DRAFT-the-base-is-the-deliverable.md declared `Restated in:
+      AGENTS.md`. AGENTS.md does not name the record, so a reader stopping at
+      the entry page is never told the record exists. ci/check_restatements.py
+      verifies the pair in both directions and failed on it -- the first loop
+      pass after the record was committed.
+
+      The row now states nothing, and the record carries a section saying it
+      loses on readership until a passage is written into AGENTS.md. That is a
+      documentation-lane change against a page already over its reading budget,
+      and was not made here.
+
+      The pass that found this is recorded as having added an entry, so the
+      streak returns to zero. That is the criterion working: the base moved.
+    failure_cost: |-
+      None yet -- the declaration never reached main. Had it, the corpus would
+      have carried a rule pointing at a restatement that did not exist, which is
+      the precise failure records/DRAFT-the-read-document-governs.md was written
+      about, asserted by the record that cites it.
+    outcome_matched_projection: false
+    lessons:
+      - >
+        A `Restated in` row is a claim about a second document, and writing it
+        beside the intention rather than beside the passage makes it false at
+        the moment it is written.
+      - >
+        The first pass after a change is the one that finds things. Recording a
+        pass before acting on what it found would have logged a quiet result for
+        a run that was not quiet.
+    status: closed
 
 # Every pass over the base, recorded whether or not it found anything.
 #
@@ -691,3 +735,15 @@ passes:
       full suite (664), gates, mutation harnesses, generated documents, and a read of the corpus against the tree
     entries_at_pass: 21
     added_since_previous: {unknown: "the first pass has no previous pass to differ from; this is a baseline, not a quiet result"}
+  - at: "2026-08-16T15:26:33Z"
+    tool: assistant-2026-08
+    ran: |-
+      743 tests, the workflow runner, docs generate and check, private-names, lanes --check, exceptions --drift, policies --check, ledger --check, devloop
+    entries_at_pass: 21
+    added_since_previous: 0
+  - at: "2026-08-16T15:30:02Z"
+    tool: assistant-2026-08
+    ran: |-
+      743 tests, the workflow runner (5 failed: 2 unpushed-branch, 2 zensical PATH, 1 restatement), docs generate and check, private-names, lanes, exceptions, policies, restatements
+    entries_at_pass: 22
+    added_since_previous: 1
