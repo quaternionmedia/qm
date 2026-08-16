@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-16T12:11:55Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-16T15:22:08Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,7 +9,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 16**; 16 proposed |
+| Records ratified | every requirement below | **0 of 17**; 16 proposed |
 | Mandatory reading | under budget | 628 of 700 lines |
 | Documents whose state is unknown | none | 1 |
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **88**, unfiltered.
+Every governed document in this corpus: **89**, unfiltered.
 
 | | |
 |---|---|
@@ -59,6 +59,7 @@ A state says whether a page binds you. It never says the content is right — St
 | State | Documents |
 |---|---|
 | [P] `proposed` | 16 |
+| [D] `draft` | 1 |
 | [??] `unknown` | 1 |
 | [-] `unreviewed` | 31 |
 | [G] `generated` | 7 |
@@ -85,6 +86,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-the-ledger.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-the-read-document-governs.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-version-tags-are-claims.md` | record | Proposed |
+| [D] | `draft` | `records/DRAFT-the-base-is-the-deliverable.md` | record | Draft |
 | [??] | `unknown` | `perspectives/2026-08-09-the-reviewer-is-the-shared-resource.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-07-05-on-human-only-contributorship.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-07-21-verify-before-fixing.md` | perspective | — |
