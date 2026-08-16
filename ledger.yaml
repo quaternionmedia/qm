@@ -597,3 +597,97 @@ entries:
       - ci/tests/test_ledger.py -- 12 further tests covering the close, its
         comment preservation, the diff's containment, and the long-entry guard
     status: closed
+  - id: 2026-08-16-007
+    tool: assistant-2026-08
+    kind: build
+    action: Make base stability measurable, and build a local dev-environment report
+    projected_impact: |-
+      Written before acting, unlike 2026-08-16-006.
+
+      (1) The criterion cannot be read today, and the reason is structural
+      rather than an oversight. The ledger records additions. A pass that adds
+      nothing leaves no trace, so "no new entries" and "nobody ran it" are the
+      same file. Predict that once passes are recorded the first streak is 0 or
+      1, and that the pressure will be to define a pass loosely enough to make
+      the streak longer. A pass that records only the runs that went well is a
+      streak counter, not a stability test.
+
+      (2) It will be defective on its first run. Seven of eight new tools this
+      session were. The likeliest defect is reading a field name that does not
+      exist in a document -- inventory-public.json and ci/workspace.yaml use
+      different words for the same repository, and nothing forces them to agree.
+
+      (3) The specific risk here is privacy, and it has already happened once
+      in this exact place. A tool that reads the inventory and prints
+      repositories is the tool that wrote 34 private names into a committable
+      artifact on 2026-08-16-003. Predict the first draft prints a name where it
+      should print a reference, and that the test which should catch it passes
+      anyway, because that is what happened last time: three assertions were
+      inert because serialisation escaped the paths they searched for.
+
+      (4) The recommendations will drift toward flattering the current state. A
+      report whose author also wrote what it measures has every incentive to
+      grade generously, and there is no detector for that. Expect the first
+      draft to report the org checkout as healthier than 28 of 110 warrants.
+    outcome: |-
+      Built: the stability criterion as a record, `qm ledger --pass` and `--stability`,
+      `qm devloop`, `qm private-names`, `qm lanes`, `ci/roster.py`, and the roster
+      redaction. 743 tests pass, up from 664.
+
+      (1) MATCHED. The criterion could not be read, and the first attempt to record a
+      pass proved the point in the way predicted: it reported the FIRST pass as
+      "0 added" and handed the streak a point for free. There is no previous pass to
+      differ from, so the honest value is unknown. Fixed, and `--check` now refuses a
+      first pass that reports a count and a later pass that claims to be a baseline.
+      The streak is 0.
+
+      (2) MATCHED, exactly as written -- "reading a field name that does not exist in
+      a document". Private entries in inventory-public.json carry `ref` and `label`
+      and no `name` at all, while public ones carry `name`, in the same file. Then the
+      same split, once the roster was redacted, raised KeyError in a generator and
+      would have raised it in three more. One shared loader now guarantees `name`,
+      falling back to the ref.
+
+      (3) MATCHED, and worse than predicted. The privacy risk was real, but not in the
+      new tool: `ci/workspace.yaml` was already committed to a public repository
+      naming two repositories the host reports as private, and the inventory redacted
+      those same two as private-32 and private-33. The corpus contradicted itself, in
+      two committed files, and nothing read both. Found by building the tool rather
+      than by the tool -- the report's own output made the disagreement visible.
+      Eleven further occurrences across six files, two of them generated documents
+      whose fix is a lane of its own and is declared rather than half-done.
+
+      (4) MISSED, in the direction that matters. The recommendations did not flatter:
+      the report opens with "the last pass added an entry, so the base moved under
+      it", and the org checkout initially UNDER-reported, calling two repositories
+      absent that it structurally could not detect. That was a false claim in the
+      honest direction and was fixed the same way a flattering one would have been.
+
+      (5) UNPREDICTED, and the largest finding: a public repository has published two
+      private repository names since 2b50bd6, and no forward fix removes them from
+      history. Declared as an exemption with a removal condition, because a rewrite is
+      forbidden here and the decision is a human's.
+    failure_cost: |-
+      No cycle lost to a defect this time; the projection was written first and every predicted failure was looked for rather than stumbled into. The cost is carried elsewhere: two private repository names are published in the history of a public repository and cannot be withdrawn, and eleven occurrences remain in six tracked files, two of which are generated documents whose fix was declared rather than attempted.
+    outcome_matched_projection: false
+    status: closed
+
+# Every pass over the base, recorded whether or not it found anything.
+#
+# `entries:` above grows only when something goes wrong, so on its own it
+# cannot tell a quiet pass from a pass nobody ran. That distinction is the
+# whole stability criterion in records/DRAFT-the-base-is-the-deliverable.md,
+# so the looking is recorded here as well as the findings.
+#
+# `added_since_previous` is computed from the ledger's length by
+# `qm ledger --pass`. A hand-edited value is refused by --check.
+#
+# A bad pass is recorded on the same terms as a good one. A log updated
+# only after the runs that went well is a streak counter, not a test.
+passes:
+  - at: "2026-08-16T14:13:38Z"
+    tool: assistant-2026-08
+    ran: |-
+      full suite (664), gates, mutation harnesses, generated documents, and a read of the corpus against the tree
+    entries_at_pass: 21
+    added_since_previous: {unknown: "the first pass has no previous pass to differ from; this is a baseline, not a quiet result"}

@@ -248,3 +248,106 @@ def test_the_outcome_carries_no_trailing_newline():
     """`|-` rather than `|`, so the stored value is exactly what was passed."""
     data = yaml.safe_load(closed(outcome="what happened"))
     assert data["entries"][1]["outcome"] == "what happened"
+
+
+# --- passes over the base ---------------------------------------------------
+#
+# `entries:` grows only when something goes wrong, so on its own it cannot tell
+# a quiet pass from a pass nobody ran. That distinction is the entire stability
+# criterion in records/DRAFT-the-base-is-the-deliverable.md.
+
+from ledger import pass_problems, passes, record_pass, streak  # noqa: E402
+
+BASE = "schema: 1\nentries:\n  - id: a\n    tool: t\n"
+
+
+def a_pass(added, at="2026-01-01T00:00:00Z", entries=1, **kw):
+    base = {"at": at, "tool": "assistant-2026-08", "ran": "the suite",
+            "entries_at_pass": entries, "added_since_previous": added}
+    base.update(kw)
+    return base
+
+
+def test_the_first_pass_is_a_baseline_not_a_quiet_result():
+    """Reporting 0 here hands the streak its first point for free."""
+    out = record_pass(BASE, "the suite", "assistant-2026-08", "2026-01-01T00:00:00Z", 1)
+    recorded = yaml.safe_load(out)["passes"]
+    assert isinstance(recorded[0]["added_since_previous"], dict)
+    assert "unknown" in recorded[0]["added_since_previous"]
+
+
+def test_a_baseline_counts_toward_no_streak():
+    out = record_pass(BASE, "the suite", "t", "2026-01-01T00:00:00Z", 1)
+    assert streak(yaml.safe_load(out)["passes"]) == 0
+
+
+def test_a_later_pass_is_counted_from_the_ledgers_own_length():
+    """Not typed in: a contributor counting their own findings is the number
+    least worth trusting, and it is the only number the streak reads."""
+    first = record_pass(BASE, "the suite", "t", "2026-01-01T00:00:00Z", 1)
+    second = record_pass(first, "the suite", "t", "2026-01-02T00:00:00Z", 4)
+    assert yaml.safe_load(second)["passes"][1]["added_since_previous"] == 3
+
+
+def test_a_quiet_pass_extends_the_streak():
+    raw = record_pass(BASE, "s", "t", "2026-01-01T00:00:00Z", 2)
+    for day in range(2, 5):
+        raw = record_pass(raw, "s", "t", f"2026-01-0{day}T00:00:00Z", 2)
+    assert streak(yaml.safe_load(raw)["passes"]) == 3
+
+
+def test_a_pass_that_found_something_ends_the_streak():
+    assert streak([a_pass({"unknown": "x"}), a_pass(0), a_pass(2)]) == 0
+    assert streak([a_pass({"unknown": "x"}), a_pass(2), a_pass(0)]) == 1
+
+
+def test_the_passes_block_is_created_once_and_appended_to_after():
+    raw = record_pass(BASE, "s", "t", "2026-01-01T00:00:00Z", 1)
+    raw = record_pass(raw, "s", "t", "2026-01-02T00:00:00Z", 1)
+    assert raw.count("\npasses:") == 1
+    assert len(yaml.safe_load(raw)["passes"]) == 2
+
+
+def test_recording_a_pass_leaves_the_entries_alone():
+    out = record_pass(BASE, "s", "t", "2026-01-01T00:00:00Z", 1)
+    assert yaml.safe_load(out)["entries"] == yaml.safe_load(BASE)["entries"]
+
+
+def test_a_multi_line_ran_survives():
+    out = record_pass(BASE, "the suite\nand the gates", "t", "2026-01-01T00:00:00Z", 1)
+    assert yaml.safe_load(out)["passes"][0]["ran"] == "the suite\nand the gates"
+
+
+# --- refusing a pass that cannot be trusted ---------------------------------
+
+
+def test_a_hand_edited_count_is_refused():
+    """The number is computed. A disagreement means somebody typed it."""
+    found = pass_problems([a_pass({"unknown": "x"}, entries=1), a_pass(9, entries=2)])
+    assert any("computed, never typed" in p for p in found)
+
+
+def test_a_pass_with_no_ran_is_refused():
+    """Narrowing the pass is how the streak is lengthened without earning it."""
+    found = pass_problems([a_pass({"unknown": "x"}, ran="")])
+    assert any("ran" in p for p in found)
+
+
+def test_a_later_pass_claiming_to_be_a_baseline_is_refused():
+    found = pass_problems([a_pass({"unknown": "x"}), a_pass({"unknown": "x"})])
+    assert any("has a predecessor" in p for p in found)
+
+
+def test_a_first_pass_reporting_a_count_is_refused():
+    assert any("only honest value is unknown" in p for p in pass_problems([a_pass(0)]))
+
+
+def test_an_unregistered_tool_on_a_pass_is_refused():
+    found = pass_problems([a_pass({"unknown": "x"}, tool="mystery")], {"assistant-2026-08"})
+    assert any("not in ci/tool-registry.yaml" in p for p in found)
+
+
+def test_no_passes_is_not_a_problem(tmp_path: Path):
+    """Unknown, not zero -- and a ledger with no passes is the normal start."""
+    assert pass_problems([]) == []
+    assert passes(tmp_path / "absent.yaml") == []
