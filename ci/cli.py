@@ -152,6 +152,10 @@ def build_parser() -> argparse.ArgumentParser:
         "branch", help="what a branch actually carries, against its base", add_help=False
     )
     sub.add_parser(
+        "rulesets", help="what the rulesets say, and what the host is running",
+        add_help=False,
+    )
+    sub.add_parser(
         "lanes", help="the lanes this work is separated into",
         add_help=False,
     )
@@ -191,6 +195,10 @@ def build_parser() -> argparse.ArgumentParser:
         "test", help="run the suites CI runs, with CI's arguments", add_help=False,
     )
     sub.add_parser(
+        "mutate", help="break a module on purpose; do its tests notice?",
+        add_help=False,
+    )
+    sub.add_parser(
         "preflight", help="run every workflow's real steps locally", add_help=False
     )
     sub.add_parser(
@@ -207,6 +215,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
     "branch": ("check_pr_base", True, []),
+    "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
     "private-names": ("check_private_names", False, []),
     "workspace": ("make_workspace", False, []),
@@ -217,6 +226,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "inventory": ("inventory", False, []),
     "ledger": ("ledger", False, []),
     "test": ("run_tests", False, []),
+    "mutate": ("mutate", False, []),
     "preflight": ("run_workflows_locally", True, []),
     "brief": ("cowork_context", True, []),
 }

@@ -111,11 +111,16 @@ policies:
       a check reading main's history for a commit with no merge parent and no
       associated pull request. Roughly twenty lines and not written.
     preventers:
-      - "branch protection (not applied; `gh api .../rulesets` returns [])"
+      - >
+        branch protection, drafted in .github/rulesets/ and not applied --
+        `uv run qm rulesets` reports 6 drafted, 0 applied, and `--check` exits
+        non-zero on that
     note: >
-      The clearest instance of the rule this registry enforces: today this
-      policy has one preventer that is not applied and no detector at all, so
-      nothing whatsoever enforces it.
+      The clearest instance of the rule this registry enforces: this policy has
+      one preventer that is not applied and no detector at all, so nothing
+      whatsoever enforces it. `qm rulesets` does not change that -- it reports
+      whether the preventer is in place, which is a different question from
+      whether the invariant held, and it needs a host credential no runner has.
 
   - id: a-generated-document-is-not-hand-edited
     invariant: "A document a generator writes is regenerated, never edited"

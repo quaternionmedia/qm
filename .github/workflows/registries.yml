@@ -1,0 +1,60 @@
+# The claim registries are complete, and their claims still resolve.
+#
+# ORG-LEVEL, NOT A SEED WORKFLOW. These four registries are this corpus's own.
+#
+# WHY THIS EXISTS. Four checks were built, routed through `uv run qm`, tested,
+# and then run by nobody. A check that exists and is never executed is not a
+# weaker gate than one that runs — it is not a gate at all, and it reads like
+# one in the registry that lists it. All four were in that state, which is the
+# same defect as a rule with no mechanism, arriving one layer along.
+#
+# WHY THESE FOUR AND NOT OTHERS. Each reads committed files and nothing else.
+# No host, no network, no gitignored companion, no operator's filesystem. That
+# is the whole test for whether a check belongs on a runner: `qm devloop` and
+# `qm private-names` are absent from this file because they read a machine, and
+# a check that reads a machine reds a pull request for a reason its author
+# cannot fix.
+#
+# WHAT EACH ONE CANNOT DO is stated in its own output, and none of them is
+# repeated here — the tools say what they do not verify, every run, including
+# on a pass.
+
+name: Registries
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  registries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install pyyaml
+        run: pip install --quiet pyyaml
+
+      # Run as scripts rather than through `uv run qm`, deliberately. The CLI
+      # dispatches to exactly these modules and decides nothing itself, and a
+      # workflow that installed the package to reach them would be testing the
+      # packaging on every pull request as a side effect.
+      - name: Every exemption is complete, and its constant still exists
+        run: python ci/exceptions.py --check
+
+      - name: Every policy has a detector or a stated reason it cannot
+        run: python ci/policies.py --check
+
+      - name: Every ledger entry is attributed, and every closed one is scored
+        run: python ci/ledger.py --check
+
+      - name: Every lane is separable from every other
+        run: python ci/lanes.py --check
