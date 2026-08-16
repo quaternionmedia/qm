@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-16T15:22:07Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-08-16T16:18:34Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -16,7 +16,7 @@
 
 **Every gate below is therefore advisory.** A green check means *someone was told*, not *this was prevented*. Advisory is a legitimate state — most governance here is advisory on purpose — but it is not the same claim, and a reader who conflates them will trust a merge nobody checked.
 
-**10 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 9 ok, 0 warn, 1 unknown.
+**11 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 9 ok, 1 warn, 1 unknown.
 
 ## Every gate
 
@@ -32,6 +32,7 @@
 | [ok] | `tag-claims` | tag | push, workflow_dispatch | yes | A pushed `v*` tag that is lightweight, misnamed, or whose annotation is missing `Reviewed-by`, `Manually-tested`, `Automated-gate` or `Not-covered`. |
 | [??] | `secret-scan` | main | — | no | A commit introducing a credential the scanner recognises. |
 | [ok] | `commit-signatures` | main | pull_request | yes | A branch carrying a commit with no verifiable signature. |
+| [!!] | `private-names` | main | — | no | A pull request in which a private repository's name is used as a repository -- after a slash, as a quoted token, or as the value of a name, slug, repository or branch field -- in any tracked file. |
 
 ## What each gate cannot see
 
@@ -47,6 +48,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 - **`tag-claims`** — Whether the review or the manual test happened -- it reads an annotation a human wrote. It does not gate tag creation, which needs a host-side tag-protection ruleset, and it runs after the tag exists.
 - **`secret-scan`** — Everything about how it is configured. It is an installed application with no workflow file in this repository and no record describing it, so nothing here states what it scans, who can dismiss a finding, or what happens if it is uninstalled. It appears on pull requests and that is the whole of what this corpus knows about it.
 - **`commit-signatures`** — Whether the signer is the person named in the author field, beyond what the key attests. It would establish that an attestation exists, which is currently established for nothing.
+- **`private-names`** — History. Two names are in this repository's public history from 2b50bd6 and no forward fix removes them, which is registered as a permanent exemption. It also cannot see a name in prose that is an ordinary English word: several private repositories are named after common words, and matching those produced 187 findings and no disclosures, so bare-word matches are reported as `possible` and never gate. A name that is both private and an ordinary word can therefore reach main inside a sentence. It reads the host, so it goes red when a repository becomes private while its name is already in the tree -- intended, and the reason an offline check would not do.
 
 ## What each gate makes mechanical
 
@@ -62,13 +64,16 @@ Read this before quoting a green check. Every defect this corpus has found in it
 | `tag-claims` | `records/DRAFT-version-tags-are-claims.md` |
 | `secret-scan` | *nothing stated — it guards a habit rather than a decision* |
 | `commit-signatures` | `records/DRAFT-human-only-contributorship.md` |
+| `private-names` | `ci/policy-registry.yaml no-private-name-in-a-public-artifact` |
 
 ## Where claim and evidence disagree
 
 - [??] **`secret-scan`** — **unknown** — an installed application with no workflow file in this repository; nothing here can read its configuration
+- [!!] **`private-names`** — **unknown** — .github/workflows/private-names.yml is not in the workflows directory
 - [!!] **`docs-audit.yml`** is a workflow nobody declared. It is not adopted into the list above — a gate this page cannot describe is a gate nobody can rely on. Add it to `ci/gate-registry.yaml`.
 - [!!] **`docs-draft.yml`** is a workflow nobody declared. It is not adopted into the list above — a gate this page cannot describe is a gate nobody can rely on. Add it to `ci/gate-registry.yaml`.
 - [!!] **`docs.yml`** is a workflow nobody declared. It is not adopted into the list above — a gate this page cannot describe is a gate nobody can rely on. Add it to `ci/gate-registry.yaml`.
+- [!!] **`private-names.yml`** is a workflow nobody declared. It is not adopted into the list above — a gate this page cannot describe is a gate nobody can rely on. Add it to `ci/gate-registry.yaml`.
 
 ## Reading this document
 

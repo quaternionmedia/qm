@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-16T15:22:07Z",
+  "generated_at": "2026-08-16T16:18:34Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -42,17 +42,17 @@
     "blocks_a_merge": false
   },
   "totals": {
-    "gates": 10,
-    "built": 10,
+    "gates": 11,
+    "built": 11,
     "declared_not_built": 0,
     "by_state": {
       "ok": 9,
-      "warn": 0,
+      "warn": 1,
       "unknown": 1
     },
-    "gate_main": 9,
+    "gate_main": 10,
     "seed": 5,
-    "undeclared_workflows": 3
+    "undeclared_workflows": 4
   },
   "gates": [
     {
@@ -371,11 +371,35 @@
         "job_declared": true
       },
       "state": "ok"
+    },
+    {
+      "id": "private-names",
+      "gates": [
+        "main"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": ".github/workflows/private-names.yml",
+      "job": "private-names",
+      "runs": [
+        "python ci/check_private_names.py --source host --strict"
+      ],
+      "enforces": [
+        "ci/policy-registry.yaml no-private-name-in-a-public-artifact"
+      ],
+      "refuses": "A pull request in which a private repository's name is used as a repository -- after a slash, as a quoted token, or as the value of a name, slug, repository or branch field -- in any tracked file.",
+      "cannot_see": "History. Two names are in this repository's public history from 2b50bd6 and no forward fix removes them, which is registered as a permanent exemption. It also cannot see a name in prose that is an ordinary English word: several private repositories are named after common words, and matching those produced 187 findings and no disclosures, so bare-word matches are reported as `possible` and never gate. A name that is both private and an ordinary word can therefore reach main inside a sentence. It reads the host, so it goes red when a repository becomes private while its name is already in the tree -- intended, and the reason an offline check would not do.",
+      "evidence": {
+        "unknown": ".github/workflows/private-names.yml is not in the workflows directory"
+      },
+      "state": "warn"
     }
   ],
   "undeclared_workflows": [
     "docs-audit.yml",
     "docs-draft.yml",
-    "docs.yml"
+    "docs.yml",
+    "private-names.yml"
   ]
 }
