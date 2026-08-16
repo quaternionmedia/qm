@@ -1116,6 +1116,22 @@ def check(document: dict, git: Git, corpus_ref: str, remote: str) -> int:
     got = keyed_by_project(fresh)
     want = {k: v for k, v in keyed_by_project(as_layer(document)).items() if k in got}
 
+    # A project the document carries only as `private-NN`, on a machine without
+    # the companion that resolves it, cannot be matched to the ref it describes.
+    # Saying so in a printed line was not enough: its fields stayed in the
+    # comparison and were reported as differences, so a redacted document failed
+    # its own faithfulness check everywhere but the operator's machine.
+    if unresolved:
+        named = {p.get("name") for p in document.get("projects") or []
+                 if isinstance(p, dict)}
+        opaque = {k for k in got
+                  if k.startswith("projects[")
+                  and k.split("projects[", 1)[1].split("]", 1)[0] not in named}
+        got = {k: v for k, v in got.items() if k not in opaque}
+        want = {k: v for k, v in want.items() if k not in opaque}
+    else:
+        opaque = set()
+
     unverifiable = {k for k, v in got.items() if isinstance(v, str) and "not in this clone" in v}
     comparable = set(got) - unverifiable
     differing = sorted(k for k in comparable if want.get(k, _ABSENT) != got.get(k))
@@ -1125,9 +1141,10 @@ def check(document: dict, git: Git, corpus_ref: str, remote: str) -> int:
     if unverifiable:
         print(f"unverifiable    {len(unverifiable)} field(s): commit not in this clone")
     if unresolved:
-        print(f"unresolved      {len(unresolved)} redacted project(s) "
-              f"({', '.join(unresolved)}): ci/workspace-private.yaml is not on "
-              f"this machine, so their refs cannot be found. Not a difference.")
+        print(f"unresolved      {len(opaque)} field(s) across {len(unresolved)} "
+              f"redacted project(s) ({', '.join(unresolved)}): no companion on "
+              f"this machine resolves them, so they were not compared. Not "
+              f"verified, and not a difference either.")
     if missing:
         print(f"missing commits {len(missing)}: fetch the branches this document names")
 

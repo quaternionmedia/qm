@@ -515,3 +515,67 @@ def test_every_input_that_changes_the_bytes_is_recorded_in_them(corpus):
     generator = generate(corpus)["generator"]
     for field in ("remote", "org", "credential", "private_repository_names_listed", "probed"):
         assert field in generator
+
+
+# --- a redacted document, checked ------------------------------------------
+#
+# Redacting a private repository is what keeps its name out of a public
+# document. It also cuts the document loose from the refs it describes: the git
+# layer is re-derived from `project/<name>` refs and nothing offline can bind
+# `private-32` to one. Both the pin lookup and the field comparison key on that
+# name, so a redacted document verified nothing and reported every field as
+# changed -- a check failing for a reason unrelated to what it checks.
+
+
+REDACTED_DOC = {
+    "projects": [
+        {"name": "datum", "branch": {"ref": "origin/project/datum"}},
+        {"name": "private-32", "branch": {"ref": "origin/project/private-32"}},
+    ]
+}
+
+
+def test_a_reference_resolves_through_the_companion(monkeypatch):
+    monkeypatch.setattr(gs, "reference_map", lambda: {"private-32": "hidden-repo"})
+    resolved, unresolved = gs.resolve_references(REDACTED_DOC)
+    assert unresolved == []
+    assert resolved["projects"][1]["name"] == "hidden-repo"
+
+
+def test_resolving_reaches_the_ref_inside_the_branch_too(monkeypatch):
+    """Renaming only the `name` field left three fields reported as differences."""
+    monkeypatch.setattr(gs, "reference_map", lambda: {"private-32": "hidden-repo"})
+    resolved, _ = gs.resolve_references(REDACTED_DOC)
+    assert resolved["projects"][1]["branch"]["ref"] == "origin/project/hidden-repo"
+
+
+def test_without_a_companion_the_reference_is_unresolved(monkeypatch):
+    """What every runner and every fresh clone sees."""
+    monkeypatch.setattr(gs, "reference_map", dict)
+    resolved, unresolved = gs.resolve_references(REDACTED_DOC)
+    assert unresolved == ["private-32"]
+    assert resolved["projects"][1]["name"] == "private-32"
+
+
+def test_a_public_project_is_untouched_either_way(monkeypatch):
+    for mapping in ({"private-32": "hidden-repo"}, {}):
+        monkeypatch.setattr(gs, "reference_map", lambda m=mapping: m)
+        resolved, _ = gs.resolve_references(REDACTED_DOC)
+        assert resolved["projects"][0] == REDACTED_DOC["projects"][0]
+
+
+def test_a_document_with_no_projects_is_returned_unchanged(monkeypatch):
+    monkeypatch.setattr(gs, "reference_map", dict)
+    doc = {"projects": gs.Unknown("no refs in this clone")}
+    assert gs.resolve_references(doc) == (doc, [])
+
+
+def test_the_real_document_carries_no_unredacted_private_project():
+    """The regression this whole change exists for: the governed-project list
+    was unfiltered while the document claimed private names were withheld."""
+    document = yaml.safe_load(
+        (Path(__file__).resolve().parent.parent.parent / "governance-status.yaml").read_text(encoding="utf-8")
+    )
+    assert document["generator"]["private_repository_names_listed"] is False
+    names = [p["name"] for p in document["projects"] if isinstance(p, dict)]
+    assert names, "no projects in the document"
