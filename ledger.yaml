@@ -323,3 +323,38 @@ entries:
     tests_generated:
       - "ci/tests/test_docs_draft_banner.py::test_the_banner_makes_no_claim_about_which_branch_built_it"
     status: closed
+
+  - id: 2026-08-16-001
+    kind: document
+    action: >
+      Plan stubs for v0.0.2: governance prose signals, the semantic-review
+      instrument, and authorship-first rewriting. Add looksatwords to the roster.
+    projected_impact: >
+      Three stubs in plans/, deliberately unbuilt. The prose analysis goes to
+      quaternionmedia/looksatwords rather than into ci/, because it is language
+      tooling and that repository already exists for it -- and because a corpus
+      that builds its own linter for everything is the failure its own newest
+      record warns about. Expect the act of writing the stubs in the criticised
+      voice to be the hardest part, and expect at least one stub to come out
+      reading like the passage it criticises.
+    outcome: >
+      Four stubs in plans/ plus a session instruction. The prose analysis is
+      routed to quaternionmedia/looksatwords, which turned out to already exist
+      -- "a python module to make, gather, analyze, and visualize language
+      data" -- and to be absent from ci/workspace.yaml, so the plan had to
+      establish the repository before it could point at it. Added to the roster.
+      Phase set to v0.0.2 with the merged work named v0.0.1 and a review packet
+      written for it, because a phase cannot be claimed complete on an agent's
+      say-so.
+    failure_cost: >
+      One eighth heredoc escaping failure, in the same session that documented
+      the seventh. One mislabel found in check_tag_claims: a captured test run
+      was described as "(lightweight)", a tag property applied to a subject that
+      is not a tag.
+    outcome_matched_projection: true
+    lessons:
+      - "Check whether the tool you are planning to build already exists as a repo"
+      - "A roster that omits a repository makes the org invisible to its own plans"
+    tests_generated:
+      - "project-seed/ci/tests/test_check_tag_claims.py::test_a_test_run_is_not_described_as_a_tag"
+    status: closed

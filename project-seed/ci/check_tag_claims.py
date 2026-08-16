@@ -77,6 +77,10 @@ SUMMARY_COUNT = re.compile(r"(?P<count>\d+)\s+(?P<outcome>[a-z]+)")
 # `rerun` and `flaky` are tests that did not run deterministically.
 NONDETERMINISTIC_OUTCOMES = ("skipped", "xfailed", "xpassed", "rerun", "flaky", "error")
 
+# The subject name used for a captured test run, which is not a tag and must
+# not be described with a tag's properties.
+TEST_RUN = "<test run>"
+
 
 @dataclass
 class Verdict:
@@ -236,7 +240,7 @@ def check_test_output(text: str) -> Verdict:
     >>> check_test_output("no summary line at all").ok
     False
     """
-    verdict = Verdict(tag="<test run>")
+    verdict = Verdict(tag=TEST_RUN)
     counts = parse_test_summary(text)
 
     if not counts:
@@ -266,8 +270,15 @@ def report(verdicts: list[Verdict], stream=sys.stdout) -> None:
     """Print one line per verdict, then the problems under each failure."""
     for verdict in verdicts:
         mark = "ok  " if verdict.ok else "FAIL"
-        kind = "annotated" if verdict.annotated else "lightweight"
-        print(f"{mark} {verdict.tag}  ({kind})", file=stream)
+        # `annotated`/`lightweight` is a property of a tag object. A captured
+        # test run has neither, and printing "(lightweight)" beside one labels
+        # it with a fact from a different subject -- which is the kind of
+        # confidently-wrong output this file exists to refuse.
+        if verdict.tag == TEST_RUN:
+            print(f"{mark} {verdict.tag}", file=stream)
+        else:
+            kind = "annotated" if verdict.annotated else "lightweight"
+            print(f"{mark} {verdict.tag}  ({kind})", file=stream)
         for problem in verdict.problems:
             print(f"       - {problem}", file=stream)
 

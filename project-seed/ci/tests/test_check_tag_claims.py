@@ -220,3 +220,17 @@ def test_last_summary_line_wins(repo: Path, tmp_path: Path):
 def test_no_mode_given_is_an_error(repo: Path):
     result = check(repo)
     assert result.returncode != 0
+
+
+def test_a_test_run_is_not_described_as_a_tag(repo: Path, tmp_path: Path):
+    """`lightweight` is a property of a tag object; a captured run has none.
+
+    Labelling one with the other is a fact from a different subject, printed
+    with confidence -- the exact output this file refuses elsewhere.
+    """
+    out = tmp_path / "run.txt"
+    write(out, "561 passed in 8.33s\n")
+    result = check(repo, "--test-output", str(out))
+    assert result.returncode == 0
+    assert "lightweight" not in result.stdout
+    assert "annotated" not in result.stdout
