@@ -91,6 +91,7 @@ lanes:
       - project-seed/ci/run_workflows_locally.py
       - ci/gate-registry.yaml
       - ci/generate_docs.py
+      - ci/mutate.py
     does_not_own: >
       Whether a rule is right. It owns whether the rule is executable, and
       whether what a session ran is what CI runs.
@@ -99,15 +100,19 @@ lanes:
       nothing itself -- which is why `qm devloop` is advisory and local only.
     measures:
       - "`uv run qm devloop`"
+      - "`uv run qm mutate <module>`"
       - "`python project-seed/ci/run_workflows_locally.py`"
     open:
-      - Four checks exist that gate nothing; none is wired into a workflow.
       - No detector for main-is-entered-through-a-pull-request.
       - >
-        The mutation harnesses are ad-hoc scripts written into a scratchpad and
-        thrown away. Every mutation result this corpus quotes was produced by a
-        script nobody else can run, which is the same defect as a hand-run check
-        reported as CI.
+        `uv run qm mutate` is a route, so a mutation result can be reproduced,
+        but nothing runs it. No gate requires a sweep and no document records
+        the last one, so a suite that stops discriminating goes unremarked
+        until somebody thinks to look.
+      - >
+        The operators are textual and generate no mutant for a defect they
+        cannot spell: a swapped argument, an off-by-one on a slice, a wrong
+        dictionary key. A kill rate is a floor and is read as a score.
 
   - id: usage
     name: Usage

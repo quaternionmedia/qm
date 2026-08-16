@@ -195,6 +195,10 @@ def build_parser() -> argparse.ArgumentParser:
         "test", help="run the suites CI runs, with CI's arguments", add_help=False,
     )
     sub.add_parser(
+        "mutate", help="break a module on purpose; do its tests notice?",
+        add_help=False,
+    )
+    sub.add_parser(
         "preflight", help="run every workflow's real steps locally", add_help=False
     )
     sub.add_parser(
@@ -222,6 +226,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "inventory": ("inventory", False, []),
     "ledger": ("ledger", False, []),
     "test": ("run_tests", False, []),
+    "mutate": ("mutate", False, []),
     "preflight": ("run_workflows_locally", True, []),
     "brief": ("cowork_context", True, []),
 }
