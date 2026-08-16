@@ -363,6 +363,7 @@ def build(root: Path) -> dict:
     # this one lists a view that is written after it.
     found: set[str] = set()
     for pattern in ("records/*.md", "perspectives/*.md", "handbook/**/*.md",
+                    "plans/*.md",
                     "PRINCIPLES.md", "AGENTS.md", "README.md"):
         for path in root.glob(pattern):
             found.add(path.relative_to(root).as_posix())

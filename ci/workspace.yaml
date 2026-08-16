@@ -55,6 +55,18 @@ schema: 1
 
 milestone:
   name: alpha
+  phase: v0.0.2
+  previous_phase: v0.0.1
+  previous_phase_note: >
+    Everything merged on 2026-08-14/15 -- the two-gate correction, the qm CLI,
+    four new gates, three generated layers, and the documentation.
+    plans/v0.0.1-review-packet.md is what a human reviews to decide whether it
+    earns a tag. Until that review happens it is a clean main and asserts
+    nothing, per records/DRAFT-version-tags-are-claims.md 4.
+  phase_note: >
+    v0.0.2 is language and review: whether governance prose invites a second
+    author, and the first semantic reading of the records. Both are stubs in
+    plans/ and neither is built.
   target_version: v0.1.0
   version: null            # no v* tag on this corpus; nothing is claimed
   version_source: "records/DRAFT-version-tags-are-claims.md 4"
@@ -162,6 +174,17 @@ repositories:
     phase_source: stated
     note: named alongside apothecary as a v0.0.2 consumer
     paths: [benchmark, qm/benchmark]
+
+  - name: looksatwords
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      language data -- make, gather, analyze, visualise. Named in
+      plans/governance-prose-signals.md as where prose analysis belongs, rather
+      than in ci/. It was absent from this roster until 2026-08-16, which is why
+      the plan had to establish it exists.
+    paths: [qm/looksatwords, looksatwords]
 
   - name: qmcp
     role: project
