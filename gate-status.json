@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-16T16:55:19Z",
+  "generated_at": "2026-08-16T21:25:03Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -42,17 +42,17 @@
     "blocks_a_merge": false
   },
   "totals": {
-    "gates": 11,
-    "built": 11,
+    "gates": 13,
+    "built": 13,
     "declared_not_built": 0,
     "by_state": {
-      "ok": 9,
-      "warn": 1,
+      "ok": 12,
+      "warn": 0,
       "unknown": 1
     },
-    "gate_main": 9,
+    "gate_main": 10,
     "seed": 5,
-    "undeclared_workflows": 4
+    "undeclared_workflows": 3
   },
   "gates": [
     {
@@ -373,31 +373,96 @@
       "state": "ok"
     },
     {
+      "id": "registries",
+      "gates": [
+        "main",
+        "push"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "registries.yml",
+      "job": "registries",
+      "runs": [
+        "ci/exceptions.py --check",
+        "ci/policies.py --check",
+        "ci/ledger.py --check",
+        "ci/lanes.py --check"
+      ],
+      "enforces": [
+        "ci/exception-registry.yaml",
+        "ci/policy-registry.yaml",
+        "ci/lane-registry.yaml"
+      ],
+      "refuses": "An exemption with no stated reason or whose named constant has gone; a policy with neither a detector nor a stated reason it cannot have one; a ledger entry that is unattributed, or closed and unscored; two lanes that are settled by the same gate.",
+      "cannot_see": "Whether any registry is complete. Each of these four checks the entries that exist against their own rules; none can tell that an exemption, a policy, a ledger entry or a lane was never written down, and a registry nobody added to is the state all four report as clean. Nor is this gate required to merge -- it is a candidate for A-main.json's required list and stays off it until it has reported green on a real pull request.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Registries",
+        "triggers": [
+          "pull_request",
+          "push"
+        ],
+        "jobs": [
+          "registries"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "rulesets",
+      "gates": [],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": null,
+      "job": null,
+      "runs": [
+        "uv run qm rulesets",
+        "uv run qm rulesets --check"
+      ],
+      "enforces": [
+        "ci/policy-registry.yaml main-is-entered-through-a-pull-request",
+        ".github/rulesets/README.md"
+      ],
+      "refuses": "Nothing, on a runner. It is a preflight: `uv run qm rulesets --check` exits non-zero when a ruleset drafted in .github/rulesets/ is absent from the host, or is applied at a different enforcement level, or carries a different set of rule types.",
+      "cannot_see": "Whether a rule is the right rule. It compares enforcement levels and rule types, not rule parameters, so a required-status-check list that has been emptied on the host reads as a match. It cannot run in CI at all: reading what is applied needs a host credential, and a check that reads a host reds a pull request for a reason its author cannot fix. It also does not read `rule-suites`, which is the log of what an evaluating rule would have blocked and the thing worth reading before promoting one.",
+      "evidence": {
+        "present": false,
+        "by_declaration": true,
+        "reason": "declared as a local preflight: no workflow, and it gates nothing"
+      },
+      "state": "ok"
+    },
+    {
       "id": "private-names",
       "gates": [],
       "seed": false,
       "external": false,
       "declared_built": true,
-      "workflow": ".github/workflows/private-names.yml",
-      "job": "private-names",
+      "workflow": null,
+      "job": null,
       "runs": [
-        "python ci/check_private_names.py --source host"
+        "uv run qm private-names",
+        "uv run qm private-names --context"
       ],
       "enforces": [
         "ci/policy-registry.yaml no-private-name-in-a-public-artifact"
       ],
-      "refuses": "A pull request in which a private repository's name is used as a repository -- after a slash, as a quoted token, or as the value of a name, slug, repository or branch field -- in any tracked file.",
-      "cannot_see": "Everything, at present. `github.token` is scoped to this repository, so the org listing returns nothing private and the check reports `unverified` on every run. It is deployed non-blocking rather than failing every pull request for a reason no author can fix, and the three ways to give it a real source are in plans/v0.0.1-blockers.md for a human to choose between. `gates: []` says this does not gate main. Beyond that, and once it has a source: History. Two names are in this repository's public history from 2b50bd6 and no forward fix removes them, which is registered as a permanent exemption. It also cannot see a name in prose that is an ordinary English word: several private repositories are named after common words, and matching those produced 187 findings and no disclosures, so bare-word matches are reported as `possible` and never gate. A name that is both private and an ordinary word can therefore reach main inside a sentence. It reads the host, so it goes red when a repository becomes private while its name is already in the tree -- intended, and the reason an offline check would not do.",
+      "refuses": "Nothing, on a runner. It is a preflight, run on a machine that holds the gitignored companions, and it refuses a private repository's name used as a repository -- after a slash, quoted, or as the value of a name, slug, repository or branch field -- in any tracked file.",
+      "cannot_see": "A repository that becomes private after the fact. By records/DRAFT-going-private-is-an-act-with-obligations.md the party who makes a repository private owns removing its name from this corpus, so nothing here watches for the transition: detecting it would need either an organisation-read credential this repository does not hold, or a committed digest list that would be recoverable, since 24 of 33 names are ordinary words of median length 7. It also cannot see history -- two names are published from 2b50bd6 and no forward fix removes them -- and it does not gate a bare-word match in prose, because several private repositories are named after common words and matching those produced 187 findings with no disclosures.",
       "evidence": {
-        "unknown": ".github/workflows/private-names.yml is not in the workflows directory"
+        "present": false,
+        "by_declaration": true,
+        "reason": "declared as a local preflight: no workflow, and it gates nothing"
       },
-      "state": "warn"
+      "state": "ok"
     }
   ],
   "undeclared_workflows": [
     "docs-audit.yml",
     "docs-draft.yml",
-    "docs.yml",
-    "private-names.yml"
+    "docs.yml"
   ]
 }

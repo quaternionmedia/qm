@@ -166,6 +166,20 @@ def gate_row(gate: dict, found: dict[str, dict]) -> dict:
         row["state"] = WARN
         return row
 
+    if workflow is None and not gate.get("external") and not row["gates"]:
+        # A preflight: it declares no workflow and no branch it stands in front
+        # of, and it runs on somebody's machine. Claim and evidence agree, so
+        # this is not a disagreement -- reporting it as one prints "None is not
+        # in the workflows directory" and buries the real disagreements under
+        # entries that are working as declared.
+        row["evidence"] = {
+            "present": False,
+            "by_declaration": True,
+            "reason": "declared as a local preflight: no workflow, and it gates nothing",
+        }
+        row["state"] = OK
+        return row
+
     if gate.get("external"):
         # An installed application has no workflow file to read. Reporting it
         # `ok` would assert something nobody here can check.

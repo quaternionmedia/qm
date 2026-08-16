@@ -233,6 +233,61 @@ gates:
       commits carry no signature; across all refs the repository holds 201
       signed, 73 unsigned and 41 that cannot be checked. Nothing looks at this.
 
+  - id: registries
+    workflow: registries.yml
+    job: registries
+    gates: [main, push]
+    seed: false
+    exists: true
+    refuses: >
+      An exemption with no stated reason or whose named constant has gone; a
+      policy with neither a detector nor a stated reason it cannot have one; a
+      ledger entry that is unattributed, or closed and unscored; two lanes that
+      are settled by the same gate.
+    runs:
+      - ci/exceptions.py --check
+      - ci/policies.py --check
+      - ci/ledger.py --check
+      - ci/lanes.py --check
+    enforces:
+      - ci/exception-registry.yaml
+      - ci/policy-registry.yaml
+      - ci/lane-registry.yaml
+    cannot_see: >
+      Whether any registry is complete. Each of these four checks the entries
+      that exist against their own rules; none can tell that an exemption, a
+      policy, a ledger entry or a lane was never written down, and a registry
+      nobody added to is the state all four report as clean. Nor is this gate
+      required to merge -- it is a candidate for A-main.json's required list
+      and stays off it until it has reported green on a real pull request.
+
+  - id: rulesets
+    workflow: null
+    job: null
+    gates: []
+    seed: false
+    exists: true
+    external: false
+    refuses: >
+      Nothing, on a runner. It is a preflight: `uv run qm rulesets --check`
+      exits non-zero when a ruleset drafted in .github/rulesets/ is absent from
+      the host, or is applied at a different enforcement level, or carries a
+      different set of rule types.
+    runs:
+      - uv run qm rulesets
+      - uv run qm rulesets --check
+    enforces:
+      - ci/policy-registry.yaml main-is-entered-through-a-pull-request
+      - .github/rulesets/README.md
+    cannot_see: >
+      Whether a rule is the right rule. It compares enforcement levels and rule
+      types, not rule parameters, so a required-status-check list that has been
+      emptied on the host reads as a match. It cannot run in CI at all: reading
+      what is applied needs a host credential, and a check that reads a host
+      reds a pull request for a reason its author cannot fix. It also does not
+      read `rule-suites`, which is the log of what an evaluating rule would have
+      blocked and the thing worth reading before promoting one.
+
   - id: private-names
     workflow: null
     job: null

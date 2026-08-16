@@ -48,7 +48,7 @@ def registry(tmp_path: Path, *entries: str) -> Path:
 
 
 def entry(gate_id: str, workflow: str | None, job: str | None, exists: bool = True,
-          external: bool = False) -> str:
+          external: bool = False, gates: list[str] | None = None) -> str:
     # The registry names a workflow by filename, which is how `discover` keys
     # what it found. An entry naming `wf` where the file is `wf.yml` reports as
     # missing -- three tests here failed that way before this line said `.yml`,
@@ -57,7 +57,7 @@ def entry(gate_id: str, workflow: str | None, job: str | None, exists: bool = Tr
         f"  - id: {gate_id}\n"
         f"    workflow: {workflow + '.yml' if workflow else 'null'}\n"
         f"    job: {job or 'null'}\n"
-        f"    gates: [main]\n"
+        f"    gates: [{', '.join(['main'] if gates is None else gates)}]\n"
         f"    seed: false\n"
         f"    exists: {str(exists).lower()}\n"
         f"    external: {str(external).lower()}\n"
@@ -149,6 +149,31 @@ def test_an_external_check_is_unknown_not_ok(tmp_path: Path):
     reg = registry(tmp_path, entry("scanner", None, "Some App", external=True))
     doc = build(reg, workflows_dir(tmp_path), "o/r", host=False)
     assert doc["gates"][0]["state"] == "unknown"
+
+
+def test_a_preflight_is_not_reported_as_a_missing_workflow(tmp_path: Path):
+    """`workflow: null` plus `gates: []` is a declaration, not an absence.
+
+    Read as a missing workflow it renders as "None is not in the workflows
+    directory" under *Where claim and evidence disagree* — a line that names no
+    file, describes nothing wrong, and pushes the real disagreements down the
+    page.
+    """
+    reg = registry(tmp_path, entry("preflight", None, None, gates=[]))
+    doc = build(reg, workflows_dir(tmp_path), "o/r", host=False)
+    assert doc["gates"][0]["state"] == "ok"
+    assert doc["gates"][0]["evidence"]["by_declaration"] is True
+
+
+def test_a_gate_claiming_to_guard_main_with_no_workflow_still_warns(tmp_path: Path):
+    """The exemption above is for a check that says it gates nothing.
+
+    One that names a branch and has no workflow is the original defect, and
+    must not be swept up by the same clause.
+    """
+    reg = registry(tmp_path, entry("phantom", None, None, gates=["main"]))
+    doc = build(reg, workflows_dir(tmp_path), "o/r", host=False)
+    assert doc["gates"][0]["state"] != "ok"
 
 
 def test_an_unparseable_workflow_is_unknown_not_missing(tmp_path: Path):
