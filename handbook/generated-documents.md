@@ -76,7 +76,7 @@ there too.
 Its `docs/governance.md` carries the prep. **Both documents are on `main`**, and
 on nine of the twelve `project/*` branches — so for most projects the vendored
 path now resolves. The three that do not carry them are `project/dossier`,
-`project/loopwall` and `project/streaming-infrastructure`, each of which is tens
+`project/private-34` and `project/streaming-infrastructure`, each of which is tens
 of commits behind; a reader pinned to one of those still needs pointing at a
 corpus checkout, and a propagation fixes it. This paragraph said *neither*
 document was on `main`, which was true only until the change adding them landed

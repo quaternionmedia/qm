@@ -26,6 +26,7 @@ roster of everything that exists.
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 import yaml
@@ -70,3 +71,26 @@ def merge_private(roster: list[dict], companion: Path = COMPANION) -> list[dict]
 def load(path: Path = ROSTER, companion: Path = COMPANION) -> list[dict]:
     document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     return merge_private(document.get("repositories") or [], companion)
+
+
+def redact(node, name: str, ref: str):
+    """Replace one repository name with its reference, everywhere in a subtree.
+
+    A project entry does not carry its name once. It carries it as `name`, and
+    again inside `branch.ref` as `origin/project/<name>`, and again inside
+    `adoption.submodule.branch`. Redacting the field and leaving the branch
+    strings publishes the name three times out of five -- so this walks the
+    whole entry rather than naming the fields, which would be a list to keep in
+    step with a shape that changes.
+
+    Bounded like ci/check_private_names.py, for the same reason: a plain
+    substring replace rewrites a longer repository that merely contains this
+    one.
+    """
+    if isinstance(node, dict):
+        return {k: redact(v, name, ref) for k, v in node.items()}
+    if isinstance(node, list):
+        return [redact(v, name, ref) for v in node]
+    if isinstance(node, str):
+        return re.sub(rf"(?<![A-Za-z0-9_-]){re.escape(name)}(?![A-Za-z0-9_-])", ref, node)
+    return node

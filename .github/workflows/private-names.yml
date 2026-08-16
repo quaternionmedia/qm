@@ -1,0 +1,65 @@
+# A private repository's name should not reach main. Today this reports; it does
+# not refuse. Read the next block before believing otherwise.
+#
+# ORG-LEVEL, NOT A SEED WORKFLOW. It asks this organisation's API which of its
+# repositories are private. A project fork would ask about its own org, which
+# may be the right question there, but nothing in project-seed/ claims it.
+#
+# IT READS THE HOST ON PURPOSE, against the usual rule. `ci/gate_status.py`
+# warns that a host-reading check makes an unrelated pull request go red for a
+# reason its author cannot fix. That cost was accepted, because the names live
+# in gitignored files and no runner has them -- and because a host source is the
+# only one that notices a repository *becoming* private while its name is
+# already in the tree.
+#
+# THAT IS THE DESIGN. IT IS NOT WHAT IS RUNNING.
+#
+# WHAT IT CANNOT SEE. History. Two names are in this repository's public history
+# from 2b50bd6 and no forward fix removes them; that is registered in
+# ci/exception-registry.yaml as a permanent exemption whose removal condition is
+# a human decision.
+#
+# DEPLOYED NON-BLOCKING, AND THAT IS A DECISION SOMEONE HAS TO UNMAKE.
+#
+# `github.token` is scoped to this repository, so `orgs/<org>/repos?type=all`
+# comes back with nothing private in it. The call succeeds and the list is
+# empty, which is why `unverified` exists as a state: an empty result must never
+# read as clean. With `--strict` that state fails every pull request for a
+# reason no author can fix, so `--strict` is not passed here.
+#
+# The consequence is stated plainly: this workflow does not currently gate main.
+# ci/gate-registry.yaml records `gates: []` for it, and the three ways to give
+# it a real source -- an org-read secret, committed digests, or accepting a
+# local-only check -- are laid out in plans/v0.0.1-blockers.md §1 for a human to
+# choose between. Switching to the first is two lines here.
+
+name: Private names
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  private-names:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install pyyaml
+        run: pip install --quiet pyyaml
+
+      - name: No private repository name is used as a repository in a tracked file
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python ci/check_private_names.py --source host
+          echo "::notice::This gate is non-blocking. See plans/v0.0.1-blockers.md §1."

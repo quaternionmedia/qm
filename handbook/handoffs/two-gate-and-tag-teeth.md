@@ -117,13 +117,13 @@ than customary" and nothing read a tag.
   without a network.
 
 **Run it, do not quote this page:** `python ci/tag_audit.py`. At the time of
-writing it reported **zero repositories ready**: alfred, datum, datafactorio and
+writing it reported **zero repositories ready**: alfred, datum, `private-32` and
 qmetronome all failing; nine with no `v*` tag at all, which §4 says is a state
 rather than a violation. alfred `v0.2.0` and datum `v0.0.1` are lightweight;
 qmetronome has 16 tags of which `v0.0.25` is lightweight; every annotated tag in
 the org fails on all four fields, because they predate the requirement.
 
-The nearest demo is datafactorio or qmetronome — they already tag annotated, so
+The nearest demo is `private-32` or qmetronome — they already tag annotated, so
 the gap is annotation content rather than practice.
 
 ## What the new checks cannot do

@@ -139,3 +139,127 @@ def test_a_hit_exits_non_zero_without_printing_the_name(tmp_path: Path, capsys, 
     assert "found" in captured.err
     assert SECRET not in captured.err
     assert SECRET not in captured.out
+
+
+# --- two tiers, and the org collision ---------------------------------------
+#
+# Knowing all 34 private names rather than 2 turned this check from
+# under-reporting into unusable: one private repository is named the same as
+# the public organisation and matched 187 URLs, and several others are ordinary
+# English words. Neither was a disclosure.
+
+from check_private_names import ambiguous, occurrences, references  # noqa: E402
+
+
+@pytest.mark.parametrize(
+    "name, is_word",
+    [
+        ("zib", True), ("quix", True), ("blorpling", True),
+        ("wobblyteapot", False),        # 12 letters
+        ("wobbly-teapot", False),     # hyphenated
+        ("qm2", False),                 # has a digit
+    ],
+    ids=["3-letters", "4-letters", "9-letters", "long", "hyphenated", "digit"],
+)
+def test_only_a_short_all_letter_name_is_ambiguous(name, is_word):
+    assert ambiguous(name) is is_word
+
+
+def test_a_distinctive_name_in_prose_is_a_finding(tmp_path: Path):
+    """A handbook sentence listing repositories has no slash and no quotes, and
+    is still a disclosure. Tiering on context alone demoted exactly this."""
+    root = repo_at(tmp_path, {"page.md": "we adopted alfred, big-private-repo and datum\n"})
+    hits = [h for h in occurrences(root, {"big-private-repo"}) if h["certain"]]
+    assert len(hits) == 1
+
+
+def test_an_ambiguous_name_in_prose_is_only_possible(tmp_path: Path):
+    root = repo_at(tmp_path, {"page.md": "the rebuild blorpling is reported\n"})
+    found = occurrences(root, {"blorpling"})
+    assert found and not any(h["certain"] for h in found)
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        "url = https://github.com/org/blorpling.git",
+        'slug = "org/blorpling"',
+        '  "name": "blorpling",',
+        "branch: blorpling",
+        "path = blorpling/ci",
+    ],
+    ids=["a-url", "a-slug", "a-json-field", "a-yaml-field", "a-path"],
+)
+def test_an_ambiguous_name_used_as_a_repository_is_a_finding(tmp_path: Path, line):
+    root = repo_at(tmp_path, {"f.txt": line + "\n"})
+    assert any(h["certain"] for h in occurrences(root, {"blorpling"}))
+
+
+def test_a_name_equal_to_the_org_is_excluded(tmp_path: Path, monkeypatch):
+    """Redacting it would redact the organisation, which is public by
+    construction and in every URL in the tree."""
+    source = tmp_path / "inventory-private.json"
+    source.write_text(json.dumps({"references": {"private-08": "acme-org"}}), encoding="utf-8")
+    monkeypatch.setattr("check_private_names.SOURCES", (source,))
+    monkeypatch.setattr("check_private_names.ORG", "acme-org")
+    assert private_names((source,)) == set()
+
+
+def test_the_references_mapping_reads_both_companion_shapes(tmp_path: Path):
+    """inventory-private.json stores ref -> name; the roster companion stores
+    entries carrying both. Reading only the second knew 2 names of 34."""
+    inv = tmp_path / "inventory-private.json"
+    inv.write_text(json.dumps({"references": {"private-01": "from-json"}}), encoding="utf-8")
+    ws = tmp_path / "workspace-private.yaml"
+    ws.write_text(yaml.safe_dump(
+        {"repositories": [{"ref": "private-02", "name": "from-yaml"}]}), encoding="utf-8")
+    assert references((inv, ws)) == {"from-json": "private-01", "from-yaml": "private-02"}
+
+
+def test_an_occurrence_is_redacted_before_it_is_returned(tmp_path: Path, monkeypatch):
+    """Surfacing a leak by quoting it is the mistake this check exists to stop."""
+    ws = tmp_path / "workspace-private.yaml"
+    ws.write_text(yaml.safe_dump(
+        {"repositories": [{"ref": "private-77", "name": SECRET}]}), encoding="utf-8")
+    monkeypatch.setattr("check_private_names.SOURCES", (ws,))
+    root = repo_at(tmp_path / "tree", {"page.md": f"url = https://x/{SECRET}.git\n"})
+    hits = occurrences(root, {SECRET})
+    assert hits and all(SECRET not in h["text"] for h in hits)
+    assert "<private-77>" in hits[0]["text"]
+
+
+def test_a_host_failure_is_none_rather_than_an_empty_set(monkeypatch):
+    """An empty set means `no private repositories exist`, which reads as clean
+    and is the most flattering possible wrong answer."""
+    from check_private_names import host_names
+
+    class Failed:
+        returncode = 1
+        stdout = ""
+
+    monkeypatch.setattr("check_private_names.subprocess.run", lambda *a, **k: Failed())
+    assert host_names("acme") is None
+
+
+def test_private_names_reads_the_references_shape(tmp_path: Path):
+    """inventory-private.json stores ref -> name under `references`, not under
+    `repositories`. Reading only the latter knew 2 of 34 names, and every
+    `clean` it reported meant `the roster's two names are absent`."""
+    path = tmp_path / "inventory-private.json"
+    path.write_text(json.dumps({"references": {"private-01": "hidden-repo"}}),
+                    encoding="utf-8")
+    assert private_names((path,)) == {"hidden-repo"}
+
+
+def test_a_host_failure_with_output_is_still_none(monkeypatch):
+    """A non-zero exit that also printed something must not be parsed. gh
+    writes usage text on failure, and treating that as a repository list would
+    hand the scan a set of nonsense names and call the result clean."""
+    from check_private_names import host_names
+
+    class Failed:
+        returncode = 1
+        stdout = "usage: gh api <endpoint>\n"
+
+    monkeypatch.setattr("check_private_names.subprocess.run", lambda *a, **k: Failed())
+    assert host_names("acme") is None

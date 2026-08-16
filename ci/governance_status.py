@@ -79,6 +79,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "project-seed" / "ci"))
 from adr_lint import NUMBERED_FILENAME, is_ratified, status_of  # noqa: E402
 
+# The rule for turning a private repository into a stable reference is defined
+# once, in the tool that writes the inventory. A second copy here would drift
+# the moment either changed, and two documents would then disagree about which
+# repository `private-32` is.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from inventory import assign_references  # noqa: E402
+from roster import redact  # noqa: E402
+
 SCHEMA = 1
 
 # The branch namespace IS the project registry -- there is no list to keep in
@@ -843,15 +851,42 @@ def github_layer(hub: Hub, projects: list[dict], name_private: bool) -> dict:
         entry["open_prs"] = hub.open_prs(f"{PROJECT_NS}{name}")
         entry["observed_at"] = now()
 
-    return {"org": org_census(hub, [p["name"] for p in projects], name_private)}
+    listed = org_repositories(hub)
+    census = org_census(hub, [p["name"] for p in projects], name_private, listed)
+
+    # The governed-project list was not filtered at all, while the document
+    # carried `private_repository_names_listed: false`. That claim described the
+    # census of unmanaged repositories and nothing else, so the document was
+    # wrong about itself -- the loudest kind of wrong, because a reader checks
+    # the flag rather than the list.
+    if not name_private and isinstance(listed, list):
+        private = [r for r in listed if r.get("private")]
+        refs = assign_references(private, hub.org)
+        for i, entry in enumerate(projects):
+            handle = refs.get(entry.get("name"))
+            if handle:
+                projects[i] = redact(entry, entry["name"], handle["ref"])
+
+    return {"org": census}
 
 
-def org_census(hub: Hub, governed: list[str], name_private: bool) -> dict:
-    listed = hub.api(
+def org_repositories(hub: Hub):
+    """The org's repositories, fetched once and used by both readers.
+
+    `createdAt` is here for `assign_references`, which orders by creation so a
+    reference is append-only: a repository made tomorrow takes the next number
+    and never renumbers the ones before it.
+    """
+    return hub.api(
         f"orgs/{hub.org}/repos?per_page=100&type=all",
-        ".[] | {name, private, archived}",
+        ".[] | {name, private, archived, createdAt: .created_at}",
         paginate=True,
     )
+
+
+def org_census(hub: Hub, governed: list[str], name_private: bool, listed=None) -> dict:
+    if listed is None:
+        listed = org_repositories(hub)
     if isinstance(listed, Unknown):
         return {"repositories": listed, "observed_at": now()}
     if not isinstance(listed, list):
@@ -988,6 +1023,59 @@ def keyed_by_project(layer: dict) -> dict[str, object]:
     return flat
 
 
+def resolve_references(document: dict) -> tuple[dict, list[str]]:
+    """Turn `private-NN` back into the branch name, where that is knowable.
+
+    Redacting a private repository's name is what keeps it out of a public
+    document. It also cuts the document loose from the refs it describes: the
+    git layer is re-derived from `project/<name>` refs, and nothing offline can
+    bind `private-32` to one. Both the pin lookup and the field comparison key
+    on that name, so a redacted document verifies nothing and reports every
+    field as changed -- a check that fails for a reason unrelated to the thing
+    it checks, which is how a check stops being read.
+
+    `ci/workspace-private.yaml` holds the mapping and is not committed. Where it
+    is present the document is resolved and fully checked; where it is not --
+    on a runner, on a fresh clone -- the reference is returned as unresolved and
+    reported as unverifiable rather than as a difference.
+    """
+    projects = document.get("projects")
+    if not isinstance(projects, list):
+        return document, []
+
+    mapping = reference_map()
+
+    unresolved: list[str] = []
+    resolved = []
+    for entry in projects:
+        name = entry.get("name", "")
+        if isinstance(name, str) and re.fullmatch(r"private-\d+", name):
+            if name in mapping:
+                # Walked, not field-assigned. The reference is also inside
+                # `branch.ref` as `origin/project/private-32` and inside the
+                # submodule branch, and renaming only the `name` field left
+                # those three fields reported as differences.
+                entry = redact(entry, name, mapping[name])
+            else:
+                unresolved.append(name)
+        resolved.append(entry)
+    return {**document, "projects": resolved}, unresolved
+
+
+def reference_map() -> dict[str, str]:
+    """ref -> name, from whichever gitignored companion is on this machine.
+
+    Both are read, because they cover different sets: the roster companion
+    holds the two private repositories in the roster, and the inventory holds
+    all thirty-four. A project branch can exist for a repository that is not in
+    the roster at all -- which is how a redacted project went unresolvable when
+    only the roster was consulted.
+    """
+    from check_private_names import references  # noqa: PLC0415 -- optional, local only
+
+    return {ref: name for name, ref in references().items()}
+
+
 def check(document: dict, git: Git, corpus_ref: str, remote: str) -> int:
     """Re-derive the git layer against the commits the document names.
 
@@ -1006,6 +1094,7 @@ def check(document: dict, git: Git, corpus_ref: str, remote: str) -> int:
     non-zero rather than printing a clean bill: "0 of 0 fields match" is the
     empty-query pass this whole file is written against.
     """
+    document, unresolved = resolve_references(document)
     pins = pins_from(document)
     if not pins.get("corpus"):
         print("governance status: the document names no corpus commit; nothing to check.")
@@ -1027,6 +1116,22 @@ def check(document: dict, git: Git, corpus_ref: str, remote: str) -> int:
     got = keyed_by_project(fresh)
     want = {k: v for k, v in keyed_by_project(as_layer(document)).items() if k in got}
 
+    # A project the document carries only as `private-NN`, on a machine without
+    # the companion that resolves it, cannot be matched to the ref it describes.
+    # Saying so in a printed line was not enough: its fields stayed in the
+    # comparison and were reported as differences, so a redacted document failed
+    # its own faithfulness check everywhere but the operator's machine.
+    if unresolved:
+        named = {p.get("name") for p in document.get("projects") or []
+                 if isinstance(p, dict)}
+        opaque = {k for k in got
+                  if k.startswith("projects[")
+                  and k.split("projects[", 1)[1].split("]", 1)[0] not in named}
+        got = {k: v for k, v in got.items() if k not in opaque}
+        want = {k: v for k, v in want.items() if k not in opaque}
+    else:
+        opaque = set()
+
     unverifiable = {k for k, v in got.items() if isinstance(v, str) and "not in this clone" in v}
     comparable = set(got) - unverifiable
     differing = sorted(k for k in comparable if want.get(k, _ABSENT) != got.get(k))
@@ -1035,6 +1140,11 @@ def check(document: dict, git: Git, corpus_ref: str, remote: str) -> int:
     print(f"verified        {len(comparable) - len(differing)} of {len(comparable)} git-layer field(s)")
     if unverifiable:
         print(f"unverifiable    {len(unverifiable)} field(s): commit not in this clone")
+    if unresolved:
+        print(f"unresolved      {len(opaque)} field(s) across {len(unresolved)} "
+              f"redacted project(s) ({', '.join(unresolved)}): no companion on "
+              f"this machine resolves them, so they were not compared. Not "
+              f"verified, and not a difference either.")
     if missing:
         print(f"missing commits {len(missing)}: fetch the branches this document names")
 

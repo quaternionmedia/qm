@@ -715,6 +715,84 @@ entries:
         pass before acting on what it found would have logged a quiet result for
         a run that was not quiet.
     status: closed
+  - id: 2026-08-16-009
+    tool: assistant-2026-08
+    kind: fix
+    action: Remediate every private repository name in the tree, one file at a time
+    found_by: >
+      An operator instruction to surface and remediate each occurrence
+      individually, rather than declaring them as a class.
+    projected_impact: |-
+      Not pre-written; this was directed file by file. The standing expectation
+      was that eleven occurrences across six files would be redacted and the
+      matter closed, because that is what the check reported.
+
+      That expectation was wrong in both directions at once, and the checking
+      was the part that was wrong.
+    outcome: |-
+      Six files remediated as directed: two status generators now redact a
+      private repository everywhere they emit a name, a test fixture uses an
+      obviously fake name, an audit table carries references and keeps both
+      rows, and four handbook pages name repositories by reference.
+
+      The check itself held three defects, each found by acting on its output:
+
+      1. It read `repositories` from both companions, but inventory-private.json
+         stores its mapping under `references`. It knew 2 private names of 34.
+         Every `clean` it had reported meant "the roster's two names are absent".
+      2. Reading all 34 produced 240 hits and almost no disclosures. One private
+         repository is named after the organisation, matching 187 URLs; several
+         others are ordinary words of three, five and nine letters. Findings are
+         now tiered: a name used *as* a repository is a finding, a bare word in
+         prose is `possible` and never gates.
+      3. Tiering on context alone then demoted a genuine disclosure -- a handbook
+         sentence listing repositories has no slash and no quotes. The tier keys
+         on whether the *name* is ambiguous, not on the context.
+
+      Redacting governance-status.yaml also broke its own faithfulness check,
+      which re-derives the git layer and compares by project name. A redacted
+      document cannot be bound to a `project/<name>` ref offline. It now
+      resolves references through the gitignored companion where present and
+      reports the rest as unresolved rather than as differences: 214 of 214
+      fields verified locally.
+
+      Gated on main by .github/workflows/private-names.yml, which asks the host
+      what is private because a runner has no local source. 762 tests, 8 of 8
+      mutations caught after two survivors exposed two real test gaps.
+    failure_cost: |-
+      Two own-goals, both in the work whose subject is not making them. A
+      private repository name was printed into the session transcript by
+      inspecting a mapping's values instead of its structure. And four real
+      private names were used as example literals in the test file for the check
+      that forbids them -- caught by that check, on the branch, before the
+      commit reached main.
+
+      The nested-backtick repair in one handbook page was found by reading the
+      diff rather than by any check; a sweep that rewrites prose can produce
+      valid-looking markup that is wrong.
+    outcome_matched_projection: false
+    lessons:
+      - >
+        A check that reads one of two storage shapes reports clean about the
+        shape it read. The count it is checking against is worth printing --
+        "33 private names checked" would have exposed "2" immediately.
+      - >
+        Making a check see more can make it useless rather than better. 240
+        findings with no disclosures is a check nobody runs, which enforces
+        less than one that fires twice.
+      - >
+        Redaction breaks anything that joins on the redacted value. The
+        document's own verifier joined on the project name, and the redaction
+        that protected the document defeated the check that made it trustworthy.
+      - >
+        Inspect structure, not values, when the values are the secret. Printing
+        a mapping's first value to learn its direction published a name.
+    tests_generated:
+      - ci/tests/test_check_private_names.py -- boundary, tiering, the org
+        exclusion, both companion shapes, and a host failure that must not read
+        as clean
+      - 8 of 8 mutations caught against an asserted-green baseline
+    status: closed
 
 # Every pass over the base, recorded whether or not it found anything.
 #
@@ -746,4 +824,10 @@ passes:
     ran: |-
       743 tests, the workflow runner (5 failed: 2 unpushed-branch, 2 zensical PATH, 1 restatement), docs generate and check, private-names, lanes, exceptions, policies, restatements
     entries_at_pass: 22
+    added_since_previous: 1
+  - at: "2026-08-16T16:39:31Z"
+    tool: assistant-2026-08
+    ran: |-
+      762 tests, 8/8 mutations on the private-name check, the workflow runner including the new gate, docs generate and check, governance-status faithfulness (214/214), private-names in both source modes
+    entries_at_pass: 23
     added_since_previous: 1
