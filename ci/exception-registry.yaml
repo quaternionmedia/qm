@@ -149,45 +149,49 @@ exceptions:
       printed by ci/check_private_names.py on every clean run -- "History is
       not read. A name already published stays published."
 
-  - id: private-names-in-generated-status-documents
+  - id: private-name-equal-to-the-org
     rule: No private repository name appears in a public artifact
     rule_source: ci/policy-registry.yaml no-private-name-in-a-public-artifact
     enforced_by: ci/check_private_names.py
-    constant: none -- these are reported as findings, not exempted from the scan
+    constant: ORG
     scope: >
-      governance-status.yaml and harness-status.json, in their governed-project
-      lists. Five fields and seven fields respectively.
+      One private repository whose name is the organisation's own name. It is
+      excluded from the scan in both `--source local` and `--source host`.
     reason: >
-      These are generated from git and the host rather than from the roster, so
-      redacting the roster did not reach them. governance-status.yaml already
-      carries `private_repository_names_listed: false`, and that claim is true
-      only of its census of unmanaged repositories -- the governed-project list
-      is not filtered at all, which makes the document's own self-description
-      wrong. Fixing it means teaching two large generators to map a name to its
-      reference from host data, and changing the contract of two committed
-      documents. That is a lane of its own and was not attempted here rather
-      than half-done.
+      An organisation's name is public by construction -- it is in every
+      `<org>/<repo>` URL, the Pages domain, the REUSE metadata and the CLI
+      defaults. A private repository sharing that name cannot be concealed by
+      redacting the string, because redacting it would redact the organisation.
+      Matching it produced 187 findings across the tree and not one of them was
+      a disclosure, which is the state in which a check stops being read.
     removal_condition: >
-      The generators redact a private repository everywhere they emit a name,
-      using the reference assignment in ci/inventory.py rather than a second
-      copy of it. Tracked in ci/lane-registry.yaml under governing-projects.
+      The repository is renamed, or made public. Renaming is the only action
+      that would make the exclusion unnecessary.
     announced: >
-      reported by `uv run qm private-names` as a finding on every run, and named
-      in the open list of the governing-projects lane
+      named in ci/check_private_names.py beside the exclusion, and in the
+      `cannot_see` row of the private-names gate
 
-  - id: private-names-in-handbook-pages
+  - id: ambiguous-private-names-in-prose
     rule: No private repository name appears in a public artifact
     rule_source: ci/policy-registry.yaml no-private-name-in-a-public-artifact
     enforced_by: ci/check_private_names.py
-    constant: none -- reported as findings
+    constant: ambiguous
     scope: >
-      handbook/adoption-audit-queue.md, handbook/forking-a-project.md, and two
-      pages under handbook/handoffs/.
+      A private repository whose name is an ordinary English word, matched in
+      prose rather than as a repository. Reported as `possible` and never
+      gated on.
     reason: >
-      Hand-written prose naming two projects as worked examples. Redacting it is
-      a documentation edit that changes what those pages teach, and doing it in
-      the same change as the roster redaction would mix two lanes.
+      Several private repositories are named after common words of three, five
+      and nine letters. Treating every appearance of those words as a finding
+      makes the check unusable, and a check nobody runs enforces nothing. A
+      name used as a repository -- after a slash, quoted, or as the value of a
+      name, slug, repository or branch field -- is still a finding whatever the
+      name is, and a distinctive name is a finding wherever it appears.
     removal_condition: >
-      The pages are rewritten to use references, or the repositories are made
-      public. Tracked in ci/lane-registry.yaml under documentation.
-    announced: reported by `uv run qm private-names` as a finding on every run
+      The repositories are renamed to something no sentence contains, or a
+      reviewer accepts the false-positive rate. Neither is likely, so this is
+      effectively permanent and the residual risk is stated in the gate's
+      `cannot_see`.
+    announced: >
+      printed on every run as a `possible` count, and shown in full by
+      `uv run qm private-names --context`

@@ -1,0 +1,55 @@
+# No private repository name reaches main.
+#
+# ORG-LEVEL, NOT A SEED WORKFLOW. It asks this organisation's API which of its
+# repositories are private. A project fork would ask about its own org, which
+# may be the right question there, but nothing in project-seed/ claims it.
+#
+# THIS ONE READS THE HOST ON PURPOSE, against the usual rule.
+#
+# `ci/gate_status.py` warns that a check reading the host makes an unrelated
+# pull request go red for a reason its author cannot fix. That is the cost, and
+# it is accepted here, because the alternative is worse in a specific way: the
+# names it looks for live in gitignored files, so a runner has no local source
+# and the check would report `unverified` on every run. A gate that never fires
+# is worse than no gate, because a reader believes something is enforced.
+#
+# It also means the intended failure mode works. If a repository is made private
+# tomorrow and its name is already in the tree, the next pull request goes red —
+# which is exactly the signal wanted, and is unavailable to any offline check.
+#
+# WHAT IT CANNOT SEE. History. Two names are in this repository's public history
+# from 2b50bd6 and no forward fix removes them; that is registered in
+# ci/exception-registry.yaml as a permanent exemption whose removal condition is
+# a human decision.
+#
+# `--strict` so an unreachable API fails rather than passing quietly. A silent
+# pass here is the one result this workflow must never produce.
+
+name: Private names
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  private-names:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install pyyaml
+        run: pip install --quiet pyyaml
+
+      - name: No private repository name is used as a repository in a tracked file
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python ci/check_private_names.py --source host --strict
