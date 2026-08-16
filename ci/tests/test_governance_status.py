@@ -281,10 +281,17 @@ def test_a_submodule_that_is_not_the_corpus_is_not_read_as_the_pin():
 
 
 def test_the_corpus_is_found_wherever_it_is_mounted():
-    """codecartographer mounts it at docs/qm, not governance/qm."""
+    """codecartographer mounts it at docs/qm, not governance/qm.
+
+    The sibling submodule is named nonsense on purpose. This fixture carried a
+    real private repository's name, pasted from a live run, and a public
+    repository then published it in test data -- which is where names arrive,
+    because a fixture is copied from output rather than invented. A name no
+    repository has cannot be mistaken for a claim about the org.
+    """
     parsed = gs.parse_gitmodules(
-        '[submodule "graphbase"]\n\tpath = graphbase\n'
-        "\turl = https://github.com/quaternionmedia/graphbase.git\n"
+        '[submodule "wobbly-teapot"]\n\tpath = wobbly-teapot\n'
+        "\turl = https://github.com/example-org/wobbly-teapot.git\n"
         '[submodule "docs/qm"]\n\tpath = docs/qm\n'
         "\turl = https://github.com/quaternionmedia/qm.git\n"
     )
