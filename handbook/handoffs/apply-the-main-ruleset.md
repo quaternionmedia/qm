@@ -158,9 +158,16 @@ each of `qmetronome`, `polish`, `math`, `docs`, `broaden`. Most of those are
 what E is *for*. Two are not.
 
 The README already flags E as the thing to watch in the first week's logs, which
-is why it ships evaluating and why stage 2 exists. It does not name
-`propagate/**`, and that one is not "a rule that would have blocked ordinary
-work" — it is a rule that would have blocked a mandated one.
+is why it ships evaluating and why stage 2 exists. That note names
+`project/dossier` and `governance/*` as the first real test and does not name
+`propagate/**` — and `propagate/**` is not "a rule that would have blocked
+ordinary work". It is a rule that would have blocked a mandated one.
+
+*Verified at `258f5b81`, the commit this audit was written against:* E's
+`exclude` holds exactly those five patterns; `non_fast_forward` appears in A, B,
+C and F and in neither D nor E; the README's E row says "the four namespaces"
+where the file excludes five plus the default branch; and `docs.yml` triggers on
+`push` to `[main, docs]`.
 
 *Done:* `refs/heads/propagate/**` and `refs/heads/docs` added to E's exclude
 list, or a stated reason they should be refused. **A human decides which**, and
