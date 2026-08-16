@@ -126,16 +126,140 @@ def render(entries: list[dict], only_open: bool) -> str:
     return "\n".join(out)
 
 
+def block(text: str, indent: str) -> str:
+    """A YAML literal block, so an outcome keeps its paragraphs and its dashes.
+
+    Folded scalars (`>`) rewrap, which silently joins a two-clause score into
+    one line. Literal (`|`) does not.
+
+    `indent` is the block's own, and is derived from the key being replaced
+    rather than assumed: a hardcoded four spaces produced a parse error here
+    against fields that sit at four, and the block must be deeper than its key.
+    """
+    lines = [f"{indent}{line}".rstrip() for line in text.rstrip().split("\n")]
+    return "|-\n" + "\n".join(lines)
+
+
+def close(raw: str, entry_id: str, outcome: str, cost: str, matched) -> str:
+    """Settle one entry by editing its text, leaving the rest of the file alone.
+
+    Not a YAML round-trip. `yaml.safe_dump` reformats every entry and drops
+    every comment -- on a first attempt here it turned a four-field change into
+    a 989-line diff and deleted the header explaining which entries were
+    reconstructed. On an audit record the readable diff is the point.
+    """
+    lines = raw.split("\n")
+    starts = [i for i, line in enumerate(lines)
+              if line.strip() == f"- id: {entry_id}"]
+    if not starts:
+        raise SystemExit(f"{entry_id}: no such entry")
+    if len(starts) > 1:
+        raise SystemExit(f"{entry_id}: appears {len(starts)} times; refusing to guess")
+
+    start = starts[0]
+    field_indent = len(lines[start]) - len(lines[start].lstrip()) + 2
+    end = next(
+        (i for i in range(start + 1, len(lines))
+         if lines[i].strip().startswith("- id:")
+         or (lines[i].strip() and not lines[i].startswith(" " * field_indent))),
+        len(lines),
+    )
+
+    # Refuse an entry that is already settled. Its outcome is a literal block by
+    # now, and replacing the `outcome:` line would leave that block's body
+    # behind as orphaned lines -- a corruption the YAML would still parse and
+    # `--check` would still pass, because a non-empty outcome is all it reads.
+    # Rescoring a closed prediction is also not a text edit's decision to make.
+    #
+    # Scanned across the entry's real extent. A fixed forty-line window passed
+    # its unit test against a short synthetic entry and walked straight past a
+    # real one, whose projection block alone is longer than the window.
+    if any(line.strip() == "status: closed" for line in lines[start:end]):
+        raise SystemExit(
+            f"{entry_id}: already closed. Re-closing would orphan the "
+            f"existing outcome block; edit it deliberately instead."
+        )
+
+    scalar = (str(matched).lower() if isinstance(matched, bool)
+              else f'"{matched}"')
+    written = set()
+    for i in range(start, end):
+        stripped = lines[i].strip()
+        indent = lines[i][:len(lines[i]) - len(lines[i].lstrip())]
+        for field in ("outcome", "failure_cost",
+                      "outcome_matched_projection", "status"):
+            if not stripped.startswith(f"{field}:"):
+                continue
+            if field == "outcome":
+                value = block(outcome, indent + "  ")
+            elif field == "failure_cost":
+                value = block(cost, indent + "  ")
+            elif field == "status":
+                value = "closed"
+            else:
+                value = scalar
+            lines[i] = f"{indent}{field}: {value}"
+            written.add(field)
+
+    missing = {"outcome", "failure_cost",
+               "outcome_matched_projection", "status"} - written
+    if missing:
+        raise SystemExit(
+            f"{entry_id}: fields not found: {', '.join(sorted(missing))}. "
+            f"An entry missing them is malformed, not closeable."
+        )
+    return "\n".join(lines)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--path", default=str(LEDGER))
+    parser.add_argument("--close", metavar="ID",
+                        help="settle an open entry against its projection")
+    parser.add_argument("--outcome", help="what actually happened")
+    parser.add_argument("--cost", help="what the failure cost, or 'none'")
+    parser.add_argument("--matched", choices=["true", "false", "unknown"],
+                        help="did the outcome match the projection")
     parser.add_argument("--check", action="store_true",
                         help="fail if any entry is incomplete or a closed one is unscored")
     parser.add_argument("--open", dest="only_open", action="store_true",
                         help="only entries still predicted and unsettled")
     args = parser.parse_args(argv)
 
-    entries = load(Path(args.path))
+    path = Path(args.path)
+
+    if args.close:
+        if not (args.outcome and args.cost and args.matched):
+            raise SystemExit(
+                "--close needs --outcome, --cost and --matched. A closed entry "
+                "with a blank outcome is a prediction nobody scored."
+            )
+        matched = {"true": True, "false": False, "unknown": "unknown"}[args.matched]
+        raw = path.read_text(encoding="utf-8")
+        updated = close(raw, args.close, args.outcome, args.cost, matched)
+        # Assert the intermediate before the file is touched: YAML that no
+        # longer parses, or that lost an entry, is what a text edit produces
+        # when it goes wrong, and writing first makes it the reader's problem.
+        before = load(path)
+        try:
+            parsed = yaml.safe_load(updated) or {}
+        except yaml.YAMLError as exc:
+            raise SystemExit(f"the edit produced unparseable YAML: {exc}") from exc
+        after = parsed.get("entries") or []
+        if len(after) != len(before):
+            raise SystemExit(
+                f"the edit changed the entry count {len(before)} -> {len(after)}; "
+                f"nothing written"
+            )
+        settled = next((e for e in after if e.get("id") == args.close), None)
+        if not settled or settled.get("status") != "closed" or not settled.get("outcome"):
+            raise SystemExit(f"{args.close}: did not come back closed and scored; "
+                             f"nothing written")
+        path.write_text(updated, encoding="utf-8", newline="\n")
+        print(f"closed {args.close}")
+        return 0
+
+    entries = load(path)
 
     if args.check:
         found = problems(entries, known_tools(TOOL_REGISTRY))

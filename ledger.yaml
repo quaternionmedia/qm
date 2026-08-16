@@ -467,3 +467,133 @@ entries:
     tests_generated:
       - ci/tests/test_ledger.py
     status: closed
+
+  - id: 2026-08-16-005
+    tool: assistant-2026-08
+    kind: build
+    action: "Build a policy registry demanding a vendor-neutral detector for every policy"
+    projected_impact: >
+      Predicted before building, from this session's own base rates.
+
+      (1) It will show that most policies cannot have a detector. Of 32 lessons
+      recorded here, roughly 6 to 8 are detectable from an artifact -- signing,
+      config parseability, attribution resolving, roster omissions. The other
+      three quarters are judgement: read stderr before calling a tool silent,
+      prefer the artefact you did not create, a correction names a class. No
+      script reads those from a repository.
+
+      (2) It will be defective on its first run. Six of six new tools this
+      session were. The most likely defect is the one that already happened
+      twice: naming a detector in the wrong file, or naming one that does not
+      exist yet. --drift caught both within a minute, so the cost is a cycle.
+
+      (3) The dangerous failure is not a bug. A registry with a `detector`
+      column creates pressure to fill it, and a weak detector is worse than an
+      honest "none" because the column then reads as coverage. Expect to want
+      to write one for "read stderr first". That want is the thing to refuse.
+
+      (4) I will violate it. I wrote "converting beats adding" and then added;
+      wrote "the tool is not an author" with three merged instances of "its
+      author" already in the tree; wrote "stop using heredocs" and did it nine
+      times. Predict the next rule I make gets a preventer and no detector,
+      because the preventer is the visible satisfying half.
+    outcome: |-
+      Built, routed as `qm policies`, 17 tests, 9 of 9 mutations caught against an
+      asserted-green baseline. Scored per clause, because a four-clause projection
+      called "matched" as a whole hides which clause was wrong.
+
+      (1) MATCHED, and the count was exact. 6 of 9 policies carry a durable detector,
+      2 state why they cannot, 1 has one planned. The 24 judgement lessons are one
+      grouped entry rather than 24 rows of `detector: null`, so the registry reads as
+      an honest limit and not a backlog.
+
+      (2) MATCHED, in the exact predicted failure mode -- and the check did not find
+      it. `--check` passed clean on the first run. Three entries named
+      `status/ledger.yaml`, a path the reverted config migration would create, while
+      the tree has `ledger.yaml`. It passed because it verified only the `detector`
+      column and never `source`: the tool's blind spot and the error were the same
+      blind spot. Found by walking every path the registry names. Both halves fixed --
+      `source` is now verified, with a test and a mutation.
+
+      (3) MATCHED, and the pressure was real. The pull was to write a detector for
+      `read stderr before calling a tool silent`. Refused; it sits inside
+      `judgement-policies` with a stated reason.
+
+      (4) MATCHED, twice over. `main-is-entered-through-a-pull-request` is in the
+      registry with a preventer that is not applied and no detector -- exactly the
+      shape predicted, committed by the file whose purpose is to refuse it, and
+      declarable only because `detector_planned` exists. Separately the heredoc rule
+      broke for a ninth time during this build; the fix predicted for eight rounds --
+      write the script to a file -- was applied here and worked.
+    failure_cost: |-
+      One cycle on the heredoc anchor, ninth occurrence. The `source` defect cost nothing yet because it was caught before the commit, but it is the load-bearing finding: a registry of enforcement whose own check read one of its two path columns. A reader would have taken "every one either detected or explained" as verified while three of nine sources pointed at nothing.
+    outcome_matched_projection: true
+    status: closed
+  - id: 2026-08-16-006
+    tool: assistant-2026-08
+    kind: build
+    action: Add `qm ledger --close`, after a YAML round-trip destroyed the file it settled
+    reconstructed: true
+    projected_impact: |-
+      Reconstructed. No projection was written before acting, which is the one
+      thing the protocol asks for and the second time it has been skipped on a
+      route added mid-task. Recorded as reconstructed rather than backfilled as
+      though it had been foreseen.
+
+      What would have been predicted, had it been written: closing one entry is
+      a four-field change and a script would do it. That is what was built, and
+      it was wrong twice.
+    outcome: |-
+      Closing entry 2026-08-16-005 was attempted three times.
+
+      First, with `yaml.safe_dump`. It settled the four fields correctly and
+      produced a 989-line diff -- 522 insertions, 467 deletions -- reformatting
+      every one of the 19 entries and deleting the header comment that records
+      which entries are reconstructed. A semantic comparison confirmed only the
+      four intended fields changed, so nothing would have failed. On an audit
+      record a diff nobody can read is the defect. Reverted; rebuilt as a text
+      edit, and as a route rather than a one-off script.
+
+      Second, the guard against re-closing a settled entry scanned a fixed
+      forty-line window from the entry's id. It passed its unit test against a
+      short synthetic entry and walked straight past the real one, whose
+      projection block alone is longer than the window. So the file was closed
+      twice: `outcome` acquired the prefix `x`, `failure_cost` acquired `y`, and
+      the previous block bodies were orphaned underneath. `--check` passed on
+      the corrupted file, because a non-empty outcome is all it reads. Bounded
+      to the entry's real extent; a regression test builds an entry longer than
+      any window.
+
+      Third close was clean: 62 insertions, 0 deletions, header intact, and the
+      second attempt now refused.
+
+      The policy registry it was built to settle: 9 policies, 6 detected, 2
+      stating why they cannot be, 1 planned. 660 tests pass, up from 629.
+    failure_cost: |-
+      Two cycles, and one live-data corruption caught by inspection rather than
+      by a check. Nothing reached a commit.
+
+      The heredoc-escaping class broke twice more during this entry, the ninth
+      and tenth occurrences. The fix predicted eight rounds ago -- write the
+      script to a file instead -- was applied for the mutation run and worked,
+      and was then not applied to the next two shell edits.
+    outcome_matched_projection: unknown
+    lessons:
+      - A tool that rewrites a file it was asked to edit passes every semantic
+        check and destroys the artifact's readability. Assert the diff's shape,
+        not only its meaning.
+      - A guard tested against synthetic data is tested against the case its
+        author imagined. The real entry was 4x the size of the fixture, and the
+        guard's window was the one number nobody varied.
+      - "`--check` passed on a corrupted file: it verified the outcome was
+        non-empty, never that it was the outcome given. A completeness check is
+        not a correctness check, and saying so in its own output is the honest
+        floor."
+      - A registry's own check read one of its two path columns. The blind spot
+        that produced the error and the blind spot that missed it were the same.
+    tests_generated:
+      - ci/tests/test_policies.py -- 17 tests, 9 of 9 mutations caught against
+        an asserted-green baseline
+      - ci/tests/test_ledger.py -- 12 further tests covering the close, its
+        comment preservation, the diff's containment, and the long-entry guard
+    status: closed
