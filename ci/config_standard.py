@@ -55,6 +55,16 @@ EXEMPT = {"inventory-private.json", "inventory-local.json"}
 ROOT_ALLOWED = {"pyproject.toml", "uv.lock", "REUSE.toml", "zensical.toml",
                 "license-report.json"}
 
+# Files that name a pre-standard path deliberately and must never be rewritten.
+# A reference and a historical mention are identical to a text substitution, so
+# the distinction is declared. Registered as `migration-keeps-its-own-vocabulary`
+# in ci/exception-registry.yaml.
+NEVER_REWRITE = {
+    "ci/config_standard.py",             # names both sides of every move
+    "ci/tests/test_config_standard.py",  # fixtures use the old names on purpose
+    "handbook/config-standard.md",       # describes the state the move replaced
+}
+
 SEARCHABLE = (".py", ".md", ".yml", ".yaml", ".toml")
 SKIP_DIRS = (".git", ".venv", ".harness", "site", "__pycache__", "node_modules")
 
@@ -103,8 +113,8 @@ def stale_references(root: Path) -> dict[str, list[str]]:
     stale: dict[str, list[str]] = {}
     for path in searchable_files(root):
         rel = path.relative_to(root).as_posix()
-        if rel == "ci/config_standard.py":
-            continue  # this file names both sides by design
+        if rel in NEVER_REWRITE:
+            continue
         try:
             text = path.read_text(encoding="utf-8")
         except UnicodeDecodeError:
@@ -141,9 +151,13 @@ def migrate(root: Path) -> list[str]:
             convert(source, target)
             done.append(f"moved {old} -> {new}")
 
-    rewritten = 0
+    rewritten, skipped = 0, []
     for path in searchable_files(root):
-        if path.relative_to(root).as_posix() == "ci/config_standard.py":
+        rel = path.relative_to(root).as_posix()
+        if rel in NEVER_REWRITE:
+            if any(re.search(rf"(?<![\w/-]){re.escape(o)}", path.read_text(encoding="utf-8"))
+                   for o in MIGRATIONS):
+                skipped.append(rel)
             continue
         try:
             text = original = path.read_text(encoding="utf-8")
@@ -156,6 +170,8 @@ def migrate(root: Path) -> list[str]:
             rewritten += 1
     if rewritten:
         done.append(f"rewrote references in {rewritten} file(s)")
+    for rel in skipped:
+        done.append(f"left {rel} alone -- it names the old path on purpose")
     return done
 
 
