@@ -1,0 +1,145 @@
+# Every policy this corpus holds, and what would survive the tool that enforces it.
+#
+# THE RULE THIS FILE EXISTS FOR. Prevention is disposable; detection is not. A
+# policy enforced only by one vendor's hook dies when that vendor changes, and
+# dies silently, because nothing reports the absence of a hook that used to run.
+# So a policy may not have a `preventers` list and nothing else: it needs a
+# `detector` that reads an artifact, or a stated reason it cannot have one.
+#
+# `detectable: false` IS A FIRST-CLASS ANSWER. Of thirty-two lessons recorded in
+# status/ledger.yaml, six to eight can be read from an artifact and the rest are
+# judgement. A registry that left those blank would read as unfinished, and the
+# pressure would be to write a weak detector to fill the column. A weak detector
+# is worse than an honest none, because the column then reads as coverage and
+# nobody looks again.
+#
+# THE THREE TIERS
+#
+#   invariant  stated here and in the corpus. Vendor-neutral. Survives anything.
+#   detector   a check reading the artifact, not the actor. Survives a tool swap.
+#   preventer  a git hook, a harness hook, an adapter. Disposable by design.
+#
+# ci/policies.py --check refuses an entry with preventers and neither a detector
+# nor a reason, and reports a detector whose file no longer exists.
+
+schema: 1
+
+policies:
+  - id: commits-are-signed
+    invariant: "Every commit a branch adds carries a verifiable signature"
+    source: records/DRAFT-human-only-contributorship.md
+    detectable: true
+    detector: project-seed/ci/check_signatures.py
+    detector_reads: "git's own %G? for each commit in base..head, or the forge's verdict"
+    preventers: []
+    note: >
+      The worked example for this whole registry. It reads what the commit
+      carries, so it does not care which tool produced it or what flag was
+      typed.
+
+  - id: config-is-not-overridden-on-the-command-line
+    invariant: "A session does not pass -c to git, in either direction"
+    source: ledger.yaml 2026-08-15-001
+    detectable: false
+    undetectable_because: >
+      The safe direction leaves no trace. A commit made with
+      `-c commit.gpgsign=true` is byte-identical to one made with the
+      repository's own configuration, so no artifact distinguishes them. Only
+      the unsafe direction is detectable, and `commits-are-signed` already
+      covers it.
+    preventers:
+      - "a harness hook refusing `git -c` (not built)"
+    note: >
+      Named rather than hidden. This is a policy whose enforcement is a
+      convention plus a disposable preventer, and the registry says so instead
+      of implying coverage.
+
+  - id: one-test-invocation
+    invariant: "The tests are run one way, and it is the way CI runs them"
+    source: records/DRAFT-governance-arrives-as-a-mechanism.md
+    detectable: true
+    detector: ci/tests/test_run_tests.py
+    detector_reads: >
+      the workflow's own pytest step, compared against the route's arguments in
+      both directions
+    preventers:
+      - "a harness hook redirecting bare pytest to `qm test` (not built)"
+
+  - id: no-private-name-in-a-public-artifact
+    invariant: "A committable document never carries a private repository name or an operator's path"
+    source: ledger.yaml 2026-08-16-003
+    detectable: true
+    detector: ci/tests/test_inventory.py
+    detector_reads: >
+      the generated public document, walked as a structure rather than as
+      serialised text -- three of these assertions were inert because escaping
+      hid the very paths they searched for
+    preventers:
+      - .gitignore
+    note: >
+      The file split is the control: a public document that never receives a
+      private name cannot leak one however broken the generator is. The
+      gitignore is the second layer, not the first.
+
+  - id: an-exemption-is-declared-and-announced
+    invariant: "A rule that does not apply somewhere says so, with a reason and a removal condition"
+    source: ci/exception-registry.yaml
+    detectable: true
+    detector: ci/exceptions.py
+    detector_reads: >
+      the registry's completeness, and whether each named constant still exists
+      in the file it names
+    preventers: []
+    note: >
+      Cannot tell that a reason is still good. It finds a renamed or vanished
+      constant, which is what caught two wrong entries on its first run.
+
+  - id: every-action-is-attributed
+    invariant: "Every ledger entry names the tool or person that produced it, and it resolves"
+    source: records/DRAFT-the-ledger.md
+    detectable: true
+    detector: ci/ledger.py
+    detector_reads: "each entry's `tool` against ci/tool-registry.yaml"
+    preventers: []
+
+  - id: main-is-entered-through-a-pull-request
+    invariant: "Nothing is pushed directly to a shared branch"
+    source: AGENTS.md
+    detectable: true
+    detector: null
+    detector_planned: >
+      a check reading main's history for a commit with no merge parent and no
+      associated pull request. Roughly twenty lines and not written.
+    preventers:
+      - "branch protection (not applied; `gh api .../rulesets` returns [])"
+    note: >
+      The clearest instance of the rule this registry enforces: today this
+      policy has one preventer that is not applied and no detector at all, so
+      nothing whatsoever enforces it.
+
+  - id: a-generated-document-is-not-hand-edited
+    invariant: "A document a generator writes is regenerated, never edited"
+    source: handbook/generated-documents.md
+    detectable: true
+    detector: ci/generate_docs.py
+    detector_reads: "a fresh render compared against the committed file"
+    preventers: []
+
+  - id: judgement-policies
+    invariant: >
+      Read stderr before calling a tool silent. Prefer the artefact you did not
+      create. A correction names a class, not the instance it arrived on. Name
+      the actor in a failure sentence.
+    source: ledger.yaml
+    detectable: false
+    undetectable_because: >
+      These are about how a reader reasons, and leave no artifact. Twenty-four
+      of the thirty-two recorded lessons are this kind. Grouped into one entry
+      deliberately: splitting them into twenty-four rows with `detector: null`
+      would make the registry look like a backlog rather than an honest limit.
+    preventers: []
+    note: >
+      The corpus's own measured finding is that a clause without a mechanism
+      does not change behaviour, and these have no mechanism available. They are
+      recorded so that nobody mistakes their absence from a check for their
+      absence from the corpus.

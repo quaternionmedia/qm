@@ -152,6 +152,14 @@ def build_parser() -> argparse.ArgumentParser:
         "branch", help="what a branch actually carries, against its base", add_help=False
     )
     sub.add_parser(
+        "policies", help="what enforces each policy, and what survives a tool change",
+        add_help=False,
+    )
+    sub.add_parser(
+        "exceptions", help="what this corpus deliberately does not enforce, and why",
+        add_help=False,
+    )
+    sub.add_parser(
         "config", help="do data files obey the config standard; --migrate fixes it",
         add_help=False,
     )
@@ -183,6 +191,8 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
     "branch": ("check_pr_base", True, []),
+    "policies": ("policies", False, []),
+    "exceptions": ("exceptions", False, []),
     "config": ("config_standard", False, []),
     "inventory": ("inventory", False, []),
     "ledger": ("ledger", False, []),
