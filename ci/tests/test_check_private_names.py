@@ -154,9 +154,9 @@ from check_private_names import ambiguous, occurrences, references  # noqa: E402
 @pytest.mark.parametrize(
     "name, is_word",
     [
-        ("pad", True), ("axis", True), ("dimension", True),
-        ("datafactorio", False),        # 12 letters
-        ("factorio-server", False),     # hyphenated
+        ("zib", True), ("quix", True), ("blorpling", True),
+        ("wobblyteapot", False),        # 12 letters
+        ("wobbly-teapot", False),     # hyphenated
         ("qm2", False),                 # has a digit
     ],
     ids=["3-letters", "4-letters", "9-letters", "long", "hyphenated", "digit"],
@@ -174,25 +174,25 @@ def test_a_distinctive_name_in_prose_is_a_finding(tmp_path: Path):
 
 
 def test_an_ambiguous_name_in_prose_is_only_possible(tmp_path: Path):
-    root = repo_at(tmp_path, {"page.md": "the rebuild dimension is reported\n"})
-    found = occurrences(root, {"dimension"})
+    root = repo_at(tmp_path, {"page.md": "the rebuild blorpling is reported\n"})
+    found = occurrences(root, {"blorpling"})
     assert found and not any(h["certain"] for h in found)
 
 
 @pytest.mark.parametrize(
     "line",
     [
-        "url = https://github.com/org/dimension.git",
-        'slug = "org/dimension"',
-        '  "name": "dimension",',
-        "branch: dimension",
-        "path = dimension/ci",
+        "url = https://github.com/org/blorpling.git",
+        'slug = "org/blorpling"',
+        '  "name": "blorpling",',
+        "branch: blorpling",
+        "path = blorpling/ci",
     ],
     ids=["a-url", "a-slug", "a-json-field", "a-yaml-field", "a-path"],
 )
 def test_an_ambiguous_name_used_as_a_repository_is_a_finding(tmp_path: Path, line):
     root = repo_at(tmp_path, {"f.txt": line + "\n"})
-    assert any(h["certain"] for h in occurrences(root, {"dimension"}))
+    assert any(h["certain"] for h in occurrences(root, {"blorpling"}))
 
 
 def test_a_name_equal_to_the_org_is_excluded(tmp_path: Path, monkeypatch):
