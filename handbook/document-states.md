@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-16T01:09:28Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-16T10:38:03Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **84**, unfiltered.
+Every governed document in this corpus: **86**, unfiltered.
 
 | | |
 |---|---|
@@ -61,8 +61,8 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] `proposed` | 16 |
 | [??] `unknown` | 1 |
 | [-] `unreviewed` | 30 |
-| [G] `generated` | 6 |
-| [S] `standing` | 19 |
+| [G] `generated` | 7 |
+| [S] `standing` | 20 |
 | [T] `transient` | 12 |
 
 ## Documents
@@ -122,6 +122,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [G] | `generated` | `handbook/document-states.md` | generated | — |
 | [G] | `generated` | `handbook/gates.md` | generated | — |
 | [G] | `generated` | `harness-status.json` | generated | — |
+| [G] | `generated` | `inventory.json` | generated | — |
 | [S] | `standing` | `AGENTS.md` | entry | — |
 | [S] | `standing` | `PRINCIPLES.md` | entry | — |
 | [S] | `standing` | `README.md` | entry | — |
@@ -137,6 +138,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `handbook/style-guide.md` | handbook | — |
 | [S] | `standing` | `perspectives/README.md` | index | — |
 | [S] | `standing` | `plans/authorship-first-governance.md` | other | — |
+| [S] | `standing` | `plans/data-collection-pathways.md` | other | — |
 | [S] | `standing` | `plans/governance-prose-signals.md` | other | — |
 | [S] | `standing` | `plans/readme-onramp.md` | other | — |
 | [S] | `standing` | `plans/semantic-review-instrument.md` | other | — |

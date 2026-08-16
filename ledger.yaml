@@ -13,12 +13,19 @@
 # `outcome_matched_projection: false` is not a defect. An honest miss is worth
 # more than a vague hit. The defect is a closed entry with no outcome.
 #
+# `tool` names who produced the entry, resolved against ci/tool-registry.yaml.
+# It is required on every entry, not only the ones recording a failure: tool
+# authorship is audited on the same terms as tool fault, and a register that
+# named an instrument only when something went wrong would let it accumulate
+# credit while shedding responsibility.
+#
 # records/DRAFT-the-ledger.md is the decision; this is the instrument.
 
 schema: 1
 
 entries:
   - id: 2026-08-14-001
+    tool: assistant-2026-08
     reconstructed: true
     kind: decide
     action: "Review the workspace and line up parallel work"
@@ -39,6 +46,7 @@ entries:
     status: closed
 
   - id: 2026-08-14-002
+    tool: assistant-2026-08
     reconstructed: true
     kind: build
     action: "Give records/DRAFT-version-tags-are-claims.md its 7 mechanism"
@@ -54,6 +62,7 @@ entries:
     status: closed
 
   - id: 2026-08-14-003
+    tool: assistant-2026-08
     reconstructed: true
     kind: build
     action: "Build the gate index as one generator-plus-renderer file"
@@ -71,6 +80,7 @@ entries:
     status: closed
 
   - id: 2026-08-14-004
+    tool: assistant-2026-08
     reconstructed: true
     kind: build
     action: "Add the qm CLI so governance operations have one entry point"
@@ -90,6 +100,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-001
+    tool: assistant-2026-08
     reconstructed: true
     kind: fix
     action: "Respond to two violations in one command: improvised test invocation, and -c on git"
@@ -111,6 +122,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-002
+    tool: assistant-2026-08
     reconstructed: true
     kind: fix
     action: "Grandfather unsigned history the corpus cannot rewrite"
@@ -129,6 +141,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-003
+    tool: assistant-2026-08
     kind: fix
     action: >
       Repair the four defects the self-audit found: a comment contradicting its
@@ -156,6 +169,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-004
+    tool: assistant-2026-08
     kind: build
     action: "Adopt the ledger and write the glossary"
     projected_impact: >
@@ -177,6 +191,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-005
+    tool: assistant-2026-08
     kind: document
     action: "Categorize the pressures shaping this assistant's output"
     projected_impact: >
@@ -201,6 +216,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-006
+    tool: assistant-2026-08
     kind: fix
     action: "Loop pass 1: run every gate locally and remotely, and act on what differs"
     projected_impact: >
@@ -226,6 +242,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-007
+    tool: assistant-2026-08
     kind: verify
     action: "Loop passes 2-4: sweep every gate and every mutation harness until nothing new appears"
     projected_impact: >
@@ -247,6 +264,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-008
+    tool: assistant-2026-08
     kind: build
     action: "Give the published docs an audit, and a draft publish path, on #55"
     projected_impact: >
@@ -275,6 +293,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-009
+    tool: assistant-2026-08
     kind: decide
     action: "Exempt one commit subject from the vendor-name rule, as the example it is taught from"
     projected_impact: >
@@ -301,6 +320,7 @@ entries:
     status: closed
 
   - id: 2026-08-15-010
+    tool: assistant-2026-08
     kind: verify
     action: "Merge #55 and verify the draft build actually produces a bannered artifact"
     projected_impact: >
@@ -325,6 +345,7 @@ entries:
     status: closed
 
   - id: 2026-08-16-001
+    tool: assistant-2026-08
     kind: document
     action: >
       Plan stubs for v0.0.2: governance prose signals, the semantic-review
@@ -357,4 +378,92 @@ entries:
       - "A roster that omits a repository makes the org invisible to its own plans"
     tests_generated:
       - "project-seed/ci/tests/test_check_tag_claims.py::test_a_test_run_is_not_described_as_a_tag"
+    status: closed
+
+  - id: 2026-08-16-002
+    tool: assistant-2026-08
+    kind: build
+    action: "Integration pathways: inventory every org repository, and plan collection over propagation"
+    projected_impact: >
+      Expect the roster to be short of the org, and expect the gap to be modest
+      -- a handful of repositories nobody added.
+    outcome: >
+      The gap is 96 of 110. The roster covers 13 percent of the org, and every
+      plan this corpus has written was scoped to the 14 without saying so.
+      Built ci/inventory.py across three layers -- host, roster, local -- and
+      wrote plans/data-collection-pathways.md for the five archive sources.
+      Tested that plan's own falsifier in the same session: of the 96, 55 are
+      three years or older but 20 were touched within a year and 6 within 90
+      days, so the "they are all dormant" objection fails in its strong form.
+    failure_cost: >
+      None yet. The projection was badly wrong in a direction that matters --
+      "a handful" against 96 -- and it was wrong because it guessed at a number
+      a single command could have established.
+    outcome_matched_projection: false
+    lessons:
+      - "A roster that omits a repository makes the org invisible to its own planning"
+      - "Do not project a count that a command can answer; run the command"
+    tests_generated: []
+    status: closed
+
+  - id: 2026-08-16-003
+    tool: assistant-2026-08
+    kind: fix
+    action: >
+      Redact the org inventory: assistant-2026-08 wrote 34 private repository
+      names and 28 paths containing the reviewer's username into the working
+      tree of a public repository
+    projected_impact: >
+      The reviewer asked whether personal details had been pushed. Expect the
+      answer to be no, and expect a small fix.
+    outcome: >
+      Nothing was pushed. The reviewer stopped the command that would have
+      pushed it, then asked the question that established what had been written.
+      assistant-2026-08 wrote 34 private repository names, several of them
+      people's names, and 28 absolute paths containing the reviewer's username,
+      into the working tree of a repository that is public. It also contradicted
+      two decisions the corpus had already written down: governance-status.yaml
+      records private_repository_names_listed false, and make_workspace.py
+      states it writes no absolute paths. assistant-2026-08 consulted neither
+      before generating a second inventory, and so reintroduced a problem the
+      corpus had already solved.
+    failure_cost: >
+      Nothing left the machine, because the reviewer caught it. Had the reviewer
+      not stopped that command, assistant-2026-08 would have published the
+      private repository names of a private organisation, irreversibly. The
+      remediation: private repositories are counted and referenced by a stable
+      creation-ordered id, the name mapping is machine-scoped and gitignored,
+      and 16 tests fail if any of that is weakened.
+    outcome_matched_projection: false
+    lessons:
+      - "Read how an existing generator solved a problem before generating a rival"
+      - "Redaction that drops the subject is not redaction; count it and reference it"
+      - "A privacy failure is silent and one-way; it needs tests, not care"
+      - "Name the actor in the failure sentence -- an artifact cannot carry anything anywhere"
+    tests_generated:
+      - ci/tests/test_inventory.py
+    status: closed
+
+  - id: 2026-08-16-004
+    tool: assistant-2026-08
+    kind: build
+    action: "Make tool attribution auditable on every ledger entry, not only the failures"
+    projected_impact: >
+      The reviewer's instruction: tool authorship should be equally auditable.
+      Expect a registry, a required field, and a check that the field resolves.
+    outcome: >
+      ci/tool-registry.yaml names each tool with vendor, product, operator and
+      where it is disclosed, plus `human` so an entry produced without a tool
+      has something true to name. `tool` is required on all 17 entries and
+      ledger.py --check refuses one that does not resolve. 13 tests.
+    failure_cost: >
+      None. This came from the reviewer noticing that the first two drafts of
+      the entry above claimed credit readily and shed fault through an
+      inanimate subject and an agentless passive.
+    outcome_matched_projection: true
+    lessons:
+      - "A register that names an instrument only in failure lets it bank credit and shed fault"
+      - "An attribution that resolves to nothing cannot be audited"
+    tests_generated:
+      - ci/tests/test_ledger.py
     status: closed

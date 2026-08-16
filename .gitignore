@@ -42,3 +42,18 @@ site
 # same generators. See pyproject.toml's header for why this repository has
 # packaging at all.
 .venv/
+
+# The org inventory, split by what may leave the machine.
+#
+# `inventory-public.json` is committable: public repository names, counts, and
+# references standing in for the private ones. The two below are not, and the
+# split is the control -- a public file that never receives private names cannot
+# leak them however broken the generator is.
+#
+# An earlier single-file version carried 34 private repository names and 28
+# absolute paths containing the operator's username into this working tree, and
+# was one command from being pushed. governance-status.yaml already recorded
+# `private_repository_names_listed: false`; assistant-2026-08 was run at the
+# problem without reading it.
+inventory-private.json
+inventory-local.json

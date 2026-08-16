@@ -31,8 +31,9 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 LEDGER = ROOT / "ledger.yaml"
+TOOL_REGISTRY = ROOT / "ci" / "tool-registry.yaml"
 
-REQUIRED = ("id", "action", "kind", "projected_impact", "status")
+REQUIRED = ("id", "action", "kind", "projected_impact", "status", "tool")
 REQUIRED_WHEN_CLOSED = ("outcome", "failure_cost", "outcome_matched_projection")
 KINDS = {"build", "fix", "document", "decide", "verify", "revert"}
 STATUSES = {"open", "closed"}
@@ -49,9 +50,22 @@ def load(path: Path) -> list[dict]:
     return entries
 
 
-def problems(entries: list[dict]) -> list[str]:
+def known_tools(path: Path) -> set[str]:
+    """Ids in the tool registry. Empty if it is missing, which is itself a problem."""
+    if not path.is_file():
+        return set()
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return {t["id"] for t in (data.get("tools") or []) if t.get("id")}
+
+
+def problems(entries: list[dict], tools: set[str] | None = None) -> list[str]:
     found: list[str] = []
     seen: set[str] = set()
+    if tools is not None and not tools:
+        found.append(
+            "ci/tool-registry.yaml names no tools -- every attribution below is "
+            "unresolvable, which is the state this field exists to prevent"
+        )
     for entry in entries:
         eid = entry.get("id", "<no id>")
         if eid in seen:
@@ -64,6 +78,13 @@ def problems(entries: list[dict]) -> list[str]:
             found.append(f"{eid}: kind {entry.get('kind')!r} is not one of {sorted(KINDS)}")
         if entry.get("status") not in STATUSES:
             found.append(f"{eid}: status {entry.get('status')!r} is not open or closed")
+        # Required on every entry, not only failures. Tool authorship is
+        # audited on the same terms as tool fault.
+        if tools and entry.get("tool") and entry["tool"] not in tools:
+            found.append(
+                f"{eid}: tool {entry['tool']!r} is not in ci/tool-registry.yaml -- "
+                f"an attribution that resolves to nothing cannot be audited"
+            )
         if entry.get("status") == "closed":
             for field in REQUIRED_WHEN_CLOSED:
                 if field not in entry or entry[field] in (None, ""):
@@ -117,7 +138,7 @@ def main(argv: list[str] | None = None) -> int:
     entries = load(Path(args.path))
 
     if args.check:
-        found = problems(entries)
+        found = problems(entries, known_tools(TOOL_REGISTRY))
         for problem in found:
             print(f"  - {problem}", file=sys.stderr)
         if found:
@@ -127,7 +148,8 @@ def main(argv: list[str] | None = None) -> int:
         closed = sum(1 for e in entries if e.get("status") == "closed")
         print(f"ledger: {len(entries)} entries, {closed} closed and all scored.")
         print("This does NOT mean the projections were good -- nothing here reads "
-              "them for vagueness.")
+              "them for vagueness, and nothing verifies that the tool named is the "
+              "tool that ran.")
         return 0
 
     print(render(entries, args.only_open))
