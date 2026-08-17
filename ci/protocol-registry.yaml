@@ -1,0 +1,82 @@
+# The protocol registry: every named procedure this org runs deliberately,
+# what it produces, and when it was last actually run.
+#
+# A PROTOCOL IS NOT A GATE. A gate is automatic and refuses; nobody invokes it
+# and its answer is pass or fail. A protocol is invoked by a person or an agent,
+# takes judgement, and produces a dated artifact somebody signs. `ci/gate-registry.yaml`
+# holds the first kind. This holds the second, and the two must not be merged:
+# a protocol listed as a gate reads as always-on, and a gate listed as a
+# protocol reads as optional.
+#
+# WHY THIS FILE EXISTS. This corpus's recurring defect is a mechanism that
+# exists and runs nowhere -- four registry checks wired into no workflow, six
+# rulesets drafted and never applied, a mutation harness with no caller. A
+# procedure written into a handbook page has the same failure mode and no
+# counter at all: nothing anywhere says when it was last done, so "we review
+# security" and "somebody reviewed security in June" are the same sentence.
+#
+# `last_run` IS DERIVED, NEVER DECLARED. It is read from the dated files under
+# `protocols/runs/`, so it cannot be asserted here and cannot be stale in the
+# way a hand-maintained date is stale. A protocol with no run is printed as
+# NEVER RUN, and that is the honest state of most of this list.
+#
+# `cadence_days` IS A BUDGET, NOT A SCHEDULE. Nothing here runs anything. It is
+# the age past which the last run stops being worth quoting, in exactly the
+# sense `handbook/generated-documents.md` gives a generated document.
+#
+# `cannot_see` IS LOAD-BEARING, as it is in the gate registry and for the same
+# reason. A protocol with an empty one is undescribed rather than thorough.
+#
+# ADDING A PROTOCOL IS AN EDIT TO THIS FILE AND A PAGE UNDER `protocols/`.
+# `uv run qm protocols --check` refuses an entry with no page, a page nobody
+# registered, and a step naming a `qm` route that does not exist.
+
+schema: 1
+
+protocols:
+  - id: security-review
+    name: Security review
+    question: >
+      What could leak from this repository, and what actually protects it right
+      now?
+    page: protocols/security-review.md
+    invoked_by: a human, or an agent asked to
+    cadence_days: 30
+    optional: false
+    produces: protocols/runs/<date>-security-review.md
+    steps:
+      - uv run qm private-names --context
+      - uv run qm rulesets
+      - uv run qm gates
+      - uv run qm exceptions
+      - python project-seed/ci/check_signatures.py --base origin/main --head HEAD --source host --repo quaternionmedia/qm
+      - gh api --paginate repos/quaternionmedia/qm/activity
+    cannot_see: >
+      Runtime security, because nothing here runs. The configuration of the
+      installed secret scanner, which has no workflow file in this repository
+      and no record describing it. Any private repository, from CI. A history
+      rewrite older than the activity log, though that log currently reaches
+      the creation of `main`. And the other twelve repositories this corpus
+      governs: every step above reads this one.
+
+  - id: curriculum
+    name: Curriculum
+    question: >
+      In what order should someone with no context read this corpus, and what
+      can they do afterwards?
+    page: protocols/curriculum.md
+    invoked_by: a human, or an agent asked to
+    cadence_days: 90
+    optional: true
+    produces: curriculum/<id>.yaml
+    steps:
+      - uv run qm curriculum
+      - uv run qm curriculum --check
+      - uv run qm curriculum --merge <other.yaml>
+    cannot_see: >
+      Whether anyone learned anything. It checks that a unit cites a document
+      that exists and does not misstate that document's Status; it cannot read
+      the unit's prose against the document's meaning, and it has no measure of
+      whether the order is a good order. It also cannot see a document that
+      should be taught and is in no unit -- an incomplete curriculum and a
+      complete one are the same shape to it.
