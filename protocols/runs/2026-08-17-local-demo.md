@@ -61,6 +61,67 @@ POSIX-only. The documented route is Docker, and the daemon is not running here
 `examples/flows/` are therefore **unverified on this machine** — unchanged from
 the 2026-08-12 handoff, and not a regression.
 
+## 1b. qmcp — one workflow step, reconciled with a dossier delta
+
+| | |
+|---|---|
+| Repository | `quaternionmedia/qmcp`, same branch |
+| Commits | `27d9ef1` (decoupling), `c7183d0` (the seam) — **local and unpushed** |
+| Seam | `qmcp/cookbook/delta.py`, 24 tests |
+| Demo | `examples/demo_step_as_delta.py`, 12 tests |
+| Suite after | **322 passed, 11 skipped** |
+
+```
+$ uv run python examples/demo_step_as_delta.py
+step             summarizer  (from CHANGE_IMPACT_PIPELINE)
+as a delta       phase=planning  type=feature  links=0
+row dossier gets {"name": "summarizer", "title": "Summarizer", "description": "You summarize
+                  engineering changes...", "phase": "planning", "delta_type": "feature",
+                  "priority": "medium"}
+after running    phase=complete
+after review     phase=review  invocation=['b9532e20-d725-4589-a055-477d4e947b8d']
+review missing   phase=implementation  (not complete: something is outstanding)
+rebuilt from it  summarizer  tool=reviewer  criteria=['risk', 'completeness']
+identity matches True
+swapped output   TerseSummary  identity still matches True
+```
+
+**The seam is a schema, not an import.** Nothing in qmcp imports dossier, and a
+test asserts it on the source. dossier's `ProjectDelta` is on an unmerged branch
+and is not a qmcp dependency; an import would mean neither project ships without
+the other, which is the opposite of interchangeable. What crosses is a dict
+whose keys are dossier's column names, so the consumer writes
+`ProjectDelta(**delta["delta"], project_id=resolved)`.
+
+**`project_id` is deliberately outside the row.** It is required, has no
+default, and is an integer primary key qmcp cannot know. The `project` key
+beside the row carries `owner/repo` for the consumer to resolve. An earlier
+draft of the module claimed the row constructed on its own; reading the model
+showed it does not.
+
+**Phase is derived from execution facts, never judgement:** declared but not run
+→ `planning`; ran and declared no review → `complete`; ran and its declared
+review happened → `review`; ran and the declared review did not happen →
+`implementation`. Only the last one could flatter, and it is the one the tests
+pin hardest — reporting unreviewed work as complete is the failure worth
+preventing.
+
+**What made this possible was a decoupling, and it was a real defect.** The four
+`AgentStep`s of the change-impact pipeline were defined inside
+`examples/flows/change_impact.py`, which imports Metaflow at module level — and
+`import metaflow` dies on Windows at `import fcntl`. Four pure step
+descriptions were unreachable on this platform because of the executor they were
+filed with. They now live in `qmcp/cookbook/change_impact.py`; the flow imports
+and re-exports them, so nothing that referenced them breaks, and a test asserts
+the new module names no flow runtime.
+
+**Unverified, and named as such:** the consumer half. Nothing has inserted one
+of these rows into a dossier database. The column names were checked by reading
+`ProjectDelta` on `origin/feature/delta-entity-type`, which is evidence and not
+execution. *Done* looks like a test in dossier that ingests a payload from this
+schema — which needs the delta entity on dossier's `main` first, and that is
+blocked behind #12 and the two alembic heads.
+
 ## 2. dossier — the TUI
 
 | | |
@@ -124,6 +185,17 @@ cases, and neither was.
    item 3: draft means incomplete, and under the two-gate model there is nobody
    at the far end of that queue. Until one lands, neither repository has a free
    slot.
+4. **`uv run qm mutate` cannot be pointed at another repository.** `ROOT` is the
+   corpus, and the route exposes no `--root`, so the mutation discipline this
+   corpus asks for cannot be applied to qmcp's or dossier's tooling. The three
+   modules added here are covered by tests and by no mutation pass, and that is
+   a weaker claim than the corpus makes about its own.
+5. **A step's identity is now a cross-project contract with one owner.**
+   `SCHEMA = 1` in `qmcp/cookbook/delta.py` is a promise about key names that
+   dossier will depend on, and nothing in dossier references it yet. This is
+   the "how corpora interact" question in miniature, and it wants a record on
+   `project/qmcp` — each `project/<name>` branch in the corpus holds its own
+   slot, so that PR is available now even while `main`'s slot is held.
 
 ## What needs a decision
 
