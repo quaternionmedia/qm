@@ -19,7 +19,7 @@ else.
 |---|---|
 | Repository | `quaternionmedia/qmcp` |
 | Branch | `governance/adopt-constitution` (PR **#21**, draft) |
-| Commit | `7723599`, **local and unpushed** — see *What needs a decision* |
+| Commit | `7723599`, pushed to `origin/governance/adopt-constitution` |
 | Demo | `examples/demo_agent_harness.py` |
 | Test | `tests/test_demo_agent_harness.py`, 8 tests |
 | Baseline before | 278 passed, 11 skipped |
@@ -66,7 +66,7 @@ the 2026-08-12 handoff, and not a regression.
 | | |
 |---|---|
 | Repository | `quaternionmedia/qmcp`, same branch |
-| Commits | `27d9ef1` (decoupling), `c7183d0` (the seam) — **local and unpushed** |
+| Commits | `27d9ef1` (decoupling), `c7183d0` (the seam), both pushed |
 | Seam | `qmcp/cookbook/delta.py`, 24 tests |
 | Demo | `examples/demo_step_as_delta.py`, 12 tests |
 | Suite after | **322 passed, 11 skipped** |
@@ -128,7 +128,7 @@ blocked behind #12 and the two alembic heads.
 |---|---|
 | Repository | `quaternionmedia/dossier` |
 | Branch | `governance/refresh-seed-copies` (PR **#12**, draft) |
-| Commit | `ad8e656`, **local and unpushed** |
+| Commit | `ad8e656`, pushed to `origin/governance/refresh-seed-copies` |
 | Demo | `examples/demo_tui.py` (`--live` for the real dashboard) |
 | Test | `tests/test_demo_tui.py`, 10 tests |
 | Baseline before | 341 passed, 1 skipped |
@@ -197,17 +197,70 @@ cases, and neither was.
    `project/qmcp` — each `project/<name>` branch in the corpus holds its own
    slot, so that PR is available now even while `main`'s slot is held.
 
+## Pushed, and what the green checks actually cover
+
+All four commits are on `origin` as fast-forwards. No branch was rewritten and
+no force push was made; `gh api repos/<r>/activity` records `push`, not
+`force_push`, for both.
+
+| repo | branch | pushed | PR | checks |
+|---|---|---|---|---|
+| qmcp | `governance/adopt-constitution` | `05010a4..c7183d0` | **#21**, still draft | 5 pass, `CLEAN` |
+| dossier | `governance/refresh-seed-copies` | `ae183d1..ad8e656` | **#12**, still draft | 6 pass, `CLEAN` |
+| qm | `evolve/protect-main-handoff` | earlier | **#66**, open, green | 8 pass, `CLEAN` |
+| qm | `evolve/governance-protocols` | earlier | none — `main`'s slot holds #66 | not run |
+
+Every commit on both project branches carries a good signature (`%G?` = `G`).
+
+**The green checks on #21 and #12 do not mean the tests pass.** Neither project
+runs a test suite on a runner:
+
+| repo | workflows | test gate |
+|---|---|---|
+| qmcp | `adr-lint`, `one-pr-check`, `submodule-check` | **none** |
+| dossier | `adr-lint`, `license-check`, `reuse-lint`, `submodule-check` | **none** |
+
+`grep -rl pytest .github/workflows/` returns nothing in either. So **322 passed**
+in qmcp and **351 passed** in dossier are local results only, and every test
+added by this run — 8 for the harness demo, 24 for the delta seam, 12 for the
+step demo, 10 for the TUI demo — is enforced by nothing outside this machine.
+That is the same shape as the four registry checks the corpus found wired into
+no workflow, arriving one repository along. The corpus gates its own tooling
+with `ci-tooling-tests.yml`; neither fork has an equivalent, and `project-seed`
+does not ship one.
+
+**Both pull requests are now wider than their titles.** #21 reads *Adopt the QM
+constitution, and land the cookbook and flow runner* and now also carries two
+demos and the delta seam — defensible, since the 2026-08-12 handoff already
+names it the demo branch. #12 reads *Refresh the seed workflow copies* and now
+carries a TUI demo, which is unrelated work on a governance branch. Both were
+pushed to their existing branches because `handbook/async-contract.md` §1 says a
+held slot means add to the open pull request or wait, and waiting was not the
+instruction.
+
 ## What needs a decision
 
-**Both demo commits are local and unpushed, deliberately.** Pushing either
-would add scope to somebody's open pull request without being asked — and for
-dossier, a TUI demo on a branch titled *refresh the seed workflow copies* is an
-unrelated change. Three ways forward, and the choice is the operator's:
+Everything is pushed. Four decisions remain, none of which an agent should take.
 
-- un-draft and merge #21 and #12, then open a demo pull request in each;
-- push each demo onto its existing branch, accepting the widened scope — for
-  qmcp this is defensible, since the 2026-08-12 handoff already calls #21 "the
-  demo branch";
-- leave both local until the milestone work lands.
+**1. Both pull requests are green and still `draft`.** `AGENTS.md` item 3: draft
+means incomplete and nothing else, and under the two-gate model there is nobody
+at the far end of a draft queue. Leaving #21 and #12 in draft is what has kept
+both slots spent for days. Un-drafting is the operator's act, not least because
+the scope question below should be settled in the same breath.
 
-Nothing here is unpushed by accident.
+**2. Their titles no longer describe them.** #21 has gained two demos and the
+delta seam; #12 has gained a TUI demo unrelated to seed copies. Either retitle
+them to match, or split the demo work back out once a slot frees.
+
+**3. Neither project gates its tests.** Every test written for these demos runs
+on one machine and nowhere else. A `ci-tooling-tests.yml` equivalent belongs in
+`project-seed/` so every fork gets one, which makes it an org-level change with
+its own slot — not something to bolt onto either project branch.
+
+**4. `SCHEMA = 1` is a cross-project contract with one owner and no record.**
+`qmcp/cookbook/delta.py` promises key names dossier will depend on, and nothing
+in dossier references it yet. It wants a decision record on the corpus's
+`project/qmcp` branch, which holds its own slot and is therefore available now
+even while `main`'s slot is held by #66.
+
+Nothing here is unpushed, and nothing was force-pushed.
