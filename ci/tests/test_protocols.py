@@ -168,6 +168,16 @@ def test_a_run_inside_its_budget_is_not_marked(tmp_path):
     assert "past its budget" not in text
 
 
+def test_a_run_dated_in_the_future_is_named_rather_than_given_a_negative_age(tmp_path):
+    """The route around the staleness budget: a filename is the whole date, so
+    dating a run tomorrow keeps it inside its budget forever. `-1d ago` is not a
+    warning a reader acts on."""
+    found = {"a-protocol": [(date(2026, 9, 1), tmp_path / "x.md")]}
+    text = render([entry()], found, date(2026, 8, 17), None)
+    assert "in the future" in text
+    assert "-15d" not in text
+
+
 def test_the_output_states_that_it_never_read_a_run(tmp_path):
     text = render([entry()], {}, date(2026, 8, 16), None)
     assert "does not read one word" in text

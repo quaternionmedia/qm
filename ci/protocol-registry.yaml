@@ -59,6 +59,27 @@ protocols:
       the creation of `main`. And the other twelve repositories this corpus
       governs: every step above reads this one.
 
+  - id: local-demo
+    name: Local demo
+    question: Does this project actually do the thing, on this machine, today?
+    page: protocols/local-demo.md
+    invoked_by: a human, or an agent asked to
+    cadence_days: 30
+    optional: true
+    produces: protocols/runs/<date>-local-demo.md
+    steps:
+      - uv sync --all-extras
+      - uv run pytest -q
+      - uv run python examples/<demo>.py
+      - uv run qm slot --repo <owner/name>
+    cannot_see: >
+      Whether the demo demonstrates anything a user would care about. It checks
+      that a committed script runs and that a test covers it; nobody can
+      mechanically tell a demo of the feature from a demo of the scaffolding.
+      It also cannot run what this platform cannot: qmcp's Metaflow flow layer
+      needs Docker, because `import metaflow` fails on `import fcntl`, and a
+      run that omits it must say so rather than reporting on what it did reach.
+
   - id: curriculum
     name: Curriculum
     question: >

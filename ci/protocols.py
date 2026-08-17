@@ -176,8 +176,16 @@ def render(protocols: list[dict], found: dict, today: date, only: str | None) ->
         else:
             age = age_days(latest[0], today)
             budget = int(protocol.get("cadence_days") or 0)
-            over = " (past its budget)" if budget and age > budget else ""
-            state = f"last run {latest[0].isoformat()}, {age}d ago{over}"
+            if age < 0:
+                # A filename is the whole date, so dating one tomorrow is the
+                # trivial way around a staleness budget: the run stays inside
+                # it forever and the age prints as a negative number nobody
+                # reads as a warning. Named, rather than left to arithmetic.
+                state = (f"dated {latest[0].isoformat()}, which is in the future "
+                         f"-- its age cannot be read")
+            else:
+                over = " (past its budget)" if budget and age > budget else ""
+                state = f"last run {latest[0].isoformat()}, {age}d ago{over}"
 
         out += [
             f"## {protocol.get('name')}  ({protocol.get('id')})"
