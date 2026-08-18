@@ -243,23 +243,33 @@ gates:
       An exemption with no stated reason or whose named constant has gone; a
       policy with neither a detector nor a stated reason it cannot have one; a
       ledger entry that is unattributed, or closed and unscored; two lanes that
-      are settled by the same gate.
+      are settled by the same gate; a protocol with no page or a step naming a
+      route that does not exist; a curriculum unit citing a document that is
+      not there or claiming a Status its document does not carry.
     runs:
       - ci/exceptions.py --check
       - ci/policies.py --check
       - ci/ledger.py --check
       - ci/lanes.py --check
+      - ci/protocols.py --check
+      - ci/curriculum.py --check
     enforces:
       - ci/exception-registry.yaml
       - ci/policy-registry.yaml
       - ci/lane-registry.yaml
+      - ci/protocol-registry.yaml
+      - curriculum/org.yaml
     cannot_see: >
-      Whether any registry is complete. Each of these four checks the entries
+      Whether any registry is complete. Each of these six checks the entries
       that exist against their own rules; none can tell that an exemption, a
-      policy, a ledger entry or a lane was never written down, and a registry
-      nobody added to is the state all four report as clean. Nor is this gate
-      required to merge -- it is a candidate for A-main.json's required list
-      and stays off it until it has reported green on a real pull request.
+      policy, a ledger entry, a lane, a protocol or a curriculum unit was never
+      written down, and a registry nobody added to is the state all six report
+      as clean. It also cannot see whether a protocol was ever run -- that is
+      reported by `uv run qm protocols` and deliberately never refused -- or
+      whether a curriculum unit's prose is true of the document it cites. Nor
+      is this gate required to merge: it is a candidate for A-main.json's
+      required list and stays off it until it has reported green on a real
+      pull request.
 
   - id: rulesets
     workflow: null

@@ -160,6 +160,14 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "protocols", help="the procedures run deliberately, and when each last ran",
+        add_help=False,
+    )
+    sub.add_parser(
+        "curriculum", help="the reading order, and how two of them reconcile",
+        add_help=False,
+    )
+    sub.add_parser(
         "private-names", help="no private repository name is in a tracked file",
         add_help=False,
     )
@@ -217,6 +225,8 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "branch": ("check_pr_base", True, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
+    "protocols": ("protocols", False, []),
+    "curriculum": ("curriculum", False, []),
     "private-names": ("check_private_names", False, []),
     "workspace": ("make_workspace", False, []),
     "devloop": ("devloop", False, []),
