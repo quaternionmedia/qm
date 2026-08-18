@@ -58,3 +58,12 @@ jobs:
 
       - name: Every lane is separable from every other
         run: python ci/lanes.py --check
+
+      - name: Every protocol has a page and steps somebody could run
+        run: python ci/protocols.py --check
+
+      - name: Every curriculum unit cites a document and states its Status
+        run: python ci/curriculum.py --check
+
+      - name: Every address vector parses as declared and round-trips
+        run: python ci/addresses.py --check

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-16T21:25:03Z",
+  "generated_at": "2026-08-18T02:19:30Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -58,9 +58,9 @@
       "local": 0,
       "pushed": 0,
       "draft": 4,
-      "ready": 3
+      "ready": 4
     },
-    "threads_stalled": 7,
+    "threads_stalled": 5,
     "threads_unreadable": 0
   },
   "repositories": [
@@ -78,6 +78,15 @@
         ],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 66,
+            "title": "Close the protect-main session: the handoff and the retrospective",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "evolve/protect-main-handoff",
+            "draft": false
+          },
           {
             "number": 57,
             "title": "Refresh datum's seed copies, which #47 missed",
@@ -100,6 +109,24 @@
       },
       "threads": [
         {
+          "name": "evolve/protect-main-handoff",
+          "stage": "ready",
+          "pr": 66,
+          "base": "main",
+          "title": "Close the protect-main session: the handoff and the retrospective",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 467,
+            "changed_files": 11,
+            "commits": 3,
+            "deletions": 239,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-16T23:58:05Z"
+          },
+          "idle_hours": 26.4,
+          "stalled": false
+        },
+        {
           "name": "propagate/datum-2026-08-12",
           "stage": "draft",
           "pr": 57,
@@ -114,7 +141,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T02:45:51Z"
           },
-          "idle_hours": 90.6,
+          "idle_hours": 119.6,
           "stalled": true
         }
       ],
@@ -182,7 +209,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23038.5,
+          "idle_hours": 23067.4,
           "stalled": true
         }
       ],
@@ -203,8 +230,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 87,
-        "observed_at": "2026-08-16T21:24:32Z",
+        "behind_corpus": 93,
+        "observed_at": "2026-08-18T02:18:59Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -293,7 +320,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 129.6,
+          "idle_hours": 158.5,
           "stalled": true
         }
       ],
@@ -309,8 +336,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 87,
-        "observed_at": "2026-08-16T21:24:33Z",
+        "behind_corpus": 93,
+        "observed_at": "2026-08-18T02:19:00Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -351,8 +378,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 87,
-        "observed_at": "2026-08-16T21:24:37Z",
+        "behind_corpus": 93,
+        "observed_at": "2026-08-18T02:19:04Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -487,7 +514,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 122.2,
+          "idle_hours": 151.1,
           "stalled": true
         }
       ],
@@ -508,8 +535,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 87,
-        "observed_at": "2026-08-16T21:24:34Z",
+        "behind_corpus": 93,
+        "observed_at": "2026-08-18T02:19:01Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -645,8 +672,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 87,
-        "observed_at": "2026-08-16T21:24:40Z",
+        "behind_corpus": 93,
+        "observed_at": "2026-08-18T02:19:07Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -662,7 +689,26 @@
         "repository": "quaternionmedia/qmetronome",
         "per_base": [],
         "contributor": null,
-        "open_prs": [],
+        "open_prs": [
+          {
+            "number": 14,
+            "title": "findings: ADR drafts for hardware volume routing (#12) and animation click modes (#11)",
+            "author": "Copilot",
+            "bot": true,
+            "base": "main",
+            "head": "copilot/research-hardware-button-bug-and-animation-enhance",
+            "draft": true
+          },
+          {
+            "number": 13,
+            "title": "Route hardware volume keys to media stream in MainActivity",
+            "author": "Copilot",
+            "bot": true,
+            "base": "main",
+            "head": "copilot/fix-volume-button-issue",
+            "draft": true
+          }
+        ],
         "violations": [],
         "exit_status": 0,
         "compliant": true
@@ -690,8 +736,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 87,
-        "observed_at": "2026-08-16T21:24:44Z",
+        "behind_corpus": 93,
+        "observed_at": "2026-08-18T02:19:11Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -782,15 +828,15 @@
           "title": "Refresh the seed workflow copies, and cap superseded runs",
           "author": "subcontrabass",
           "delta": {
-            "additions": 51,
-            "changed_files": 4,
-            "commits": 3,
+            "additions": 379,
+            "changed_files": 6,
+            "commits": 4,
             "deletions": 2,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-12T00:38:52Z"
+            "updated_at": "2026-08-17T13:02:21Z"
           },
-          "idle_hours": 116.8,
-          "stalled": true
+          "idle_hours": 13.3,
+          "stalled": false
         }
       ],
       "governance": {
@@ -805,8 +851,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 87,
-        "observed_at": "2026-08-16T21:24:38Z",
+        "behind_corpus": 93,
+        "observed_at": "2026-08-18T02:19:05Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -868,7 +914,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3173.4,
+          "idle_hours": 3202.3,
           "stalled": true
         }
       ],
@@ -1143,15 +1189,15 @@
           "title": "Adopt the QM constitution, and land the cookbook and flow runner",
           "author": "subcontrabass",
           "delta": {
-            "additions": 4970,
-            "changed_files": 48,
-            "commits": 3,
+            "additions": 5962,
+            "changed_files": 55,
+            "commits": 6,
             "deletions": 798,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-13T04:11:43Z"
+            "updated_at": "2026-08-17T13:01:11Z"
           },
-          "idle_hours": 89.2,
-          "stalled": true
+          "idle_hours": 13.3,
+          "stalled": false
         }
       ],
       "governance": {
@@ -1171,8 +1217,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 87,
-        "observed_at": "2026-08-16T21:24:43Z",
+        "behind_corpus": 93,
+        "observed_at": "2026-08-18T02:19:10Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }

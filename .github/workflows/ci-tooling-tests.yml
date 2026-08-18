@@ -63,7 +63,7 @@ jobs:
         # default since CVE-2022-39253. The repositories are built in the
         # runner's own temp directory moments earlier, so the protection is not
         # doing anything here except preventing the test from running.
-        run: python -m pytest project-seed/ci/tests ci/tests -q
+        run: python -m pytest project-seed/ci/tests ci/tests walkthrough -q --doctest-glob=*.md
 
       # The cookbook pages are executable, and this names their directory
       # explicitly. It must: pytest ignores `testpaths` the moment it is given a

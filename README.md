@@ -68,6 +68,7 @@ qm/
 |---|---|---|---|
 | — | [Decision-record discipline](records/DRAFT-decision-record-discipline.md) | Proposed | 2026-06-09 |
 | — | [Open-license exclusion and upstream-contribution remediation](records/DRAFT-open-license-exclusion-and-upstream-remediation.md) | Proposed | 2026-06-09 |
+| — | [A disagreement is a delta](records/DRAFT-a-disagreement-is-a-delta.md) | Proposed | 2026-08-17 |
 | — | [Seams on standard protocols](records/DRAFT-seams-on-standard-protocols.md) | Proposed | 2026-06-09 |
 | — | [Build the seam, buy the engines](records/DRAFT-build-the-seam-buy-the-engines.md) | Proposed | 2026-06-09 |
 | — | [House stack](records/DRAFT-house-stack.md) | Proposed | 2026-06-09 |
