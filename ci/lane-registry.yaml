@@ -130,6 +130,8 @@ lanes:
       - project-seed/address-vectors.json
       - docs/ref/addresses.md
       - ci/divergence.py    # a disagreement between two views is a delta
+      - ci/two_views.py     # git against the status document, as one worked case
+      - walkthrough/        # the executable worked example, run by `qm test`
     does_not_own: >
       What the commands mean. A route that dispatches to a rule does not own
       the rule, and the CLI decides nothing itself. A protocol page owns the

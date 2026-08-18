@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-18T01:49:58Z",
+  "generated_at": "2026-08-18T02:19:30Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -123,7 +123,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-16T23:58:05Z"
           },
-          "idle_hours": 25.9,
+          "idle_hours": 26.4,
           "stalled": false
         },
         {
@@ -141,7 +141,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T02:45:51Z"
           },
-          "idle_hours": 119.1,
+          "idle_hours": 119.6,
           "stalled": true
         }
       ],
@@ -209,7 +209,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23066.9,
+          "idle_hours": 23067.4,
           "stalled": true
         }
       ],
@@ -231,7 +231,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-18T01:49:26Z",
+        "observed_at": "2026-08-18T02:18:59Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -320,7 +320,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 158.0,
+          "idle_hours": 158.5,
           "stalled": true
         }
       ],
@@ -337,7 +337,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-18T01:49:27Z",
+        "observed_at": "2026-08-18T02:19:00Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -379,7 +379,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-18T01:49:31Z",
+        "observed_at": "2026-08-18T02:19:04Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -514,7 +514,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 150.6,
+          "idle_hours": 151.1,
           "stalled": true
         }
       ],
@@ -536,7 +536,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-18T01:49:29Z",
+        "observed_at": "2026-08-18T02:19:01Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -673,7 +673,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-18T01:49:35Z",
+        "observed_at": "2026-08-18T02:19:07Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -690,6 +690,15 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 14,
+            "title": "findings: ADR drafts for hardware volume routing (#12) and animation click modes (#11)",
+            "author": "Copilot",
+            "bot": true,
+            "base": "main",
+            "head": "copilot/research-hardware-button-bug-and-animation-enhance",
+            "draft": true
+          },
           {
             "number": 13,
             "title": "Route hardware volume keys to media stream in MainActivity",
@@ -728,7 +737,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-18T01:49:38Z",
+        "observed_at": "2026-08-18T02:19:11Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -826,7 +835,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-17T13:02:21Z"
           },
-          "idle_hours": 12.8,
+          "idle_hours": 13.3,
           "stalled": false
         }
       ],
@@ -843,7 +852,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-18T01:49:32Z",
+        "observed_at": "2026-08-18T02:19:05Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -905,7 +914,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3201.8,
+          "idle_hours": 3202.3,
           "stalled": true
         }
       ],
@@ -1187,7 +1196,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-17T13:01:11Z"
           },
-          "idle_hours": 12.8,
+          "idle_hours": 13.3,
           "stalled": false
         }
       ],
@@ -1209,7 +1218,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-18T01:49:37Z",
+        "observed_at": "2026-08-18T02:19:10Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }

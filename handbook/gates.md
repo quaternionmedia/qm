@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-18T01:49:58Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-08-18T02:19:30Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -43,7 +43,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 - **`adr-lint`** — Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.
 - **`one-pr-slot`** — Whether the two pull requests are actually related. It counts slots, not subject matter, and the `--per-base` exemption is a glob somebody passes.
 - **`namespace-guard`** — A branch cut from the wrong parent whose direction is nonetheless legal. `check_pr_base.py` reports the inheritance; nothing fails on it.
-- **`ci-tooling-tests`** — Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one.
+- **`ci-tooling-tests`** — Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one. For the walkthrough it also cannot see whether a page is worth reading: doctest asserts that an example's printed output is what the page claims, and asserts nothing about whether the example was the one worth showing.
 - **`governance-status`** — Whether the document is current. It checks faithfulness to the refs it names, not age -- a document generated from unfetched refs passed this once, which is why the workflow fetches first.
 - **`reuse-lint`** — Whether the licence asserted is the licence intended, or whether a dependency's licence is compatible with it.
 - **`symlink-integrity`** — A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.
@@ -61,7 +61,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 | `adr-lint` | `records/DRAFT-decision-record-discipline.md`, `records/DRAFT-human-only-contributorship.md`, `records/DRAFT-the-read-document-governs.md`, `records/DRAFT-governance-arrives-as-a-mechanism.md` |
 | `one-pr-slot` | `handbook/async-contract.md` |
 | `namespace-guard` | `README.md` |
-| `ci-tooling-tests` | *nothing stated — it guards a habit rather than a decision* |
+| `ci-tooling-tests` | `records/DRAFT-one-executable-walkthrough.md` |
 | `governance-status` | `handbook/generated-documents.md` |
 | `reuse-lint` | `records/DRAFT-outbound-licensing.md`, `records/DRAFT-open-license-exclusion-and-upstream-remediation.md` |
 | `symlink-integrity` | `records/DRAFT-ide-integrated-governance-discovery.md` |

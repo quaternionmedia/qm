@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-18T01:49:58Z",
+  "generated_at": "2026-08-18T02:19:30Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -170,11 +170,13 @@
       "workflow": "ci-tooling-tests.yml",
       "job": "tests",
       "runs": [
-        "python -m pytest project-seed/ci/tests ci/tests"
+        "python -m pytest project-seed/ci/tests ci/tests walkthrough -q --doctest-glob=*.md"
       ],
-      "enforces": [],
+      "enforces": [
+        "records/DRAFT-one-executable-walkthrough.md"
+      ],
       "refuses": "A change to the CI tooling that breaks its own test suite.",
-      "cannot_see": "Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one.",
+      "cannot_see": "Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one. For the walkthrough it also cannot see whether a page is worth reading: doctest asserts that an example's printed output is what the page claims, and asserts nothing about whether the example was the one worth showing.",
       "evidence": {
         "present": true,
         "workflow_name": "CI tooling tests",

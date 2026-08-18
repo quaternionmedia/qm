@@ -50,8 +50,13 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # Exactly what ci-tooling-tests.yml runs. Changing one without the other is the
 # drift the module docstring names, and a test reads the workflow to catch it.
-SUITES = ("project-seed/ci/tests", "ci/tests")
-BASE_ARGS = ("-q",)
+SUITES = ("project-seed/ci/tests", "ci/tests", "walkthrough")
+# `--doctest-glob` and `walkthrough` named on the command line, not left to
+# `testpaths`. records/DRAFT-one-executable-walkthrough.md measured it: pytest
+# ignores `testpaths` the moment it receives a path argument, and this
+# invocation always passes paths -- so a testpaths-wired walkthrough would be
+# collected by nobody and stay green forever.
+BASE_ARGS = ("-q", "--doctest-glob=*.md")
 
 
 def main(argv: list[str] | None = None) -> int:

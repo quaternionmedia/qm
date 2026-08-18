@@ -139,6 +139,11 @@ def stage(workdir: Path, root: Path = ROOT) -> Path:
     copy per sweep rather than one per mutant, because only the module under
     test is rewritten inside the loop.
 
+    `.git` IS COPIED, and that was learned the same way. A test exercising a
+    real `git rev-parse` finds no repository in a tree staged without it, the
+    baseline goes red, and the sweep refuses to score a suite that is fine. It
+    is the largest thing copied and it is copied once per sweep.
+
     Binary copies. A text-mode copy on Windows rewrites every line ending, and
     the diff then measures the copier. Symlinks are followed rather than
     recreated -- `CLAUDE.md` and friends are real symlinks here, and creating
@@ -148,7 +153,7 @@ def stage(workdir: Path, root: Path = ROOT) -> Path:
     shutil.copytree(
         root, destination, symlinks=False, ignore_dangling_symlinks=True,
         ignore=shutil.ignore_patterns(
-            ".git", "site", "__pycache__", "*.pyc", ".venv", "node_modules",
+            "site", "__pycache__", "*.pyc", ".venv", "node_modules",
             ".pytest_cache", ".mypy_cache", ".ruff_cache",
         ),
     )
