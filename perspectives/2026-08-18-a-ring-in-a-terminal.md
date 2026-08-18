@@ -41,7 +41,7 @@ wrong in the expensive direction: had it stood, we would have built a parallel
 measure for a problem that did not exist. What corrected it was reading the
 record rather than reasoning from the word "radial".
 
-## Five defects, and what each one teaches
+## Six defects, and what each one teaches
 
 **1. `self._context = context` overwrote a framework method.** `MessagePump` —
 which every Textual screen inherits — already has a `_context`, and assigning
@@ -75,11 +75,30 @@ been named in this corpus's own retrospectives. The fix each time was thirty
 seconds; the recurrence is the finding. Writing code through a shell heredoc is
 a lossy channel, and a file write is not.
 
+**6. A test asserted the mechanism and passed while the feature was broken.**
+The ring is a pop-over and was covering the whole dashboard. The fix set the
+screen's background to transparent; the test asserted
+`styles.background.a == 0`; both were correct and **the dashboard was still
+completely hidden**, because the layout containers inside the screen paint
+their own ground. I reported it as done. The operator found it by looking at it.
+
+That is this corpus's oldest failure mode — a check reporting success while
+enforcing nothing — written fresh into the change meant to fix the problem.
+Checking the style is checking that the lever was pulled. The test now reads
+the exported screenshot and compares the words actually drawn, and the style
+assertions were removed rather than kept alongside, because a passing
+mechanism-check next to a real one re-teaches the habit.
+
 **The check that would have caught most of this already existed.** Every one of
 1, 2, 4 and 5 surfaced locally, before anything reached a runner, because of a
 standing instruction to run the full suite and the workflow runner before
 pushing. The session's earlier half — before that instruction — pushed three
 times and learned from the runner instead.
+
+**Defect 6 is the one no gate caught**, and it is the sharpest of the set: the
+failure was not in the code but in what I chose to assert about it. A suite is
+only as honest as the question its assertions ask, and no amount of running it
+locally fixes an assertion aimed at the wrong thing.
 
 ## How to bolster the rad protocol
 
