@@ -148,3 +148,19 @@ policies:
       does not change behaviour, and these have no mechanism available. They are
       recorded so that nobody mistakes their absence from a check for their
       absence from the corpus.
+
+  - id: a-disagreement-is-a-delta
+    invariant: >
+      Two views of one address that disagree produce a delta, not a resolution.
+      Neither value is discarded, identity is the address plus the field, the
+      delta opens at brainstorm, and convergence is reported rather than closed.
+    source: records/DRAFT-a-disagreement-is-a-delta.md
+    detectable: false
+    undetectable_because: >
+      Nothing can see a disagreement that was resolved silently inside a
+      renderer, which is the behaviour this forbids. `uv run qm divergence` is
+      the mechanism that does it correctly and is tested; a second system doing
+      it wrongly, in its own code, is invisible from here. What can be checked
+      is that the corpus's own implementation holds the four properties, and
+      ci/tests/test_divergence.py is that.
+    preventers: []

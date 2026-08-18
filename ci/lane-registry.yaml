@@ -129,6 +129,7 @@ lanes:
       - ci/addresses.py     # how a data point is named, in every system holding it
       - project-seed/address-vectors.json
       - docs/ref/addresses.md
+      - ci/divergence.py    # a disagreement between two views is a delta
     does_not_own: >
       What the commands mean. A route that dispatches to a rule does not own
       the rule, and the CLI decides nothing itself. A protocol page owns the

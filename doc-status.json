@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-18T00:40:08Z",
+  "generated_at": "2026-08-18T01:49:59Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -102,9 +102,9 @@
     "claim_is_not_evidence": "milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.",
     "measured": {
       "records": {
-        "total": 18,
+        "total": 19,
         "ratified": 0,
-        "proposed": 16
+        "proposed": 17
       },
       "documents_in_unknown_state": 1,
       "reading_within_budget": true,
@@ -120,11 +120,11 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 95,
+    "documents": 96,
     "by_state": {
       "draft": 2,
       "generated": 7,
-      "proposed": 16,
+      "proposed": 17,
       "standing": 22,
       "transient": 14,
       "unknown": 1,
@@ -898,6 +898,15 @@
       "state_from_filename": null,
       "state": "standing",
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "records/DRAFT-a-disagreement-is-a-delta.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
     },
     {
       "path": "records/DRAFT-build-the-seam-buy-the-engines.md",

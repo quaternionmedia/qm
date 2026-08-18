@@ -98,6 +98,14 @@ folding it in here would make rendering a dashboard depend on a network call.
 dossier's row for a branch and the git ref itself can drift. The address makes
 the disagreement expressible, and says nothing about who wins.
 
+That is deliberate, and settled: by
+[`records/DRAFT-a-disagreement-is-a-delta.md`](../../records/DRAFT-a-disagreement-is-a-delta.md)
+neither view wins. **A disagreement between two views of one address is a
+delta** — a unit of work with a name, a lifecycle and an audit trail, closed by
+somebody deciding rather than by the comparison being run again. `uv run qm
+divergence` is the mechanism. Detection opens the delta at `brainstorm` and
+never closes one, because convergence does not prove anyone acted.
+
 **Enforce itself.** Nothing rewrites dossier's existing slugged names. The
 grammar is checkable and adopted deliberately; migrating the rows already
 written is separate work, and the addresses in the database today were built by

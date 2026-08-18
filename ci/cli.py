@@ -168,6 +168,10 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "divergence", help="where two views of one address disagree, as deltas",
+        add_help=False,
+    )
+    sub.add_parser(
         "curriculum", help="the reading order, and how two of them reconcile",
         add_help=False,
     )
@@ -231,6 +235,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "lanes": ("lanes", False, []),
     "protocols": ("protocols", False, []),
     "addresses": ("addresses", False, []),
+    "divergence": ("divergence", False, []),
     "curriculum": ("curriculum", False, []),
     "private-names": ("check_private_names", False, []),
     "workspace": ("make_workspace", False, []),

@@ -88,9 +88,21 @@ would make every dashboard render depend on a network call.
 
 **Say which view is right.** dossier's row for a branch and the git ref can
 drift. The address makes the disagreement expressible and is silent on who wins.
-That is a real decision and nobody has taken it: **when the two dashboards
-disagree about the same address, which one is the source?** It should be settled
-before either dashboard is built, not after they disagree in front of somebody.
+
+**That is settled, and the answer is that neither wins.** By
+`records/DRAFT-a-disagreement-is-a-delta.md`, a disagreement between two views
+of one address *is a delta*: a unit of work with a name, a lifecycle and an
+audit trail, closed by somebody deciding rather than by the comparison being run
+again. `uv run qm divergence --left <a.json> --right <b.json>` is the mechanism.
+Four properties hold it up — neither value is discarded, identity is the address
+plus the field so re-running finds the same row, detection opens at `brainstorm`
+because noticing is not deciding, and convergence is reported and never closed
+because it does not prove anyone acted.
+
+This removes the decision that blocked the milestone rather than answering it in
+the form it was asked. **Which fields are compared is still a declaration**, and
+getting that list wrong — comparing each side's own observation timestamp — is
+the failure mode the record names.
 
 ## Blocked on a human
 
