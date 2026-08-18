@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-18T02:19:13Z"
+generated_at: "2026-08-18T19:39:01Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -26,22 +26,22 @@ generator:
   unknowns: 3
 corpus:
   ref: origin/main
-  commit: "fde5dfc8fe7792410ea9bc011f5cbaf897b8e2bc"
-  committed_at: "2026-08-16T22:01:43Z"
+  commit: "065d8eb005a342d6f9eb06e48280d14b14a8e9b6"
+  committed_at: "2026-08-18T14:41:21Z"
   records:
-    total: 18
+    total: 19
     ratified: 0
     numbered_files: 0
     by_status:
       draft: 2
-      proposed: 16
+      proposed: 17
 projects:
   - name: alfred
     branch:
       ref: origin/project/alfred
       commit: "314ca5cfb85d4cc0988dbd75a606dca04c82dc03"
       committed_at: "2026-08-12T12:41:46Z"
-      behind_corpus: 93
+      behind_corpus: 109
       ahead_of_corpus: 15
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -81,13 +81,13 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-18T02:18:59Z"
+    observed_at: "2026-08-18T19:38:46Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
       commit: "20e00bdbec3f12d17cf88d858e99a732563c6e31"
       committed_at: "2026-08-12T12:41:51Z"
-      behind_corpus: 93
+      behind_corpus: 109
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -129,13 +129,13 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-18T02:19:00Z"
+    observed_at: "2026-08-18T19:38:48Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
       commit: "5324634450b1c18c7dd6d2bbd1e6302d3ab63232"
       committed_at: "2026-08-12T12:41:56Z"
-      behind_corpus: 93
+      behind_corpus: 109
       ahead_of_corpus: 17
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -176,13 +176,13 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-18T02:19:01Z"
+    observed_at: "2026-08-18T19:38:49Z"
   - name: private-33
     branch:
       ref: origin/project/private-33
       commit: "299fbafe88fd83b87ccd59eeddb994ab7611c2be"
       committed_at: "2026-08-12T12:42:02Z"
-      behind_corpus: 93
+      behind_corpus: 109
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -222,13 +222,13 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-18T02:19:03Z"
+    observed_at: "2026-08-18T19:38:50Z"
   - name: datum
     branch:
       ref: origin/project/datum
       commit: "8d55243d06e4b62b90422dccf6d729c769962183"
       committed_at: "2026-08-12T12:42:07Z"
-      behind_corpus: 93
+      behind_corpus: 109
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -272,20 +272,20 @@ projects:
         - REUSE.toml
     open_prs:
       unknown: "pulls?base=project/datum: unexpected response shape"
-    observed_at: "2026-08-18T02:19:04Z"
+    observed_at: "2026-08-18T19:38:51Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
-      commit: "97187855e76b3c2c5259836ad6bf6716603b6803"
-      committed_at: "2026-08-12T12:42:15Z"
-      behind_corpus: 93
-      ahead_of_corpus: 7
-      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
-      merge_base_at: "2026-08-11T23:00:40Z"
+      commit: "99d12936b52a88aed574c18f495854e3c9c09803"
+      committed_at: "2026-08-18T14:46:49Z"
+      behind_corpus: 0
+      ahead_of_corpus: 10
+      merge_base: "065d8eb005a342d6f9eb06e48280d14b14a8e9b6"
+      merge_base_at: "2026-08-18T14:41:21Z"
       last_propagation:
-        commit: "1383b6cd38d416357c7d1fa961f1e0ed5c73dfcb"
-        committed_at: "2026-08-11T23:03:57Z"
-        subject: "Merge remote-tracking branch 'origin/main' into propagate/dossier-2026-08-11"
+        commit: "997f81d2b7c4481eeaaf140176fd3f8c0e1bff85"
+        committed_at: "2026-08-18T14:45:05Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/dossier-2026-08-18"
     records:
       total: 1
       ratified: 0
@@ -300,7 +300,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-17T13:02:20Z"
+      pushed_at: "2026-08-18T19:32:10Z"
       licence: MIT
     adoption:
       submodule:
@@ -320,13 +320,13 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-18T02:19:05Z"
+    observed_at: "2026-08-18T19:38:53Z"
   - name: private-32
     branch:
       ref: origin/project/private-32
       commit: "a545991fc62f94e74296d803770391eda1658d8a"
       committed_at: "2026-08-12T12:42:20Z"
-      behind_corpus: 93
+      behind_corpus: 109
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -366,13 +366,13 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-18T02:19:06Z"
+    observed_at: "2026-08-18T19:38:54Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
       commit: "1cc3f7e9582059369701e60ace18bb523887b5b4"
       committed_at: "2026-08-12T12:42:25Z"
-      behind_corpus: 93
+      behind_corpus: 109
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -412,13 +412,13 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-18T02:19:07Z"
+    observed_at: "2026-08-18T19:38:56Z"
   - name: private-34
     branch:
       ref: origin/project/private-34
       commit: "6f7ffe2a5578045854926ff8edd6cc3cc1ee1ef5"
       committed_at: "2026-08-12T12:42:31Z"
-      behind_corpus: 93
+      behind_corpus: 109
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -458,20 +458,20 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-18T02:19:09Z"
+    observed_at: "2026-08-18T19:38:57Z"
   - name: qmcp
     branch:
       ref: origin/project/qmcp
-      commit: "48d4edc1f924c0de8a7e398f41b8d2be39999d99"
-      committed_at: "2026-08-12T12:42:38Z"
-      behind_corpus: 93
-      ahead_of_corpus: 6
-      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
-      merge_base_at: "2026-08-11T23:00:40Z"
+      commit: "fbcec5f8ec363fd10085af0262d9458b1e479d1f"
+      committed_at: "2026-08-18T14:43:04Z"
+      behind_corpus: 0
+      ahead_of_corpus: 11
+      merge_base: "065d8eb005a342d6f9eb06e48280d14b14a8e9b6"
+      merge_base_at: "2026-08-18T14:41:21Z"
       last_propagation:
-        commit: "7fee0ff5bbb330e3e7285f1eabaf5aa5a469881f"
-        committed_at: "2026-08-11T23:04:04Z"
-        subject: "Merge remote-tracking branch 'origin/main' into propagate/qmcp-2026-08-11"
+        commit: "26eed4d0dd49b039fd2962eed7a08c33623db820"
+        committed_at: "2026-08-18T14:41:48Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/qmcp-2026-08-18b"
     records:
       total: 1
       ratified: 0
@@ -486,31 +486,31 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-17T13:01:10Z"
+      pushed_at: "2026-08-18T14:46:46Z"
       licence: NOASSERTION
     adoption:
       submodule:
-        corpus_mounted_at: null
-        branch: null
-      ide: []
-      ide_missing:
+        corpus_mounted_at: governance/qm
+        branch: project/qmcp
+      ide:
         - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
-      seed_workflow_filenames_present: []
-      seed_workflow_filenames_absent:
+      ide_missing: []
+      seed_workflow_filenames_present:
         - adr-lint.yml
-        - reuse-lint.yml
         - submodule-check.yml
+      seed_workflow_filenames_absent:
+        - reuse-lint.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-18T02:19:10Z"
+    observed_at: "2026-08-18T19:38:58Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
       commit: "364ac3cc4a722f50d53811c4ad911d9a744ad783"
       committed_at: "2026-08-12T12:42:44Z"
-      behind_corpus: 93
+      behind_corpus: 109
       ahead_of_corpus: 24
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -552,13 +552,13 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-18T02:19:11Z"
+    observed_at: "2026-08-18T19:39:00Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
       commit: "b0265d1e4e86f403b57f66181af9874efe1ce3a9"
       committed_at: "2026-08-08T16:51:11Z"
-      behind_corpus: 152
+      behind_corpus: 168
       ahead_of_corpus: 2
       merge_base: "81d6967462509f43dbf82fda0968ed532a41e640"
       merge_base_at: "2026-08-08T16:48:39Z"
@@ -581,13 +581,13 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-18T02:19:11Z"
+    observed_at: "2026-08-18T19:39:00Z"
 org:
   repositories:
-    total: 110
-    private: 34
+    total: 111
+    private: 35
     governed: 11
-    unmanaged: 98
+    unmanaged: 99
   governed_without_repository:
     - streaming-infrastructure
   unmanaged_named:
@@ -658,8 +658,8 @@ org:
     - william-penn-convocation-slides
     - wolf
     - ztgui
-  unmanaged_names_withheld: 31
-  observed_at: "2026-08-18T02:19:13Z"
+  unmanaged_names_withheld: 32
+  observed_at: "2026-08-18T19:39:01Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
