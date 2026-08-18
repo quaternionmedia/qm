@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-17T08:44:02Z",
+  "generated_at": "2026-08-18T00:35:26Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -389,17 +389,19 @@
         "ci/ledger.py --check",
         "ci/lanes.py --check",
         "ci/protocols.py --check",
-        "ci/curriculum.py --check"
+        "ci/curriculum.py --check",
+        "ci/addresses.py --check"
       ],
       "enforces": [
         "ci/exception-registry.yaml",
         "ci/policy-registry.yaml",
         "ci/lane-registry.yaml",
         "ci/protocol-registry.yaml",
-        "curriculum/org.yaml"
+        "curriculum/org.yaml",
+        "project-seed/address-vectors.json"
       ],
-      "refuses": "An exemption with no stated reason or whose named constant has gone; a policy with neither a detector nor a stated reason it cannot have one; a ledger entry that is unattributed, or closed and unscored; two lanes that are settled by the same gate; a protocol with no page or a step naming a route that does not exist; a curriculum unit citing a document that is not there or claiming a Status its document does not carry.",
-      "cannot_see": "Whether any registry is complete. Each of these six checks the entries that exist against their own rules; none can tell that an exemption, a policy, a ledger entry, a lane, a protocol or a curriculum unit was never written down, and a registry nobody added to is the state all six report as clean. It also cannot see whether a protocol was ever run -- that is reported by `uv run qm protocols` and deliberately never refused -- or whether a curriculum unit's prose is true of the document it cites. Nor is this gate required to merge: it is a candidate for A-main.json's required list and stays off it until it has reported green on a real pull request.",
+      "refuses": "An exemption with no stated reason or whose named constant has gone; a policy with neither a detector nor a stated reason it cannot have one; a ledger entry that is unattributed, or closed and unscored; two lanes that are settled by the same gate; a protocol with no page or a step naming a route that does not exist; a curriculum unit citing a document that is not there or claiming a Status its document does not carry; an address vector that does not parse as declared or does not format back to itself.",
+      "cannot_see": "Whether any registry is complete. Each of these seven checks the entries that exist against their own rules; none can tell that an exemption, a policy, a ledger entry, a lane, a protocol, a curriculum unit or an address case was never written down, and a registry nobody added to is the state all seven report as clean. Nor can it see an address that is well-formed and wrong: the grammar has no idea whether the branch exists. It also cannot see whether a protocol was ever run -- that is reported by `uv run qm protocols` and deliberately never refused -- or whether a curriculum unit's prose is true of the document it cites. Nor is this gate required to merge: it is a candidate for A-main.json's required list and stays off it until it has reported green on a real pull request.",
       "evidence": {
         "present": true,
         "workflow_name": "Registries",

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-17T08:44:02Z",
+  "generated_at": "2026-08-18T00:35:26Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -60,7 +60,7 @@
       "draft": 4,
       "ready": 4
     },
-    "threads_stalled": 7,
+    "threads_stalled": 5,
     "threads_unreadable": 0
   },
   "repositories": [
@@ -123,7 +123,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-16T23:58:05Z"
           },
-          "idle_hours": 8.8,
+          "idle_hours": 24.6,
           "stalled": false
         },
         {
@@ -141,7 +141,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T02:45:51Z"
           },
-          "idle_hours": 102.0,
+          "idle_hours": 117.8,
           "stalled": true
         }
       ],
@@ -209,7 +209,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23049.8,
+          "idle_hours": 23065.7,
           "stalled": true
         }
       ],
@@ -231,7 +231,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-17T08:43:28Z",
+        "observed_at": "2026-08-18T00:34:53Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -320,7 +320,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 140.9,
+          "idle_hours": 156.8,
           "stalled": true
         }
       ],
@@ -337,7 +337,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-17T08:43:29Z",
+        "observed_at": "2026-08-18T00:34:55Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -379,7 +379,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-17T08:43:34Z",
+        "observed_at": "2026-08-18T00:34:59Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -514,7 +514,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 133.5,
+          "idle_hours": 149.3,
           "stalled": true
         }
       ],
@@ -536,7 +536,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-17T08:43:31Z",
+        "observed_at": "2026-08-18T00:34:56Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -673,7 +673,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-17T08:43:37Z",
+        "observed_at": "2026-08-18T00:35:02Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -718,7 +718,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-17T08:43:41Z",
+        "observed_at": "2026-08-18T00:35:06Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -809,15 +809,15 @@
           "title": "Refresh the seed workflow copies, and cap superseded runs",
           "author": "subcontrabass",
           "delta": {
-            "additions": 51,
-            "changed_files": 4,
-            "commits": 3,
+            "additions": 379,
+            "changed_files": 6,
+            "commits": 4,
             "deletions": 2,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-12T00:38:52Z"
+            "updated_at": "2026-08-17T13:02:21Z"
           },
-          "idle_hours": 128.1,
-          "stalled": true
+          "idle_hours": 11.6,
+          "stalled": false
         }
       ],
       "governance": {
@@ -833,7 +833,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-17T08:43:35Z",
+        "observed_at": "2026-08-18T00:35:00Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -895,7 +895,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3184.7,
+          "idle_hours": 3200.5,
           "stalled": true
         }
       ],
@@ -1170,15 +1170,15 @@
           "title": "Adopt the QM constitution, and land the cookbook and flow runner",
           "author": "subcontrabass",
           "delta": {
-            "additions": 4970,
-            "changed_files": 48,
-            "commits": 3,
+            "additions": 5962,
+            "changed_files": 55,
+            "commits": 6,
             "deletions": 798,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-13T04:11:43Z"
+            "updated_at": "2026-08-17T13:01:11Z"
           },
-          "idle_hours": 100.5,
-          "stalled": true
+          "idle_hours": 11.6,
+          "stalled": false
         }
       ],
       "governance": {
@@ -1199,7 +1199,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 93,
-        "observed_at": "2026-08-17T08:43:40Z",
+        "observed_at": "2026-08-18T00:35:05Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
