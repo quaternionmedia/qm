@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-18T02:19:30Z",
+  "generated_at": "2026-08-18T20:09:28Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -57,8 +57,8 @@
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 4,
-      "ready": 4
+      "draft": 2,
+      "ready": 5
     },
     "threads_stalled": 5,
     "threads_unreadable": 0
@@ -79,12 +79,12 @@
         "contributor": null,
         "open_prs": [
           {
-            "number": 66,
-            "title": "Close the protect-main session: the handoff and the retrospective",
+            "number": 72,
+            "title": "A ring in a terminal: what implementing rad's contract revealed",
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
-            "head": "evolve/protect-main-handoff",
+            "head": "perspective/2026-08-18-a-ring-in-a-terminal",
             "draft": false
           },
           {
@@ -109,21 +109,21 @@
       },
       "threads": [
         {
-          "name": "evolve/protect-main-handoff",
+          "name": "perspective/2026-08-18-a-ring-in-a-terminal",
           "stage": "ready",
-          "pr": 66,
+          "pr": 72,
           "base": "main",
-          "title": "Close the protect-main session: the handoff and the retrospective",
+          "title": "A ring in a terminal: what implementing rad's contract revealed",
           "author": "subcontrabass",
           "delta": {
-            "additions": 467,
-            "changed_files": 11,
-            "commits": 3,
-            "deletions": 239,
+            "additions": 270,
+            "changed_files": 8,
+            "commits": 1,
+            "deletions": 168,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-16T23:58:05Z"
+            "updated_at": "2026-08-18T19:43:02Z"
           },
-          "idle_hours": 26.4,
+          "idle_hours": 0.4,
           "stalled": false
         },
         {
@@ -141,7 +141,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T02:45:51Z"
           },
-          "idle_hours": 119.6,
+          "idle_hours": 137.4,
           "stalled": true
         }
       ],
@@ -209,7 +209,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23067.4,
+          "idle_hours": 23085.2,
           "stalled": true
         }
       ],
@@ -230,8 +230,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 93,
-        "observed_at": "2026-08-18T02:18:59Z",
+        "behind_corpus": 109,
+        "observed_at": "2026-08-18T20:08:55Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -320,7 +320,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 158.5,
+          "idle_hours": 176.3,
           "stalled": true
         }
       ],
@@ -336,8 +336,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 93,
-        "observed_at": "2026-08-18T02:19:00Z",
+        "behind_corpus": 109,
+        "observed_at": "2026-08-18T20:08:56Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -378,8 +378,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 93,
-        "observed_at": "2026-08-18T02:19:04Z",
+        "behind_corpus": 109,
+        "observed_at": "2026-08-18T20:09:00Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -514,7 +514,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 151.1,
+          "idle_hours": 168.9,
           "stalled": true
         }
       ],
@@ -535,8 +535,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 93,
-        "observed_at": "2026-08-18T02:19:01Z",
+        "behind_corpus": 109,
+        "observed_at": "2026-08-18T20:08:58Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -672,8 +672,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 93,
-        "observed_at": "2026-08-18T02:19:07Z",
+        "behind_corpus": 109,
+        "observed_at": "2026-08-18T20:09:04Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -736,8 +736,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 93,
-        "observed_at": "2026-08-18T02:19:11Z",
+        "behind_corpus": 109,
+        "observed_at": "2026-08-18T20:09:08Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -755,13 +755,13 @@
         "contributor": null,
         "open_prs": [
           {
-            "number": 12,
-            "title": "Refresh the seed workflow copies, and cap superseded runs",
+            "number": 17,
+            "title": "Plan: a rad ring in the terminal, and messaging through it",
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
-            "head": "governance/refresh-seed-copies",
-            "draft": true
+            "head": "docs/plan-rad-tui",
+            "draft": false
           },
           {
             "number": 9,
@@ -821,21 +821,21 @@
       },
       "threads": [
         {
-          "name": "governance/refresh-seed-copies",
-          "stage": "draft",
-          "pr": 12,
+          "name": "docs/plan-rad-tui",
+          "stage": "ready",
+          "pr": 17,
           "base": "main",
-          "title": "Refresh the seed workflow copies, and cap superseded runs",
+          "title": "Plan: a rad ring in the terminal, and messaging through it",
           "author": "subcontrabass",
           "delta": {
-            "additions": 379,
-            "changed_files": 6,
-            "commits": 4,
-            "deletions": 2,
+            "additions": 1738,
+            "changed_files": 8,
+            "commits": 7,
+            "deletions": 6,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-17T13:02:21Z"
+            "updated_at": "2026-08-18T20:04:10Z"
           },
-          "idle_hours": 13.3,
+          "idle_hours": 0.1,
           "stalled": false
         }
       ],
@@ -851,8 +851,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 93,
-        "observed_at": "2026-08-18T02:19:05Z",
+        "behind_corpus": 0,
+        "observed_at": "2026-08-18T20:09:02Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -914,7 +914,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3202.3,
+          "idle_hours": 3220.1,
           "stalled": true
         }
       ],
@@ -1034,15 +1034,6 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
-          {
-            "number": 21,
-            "title": "Adopt the QM constitution, and land the cookbook and flow runner",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "governance/adopt-constitution",
-            "draft": true
-          },
           {
             "number": 20,
             "title": "chore(deps): bump python-dotenv from 1.2.1 to 1.2.2",
@@ -1180,45 +1171,24 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [
-        {
-          "name": "governance/adopt-constitution",
-          "stage": "draft",
-          "pr": 21,
-          "base": "main",
-          "title": "Adopt the QM constitution, and land the cookbook and flow runner",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 5962,
-            "changed_files": 55,
-            "commits": 6,
-            "deletions": 798,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-17T13:01:11Z"
-          },
-          "idle_hours": 13.3,
-          "stalled": false
-        }
-      ],
+      "threads": [],
       "governance": {
         "precondition": "incomplete",
         "missing": [
-          "submodule",
-          "ide",
           "workflows",
           "licensing"
         ],
         "detail": {
-          "submodule": null,
-          "submodule_branch": null,
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 0,
-          "workflows_absent": 3,
+          "submodule": "governance/qm",
+          "submodule_branch": "project/qmcp",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 2,
+          "workflows_absent": 1,
           "licensing_present": 0
         },
-        "behind_corpus": 93,
-        "observed_at": "2026-08-18T02:19:10Z",
+        "behind_corpus": 0,
+        "observed_at": "2026-08-18T20:09:07Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }

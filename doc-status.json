@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-18T02:19:31Z",
+  "generated_at": "2026-08-18T20:09:29Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -120,7 +120,7 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 96,
+    "documents": 97,
     "by_state": {
       "draft": 2,
       "generated": 7,
@@ -128,7 +128,7 @@
       "standing": 22,
       "transient": 14,
       "unknown": 1,
-      "unreviewed": 33
+      "unreviewed": 34
     },
     "disagreements": 0,
     "unknown": 1
@@ -721,6 +721,16 @@
     },
     {
       "path": "perspectives/2026-08-16-what-the-checks-were-not-checking.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": "Unreviewed",
+      "state_from_status_row": "unreviewed",
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-18-a-ring-in-a-terminal.md",
       "class": "perspective",
       "class_reason": "dated, attributed, non-binding opinion",
       "declared_status": "Unreviewed",

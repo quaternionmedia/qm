@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-18T02:19:31Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-18T20:09:29Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **96**, unfiltered.
+Every governed document in this corpus: **97**, unfiltered.
 
 | | |
 |---|---|
@@ -61,7 +61,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] `proposed` | 17 |
 | [D] `draft` | 2 |
 | [??] `unknown` | 1 |
-| [-] `unreviewed` | 33 |
+| [-] `unreviewed` | 34 |
 | [G] `generated` | 7 |
 | [S] `standing` | 22 |
 | [T] `transient` | 14 |
@@ -114,6 +114,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-16-the-base-was-the-deliverable.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-16-the-harness-measured-its-own-cache.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-16-what-the-checks-were-not-checking.md` | perspective | Unreviewed |
+| [-] | `unreviewed` | `perspectives/2026-08-18-a-ring-in-a-terminal.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
