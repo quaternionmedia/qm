@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-11T20:12:32Z",
+  "generated_at": "2026-08-16T21:25:03Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -45,22 +45,22 @@
     ]
   },
   "totals": {
-    "repositories": 13,
-    "slots_measured": 13,
+    "repositories": 14,
+    "slots_measured": 14,
     "slots_unknown": 0,
-    "compliant": 13,
+    "compliant": 14,
     "over_limit": 0,
-    "governance_readable": 10,
+    "governance_readable": 8,
     "governance_precondition_met": 3,
-    "phase_scaffolded": 7,
+    "phase_scaffolded": 8,
     "phase_stated_above_governance": 4,
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 3,
+      "draft": 4,
       "ready": 3
     },
-    "threads_stalled": 2,
+    "threads_stalled": 7,
     "threads_unreadable": 0
   },
   "repositories": [
@@ -77,7 +77,17 @@
           "project/*"
         ],
         "contributor": null,
-        "open_prs": [],
+        "open_prs": [
+          {
+            "number": 57,
+            "title": "Refresh datum's seed copies, which #47 missed",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "project/datum",
+            "head": "propagate/datum-2026-08-12",
+            "draft": true
+          }
+        ],
         "violations": [],
         "exit_status": 0,
         "compliant": true
@@ -88,7 +98,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "propagate/datum-2026-08-12",
+          "stage": "draft",
+          "pr": 57,
+          "base": "project/datum",
+          "title": "Refresh datum's seed copies, which #47 missed",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 1464,
+            "changed_files": 29,
+            "commits": 11,
+            "deletions": 276,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-13T02:45:51Z"
+          },
+          "idle_hours": 90.6,
+          "stalled": true
+        }
+      ],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -153,7 +182,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 22917.3,
+          "idle_hours": 23038.5,
           "stalled": true
         }
       ],
@@ -174,8 +203,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:34Z",
+        "behind_corpus": 87,
+        "observed_at": "2026-08-16T21:24:32Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -264,8 +293,8 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 8.4,
-          "stalled": false
+          "idle_hours": 129.6,
+          "stalled": true
         }
       ],
       "governance": {
@@ -280,8 +309,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:36Z",
+        "behind_corpus": 87,
+        "observed_at": "2026-08-16T21:24:33Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -322,8 +351,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:40Z",
+        "behind_corpus": 87,
+        "observed_at": "2026-08-16T21:24:37Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -455,11 +484,11 @@
             "changed_files": 128,
             "commits": 51,
             "deletions": 4048,
-            "mergeable_state": "unstable",
+            "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 1.0,
-          "stalled": false
+          "idle_hours": 122.2,
+          "stalled": true
         }
       ],
       "governance": {
@@ -479,21 +508,21 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:37Z",
+        "behind_corpus": 87,
+        "observed_at": "2026-08-16T21:24:34Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
     },
     {
-      "name": "datafactorio",
-      "slug": "quaternionmedia/datafactorio",
+      "name": "private-32",
+      "slug": "quaternionmedia/private-32",
       "role": "project",
       "phase": "v0.0.1",
       "phase_source": "scaffolded",
-      "note": null,
+      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-32.\n",
       "slots": {
-        "repository": "quaternionmedia/datafactorio",
+        "repository": "quaternionmedia/private-32",
         "per_base": [],
         "contributor": null,
         "open_prs": [
@@ -547,36 +576,18 @@
       },
       "threads": [],
       "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "ide",
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": "governance/qm",
-          "submodule_branch": "project/datafactorio",
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 1,
-          "workflows_absent": 2,
-          "licensing_present": 0
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:39Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
     },
     {
-      "name": "factorio-server",
-      "slug": "quaternionmedia/factorio-server",
+      "name": "private-33",
+      "slug": "quaternionmedia/private-33",
       "role": "project",
       "phase": "v0.0.1",
       "phase_source": "scaffolded",
-      "note": null,
+      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-33.\n",
       "slots": {
-        "repository": "quaternionmedia/factorio-server",
+        "repository": "quaternionmedia/private-33",
         "per_base": [],
         "contributor": null,
         "open_prs": [],
@@ -592,26 +603,7 @@
       },
       "threads": [],
       "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "submodule",
-          "ide",
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": null,
-          "submodule_branch": null,
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 0,
-          "workflows_absent": 3,
-          "licensing_present": 0
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:42Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
     },
     {
@@ -653,8 +645,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:44Z",
+        "behind_corpus": 87,
+        "observed_at": "2026-08-16T21:24:40Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -698,8 +690,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:49Z",
+        "behind_corpus": 87,
+        "observed_at": "2026-08-16T21:24:44Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -790,15 +782,15 @@
           "title": "Refresh the seed workflow copies, and cap superseded runs",
           "author": "subcontrabass",
           "delta": {
-            "additions": 50,
+            "additions": 51,
             "changed_files": 4,
-            "commits": 2,
+            "commits": 3,
             "deletions": 2,
-            "mergeable_state": "unstable",
-            "updated_at": "2026-08-11T19:08:38Z"
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-12T00:38:52Z"
           },
-          "idle_hours": 1.1,
-          "stalled": false
+          "idle_hours": 116.8,
+          "stalled": true
         }
       ],
       "governance": {
@@ -813,8 +805,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 49,
-        "observed_at": "2026-08-11T17:21:41Z",
+        "behind_corpus": 87,
+        "observed_at": "2026-08-16T21:24:38Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -876,10 +868,110 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3052.2,
+          "idle_hours": 3173.4,
           "stalled": true
         }
       ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "looksatwords",
+      "slug": "quaternionmedia/looksatwords",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "language data -- make, gather, analyze, visualise. Named in plans/governance-prose-signals.md as where prose analysis belongs, rather than in ci/. It was absent from this roster until 2026-08-16, which is why the plan had to establish it exists.\n",
+      "slots": {
+        "repository": "quaternionmedia/looksatwords",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 21,
+            "title": "chore(deps): bump pytest from 9.0.2 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
+            "draft": false
+          },
+          {
+            "number": 20,
+            "title": "chore(deps): bump pillow from 12.1.0 to 12.2.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pillow-12.2.0",
+            "draft": false
+          },
+          {
+            "number": 19,
+            "title": "chore(deps): bump pygments from 2.19.2 to 2.20.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pygments-2.20.0",
+            "draft": false
+          },
+          {
+            "number": 18,
+            "title": "chore(deps): bump requests from 2.32.5 to 2.33.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/requests-2.33.0",
+            "draft": false
+          },
+          {
+            "number": 17,
+            "title": "chore(deps): bump nltk from 3.9.2 to 3.9.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/nltk-3.9.3",
+            "draft": false
+          },
+          {
+            "number": 16,
+            "title": "chore(deps): bump tornado from 6.5.4 to 6.5.5",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/tornado-6.5.5",
+            "draft": false
+          },
+          {
+            "number": 14,
+            "title": "chore(deps): bump bokeh from 3.8.1 to 3.8.2",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/bokeh-3.8.2",
+            "draft": false
+          },
+          {
+            "number": 13,
+            "title": "chore(deps): bump urllib3 from 2.6.2 to 2.6.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/urllib3-2.6.3",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
       "governance": {
         "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
@@ -898,7 +990,7 @@
         "open_prs": [
           {
             "number": 21,
-            "title": "Adopt the QM constitution",
+            "title": "Adopt the QM constitution, and land the cookbook and flow runner",
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
@@ -1048,18 +1140,18 @@
           "stage": "draft",
           "pr": 21,
           "base": "main",
-          "title": "Adopt the QM constitution",
+          "title": "Adopt the QM constitution, and land the cookbook and flow runner",
           "author": "subcontrabass",
           "delta": {
-            "additions": 755,
-            "changed_files": 15,
-            "commits": 2,
-            "deletions": 1,
+            "additions": 4970,
+            "changed_files": 48,
+            "commits": 3,
+            "deletions": 798,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-11T16:00:12Z"
+            "updated_at": "2026-08-13T04:11:43Z"
           },
-          "idle_hours": 4.2,
-          "stalled": false
+          "idle_hours": 89.2,
+          "stalled": true
         }
       ],
       "governance": {
@@ -1079,8 +1171,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:48Z",
+        "behind_corpus": 87,
+        "observed_at": "2026-08-16T21:24:43Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }

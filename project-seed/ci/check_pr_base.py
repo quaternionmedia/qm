@@ -210,7 +210,7 @@ def main() -> int:
         print(f"base            {base}")
         print(f"head            {head}")
         print(f"\nREFUSED: {why}\n\n{meant}")
-        print('\nSee the corpus README\'s "Branch namespaces".')
+        print('\nSee the corpus docs/ref/namespaces.md.')
         return 1
 
     # Refused on the HEAD namespace alone, with no reference to what the base is.

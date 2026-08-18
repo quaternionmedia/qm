@@ -40,6 +40,56 @@
 
 schema: 1
 
+# --- Org-level parameters: what this corpus is working toward ---------------
+#
+# THIS IS A CLAIM, like every `phase` below it. A human states the milestone and
+# what it requires; nothing here is derived from the repository, and nothing in
+# the repository is edited to match it. `ci/doc_status.py` reads this block into
+# `doc-status.json`'s `readiness` layer and reports the *measured* figures beside
+# it, so the gap between what was declared and what is true survives.
+#
+# `version` is the corpus's own, and it is deliberately null: `qm` carries no
+# `v*` tag, and per records/DRAFT-version-tags-are-claims.md 4 an untagged
+# repository has made no release claim. Writing a number here would be the
+# release claim the record says a tag is the only way to make.
+
+milestone:
+  name: alpha
+  phase: v0.0.2
+  previous_phase: v0.0.1
+  previous_phase_note: >
+    Everything merged on 2026-08-14/15 -- the two-gate correction, the qm CLI,
+    four new gates, three generated layers, and the documentation.
+    plans/v0.0.1-review-packet.md is what a human reviews to decide whether it
+    earns a tag. Until that review happens it is a clean main and asserts
+    nothing, per records/DRAFT-version-tags-are-claims.md 4.
+  phase_note: >
+    v0.0.2 is language and review: whether governance prose invites a second
+    author, and the first semantic reading of the records. Both are stubs in
+    plans/ and neither is built.
+  target_version: v0.1.0
+  version: null            # no v* tag on this corpus; nothing is claimed
+  version_source: "records/DRAFT-version-tags-are-claims.md 4"
+  audience: >
+    Developers and power users outside QM, onboarded as testers. They read the
+    corpus cold, with none of the session history that built it.
+  requires:
+    - id: ratification-rehearsed
+      what: "At least one record ratified end to end, so the five-step path has been walked once"
+      measured_by: "doc-status.json readiness.records.ratified"
+    - id: reading-within-budget
+      what: "Mandatory reading before a first edit stays under its budget"
+      measured_by: "doc-status.json reading_load.within_budget"
+    - id: no-unknown-document-states
+      what: "Every governed document's state can be established"
+      measured_by: "doc-status.json totals.unknown"
+    - id: gates-declared-are-built
+      what: "No gate is declared and unbuilt, or the gap is deliberate and named"
+      measured_by: "gate-status.json totals.declared_not_built"
+    - id: semantic-review-done
+      what: "All records read in one sitting for contradiction, which no check can do"
+      measured_by: "not mechanisable -- a human says so, in a handoff or a record"
+
 repositories:
   - name: qm
     role: corpus
@@ -85,17 +135,25 @@ repositories:
     paths: [codecartographer, qm/codecartographer]
 
   # --- Governed, not touched on 2026-08-09 ----------------------------------
-  - name: datafactorio
+  - ref: private-32
     role: project
     phase: v0.0.1
     phase_source: scaffolded
-    paths: [qm/datafactorio, datafactorio]
+    note: >
+      Name and paths live in ci/workspace-private.yaml, which is not
+      committed. This repository is private, and a public roster that
+      named it would defeat the inventory's own redaction of the same
+      repository as private-32.
 
-  - name: factorio-server
+  - ref: private-33
     role: project
     phase: v0.0.1
     phase_source: scaffolded
-    paths: [qm/factorio-server, factorio-server]
+    note: >
+      Name and paths live in ci/workspace-private.yaml, which is not
+      committed. This repository is private, and a public roster that
+      named it would defeat the inventory's own redaction of the same
+      repository as private-33.
 
   - name: factorio-sysops
     role: project
@@ -124,6 +182,17 @@ repositories:
     phase_source: stated
     note: named alongside apothecary as a v0.0.2 consumer
     paths: [benchmark, qm/benchmark]
+
+  - name: looksatwords
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      language data -- make, gather, analyze, visualise. Named in
+      plans/governance-prose-signals.md as where prose analysis belongs, rather
+      than in ci/. It was absent from this roster until 2026-08-16, which is why
+      the plan had to establish it exists.
+    paths: [qm/looksatwords, looksatwords]
 
   - name: qmcp
     role: project

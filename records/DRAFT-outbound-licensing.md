@@ -116,8 +116,8 @@ client's own product is a licence the client declines.
     remain non-binding and citable by author and date. A perspective whose
     text is wholly human-authored may be moved under §1 by its author saying
     so in its own header.
-12. **Enforcement.** Every QM repository is REUSE-compliant: a `LICENSES/`
-    directory holding the SPDX text of each licence in use, an
+12. **Enforcement.** A QM repository **must be** REUSE-compliant: a
+    `LICENSES/` directory holding the SPDX text of each licence in use, an
     `SPDX-License-Identifier` on every file, unannotatable paths such as
     symlinks covered by `REUSE.toml`, and `reuse lint` as a required CI
     check. The repository declares its class in its adoption record, and a
@@ -125,6 +125,13 @@ client's own product is a licence the client declines.
     same check. The quarterly upstream scan the open-license record already
     mandates extends to QM's own repositories. Changes to this class table
     are amendments to this record.
+    **Which repositories actually satisfy this is not a claim this record
+    makes.** It is measured, with a timestamp, by `governance-status.yaml`'s
+    `licensing` probe and reported per repository there. This clause states
+    the requirement; that document states the compliance, and the two are
+    kept apart because a record asserting a universal it never measured is
+    what `records/DRAFT-governance-arrives-as-a-mechanism.md` §2 forbids —
+    this clause is the worked example named in its Context.
 
 ## Consequences
 
