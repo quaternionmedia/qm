@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-18 |
-| **Pends on** | Ratification, and the outbound licence class for this project — see §6 and the conflict table. A human decides both. |
+| **Pends on** | Ratification. A human flips the status, the index assigns the number. |
 
 ## Context
 
@@ -87,11 +87,17 @@ byproducts of the run that asserts the behaviour they show, recorded and never
 compared. The record's decision 7 — evidence of a run on the default branch —
 is unmet, and cannot be met by a file: nothing here is pushed.
 
-**§6 — The outbound licence class is not decided here.** The declared licence
-is MIT; the outbound-licensing record puts services at AGPL-3.0-or-later. This
-record names the conflict and routes the decision to its own record rather than
-picking silently, because it is a decision about what this project *is* rather
-than about how it is governed.
+**§6 — The outbound licence class is not decided here, and does not block
+this.** The declared licence is MIT; the outbound-licensing record puts
+services at AGPL-3.0-or-later. This record names the conflict and routes the
+decision to its own record rather than picking silently, because it is a
+decision about what this project *is* rather than about how it is governed.
+
+`reuse-lint` therefore stays red at publication, deliberately. That is the
+state the corpus describes rather than an oversight: a project carrying the
+machinery with a named gap is instantiated, and the alternative — settling a
+licence class to turn a check green — is deciding the wrong question for the
+wrong reason.
 
 ### Conflicts
 
