@@ -139,6 +139,11 @@ def stage(workdir: Path, root: Path = ROOT) -> Path:
     copy per sweep rather than one per mutant, because only the module under
     test is rewritten inside the loop.
 
+    `.git` IS COPIED, and that was learned the same way. A test exercising a
+    real `git rev-parse` finds no repository in a tree staged without it, the
+    baseline goes red, and the sweep refuses to score a suite that is fine. It
+    is the largest thing copied and it is copied once per sweep.
+
     Binary copies. A text-mode copy on Windows rewrites every line ending, and
     the diff then measures the copier. Symlinks are followed rather than
     recreated -- `CLAUDE.md` and friends are real symlinks here, and creating
@@ -148,7 +153,7 @@ def stage(workdir: Path, root: Path = ROOT) -> Path:
     shutil.copytree(
         root, destination, symlinks=False, ignore_dangling_symlinks=True,
         ignore=shutil.ignore_patterns(
-            ".git", "site", "__pycache__", "*.pyc", ".venv", "node_modules",
+            "site", "__pycache__", "*.pyc", ".venv", "node_modules",
             ".pytest_cache", ".mypy_cache", ".ruff_cache",
         ),
     )
@@ -211,7 +216,18 @@ def sweep(module: Path, tests: Path, root: Path = ROOT, out=print):
         survivors: list[Mutant] = []
         errored: list[tuple[Mutant, int]] = []
         for index, mutant in enumerate(candidates, start=1):
-            staged_module.write_text(apply_mutant(source, mutant), encoding="utf-8")
+            mutated = apply_mutant(source, mutant)
+            # A mutation that does not change the text makes its mutant
+            # unkillable, and the tool then reports a suite as weak when the
+            # suite is fine -- the stale-bytecode defect inverted. Asserted
+            # rather than assumed, because both failures look like a survivor.
+            if mutated == source:
+                out(f"mutant {index} changed nothing: {mutant.label()}")
+                raise SystemExit(2)
+            staged_module.write_text(mutated, encoding="utf-8")
+            if staged_module.read_text(encoding="utf-8") != mutated:
+                out(f"mutant {index} did not reach {staged_module}. Nothing was measured.")
+                raise SystemExit(2)
             result = run_tests(staged_tests, staged)
             # Exit 1 is the only status that means a test failed. pytest also
             # exits non-zero when it collected nothing (5), was misinvoked (4),

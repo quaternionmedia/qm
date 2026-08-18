@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-17T08:43:43Z"
+generated_at: "2026-08-18T02:19:13Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -81,7 +81,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-17T08:43:28Z"
+    observed_at: "2026-08-18T02:18:59Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
@@ -129,7 +129,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-17T08:43:29Z"
+    observed_at: "2026-08-18T02:19:00Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
@@ -176,7 +176,7 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-17T08:43:31Z"
+    observed_at: "2026-08-18T02:19:01Z"
   - name: private-33
     branch:
       ref: origin/project/private-33
@@ -222,7 +222,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-17T08:43:32Z"
+    observed_at: "2026-08-18T02:19:03Z"
   - name: datum
     branch:
       ref: origin/project/datum
@@ -272,7 +272,7 @@ projects:
         - REUSE.toml
     open_prs:
       unknown: "pulls?base=project/datum: unexpected response shape"
-    observed_at: "2026-08-17T08:43:34Z"
+    observed_at: "2026-08-18T02:19:04Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
@@ -300,7 +300,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-12T00:38:51Z"
+      pushed_at: "2026-08-17T13:02:20Z"
       licence: MIT
     adoption:
       submodule:
@@ -320,7 +320,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-17T08:43:35Z"
+    observed_at: "2026-08-18T02:19:05Z"
   - name: private-32
     branch:
       ref: origin/project/private-32
@@ -366,7 +366,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-17T08:43:36Z"
+    observed_at: "2026-08-18T02:19:06Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
@@ -412,7 +412,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-17T08:43:37Z"
+    observed_at: "2026-08-18T02:19:07Z"
   - name: private-34
     branch:
       ref: origin/project/private-34
@@ -458,7 +458,7 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-17T08:43:39Z"
+    observed_at: "2026-08-18T02:19:09Z"
   - name: qmcp
     branch:
       ref: origin/project/qmcp
@@ -486,7 +486,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-13T03:59:34Z"
+      pushed_at: "2026-08-17T13:01:10Z"
       licence: NOASSERTION
     adoption:
       submodule:
@@ -504,7 +504,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-17T08:43:40Z"
+    observed_at: "2026-08-18T02:19:10Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
@@ -533,7 +533,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T12:02:40Z"
+      pushed_at: "2026-08-18T01:57:21Z"
       licence: MIT
     adoption:
       submodule:
@@ -552,7 +552,7 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-17T08:43:41Z"
+    observed_at: "2026-08-18T02:19:11Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
@@ -581,7 +581,7 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-17T08:43:42Z"
+    observed_at: "2026-08-18T02:19:11Z"
 org:
   repositories:
     total: 110
@@ -659,7 +659,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 31
-  observed_at: "2026-08-17T08:43:43Z"
+  observed_at: "2026-08-18T02:19:13Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."

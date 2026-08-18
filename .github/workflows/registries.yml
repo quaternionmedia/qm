@@ -64,3 +64,6 @@ jobs:
 
       - name: Every curriculum unit cites a document and states its Status
         run: python ci/curriculum.py --check
+
+      - name: Every address vector parses as declared and round-trips
+        run: python ci/addresses.py --check

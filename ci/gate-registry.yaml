@@ -111,12 +111,16 @@ gates:
     refuses: >
       A change to the CI tooling that breaks its own test suite.
     runs:
-      - python -m pytest project-seed/ci/tests ci/tests
-    enforces: []
+      - python -m pytest project-seed/ci/tests ci/tests walkthrough -q --doctest-glob=*.md
+    enforces:
+      - records/DRAFT-one-executable-walkthrough.md
     cannot_see: >
       Whether a passing test discriminates. A test that passes against the
       broken tool is inert, and this corpus has shipped two of those -- only a
-      mutation pass finds them, and no gate runs one.
+      mutation pass finds them, and no gate runs one. For the walkthrough it
+      also cannot see whether a page is worth reading: doctest asserts that an
+      example's printed output is what the page claims, and asserts nothing
+      about whether the example was the one worth showing.
 
   - id: governance-status
     workflow: governance-status.yml
@@ -245,7 +249,8 @@ gates:
       ledger entry that is unattributed, or closed and unscored; two lanes that
       are settled by the same gate; a protocol with no page or a step naming a
       route that does not exist; a curriculum unit citing a document that is
-      not there or claiming a Status its document does not carry.
+      not there or claiming a Status its document does not carry; an address
+      vector that does not parse as declared or does not format back to itself.
     runs:
       - ci/exceptions.py --check
       - ci/policies.py --check
@@ -253,18 +258,21 @@ gates:
       - ci/lanes.py --check
       - ci/protocols.py --check
       - ci/curriculum.py --check
+      - ci/addresses.py --check
     enforces:
       - ci/exception-registry.yaml
       - ci/policy-registry.yaml
       - ci/lane-registry.yaml
       - ci/protocol-registry.yaml
       - curriculum/org.yaml
+      - project-seed/address-vectors.json
     cannot_see: >
-      Whether any registry is complete. Each of these six checks the entries
+      Whether any registry is complete. Each of these seven checks the entries
       that exist against their own rules; none can tell that an exemption, a
-      policy, a ledger entry, a lane, a protocol or a curriculum unit was never
-      written down, and a registry nobody added to is the state all six report
-      as clean. It also cannot see whether a protocol was ever run -- that is
+      policy, a ledger entry, a lane, a protocol, a curriculum unit or an
+      address case was never written down, and a registry nobody added to is
+      the state all seven report as clean. Nor can it see an address that is
+      well-formed and wrong: the grammar has no idea whether the branch exists. It also cannot see whether a protocol was ever run -- that is
       reported by `uv run qm protocols` and deliberately never refused -- or
       whether a curriculum unit's prose is true of the document it cites. Nor
       is this gate required to merge: it is a candidate for A-main.json's
