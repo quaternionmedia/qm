@@ -204,7 +204,20 @@ with a date looks checked.
     worse than none — a green check standing where a reader believes something
     is enforced.
 
-14. **Show it by running it** — charter P12, record
+14. **Durable text carries as few integers as it can** — record
+    `records/DRAFT-few-integers-in-durable-text.md`. A number in prose is a
+    claim with an expiry date, and the prose does not carry the date. Records,
+    handbook pages, this file, docstrings and pull request bodies are all read
+    long after they are written: prefer the relation to the count ("every
+    synced repository", not a total), and where a figure is the point, name the
+    command and the commit that produced it. Never restate a figure a generated
+    document already holds — `governance-status.yaml` and `harness-status.json`
+    carry their own, and a copy is a second number nothing updates. A
+    verification section is the one place a bare count belongs, because its
+    subject is one run at one commit. This is about text, not code: an
+    assertion that goes stale fails, which is the property prose lacks.
+
+15. **Show it by running it** — charter P12, record
     `records/DRAFT-one-executable-walkthrough.md`. A worked example lives in
     `walkthrough/`, executed by the ordinary test command, and nothing describes
     a behaviour in a second place beside the code. What prose cannot hold is
@@ -213,7 +226,7 @@ with a date looks checked.
     evidence is one repository where the artifacts riding that command carry
     zero drift and the two needing a remembered command are stale.
 
-15. **This page is read first, so it restates decisions it does not own** —
+16. **This page is read first, so it restates decisions it does not own** —
     record `records/DRAFT-the-read-document-governs.md`. Precedence says which
     document wins; readership says which document is read, and a decision that
     wins on precedence and loses on readership does not govern. So where a
