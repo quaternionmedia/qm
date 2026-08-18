@@ -1,0 +1,174 @@
+# The lanes this work is separated into, so that one interaction is about one thing.
+#
+# WHY. Everything here has been one undifferentiated stream: a session that set
+# out to build a policy registry also redacted a roster, fixed a workflow runner
+# and rewrote a retrospective. Each step followed from the last and none of them
+# belonged to the same conversation. A lane is not a folder and not a label --
+# it is the unit an interaction can be scoped to, so that a question about how
+# reviews happen is not answered with a change to a project's submodule pin.
+#
+# A lane owns paths, states what it does NOT own, and names the gate that
+# settles its work. Two lanes never share a gate: that is what makes them
+# separable.
+#
+# NOT A WORKFLOW. Nothing here sequences the lanes or blocks one on another.
+# Work in any lane can start whenever, and the slot rule is unchanged -- one
+# open pull request per repository per contributor, whatever lane it is in.
+
+schema: 1
+
+lanes:
+  - id: meta-governance
+    name: Meta governance
+    question: How does this corpus decide, review and ratify anything at all?
+    owns:
+      - records/          # decisions, and the drafting rules for decisions
+      - ledger.yaml       # what was predicted, what happened, what it cost
+      - ci/policy-registry.yaml
+      - ci/exception-registry.yaml
+      - ci/tool-registry.yaml
+    does_not_own: >
+      Any statement about a particular project, or about the tooling a
+      development session runs. It owns the rules by which such statements are
+      made and settled.
+    gate: >
+      Ratification, by a human. Nothing in this lane is settled by a green
+      pipeline, and a Draft record binds nothing however long it has sat.
+    measures:
+      - the stability criterion in records/DRAFT-the-base-is-the-deliverable.md
+      - "`uv run qm ledger --stability`"
+    open:
+      - Sixteen records are Proposed and none has been read as one body.
+      - Ratification needs a second code owner, who does not exist yet.
+
+  - id: governing-projects
+    name: Governing projects
+    question: How does the org hold many repositories under one constitution?
+    owns:
+      - ci/workspace.yaml       # the roster
+      - ci/roster.py
+      - inventory-public.json
+      - project-seed/           # what a fork runs in place
+      - handbook/forking-a-project.md
+    does_not_own: >
+      What any single project decides. That is the next lane, and the boundary
+      is the reason `project/<name>` branches take changes in and never out.
+    gate: >
+      A propagation pull request against each `project/<name>` base, merged and
+      never rebased, because a downstream submodule pins the tip.
+    measures:
+      - governance-status.yaml, generated from git and the host rather than claims
+      - "`uv run qm private-names`"
+    open:
+      - >
+        governance-status.yaml and harness-status.json name two private
+        repositories in their governed-project lists. The roster is redacted;
+        these two are generated from the host and are not. Registered in
+        ci/exception-registry.yaml with a removal condition.
+
+  - id: project-governance
+    name: Specific project governance
+    question: What has one project decided, and how does it deviate?
+    owns:
+      - project/<name> branches, and the adr/ on each
+    does_not_own: >
+      The org namespace. A record merged from a project branch into main reads
+      as an org decision binding every project, and nothing in the tree looks
+      wrong afterwards.
+    gate: >
+      The version tag on that project, cut by a human who reviewed the change
+      set and manually tested it against its real runtime.
+    measures:
+      - each project's own phase claim, against ci/workspace.yaml
+    open:
+      - Twelve projects sit at a scaffolded v0.0.1 that nobody has stated.
+
+  - id: development-loop
+    name: Development loop
+    question: What does a working session actually run, and on what machine?
+    owns:
+      - ci/devloop.py
+      - project-seed/ci/run_workflows_locally.py
+      - ci/gate-registry.yaml
+      - ci/generate_docs.py
+      - ci/mutate.py
+    does_not_own: >
+      Whether a rule is right. It owns whether the rule is executable, and
+      whether what a session ran is what CI runs.
+    gate: >
+      None. This lane produces evidence for other lanes' gates and gates
+      nothing itself -- which is why `qm devloop` is advisory and local only.
+    measures:
+      - "`uv run qm devloop`"
+      - "`uv run qm mutate <module>`"
+      - "`python project-seed/ci/run_workflows_locally.py`"
+    open:
+      - No detector for main-is-entered-through-a-pull-request.
+      - >
+        `uv run qm mutate` is a route, so a mutation result can be reproduced,
+        but nothing runs it. No gate requires a sweep and no document records
+        the last one, so a suite that stops discriminating goes unremarked
+        until somebody thinks to look.
+      - >
+        The operators are textual and generate no mutant for a defect they
+        cannot spell: a swapped argument, an off-by-one on a slice, a wrong
+        dictionary key. A kill rate is a floor and is read as a score.
+
+  - id: usage
+    name: Usage
+    question: How does anyone, human or agent, actually operate this?
+    owns:
+      - ci/cli.py           # one surface, and the only one
+      - adapters/           # per-product, none of them required
+      - project-seed/ide/
+      - protocols/          # procedures somebody invokes, as against gates
+      - ci/protocols.py
+      - ci/protocol-registry.yaml
+      - curriculum/         # the reading order, and how two of them reconcile
+      - ci/curriculum.py
+      - ci/addresses.py     # how a data point is named, in every system holding it
+      - project-seed/address-vectors.json
+      - docs/ref/addresses.md
+      - ci/divergence.py    # a disagreement between two views is a delta
+      - ci/two_views.py     # git against the status document, as one worked case
+      - walkthrough/        # the executable worked example, run by `qm test`
+    does_not_own: >
+      What the commands mean. A route that dispatches to a rule does not own
+      the rule, and the CLI decides nothing itself. A protocol page owns the
+      procedure and never the decision behind it: a security review reads what
+      the records already say, and a curriculum unit cites a document rather
+      than restating it.
+    gate: >
+      None of its own. A missing route is a defect in this lane whatever lane
+      the rule belongs to -- when there is no route, add one rather than
+      running the script directly.
+    measures:
+      - "`uv run qm --help`, and whether a session needed anything outside it"
+    open:
+      - >
+        Two routes were added mid-session because a bare `python ci/...`
+        invocation was reached for first. That reflex is the thing this lane
+        exists to remove.
+
+  - id: documentation
+    name: Documentation and communication
+    question: What does this corpus say to someone who did not build it?
+    owns:
+      - README.md
+      - docs/
+      - handbook/
+      - perspectives/
+      - ci/doc_dashboard.py
+      - ci/harness_dashboard.py
+    does_not_own: >
+      Any decision. A handbook page that states a rule the records do not is
+      the failure records/DRAFT-the-read-document-governs.md was written about.
+    gate: >
+      The published site rebuilding and its accuracy audit, plus the human
+      reading it at the tag.
+    measures:
+      - "`uv run qm docs check`"
+      - "`uv run qm docs audit`"
+    open:
+      - Mandatory reading rose before it fell; AGENTS.md is over budget.
+      - Four handbook pages name two private repositories.

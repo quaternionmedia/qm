@@ -178,24 +178,54 @@ def local_state(root: Path) -> dict:
 
 
 def sibling_branches(root: Path, current: str) -> tuple[list[str], int]:
-    """Local branches carrying commits the current branch does not, newest first.
+    """Branches carrying commits the current branch does not, newest first.
 
     A second session on this repository shows up here first -- as a branch this
     session did not create, holding work it cannot see. Newest first because
     that is the one a session running right now is on.
+
+    **Remote branches count, and this is the half that was missing.** A fresh
+    clone has exactly one local branch, so a `refs/heads` scan reports a clean
+    repository no matter how much pushed work is waiting. Work that has been
+    pushed and has no pull request is invisible to every other signal a session
+    has -- the slot check reads pull requests, and the handoff pages live on
+    whichever branch they were written on. Two such branches existed in this
+    corpus on 2026-08-14 and no opening brief on any other machine would have
+    named either.
+
+    A remote-tracking ref whose local branch is already listed is dropped, so
+    the usual case prints one line rather than two.
 
     Returns the listed lines and how many were left off. A corpus clone holds
     two dozen long-lived branches and printing all of them buries the one that
     moved an hour ago, but a list that silently stops reads as a complete one.
     """
     status, out = git(
-        root, "for-each-ref", "--sort=-committerdate", "--format=%(refname:short)", "refs/heads"
+        root,
+        "for-each-ref",
+        "--sort=-committerdate",
+        "--format=%(refname:short)",
+        "refs/heads",
+        "refs/remotes",
     )
     if status != 0:
         return [], 0
+
+    # `origin/HEAD` is a symbolic ref, not a branch. Dropping it is defence
+    # rather than a load-bearing guard: it resolves to the default branch, so
+    # the commit count below is zero and it would be filtered anyway. No
+    # mutation reaches this line, which is why there is no test naming it.
+    names = [n for n in out.splitlines() if n and not n.endswith("/HEAD")]
+    local = {n for n in names if "/" not in n or not n.startswith(("origin/", "upstream/"))}
+
     others = []
-    for name in out.splitlines():
-        if not name or name == current:
+    for name in names:
+        if name == current:
+            continue
+        # `origin/foo` when `foo` is already a local branch is the same work
+        # reported twice. The local one wins; it is what a session checks out.
+        bare = name.split("/", 1)[1] if name.startswith(("origin/", "upstream/")) else name
+        if name != bare and bare in local:
             continue
         code, count = git(root, "rev-list", "--count", f"{current}..{name}")
         if code == 0 and count.isdigit() and int(count) > 0:
@@ -257,6 +287,41 @@ def generated_documents(root: Path, mount: dict) -> list[str]:
         else:
             lines.append(f"- `{name}` — {what}. {age:.0f}h old, within its {budget}h budget.")
     return lines
+
+
+EXCEPTION_REGISTRY = "ci/exception-registry.yaml"
+
+
+def exceptions(root: Path, mount: dict) -> tuple[list[str], str | None]:
+    """Every rule this corpus deliberately does not enforce, and where.
+
+    A session arriving with no history learns the rules from AGENTS.md and
+    learns nothing about their holes. Before this, that knowledge lived in six
+    constants inside five checks -- so a blind session either tripped over an
+    exemption or reimplemented a rule that had been deliberately suspended.
+
+    Read rather than derived: the registry is a human's list, and a tool that
+    inferred exemptions from source would report the ones it recognised and
+    stay silent about the rest.
+    """
+    prefix = "" if mount.get("role") == "corpus" else f"{mount.get('path')}/"
+    path = root / prefix / EXCEPTION_REGISTRY
+    if not path.is_file():
+        return [], f"no {prefix}{EXCEPTION_REGISTRY} — this corpus records no exemptions"
+    try:
+        import yaml  # noqa: PLC0415 -- optional; the brief still builds without it
+    except ImportError:
+        return [], "pyyaml is not installed, so the exemptions could not be read"
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except Exception as exc:  # noqa: BLE001 -- a malformed registry is a fact, not a crash
+        return [], f"{EXCEPTION_REGISTRY} did not parse: {exc}"
+    rows = []
+    for entry in data.get("exceptions") or []:
+        rule = " ".join(str(entry.get("rule", "?")).split())
+        scope = " ".join(str(entry.get("scope", "?")).split())
+        rows.append(f"- **{entry.get('id')}** — {rule} *does not apply to* {scope}")
+    return rows, None
 
 
 def workflows(root: Path) -> list[str]:
@@ -379,7 +444,7 @@ def emit(root: Path, args: argparse.Namespace) -> str:
                     "`main`. Reading this as \"my project branch has its own slot, so "
                     "I may open a pull request from it\" is how the `main` slot gets "
                     "spent twice; `project-seed/ci/check_pr_base.py` refuses that "
-                    "direction, and the README's \"Branch namespaces\" says why."
+                    "direction, and the corpus docs/ref/namespaces.md explains why."
                 )
                 add("")
             report, status = pr_slots(state["slug"], login, per_base)
@@ -415,6 +480,24 @@ def emit(root: Path, args: argparse.Namespace) -> str:
             )
     else:
         add("- no local branch carries commits this one does not")
+    add("")
+
+    add("## Rules that do not apply everywhere")
+    add("")
+    rows, problem = exceptions(root, mount)
+    if problem:
+        add(f"- {UNKNOWN} — {problem}")
+    elif rows:
+        for row in rows:
+            add(row)
+        add("")
+        add(
+            "Each is deliberate and argued for in the registry. Read it before "
+            "concluding a check is broken, and before adding a seventh: "
+            "`uv run qm exceptions`."
+        )
+    else:
+        add("- this corpus lists no exemptions, which is itself a claim")
     add("")
 
     add("## Gates you must run before calling anything ready")

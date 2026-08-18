@@ -157,3 +157,39 @@ by a human every session.
 → Org record: **IDE-integrated governance discovery**, with the
 AGENTS.md-and-pointers convention and the checked-in VS Code workspace
 config as teeth.
+
+## P12 — Show it by running it
+
+Documentation that describes behaviour is a second copy of that behaviour, and
+a second copy drifts. The org's answer is that the demonstration is a
+**byproduct of an execution that already had to be correct**: the example a
+reader reads is the example that ran, and the picture they look at came out of
+the same render an assertion was made against. Nothing is kept in step, because
+there is no second thing to keep.
+
+Two consequences do the work, and both are cheap.
+
+**Regeneration rides the command people already run.** Not a release step, not
+a documentation build — the command a contributor types before opening a pull
+request. Drift then arrives as an uncommitted diff nobody can miss, instead of
+a staleness nobody sees.
+
+**Regression protection lives in the behavioural assertion, never in comparing
+the artifact.** A test that diffs images fails on a font and gets switched off;
+a test that asserts what the code did cannot be switched off without losing the
+test. So the artifact is recorded, not verified.
+
+The evidence is a natural experiment in one repository, one author, one
+standard: `qmetronome` regenerates twenty-four screenshots, twenty-three
+recordings and twenty-four guide pages from `./gradlew test` and they carry
+zero drift, while the two artifacts in the same repo that need a remembered
+command are stale — a changelog one release behind its newest tag, and a
+results table pasted by hand.
+
+→ Org record: **One executable walkthrough per repository**. Its teeth: the
+pages are named as an explicit path to the test runner, because `testpaths` is
+ignored the moment pytest is given one; an example may not discard a non-zero
+exit, because doctest passes an example that declares no output; a generator
+fails when an artifact it names is absent; a skip is not a pass; and the check
+is satisfied by a run observed on the default branch, not by a workflow file
+that would have run.

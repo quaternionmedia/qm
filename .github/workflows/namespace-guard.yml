@@ -17,7 +17,7 @@ name: Namespace guard
 # Both events, deliberately. The pull_request trigger is the gate; the push
 # trigger exists because a project branch is one of the two places in this
 # corpus where content legitimately arrives by push -- the initial `adr/` when
-# the branch is created (see the README's "Branch namespaces"). A push is
+# the branch is created (see docs/ref/namespaces.md). A push is
 # therefore not refusable, but it is the one route by which org content can land
 # on a project branch with nothing having looked at it, and this check is the
 # only thing that looks. Reporting after the fact beats not reporting.
