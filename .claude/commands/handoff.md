@@ -1,1 +1,1 @@
-../../project-seed/ide/.claude/commands/handoff.md
+../../adapters/claude-code/commands/handoff.md

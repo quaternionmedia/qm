@@ -20,10 +20,48 @@ Thumbs.db
 disk-status.json
 disk.html
 
+# Session break observations. Machine-scoped: each file describes one session
+# on one machine. Committing one would present that machine's break history as
+# an org fact. The registries (ci/pattern-registry.yaml, ci/shape-registry.yaml)
+# are committed; the observations are not. See perspectives/2026-08-13-the-mechanical-governance-loop.md.
+perspectives/artifacts/
+
 # Python bytecode. Four of these reached a commit in this repository --
 # generated files under version control, which perspectives/'s own sanity
 # check #4 forbids -- because `git add -A` in a directory where pytest had
 # just run picks them up and nothing was stopping it.
 __pycache__/
 *.py[cod]
+.python-version
 
+# Documentation site builds
+site
+
+# The environment `uv run qm` builds. The lockfile beside it IS committed --
+# it pins the one runtime dependency and is what makes two machines run the
+# same generators. See pyproject.toml's header for why this repository has
+# packaging at all.
+.venv/
+
+# The org inventory, split by what may leave the machine.
+#
+# `inventory-public.json` is committable: public repository names, counts, and
+# references standing in for the private ones. The two below are not, and the
+# split is the control -- a public file that never receives private names cannot
+# leak them however broken the generator is.
+#
+# An earlier single-file version carried 34 private repository names and 28
+# absolute paths containing the operator's username into this working tree, and
+# was one command from being pushed. governance-status.yaml already recorded
+# `private_repository_names_listed: false`; assistant-2026-08 was run at the
+# problem without reading it.
+inventory-private.json
+inventory-local.json
+
+# The private half of the repository roster. ci/workspace.yaml carries every
+# tracked repository, but a private one appears there as a `ref` alone -- naming
+# it in a public repository would defeat the redaction inventory-public.json
+# already applies to the same repository. Two names sat in the committed roster
+# from 2b50bd6 while the inventory redacted them as private-32 and private-33;
+# the corpus contradicted itself and nothing read both files at once.
+ci/workspace-private.yaml

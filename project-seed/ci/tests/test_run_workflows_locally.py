@@ -195,3 +195,75 @@ def test_a_working_directory_that_does_not_exist_is_a_failure_not_a_pass(repo: P
     result = run_tool("run_workflows_locally.py", cwd=repo)
     assert result.returncode == 1, result.stdout
     assert "working-directory does not exist" in result.stdout
+
+
+# --- a job halts at its first failed step -----------------------------------
+#
+# Observed here: a site build failed for want of the generator, and the two
+# steps after it reported PASS -- one stamping a draft banner across 24 pages
+# of a leftover `site/`. Neither would have run on the real runner, so both
+# greens described a state CI never produces.
+#
+# Parametrized rather than written out per case: the three differ only in the
+# steps and what must appear, and five copies of one body is where a case gets
+# added to the list and silently not asserted.
+
+import pytest  # noqa: E402
+
+HALT = "      - name: the build\n        run: exit 1\n"
+
+
+@pytest.mark.parametrize(
+    "steps, must_appear, must_not_appear",
+    [
+        pytest.param(
+            HALT + "      - name: later\n        run: echo LATER\n",
+            "[skip] later",
+            "LATER",
+            id="a-step-after-a-failure-does-not-run",
+        ),
+        pytest.param(
+            HALT + "      - name: cleanup\n        if: always()\n"
+                   "        run: echo LATER\n",
+            "LATER",
+            None,
+            id="an-always-step-runs-anyway-as-on-the-runner",
+        ),
+        pytest.param(
+            "      - name: advisory\n        continue-on-error: true\n"
+            "        run: exit 1\n"
+            "      - name: later\n        run: echo LATER\n",
+            "LATER",
+            None,
+            id="continue-on-error-records-the-failure-without-halting",
+        ),
+    ],
+)
+def test_a_job_halts_at_its_first_failed_step(
+    repo: Path, steps: str, must_appear: str, must_not_appear: str | None
+):
+    write(repo / ".github" / "workflows" / "t.yml", workflow(steps))
+    commit_all(repo, "add a workflow whose later step depends on an earlier one")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+
+    assert must_appear in result.stdout, result.stdout
+    if must_not_appear:
+        assert must_not_appear not in result.stdout, (
+            f"a step after a failed one executed; Actions would have halted the "
+            f"job\n{result.stdout}"
+        )
+    # A skipped step is not a passing one, in the summary or the exit code.
+    assert result.returncode == 1, result.stdout
+    assert "1 step(s) failed" in result.stdout
+
+
+def test_halting_is_per_job_not_per_run(repo: Path):
+    """A whole run going quiet after one failure would hide every other check."""
+    write(repo / ".github" / "workflows" / "a.yml", workflow(HALT))
+    write(
+        repo / ".github" / "workflows" / "b.yml",
+        workflow("      - name: unrelated\n        run: echo STILL_RAN\n"),
+    )
+    commit_all(repo, "add two independent workflows")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert "STILL_RAN" in result.stdout, result.stdout

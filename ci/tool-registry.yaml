@@ -1,0 +1,54 @@
+# Tools that operate in this corpus, and where each is disclosed.
+#
+# WHY THIS EXISTS. A ledger entry attributed to "this tool" is unfalsifiable: a
+# reader cannot tell which tool, run by whom, or over what period. Every entry
+# in `ledger.yaml` names one of these ids, so an attribution resolves to a
+# vendor, a product and an operator.
+#
+# EVERY ENTRY, NOT ONLY THE FAILURES. Tool authorship is audited on the same
+# terms as tool fault. A register that named an instrument when something went
+# wrong and stayed silent when something went well would let a tool accumulate
+# credit while shedding responsibility, which is the asymmetry the reviewer
+# named on 2026-08-16.
+#
+# NAMING A VENDOR IS PERMITTED HERE. `check_attribution.py` guards records prose
+# and commit subjects; `adapters/` and `perspectives/` already name products.
+# This is neither, and a register that could not name its subject would not be
+# one.
+#
+# WHAT AN ENTRY DOES NOT CONFER. Nothing here makes a tool an author.
+# `records/DRAFT-human-only-contributorship.md` is unchanged: the operator
+# authors and reviews, the tool produces, and disclosure is a note rather than
+# a byline.
+
+schema: 1
+
+tools:
+  - id: assistant-2026-08
+    kind: llm-agent
+    vendor: Anthropic
+    product: Claude, via Claude Code
+    operator: Peter Kagstrom
+    in_use_from: 2026-06-09
+    in_use_to: null
+    disclosed_in:
+      - perspectives/README.md
+      - perspectives/2026-08-15-what-is-shaping-this-tool.md
+    note: >
+      A commercial product operating inside the operator's workflow. It
+      produces; the operator authors, reviews, and decides. Its observed
+      failure modes over 2026-08-14/16 are catalogued in
+      perspectives/2026-08-15-what-is-shaping-this-tool.md, and the incidents
+      themselves are in ledger.yaml.
+
+  - id: human
+    kind: person
+    operator: Peter Kagstrom
+    in_use_from: 2026-06-09
+    in_use_to: null
+    disclosed_in:
+      - PRINCIPLES.md
+    note: >
+      Present so an entry produced without a tool has something true to name,
+      rather than being attributed to an instrument that was not involved. The
+      reviewer's catches are the clearest instance and they belong to a person.
