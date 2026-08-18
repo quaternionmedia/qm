@@ -249,6 +249,11 @@ Drafts in flight (numberless, by title):
   Conventionally ADR-0001 at ratification.
 - **frizzle's dependency disposition and packaging tool** — the baseline
   component audit, and the uv-against-house-stack divergence.
+- **The moat seam, and preparing for a broker change nobody has specified** —
+  the deployment seam, as distinct from the client library the dependency
+  record covers: what frizzle assumes of the broker moat runs, where the
+  development and production configurations already disagree, and why the
+  wildcard probe targets another project's subtree.
 - **Appointing one instance to direct another, without a v0 contract change**
   — pends on human review, and unlike the other two it is not waiting on
   spawn: frizzle's rad proof of concept is running on the conventions it
