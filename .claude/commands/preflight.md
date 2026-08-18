@@ -1,1 +1,1 @@
-../../project-seed/ide/.claude/commands/preflight.md
+../../adapters/claude-code/commands/preflight.md

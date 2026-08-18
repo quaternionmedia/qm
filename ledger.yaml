@@ -1,0 +1,833 @@
+# The ledger: every action, what it was predicted to do, and what it cost.
+#
+# Read by `ci/ledger.py`. Appended to as work happens, not reconstructed
+# afterwards -- though the first entries below were, because the protocol was
+# adopted mid-session and pretending otherwise would be the first thing it
+# exists to catch. Entries marked `reconstructed: true` are the assistant's
+# account of its own earlier actions and carry the reliability of a memory
+# rather than a record.
+#
+# `projected_impact` is written BEFORE acting. That is the whole mechanism: a
+# prediction made after the outcome is known is not a prediction.
+#
+# `outcome_matched_projection: false` is not a defect. An honest miss is worth
+# more than a vague hit. The defect is a closed entry with no outcome.
+#
+# `tool` names who produced the entry, resolved against ci/tool-registry.yaml.
+# It is required on every entry, not only the ones recording a failure: tool
+# authorship is audited on the same terms as tool fault, and a register that
+# named an instrument only when something went wrong would let it accumulate
+# credit while shedding responsibility.
+#
+# records/DRAFT-the-ledger.md is the decision; this is the instrument.
+
+schema: 1
+
+entries:
+  - id: 2026-08-14-001
+    tool: assistant-2026-08
+    reconstructed: true
+    kind: decide
+    action: "Review the workspace and line up parallel work"
+    projected_impact: "Name the blocked lanes so several sessions can run at once"
+    outcome: >
+      Delivered an analysis whose central claim -- that throughput is limited by
+      a human review queue at the pull request -- contradicted a record in the
+      same tree that the session had already read.
+    failure_cost: >
+      A full round trip. The reviewer corrected it in one line; reconciling it
+      across AGENTS.md, the seed copy, the async contract, the runbook and the
+      handoff rules took the rest of the session's first half.
+    outcome_matched_projection: false
+    lessons:
+      - "Precedence decides which document wins; readership decides which is read"
+    tests_generated:
+      - ci/tests/test_check_restatements.py
+    status: closed
+
+  - id: 2026-08-14-002
+    tool: assistant-2026-08
+    reconstructed: true
+    kind: build
+    action: "Give records/DRAFT-version-tags-are-claims.md its 7 mechanism"
+    projected_impact: "Make a customary rule mechanical; audit the org's existing tags"
+    outcome: "check_tag_claims.py, tag-claims.yml, tag_audit.py. Org audit: 0 repos ready."
+    failure_cost: "none"
+    outcome_matched_projection: true
+    tests_generated:
+      - project-seed/ci/tests/test_check_tag_claims.py
+      - ci/tests/test_tag_audit.py
+    lessons:
+      - "A mutation returning green is one of four things; only one is an inert test"
+    status: closed
+
+  - id: 2026-08-14-003
+    tool: assistant-2026-08
+    reconstructed: true
+    kind: build
+    action: "Build the gate index as one generator-plus-renderer file"
+    projected_impact: "One command to show what governs and what each gate misses"
+    outcome: >
+      Wrong shape. handbook/generated-documents.md already specifies three
+      artifacts -- document, human view, agent view -- and this collapsed two of
+      them. Rebuilt as ci/gate_status.py plus ci/gate_dashboard.py.
+    failure_cost: "One rebuild. The handbook stated the shape and was not read first."
+    outcome_matched_projection: false
+    lessons:
+      - "Prefer the artefact you did not create: the handbook had the answer"
+    tests_generated:
+      - ci/tests/test_gate_tooling.py
+    status: closed
+
+  - id: 2026-08-14-004
+    tool: assistant-2026-08
+    reconstructed: true
+    kind: build
+    action: "Add the qm CLI so governance operations have one entry point"
+    projected_impact: "Replace thirteen script paths with `uv run qm <command>`"
+    outcome: >
+      Built and works. Exposed two environment defects invisible until then: a
+      shell resolving to the WSL alias under `uv run`, and a venv with no pip.
+    failure_cost: >
+      The CLI itself was broken when run rather than installed, and only remote
+      CI found it -- no workflow triggers on an `evolve/*` push, so it could not
+      have been caught locally.
+    outcome_matched_projection: true
+    tests_generated:
+      - ci/tests/test_cli.py
+    lessons:
+      - "A local pass is evidence, not proof; the runner installs nothing"
+    status: closed
+
+  - id: 2026-08-15-001
+    tool: assistant-2026-08
+    reconstructed: true
+    kind: fix
+    action: "Respond to two violations in one command: improvised test invocation, and -c on git"
+    projected_impact: >
+      Convert both into mechanisms rather than clauses, per the record written
+      two hours earlier
+    outcome: "uv run qm test; the commit-signatures gate built; both breaks registered"
+    failure_cost: >
+      9 unsigned commits, permanent -- history is not rewritten here. 7 further
+      commits carried a redundant override after the first correction. The
+      reviewer named it a trust incident.
+    outcome_matched_projection: true
+    tests_generated:
+      - ci/tests/test_run_tests.py
+      - project-seed/ci/tests/test_check_signatures.py
+    lessons:
+      - "A correction names a class, not the instance it arrived on"
+      - "The violation is overriding config from the command line, in either direction"
+    status: closed
+
+  - id: 2026-08-15-002
+    tool: assistant-2026-08
+    reconstructed: true
+    kind: fix
+    action: "Grandfather unsigned history the corpus cannot rewrite"
+    projected_impact: >
+      Keep the gate enforceable without requiring a forbidden act, and count the
+      exempted commits as debt rather than hiding them
+    outcome: >
+      ENFORCED_FROM cutoff. Caught the gate's own summary claiming "All 16
+      commits carry a signature" when nine did not.
+    failure_cost: >
+      Two heredoc-escaping cycles and one half-applied patch that left
+      commits_in_range without the parameter its caller passed.
+    outcome_matched_projection: true
+    lessons:
+      - "The reassuring default leaks into the tool written to prevent it"
+    status: closed
+
+  - id: 2026-08-15-003
+    tool: assistant-2026-08
+    kind: fix
+    action: >
+      Repair the four defects the self-audit found: a comment contradicting its
+      code, a perspective claim the tool no longer satisfies, an unstamped
+      figure set, and no mutation pass on either new gate
+    projected_impact: >
+      Three prose corrections and two mutation harnesses. Expect the mutation
+      pass to report at least one false green, on the evidence of the three
+      earlier harnesses, which reported five between them.
+    outcome: >
+      Four corrections, not three -- re-reading the perspective found a second
+      stale claim of the same class as the first. 10 mutations, all caught. The
+      two that reported false were both harness errors: one anchor written
+      against a superseded version of the function, and one aimed at a sibling
+      test that iterates SUITES and therefore cannot see a dropped entry.
+    failure_cost: >
+      One cycle diagnosing two false negatives that were mine. Nothing in either
+      tool was wrong.
+    outcome_matched_projection: true
+    lessons:
+      - "A false green in a mutation harness is more often the harness than the test"
+      - "Aim a mutation at the test that can see it, not the one whose name matches"
+    tests_generated:
+      - "scratchpad/mutate_signatures.py (10 mutations, both new gates)"
+    status: closed
+
+  - id: 2026-08-15-004
+    tool: assistant-2026-08
+    kind: build
+    action: "Adopt the ledger and write the glossary"
+    projected_impact: >
+      Make a prediction durable so an overclaim is mechanical to spot. Expect
+      the ledger's own first --check run to fail, because this file is being
+      written by the failure mode it exists to catch.
+    outcome: >
+      The check passed on the first run. The prediction was wrong, and wrong in
+      the flattering direction -- it predicted a self-caught failure, which
+      would have read as the instrument working. What it actually demonstrates
+      is that --check verifies structure and cannot see whether a projection was
+      written before the act, which is exactly the limit the record states.
+    failure_cost: "none"
+    outcome_matched_projection: false
+    lessons:
+      - "A prediction of self-caught failure is still a flattering prediction"
+    tests_generated:
+      - "ci/ledger.py --check"
+    status: closed
+
+  - id: 2026-08-15-005
+    tool: assistant-2026-08
+    kind: document
+    action: "Categorize the pressures shaping this assistant's output"
+    projected_impact: >
+      Eight categories, each tied to a count from this session rather than to
+      speculation about intent. Expect the writing of it to be an instance of at
+      least one category it names.
+    outcome: >
+      It was. Item 3 -- the shell-heredoc prior beating the harness's own file
+      tool -- recurred twice more while the document naming it was being
+      written, taking the count from four to six. Item 6 also recurred: a
+      perspective was indexed before it existed, and the tool built to catch
+      index drift read the index in one direction only.
+    failure_cost: >
+      Two cycles. One dangling index row committed and then repaired, and one
+      check shipped with half its coverage.
+    outcome_matched_projection: true
+    lessons:
+      - "Documenting a failure mode does not suspend it for the duration"
+      - "A checker that reads an index needs both directions, every time"
+    tests_generated:
+      - "ci/tests/test_doc_tooling.py::test_an_index_row_naming_a_missing_file_is_reported"
+    status: closed
+
+  - id: 2026-08-15-006
+    tool: assistant-2026-08
+    kind: fix
+    action: "Loop pass 1: run every gate locally and remotely, and act on what differs"
+    projected_impact: >
+      Expect local to be green and remote to disagree somewhere, on the evidence
+      of the CLI defect that only the runner found.
+    outcome: >
+      Local: 9 of 9 green. Remote: signatures FAILED. The cause was a design
+      error, not a bug -- verifying a signature needs the signer's key and a
+      runner has none, so `git log --format=%G?` on CI reports the runner's
+      empty keyring rather than the commit. The forge already verifies
+      server-side; the check now reads it with --source host in CI and --source
+      git locally. Both agree: 9 debt, same commits.
+    failure_cost: >
+      Three cycles. One misdiagnosis -- the local runner was called silent when
+      it had refused an unresolvable expression on stderr, which the grep was
+      not reading. One more heredoc backslash failure, the seventh.
+    outcome_matched_projection: true
+    lessons:
+      - "A check that needs key material cannot run where the key is not"
+      - "Read stderr before calling a tool silent"
+      - "Stop using shell heredocs for anything containing a backslash"
+    tests_generated: []
+    status: closed
+
+  - id: 2026-08-15-007
+    tool: assistant-2026-08
+    kind: verify
+    action: "Loop passes 2-4: sweep every gate and every mutation harness until nothing new appears"
+    projected_impact: >
+      Expect at least one more finding. Every previous sweep this session found
+      something, and the mutation harnesses have never all run clean together.
+    outcome: >
+      Pass 2 clean locally, remote CLEAN on all 8 checks. Pass 3 found one
+      thing: mutate_cowork reported an inert test on every run, for a filter
+      already documented as defence with no test naming it. The no-op mutation
+      was removed. Pass 4 clean across 11 checks and 4 harnesses, 0 findings.
+    failure_cost: >
+      None to the corpus. The stale mutation had been reporting a false alarm on
+      every run since it was written, which is the shape that teaches a reader
+      to skip the output.
+    outcome_matched_projection: true
+    lessons:
+      - "A harness that always reports one known failure trains the reader to ignore it"
+    tests_generated: []
+    status: closed
+
+  - id: 2026-08-15-008
+    tool: assistant-2026-08
+    kind: build
+    action: "Give the published docs an audit, and a draft publish path, on #55"
+    projected_impact: >
+      Merge main into the docs branch to clear the conflict without rewriting
+      anyone's commits, then add a rebuild+accuracy audit and a draft build that
+      publishes on ready_for_review. Expect the audit to find something real on
+      its first run against the merged tree.
+    outcome: >
+      It found two. zensical.toml was invalid TOML -- eight multi-line inline
+      tables -- so the config parsed only in the generator's own reader; the
+      site still builds after repair. And docs/ref/glossary.md shadowed
+      handbook/glossary.md, a collision this session created. Both fixed. Five
+      merge conflicts resolved by hand, two of which carried the pre-correction
+      "a human reviews and merges" model into prose.
+    failure_cost: >
+      One automated fix that half-worked: collapsing the inline tables mangled a
+      commented entry and an array-of-tables, both repaired by hand against the
+      original.
+    outcome_matched_projection: true
+    lessons:
+      - "A config only its own parser accepts is a rebuild that works until that parser changes"
+      - "Publishing is the outward-facing act; merging is not"
+    tests_generated:
+      - ci/tests/test_docs_audit.py
+      - ci/tests/test_docs_draft_banner.py
+    status: closed
+
+  - id: 2026-08-15-009
+    tool: assistant-2026-08
+    kind: decide
+    action: "Exempt one commit subject from the vendor-name rule, as the example it is taught from"
+    projected_impact: >
+      35ebca6a names a model in its subject, predates the check, and cannot be
+      reworded without rewriting another contributor's history. Exempt it by
+      full SHA with the reason printed on every run, rather than by rewriting or
+      by weakening the rule.
+    outcome: >
+      Exemption added to check_attribution.py and announced on every run.
+      Recorded in the gate registry's cannot_see for adr-lint, so it surfaces in
+      the generated gates page. 8 tests, including one asserting the exemption
+      is keyed on the commit and not the wording -- a subject-text key would
+      exempt every future commit that copied it.
+    failure_cost: >
+      One more unresolvable-expression refusal from the local runner, in the new
+      draft workflow. Fixed by moving the context values into env with
+      fallbacks, so the step reproduces locally.
+    outcome_matched_projection: true
+    lessons:
+      - "An exemption a run does not print is a hole in a check that reports green"
+      - "Key an exemption on the immutable thing, not on the text that can be copied"
+    tests_generated:
+      - project-seed/ci/tests/test_check_attribution.py
+    status: closed
+
+  - id: 2026-08-15-010
+    tool: assistant-2026-08
+    kind: verify
+    action: "Merge #55 and verify the draft build actually produces a bannered artifact"
+    projected_impact: >
+      Expect the merge to be clean and the dispatched draft build to succeed.
+      Expect verification to be a formality, since every step was already
+      exercised locally.
+    outcome: >
+      Merge clean, 10/10 checks. Draft build succeeded on dispatch: 24 of 24
+      pages bannered, 0 missed, banner inside body and before the first heading.
+      Verification was not a formality -- reading the rendered text found the
+      banner asserting "Built from an unmerged branch", which is false when the
+      workflow is dispatched from main, as it just had been.
+    failure_cost: >
+      None reached anyone. The wrong sentence existed only in one artifact,
+      caught by reading the output rather than the exit status.
+    outcome_matched_projection: false
+    lessons:
+      - "A step that passes can still emit a false sentence; read the artifact, not the exit code"
+      - "Copy in a generated artifact must be true for every ref it can run on"
+    tests_generated:
+      - "ci/tests/test_docs_draft_banner.py::test_the_banner_makes_no_claim_about_which_branch_built_it"
+    status: closed
+
+  - id: 2026-08-16-001
+    tool: assistant-2026-08
+    kind: document
+    action: >
+      Plan stubs for v0.0.2: governance prose signals, the semantic-review
+      instrument, and authorship-first rewriting. Add looksatwords to the roster.
+    projected_impact: >
+      Three stubs in plans/, deliberately unbuilt. The prose analysis goes to
+      quaternionmedia/looksatwords rather than into ci/, because it is language
+      tooling and that repository already exists for it -- and because a corpus
+      that builds its own linter for everything is the failure its own newest
+      record warns about. Expect the act of writing the stubs in the criticised
+      voice to be the hardest part, and expect at least one stub to come out
+      reading like the passage it criticises.
+    outcome: >
+      Four stubs in plans/ plus a session instruction. The prose analysis is
+      routed to quaternionmedia/looksatwords, which turned out to already exist
+      -- "a python module to make, gather, analyze, and visualize language
+      data" -- and to be absent from ci/workspace.yaml, so the plan had to
+      establish the repository before it could point at it. Added to the roster.
+      Phase set to v0.0.2 with the merged work named v0.0.1 and a review packet
+      written for it, because a phase cannot be claimed complete on an agent's
+      say-so.
+    failure_cost: >
+      One eighth heredoc escaping failure, in the same session that documented
+      the seventh. One mislabel found in check_tag_claims: a captured test run
+      was described as "(lightweight)", a tag property applied to a subject that
+      is not a tag.
+    outcome_matched_projection: true
+    lessons:
+      - "Check whether the tool you are planning to build already exists as a repo"
+      - "A roster that omits a repository makes the org invisible to its own plans"
+    tests_generated:
+      - "project-seed/ci/tests/test_check_tag_claims.py::test_a_test_run_is_not_described_as_a_tag"
+    status: closed
+
+  - id: 2026-08-16-002
+    tool: assistant-2026-08
+    kind: build
+    action: "Integration pathways: inventory every org repository, and plan collection over propagation"
+    projected_impact: >
+      Expect the roster to be short of the org, and expect the gap to be modest
+      -- a handful of repositories nobody added.
+    outcome: >
+      The gap is 96 of 110. The roster covers 13 percent of the org, and every
+      plan this corpus has written was scoped to the 14 without saying so.
+      Built ci/inventory.py across three layers -- host, roster, local -- and
+      wrote plans/data-collection-pathways.md for the five archive sources.
+      Tested that plan's own falsifier in the same session: of the 96, 55 are
+      three years or older but 20 were touched within a year and 6 within 90
+      days, so the "they are all dormant" objection fails in its strong form.
+    failure_cost: >
+      None yet. The projection was badly wrong in a direction that matters --
+      "a handful" against 96 -- and it was wrong because it guessed at a number
+      a single command could have established.
+    outcome_matched_projection: false
+    lessons:
+      - "A roster that omits a repository makes the org invisible to its own planning"
+      - "Do not project a count that a command can answer; run the command"
+    tests_generated: []
+    status: closed
+
+  - id: 2026-08-16-003
+    tool: assistant-2026-08
+    kind: fix
+    action: >
+      Redact the org inventory: assistant-2026-08 wrote 34 private repository
+      names and 28 paths containing the reviewer's username into the working
+      tree of a public repository
+    projected_impact: >
+      The reviewer asked whether personal details had been pushed. Expect the
+      answer to be no, and expect a small fix.
+    outcome: >
+      Nothing was pushed. The reviewer stopped the command that would have
+      pushed it, then asked the question that established what had been written.
+      assistant-2026-08 wrote 34 private repository names, several of them
+      people's names, and 28 absolute paths containing the reviewer's username,
+      into the working tree of a repository that is public. It also contradicted
+      two decisions the corpus had already written down: governance-status.yaml
+      records private_repository_names_listed false, and make_workspace.py
+      states it writes no absolute paths. assistant-2026-08 consulted neither
+      before generating a second inventory, and so reintroduced a problem the
+      corpus had already solved.
+    failure_cost: >
+      Nothing left the machine, because the reviewer caught it. Had the reviewer
+      not stopped that command, assistant-2026-08 would have published the
+      private repository names of a private organisation, irreversibly. The
+      remediation: private repositories are counted and referenced by a stable
+      creation-ordered id, the name mapping is machine-scoped and gitignored,
+      and 16 tests fail if any of that is weakened.
+    outcome_matched_projection: false
+    lessons:
+      - "Read how an existing generator solved a problem before generating a rival"
+      - "Redaction that drops the subject is not redaction; count it and reference it"
+      - "A privacy failure is silent and one-way; it needs tests, not care"
+      - "Name the actor in the failure sentence -- an artifact cannot carry anything anywhere"
+    tests_generated:
+      - ci/tests/test_inventory.py
+    status: closed
+
+  - id: 2026-08-16-004
+    tool: assistant-2026-08
+    kind: build
+    action: "Make tool attribution auditable on every ledger entry, not only the failures"
+    projected_impact: >
+      The reviewer's instruction: tool authorship should be equally auditable.
+      Expect a registry, a required field, and a check that the field resolves.
+    outcome: >
+      ci/tool-registry.yaml names each tool with vendor, product, operator and
+      where it is disclosed, plus `human` so an entry produced without a tool
+      has something true to name. `tool` is required on all 17 entries and
+      ledger.py --check refuses one that does not resolve. 13 tests.
+    failure_cost: >
+      None. This came from the reviewer noticing that the first two drafts of
+      the entry above claimed credit readily and shed fault through an
+      inanimate subject and an agentless passive.
+    outcome_matched_projection: true
+    lessons:
+      - "A register that names an instrument only in failure lets it bank credit and shed fault"
+      - "An attribution that resolves to nothing cannot be audited"
+    tests_generated:
+      - ci/tests/test_ledger.py
+    status: closed
+
+  - id: 2026-08-16-005
+    tool: assistant-2026-08
+    kind: build
+    action: "Build a policy registry demanding a vendor-neutral detector for every policy"
+    projected_impact: >
+      Predicted before building, from this session's own base rates.
+
+      (1) It will show that most policies cannot have a detector. Of 32 lessons
+      recorded here, roughly 6 to 8 are detectable from an artifact -- signing,
+      config parseability, attribution resolving, roster omissions. The other
+      three quarters are judgement: read stderr before calling a tool silent,
+      prefer the artefact you did not create, a correction names a class. No
+      script reads those from a repository.
+
+      (2) It will be defective on its first run. Six of six new tools this
+      session were. The most likely defect is the one that already happened
+      twice: naming a detector in the wrong file, or naming one that does not
+      exist yet. --drift caught both within a minute, so the cost is a cycle.
+
+      (3) The dangerous failure is not a bug. A registry with a `detector`
+      column creates pressure to fill it, and a weak detector is worse than an
+      honest "none" because the column then reads as coverage. Expect to want
+      to write one for "read stderr first". That want is the thing to refuse.
+
+      (4) I will violate it. I wrote "converting beats adding" and then added;
+      wrote "the tool is not an author" with three merged instances of "its
+      author" already in the tree; wrote "stop using heredocs" and did it nine
+      times. Predict the next rule I make gets a preventer and no detector,
+      because the preventer is the visible satisfying half.
+    outcome: |-
+      Built, routed as `qm policies`, 17 tests, 9 of 9 mutations caught against an
+      asserted-green baseline. Scored per clause, because a four-clause projection
+      called "matched" as a whole hides which clause was wrong.
+
+      (1) MATCHED, and the count was exact. 6 of 9 policies carry a durable detector,
+      2 state why they cannot, 1 has one planned. The 24 judgement lessons are one
+      grouped entry rather than 24 rows of `detector: null`, so the registry reads as
+      an honest limit and not a backlog.
+
+      (2) MATCHED, in the exact predicted failure mode -- and the check did not find
+      it. `--check` passed clean on the first run. Three entries named
+      `status/ledger.yaml`, a path the reverted config migration would create, while
+      the tree has `ledger.yaml`. It passed because it verified only the `detector`
+      column and never `source`: the tool's blind spot and the error were the same
+      blind spot. Found by walking every path the registry names. Both halves fixed --
+      `source` is now verified, with a test and a mutation.
+
+      (3) MATCHED, and the pressure was real. The pull was to write a detector for
+      `read stderr before calling a tool silent`. Refused; it sits inside
+      `judgement-policies` with a stated reason.
+
+      (4) MATCHED, twice over. `main-is-entered-through-a-pull-request` is in the
+      registry with a preventer that is not applied and no detector -- exactly the
+      shape predicted, committed by the file whose purpose is to refuse it, and
+      declarable only because `detector_planned` exists. Separately the heredoc rule
+      broke for a ninth time during this build; the fix predicted for eight rounds --
+      write the script to a file -- was applied here and worked.
+    failure_cost: |-
+      One cycle on the heredoc anchor, ninth occurrence. The `source` defect cost nothing yet because it was caught before the commit, but it is the load-bearing finding: a registry of enforcement whose own check read one of its two path columns. A reader would have taken "every one either detected or explained" as verified while three of nine sources pointed at nothing.
+    outcome_matched_projection: true
+    status: closed
+  - id: 2026-08-16-006
+    tool: assistant-2026-08
+    kind: build
+    action: Add `qm ledger --close`, after a YAML round-trip destroyed the file it settled
+    reconstructed: true
+    projected_impact: |-
+      Reconstructed. No projection was written before acting, which is the one
+      thing the protocol asks for and the second time it has been skipped on a
+      route added mid-task. Recorded as reconstructed rather than backfilled as
+      though it had been foreseen.
+
+      What would have been predicted, had it been written: closing one entry is
+      a four-field change and a script would do it. That is what was built, and
+      it was wrong twice.
+    outcome: |-
+      Closing entry 2026-08-16-005 was attempted three times.
+
+      First, with `yaml.safe_dump`. It settled the four fields correctly and
+      produced a 989-line diff -- 522 insertions, 467 deletions -- reformatting
+      every one of the 19 entries and deleting the header comment that records
+      which entries are reconstructed. A semantic comparison confirmed only the
+      four intended fields changed, so nothing would have failed. On an audit
+      record a diff nobody can read is the defect. Reverted; rebuilt as a text
+      edit, and as a route rather than a one-off script.
+
+      Second, the guard against re-closing a settled entry scanned a fixed
+      forty-line window from the entry's id. It passed its unit test against a
+      short synthetic entry and walked straight past the real one, whose
+      projection block alone is longer than the window. So the file was closed
+      twice: `outcome` acquired the prefix `x`, `failure_cost` acquired `y`, and
+      the previous block bodies were orphaned underneath. `--check` passed on
+      the corrupted file, because a non-empty outcome is all it reads. Bounded
+      to the entry's real extent; a regression test builds an entry longer than
+      any window.
+
+      Third close was clean: 62 insertions, 0 deletions, header intact, and the
+      second attempt now refused.
+
+      The policy registry it was built to settle: 9 policies, 6 detected, 2
+      stating why they cannot be, 1 planned. 660 tests pass, up from 629.
+    failure_cost: |-
+      Two cycles, and one live-data corruption caught by inspection rather than
+      by a check. Nothing reached a commit.
+
+      The heredoc-escaping class broke twice more during this entry, the ninth
+      and tenth occurrences. The fix predicted eight rounds ago -- write the
+      script to a file instead -- was applied for the mutation run and worked,
+      and was then not applied to the next two shell edits.
+    outcome_matched_projection: unknown
+    lessons:
+      - A tool that rewrites a file it was asked to edit passes every semantic
+        check and destroys the artifact's readability. Assert the diff's shape,
+        not only its meaning.
+      - A guard tested against synthetic data is tested against the case its
+        author imagined. The real entry was 4x the size of the fixture, and the
+        guard's window was the one number nobody varied.
+      - "`--check` passed on a corrupted file: it verified the outcome was
+        non-empty, never that it was the outcome given. A completeness check is
+        not a correctness check, and saying so in its own output is the honest
+        floor."
+      - A registry's own check read one of its two path columns. The blind spot
+        that produced the error and the blind spot that missed it were the same.
+    tests_generated:
+      - ci/tests/test_policies.py -- 17 tests, 9 of 9 mutations caught against
+        an asserted-green baseline
+      - ci/tests/test_ledger.py -- 12 further tests covering the close, its
+        comment preservation, the diff's containment, and the long-entry guard
+    status: closed
+  - id: 2026-08-16-007
+    tool: assistant-2026-08
+    kind: build
+    action: Make base stability measurable, and build a local dev-environment report
+    projected_impact: |-
+      Written before acting, unlike 2026-08-16-006.
+
+      (1) The criterion cannot be read today, and the reason is structural
+      rather than an oversight. The ledger records additions. A pass that adds
+      nothing leaves no trace, so "no new entries" and "nobody ran it" are the
+      same file. Predict that once passes are recorded the first streak is 0 or
+      1, and that the pressure will be to define a pass loosely enough to make
+      the streak longer. A pass that records only the runs that went well is a
+      streak counter, not a stability test.
+
+      (2) It will be defective on its first run. Seven of eight new tools this
+      session were. The likeliest defect is reading a field name that does not
+      exist in a document -- inventory-public.json and ci/workspace.yaml use
+      different words for the same repository, and nothing forces them to agree.
+
+      (3) The specific risk here is privacy, and it has already happened once
+      in this exact place. A tool that reads the inventory and prints
+      repositories is the tool that wrote 34 private names into a committable
+      artifact on 2026-08-16-003. Predict the first draft prints a name where it
+      should print a reference, and that the test which should catch it passes
+      anyway, because that is what happened last time: three assertions were
+      inert because serialisation escaped the paths they searched for.
+
+      (4) The recommendations will drift toward flattering the current state. A
+      report whose author also wrote what it measures has every incentive to
+      grade generously, and there is no detector for that. Expect the first
+      draft to report the org checkout as healthier than 28 of 110 warrants.
+    outcome: |-
+      Built: the stability criterion as a record, `qm ledger --pass` and `--stability`,
+      `qm devloop`, `qm private-names`, `qm lanes`, `ci/roster.py`, and the roster
+      redaction. 743 tests pass, up from 664.
+
+      (1) MATCHED. The criterion could not be read, and the first attempt to record a
+      pass proved the point in the way predicted: it reported the FIRST pass as
+      "0 added" and handed the streak a point for free. There is no previous pass to
+      differ from, so the honest value is unknown. Fixed, and `--check` now refuses a
+      first pass that reports a count and a later pass that claims to be a baseline.
+      The streak is 0.
+
+      (2) MATCHED, exactly as written -- "reading a field name that does not exist in
+      a document". Private entries in inventory-public.json carry `ref` and `label`
+      and no `name` at all, while public ones carry `name`, in the same file. Then the
+      same split, once the roster was redacted, raised KeyError in a generator and
+      would have raised it in three more. One shared loader now guarantees `name`,
+      falling back to the ref.
+
+      (3) MATCHED, and worse than predicted. The privacy risk was real, but not in the
+      new tool: `ci/workspace.yaml` was already committed to a public repository
+      naming two repositories the host reports as private, and the inventory redacted
+      those same two as private-32 and private-33. The corpus contradicted itself, in
+      two committed files, and nothing read both. Found by building the tool rather
+      than by the tool -- the report's own output made the disagreement visible.
+      Eleven further occurrences across six files, two of them generated documents
+      whose fix is a lane of its own and is declared rather than half-done.
+
+      (4) MISSED, in the direction that matters. The recommendations did not flatter:
+      the report opens with "the last pass added an entry, so the base moved under
+      it", and the org checkout initially UNDER-reported, calling two repositories
+      absent that it structurally could not detect. That was a false claim in the
+      honest direction and was fixed the same way a flattering one would have been.
+
+      (5) UNPREDICTED, and the largest finding: a public repository has published two
+      private repository names since 2b50bd6, and no forward fix removes them from
+      history. Declared as an exemption with a removal condition, because a rewrite is
+      forbidden here and the decision is a human's.
+    failure_cost: |-
+      No cycle lost to a defect this time; the projection was written first and every predicted failure was looked for rather than stumbled into. The cost is carried elsewhere: two private repository names are published in the history of a public repository and cannot be withdrawn, and eleven occurrences remain in six tracked files, two of which are generated documents whose fix was declared rather than attempted.
+    outcome_matched_projection: false
+    status: closed
+  - id: 2026-08-16-008
+    tool: assistant-2026-08
+    kind: fix
+    action: Withdraw a restatement this corpus declared and did not have
+    found_by: the loop pass recorded at 2026-08-16, before this entry existed
+    projected_impact: |-
+      Not pre-written. This is a finding of a pass rather than an action taken
+      on purpose, which is the case the projection rule has no answer for: a
+      prediction about work nobody had decided to do.
+
+      The pass's own expectation stands in its place, and it was wrong. The
+      loop was run to demonstrate the stability mechanism, on the assumption
+      that a tree with 743 green tests and every registry checked would add
+      nothing. It added this within one run.
+    outcome: |-
+      records/DRAFT-the-base-is-the-deliverable.md declared `Restated in:
+      AGENTS.md`. AGENTS.md does not name the record, so a reader stopping at
+      the entry page is never told the record exists. ci/check_restatements.py
+      verifies the pair in both directions and failed on it -- the first loop
+      pass after the record was committed.
+
+      The row now states nothing, and the record carries a section saying it
+      loses on readership until a passage is written into AGENTS.md. That is a
+      documentation-lane change against a page already over its reading budget,
+      and was not made here.
+
+      The pass that found this is recorded as having added an entry, so the
+      streak returns to zero. That is the criterion working: the base moved.
+    failure_cost: |-
+      None yet -- the declaration never reached main. Had it, the corpus would
+      have carried a rule pointing at a restatement that did not exist, which is
+      the precise failure records/DRAFT-the-read-document-governs.md was written
+      about, asserted by the record that cites it.
+    outcome_matched_projection: false
+    lessons:
+      - >
+        A `Restated in` row is a claim about a second document, and writing it
+        beside the intention rather than beside the passage makes it false at
+        the moment it is written.
+      - >
+        The first pass after a change is the one that finds things. Recording a
+        pass before acting on what it found would have logged a quiet result for
+        a run that was not quiet.
+    status: closed
+  - id: 2026-08-16-009
+    tool: assistant-2026-08
+    kind: fix
+    action: Remediate every private repository name in the tree, one file at a time
+    found_by: >
+      An operator instruction to surface and remediate each occurrence
+      individually, rather than declaring them as a class.
+    projected_impact: |-
+      Not pre-written; this was directed file by file. The standing expectation
+      was that eleven occurrences across six files would be redacted and the
+      matter closed, because that is what the check reported.
+
+      That expectation was wrong in both directions at once, and the checking
+      was the part that was wrong.
+    outcome: |-
+      Six files remediated as directed: two status generators now redact a
+      private repository everywhere they emit a name, a test fixture uses an
+      obviously fake name, an audit table carries references and keeps both
+      rows, and four handbook pages name repositories by reference.
+
+      The check itself held three defects, each found by acting on its output:
+
+      1. It read `repositories` from both companions, but inventory-private.json
+         stores its mapping under `references`. It knew 2 private names of 34.
+         Every `clean` it had reported meant "the roster's two names are absent".
+      2. Reading all 34 produced 240 hits and almost no disclosures. One private
+         repository is named after the organisation, matching 187 URLs; several
+         others are ordinary words of three, five and nine letters. Findings are
+         now tiered: a name used *as* a repository is a finding, a bare word in
+         prose is `possible` and never gates.
+      3. Tiering on context alone then demoted a genuine disclosure -- a handbook
+         sentence listing repositories has no slash and no quotes. The tier keys
+         on whether the *name* is ambiguous, not on the context.
+
+      Redacting governance-status.yaml also broke its own faithfulness check,
+      which re-derives the git layer and compares by project name. A redacted
+      document cannot be bound to a `project/<name>` ref offline. It now
+      resolves references through the gitignored companion where present and
+      reports the rest as unresolved rather than as differences: 214 of 214
+      fields verified locally.
+
+      Gated on main by .github/workflows/private-names.yml, which asks the host
+      what is private because a runner has no local source. 762 tests, 8 of 8
+      mutations caught after two survivors exposed two real test gaps.
+    failure_cost: |-
+      Two own-goals, both in the work whose subject is not making them. A
+      private repository name was printed into the session transcript by
+      inspecting a mapping's values instead of its structure. And four real
+      private names were used as example literals in the test file for the check
+      that forbids them -- caught by that check, on the branch, before the
+      commit reached main.
+
+      The nested-backtick repair in one handbook page was found by reading the
+      diff rather than by any check; a sweep that rewrites prose can produce
+      valid-looking markup that is wrong.
+    outcome_matched_projection: false
+    lessons:
+      - >
+        A check that reads one of two storage shapes reports clean about the
+        shape it read. The count it is checking against is worth printing --
+        "33 private names checked" would have exposed "2" immediately.
+      - >
+        Making a check see more can make it useless rather than better. 240
+        findings with no disclosures is a check nobody runs, which enforces
+        less than one that fires twice.
+      - >
+        Redaction breaks anything that joins on the redacted value. The
+        document's own verifier joined on the project name, and the redaction
+        that protected the document defeated the check that made it trustworthy.
+      - >
+        Inspect structure, not values, when the values are the secret. Printing
+        a mapping's first value to learn its direction published a name.
+    tests_generated:
+      - ci/tests/test_check_private_names.py -- boundary, tiering, the org
+        exclusion, both companion shapes, and a host failure that must not read
+        as clean
+      - 8 of 8 mutations caught against an asserted-green baseline
+    status: closed
+
+# Every pass over the base, recorded whether or not it found anything.
+#
+# `entries:` above grows only when something goes wrong, so on its own it
+# cannot tell a quiet pass from a pass nobody ran. That distinction is the
+# whole stability criterion in records/DRAFT-the-base-is-the-deliverable.md,
+# so the looking is recorded here as well as the findings.
+#
+# `added_since_previous` is computed from the ledger's length by
+# `qm ledger --pass`. A hand-edited value is refused by --check.
+#
+# A bad pass is recorded on the same terms as a good one. A log updated
+# only after the runs that went well is a streak counter, not a test.
+passes:
+  - at: "2026-08-16T14:13:38Z"
+    tool: assistant-2026-08
+    ran: |-
+      full suite (664), gates, mutation harnesses, generated documents, and a read of the corpus against the tree
+    entries_at_pass: 21
+    added_since_previous: {unknown: "the first pass has no previous pass to differ from; this is a baseline, not a quiet result"}
+  - at: "2026-08-16T15:26:33Z"
+    tool: assistant-2026-08
+    ran: |-
+      743 tests, the workflow runner, docs generate and check, private-names, lanes --check, exceptions --drift, policies --check, ledger --check, devloop
+    entries_at_pass: 21
+    added_since_previous: 0
+  - at: "2026-08-16T15:30:02Z"
+    tool: assistant-2026-08
+    ran: |-
+      743 tests, the workflow runner (5 failed: 2 unpushed-branch, 2 zensical PATH, 1 restatement), docs generate and check, private-names, lanes, exceptions, policies, restatements
+    entries_at_pass: 22
+    added_since_previous: 1
+  - at: "2026-08-16T16:39:31Z"
+    tool: assistant-2026-08
+    ran: |-
+      762 tests, 8/8 mutations on the private-name check, the workflow runner including the new gate, docs generate and check, governance-status faithfulness (214/214), private-names in both source modes
+    entries_at_pass: 23
+    added_since_previous: 1

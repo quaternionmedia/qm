@@ -14,10 +14,27 @@ opening a repository and wondering whether these numbers can be believed.
 Two documents are committed at the corpus root. **Read them instead of
 re-deriving what they hold**, and check the age before you quote anything.
 
+**One command regenerates all of them**, and it is the one to run before a pull
+request so drift arrives as an uncommitted diff rather than as staleness nobody
+sees:
+
+```sh
+uv run qm docs generate            # all six
+uv run qm docs generate --offline  # skip the three that read other repositories
+uv run qm docs check               # CI-safe: has anything drifted?
+```
+
+The per-document commands below still work and are what CI and a fork invoke —
+a workflow that shelled out to `uv run` would need a venv built before any gate
+could report, and a fork runs the seed scripts in place without installing
+anything. One definition, two entry points; see `pyproject.toml`'s header.
+
 | Document | Holds | Quotable for | Refresh |
 |---|---|---|---|
 | `governance-status.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `python ci/governance_status.py --write governance-status.yaml` |
 | `harness-status.json` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `python ci/harness_status.py --no-local --write harness-status.json` |
+| `gate-status.json` | every automated check, what it refuses, **what it cannot see**, and whether anything blocks a merge | 168h | `python ci/gate_status.py --write gate-status.json` |
+| `inventory.json` | every repository the org has, against the roster and this disk. **110 against 14** | 168h | `uv run qm inventory --write inventory.json` |
 
 `harness-status.json` carries its own refresh command, staleness budget and
 `do_not` list in a `reading:` block **inside the file**, so you do not need this
@@ -59,7 +76,7 @@ there too.
 Its `docs/governance.md` carries the prep. **Both documents are on `main`**, and
 on nine of the twelve `project/*` branches — so for most projects the vendored
 path now resolves. The three that do not carry them are `project/dossier`,
-`project/loopwall` and `project/streaming-infrastructure`, each of which is tens
+`project/private-34` and `project/streaming-infrastructure`, each of which is tens
 of commits behind; a reader pinned to one of those still needs pointing at a
 corpus checkout, and a propagation fixes it. This paragraph said *neither*
 document was on `main`, which was true only until the change adding them landed
