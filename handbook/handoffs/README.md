@@ -20,6 +20,8 @@ nothing.
 
 | Handoff | Blocks on | Repo |
 |---|---|---|
+| [`two-views-one-dataset.md`](two-views-one-dataset.md) | nothing — the address grammar the dashboard milestone needs is built and pushed; four pieces remain, and one decision nobody has taken: when two views disagree about one address, which is the source | qm + dossier + qmcp |
+| [`apply-the-main-ruleset.md`](apply-the-main-ruleset.md) | **a human, and nothing else.** Everything mechanical is merged; `main` is still unprotected and one command applies it. An agent must never run that command. Also names the next slice: how corpora interact | qm |
 | [`session-2026-08-15.md`](session-2026-08-15.md) | nothing — **read this first**: where 2026-08-14/15 left things, the docs quickcheck, and what is yours in order | every repo |
 | [`semantic-review-session.md`](semantic-review-session.md) | the method for the review above: the same questions, in the same order, for all sixteen. Read the page below first for why and in what order | qm |
 | [`semantic-review-of-the-records.md`](semantic-review-of-the-records.md) | nothing — the one milestone requirement no check can measure. Fifteen records read as one body, in dependency order, before strangers read them. Unblocks the ratification rehearsal | qm |

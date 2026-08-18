@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "note": [
+    "Conformance vectors for the data-point address grammar. Shared, not owned:",
+    "dossier and qmcp each implement the grammar and each run these cases, which",
+    "is how two implementations stay honest without one importing the other.",
+    "",
+    "docs/ref/addresses.md is the grammar. ci/addresses.py is the reference",
+    "implementation and `uv run qm addresses --check` runs this file against it.",
+    "",
+    "Every case with valid=true must parse to the declared parts AND format back",
+    "to the identical string. The round trip is the point: an address that does",
+    "not survive it cannot link a dashboard row to the thing it names.",
+    "",
+    "Adding a case is cheap and is the right response to any address that was",
+    "read wrongly in the wild. Removing one needs a reason."
+  ],
+  "cases": [
+    {
+      "address": "quaternionmedia/qm",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qm",
+      "kind": "repo",
+      "id": "",
+      "why": "a bare owner/repo denotes the repository itself"
+    },
+    {
+      "address": "quaternionmedia/qm/branch/evolve/protect-main",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qm",
+      "kind": "branch",
+      "id": "evolve/protect-main",
+      "why": "the case the grammar exists for: a namespaced branch keeps its slash, so the id is the ref git accepts. 30 of 32 branches here look like this"
+    },
+    {
+      "address": "quaternionmedia/qm/branch/evolve-protect-main",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qm",
+      "kind": "branch",
+      "id": "evolve-protect-main",
+      "why": "a legal branch name that the old slug collapsed onto the case above. Both must exist and stay distinct"
+    },
+    {
+      "address": "quaternionmedia/qm/branch/main",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qm",
+      "kind": "branch",
+      "id": "main",
+      "why": "an unnamespaced branch is not a special case"
+    },
+    {
+      "address": "quaternionmedia/qm/branch/propagate/datum-2026-08-12",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qm",
+      "kind": "branch",
+      "id": "propagate/datum-2026-08-12",
+      "why": "a propagation branch: slash and hyphens and digits together"
+    },
+    {
+      "address": "quaternionmedia/qm/pr/66",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qm",
+      "kind": "pr",
+      "id": "66",
+      "why": "ids stay strings; nothing here coerces a number"
+    },
+    {
+      "address": "quaternionmedia/dossier/issue/12",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "dossier",
+      "kind": "issue",
+      "id": "12"
+    },
+    {
+      "address": "quaternionmedia/qm/ver/v0.0.1",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qm",
+      "kind": "ver",
+      "id": "v0.0.1",
+      "why": "the tag as pushed, dots included"
+    },
+    {
+      "address": "quaternionmedia/qm/doc/adr-decision-record-discipline",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qm",
+      "kind": "doc",
+      "id": "adr-decision-record-discipline"
+    },
+    {
+      "address": "quaternionmedia/qmcp/delta/summarizer",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qmcp",
+      "kind": "delta",
+      "id": "summarizer",
+      "why": "the kind the milestone needs: a workflow step and a delta are one unit of work, addressed once"
+    },
+    {
+      "address": "quaternionmedia/qmcp/invocation/b9532e20-d725-4589-a055-477d4e947b8d",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qmcp",
+      "kind": "invocation",
+      "id": "b9532e20-d725-4589-a055-477d4e947b8d",
+      "why": "the audit record a delta links to. A UUID has hyphens and no slashes"
+    },
+    {
+      "address": "quaternionmedia/qm/branch/feature/pr/nested",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qm",
+      "kind": "branch",
+      "id": "feature/pr/nested",
+      "why": "a kind name appearing inside an id must not re-trigger a kind match. Substring parsing gets this wrong"
+    },
+    {
+      "address": "quaternionmedia/qm/tools/build.sh",
+      "valid": false,
+      "why": "`tools` is not a kind, so this is not a repo-scoped address. The closed kind set is what makes an ordinary path distinguishable from an address"
+    },
+    {
+      "address": "quaternionmedia/qm/branch/",
+      "valid": false,
+      "why": "a kind with no id addresses nothing"
+    },
+    {
+      "address": "quaternionmedia",
+      "valid": false,
+      "why": "an owner alone is not a data point"
+    },
+    {
+      "address": "",
+      "valid": false,
+      "why": "the empty string is swept past, not parsed"
+    },
+    {
+      "address": "/qm/branch/main",
+      "valid": false,
+      "why": "an empty owner segment"
+    },
+    {
+      "address": "github/user/subcontrabass",
+      "valid": false,
+      "why": "a reserved global bucket. Not repo-scoped, and listed so that an owner named `github` is a collision somebody chose"
+    },
+    {
+      "address": "lang/python",
+      "valid": false,
+      "why": "reserved global bucket"
+    },
+    {
+      "address": "pkg/pydantic",
+      "valid": false,
+      "why": "reserved global bucket"
+    }
+  ]
+}
