@@ -2,33 +2,18 @@
 
 What to do in your first hour with the QM corpus.
 
-## What this is, in ordinary words
+## What a record is
 
-An organisation makes the same decisions over and over: how work gets reviewed,
-when something counts as finished, what a new project starts from. Usually
-those answers live in people's heads, and they drift.
+[The landing page](../index.md) says what this repository is for. This page
+assumes you have read it and gets on with the steps.
 
-This repository is where Quaternion Media writes them down instead. Every other
-QM project points at it and follows what it says. A project may be stricter
-than these rules; it may never be looser.
+One thing is worth explaining before you start, because everything else rests
+on it. A **record** is one decision, written down. It says what was decided,
+what the situation was, what else was considered, and what it costs. It is not
+a guide and not a tutorial. It is a decision with its reasoning attached, so
+that a year from now somebody can see why rather than guess.
 
-**What a "record" is.** One decision, written down: what was decided, what the
-situation was, what else was considered, and what it costs. Not a guide and not
-a tutorial — a decision, with its reasoning attached, so that a year later
-somebody can see *why* rather than guess. They live in `records/` and they are
-the only documents here that bind anybody. Everything else explains them,
-points at them, or checks them.
-
-**Why nothing is marked final.** Every record says `Proposed`. Making one final
-takes a second person, and there is not a second person yet. That is a stated
-position rather than an oversight: a step one person can complete alone is not
-a check on anything.
-
-**A warning about the words.** A few ordinary words are used here in a narrow
-sense, and several mean more than one thing — *record*, *draft*, *gate*,
-*review*, *phase*, *delta*. When a sentence stops making sense, that is usually
-why. The [glossary](https://github.com/quaternionmedia/qm/blob/main/handbook/glossary.md)
-sorts them out and is the shortest useful thing to read after this page.
+Records live in `records/`. They are the only documents here that bind anybody.
 
 ## 1. Clone the repository
 
