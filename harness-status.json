@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-18T20:09:28Z",
+  "generated_at": "2026-08-18T21:35:45Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -58,7 +58,7 @@
       "local": 0,
       "pushed": 0,
       "draft": 2,
-      "ready": 5
+      "ready": 4
     },
     "threads_stalled": 5,
     "threads_unreadable": 0
@@ -78,15 +78,6 @@
         ],
         "contributor": null,
         "open_prs": [
-          {
-            "number": 72,
-            "title": "A ring in a terminal: what implementing rad's contract revealed",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "perspective/2026-08-18-a-ring-in-a-terminal",
-            "draft": false
-          },
           {
             "number": 57,
             "title": "Refresh datum's seed copies, which #47 missed",
@@ -109,24 +100,6 @@
       },
       "threads": [
         {
-          "name": "perspective/2026-08-18-a-ring-in-a-terminal",
-          "stage": "ready",
-          "pr": 72,
-          "base": "main",
-          "title": "A ring in a terminal: what implementing rad's contract revealed",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 270,
-            "changed_files": 8,
-            "commits": 1,
-            "deletions": 168,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-18T19:43:02Z"
-          },
-          "idle_hours": 0.4,
-          "stalled": false
-        },
-        {
           "name": "propagate/datum-2026-08-12",
           "stage": "draft",
           "pr": 57,
@@ -141,7 +114,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T02:45:51Z"
           },
-          "idle_hours": 137.4,
+          "idle_hours": 138.8,
           "stalled": true
         }
       ],
@@ -209,7 +182,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23085.2,
+          "idle_hours": 23086.7,
           "stalled": true
         }
       ],
@@ -230,8 +203,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 109,
-        "observed_at": "2026-08-18T20:08:55Z",
+        "behind_corpus": 112,
+        "observed_at": "2026-08-18T21:35:10Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -320,7 +293,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 176.3,
+          "idle_hours": 177.8,
           "stalled": true
         }
       ],
@@ -336,8 +309,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 109,
-        "observed_at": "2026-08-18T20:08:56Z",
+        "behind_corpus": 112,
+        "observed_at": "2026-08-18T21:35:11Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -378,8 +351,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 109,
-        "observed_at": "2026-08-18T20:09:00Z",
+        "behind_corpus": 112,
+        "observed_at": "2026-08-18T21:35:17Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -514,7 +487,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 168.9,
+          "idle_hours": 170.4,
           "stalled": true
         }
       ],
@@ -535,8 +508,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 109,
-        "observed_at": "2026-08-18T20:08:58Z",
+        "behind_corpus": 112,
+        "observed_at": "2026-08-18T21:35:14Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -672,8 +645,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 109,
-        "observed_at": "2026-08-18T20:09:04Z",
+        "behind_corpus": 112,
+        "observed_at": "2026-08-18T21:35:20Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -736,8 +709,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 109,
-        "observed_at": "2026-08-18T20:09:08Z",
+        "behind_corpus": 112,
+        "observed_at": "2026-08-18T21:35:24Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -755,12 +728,12 @@
         "contributor": null,
         "open_prs": [
           {
-            "number": 17,
-            "title": "Plan: a rad ring in the terminal, and messaging through it",
+            "number": 18,
+            "title": "Add an org overview as the dossier TUI's first tab",
             "author": "subcontrabass",
             "bot": false,
             "base": "main",
-            "head": "docs/plan-rad-tui",
+            "head": "feat/org-overview",
             "draft": false
           },
           {
@@ -821,19 +794,19 @@
       },
       "threads": [
         {
-          "name": "docs/plan-rad-tui",
+          "name": "feat/org-overview",
           "stage": "ready",
-          "pr": 17,
+          "pr": 18,
           "base": "main",
-          "title": "Plan: a rad ring in the terminal, and messaging through it",
+          "title": "Add an org overview as the dossier TUI's first tab",
           "author": "subcontrabass",
           "delta": {
-            "additions": 1738,
-            "changed_files": 8,
-            "commits": 7,
-            "deletions": 6,
+            "additions": 1563,
+            "changed_files": 9,
+            "commits": 2,
+            "deletions": 26,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-18T20:04:10Z"
+            "updated_at": "2026-08-18T21:29:13Z"
           },
           "idle_hours": 0.1,
           "stalled": false
@@ -851,8 +824,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 0,
-        "observed_at": "2026-08-18T20:09:02Z",
+        "behind_corpus": 3,
+        "observed_at": "2026-08-18T21:35:18Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -914,7 +887,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3220.1,
+          "idle_hours": 3221.6,
           "stalled": true
         }
       ],
@@ -1187,8 +1160,8 @@
           "workflows_absent": 1,
           "licensing_present": 0
         },
-        "behind_corpus": 0,
-        "observed_at": "2026-08-18T20:09:07Z",
+        "behind_corpus": 3,
+        "observed_at": "2026-08-18T21:35:23Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
