@@ -4,8 +4,18 @@
 `rad` `96836ad`.** Every figure here was true at those commits and nowhere else.
 Re-derive before quoting one.
 
-**Everything is merged and pushed. No branch is held back**, no working tree is
-dirty, and every repository below has an empty pull-request slot.
+**This page and its retrospective are deliberately local.** They sit on
+`evolve/active-repos` in `qm`, committed and **not pushed**, because the
+operator asked the session to close locally. That is a decision rather than an
+oversight: push them, or carry them forward, but do not treat them as work
+somebody forgot.
+
+Everything else is merged, its branch deleted. Apart from that one branch no
+working tree is dirty and every repository below has an empty pull-request slot.
+
+*A page that describes its own state has now needed this correction in three
+consecutive handoffs.* Each time the state changed after the sentence was
+written, and no check caught any of them — only re-reading the page did.
 
 ---
 
