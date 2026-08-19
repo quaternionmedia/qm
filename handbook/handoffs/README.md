@@ -20,7 +20,7 @@ nothing.
 
 | Handoff | Blocks on | Repo |
 |---|---|---|
-| [`the-pair-and-the-fresh-setup.md`](the-pair-and-the-fresh-setup.md) | nothing — **read this first**: where 2026-08-19 left all three repositories, with every branch merged and nothing held back. Names the four unfinished pieces, the two things blocked on a human, and the two claims it could not verify | every repo |
+| [`the-pair-and-the-fresh-setup.md`](the-pair-and-the-fresh-setup.md) | nothing — **read this first**: where 2026-08-19 left all three repositories, with every branch merged and nothing held back. Names what is unfinished, what is blocked on a human, and the claims it could not verify | every repo |
 | [`two-views-one-dataset.md`](two-views-one-dataset.md) | nothing — the address grammar the dashboard milestone needs is built and pushed; four pieces remain, and one decision nobody has taken: when two views disagree about one address, which is the source | qm + dossier + qmcp |
 | [`apply-the-main-ruleset.md`](apply-the-main-ruleset.md) | **a human, and nothing else.** Everything mechanical is merged; `main` is still unprotected and one command applies it. An agent must never run that command. Also names the next slice: how corpora interact | qm |
 | [`session-2026-08-15.md`](session-2026-08-15.md) | nothing — **read this first**: where 2026-08-14/15 left things, the docs quickcheck, and what is yours in order | every repo |
