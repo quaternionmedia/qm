@@ -12,7 +12,10 @@ The Quaternion Media constitution: the decisions that govern every QM project, t
 
 1. **Only `records/` binds.** Records are the only binding documents. Everything else points at them. `perspectives/` is opinion and binds nothing.
 2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: ratification requires approval from a second active code owner.
-3. **Every change arrives as a pull request** — from a typo fix to a new record. Nobody merges their own work into `main`.
+3. **Every change arrives as a pull request** — from a typo fix to a new record. The pull request is the audit record, not a request for anyone's attention, and its author merges it once every gate is green.
+4. **Two moments need a human, and the pull request is neither**: ratifying a record, and putting a version tag on a project. `main` is not a claim, so merging into it is not a release.
+
+New here? [The README](https://github.com/quaternionmedia/qm#in-plain-terms) says the same thing in ordinary words, and [the glossary](../handbook/glossary.md) sorts out the handful of words this corpus uses in a narrow sense.
 
 ## Where to go
 

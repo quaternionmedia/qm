@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-18T21:35:45Z",
+  "generated_at": "2026-08-19T15:09:10Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -42,11 +42,11 @@
     "blocks_a_merge": false
   },
   "totals": {
-    "gates": 13,
-    "built": 13,
+    "gates": 14,
+    "built": 14,
     "declared_not_built": 0,
     "by_state": {
-      "ok": 12,
+      "ok": 13,
       "warn": 0,
       "unknown": 1
     },
@@ -318,6 +318,38 @@
         ],
         "jobs": [
           "claims"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "tag-determinism",
+      "gates": [
+        "tag"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "tag-determinism.yml",
+      "job": "deterministic-validation",
+      "runs": [
+        "project-seed/ci/check_tag_claims.py"
+      ],
+      "enforces": [
+        "records/DRAFT-version-tags-are-claims.md"
+      ],
+      "refuses": "A `v*` tag whose captured test run declares a skip, a rerun or a retry, or whose suite does not pass at all.",
+      "cannot_see": "Whether the suite is deterministic. It refuses a run that announces nondeterminism; one that is nondeterministic and silent about it passes. It also says nothing about coverage: a suite asserting little passes as readily as one asserting much.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Tag determinism",
+        "triggers": [
+          "push",
+          "workflow_dispatch"
+        ],
+        "jobs": [
+          "deterministic-validation"
         ],
         "job_declared": true
       },
