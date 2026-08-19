@@ -196,6 +196,25 @@ gates:
       a human wrote. It does not gate tag creation, which needs a host-side
       tag-protection ruleset, and it runs after the tag exists.
 
+  - id: tag-determinism
+    workflow: tag-determinism.yml
+    job: deterministic-validation
+    gates: [tag]
+    seed: false
+    exists: true
+    refuses: >
+      A `v*` tag whose captured test run declares a skip, a rerun or a retry, or
+      whose suite does not pass at all.
+    runs:
+      - project-seed/ci/check_tag_claims.py
+    enforces:
+      - records/DRAFT-version-tags-are-claims.md
+    cannot_see: >
+      Whether the suite is deterministic. It refuses a run that announces
+      nondeterminism; one that is nondeterministic and silent about it passes.
+      It also says nothing about coverage: a suite asserting little passes as
+      readily as one asserting much.
+
   - id: secret-scan
     workflow: null
     job: GitGuardian Security Checks

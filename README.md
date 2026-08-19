@@ -1,15 +1,39 @@
 # Quaternion Media Constitution
 
-This repository holds the decisions that govern every Quaternion Media project: the principles, the process that keeps projects consistent, and the template each new project starts from. Projects adopt this corpus **by reference**. A project may tighten these rules, but never relax them.
+## In plain terms
+
+This repository is where Quaternion Media writes down how it works, so the
+answer to "how do we do this here?" lives in one place instead of in people's
+heads.
+
+Every other QM project points at this one and follows what it says. A project
+is free to be **stricter** than these rules. It is never free to be looser.
+
+Four sentences will carry you a long way:
+
+- **Decisions live in `records/`.** If it is not a record, it does not bind
+  anybody. Everything else here explains, points at, or checks the records.
+- **Nothing is final yet.** Every record says `Proposed`, on purpose: making one
+  final needs a second person, and there is not a second person yet.
+- **All work arrives as a pull request** — a typo, a new rule, anything. The
+  pull request is the paper trail. It is not a request for someone's attention,
+  and you merge your own once the automated checks pass.
+- **Two moments need a human, and neither is the pull request.** Making a record
+  final, and putting a version tag on a project. A tag is a person saying "I
+  read this, I ran it against the real thing, and the checks passed."
+
+If a page here and a record disagree, the record is what the organisation
+decided and the page is wrong. Say so, and fix the page.
+
+**A word of warning about the vocabulary.** A handful of ordinary words are used
+here in a narrow sense — *record*, *draft*, *gate*, *review*, *phase*, *delta* —
+and several of them mean more than one thing. When a sentence stops making
+sense, that is usually why:
+[handbook/glossary.md](handbook/glossary.md) sorts them out and is the shortest
+useful thing to read after this section.
 
 **Full documentation:** [docs/](docs/index.md) — also rendered at
 [quaternionmedia.github.io/qm](https://quaternionmedia.github.io/qm/) once Pages is enabled.
-
-## Read this first
-
-1. **Only `records/` binds.** Records are the only binding documents here. Everything else points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: ratification requires approval from a second active code owner.
-3. **Every change arrives as a pull request** — from a typo fix to a new record. Nobody merges their own work into `main`.
 
 ## Start here
 
@@ -30,7 +54,8 @@ This repository holds the decisions that govern every Quaternion Media project: 
 | Know what state a document is in before trusting it | [handbook/document-states.md](handbook/document-states.md), or `uv run qm docs states --state proposed` |
 | Look up a word this corpus uses in its own way | [handbook/glossary.md](handbook/glossary.md) |
 
-Three things are worth knowing before anything else:
+The same four points again, in the corpus's own words, with the reasoning the
+plain version leaves out:
 
 1. **Records in `records/` are the only binding documents.** Everything else
    points at them. `perspectives/` is opinion and binds nothing.
@@ -39,8 +64,10 @@ Three things are worth knowing before anything else:
    can satisfy alone is a gate in name only.
 3. **Every change arrives as a pull request**, from a typo to a new record. The
    pull request is an audit record, not a request for attention: its author
-   merges it once every gate is green. The two human gates are ratification and
-   the version tag, and neither is the pull request.
+   merges it once every gate is green.
+4. **There are exactly two human gates**, ratification and the version tag, and
+   the pull request is neither — `records/DRAFT-version-tags-are-claims.md` §4.
+   `main` is not a claim, so merging into it is not a release.
 
 ## Layout
 

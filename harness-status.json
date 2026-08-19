@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-18T21:35:45Z",
+  "generated_at": "2026-08-19T15:09:10Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -58,7 +58,7 @@
       "local": 0,
       "pushed": 0,
       "draft": 2,
-      "ready": 4
+      "ready": 3
     },
     "threads_stalled": 5,
     "threads_unreadable": 0
@@ -114,7 +114,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-13T02:45:51Z"
           },
-          "idle_hours": 138.8,
+          "idle_hours": 156.4,
           "stalled": true
         }
       ],
@@ -182,7 +182,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23086.7,
+          "idle_hours": 23104.2,
           "stalled": true
         }
       ],
@@ -203,8 +203,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 112,
-        "observed_at": "2026-08-18T21:35:10Z",
+        "behind_corpus": 116,
+        "observed_at": "2026-08-19T15:08:38Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -293,7 +293,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 177.8,
+          "idle_hours": 195.3,
           "stalled": true
         }
       ],
@@ -309,8 +309,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 112,
-        "observed_at": "2026-08-18T21:35:11Z",
+        "behind_corpus": 116,
+        "observed_at": "2026-08-19T15:08:39Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -351,8 +351,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 112,
-        "observed_at": "2026-08-18T21:35:17Z",
+        "behind_corpus": 116,
+        "observed_at": "2026-08-19T15:08:43Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -487,7 +487,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 170.4,
+          "idle_hours": 187.9,
           "stalled": true
         }
       ],
@@ -508,8 +508,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 112,
-        "observed_at": "2026-08-18T21:35:14Z",
+        "behind_corpus": 116,
+        "observed_at": "2026-08-19T15:08:41Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -645,8 +645,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 112,
-        "observed_at": "2026-08-18T21:35:20Z",
+        "behind_corpus": 116,
+        "observed_at": "2026-08-19T15:08:47Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -709,8 +709,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 112,
-        "observed_at": "2026-08-18T21:35:24Z",
+        "behind_corpus": 116,
+        "observed_at": "2026-08-19T15:08:51Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -727,15 +727,6 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
-          {
-            "number": 18,
-            "title": "Add an org overview as the dossier TUI's first tab",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "feat/org-overview",
-            "draft": false
-          },
           {
             "number": 9,
             "title": "build(deps): bump starlette from 0.50.0 to 1.3.1",
@@ -792,26 +783,7 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [
-        {
-          "name": "feat/org-overview",
-          "stage": "ready",
-          "pr": 18,
-          "base": "main",
-          "title": "Add an org overview as the dossier TUI's first tab",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 1563,
-            "changed_files": 9,
-            "commits": 2,
-            "deletions": 26,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-18T21:29:13Z"
-          },
-          "idle_hours": 0.1,
-          "stalled": false
-        }
-      ],
+      "threads": [],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -824,8 +796,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 3,
-        "observed_at": "2026-08-18T21:35:18Z",
+        "behind_corpus": 7,
+        "observed_at": "2026-08-19T15:08:45Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -887,7 +859,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3221.6,
+          "idle_hours": 3239.1,
           "stalled": true
         }
       ],
@@ -1160,8 +1132,8 @@
           "workflows_absent": 1,
           "licensing_present": 0
         },
-        "behind_corpus": 3,
-        "observed_at": "2026-08-18T21:35:23Z",
+        "behind_corpus": 7,
+        "observed_at": "2026-08-19T15:08:49Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
