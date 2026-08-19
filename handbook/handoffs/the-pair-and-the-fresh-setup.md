@@ -4,15 +4,17 @@
 `qmcp` `main` at `31c6db8`.** Every figure on this page was true at those
 commits and nowhere else. Re-derive before quoting one.
 
-**Standing constraint: this page and its retrospective are deliberately local.**
-They sit on `evolve/handoff-fresh-setup` in `qm`, committed and **not pushed**,
-because the operator asked for the session to close locally. That is a decision,
-not an oversight — push them, or carry them forward, but do not treat them as
-work somebody forgot.
+**Standing constraint: nothing is held back.** This page and its retrospective
+arrived on `evolve/handoff-fresh-setup`, which is pushed and merged like
+everything else this session produced. There are no unpushed commits and no
+dirty trees in any of the three repositories. If a later session finds one, it
+is not this session's.
 
-Everything else this session produced is merged and its branch deleted. Apart
-from that one branch there are no unpushed commits and no dirty trees in any of
-the three repositories.
+*This paragraph has been wrong twice.* It first said nothing was held back while
+the operator had asked for a local close; it then said the page was deliberately
+local, which stopped being true when they asked for it to be pushed. A page that
+describes its own state has to be re-read whenever that state changes, and
+neither correction was prompted by a check — both were caught by reading.
 
 ---
 
