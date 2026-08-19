@@ -67,13 +67,9 @@ forks afterwards rather than at fetch.
 
 ## What is blocked on a human
 
-**`qm` #57 is green and has been a draft since 2026-08-13.** It targets
-`project/datum`, which holds its own slot, so it violates nothing. But the
-corpus is explicit that draft means incomplete and is not a holding pen for
-finished work: under the two-gate model there is nobody at the far end of that
-queue, and a green pull request left in draft is a change that never reached
-`main`. Either it is unfinished — in which case the page it needs is not this
-one — or it should be merged by its author. **This session did not touch it.**
+*(`qm` #57, a green pull request left in draft since 2026-08-13, was resumed and
+merged on 2026-08-19, and `project/datum` was brought to `main` by #77. Both are
+described under "what was finished late" below.)*
 
 **The README's routing table.** Choosing a row still needs vocabulary a
 newcomer does not have. Trimming it is a judgement about what matters most,
@@ -81,6 +77,27 @@ which belongs to whoever owns the reader's first ten minutes.
 
 **Dependabot pull requests are open in `dossier` and `qmcp`.** They are
 automation and hold no contributor slot. Nothing here depends on them.
+
+## What was finished late
+
+**`qm` #57 and #77.** #57 had been green and in draft since 2026-08-13, which
+the corpus names as the state that should not exist: under the two-gate model
+nobody is waiting at the far end of that queue, so a green pull request left in
+draft is a change that never reached its base.
+
+It was re-verified rather than trusted, because the seed had moved underneath
+it. `project-seed/adr/README.md` gained a SEED FILE banner after the branch was
+cut, so the claim "datum's copy matches the seed" needed re-testing. It held:
+the only difference is the banner a copier is instructed to delete.
+
+#77 then merged `main` into `project/datum` — a merge and never a rebase,
+because a downstream submodule pins the tip. `project/datum` is now level with
+`main`, and `qm` has no open pull requests.
+
+**What was measured rather than reasoned about.** The 2026-08-12 propagation
+silently reverted datum's `adr/` while appearing to do nothing to it, so this
+time the directory was diffed across the merge instead of being assumed safe:
+`git diff --name-only ea1272e..HEAD -- adr/` returned nothing.
 
 ## What could not be verified
 
