@@ -80,6 +80,7 @@ ENTRY_POINT_GLOBS = ("handbook/**/*.md",)
 RESTATED_ROW = re.compile(
     r"^\|\s*\*\*Restated in\*\*\s*\|(?P<value>.*?)\|\s*$", re.MULTILINE
 )
+ITEM_POINTER = re.compile(r"`([^`]+)`\s+item\s+(\d+)")
 BACKTICKED = re.compile(r"`(?P<path>[^`]+?\.md)`")
 
 # A record path as it appears in prose. Deliberately unanchored, which is also
@@ -120,6 +121,49 @@ def declared_restatements(record_text: str) -> set[str]:
     if value.strip().lower() in ("", "none", "nothing", "-", "*none.*"):
         return set()
     return {normalise(m.group("path")) for m in BACKTICKED.finditer(value)}
+
+
+def declared_items(record_text: str) -> set[tuple[str, int]]:
+    """Every `<path> item N` a record's `Restated in` row names.
+
+    The row often points at a numbered item rather than a whole document, and
+    that number was decoration: `declared_restatements` keeps the path and
+    drops it. Inserting an item into `AGENTS.md` renumbered everything below,
+    and a record went on naming the item that used to carry its summary while
+    this check stayed green -- it was verifying that the document cited the
+    record somewhere, which was still true.
+
+    >>> sorted(declared_items("| **Restated in** | `AGENTS.md` item 3 |"))
+    [('AGENTS.md', 3)]
+    """
+    match = RESTATED_ROW.search(record_text)
+    if match is None:
+        return set()
+    return {(normalise(m.group(1)), int(m.group(2)))
+            for m in ITEM_POINTER.finditer(match.group("value"))}
+
+
+def numbered_items(document_text: str, number: int) -> list[str]:
+    """Every top-level item carrying this number, in document order.
+
+    Plural because a page may hold more than one numbered list, and taking the
+    first match is wrong: `AGENTS.md` opens with a short list of facts to
+    establish and then runs a long list of rules, so "item 3" matched the
+    wrong list entirely and this check reported a restatement as missing that
+    was present a hundred lines further down.
+    """
+    lines = document_text.splitlines()
+    found: list[str] = []
+    for index, line in enumerate(lines):
+        if not re.match(rf"^{number}\.\s", line):
+            continue
+        body = [line]
+        for following in lines[index + 1:]:
+            if re.match(r"^\d+\.\s", following):
+                break
+            body.append(following)
+        found.append(chr(10).join(body))
+    return found
 
 
 def cited_records(document_text: str) -> set[str]:
@@ -182,6 +226,26 @@ def check(root: Path, records_dir: Path) -> tuple[list[str], list[str]]:
     for doc in entry_points:
         rel = doc.relative_to(root).as_posix()
         cites[rel] = cited_records(read(doc))
+
+    # A declaration that names an item number has to point at the item that
+    # actually carries the summary, not merely at a document that mentions the
+    # record somewhere on the page.
+    for record in records:
+        rel = record.relative_to(root).as_posix()
+        for document, number in declared_items(read(record)):
+            path = root / document
+            if not path.is_file():
+                continue
+            items = numbered_items(read(path), number)
+            if not items:
+                problems.append(
+                    f"{rel} says it is restated in {document} item {number}, "
+                    f"which does not exist")
+            elif not any(normalise(rel) in cited_records(item) for item in items):
+                problems.append(
+                    f"{rel} says it is restated in {document} item {number}, "
+                    f"but that item does not name it. Items renumber when one "
+                    f"is inserted above them")
 
     # Direction one: a record names a document, and the document must name it.
     for record_rel, documents in declared.items():

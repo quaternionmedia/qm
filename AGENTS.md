@@ -59,72 +59,48 @@ with a date looks checked.
    an audit record rather than a request for anyone's attention.** Work on a
    branch — `evolve/<slug>` for org-level work, `perspective/<date>-<slug>` for
    a perspective, `project/<name>` for one project's records — open a PR, and
-   **merge it yourself once every gate is green.** That is the job: an agent's
-   output is a `main` that is clean and working, entered through a pull request
-   so the gates ran and the diff stays readable afterwards.
-   **Never push `main` directly**, however small, mechanical, or obviously
-   correct the change looks. The direct push is the one act that destroys the
-   audit record, and nothing downstream can reconstruct it.
+   **merge it yourself once every gate is green.** Your output is a `main` that
+   is clean and working, entered through a pull request so the gates ran and the
+   diff stays readable.
+
+   **Never push `main` directly**, however small or obviously correct the change
+   looks. That is the one act that destroys the audit record.
+
    **`main` is not a claim, so merging into it is not a release.**
    `records/DRAFT-version-tags-are-claims.md` §4: `main`, a pull request, a
-   working branch and a local build are all drafts — they may be perfectly good
-   and they assert nothing. **There are exactly two human gates in this
-   corpus**, and the pull request is neither: *ratification*, for what this
-   corpus says, and the *version tag*, for what a project ships. A tag asserts
-   a human reviewed the change set, a human manually tested it against its real
-   runtime, and deterministic automated validation passed. Keeping `main` clean
-   is what makes cutting one cheap.
-   **Never request a review**, and add the person who asked for the work as
-   **assignee**. Reviewers are named at the tag, by the human cutting it. A
-   review request pulls a second person into work that asserts nothing yet, and
-   against a branch carrying a *live* `CODEOWNERS` it fires the moment the PR
-   opens, with no reviewer named by you and no way to recall the notification.
-   **Draft means incomplete, and nothing else.** Use it when the work is not
-   finished. It is not a holding pen for finished work waiting on a human —
-   under the two-gate model there is nobody at the far end of that queue, and
-   a green PR left in draft is a change that never reached `main`.
-   **Closing a pull request is a git operation, not just a `gh` command.**
-   Pushing a PR's head commits onto its base branch *merges that PR*. GitHub
-   detects that the base now contains the head and marks it merged, with the
-   pushed commit as the merge commit and whoever pushed as the merger — no
-   review, no approval, and no way to undo the record. A later `gh pr close`
-   is then a no-op against an already-merged PR, so the operation reports
-   success and `--delete-branch` silently does nothing.
-   This has happened here. Combining two stacked PRs by fast-forwarding the
-   base is the natural move and it converts a close into a merge. **Close the
-   PR first, then push**, or retarget it to the outer base before folding it
-   in. The order is the whole safeguard.
-   **A pull request states decisions, not questions.** Settle every input you
-   are unsure of *before* you open it: ask in the session and wait for the
-   answer. A PR that asks its reviewer what you should have asked earlier
-   hands the drafting back to them and calls it review. This is separate from
-   a record's `Pends on` row, which names something *the organisation* has
-   not settled — that belongs in the record, and a Proposed record naming it
-   is the process working. What does not belong anywhere is your own
-   unresolved question arriving as PR text.
-   **Never open a pull request from `project/<name>` into `main`.** That branch
-   is permanent and takes changes in, never out: it holds how one project's
-   governance deviates from this corpus. Merging it moves that project's `adr/`
-   into the org namespace, where a local decision reads as an org record binding
-   every project — and nothing in the tree looks wrong afterwards, so there is
-   no later signal. Records to a project go in *on a PR whose base is
-   `project/<name>`*, and each such base holds its own slot. `main`'s changes
-   reach it as a `propagate/<name>-<date>` PR against it, merged and never
-   rebased, because a downstream submodule pins the tip. The branch's first
-   `adr/` content is pushed, not PR'd, because the only base it could target
-   does not exist yet — `handbook/forking-a-project.md` step 2.
-   `project-seed/ci/check_pr_base.py` refuses the wrong direction, and the
-   `docs/ref/namespaces.md` is the canonical statement for branch naming.
-   **One open PR per repository, per contributor.** Not one per task. This is a
-   sequencing constraint and not a bandwidth one: two PRs that must merge in an
-   order are a puzzle, and under the two-gate model a green PR frees its own
-   slot in minutes, so the limit binds only on work that is genuinely
-   unfinished. Land the org change first and let propagation carry it, rather
-   than opening a second PR that depends on the first. `one-pr-check.yml` enforces it and
-   `project-seed/ci/check_one_pr.py` is the rule; in *this* repository each
-   `project/<name>` branch holds its own slot, because each is pinned by a
-   different downstream submodule. That exemption is named in the workflow and
-   printed by the tool, and it is the only one.
+   branch and a local build are all drafts — they may be perfectly good and they
+   assert nothing. **There are exactly two human gates**, and the pull request is
+   neither: *ratification* for what this corpus says, and the *version tag* for
+   what a project ships. Keeping `main` clean is what makes cutting a tag cheap.
+
+   Six traps, each of which has caught somebody here:
+
+   - **Never request a review**; assign the person who asked for the work.
+     Reviewers are named at the tag. `handbook/async-contract.md` §2.
+   - **Draft means incomplete, and nothing else.** It is not a holding pen for
+     finished work: nobody is waiting at the far end of that queue, so a green
+     PR left in draft is a change that never reached `main`.
+   - **Closing a pull request is a git operation.** Pushing a PR's head onto its
+     base *merges* it — GitHub records the merge, and a later `gh pr close` is a
+     silent no-op. **Close the PR first, then push**, or retarget it. The order
+     is the whole safeguard.
+   - **A pull request states decisions, not questions.** Settle your own
+     uncertainties before opening it; ask in the session and wait.
+     `handbook/async-contract.md` §3. A record's `Pends on` row is different —
+     that names something *the organisation* has not settled.
+   - **Never open a pull request from `project/<name>` into `main`.** That branch
+     takes changes in, never out; merging it would move one project's `adr/` into
+     the org namespace, where a local decision reads as binding every project.
+     Records go in on a PR *based on* `project/<name>`; `main` reaches it as a
+     `propagate/<name>-<date>` PR, merged and never rebased, because a downstream
+     submodule pins the tip. `project-seed/ci/check_pr_base.py` refuses the wrong
+     direction and `docs/ref/namespaces.md` is the canonical branch naming.
+   - **One open PR per repository, per contributor** — not one per task. It is a
+     sequencing constraint, not a bandwidth one. `handbook/async-contract.md` §1.
+     In *this* repository each `project/<name>` branch holds its own slot,
+     because each is pinned by a different downstream submodule; that is the only
+     exemption.
+
 4. **Check what your branch actually carries, before opening the PR.**
    `python project-seed/ci/check_pr_base.py --base <base> --head <branch>`
    reports the merge-base, the commit and file counts, the authors, and any

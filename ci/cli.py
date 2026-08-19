@@ -164,6 +164,10 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "prose", help="the opening of every entry point, side by side",
+        add_help=False,
+    )
+    sub.add_parser(
         "addresses", help="how one data point is named, in every system that holds it",
         add_help=False,
     )
@@ -238,6 +242,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
     "protocols": ("protocols", False, []),
+    "prose": ("prose", False, []),
     "addresses": ("addresses", False, []),
     "divergence": ("divergence", False, []),
     "two-views": ("two_views", False, []),

@@ -12,12 +12,12 @@ If you read nothing else, read this next section. It is the part that catches pe
 
 ## Read this first
 
-1. **Decisions live in `records/`.** Nothing else here is binding. Everything else explains a record, points at one, or checks that we are keeping to it.
-2. **Nothing is marked final yet.** Every record says `Proposed`, on purpose. Making one final needs a second person to agree, and there is not a second person yet.
-3. **All work arrives as a pull request**, from a typo to a new rule. It is the paper trail, not a request for someone's attention. You merge your own once the automated checks pass.
+1. **Decisions live in `records/`.** Nothing else here is binding. Everything else explains a [record](ref/glossary.md#record), points at one, or checks that we are keeping to it.
+2. **Nothing is marked final yet.** Every record says [`Proposed`](ref/glossary.md#proposed), on purpose. Making one final is [ratification](ref/glossary.md#ratification), and it needs a second person to agree. There is not a second person yet.
+3. **All work arrives as a pull request**, from a typo to a new rule. It is the paper trail, not a request for someone's attention. You merge your own once the automated [checks](ref/glossary.md#gate) pass.
 4. **Two moments need a person, and the pull request is not one of them.** Making a record final, and putting a version tag on a project. A tag means somebody read the change, ran it against the real thing, and watched the checks pass. Reaching `main` claims none of that.
 
-Still finding your feet? [The glossary](../handbook/glossary.md) sorts out the handful of everyday words used here in a narrow sense — *record*, *draft*, *gate*, *review*. When a sentence stops making sense, that is usually why.
+Every word above that is doing unusual work links to its definition. If a sentence stops making sense, the word is usually why — [the glossary](ref/glossary.md) has the rest.
 
 ## Where to go
 
