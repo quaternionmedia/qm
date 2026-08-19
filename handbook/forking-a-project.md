@@ -1,7 +1,7 @@
 # Handbook — Forking a New Project
 
 **Routing.** Procedure, not a decision record. It carries out the
-branch-per-project model `README.md` describes; the decisions behind it live
+branch-per-project model described in `docs/about/architecture.md`; the decisions behind it live
 in `records/`. Its sibling is `handbook/propagation-runbook.md`, which covers
 keeping a project current once it exists — this page is only the first day.
 
@@ -19,7 +19,7 @@ counts is the adopting projects. `ci/` was generalized from the working lint in
 `project/qmetronome`
 and now runs both in this corpus's own CI and in eight adopting projects that
 copied it from here — 191 recorded runs across apothecary, datum, qmetronome,
-dossier, datafactorio, factorio-server, factorio-sysops and loopwall. That
+dossier, `private-32`, `private-33`, factorio-sysops and `private-34`. That
 sentence used to say it had never run in a copying project, and stayed there
 after it stopped being true. `ide/` is the least exercised of the three, and
 which projects carry it *can* now be established from here:
@@ -54,7 +54,7 @@ passes, not when its command exits zero.
    and targeting `main` instead would merge the new project's `adr/` into the
    org namespace. The branch is permanent from this moment and never merges
    anywhere; every later change to it arrives as a pull request whose *base* is
-   this branch. See the README's "Branch namespaces".
+   this branch. See `docs/ref/namespaces.md`.
    *Verify:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
    is empty, and `adr/README.md` differs from the seed only by the seed
    comment the seed itself says to delete. And

@@ -34,9 +34,9 @@ refreshed.
 | datum | ✅ | ✅ | **yes** | Pin named a commit on no remote, and the submodule fetched from a filesystem path — the enabling mechanism for an unreachable pin |
 | alfred | ✅ | ✅ | no | Its `.gitmodules` on `main` names only `alfred/otto`; the corpus submodule is not there. Adoption work is on an unpushed local branch |
 | codecartographer | ✅ | ✅ | no | Mounts the corpus at `docs/qm` rather than the seed's `governance/qm`, so any check keyed on the seed path must look it up by path |
-| datafactorio | ✅ | ✅ | no | — |
+| `private-32` | ✅ | ✅ | no | Private; resolve the reference with `uv run qm inventory --resolve private-32` |
 | dossier | ✅ | ✅ | no | Adopted late and completely; useful as the control case |
-| factorio-server | ✅ | ? | no | — |
+| `private-33` | ✅ | ? | no | Private; resolve the reference with `uv run qm inventory --resolve private-33` |
 | factorio-sysops | ✅ | ? | no | — |
 | loopwall | ✅ | ? | no | Branch took `main` by a direct merge with no pull request |
 | qmcp | ✅ | ✅ | no | Adopted 2026-08-11 with nine conflicts recorded rather than fixed; three are shared-workstation hazards |

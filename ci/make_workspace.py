@@ -42,6 +42,14 @@ from pathlib import Path
 
 import yaml
 
+# This module is imported two ways: as `ci.<name>` by the qm CLI, and as a
+# bare script by anyone running it directly. A plain sibling import works
+# only in the second. Putting this file's own directory first makes
+# `roster` resolvable under both, which is what ci/cli.py does for the seed.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from roster import label as label_of
+from roster import merge_private
+
 UNKNOWN = "unknown"
 
 # Pinned rather than left to whatever a VS Code release defaults to, and the
@@ -69,7 +77,7 @@ def load_roster(path: Path) -> list[dict]:
     repositories = document.get("repositories") or []
     if not repositories:
         sys.exit(f"make_workspace: {path} lists no repositories")
-    return repositories
+    return merge_private(repositories, path.parent / "workspace-private.yaml")
 
 
 def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
@@ -107,7 +115,7 @@ def build(roster: list[dict], search_roots: list[Path], out: Path) -> tuple[dict
     for entry in resolved:
         if entry["resolved"] is None:
             continue
-        label = entry["name"]
+        label = label_of(entry)
         if entry.get("role") == "corpus":
             label = f"{label} · constitution"
         folders.append({"name": label, "path": relative_to(entry["resolved"], base)})
@@ -156,7 +164,7 @@ def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) ->
     ]
     for entry in found:
         lines.append(
-            f"| {entry['name']} | {entry.get('role', UNKNOWN)} | "
+            f"| {label_of(entry)} | {entry.get('role', UNKNOWN)} | "
             f"{entry.get('phase', UNKNOWN)} ({entry.get('phase_source', UNKNOWN)}) | "
             f"`{relative_to(entry['resolved'], out.parent.resolve())}` |"
         )
@@ -175,7 +183,7 @@ def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) ->
         lines.append("|---|---|")
         for entry in missing:
             candidates = ", ".join(f"`{p}`" for p in entry.get("paths", []))
-            lines.append(f"| {entry['name']} | {candidates} |")
+            lines.append(f"| {label_of(entry)} | {candidates} |")
     else:
         lines.append("None — every repository in the roster resolved.")
 
@@ -196,7 +204,7 @@ def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) ->
         lines.append("")
         for entry in unplaced:
             note = f" — {entry['note']}" if entry.get("note") else ""
-            lines.append(f"- **{entry['name']}**{note}")
+            lines.append(f"- **{label_of(entry)}**{note}")
         lines.append("")
         lines.append(
             "Answer one by setting its `phase` and `phase_source: stated` in"
@@ -250,9 +258,9 @@ def main(argv: list[str] | None = None) -> int:
     workspace, resolved = build(roster, search_roots, out)
     page = companion_page(resolved, out, search_roots)
 
-    missing = [e["name"] for e in resolved if e["resolved"] is None]
+    missing = [label_of(e) for e in resolved if e["resolved"] is None]
     unplaced = [
-        e["name"]
+        label_of(e)
         for e in resolved
         if e["resolved"] is not None and str(e.get("phase_source", UNKNOWN)) == "scaffolded"
     ]

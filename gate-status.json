@@ -1,0 +1,508 @@
+{
+  "schema": 1,
+  "generated_at": "2026-08-19T15:37:59Z",
+  "generator": {
+    "tool": "ci/gate_status.py",
+    "registry": "ci/gate-registry.yaml",
+    "workflows": ".github/workflows",
+    "layers": [
+      "claim",
+      "evidence",
+      "enforcement"
+    ],
+    "claim_layer_is_not_evidence": "refuses, cannot_see, enforces and gates come from ci/gate-registry.yaml and record what a human stated. They are never derived from a workflow file.",
+    "gate_states": [
+      "ok",
+      "warn",
+      "unknown"
+    ],
+    "states_are_not_a_score": "ok means the declared workflow and job are on disk. It does not mean the gate is effective, required to merge, or tested."
+  },
+  "reading": {
+    "refresh": "uv run qm docs generate",
+    "refresh_without_the_cli": "python ci/gate_status.py --write gate-status.json",
+    "staleness_budget_hours": 168,
+    "human_view": "python ci/gate_dashboard.py gate-status.json --out gates.html",
+    "agent_view": "uv run qm gates",
+    "faithfulness_check": "python ci/gate_status.py --check gate-status.json",
+    "unknown_convention": "{\"unknown\": \"<reason>\"} is a value. It means the fact could not be established and says why. It is not zero, not empty, and not compliant -- a gate nobody could measure must never be read as a gate with nothing wrong.",
+    "do_not": [
+      "quote a figure from this document without its generated_at",
+      "read `ok` as `required to merge` -- that is the enforcement layer",
+      "read `ok` as `tested` -- no gate here has a mutation pass",
+      "drop a gate whose declared_built is false to make a view green",
+      "regenerate this in CI with the host layer: it reads the host, so an unrelated pull request would go red for a reason its author cannot fix. --check reads the local layers only, and is safe there"
+    ]
+  },
+  "enforcement": {
+    "repository": "quaternionmedia/qm",
+    "rulesets_applied": 0,
+    "ruleset_names": [],
+    "branch_protection_on_main": false,
+    "blocks_a_merge": false
+  },
+  "totals": {
+    "gates": 14,
+    "built": 14,
+    "declared_not_built": 0,
+    "by_state": {
+      "ok": 13,
+      "warn": 0,
+      "unknown": 1
+    },
+    "gate_main": 10,
+    "seed": 5,
+    "undeclared_workflows": 3
+  },
+  "gates": [
+    {
+      "id": "adr-lint",
+      "gates": [
+        "main",
+        "push"
+      ],
+      "seed": true,
+      "external": false,
+      "declared_built": true,
+      "workflow": "adr-lint.yml",
+      "job": "adr-lint",
+      "runs": [
+        "project-seed/ci/adr_lint.py",
+        "project-seed/ci/check_attribution.py",
+        "project-seed/ci/check_placeholders.py",
+        "ci/check_restatements.py"
+      ],
+      "enforces": [
+        "records/DRAFT-decision-record-discipline.md",
+        "records/DRAFT-human-only-contributorship.md",
+        "records/DRAFT-the-read-document-governs.md",
+        "records/DRAFT-governance-arrives-as-a-mechanism.md"
+      ],
+      "refuses": "A record whose header table, status or index row is malformed; banned narration vocabulary in a pre-ratification draft; a vendor or model name in a record's prose or a commit subject; a seed copy still showing its template placeholder to a reader; a record whose declared restatement does not name it back.",
+      "cannot_see": "Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "ADR lint",
+        "triggers": [
+          "pull_request",
+          "push"
+        ],
+        "jobs": [
+          "adr-lint"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "one-pr-slot",
+      "gates": [
+        "main"
+      ],
+      "seed": true,
+      "external": false,
+      "declared_built": true,
+      "workflow": "one-pr-check.yml",
+      "job": "slot",
+      "runs": [
+        "project-seed/ci/check_one_pr.py"
+      ],
+      "enforces": [
+        "handbook/async-contract.md"
+      ],
+      "refuses": "A pull request whose author already holds an open slot in this repository. It fails every one of them rather than picking a survivor.",
+      "cannot_see": "Whether the two pull requests are actually related. It counts slots, not subject matter, and the `--per-base` exemption is a glob somebody passes.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "One PR per contributor",
+        "triggers": [
+          "pull_request"
+        ],
+        "jobs": [
+          "slot"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "namespace-guard",
+      "gates": [
+        "main",
+        "push"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "namespace-guard.yml",
+      "job": "namespace",
+      "runs": [
+        "project-seed/ci/check_pr_base.py"
+      ],
+      "enforces": [
+        "README.md"
+      ],
+      "refuses": "A pull request opened in the wrong direction between namespaces, and a project branch whose own commits touch anything outside `adr/`.",
+      "cannot_see": "A branch cut from the wrong parent whose direction is nonetheless legal. `check_pr_base.py` reports the inheritance; nothing fails on it.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Namespace guard",
+        "triggers": [
+          "pull_request",
+          "push"
+        ],
+        "jobs": [
+          "namespace"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "ci-tooling-tests",
+      "gates": [
+        "main",
+        "push"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "ci-tooling-tests.yml",
+      "job": "tests",
+      "runs": [
+        "python -m pytest project-seed/ci/tests ci/tests walkthrough -q --doctest-glob=*.md"
+      ],
+      "enforces": [
+        "records/DRAFT-one-executable-walkthrough.md"
+      ],
+      "refuses": "A change to the CI tooling that breaks its own test suite.",
+      "cannot_see": "Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one. For the walkthrough it also cannot see whether a page is worth reading: doctest asserts that an example's printed output is what the page claims, and asserts nothing about whether the example was the one worth showing.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "CI tooling tests",
+        "triggers": [
+          "pull_request",
+          "push"
+        ],
+        "jobs": [
+          "tests"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "governance-status",
+      "gates": [
+        "main",
+        "push"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "governance-status.yml",
+      "job": "check",
+      "runs": [
+        "ci/governance_status.py --check"
+      ],
+      "enforces": [
+        "handbook/generated-documents.md"
+      ],
+      "refuses": "A committed `governance-status.yaml` that no longer renders the commits it names, and a rendered view that has drifted from it.",
+      "cannot_see": "Whether the document is current. It checks faithfulness to the refs it names, not age -- a document generated from unfetched refs passed this once, which is why the workflow fetches first.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Governance status",
+        "triggers": [
+          "pull_request",
+          "push"
+        ],
+        "jobs": [
+          "check"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "reuse-lint",
+      "gates": [
+        "main",
+        "push"
+      ],
+      "seed": true,
+      "external": false,
+      "declared_built": true,
+      "workflow": "reuse-lint.yml",
+      "job": "reuse",
+      "runs": [
+        "python -m reuse lint"
+      ],
+      "enforces": [
+        "records/DRAFT-outbound-licensing.md",
+        "records/DRAFT-open-license-exclusion-and-upstream-remediation.md"
+      ],
+      "refuses": "A file with no copyright or licence information, a bad or deprecated SPDX expression, or an unused licence file.",
+      "cannot_see": "Whether the licence asserted is the licence intended, or whether a dependency's licence is compatible with it.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "REUSE lint",
+        "triggers": [
+          "pull_request",
+          "push"
+        ],
+        "jobs": [
+          "reuse"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "symlink-integrity",
+      "gates": [
+        "main",
+        "push"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "symlink-integrity.yml",
+      "job": "symlinks",
+      "runs": [
+        ".github/workflows/symlink-integrity.yml"
+      ],
+      "enforces": [
+        "records/DRAFT-ide-integrated-governance-discovery.md"
+      ],
+      "refuses": "A pointer file that has stopped being a symlink -- mode other than 120000 -- which is how a Windows checkout silently forks a shared document into two.",
+      "cannot_see": "A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Symlink integrity",
+        "triggers": [
+          "pull_request",
+          "push"
+        ],
+        "jobs": [
+          "symlinks"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "tag-claims",
+      "gates": [
+        "tag"
+      ],
+      "seed": true,
+      "external": false,
+      "declared_built": true,
+      "workflow": "tag-claims.yml",
+      "job": "claims",
+      "runs": [
+        "project-seed/ci/check_tag_claims.py"
+      ],
+      "enforces": [
+        "records/DRAFT-version-tags-are-claims.md"
+      ],
+      "refuses": "A pushed `v*` tag that is lightweight, misnamed, or whose annotation is missing `Reviewed-by`, `Manually-tested`, `Automated-gate` or `Not-covered`.",
+      "cannot_see": "Whether the review or the manual test happened -- it reads an annotation a human wrote. It does not gate tag creation, which needs a host-side tag-protection ruleset, and it runs after the tag exists.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Tag claims",
+        "triggers": [
+          "push",
+          "workflow_dispatch"
+        ],
+        "jobs": [
+          "claims"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "tag-determinism",
+      "gates": [
+        "tag"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "tag-determinism.yml",
+      "job": "deterministic-validation",
+      "runs": [
+        "project-seed/ci/check_tag_claims.py"
+      ],
+      "enforces": [
+        "records/DRAFT-version-tags-are-claims.md"
+      ],
+      "refuses": "A `v*` tag whose captured test run declares a skip, a rerun or a retry, or whose suite does not pass at all.",
+      "cannot_see": "Whether the suite is deterministic. It refuses a run that announces nondeterminism; one that is nondeterministic and silent about it passes. It also says nothing about coverage: a suite asserting little passes as readily as one asserting much.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Tag determinism",
+        "triggers": [
+          "push",
+          "workflow_dispatch"
+        ],
+        "jobs": [
+          "deterministic-validation"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "secret-scan",
+      "gates": [
+        "main"
+      ],
+      "seed": false,
+      "external": true,
+      "declared_built": true,
+      "workflow": null,
+      "job": "GitGuardian Security Checks",
+      "runs": [],
+      "enforces": [],
+      "refuses": "A commit introducing a credential the scanner recognises.",
+      "cannot_see": "Everything about how it is configured. It is an installed application with no workflow file in this repository and no record describing it, so nothing here states what it scans, who can dismiss a finding, or what happens if it is uninstalled. It appears on pull requests and that is the whole of what this corpus knows about it.",
+      "evidence": {
+        "unknown": "an installed application with no workflow file in this repository; nothing here can read its configuration"
+      },
+      "state": "unknown"
+    },
+    {
+      "id": "commit-signatures",
+      "gates": [
+        "main"
+      ],
+      "seed": true,
+      "external": false,
+      "declared_built": true,
+      "workflow": "signature-check.yml",
+      "job": "signatures",
+      "runs": [
+        "project-seed/ci/check_signatures.py"
+      ],
+      "enforces": [
+        "records/DRAFT-human-only-contributorship.md"
+      ],
+      "refuses": "A branch carrying a commit with no verifiable signature.",
+      "cannot_see": "Whether the signer is the person named in the author field, beyond what the key attests. It would establish that an attestation exists, which is currently established for nothing.",
+      "note": "`commit.gpgsign` is true in this clone and signing works. Signatures stopped on 2026-08-12 at 23:29, mid-branch, immediately after a signed commit, and every commit since is unsigned. `origin/main`'s last 60 commits carry no signature; across all refs the repository holds 201 signed, 73 unsigned and 41 that cannot be checked. Nothing looks at this.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Commit signatures",
+        "triggers": [
+          "pull_request"
+        ],
+        "jobs": [
+          "signatures"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "registries",
+      "gates": [
+        "main",
+        "push"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "registries.yml",
+      "job": "registries",
+      "runs": [
+        "ci/exceptions.py --check",
+        "ci/policies.py --check",
+        "ci/ledger.py --check",
+        "ci/lanes.py --check",
+        "ci/protocols.py --check",
+        "ci/curriculum.py --check",
+        "ci/addresses.py --check"
+      ],
+      "enforces": [
+        "ci/exception-registry.yaml",
+        "ci/policy-registry.yaml",
+        "ci/lane-registry.yaml",
+        "ci/protocol-registry.yaml",
+        "curriculum/org.yaml",
+        "project-seed/address-vectors.json"
+      ],
+      "refuses": "An exemption with no stated reason or whose named constant has gone; a policy with neither a detector nor a stated reason it cannot have one; a ledger entry that is unattributed, or closed and unscored; two lanes that are settled by the same gate; a protocol with no page or a step naming a route that does not exist; a curriculum unit citing a document that is not there or claiming a Status its document does not carry; an address vector that does not parse as declared or does not format back to itself.",
+      "cannot_see": "Whether any registry is complete. Each of these seven checks the entries that exist against their own rules; none can tell that an exemption, a policy, a ledger entry, a lane, a protocol, a curriculum unit or an address case was never written down, and a registry nobody added to is the state all seven report as clean. Nor can it see an address that is well-formed and wrong: the grammar has no idea whether the branch exists. It also cannot see whether a protocol was ever run -- that is reported by `uv run qm protocols` and deliberately never refused -- or whether a curriculum unit's prose is true of the document it cites. Nor is this gate required to merge: it is a candidate for A-main.json's required list and stays off it until it has reported green on a real pull request.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Registries",
+        "triggers": [
+          "pull_request",
+          "push"
+        ],
+        "jobs": [
+          "registries"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "rulesets",
+      "gates": [],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": null,
+      "job": null,
+      "runs": [
+        "uv run qm rulesets",
+        "uv run qm rulesets --check"
+      ],
+      "enforces": [
+        "ci/policy-registry.yaml main-is-entered-through-a-pull-request",
+        ".github/rulesets/README.md"
+      ],
+      "refuses": "Nothing, on a runner. It is a preflight: `uv run qm rulesets --check` exits non-zero when a ruleset drafted in .github/rulesets/ is absent from the host, or is applied at a different enforcement level, or carries a different set of rule types.",
+      "cannot_see": "Whether a rule is the right rule. It compares enforcement levels and rule types, not rule parameters, so a required-status-check list that has been emptied on the host reads as a match. It cannot run in CI at all: reading what is applied needs a host credential, and a check that reads a host reds a pull request for a reason its author cannot fix. It also does not read `rule-suites`, which is the log of what an evaluating rule would have blocked and the thing worth reading before promoting one.",
+      "evidence": {
+        "present": false,
+        "by_declaration": true,
+        "reason": "declared as a local preflight: no workflow, and it gates nothing"
+      },
+      "state": "ok"
+    },
+    {
+      "id": "private-names",
+      "gates": [],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": null,
+      "job": null,
+      "runs": [
+        "uv run qm private-names",
+        "uv run qm private-names --context"
+      ],
+      "enforces": [
+        "ci/policy-registry.yaml no-private-name-in-a-public-artifact"
+      ],
+      "refuses": "Nothing, on a runner. It is a preflight, run on a machine that holds the gitignored companions, and it refuses a private repository's name used as a repository -- after a slash, quoted, or as the value of a name, slug, repository or branch field -- in any tracked file.",
+      "cannot_see": "A repository that becomes private after the fact. By records/DRAFT-going-private-is-an-act-with-obligations.md the party who makes a repository private owns removing its name from this corpus, so nothing here watches for the transition: detecting it would need either an organisation-read credential this repository does not hold, or a committed digest list that would be recoverable, since 24 of 33 names are ordinary words of median length 7. It also cannot see history -- two names are published from 2b50bd6 and no forward fix removes them -- and it does not gate a bare-word match in prose, because several private repositories are named after common words and matching those produced 187 findings with no disclosures.",
+      "evidence": {
+        "present": false,
+        "by_declaration": true,
+        "reason": "declared as a local preflight: no workflow, and it gates nothing"
+      },
+      "state": "ok"
+    }
+  ],
+  "undeclared_workflows": [
+    "docs-audit.yml",
+    "docs-draft.yml",
+    "docs.yml"
+  ]
+}
