@@ -54,6 +54,51 @@ Applied to a sentence you have just written:
 4. **Is the README longer than the thing it introduces is deep?** Then it has
    stopped being an onramp.
 
+## The first thing a stranger reads
+
+The rule above says where explanation goes. This one is about how the opening of
+a page is written, and it applies to whatever a reader meets first: the README,
+the documentation landing page, the top of a getting-started guide.
+
+**Write the first sentence for somebody who does not yet know why they should
+care.** A real sentence, with a verb, in words they already have. Precision is
+what the rest of the page is for.
+
+The failure mode is specific and it is comfortable, because it reads as rigour.
+This page's own landing sentence used to be:
+
+> The Quaternion Media constitution: the decisions that govern every QM
+> project, the process that keeps them consistent, and the template each new
+> project starts from.
+
+It is accurate. It is also not a sentence — a colon and a list of abstractions,
+with no verb — and it spends *constitution*, *corpus*, *govern* and *adopt by
+reference* before the reader has any footing. Somebody who already understands
+the corpus reads it as dense and correct. Somebody who does not reads it as a
+wall and leaves.
+
+Three habits carry most of the cost, and all three feel like care while you are
+writing:
+
+- **A definition where a reason belongs.** Say what a thing is *for* before
+  saying what it *is*. A reader who knows why will tolerate a long definition;
+  one who does not will not reach it.
+- **Qualification in the opening line.** The exception, the caveat and the
+  boundary are true and they are not the first thing. Put them a paragraph
+  down, where they inform rather than obstruct.
+- **A sentence that needs the punctuation to parse.** Em-dashes, colons and
+  parentheticals stacked in one sentence usually mean two sentences are hiding
+  in it. Split them.
+
+**This is not a licence to be vague.** Nothing here says to drop a fact, soften
+a claim, or leave out what a check cannot see. It says to order the same
+material so that the reader is still present when the precise part arrives.
+Every qualification removed from an opening line belongs somewhere further down
+the same page.
+
+**Test it by reading the first sentence to somebody outside the work.** If they
+cannot say what this is for, the sentence has not started yet.
+
 ## What this looks like when it is wrong
 
 A comment block arguing for the design above the code implementing it. A

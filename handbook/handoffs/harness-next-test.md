@@ -72,7 +72,7 @@ not an agent's, exactly as `propagate/datum-2026-08-08`'s closed pull request
 was. It is recorded here so it stops being invisible.
 
 Seven repositories carry `phase: unknown` in `ci/workspace.yaml`: alfred,
-datum, datafactorio, factorio-server, factorio-sysops, dossier, qmcp. The ladder
+datum, `private-32`, `private-33`, factorio-sysops, dossier, qmcp. The ladder
 is defined at the top of that file. `unknown` is the honest value and not a
 synonym for dormant; answering is a human's call, and the answer is an edit to
 that file.

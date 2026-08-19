@@ -4,41 +4,58 @@ Checked in as configuration so the protection this repository relies on is
 reviewable, diffable, and reproducible on a fresh clone — rather than living
 only in a settings page nobody can read from the corpus.
 
-**Nothing here is applied automatically.** A human runs `apply.sh`. That is
-the same rule the corpus states for its own content: assistants draft, humans
-decide.
+**Nothing here is applied automatically.** A human runs `uv run qm rulesets
+--apply`, which wraps `apply.sh`. That is the same rule the corpus states for
+its own content: assistants draft, humans decide.
 
-**The JSON describes the end state, and ships evaluating.** Every file is
-written as the protection this repository is building toward — including two
-required code-owner approvals on `main` and an empty bypass list — while
-`"enforcement": "evaluate"` means all six log what they *would* have blocked
-and block nothing. Applying them today is therefore safe and reversible, and
-it is how the deadlocks below get found in logs rather than on the day
-someone tries to ratify.
+**Five of the six ship evaluating. A does not.** B through F are written as the
+protection this repository is building toward, with `"enforcement": "evaluate"`
+meaning they log what they *would* have blocked and block nothing — so applying
+them is safe and reversible, and it is how the deadlocks below get found in
+logs rather than on the day someone tries to ratify. **A is `active`, and is
+meant to be.** It is the one that makes a pull request and a check list
+mandatory on `main`; while it is evaluating, nothing is required to merge, which
+is the state this repository has been in since it was created.
 
 ## The staged path, and what unlocks ratification
 
-Turning on the end state today would deadlock: it wants two code-owner
-approvals and this corpus has had one active reviewer. The stages below each
-add one thing and can be verified before the next.
+The end state as first drafted would have deadlocked. It wanted two code-owner
+approvals, and this corpus has one active reviewer, who GitHub will not let
+approve their own pull request. What replaced it is not a weaker form of that
+rule but a different one: **zero approvals, and a human-approved list of
+deterministic checks that runs every time.** The stages below still add one
+thing each and can be verified before the next.
 
-*Where this stands, 2026-08-10.* Checks now run: pull request #36 reported
-`adr-lint`, `symlinks`, `reuse`, `tests`, `check` and `slot` green, which is
-**stage 3's stated precondition, met**. Stage 1 is therefore the only thing
-between here and a staged rollout, and it has no precondition at all.
+*Where this stands, 2026-08-16.* `uv run qm rulesets` reports **6 drafted, 0
+applied**. **None of these six has ever been applied**, so every rule below
+is a file and nothing else, and every gate in this repository is a signal to
+whoever merges rather than a barrier. Nothing is required to merge into `main`.
+
+That matters beyond this page. `main-is-entered-through-a-pull-request` is
+registered in `ci/policy-registry.yaml` with a preventer that was never applied
+and no detector — this is that preventer. A reader who sees a green check and
+believes it was required is reading something that is not true.
+
+Pull request #64 reported `tests`, `adr-lint`, `check`, `reuse`, `signatures`,
+`slot` and `symlinks` green. Those seven are what ruleset A now names as
+required, and each has reported green on a real pull request more than once.
 
 | Stage | Change | Precondition | State |
 |---|---|---|---|
-| 0 | No rulesets. The rules hold as doctrine (`AGENTS.md`, `README.md`) | — | left behind at stage 1 |
-| 1 | Apply all six **evaluating**. Read `rule-suites` for a week | none — safe now | **the next step** |
+| 0 | No rulesets. The rules hold as doctrine (`AGENTS.md`, `README.md`) | — | **where the host still is** |
+| 1 | Apply all six: **A active**, B–F evaluating. Read `rule-suites` for a week | every name in A's required list has reported green on a real pull request | **the next step** |
 | 2 | Flip C, D, E to **active**: force-push, deletion, signing, branch naming | Stage 1 quiet | waiting on a week of logs |
-| 3 | A and B **active**, but A with `required_approving_review_count: 1` and a `pull_request`-scoped admin bypass | `adr-lint`, `symlinks` and `reuse` have each reported green on a real PR | **precondition met** (#36) |
-| 4 | A as written here: **2 approvals, no bypass** | **a second code owner is genuinely active** | the standing blocker |
+| 3 | B **active** | every `project/**` branch has been propagated, so B's checks can report at all | waiting on the propagation merge |
+| 4 | Approvals above zero on A | **a second code owner is genuinely active** | not a merge rule today — see below |
 
-Stage 3's precondition being met does not let it jump the queue: stage 2 exists
-so that force-push, deletion and signing are known-quiet before a rule starts
-gating merges. What it does mean is that once stage 1 has had its week, nothing
-else has to be waited for.
+A goes active at stage 1 rather than last because with zero approvals it
+deadlocks nobody: it requires a pull request, a signature, and seven checks that
+already pass. The stages after it are about the *other* five, and about what
+becomes possible once a second human exists.
+
+Stage 4 is not what stands between this repository and a protected `main`. It is
+what *ratification* waits on, which is a different gate —
+`plans/v0.0.1-blockers.md` §4.
 
 **One thing to watch in the first week's logs.** Ruleset E targets `~ALL` with a
 `creation` rule, so every branch made in this repository is evaluated against
@@ -61,6 +78,43 @@ This is a deliberate trade, and it has a cost worth naming: a corpus of
 describes. Reaching stage 4 is what closes that, and adding a second code
 owner is the only thing standing in the way.
 
+## The required checks, and who owns the list
+
+Seven, named in `A-main.json` and nowhere else:
+
+| context | workflow | job | why it is required |
+|---|---|---|---|
+| `tests` | `ci-tooling-tests.yml` | `tests` | the tooling's own suite |
+| `adr-lint` | `adr-lint.yml` | `adr-lint` | record discipline, attribution, restatements |
+| `check` | `governance-status.yml` | `check` | the status document still renders the commits it names |
+| `reuse` | `reuse-lint.yml` | `reuse` | outbound licensing |
+| `signatures` | `signature-check.yml` | `signatures` | every commit is attributable |
+| `slot` | `one-pr-check.yml` | `slot` | one open pull request per contributor |
+| `symlinks` | `symlink-integrity.yml` | `symlinks` | a pointer file has not silently forked in two |
+
+**GitHub matches the `context` against the *job* name, not the workflow name.**
+The middle column is here so that renaming a workflow does not quietly detach a
+required check, and the third is the one that has to match.
+
+**Changing this list is a human decision, and it is the only governance in the
+merge path.** With approvals at zero there is no reviewer to catch what the list
+misses: adding a context makes every merge wait on something new, and removing
+one silently widens what can land, with nothing going red either way.
+
+### What runs and is deliberately not required
+
+| check | why not |
+|---|---|
+| `private-names` | advisory by decision — `records/DRAFT-going-private-is-an-act-with-obligations.md`. It reads gitignored companions and cannot run on a runner at all |
+| GitGuardian Security Checks | an installed application with no workflow file here and no record describing it. Requiring a check this corpus cannot configure or read hands a third party a veto over merging |
+| `namespace` | `namespace-guard.yml` triggers only on `project/**`. As a required context on `main` it would never report, and never reporting is a permanent block |
+| `audit`, `draft` | `docs-audit.yml` and `docs-draft.yml` are path-filtered. A required path-filtered check does not report on a pull request that misses its paths — the same permanent block, arriving only for some changes, which is worse |
+
+**`registries` is a candidate and is not on the list.** It has never reported on
+a real pull request. By the same discipline as stage 1's precondition, it stays
+off until it has been green on one — a context added to `A-main.json` before its
+first report is a merge block with no failure to fix.
+
 ## Why rulesets rather than classic branch protection
 
 All four collaborators hold `admin`. Classic branch protection lets admins
@@ -72,7 +126,7 @@ hence `refs/heads/project/**`.
 
 | | Target | Shape |
 |---|---|---|
-| **A** | default branch | The ratification gate: PR + code-owner review + status checks, linear history, signed commits |
+| **A** | default branch | The merge gate: PR required, seven status checks, signed commits, no unmonitored co-author trailer. **Zero approvals**, and merge commits allowed |
 | **B** | `project/**` | Submodule pins. Deletion and force-push blocked, **linear history deliberately off** |
 | **C** | `perspective/**` | Force-push blocked, signed. No PR required — non-binding by construction, and the merge *into* main is gated by A |
 | **D** | `evolve/**` | Signed only. Force-push allowed: rebasing a working branch onto a moved `main` is the one legitimate case |
@@ -117,30 +171,42 @@ blocks forever at *"Expected — waiting for status to be reported"*, with no
 failure to fix. The same applies to `CODEOWNERS`, which GitHub also reads
 from the base branch.
 
-**A's code-owner review will stop you merging your own PR, by design.**
-GitHub does not count a PR author's own approval, and one account authored
-every file in this repository. As written — two approvals, no bypass — A is
-unsatisfiable by one person. That is the point rather than a defect: it is
-what "two code owners" means mechanically, and it is why A is the *last*
-stage rather than the first.
+**Any approval requirement above zero locks this repository, and no bypass
+fixes it honestly.** GitHub does not count a pull request author's own approval,
+and one account authored every file here — so `required_approving_review_count:
+1` is unsatisfiable by the only person who can satisfy it, and the usual escape,
+a `pull_request`-scoped admin bypass, is a rule that permits exactly the thing
+it forbids. A is written at zero for that reason rather than as a concession:
+the governance moved to the check list, which one person *can* approve once and
+then cannot skip.
 
-Until then, stage 3 runs A with one required approval and a
-`pull_request`-scoped repo-admin bypass, which keeps the PR, its CI and its
-audit trail while letting a solo maintainer complete the merge. To run stage
-3, set `required_approving_review_count` to `1` and add:
+`bypass_actors` is empty, admins included. That is not a lockout risk, because
+an admin can always edit or delete a ruleset — the escape hatch is changing the
+rule, which leaves a record, rather than stepping around it, which does not.
 
-```json
-"bypass_actors": [
-  { "actor_id": 5, "actor_type": "RepositoryRole", "bypass_mode": "pull_request" }
-]
-```
+**Applying A changes the merge path of the pull request that lands it**, and of
+every branch already in flight. Each of the seven contexts must be a name that
+actually reports, or the repository is blocked with nothing to fix, and
+`strict_required_status_checks_policy: true` additionally makes every branch
+merge `main` and re-run before it can land. That is deliberate — a green result
+should be measured against the tree the merge will produce — but with more than
+one branch open it is friction, not a broken gate.
 
 ## Applying
 
 ```sh
+uv run qm rulesets                   # what is drafted, against what is applied
 gh auth status                       # must be an admin on the repo
-./.github/rulesets/apply.sh          # creates or updates all six
+uv run qm rulesets --apply           # wraps apply.sh; creates or updates all six
+uv run qm rulesets                   # expect 6 applied, A active
 ```
+
+`uv run qm rulesets --apply` is the only route here that writes to the host, and
+nothing calls it on anyone's behalf. `uv run qm rulesets --check` exits non-zero
+when what is drafted and what is applied disagree; it is not wired into any
+workflow, by the rule stated in `.github/workflows/registries.yml` — it reads a
+host, and a check that reads a host reds a pull request for a reason its author
+cannot fix.
 
 To advance a stage, edit `"enforcement"` to `"active"` in the files that
 stage covers and re-run. Check what evaluating rules have been catching

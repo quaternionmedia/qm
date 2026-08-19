@@ -50,6 +50,13 @@ from pathlib import Path
 
 import yaml
 
+# This module is imported two ways: as `ci.<name>` by the qm CLI, and as a
+# bare script by anyone running it directly. A plain sibling import works
+# only in the second. Putting this file's own directory first makes
+# `roster` resolvable under both, which is what ci/cli.py does for the seed.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from roster import merge_private, redact
+
 CI_DIR = Path(__file__).resolve().parent
 CORPUS = CI_DIR.parent
 CHECK_ONE_PR = CORPUS / "project-seed" / "ci" / "check_one_pr.py"
@@ -529,6 +536,16 @@ def build(
                     + ", ".join(entry.get("paths", []))
                 )
             )
+        # The host was queried with the real slug, because that is the only
+        # thing the API answers to. What gets *emitted* is the reference: this
+        # document is committed to a public repository, and a private
+        # repository's name in it is a disclosure however it was obtained.
+        # Walked rather than field-listed -- the name also sits inside `slug`,
+        # `slots.repository`, `governance.detail.submodule_branch` and the
+        # candidate paths of a `local: unknown` message, and a list of fields
+        # is a list to keep in step with a shape that changes.
+        if entry.get("ref") and entry["ref"] != name:
+            record = redact(record, name, entry["ref"])
         repositories.append(record)
 
     measured = [r for r in repositories if "unknown" not in r["slots"]]
@@ -678,7 +695,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     document = yaml.safe_load(args.roster.read_text(encoding="utf-8"))
-    roster = document.get("repositories") or []
+    roster = merge_private(document.get("repositories") or [])
     if not roster:
         sys.exit(f"harness_status: {args.roster} lists no repositories")
 

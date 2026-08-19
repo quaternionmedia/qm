@@ -1,0 +1,90 @@
+# Packaging exists here for one reason: a single governance CLI.
+#
+# This repository is a corpus of prose, not a Python project, and it stays that
+# way -- the runtime dependency list below is deliberately near-empty and the
+# package holds tooling, never doctrine. What packaging buys is `uv run qm`,
+# the same shape every other QM repository already has (`uv run dossier`,
+# `uv run qmcp`), so an operator learns one entry point rather than the paths of
+# thirteen scripts.
+#
+# THE SCRIPTS REMAIN RUNNABLE WITHOUT IT, AND THAT IS NOT REDUNDANCY.
+#
+#   `project-seed/ci/*.py` are run by *other* repositories, out of the
+#   governance submodule, with a plain interpreter. Those projects do not
+#   install this package and must not have to -- the seed's whole contract is
+#   that a fork runs the scripts in place. A CLI that became the only path
+#   would break every adopting project at once.
+#
+#   `.github/workflows/*` invoke the scripts directly for the same reason plus
+#   one more: a workflow that shelled out to `uv run` would need uv resolved and
+#   a venv built before any gate could report, turning a lint failure into an
+#   environment failure.
+#
+# So there is one definition and two entry points: `ci/cli.py` calls each
+# module's own `main(argv)` and implements nothing. A subcommand that
+# reimplemented a check would be a second definition of a governance rule.
+
+[project]
+name = "qm-governance"
+version = "0.0.0"
+description = "The governance CLI for the Quaternion Media constitution"
+readme = "README.md"
+requires-python = ">=3.11"
+# PyYAML only. Every generator reads YAML; nothing else here needs a dependency,
+# and a corpus that grew a dependency tree would be a corpus somebody has to
+# maintain a lockfile for before they can read a record.
+dependencies = [
+  "pyyaml>=6.0",
+]
+
+[project.scripts]
+qm = "ci.cli:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+# The documentation site generator. An extra rather than a runtime dependency:
+# `uv run qm slot` must not need a static-site builder installed, and a
+# contributor reading records should not have to resolve one. `docs.yml` and
+# `docs-audit.yml` install it themselves on the runner.
+docs = [
+  "zensical>=0.0.53",
+]
+
+# What `qm preflight` needs to reproduce CI faithfully.
+#
+# The workflows install their own tools with `python -m pip install ...`, and a
+# uv-managed environment has no pip -- so inside `uv run`, five steps fail with
+# "No module named pip" and report as gate failures when the gates are fine.
+# That is an environment difference, and this corpus's own rule is to say which
+# of the two a local failure is rather than let the exit code speak.
+#
+#     uv run --extra preflight qm preflight
+#
+# CI does not use this list. The runner image installs these itself, which is
+# the difference the runner's own report already names.
+preflight = [
+  "pip",
+  "pytest>=8.0",
+  "pyyaml>=6.0",
+  # The extra, not bare `reuse`: without it the package needs libmagic (the
+  # `file` command) at import time and dies before it lints anything. The
+  # runner image has libmagic; a Windows box does not.
+  "reuse[charset-normalizer]>=3.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+# `ci` is a generic top-level name and this package is only ever installed into
+# this repository's own environment by `uv run`. It is not published.
+packages = ["ci"]
+
+[tool.pytest.ini_options]
+# Both suites, always. `project-seed/ci/tests` covers what forks run and
+# `ci/tests` covers what only this corpus runs; a run that collected one of them
+# would report green over half the tooling.
+testpaths = ["project-seed/ci/tests", "ci/tests"]

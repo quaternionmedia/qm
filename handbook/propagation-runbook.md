@@ -38,8 +38,9 @@ Two failure modes follow from that split, and both have bitten:
 
 ## Part A — in this repo: bring `project/<name>` current
 
-Open a pull request. Do not merge to a shared branch directly, and do not
-merge your own work; see `AGENTS.md`.
+Open a pull request, and merge it yourself once every gate is green. Never push
+a shared branch directly — the pull request is the audit record, and a direct
+push destroys it. See `AGENTS.md` item 3.
 
 ```sh
 git fetch --all --prune
