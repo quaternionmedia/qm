@@ -110,6 +110,16 @@ jobs:
           # reassuring answer and nobody looks again.
           DEFAULT_BRANCH: main
 
+      # Tool involvement is disclosed in a `Tools:` note and nowhere else. The
+      # co-author trailer was already forbidden; a commit subject and a record's
+      # prose were not, so "Re-refactor docs with <model>" passed every gate this
+      # org had. A paragraph naming three or more competing vendors is exempt --
+      # that is an interoperability claim, not a byline, and this corpus needs to
+      # be able to make one.
+      - name: No vendor or model name outside a Tools note
+        run: |
+          python project-seed/ci/check_attribution.py             --records-dir records             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
+
       - name: Lint this branch's project records
         run: |
           if [ -d adr ]; then

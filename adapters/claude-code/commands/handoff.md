@@ -3,10 +3,6 @@ description: Close a session — write the handoff and the retrospective, so the
 argument-hint: [slug for the handoff page]
 ---
 
-<!-- SEED FILE: part of project-seed/ide/, copied recursively onto the project
-     root. The corpus's own .claude/commands/ holds symlinks back to this file,
-     so there is one copy to edit. Delete this comment in the copy. -->
-
 Close this session. A session that ends without this has produced work only its
 own transcript explains, and the transcript is not in the repository.
 

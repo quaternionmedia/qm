@@ -14,7 +14,7 @@ Re-derive before acting; do not quote these figures as current.*
 | Piece | Path | What it does |
 |---|---|---|
 | The contract | `handbook/async-contract.md` | Ten clauses, each naming the event that produced it |
-| `/cowork` | `project-seed/ide/.claude/commands/cowork.md` | Opens a session: builds the brief, reads what governs, asks before writing |
+| session open | `adapters/claude-code/commands/cowork.md` (optional adapter) | Establishes the four facts `AGENTS.md` requires before writing |
 | `/preflight` | same directory | Runs every gate and reports what could not be reproduced |
 | `/handoff` | same directory | Closes a session: handoff page plus retrospective |
 | The brief builder | `project-seed/ci/cowork_context.py` | The facts behind `/cowork`, with `unknown` as a real value |

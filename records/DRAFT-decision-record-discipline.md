@@ -137,6 +137,57 @@ supplies that answer.
      the question gets asked out loud, in the record, where a reader who knows
      the provenance can see it was asked and answer it.
 
+9. **The scaffolding you measure with is part of the measurement.** §7 is about
+   the tool answering a different question than the one asked — a flag's
+   semantics, a version, stale state. This is the case where the tool is
+   blameless and the setup is not: the thing measured was produced by the act of
+   measuring, so the result describes that rather than the subject. It is the
+   most common false reading in practice and the easiest to miss, because
+   nothing errors.
+
+   All of these occurred in one day's work on this corpus:
+
+   - A comparison run against files a redirect never wrote, because a temporary
+     path resolved differently between two invocations. Three files reported
+     100+ lines of drift; the real answer was 0, 0 and 2, and the number
+     reported was the *other* file's line count.
+   - A working tree read after a merge that exited non-zero — a conflicted
+     half-state, reported as the merge's outcome.
+   - Copies written through a text API that translated every line ending, so
+     eleven branches showed whole-file diffs that were entirely encoding and
+     would have been normalised away on commit: noise that hides whether
+     anything real moved.
+   - A mutation test whose baseline was already failing, so removing the guard
+     changed nothing and "still red" was read as "the guard is live". It proved
+     nothing in either direction.
+   - A verdict reconstructed from raw fields when the document already carried
+     its own verdict field — the same shape as an earlier error where a key was
+     invented outright and every repository consequently reported compliant.
+
+   The discipline: **prefer the artefact you did not create.** Read a document's
+   own answer rather than recomputing one. Assert the intermediate — that the
+   file is non-empty, that the merge exited zero, that the baseline is green
+   before mutating — because each of these was one assertion away from being
+   caught. An empty or perfectly uniform result from your own scaffolding is
+   scaffolding failure until shown otherwise, exactly as §7 says of a uniform
+   result from a tool.
+
+10. **A guard is not finished until someone has tried to route around it.**
+    Writing the check is the easy half; the hole is never the case you had in
+    mind, it is the adjacent one. Three independent holes were found in a single
+    new guard on the day it was written — it keyed on the default branch, so any
+    intermediate base walked past it; it matched a branch *name*, so identical
+    content under a different name was clean; and it was wired into CI in a mode
+    that would have failed every legitimate propagation, because the tool's own
+    docstring distinguished a refusal from an advisory and the caller did not.
+
+    Break-it-and-watch-it-go-red (§7) proves a guard fires on the case you
+    thought of. It cannot find the case you did not. That needs an adversarial
+    pass whose brief is to *pass the check while doing the thing it forbids*,
+    and it is worth the round trip: a guard with a hole is worse than no guard,
+    because it is a green check standing where a reader believes something is
+    enforced.
+
 ## Consequences
 
 - CI lint in every repo rejects: banned vocabulary in drafts
