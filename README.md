@@ -113,6 +113,7 @@ qm/
 | — | [The read document governs](records/DRAFT-the-read-document-governs.md) | Proposed | 2026-08-14 |
 | — | [Governance arrives as a mechanism](records/DRAFT-governance-arrives-as-a-mechanism.md) | Proposed | 2026-08-14 |
 | — | [The ledger](records/DRAFT-the-ledger.md) | Proposed | 2026-08-15 |
+| — | [Attention is a claim, activity is measured](records/DRAFT-attention-is-a-claim-activity-is-measured.md) | Proposed | 2026-08-19 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so a gate one person can satisfy alone would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 

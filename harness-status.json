@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-19T19:01:20Z",
+  "generated_at": "2026-08-19T22:37:58Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -45,14 +45,14 @@
     ]
   },
   "totals": {
-    "repositories": 14,
-    "slots_measured": 14,
+    "repositories": 16,
+    "slots_measured": 16,
     "slots_unknown": 0,
-    "compliant": 14,
+    "compliant": 16,
     "over_limit": 0,
-    "governance_readable": 9,
-    "governance_precondition_met": 4,
-    "phase_scaffolded": 8,
+    "governance_readable": 10,
+    "governance_precondition_met": 5,
+    "phase_scaffolded": 10,
     "phase_stated_above_governance": 4,
     "threads_by_stage": {
       "local": 0,
@@ -177,7 +177,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 19,
-        "observed_at": "2026-08-19T19:00:54Z",
+        "observed_at": "2026-08-19T22:37:31Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -348,7 +348,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 19,
-        "observed_at": "2026-08-19T19:00:59Z",
+        "observed_at": "2026-08-19T22:37:36Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -399,7 +399,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 2,
-        "observed_at": "2026-08-19T19:01:01Z",
+        "observed_at": "2026-08-19T22:37:38Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -462,7 +462,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23108.1,
+          "idle_hours": 23111.7,
           "stalled": true
         }
       ],
@@ -484,7 +484,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-19T19:00:47Z",
+        "observed_at": "2026-08-19T22:37:23Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -573,7 +573,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 199.2,
+          "idle_hours": 202.8,
           "stalled": true
         }
       ],
@@ -590,7 +590,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-19T19:00:49Z",
+        "observed_at": "2026-08-19T22:37:24Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -632,7 +632,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 6,
-        "observed_at": "2026-08-19T19:00:52Z",
+        "observed_at": "2026-08-19T22:37:29Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -730,7 +730,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 191.8,
+          "idle_hours": 195.4,
           "stalled": true
         }
       ],
@@ -752,7 +752,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-19T19:00:50Z",
+        "observed_at": "2026-08-19T22:37:27Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -766,6 +766,33 @@
       "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-32.\n",
       "slots": {
         "repository": "quaternionmedia/private-32",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "private-33",
+      "slug": "quaternionmedia/private-33",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-33.\n",
+      "slots": {
+        "repository": "quaternionmedia/private-33",
         "per_base": [],
         "contributor": null,
         "open_prs": [
@@ -823,33 +850,6 @@
       }
     },
     {
-      "name": "private-33",
-      "slug": "quaternionmedia/private-33",
-      "role": "project",
-      "phase": "v0.0.1",
-      "phase_source": "scaffolded",
-      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-33.\n",
-      "slots": {
-        "repository": "quaternionmedia/private-33",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "unreleased",
-        "latest": null,
-        "unreleased_commits": null,
-        "asserts": "no v tag has ever been cut, so nothing has been asserted"
-      },
-      "threads": [],
-      "governance": {
-        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
-      }
-    },
-    {
       "name": "factorio-sysops",
       "slug": "quaternionmedia/factorio-sysops",
       "role": "project",
@@ -889,9 +889,96 @@
           "licensing_present": 0
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-19T19:00:56Z",
+        "observed_at": "2026-08-19T22:37:33Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "carlos",
+      "slug": "quaternionmedia/carlos",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "Governed via project/carlos. Its default branch is `they`, not `main`, and that branch last moved in 2025 -- while the host reports a push today, which is the discrepancy that made this roster gap visible.\n",
+      "slots": {
+        "repository": "quaternionmedia/carlos",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 3,
+            "title": "Bump idna from 3.10 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "they",
+            "head": "dependabot/uv/idna-3.15",
+            "draft": false
+          },
+          {
+            "number": 2,
+            "title": "Bump starlette from 0.47.2 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "they",
+            "head": "dependabot/uv/starlette-1.3.1",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "precondition": "met",
+        "missing": [],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/carlos",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 3,
+          "workflows_absent": 0,
+          "licensing_present": 2
+        },
+        "behind_corpus": 35,
+        "observed_at": "2026-08-19T22:37:25Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "private-34",
+      "slug": "quaternionmedia/private-34",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed, for the same reason as private-32 and private-33 above. Governed via a project/<name> branch here.\n",
+      "slots": {
+        "repository": "quaternionmedia/private-34",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
     },
     {
@@ -953,7 +1040,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-19T19:01:00Z",
+        "observed_at": "2026-08-19T22:37:37Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1015,7 +1102,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3243.0,
+          "idle_hours": 3246.6,
           "stalled": true
         }
       ],
