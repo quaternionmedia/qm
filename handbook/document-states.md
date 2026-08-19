@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-19T22:37:59Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-19T23:39:23Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **106**, unfiltered.
+Every governed document in this corpus: **107**, unfiltered.
 
 | | |
 |---|---|
@@ -61,7 +61,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] `proposed` | 19 |
 | [D] `draft` | 2 |
 | [??] `unknown` | 1 |
-| [-] `unreviewed` | 38 |
+| [-] `unreviewed` | 39 |
 | [G] `generated` | 7 |
 | [S] `standing` | 23 |
 | [T] `transient` | 16 |
@@ -121,6 +121,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-19-a-gate-that-never-passed.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-19-the-suite-tested-a-model-of-the-system.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-19-three-fields-and-none-of-them-is-activity.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-19-two-fixtures-that-agreed-with-nothing.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
