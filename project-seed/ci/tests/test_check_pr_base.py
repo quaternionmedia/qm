@@ -129,3 +129,43 @@ def test_authors_are_reported_so_foreign_commits_are_visible(repo: Path):
     result = check(repo, "main", "feature")
     assert "authors" in result.stdout
     assert "Test" in result.stdout
+
+
+# --- a project's records, and where they belong ------------------------------
+
+
+def test_records_aimed_at_a_base_that_has_none_are_refused(repo: Path):
+    """The corpus case. `main` there carries the org namespace and no top-level
+    `adr/`, so a branch bringing one is putting one project's records where
+    every project would read them as binding."""
+    git(repo, "checkout", "-q", "-b", "evolve/sneaky", "main")
+    write(repo / "adr" / "DRAFT-a-thing.md", "# DRAFT - a thing\n")
+    commit_all(repo, "records on a branch that does not look like a project")
+    git(repo, "checkout", "-q", "main")
+    _publish(repo)
+
+    result = check(repo, "main", "evolve/sneaky")
+    assert result.returncode != 0
+    assert "carries a top-level adr/" in result.stdout + result.stderr
+
+
+def test_records_aimed_at_a_base_that_already_has_them_are_allowed(repo: Path):
+    """A project repository that keeps its records in its own tree, which the
+    seed's `adr-lint.yml` supports through `RECORDS_DIR`.
+
+    Refusing here refused nearly every pull request such a project opens: `rad`
+    carries ten records on its `main`, and the guard rejected a branch adding an
+    eleventh with a message asserting that `main` has no `adr/` at all.
+    """
+    write(repo / "adr" / "DRAFT-existing.md", "# DRAFT - existing\n")
+    commit_all(repo, "this project keeps its records here")
+
+    git(repo, "checkout", "-q", "-b", "evolve/another-record", "main")
+    write(repo / "adr" / "DRAFT-another.md", "# DRAFT - another\n")
+    commit_all(repo, "add a record")
+    git(repo, "checkout", "-q", "main")
+    _publish(repo)
+
+    result = check(repo, "main", "evolve/another-record")
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "carries a top-level adr/" not in result.stdout

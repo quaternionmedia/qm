@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-19T16:37:49Z",
+  "generated_at": "2026-08-19T18:47:54Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
