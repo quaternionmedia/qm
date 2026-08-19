@@ -2,35 +2,37 @@
 
 ## In plain terms
 
-This repository is where Quaternion Media writes down how it works, so the
-answer to "how do we do this here?" lives in one place instead of in people's
-heads.
+Every team keeps answering the same questions. How does work get reviewed? When
+is something finished? What does a new project start from? Usually those
+answers live in people's heads, and they drift.
 
-Every other QM project points at this one and follows what it says. A project
-is free to be **stricter** than these rules. It is never free to be looser.
+This is where Quaternion Media writes them down instead. Every QM project
+follows what is written here. A project can be stricter than these rules. It
+can never be looser.
 
-Four sentences will carry you a long way:
+A few things will carry you a long way:
 
-- **Decisions live in `records/`.** If it is not a record, it does not bind
-  anybody. Everything else here explains, points at, or checks the records.
-- **Nothing is final yet.** Every record says `Proposed`, on purpose: making one
-  final needs a second person, and there is not a second person yet.
-- **All work arrives as a pull request** — a typo, a new rule, anything. The
-  pull request is the paper trail. It is not a request for someone's attention,
-  and you merge your own once the automated checks pass.
-- **Two moments need a human, and neither is the pull request.** Making a record
-  final, and putting a version tag on a project. A tag is a person saying "I
-  read this, I ran it against the real thing, and the checks passed."
+- **Decisions live in `records/`.** Nothing else here is binding. Everything
+  else explains a record, points at one, or checks that we are keeping to it.
+- **Nothing is marked final yet.** Every record says `Proposed`, on purpose.
+  Making one final needs a second person to agree, and there is not a second
+  person yet.
+- **All work arrives as a pull request**, from a typo to a new rule. It is the
+  paper trail, not a request for someone's attention. You merge your own once
+  the automated checks pass.
+- **Two moments need a person, and the pull request is not one of them.** Making
+  a record final, and putting a version tag on a project. A tag means somebody
+  read the change, ran it against the real thing, and watched the checks pass.
+  Reaching `main` claims none of that.
 
-If a page here and a record disagree, the record is what the organisation
+If a page here says one thing and a record says another, the record is what we
 decided and the page is wrong. Say so, and fix the page.
 
-**A word of warning about the vocabulary.** A handful of ordinary words are used
-here in a narrow sense — *record*, *draft*, *gate*, *review*, *phase*, *delta* —
-and several of them mean more than one thing. When a sentence stops making
-sense, that is usually why:
-[handbook/glossary.md](handbook/glossary.md) sorts them out and is the shortest
-useful thing to read after this section.
+**One warning about the words.** A few everyday words are used here in a narrow
+sense, and some of them mean more than one thing: *record*, *draft*, *gate*,
+*review*, *phase*, *delta*. When a sentence stops making sense, that is usually
+why. [handbook/glossary.md](handbook/glossary.md) sorts them out, and it is the
+shortest useful thing to read after this.
 
 **Full documentation:** [docs/](docs/index.md) — also rendered at
 [quaternionmedia.github.io/qm](https://quaternionmedia.github.io/qm/) once Pages is enabled.

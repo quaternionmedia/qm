@@ -4,18 +4,20 @@ icon: lucide/book-open
 
 # QM Governance
 
-The Quaternion Media constitution: the decisions that govern every QM project, the process that keeps them consistent, and the template each new project starts from.
+Every team keeps answering the same questions. How does work get reviewed? When is something finished? What does a new project start from? Usually those answers live in people's heads, and they drift.
 
-**Projects adopt this corpus by reference.** A project may tighten these rules, but never relax them.
+This is where Quaternion Media writes them down instead. Every QM project follows what is written here. A project can be stricter than these rules. It can never be looser.
+
+If you read nothing else, read this next section. It is the part that catches people out.
 
 ## Read this first
 
-1. **Only `records/` binds.** Records are the only binding documents. Everything else points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: ratification requires approval from a second active code owner.
-3. **Every change arrives as a pull request** — from a typo fix to a new record. The pull request is the audit record, not a request for anyone's attention, and its author merges it once every gate is green.
-4. **Two moments need a human, and the pull request is neither**: ratifying a record, and putting a version tag on a project. `main` is not a claim, so merging into it is not a release.
+1. **Decisions live in `records/`.** Nothing else here is binding. Everything else explains a record, points at one, or checks that we are keeping to it.
+2. **Nothing is marked final yet.** Every record says `Proposed`, on purpose. Making one final needs a second person to agree, and there is not a second person yet.
+3. **All work arrives as a pull request**, from a typo to a new rule. It is the paper trail, not a request for someone's attention. You merge your own once the automated checks pass.
+4. **Two moments need a person, and the pull request is not one of them.** Making a record final, and putting a version tag on a project. A tag means somebody read the change, ran it against the real thing, and watched the checks pass. Reaching `main` claims none of that.
 
-New here? [The README](https://github.com/quaternionmedia/qm#in-plain-terms) says the same thing in ordinary words, and [the glossary](../handbook/glossary.md) sorts out the handful of words this corpus uses in a narrow sense.
+Still finding your feet? [The glossary](../handbook/glossary.md) sorts out the handful of everyday words used here in a narrow sense — *record*, *draft*, *gate*, *review*. When a sentence stops making sense, that is usually why.
 
 ## Where to go
 
