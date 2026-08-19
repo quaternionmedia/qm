@@ -98,7 +98,33 @@ repositories:
     note: the constitution; every other entry adopts it by reference
     paths: [qm/qm]
 
-  # --- Worked on 2026-08-09 -------------------------------------------------
+  # --- Active: the working set on 2026-08-19 ------------------------------
+  #
+  # What a session picks up now. `qm` above is the corpus and is always in it.
+  # This is a claim about attention rather than governance: everything below is
+  # governed exactly as much, and a repository leaves this section by nobody
+  # working on it rather than by any decision.
+  - name: dossier
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: the intended durable surface for governance review
+    paths: [qm/dossier, dossier]
+
+  - name: qmcp
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    paths: [qm/qmcp, qmcp]
+
+  - name: rad
+    role: project
+    phase: v0.0.1
+    phase_source: stated
+    note: radial menu; defined the phase ladder above
+    paths: [qm/rad]
+
+  # --- Worked on 2026-08-09, not since ------------------------------------
   - name: alfred
     role: project
     phase: v0.0.1
@@ -119,13 +145,6 @@ repositories:
     phase_source: scaffolded
     note: schema and wire contract; governance propagation open
     paths: [qm/datum]
-
-  - name: rad
-    role: project
-    phase: v0.0.1
-    phase_source: stated
-    note: radial menu; defined the phase ladder above
-    paths: [qm/rad]
 
   - name: codecartographer
     role: project
@@ -168,13 +187,6 @@ repositories:
     note: named as the v0.0.3 Android target
     paths: ["../AndroidStudioProjects/qmetronome", qm/qmetronome]
 
-  - name: dossier
-    role: project
-    phase: v0.0.1
-    phase_source: scaffolded
-    note: the intended durable surface for governance review
-    paths: [qm/dossier, dossier]
-
   # --- In the org, governance status not established ------------------------
   - name: benchmark
     role: unmanaged
@@ -194,8 +206,3 @@ repositories:
       the plan had to establish it exists.
     paths: [qm/looksatwords, looksatwords]
 
-  - name: qmcp
-    role: project
-    phase: v0.0.1
-    phase_source: scaffolded
-    paths: [qm/qmcp, qmcp]
