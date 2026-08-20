@@ -15,10 +15,43 @@ The deeper reason is the seams doctrine: a record naming a vendor's mechanism in
 prose reads, to the next person, as that mechanism being sanctioned. A record
 states the invariant; a clearly-labelled adapter names the product.
 
-TWO CHECKS, both independent and both usable alone:
+THREE CHECKS, all independent:
 
     --records-dir DIR   no vendor or model name in the prose of any record there
-    --base-ref REF      no vendor or model name in any commit subject REF..HEAD
+    --base-ref REF      no vendor or model name in any commit subject REF..HEAD,
+                        and no commit trailer or author field in that range
+                        standing on an unmonitored address or a tool's name
+
+THE TRAILER CHECK IS THE ONE THAT WAS MISSING. `DRAFT-human-only-contributorship.md`
+section 3 bans a trailer or author field naming "an address that is not a
+monitored inbox reachable to a human accountable for the content", and names
+vendor `noreply@` addresses as the case. Every surface in this corpus describes
+that rule as enforced -- the adr-lint workflow's own comment says "the co-author
+trailer was already forbidden" -- and until this function existed, nothing
+anywhere read a trailer. Default tooling appends these, so a rule enforced by
+remembering to suppress it is a rule that holds until somebody is busy.
+
+TWO INDEPENDENT WAYS ATTRIBUTION FAILS, because the record and the seed
+AGENTS.md draw slightly different lines and both are worth holding:
+
+  - **The address is unmonitored.** The record's own test. `noreply@vendor`
+    names nobody who can be asked why.
+  - **The name is a tool's.** The seed AGENTS.md adds "do not add yourself, your
+    model name". A trailer reading `<Model> <a@real.address>` routes somewhere
+    real and still credits software for the work.
+
+WHERE AN ADDRESS THAT LOOKS UNMONITORED IS FINE, and the check would be useless
+without the distinction:
+
+  - **A forge's per-user alias** -- `someone@users.noreply.github.com`. That is
+    not an unreachable address standing in for accountability; it *is* an
+    account, and it names one person reachable through the forge. Refusing it
+    would refuse every contributor who keeps their email private.
+  - **The committer field, which is not read at all.** Every squash merge on a
+    GitHub repository is committed by `GitHub <noreply@github.com>` -- measured
+    on this corpus before the rule was written. Checking the committer would
+    fail every merge this org makes, on the forge's own identity. Section 3 says
+    "author field", and the author is the accountable human.
 
 WHERE A NAME IS FINE, and these are the point rather than loopholes:
 
@@ -57,6 +90,36 @@ import argparse
 import re
 import subprocess
 from pathlib import Path
+
+# --- attribution metadata ---------------------------------------------------
+
+# A local part that says up front that nobody reads it. The record's test is
+# whether a human accountable for the content can be reached at the address, and
+# these announce that they cannot.
+UNMONITORED = re.compile(
+    r"^(?:no[._+-]?reply|do[._+-]?not[._+-]?reply)(?:[+._-][^@]*)?$",
+    re.IGNORECASE,
+)
+
+# ...except a forge's per-user alias, which is the opposite of an unreachable
+# address standing in for accountability: it identifies one account, and the
+# person behind it is reachable through the forge. Matched on the host label
+# rather than on a list of forges, so a self-hosted instance is not a hole.
+PER_USER_ALIAS = re.compile(r"@users\.no[._-]?reply\.", re.IGNORECASE)
+
+# An address inside a trailer or an identity. Deliberately permissive about what
+# sits between the brackets: a pattern that only recognised well-formed
+# addresses would wave through anything malformed, and malformed is the cheapest
+# way past a guard.
+ADDRESS = re.compile(r"<([^<>]*)>")
+
+# And an address standing on its own, with no display name around it. Found by
+# attacking the check: `Co-authored-by: noreply@vendor` has no brackets, so the
+# bracketed pattern saw no address at all and the *name* test flagged it -- for
+# the domain, which meant a real contributor's bare `person@vendor` address
+# would have been refused with the words "names a tool". Right verdict, wrong
+# reason, and the wrong reason is what teaches somebody the check is stupid.
+BARE_ADDRESS = re.compile(r"(?<![<\w.+-])([^\s<>@,()]+@[^\s<>@,()]+)(?![>\w])")
 
 # Grouped by vendor family, because the number of *families* in a paragraph is
 # what separates attribution from interoperability.
@@ -179,18 +242,31 @@ EXEMPT_SUBJECTS = {
 }
 
 
-def check_commit_subjects(base_ref: str) -> list[str]:
-    """No vendor or model name in any commit subject in base_ref..HEAD."""
+def verify_ref(base_ref: str) -> str | None:
+    """The one message about a ref that is not there.
+
+    Spelled once because two checks read the same range: each still probes, so
+    either works alone, and `main` probes first so a bad ref is one finding
+    rather than the same sentence twice under a count of two.
+    """
     probe = subprocess.run(
         ["git", "rev-parse", "--verify", "--quiet", f"{base_ref}^{{commit}}"],
         capture_output=True,
         text=True,
     )
     if probe.returncode:
-        return [
+        return (
             f"check_attribution: {base_ref} does not exist. Pass a ref that does, "
             f"or drop --base-ref."
-        ]
+        )
+    return None
+
+
+def check_commit_subjects(base_ref: str) -> list[str]:
+    """No vendor or model name in any commit subject in base_ref..HEAD."""
+    problem = verify_ref(base_ref)
+    if problem:
+        return [problem]
     result = subprocess.run(
         ["git", "log", "--format=%H%x1f%s", f"{base_ref}..HEAD"],
         capture_output=True,
@@ -226,6 +302,107 @@ def check_commit_subjects(base_ref: str) -> list[str]:
     return failures
 
 
+# THERE IS NO EXEMPTION LIST FOR THIS CHECK, and that is a decision rather than
+# an omission. EXEMPT_SUBJECTS above exists because a commit subject is
+# immutable and the alternative was rewriting somebody's history. Attribution
+# does not need the same hatch: this runs over a pull request's own range, so
+# the commits it reads are the ones their author can still amend, and section 4
+# leaves merged history alone by never being asked about it. An empty list would
+# be an invitation to add the first red rather than fix it.
+
+
+def addresses_in(value: str) -> list[str]:
+    """Every address in a trailer value or an identity, bracketed or bare."""
+    found = [a.strip() for a in ADDRESS.findall(value)]
+    remainder = ADDRESS.sub(" ", value)
+    found += [a.strip() for a in BARE_ADDRESS.findall(remainder)]
+    return [a for a in found if a]
+
+
+def attribution_problems(value: str) -> list[str]:
+    """Why a trailer value or an identity cannot stand as attribution.
+
+    Two independent tests, either of which is enough: the name is a tool's, or
+    the address is one nobody reads. Reported separately because the fixes
+    differ -- one is deleting a byline, the other is naming somebody who can be
+    asked why.
+    """
+    problems: list[str] = []
+
+    # The name is what is left once the addresses are removed. Matched there
+    # rather than over the whole value on purpose: `someone@anthropic.com` is a
+    # human who works at a vendor, and section 3 says naming them is always
+    # fine. The ban is on software standing where a person should be.
+    named_by = BARE_ADDRESS.sub("", ADDRESS.sub("", value)).strip().strip(",")
+    found = families_in(named_by)
+    if found:
+        tools = ", ".join(repr(v) for v in found.values())
+        problems.append(f"names a tool where a person should be -- found {tools}")
+
+    for address in addresses_in(value):
+        local, _, domain = address.partition("@")
+        # A per-user alias names an account, so it is exempt -- but only when
+        # the local part names one. `noreply@users.noreply.anything` is a
+        # no-reply wearing the exemption, and the adversarial pass walked
+        # straight through the earlier version with exactly that.
+        if PER_USER_ALIAS.search("@" + domain) and not UNMONITORED.match(local):
+            continue
+        if UNMONITORED.match(local):
+            problems.append(f"stands on <{address}>, which nobody reads")
+
+    return problems
+
+
+def check_commit_attribution(base_ref: str) -> list[str]:
+    """No trailer or author field in base_ref..HEAD naming a tool or a void.
+
+    Git parses the trailers rather than a regex here. Git owns the definition --
+    which paragraph they must sit in, folded continuations, which colons count --
+    and a second definition written beside it would disagree with the forge,
+    which uses the same one.
+    """
+    problem = verify_ref(base_ref)
+    if problem:
+        return [problem]
+
+    # Unit-separated fields, record-separated commits. A trailer block is
+    # multi-line, so a line-oriented format would split one commit across
+    # several records and hang a trailer on the wrong SHA.
+    fmt = "%H%x1f%an <%ae>%x1f%(trailers:only=true,unfold=true)%x1e"
+    result = subprocess.run(
+        ["git", "log", "--format=" + fmt, f"{base_ref}..HEAD"],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode:
+        return ["check_attribution: git log failed:\n" + result.stderr.strip()]
+
+    failures: list[str] = []
+    for entry in result.stdout.split("\x1e"):
+        if not entry.strip():
+            continue
+        sha, _, rest = entry.strip().partition("\x1f")
+        author, _, trailers = rest.partition("\x1f")
+
+        findings: list[str] = []
+        for problem in attribution_problems(author):
+            findings.append(f"author {author!r} {problem}")
+        for line in trailers.splitlines():
+            key, sep, value = line.partition(":")
+            if not sep or not value.strip():
+                continue
+            for problem in attribution_problems(value):
+                findings.append(f"trailer {key.strip()!r} {problem}")
+
+        for finding in findings:
+            failures.append(
+                f"{sha[:8]}: {finding}. A contributor is someone who can be "
+                f"asked why, and reached to answer; tool involvement goes in a "
+                f"`Tools:` note on the artifact, never in a byline."
+            )
+    return failures
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--records-dir", help="Directory of records to read as prose")
@@ -239,7 +416,12 @@ def main() -> int:
     if args.records_dir:
         failures += check_records(Path(args.records_dir))
     if args.base_ref:
-        failures += check_commit_subjects(args.base_ref)
+        unreachable = verify_ref(args.base_ref)
+        if unreachable:
+            failures.append(unreachable)
+        else:
+            failures += check_commit_subjects(args.base_ref)
+            failures += check_commit_attribution(args.base_ref)
 
     if failures:
         for line in failures:
@@ -251,7 +433,9 @@ def main() -> int:
     if args.records_dir:
         checked.append(f"records in {args.records_dir}")
     if args.base_ref:
-        checked.append(f"commit subjects in {args.base_ref}..HEAD")
+        checked.append(
+            f"commit subjects, trailers and authors in {args.base_ref}..HEAD"
+        )
     print(f"check_attribution: clean ({', '.join(checked)}).")
     return 0
 

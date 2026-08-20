@@ -46,9 +46,10 @@ gates:
     refuses: >
       A record whose header table, status or index row is malformed; banned
       narration vocabulary in a pre-ratification draft; a vendor or model name
-      in a record's prose or a commit subject; a seed copy still showing its
-      template placeholder to a reader; a record whose declared restatement
-      does not name it back.
+      in a record's prose or a commit subject; a commit trailer or author field
+      naming a tool where a person should be, or standing on an address nobody
+      reads; a seed copy still showing its template placeholder to a reader; a
+      record whose declared restatement does not name it back.
     runs:
       - project-seed/ci/adr_lint.py
       - project-seed/ci/check_attribution.py
@@ -66,7 +67,11 @@ gates:
       finding and not yet fixed. One commit subject is exempt from the
       vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the
       rule is taught from -- and check_attribution.py prints that exemption and
-      its reason on every run.
+      its reason on every run. The attribution check does not read the
+      committer: every squash merge on this host is committed by the forge's own
+      no-reply identity, so reading it would fail every merge the org makes. And
+      a byline naming no vendor, at an address that accepts mail, is
+      indistinguishable from a person -- `A Bot <bot@example.com>` passes.
 
   - id: one-pr-slot
     workflow: one-pr-check.yml
