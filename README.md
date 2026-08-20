@@ -115,6 +115,7 @@ qm/
 | — | [The ledger](records/DRAFT-the-ledger.md) | Proposed | 2026-08-15 |
 | — | [Attention is a claim, activity is measured](records/DRAFT-attention-is-a-claim-activity-is-measured.md) | Proposed | 2026-08-19 |
 | — | [CLIs are for machines and for debugging](records/DRAFT-clis-are-for-machines-and-debugging.md) | Proposed | 2026-08-20 |
+| — | [Deltas compose, and a tangle is a fact](records/DRAFT-deltas-compose.md) | Proposed | 2026-08-20 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so a gate one person can satisfy alone would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
