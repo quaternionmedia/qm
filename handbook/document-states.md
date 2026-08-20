@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-20T11:01:01Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-20T11:47:03Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,7 +9,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 21**; 19 proposed |
+| Records ratified | every requirement below | **0 of 22**; 20 proposed |
 | Mandatory reading | under budget | 621 of 700 lines |
 | Documents whose state is unknown | none | 1 |
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **109**, unfiltered.
+Every governed document in this corpus: **111**, unfiltered.
 
 | | |
 |---|---|
@@ -58,10 +58,10 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 19 |
+| [P] `proposed` | 20 |
 | [D] `draft` | 2 |
 | [??] `unknown` | 1 |
-| [-] `unreviewed` | 40 |
+| [-] `unreviewed` | 41 |
 | [G] `generated` | 7 |
 | [S] `standing` | 24 |
 | [T] `transient` | 16 |
@@ -73,6 +73,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-a-disagreement-is-a-delta.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-attention-is-a-claim-activity-is-measured.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-build-the-seam-buy-the-engines.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-clis-are-for-machines-and-debugging.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-contribution-and-sponsorship-policy.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-decision-record-discipline.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-few-integers-in-durable-text.md` | record | Proposed |
@@ -122,6 +123,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-19-the-suite-tested-a-model-of-the-system.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-19-three-fields-and-none-of-them-is-activity.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-19-two-fixtures-that-agreed-with-nothing.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-20-eight-commands-and-a-count.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-20-the-demo-found-what-the-fix-did-not.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |

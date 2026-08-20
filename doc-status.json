@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-20T11:01:01Z",
+  "generated_at": "2026-08-20T11:47:03Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -102,9 +102,9 @@
     "claim_is_not_evidence": "milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.",
     "measured": {
       "records": {
-        "total": 21,
+        "total": 22,
         "ratified": 0,
-        "proposed": 19
+        "proposed": 20
       },
       "documents_in_unknown_state": 1,
       "reading_within_budget": true,
@@ -120,15 +120,15 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 109,
+    "documents": 111,
     "by_state": {
       "draft": 2,
       "generated": 7,
-      "proposed": 19,
+      "proposed": 20,
       "standing": 24,
       "transient": 16,
       "unknown": 1,
-      "unreviewed": 40
+      "unreviewed": 41
     },
     "disagreements": 0,
     "unknown": 1
@@ -808,6 +808,16 @@
       "state": "unreviewed"
     },
     {
+      "path": "perspectives/2026-08-20-eight-commands-and-a-count.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
       "path": "perspectives/2026-08-20-the-demo-found-what-the-fix-did-not.md",
       "class": "perspective",
       "class_reason": "dated, attributed, non-binding opinion",
@@ -1027,6 +1037,15 @@
     },
     {
       "path": "records/DRAFT-build-the-seam-buy-the-engines.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-clis-are-for-machines-and-debugging.md",
       "class": "record",
       "class_reason": "an org decision record",
       "declared_status": "Proposed",

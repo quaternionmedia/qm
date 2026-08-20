@@ -193,3 +193,42 @@ exit, because doctest passes an example that declares no output; a generator
 fails when an artifact it names is absent; a skip is not a pass; and the check
 is satisfied by a run observed on the default branch, not by a workflow file
 that would have run.
+
+## P13 — A person is interrupted only by a decision
+
+A command line is an instrument for machines and for debugging. It is where a
+tool is driven when the driver is a script, and where a person goes when
+something has broken badly enough that the ordinary path cannot express it.
+It is not where routine work belongs, and typing eight commands to move one
+unit of work through its lifecycle is not a workflow — it is the absence of one.
+
+The test is what the interaction is *for*. A person should be reached when a
+**decision** is needed: something the system cannot establish for itself, where
+the answer is a judgement and the cost of guessing is real. Everything else —
+sequencing, copying, re-running, remembering which flag names which database —
+is the system's own work, and asking a person to do it spends the one resource
+that does not scale.
+
+Two consequences, and both are testable.
+
+**The established path is the product.** If a loop can only be walked by
+typing, it has not been built; it has been exposed. A CLI that mirrors an
+interface is fine and often necessary — automation needs one, and so does the
+person diagnosing why the interface is wrong. A CLI that *is* the only
+interface is a design that has stopped before the part that was hard.
+
+**An interruption states a question, its options, and what turns on it.** A
+prompt that says something failed has moved the work rather than done it. The
+person is being asked to decide, so they get what a decision needs: what
+happened, what they can say, and what each answer commits them to.
+
+The failure this guards against is not inconvenience. It is that a system which
+interrupts constantly trains its people to stop reading the interruptions, and
+the one that mattered arrives looking like the forty that did not.
+
+→ Org record: **CLIs are for machines and for debugging**
+(`records/DRAFT-clis-are-for-machines-and-debugging.md`). Its teeth
+are a count rather than a rule: the steps a person must type to complete a
+named workflow are recorded per workflow, and a workflow whose count grows
+without a stated reason is a regression. The corresponding measure on the other
+side is how many interruptions a session produced that were not decisions.
