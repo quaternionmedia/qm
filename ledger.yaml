@@ -794,6 +794,96 @@ entries:
       - 8 of 8 mutations caught against an asserted-green baseline
     status: closed
 
+  - id: 2026-08-20-001
+    tool: assistant-2026-08
+    kind: fix
+    action: Read a commit trailer, which nothing in this corpus had ever done
+    found_by: >
+      An operator instruction to review how accreditation and command execution
+      were being treated. The review found that the reviewer had put a vendor
+      no-reply co-author trailer on three commits in that same session, having
+      read the rule forbidding it, and that a full set of green checks had
+      nothing to say about any of them.
+    projected_impact: >
+      Written before building, in the exchange that authorised it: the check
+      that would have caught this does not exist anywhere in the corpus.
+      check_attribution.py reads commit subjects and record prose; no seed
+      workflow invokes it at all, so an adopting project gets the script and no
+      gate that runs it. Expected to be a small script change plus one workflow
+      step, and expected to need an adversarial pass before it could be trusted.
+    outcome: >
+      A third check on --base-ref: every commit trailer and the author field,
+      failing on two independent grounds -- the name is a tool's, or the address
+      is one nobody reads -- reported separately, because deleting a byline and
+      naming somebody reachable are different fixes. Git parses the trailers;
+      a regex beside git's definition would disagree with the forge, which uses
+      the same one. The seed adr-lint.yml now invokes it, so the gate reaches
+      every adopting project on its next pin bump rather than none of them.
+
+      The adversarial pass found two holes and one cosmetic defect, all closed:
+      the per-user-alias exemption was unconditional on the host label, so any
+      no-reply local part at a host named users.noreply.<anything> inherited it;
+      a bare address with no angle brackets fell through to the name check and
+      matched on the domain, refusing a real contributor's address with the
+      words "names a tool"; and a bad --base-ref printed the same sentence twice
+      under a count of two.
+
+      30 adversarial cases, 30 right. 158 seed tests, 18 new, 9 of them watched
+      failing against the unpatched checker -- the rest are overfire guards that
+      must pass either way. Driven end to end by putting a violating commit on a
+      real branch and watching the real gate go red.
+    failure_cost: >
+      Two rebuilds of the same patch. The first was written through a shell
+      heredoc, which collapsed one level of backslash escaping and turned an
+      escape inside an f-string into a real newline; reverted and reapplied from
+      a file. And the exemption hatch was written before it was needed --
+      an empty dict with a paragraph explaining it -- then removed, because this
+      check runs over a pull request's own commits, which their author can still
+      amend, so the hatch would only ever have been an invitation to add the
+      first red rather than fix it.
+    outcome_matched_projection: true
+    lessons: >
+      A rule every surface describes as enforced is the one worth checking a
+      detector exists for. Three documents here said the co-author trailer was
+      already forbidden -- the record, the seed AGENTS.md, and the corpus's own
+      workflow comment -- and the agreement between them is what made it look
+      settled. None of them was a detector.
+    status: closed
+
+  - id: 2026-08-20-002
+    tool: assistant-2026-08
+    kind: decide
+    action: Land the trailer check on project/carlos, with the namespace gate knowingly red
+    found_by: >
+      The namespace gate, on the pull request carrying 2026-08-20-001. A
+      project/* branch may only add or change files under adr/; this branch
+      changes project-seed/ci, ci/gate-registry.yaml and this file.
+    projected_impact: >
+      The gate's reason is not a formality and is recorded here rather than
+      argued with. Propagation is one-directional: main merges into a project
+      branch and nothing carries a project branch back, so org-level content
+      added here is stranded. Every other adopting project keeps receiving the
+      script with no seed workflow that invokes it, which is the exact gap this
+      work was for. The alternative was landing on main and merging main into
+      project/carlos, and that merge would pull 35 unrelated commits into the
+      Carlos line.
+    outcome: >
+      Directed by the operator, who was shown both paths and the cost of each.
+      The change lands on project/carlos. The namespace gate stays red and the
+      reason is this entry.
+    failure_cost: >
+      One red gate on the pull request, and the seed fix reaches one project
+      instead of the org. A second act is needed to give it to the others:
+      cherry-pick onto a branch targeting main, which nothing here does and
+      nothing here should do silently.
+    outcome_matched_projection: true
+    lessons: >
+      A gate whose refusal is correct is still a decision to make rather than a
+      thing to route around. The wrong move was available and cheap -- retarget
+      the branch and let the merge carry 35 commits nobody asked for -- and it
+      would have passed every check.
+    status: closed
+
 # Every pass over the base, recorded whether or not it found anything.
 #
 # `entries:` above grows only when something goes wrong, so on its own it
@@ -830,4 +920,10 @@ passes:
     ran: |-
       762 tests, 8/8 mutations on the private-name check, the workflow runner including the new gate, docs generate and check, governance-status faithfulness (214/214), private-names in both source modes
     entries_at_pass: 23
+    added_since_previous: 1
+  - at: "2026-08-20T15:17:27Z"
+    tool: assistant-2026-08
+    ran: |-
+      158 seed + corpus tooling tests (3 pre-existing failures: pattern-index.json 171h old against a 168h budget), 30 adversarial cases against the new trailer check, exceptions/policies/ledger/lanes --check, and the carlos-side workflow runner with a deliberately violating commit to watch the gate go red
+    entries_at_pass: 24
     added_since_previous: 1

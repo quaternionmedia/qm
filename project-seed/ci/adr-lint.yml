@@ -102,3 +102,28 @@ jobs:
             --records-dir "$records" \
             --index "$records/README.md" \
             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
+
+      # Tool involvement is disclosed in a `Tools:` note and nowhere else --
+      # `DRAFT-human-only-contributorship.md`. A contributor is someone who can
+      # be asked why, and reached to answer.
+      #
+      # THIS STEP IS THE ONE THIS FILE WAS MISSING. `check_attribution.py` has
+      # shipped in `project-seed/ci/` since it was written, and no seed workflow
+      # invoked it: an adopting project got the script and no gate that ran it.
+      # So the co-author rule -- which this corpus's own workflow comment calls
+      # "already forbidden" -- was enforced in every adopting repository by
+      # nobody. Found the way these are found: three commits carrying a vendor
+      # `noreply@` trailer went through a full set of green checks.
+      #
+      # What it reads, and the list is the honest part:
+      #   - records prose, for a vendor or model name outside a code span
+      #   - commit subjects in the range
+      #   - commit trailers and the author field in the range
+      # It does not read the committer, because every squash merge on GitHub is
+      # committed by the forge's own `noreply@` identity.
+      - name: No vendor or model name outside a Tools note
+        run: |
+          records="${RECORDS_DIR:-$QM_SUBMODULE/adr}"
+          python "$QM_SUBMODULE/project-seed/ci/check_attribution.py" \
+            --records-dir "$records" \
+            ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
