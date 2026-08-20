@@ -97,6 +97,14 @@ Not gaps in the code — gaps in what anybody has *established*.
   a demonstration rather than this project's units of work.
 - **Only one project emits deltas.** "Deltas across projects" needs a second
   emitter meeting `dossier deltas from-prs` on the address.
+- **Most of the rad menu is in the menu and not applied.** `dossier`'s command
+  sheet at `docs/rad-commands.md` marks which; it is generated from the palette
+  and the app's dispatch, so the split is read off the code rather than
+  maintained. `Go` is wired throughout and `6.2` now syncs; the phase and note
+  actions under `Do`, every filter under `Show`, and all three of `Reach` report
+  "not applied yet" when pressed. `Reach` is the interesting one — its three
+  wedges are the pair's seam, and two of them duplicate CLI routes that already
+  work.
 - **`rad`'s conformance vectors do not cover the numpad cells**, and its
   `DRAFT-rad-host-integration-standard.md` exists on one disk and no remote —
   while `codecartographer`'s committed handoff defers to it.
