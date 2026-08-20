@@ -119,6 +119,7 @@ qm/
 | — | [Acts that are a person's by constitution](records/DRAFT-acts-that-are-a-persons-by-constitution.md) | Proposed | 2026-08-20 |
 | — | [Whether something is a delta is a perspective](records/DRAFT-granularity-is-a-perspective.md) | Proposed | 2026-08-20 |
 | — | [Nothing unattended spends money](records/DRAFT-no-unattended-spending.md) | Proposed | 2026-08-20 |
+| — | [A route is an address, and an unavailable one is still shown](records/DRAFT-a-route-is-an-address.md) | Proposed | 2026-08-20 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so a gate one person can satisfy alone would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 

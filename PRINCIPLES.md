@@ -240,3 +240,38 @@ are a count rather than a rule: the steps a person must type to complete a
 named workflow are recorded per workflow, and a workflow whose count grows
 without a stated reason is a regression. The corresponding measure on the other
 side is how many interruptions a session produced that were not decisions.
+
+## P14 — A change that can only be typed schedules interface work
+
+**Doing a needed thing by typing is a diagnosis, not a delivery.** Dropping to a
+command line to make a change is legitimate and often correct — it is how
+something gets fixed today, and P13 already says automation and diagnosis both
+need a command line. What is not legitimate is the loop closing there, with the
+change made and nothing recorded about the interface that could not carry it.
+
+**So the act creates an item.** A person doing something by typing that they
+would reasonably expect to do in the interface writes that down, in the same
+place the organisation keeps its other open work, naming the workflow that
+needed it. Not a commitment to build it — a proposal, and a fact about where the
+interface stops.
+
+This is the half P13 was missing. P13 counts the steps a person must type to
+complete a named workflow and calls a growing count a regression; without a rule
+that turns a count into scheduled work, the measurement is a thermometer nobody
+is obliged to act on.
+
+**"Reasonably" is a person's judgement, and the rule does not try to remove it.**
+Most command-line surface needs no interface route: automation requires a CLI, a
+flag is not a feature, and an interface that grew a control for every option
+would fail its own budget. The trigger is a *person*, doing a *needed change*,
+that the interface plausibly should have carried.
+
+**The interface owes something back**, and that is stated where it is designed
+rather than here: a command's address is derived rather than assigned, its
+documentation is generated rather than written, what a host cannot do is shown
+rather than removed, and no state is carried by colour alone.
+
+→ Org record: **A route is an address, and an unavailable one is still shown**
+(`records/DRAFT-a-route-is-an-address.md`). This principle restates its §5; the
+four rules above about what the interface owes are stated in §1–§4 of that
+record and summarised here only as a pointer.
