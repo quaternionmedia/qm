@@ -226,6 +226,14 @@ The failure this guards against is not inconvenience. It is that a system which
 interrupts constantly trains its people to stop reading the interruptions, and
 the one that mattered arrives looking like the forty that did not.
 
+**The converse is a separate rule and a sharper one.** A few acts are a
+person's not because a machine would do them badly, but because a machine doing
+them changes what the act asserts. A version tag cut by a scheduled job is a
+string identical to a real one and a claim nobody made. Those acts are
+enumerated in `ci/attested-registry.yaml` and decided in
+`records/DRAFT-acts-that-are-a-persons-by-constitution.md`; everything that
+prepares one may be automated freely, and should be.
+
 → Org record: **CLIs are for machines and for debugging**
 (`records/DRAFT-clis-are-for-machines-and-debugging.md`). Its teeth
 are a count rather than a rule: the steps a person must type to complete a
