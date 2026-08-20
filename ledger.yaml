@@ -850,6 +850,40 @@ entries:
       settled. None of them was a detector.
     status: closed
 
+  - id: 2026-08-20-002
+    tool: assistant-2026-08
+    kind: decide
+    action: Land the trailer check on project/carlos, with the namespace gate knowingly red
+    found_by: >
+      The namespace gate, on the pull request carrying 2026-08-20-001. A
+      project/* branch may only add or change files under adr/; this branch
+      changes project-seed/ci, ci/gate-registry.yaml and this file.
+    projected_impact: >
+      The gate's reason is not a formality and is recorded here rather than
+      argued with. Propagation is one-directional: main merges into a project
+      branch and nothing carries a project branch back, so org-level content
+      added here is stranded. Every other adopting project keeps receiving the
+      script with no seed workflow that invokes it, which is the exact gap this
+      work was for. The alternative was landing on main and merging main into
+      project/carlos, and that merge would pull 35 unrelated commits into the
+      Carlos line.
+    outcome: >
+      Directed by the operator, who was shown both paths and the cost of each.
+      The change lands on project/carlos. The namespace gate stays red and the
+      reason is this entry.
+    failure_cost: >
+      One red gate on the pull request, and the seed fix reaches one project
+      instead of the org. A second act is needed to give it to the others:
+      cherry-pick onto a branch targeting main, which nothing here does and
+      nothing here should do silently.
+    outcome_matched_projection: true
+    lessons: >
+      A gate whose refusal is correct is still a decision to make rather than a
+      thing to route around. The wrong move was available and cheap -- retarget
+      the branch and let the merge carry 35 commits nobody asked for -- and it
+      would have passed every check.
+    status: closed
+
 # Every pass over the base, recorded whether or not it found anything.
 #
 # `entries:` above grows only when something goes wrong, so on its own it
