@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-20T14:47:59Z",
+  "generated_at": "2026-08-20T17:03:19Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -58,7 +58,7 @@
       "local": 0,
       "pushed": 0,
       "draft": 1,
-      "ready": 6
+      "ready": 5
     },
     "threads_stalled": 4,
     "threads_unreadable": 0
@@ -177,7 +177,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 19,
-        "observed_at": "2026-08-20T14:47:28Z",
+        "observed_at": "2026-08-20T17:02:49Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -348,7 +348,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 19,
-        "observed_at": "2026-08-20T14:47:34Z",
+        "observed_at": "2026-08-20T17:02:54Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -399,7 +399,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 2,
-        "observed_at": "2026-08-20T14:47:36Z",
+        "observed_at": "2026-08-20T17:02:57Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -462,7 +462,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23127.9,
+          "idle_hours": 23130.1,
           "stalled": true
         }
       ],
@@ -484,7 +484,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-20T14:47:20Z",
+        "observed_at": "2026-08-20T17:02:40Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -584,14 +584,14 @@
           "title": "Fix the viewer, and give datum-core an assembly you can navigate",
           "author": "subcontrabass",
           "delta": {
-            "additions": 4067,
+            "additions": 4053,
             "changed_files": 45,
-            "commits": 16,
-            "deletions": 120,
+            "commits": 20,
+            "deletions": 134,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-20T14:42:29Z"
+            "updated_at": "2026-08-20T16:45:36Z"
           },
-          "idle_hours": 0.1,
+          "idle_hours": 0.3,
           "stalled": false
         },
         {
@@ -609,7 +609,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 219.0,
+          "idle_hours": 221.2,
           "stalled": true
         }
       ],
@@ -626,7 +626,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-20T14:47:21Z",
+        "observed_at": "2026-08-20T17:02:42Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -673,14 +673,14 @@
           "title": "WP-3: firmware, the pre-HIL run, and a pinned enclosure",
           "author": "subcontrabass",
           "delta": {
-            "additions": 2742,
-            "changed_files": 42,
-            "commits": 17,
-            "deletions": 91,
+            "additions": 3028,
+            "changed_files": 43,
+            "commits": 24,
+            "deletions": 93,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-20T12:46:22Z"
+            "updated_at": "2026-08-20T16:46:23Z"
           },
-          "idle_hours": 2.0,
+          "idle_hours": 0.3,
           "stalled": false
         }
       ],
@@ -697,7 +697,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 6,
-        "observed_at": "2026-08-20T14:47:27Z",
+        "observed_at": "2026-08-20T17:02:47Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -795,7 +795,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 211.6,
+          "idle_hours": 213.8,
           "stalled": true
         }
       ],
@@ -817,7 +817,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-20T14:47:24Z",
+        "observed_at": "2026-08-20T17:02:44Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -954,7 +954,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-20T14:47:31Z",
+        "observed_at": "2026-08-20T17:02:51Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -971,15 +971,6 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
-          {
-            "number": 11,
-            "title": "Take the boot shot at boot, and hold the generator in place",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "they",
-            "head": "fix/the-shutter-and-the-boot-shot",
-            "draft": false
-          },
           {
             "number": 3,
             "title": "Bump idna from 3.10 to 3.15",
@@ -1009,26 +1000,7 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [
-        {
-          "name": "fix/the-shutter-and-the-boot-shot",
-          "stage": "ready",
-          "pr": 11,
-          "base": "they",
-          "title": "Take the boot shot at boot, and hold the generator in place",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 116,
-            "changed_files": 4,
-            "commits": 1,
-            "deletions": 7,
-            "mergeable_state": "unstable",
-            "updated_at": "2026-08-20T12:39:46Z"
-          },
-          "idle_hours": 2.1,
-          "stalled": false
-        }
-      ],
+      "threads": [],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -1042,7 +1014,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 35,
-        "observed_at": "2026-08-20T14:47:23Z",
+        "observed_at": "2026-08-20T17:02:43Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1133,7 +1105,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 128,
-        "observed_at": "2026-08-20T14:47:35Z",
+        "observed_at": "2026-08-20T17:02:55Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1195,7 +1167,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3262.8,
+          "idle_hours": 3265.0,
           "stalled": true
         }
       ],

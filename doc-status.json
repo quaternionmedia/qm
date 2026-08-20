@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-20T14:48:00Z",
+  "generated_at": "2026-08-20T17:03:20Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -120,12 +120,12 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 116,
+    "documents": 118,
     "by_state": {
       "draft": 2,
       "generated": 7,
       "proposed": 24,
-      "standing": 25,
+      "standing": 27,
       "transient": 16,
       "unknown": 1,
       "unreviewed": 41
@@ -968,6 +968,16 @@
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
     },
     {
+      "path": "plans/open-work.md",
+      "class": "other",
+      "class_reason": "not in a governed directory",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
       "path": "plans/qmpm-standardisations.md",
       "class": "other",
       "class_reason": "not in a governed directory",
@@ -999,6 +1009,16 @@
     },
     {
       "path": "plans/the-active-set-and-the-pair.md",
+      "class": "other",
+      "class_reason": "not in a governed directory",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "plans/thread-archive-access.md",
       "class": "other",
       "class_reason": "not in a governed directory",
       "declared_status": null,
