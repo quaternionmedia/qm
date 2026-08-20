@@ -40,19 +40,28 @@ this page, and notice where you needed something you did not have.
 Ten minutes, and nothing here can damage anything. Every command names its own
 database.
 
+**`~/hil` and not `/tmp/hil`, and that is not fussiness.** This session moves
+between two repositories, which invites moving between two shells, and on this
+machine the same string means two different directories:
+
+| written | PowerShell opens | Git Bash opens |
+|---|---|---|
+| `/tmp/hil` | `C:\tmp\hil` | `C:\Users\<you>\AppData\Local\Temp\hil` |
+| `~/hil` | `C:\Users\<you>\hil` | `C:\Users\<you>\hil` |
+
+The first draft of this page said `/tmp/hil`. Running it put the harness
+database in one directory and the panel database in another, and the failure
+surfaced three commands later as a file that did not exist.
+
 ```sh
-# a place for the session's scratch state
-mkdir -p /tmp/hil && cd /tmp/hil        # any empty directory
+mkdir ~/hil          # or: New-Item -ItemType Directory ~/hil
 
-# 1. the harness
-cd <qmcp>
+# in <qmcp>
 uv sync
-uv run qmcp selfcheck --database /tmp/hil/run.db
 
-# 2. the control panel
-cd <dossier>
+# in <dossier>
 uv sync
-export DOSSIER_DATABASE_URL=sqlite:////tmp/hil/panel.db
+export DOSSIER_DATABASE_URL=sqlite:///~/hil/panel.db   # PowerShell: $env:DOSSIER_DATABASE_URL = "sqlite:///$HOME/hil/panel.db"
 uv run dossier db upgrade
 uv run dossier projects add quaternionmedia/qmcp
 ```
@@ -69,23 +78,48 @@ command, so neither can have drifted from the code.
 
 ## The loop
 
-Six steps. The whole thing takes a few minutes after the first run, which spends
-most of its time running the suite.
+**Eight commands, all numbered.** The first draft numbered six of them and left
+the two that write the payload files unnumbered, so a reader following the
+numbers went straight from answering the question to ingesting a file nothing
+had written. Every line below is a step.
+
+The whole thing takes a few minutes after the first run, which spends most of
+its time running the suite.
 
 ```sh
-# in qmcp
-uv run qmcp selfcheck --database /tmp/hil/run.db          # 1. the run
-uv run qmcp human list --database /tmp/hil/run.db         # 2. what it asked you
-uv run qmcp human respond selfcheck-tag-claims defer \
-      --database /tmp/hil/run.db --by "<your name>"       # 3. you answer
-uv run qmcp selfcheck --database /tmp/hil/run.db --deltas > /tmp/hil/deltas.json
-uv run qmcp dashboard --database /tmp/hil/run.db --json  > /tmp/hil/harness.json
+# --- in <qmcp> ---
+# 1. the run
+uv run qmcp selfcheck --database ~/hil/run.db
 
-# in dossier
-uv run dossier harness ingest /tmp/hil/harness.json --write   # 4. what ran
-uv run dossier deltas ingest /tmp/hil/deltas.json  --write    # 5. the work
-uv run dossier dashboard                                      # 6. the panel
+# 2. what it asked you
+uv run qmcp human list --database ~/hil/run.db
+
+# 3. you answer
+uv run qmcp human respond selfcheck-tag-claims defer \
+      --database ~/hil/run.db --by "<your name>"
+
+# 4. write the units of work         <- produces a file. Do not skip.
+uv run qmcp selfcheck --database ~/hil/run.db --deltas > ~/hil/deltas.json
+
+# 5. write what has run              <- produces a file. Do not skip.
+uv run qmcp dashboard --database ~/hil/run.db --json > ~/hil/harness.json
+
+# 6. check both files exist before crossing to the other side
+ls -l ~/hil/deltas.json ~/hil/harness.json
+
+# --- in <dossier> ---
+# 7. what ran, and the work
+uv run dossier harness ingest ~/hil/harness.json --write
+uv run dossier deltas  ingest ~/hil/deltas.json  --write
+
+# 8. the panel
+uv run dossier dashboard
 ```
+
+**Step 6 is there because it was needed.** `Invalid value for 'PAYLOAD': Path
+... does not exist` arrives at step 7 and reads as a broken tool. It means a
+step that writes a file was not run, or was run in a shell where `~/hil` meant
+somewhere else.
 
 **What should happen.** The run finds that `tag-claims` does not pass — a real
 gate refusing this repository's real captured test run, because the suite skips

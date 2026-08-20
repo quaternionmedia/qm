@@ -110,6 +110,46 @@ the property.
 Those are the two failure modes of a test written by the same author as the
 code: it can agree with the bug, and it can agree with the sentence.
 
+## The same mistake, twice, in one session
+
+I wrote an onramp for a testing session, said I had run every command in it
+exactly as written, and had not. I ran them with a shell variable substituted
+for the literal path -- `$HIL` where the page said `/tmp/hil`. The commands were
+right. The page was not, in two ways that only running the literal text could
+show.
+
+**`/tmp/hil` is not one directory on this machine.** PowerShell opens
+`C:\tmp\hil`; Git Bash opens `C:\Users\<user>\AppData\Local\Temp\hil`. The
+session moves between two repositories, which invites moving between two
+shells, so the panel database and the harness database landed in different
+places. The failure surfaced three commands later, as a file that did not exist.
+
+**Two of the eight commands had no step number.** The page said "six steps" and
+numbered 1, 2, 3 then 4, 5, 6 -- skipping the two lines that write the payload
+files. A reader following the numbers went from answering the question straight
+to ingesting a file nothing had written. The directory listing settled it: only
+the database was there.
+
+Then the fix reproduced the original defect a third time. `~/hil` resolves
+identically in both shells, so the page became
+`DOSSIER_DATABASE_URL=sqlite:///~/hil/panel.db` -- and no shell expands a tilde
+in the middle of a string. It reached the application literally, which created a
+directory actually named `~` inside the repository, wrote the database there,
+and reported **success**. `.gitignore` carries `*~`, so it did not appear in
+`git status` either.
+
+Three instances, one session, one root: **I verified something adjacent to the
+artifact rather than the artifact.** A substituted variable is not the literal
+path. A command that works is not a page that works. This corpus already holds
+that recurrence by one practitioner is evidence rather than its absence, and
+this is the evidence.
+
+The repairs: the page resolves its paths the same way in both shells, numbers
+every command, and carries a checkpoint that fails at the step before the
+confusing one. The application expands the tilde rather than taking it
+literally, with a test naming the mutation. And the page's literal text was run,
+in the shell it names, before saying so this time.
+
 ## A smaller one worth naming
 
 I read a gate's exit status as 0 when it was `tail`'s. The command was
