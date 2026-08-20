@@ -51,7 +51,10 @@ Not candidates. Listed so nobody re-opens them by accident.
 - **Is one lifecycle enough?** `brainstorm → planning → implementation → review
   → documentation → complete` fits code. It fits a conversation badly and a
   decision worse. Either the phases generalise or `delta_type` selects a
-  lifecycle.
+  lifecycle. **Narrowed** by
+  `records/DRAFT-granularity-is-a-perspective.md`: a conversation's *turns* are
+  not the subject, because they are steps in that perspective. What needs a
+  lifecycle is what the conversation produced.
 - **Who may advance a phase.** Today anything can. Detection opening at
   `brainstorm` is already a rule; the rest are not.
 - **What `complete` asserts**, and whether a container is complete when its
@@ -64,7 +67,10 @@ Not candidates. Listed so nobody re-opens them by accident.
 ## 3. Provenance
 
 - **Where a delta came from**, as a field rather than prose: a person, a
-  detector, a sync, a conversation.
+  detector, a sync, a conversation. Related and decided:
+  `records/DRAFT-no-unattended-spending.md` — anything that cost money to
+  produce had a person behind it by construction, so provenance for that class
+  is never "a schedule".
 - **What produced a claim inside it.** The harness already links an invocation;
   the general form is unsettled.
 - **Confidence, or its refusal.** A delta a detector guessed at and one a person
@@ -97,9 +103,11 @@ Not candidates. Listed so nobody re-opens them by accident.
 - **No estimates, or estimates as claims.** If they exist they are claims and
   belong beside their evidence, like `phase`.
 - **Priority as a declaration.** `high` today means whatever the emitter meant.
-- **What is not a delta.** A green check is not work — already the rule in the
-  self-check. The general statement is missing, and without it every detector
-  fills the board.
+- ~~**What is not a delta.**~~ Decided:
+  `records/DRAFT-granularity-is-a-perspective.md` — granularity is a property
+  of the perspective, not of the thing, and every payload names the perspective
+  it speaks from. A green check is still not work in any perspective; that is
+  about whether it is work, not at what level.
 
 ## 7. Interop
 

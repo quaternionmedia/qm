@@ -11,6 +11,7 @@ below match failures that were discovered while writing the tools.
 from __future__ import annotations
 
 import json
+from datetime import datetime, timedelta, timezone
 import sys
 import tempfile
 from pathlib import Path
@@ -400,14 +401,35 @@ class TestShapeIndex:
 # check_pattern_coverage
 # ---------------------------------------------------------------------------
 
-def _make_pattern_index(path, patterns,
-                        generated_at="2026-08-13T12:00:00Z"):
+def _make_pattern_index(path, patterns, generated_at=None,
+                        staleness_budget_hours=168):
+    """A pattern index, stamped fresh unless a case is about staleness.
+
+    THE STAMP USED TO BE A LITERAL, `2026-08-13T12:00:00Z`, against a 168-hour
+    budget. It worked for a week and then every case here began exercising the
+    staleness branch instead of the coverage branch it was written for --
+    three tests turning red on a day nobody touched the code, for a reason that
+    reads like a regression and is a date.
+
+    Computed relative to now, so a case says what it means: `fresh` unless it
+    asks to be old.
+    """
+    if generated_at is None:
+        stamped = datetime.now(timezone.utc) - timedelta(hours=1)
+        generated_at = stamped.strftime("%Y-%m-%dT%H:%M:%SZ")
     doc = {
         "generated_at": generated_at,
-        "staleness_budget_hours": 168,
+        "staleness_budget_hours": staleness_budget_hours,
         "patterns": patterns,
     }
     path.write_text(json.dumps(doc), encoding="utf-8")
+
+
+def _stale_stamp(hours_past_budget=1, budget=168):
+    """A stamp that is definitely past `budget`, without naming a date."""
+    stamped = (datetime.now(timezone.utc)
+               - timedelta(hours=budget + hours_past_budget))
+    return stamped.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 class TestCheckPatternCoverage:
@@ -458,6 +480,40 @@ class TestCheckPatternCoverage:
 
     def test_exits_2_when_index_absent(self, tmp):
         assert cpc.main(["--index", str(tmp / "absent.json")]) == 2
+
+    def test_a_stale_index_does_not_gate_on_figures_nobody_re_derived(self, tmp):
+        """The branch that was silently running under every other case here.
+
+        A gap above threshold in a stale document exits 0 rather than 1: the
+        counts are past their budget, and failing a gate on a figure nobody
+        re-derived would be asserting something the document no longer claims.
+
+        Nothing exercised this until the fixture's hardcoded date drifted into
+        it, which is how it was found -- three tests going red on a day nobody
+        touched the code.
+        """
+        idx = tmp / "pi.json"
+        _make_pattern_index(idx, {
+            "exit-code-trap": {
+                "count": 9, "threshold": 3,
+                "check_exists": False,
+                "caught_by": {},
+            }
+        }, generated_at=_stale_stamp())
+        assert cpc.main(["--index", str(idx)]) == 0
+
+    def test_the_same_gap_gates_when_the_index_is_fresh(self, tmp):
+        """The pair for the test above. A rule that never fires and one that
+        always fires are equally useless, and only both together say which."""
+        idx = tmp / "pi.json"
+        _make_pattern_index(idx, {
+            "exit-code-trap": {
+                "count": 9, "threshold": 3,
+                "check_exists": False,
+                "caught_by": {},
+            }
+        })
+        assert cpc.main(["--index", str(idx)]) == 1
 
     def test_at_threshold_counts_as_above(self, tmp):
         # count == threshold should trigger the gate, not count > threshold

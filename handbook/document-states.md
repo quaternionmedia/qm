@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-20T12:04:04Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-20T12:24:47Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,7 +9,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 23**; 21 proposed |
+| Records ratified | every requirement below | **0 of 25**; 23 proposed |
 | Mandatory reading | under budget | 621 of 700 lines |
 | Documents whose state is unknown | none | 1 |
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **113**, unfiltered.
+Every governed document in this corpus: **115**, unfiltered.
 
 | | |
 |---|---|
@@ -58,7 +58,7 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 21 |
+| [P] `proposed` | 23 |
 | [D] `draft` | 2 |
 | [??] `unknown` | 1 |
 | [-] `unreviewed` | 41 |
@@ -79,10 +79,12 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-deltas-compose.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-few-integers-in-durable-text.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-governance-arrives-as-a-mechanism.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-granularity-is-a-perspective.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-house-stack.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-human-only-contributorship.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-ide-integrated-governance-discovery.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-monitoring-seam-and-instance-identity.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-no-unattended-spending.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-one-executable-walkthrough.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-open-license-exclusion-and-upstream-remediation.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-outbound-licensing.md` | record | Proposed |

@@ -6,7 +6,7 @@
 | **Date** | 2026-08-20 |
 | **Pends on** | Nothing — ready for ratification |
 | **Principle** | P6 — decisions are documented or they didn't happen; P8 — systems over heroics |
-| **Restated in** | `plans/qmpm-standardisations.md` §1 |
+| **Restated in** | Nothing. The qmPM standardisations page cites it, which is a citation rather than a restatement: that page decides nothing and says so |
 
 ## Context
 
