@@ -51,22 +51,44 @@ deterministic, human-issued command.**
    Where a count depends on input, the count is shown and confirmed before the
    first call rather than reported after the last.
 
-3. **Human-issued, every time.** Consent does not carry forward. A person
+3. **Zero is a valid declared count, and it is the default.** A command may be
+   issued with a budget of zero paid calls. It then does every free thing it
+   can, establishes what the paid work would cost, and stops. That is how a
+   count gets stated in advance without spending to find it out: the first pass
+   is always free, and the number it produces is what the second pass is issued
+   against.
+
+   **Zero is a fact here, never a sentinel.** Zero calls were authorised and
+   zero were made, and both are known precisely. What may be unknown is *how
+   many would be needed*, and that stays `unknown` with a reason — the
+   convention `harness-status.json`'s reading block states and the harness
+   payload already follows. A run that reported `would_need: 0` when nobody
+   could count would be claiming the work is free, which is the same
+   substitution refused everywhere else in this corpus.
+
+4. **A declared count of zero is carried downstream.** Anything produced under
+   a zero-budget run says so. A consumer reading a row must be able to tell a
+   free-path result from a complete one: they are different claims, and a
+   partial answer presented as whole is the shape of finding this organisation
+   keeps recording. The signal travels with the payload rather than being
+   inferred from an empty field.
+
+5. **Human-issued, every time.** Consent does not carry forward. A person
    approving a run has approved that run. There is no remembered permission, no
    `--yes` that persists, and no session-level grant, because the thing being
    consented to is an amount rather than a category.
 
-4. **A paid dependency is declared where it is used.** A module that can cause a
+6. **A paid dependency is declared where it is used.** A module that can cause a
    paid call says so, at the top, in the plainest available words. A reader
    inspecting what a tool does must not have to trace a call graph to find out
    whether it spends.
 
-5. **The unpaid path stays.** Anything built on a paid service keeps a mode that
+7. **The unpaid path stays.** Anything built on a paid service keeps a mode that
    works without it — degraded, partial, or refusing with a reason. A capability
    that only exists while the meter runs is one this organisation does not own,
    and P1 is what that costs.
 
-6. **This is not a budget.** No threshold makes an unattended call acceptable.
+8. **This is not a budget.** No threshold makes an unattended call acceptable.
    The rule is about who caused it, not how much it was, and a cheap call made
    by nobody is exactly the thing being refused.
 
@@ -74,7 +96,7 @@ deterministic, human-issued command.**
 which modules may spend — with a check that no scheduled entry point, workflow
 or hook reaches one. It can see a static call path from a scheduled context into
 a declared paid module. **It cannot see a paid call made through a module nobody
-declared**, which is why clause 4 is a rule about writing rather than a
+declared**, which is why clause 6 is a rule about writing rather than a
 derivation, and why a paid surface added without declaring it is the failure
 this depends on people not committing.
 
@@ -110,7 +132,7 @@ acceptable below a number, and the harm being prevented is not the amount — it
 is that nobody decided. A cap also fails silently in the direction that matters:
 it is discovered by being hit.
 
-**Approve a session, then run freely within it.** Rejected by clause 3. What a
+**Approve a session, then run freely within it.** Rejected by clause 5. What a
 person is consenting to is an amount, and an amount cannot be consented to
 before it is known. It is also the mechanism by which a careful rule becomes a
 habit of clicking through.
@@ -127,11 +149,12 @@ control as well as the service.
 
 - A paid service that is genuinely free at the margin, which would make clause 1
   cost more than it protects.
-- Batch work where stating the count in advance is impossible rather than
-  inconvenient, which would mean clause 2 needs a form for bounded uncertainty.
+- Batch work where even a zero-budget pass cannot establish the count, which
+  would mean clause 3's free-first pass does not generalise and clause 2 needs
+  a form for bounded uncertainty.
 - A paid call reaching production through an undeclared module, which would mean
-  clause 4 needs a mechanism rather than a rule.
-- Anybody proposing a remembered approval, which is the signal that clause 3 is
+  clause 6 needs a mechanism rather than a rule.
+- Anybody proposing a remembered approval, which is the signal that clause 5 is
   being felt and is the moment to check whether the workflow is wrong instead.
 
 ## Amendments
