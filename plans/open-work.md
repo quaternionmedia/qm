@@ -77,6 +77,13 @@ Not gaps in the code — gaps in what anybody has *established*.
 - **Two `dossier.db` files exist on the machine this was written on.** The
   settings screen now lists every candidate and marks the live one; which of the
   two should survive is an operator's call.
+- **Three `dossier` test modules reload `dossier.cli` and two never restore it.**
+  `importlib.reload` re-executes into the same module object, so a module that
+  did `from dossier.cli import ...` keeps the old binding while the module
+  attribute moves — the two disagree from then on. They are green today. A test
+  file added beside them was not, and the failures landed in unrelated modules
+  that pass in isolation, which is the hardest shape of failure to read.
+  `tests/core/test_sources.py`'s header says what to do instead.
 
 ## Not started
 
@@ -105,4 +112,7 @@ contract generated from a real emitter; the delta composition vocabulary; the
 `ask` address kind and the human queue crossing as rows; the thread archive,
 index and archive semantics; the Claude export importer, verified; the
 subagent-collision false divergences; `DOSSIER_DATABASE_URL` reaching all three
-resolvers; the overview's missing stylesheet; three dead sort handlers.
+resolvers; the overview's missing stylesheet; three dead sort handlers; the
+overview sections that scrolled inside a page that already scrolled; and
+`OverviewPanel.refresh_overview` building a coroutine and dropping it, so
+choosing an owner moved the field and left the screen where it was.
