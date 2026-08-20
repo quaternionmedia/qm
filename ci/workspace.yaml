@@ -199,3 +199,18 @@ repositories:
     phase: v0.0.1
     phase_source: scaffolded
     paths: [qm/qmcp, qmcp]
+
+  # --- Worked on 2026-08-20 -------------------------------------------------
+  - name: carlos
+    role: project
+    phase: v0.0.1
+    phase_source: stated
+    note: >
+      browser workspace for sketching synth rigs. Absent from this roster until
+      now, while its own GOVERNANCE.md had claimed v0.0.1 since adoption began
+      -- so the claim existed and the place the org reads claims from did not
+      carry it. `stated`, not `scaffolded`: a human named the phase in a
+      session on 2026-08-20. It is what the project is working toward and not
+      an attainment; nothing here is evidence, and the tag that would assert
+      arrival has not been cut.
+    paths: [qm/carlos, carlos]
