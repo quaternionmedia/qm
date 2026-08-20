@@ -227,7 +227,45 @@ conformant to something it never ran.
 
 ### The four gaps, in the order they unblock each other
 
-**1. `qmcp deltas` emits the wrong subject.** Run today it emits the *steps of a
+**1a. The harness now points at itself — done.** `qmcp selfcheck` runs the gates
+this project is already held to, as real subprocesses, and writes each one to
+the database as the same `ToolInvocation` row the server writes and
+`qmcp dashboard` reads back. A failing check becomes a unit of work; a passing
+one becomes nothing, because a green gate is not work. The finding is real:
+`tag-claims` refuses this repository's own captured run, because its suite skips
+tests needing optional dependencies and
+`records/DRAFT-version-tags-are-claims.md` 3 says a skipped test contributes
+nothing to the automated-validation claim.
+
+The delta iterates on facts rather than on optimism. It opens at `brainstorm` —
+noticing is not deciding — and moves to `planning` when a human answers the
+question the run raised, through `qmcp human list` and `qmcp human respond`,
+which is the human-in-the-loop queue reaching a command line for the first time.
+It goes no further, because no amount of re-running establishes that anybody
+acted. Its identity is the check, not the run, so a second run finds the same
+delta rather than opening a second one.
+
+`qmcp/walkthrough/02-a-run-that-found-something.md` executes the whole thing
+with real subprocesses.
+
+**Three defects the demo found, all fixed:**
+
+- **`dossier` could not be pointed at another database.** `DATABASE_URL` was a
+  module constant, so a demo run from the repository root wrote into the
+  operator's own data — which is exactly what happened, and the rows had to be
+  removed by hand. `DOSSIER_DATABASE_URL` now overrides it, and it is resolved
+  in `health.py` rather than only in the CLI: an override reaching the engine
+  but not the migrations would have `db upgrade` migrating one database while
+  every query ran against another, reporting success — the two-databases
+  failure that module exists for, reintroduced by its own fix.
+- **`dossier` read a payload's `links` and dropped them.** The address that
+  joins the two views and the invocation that produced a finding were never
+  stored. Both sides believed the join existed and nothing held it.
+- **Links were written only on create or update**, so an unchanged delta skipped
+  the pass — and a second run of the same failing check is precisely that: the
+  same delta, a new invocation. The rows that accumulate were the rows dropped.
+
+**1. `qmcp deltas` still emits the wrong subject.** Run today it emits the *steps of a
 cookbook pipeline* — `summarizer`, `risk_assessor`, `test_planner`. Those are a
 demonstration that the step↔delta correspondence holds. They are not this
 project's units of work, so the payload that crosses the seam carries an example
