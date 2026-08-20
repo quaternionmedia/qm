@@ -45,11 +45,41 @@
         "totals": {
           "invocations": 3,
           "failures": 1,
-          "human_requests": 1,
+          "human_requests": 2,
           "human_responses": 1,
           "tables": 17
         },
         "missing_tables": [],
+        "waiting": [
+          {
+            "address": "quaternionmedia/qmcp/ask/hr-0002",
+            "id": "hr-0002",
+            "request_type": "decision",
+            "prompt": "planner failed: no route. Fix it, accept it, or defer it?",
+            "options": [
+              "fix",
+              "accept",
+              "defer"
+            ],
+            "status": "PENDING",
+            "created_at": "2026-02-15 18:05:00.000000",
+            "answered_with": null,
+            "answered_by": null,
+            "answered_at": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/ask/hr-0001",
+            "id": "hr-0001",
+            "request_type": "approval",
+            "prompt": "Ship the tag?",
+            "options": [],
+            "status": "PENDING",
+            "created_at": "2026-02-15 17:59:00.000000",
+            "answered_with": "approve",
+            "answered_by": null,
+            "answered_at": "2026-02-15 18:01:00.000000"
+          }
+        ],
         "by_tool": {
           "planner": 2,
           "echo": 1
@@ -104,6 +134,7 @@
           "tables": 17
         },
         "missing_tables": [],
+        "waiting": [],
         "by_tool": {
           "echo": 14
         },
@@ -211,6 +242,7 @@
           "tables": 17
         },
         "missing_tables": [],
+        "waiting": [],
         "by_tool": {},
         "by_status": {},
         "recent": []
@@ -245,6 +277,7 @@
           "human_requests",
           "human_responses"
         ],
+        "waiting": [],
         "by_tool": {},
         "by_status": {},
         "recent": []
@@ -279,6 +312,7 @@
           "human_requests",
           "human_responses"
         ],
+        "waiting": [],
         "by_tool": {},
         "by_status": {},
         "recent": []

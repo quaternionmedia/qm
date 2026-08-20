@@ -57,6 +57,11 @@ one.
 | `doc` | a document section, `type-slug` |
 | `delta` | a unit of work, by its short name |
 | `invocation` | a recorded tool call, by id |
+| `ask` | a question waiting on a person, by id |
+
+`ask` is what lets a control panel show *which* question is outstanding rather
+than how many. Without it a harness's human-in-the-loop queue crosses as a
+count, and a count is not something a person can answer.
 
 `delta` and `invocation` are the two the dashboard milestone needs: a workflow
 step in qmcp and a delta in dossier are one unit of work, and
