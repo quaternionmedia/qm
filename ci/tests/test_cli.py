@@ -7,6 +7,7 @@ status, or run somewhere that is not the corpus.
 
 from __future__ import annotations
 
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -180,3 +181,46 @@ def test_flags_reach_the_underlying_module():
     result = run("docs", "states", "--state", "nonsense", cwd=CORPUS)
     assert result.returncode == 2
     assert "vocabulary is closed" in result.stderr
+
+
+def test_every_runnable_module_is_reachable_through_the_cli():
+    """THE CONVERSE OF THE TEST ABOVE, AND THE ONE THAT WAS MISSING.
+
+    A route naming a module that does not exist fails loudly at the prompt. A
+    module with no route fails silently: it works perfectly for whoever knows
+    its path, and does not exist for anybody reading `uv run qm --help`. Four
+    were found that way at once -- among them a gate and a demo written in this
+    corpus, both documented by their file path, which is exactly the second
+    entry point `ci/cli.py`'s own header says must not exist.
+
+    **A LIBRARY WITH A DEBUG `main` IS EXEMPT, AND THE EXEMPTION IS EARNED BY
+    BEING CALLED.** Most of the generators here are invoked by `generate_docs`
+    or by another dashboard and are not operations anybody performs. The test
+    for that is whether something else in the repository names them -- not a
+    list somebody maintains, because a list would go stale in the same silence
+    this is about.
+    """
+    routed = {module for module, _, _ in cli.ROUTES.values()}
+    routed |= {module for module, _ in cli.DOCS_ROUTES.values()}
+
+    searched = list((CORPUS / "ci").glob("*.py"))
+    searched += list((CORPUS / ".github" / "workflows").glob("*.yml"))
+
+    unreachable = []
+    for path in sorted((CORPUS / "ci").glob("*.py")):
+        name = path.stem
+        if name == "cli" or name in routed:
+            continue
+        if not re.search(r"^def main", path.read_text(encoding="utf-8"),
+                         re.MULTILINE):
+            continue
+        called_elsewhere = any(
+            name in other.read_text(encoding="utf-8", errors="ignore")
+            for other in searched if other != path)
+        if not called_elsewhere:
+            unreachable.append(name)
+
+    assert not unreachable, (
+        "these modules can be run but no `qm` command reaches them, so they "
+        "exist only for somebody who already knows the path: "
+        + ", ".join(unreachable))

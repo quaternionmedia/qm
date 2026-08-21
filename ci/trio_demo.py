@@ -1,6 +1,15 @@
 """One topology, three windows, three environments.
 
-    python protocols/trio_demo.py
+    uv run qm demo
+    uv run qm demo --fixture --window dossier
+    uv run qm demo --subject dossier --json
+
+**REACHED THROUGH `qm`, LIKE EVERY OTHER OPERATION HERE.** `uv run qm --help` is
+the whole surface, and a demo documented as `python ci/trio_demo.py` is a second
+entry point nobody finds -- it was written that way first, and the correction is
+the general one: a thing worth running that has no route needs the route added,
+not its path written down somewhere. The script still runs directly under a
+plain interpreter, because a fork has no `qm` to run.
 
 **WHAT THIS SHOWS.** `qmcp` decides what a topology is and emits it as a
 document. `dossier` draws that document as text in a terminal. `codecartographer`
@@ -35,11 +44,13 @@ it could not.
 
 from __future__ import annotations
 
+import argparse
 import json
 import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
 
 HERE = Path(__file__).resolve().parent.parent
 SIBLINGS = HERE.parent
@@ -74,16 +85,25 @@ def sibling(name: str) -> Path | None:
     return None
 
 
-def _run(project: Path, script: str) -> tuple[bool, str]:
+def _run(project: Path, script: str, *, subject: str = "",
+         fixture: bool = False) -> tuple[bool, str]:
     """A script under one repository's own environment.
 
-    `--no-sync` because a demo must not install anything: a demo that changed
-    the machine to make itself pass is not showing what the machine does.
+    Options reach the child through the environment rather than as arguments,
+    because the child is a `-c` script rather than a file with a parser of its
+    own. `TRIO_FIXTURE` is set only when `--fixture` was given, so the child
+    can tell "the operator asked for the fixture" from "the archive did not
+    answer" -- one is a choice and the other is a finding.
     """
+    env = _env(project)
+    if subject:
+        env["TRIO_SUBJECT"] = subject
+    if fixture:
+        env["TRIO_FIXTURE"] = "1"
     done = subprocess.run(
         [interpreter(project), "-c", script],
         cwd=project, capture_output=True, text=True, timeout=300,
-        env=_env(project))
+        env=env)
     if done.returncode != 0:
         return False, (done.stderr or done.stdout)[-1200:]
     return True, done.stdout
@@ -136,9 +156,21 @@ from pathlib import Path
 from qmcp import topology_view as tv
 
 SUBJECT = os.environ.get("TRIO_SUBJECT", "codecartographer")
+FIXTURE = bool(os.environ.get("TRIO_FIXTURE"))
+
+
+class _Chose(Exception):
+    """The operator asked for the fixture. Not an error; a short way out."""
+
 
 relations, source, surveyed = [], "fixture", 0
 try:
+    # **A CHOICE IS NOT A FAILURE.** `--fixture` skips the archive without
+    # entering the handler below, so the stderr note stays reserved for an
+    # archive that could not be read. Reporting the operator's own instruction
+    # as "archive unavailable" would put a finding where a preference is.
+    if FIXTURE:
+        raise _Chose
     from qmcp.threads import consolidate
     from qmcp.threads.chatgpt import ChatGPTThreads
     from qmcp.threads.claude import ClaudeThreads
@@ -183,6 +215,8 @@ try:
     surveyed = len(threads)
     if relations:
         source = "thread archive"
+except _Chose:
+    relations = []
 except Exception as error:
     # Named rather than swallowed: falling back silently would make a demo of
     # the fixture look like a demo of the archive.
@@ -252,6 +286,12 @@ print(json.dumps({
 '''
 
 
+# Name -> the script that window runs. A registry rather than a literal pair
+# inside `main`, so `--window` can be validated against it and `--list-windows`
+# can answer without running anything.
+WINDOWS: dict[str, str] = {"dossier": DOSSIER, "codecartographer": CODECARTO}
+
+
 def _window(name: str, project: Path, script: str, document: str) -> Window:
     """One window, fed the document on stdin."""
     done = subprocess.run([interpreter(project), "-c", script], cwd=project,
@@ -268,59 +308,133 @@ def _window(name: str, project: Path, script: str, document: str) -> Window:
                   rendering=found.get("rendering", ""))
 
 
-def main() -> int:
-    print("=" * 72)
-    print("TRIO DEMO -- one topology, three windows, three environments")
-    print("=" * 72)
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="qm demo",
+        description=("Run one topology from the harness through every window "
+                     "and check that they agree."),
+        epilog=("Exits 0 only when every window that drew the topology agrees "
+                "about every box, every arrow, and which edges nobody "
+                "measured. Exits 1 on disagreement, on a missing sibling, or "
+                "when fewer than two windows drew anything -- one window "
+                "agreeing with itself establishes nothing."),
+    )
+    parser.add_argument(
+        "--subject", default="codecartographer", metavar="NAME",
+        help="the project to survey the archive for (default: %(default)s)")
+    parser.add_argument(
+        "--fixture", action="store_true",
+        help=("use the stated fixture and do not read the thread archive. The "
+              "fixture carries one deliberately unmeasured relation, so the "
+              "measured/unmeasured distinction is always exercised"))
+    parser.add_argument(
+        "--window", action="append", metavar="NAME", dest="windows",
+        help=("draw in this window only; repeatable. Naming fewer than two "
+              "still runs, and still refuses to call the result agreement"))
+    parser.add_argument(
+        "--list-windows", action="store_true",
+        help="list the windows this corpus knows about, and exit")
+    parser.add_argument(
+        "--json", action="store_true", dest="as_json",
+        help=("emit the result as one JSON document instead of prose. The "
+              "exit status is the same either way"))
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    say = (lambda *a, **k: None) if args.as_json else print
+
+    if args.list_windows:
+        for name in WINDOWS:
+            found = sibling(name)
+            print(f"{name:<20} {found if found else 'not beside this clone'}")
+        return 0
+
+    chosen = list(WINDOWS)
+    if args.windows:
+        unknown = [n for n in args.windows if n not in WINDOWS]
+        if unknown:
+            parser.error(f"unknown window(s): {', '.join(unknown)}. "
+                         f"Known: {', '.join(WINDOWS)}")
+        chosen = [n for n in WINDOWS if n in args.windows]
+
+    say("=" * 72)
+    say("TRIO DEMO -- one topology, three windows, three environments")
+    say("=" * 72)
+
+    result: dict[str, Any] = {"subject": args.subject, "windows": {},
+                              "agreed": False, "problems": []}
 
     missing = [n for n in NEEDED if sibling(n) is None]
     if missing:
-        print(f"\nCannot run: {', '.join(missing)} is not beside this clone.")
-        print("This demo needs the harness and at least one window. Nothing "
-              "was established.")
+        result["problems"].append(f"not beside this clone: {', '.join(missing)}")
+        say(f"\nCannot run: {', '.join(missing)} is not beside this clone.")
+        say("This demo needs the harness and at least one window. Nothing was "
+            "established.")
+        if args.as_json:
+            print(json.dumps(result, indent=2))
         return 1
 
     harness = sibling("qmcp")
-    print(f"\n[1] {harness.name} emits the topology")
-    ok, out = _run(harness, EMIT)
+    say(f"\n[1] {harness.name} emits the topology")
+    ok, out = _run(harness, EMIT, subject=args.subject, fixture=args.fixture)
     if not ok:
-        print(f"    the harness could not emit it:\n{out}")
+        result["problems"].append(f"the harness could not emit a topology: {out}")
+        say(f"    the harness could not emit it:\n{out}")
+        if args.as_json:
+            print(json.dumps(result, indent=2))
         return 1
+
     document = out.strip().splitlines()[-1]
     emitted = json.loads(document)
     payload = emitted["payload"]
-    print(f"    topology     {payload['topology']} at level {payload['level']}")
-    print(f"    data         {emitted['source']}")
-    print(f"    boxes        {len(payload['boxes'])}")
-    print(f"    arrows       {len(payload['arrows'])}, of which "
-          f"{sum(1 for a in payload['arrows'] if a.get('weight') is None)} "
-          f"unmeasured")
-    print(f"    encoding     {len(emitted['encoding'])} channel(s) declared")
+    unmeasured = sum(1 for a in payload["arrows"] if a.get("weight") is None)
+    result["topology"] = payload["topology"]
+    result["data"] = emitted["source"]
+    result["surveyed"] = emitted.get("surveyed", 0)
+    say(f"    topology     {payload['topology']} at level {payload['level']}")
+    say(f"    data         {emitted['source']}")
+    say(f"    boxes        {len(payload['boxes'])}")
+    say(f"    arrows       {len(payload['arrows'])}, of which {unmeasured} "
+        f"unmeasured")
+    say(f"    encoding     {len(emitted['encoding'])} channel(s) declared")
 
     windows = []
-    for name, script in (("dossier", DOSSIER), ("codecartographer", CODECARTO)):
+    for name in chosen:
         project = sibling(name)
         if project is None:
-            print(f"\n[-] {name} is not beside this clone -- not drawn, and "
-                  f"not counted as agreeing")
+            say(f"\n[-] {name} is not beside this clone -- not drawn, and not "
+                f"counted as agreeing")
+            result["windows"][name] = {"drew": False,
+                                       "why": "not beside this clone"}
             continue
-        print(f"\n[{len(windows) + 2}] {name} draws it")
-        window = _window(name, project, script, document)
+        say(f"\n[{len(windows) + 2}] {name} draws it")
+        window = _window(name, project, WINDOWS[name], document)
         windows.append(window)
         if not window.ok:
-            print(f"    could not draw it:\n{window.detail}")
+            result["windows"][name] = {"drew": False, "why": window.detail}
+            say(f"    could not draw it:\n{window.detail}")
             continue
-        print(f"    {window.unmeasured} edge(s) drawn as unmeasured")
+        result["windows"][name] = {
+            "drew": True, "boxes": len(window.boxes),
+            "arrows": len(window.arrows), "unmeasured": window.unmeasured}
+        say(f"    {window.unmeasured} edge(s) drawn as unmeasured")
         for line in window.rendering.splitlines()[:14]:
-            print(f"    | {line}")
+            say(f"    | {line}")
 
-    print("\n" + "-" * 72)
-    print("AGREEMENT")
-    print("-" * 72)
+    say("\n" + "-" * 72)
+    say("AGREEMENT")
+    say("-" * 72)
     drew = [w for w in windows if w.ok]
     if len(drew) < 2:
-        print(f"  only {len(drew)} window drew it -- agreement is not "
-              f"established by one window agreeing with itself")
+        why = (f"only {len(drew)} window drew it -- agreement is not "
+               f"established by one window agreeing with itself")
+        result["problems"].append(why)
+        say(f"  {why}")
+        if args.as_json:
+            print(json.dumps(result, indent=2))
         return 1
 
     problems = []
@@ -347,31 +461,39 @@ def main() -> int:
                 f"that matters**: the windows disagree about what is known")
 
     for window in drew:
-        print(f"  {window.name:<20} {len(window.boxes)} boxes, "
-              f"{len(window.arrows)} arrows, {window.unmeasured} unmeasured")
+        say(f"  {window.name:<20} {len(window.boxes)} boxes, "
+            f"{len(window.arrows)} arrows, {window.unmeasured} unmeasured")
 
+    result["problems"].extend(problems)
     if problems:
-        print("\n  DISAGREEMENT:")
+        say("\n  DISAGREEMENT:")
         for problem in problems:
-            print(f"    - {problem}")
+            say(f"    - {problem}")
+        if args.as_json:
+            print(json.dumps(result, indent=2))
         return 1
 
-    print(f"\n  {len(drew)} windows agree about every box, every arrow, and "
-          f"which edges nobody measured.")
+    result["agreed"] = True
+    say(f"\n  {len(drew)} windows agree about every box, every arrow, and "
+        f"which edges nobody measured.")
 
-    print("\n" + "-" * 72)
-    print("WHAT THIS DID NOT ESTABLISH")
-    print("-" * 72)
-    print("  - That the topology is right. Both windows would faithfully draw "
-          "a wrong one.")
-    print("  - That the two pictures look alike. They must not: one is a "
-          "terminal and one is a graph.")
+    say("\n" + "-" * 72)
+    say("WHAT THIS DID NOT ESTABLISH")
+    say("-" * 72)
+    say("  - That the topology is right. Both windows would faithfully draw a "
+        "wrong one.")
+    say("  - That the two pictures look alike. They must not: one is a "
+        "terminal and one is a graph.")
     if emitted["source"] != "thread archive":
-        print("  - Anything about real data. No thread archive answered, so "
-              "this ran on the stated fixture.")
-    if sibling("codecartographer") is None:
-        print("  - Anything about codecartographer, which is not on this "
-              "machine.")
+        say("  - Anything about real data. The stated fixture was used, "
+            + ("because --fixture was given." if args.fixture
+               else "because no thread archive answered."))
+    for name, found in result["windows"].items():
+        if not found["drew"]:
+            say(f"  - Anything about {name}: {found['why']}")
+
+    if args.as_json:
+        print(json.dumps(result, indent=2))
     return 0
 
 

@@ -228,6 +228,22 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser(
         "brief", help="build this session's opening brief from the repository", add_help=False
     )
+    sub.add_parser(
+        "demo", help="run one topology through every window and check they agree",
+        add_help=False,
+    )
+    sub.add_parser(
+        "mathematics", help="every mathematical mapping states what it has not earned",
+        add_help=False,
+    )
+    sub.add_parser(
+        "patterns", help="every high-frequency pattern has a mechanical check",
+        add_help=False,
+    )
+    sub.add_parser(
+        "session", help="write a validated session break observation",
+        add_help=False,
+    )
     return parser
 
 
@@ -259,6 +275,14 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "mutate": ("mutate", False, []),
     "preflight": ("run_workflows_locally", True, []),
     "brief": ("cowork_context", True, []),
+    # Four routes added together, because the omission was one shape rather
+    # than four mistakes: a module with a `main` and no route is reachable only
+    # by a path somebody has to have been told, which is the thing `qm` exists
+    # to make unnecessary. `ci/tests/test_cli.py` now refuses a new one.
+    "demo": ("trio_demo", False, []),
+    "mathematics": ("check_mathematics", False, []),
+    "patterns": ("check_pattern_coverage", False, []),
+    "session": ("session_record", False, []),
 }
 
 DOCS_ROUTES: dict[str, tuple[str, list[str]]] = {
