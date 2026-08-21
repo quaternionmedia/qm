@@ -1,6 +1,7 @@
 """One topology, three windows, three environments.
 
     uv run qm demo
+    uv run qm demo --side-by-side
     uv run qm demo --fixture --window dossier
     uv run qm demo --subject dossier --json
 
@@ -46,6 +47,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import subprocess
 import sys
 from dataclasses import dataclass, field
@@ -86,7 +88,7 @@ def sibling(name: str) -> Path | None:
 
 
 def _run(project: Path, script: str, *, subject: str = "",
-         fixture: bool = False) -> tuple[bool, str]:
+         fixture: bool = False, width: int = 0) -> tuple[bool, str]:
     """A script under one repository's own environment.
 
     Options reach the child through the environment rather than as arguments,
@@ -100,6 +102,8 @@ def _run(project: Path, script: str, *, subject: str = "",
         env["TRIO_SUBJECT"] = subject
     if fixture:
         env["TRIO_FIXTURE"] = "1"
+    if width:
+        env["TRIO_WIDTH"] = str(width)
     done = subprocess.run(
         [interpreter(project), "-c", script],
         cwd=project, capture_output=True, text=True, timeout=300,
@@ -252,12 +256,12 @@ print(json.dumps({"payload": tv.as_payload(view),
 # window must report is what *it drew*, which for a terminal means counting the
 # glyph that actually reached the screen.
 DOSSIER = r'''
-import json, sys
+import json, os, sys
 from dossier import topology
 
 document = json.loads(sys.stdin.read())
 payload = document["payload"]
-drawn = topology.draw(payload, width=72)
+drawn = topology.draw(payload, width=int(os.environ.get("TRIO_WIDTH") or 72))
 unmeasured = sum(1 for line in drawn.lines if topology.UNMEASURED in line)
 print(json.dumps({
     "boxes": [b["id"] for b in payload["boxes"]],
@@ -292,11 +296,58 @@ print(json.dumps({
 WINDOWS: dict[str, str] = {"dossier": DOSSIER, "codecartographer": CODECARTO}
 
 
-def _window(name: str, project: Path, script: str, document: str) -> Window:
-    """One window, fed the document on stdin."""
+# The gap between columns. Wide enough that two renderings do not read as one
+# wrapped paragraph, narrow enough not to cost a column its content.
+GUTTER = 4
+
+# Below this, splitting produces two columns too narrow for either window's own
+# layout, and the comparison is worse than the sequence it replaced.
+MIN_COLUMN = 34
+
+
+def columns(windows: list["Window"], total: int) -> list[str]:
+    """Every window's drawing, side by side, as lines.
+
+    **PADDED, NEVER TRUNCATED.** A line longer than its column overflows into
+    the gutter and is left alone. Cutting it would make this side the author of
+    what the other side drew, and a comparison whose own layout edits the
+    evidence cannot be used to find a disagreement.
+
+    Columns are equal width and rows are aligned by index, so the same edge sits
+    on the same line in both -- which is what makes a difference visible rather
+    than merely present.
+    """
+    if not windows:
+        return []
+    each = (total - GUTTER * (len(windows) - 1)) // len(windows)
+    blocks = [w.rendering.splitlines() for w in windows]
+    heads = [w.name for w in windows]
+    rules = ["-" * min(each, len(w.name) + 8) for w in windows]
+
+    rows: list[str] = []
+    for line in (heads, rules):
+        rows.append((" " * GUTTER).join(c.ljust(each) for c in line).rstrip())
+    for index in range(max(len(b) for b in blocks)):
+        cells = [(b[index] if index < len(b) else "") for b in blocks]
+        rows.append((" " * GUTTER).join(c.ljust(each) for c in cells).rstrip())
+    return rows
+
+
+def _window(name: str, project: Path, script: str, document: str,
+            width: int = 0) -> Window:
+    """One window, fed the document on stdin.
+
+    `width` is a request, not an instruction. A window draws at whatever width
+    it can and this side does not check -- a column that silently truncated a
+    window's own layout would be this side editing the other's rendering, which
+    is the one thing a comparison must not do.
+    """
+    env = _env(project)
+    if width:
+        env["TRIO_WIDTH"] = str(width)
     done = subprocess.run([interpreter(project), "-c", script], cwd=project,
                           input=document, capture_output=True, text=True,
-                          timeout=300, env=_env(project))
+                          timeout=300, env=env)
     if done.returncode != 0:
         return Window(name, False, detail=(done.stderr or done.stdout)[-900:])
     try:
@@ -334,6 +385,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--list-windows", action="store_true",
         help="list the windows this corpus knows about, and exit")
+    parser.add_argument(
+        "--side-by-side", action="store_true", dest="columns",
+        help=("put every window's drawing in its own column, so one topology "
+              "is read as one view. Falls back to one below the other when the "
+              "terminal is too narrow to split, rather than wrapping into "
+              "gibberish"))
     parser.add_argument(
         "--json", action="store_true", dest="as_json",
         help=("emit the result as one JSON document instead of prose. The "
@@ -401,6 +458,18 @@ def main(argv: list[str] | None = None) -> int:
         f"unmeasured")
     say(f"    encoding     {len(emitted['encoding'])} channel(s) declared")
 
+    # One view, so the width is decided once and every window is asked for the
+    # same. Deciding per window would make two columns of different measure and
+    # the alignment that carries the comparison would be gone.
+    terminal = shutil.get_terminal_size((100, 24)).columns
+    column_width = max(MIN_COLUMN,
+                       (terminal - GUTTER * (len(chosen) - 1)) // max(1, len(chosen)))
+    if args.columns and terminal < MIN_COLUMN * len(chosen) + GUTTER * (len(chosen) - 1):
+        say(f"\n[!] this terminal is {terminal} columns; {MIN_COLUMN * len(chosen) + GUTTER * (len(chosen) - 1)} "
+            f"are needed to put {len(chosen)} windows side by side. Drawing "
+            f"them one below the other instead.")
+        args.columns = False
+
     windows = []
     for name in chosen:
         project = sibling(name)
@@ -411,7 +480,8 @@ def main(argv: list[str] | None = None) -> int:
                                        "why": "not beside this clone"}
             continue
         say(f"\n[{len(windows) + 2}] {name} draws it")
-        window = _window(name, project, WINDOWS[name], document)
+        window = _window(name, project, WINDOWS[name], document,
+                             width=column_width if args.columns else 0)
         windows.append(window)
         if not window.ok:
             result["windows"][name] = {"drew": False, "why": window.detail}
@@ -421,8 +491,9 @@ def main(argv: list[str] | None = None) -> int:
             "drew": True, "boxes": len(window.boxes),
             "arrows": len(window.arrows), "unmeasured": window.unmeasured}
         say(f"    {window.unmeasured} edge(s) drawn as unmeasured")
-        for line in window.rendering.splitlines()[:14]:
-            say(f"    | {line}")
+        if not args.columns:
+            for line in window.rendering.splitlines()[:14]:
+                say(f"    | {line}")
 
     say("\n" + "-" * 72)
     say("AGREEMENT")
@@ -459,6 +530,12 @@ def main(argv: list[str] | None = None) -> int:
                 f"{first.name} drew {first.unmeasured} edge(s) as unmeasured "
                 f"and {other.name} drew {other.unmeasured}. **This is the one "
                 f"that matters**: the windows disagree about what is known")
+
+    if args.columns:
+        say("")
+        for line in columns(drew, terminal):
+            say(line)
+        say("")
 
     for window in drew:
         say(f"  {window.name:<20} {len(window.boxes)} boxes, "

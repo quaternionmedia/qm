@@ -224,3 +224,56 @@ def test_every_runnable_module_is_reachable_through_the_cli():
         "these modules can be run but no `qm` command reaches them, so they "
         "exist only for somebody who already knows the path: "
         + ", ".join(unreachable))
+
+
+def test_the_dashboard_route_exists_and_reports_without_starting_anything():
+    """`qm dashboard` is the from-scratch route: it says what of the trio is up
+    and prints the command for the rest.
+
+    **REPORTING MUST NOT START ANYTHING.** Somebody looking at a status table
+    has not asked for three servers, and a command that spawned them would be
+    an act with consequences taken on nobody's instruction.
+
+    Mutation: start a surface when no `--start` is given and this fails.
+    """
+    assert cli.ROUTES["dashboard"][0] == "dashboard"
+
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    before = {s.name: dashboard.listening(s.port) for s in dashboard.SURFACES}
+    assert dashboard.main([]) == 0
+    after = {s.name: dashboard.listening(s.port) for s in dashboard.SURFACES}
+    assert before == after, "reporting changed what was running"
+
+
+def test_a_terminal_front_end_is_never_detached():
+    """A TUI backgrounded by this command would draw to a pipe nobody reads,
+    and report success. It prints the command instead.
+
+    Mutation: mark the terminal surface detachable and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    terminal = dashboard.BY_NAME["terminal"]
+    assert terminal.detachable is False
+    ok, detail = dashboard.start(terminal, CORPUS)
+    assert ok is False
+    assert "run it" in detail or "yourself" in detail
+
+
+def test_stopping_acts_on_a_recorded_pid_rather_than_a_port():
+    """Stopping whatever holds a port would let this kill a process it never
+    started and knows nothing about.
+
+    Mutation: stop by port and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    ok, detail = dashboard.stop("web") if "web" not in dashboard.running() \
+        else (True, "already recorded")
+    if "web" not in dashboard.running():
+        assert ok is False
+        assert "did not start" in detail

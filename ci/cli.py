@@ -229,6 +229,10 @@ def build_parser() -> argparse.ArgumentParser:
         "brief", help="build this session's opening brief from the repository", add_help=False
     )
     sub.add_parser(
+        "dashboard", help="what of the trio is up, and how to bring up the rest",
+        add_help=False,
+    )
+    sub.add_parser(
         "demo", help="run one topology through every window and check they agree",
         add_help=False,
     )
@@ -279,6 +283,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     # than four mistakes: a module with a `main` and no route is reachable only
     # by a path somebody has to have been told, which is the thing `qm` exists
     # to make unnecessary. `ci/tests/test_cli.py` now refuses a new one.
+    "dashboard": ("dashboard", False, []),
     "demo": ("trio_demo", False, []),
     "mathematics": ("check_mathematics", False, []),
     "patterns": ("check_pattern_coverage", False, []),
