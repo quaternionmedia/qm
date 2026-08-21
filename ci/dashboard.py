@@ -67,6 +67,12 @@ class Surface:
     """Whether starting it in the background produces something usable. False
     for a terminal front end, which draws where it was run and nowhere else."""
 
+    dataview: str = ""
+    """Where this surface shows the topology, relative to its own root. **The
+    point of running it.** A status table that said a server was up and left a
+    reader to guess the path has reported a process rather than a place to
+    look."""
+
     note: str = ""
 
 
@@ -75,12 +81,14 @@ SURFACES: tuple[Surface, ...] = (
         name="harness", repo="qmcp", role="the work, and the only source of it",
         port=3141, constant="pi",
         command=("qmcp", "serve", "--port", "3141"), detachable=True,
+        dataview="/v1/topology",
         note="both front ends read this. Start it first, or they have "
              "nothing to draw"),
     Surface(
         name="web", repo="codecartographer",
         role="front end on the web", port=2718, constant="e",
         command=("codecarto", "serve", "--port", "2718"), detachable=True,
+        dataview="/topology",
         note="draws the harness's topology as a graph"),
     Surface(
         name="terminal", repo="dossier",
@@ -213,6 +221,19 @@ def report() -> int:
     print()
     print("Each front end reads the harness. A figure that differs between them")
     print("is a defect, not a point of view -- which is why there are two.")
+
+    live = [s for s in SURFACES
+            if s.dataview and repo_of(s) is not None and listening(s.port)]
+    if live:
+        print()
+        print("THE TOPOLOGY, IN EACH ONE THAT IS UP")
+        print("-" * 74)
+        for surface in live:
+            print(f"  {surface.name:<10} http://127.0.0.1:{surface.port}"
+                  f"{surface.dataview}")
+        print()
+        print("  both at once, in this terminal:")
+        print("    uv run qm demo --over-http --side-by-side")
 
     if missing:
         print()
