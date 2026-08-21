@@ -127,6 +127,30 @@ they are worth naming because they are unequal in how much they have earned:
   decorative, or the practice degrades into naming things after mathematics and
   calling it structure.
 
+## The mechanism
+
+`ci/mathematics-registry.yaml` is the list, and `ci/check_mathematics.py` is
+what keeps it honest. Five mappings today: two earned, one decorative and
+labelled so, two aspirational.
+
+Every entry states what it **decides** — what the mapping settles that taste
+would otherwise settle — what **measured** it, and what it has **not earned**.
+That last field is the one that matters. An entry with nothing unearned is
+either a finished mapping, which is rare enough to deserve its own record, or
+somebody who stopped looking. Requiring it is what makes this a practice that
+evolves rather than one that congratulates itself.
+
+The checker knows no mathematics and is not meant to. It asks whether a claim is
+*shaped* so a person can check it: an `earned` mapping that names no measurement
+is refused, a `decorative` one claiming to decide something is refused, and an
+`aspirational` one that names a measurement is refused because a measured
+mapping has either been earned or has failed.
+
+**A state moves in both directions.** An earned mapping whose measurement stops
+holding is not still earned because it once was. Re-integration is the point:
+what a layer is found to be should change how the layer is built, and a
+structure that stops fitting is demoted rather than defended.
+
 ## Consequences
 
 - The tangle finder is quiet on this organisation's current relations, and the
