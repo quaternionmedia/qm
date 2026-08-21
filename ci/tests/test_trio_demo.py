@@ -248,3 +248,89 @@ def test_the_json_option_reports_a_disagreement_too():
     assert done.returncode == 1
     assert document["agreed"] is False
     assert any("agreeing with itself" in p for p in document["problems"])
+
+
+# --- as deployed, over HTTP ----------------------------------------------------
+
+
+def _reachable(url: str) -> bool:
+    import urllib.request
+
+    try:
+        urllib.request.urlopen(url, timeout=3)
+        return True
+    except Exception:                              # noqa: BLE001
+        return False
+
+
+def test_both_modes_share_one_comparison():
+    """**THE STRUCTURAL ONE.**
+
+    The subprocess mode and the HTTP mode must not each own a copy of the
+    agreement check. Two copies drift, and the one that drifts lenient is the
+    one nobody notices -- a demo that passes because its second implementation
+    forgot the unmeasured comparison is worse than no demo.
+
+    Mutation: give the HTTP mode its own comparison and this fails.
+    """
+    module = _module()
+    source = DEMO.read_text(encoding="utf-8")
+
+    assert callable(module._agree)
+    assert source.count("disagree about what is known") == 1, (
+        "the unmeasured comparison exists in more than one place")
+    assert source.count("def _agree") == 1
+
+
+def test_over_http_refuses_when_the_harness_is_not_answering(monkeypatch):
+    """A demo whose backend is down must name the process and the command, not
+    report a disagreement between windows that never drew.
+
+    Mutation: fall back to the subprocess mode and this fails.
+    """
+    module = _module()
+    monkeypatch.setattr(module, "HARNESS_URL", "http://127.0.0.1:9")
+    monkeypatch.setattr(module, "WEB_URL", "http://127.0.0.1:9")
+
+    assert module.main(["--over-http"]) == 1
+
+
+def test_the_http_window_asks_the_server_rather_than_importing_the_renderer():
+    """**THE POINT OF THE MODE.**
+
+    Importing codecarto's renderer here would test the same code the subprocess
+    mode already covers and leave the route -- the part that was missing for
+    days -- unexercised. The answer must come off the wire.
+
+    Mutation: import the renderer in `_web_window` and this fails.
+    """
+    module = _module()
+    import inspect
+
+    body = inspect.getsource(module._web_window)
+    assert "topology/data" in body
+    assert "import" not in body.replace("importing", ""), (
+        "the HTTP window imports something instead of asking the server")
+
+
+@pytest.mark.skipif(not _reachable("http://127.0.0.1:3141/health"),
+                    reason="the harness is not running on 3141")
+def test_the_harness_serves_a_topology_over_http():
+    """The gap this closed: the harness had no topology route at all, so
+    neither front end could fetch one and only a subprocess could draw."""
+    module = _module()
+    document, why = module._harness_document("codecartographer")
+    assert document is not None, why
+    assert "payload" in document and "encoding" in document
+
+
+@pytest.mark.skipif(
+    not (_reachable("http://127.0.0.1:3141/health")
+         and _reachable("http://127.0.0.1:2718/topology/data")),
+    reason="the trio is not up; `uv run qm dashboard --start harness --start web`")
+def test_the_deployed_front_ends_agree():
+    """THE DEMO, AS DEPLOYED. Every answer here comes from a process somebody
+    could have opened in a browser."""
+    done = _via_cli("--over-http")
+    assert done.returncode == 0, done.stdout[-2500:]
+    assert "windows agree about every box" in done.stdout

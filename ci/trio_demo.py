@@ -1,7 +1,7 @@
 """One topology, three windows, three environments.
 
     uv run qm demo
-    uv run qm demo --side-by-side
+    uv run qm demo --over-http --side-by-side
     uv run qm demo --fixture --window dossier
     uv run qm demo --subject dossier --json
 
@@ -18,12 +18,20 @@ draws the same document as a graph. The three then agree about what they drew --
 same boxes, same arrows, same edges nobody measured -- and the agreement is
 checked rather than eyeballed.
 
-**WHY IT RUNS THREE SUBPROCESSES INSTEAD OF THREE IMPORTS.** The repositories do
-not depend on each other and must not. A demo that imported all three would need
-one environment holding all three, would pass in a way no user's machine
-reproduces, and would quietly stop testing the thing it exists to test -- that a
-document crosses the seam intact. Each side here runs under its own project, and
-the only thing passing between them is JSON on a pipe.
+**TWO MODES, AND THE DIFFERENCE IS WHAT IS BEING CLAIMED.**
+
+*Subprocess* (the default) runs each window's code under its own project's
+interpreter and passes JSON on a pipe. The repositories do not depend on each
+other and must not; a demo that imported all three would need one environment
+holding all three and would pass in a way no machine reproduces. This proves the
+two renderers agree about a document.
+
+*`--over-http`* asks the running harness for the topology and the running web
+front end what it drew. This proves the same thing **as deployed** -- and the
+distinction is not academic: for a while the harness served no topology route at
+all and the web front end had a renderer nothing routed to, so the subprocess
+demo passed green while nothing at either port could produce a picture. A
+contract can be sound and unreachable, and only one of these modes can tell.
 
 **WHAT AGREEMENT MEANS, AND WHAT IT DOES NOT.** Agreement is: both windows found
 the same boxes and arrows, and both classified the same edges as unmeasured. It
@@ -149,6 +157,77 @@ def _env(project: Path) -> dict[str, str]:
     # site-packages ahead of the one just chosen.
     found.pop("VIRTUAL_ENV", None)
     return found
+
+
+# --- the same windows, as deployed ---------------------------------------------
+#
+# **THE DIFFERENCE BETWEEN THIS AND THE SUBPROCESS MODE IS THE WHOLE POINT.**
+# Running each window's code in a subprocess proves the two renderers agree
+# about a document. It says nothing about whether either is *reachable* -- and
+# for a while neither was: the harness served no topology at all and the web
+# front end had a renderer with no route, so a demo could pass while nothing at
+# either port could produce a picture. Over HTTP, every answer comes from a
+# process somebody could have opened in a browser.
+
+HARNESS_URL = "http://127.0.0.1:3141"
+WEB_URL = "http://127.0.0.1:2718"
+
+
+def _get(url: str, timeout: float = 15.0):
+    """One JSON document, or a reason."""
+    import urllib.error
+    import urllib.request
+
+    try:
+        with urllib.request.urlopen(url, timeout=timeout) as answer:
+            return json.loads(answer.read()), ""
+    except urllib.error.HTTPError as error:
+        detail = ""
+        try:
+            detail = str(json.loads(error.read()).get("detail", ""))
+        except Exception:                          # noqa: BLE001
+            pass
+        return None, f"{error.code} from {url}" + (f": {detail}" if detail else "")
+    except Exception as error:                     # noqa: BLE001
+        return None, f"{type(error).__name__} reaching {url}: {error}"
+
+
+def _harness_document(subject: str) -> tuple[dict | None, str]:
+    """The topology, from the running harness."""
+    found, why = _get(f"{HARNESS_URL}/v1/topology/relations/{subject}")
+    if found is not None:
+        return found, ""
+    # A subject with no reading is not a dead harness. Fall back to a shape,
+    # which every harness serves, rather than reporting the harness down.
+    shape, shape_why = _get(f"{HARNESS_URL}/v1/topology/shape/delegation")
+    if shape is not None:
+        return shape, f"no reading for {subject} ({why}); drew a shape instead"
+    return None, why
+
+
+def _web_window(document: dict, subject: str, kind: str) -> Window:
+    """What the deployed web front end says it drew.
+
+    **ASKS THE SERVER, NOT THE LIBRARY.** `/topology/data` returns the widths
+    and styles that front end resolved. Importing its renderer here would test
+    the same code the subprocess mode already tests and would leave the route
+    -- the part that was missing -- unexercised.
+    """
+    query = f"subject={subject}" if subject else f"kind={kind}"
+    found, why = _get(f"{WEB_URL}/topology/data?{query}")
+    if found is None:
+        return Window("codecartographer", False, detail=why)
+    if not found.get("ok"):
+        return Window("codecartographer", False,
+                      detail=f"{found.get('problem')} -- {found.get('remedy')}")
+    lines = [f"{e['source']} -> {e['target']}  {e['style']:<8} "
+             f"w={e['width']:.2f}  {e['label']}" for e in found["edges"]]
+    return Window(
+        "codecartographer", True,
+        boxes=[n["id"] for n in found["nodes"]],
+        arrows=[f"{e['source']}->{e['target']}" for e in found["edges"]],
+        unmeasured=found["unmeasured"],
+        rendering=found["caveat"] + "\n" + "\n".join(lines))
 
 
 # --- the three windows --------------------------------------------------------
@@ -359,6 +438,137 @@ def _window(name: str, project: Path, script: str, document: str,
                   rendering=found.get("rendering", ""))
 
 
+def _over_http(args, say, result: dict, chosen: list[str], terminal: int,
+               column_width: int) -> int:
+    """The demo against the deployed trio.
+
+    Every failure here names the process that is not answering and the command
+    that starts it, because "the demo failed" is useless when the cause is a
+    server nobody started.
+    """
+    say("\n[1] the running harness serves the topology")
+    document, note = _harness_document(args.subject)
+    if document is None:
+        say(f"    {note}")
+        say(f"    start it with `uv run qm dashboard --start harness`")
+        result["problems"].append(note)
+        if args.as_json:
+            print(json.dumps(result, indent=2))
+        return 1
+    if note:
+        say(f"    note: {note}")
+
+    payload = document["payload"]
+    unmeasured = sum(1 for a in payload["arrows"] if a.get("weight") is None)
+    result["topology"] = payload["topology"]
+    result["data"] = document.get("source", "")
+    result["surveyed"] = document.get("surveyed", 0)
+    say(f"    topology     {payload['topology']} at level {payload['level']}")
+    say(f"    data         {document.get('source', '')}")
+    say(f"    boxes        {len(payload['boxes'])}")
+    say(f"    arrows       {len(payload['arrows'])}, of which {unmeasured} "
+        f"unmeasured")
+    say(f"    served by    {HARNESS_URL}")
+
+    windows = []
+    if "dossier" in chosen:
+        say("\n[2] dossier draws it")
+        project = sibling("dossier")
+        if project is None:
+            say("    dossier is not beside this clone")
+        else:
+            window = _window("dossier", project, DOSSIER,
+                             json.dumps({"payload": payload}),
+                             width=column_width if args.columns else 0)
+            windows.append(window)
+            _say_window(say, args, window)
+
+    if "codecartographer" in chosen:
+        say(f"\n[3] codecartographer draws it, at {WEB_URL}")
+        window = _web_window(document, args.subject, "delegation")
+        windows.append(window)
+        _say_window(say, args, window)
+        if not window.ok:
+            say(f"    start it with `uv run qm dashboard --start web`")
+
+    for window in windows:
+        result["windows"][window.name] = (
+            {"drew": True, "boxes": len(window.boxes),
+             "arrows": len(window.arrows), "unmeasured": window.unmeasured}
+            if window.ok else {"drew": False, "why": window.detail})
+
+    return _agree(args, say, result, [w for w in windows if w.ok], terminal)
+
+
+def _say_window(say, args, window: "Window") -> None:
+    if not window.ok:
+        say(f"    could not draw it: {window.detail}")
+        return
+    say(f"    {window.unmeasured} edge(s) drawn as unmeasured")
+    if not args.columns:
+        for line in window.rendering.splitlines()[:14]:
+            say(f"    | {line}")
+
+
+def _agree(args, say, result: dict, drew: list["Window"], terminal: int) -> int:
+    """The comparison, shared by both modes so neither can drift lenient."""
+    say("\n" + "-" * 72)
+    say("AGREEMENT")
+    say("-" * 72)
+
+    if len(drew) < 2:
+        why = (f"only {len(drew)} window drew it -- agreement is not "
+               f"established by one window agreeing with itself")
+        result["problems"].append(why)
+        say(f"  {why}")
+        if args.as_json:
+            print(json.dumps(result, indent=2))
+        return 1
+
+    problems = []
+    first = drew[0]
+    for other in drew[1:]:
+        if sorted(first.boxes) != sorted(other.boxes):
+            problems.append(f"{first.name} and {other.name} disagree about "
+                            f"boxes: {set(first.boxes) ^ set(other.boxes)}")
+        if sorted(first.arrows) != sorted(other.arrows):
+            differing = set(first.arrows) ^ set(other.arrows)
+            problems.append(
+                f"{first.name} drew {len(first.arrows)} arrow(s) and "
+                f"{other.name} drew {len(other.arrows)}; differing: "
+                + (str(differing) if differing
+                   else "same pairs, different counts"))
+        if first.unmeasured != other.unmeasured:
+            problems.append(
+                f"{first.name} drew {first.unmeasured} edge(s) as unmeasured "
+                f"and {other.name} drew {other.unmeasured}. **This is the one "
+                f"that matters**: the windows disagree about what is known")
+
+    if args.columns:
+        say("")
+        for line in columns(drew, terminal):
+            say(line)
+        say("")
+
+    for window in drew:
+        say(f"  {window.name:<20} {len(window.boxes)} boxes, "
+            f"{len(window.arrows)} arrows, {window.unmeasured} unmeasured")
+
+    result["problems"].extend(problems)
+    if problems:
+        say("\n  DISAGREEMENT:")
+        for problem in problems:
+            say(f"    - {problem}")
+        if args.as_json:
+            print(json.dumps(result, indent=2))
+        return 1
+
+    result["agreed"] = True
+    say(f"\n  {len(drew)} windows agree about every box, every arrow, and "
+        f"which edges nobody measured.")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="qm demo",
@@ -385,6 +595,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--list-windows", action="store_true",
         help="list the windows this corpus knows about, and exit")
+    parser.add_argument(
+        "--over-http", action="store_true", dest="over_http",
+        help=("compare the front ends as deployed: fetch the topology from the "
+              "running harness and ask the running web front end what it drew. "
+              "Without this the windows are run as subprocesses, which tests "
+              "the contract and not the seam anybody actually uses"))
     parser.add_argument(
         "--side-by-side", action="store_true", dest="columns",
         help=("put every window's drawing in its own column, so one topology "
@@ -434,9 +650,31 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(result, indent=2))
         return 1
 
+    # **THE WIDTH IS DECIDED ONCE, BEFORE EITHER MODE.** One view means one
+    # measure: columns of different widths would lose the row alignment that
+    # carries the whole comparison. It sits here rather than beside the drawing
+    # because both modes need it, and the first version computed it after the
+    # call that uses it -- which only broke with `--side-by-side`, so every
+    # other run looked fine.
+    terminal = shutil.get_terminal_size((100, 24)).columns
+    column_width = max(MIN_COLUMN,
+                       (terminal - GUTTER * (len(chosen) - 1)) // max(1, len(chosen)))
+    if args.columns and terminal < MIN_COLUMN * len(chosen) + GUTTER * (len(chosen) - 1):
+        say(f"\n[!] this terminal is {terminal} columns; "
+            f"{MIN_COLUMN * len(chosen) + GUTTER * (len(chosen) - 1)} are needed "
+            f"to put {len(chosen)} windows side by side. Drawing them one below "
+            f"the other instead.")
+        args.columns = False
+
+    # Over HTTP the windows are the deployed processes rather than subprocesses
+    # of this one, which is a different claim and the one anybody cares about.
+    if args.over_http:
+        return _over_http(args, say, result, chosen, terminal, column_width)
+
     harness = sibling("qmcp")
     say(f"\n[1] {harness.name} emits the topology")
-    ok, out = _run(harness, EMIT, subject=args.subject, fixture=args.fixture)
+    ok, out = _run(harness, EMIT, subject=args.subject, fixture=args.fixture,
+                   width=column_width if args.columns else 0)
     if not ok:
         result["problems"].append(f"the harness could not emit a topology: {out}")
         say(f"    the harness could not emit it:\n{out}")
@@ -457,18 +695,6 @@ def main(argv: list[str] | None = None) -> int:
     say(f"    arrows       {len(payload['arrows'])}, of which {unmeasured} "
         f"unmeasured")
     say(f"    encoding     {len(emitted['encoding'])} channel(s) declared")
-
-    # One view, so the width is decided once and every window is asked for the
-    # same. Deciding per window would make two columns of different measure and
-    # the alignment that carries the comparison would be gone.
-    terminal = shutil.get_terminal_size((100, 24)).columns
-    column_width = max(MIN_COLUMN,
-                       (terminal - GUTTER * (len(chosen) - 1)) // max(1, len(chosen)))
-    if args.columns and terminal < MIN_COLUMN * len(chosen) + GUTTER * (len(chosen) - 1):
-        say(f"\n[!] this terminal is {terminal} columns; {MIN_COLUMN * len(chosen) + GUTTER * (len(chosen) - 1)} "
-            f"are needed to put {len(chosen)} windows side by side. Drawing "
-            f"them one below the other instead.")
-        args.columns = False
 
     windows = []
     for name in chosen:
@@ -495,64 +721,12 @@ def main(argv: list[str] | None = None) -> int:
             for line in window.rendering.splitlines()[:14]:
                 say(f"    | {line}")
 
-    say("\n" + "-" * 72)
-    say("AGREEMENT")
-    say("-" * 72)
-    drew = [w for w in windows if w.ok]
-    if len(drew) < 2:
-        why = (f"only {len(drew)} window drew it -- agreement is not "
-               f"established by one window agreeing with itself")
-        result["problems"].append(why)
-        say(f"  {why}")
-        if args.as_json:
-            print(json.dumps(result, indent=2))
-        return 1
-
-    problems = []
-    first = drew[0]
-    for other in drew[1:]:
-        if sorted(first.boxes) != sorted(other.boxes):
-            problems.append(f"{first.name} and {other.name} disagree about "
-                            f"boxes: {set(first.boxes) ^ set(other.boxes)}")
-        # **SORTED LISTS, NOT SETS.** Several relations can reach one address --
-        # three readings of one delta is the ordinary case in a real archive --
-        # and a set turns those three parallel arrows into one. A window that
-        # dropped two of them would have compared equal.
-        if sorted(first.arrows) != sorted(other.arrows):
-            differing = set(first.arrows) ^ set(other.arrows)
-            problems.append(
-                f"{first.name} drew {len(first.arrows)} arrow(s) and "
-                f"{other.name} drew {len(other.arrows)}; differing: "
-                + (str(differing) if differing
-                   else "same pairs, different counts"))
-        if first.unmeasured != other.unmeasured:
-            problems.append(
-                f"{first.name} drew {first.unmeasured} edge(s) as unmeasured "
-                f"and {other.name} drew {other.unmeasured}. **This is the one "
-                f"that matters**: the windows disagree about what is known")
-
-    if args.columns:
-        say("")
-        for line in columns(drew, terminal):
-            say(line)
-        say("")
-
-    for window in drew:
-        say(f"  {window.name:<20} {len(window.boxes)} boxes, "
-            f"{len(window.arrows)} arrows, {window.unmeasured} unmeasured")
-
-    result["problems"].extend(problems)
-    if problems:
-        say("\n  DISAGREEMENT:")
-        for problem in problems:
-            say(f"    - {problem}")
-        if args.as_json:
-            print(json.dumps(result, indent=2))
-        return 1
-
-    result["agreed"] = True
-    say(f"\n  {len(drew)} windows agree about every box, every arrow, and "
-        f"which edges nobody measured.")
+    # **ONE COMPARISON, SHARED WITH THE HTTP MODE.** Two copies drift, and the
+    # one that drifts lenient is the one nobody notices. This had two until a
+    # test counted them.
+    verdict = _agree(args, say, result, [w for w in windows if w.ok], terminal)
+    if verdict != 0:
+        return verdict
 
     say("\n" + "-" * 72)
     say("WHAT THIS DID NOT ESTABLISH")
