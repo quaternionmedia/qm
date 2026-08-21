@@ -8,7 +8,7 @@ conversation.
 decisions nobody has taken, and a few will turn out not to need doing — which is
 cheaper to find out than to build for.
 
-**Stamped 2026-08-20.** Re-derive before acting; the commands are named.
+**Stamped 2026-08-21.** Re-derive before acting; the commands are named.
 
 ---
 
@@ -23,21 +23,24 @@ what they assert, not because they are risky.
 | **Ratify a record** | Every record everywhere is `Proposed`. Waits on a second active code owner |
 | **Apply the `main` ruleset** | One command, `uv run qm rulesets --apply`. An agent must never run it |
 | **Cut a version tag** | Nothing is tagged. `main` asserts nothing, which is correct and is not a release |
-| **Export from ChatGPT** | The Claude export is ingested; ChatGPT's has not been requested |
 
 ## Verification that has not happened
 
 Not gaps in the code — gaps in what anybody has *established*.
 
-- **Divergence has never fired for a real reason.** 203 threads, 0 disagreeing.
-  Correct today, and every divergence seen so far was a bug that was then fixed.
-  **The next Claude export is the test**: threads kept talking in should report
-  `grew`. If they report `diverged`, that is either a real finding or a defect,
-  and telling those apart is the point.
-- **The ChatGPT export reading is unverified.** The Claude one was checked
-  against a real export on 2026-08-20 — 94 conversations, none lost. ChatGPT's
-  is still a reading of the documented format, and it has more room to be wrong
-  because that format is a tree flattened to a sequence.
+- **Divergence has never fired for a real reason.** Every thread in the archive
+  agrees with its source, across all three of them; the index carries the count
+  and this page does not. Correct today, and every divergence seen so far was a
+  bug that was then fixed. **The next export of a source already ingested is the
+  test**: threads kept talking in should report `grew`. If they report
+  `diverged`, that is either a real finding or a defect, and telling those apart
+  is the point.
+- **Both export readings are now verified against real exports**, Claude's on
+  2026-08-20 and ChatGPT's on 2026-08-21 — every conversation in each parsed,
+  none lost, none empty. What remains unverified is the *tree*: ChatGPT's format
+  is a graph flattened to a sequence, so a conversation with regenerated replies
+  is read as alternatives in a row. No export seen so far has exercised that,
+  which is not the same as its being right.
 - **The tag-determinism gate has never run as a workflow.** It needs a pushed
   `v*` tag and none exists, so it has only been exercised by running its inner
   commands by hand.
@@ -74,9 +77,12 @@ Not gaps in the code — gaps in what anybody has *established*.
 - **`ChatGPTThreads` flattens a conversation tree.** Regenerated replies arrive
   as alternatives in sequence. Stated rather than hidden; `same-as` exists for
   the day somebody wants to say two branches were one strand.
-- **Two `dossier.db` files exist on the machine this was written on.** The
-  settings screen now lists every candidate and marks the live one; which of the
-  two should survive is an operator's call.
+- **Two `dossier.db` files exist on the machine this was written on**, and only
+  one holds anything. Which survives is an operator's call. What is no longer
+  left to notice by eye: `dossier.diagnostics`' `live-database` check fails when
+  the database being read is empty while a populated one is visible, and refuses
+  to report an empty result as an empty archive when it cannot see past the
+  working directory.
 - **Three `dossier` test modules reload `dossier.cli` and two never restore it.**
   `importlib.reload` re-executes into the same module object, so a module that
   did `from dossier.cli import ...` keeps the old binding while the module
