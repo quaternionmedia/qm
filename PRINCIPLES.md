@@ -275,3 +275,43 @@ rather than removed, and no state is carried by colour alone.
 (`records/DRAFT-a-route-is-an-address.md`). This principle restates its §5; the
 four rules above about what the interface owes are stated in §1–§4 of that
 record and summarised here only as a pointer.
+
+## P15 — A loop is not a knot, and the layer's mathematics is sought on purpose
+
+**Every cycle closes; that is what makes it a cycle.** So closure cannot be what
+distinguishes a problem from a shape. A cycle is a **knot** when it carries
+obligation all the way round — when each edge says something must come before
+something else, and the ring therefore has no first step. Untying one means a
+person chooses, or a relation somebody stated gets cut.
+
+A cycle whose edges impose no order is a **loop**. It looks identical in a
+picture and it constrains nothing, and reporting it as a problem buries the real
+ones. Measured here: 42 loops, 0 knots, in the organisation's 169 real
+relations — a ratio nobody filters and everybody learns to ignore.
+
+**A loop is still a fact.** Not reporting it as a knot is not refusing to record
+it. Two conversations that touched one repository are genuinely related; the
+finding is that it is not a scheduling problem.
+
+**The wider practice: the mathematics a layer actually has is looked for, named,
+and built toward.** This is a stated goal of the organisation and a measured one,
+not a habit of naming things after theorems. A layer whose structure is named can
+be reasoned about with everything already known about that structure; a layer
+described only in its own vocabulary can be reasoned about only by whoever wrote
+it.
+
+The discipline that keeps it honest has two halves, and the second is the one
+that decays first:
+
+- **A claimed mapping is measured before it is relied on.** The knot reading was
+  not adopted because it was elegant; it was adopted because walking the
+  symmetric relations produced forty-two rings and every one was noise.
+- **A mapping that is decorative is recorded as decorative.** Naming a port after
+  a constant is a mnemonic, and calling it structure would leave the practice
+  indistinguishable from ornament. Each mapping states what it has earned and
+  what it has not — an absent invariant is named as work rather than hidden.
+
+→ Org record: **A knot is a cycle of obligation, not a cycle in the graph**
+(`records/DRAFT-a-knot-is-a-cycle-of-obligation.md`). It carries the measurement,
+the mapping table, and the two instances that stand today — one earned, one
+decorative and said to be.
