@@ -57,12 +57,13 @@ the only kind of test optimisation that is safe by construction.
 
 The first yield reading, and the reason it is worth having:
 
-| Module | Yield | |
-|---|---|---|
-| `ci/check_restatements.py` | 81% | |
-| `ci/check_mathematics.py` | 65% | written this session |
-| `project-seed/ci/adr_lint.py` | 64% | |
-| `project-seed/ci/check_pr_base.py` | **33%** | **the finding** |
+| Module | First reading | Now | |
+|---|---|---|---|
+| `ci/check_restatements.py` | 81% | 81% | |
+| `ci/check_mathematics.py` | 65% | 65% | had no tests at all |
+| `project-seed/ci/check_placeholders.py` | — | 65% | had no tests, runs in every fork |
+| `project-seed/ci/adr_lint.py` | 64% | 64% | |
+| `project-seed/ci/check_pr_base.py` | **33%** | **45%** | **the finding, acted on** |
 
 `check_pr_base.py` decides whether a pull request may target the base it names —
 `AGENTS.md` item 4 exists because one PR in this org sat open carrying eighteen
@@ -111,11 +112,13 @@ pattern: build once in a `scope="session"` fixture, copy per test, and repair
 whatever the copy breaks (here, one remote URL). **Then remove the repair and
 watch tests fail** — otherwise the isolation is a claim.
 
-**3. Close the five modules nothing executes.** `ci/check_mathematics.py` (done),
-`ci/test_posture.py` (done), `ci/generate_docs.py`, `ci/devloop.py`,
-`project-seed/ci/check_placeholders.py`. The last runs in **every fork**.
-→ `ci/tests/test_every_gate_is_exercised.py` fails on a new one, and exemptions
-must carry a reason.
+**3. Close the five modules nothing executes.** Done except one:
+`ci/check_mathematics.py`, `ci/test_posture.py`, `ci/generate_docs.py` and
+`project-seed/ci/check_placeholders.py` all have tests now. `ci/devloop.py`
+remains exempted — it shells out to the other gates and has no logic of its own.
+→ `ci/tests/test_every_gate_is_exercised.py` fails on a new one, exemptions must
+carry a reason, and **an exemption left behind after somebody writes the test
+also fails** — which is what keeps the list shrinking rather than accumulating.
 
 **4. Write the mutation line into every new guard.** One line:
 `Mutation: <change> and this fails.` It is the only durable record of what was
@@ -123,9 +126,14 @@ established.
 
 ### Do next
 
-**5. Raise `check_pr_base.py` first.** 33% is the lowest measured and the gate
-is load-bearing: it is what stops a branch cut from the wrong parent reaching a
-pull request. Read its survivor list before anything else on this page.
+**5. Raise `check_pr_base.py` first.** ~~33%~~ **45%, done.** Reading the
+survivor list separated two kinds. Most were mutations of prose — ` not ` to
+` ` inside a `help=` string, `capture_output` flipped on a subprocess whose
+returncode is all anyone reads — and those are **left alive on purpose**: a test
+pinning the wording of help text would fail every time somebody improved a
+sentence. Two clusters were behaviour and are now closed: whether the required
+arguments are actually required, and the branch of the missing-ref hint that
+tells you to push. Both are reachable by a person on their first run.
 
 **6. Raise the yield where it is low elsewhere.** 64–81% on the rest. Many
 survivors are mutations of prose inside error messages and are not worth

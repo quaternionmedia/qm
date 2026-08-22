@@ -49,13 +49,6 @@ UNEXERCISED: dict[str, str] = {
         "a developer convenience that shells out to the other gates; it has no "
         "logic of its own and its parts are tested where they live"
     ),
-    "ci/generate_docs.py": (
-        "**the significant one.** It is the P12 mechanism -- the command that "
-        "regenerates every generated document before a pull request -- and no "
-        "test runs it. Its output is checked by the documents' own tests, so a "
-        "wrong regeneration is caught downstream, but nothing checks the "
-        "ordering, the --check mode, or what it reports as moved"
-    ),
 }
 
 

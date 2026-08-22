@@ -59,6 +59,10 @@ WATCHED: tuple[tuple[str, str], ...] = (
     ("project-seed/ci/check_pr_base.py", "project-seed/ci/tests/test_check_pr_base.py"),
     ("ci/check_restatements.py", "ci/tests/test_check_restatements.py"),
     ("ci/check_mathematics.py", "ci/tests/test_check_mathematics.py"),
+    # Added after the first reading: it runs in every fork, so a defect here is
+    # a defect in twelve repositories at once.
+    ("project-seed/ci/check_placeholders.py",
+     "project-seed/ci/tests/test_check_placeholders.py"),
 )
 
 SLOW = 1.0
