@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-18T02:19:31Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-22T17:49:51Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,9 +9,9 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 19**; 17 proposed |
+| Records ratified | every requirement below | **0 of 29**; 27 proposed |
 | Mandatory reading | under budget | 630 of 700 lines |
-| Documents whose state is unknown | none | 1 |
+| Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **96**, unfiltered.
+Every governed document in this corpus: **128**, unfiltered.
 
 | | |
 |---|---|
@@ -58,27 +58,36 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 17 |
+| [P] `proposed` | 27 |
 | [D] `draft` | 2 |
-| [??] `unknown` | 1 |
-| [-] `unreviewed` | 33 |
+| [-] `unreviewed` | 45 |
 | [G] `generated` | 7 |
-| [S] `standing` | 22 |
-| [T] `transient` | 14 |
+| [S] `standing` | 30 |
+| [T] `transient` | 17 |
 
 ## Documents
 
 | | State | Document | Class | Declared |
 |---|---|---|---|---|
+| [P] | `proposed` | `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-disagreement-is-a-delta.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-knot-is-a-cycle-of-obligation.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-route-is-an-address.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-acts-that-are-a-persons-by-constitution.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-attention-is-a-claim-activity-is-measured.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-build-the-seam-buy-the-engines.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-clis-are-for-machines-and-debugging.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-contribution-and-sponsorship-policy.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-decision-record-discipline.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-deltas-compose.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-few-integers-in-durable-text.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-governance-arrives-as-a-mechanism.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-granularity-is-a-perspective.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-house-stack.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-human-only-contributorship.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-ide-integrated-governance-discovery.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-monitoring-seam-and-instance-identity.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-no-unattended-spending.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-one-executable-walkthrough.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-open-license-exclusion-and-upstream-remediation.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-outbound-licensing.md` | record | Proposed |
@@ -89,7 +98,6 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-version-tags-are-claims.md` | record | Proposed |
 | [D] | `draft` | `records/DRAFT-going-private-is-an-act-with-obligations.md` | record | Draft |
 | [D] | `draft` | `records/DRAFT-the-base-is-the-deliverable.md` | record | Draft |
-| [??] | `unknown` | `perspectives/2026-08-09-the-reviewer-is-the-shared-resource.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-07-05-on-human-only-contributorship.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-07-21-verify-before-fixing.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-07-alfred-brownfield-adoption.md` | perspective | — |
@@ -99,6 +107,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-08-reading-the-proxy-instead-of-the-thing.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-09-adopting-a-corpus-whose-harness-is-unmerged.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-09-explanation-in-the-wrong-place.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-09-the-reviewer-is-the-shared-resource.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-11-inflation-deflation-and-what-discovery-looks-like.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-11-measuring-your-own-scaffolding.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md` | perspective | Unreviewed |
@@ -114,6 +123,17 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-16-the-base-was-the-deliverable.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-16-the-harness-measured-its-own-cache.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-08-16-what-the-checks-were-not-checking.md` | perspective | Unreviewed |
+| [-] | `unreviewed` | `perspectives/2026-08-18-a-ring-in-a-terminal.md` | perspective | Unreviewed |
+| [-] | `unreviewed` | `perspectives/2026-08-18-the-numbers-were-the-distraction.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-19-a-gate-that-never-passed.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-19-the-suite-tested-a-model-of-the-system.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-19-three-fields-and-none-of-them-is-activity.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-19-two-fixtures-that-agreed-with-nothing.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-20-eight-commands-and-a-count.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-20-the-demo-found-what-the-fix-did-not.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-21-a-green-suite-and-eight-holes.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-21-what-a-system-says-about-itself.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-22-what-it-cost-to-get-one-panel-right.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
@@ -144,12 +164,20 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `handbook/propagation-runbook.md` | handbook | — |
 | [S] | `standing` | `handbook/public-by-default.md` | handbook | — |
 | [S] | `standing` | `handbook/style-guide.md` | handbook | — |
+| [S] | `standing` | `handbook/test-posture.md` | handbook | — |
 | [S] | `standing` | `perspectives/README.md` | index | — |
 | [S] | `standing` | `plans/authorship-first-governance.md` | other | — |
 | [S] | `standing` | `plans/data-collection-pathways.md` | other | — |
+| [S] | `standing` | `plans/first-ratification.md` | other | — |
 | [S] | `standing` | `plans/governance-prose-signals.md` | other | — |
+| [S] | `standing` | `plans/hil-testing-session.md` | other | — |
+| [S] | `standing` | `plans/open-work.md` | other | — |
+| [S] | `standing` | `plans/qmpm-standardisations.md` | other | — |
 | [S] | `standing` | `plans/readme-onramp.md` | other | — |
 | [S] | `standing` | `plans/semantic-review-instrument.md` | other | — |
+| [S] | `standing` | `plans/the-active-set-and-the-pair.md` | other | — |
+| [S] | `standing` | `plans/the-third-side.md` | other | — |
+| [S] | `standing` | `plans/thread-archive-access.md` | other | — |
 | [S] | `standing` | `plans/v0.0.1-blockers.md` | other | — |
 | [S] | `standing` | `plans/v0.0.1-review-packet.md` | other | — |
 | [T] | `transient` | `handbook/handoffs/apply-the-main-ruleset.md` | handoff | — |
@@ -164,14 +192,11 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/semantic-review-session.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/session-2026-08-12.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/session-2026-08-15.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/the-active-four.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/the-loop-that-checks-itself.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/the-pair-and-the-fresh-setup.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-gate-and-tag-teeth.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-views-one-dataset.md` | handoff | — |
-
-## Could not be established
-
-Not the same as fine. Each of these is a document whose own state nobody can read.
-
-- **`perspectives/2026-08-09-the-reviewer-is-the-shared-resource.md`** — no row in perspectives/README.md and no Status row in the file, so nothing states whether anyone has read it
 
 ## Reading this document
 

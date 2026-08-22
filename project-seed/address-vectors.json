@@ -161,6 +161,24 @@
       "address": "pkg/pydantic",
       "valid": false,
       "why": "reserved global bucket"
+    },
+    {
+      "address": "quaternionmedia/qmcp/ask/selfcheck-tag-claims",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qmcp",
+      "kind": "ask",
+      "id": "selfcheck-tag-claims",
+      "why": "a question waiting on a person; the id is the question's own, stable across runs"
+    },
+    {
+      "address": "quaternionmedia/qmcp/ask/deploy/prod/approve",
+      "valid": true,
+      "owner": "quaternionmedia",
+      "repo": "qmcp",
+      "kind": "ask",
+      "id": "deploy/prod/approve",
+      "why": "everything after the kind is the id, slashes included -- an ask id is not special"
     }
   ]
 }
