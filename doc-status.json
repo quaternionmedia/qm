@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-20T17:03:20Z",
+  "generated_at": "2026-08-22T14:50:38Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -42,7 +42,7 @@
     "documents": [
       {
         "path": "AGENTS.md",
-        "lines": 238
+        "lines": 247
       },
       {
         "path": "handbook/async-contract.md",
@@ -53,10 +53,10 @@
         "lines": 148
       }
     ],
-    "total_lines": 621,
+    "total_lines": 630,
     "budget_lines": 700,
     "within_budget": true,
-    "headroom_lines": 79,
+    "headroom_lines": 70,
     "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
     "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open."
   },
@@ -102,13 +102,13 @@
     "claim_is_not_evidence": "milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.",
     "measured": {
       "records": {
-        "total": 26,
+        "total": 29,
         "ratified": 0,
-        "proposed": 24
+        "proposed": 27
       },
-      "documents_in_unknown_state": 1,
+      "documents_in_unknown_state": 0,
       "reading_within_budget": true,
-      "reading_total_lines": 621,
+      "reading_total_lines": 630,
       "reading_budget_lines": 700,
       "gates": {
         "unknown": "held in gate-status.json, which this generator does not read -- one document does not restate another's figures"
@@ -120,18 +120,17 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 118,
+    "documents": 128,
     "by_state": {
       "draft": 2,
       "generated": 7,
-      "proposed": 24,
-      "standing": 27,
-      "transient": 16,
-      "unknown": 1,
-      "unreviewed": 41
+      "proposed": 27,
+      "standing": 30,
+      "transient": 17,
+      "unreviewed": 45
     },
     "disagreements": 0,
-    "unknown": 1
+    "unknown": 0
   },
   "documents": [
     {
@@ -417,6 +416,15 @@
       "state": "transient"
     },
     {
+      "path": "handbook/handoffs/the-loop-that-checks-itself.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
       "path": "handbook/handoffs/the-pair-and-the-fresh-setup.md",
       "class": "handoff",
       "class_reason": "working instructions, deleted when the work lands",
@@ -465,6 +473,16 @@
     },
     {
       "path": "handbook/style-guide.md",
+      "class": "handbook",
+      "class_reason": "policy binding on QM's own conduct",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "handbook/test-posture.md",
       "class": "handbook",
       "class_reason": "policy binding on QM's own conduct",
       "declared_status": null,
@@ -593,9 +611,8 @@
       "declared_status": null,
       "state_from_status_row": null,
       "state_from_filename": null,
-      "indexed_status": null,
-      "state": "unknown",
-      "why_unknown": "no row in perspectives/README.md and no Status row in the file, so nothing states whether anyone has read it"
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
     },
     {
       "path": "perspectives/2026-08-11-inflation-deflation-and-what-discovery-looks-like.md",
@@ -828,6 +845,36 @@
       "state": "unreviewed"
     },
     {
+      "path": "perspectives/2026-08-21-a-green-suite-and-eight-holes.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-21-what-a-system-says-about-itself.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-22-what-it-cost-to-get-one-panel-right.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
       "path": "perspectives/README.md",
       "class": "index",
       "class_reason": "the index for its directory, not a member of it",
@@ -948,6 +995,16 @@
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
     },
     {
+      "path": "plans/first-ratification.md",
+      "class": "other",
+      "class_reason": "not in a governed directory",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
       "path": "plans/governance-prose-signals.md",
       "class": "other",
       "class_reason": "not in a governed directory",
@@ -1018,6 +1075,16 @@
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
     },
     {
+      "path": "plans/the-third-side.md",
+      "class": "other",
+      "class_reason": "not in a governed directory",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
       "path": "plans/thread-archive-access.md",
       "class": "other",
       "class_reason": "not in a governed directory",
@@ -1048,7 +1115,34 @@
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
     },
     {
+      "path": "records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
       "path": "records/DRAFT-a-disagreement-is-a-delta.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-a-knot-is-a-cycle-of-obligation.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-a-route-is-an-address.md",
       "class": "record",
       "class_reason": "an org decision record",
       "declared_status": "Proposed",

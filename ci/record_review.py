@@ -65,6 +65,41 @@ ENFORCEMENT = re.compile(
 # so a version string or a URL fragment is not read as a file.
 CITED_PATH = re.compile(r"`(?:governance/qm/)?([A-Za-z0-9_][A-Za-z0-9_./-]*\.(?:md|py|ya?ml|json|toml))`")
 
+
+def sibling_repositories(root: Path) -> set[str]:
+    """Every repository in the roster except this one.
+
+    A record may correctly cite a file in another QM repository -- this corpus
+    governs them all and its records are written about them. That citation is
+    unresolvable *here*, which is a different fact from the file not existing,
+    and reporting the two the same way is the unknown-as-zero conflation this
+    corpus names everywhere else. Read from the roster rather than hardcoded, so
+    a repository joining the org does not need this file edited.
+
+    Returns an empty set if the roster is unreadable, which leaves the citation
+    check exactly as strict as it was before this existed.
+    """
+    try:
+        roster = yaml.safe_load((root / "ci" / "workspace.yaml").read_text(
+            encoding="utf-8"))
+    except (OSError, yaml.YAMLError):
+        return set()
+
+    found: set[str] = set()
+
+    def walk(node: object) -> None:
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if key in ("name", "repo", "slug") and isinstance(value, str):
+                    found.add(value.split("/")[-1])
+                walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+
+    walk(roster)
+    return {name for name in found if name and name != "qm"}
+
 # "Every QM repository is ...", "every project CI ...". The subject matters:
 # these are claims about the state of the world, which a record does not make.
 UNIVERSAL = re.compile(
@@ -112,8 +147,10 @@ def entry_point_text(root: Path) -> str:
     return "\n".join(parts)
 
 
-def review_record(path: Path, root: Path, gates: list[dict], reachable: str) -> dict:
+def review_record(path: Path, root: Path, gates: list[dict], reachable: str,
+                  siblings: set[str] | None = None) -> dict:
     rel = path.relative_to(root).as_posix()
+    siblings = sibling_repositories(root) if siblings is None else siblings
     text = path.read_text(encoding="utf-8", errors="replace")
     findings: list[dict] = []
 
@@ -175,6 +212,19 @@ def review_record(path: Path, root: Path, gates: list[dict], reachable: str) -> 
             if any(root.rglob(cited)):
                 continue
         if not (root / cited).exists():
+            # A path whose first segment is another QM repository is a citation
+            # this check cannot resolve, not a citation that is wrong. Reported
+            # rather than skipped: a reader still has to go and look, and a
+            # carve-out that reports nothing is indistinguishable from a rule
+            # nobody wrote.
+            if cited.split("/", 1)[0] in siblings:
+                findings.append({
+                    "kind": "cross-repository-citation",
+                    "detail": f"names `{cited}`, in another QM repository. This "
+                              f"check reads only this corpus and cannot say "
+                              f"whether it resolves",
+                })
+                continue
             findings.append({
                 "kind": "dangling-citation",
                 "detail": f"names `{cited}`, which is not in the corpus",
@@ -208,7 +258,11 @@ def main(argv: list[str] | None = None) -> int:
 
     gates = load_gates(root / "ci" / "gate-registry.yaml")
     reachable = entry_point_text(root)
-    results = [review_record(p, root, gates, reachable) for p in records]
+    # Read once: the roster does not change between records, and re-reading it
+    # per record made the check's cost scale with the corpus for no reason.
+    siblings = sibling_repositories(root)
+    results = [review_record(p, root, gates, reachable, siblings)
+               for p in records]
 
     by_kind: dict[str, int] = {}
     for result in results:

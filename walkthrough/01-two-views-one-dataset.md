@@ -1,5 +1,8 @@
 # 01 — Two views, one dataset
 
+If you want to see what this organisation actually does, rather than read about
+it, start here.
+
 **This page runs.** Every example below is executed by `uv run qm test`, and the
 output shown is the output that ran. If a behaviour changes, this page fails the
 build rather than quietly describing something that stopped being true.

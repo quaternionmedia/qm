@@ -186,5 +186,5 @@ At the commit that proposed this record, in `quaternionmedia/dossier` on
   guard was then mutated and observed to fail — the chord and the rotate had
   been missed by the first implementation and were found by writing the
   enumeration down.
-- `docs/rad-commands.md` is generated and carries no figure that was typed: both
+- `dossier/docs/rad-commands.md` is generated and carries no figure that was typed: both
   thresholds in it are read from the constants that decide the behaviour.

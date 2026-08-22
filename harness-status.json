@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-20T17:03:19Z",
+  "generated_at": "2026-08-22T14:50:37Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -57,8 +57,8 @@
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 1,
-      "ready": 5
+      "draft": 2,
+      "ready": 6
     },
     "threads_stalled": 4,
     "threads_unreadable": 0
@@ -77,7 +77,17 @@
           "project/*"
         ],
         "contributor": null,
-        "open_prs": [],
+        "open_prs": [
+          {
+            "number": 83,
+            "title": "List carlos, which was claiming a phase the roster never carried",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "evolve/carlos-in-the-roster",
+            "draft": true
+          }
+        ],
         "violations": [],
         "exit_status": 0,
         "compliant": true
@@ -88,7 +98,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "evolve/carlos-in-the-roster",
+          "stage": "draft",
+          "pr": 83,
+          "base": "main",
+          "title": "List carlos, which was claiming a phase the roster never carried",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 15,
+            "changed_files": 1,
+            "commits": 2,
+            "deletions": 0,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-20T20:25:39Z"
+          },
+          "idle_hours": 42.4,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -176,8 +205,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 19,
-        "observed_at": "2026-08-20T17:02:49Z",
+        "behind_corpus": 21,
+        "observed_at": "2026-08-22T14:50:09Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -347,8 +376,8 @@
           "workflows_absent": 1,
           "licensing_present": 0
         },
-        "behind_corpus": 19,
-        "observed_at": "2026-08-20T17:02:54Z",
+        "behind_corpus": 21,
+        "observed_at": "2026-08-22T14:50:14Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -398,8 +427,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 2,
-        "observed_at": "2026-08-20T17:02:57Z",
+        "behind_corpus": 4,
+        "observed_at": "2026-08-22T14:50:16Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -462,7 +491,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23130.1,
+          "idle_hours": 23175.9,
           "stalled": true
         }
       ],
@@ -483,8 +512,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 128,
-        "observed_at": "2026-08-20T17:02:40Z",
+        "behind_corpus": 130,
+        "observed_at": "2026-08-22T14:50:01Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -584,14 +613,14 @@
           "title": "Fix the viewer, and give datum-core an assembly you can navigate",
           "author": "subcontrabass",
           "delta": {
-            "additions": 4053,
-            "changed_files": 45,
-            "commits": 20,
-            "deletions": 134,
+            "additions": 7323,
+            "changed_files": 79,
+            "commits": 31,
+            "deletions": 422,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-20T16:45:36Z"
+            "updated_at": "2026-08-22T11:46:12Z"
           },
-          "idle_hours": 0.3,
+          "idle_hours": 3.1,
           "stalled": false
         },
         {
@@ -609,7 +638,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 221.2,
+          "idle_hours": 267.0,
           "stalled": true
         }
       ],
@@ -625,8 +654,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 128,
-        "observed_at": "2026-08-20T17:02:42Z",
+        "behind_corpus": 130,
+        "observed_at": "2026-08-22T14:50:03Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -673,14 +702,14 @@
           "title": "WP-3: firmware, the pre-HIL run, and a pinned enclosure",
           "author": "subcontrabass",
           "delta": {
-            "additions": 3028,
-            "changed_files": 43,
-            "commits": 24,
-            "deletions": 93,
+            "additions": 3844,
+            "changed_files": 47,
+            "commits": 32,
+            "deletions": 97,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-20T16:46:23Z"
+            "updated_at": "2026-08-22T11:46:34Z"
           },
-          "idle_hours": 0.3,
+          "idle_hours": 3.1,
           "stalled": false
         }
       ],
@@ -696,8 +725,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 6,
-        "observed_at": "2026-08-20T17:02:47Z",
+        "behind_corpus": 8,
+        "observed_at": "2026-08-22T14:50:08Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -795,7 +824,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 213.8,
+          "idle_hours": 259.6,
           "stalled": true
         }
       ],
@@ -816,8 +845,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 128,
-        "observed_at": "2026-08-20T17:02:44Z",
+        "behind_corpus": 130,
+        "observed_at": "2026-08-22T14:50:05Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -953,8 +982,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 128,
-        "observed_at": "2026-08-20T17:02:51Z",
+        "behind_corpus": 130,
+        "observed_at": "2026-08-22T14:50:11Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -971,6 +1000,15 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 17,
+            "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "they",
+            "head": "fix/dials-cable-ends-and-scroll",
+            "draft": false
+          },
           {
             "number": 3,
             "title": "Bump idna from 3.10 to 3.15",
@@ -1000,7 +1038,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "fix/dials-cable-ends-and-scroll",
+          "stage": "ready",
+          "pr": 17,
+          "base": "they",
+          "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 1595,
+            "changed_files": 26,
+            "commits": 7,
+            "deletions": 58,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-22T12:07:34Z"
+          },
+          "idle_hours": 2.7,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -1013,8 +1070,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 35,
-        "observed_at": "2026-08-20T17:02:43Z",
+        "behind_corpus": 37,
+        "observed_at": "2026-08-22T14:50:04Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1104,8 +1161,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 128,
-        "observed_at": "2026-08-20T17:02:55Z",
+        "behind_corpus": 130,
+        "observed_at": "2026-08-22T14:50:15Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1167,7 +1224,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3265.0,
+          "idle_hours": 3310.8,
           "stalled": true
         }
       ],

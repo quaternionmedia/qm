@@ -199,3 +199,110 @@ def test_the_output_says_it_is_not_a_semantic_review(tmp_path: Path):
         capture_output=True, text=True, encoding="utf-8", errors="replace",
     )
     assert "is a semantic review" in result.stdout  # "None of this is a semantic review"
+
+
+# --- citing another repository in the org ----------------------------------
+#
+# This corpus governs every QM repository, so its records are written *about*
+# them and cite their files. Before this existed those citations were reported
+# as `dangling-citation` -- "which is not in the corpus" -- and three of them
+# were, all resolving perfectly well one directory over. The two facts are
+# different and a check that renders them identically is the unknown-as-zero
+# conflation this corpus names everywhere else.
+
+
+def with_roster(tmp_path: Path, names: list[str]) -> None:
+    """Give the temp corpus a roster, which is where sibling names come from.
+
+    Written in YAML flow style so the fixture is one line: the loader walks the
+    parsed structure, not the text, so the two spellings are the same input.
+    """
+    rows = ", ".join("{name: " + name + "}" for name in names)
+    write(tmp_path / "ci" / "workspace.yaml", "repositories: [" + rows + "]")
+
+
+def test_a_citation_into_a_sibling_repository_is_not_called_dangling(tmp_path: Path):
+    """THE ONE THAT MATTERS.
+
+    Mutation: drop the sibling branch and this fails -- the finding reverts to
+    `dangling-citation`, which tells a reader the file does not exist.
+    """
+    with_roster(tmp_path, ["dossier", "qmcp"])
+    corpus(tmp_path, decision="1. See `dossier/tests/core/test_composition.py`.")
+    found = kinds(tmp_path)
+    assert "cross-repository-citation" in found
+    assert "dangling-citation" not in found
+
+
+def test_a_sibling_citation_is_still_reported(tmp_path: Path):
+    """**REPORTED, NOT SILENCED.** A carve-out that emits nothing is
+    indistinguishable from a rule nobody wrote, and the reader still has to go
+    to the other repository and look.
+
+    Mutation: `continue` without appending and this fails.
+    """
+    with_roster(tmp_path, ["dossier"])
+    corpus(tmp_path, decision="1. See `dossier/docs/rad-commands.md`.")
+    assert kinds(tmp_path).count("cross-repository-citation") == 1
+
+
+def test_a_repository_not_in_the_roster_is_still_dangling(tmp_path: Path):
+    """**THE ROUTE AROUND THE GUARD.** The carve-out keys on the first path
+    segment, so any invented directory name would walk through it if the roster
+    were not what decides. `notarepo/` is exactly the typo this check exists to
+    catch, and it must not be excused for looking like a repository.
+
+    Mutation: match any first segment rather than a roster name and this fails.
+    """
+    with_roster(tmp_path, ["dossier"])
+    corpus(tmp_path, decision="1. See `notarepo/handbook/gone.md`.")
+    found = kinds(tmp_path)
+    assert "dangling-citation" in found
+    assert "cross-repository-citation" not in found
+
+
+def test_this_corpus_is_not_its_own_sibling(tmp_path: Path):
+    """`qm` is in the roster and is the corpus being checked. Treating it as a
+    sibling would excuse every broken path written as `qm/...`, which is the
+    most likely way to write one.
+
+    Mutation: keep `qm` in the sibling set and this fails.
+    """
+    with_roster(tmp_path, ["qm", "dossier"])
+    corpus(tmp_path, decision="1. See `qm/handbook/gone.md`.")
+    assert "dangling-citation" in kinds(tmp_path)
+
+
+def test_no_roster_leaves_the_check_exactly_as_strict(tmp_path: Path):
+    """A corpus with no readable roster must not become permissive -- a check
+    that quietly relaxes when its input is missing is the failure mode this
+    corpus keeps finding in its own tooling.
+
+    Mutation: return every first segment when the roster is unreadable and this
+    fails.
+    """
+    corpus(tmp_path, decision="1. See `dossier/tests/core/test_composition.py`.")
+    assert "dangling-citation" in kinds(tmp_path)
+
+
+def test_an_unparseable_roster_is_not_a_crash(tmp_path: Path):
+    """The review must survive a roster somebody is midway through editing."""
+    write(tmp_path / "ci" / "workspace.yaml", "repositories: [unclosed")
+    corpus(tmp_path, decision="1. See `dossier/x.md`.")
+    assert "dangling-citation" in kinds(tmp_path)
+
+
+def test_a_roster_entry_whose_name_is_not_a_string_is_ignored(tmp_path: Path):
+    """A `name:` holding a list or a mapping is a roster somebody is midway
+    through editing. The walker must skip it rather than call a string method on
+    it -- a review that crashes on a half-written roster is a gate that fails for
+    a reason having nothing to do with the records.
+
+    Mutation: `and` to `or` on the isinstance guard and this raises
+    AttributeError instead of reporting. Found by `uv run qm mutate`, not by
+    reading the function.
+    """
+    write(tmp_path / "ci" / "workspace.yaml",
+          "repositories: [{name: [a, b]}, {name: dossier}]")
+    corpus(tmp_path, decision="1. See `dossier/x.md`.")
+    assert "cross-repository-citation" in kinds(tmp_path)

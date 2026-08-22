@@ -190,5 +190,5 @@ relations:
 - Walking symmetric relations both ways and ignoring two-node cycles reports
   **42**, all of the form `thread -> project -> thread -> project`. That run is
   what this record is written from.
-- `tests/core/test_composition.py` pins both directions: a ring of `crosses` is
+- `dossier/tests/core/test_composition.py` pins both directions: a ring of `crosses` is
   not a tangle, a ring of `blocks` is.

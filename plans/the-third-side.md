@@ -18,7 +18,7 @@ A development tool that parses source code and draws it as graphs. Three parts:
 |---|---|
 | `codecarto/` | FastAPI backend — 20 language parsers, SSE streaming, on port 8000 |
 | `web/` | TypeScript front end, Vite, 105 `.ts` files, rad ported and mounted |
-| `graphbase/` | submodule: networkx graphs into MongoDB, optional |
+| a private submodule | networkx graphs into MongoDB, optional |
 
 **Suite: 328 passed, 27 skipped, 198 seconds.** That last figure is the one
 worth holding onto: dossier runs 828 tests in about 220 seconds, so this is
@@ -180,10 +180,14 @@ needs a person at a browser, which is not something I can do.
 Something should own the answer before a third service joins — a stated
 allocation, or discovery, or an explicit "these never run together".
 
-**5. Is `graphbase` in scope?** It is a submodule on
-`fix/graceful-mongo-unavailable`, it wants MongoDB, and MongoDB is a service
-nobody else in the triangle needs. Optional-but-integrated may or may not extend
-to it.
+**5. Is the private graph submodule in scope?** It is a submodule on its own
+branch, it wants MongoDB, and MongoDB is a service nobody else in the triangle
+needs. Optional-but-integrated may or may not extend to it.
+
+Named by description rather than by name: it is a private repository, and this
+page is in a public corpus. `uv run qm private-names` is what noticed, and the
+forge confirmed it — the check reads a gitignored companion, so a reader
+without that file cannot reproduce the finding and should not have to.
 
 **6. How much of codecarto's suite should the pair be able to run?** The brief
 says testing gets slower as it grows. The pair could run codecarto's *structural*
