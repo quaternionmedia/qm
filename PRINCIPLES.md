@@ -315,3 +315,45 @@ that decays first:
 (`records/DRAFT-a-knot-is-a-cycle-of-obligation.md`). It carries the measurement,
 the mapping table, and the two instances that stand today — one earned, one
 decorative and said to be.
+
+## P16 — A check is evidence only after it has been seen to fail
+
+**Reading a check does not tell you what it checks.** It tells you what its
+author meant. Those coincide most of the time, and the times they do not are
+invisible: a check that passes for the wrong reason looks exactly like a check
+that passes.
+
+So a guard is scaffolding until it has been observed going red for the reason it
+exists. Break the thing it protects, watch it fail, put the thing back — and
+write the mutation down beside the guard, because that line is the only durable
+record of what was actually established.
+
+**This is one rule wearing three faces already in the corpus**, and naming it
+once is the point of it being a principle:
+
+- the *tool* answered a different question than the one asked, and only running
+  it where the answers differ shows that;
+- the *setup* is untested, and a fixture that proves nothing reports the same
+  green as one that proves something;
+- the *guard* is untested, and breaking it is the only way to find the case its
+  author did not think of.
+
+**A skip is not a pass and an empty assertion is not a pass.** Both report
+green. Where a test must skip, the reason is about the environment — a sibling
+repository absent, an optional dependency missing — and never about the subject.
+
+The evidence is a natural experiment nobody designed: across one session in four
+repositories, thirty defects were found, and the ones found by careful reading
+were defects of *shape* — a missing route, a docstring that said three where the
+answer was five. **Every defect of behaviour was found by making something
+fail.** Six of those were guards written in that same session, by the same
+author, to check those exact properties, and read after writing.
+
+This is P12 turned on the tests themselves. A document describing behaviour is
+unproven until the behaviour produced it; a test is a document too, and drifts
+the same way.
+
+→ Org record: **A check is evidence only after it has been seen to fail**
+(`records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`). It carries
+the session's counts, what the rule unifies, and why a mutation-score gate was
+rejected in favour of a per-guard note.

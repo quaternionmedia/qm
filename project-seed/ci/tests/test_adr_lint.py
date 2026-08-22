@@ -68,6 +68,38 @@ def test_a_numbered_file_that_is_ratified_passes(repo: Path):
     assert lint(repo).returncode == 0
 
 
+def test_a_ratified_record_that_was_never_renamed_is_caught(repo: Path):
+    """**THE HOLE THE FIRST RATIFICATION WOULD HAVE FALLEN INTO.**
+
+    Every other check keys on the filename: one asks whether a *numbered* file
+    is ratified, and the index check compares numbers taken from filenames.
+    A record whose Status was flipped to `Accepted` and whose file was never
+    renamed matched neither, so the lint reported clean — while the record read
+    as ratified to any person opening it.
+
+    `docs/ref/ratification.md` documents the neighbouring failure, where the
+    index *was* updated; that one fires. This is the case where the ratifier
+    stopped one step earlier, and it was silent.
+
+    Mutation: drop `check_ratified_are_numbered` from `main` and this fails.
+    """
+    write(repo / "records" / "DRAFT-x.md", record(status="Accepted"))
+    write(repo / "README.md", index_for([]))
+    commit_all(repo, "flip status without renaming")
+    result = lint(repo)
+    assert result.returncode == 1, result.stdout
+    assert "carries no number" in result.stdout
+
+
+def test_a_draft_that_is_not_ratified_is_left_alone(repo: Path):
+    """The ordinary state of every record in this corpus. A check that fired on
+    a `Proposed` draft would fail on an untouched repository."""
+    write(repo / "records" / "DRAFT-x.md", record(status="Proposed"))
+    write(repo / "README.md", index_for([]))
+    commit_all(repo, "an ordinary draft")
+    assert lint(repo).returncode == 0
+
+
 # --- check 3: ratified bodies are append-only ----------------------------------
 
 

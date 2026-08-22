@@ -288,6 +288,38 @@ def check_accepted_bodies_untouched(records: Path, base_ref: str) -> list[str]:
     return failures
 
 
+def check_ratified_are_numbered(records: Path) -> list[str]:
+    """A ratified record carries a number in its filename.
+
+    **THE CONVERSE OF `check_numbered_are_ratified`, AND IT WAS MISSING.** Both
+    of the other checks key on the *filename*: one asks whether a numbered file
+    is ratified, and the index check compares numbers taken from filenames
+    against numbers in the index. So a record whose Status was flipped to
+    `Accepted` and whose file was never renamed matched neither, and the lint
+    reported clean.
+
+    That state reads as ratified to a person and as nonexistent to every check
+    — the worst of the two. `docs/ref/ratification.md` documents the *other*
+    failure, where the index was updated too, and that one does fire. This is
+    the case where the ratifier stopped one step earlier.
+
+    Found by performing the ratification steps wrongly on purpose rather than by
+    reading the lint, which is the practice charter P16 states.
+    """
+    failures = []
+    for path in sorted(records.glob("*.md")):
+        if NUMBERED_FILENAME.match(path.name):
+            continue
+        status = status_of(path.read_text(encoding="utf-8"))
+        if is_ratified(status):
+            failures.append(
+                f"{path}: Status {status!r} but the filename carries no number. "
+                "Ratification renames the file; see docs/ref/ratification.md. "
+                "Left unrenamed the record is invisible to the index check too."
+            )
+    return failures
+
+
 def check_index_matches_directory(records: Path, index: Path) -> list[str]:
     if not index.exists():
         return [f"{index}: index file not found."]
@@ -338,6 +370,7 @@ def main() -> int:
     failures: list[str] = []
     failures += check_banned_vocabulary(records)
     failures += check_numbered_are_ratified(records)
+    failures += check_ratified_are_numbered(records)
     failures += check_index_matches_directory(records, index)
 
     if args.base_ref:
