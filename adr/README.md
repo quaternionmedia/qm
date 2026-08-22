@@ -14,8 +14,8 @@ This project adopts the QM constitution by reference. Org records bind this
 project; project records may tighten them, never relax them. A genuine
 exception is an amendment ratified at org level.
 
-This directory lives inside the `governance/qm` submodule, on this
-project's own dedicated branch (`project/<name>`, created from `main`) -
+This directory lives inside the `docs/qm` submodule, on this
+project's own dedicated branch (`project/codecartographer`, created from `main`) -
 not copied into this project's own git history. The branch's ancestry *is*
 the pin: there is no separate commit hash to hand-maintain here. `git log
 --first-parent` on this branch shows exactly which org state was adopted

@@ -27,7 +27,7 @@ name: One PR per contributor
 #      the shape this corpus keeps finding in its own tooling and does not want
 #      to add deliberately.
 #
-# See handbook/async-contract.md §1 and the README's "Branch namespaces".
+# See handbook/async-contract.md §1 and docs/ref/namespaces.md.
 
 on:
   pull_request:

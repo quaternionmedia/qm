@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-11T17:21:51Z"
+generated_at: "2026-08-22T17:49:32Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -26,28 +26,29 @@ generator:
   unknowns: 2
 corpus:
   ref: origin/main
-  commit: "ddea75531d642791e4450d694beb65c38c661777"
-  committed_at: "2026-08-11T16:23:35Z"
+  commit: "5e8bfc246de17e82b7b4d9859fec01f720025c6d"
+  committed_at: "2026-08-22T17:46:36Z"
   records:
-    total: 12
+    total: 29
     ratified: 0
     numbered_files: 0
     by_status:
-      proposed: 12
+      draft: 2
+      proposed: 27
 projects:
   - name: alfred
     branch:
       ref: origin/project/alfred
-      commit: "e3d5a6df72d9684085882bd3fe0b7d53faf74a14"
-      committed_at: "2026-08-11T03:15:59Z"
-      behind_corpus: 16
-      ahead_of_corpus: 11
-      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
-      merge_base_at: "2026-08-11T03:12:03Z"
+      commit: "314ca5cfb85d4cc0988dbd75a606dca04c82dc03"
+      committed_at: "2026-08-12T12:41:46Z"
+      behind_corpus: 133
+      ahead_of_corpus: 15
+      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
+      merge_base_at: "2026-08-11T23:00:40Z"
       last_propagation:
-        commit: "09419bcd955cb9924a9d647e9634cad83f280dd9"
-        committed_at: "2026-08-11T03:15:22Z"
-        subject: "Bring propagation current with main"
+        commit: "43d94f5277c8b11c12ce26a6fdab017b3a6e117c"
+        committed_at: "2026-08-11T23:03:48Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/alfred-2026-08-11"
     records:
       total: 4
       ratified: 0
@@ -80,20 +81,20 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T17:21:34Z"
+    observed_at: "2026-08-22T17:49:15Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
-      commit: "aaf6c357411c44e81c4b0d7ec7d49f855cf8ed89"
-      committed_at: "2026-08-11T03:18:32Z"
-      behind_corpus: 16
-      ahead_of_corpus: 9
-      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
-      merge_base_at: "2026-08-11T03:12:03Z"
+      commit: "20e00bdbec3f12d17cf88d858e99a732563c6e31"
+      committed_at: "2026-08-12T12:41:51Z"
+      behind_corpus: 133
+      ahead_of_corpus: 13
+      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
+      merge_base_at: "2026-08-11T23:00:40Z"
       last_propagation:
-        commit: "726c4009809ced4ec4b0c89ab99032b2e3be24c6"
-        committed_at: "2026-08-11T03:16:58Z"
-        subject: "Bring propagation current with main"
+        commit: "0a607b0bdf562d3fc58b628ce39dcb58fbd876d3"
+        committed_at: "2026-08-11T23:03:50Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/apothecary-2026-08-11"
     records:
       total: 2
       ratified: 0
@@ -108,7 +109,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T14:13:23Z"
+      pushed_at: "2026-08-22T11:46:11Z"
       licence: MIT
     adoption:
       submodule:
@@ -128,20 +129,65 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T17:21:36Z"
+    observed_at: "2026-08-22T17:49:17Z"
+  - name: carlos
+    branch:
+      ref: origin/project/carlos
+      commit: "22d32a1a674b49ae2eae95fcdc8331d288387b26"
+      committed_at: "2026-08-20T15:32:42Z"
+      behind_corpus: 40
+      ahead_of_corpus: 6
+      merge_base: "fde5dfc8fe7792410ea9bc011f5cbaf897b8e2bc"
+      merge_base_at: "2026-08-16T22:01:43Z"
+      last_propagation: null
+    records:
+      total: 1
+      ratified: 0
+      numbered_files: 0
+      by_status:
+        proposed: 1
+    seed:
+      adr_template_vs_corpus: match
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: they
+      private: false
+      archived: false
+      pushed_at: "2026-08-22T17:27:46Z"
+      licence: MIT
+    adoption:
+      submodule:
+        corpus_mounted_at: governance/qm
+        branch: project/carlos
+      ide:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      ide_missing: []
+      seed_workflow_filenames_present:
+        - adr-lint.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      seed_workflow_filenames_absent: []
+      licensing:
+        - LICENSE
+        - REUSE.toml
+    open_prs: []
+    observed_at: "2026-08-22T17:49:18Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
-      commit: "5e1eb040d701bcc8ce1797a65bb8917f4a75bccd"
-      committed_at: "2026-08-11T03:18:19Z"
-      behind_corpus: 16
-      ahead_of_corpus: 13
-      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
-      merge_base_at: "2026-08-11T03:12:03Z"
+      commit: "5324634450b1c18c7dd6d2bbd1e6302d3ab63232"
+      committed_at: "2026-08-12T12:41:56Z"
+      behind_corpus: 133
+      ahead_of_corpus: 17
+      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
+      merge_base_at: "2026-08-11T23:00:40Z"
       last_propagation:
-        commit: "a67118ba8463ade485c9812df60b6dc99add44b2"
-        committed_at: "2026-08-11T03:16:49Z"
-        subject: "Bring propagation current with main"
+        commit: "e9b2e124f175874097bec6192209a74733f8373f"
+        committed_at: "2026-08-11T23:03:52Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/codecartographer-2026-08-11"
     records:
       total: 11
       ratified: 0
@@ -156,7 +202,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T14:15:52Z"
+      pushed_at: "2026-08-11T19:14:28Z"
       licence: MIT
     adoption:
       submodule:
@@ -175,20 +221,20 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-11T17:21:37Z"
-  - name: datafactorio
+    observed_at: "2026-08-22T17:49:19Z"
+  - name: private-33
     branch:
-      ref: origin/project/datafactorio
-      commit: "ea77853e765749f1bf28e3973c3b962dd1701e86"
-      committed_at: "2026-08-11T03:18:29Z"
-      behind_corpus: 16
-      ahead_of_corpus: 9
-      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
-      merge_base_at: "2026-08-11T03:12:03Z"
+      ref: origin/project/private-33
+      commit: "299fbafe88fd83b87ccd59eeddb994ab7611c2be"
+      committed_at: "2026-08-12T12:42:02Z"
+      behind_corpus: 133
+      ahead_of_corpus: 13
+      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
+      merge_base_at: "2026-08-11T23:00:40Z"
       last_propagation:
-        commit: "8a17f1437c0034ae6f6dc051ae51d8f9d5225720"
-        committed_at: "2026-08-11T03:16:56Z"
-        subject: "Bring propagation current with main"
+        commit: "b43bca91d250e2db3598840d642b2e18f2ca1e39"
+        committed_at: "2026-08-11T23:03:54Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/datafactorio-2026-08-11"
     records:
       total: 1
       ratified: 0
@@ -208,7 +254,7 @@ projects:
     adoption:
       submodule:
         corpus_mounted_at: governance/qm
-        branch: project/datafactorio
+        branch: project/private-33
       ide: []
       ide_missing:
         - ".github/copilot-instructions.md"
@@ -221,20 +267,20 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T17:21:39Z"
+    observed_at: "2026-08-22T17:49:20Z"
   - name: datum
     branch:
       ref: origin/project/datum
-      commit: "2c4e398a2ba2d993d677d19cc1ea974c5cf790c2"
-      committed_at: "2026-08-11T11:53:22Z"
-      behind_corpus: 16
-      ahead_of_corpus: 11
-      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
-      merge_base_at: "2026-08-11T03:12:03Z"
+      commit: "e49617e5bcc807f509791920da2588347faafad2"
+      committed_at: "2026-08-19T15:58:55Z"
+      behind_corpus: 11
+      ahead_of_corpus: 18
+      merge_base: "88e174938b7938c0ddecc4ac9e0f247792f047de"
+      merge_base_at: "2026-08-19T15:42:23Z"
       last_propagation:
-        commit: "6ec11cac8c1ae27c663ada9aeef4794bcdccd6de"
-        committed_at: "2026-08-11T11:52:15Z"
-        subject: "Bring propagation current with main"
+        commit: "4c37240f0d1f52d5fb7ffe85270fce583da0c981"
+        committed_at: "2026-08-19T15:56:37Z"
+        subject: "Propagate main into project/datum, 2026-08-19"
     records:
       total: 9
       ratified: 0
@@ -250,7 +296,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T11:53:50Z"
+      pushed_at: "2026-08-22T11:46:33Z"
       licence: MIT
     adoption:
       submodule:
@@ -270,17 +316,20 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T17:21:40Z"
+    observed_at: "2026-08-22T17:49:22Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
-      commit: "a9a6e33501dc3955b018c07ab08f2a7dc0c71c2e"
-      committed_at: "2026-08-10T01:15:37Z"
-      behind_corpus: 49
-      ahead_of_corpus: 3
-      merge_base: "b94d91085ba728788ede43e7ab4865ecb21c9261"
-      merge_base_at: "2026-08-08T17:56:10Z"
-      last_propagation: null
+      commit: "99d12936b52a88aed574c18f495854e3c9c09803"
+      committed_at: "2026-08-18T14:46:49Z"
+      behind_corpus: 24
+      ahead_of_corpus: 10
+      merge_base: "065d8eb005a342d6f9eb06e48280d14b14a8e9b6"
+      merge_base_at: "2026-08-18T14:41:21Z"
+      last_propagation:
+        commit: "997f81d2b7c4481eeaaf140176fd3f8c0e1bff85"
+        committed_at: "2026-08-18T14:45:05Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/dossier-2026-08-18"
     records:
       total: 1
       ratified: 0
@@ -295,7 +344,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T14:09:04Z"
+      pushed_at: "2026-08-19T18:10:35Z"
       licence: MIT
     adoption:
       submodule:
@@ -315,20 +364,20 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-11T17:21:41Z"
-  - name: factorio-server
+    observed_at: "2026-08-22T17:49:23Z"
+  - name: private-32
     branch:
-      ref: origin/project/factorio-server
-      commit: "4c28a349d69c92af82490b3b63dc923a83a46569"
-      committed_at: "2026-08-11T03:18:26Z"
-      behind_corpus: 16
-      ahead_of_corpus: 8
-      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
-      merge_base_at: "2026-08-11T03:12:03Z"
+      ref: origin/project/private-32
+      commit: "a545991fc62f94e74296d803770391eda1658d8a"
+      committed_at: "2026-08-12T12:42:20Z"
+      behind_corpus: 133
+      ahead_of_corpus: 12
+      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
+      merge_base_at: "2026-08-11T23:00:40Z"
       last_propagation:
-        commit: "f922dfbd56c7c2274d85fbac4b17769bebbf0aa8"
-        committed_at: "2026-08-11T03:16:54Z"
-        subject: "Bring propagation current with main"
+        commit: "f2402c48d3f8806efedaf440eae690be168b004f"
+        committed_at: "2026-08-11T23:03:59Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/factorio-server-2026-08-11"
     records:
       total: 1
       ratified: 0
@@ -361,20 +410,20 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T17:21:42Z"
+    observed_at: "2026-08-22T17:49:24Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
-      commit: "b5ac0dceb45ac915cd4f046686ae7cfde071160a"
-      committed_at: "2026-08-11T03:18:22Z"
-      behind_corpus: 16
-      ahead_of_corpus: 8
-      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
-      merge_base_at: "2026-08-11T03:12:03Z"
+      commit: "1cc3f7e9582059369701e60ace18bb523887b5b4"
+      committed_at: "2026-08-12T12:42:25Z"
+      behind_corpus: 133
+      ahead_of_corpus: 12
+      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
+      merge_base_at: "2026-08-11T23:00:40Z"
       last_propagation:
-        commit: "ad68f3dd7eae743b04ac9a6a0c749db928dbf923"
-        committed_at: "2026-08-11T03:16:51Z"
-        subject: "Bring propagation current with main"
+        commit: "d57176e1bd9434218bb9ebe0aeef67ca6c95dbf4"
+        committed_at: "2026-08-11T23:04:01Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/factorio-sysops-2026-08-11"
     records:
       total: 1
       ratified: 0
@@ -407,20 +456,20 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T17:21:44Z"
-  - name: loopwall
+    observed_at: "2026-08-22T17:49:25Z"
+  - name: private-34
     branch:
-      ref: origin/project/loopwall
-      commit: "217039d46d39c434f6dd548690f286ba3ccf9a03"
-      committed_at: "2026-08-08T19:04:00Z"
-      behind_corpus: 49
-      ahead_of_corpus: 8
-      merge_base: "b94d91085ba728788ede43e7ab4865ecb21c9261"
-      merge_base_at: "2026-08-08T17:56:10Z"
+      ref: origin/project/private-34
+      commit: "6f7ffe2a5578045854926ff8edd6cc3cc1ee1ef5"
+      committed_at: "2026-08-12T12:42:31Z"
+      behind_corpus: 133
+      ahead_of_corpus: 12
+      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
+      merge_base_at: "2026-08-11T23:00:40Z"
       last_propagation:
-        commit: "217039d46d39c434f6dd548690f286ba3ccf9a03"
-        committed_at: "2026-08-08T19:04:00Z"
-        subject: "Merge remote-tracking branch 'origin/main' into project/loopwall"
+        commit: "387c25f4e246629df1c1f268e6cf2e8809027556"
+        committed_at: "2026-08-11T23:04:02Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/loopwall-2026-08-11"
     records:
       total: 4
       ratified: 0
@@ -440,7 +489,7 @@ projects:
     adoption:
       submodule:
         corpus_mounted_at: governance/qm
-        branch: project/loopwall
+        branch: project/private-34
       ide:
         - ".github/copilot-instructions.md"
         - AGENTS.md
@@ -453,17 +502,20 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T17:21:46Z"
+    observed_at: "2026-08-22T17:49:26Z"
   - name: qmcp
     branch:
       ref: origin/project/qmcp
-      commit: "d4479cd1a04c782d81b097186875408362f1fb3b"
-      committed_at: "2026-08-11T15:14:41Z"
-      behind_corpus: 16
-      ahead_of_corpus: 2
-      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
-      merge_base_at: "2026-08-11T03:12:03Z"
-      last_propagation: null
+      commit: "fbcec5f8ec363fd10085af0262d9458b1e479d1f"
+      committed_at: "2026-08-18T14:43:04Z"
+      behind_corpus: 24
+      ahead_of_corpus: 11
+      merge_base: "065d8eb005a342d6f9eb06e48280d14b14a8e9b6"
+      merge_base_at: "2026-08-18T14:41:21Z"
+      last_propagation:
+        commit: "26eed4d0dd49b039fd2962eed7a08c33623db820"
+        committed_at: "2026-08-18T14:41:48Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/qmcp-2026-08-18b"
     records:
       total: 1
       ratified: 0
@@ -478,38 +530,38 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T16:00:11Z"
+      pushed_at: "2026-08-19T16:48:07Z"
       licence: NOASSERTION
     adoption:
       submodule:
-        corpus_mounted_at: null
-        branch: null
-      ide: []
-      ide_missing:
+        corpus_mounted_at: governance/qm
+        branch: project/qmcp
+      ide:
         - ".github/copilot-instructions.md"
         - AGENTS.md
         - CLAUDE.md
-      seed_workflow_filenames_present: []
-      seed_workflow_filenames_absent:
+      ide_missing: []
+      seed_workflow_filenames_present:
         - adr-lint.yml
-        - reuse-lint.yml
         - submodule-check.yml
+      seed_workflow_filenames_absent:
+        - reuse-lint.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-11T17:21:48Z"
+    observed_at: "2026-08-22T17:49:27Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
-      commit: "5f910b1580728727b162158c013b9cdd959b937d"
-      committed_at: "2026-08-11T03:18:35Z"
-      behind_corpus: 16
-      ahead_of_corpus: 20
-      merge_base: "4e3cabd386a0fd8720bac164c9d0bdba7c57ddc2"
-      merge_base_at: "2026-08-11T03:12:03Z"
+      commit: "364ac3cc4a722f50d53811c4ad911d9a744ad783"
+      committed_at: "2026-08-12T12:42:44Z"
+      behind_corpus: 133
+      ahead_of_corpus: 24
+      merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
+      merge_base_at: "2026-08-11T23:00:40Z"
       last_propagation:
-        commit: "f44c9609a47672176b2d6e1adcd3de8e0f164161"
-        committed_at: "2026-08-11T03:17:00Z"
-        subject: "Bring propagation current with main"
+        commit: "c6e0cdfd89b4043f73d574205d5c92332187deac"
+        committed_at: "2026-08-11T23:04:06Z"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/qmetronome-2026-08-11"
     records:
       total: 9
       ratified: 0
@@ -525,7 +577,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-11T12:02:40Z"
+      pushed_at: "2026-08-18T01:57:21Z"
       licence: MIT
     adoption:
       submodule:
@@ -544,13 +596,57 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-11T17:21:49Z"
+    observed_at: "2026-08-22T17:49:29Z"
+  - name: rad
+    branch:
+      ref: origin/project/rad
+      commit: "c925686429c3ab00c38ec999978be507dec6cb14"
+      committed_at: "2026-08-19T18:23:16Z"
+      behind_corpus: 7
+      ahead_of_corpus: 1
+      merge_base: "ce616c0fa90b85a8545d88989adb2c834d2c459c"
+      merge_base_at: "2026-08-19T16:47:53Z"
+      last_propagation: null
+    records:
+      total: 0
+      ratified: 0
+      numbered_files: 0
+      by_status: {}
+    seed:
+      adr_template_vs_corpus: match
+      adr_template_vs_merge_base: match
+      readme_seed_comment_left_in: false
+    repository:
+      default_branch: main
+      private: false
+      archived: false
+      pushed_at: "2026-08-19T18:50:22Z"
+      licence: Apache-2.0
+    adoption:
+      submodule:
+        corpus_mounted_at: governance/qm
+        branch: project/rad
+      ide:
+        - ".github/copilot-instructions.md"
+        - AGENTS.md
+        - CLAUDE.md
+      ide_missing: []
+      seed_workflow_filenames_present:
+        - adr-lint.yml
+        - reuse-lint.yml
+        - submodule-check.yml
+      seed_workflow_filenames_absent: []
+      licensing:
+        - LICENSE
+        - REUSE.toml
+    open_prs: []
+    observed_at: "2026-08-22T17:49:30Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
       commit: "b0265d1e4e86f403b57f66181af9874efe1ce3a9"
       committed_at: "2026-08-08T16:51:11Z"
-      behind_corpus: 56
+      behind_corpus: 192
       ahead_of_corpus: 2
       merge_base: "81d6967462509f43dbf82fda0968ed532a41e640"
       merge_base_at: "2026-08-08T16:48:39Z"
@@ -573,12 +669,12 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-11T17:21:50Z"
+    observed_at: "2026-08-22T17:49:30Z"
 org:
   repositories:
-    total: 109
-    private: 34
-    governed: 11
+    total: 111
+    private: 35
+    governed: 13
     unmanaged: 97
   governed_without_repository:
     - streaming-infrastructure
@@ -601,7 +697,6 @@ org:
     - al-web
     - alfred-docker
     - benchmark
-    - carlos
     - cesar
     - cookiecutter-pypackage
     - dRehmFlight
@@ -616,6 +711,7 @@ org:
     - haiku
     - holophonor
     - ira
+    - janus
     - joe
     - karaoke
     - karaoke-kiosk
@@ -635,7 +731,6 @@ org:
     - obsidian-templates
     - otto
     - qmmv
-    - rad
     - readysetjazz
     - scad-chess
     - sqlmodel-ui
@@ -649,8 +744,8 @@ org:
     - william-penn-convocation-slides
     - wolf
     - ztgui
-  unmanaged_names_withheld: 31
-  observed_at: "2026-08-11T17:21:51Z"
+  unmanaged_names_withheld: 32
+  observed_at: "2026-08-22T17:49:32Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
