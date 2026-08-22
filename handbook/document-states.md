@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-22T14:50:38Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-22T17:49:51Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 

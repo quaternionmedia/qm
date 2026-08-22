@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-22T14:50:37Z",
+  "generated_at": "2026-08-22T17:49:50Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -52,12 +52,12 @@
     "over_limit": 1,
     "governance_readable": 10,
     "governance_precondition_met": 5,
-    "phase_scaffolded": 10,
+    "phase_scaffolded": 9,
     "phase_stated_above_governance": 4,
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 2,
+      "draft": 1,
       "ready": 6
     },
     "threads_stalled": 4,
@@ -77,17 +77,7 @@
           "project/*"
         ],
         "contributor": null,
-        "open_prs": [
-          {
-            "number": 83,
-            "title": "List carlos, which was claiming a phase the roster never carried",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "evolve/carlos-in-the-roster",
-            "draft": true
-          }
-        ],
+        "open_prs": [],
         "violations": [],
         "exit_status": 0,
         "compliant": true
@@ -98,26 +88,7 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [
-        {
-          "name": "evolve/carlos-in-the-roster",
-          "stage": "draft",
-          "pr": 83,
-          "base": "main",
-          "title": "List carlos, which was claiming a phase the roster never carried",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 15,
-            "changed_files": 1,
-            "commits": 2,
-            "deletions": 0,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-20T20:25:39Z"
-          },
-          "idle_hours": 42.4,
-          "stalled": false
-        }
-      ],
+      "threads": [],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -205,8 +176,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 21,
-        "observed_at": "2026-08-22T14:50:09Z",
+        "behind_corpus": 24,
+        "observed_at": "2026-08-22T17:49:23Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -376,8 +347,8 @@
           "workflows_absent": 1,
           "licensing_present": 0
         },
-        "behind_corpus": 21,
-        "observed_at": "2026-08-22T14:50:14Z",
+        "behind_corpus": 24,
+        "observed_at": "2026-08-22T17:49:27Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -427,8 +398,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 4,
-        "observed_at": "2026-08-22T14:50:16Z",
+        "behind_corpus": 7,
+        "observed_at": "2026-08-22T17:49:30Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -491,7 +462,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23175.9,
+          "idle_hours": 23178.9,
           "stalled": true
         }
       ],
@@ -512,8 +483,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 130,
-        "observed_at": "2026-08-22T14:50:01Z",
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:15Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -620,7 +591,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-22T11:46:12Z"
           },
-          "idle_hours": 3.1,
+          "idle_hours": 6.1,
           "stalled": false
         },
         {
@@ -638,7 +609,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 267.0,
+          "idle_hours": 270.0,
           "stalled": true
         }
       ],
@@ -654,8 +625,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 130,
-        "observed_at": "2026-08-22T14:50:03Z",
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:17Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -709,7 +680,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-22T11:46:34Z"
           },
-          "idle_hours": 3.1,
+          "idle_hours": 6.1,
           "stalled": false
         }
       ],
@@ -725,8 +696,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 8,
-        "observed_at": "2026-08-22T14:50:08Z",
+        "behind_corpus": 11,
+        "observed_at": "2026-08-22T17:49:22Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -824,7 +795,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 259.6,
+          "idle_hours": 262.6,
           "stalled": true
         }
       ],
@@ -845,8 +816,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 130,
-        "observed_at": "2026-08-22T14:50:05Z",
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:19Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -982,8 +953,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 130,
-        "observed_at": "2026-08-22T14:50:11Z",
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:25Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -993,8 +964,8 @@
       "slug": "quaternionmedia/carlos",
       "role": "project",
       "phase": "v0.0.1",
-      "phase_source": "scaffolded",
-      "note": "Governed via project/carlos. Its default branch is `they`, not `main`, and that branch last moved in 2025 -- while the host reports a push today, which is the discrepancy that made this roster gap visible.\n",
+      "phase_source": "stated",
+      "note": "Browser workspace for sketching synth rigs, governed via project/carlos. `stated`, not `scaffolded`: carlos names the rung in its own GOVERNANCE.md, so the claim is the project's rather than an inference drawn from what it happens to contain. It is what the project works toward and not an attainment -- nothing here is evidence, and the tag that would assert arrival has not been cut. Its default branch is `they`, not `main`, and that branch last moved in 2025 while the host reports a push today, which is the discrepancy that made this roster gap visible.\n",
       "slots": {
         "repository": "quaternionmedia/carlos",
         "per_base": [],
@@ -1047,14 +1018,14 @@
           "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
           "author": "subcontrabass",
           "delta": {
-            "additions": 1595,
-            "changed_files": 26,
-            "commits": 7,
-            "deletions": 58,
+            "additions": 1689,
+            "changed_files": 45,
+            "commits": 8,
+            "deletions": 124,
             "mergeable_state": "unstable",
-            "updated_at": "2026-08-22T12:07:34Z"
+            "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 2.7,
+          "idle_hours": 0.4,
           "stalled": false
         }
       ],
@@ -1070,8 +1041,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 37,
-        "observed_at": "2026-08-22T14:50:04Z",
+        "behind_corpus": 40,
+        "observed_at": "2026-08-22T17:49:18Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1161,8 +1132,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 130,
-        "observed_at": "2026-08-22T14:50:15Z",
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:29Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1224,7 +1195,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3310.8,
+          "idle_hours": 3313.8,
           "stalled": true
         }
       ],
