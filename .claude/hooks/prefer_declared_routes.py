@@ -109,6 +109,14 @@ def main() -> int:
         # closed here would block every command on a parsing bug in the hook.
         return 0
 
+    # **VALID JSON IS NOT THE SAME AS THE RIGHT SHAPE.** `[]` and `null` parse
+    # fine and then raise on `.get`, so the guard above caught a decode error
+    # and let a type error through -- which fails *closed*, blocking every
+    # command, which is the one outcome this hook must never produce. Found by
+    # a test written for exactly this and not by reading the code.
+    if not isinstance(event, dict):
+        return 0
+
     if event.get("tool_name") != "Bash":
         return 0
     command = str((event.get("tool_input") or {}).get("command", ""))
