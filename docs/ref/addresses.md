@@ -20,7 +20,7 @@ uv run qm addresses --check            # every conformance vector round-trips
 
 dossier and qmcp hold overlapping facts about the same repositories, and each
 names them its own way. dossier builds names by interpolation in
-`parsers/autolinker.py` and reads them back by substring in `cli.py` —
+[`parsers/autolinker.py`](https://github.com/quaternionmedia/dossier) in dossier, and reads them back by substring in its `cli.py` —
 `elif "/branch/" in name`. qmcp names nothing at all: a step is a bare `name`,
 an invocation a bare UUID. Two views of one dataset need one way of pointing at
 a row.
@@ -57,6 +57,11 @@ one.
 | `doc` | a document section, `type-slug` |
 | `delta` | a unit of work, by its short name |
 | `invocation` | a recorded tool call, by id |
+| `ask` | a question waiting on a person, by id |
+
+`ask` is what lets a control panel show *which* question is outstanding rather
+than how many. Without it a harness's human-in-the-loop queue crosses as a
+count, and a count is not something a person can answer.
 
 `delta` and `invocation` are the two the dashboard milestone needs: a workflow
 step in qmcp and a delta in dossier are one unit of work, and
@@ -99,7 +104,7 @@ dossier's row for a branch and the git ref itself can drift. The address makes
 the disagreement expressible, and says nothing about who wins.
 
 That is deliberate, and settled: by
-[`records/DRAFT-a-disagreement-is-a-delta.md`](../../records/DRAFT-a-disagreement-is-a-delta.md)
+[`records/DRAFT-a-disagreement-is-a-delta.md`](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-disagreement-is-a-delta.md)
 neither view wins. **A disagreement between two views of one address is a
 delta** — a unit of work with a name, a lifecycle and an audit trail, closed by
 somebody deciding rather than by the comparison being run again. `uv run qm

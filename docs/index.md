@@ -4,15 +4,20 @@ icon: lucide/book-open
 
 # QM Governance
 
-The Quaternion Media constitution: the decisions that govern every QM project, the process that keeps them consistent, and the template each new project starts from.
+Every team keeps answering the same questions. How does work get reviewed? When is something finished? What does a new project start from? Usually those answers live in people's heads, and they drift.
 
-**Projects adopt this corpus by reference.** A project may tighten these rules, but never relax them.
+This is where Quaternion Media writes them down instead. Every QM project follows what is written here. A project can be stricter than these rules. It can never be looser.
+
+If you read nothing else, read this next section. It is the part that catches people out.
 
 ## Read this first
 
-1. **Only `records/` binds.** Records are the only binding documents. Everything else points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: ratification requires approval from a second active code owner.
-3. **Every change arrives as a pull request** — from a typo fix to a new record. Nobody merges their own work into `main`.
+1. **Decisions live in `records/`.** Nothing else here is binding. Everything else explains a [record](ref/glossary.md#record), points at one, or checks that we are keeping to it.
+2. **Nothing is marked final yet.** Every record says [`Proposed`](ref/glossary.md#proposed), on purpose. Making one final is [ratification](ref/glossary.md#ratification), and it needs a second person to agree. There is not a second person yet.
+3. **All work arrives as a pull request**, from a typo to a new rule. It is the paper trail, not a request for someone's attention. You merge your own once the automated [checks](ref/glossary.md#gate) pass.
+4. **Two moments need a person, and the pull request is not one of them.** Making a record final, and putting a version tag on a project. A tag means somebody read the change, ran it against the real thing, and watched the checks pass. Reaching `main` claims none of that.
+
+Every word above that is doing unusual work links to its definition. If a sentence stops making sense, the word is usually why — [the glossary](ref/glossary.md) has the rest.
 
 ## Where to go
 
@@ -24,13 +29,14 @@ The Quaternion Media constitution: the decisions that govern every QM project, t
     - [Architecture](about/architecture.md) — the branch-per-project model
     - [History](about/history.md) — how the corpus evolved
 
-    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): eleven principles, short.
+    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): short, and every principle there was earned by a defect.
 
 === "Get started"
 
     **Your first hour with the corpus**
 
     - [Getting started](usage/getting-started.md) — clone, read, and make your first change
+    - [Questions a new developer asks](usage/questions-a-new-developer-asks.md) — first-week questions, and the command that answers each
     - [Forking a new project](usage/first-project.md) — adopt the corpus in a new project
     - [Next steps](usage/next-steps.md) — propagation, audits, and project phases
 
@@ -53,6 +59,7 @@ The Quaternion Media constitution: the decisions that govern every QM project, t
     - [Ratification](ref/ratification.md) — how records become binding
     - [Repository layout](ref/repo-layout.md) — the directory tree
     - [Handbook index](ref/handbook.md) — policy and procedure
+    - [Protocols index](ref/protocols.md) — the reviews somebody runs on purpose
     - [Glossary](ref/glossary.md) — key terms
 
 ## For coding agents

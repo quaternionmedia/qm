@@ -70,6 +70,7 @@ KINDS: dict[str, str] = {
     "doc": "a document section, by type-slug",
     "delta": "a unit of work, by its short name",
     "invocation": "a recorded tool call, by id",
+    "ask": "a question waiting on a person, by id",
 }
 
 # Not repo-scoped, and reserved so that an owner with one of these names is a

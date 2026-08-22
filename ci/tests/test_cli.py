@@ -7,6 +7,7 @@ status, or run somewhere that is not the corpus.
 
 from __future__ import annotations
 
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -180,3 +181,99 @@ def test_flags_reach_the_underlying_module():
     result = run("docs", "states", "--state", "nonsense", cwd=CORPUS)
     assert result.returncode == 2
     assert "vocabulary is closed" in result.stderr
+
+
+def test_every_runnable_module_is_reachable_through_the_cli():
+    """THE CONVERSE OF THE TEST ABOVE, AND THE ONE THAT WAS MISSING.
+
+    A route naming a module that does not exist fails loudly at the prompt. A
+    module with no route fails silently: it works perfectly for whoever knows
+    its path, and does not exist for anybody reading `uv run qm --help`. Four
+    were found that way at once -- among them a gate and a demo written in this
+    corpus, both documented by their file path, which is exactly the second
+    entry point `ci/cli.py`'s own header says must not exist.
+
+    **A LIBRARY WITH A DEBUG `main` IS EXEMPT, AND THE EXEMPTION IS EARNED BY
+    BEING CALLED.** Most of the generators here are invoked by `generate_docs`
+    or by another dashboard and are not operations anybody performs. The test
+    for that is whether something else in the repository names them -- not a
+    list somebody maintains, because a list would go stale in the same silence
+    this is about.
+    """
+    routed = {module for module, _, _ in cli.ROUTES.values()}
+    routed |= {module for module, _ in cli.DOCS_ROUTES.values()}
+
+    searched = list((CORPUS / "ci").glob("*.py"))
+    searched += list((CORPUS / ".github" / "workflows").glob("*.yml"))
+
+    unreachable = []
+    for path in sorted((CORPUS / "ci").glob("*.py")):
+        name = path.stem
+        if name == "cli" or name in routed:
+            continue
+        if not re.search(r"^def main", path.read_text(encoding="utf-8"),
+                         re.MULTILINE):
+            continue
+        called_elsewhere = any(
+            name in other.read_text(encoding="utf-8", errors="ignore")
+            for other in searched if other != path)
+        if not called_elsewhere:
+            unreachable.append(name)
+
+    assert not unreachable, (
+        "these modules can be run but no `qm` command reaches them, so they "
+        "exist only for somebody who already knows the path: "
+        + ", ".join(unreachable))
+
+
+def test_the_dashboard_route_exists_and_reports_without_starting_anything():
+    """`qm dashboard` is the from-scratch route: it says what of the trio is up
+    and prints the command for the rest.
+
+    **REPORTING MUST NOT START ANYTHING.** Somebody looking at a status table
+    has not asked for three servers, and a command that spawned them would be
+    an act with consequences taken on nobody's instruction.
+
+    Mutation: start a surface when no `--start` is given and this fails.
+    """
+    assert cli.ROUTES["dashboard"][0] == "dashboard"
+
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    before = {s.name: dashboard.listening(s.port) for s in dashboard.SURFACES}
+    assert dashboard.main([]) == 0
+    after = {s.name: dashboard.listening(s.port) for s in dashboard.SURFACES}
+    assert before == after, "reporting changed what was running"
+
+
+def test_a_terminal_front_end_is_never_detached():
+    """A TUI backgrounded by this command would draw to a pipe nobody reads,
+    and report success. It prints the command instead.
+
+    Mutation: mark the terminal surface detachable and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    terminal = dashboard.BY_NAME["terminal"]
+    assert terminal.detachable is False
+    ok, detail = dashboard.start(terminal, CORPUS)
+    assert ok is False
+    assert "run it" in detail or "yourself" in detail
+
+
+def test_stopping_acts_on_a_recorded_pid_rather_than_a_port():
+    """Stopping whatever holds a port would let this kill a process it never
+    started and knows nothing about.
+
+    Mutation: stop by port and this fails.
+    """
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    ok, detail = dashboard.stop("web") if "web" not in dashboard.running() \
+        else (True, "already recorded")
+    if "web" not in dashboard.running():
+        assert ok is False
+        assert "did not start" in detail
