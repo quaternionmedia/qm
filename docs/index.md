@@ -36,6 +36,7 @@ Every word above that is doing unusual work links to its definition. If a senten
     **Your first hour with the corpus**
 
     - [Getting started](usage/getting-started.md) — clone, read, and make your first change
+    - [Questions a new developer asks](usage/questions-a-new-developer-asks.md) — first-week questions, and the command that answers each
     - [Forking a new project](usage/first-project.md) — adopt the corpus in a new project
     - [Next steps](usage/next-steps.md) — propagation, audits, and project phases
 
