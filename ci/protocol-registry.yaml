@@ -101,3 +101,23 @@ protocols:
       whether the order is a good order. It also cannot see a document that
       should be taught and is in no unit -- an incomplete curriculum and a
       complete one are the same shape to it.
+
+  - id: plain-language
+    name: Plain language review
+    question: >
+      Can somebody who has never seen this repository read its first page and
+      know what it is for?
+    page: protocols/plain-language.md
+    invoked_by: a human, or an agent asked to
+    cadence_days: 90
+    optional: false
+    produces: protocols/runs/<date>-plain-language.md
+    steps:
+      - uv run qm prose
+      - uv run qm docs audit
+    cannot_see: >
+      Whether a sentence is true, whether the reader needed a different fact
+      first, and whether the words are the reader's words -- the tool holds this
+      corpus's house vocabulary and knows nothing about anybody else's. It reads
+      openings, which is a small fraction of any page: a document can open well
+      and be unusable afterwards. And it reads only the repository it runs in.

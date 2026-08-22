@@ -1,15 +1,41 @@
 # Quaternion Media Constitution
 
-This repository holds the decisions that govern every Quaternion Media project: the principles, the process that keeps projects consistent, and the template each new project starts from. Projects adopt this corpus **by reference**. A project may tighten these rules, but never relax them.
+## In plain terms
+
+Every team keeps answering the same questions. How does work get reviewed? When
+is something finished? What does a new project start from? Usually those
+answers live in people's heads, and they drift.
+
+This is where Quaternion Media writes them down instead. Every QM project
+follows what is written here. A project can be stricter than these rules. It
+can never be looser.
+
+A few things will carry you a long way:
+
+- **Decisions live in `records/`.** Nothing else here is binding. Everything
+  else explains a record, points at one, or checks that we are keeping to it.
+- **Nothing is marked final yet.** Every record says `Proposed`, on purpose.
+  Making one final needs a second person to agree, and there is not a second
+  person yet.
+- **All work arrives as a pull request**, from a typo to a new rule. It is the
+  paper trail, not a request for someone's attention. You merge your own once
+  the automated checks pass.
+- **Two moments need a person, and the pull request is not one of them.** Making
+  a record final, and putting a version tag on a project. A tag means somebody
+  read the change, ran it against the real thing, and watched the checks pass.
+  Reaching `main` claims none of that.
+
+If a page here says one thing and a record says another, the record is what we
+decided and the page is wrong. Say so, and fix the page.
+
+**One warning about the words.** A few everyday words are used here in a narrow
+sense, and some of them mean more than one thing: *record*, *draft*, *gate*,
+*review*, *phase*, *delta*. When a sentence stops making sense, that is usually
+why. [handbook/glossary.md](handbook/glossary.md) sorts them out, and it is the
+shortest useful thing to read after this.
 
 **Full documentation:** [docs/](docs/index.md) — also rendered at
 [quaternionmedia.github.io/qm](https://quaternionmedia.github.io/qm/) once Pages is enabled.
-
-## Read this first
-
-1. **Only `records/` binds.** Records are the only binding documents here. Everything else points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: ratification requires approval from a second active code owner.
-3. **Every change arrives as a pull request** — from a typo fix to a new record. Nobody merges their own work into `main`.
 
 ## Start here
 
@@ -30,7 +56,8 @@ This repository holds the decisions that govern every Quaternion Media project: 
 | Know what state a document is in before trusting it | [handbook/document-states.md](handbook/document-states.md), or `uv run qm docs states --state proposed` |
 | Look up a word this corpus uses in its own way | [handbook/glossary.md](handbook/glossary.md) |
 
-Three things are worth knowing before anything else:
+The same four points again, in the corpus's own words, with the reasoning the
+plain version leaves out:
 
 1. **Records in `records/` are the only binding documents.** Everything else
    points at them. `perspectives/` is opinion and binds nothing.
@@ -39,8 +66,10 @@ Three things are worth knowing before anything else:
    can satisfy alone is a gate in name only.
 3. **Every change arrives as a pull request**, from a typo to a new record. The
    pull request is an audit record, not a request for attention: its author
-   merges it once every gate is green. The two human gates are ratification and
-   the version tag, and neither is the pull request.
+   merges it once every gate is green.
+4. **There are exactly two human gates**, ratification and the version tag, and
+   the pull request is neither — `records/DRAFT-version-tags-are-claims.md` §4.
+   `main` is not a claim, so merging into it is not a release.
 
 ## Layout
 
@@ -69,6 +98,7 @@ qm/
 | — | [Decision-record discipline](records/DRAFT-decision-record-discipline.md) | Proposed | 2026-06-09 |
 | — | [Open-license exclusion and upstream-contribution remediation](records/DRAFT-open-license-exclusion-and-upstream-remediation.md) | Proposed | 2026-06-09 |
 | — | [A disagreement is a delta](records/DRAFT-a-disagreement-is-a-delta.md) | Proposed | 2026-08-17 |
+| — | [Few integers in durable text](records/DRAFT-few-integers-in-durable-text.md) | Proposed | 2026-08-18 |
 | — | [Seams on standard protocols](records/DRAFT-seams-on-standard-protocols.md) | Proposed | 2026-06-09 |
 | — | [Build the seam, buy the engines](records/DRAFT-build-the-seam-buy-the-engines.md) | Proposed | 2026-06-09 |
 | — | [House stack](records/DRAFT-house-stack.md) | Proposed | 2026-06-09 |
@@ -83,6 +113,14 @@ qm/
 | — | [The read document governs](records/DRAFT-the-read-document-governs.md) | Proposed | 2026-08-14 |
 | — | [Governance arrives as a mechanism](records/DRAFT-governance-arrives-as-a-mechanism.md) | Proposed | 2026-08-14 |
 | — | [The ledger](records/DRAFT-the-ledger.md) | Proposed | 2026-08-15 |
+| — | [Attention is a claim, activity is measured](records/DRAFT-attention-is-a-claim-activity-is-measured.md) | Proposed | 2026-08-19 |
+| — | [CLIs are for machines and for debugging](records/DRAFT-clis-are-for-machines-and-debugging.md) | Proposed | 2026-08-20 |
+| — | [Deltas compose, and a tangle is a fact](records/DRAFT-deltas-compose.md) | Proposed | 2026-08-20 |
+| — | [Acts that are a person's by constitution](records/DRAFT-acts-that-are-a-persons-by-constitution.md) | Proposed | 2026-08-20 |
+| — | [Whether something is a delta is a perspective](records/DRAFT-granularity-is-a-perspective.md) | Proposed | 2026-08-20 |
+| — | [Nothing unattended spends money](records/DRAFT-no-unattended-spending.md) | Proposed | 2026-08-20 |
+| — | [A route is an address, and an unavailable one is still shown](records/DRAFT-a-route-is-an-address.md) | Proposed | 2026-08-20 |
+| — | [A knot is a cycle of obligation, not a cycle in the graph](records/DRAFT-a-knot-is-a-cycle-of-obligation.md) | Proposed | 2026-08-21 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so a gate one person can satisfy alone would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 

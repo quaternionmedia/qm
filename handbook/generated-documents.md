@@ -34,7 +34,7 @@ anything. One definition, two entry points; see `pyproject.toml`'s header.
 | `governance-status.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `python ci/governance_status.py --write governance-status.yaml` |
 | `harness-status.json` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `python ci/harness_status.py --no-local --write harness-status.json` |
 | `gate-status.json` | every automated check, what it refuses, **what it cannot see**, and whether anything blocks a merge | 168h | `python ci/gate_status.py --write gate-status.json` |
-| `inventory.json` | every repository the org has, against the roster and this disk. **110 against 14** | 168h | `uv run qm inventory --write inventory.json` |
+| `inventory-public.json` | every repository the org has, against the roster and this disk, with each one's **activity on three axes** — attention claimed, recency measured, risk machine-scoped and in the gitignored companion | 168h | `uv run qm inventory --write` |
 
 `harness-status.json` carries its own refresh command, staleness budget and
 `do_not` list in a `reading:` block **inside the file**, so you do not need this

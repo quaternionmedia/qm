@@ -35,7 +35,7 @@ Ratification turns a draft record into a binding one. It is a human action, at b
 
 ## Ratification is the last gate, not the only one
 
-Every change to the corpus arrives as a pull request — a typo fix and a new record alike. Contributors work on a branch (`evolve/<slug>`, `perspective/<date>-<slug>`, or a `project/<name>` base) and a human merges. Nobody merges their own work into `main`, and nothing reaches `main` by direct push.
+Every change to the corpus arrives as a pull request — a typo fix and a new record alike. Contributors work on a branch (`evolve/<slug>`, `perspective/<date>-<slug>`, or a `project/<name>` base) and merge their own pull request once every gate is green. Nothing reaches `main` by direct push. The pull request is the audit record; the human gates are ratification and the version tag, and neither of them is the pull request.
 
 Branch protection makes this mechanical where it is enabled. The rule stands either way.
 
