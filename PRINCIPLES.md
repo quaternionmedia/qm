@@ -157,3 +157,203 @@ by a human every session.
 → Org record: **IDE-integrated governance discovery**, with the
 AGENTS.md-and-pointers convention and the checked-in VS Code workspace
 config as teeth.
+
+## P12 — Show it by running it
+
+Documentation that describes behaviour is a second copy of that behaviour, and
+a second copy drifts. The org's answer is that the demonstration is a
+**byproduct of an execution that already had to be correct**: the example a
+reader reads is the example that ran, and the picture they look at came out of
+the same render an assertion was made against. Nothing is kept in step, because
+there is no second thing to keep.
+
+Two consequences do the work, and both are cheap.
+
+**Regeneration rides the command people already run.** Not a release step, not
+a documentation build — the command a contributor types before opening a pull
+request. Drift then arrives as an uncommitted diff nobody can miss, instead of
+a staleness nobody sees.
+
+**Regression protection lives in the behavioural assertion, never in comparing
+the artifact.** A test that diffs images fails on a font and gets switched off;
+a test that asserts what the code did cannot be switched off without losing the
+test. So the artifact is recorded, not verified.
+
+The evidence is a natural experiment in one repository, one author, one
+standard: `qmetronome` regenerates twenty-four screenshots, twenty-three
+recordings and twenty-four guide pages from `./gradlew test` and they carry
+zero drift, while the two artifacts in the same repo that need a remembered
+command are stale — a changelog one release behind its newest tag, and a
+results table pasted by hand.
+
+→ Org record: **One executable walkthrough per repository**. Its teeth: the
+pages are named as an explicit path to the test runner, because `testpaths` is
+ignored the moment pytest is given one; an example may not discard a non-zero
+exit, because doctest passes an example that declares no output; a generator
+fails when an artifact it names is absent; a skip is not a pass; and the check
+is satisfied by a run observed on the default branch, not by a workflow file
+that would have run.
+
+## P13 — A person is interrupted only by a decision
+
+A command line is an instrument for machines and for debugging. It is where a
+tool is driven when the driver is a script, and where a person goes when
+something has broken badly enough that the ordinary path cannot express it.
+It is not where routine work belongs, and typing eight commands to move one
+unit of work through its lifecycle is not a workflow — it is the absence of one.
+
+The test is what the interaction is *for*. A person should be reached when a
+**decision** is needed: something the system cannot establish for itself, where
+the answer is a judgement and the cost of guessing is real. Everything else —
+sequencing, copying, re-running, remembering which flag names which database —
+is the system's own work, and asking a person to do it spends the one resource
+that does not scale.
+
+Two consequences, and both are testable.
+
+**The established path is the product.** If a loop can only be walked by
+typing, it has not been built; it has been exposed. A CLI that mirrors an
+interface is fine and often necessary — automation needs one, and so does the
+person diagnosing why the interface is wrong. A CLI that *is* the only
+interface is a design that has stopped before the part that was hard.
+
+**An interruption states a question, its options, and what turns on it.** A
+prompt that says something failed has moved the work rather than done it. The
+person is being asked to decide, so they get what a decision needs: what
+happened, what they can say, and what each answer commits them to.
+
+The failure this guards against is not inconvenience. It is that a system which
+interrupts constantly trains its people to stop reading the interruptions, and
+the one that mattered arrives looking like the forty that did not.
+
+**The converse is a separate rule and a sharper one.** A few acts are a
+person's not because a machine would do them badly, but because a machine doing
+them changes what the act asserts. A version tag cut by a scheduled job is a
+string identical to a real one and a claim nobody made. Those acts are
+enumerated in `ci/attested-registry.yaml` and decided in
+`records/DRAFT-acts-that-are-a-persons-by-constitution.md`; everything that
+prepares one may be automated freely, and should be.
+
+→ Org record: **CLIs are for machines and for debugging**
+(`records/DRAFT-clis-are-for-machines-and-debugging.md`). Its teeth
+are a count rather than a rule: the steps a person must type to complete a
+named workflow are recorded per workflow, and a workflow whose count grows
+without a stated reason is a regression. The corresponding measure on the other
+side is how many interruptions a session produced that were not decisions.
+
+## P14 — A change that can only be typed schedules interface work
+
+**Doing a needed thing by typing is a diagnosis, not a delivery.** Dropping to a
+command line to make a change is legitimate and often correct — it is how
+something gets fixed today, and P13 already says automation and diagnosis both
+need a command line. What is not legitimate is the loop closing there, with the
+change made and nothing recorded about the interface that could not carry it.
+
+**So the act creates an item.** A person doing something by typing that they
+would reasonably expect to do in the interface writes that down, in the same
+place the organisation keeps its other open work, naming the workflow that
+needed it. Not a commitment to build it — a proposal, and a fact about where the
+interface stops.
+
+This is the half P13 was missing. P13 counts the steps a person must type to
+complete a named workflow and calls a growing count a regression; without a rule
+that turns a count into scheduled work, the measurement is a thermometer nobody
+is obliged to act on.
+
+**"Reasonably" is a person's judgement, and the rule does not try to remove it.**
+Most command-line surface needs no interface route: automation requires a CLI, a
+flag is not a feature, and an interface that grew a control for every option
+would fail its own budget. The trigger is a *person*, doing a *needed change*,
+that the interface plausibly should have carried.
+
+**The interface owes something back**, and that is stated where it is designed
+rather than here: a command's address is derived rather than assigned, its
+documentation is generated rather than written, what a host cannot do is shown
+rather than removed, and no state is carried by colour alone.
+
+→ Org record: **A route is an address, and an unavailable one is still shown**
+(`records/DRAFT-a-route-is-an-address.md`). This principle restates its §5; the
+four rules above about what the interface owes are stated in §1–§4 of that
+record and summarised here only as a pointer.
+
+## P15 — A loop is not a knot, and the layer's mathematics is sought on purpose
+
+**Every cycle closes; that is what makes it a cycle.** So closure cannot be what
+distinguishes a problem from a shape. A cycle is a **knot** when it carries
+obligation all the way round — when each edge says something must come before
+something else, and the ring therefore has no first step. Untying one means a
+person chooses, or a relation somebody stated gets cut.
+
+A cycle whose edges impose no order is a **loop**. It looks identical in a
+picture and it constrains nothing, and reporting it as a problem buries the real
+ones. Measured here: 42 loops, 0 knots, in the organisation's 169 real
+relations — a ratio nobody filters and everybody learns to ignore.
+
+**A loop is still a fact.** Not reporting it as a knot is not refusing to record
+it. Two conversations that touched one repository are genuinely related; the
+finding is that it is not a scheduling problem.
+
+**The wider practice: the mathematics a layer actually has is looked for, named,
+and built toward.** This is a stated goal of the organisation and a measured one,
+not a habit of naming things after theorems. A layer whose structure is named can
+be reasoned about with everything already known about that structure; a layer
+described only in its own vocabulary can be reasoned about only by whoever wrote
+it.
+
+The discipline that keeps it honest has two halves, and the second is the one
+that decays first:
+
+- **A claimed mapping is measured before it is relied on.** The knot reading was
+  not adopted because it was elegant; it was adopted because walking the
+  symmetric relations produced forty-two rings and every one was noise.
+- **A mapping that is decorative is recorded as decorative.** Naming a port after
+  a constant is a mnemonic, and calling it structure would leave the practice
+  indistinguishable from ornament. Each mapping states what it has earned and
+  what it has not — an absent invariant is named as work rather than hidden.
+
+→ Org record: **A knot is a cycle of obligation, not a cycle in the graph**
+(`records/DRAFT-a-knot-is-a-cycle-of-obligation.md`). It carries the measurement,
+the mapping table, and the two instances that stand today — one earned, one
+decorative and said to be.
+
+## P16 — A check is evidence only after it has been seen to fail
+
+**Reading a check does not tell you what it checks.** It tells you what its
+author meant. Those coincide most of the time, and the times they do not are
+invisible: a check that passes for the wrong reason looks exactly like a check
+that passes.
+
+So a guard is scaffolding until it has been observed going red for the reason it
+exists. Break the thing it protects, watch it fail, put the thing back — and
+write the mutation down beside the guard, because that line is the only durable
+record of what was actually established.
+
+**This is one rule wearing three faces already in the corpus**, and naming it
+once is the point of it being a principle:
+
+- the *tool* answered a different question than the one asked, and only running
+  it where the answers differ shows that;
+- the *setup* is untested, and a fixture that proves nothing reports the same
+  green as one that proves something;
+- the *guard* is untested, and breaking it is the only way to find the case its
+  author did not think of.
+
+**A skip is not a pass and an empty assertion is not a pass.** Both report
+green. Where a test must skip, the reason is about the environment — a sibling
+repository absent, an optional dependency missing — and never about the subject.
+
+The evidence is a natural experiment nobody designed: across one session in four
+repositories, thirty defects were found, and the ones found by careful reading
+were defects of *shape* — a missing route, a docstring that said three where the
+answer was five. **Every defect of behaviour was found by making something
+fail.** Six of those were guards written in that same session, by the same
+author, to check those exact properties, and read after writing.
+
+This is P12 turned on the tests themselves. A document describing behaviour is
+unproven until the behaviour produced it; a test is a document too, and drifts
+the same way.
+
+→ Org record: **A check is evidence only after it has been seen to fail**
+(`records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`). It carries
+the session's counts, what the rule unifies, and why a mutation-score gate was
+rejected in favour of a per-guard note.

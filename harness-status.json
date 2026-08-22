@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-11T20:12:32Z",
+  "generated_at": "2026-08-22T17:49:50Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -45,22 +45,22 @@
     ]
   },
   "totals": {
-    "repositories": 13,
-    "slots_measured": 13,
+    "repositories": 16,
+    "slots_measured": 16,
     "slots_unknown": 0,
-    "compliant": 13,
-    "over_limit": 0,
+    "compliant": 15,
+    "over_limit": 1,
     "governance_readable": 10,
-    "governance_precondition_met": 3,
-    "phase_scaffolded": 7,
+    "governance_precondition_met": 5,
+    "phase_scaffolded": 9,
     "phase_stated_above_governance": 4,
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 3,
-      "ready": 3
+      "draft": 1,
+      "ready": 6
     },
-    "threads_stalled": 2,
+    "threads_stalled": 4,
     "threads_unreadable": 0
   },
   "repositories": [
@@ -96,615 +96,6 @@
       }
     },
     {
-      "name": "alfred",
-      "slug": "quaternionmedia/alfred",
-      "role": "project",
-      "phase": "v0.0.1",
-      "phase_source": "scaffolded",
-      "note": "video editor; UI migration and Playwright coverage in flight",
-      "slots": {
-        "repository": "quaternionmedia/alfred",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [
-          {
-            "number": 116,
-            "title": "Bump actions/download-artifact from 3 to 4.1.7 in /.github/workflows",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/github_actions/dot-github/workflows/actions/download-artifact-4.1.7",
-            "draft": false
-          },
-          {
-            "number": 113,
-            "title": "Config",
-            "author": "mrharpo",
-            "bot": false,
-            "base": "main",
-            "head": "config",
-            "draft": false
-          }
-        ],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "ahead",
-        "latest": "v0.2.0",
-        "annotated": false,
-        "unreleased_commits": 37,
-        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
-      },
-      "threads": [
-        {
-          "name": "config",
-          "stage": "ready",
-          "pr": 113,
-          "base": "main",
-          "title": "Config",
-          "author": "mrharpo",
-          "delta": {
-            "additions": 58,
-            "changed_files": 10,
-            "commits": 9,
-            "deletions": 44,
-            "mergeable_state": "clean",
-            "updated_at": "2023-12-30T22:55:40Z"
-          },
-          "idle_hours": 22917.3,
-          "stalled": true
-        }
-      ],
-      "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "submodule",
-          "ide",
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": null,
-          "submodule_branch": null,
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 0,
-          "workflows_absent": 3,
-          "licensing_present": 0
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:34Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
-      }
-    },
-    {
-      "name": "apothecary",
-      "slug": "quaternionmedia/apothecary",
-      "role": "project",
-      "phase": "v0.0.2",
-      "phase_source": "stated",
-      "note": "parametric assembly; named as a v0.0.2 integration consumer",
-      "slots": {
-        "repository": "quaternionmedia/apothecary",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [
-          {
-            "number": 17,
-            "title": "Bump idna from 3.11 to 3.15",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/idna-3.15",
-            "draft": false
-          },
-          {
-            "number": 16,
-            "title": "Bump pytest from 9.0.0 to 9.0.3",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/pytest-9.0.3",
-            "draft": false
-          },
-          {
-            "number": 15,
-            "title": "Bump starlette from 0.49.3 to 1.3.1",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/starlette-1.3.1",
-            "draft": false
-          },
-          {
-            "number": 14,
-            "title": "Bump urllib3 from 2.6.2 to 2.7.0",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/urllib3-2.7.0",
-            "draft": false
-          },
-          {
-            "number": 13,
-            "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "feature/fractal-viewer-scale-and-overlays",
-            "draft": true
-          }
-        ],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "unreleased",
-        "latest": null,
-        "unreleased_commits": null,
-        "asserts": "no v tag has ever been cut, so nothing has been asserted"
-      },
-      "threads": [
-        {
-          "name": "feature/fractal-viewer-scale-and-overlays",
-          "stage": "draft",
-          "pr": 13,
-          "base": "main",
-          "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 534,
-            "changed_files": 27,
-            "commits": 3,
-            "deletions": 159,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-11T11:48:46Z"
-          },
-          "idle_hours": 8.4,
-          "stalled": false
-        }
-      ],
-      "governance": {
-        "precondition": "met",
-        "missing": [],
-        "detail": {
-          "submodule": "governance/qm",
-          "submodule_branch": "project/apothecary",
-          "ide_present": 3,
-          "ide_absent": 0,
-          "workflows_present": 3,
-          "workflows_absent": 0,
-          "licensing_present": 2
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:36Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
-      }
-    },
-    {
-      "name": "datum",
-      "slug": "quaternionmedia/datum",
-      "role": "project",
-      "phase": "v0.0.1",
-      "phase_source": "scaffolded",
-      "note": "schema and wire contract; governance propagation open",
-      "slots": {
-        "repository": "quaternionmedia/datum",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "ahead",
-        "latest": "v0.0.1",
-        "annotated": false,
-        "unreleased_commits": 5,
-        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
-      },
-      "threads": [],
-      "governance": {
-        "precondition": "met",
-        "missing": [],
-        "detail": {
-          "submodule": "governance/qm",
-          "submodule_branch": "project/datum",
-          "ide_present": 3,
-          "ide_absent": 0,
-          "workflows_present": 3,
-          "workflows_absent": 0,
-          "licensing_present": 2
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:40Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
-      }
-    },
-    {
-      "name": "rad",
-      "slug": "quaternionmedia/rad",
-      "role": "project",
-      "phase": "v0.0.1",
-      "phase_source": "stated",
-      "note": "radial menu; defined the phase ladder above",
-      "slots": {
-        "repository": "quaternionmedia/rad",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [
-          {
-            "number": 2,
-            "title": "Bump playwright and @playwright/test",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/npm_and_yarn/multi-6aef298a9b",
-            "draft": false
-          }
-        ],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "unreleased",
-        "latest": null,
-        "unreleased_commits": null,
-        "asserts": "no v tag has ever been cut, so nothing has been asserted"
-      },
-      "threads": [],
-      "governance": {
-        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
-      }
-    },
-    {
-      "name": "codecartographer",
-      "slug": "quaternionmedia/codecartographer",
-      "role": "project",
-      "phase": "v0.0.2",
-      "phase_source": "stated",
-      "note": "code maps; named itself a v0.0.2 RAD consumer",
-      "slots": {
-        "repository": "quaternionmedia/codecartographer",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [
-          {
-            "number": 90,
-            "title": "build(deps): bump pymdown-extensions from 10.20 to 11.0.1",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/pymdown-extensions-11.0.1",
-            "draft": false
-          },
-          {
-            "number": 89,
-            "title": "build(deps-dev): bump postcss from 8.5.19 to 8.5.25 in /web",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/npm_and_yarn/web/postcss-8.5.25",
-            "draft": false
-          },
-          {
-            "number": 88,
-            "title": "build(deps): bump brace-expansion from 1.1.16 to 1.1.18 in /web",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/npm_and_yarn/web/brace-expansion-1.1.18",
-            "draft": false
-          },
-          {
-            "number": 87,
-            "title": "build(deps): bump black from 25.12.0 to 26.3.1",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/black-26.3.1",
-            "draft": false
-          },
-          {
-            "number": 85,
-            "title": "build(deps): bump setuptools from 80.9.0 to 83.0.0",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/setuptools-83.0.0",
-            "draft": false
-          },
-          {
-            "number": 84,
-            "title": "Full review cleanup: governance migration, dead-code/dependency cleanup, Lexicon Option B, layout unification",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "cleanup/2026-07-21-full-review",
-            "draft": false
-          }
-        ],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "unreleased",
-        "latest": null,
-        "unreleased_commits": null,
-        "asserts": "no v tag has ever been cut, so nothing has been asserted"
-      },
-      "threads": [
-        {
-          "name": "cleanup/2026-07-21-full-review",
-          "stage": "ready",
-          "pr": 84,
-          "base": "main",
-          "title": "Full review cleanup: governance migration, dead-code/dependency cleanup, Lexicon Option B, layout unification",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 4666,
-            "changed_files": 128,
-            "commits": 51,
-            "deletions": 4048,
-            "mergeable_state": "unstable",
-            "updated_at": "2026-08-11T19:14:29Z"
-          },
-          "idle_hours": 1.0,
-          "stalled": false
-        }
-      ],
-      "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "submodule branch",
-          "ide",
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": "docs/qm",
-          "submodule_branch": null,
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 0,
-          "workflows_absent": 3,
-          "licensing_present": 1
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:37Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
-      }
-    },
-    {
-      "name": "datafactorio",
-      "slug": "quaternionmedia/datafactorio",
-      "role": "project",
-      "phase": "v0.0.1",
-      "phase_source": "scaffolded",
-      "note": null,
-      "slots": {
-        "repository": "quaternionmedia/datafactorio",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [
-          {
-            "number": 8,
-            "title": "chore(deps): bump starlette from 0.50.0 to 1.3.1",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/starlette-1.3.1",
-            "draft": false
-          },
-          {
-            "number": 6,
-            "title": "chore(deps): bump idna from 3.11 to 3.15",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/idna-3.15",
-            "draft": false
-          },
-          {
-            "number": 5,
-            "title": "chore(deps): bump pytest from 9.0.2 to 9.0.3",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/pytest-9.0.3",
-            "draft": false
-          },
-          {
-            "number": 4,
-            "title": "chore(deps): bump pygments from 2.19.2 to 2.20.0",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/uv/pygments-2.20.0",
-            "draft": false
-          }
-        ],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "ahead",
-        "latest": "v1.4.1",
-        "annotated": true,
-        "unreleased_commits": 44,
-        "asserts": "a human reviewed, manually tested and gated this commit"
-      },
-      "threads": [],
-      "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "ide",
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": "governance/qm",
-          "submodule_branch": "project/datafactorio",
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 1,
-          "workflows_absent": 2,
-          "licensing_present": 0
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:39Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
-      }
-    },
-    {
-      "name": "factorio-server",
-      "slug": "quaternionmedia/factorio-server",
-      "role": "project",
-      "phase": "v0.0.1",
-      "phase_source": "scaffolded",
-      "note": null,
-      "slots": {
-        "repository": "quaternionmedia/factorio-server",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "unreleased",
-        "latest": null,
-        "unreleased_commits": null,
-        "asserts": "no v tag has ever been cut, so nothing has been asserted"
-      },
-      "threads": [],
-      "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "submodule",
-          "ide",
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": null,
-          "submodule_branch": null,
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 0,
-          "workflows_absent": 3,
-          "licensing_present": 0
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:42Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
-      }
-    },
-    {
-      "name": "factorio-sysops",
-      "slug": "quaternionmedia/factorio-sysops",
-      "role": "project",
-      "phase": "v0.0.1",
-      "phase_source": "scaffolded",
-      "note": null,
-      "slots": {
-        "repository": "quaternionmedia/factorio-sysops",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "unreleased",
-        "latest": null,
-        "unreleased_commits": null,
-        "asserts": "no v tag has ever been cut, so nothing has been asserted"
-      },
-      "threads": [],
-      "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "ide",
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": "governance/qm",
-          "submodule_branch": "project/factorio-sysops",
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 1,
-          "workflows_absent": 2,
-          "licensing_present": 0
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:44Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
-      }
-    },
-    {
-      "name": "qmetronome",
-      "slug": "quaternionmedia/qmetronome",
-      "role": "project",
-      "phase": "v0.0.3",
-      "phase_source": "stated",
-      "note": "named as the v0.0.3 Android target",
-      "slots": {
-        "repository": "quaternionmedia/qmetronome",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "ahead",
-        "latest": "v0.2.0",
-        "annotated": true,
-        "unreleased_commits": 3,
-        "asserts": "a human reviewed, manually tested and gated this commit"
-      },
-      "threads": [],
-      "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": "governance/qm",
-          "submodule_branch": "project/qmetronome",
-          "ide_present": 3,
-          "ide_absent": 0,
-          "workflows_present": 2,
-          "workflows_absent": 1,
-          "licensing_present": 1
-        },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:49Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
-      }
-    },
-    {
       "name": "dossier",
       "slug": "quaternionmedia/dossier",
       "role": "project",
@@ -716,15 +107,6 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
-          {
-            "number": 12,
-            "title": "Refresh the seed workflow copies, and cap superseded runs",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "governance/refresh-seed-copies",
-            "draft": true
-          },
           {
             "number": 9,
             "title": "build(deps): bump starlette from 0.50.0 to 1.3.1",
@@ -781,26 +163,7 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [
-        {
-          "name": "governance/refresh-seed-copies",
-          "stage": "draft",
-          "pr": 12,
-          "base": "main",
-          "title": "Refresh the seed workflow copies, and cap superseded runs",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 50,
-            "changed_files": 4,
-            "commits": 2,
-            "deletions": 2,
-            "mergeable_state": "unstable",
-            "updated_at": "2026-08-11T19:08:38Z"
-          },
-          "idle_hours": 1.1,
-          "stalled": false
-        }
-      ],
+      "threads": [],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -813,75 +176,10 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 49,
-        "observed_at": "2026-08-11T17:21:41Z",
+        "behind_corpus": 24,
+        "observed_at": "2026-08-22T17:49:23Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
-      }
-    },
-    {
-      "name": "benchmark",
-      "slug": "quaternionmedia/benchmark",
-      "role": "unmanaged",
-      "phase": "v0.0.2",
-      "phase_source": "stated",
-      "note": "named alongside apothecary as a v0.0.2 consumer",
-      "slots": {
-        "repository": "quaternionmedia/benchmark",
-        "per_base": [],
-        "contributor": null,
-        "open_prs": [
-          {
-            "number": 8,
-            "title": "chore(deps-dev): bump vite from 7.3.1 to 7.3.2",
-            "author": "dependabot[bot]",
-            "bot": true,
-            "base": "main",
-            "head": "dependabot/npm_and_yarn/vite-7.3.2",
-            "draft": false
-          },
-          {
-            "number": 7,
-            "title": "fix: handle missing regions/ directory in compile-yaml",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "fix/ci-empty-regions-dir",
-            "draft": false
-          }
-        ],
-        "violations": [],
-        "exit_status": 0,
-        "compliant": true
-      },
-      "release": {
-        "state": "unreleased",
-        "latest": null,
-        "unreleased_commits": null,
-        "asserts": "no v tag has ever been cut, so nothing has been asserted"
-      },
-      "threads": [
-        {
-          "name": "fix/ci-empty-regions-dir",
-          "stage": "ready",
-          "pr": 7,
-          "base": "main",
-          "title": "fix: handle missing regions/ directory in compile-yaml",
-          "author": "subcontrabass",
-          "delta": {
-            "additions": 2,
-            "changed_files": 2,
-            "commits": 1,
-            "deletions": 1,
-            "mergeable_state": "blocked",
-            "updated_at": "2026-04-06T16:02:26Z"
-          },
-          "idle_hours": 3052.2,
-          "stalled": true
-        }
-      ],
-      "governance": {
-        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
     },
     {
@@ -896,15 +194,6 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
-          {
-            "number": 21,
-            "title": "Adopt the QM constitution",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "governance/adopt-constitution",
-            "draft": true
-          },
           {
             "number": 20,
             "title": "chore(deps): bump python-dotenv from 1.2.1 to 1.2.2",
@@ -1042,24 +331,139 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
+      "threads": [],
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/qmcp",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 2,
+          "workflows_absent": 1,
+          "licensing_present": 0
+        },
+        "behind_corpus": 24,
+        "observed_at": "2026-08-22T17:49:27Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "rad",
+      "slug": "quaternionmedia/rad",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "stated",
+      "note": "radial menu; defined the phase ladder above",
+      "slots": {
+        "repository": "quaternionmedia/rad",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 2,
+            "title": "Bump playwright and @playwright/test",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/multi-6aef298a9b",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "precondition": "met",
+        "missing": [],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/rad",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 3,
+          "workflows_absent": 0,
+          "licensing_present": 2
+        },
+        "behind_corpus": 7,
+        "observed_at": "2026-08-22T17:49:30Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "alfred",
+      "slug": "quaternionmedia/alfred",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "video editor; UI migration and Playwright coverage in flight",
+      "slots": {
+        "repository": "quaternionmedia/alfred",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 116,
+            "title": "Bump actions/download-artifact from 3 to 4.1.7 in /.github/workflows",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/github_actions/dot-github/workflows/actions/download-artifact-4.1.7",
+            "draft": false
+          },
+          {
+            "number": 113,
+            "title": "Config",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "head": "config",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v0.2.0",
+        "annotated": false,
+        "unreleased_commits": 37,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
       "threads": [
         {
-          "name": "governance/adopt-constitution",
-          "stage": "draft",
-          "pr": 21,
+          "name": "config",
+          "stage": "ready",
+          "pr": 113,
           "base": "main",
-          "title": "Adopt the QM constitution",
-          "author": "subcontrabass",
+          "title": "Config",
+          "author": "mrharpo",
           "delta": {
-            "additions": 755,
-            "changed_files": 15,
-            "commits": 2,
-            "deletions": 1,
+            "additions": 58,
+            "changed_files": 10,
+            "commits": 9,
+            "deletions": 44,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-11T16:00:12Z"
+            "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 4.2,
-          "stalled": false
+          "idle_hours": 23178.9,
+          "stalled": true
         }
       ],
       "governance": {
@@ -1079,10 +483,824 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 16,
-        "observed_at": "2026-08-11T17:21:48Z",
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:15Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "apothecary",
+      "slug": "quaternionmedia/apothecary",
+      "role": "project",
+      "phase": "v0.0.2",
+      "phase_source": "stated",
+      "note": "parametric assembly; named as a v0.0.2 integration consumer",
+      "slots": {
+        "repository": "quaternionmedia/apothecary",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 18,
+            "title": "Fix the viewer, and give datum-core an assembly you can navigate",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "prototype/site-structure-hierarchy",
+            "draft": false
+          },
+          {
+            "number": 17,
+            "title": "Bump idna from 3.11 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/idna-3.15",
+            "draft": false
+          },
+          {
+            "number": 16,
+            "title": "Bump pytest from 9.0.0 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
+            "draft": false
+          },
+          {
+            "number": 15,
+            "title": "Bump starlette from 0.49.3 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/starlette-1.3.1",
+            "draft": false
+          },
+          {
+            "number": 14,
+            "title": "Bump urllib3 from 2.6.2 to 2.7.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/urllib3-2.7.0",
+            "draft": false
+          },
+          {
+            "number": 13,
+            "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "feature/fractal-viewer-scale-and-overlays",
+            "draft": true
+          }
+        ],
+        "violations": [
+          {
+            "author": "subcontrabass",
+            "base": "",
+            "numbers": [
+              13,
+              18
+            ]
+          }
+        ],
+        "exit_status": 1,
+        "compliant": false
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [
+        {
+          "name": "prototype/site-structure-hierarchy",
+          "stage": "ready",
+          "pr": 18,
+          "base": "main",
+          "title": "Fix the viewer, and give datum-core an assembly you can navigate",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 7323,
+            "changed_files": 79,
+            "commits": 31,
+            "deletions": 422,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-22T11:46:12Z"
+          },
+          "idle_hours": 6.1,
+          "stalled": false
+        },
+        {
+          "name": "feature/fractal-viewer-scale-and-overlays",
+          "stage": "draft",
+          "pr": 13,
+          "base": "main",
+          "title": "Fractal viewer: wider range, assembly outlines, per-node detail — plus the ruff/black pass",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 534,
+            "changed_files": 27,
+            "commits": 3,
+            "deletions": 159,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T11:48:46Z"
+          },
+          "idle_hours": 270.0,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "precondition": "met",
+        "missing": [],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/apothecary",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 3,
+          "workflows_absent": 0,
+          "licensing_present": 2
+        },
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:17Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "datum",
+      "slug": "quaternionmedia/datum",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "schema and wire contract; governance propagation open",
+      "slots": {
+        "repository": "quaternionmedia/datum",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 2,
+            "title": "WP-3: firmware, the pre-HIL run, and a pinned enclosure",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "wp3-firmware",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v0.0.1",
+        "annotated": false,
+        "unreleased_commits": 5,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
+      "threads": [
+        {
+          "name": "wp3-firmware",
+          "stage": "ready",
+          "pr": 2,
+          "base": "main",
+          "title": "WP-3: firmware, the pre-HIL run, and a pinned enclosure",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 3844,
+            "changed_files": 47,
+            "commits": 32,
+            "deletions": 97,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-22T11:46:34Z"
+          },
+          "idle_hours": 6.1,
+          "stalled": false
+        }
+      ],
+      "governance": {
+        "precondition": "met",
+        "missing": [],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/datum",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 3,
+          "workflows_absent": 0,
+          "licensing_present": 2
+        },
+        "behind_corpus": 11,
+        "observed_at": "2026-08-22T17:49:22Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "codecartographer",
+      "slug": "quaternionmedia/codecartographer",
+      "role": "project",
+      "phase": "v0.0.2",
+      "phase_source": "stated",
+      "note": "code maps; named itself a v0.0.2 RAD consumer",
+      "slots": {
+        "repository": "quaternionmedia/codecartographer",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 90,
+            "title": "build(deps): bump pymdown-extensions from 10.20 to 11.0.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pymdown-extensions-11.0.1",
+            "draft": false
+          },
+          {
+            "number": 89,
+            "title": "build(deps-dev): bump postcss from 8.5.19 to 8.5.25 in /web",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/web/postcss-8.5.25",
+            "draft": false
+          },
+          {
+            "number": 88,
+            "title": "build(deps): bump brace-expansion from 1.1.16 to 1.1.18 in /web",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/web/brace-expansion-1.1.18",
+            "draft": false
+          },
+          {
+            "number": 87,
+            "title": "build(deps): bump black from 25.12.0 to 26.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/black-26.3.1",
+            "draft": false
+          },
+          {
+            "number": 85,
+            "title": "build(deps): bump setuptools from 80.9.0 to 83.0.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/setuptools-83.0.0",
+            "draft": false
+          },
+          {
+            "number": 84,
+            "title": "Full review cleanup: governance migration, dead-code/dependency cleanup, Lexicon Option B, layout unification",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "cleanup/2026-07-21-full-review",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [
+        {
+          "name": "cleanup/2026-07-21-full-review",
+          "stage": "ready",
+          "pr": 84,
+          "base": "main",
+          "title": "Full review cleanup: governance migration, dead-code/dependency cleanup, Lexicon Option B, layout unification",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 4666,
+            "changed_files": 128,
+            "commits": 51,
+            "deletions": 4048,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-11T19:14:29Z"
+          },
+          "idle_hours": 262.6,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "submodule branch",
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": "docs/qm",
+          "submodule_branch": null,
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 0,
+          "workflows_absent": 3,
+          "licensing_present": 1
+        },
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:19Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "private-32",
+      "slug": "quaternionmedia/private-32",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-32.\n",
+      "slots": {
+        "repository": "quaternionmedia/private-32",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "private-33",
+      "slug": "quaternionmedia/private-33",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-33.\n",
+      "slots": {
+        "repository": "quaternionmedia/private-33",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 8,
+            "title": "chore(deps): bump starlette from 0.50.0 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/starlette-1.3.1",
+            "draft": false
+          },
+          {
+            "number": 6,
+            "title": "chore(deps): bump idna from 3.11 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/idna-3.15",
+            "draft": false
+          },
+          {
+            "number": 5,
+            "title": "chore(deps): bump pytest from 9.0.2 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
+            "draft": false
+          },
+          {
+            "number": 4,
+            "title": "chore(deps): bump pygments from 2.19.2 to 2.20.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pygments-2.20.0",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v1.4.1",
+        "annotated": true,
+        "unreleased_commits": 44,
+        "asserts": "a human reviewed, manually tested and gated this commit"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "factorio-sysops",
+      "slug": "quaternionmedia/factorio-sysops",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": null,
+      "slots": {
+        "repository": "quaternionmedia/factorio-sysops",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "ide",
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/factorio-sysops",
+          "ide_present": 0,
+          "ide_absent": 3,
+          "workflows_present": 1,
+          "workflows_absent": 2,
+          "licensing_present": 0
+        },
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:25Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "carlos",
+      "slug": "quaternionmedia/carlos",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "stated",
+      "note": "Browser workspace for sketching synth rigs, governed via project/carlos. `stated`, not `scaffolded`: carlos names the rung in its own GOVERNANCE.md, so the claim is the project's rather than an inference drawn from what it happens to contain. It is what the project works toward and not an attainment -- nothing here is evidence, and the tag that would assert arrival has not been cut. Its default branch is `they`, not `main`, and that branch last moved in 2025 while the host reports a push today, which is the discrepancy that made this roster gap visible.\n",
+      "slots": {
+        "repository": "quaternionmedia/carlos",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 17,
+            "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "they",
+            "head": "fix/dials-cable-ends-and-scroll",
+            "draft": false
+          },
+          {
+            "number": 3,
+            "title": "Bump idna from 3.10 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "they",
+            "head": "dependabot/uv/idna-3.15",
+            "draft": false
+          },
+          {
+            "number": 2,
+            "title": "Bump starlette from 0.47.2 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "they",
+            "head": "dependabot/uv/starlette-1.3.1",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [
+        {
+          "name": "fix/dials-cable-ends-and-scroll",
+          "stage": "ready",
+          "pr": 17,
+          "base": "they",
+          "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 1689,
+            "changed_files": 45,
+            "commits": 8,
+            "deletions": 124,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-22T17:27:47Z"
+          },
+          "idle_hours": 0.4,
+          "stalled": false
+        }
+      ],
+      "governance": {
+        "precondition": "met",
+        "missing": [],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/carlos",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 3,
+          "workflows_absent": 0,
+          "licensing_present": 2
+        },
+        "behind_corpus": 40,
+        "observed_at": "2026-08-22T17:49:18Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "private-34",
+      "slug": "quaternionmedia/private-34",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "Name and paths live in ci/workspace-private.yaml, which is not committed, for the same reason as private-32 and private-33 above. Governed via a project/<name> branch here.\n",
+      "slots": {
+        "repository": "quaternionmedia/private-34",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "qmetronome",
+      "slug": "quaternionmedia/qmetronome",
+      "role": "project",
+      "phase": "v0.0.3",
+      "phase_source": "stated",
+      "note": "named as the v0.0.3 Android target",
+      "slots": {
+        "repository": "quaternionmedia/qmetronome",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 14,
+            "title": "findings: ADR drafts for hardware volume routing (#12) and animation click modes (#11)",
+            "author": "Copilot",
+            "bot": true,
+            "base": "main",
+            "head": "copilot/research-hardware-button-bug-and-animation-enhance",
+            "draft": true
+          },
+          {
+            "number": 13,
+            "title": "Route hardware volume keys to media stream in MainActivity",
+            "author": "Copilot",
+            "bot": true,
+            "base": "main",
+            "head": "copilot/fix-volume-button-issue",
+            "draft": true
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v0.2.0",
+        "annotated": true,
+        "unreleased_commits": 3,
+        "asserts": "a human reviewed, manually tested and gated this commit"
+      },
+      "threads": [],
+      "governance": {
+        "precondition": "incomplete",
+        "missing": [
+          "workflows",
+          "licensing"
+        ],
+        "detail": {
+          "submodule": "governance/qm",
+          "submodule_branch": "project/qmetronome",
+          "ide_present": 3,
+          "ide_absent": 0,
+          "workflows_present": 2,
+          "workflows_absent": 1,
+          "licensing_present": 1
+        },
+        "behind_corpus": 133,
+        "observed_at": "2026-08-22T17:49:29Z",
+        "asserted_by": null,
+        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "benchmark",
+      "slug": "quaternionmedia/benchmark",
+      "role": "unmanaged",
+      "phase": "v0.0.2",
+      "phase_source": "stated",
+      "note": "named alongside apothecary as a v0.0.2 consumer",
+      "slots": {
+        "repository": "quaternionmedia/benchmark",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 8,
+            "title": "chore(deps-dev): bump vite from 7.3.1 to 7.3.2",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/vite-7.3.2",
+            "draft": false
+          },
+          {
+            "number": 7,
+            "title": "fix: handle missing regions/ directory in compile-yaml",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "fix/ci-empty-regions-dir",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [
+        {
+          "name": "fix/ci-empty-regions-dir",
+          "stage": "ready",
+          "pr": 7,
+          "base": "main",
+          "title": "fix: handle missing regions/ directory in compile-yaml",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 2,
+            "changed_files": 2,
+            "commits": 1,
+            "deletions": 1,
+            "mergeable_state": "blocked",
+            "updated_at": "2026-04-06T16:02:26Z"
+          },
+          "idle_hours": 3313.8,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "looksatwords",
+      "slug": "quaternionmedia/looksatwords",
+      "role": "project",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "language data -- make, gather, analyze, visualise. Named in plans/governance-prose-signals.md as where prose analysis belongs, rather than in ci/. It was absent from this roster until 2026-08-16, which is why the plan had to establish it exists.\n",
+      "slots": {
+        "repository": "quaternionmedia/looksatwords",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 21,
+            "title": "chore(deps): bump pytest from 9.0.2 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
+            "draft": false
+          },
+          {
+            "number": 20,
+            "title": "chore(deps): bump pillow from 12.1.0 to 12.2.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pillow-12.2.0",
+            "draft": false
+          },
+          {
+            "number": 19,
+            "title": "chore(deps): bump pygments from 2.19.2 to 2.20.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pygments-2.20.0",
+            "draft": false
+          },
+          {
+            "number": 18,
+            "title": "chore(deps): bump requests from 2.32.5 to 2.33.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/requests-2.33.0",
+            "draft": false
+          },
+          {
+            "number": 17,
+            "title": "chore(deps): bump nltk from 3.9.2 to 3.9.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/nltk-3.9.3",
+            "draft": false
+          },
+          {
+            "number": 16,
+            "title": "chore(deps): bump tornado from 6.5.4 to 6.5.5",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/tornado-6.5.5",
+            "draft": false
+          },
+          {
+            "number": 14,
+            "title": "chore(deps): bump bokeh from 3.8.1 to 3.8.2",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/bokeh-3.8.2",
+            "draft": false
+          },
+          {
+            "number": 13,
+            "title": "chore(deps): bump urllib3 from 2.6.2 to 2.6.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/urllib3-2.6.3",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
     }
   ]

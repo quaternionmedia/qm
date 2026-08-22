@@ -193,13 +193,23 @@ def test_an_empty_roster_is_refused(tmp_path: Path) -> None:
 
 
 def test_the_committed_roster_is_loadable_and_shaped(tmp_path: Path) -> None:
-    """The real file, since nothing else reads it before a human runs this."""
+    """The real file, since nothing else reads it before a human runs this.
+
+    A private entry carries a `ref` and neither a name nor paths -- both would
+    publish the repository's name, a path being a directory name. `name` and
+    `paths` are therefore asserted on the *loaded* roster, which merges the
+    uncommitted companion when it is there and falls back to the ref when it is
+    not. See ci/roster.py.
+    """
     document = yaml.safe_load((CI_DIR / "workspace.yaml").read_text(encoding="utf-8"))
     repositories = document["repositories"]
     assert repositories, "the roster is empty"
     for entry in repositories:
-        assert entry.get("name"), entry
-        assert entry.get("paths"), entry
+        assert entry.get("name") or entry.get("ref"), entry
+        if entry.get("ref") and not entry.get("name"):
+            assert not entry.get("paths"), f"{entry['ref']} carries a path, which is a name"
+        else:
+            assert entry.get("paths"), entry
         assert entry.get("phase") is not None, entry
         assert entry.get("phase_source") in ("stated", "scaffolded", "n/a"), entry
     corpus = [e for e in repositories if e.get("role") == "corpus"]

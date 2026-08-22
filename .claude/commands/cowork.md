@@ -1,1 +1,1 @@
-../../project-seed/ide/.claude/commands/cowork.md
+../../adapters/claude-code/commands/cowork.md

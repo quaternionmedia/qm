@@ -163,6 +163,49 @@ def test_a_sibling_branch_is_reported(repo: Path) -> None:
     assert "1 commit(s) not on main" in text
 
 
+def test_pushed_work_with_no_local_branch_is_reported(repo: Path) -> None:
+    """A fresh clone has one local branch, and pushed work must still show.
+
+    This is the case a `refs/heads` scan cannot see: work that was pushed and
+    has no pull request is invisible to the slot check too, so a brief that
+    misses it reports a clean repository over a branch full of waiting work.
+    """
+    upstream = repo.parent / "upstream.git"
+    git(repo, "clone", "--bare", "-q", str(repo), str(upstream))
+    git(repo, "remote", "set-url", "origin", str(upstream))
+
+    git(repo, "checkout", "-q", "-b", "evolve/pushed-elsewhere")
+    write(repo / "theirs.md", "their work\n")
+    commit_all(repo, "their commit")
+    git(repo, "push", "-q", "origin", "evolve/pushed-elsewhere")
+
+    # The state a clone that never made the branch is in: the remote-tracking
+    # ref exists, the local branch does not.
+    git(repo, "checkout", "-q", "main")
+    git(repo, "branch", "-q", "-D", "evolve/pushed-elsewhere")
+
+    text = brief(repo)
+    assert "origin/evolve/pushed-elsewhere" in text
+    assert "1 commit(s) not on main" in text
+
+
+def test_a_branch_and_its_remote_ref_are_reported_once(repo: Path) -> None:
+    """The ordinary case: `foo` and `origin/foo` are one piece of work."""
+    upstream = repo.parent / "upstream2.git"
+    git(repo, "clone", "--bare", "-q", str(repo), str(upstream))
+    git(repo, "remote", "set-url", "origin", str(upstream))
+
+    git(repo, "checkout", "-q", "-b", "other/session")
+    write(repo / "theirs.md", "their work\n")
+    commit_all(repo, "their commit")
+    git(repo, "push", "-q", "origin", "other/session")
+    git(repo, "checkout", "-q", "main")
+
+    text = brief(repo)
+    assert text.count("other/session:") == 1
+    assert "origin/other/session:" not in text
+
+
 def test_a_long_branch_list_says_how_many_it_left_off(repo: Path) -> None:
     """A list that silently stops reads as a complete one."""
     for index in range(12):
@@ -237,3 +280,47 @@ def test_a_document_without_a_stamp_is_age_unknown_not_age_zero(repo: Path) -> N
     text = brief(repo)
     assert "**Age unknown**" in text
     assert "treat every figure in it as unverified" in text
+
+
+REGISTRY = (
+    "schema: 1\n"
+    "exceptions:\n"
+    "  - id: an-exemption\n"
+    "    rule: some rule\n"
+    "    scope: a named case\n"
+)
+
+
+def test_the_brief_names_the_rules_that_do_not_apply(repo: Path) -> None:
+    """A blind session learns the rules from AGENTS.md and nothing about their
+    holes.
+
+    Before this, that knowledge lived in six constants inside five checks, so a
+    session either tripped over an exemption or reimplemented a rule that had
+    been deliberately suspended.
+    """
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    write(repo / "ci" / "exception-registry.yaml", REGISTRY)
+    commit_all(repo, "registry")
+
+    text = brief(repo)
+    assert "Rules that do not apply everywhere" in text
+    assert "an-exemption" in text
+    assert "a named case" in text
+
+
+def test_a_corpus_with_no_registry_says_so_rather_than_nothing(repo: Path) -> None:
+    """Silence would read as a corpus that enforces everything."""
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    commit_all(repo, "charter")
+    text = brief(repo)
+    assert "Rules that do not apply everywhere" in text
+    assert "records no exemptions" in text
+
+
+def test_a_malformed_registry_is_reported_not_crashed(repo: Path) -> None:
+    """A registry nobody can parse is a fact about the corpus, not a traceback."""
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    write(repo / "ci" / "exception-registry.yaml", "exceptions: [unclosed\n")
+    commit_all(repo, "broken registry")
+    assert "did not parse" in brief(repo)

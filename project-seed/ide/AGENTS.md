@@ -20,45 +20,69 @@ no other briefing, read this file fully before your first commit or edit.
 
 ## Before you do anything
 
-**Run `/cowork` first.** It builds this session's brief from the repository —
-the commit you are on, whether your pull request slot is free, what else is in
-flight in this clone, which gates exist — instead of letting you inherit a
-previous session's beliefs. Other sessions are likely running right now, in
-other repositories, for the same reviewer;
-`governance/qm/handbook/async-contract.md` is the set of rules that exist only
-because of that, and it is short. `/preflight`, `/handoff` and `/status` close the same
-loop at the other end.
+**Establish four facts about this session before you write anything**, because
+each has been got wrong here by inheriting a previous session's belief instead of
+asking the repository:
+
+1. **The commit you are working against**, and the branch.
+2. **Whether your pull request slot is free** — one open pull request per
+   repository, per contributor:
+   `python governance/qm/project-seed/ci/check_one_pr.py --repo <owner/name>`.
+3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
+   sibling branch, an unpushed commit. Other sessions are likely running right
+   now, in other repositories, for the same reviewer;
+   `governance/qm/handbook/async-contract.md` is the set of rules that exist only
+   because of that, and it is short.
+4. **Which gates exist**, and what each cannot see:
+   `python governance/qm/project-seed/ci/run_workflows_locally.py`.
+
+Those are the invariants. **How** you gather them is yours to choose — read the
+repository, run the scripts above, or use an adapter if one exists for your
+tooling. `governance/qm/adapters/` holds any that do, each named for the product
+it targets and none of them required. This file names no vendor, and neither
+should anything you add to it.
 
 **Read the corpus's committed status documents before re-deriving what they
-hold.** `governance/qm/governance-status.yaml` and
-`governance/qm/harness-status.json` each carry their own refresh command and
-staleness budget inside the file; `governance/qm/handbook/generated-documents.md`
-indexes them. Check the age before quoting a figure.
+hold.** `governance/qm/harness-status.json` carries its own refresh command and
+staleness budget in a `reading:` block inside the file.
+`governance/qm/governance-status.yaml` does **not** — for that one,
+`governance/qm/handbook/generated-documents.md` is the only statement of its
+refresh command and its 168-hour budget. Check the age before quoting a figure.
 
-1. Read `governance/qm/README.md` and `governance/qm/PRINCIPLES.md` in full
-   — the namespaces/precedence rules and the charter. Both are short.
+1. Read `governance/qm/PRINCIPLES.md` in full and the three invariants in `governance/qm/README.md`. For namespaces and precedence, see `governance/qm/docs/ref/namespaces.md` and `governance/qm/docs/ref/precedence.md`.
 2. This project's own decision records live in `governance/qm/adr/` — inside
    the submodule, on this project's own branch, not at this repo's root — as
    `ADR-NNNN` (numbered locally, at ratification) or `DRAFT-*.md` before
    ratification. A human ratifies; you draft.
-3. **Everything you produce arrives as a pull request, opened as a draft.**
-   Work on a branch and open a PR with `gh pr create --draft` — in this repo,
-   and in the `governance/qm` submodule when you touch this project's records
-   there. Never commit to, merge into, or push a shared branch directly, and
-   never merge your own work, however small or mechanical the change looks.
-   If you cannot open a PR, hand the branch back rather than merging it.
-   **Draft is load-bearing, and never request a review.** A ready PR against a
-   branch carrying `CODEOWNERS` requests review from those owners the moment it
-   opens — you name no one, and the notification cannot be recalled. So "open a
-   PR for human review", read literally, is the act of pulling a second person
-   into work nobody has tested. A draft PR fires none of it. Add the person who
-   asked for the work as **assignee**, which is also how you reach them when
-   they authored the branch and GitHub therefore refuses a review request on
-   it. Leaving draft is their call, made after their own testing.
+3. **Everything you produce arrives as a pull request, and the pull request is
+   an audit record rather than a request for anyone's attention.** Work on a
+   branch and open a PR — in this repo, and in the `governance/qm` submodule
+   when you touch this project's records there — then **merge it yourself once
+   every gate is green.** Your job is a default branch that is clean and
+   working, entered through a pull request so the gates ran and the diff stays
+   readable afterwards. **Never push a shared branch directly**: that is the
+   one act that destroys the audit record.
+   **The default branch is not a claim, so merging into it is not a release.**
+   Per `governance/qm/records/DRAFT-version-tags-are-claims.md` §4, the default
+   branch, a pull request and a local build are all drafts — they may be
+   perfectly good and they assert nothing. **The two human gates are
+   ratification, for what a record says, and the version tag, for what this
+   project ships.** A `v*` tag asserts a human reviewed the change set, a human
+   manually tested it against its real runtime, and deterministic automated
+   validation passed. Keeping the default branch clean is what makes cutting
+   one cheap.
+   **Never request a review**, and add the person who asked for the work as
+   **assignee**. Reviewers are named at the tag, by the human cutting it. A
+   review request pulls a second person into work that asserts nothing yet, and
+   against a branch carrying a live `CODEOWNERS` it fires the moment the PR
+   opens — you name no one, and the notification cannot be recalled.
+   **Draft means unfinished, and nothing else.** It is not a holding pen for
+   finished work: a green PR left in draft is a change that never landed.
    **Keep it to one open PR per repository, per contributor.** Not one per
-   task. Two PRs that must merge in a given order are a sequencing puzzle
-   handed to your reviewer. Land the upstream change first and let propagation
-   carry it. `.github/workflows/one-pr-check.yml` enforces this; run
+   task. This is a sequencing constraint — two PRs that must merge in a given
+   order are a puzzle — and not a bandwidth one, since a green PR frees its own
+   slot. Land the upstream change first and let propagation carry it.
+   `.github/workflows/one-pr-check.yml` enforces this; run
    `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
 4. **Human-only contributorship applies to every commit you make here** (see
    `governance/qm/records/DRAFT-human-only-contributorship.md`): do not add
@@ -70,11 +94,11 @@ indexes them. Check the age before quoting a figure.
 5. Follow the drafting-session handoff contract in
    `governance/qm/adr/README.md` before writing or amending any record.
 6. A QM record may be tightened by this project's own records, never
-   relaxed — see `governance/qm/README.md`'s "Namespaces and precedence."
+   relaxed — see `governance/qm/docs/ref/precedence.md`.
 7. **Put explanation in one place**, per
    `governance/qm/handbook/style-guide.md`: inline comments carry clarifying
-   facts about the code, `README.md` is a shallow onramp to what follows it,
-   `docs/` is reference, and **every why goes to a retrospective in
+   facts about the code, `README.md` is a shallow onramp to the docs, `docs/`
+   is reference, and **every why goes to a retrospective in
    `governance/qm/perspectives/`**. A record's Context and Alternatives are
    the one exception, answering *why this decision* rather than *why it went
    that way*.
@@ -101,6 +125,37 @@ indexes them. Check the age before quoting a figure.
     reader who knows better, while a deflation reads as rigour, closes the
     topic, and can quietly delete something real. See
     `governance/qm/records/DRAFT-decision-record-discipline.md` §7 and §8.
+11. **The scaffolding you measure with is part of the measurement.** Item 9 is
+    the tool answering a different question than you asked. This is the tool
+    being fine and the setup not — nothing errors, and the result describes your
+    own scaffolding rather than the subject. Real instances: a diff run against
+    files a redirect never wrote, reported as a hundred lines of drift when the
+    truth was none; a working tree read after a merge that exited non-zero; file
+    copies written through a text API that converted every line ending, so the
+    diff was entirely encoding; a mutation test whose baseline was already
+    failing, so it proved nothing in either direction. **Prefer the artefact you
+    did not create** — read a document's own answer instead of recomputing one —
+    and assert the intermediate: non-empty, exit zero, baseline green.
+12. **A guard is not finished until someone has tried to route around it.**
+    Breaking it and watching it go red proves it fires on the case you thought
+    of; it cannot find the case you did not. Ask for a pass whose brief is to
+    satisfy the check while doing the thing it forbids. A guard with a hole is
+    worse than no guard — it is a green check standing exactly where a reader
+    believes something is enforced. See the same record's §9 and §10.
+
+13. **Show it by running it** — P12 of the charter, with
+    `governance/qm/records/DRAFT-one-executable-walkthrough.md` as the record.
+    This project's `walkthrough/` is one ordered set of pages that the ordinary
+    test command executes: `walkthrough/NN-<slug>.md`, run by pytest with
+    `--doctest-glob=*.md`. The example a reader reads is the example that ran.
+    Do not write a second copy of a behaviour beside the code — no prose example
+    that is not executed, no screenshot that is not a byproduct of a test
+    asserting what the code did. What text cannot hold is emitted by that test
+    and **recorded, never compared**: a test that diffs images fails on a font
+    and gets switched off. Regeneration rides the command you already run before
+    a pull request, so drift shows up as an uncommitted diff rather than as
+    staleness nobody sees. A skip is not a pass, and a page that always skips is
+    deleted.
 
 ## One-time setup on a fresh clone (Windows)
 
