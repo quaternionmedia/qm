@@ -59,6 +59,7 @@ Every word above that is doing unusual work links to its definition. If a senten
     - [Ratification](ref/ratification.md) — how records become binding
     - [Repository layout](ref/repo-layout.md) — the directory tree
     - [Handbook index](ref/handbook.md) — policy and procedure
+    - [Protocols index](ref/protocols.md) — the reviews somebody runs on purpose
     - [Glossary](ref/glossary.md) — key terms
 
 ## For coding agents
