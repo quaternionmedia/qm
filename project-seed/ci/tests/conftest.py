@@ -16,6 +16,7 @@ the one it was imitating. A mock would have passed all three.
 from __future__ import annotations
 
 import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -99,10 +100,22 @@ def index_for(numbers: list[int]) -> str:
     return "| # | Title | Status | Date |\n|---|---|---|---|\n" + rows + "\n"
 
 
-@pytest.fixture
-def repo(tmp_path: Path) -> Path:
-    """An initialised repo with one commit, on branch `main`."""
-    r = tmp_path / "repo"
+@pytest.fixture(scope="session")
+def _repo_template(tmp_path_factory) -> Path:
+    """One initialised repository, built once for the whole session.
+
+    **BUILT ONCE AND COPIED, NOT BUILT PER TEST.** Ninety-odd tests take the
+    `repo` fixture, and each build cost four `git` subprocesses -- init, remote
+    add, add, commit. Measured on this machine that is about a sixth of a second
+    per test, most of it process start, and it bought every test an identical
+    repository.
+
+    A git repository is a directory; copying one is a filesystem operation and
+    costs a fraction of spawning git four times. The one thing a copy does not
+    carry correctly is `origin`, which holds the *template's* absolute path --
+    so `repo` rewrites it. That is one git call instead of four.
+    """
+    r = tmp_path_factory.mktemp("template") / "repo"
     r.mkdir()
     git(r, "init", "-q", "-b", "main")
     # A remote named `origin`, because actions/checkout always configures one
@@ -115,4 +128,22 @@ def repo(tmp_path: Path) -> Path:
     (r / "records").mkdir()
     write(r / "records" / ".keep", "")
     commit_all(r, "init")
+    return r
+
+
+@pytest.fixture
+def repo(tmp_path: Path, _repo_template: Path) -> Path:
+    """An initialised repo with one commit, on branch `main`.
+
+    A copy of the session template. Every test still gets its own repository on
+    its own path — the sharing is of the *construction*, never of the state,
+    and a test that commits into this one cannot be seen by any other.
+    """
+    r = tmp_path / "repo"
+    shutil.copytree(_repo_template, r)
+    # `origin` points at the template's path after a copy. Left alone, a test
+    # that fetches or compares against `origin/` would silently read another
+    # test's repository — which is exactly the cross-contamination a per-test
+    # fixture exists to prevent.
+    git(r, "remote", "set-url", "origin", str(r))
     return r

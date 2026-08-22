@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-18T02:19:30Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-08-22T17:49:51Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -16,7 +16,7 @@
 
 **Every gate below is therefore advisory.** A green check means *someone was told*, not *this was prevented*. Advisory is a legitimate state — most governance here is advisory on purpose — but it is not the same claim, and a reader who conflates them will trust a merge nobody checked.
 
-**13 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 12 ok, 0 warn, 1 unknown.
+**14 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 13 ok, 0 warn, 1 unknown.
 
 ## Every gate
 
@@ -30,6 +30,7 @@
 | [ok] | `reuse-lint` | main, push | pull_request, push | yes | A file with no copyright or licence information, a bad or deprecated SPDX expression, or an unused licence file. |
 | [ok] | `symlink-integrity` | main, push | pull_request, push | no | A pointer file that has stopped being a symlink -- mode other than 120000 -- which is how a Windows checkout silently forks a shared document into two. |
 | [ok] | `tag-claims` | tag | push, workflow_dispatch | yes | A pushed `v*` tag that is lightweight, misnamed, or whose annotation is missing `Reviewed-by`, `Manually-tested`, `Automated-gate` or `Not-covered`. |
+| [ok] | `tag-determinism` | tag | push, workflow_dispatch | no | A `v*` tag whose captured test run declares a skip, a rerun or a retry, or whose suite does not pass at all. |
 | [??] | `secret-scan` | main | — | no | A commit introducing a credential the scanner recognises. |
 | [ok] | `commit-signatures` | main | pull_request | yes | A branch carrying a commit with no verifiable signature. |
 | [ok] | `registries` | main, push | pull_request, push | no | An exemption with no stated reason or whose named constant has gone; a policy with neither a detector nor a stated reason it cannot have one; a ledger entry that is unattributed, or closed and unscored; two lanes that are settled by the same gate; a protocol with no page or a step naming a route that does not exist; a curriculum unit citing a document that is not there or claiming a Status its document does not carry; an address vector that does not parse as declared or does not format back to itself. |
@@ -48,6 +49,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 - **`reuse-lint`** — Whether the licence asserted is the licence intended, or whether a dependency's licence is compatible with it.
 - **`symlink-integrity`** — A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.
 - **`tag-claims`** — Whether the review or the manual test happened -- it reads an annotation a human wrote. It does not gate tag creation, which needs a host-side tag-protection ruleset, and it runs after the tag exists.
+- **`tag-determinism`** — Whether the suite is deterministic. It refuses a run that announces nondeterminism; one that is nondeterministic and silent about it passes. It also says nothing about coverage: a suite asserting little passes as readily as one asserting much.
 - **`secret-scan`** — Everything about how it is configured. It is an installed application with no workflow file in this repository and no record describing it, so nothing here states what it scans, who can dismiss a finding, or what happens if it is uninstalled. It appears on pull requests and that is the whole of what this corpus knows about it.
 - **`commit-signatures`** — Whether the signer is the person named in the author field, beyond what the key attests. It would establish that an attestation exists, which is currently established for nothing.
 - **`registries`** — Whether any registry is complete. Each of these seven checks the entries that exist against their own rules; none can tell that an exemption, a policy, a ledger entry, a lane, a protocol, a curriculum unit or an address case was never written down, and a registry nobody added to is the state all seven report as clean. Nor can it see an address that is well-formed and wrong: the grammar has no idea whether the branch exists. It also cannot see whether a protocol was ever run -- that is reported by `uv run qm protocols` and deliberately never refused -- or whether a curriculum unit's prose is true of the document it cites. Nor is this gate required to merge: it is a candidate for A-main.json's required list and stays off it until it has reported green on a real pull request.
@@ -66,6 +68,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 | `reuse-lint` | `records/DRAFT-outbound-licensing.md`, `records/DRAFT-open-license-exclusion-and-upstream-remediation.md` |
 | `symlink-integrity` | `records/DRAFT-ide-integrated-governance-discovery.md` |
 | `tag-claims` | `records/DRAFT-version-tags-are-claims.md` |
+| `tag-determinism` | `records/DRAFT-version-tags-are-claims.md` |
 | `secret-scan` | *nothing stated — it guards a habit rather than a decision* |
 | `commit-signatures` | `records/DRAFT-human-only-contributorship.md` |
 | `registries` | `ci/exception-registry.yaml`, `ci/policy-registry.yaml`, `ci/lane-registry.yaml`, `ci/protocol-registry.yaml`, `curriculum/org.yaml`, `project-seed/address-vectors.json` |
