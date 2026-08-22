@@ -96,21 +96,28 @@ def test_there_are_modules_to_check():
     assert len(runnable()) > 20, f"only {len(runnable())} runnable module(s)"
 
 
-@pytest.mark.parametrize("module", runnable(),
-                         ids=lambda p: p.relative_to(CORPUS).as_posix())
-def test_something_executes_the_module(module: Path):
-    """One case per module, so a gap names the module rather than the sweep.
+def test_something_executes_every_runnable_module():
+    """**ONE CASE, EVERY GAP.** This was parameterised over each module -- 48
+    ids for a check whose whole value is the *list* it produces. A sweep should
+    name every uncovered module in one message; parameterised, five gaps are
+    five failures a reader collects one at a time.
 
     Mutation: delete a module's tests without listing it in `UNEXERCISED` and
-    this fails.
+    this fails, naming it.
     """
-    relative = module.relative_to(CORPUS).as_posix()
-    if relative in UNEXERCISED:
-        pytest.skip(f"known gap: {UNEXERCISED[relative]}")
-    assert executes(module), (
-        f"{relative} has a main() and no test runs it. Either add a test, or "
-        f"add it to UNEXERCISED with the reason — a gap nobody wrote down is "
-        f"a gap nobody can close."
+    gaps = []
+    for module in runnable():
+        relative = module.relative_to(CORPUS).as_posix()
+        if relative in UNEXERCISED:
+            continue
+        if not executes(module):
+            gaps.append(relative)
+
+    assert not gaps, (
+        "these have a main() and no test runs them:\n  "
+        + "\n  ".join(gaps)
+        + "\n\nEither add a test, or add each to UNEXERCISED with the reason "
+          "-- a gap nobody wrote down is a gap nobody can close."
     )
 
 

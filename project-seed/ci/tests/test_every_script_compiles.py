@@ -18,6 +18,13 @@ missing optional package into a syntax failure. `compile` answers exactly the
 question being asked — is this parseable — and answers it for a fork that has
 installed nothing.
 
+**AND WHY ONE CASE PER PROPERTY, NOT ONE PER FILE.** This was parameterised over
+every script: 41 ids for a floor check that has never legitimately failed, and
+175 in the corpus twin. A sweep should name every offender in one message rather
+than produce one failure per file for a reader to collect one at a time. What is
+lost is the filename in the test *id*; it is in the failure message instead,
+with the line number, which is where it is more useful.
+
 WHAT THIS DOES NOT CHECK. That a script works, that its imports resolve, or
 that it does what its name says. Those are the other tests here. This is the
 floor: a file that does not parse cannot be any of the above, and it fails in a
@@ -37,16 +44,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 SEED_CI = Path(__file__).resolve().parent.parent
 
 
 def scripts() -> list[Path]:
     """Every Python file a fork runs out of the submodule.
 
-    Sorted so a failure names the same file on every machine, and so the
-    parameter ids in a report are stable enough to compare between runs.
+    Sorted so a failure names files in the same order on every machine.
     """
     return sorted(
         path
@@ -57,8 +61,8 @@ def scripts() -> list[Path]:
 
 def test_there_are_scripts_to_check():
     """**THE GUARD ON THE GUARD.** A glob that matched nothing would make every
-    parameterised case below vanish, and a file with no cases passes silently —
-    the empty-suite failure this corpus keeps finding.
+    check below vacuous, and a vacuous check reports green — the empty-suite
+    failure this corpus keeps finding.
 
     Mutation: point `scripts()` at an empty directory and this fails.
     """
@@ -66,45 +70,42 @@ def test_there_are_scripts_to_check():
     assert len(found) > 5, f"only {len(found)} script(s) found under {SEED_CI}"
 
 
-@pytest.mark.parametrize(
-    "script", scripts(), ids=lambda p: p.relative_to(SEED_CI).as_posix()
-)
-def test_the_script_parses(script: Path):
-    """One case per file, so a failure names the file rather than the sweep.
+def test_every_script_parses():
+    """Mutation: introduce a syntax error in any script here and this fails,
+    naming it and the line."""
+    broken = []
+    for script in scripts():
+        try:
+            compile(script.read_text(encoding="utf-8"), str(script), "exec")
+        except SyntaxError as error:
+            broken.append(
+                f"{script.relative_to(SEED_CI).as_posix()}:{error.lineno}: "
+                f"{error.msg}")
 
-    Mutation: introduce a syntax error in any script here and this fails,
-    naming it.
-    """
-    source = script.read_text(encoding="utf-8")
-    try:
-        compile(source, str(script), "exec")
-    except SyntaxError as error:
-        pytest.fail(
-            f"{script.relative_to(SEED_CI).as_posix()} does not parse: "
-            f"line {error.lineno}, {error.msg}"
-        )
+    assert not broken, "these do not parse:\n  " + "\n  ".join(broken)
 
 
-@pytest.mark.parametrize(
-    "script", scripts(), ids=lambda p: p.relative_to(SEED_CI).as_posix()
-)
-def test_the_script_has_no_stray_tabs_in_indentation(script: Path):
+def test_no_script_indents_with_tabs():
     """Tabs mixed with spaces parse in some files and raise `TabError` in
-    others, depending on what is above them.
+    others, depending on what is above them — so the failure appears in a file
+    nobody just edited.
 
-    Not hypothetical: a docstring written through a shell here gained a real
-    tab from an escaped `\\t`, and the file failed to import with a message
-    about indentation rather than about the edit that caused it.
+    Not hypothetical: a docstring written through a shell gained a real tab from
+    an escaped `\\t` five times in one session.
 
     Mutation: put a tab at the start of an indented line and this fails.
     """
-    offenders = [
-        number
-        for number, line in enumerate(
-            script.read_text(encoding="utf-8").splitlines(), start=1)
-        if line[: len(line) - len(line.lstrip())].count("\t")
-    ]
-    assert not offenders, (
-        f"{script.relative_to(SEED_CI).as_posix()} indents with tabs on "
-        f"line(s) {offenders[:5]}"
-    )
+    offenders = []
+    for script in scripts():
+        lines = [
+            number
+            for number, line in enumerate(
+                script.read_text(encoding="utf-8").splitlines(), start=1)
+            if line[: len(line) - len(line.lstrip())].count("\t")
+        ]
+        if lines:
+            offenders.append(
+                f"{script.relative_to(SEED_CI).as_posix()}: line(s) {lines[:5]}")
+
+    assert not offenders, ("these indent with tabs:\n  "
+                           + "\n  ".join(offenders))

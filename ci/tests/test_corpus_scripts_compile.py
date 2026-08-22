@@ -7,16 +7,27 @@ covers what forks run. Same reasoning, different directory: a fork never sees
 **WHY TWO FILES RATHER THAN ONE PARAMETERISED OVER BOTH ROOTS.** A fork gets the
 seed suite and nothing else. A single file living in `ci/tests` would leave every
 fork unchecked; a single file in `project-seed/ci/tests` reaching up into `ci/`
-would fail in every fork, where that directory does not exist. The duplication is
-four lines and the alternative is a check that is wrong in one of the two places
-it runs.
+would fail in every fork, where that directory does not exist.
+
+**AND WHY ONE CASE PER PROPERTY RATHER THAN ONE PER FILE.** This began as
+`@pytest.mark.parametrize` over every script -- 175 cases in one file, an eighth
+of the corpus's whole test count, for a floor check that has never legitimately
+failed. Two things were wrong with that:
+
+- **175 ids is noise.** A reader scanning the suite learns nothing from
+  `test_the_script_parses[disk_status.py]` repeated eighty-seven times.
+- **A sweep should report every offender at once.** Parameterised, three broken
+  files are three separate failures a reader collects one at a time. Collapsed,
+  the assertion names all three in one message, which is what somebody fixing
+  them actually wants.
+
+What is lost is the failing filename in the *test id*. It is in the failure
+message instead, with the line number, which is where it is more useful.
 """
 
 from __future__ import annotations
 
 from pathlib import Path
-
-import pytest
 
 CI = Path(__file__).resolve().parent.parent
 
@@ -31,8 +42,8 @@ def scripts() -> list[Path]:
 
 
 def test_there_are_scripts_to_check():
-    """A glob that matched nothing would make every case below vanish, and a
-    file with no cases passes silently.
+    """A glob that matched nothing would make every check below vacuous, and a
+    vacuous check reports green.
 
     Mutation: point `scripts()` at an empty directory and this fails.
     """
@@ -40,31 +51,39 @@ def test_there_are_scripts_to_check():
     assert len(found) > 10, f"only {len(found)} script(s) found under {CI}"
 
 
-@pytest.mark.parametrize("script", scripts(),
-                         ids=lambda p: p.relative_to(CI).as_posix())
-def test_the_script_parses(script: Path):
-    """Mutation: introduce a syntax error in any script here and this fails."""
-    try:
-        compile(script.read_text(encoding="utf-8"), str(script), "exec")
-    except SyntaxError as error:
-        pytest.fail(f"{script.relative_to(CI).as_posix()} does not parse: "
-                    f"line {error.lineno}, {error.msg}")
+def test_every_script_parses():
+    """Mutation: introduce a syntax error in any script here and this fails,
+    naming the file and the line."""
+    broken = []
+    for script in scripts():
+        try:
+            compile(script.read_text(encoding="utf-8"), str(script), "exec")
+        except SyntaxError as error:
+            broken.append(f"{script.relative_to(CI).as_posix()}:{error.lineno}: "
+                          f"{error.msg}")
+
+    assert not broken, "these do not parse:\n  " + "\n  ".join(broken)
 
 
-@pytest.mark.parametrize("script", scripts(),
-                         ids=lambda p: p.relative_to(CI).as_posix())
-def test_the_script_has_no_stray_tabs_in_indentation(script: Path):
-    """A real tab reached a docstring here through an escaped `\t` in a shell
-    heredoc, and the file failed to import with a message about indentation.
+def test_no_script_indents_with_tabs():
+    """A real tab reached a docstring here through an escaped `\\t` in a shell
+    heredoc, five times in one session. Tabs mixed with spaces parse in some
+    files and raise `TabError` in others depending on what is above them, so the
+    failure appears in a file nobody just edited.
 
     Mutation: put a tab at the start of an indented line and this fails.
     """
-    offenders = [
-        number
-        for number, line in enumerate(
-            script.read_text(encoding="utf-8").splitlines(), start=1)
-        if line[: len(line) - len(line.lstrip())].count("\t")
-    ]
-    assert not offenders, (
-        f"{script.relative_to(CI).as_posix()} indents with tabs on "
-        f"line(s) {offenders[:5]}")
+    offenders = []
+    for script in scripts():
+        lines = [
+            number
+            for number, line in enumerate(
+                script.read_text(encoding="utf-8").splitlines(), start=1)
+            if line[: len(line) - len(line.lstrip())].count("\t")
+        ]
+        if lines:
+            offenders.append(
+                f"{script.relative_to(CI).as_posix()}: line(s) {lines[:5]}")
+
+    assert not offenders, ("these indent with tabs:\n  "
+                           + "\n  ".join(offenders))
