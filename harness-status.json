@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-22T17:17:57Z",
+  "generated_at": "2026-08-22T17:41:29Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -58,7 +58,7 @@
       "local": 0,
       "pushed": 0,
       "draft": 1,
-      "ready": 6
+      "ready": 7
     },
     "threads_stalled": 4,
     "threads_unreadable": 0
@@ -77,7 +77,17 @@
           "project/*"
         ],
         "contributor": null,
-        "open_prs": [],
+        "open_prs": [
+          {
+            "number": 85,
+            "title": "Add P13 to P16, the records behind them, and the tools that check records",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "evolve/four-principles",
+            "draft": false
+          }
+        ],
         "violations": [],
         "exit_status": 0,
         "compliant": true
@@ -88,7 +98,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "evolve/four-principles",
+          "stage": "ready",
+          "pr": 85,
+          "base": "main",
+          "title": "Add P13 to P16, the records behind them, and the tools that check records",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 6257,
+            "changed_files": 41,
+            "commits": 1,
+            "deletions": 478,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-22T17:36:48Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -177,7 +206,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 21,
-        "observed_at": "2026-08-22T17:17:29Z",
+        "observed_at": "2026-08-22T17:41:00Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -348,7 +377,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 21,
-        "observed_at": "2026-08-22T17:17:34Z",
+        "observed_at": "2026-08-22T17:41:05Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -399,7 +428,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 4,
-        "observed_at": "2026-08-22T17:17:36Z",
+        "observed_at": "2026-08-22T17:41:07Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -462,7 +491,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23178.4,
+          "idle_hours": 23178.8,
           "stalled": true
         }
       ],
@@ -484,7 +513,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 130,
-        "observed_at": "2026-08-22T17:17:22Z",
+        "observed_at": "2026-08-22T17:40:53Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -591,7 +620,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-22T11:46:12Z"
           },
-          "idle_hours": 5.5,
+          "idle_hours": 5.9,
           "stalled": false
         },
         {
@@ -609,7 +638,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 269.5,
+          "idle_hours": 269.9,
           "stalled": true
         }
       ],
@@ -626,7 +655,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 130,
-        "observed_at": "2026-08-22T17:17:23Z",
+        "observed_at": "2026-08-22T17:40:54Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -680,7 +709,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-22T11:46:34Z"
           },
-          "idle_hours": 5.5,
+          "idle_hours": 5.9,
           "stalled": false
         }
       ],
@@ -697,7 +726,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 8,
-        "observed_at": "2026-08-22T17:17:28Z",
+        "observed_at": "2026-08-22T17:40:59Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -795,7 +824,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T19:14:29Z"
           },
-          "idle_hours": 262.1,
+          "idle_hours": 262.4,
           "stalled": true
         }
       ],
@@ -817,7 +846,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 130,
-        "observed_at": "2026-08-22T17:17:25Z",
+        "observed_at": "2026-08-22T17:40:57Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -954,7 +983,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 130,
-        "observed_at": "2026-08-22T17:17:31Z",
+        "observed_at": "2026-08-22T17:41:02Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1018,14 +1047,14 @@
           "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
           "author": "subcontrabass",
           "delta": {
-            "additions": 1595,
-            "changed_files": 26,
-            "commits": 7,
-            "deletions": 58,
+            "additions": 1689,
+            "changed_files": 45,
+            "commits": 8,
+            "deletions": 124,
             "mergeable_state": "unstable",
-            "updated_at": "2026-08-22T12:07:34Z"
+            "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 5.2,
+          "idle_hours": 0.2,
           "stalled": false
         }
       ],
@@ -1042,7 +1071,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 37,
-        "observed_at": "2026-08-22T17:17:24Z",
+        "observed_at": "2026-08-22T17:40:55Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1133,7 +1162,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 130,
-        "observed_at": "2026-08-22T17:17:35Z",
+        "observed_at": "2026-08-22T17:41:06Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1195,7 +1224,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3313.3,
+          "idle_hours": 3313.7,
           "stalled": true
         }
       ],

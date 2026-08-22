@@ -47,10 +47,39 @@ import subprocess
 import sys
 from pathlib import Path
 
+# Narration a pre-ratification draft must not carry: the document describing
+# its own revision history rather than being rewritten.
+#
+# THESE ARE PROXIES FOR A MEANING, AND A PROXY MATCHES THINGS IT DID NOT MEAN.
+# `corrected` was a bare word here, and it fired on "neither is corrected" in a
+# sentence about two perspectives -- prose that was true, that narrated nothing,
+# and that got reworded to satisfy the check. Editing a correct record to keep a
+# tool quiet is the failure `records/DRAFT-deltas-compose.md` 7 names in another
+# register: the tool ends consistent and the record ends worse.
+#
+# So the words that have innocent uses are matched only in a narrating
+# construction, and every rule here is escapable with a stated reason. The ones
+# with no innocent use in a draft stay bare.
 BANNED = re.compile(
-    r"previously|originally|earlier draft|re-review|renumber|retroactive"
-    r"|supersedes the .* (?:stance|finding)|\bcorrected\b",
+    # No innocent use inside a pre-ratification draft.
+    r"earlier draft|re-review|renumber|retroactive"
+    r"|supersedes the .* (?:stance|finding)"
+    # Narrating constructions only. "previously X" narrates; "previously
+    # unknown" is a description of the world.
+    r"|\bpreviously\s+(?:said|stated|read|held|named|claimed|was|were)\b"
+    r"|\boriginally\s+(?:said|stated|read|held|named|claimed|was|were)\b"
+    r"|\b(?:this|that|these|those|it|which|the|a|an)\s+(?:\w+\s+){0,2}"
+    r"(?:was|were|has been|have been|has since been|is now|are now)"
+    r"\s+corrected\b"
+    r"|\bnow\s+corrected\b|\bcorrected\s+(?:from|to|in a later|in this)\b",
     re.IGNORECASE,
+)
+
+# An escape hatch with a price: the reason is required, and the count of
+# exemptions used is printed on every run, so silencing the check stays visible
+# rather than becoming the way it is used.
+EXEMPTION = re.compile(
+    r"<!--\s*adr-lint:\s*allow\s+(?P<quoted>\S.*?)\s*-->", re.IGNORECASE
 )
 
 NUMBERED_FILENAME = re.compile(r"^(?:ADR|QM)-(\d{4})-.+\.md$")
@@ -87,16 +116,51 @@ def is_ratified(status: str | None) -> bool:
     return bool(status) and status.startswith(RATIFIED)
 
 
+def exemption_on(lines: list[str], index: int) -> str | None:
+    """The reason stated for allowing a hit, from this line or the one above.
+
+    Two places because a long line is wrapped in this corpus and an annotation
+    at the end of it would push past the margin every other rule respects.
+    """
+    for candidate in (lines[index], lines[index - 1] if index else ""):
+        found = EXEMPTION.search(candidate)
+        if found:
+            return found.group("quoted").strip()
+    return None
+
+
 def check_banned_vocabulary(records: Path) -> list[str]:
     failures = []
+    allowed = 0
     for path in sorted(records.glob("DRAFT-*.md")):
-        text = prose_only(path.read_text(encoding="utf-8"))
-        for lineno, line in enumerate(text.splitlines(), start=1):
+        raw = path.read_text(encoding="utf-8")
+        # Scanned against prose, but the exemption is read from the raw file:
+        # `prose_only` blanks HTML comments, which is right for the scan and
+        # would make the annotation invisible to the thing it annotates.
+        # `prose_only` preserves line numbering, so the two line up.
+        lines = prose_only(raw).splitlines()
+        raw_lines = raw.splitlines()
+        for index, line in enumerate(lines):
             for hit in BANNED.finditer(line):
-                failures.append(
-                    f"{path}:{lineno}: pre-ratification drafts are squashed, not "
-                    f"narrated -- found {hit.group(0)!r}"
-                )
+                reason = exemption_on(raw_lines, index)
+                if reason is None:
+                    failures.append(
+                        f"{path}:{index + 1}: pre-ratification drafts are "
+                        f"squashed, not narrated -- found {hit.group(0)!r}. If "
+                        f"this narrates nothing, annotate the line: "
+                        f"<!-- adr-lint: allow \"why this is not narration\" -->"
+                    )
+                elif not reason.strip('"\''):
+                    failures.append(
+                        f"{path}:{index + 1}: an adr-lint exemption states a "
+                        f"reason. An empty one is the check turned off."
+                    )
+                else:
+                    allowed += 1
+    if allowed:
+        print(f"ADR lint: {allowed} banned-vocabulary hit(s) allowed by a "
+              f"stated reason. Each is a place the proxy matched prose that "
+              f"narrates nothing.")
     return failures
 
 
@@ -224,6 +288,38 @@ def check_accepted_bodies_untouched(records: Path, base_ref: str) -> list[str]:
     return failures
 
 
+def check_ratified_are_numbered(records: Path) -> list[str]:
+    """A ratified record carries a number in its filename.
+
+    **THE CONVERSE OF `check_numbered_are_ratified`, AND IT WAS MISSING.** Both
+    of the other checks key on the *filename*: one asks whether a numbered file
+    is ratified, and the index check compares numbers taken from filenames
+    against numbers in the index. So a record whose Status was flipped to
+    `Accepted` and whose file was never renamed matched neither, and the lint
+    reported clean.
+
+    That state reads as ratified to a person and as nonexistent to every check
+    — the worst of the two. `docs/ref/ratification.md` documents the *other*
+    failure, where the index was updated too, and that one does fire. This is
+    the case where the ratifier stopped one step earlier.
+
+    Found by performing the ratification steps wrongly on purpose rather than by
+    reading the lint, which is the practice charter P16 states.
+    """
+    failures = []
+    for path in sorted(records.glob("*.md")):
+        if NUMBERED_FILENAME.match(path.name):
+            continue
+        status = status_of(path.read_text(encoding="utf-8"))
+        if is_ratified(status):
+            failures.append(
+                f"{path}: Status {status!r} but the filename carries no number. "
+                "Ratification renames the file; see docs/ref/ratification.md. "
+                "Left unrenamed the record is invisible to the index check too."
+            )
+    return failures
+
+
 def check_index_matches_directory(records: Path, index: Path) -> list[str]:
     if not index.exists():
         return [f"{index}: index file not found."]
@@ -274,6 +370,7 @@ def main() -> int:
     failures: list[str] = []
     failures += check_banned_vocabulary(records)
     failures += check_numbered_are_ratified(records)
+    failures += check_ratified_are_numbered(records)
     failures += check_index_matches_directory(records, index)
 
     if args.base_ref:
