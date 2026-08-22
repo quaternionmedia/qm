@@ -40,7 +40,7 @@ import os
 import socket
 import subprocess
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
@@ -73,6 +73,12 @@ class Surface:
     reader to guess the path has reported a process rather than a place to
     look."""
 
+    also: dict[str, str] = field(default_factory=dict)
+    """Other places worth knowing, path -> what it is. The application is the
+    answer to "show me"; these are the answers to "let me read the data" and
+    "what does this server offer", which are different questions and should not
+    be guessed at either."""
+
     note: str = ""
 
 
@@ -82,13 +88,18 @@ SURFACES: tuple[Surface, ...] = (
         port=3141, constant="pi",
         command=("qmcp", "serve", "--port", "3141"), detachable=True,
         dataview="/v1/topology",
+        also={"/v1/topology/relations/codecartographer":
+              "what the archive says about one project",
+              "/docs": "every route this harness serves"},
         note="both front ends read this. Start it first, or they have "
              "nothing to draw"),
     Surface(
         name="web", repo="codecartographer",
         role="front end on the web", port=2718, constant="e",
         command=("codecarto", "serve", "--port", "2718"), detachable=True,
-        dataview="/topology",
+        dataview="/app",
+        also={"/topology/gjgf": "the same graph, as data",
+              "/topology": "a standalone page, no application needed"},
         note="draws the harness's topology as a graph"),
     Surface(
         name="terminal", repo="dossier",
@@ -231,6 +242,9 @@ def report() -> int:
         for surface in live:
             print(f"  {surface.name:<10} http://127.0.0.1:{surface.port}"
                   f"{surface.dataview}")
+            for extra, what in surface.also.items():
+                print(f"  {'':<10} http://127.0.0.1:{surface.port}{extra}"
+                      f"  ({what})")
         print()
         print("  both at once, in this terminal:")
         print("    uv run qm demo --over-http --side-by-side")

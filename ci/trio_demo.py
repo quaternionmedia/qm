@@ -214,12 +214,25 @@ def _web_window(document: dict, subject: str, kind: str) -> Window:
     -- the part that was missing -- unexercised.
     """
     query = f"subject={subject}" if subject else f"kind={kind}"
-    found, why = _get(f"{WEB_URL}/topology/data?{query}")
-    if found is None:
+    envelope, why = _get(f"{WEB_URL}/topology/data?{query}")
+    if envelope is None:
         return Window("codecartographer", False, detail=why)
-    if not found.get("ok"):
+
+    # **THE PROJECT'S ENVELOPE, NOT A SHAPE INVENTED FOR THIS DEMO.** That
+    # front end answers `{status, message, results}` like every other route it
+    # serves. This demo read the inner document directly until the route was
+    # moved onto the house style, and then reported "could not draw it: None"
+    # -- which was this side failing to read, not that side failing to draw.
+    status = int(envelope.get("status") or 200)
+    found = envelope.get("results") or envelope
+    if status >= 400:
         return Window("codecartographer", False,
-                      detail=f"{found.get('problem')} -- {found.get('remedy')}")
+                      detail=f"{found.get('problem') or envelope.get('message')}"
+                             f" -- {found.get('remedy') or ''}")
+    if "edges" not in found:
+        return Window("codecartographer", False,
+                      detail=f"the front end answered without a rendering: "
+                             f"{sorted(found)[:6]}")
     lines = [f"{e['source']} -> {e['target']}  {e['style']:<8} "
              f"w={e['width']:.2f}  {e['label']}" for e in found["edges"]]
     return Window(
