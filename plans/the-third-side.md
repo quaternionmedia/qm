@@ -16,9 +16,9 @@ A development tool that parses source code and draws it as graphs. Three parts:
 
 | part | what it is |
 |---|---|
-| `codecarto/` | FastAPI backend — 20 language parsers, SSE streaming, on port 8000 |
-| `web/` | TypeScript front end, Vite, 105 `.ts` files, rad ported and mounted |
-| a private submodule | networkx graphs into MongoDB, optional |
+| `codecarto/` | FastAPI backend — 20 language parsers, SSE streaming |
+| `web/` | TypeScript front end, Vite, rad ported and mounted |
+| *(a private submodule)* | networkx graphs into MongoDB, optional — named by description because this page is public |
 
 **Suite: 328 passed, 27 skipped, 198 seconds.** That last figure is the one
 worth holding onto: dossier runs 828 tests in about 220 seconds, so this is
@@ -175,10 +175,11 @@ including the actual deliverable. Integrating on top of unproven ground would
 build the triangle on the one side nobody has seen work. But the browser run
 needs a person at a browser, which is not something I can do.
 
-**4. What is the port arrangement for three services?** codecarto's backend is
-8000, the harness is 3333, and the panel looks for the harness on 3333.
-Something should own the answer before a third service joins — a stated
-allocation, or discovery, or an explicit "these never run together".
+**4. What is the port arrangement for three services?** *Answered.*
+`ci/dashboard.py` owns the allocation and `uv run qm dashboard` prints it: one
+fixed port per surface, each a mathematical constant so nobody has to remember
+which is which. The arrangement is not restated here, because a second copy is
+what produced the mismatch above.
 
 **5. Is the private graph submodule in scope?** It is a submodule on its own
 branch, it wants MongoDB, and MongoDB is a service nobody else in the triangle
