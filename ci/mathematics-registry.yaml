@@ -1,0 +1,135 @@
+# The mathematical structure each layer of the stack is claimed to have.
+#
+# The decision is records/DRAFT-a-knot-is-a-cycle-of-obligation.md and
+# PRINCIPLES.md P15. This is the list, and the list is the mechanism: a practice
+# of this kind that lives only in prose becomes a habit of naming things after
+# theorems, and nobody can tell the difference from the outside.
+#
+# THE TEST. A mapping earns its keep when it *decides* something that would
+# otherwise have been decided by taste. Not when it explains something after the
+# fact, and not when it reads well. The knot entry below was adopted because
+# walking symmetric relations produced forty-two rings and every one was noise --
+# the mathematics said which cycles matter before anybody had an opinion.
+#
+# Fields per entry:
+#   layer       what part of the stack this is about
+#   structure   the mathematical object it is claimed to be
+#   state       earned | decorative | aspirational   (see below)
+#   decides     what the mapping settles that taste would otherwise settle.
+#               `nothing` where it settles nothing, which is what makes an
+#               entry decorative rather than a bad entry.
+#   measured    the command and the result that established it, or `none`
+#   unearned    what the structure has that this layer does not yet -- named as
+#               work rather than hidden. This is the field that keeps the
+#               practice evolving instead of congratulating itself.
+#   next        what would move the state, or `nothing stated`
+#
+# THE THREE STATES, AND WHY `decorative` IS NOT AN INSULT.
+#
+#   earned       a measurement decided something. It may be relied on.
+#   decorative   a mnemonic, an aesthetic, a name. Useful and load-bearing for
+#                nothing. Recorded so the practice stays legible -- an
+#                unlabelled decoration is what turns this into ornament.
+#   aspirational a mapping somebody believes is there and nobody has shown.
+#                Held openly so it can be tested rather than assumed.
+#
+# A STATE MOVES IN BOTH DIRECTIONS. An `earned` mapping whose measurement stops
+# holding is not still earned because it once was. Re-integration is the point:
+# what a layer is found to be should change how the layer is built, and a
+# structure that stops fitting should be demoted rather than defended.
+
+schema: 1
+
+mappings:
+  - layer: the relation vocabulary between deltas
+    structure: a closed algebra with declared inverses
+    state: earned
+    decides: >
+      whether a sixth relation may be added, and what reading one backwards
+      means. Both were settled by the structure rather than by argument: the
+      vocabulary is closed, so a new relation is a change to a record, and the
+      inverse table is read rather than restated so the two directions cannot
+      disagree.
+    measured: >
+      dossier/tests/core/test_composition.py -- INVERSES is total over
+      RELATIONS, SYMMETRIC entries are their own inverse, and `derived-from`
+      has none deliberately. check_relation refuses an unknown name with the
+      five stated.
+    unearned: >
+      no composition law. `part-of` then `part-of` is `part-of`, and nothing
+      states or checks that. Transitivity is assumed by `parts_of`'s walk and
+      asserted nowhere.
+    next: >
+      state which relations compose with which, and check the walk against it.
+
+  - layer: cycles in the obligation graph
+    structure: knots, up to a deformation that reorders but never cuts
+    state: earned
+    decides: >
+      which cycles are reported. A ring of relations that impose no order is
+      the unknot -- it closes and constrains nothing -- so the tangle finder
+      searches the directed relations only.
+    measured: >
+      169 real relations from dossier.sweep and qmcp.threads.consolidate --
+      49 part-of, 120 crosses. tangles() reports 0. Walking symmetric relations
+      both ways and ignoring two-node cycles reports 42, every one of the form
+      thread -> project -> thread -> project. Pinned by
+      dossier/tests/core/test_composition.py.
+    unearned: >
+      no invariant. Nothing distinguishes two knots -- no crossing number, no
+      polynomial -- because the graph is not embedded in three-space and its
+      cycles carry no over- and under-crossings.
+    next: >
+      an invariant for obligation graphs, so two tangles can be compared. That
+      question arrives the moment there is more than one knot, and there are
+      none today. It may also turn out that this is a partial-order question
+      wearing a knot's clothes, and establishing that would beat defending the
+      analogy.
+
+  - layer: the service ports
+    structure: mathematical constants -- pi, phi, e
+    state: decorative
+    decides: nothing
+    measured: none
+    unearned: >
+      everything. Three numbers chosen to be recalled without looking. `e` went
+      to the layer whose stated problem is complexity growing faster than
+      anybody can hold, which is a reason and still not a structure.
+    next: >
+      nothing stated. This entry exists to be labelled rather than improved --
+      an unlabelled decoration is what turns the practice into ornament.
+
+  - layer: work shapes and the workers that take them
+    structure: a total function from shape to worker
+    state: aspirational
+    decides: >
+      would decide whether a dispatcher may be called complete. A total
+      function has an answer for every input; the dispatcher today answers
+      `needs a worker` for shapes nothing handles, which is honest and is not
+      totality.
+    measured: none
+    unearned: >
+      totality itself. `unknown` has no worker on purpose, so the function is
+      partial by design, and it is not yet stated whether that is a gap or the
+      correct shape.
+    next: >
+      decide whether `needs a worker` is a value in the codomain -- making the
+      function total over an extended range -- or an admission that it is
+      partial. The two read the same in code and differently in a review.
+
+  - layer: the phase ladder a delta climbs
+    structure: a partial order, not a sequence
+    state: aspirational
+    decides: >
+      would decide whether a delta may skip a phase, and whether two phases can
+      be held at once. Today the ladder is written as a list and read as a
+      sequence, and nothing says which.
+    measured: none
+    unearned: >
+      the order relation itself. Nobody has stated which phases must precede
+      which, so there is no partial order to check against -- only a list whose
+      ordering is implied by the order it was written in.
+    next: >
+      state the precedence pairs, then check whether real deltas respect them.
+      dossier holds 156 deltas across three phases, which is enough data to
+      find out whether the implied order is the observed one.
