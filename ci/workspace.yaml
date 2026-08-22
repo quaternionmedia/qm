@@ -30,6 +30,34 @@
 #   stated      a human said it, in a session or a record
 #   scaffolded  nothing was said, so the ladder's floor applies
 #
+# `attention` is the other claim, and it answers a different question from
+# `phase`. `phase` is what a project is working toward; `attention` is whether
+# anybody is working on it. The decision is
+# records/DRAFT-attention-is-a-claim-activity-is-measured.md, and what follows
+# summarises it -- where the two disagree, the record is what the organisation
+# decided and this comment is repaired.
+#
+#   active    somebody is working on it now
+#   queued    named as next, and nobody is on it
+#   dormant   nobody is working on it, and nobody decided to stop
+#   retired   somebody decided to stop
+#   external  a fork, or something vendored; the org does not drive it
+#
+# AN ABSENT `attention` IS `unstated`, NOT `dormant`. Silence means nobody has
+# answered the question, and a generator that read it as `dormant` would grow
+# the roster claims nobody made. This is the same refusal `phase_source` makes.
+#
+# It is a claim, so it is never inferred from a commit date. What is measured
+# lives in inventory-public.json as `recency` -- computed from the default
+# branch's last commit, because neither of the two obvious host fields answers
+# the question: `updatedAt` moves when somebody edits a description, and
+# `pushedAt` moves on a push to any ref, including sweeps that touched
+# repositories here whose default branches last moved in 2023.
+#
+# Where the claim and the measurement disagree, `uv run qm inventory` names the
+# pair and corrects neither -- per records/DRAFT-a-disagreement-is-a-delta.md
+# and records/DRAFT-attention-is-a-claim-activity-is-measured.md 7.
+#
 # NOTHING HERE IS EVIDENCE. This file holds what people have asserted. What is
 # actually true of a repository is computed from `governance-status.yaml`,
 # which is generated from git and the host rather than from anybody's account
@@ -95,10 +123,41 @@ repositories:
     role: corpus
     phase: n/a
     phase_source: n/a
+    attention: active
     note: the constitution; every other entry adopts it by reference
     paths: [qm/qm]
 
-  # --- Worked on 2026-08-09 -------------------------------------------------
+  # This section used to be four comment headers, and the headers were the only
+  # place the categories lived. Nothing could read them, nothing could check
+  # them, and three of the four were dated observations written as prose rather
+  # than claims anybody had made -- so they went stale silently, which is what
+  # a claim in a comment does. The one header that really was an attention
+  # claim said so in its own text; it is `attention: active` below. The others
+  # are gone rather than converted, because turning a measurement into a claim
+  # is the substitution the paragraph above refuses.
+  - name: dossier
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    attention: active
+    note: the intended durable surface for governance review
+    paths: [qm/dossier, dossier]
+
+  - name: qmcp
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    attention: active
+    paths: [qm/qmcp, qmcp]
+
+  - name: rad
+    role: project
+    phase: v0.0.1
+    phase_source: stated
+    attention: active
+    note: radial menu; defined the phase ladder above
+    paths: [qm/rad]
+
   - name: alfred
     role: project
     phase: v0.0.1
@@ -120,13 +179,6 @@ repositories:
     note: schema and wire contract; governance propagation open
     paths: [qm/datum]
 
-  - name: rad
-    role: project
-    phase: v0.0.1
-    phase_source: stated
-    note: radial menu; defined the phase ladder above
-    paths: [qm/rad]
-
   - name: codecartographer
     role: project
     phase: v0.0.2
@@ -134,7 +186,6 @@ repositories:
     note: code maps; named itself a v0.0.2 RAD consumer
     paths: [codecartographer, qm/codecartographer]
 
-  # --- Governed, not touched on 2026-08-09 ----------------------------------
   - ref: private-32
     role: project
     phase: v0.0.1
@@ -161,6 +212,35 @@ repositories:
     phase_source: scaffolded
     paths: [factorio-sysops, qm/factorio-sysops]
 
+  # Both of these carry a project/<name> branch in this repository, so the
+  # corpus governs them, and both were absent from this roster -- which meant
+  # `qm inventory` reported them under "the corpus cannot see these" while the
+  # corpus was propagating into them. Neither is cloned in this workspace, so
+  # nothing here can see whether either holds unpushed work.
+  - name: carlos
+    role: project
+    phase: v0.0.1
+    phase_source: stated
+    note: >
+      Browser workspace for sketching synth rigs, governed via project/carlos.
+      `stated`, not `scaffolded`: carlos names the rung in its own
+      GOVERNANCE.md, so the claim is the project's rather than an inference
+      drawn from what it happens to contain. It is what the project works
+      toward and not an attainment -- nothing here is evidence, and the tag
+      that would assert arrival has not been cut. Its default branch is `they`,
+      not `main`, and that branch last moved in 2025 while the host reports a
+      push today, which is the discrepancy that made this roster gap visible.
+    paths: [carlos, qm/carlos]
+
+  - ref: private-34
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      Name and paths live in ci/workspace-private.yaml, which is not
+      committed, for the same reason as private-32 and private-33 above.
+      Governed via a project/<name> branch here.
+
   - name: qmetronome
     role: project
     phase: v0.0.3
@@ -168,14 +248,6 @@ repositories:
     note: named as the v0.0.3 Android target
     paths: ["../AndroidStudioProjects/qmetronome", qm/qmetronome]
 
-  - name: dossier
-    role: project
-    phase: v0.0.1
-    phase_source: scaffolded
-    note: the intended durable surface for governance review
-    paths: [qm/dossier, dossier]
-
-  # --- In the org, governance status not established ------------------------
   - name: benchmark
     role: unmanaged
     phase: v0.0.2
@@ -194,8 +266,3 @@ repositories:
       the plan had to establish it exists.
     paths: [qm/looksatwords, looksatwords]
 
-  - name: qmcp
-    role: project
-    phase: v0.0.1
-    phase_source: scaffolded
-    paths: [qm/qmcp, qmcp]

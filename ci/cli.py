@@ -146,6 +146,11 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "mathematics",
+        help="every mathematical mapping states what it has not earned",
+        add_help=False,
+    )
+    sub.add_parser(
         "slot", help="is this contributor's pull request slot free?", add_help=False
     )
     sub.add_parser(
@@ -236,6 +241,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "gates": ("gate_dashboard", False, ["gate-status.json", "--format", "md"]),
     "tags": ("tag_audit", False, []),
     "restatements": ("check_restatements", False, []),
+    "mathematics": ("check_mathematics", False, []),
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
     "branch": ("check_pr_base", True, []),
