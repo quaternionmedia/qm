@@ -29,7 +29,7 @@ Every word above that is doing unusual work links to its definition. If a senten
     - [Architecture](about/architecture.md) — the branch-per-project model
     - [History](about/history.md) — how the corpus evolved
 
-    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): eleven principles, short.
+    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): short, and every principle there was earned by a defect.
 
 === "Get started"
 

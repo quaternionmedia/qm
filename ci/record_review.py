@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Review every record as one body, and report what only shows up in aggregate.
 
-Org-level tooling, copied nowhere. `ci/adr_lint.py` checks a record's shape;
+Org-level tooling, copied nowhere. `project-seed/ci/adr_lint.py` checks a
+record's shape;
 this checks the *corpus* — the things no single record can be wrong about on its
 own.
 
@@ -66,39 +67,134 @@ ENFORCEMENT = re.compile(
 CITED_PATH = re.compile(r"`(?:governance/qm/)?([A-Za-z0-9_][A-Za-z0-9_./-]*\.(?:md|py|ya?ml|json|toml))`")
 
 
-def sibling_repositories(root: Path) -> set[str]:
-    """Every repository in the roster except this one.
+def sibling_repositories(root: Path) -> dict[str, Path | None]:
+    """Every other QM repository in the roster, mapped to its checkout here.
 
     A record may correctly cite a file in another QM repository -- this corpus
-    governs them all and its records are written about them. That citation is
-    unresolvable *here*, which is a different fact from the file not existing,
-    and reporting the two the same way is the unknown-as-zero conflation this
-    corpus names everywhere else. Read from the roster rather than hardcoded, so
-    a repository joining the org does not need this file edited.
+    governs them all and its records are written about them. Reporting that as
+    "not in the corpus" is the unknown-as-zero conflation this corpus names
+    everywhere else.
 
-    Returns an empty set if the roster is unreadable, which leaves the citation
-    check exactly as strict as it was before this existed.
+    **ONLY THE `repositories:` COLLECTION IS READ.** An earlier version walked
+    the whole document for any key called `name`, `repo` or `slug`, which
+    harvested `milestone.name` -- so `alpha`, a milestone, became a repository
+    and would have excused every citation beginning `alpha/`. A guard whose
+    vocabulary grows whenever an unrelated key is added to a data file is a
+    guard nobody can reason about.
+
+    **AND THE WORKSPACE ROOT IS DERIVED BY SELF-CHECK, NOT ASSUMED.** `paths:`
+    are relative to a workspace directory this file never names. The root is
+    whichever ancestor makes *this corpus's own* entry resolve to `root`; if no
+    ancestor does, the roster cannot locate the repository it is being read
+    from, so it cannot locate any other one either and every value is `None`.
+    Asserting the intermediate is the difference between resolving a path and
+    inventing one.
+
+    A value of `None` means "in the roster, not checked out here" -- which is a
+    different fact from "not a QM repository", and the caller distinguishes
+    them. Returns an empty mapping if the roster is unreadable, which leaves the
+    citation check exactly as strict as it was before this existed.
     """
+    # A relative root has no `.parents`, so the workspace derivation below finds
+    # nothing and every repository reads as "not checked out here" -- a silent
+    # wrong answer rather than an error.
+    root = root.resolve()
     try:
         roster = yaml.safe_load((root / "ci" / "workspace.yaml").read_text(
             encoding="utf-8"))
     except (OSError, yaml.YAMLError):
-        return set()
+        return {}
+    if not isinstance(roster, dict):
+        return {}
 
-    found: set[str] = set()
+    entries = roster.get("repositories")
+    if not isinstance(entries, list):
+        return {}
 
-    def walk(node: object) -> None:
-        if isinstance(node, dict):
-            for key, value in node.items():
-                if key in ("name", "repo", "slug") and isinstance(value, str):
-                    found.add(value.split("/")[-1])
-                walk(value)
-        elif isinstance(node, list):
-            for item in node:
-                walk(item)
+    declared: dict[str, list[str]] = {}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        name = entry.get("name")
+        if not isinstance(name, str) or not name:
+            continue
+        paths = entry.get("paths")
+        declared[name.split("/")[-1]] = [
+            p for p in (paths or []) if isinstance(p, str)]
 
-    walk(roster)
-    return {name for name in found if name and name != "qm"}
+    workspace = _workspace_root(root, declared.get("qm", []))
+    return {
+        name: _checkout(workspace, paths)
+        for name, paths in declared.items()
+        if name != "qm"
+    }
+
+
+def _elsewhere(cited: str, root: Path,
+               siblings: dict[str, Path | None]) -> tuple[str | None, str | None]:
+    """Whether `cited` is a file in another QM repository, and whether it is there.
+
+    **THIS RESOLVES THE PATH RATHER THAN EXCUSING IT.** The first version keyed
+    on the name alone: any path starting with a roster repository was declared
+    unresolvable and waved through. Three things were wrong with that. A typo
+    one character into a real sibling path read as clean. A roster name that
+    collided with a directory of this corpus turned real dangling citations
+    benign, with no code change and no way to notice. And "cannot say whether it
+    resolves" was untrue -- the roster carries `paths:` and the sibling is
+    usually checked out one directory over, so the check can simply look.
+
+    **TWO READINGS, BECAUSE THE CORPUS USES BOTH.** `dossier/docs/rad-commands.md`
+    is `<repo>/<path-in-repo>`. `qmcp/cookbook/delta.py` is a path *inside* the
+    qmcp repository whose package directory happens to share the repository's
+    name. Both spellings appear in ratified prose and neither is wrong, so both
+    are tried; only if neither locates a file is the citation a defect.
+
+    A first segment that is also a directory of this corpus is a corpus path and
+    is never treated as a sibling -- otherwise adding a repository called
+    `handbook` to the roster would silently excuse every broken `handbook/…`
+    citation here.
+    """
+    first, _, rest = cited.partition("/")
+    if not rest or first not in siblings:
+        return None, None
+    if (root / first).is_dir():
+        return None, None
+
+    checkout = siblings[first]
+    if checkout is None:
+        return ("cross-repository-citation",
+                f"names `{cited}`, in `{first}`, which is in the roster and not "
+                f"checked out here. Nothing on this machine can resolve it")
+
+    for candidate in (checkout / rest, checkout / cited):
+        if candidate.exists():
+            return ("cross-repository-citation",
+                    f"names `{cited}`, which resolves in `{first}`. Reported "
+                    f"because a reader must go to that repository to follow it")
+
+    return ("dangling-citation",
+            f"names `{cited}`, and `{first}` is checked out here without it. "
+            f"This is a broken path, not a cross-repository reference")
+
+
+def _workspace_root(root: Path, own_paths: list[str]) -> Path | None:
+    """The directory `paths:` are relative to, proven by this corpus's entry."""
+    for candidate in root.parents:
+        for relative in own_paths:
+            if (candidate / relative).resolve() == root.resolve():
+                return candidate
+    return None
+
+
+def _checkout(workspace: Path | None, paths: list[str]) -> Path | None:
+    """The first declared path that is actually a directory here."""
+    if workspace is None:
+        return None
+    for relative in paths:
+        found = workspace / relative
+        if found.is_dir():
+            return found
+    return None
 
 # "Every QM repository is ...", "every project CI ...". The subject matters:
 # these are claims about the state of the world, which a record does not make.
@@ -149,7 +245,12 @@ def entry_point_text(root: Path) -> str:
 
 def review_record(path: Path, root: Path, gates: list[dict], reachable: str,
                   siblings: set[str] | None = None) -> dict:
-    rel = path.relative_to(root).as_posix()
+    # A records directory outside the root is a caller error, and it used to
+    # arrive as a ValueError from `relative_to` rather than as a sentence.
+    try:
+        rel = path.relative_to(root).as_posix()
+    except ValueError:
+        rel = path.as_posix()
     siblings = sibling_repositories(root) if siblings is None else siblings
     text = path.read_text(encoding="utf-8", errors="replace")
     findings: list[dict] = []
@@ -212,22 +313,10 @@ def review_record(path: Path, root: Path, gates: list[dict], reachable: str,
             if any(root.rglob(cited)):
                 continue
         if not (root / cited).exists():
-            # A path whose first segment is another QM repository is a citation
-            # this check cannot resolve, not a citation that is wrong. Reported
-            # rather than skipped: a reader still has to go and look, and a
-            # carve-out that reports nothing is indistinguishable from a rule
-            # nobody wrote.
-            if cited.split("/", 1)[0] in siblings:
-                findings.append({
-                    "kind": "cross-repository-citation",
-                    "detail": f"names `{cited}`, in another QM repository. This "
-                              f"check reads only this corpus and cannot say "
-                              f"whether it resolves",
-                })
-                continue
+            verdict, detail = _elsewhere(cited, root, siblings)
             findings.append({
-                "kind": "dangling-citation",
-                "detail": f"names `{cited}`, which is not in the corpus",
+                "kind": verdict or "dangling-citation",
+                "detail": detail or f"names `{cited}`, which is not in the corpus",
             })
 
     # --- reachability ------------------------------------------------------

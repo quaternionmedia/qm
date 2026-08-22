@@ -350,3 +350,61 @@ def test_the_deployed_front_ends_agree():
     done = _via_cli("--over-http")
     assert done.returncode == 0, done.stdout[-2500:]
     assert "windows agree about every box" in done.stdout
+
+
+# --- the figure both windows print ------------------------------------------
+#
+# The side-by-side put `17%` in one column and `w=1.42` in the other for the
+# same edge. Both were right: the second is a line thickness derived from the
+# first. Neither was comparable, and the demo exists to invite exactly that
+# comparison -- its premise is that a figure differing between windows is a
+# defect rather than a point of view.
+#
+# **`uv run qm mutate ci/trio_demo.py` CANNOT MEASURE THIS FILE, AND THE REASON
+# IS NOT THAT IT IS UNTESTED.** The mutator copies the module to a temporary
+# directory and runs the suite against the copy; `sibling()` resolves the other
+# repositories relative to the module's own path, so from a temp directory the
+# demo reports that qmcp and dossier are not beside this clone and the baseline
+# is red before a single operator is applied. A mutation run against a red
+# baseline establishes nothing in either direction. The mutations named below
+# were therefore applied by hand, watched go red, and restored -- which is what
+# charter P16 asks for; the tool is the convenience, not the rule.
+
+
+def test_a_measured_edge_prints_the_same_figure_the_other_window_prints():
+    """Mutation: return the width instead of the weight and this fails."""
+    assert _module()._figure(0.17) == "17%"
+    assert _module()._figure(0.127) == "13%"
+
+
+def test_an_unmeasured_edge_says_so_rather_than_borrowing_a_figure():
+    """THE ONE THAT MATTERS.
+
+    `None` is not zero. Rounding it into `0%` would render the one distinction
+    the harness takes care to send as though somebody had looked and found
+    nothing.
+
+    Mutation: `weight or 0` instead of the `is None` test and this fails.
+    """
+    assert _module()._figure(None) == "unmeasured"
+
+
+def test_a_measured_zero_is_a_figure_and_not_unmeasured():
+    """Somebody looked and found nothing, which is a finding.
+
+    Mutation: treat falsy as unmeasured and this fails.
+    """
+    assert _module()._figure(0.0) == "0%"
+
+
+def test_both_window_scripts_print_the_figure():
+    """**THE TWO PATHS MUST NOT DRIFT.** One window is rendered over HTTP and
+    one in the sibling's own interpreter; the demo shares its comparison
+    between the modes so neither can drift lenient, and the rendering has to be
+    held to the same rule.
+
+    Mutation: add the figure to one script and not the other and this fails.
+    """
+    module = _module()
+    assert "figure(e)" in module.CODECARTO
+    assert "unmeasured" in module.CODECARTO

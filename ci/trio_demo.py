@@ -205,6 +205,25 @@ def _harness_document(subject: str) -> tuple[dict | None, str]:
     return None, why
 
 
+def _figure(weight: float | None) -> str:
+    """One edge's measurement, in the units every window prints it in.
+
+    **THE TWO COLUMNS WERE SHOWING DIFFERENT KINDS OF NUMBER FOR ONE EDGE.**
+    The terminal window prints the measurement (`17%`); this side printed only
+    `w=1.42`, which is a line thickness derived from that measurement by
+    `MIN_WIDTH + (MAX_WIDTH - MIN_WIDTH) * weight`. Both were correct and
+    neither was comparable, so a reader set the demo's whole premise -- a figure
+    that differs between the windows is a defect -- against two figures that
+    could not be compared at all.
+
+    An unmeasured edge has no figure and must not borrow one: it says so,
+    rather than rounding `None` into a percentage that looks measured.
+    """
+    if weight is None:
+        return "unmeasured"
+    return f"{round(weight * 100)}%"
+
+
 def _web_window(document: dict, subject: str, kind: str) -> Window:
     """What the deployed web front end says it drew.
 
@@ -234,7 +253,8 @@ def _web_window(document: dict, subject: str, kind: str) -> Window:
                       detail=f"the front end answered without a rendering: "
                              f"{sorted(found)[:6]}")
     lines = [f"{e['source']} -> {e['target']}  {e['style']:<8} "
-             f"w={e['width']:.2f}  {e['label']}" for e in found["edges"]]
+             f"{_figure(e.get('weight')):<11} w={e['width']:.2f}  {e['label']}"
+             for e in found["edges"]]
     return Window(
         "codecartographer", True,
         boxes=[n["id"] for n in found["nodes"]],
@@ -371,7 +391,14 @@ from codecarto.services.topology_service import render
 
 document = json.loads(sys.stdin.read())
 view = render(document["payload"], document.get("encoding"))
-lines = [f'{e.source} -> {e.target}  {e.style:<8} w={e.width:.2f}  {e.label}'
+def figure(edge):
+    """The measurement, in the units the other window prints it in."""
+    if edge.weight is None:
+        return "unmeasured"
+    return str(round(edge.weight * 100)) + "%"
+
+lines = [f'{e.source} -> {e.target}  {e.style:<8} {figure(e):<11} '
+         f'w={e.width:.2f}  {e.label}'
          for e in view.edges]
 print(json.dumps({
     "boxes": [n["id"] for n in view.nodes],
