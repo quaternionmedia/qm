@@ -1,6 +1,11 @@
 # Getting started
 
-What to do in your first hour with the QM corpus.
+If you have just cloned this repository and want to know what to do first, this
+page is your first hour. It assumes nothing about how this organisation works.
+
+This repository holds the decisions Quaternion Media has taken about how it
+builds software, and the checks that keep those decisions honest. Every project
+adopts it, so what is written here applies to all of them.
 
 ## What a record is
 

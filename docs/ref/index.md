@@ -7,6 +7,7 @@ Lookup pages: the rules, the layout, and the terms.
 - **[Record precedence](precedence.md)** — how org and project records relate, and what binds.
 - **[Ratification](ratification.md)** — how a record becomes binding, and what triggers then.
 - **[Handbook index](handbook.md)** — QM's policy and procedure pages.
+- **[Protocols index](protocols.md)** — the reviews somebody runs on purpose, including the plain-language review of the entry points.
 - **[Glossary](glossary.md)** — short definitions of the corpus's terms.
 
 !!! note "These pages summarize, they do not replace"

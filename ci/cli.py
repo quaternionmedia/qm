@@ -146,11 +146,6 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
-        "mathematics",
-        help="every mathematical mapping states what it has not earned",
-        add_help=False,
-    )
-    sub.add_parser(
         "slot", help="is this contributor's pull request slot free?", add_help=False
     )
     sub.add_parser(
@@ -228,10 +223,34 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "posture", help="what the suite costs and what it catches, together",
+        add_help=False,
+    )
+    sub.add_parser(
         "preflight", help="run every workflow's real steps locally", add_help=False
     )
     sub.add_parser(
         "brief", help="build this session's opening brief from the repository", add_help=False
+    )
+    sub.add_parser(
+        "dashboard", help="what of the trio is up, and how to bring up the rest",
+        add_help=False,
+    )
+    sub.add_parser(
+        "demo", help="run one topology through every window and check they agree",
+        add_help=False,
+    )
+    sub.add_parser(
+        "mathematics", help="every mathematical mapping states what it has not earned",
+        add_help=False,
+    )
+    sub.add_parser(
+        "patterns", help="every high-frequency pattern has a mechanical check",
+        add_help=False,
+    )
+    sub.add_parser(
+        "session", help="write a validated session break observation",
+        add_help=False,
     )
     return parser
 
@@ -241,7 +260,6 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "gates": ("gate_dashboard", False, ["gate-status.json", "--format", "md"]),
     "tags": ("tag_audit", False, []),
     "restatements": ("check_restatements", False, []),
-    "mathematics": ("check_mathematics", False, []),
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
     "branch": ("check_pr_base", True, []),
@@ -263,8 +281,18 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "ledger": ("ledger", False, []),
     "test": ("run_tests", False, []),
     "mutate": ("mutate", False, []),
+    "posture": ("test_posture", False, []),
     "preflight": ("run_workflows_locally", True, []),
     "brief": ("cowork_context", True, []),
+    # Four routes added together, because the omission was one shape rather
+    # than four mistakes: a module with a `main` and no route is reachable only
+    # by a path somebody has to have been told, which is the thing `qm` exists
+    # to make unnecessary. `ci/tests/test_cli.py` now refuses a new one.
+    "dashboard": ("dashboard", False, []),
+    "demo": ("trio_demo", False, []),
+    "mathematics": ("check_mathematics", False, []),
+    "patterns": ("check_pattern_coverage", False, []),
+    "session": ("session_record", False, []),
 }
 
 DOCS_ROUTES: dict[str, tuple[str, list[str]]] = {

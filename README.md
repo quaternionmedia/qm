@@ -113,6 +113,14 @@ qm/
 | — | [The read document governs](records/DRAFT-the-read-document-governs.md) | Proposed | 2026-08-14 |
 | — | [Governance arrives as a mechanism](records/DRAFT-governance-arrives-as-a-mechanism.md) | Proposed | 2026-08-14 |
 | — | [The ledger](records/DRAFT-the-ledger.md) | Proposed | 2026-08-15 |
+| — | [Attention is a claim, activity is measured](records/DRAFT-attention-is-a-claim-activity-is-measured.md) | Proposed | 2026-08-19 |
+| — | [CLIs are for machines and for debugging](records/DRAFT-clis-are-for-machines-and-debugging.md) | Proposed | 2026-08-20 |
+| — | [Deltas compose, and a tangle is a fact](records/DRAFT-deltas-compose.md) | Proposed | 2026-08-20 |
+| — | [Acts that are a person's by constitution](records/DRAFT-acts-that-are-a-persons-by-constitution.md) | Proposed | 2026-08-20 |
+| — | [Whether something is a delta is a perspective](records/DRAFT-granularity-is-a-perspective.md) | Proposed | 2026-08-20 |
+| — | [Nothing unattended spends money](records/DRAFT-no-unattended-spending.md) | Proposed | 2026-08-20 |
+| — | [A route is an address, and an unavailable one is still shown](records/DRAFT-a-route-is-an-address.md) | Proposed | 2026-08-20 |
+| — | [A knot is a cycle of obligation, not a cycle in the graph](records/DRAFT-a-knot-is-a-cycle-of-obligation.md) | Proposed | 2026-08-21 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so a gate one person can satisfy alone would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 

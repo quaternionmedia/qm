@@ -48,6 +48,7 @@ ENTRY_POINTS = (
     "README.md",
     "docs/index.md",
     "docs/usage/getting-started.md",
+    "docs/usage/questions-a-new-developer-asks.md",
     "walkthrough/01-*.md",
 )
 

@@ -29,13 +29,14 @@ Every word above that is doing unusual work links to its definition. If a senten
     - [Architecture](about/architecture.md) — the branch-per-project model
     - [History](about/history.md) — how the corpus evolved
 
-    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): eleven principles, short.
+    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): short, and every principle there was earned by a defect.
 
 === "Get started"
 
     **Your first hour with the corpus**
 
     - [Getting started](usage/getting-started.md) — clone, read, and make your first change
+    - [Questions a new developer asks](usage/questions-a-new-developer-asks.md) — first-week questions, and the command that answers each
     - [Forking a new project](usage/first-project.md) — adopt the corpus in a new project
     - [Next steps](usage/next-steps.md) — propagation, audits, and project phases
 
@@ -58,6 +59,7 @@ Every word above that is doing unusual work links to its definition. If a senten
     - [Ratification](ref/ratification.md) — how records become binding
     - [Repository layout](ref/repo-layout.md) — the directory tree
     - [Handbook index](ref/handbook.md) — policy and procedure
+    - [Protocols index](ref/protocols.md) — the reviews somebody runs on purpose
     - [Glossary](ref/glossary.md) — key terms
 
 ## For coding agents
