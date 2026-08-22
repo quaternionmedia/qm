@@ -223,6 +223,10 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "posture", help="what the suite costs and what it catches, together",
+        add_help=False,
+    )
+    sub.add_parser(
         "preflight", help="run every workflow's real steps locally", add_help=False
     )
     sub.add_parser(
@@ -277,6 +281,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "ledger": ("ledger", False, []),
     "test": ("run_tests", False, []),
     "mutate": ("mutate", False, []),
+    "posture": ("test_posture", False, []),
     "preflight": ("run_workflows_locally", True, []),
     "brief": ("cowork_context", True, []),
     # Four routes added together, because the omission was one shape rather

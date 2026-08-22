@@ -694,6 +694,22 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
+    # **THE REFUSAL COMES BEFORE THE WORK.** This sat after `build`, so
+    # refusing to write cost what writing would have -- about half a minute
+    # of scanning every clone on the machine to produce a document that was
+    # then thrown away. A guard that runs last costs what it prevents.
+    if args.write and not args.no_local and inside_corpus(args.write):
+        sys.exit(
+            f"harness_status: refusing to write the machine layer to "
+            f"{args.write}, which is inside the corpus.\n"
+            "That layer is one person's clones -- branch names, uncommitted "
+            "counts, unpushed work -- and committing it would publish one "
+            "machine's state as an organisation fact that every reader after "
+            "you inherits.\n"
+            "Pass --no-local for the committed copy, or --write somewhere "
+            "outside the repository for a machine-scoped one."
+        )
+
     document = yaml.safe_load(args.roster.read_text(encoding="utf-8"))
     roster = merge_private(document.get("repositories") or [])
     if not roster:
@@ -721,17 +737,6 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     text = json.dumps(status, indent=2, ensure_ascii=False) + "\n"
-    if args.write and not args.no_local and inside_corpus(args.write):
-        sys.exit(
-            f"harness_status: refusing to write the machine layer to "
-            f"{args.write}, which is inside the corpus.\n"
-            "That layer is one person's clones -- branch names, uncommitted "
-            "counts, unpushed work -- and committing it would publish one "
-            "machine's state as an organisation fact that every reader after "
-            "you inherits.\n"
-            "Pass --no-local for the committed copy, or --write somewhere "
-            "outside the repository for a machine-scoped one."
-        )
     if args.write:
         args.write.write_text(text, encoding="utf-8", newline="\n")
         totals = status["totals"]

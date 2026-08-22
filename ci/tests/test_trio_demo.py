@@ -126,11 +126,27 @@ def test_each_window_runs_under_its_own_interpreter():
 # --- needs the siblings -------------------------------------------------------
 
 
+# One run per distinct argument set, for the whole module.
+#
+# **MEMOISED, NOT MERGED.** Ten invocations here spawn the demo, and several ask
+# for exactly the same thing: three tests run `qm demo` with no options and
+# assert three different properties of the same output. Merging them into one
+# test would buy the same seconds and cost the failure message -- "the demo is
+# wrong" instead of "the demo stopped saying what it did not establish".
+#
+# The demo reads and never writes, and its answer is a function of its arguments
+# and the harness's state, so a second identical run can only produce a second
+# identical answer. Caching therefore removes duplicate work and nothing else.
+_RUNS: dict[tuple[str, ...], subprocess.CompletedProcess] = {}
+
+
 def _via_cli(*options: str):
     """The demo through its declared route, which is how it is documented."""
-    return subprocess.run(
-        [sys.executable, str(ROOT / "ci" / "cli.py"), "demo", *options],
-        cwd=ROOT, capture_output=True, text=True, timeout=900)
+    if options not in _RUNS:
+        _RUNS[options] = subprocess.run(
+            [sys.executable, str(ROOT / "ci" / "cli.py"), "demo", *options],
+            cwd=ROOT, capture_output=True, text=True, timeout=900)
+    return _RUNS[options]
 
 
 @needs_siblings
