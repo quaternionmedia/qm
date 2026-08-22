@@ -169,3 +169,87 @@ def test_records_aimed_at_a_base_that_already_has_them_are_allowed(repo: Path):
     result = check(repo, "main", "evolve/another-record")
     assert result.returncode == 0, result.stdout + result.stderr
     assert "carries a top-level adr/" not in result.stdout
+
+
+# --- what a mutation sweep found untested -------------------------------------
+#
+# `uv run qm posture` measured this module at 33% -- the lowest in the corpus,
+# on the gate that stops a branch cut from the wrong parent reaching a pull
+# request. Reading the survivor list separated two kinds:
+#
+# **Deliberate survivors.** Most were mutations of prose: ` not ` -> ` ` inside
+# a `help=` string, ` and ` -> ` or ` inside an error message, `capture_output`
+# flipped on a subprocess whose returncode is all anyone reads. Changing those
+# changes no behaviour, and a test pinning the wording of help text would fail
+# every time somebody improved a sentence. They are left alive on purpose.
+#
+# **Real gaps, which these close.** Two clusters survived that are behaviour:
+# whether the required arguments are actually required, and the branch of the
+# missing-ref hint that tells you to push. Both are reachable by a person on
+# their first run of this tool.
+
+
+def test_base_and_head_are_required(repo: Path):
+    """**A GATE WITH OPTIONAL ARGUMENTS IS A GATE THAT CHECKS NOTHING.**
+    `required=True` on both survived mutation: nothing established that
+    omitting them fails rather than defaulting to something.
+
+    Mutation: `required=False` on either and this fails.
+    """
+    for missing in ("--base", "--head"):
+        args = ["--base", "main", "--head", "topic"]
+        at = args.index(missing)
+        del args[at:at + 2]
+        result = run_tool("check_pr_base.py", *args, cwd=repo)
+        assert result.returncode != 0, f"{missing} was not required"
+        assert "required" in (result.stderr + result.stdout).lower()
+
+
+def test_a_head_that_exists_locally_and_not_on_the_remote_says_to_push(repo: Path):
+    """THE HINT THAT IS THE POINT OF THE BRANCH.
+
+    The ordinary cause off a runner is a branch that has never been pushed --
+    exactly the state you are in when you run this *before* opening the pull
+    request. git's own message names the ref and not the reason, so it reads as
+    a broken check.
+
+    Three mutations survived on this condition (`==` to `!=`, dropping `not`,
+    `and` to `or`), which together mean nothing had ever exercised the branch.
+
+    Mutation: any of those three and this fails.
+    """
+    # Plain files: this is about refs and remotes, not about records.
+    write(repo / "a.txt", "on main\n")
+    commit_all(repo, "a commit on main")
+    # The base has to exist on the remote, or the tool refuses on *it* and
+    # never reaches the head -- which is what the first version of this test
+    # actually measured.
+    git(repo, "push", "-q", "origin", "main")
+    git(repo, "checkout", "-q", "-b", "never-pushed")
+    write(repo / "b.txt", "only here\n")
+    commit_all(repo, "a commit only here")
+
+    result = run_tool("check_pr_base.py", "--base", "main",
+                      "--head", "never-pushed", cwd=repo)
+    said = result.stderr + result.stdout
+
+    assert result.returncode != 0
+    assert "exists locally but not on" in said, said
+    assert "Push it" in said
+    assert "Nothing is wrong with the branch" in said
+
+
+def test_a_base_that_does_not_exist_anywhere_says_to_check_the_name(repo: Path):
+    """The other side of the same condition: a ref nobody has is a typo or an
+    unfetched remote, and telling that person to push would be wrong.
+
+    Mutation: give both branches the same hint and this fails.
+    """
+    result = run_tool("check_pr_base.py", "--base", "no-such-base",
+                      "--head", "main", cwd=repo)
+    said = result.stderr + result.stdout
+
+    assert result.returncode != 0
+    assert "Check the name" in said
+    assert "exists locally but not on" not in said, (
+        "a missing base was told to push, which is advice for a head")
