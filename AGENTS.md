@@ -47,7 +47,7 @@ that mandated a particular product would be violating its own charter.
 does not** — it has no `reading:` block at all, so its refresh command and its
 168-hour budget are only in `handbook/generated-documents.md`, and for that one
 you do need the page. `handbook/generated-documents.md` indexes both, and
-`ci/harness_dashboard.py harness-status.json --format md` renders the second
+`uv run qm harness` renders the second
 as prose. Check the age before quoting a figure — a stale number delivered
 with a date looks checked.
 
@@ -102,16 +102,16 @@ with a date looks checked.
      exemption.
 
 4. **Check what your branch actually carries, before opening the PR.**
-   `python project-seed/ci/check_pr_base.py --base <base> --head <branch>`
-   reports the merge-base, the commit and file counts, the authors, and any
+   `uv run qm branch --base <base> --head <branch>` reports the merge-base,
+   the commit and file counts, the authors, and any
    commits that also live on another branch. A branch cut from the wrong parent
    passes every other check — its tests are green and its lint is clean,
    because those measure the branch and not where it came from. One PR in this
    org sat open carrying 18 commits of unrelated work under a title describing
    one CI check. Paste the output into the description.
 5. **Run the CI locally before you call a pull request ready.**
-   `python project-seed/ci/run_workflows_locally.py` executes the workflows'
-   actual steps. Reading a workflow and running the commands you think it
+   `uv run --extra preflight qm preflight` executes the workflows' actual
+   steps. Reading a workflow and running the commands you think it
    contains is not the same thing, and the difference is where false "CI is
    green" claims come from — the first local run of this repo's own workflows
    failed a step that every hand-run check had passed. Report what you ran and
