@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-23T14:26:25Z"
+generated_at: "2026-08-23T15:37:59Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -26,8 +26,8 @@ generator:
   unknowns: 2
 corpus:
   ref: origin/main
-  commit: "d29d873e8849469d3766da16e21a5cd6f67155ff"
-  committed_at: "2026-08-23T01:59:30Z"
+  commit: "8229a405abb4a3041b9bc275bb14be25f52c2e19"
+  committed_at: "2026-08-23T14:30:43Z"
   records:
     total: 29
     ratified: 0
@@ -41,7 +41,7 @@ projects:
       ref: origin/project/alfred
       commit: "314ca5cfb85d4cc0988dbd75a606dca04c82dc03"
       committed_at: "2026-08-12T12:41:46Z"
-      behind_corpus: 191
+      behind_corpus: 192
       ahead_of_corpus: 15
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -81,13 +81,13 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T14:26:07Z"
+    observed_at: "2026-08-23T15:37:41Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
       commit: "20e00bdbec3f12d17cf88d858e99a732563c6e31"
       committed_at: "2026-08-12T12:41:51Z"
-      behind_corpus: 191
+      behind_corpus: 192
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -129,13 +129,13 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T14:26:08Z"
+    observed_at: "2026-08-23T15:37:42Z"
   - name: carlos
     branch:
       ref: origin/project/carlos
       commit: "22d32a1a674b49ae2eae95fcdc8331d288387b26"
       committed_at: "2026-08-20T15:32:42Z"
-      behind_corpus: 98
+      behind_corpus: 99
       ahead_of_corpus: 6
       merge_base: "fde5dfc8fe7792410ea9bc011f5cbaf897b8e2bc"
       merge_base_at: "2026-08-16T22:01:43Z"
@@ -174,13 +174,13 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T14:26:10Z"
+    observed_at: "2026-08-23T15:37:44Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
       commit: "99a737ce97fc44e63c407002c2b5ad03e39b23b1"
       committed_at: "2026-08-22T21:27:53Z"
-      behind_corpus: 8
+      behind_corpus: 9
       ahead_of_corpus: 23
       merge_base: "0ce57b4cd2586dd1a586e95712c11e9b8a0034a4"
       merge_base_at: "2026-08-22T17:56:15Z"
@@ -223,13 +223,13 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T14:26:11Z"
+    observed_at: "2026-08-23T15:37:45Z"
   - name: private-33
     branch:
       ref: origin/project/private-33
       commit: "299fbafe88fd83b87ccd59eeddb994ab7611c2be"
       committed_at: "2026-08-12T12:42:02Z"
-      behind_corpus: 191
+      behind_corpus: 192
       ahead_of_corpus: 13
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -269,13 +269,13 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T14:26:12Z"
+    observed_at: "2026-08-23T15:37:46Z"
   - name: datum
     branch:
       ref: origin/project/datum
       commit: "e49617e5bcc807f509791920da2588347faafad2"
       committed_at: "2026-08-19T15:58:55Z"
-      behind_corpus: 69
+      behind_corpus: 70
       ahead_of_corpus: 18
       merge_base: "88e174938b7938c0ddecc4ac9e0f247792f047de"
       merge_base_at: "2026-08-19T15:42:23Z"
@@ -318,13 +318,13 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T14:26:14Z"
+    observed_at: "2026-08-23T15:37:48Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
       commit: "e58035cd8bec477bf5d1db8cfcba1cd2d6aa4f0e"
       committed_at: "2026-08-22T20:19:25Z"
-      behind_corpus: 8
+      behind_corpus: 9
       ahead_of_corpus: 12
       merge_base: "0ce57b4cd2586dd1a586e95712c11e9b8a0034a4"
       merge_base_at: "2026-08-22T17:56:15Z"
@@ -346,7 +346,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-23T14:07:23Z"
+      pushed_at: "2026-08-23T15:13:05Z"
       licence: MIT
     adoption:
       submodule:
@@ -366,13 +366,13 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T14:26:15Z"
+    observed_at: "2026-08-23T15:37:49Z"
   - name: private-32
     branch:
       ref: origin/project/private-32
       commit: "a545991fc62f94e74296d803770391eda1658d8a"
       committed_at: "2026-08-12T12:42:20Z"
-      behind_corpus: 191
+      behind_corpus: 192
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -412,13 +412,13 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T14:26:16Z"
+    observed_at: "2026-08-23T15:37:50Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
       commit: "1cc3f7e9582059369701e60ace18bb523887b5b4"
       committed_at: "2026-08-12T12:42:25Z"
-      behind_corpus: 191
+      behind_corpus: 192
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -458,13 +458,13 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T14:26:17Z"
+    observed_at: "2026-08-23T15:37:52Z"
   - name: private-34
     branch:
       ref: origin/project/private-34
       commit: "6f7ffe2a5578045854926ff8edd6cc3cc1ee1ef5"
       committed_at: "2026-08-12T12:42:31Z"
-      behind_corpus: 191
+      behind_corpus: 192
       ahead_of_corpus: 12
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -504,13 +504,13 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T14:26:19Z"
+    observed_at: "2026-08-23T15:37:53Z"
   - name: qmcp
     branch:
       ref: origin/project/qmcp
       commit: "a3685dfa5b5a1f97a9536bb8d70f2de328698cbb"
       committed_at: "2026-08-22T20:19:21Z"
-      behind_corpus: 8
+      behind_corpus: 9
       ahead_of_corpus: 13
       merge_base: "0ce57b4cd2586dd1a586e95712c11e9b8a0034a4"
       merge_base_at: "2026-08-22T17:56:15Z"
@@ -532,7 +532,7 @@ projects:
       default_branch: main
       private: false
       archived: false
-      pushed_at: "2026-08-22T20:30:40Z"
+      pushed_at: "2026-08-23T14:59:41Z"
       licence: NOASSERTION
     adoption:
       submodule:
@@ -550,13 +550,13 @@ projects:
         - reuse-lint.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T14:26:20Z"
+    observed_at: "2026-08-23T15:37:54Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
       commit: "364ac3cc4a722f50d53811c4ad911d9a744ad783"
       committed_at: "2026-08-12T12:42:44Z"
-      behind_corpus: 191
+      behind_corpus: 192
       ahead_of_corpus: 24
       merge_base: "a7f78f5648d94269a9112633f175e5827f9dc3a5"
       merge_base_at: "2026-08-11T23:00:40Z"
@@ -598,13 +598,13 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-23T14:26:21Z"
+    observed_at: "2026-08-23T15:37:56Z"
   - name: rad
     branch:
       ref: origin/project/rad
       commit: "c925686429c3ab00c38ec999978be507dec6cb14"
       committed_at: "2026-08-19T18:23:16Z"
-      behind_corpus: 65
+      behind_corpus: 66
       ahead_of_corpus: 1
       merge_base: "ce616c0fa90b85a8545d88989adb2c834d2c459c"
       merge_base_at: "2026-08-19T16:47:53Z"
@@ -642,13 +642,13 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T14:26:23Z"
+    observed_at: "2026-08-23T15:37:57Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
       commit: "b0265d1e4e86f403b57f66181af9874efe1ce3a9"
       committed_at: "2026-08-08T16:51:11Z"
-      behind_corpus: 250
+      behind_corpus: 251
       ahead_of_corpus: 2
       merge_base: "81d6967462509f43dbf82fda0968ed532a41e640"
       merge_base_at: "2026-08-08T16:48:39Z"
@@ -671,7 +671,7 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-23T14:26:23Z"
+    observed_at: "2026-08-23T15:37:57Z"
 org:
   repositories:
     total: 111
@@ -747,7 +747,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 32
-  observed_at: "2026-08-23T14:26:25Z"
+  observed_at: "2026-08-23T15:37:59Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."
