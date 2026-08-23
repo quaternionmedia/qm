@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-23T01:48:25Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-23T01:54:00Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **128**, unfiltered.
+Every governed document in this corpus: **129**, unfiltered.
 
 | | |
 |---|---|
@@ -60,7 +60,7 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 27 |
 | [D] `draft` | 2 |
-| [-] `unreviewed` | 45 |
+| [-] `unreviewed` | 46 |
 | [G] `generated` | 7 |
 | [S] `standing` | 30 |
 | [T] `transient` | 17 |
@@ -107,6 +107,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-08-reading-the-proxy-instead-of-the-thing.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-09-adopting-a-corpus-whose-harness-is-unmerged.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-09-explanation-in-the-wrong-place.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-09-tests-that-enumerate-around-the-defect.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-09-the-reviewer-is-the-shared-resource.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-11-inflation-deflation-and-what-discovery-looks-like.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-11-measuring-your-own-scaffolding.md` | perspective | Unreviewed |
