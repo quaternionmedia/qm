@@ -17,8 +17,8 @@ what a first ratification should be optimised for.
 
 Every org record is `Proposed`, and `docs/ref/ratification.md` says why: the
 gate waits on a second active code owner, because GitHub does not count a pull
-request author's own approval and a gate one person can satisfy alone is not a
-gate.
+request author's own approval and an approval its own author can supply is not
+a gate.
 
 That reasoning is about *who approves*, and it has not changed. What has changed
 is that the mechanics have never been exercised. The ratification page carries a
