@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-22T17:49:50Z",
+  "generated_at": "2026-08-23T01:19:41Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -60,7 +60,7 @@
       "draft": 1,
       "ready": 6
     },
-    "threads_stalled": 4,
+    "threads_stalled": 3,
     "threads_unreadable": 0
   },
   "repositories": [
@@ -176,8 +176,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 24,
-        "observed_at": "2026-08-22T17:49:23Z",
+        "behind_corpus": 0,
+        "observed_at": "2026-08-23T01:19:10Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -347,8 +347,8 @@
           "workflows_absent": 1,
           "licensing_present": 0
         },
-        "behind_corpus": 24,
-        "observed_at": "2026-08-22T17:49:27Z",
+        "behind_corpus": 0,
+        "observed_at": "2026-08-23T01:19:14Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -398,8 +398,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 7,
-        "observed_at": "2026-08-22T17:49:30Z",
+        "behind_corpus": 57,
+        "observed_at": "2026-08-23T01:19:18Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -462,7 +462,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23178.9,
+          "idle_hours": 23186.4,
           "stalled": true
         }
       ],
@@ -483,8 +483,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 133,
-        "observed_at": "2026-08-22T17:49:15Z",
+        "behind_corpus": 183,
+        "observed_at": "2026-08-23T01:19:02Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -584,14 +584,14 @@
           "title": "Fix the viewer, and give datum-core an assembly you can navigate",
           "author": "subcontrabass",
           "delta": {
-            "additions": 7323,
-            "changed_files": 79,
-            "commits": 31,
+            "additions": 7587,
+            "changed_files": 82,
+            "commits": 32,
             "deletions": 422,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-22T11:46:12Z"
+            "updated_at": "2026-08-23T01:12:49Z"
           },
-          "idle_hours": 6.1,
+          "idle_hours": 0.1,
           "stalled": false
         },
         {
@@ -609,7 +609,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 270.0,
+          "idle_hours": 277.5,
           "stalled": true
         }
       ],
@@ -625,8 +625,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 133,
-        "observed_at": "2026-08-22T17:49:17Z",
+        "behind_corpus": 183,
+        "observed_at": "2026-08-23T01:19:03Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -673,14 +673,14 @@
           "title": "WP-3: firmware, the pre-HIL run, and a pinned enclosure",
           "author": "subcontrabass",
           "delta": {
-            "additions": 3844,
-            "changed_files": 47,
-            "commits": 32,
+            "additions": 4443,
+            "changed_files": 50,
+            "commits": 33,
             "deletions": 97,
             "mergeable_state": "clean",
-            "updated_at": "2026-08-22T11:46:34Z"
+            "updated_at": "2026-08-23T01:13:26Z"
           },
-          "idle_hours": 6.1,
+          "idle_hours": 0.1,
           "stalled": false
         }
       ],
@@ -696,8 +696,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 11,
-        "observed_at": "2026-08-22T17:49:22Z",
+        "behind_corpus": 61,
+        "observed_at": "2026-08-23T01:19:08Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -714,6 +714,15 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 91,
+            "title": "Draw the harness topology in the real application, and mount the corpus where every project mounts it",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "evolve/the-third-window",
+            "draft": false
+          },
           {
             "number": 90,
             "title": "build(deps): bump pymdown-extensions from 10.20 to 11.0.1",
@@ -758,15 +767,6 @@
             "base": "main",
             "head": "dependabot/uv/setuptools-83.0.0",
             "draft": false
-          },
-          {
-            "number": 84,
-            "title": "Full review cleanup: governance migration, dead-code/dependency cleanup, Lexicon Option B, layout unification",
-            "author": "subcontrabass",
-            "bot": false,
-            "base": "main",
-            "head": "cleanup/2026-07-21-full-review",
-            "draft": false
           }
         ],
         "violations": [],
@@ -781,22 +781,22 @@
       },
       "threads": [
         {
-          "name": "cleanup/2026-07-21-full-review",
+          "name": "evolve/the-third-window",
           "stage": "ready",
-          "pr": 84,
+          "pr": 91,
           "base": "main",
-          "title": "Full review cleanup: governance migration, dead-code/dependency cleanup, Lexicon Option B, layout unification",
+          "title": "Draw the harness topology in the real application, and mount the corpus where every project mounts it",
           "author": "subcontrabass",
           "delta": {
-            "additions": 4666,
-            "changed_files": 128,
-            "commits": 51,
-            "deletions": 4048,
-            "mergeable_state": "clean",
-            "updated_at": "2026-08-11T19:14:29Z"
+            "additions": 12968,
+            "changed_files": 172,
+            "commits": 70,
+            "deletions": 4072,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-23T01:06:46Z"
           },
-          "idle_hours": 262.6,
-          "stalled": true
+          "idle_hours": 0.2,
+          "stalled": false
         }
       ],
       "governance": {
@@ -816,8 +816,8 @@
           "workflows_absent": 3,
           "licensing_present": 1
         },
-        "behind_corpus": 133,
-        "observed_at": "2026-08-22T17:49:19Z",
+        "behind_corpus": 0,
+        "observed_at": "2026-08-23T01:19:06Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -953,8 +953,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 133,
-        "observed_at": "2026-08-22T17:49:25Z",
+        "behind_corpus": 183,
+        "observed_at": "2026-08-23T01:19:12Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1025,7 +1025,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 0.4,
+          "idle_hours": 7.9,
           "stalled": false
         }
       ],
@@ -1041,8 +1041,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 40,
-        "observed_at": "2026-08-22T17:49:18Z",
+        "behind_corpus": 90,
+        "observed_at": "2026-08-23T01:19:04Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1132,8 +1132,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 133,
-        "observed_at": "2026-08-22T17:49:29Z",
+        "behind_corpus": 183,
+        "observed_at": "2026-08-23T01:19:17Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1195,7 +1195,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3313.8,
+          "idle_hours": 3321.3,
           "stalled": true
         }
       ],

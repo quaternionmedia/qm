@@ -149,6 +149,11 @@ def build_parser() -> argparse.ArgumentParser:
         "slot", help="is this contributor's pull request slot free?", add_help=False
     )
     sub.add_parser(
+        "pins",
+        help="is every submodule pin a commit somebody else could get?",
+        add_help=False,
+    )
+    sub.add_parser(
         "branch", help="what a branch actually carries, against its base", add_help=False
     )
     sub.add_parser(
@@ -262,6 +267,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "restatements": ("check_restatements", False, []),
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
+    "pins": ("check_submodule_pins", True, []),
     "branch": ("check_pr_base", True, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
