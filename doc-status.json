@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-23T01:54:00Z",
+  "generated_at": "2026-08-23T14:26:47Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -50,13 +50,13 @@
       },
       {
         "path": "handbook/handoffs/README.md",
-        "lines": 148
+        "lines": 149
       }
     ],
-    "total_lines": 630,
+    "total_lines": 631,
     "budget_lines": 700,
     "within_budget": true,
-    "headroom_lines": 70,
+    "headroom_lines": 69,
     "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
     "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open."
   },
@@ -108,7 +108,7 @@
       },
       "documents_in_unknown_state": 0,
       "reading_within_budget": true,
-      "reading_total_lines": 630,
+      "reading_total_lines": 631,
       "reading_budget_lines": 700,
       "gates": {
         "unknown": "held in gate-status.json, which this generator does not read -- one document does not restate another's figures"
@@ -120,13 +120,13 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 129,
+    "documents": 130,
     "by_state": {
       "draft": 2,
       "generated": 7,
       "proposed": 27,
       "standing": 30,
-      "transient": 17,
+      "transient": 18,
       "unreviewed": 46
     },
     "disagreements": 0,
@@ -399,6 +399,15 @@
     },
     {
       "path": "handbook/handoffs/session-2026-08-15.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/session-2026-08-23.md",
       "class": "handoff",
       "class_reason": "working instructions, deleted when the work lands",
       "declared_status": null,

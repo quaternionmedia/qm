@@ -20,6 +20,7 @@ nothing.
 
 | Handoff | Blocks on | Repo |
 |---|---|---|
+| [`session-2026-08-23.md`](session-2026-08-23.md) | nothing — **read this first**: where 2026-08-22/23 left all four repositories, with every branch merged, every slot free and nothing held back. Names the standing constraints a cold session will not infer, the model-layer decision that is taken and unbuilt, eight open items with their commands, and what to distrust in the page itself | every repo |
 | [`the-active-four.md`](the-active-four.md) | nothing — **read this first**: which four repositories are active, what is unfinished in each, and the gate that had failed since its repository was created without anybody noticing | every repo |
 | [`the-pair-and-the-fresh-setup.md`](the-pair-and-the-fresh-setup.md) | nothing — **read this first**: where 2026-08-19 left all three repositories, with every branch merged and nothing held back. Names what is unfinished, what is blocked on a human, and the claims it could not verify | every repo |
 | [`two-views-one-dataset.md`](two-views-one-dataset.md) | nothing — the address grammar the dashboard milestone needs is built and pushed; four pieces remain, and one decision nobody has taken: when two views disagree about one address, which is the source | qm + dossier + qmcp |
