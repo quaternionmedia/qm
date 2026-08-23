@@ -12,7 +12,7 @@ and all of it was found committed in this organisation's repositories on
 2026-08-23:
 
   qmcp        `C:/Users/<name>/repos/qm/qmcp` in a documented MCP client config
-  dossier     `C:\\Users\\<name>\\.dossier\\dossier.db` in two of 54 screenshots
+  dossier     `C:\\Users\\<name>\\.dossier\\dossier.db` in a committed screenshot
   qm          a `claude.ai/share/` link, two conversation identifiers and the
               absolute path of an archive, in a committed transcript's header
 

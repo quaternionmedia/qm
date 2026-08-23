@@ -1,5 +1,5 @@
 schema: 1
-generated_at: "2026-08-23T15:47:46Z"
+generated_at: "2026-08-23T15:57:12Z"
 generator:
   tool: ci/governance_status.py
   layers:
@@ -81,7 +81,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T15:47:29Z"
+    observed_at: "2026-08-23T15:56:56Z"
   - name: apothecary
     branch:
       ref: origin/project/apothecary
@@ -129,7 +129,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T15:47:30Z"
+    observed_at: "2026-08-23T15:56:57Z"
   - name: carlos
     branch:
       ref: origin/project/carlos
@@ -174,7 +174,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T15:47:31Z"
+    observed_at: "2026-08-23T15:56:58Z"
   - name: codecartographer
     branch:
       ref: origin/project/codecartographer
@@ -223,7 +223,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T15:47:33Z"
+    observed_at: "2026-08-23T15:57:00Z"
   - name: private-33
     branch:
       ref: origin/project/private-33
@@ -269,7 +269,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T15:47:34Z"
+    observed_at: "2026-08-23T15:57:01Z"
   - name: datum
     branch:
       ref: origin/project/datum
@@ -318,7 +318,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T15:47:35Z"
+    observed_at: "2026-08-23T15:57:02Z"
   - name: dossier
     branch:
       ref: origin/project/dossier
@@ -366,7 +366,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T15:47:36Z"
+    observed_at: "2026-08-23T15:57:03Z"
   - name: private-32
     branch:
       ref: origin/project/private-32
@@ -412,7 +412,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T15:47:37Z"
+    observed_at: "2026-08-23T15:57:04Z"
   - name: factorio-sysops
     branch:
       ref: origin/project/factorio-sysops
@@ -458,7 +458,7 @@ projects:
         - submodule-check.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T15:47:39Z"
+    observed_at: "2026-08-23T15:57:06Z"
   - name: private-34
     branch:
       ref: origin/project/private-34
@@ -504,7 +504,7 @@ projects:
       seed_workflow_filenames_absent: []
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T15:47:40Z"
+    observed_at: "2026-08-23T15:57:07Z"
   - name: qmcp
     branch:
       ref: origin/project/qmcp
@@ -550,7 +550,7 @@ projects:
         - reuse-lint.yml
       licensing: []
     open_prs: []
-    observed_at: "2026-08-23T15:47:41Z"
+    observed_at: "2026-08-23T15:57:08Z"
   - name: qmetronome
     branch:
       ref: origin/project/qmetronome
@@ -598,7 +598,7 @@ projects:
       licensing:
         - LICENSE
     open_prs: []
-    observed_at: "2026-08-23T15:47:43Z"
+    observed_at: "2026-08-23T15:57:09Z"
   - name: rad
     branch:
       ref: origin/project/rad
@@ -642,7 +642,7 @@ projects:
         - LICENSE
         - REUSE.toml
     open_prs: []
-    observed_at: "2026-08-23T15:47:44Z"
+    observed_at: "2026-08-23T15:57:11Z"
   - name: streaming-infrastructure
     branch:
       ref: origin/project/streaming-infrastructure
@@ -671,7 +671,7 @@ projects:
     adoption:
       unknown: "gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP 404)"
     open_prs: []
-    observed_at: "2026-08-23T15:47:44Z"
+    observed_at: "2026-08-23T15:57:11Z"
 org:
   repositories:
     total: 111
@@ -747,7 +747,7 @@ org:
     - wolf
     - ztgui
   unmanaged_names_withheld: 32
-  observed_at: "2026-08-23T15:47:46Z"
+  observed_at: "2026-08-23T15:57:12Z"
 undefined:
   - term: adopted
     why_not_computed: "The corpus states only what adoption is not -- 'Being pinned is not being adopted, and nothing reports the difference' -- and warns against filename checks. No record or handbook page gives a file set, a ref, or a predicate. So the artifacts each repository carries are listed and no boolean is derived from them."

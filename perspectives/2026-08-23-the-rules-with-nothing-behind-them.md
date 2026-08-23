@@ -57,7 +57,7 @@ A sweep found, in four repositories:
 | | |
 |---|---|
 | `qm` | a `claude.ai/share/` link, two conversation identifiers, and the absolute path of a conversation archive — in the header of a committed transcript |
-| `dossier` | an account name in a database path, in 2 of 54 committed screenshots |
+| `dossier` | an account name in a database path, in 1 of the 7 committed screenshots |
 | `qmcp` | an account name and one machine's directory layout, in a documented MCP config |
 | `codecartographer` | an account name, in a pasted traceback in an archived doc |
 
@@ -118,6 +118,14 @@ re-request things and that is worth measuring.
 | Tests querying a screen before it mounted | 2 | passed on timing |
 | Declared a ring route without adding the wedge | 1 | caught by the registry |
 | Killed my own shell process with a process filter | 1 | the filter matched the command containing the filter |
+| Counted the filesystem instead of the repository | 1 | reported "2 of 54 screenshots"; it was 1 of the 7 that are committed, and CI caught it by seeing what a checkout sees |
+
+Two of these are the same failure wearing different clothes. The screenshot
+miscount and the heredoc corruption are both *the scaffolding being measured
+instead of the subject* — 54 files on a disk are not 7 files in a repository,
+and a string written through a shell is not the string that was typed. This
+corpus names that in `records/DRAFT-decision-record-discipline.md` §9, and I
+wrote a guard about it on the first of these two days.
 
 The heredoc failure is the one to fix, and it is now in the tool's memory: four
 occurrences in one session, in a corpus that already carries two guards written

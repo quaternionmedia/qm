@@ -112,7 +112,7 @@ which a secret scanner would flag because none is a credential.
 | repository | what | where |
 |---|---|---|
 | `qm` | a `claude.ai/share/` link, two conversation identifiers, and the absolute path of a conversation archive | the provenance header of a committed transcript |
-| `dossier` | an account name in a database path | 2 of 54 committed screenshots |
+| `dossier` | an account name in a database path | 1 of the 7 committed screenshots |
 | `qmcp` | an account name and one machine's directory layout | a documented MCP client config |
 | `codecartographer` | an account name, in a pasted traceback | an archived legacy doc |
 
