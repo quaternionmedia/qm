@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-23T15:38:20Z",
+  "generated_at": "2026-08-23T15:45:37Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -59,7 +59,7 @@
       "local": 0,
       "pushed": 0,
       "draft": 1,
-      "ready": 7
+      "ready": 9
     },
     "threads_stalled": 3,
     "threads_unreadable": 0
@@ -78,7 +78,17 @@
           "project/*"
         ],
         "contributor": null,
-        "open_prs": [],
+        "open_prs": [
+          {
+            "number": 94,
+            "title": "Check for the account names and conversation links no secret scanner looks for",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "fix/a-transcript-that-named-its-source",
+            "draft": false
+          }
+        ],
         "violations": [],
         "exit_status": 0,
         "compliant": true
@@ -89,7 +99,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "fix/a-transcript-that-named-its-source",
+          "stage": "ready",
+          "pr": 94,
+          "base": "main",
+          "title": "Check for the account names and conversation links no secret scanner looks for",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 564,
+            "changed_files": 10,
+            "commits": 1,
+            "deletions": 70,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-23T15:39:12Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -189,7 +218,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-23T15:13:08Z"
           },
-          "idle_hours": 0.4,
+          "idle_hours": 0.5,
           "stalled": false
         }
       ],
@@ -206,7 +235,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 9,
-        "observed_at": "2026-08-23T15:37:49Z",
+        "observed_at": "2026-08-23T15:45:07Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -385,7 +414,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T14:59:45Z"
           },
-          "idle_hours": 0.6,
+          "idle_hours": 0.8,
           "stalled": false
         }
       ],
@@ -405,7 +434,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 9,
-        "observed_at": "2026-08-23T15:37:54Z",
+        "observed_at": "2026-08-23T15:45:11Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -456,7 +485,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 66,
-        "observed_at": "2026-08-23T15:37:57Z",
+        "observed_at": "2026-08-23T15:45:14Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -519,7 +548,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23200.7,
+          "idle_hours": 23200.8,
           "stalled": true
         }
       ],
@@ -541,7 +570,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 192,
-        "observed_at": "2026-08-23T15:37:41Z",
+        "observed_at": "2026-08-23T15:44:59Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -648,7 +677,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:12:49Z"
           },
-          "idle_hours": 14.4,
+          "idle_hours": 14.5,
           "stalled": false
         },
         {
@@ -666,7 +695,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 291.8,
+          "idle_hours": 291.9,
           "stalled": true
         }
       ],
@@ -683,7 +712,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 192,
-        "observed_at": "2026-08-23T15:37:42Z",
+        "observed_at": "2026-08-23T15:45:00Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -737,7 +766,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:13:26Z"
           },
-          "idle_hours": 14.4,
+          "idle_hours": 14.5,
           "stalled": false
         }
       ],
@@ -754,7 +783,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 70,
-        "observed_at": "2026-08-23T15:37:48Z",
+        "observed_at": "2026-08-23T15:45:05Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -771,6 +800,15 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 92,
+            "title": "Take one machine's name out of a pasted traceback",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "fix/a-pasted-traceback-named-a-machine",
+            "draft": false
+          },
           {
             "number": 90,
             "title": "build(deps): bump pymdown-extensions from 10.20 to 11.0.1",
@@ -827,7 +865,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "fix/a-pasted-traceback-named-a-machine",
+          "stage": "ready",
+          "pr": 92,
+          "base": "main",
+          "title": "Take one machine's name out of a pasted traceback",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 1,
+            "changed_files": 1,
+            "commits": 1,
+            "deletions": 1,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-23T15:39:35Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -841,7 +898,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 9,
-        "observed_at": "2026-08-23T15:37:45Z",
+        "observed_at": "2026-08-23T15:45:03Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -978,7 +1035,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 192,
-        "observed_at": "2026-08-23T15:37:52Z",
+        "observed_at": "2026-08-23T15:45:09Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1049,7 +1106,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 22.2,
+          "idle_hours": 22.3,
           "stalled": false
         }
       ],
@@ -1066,7 +1123,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 99,
-        "observed_at": "2026-08-23T15:37:44Z",
+        "observed_at": "2026-08-23T15:45:01Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1157,7 +1214,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 192,
-        "observed_at": "2026-08-23T15:37:56Z",
+        "observed_at": "2026-08-23T15:45:13Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1219,7 +1276,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3335.6,
+          "idle_hours": 3335.7,
           "stalled": true
         }
       ],

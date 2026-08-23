@@ -27,7 +27,7 @@ published it a second time, into a terminal and whatever reads that terminal.
 
 WHAT THIS CANNOT DO. Read history: a name already committed stays committed, and
 this reads the working tree. Tell a placeholder from a real name beyond the ones
-listed in `PLACEHOLDERS` — `C:\\Users\\you` is fine and `C:\\Users\\pete` is a
+listed in `PLACEHOLDERS` — `C:\\Users\\you` is fine and `C:\\Users\\<account>` is a
 finding, and the difference is a convention rather than anything decidable. Or
 find the leak nobody thought of, which is why `--json` exists: a person reading
 the whole list is still the check.

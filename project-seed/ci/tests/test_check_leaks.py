@@ -59,6 +59,7 @@ def test_a_home_path_names_the_account(repo: Path):
 
     Mutation: drop the home-path pattern and this fails.
     """
+    # leaks: allow this file is the check's own fixtures
     commit(repo, "docs/setup.md", r'run it from C:\Users\pkagstrom\repos\thing')
     assert kinds(repo) == ["home-path"]
 
@@ -66,11 +67,13 @@ def test_a_home_path_names_the_account(repo: Path):
 def test_a_shared_conversation_link_is_a_finding(repo: Path):
     """Anybody holding the link can read the conversation. It is not a
     credential, so no secret scanner looks for it."""
+    # leaks: allow this file is the check's own fixtures
     commit(repo, "notes.md", "see https://claude.ai/share/7bbc74b5-7d95-4ca1")
     assert kinds(repo) == ["shared-conversation"]
 
 
 def test_a_path_to_a_conversation_archive_is_a_finding(repo: Path):
+    # leaks: allow this file is the check's own fixtures
     commit(repo, "notes.md", r"exported to C:\Users\x\Documents\claude_history\a.json")
     assert "conversation-archive" in kinds(repo)
 
@@ -110,6 +113,7 @@ def test_the_export_format_is_not_somebody_s_disk(repo: Path):
 
 def test_a_binary_is_not_read(repo: Path):
     """Reading every PNG as text finds nothing and costs the whole sweep."""
+    # leaks: allow this file is the check's own fixtures
     commit(repo, "docs/x.png", "C:/Users/realname/somewhere")
     assert kinds(repo) == []
 
@@ -126,6 +130,7 @@ def test_a_stated_reason_allows_a_deliberate_example(repo: Path):
     """
     commit(repo, "tests/t.py",
            "# leaks: allow a fixture proving the check fires\n"
+           # leaks: allow this file is the check's own fixtures
            r'BAD = r"C:\Users\realname\thing"')
     found, excused = findings(repo)
     assert found == []
@@ -141,6 +146,7 @@ def test_an_exemption_is_reported_rather_than_silent(repo: Path, capsys):
     """
     commit(repo, "tests/t.py",
            "# leaks: allow a fixture proving the check fires\n"
+           # leaks: allow this file is the check's own fixtures
            r'BAD = r"C:\Users\realname\thing"')
     assert main(["--root", str(repo)]) == 0
     assert "allowed by a stated reason" in capsys.readouterr().out
@@ -149,6 +155,7 @@ def test_an_exemption_is_reported_rather_than_silent(repo: Path, capsys):
 def test_a_marker_with_no_reason_does_not_excuse_anything(repo: Path):
     """An exemption without a reason is an excuse."""
     commit(repo, "tests/t.py",
+           # leaks: allow this file is the check's own fixtures
            "# leaks: allow\n" + r'BAD = r"C:\Users\realname\thing"')
     assert kinds(repo) == ["home-path"]
 
@@ -162,6 +169,7 @@ def test_a_finding_is_never_printed_in_full(repo: Path, capsys):
 
     Mutation: print the match instead of `redact(match)` and this fails.
     """
+    # leaks: allow this file is the check's own fixtures
     commit(repo, "docs/setup.md", r"C:\Users\averydistinctivename\repos")
     main(["--root", str(repo)])
     printed = capsys.readouterr().out
@@ -192,6 +200,7 @@ def test_a_clean_run_states_its_denominator(repo: Path, capsys):
 def test_the_command_line_exits_non_zero_on_a_finding(repo: Path):
     """The path CI and a person actually run. Wiring it wrong would leave every
     test above green while the check did nothing."""
+    # leaks: allow this file is the check's own fixtures
     commit(repo, "docs/setup.md", r"C:\Users\realname\repos")
     done = subprocess.run([sys.executable, str(TOOL), "--root", str(repo)],
                           capture_output=True, text=True, encoding="utf-8",
@@ -202,6 +211,7 @@ def test_the_command_line_exits_non_zero_on_a_finding(repo: Path):
 def test_json_carries_findings_and_exemptions(repo: Path):
     import json
 
+    # leaks: allow this file is the check's own fixtures
     commit(repo, "docs/setup.md", r"C:\Users\realname\repos")
     done = subprocess.run(
         [sys.executable, str(TOOL), "--root", str(repo), "--json"],
@@ -216,6 +226,7 @@ def test_untracked_files_are_not_checked(repo: Path):
     """What is published is what is tracked. A check that read the working tree
     would fire on a developer's scratch file and teach them to ignore it."""
     commit(repo, "README.md", "clean")
+    # leaks: allow this file is the check's own fixtures
     (repo / "scratch.md").write_text(r"C:\Users\realname\notes", encoding="utf-8")
     assert kinds(repo) == []
 
