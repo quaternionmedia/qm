@@ -150,6 +150,43 @@ def readable(url: str) -> bool:
     return False
 
 
+def stranded(root: Path, path: str) -> list[str]:
+    """Commits in this submodule's clone that are on no remote of its own.
+
+    **THE PIN BEING FINE DOES NOT MEAN THE CLONE IS SAFE.** A submodule is
+    usually checked out at a detached HEAD, and work committed onto a branch
+    inside it is invisible to every check the parent runs: the parent sees a
+    gitlink, `git status` in the parent says nothing, and the branch is not on
+    any remote the parent knows about.
+
+    That is not hypothetical. `codecartographer/.git/modules/docs/qm` held
+    `adr/rad-integration`, carrying the only copy of a project record, on no
+    remote and in no other clone. The pin check would not have found it -- the
+    pin pointed at that same commit, so the pin and the branch were wrong
+    together, and fixing the pin alone would have left the record behind.
+
+    Returns branch names, never the commits: the branch is what somebody pushes.
+
+    **THIS IS A LOCAL SIGNAL AND IT IS EMPTY IN CI, WHICH IS NOT A PASS.** A
+    runner clones each submodule fresh, so it holds no local branches and this
+    reports nothing there — correctly, because there is nothing at risk on a
+    machine that is about to be discarded. The question only has an answer on
+    the machine where the work was done, which is the same machine that will
+    lose it. Run `uv run qm pins` there.
+    """
+    code, out = run(["git", "-C", str(root / path), "for-each-ref",
+                     "--format=%(refname:short)", "refs/heads"])
+    if code != 0:
+        return []
+    at_risk = []
+    for branch in [b.strip() for b in out.splitlines() if b.strip()]:
+        code, commits = run(["git", "-C", str(root / path), "rev-list",
+                             "--count", branch, "--not", "--remotes"])
+        if code == 0 and commits.strip().isdigit() and int(commits.strip()) > 0:
+            at_risk.append(f"{branch} ({commits.strip()} commit(s))")
+    return at_risk
+
+
 def inspect(root: Path, sha: str, path: str) -> dict:
     url = url_for(root, path)
     if not url:
@@ -161,22 +198,26 @@ def inspect(root: Path, sha: str, path: str) -> dict:
                            "up and nowhere else. Set the canonical remote, then "
                            f"run: git submodule sync {path}")}
 
+    at_risk = stranded(root, path)
+
     over = reachable(url, sha)
     if over:
         detail = "reachable"
         if over != url:
             detail = f"reachable over {over} (the configured URL is not fetchable here)"
         return {"path": path, "sha": sha, "url": url, "verdict": OK,
-                "detail": detail}
+                "stranded": at_risk, "detail": detail}
 
     if readable(url):
         return {"path": path, "sha": sha, "url": url, "verdict": UNPUSHED,
+                "stranded": at_risk,
                 "detail": ("the remote IS readable from here and does not have "
                            "this commit, so it exists only where it was made. "
                            f"Run: (cd {path} && git push origin HEAD), then "
                            "re-push this repository")}
 
     return {"path": path, "sha": sha, "url": url, "verdict": UNREADABLE,
+            "stranded": at_risk,
             "detail": ("the remote could not be read at all. A private "
                        "submodule is unreadable without credentials, and so is "
                        "one that has been deleted; this cannot separate those "
@@ -201,11 +242,21 @@ def main(argv: list[str] | None = None) -> int:
         for row in results:
             print(f"{row['verdict']:>10}  {row['path']} @ {row['sha'][:12]}")
             print(f"            {row['detail']}")
+            for branch in row.get("stranded") or []:
+                print(f"            at risk: {branch} is on no remote of "
+                      f"{row['path']}")
         unknown = [r for r in results if r["verdict"] == UNREADABLE]
         if unknown:
             print(f"\n{len(unknown)} pin(s) could not be checked from here. "
                   f"That is unknown, not a pass -- run this where credentials "
                   f"for those remotes exist.")
+
+    at_risk = [(r["path"], b) for r in results for b in (r.get("stranded") or [])]
+    if at_risk and not args.as_json:
+        print("")
+        print(f"{len(at_risk)} branch(es) inside a submodule exist on no "
+              f"remote. The pin can be perfectly good and the work still be in "
+              f"one place -- push each, or accept losing it with the clone.")
 
     bad = [r for r in results if r["verdict"] in FAILING]
     if bad:

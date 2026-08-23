@@ -154,6 +154,11 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "harness",
+        help="the harness status document, rendered as prose",
+        add_help=False,
+    )
+    sub.add_parser(
         "branch", help="what a branch actually carries, against its base", add_help=False
     )
     sub.add_parser(
@@ -268,6 +273,8 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
     "pins": ("check_submodule_pins", True, []),
+    "harness": ("harness_dashboard", False,
+                ["harness-status.json", "--format", "md"]),
     "branch": ("check_pr_base", True, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
