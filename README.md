@@ -62,8 +62,8 @@ plain version leaves out:
 1. **Records in `records/` are the only binding documents.** Everything else
    points at them. `perspectives/` is opinion and binds nothing.
 2. **Every record is `Proposed`.** None is ratified, and that is deliberate —
-   ratification waits on a second active code owner, because a gate one person
-   can satisfy alone is a gate in name only.
+   ratification waits on a second active code owner, because an approval its
+   own author can supply is not a gate.
 3. **Every change arrives as a pull request**, from a typo to a new record. The
    pull request is an audit record, not a request for attention: its author
    merges it once every gate is green.
@@ -122,7 +122,7 @@ qm/
 | — | [A route is an address, and an unavailable one is still shown](records/DRAFT-a-route-is-an-address.md) | Proposed | 2026-08-20 |
 | — | [A knot is a cycle of obligation, not a cycle in the graph](records/DRAFT-a-knot-is-a-cycle-of-obligation.md) | Proposed | 2026-08-21 |
 
-Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so a gate one person can satisfy alone would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
+Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
 ## Contributing
 

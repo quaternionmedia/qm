@@ -41,7 +41,7 @@ Branch protection makes this mechanical where it is enabled. The rule stands eit
 
 ## Why nothing is ratified yet
 
-Every org record is `Proposed`. This is a decision, not a backlog: ratification waits on a second active code owner. GitHub does not count a pull request author's own approval, so a gate one person can satisfy alone would not be a real gate.
+Every org record is `Proposed`. This is a decision, not a backlog: ratification waits on a second active code owner. GitHub does not count a pull request author's own approval, so an approval its own author can supply would not be a real gate.
 
 The discipline is still enforced meanwhile — the lints and checks run in CI today. [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) tracks what is enforced, what is written but not yet mechanical, and what the wait costs.
 

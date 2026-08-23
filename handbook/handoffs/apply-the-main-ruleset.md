@@ -86,7 +86,7 @@ pull request. `uv run qm rulesets --check` is the read-only form and is safe.
 |---|---|---|
 | Applying the rulesets | the operator | it needs admin, and it is the act this corpus reserves to a person |
 | Changing the required-check list | the operator | with approvals at zero it is the entire governance in the merge path; adding one makes merges wait on something new, removing one silently widens what can land |
-| Approvals above zero on A | waits on a **second active code owner** | one person cannot approve their own pull request; `plans/v0.0.1-blockers.md` §4 |
+| Approvals above zero on A | waits on a **second active code owner** | an author cannot approve their own pull request; `plans/v0.0.1-blockers.md` §4 |
 | Ratification of the sixteen records | the same | unchanged and the oldest of these |
 
 ## Unfinished, and what done looks like
