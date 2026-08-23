@@ -232,3 +232,88 @@ def test_json_carries_the_verdict_for_each_pin(world):
     payload = json.loads(done.stdout)
     assert payload["submodules"][0]["verdict"] == OK
     assert payload["submodules"][0]["path"] == "child"
+
+
+# --- work that exists in one place, with the pin perfectly fine --------------
+#
+# The pin check and this one answer different questions, and the near-miss that
+# produced this file needed both. `codecartographer/.git/modules/docs/qm` held
+# `adr/rad-integration` — the only copy of a project record — on no remote. The
+# pin pointed at that same commit, so pin and branch were wrong together;
+# repairing the pin alone would have left the record behind, and a working tree
+# was in fact deleted before anybody looked.
+
+
+def test_a_branch_inside_a_submodule_that_is_on_no_remote_is_reported(world):
+    """THE ONE THAT MATTERS.
+
+    A submodule sits at a detached HEAD, so work committed onto a branch inside
+    it is invisible from the parent: the gitlink does not move, `git status` in
+    the parent says nothing, and no remote the parent knows about has it.
+
+    Mutation: return `[]` from `stranded` and this fails.
+    """
+    import check_submodule_pins as mod
+
+    parent, sub, _ = world
+    git("checkout", "-q", "-b", "work/only-here", cwd=sub)
+    commit(sub, "not-on-any-remote.txt")
+
+    rows = [mod.inspect(parent, sha, path)
+            for sha, path in mod.submodules(parent)]
+    stranded = rows[0]["stranded"]
+    assert any("work/only-here" in entry for entry in stranded), rows[0]
+
+
+def test_a_good_pin_does_not_hide_stranded_work(world):
+    """**THE COMBINATION THAT ACTUALLY HAPPENED.** The pin is fine and the clone
+    still holds the only copy of something. A check reporting only the pin would
+    call this clean.
+
+    Mutation: report `stranded` only when the verdict is not `ok` and this fails.
+    """
+    import check_submodule_pins as mod
+
+    parent, sub, _ = world
+    git("checkout", "-q", "-b", "work/only-here", cwd=sub)
+    commit(sub, "not-on-any-remote.txt")
+    # Put the submodule back where the parent pins it: the pin is untouched and
+    # still reachable, which is the whole point of the case.
+    git("checkout", "-q", "-", cwd=sub)
+
+    rows = [mod.inspect(parent, sha, path)
+            for sha, path in mod.submodules(parent)]
+    assert rows[0]["verdict"] == OK
+    assert any("work/only-here" in entry for entry in rows[0]["stranded"])
+
+
+def test_a_branch_that_is_on_a_remote_is_not_reported(world):
+    """The control. Without it, the check is satisfiable by naming every branch,
+    which would make the report noise and train people past it."""
+    import check_submodule_pins as mod
+
+    parent, sub, _ = world
+    git("checkout", "-q", "-b", "work/pushed", cwd=sub)
+    commit(sub, "pushed.txt")
+    git("push", "-q", "origin", "work/pushed", cwd=sub)
+
+    rows = [mod.inspect(parent, sha, path)
+            for sha, path in mod.submodules(parent)]
+    assert rows[0]["stranded"] == [], rows[0]
+
+
+def test_stranded_work_is_said_out_loud(world, capsys):
+    """Exit code alone cannot carry it: the pin is fine, so the run exits 0. If
+    the sentence is not printed, a clean exit reads as nothing to do.
+
+    Mutation: drop the summary line and this fails.
+    """
+    parent, sub, _ = world
+    git("checkout", "-q", "-b", "work/only-here", cwd=sub)
+    commit(sub, "not-on-any-remote.txt")
+    git("checkout", "-q", "-", cwd=sub)
+
+    assert main(["--root", str(parent)]) == 0
+    printed = capsys.readouterr().out
+    assert "at risk" in printed
+    assert "exist on no remote" in printed
