@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-23T14:26:45Z",
+  "generated_at": "2026-08-23T15:57:33Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -59,7 +59,7 @@
       "local": 0,
       "pushed": 0,
       "draft": 1,
-      "ready": 5
+      "ready": 9
     },
     "threads_stalled": 3,
     "threads_unreadable": 0
@@ -78,7 +78,17 @@
           "project/*"
         ],
         "contributor": null,
-        "open_prs": [],
+        "open_prs": [
+          {
+            "number": 94,
+            "title": "Check for the account names and conversation links no secret scanner looks for",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "fix/a-transcript-that-named-its-source",
+            "draft": false
+          }
+        ],
         "violations": [],
         "exit_status": 0,
         "compliant": true
@@ -89,7 +99,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "fix/a-transcript-that-named-its-source",
+          "stage": "ready",
+          "pr": 94,
+          "base": "main",
+          "title": "Check for the account names and conversation links no secret scanner looks for",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 973,
+            "changed_files": 13,
+            "commits": 3,
+            "deletions": 78,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-23T15:51:37Z"
+          },
+          "idle_hours": 0.1,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "n/a",
         "missing": [],
@@ -108,6 +137,15 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 31,
+            "title": "Redact the account name where screenshots are captured, not after",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "fix/screenshots-name-a-machine",
+            "draft": false
+          },
           {
             "number": 9,
             "title": "build(deps): bump starlette from 0.50.0 to 1.3.1",
@@ -164,7 +202,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "fix/screenshots-name-a-machine",
+          "stage": "ready",
+          "pr": 31,
+          "base": "main",
+          "title": "Redact the account name where screenshots are captured, not after",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 152,
+            "changed_files": 3,
+            "commits": 1,
+            "deletions": 3,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-23T15:13:08Z"
+          },
+          "idle_hours": 0.7,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -177,8 +234,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 8,
-        "observed_at": "2026-08-23T14:26:15Z",
+        "behind_corpus": 9,
+        "observed_at": "2026-08-23T15:57:03Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -195,6 +252,15 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 30,
+            "title": "Stop naming one machine's home directory, and point at the port the harness serves",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "fix/no-personal-paths-in-committed-text",
+            "draft": false
+          },
           {
             "number": 20,
             "title": "chore(deps): bump python-dotenv from 1.2.1 to 1.2.2",
@@ -332,7 +398,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "fix/no-personal-paths-in-committed-text",
+          "stage": "ready",
+          "pr": 30,
+          "base": "main",
+          "title": "Stop naming one machine's home directory, and point at the port the harness serves",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 16,
+            "changed_files": 1,
+            "commits": 1,
+            "deletions": 5,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-23T14:59:45Z"
+          },
+          "idle_hours": 1.0,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "incomplete",
         "missing": [
@@ -348,8 +433,8 @@
           "workflows_absent": 1,
           "licensing_present": 0
         },
-        "behind_corpus": 8,
-        "observed_at": "2026-08-23T14:26:20Z",
+        "behind_corpus": 9,
+        "observed_at": "2026-08-23T15:57:08Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -399,8 +484,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 65,
-        "observed_at": "2026-08-23T14:26:23Z",
+        "behind_corpus": 66,
+        "observed_at": "2026-08-23T15:57:11Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -463,7 +548,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23199.5,
+          "idle_hours": 23201.0,
           "stalled": true
         }
       ],
@@ -484,8 +569,8 @@
           "workflows_absent": 3,
           "licensing_present": 0
         },
-        "behind_corpus": 191,
-        "observed_at": "2026-08-23T14:26:07Z",
+        "behind_corpus": 192,
+        "observed_at": "2026-08-23T15:56:56Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -592,7 +677,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:12:49Z"
           },
-          "idle_hours": 13.2,
+          "idle_hours": 14.7,
           "stalled": false
         },
         {
@@ -610,7 +695,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 290.6,
+          "idle_hours": 292.1,
           "stalled": true
         }
       ],
@@ -626,8 +711,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 191,
-        "observed_at": "2026-08-23T14:26:08Z",
+        "behind_corpus": 192,
+        "observed_at": "2026-08-23T15:56:57Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -681,7 +766,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:13:26Z"
           },
-          "idle_hours": 13.2,
+          "idle_hours": 14.7,
           "stalled": false
         }
       ],
@@ -697,8 +782,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 69,
-        "observed_at": "2026-08-23T14:26:14Z",
+        "behind_corpus": 70,
+        "observed_at": "2026-08-23T15:57:02Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -715,6 +800,15 @@
         "per_base": [],
         "contributor": null,
         "open_prs": [
+          {
+            "number": 92,
+            "title": "Take one machine's name out of a pasted traceback",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "fix/a-pasted-traceback-named-a-machine",
+            "draft": false
+          },
           {
             "number": 90,
             "title": "build(deps): bump pymdown-extensions from 10.20 to 11.0.1",
@@ -771,7 +865,26 @@
         "unreleased_commits": null,
         "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": [],
+      "threads": [
+        {
+          "name": "fix/a-pasted-traceback-named-a-machine",
+          "stage": "ready",
+          "pr": 92,
+          "base": "main",
+          "title": "Take one machine's name out of a pasted traceback",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 1,
+            "changed_files": 1,
+            "commits": 1,
+            "deletions": 1,
+            "mergeable_state": "clean",
+            "updated_at": "2026-08-23T15:39:35Z"
+          },
+          "idle_hours": 0.3,
+          "stalled": false
+        }
+      ],
       "governance": {
         "precondition": "met",
         "missing": [],
@@ -784,8 +897,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 8,
-        "observed_at": "2026-08-23T14:26:11Z",
+        "behind_corpus": 9,
+        "observed_at": "2026-08-23T15:57:00Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -921,8 +1034,8 @@
           "workflows_absent": 2,
           "licensing_present": 0
         },
-        "behind_corpus": 191,
-        "observed_at": "2026-08-23T14:26:17Z",
+        "behind_corpus": 192,
+        "observed_at": "2026-08-23T15:57:06Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -993,7 +1106,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 21.0,
+          "idle_hours": 22.5,
           "stalled": false
         }
       ],
@@ -1009,8 +1122,8 @@
           "workflows_absent": 0,
           "licensing_present": 2
         },
-        "behind_corpus": 98,
-        "observed_at": "2026-08-23T14:26:10Z",
+        "behind_corpus": 99,
+        "observed_at": "2026-08-23T15:56:58Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1100,8 +1213,8 @@
           "workflows_absent": 1,
           "licensing_present": 1
         },
-        "behind_corpus": 191,
-        "observed_at": "2026-08-23T14:26:21Z",
+        "behind_corpus": 192,
+        "observed_at": "2026-08-23T15:57:09Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1163,7 +1276,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3334.4,
+          "idle_hours": 3335.9,
           "stalled": true
         }
       ],
