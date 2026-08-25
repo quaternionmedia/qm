@@ -60,7 +60,7 @@ one.
 | `ask` | a question waiting on a person, by id |
 
 `ask` is what lets a control panel show *which* question is outstanding rather
-than how many. Without it a [harness](../ref/glossary.md#harness){ .glossary-term }'s human-in-the-[loop](../ref/glossary.md#loop){ .glossary-term } queue crosses as a
+than how many. Without it a [harness](../ref/glossary.md#harness){ .glossary-term }'s human-in-the-loop queue crosses as a
 count, and a count is not something a person can answer.
 
 `delta` and `invocation` are the two the dashboard milestone needs: a workflow

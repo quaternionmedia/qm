@@ -61,6 +61,14 @@ MASKS = (
     re.compile(r"\{[^}\n]*\}"),
     re.compile(r"^\s{0,3}(?:>\s*)?(?:!!!|\?\?\?)\s.*$", re.MULTILINE),
     re.compile(r"<[^>\n]+>"),
+    # **INDENTED CODE, WHICH IS MARKDOWN'S OTHER CODE FORM.** Only fences were
+    # masked at first, and the executable cookbook pages write their doctests
+    # as four-space indented blocks -- so `project-seed/ci/...` inside a `>>>`
+    # line was rewritten into a markdown link and the page stopped running.
+    # `run-ci-locally.md` went red, which is P12 doing exactly its job: the
+    # example that ran is the example a reader reads, so breaking one is a
+    # failure rather than a stale page.
+    re.compile(r"(?:^(?:\t| {4,}).*$\n?)+", re.MULTILINE),
 )
 
 
@@ -101,9 +109,17 @@ def link_first(text: str, found: dict[str, str], depth: str) -> str:
         if f"glossary.md#{anchor})" in text:
             continue
 
-        # Word boundaries, and the term's own capitalisation is preserved --
-        # replacing `Corpus` with `corpus` would edit prose to suit a lookup.
-        pattern = re.compile(rf"\b{re.escape(term)}\b", re.IGNORECASE)
+        # **A WORD BOUNDARY IS NOT ENOUGH.** `\b` treats `-`, `/`, `_` and `.`
+        # as boundaries, so `seed` matched inside `project-seed/ci/...` and
+        # `record` would match inside `record_review.py`. A term joined to
+        # something by one of those is part of a compound or a path, and a
+        # path is never the word.
+        #
+        # The term's own capitalisation is preserved: replacing `Corpus` with
+        # `corpus` would edit prose to suit a lookup.
+        pattern = re.compile(
+            rf"(?<![\w\-/._]){re.escape(term)}(?![\w\-/._])",
+            re.IGNORECASE)
         for match in pattern.finditer(text):
             if _inside(spans, match.start(), match.end()):
                 continue

@@ -29,7 +29,7 @@ gone red otherwise.
 
     >>> import re, subprocess, sys
     >>> help_text = subprocess.run(
-    ...     [sys.executable, "project-[seed](../ref/glossary.md#seed){ .glossary-term }/ci/run_workflows_locally.py", "--help"],
+    ...     [sys.executable, "project-seed/ci/run_workflows_locally.py", "--help"],
     ...     capture_output=True, text=True, check=True).stdout
     >>> documented = {"--event", "--ref", "--base-ref", "--head-ref", "--workflows"}
     >>> actual = set(re.findall(r"^\s+(--[a-z-]+)", help_text, re.M)) - {"--help"}

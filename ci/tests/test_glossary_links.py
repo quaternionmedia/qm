@@ -159,3 +159,49 @@ def test_main_runs():
     module with a `main()`, and it is what caught this file being absent —
     twice in one branch."""
     assert links.main(["--check"]) == 0
+
+
+# --- what the executable pages caught ------------------------------------------
+
+
+def test_a_term_inside_an_indented_code_block_is_left_alone():
+    """THE ONE THE COOKBOOK CAUGHT.
+
+    Only fenced blocks were masked at first, and the executable cookbook pages
+    write their doctests as four-space indented blocks. `project-seed/ci/...`
+    inside a `>>>` line was rewritten into a markdown link and
+    `run-ci-locally.md` stopped running.
+
+    P12 doing its job: the example that ran is the example a reader reads, so
+    breaking one is a failure rather than a stale page.
+
+    Mutation: drop the indented-block mask and this fails.
+    """
+    page = (
+        "Prose about a knot.\n\n"
+        "    >>> import subprocess\n"
+        "    >>> subprocess.run(['x', 'project-seed/ci/run.py'])\n\n"
+        "More prose.\n"
+    )
+    out = links.link_first(page, {"seed": "seed"}, "")
+    assert "project-seed/ci/run.py" in out, out
+
+
+def test_a_term_joined_by_a_hyphen_or_slash_is_part_of_a_compound():
+    """`\b` treats `-`, `/`, `_` and `.` as word boundaries, so `seed` matched
+    inside `project-seed/ci/...` and `record` would match inside
+    `record_review.py`. A path is never the word.
+
+    Mutation: go back to `\b...\b` and this fails.
+    """
+    for compound in ("project-seed", "seed/ci", "a_seed", "seed.py",
+                     "seed-thing"):
+        page = f"Prose mentioning {compound} in passing.\n"
+        assert links.link_first(page, {"seed": "seed"}, "") == page, compound
+
+
+def test_the_word_on_its_own_is_still_linked():
+    """The control. Excluding compounds is only right if the bare word still
+    works -- otherwise the fix would have deleted the feature."""
+    page = "The seed is what a fork adopts.\n"
+    assert "glossary.md#seed" in links.link_first(page, {"seed": "seed"}, "")

@@ -1,6 +1,6 @@
 # Next steps
 
-What happens after a project has adopted the [corpus](../ref/glossary.md#corpus){ .glossary-term }.
+What happens after a project has adopted the corpus.
 
 ## Propagation: staying in sync
 
@@ -27,7 +27,7 @@ See [handbook/adoption-audit-queue.md](https://github.com/quaternionmedia/qm/blo
 
 ## The status documents
 
-Two generated files on `main` track the state of the corpus and its projects:
+Two generated files on `main` track the state of the [corpus](../ref/glossary.md#corpus){ .glossary-term } and its projects:
 
 | Document | Holds | May be stale after |
 |---|---|---|

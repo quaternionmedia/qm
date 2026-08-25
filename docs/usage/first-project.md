@@ -1,6 +1,6 @@
 # Forking a new project
 
-How a new project adopts the QM [corpus](../ref/glossary.md#corpus){ .glossary-term }.
+How a new project adopts the QM corpus.
 
 !!! warning "Follow the handbook, not this page"
     This page is an outline. The authoritative procedure — with the exact commands and the check that proves each step worked — is [handbook/forking-a-project.md](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md). Do not improvise a lighter version: most adoption defects come from skipped or partial steps.

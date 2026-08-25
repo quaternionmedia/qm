@@ -10,9 +10,9 @@
 
 ## The precedence rule
 
-**QM records bind all projects.** A project [record](../ref/glossary.md#record){ .glossary-term } may add constraints on top of a [QM record](../ref/glossary.md#qm-record){ .glossary-term }. It may not waive one.
+**QM records bind all projects.** A project [record](../ref/glossary.md#record){ .glossary-term } may add constraints on top of a QM record. It may not waive one.
 
-If a project genuinely needs an exception, the path is an amendment to the QM record, ratified at the org level — never a project-level workaround.
+If a project genuinely needs an exception, the path is an amendment to the [QM record](../ref/glossary.md#qm-record){ .glossary-term }, ratified at the org level — never a project-level workaround.
 
 ## Adoption by reference
 

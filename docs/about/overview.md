@@ -5,9 +5,9 @@
 
 ## What QM is
 
-The Quaternion Media constitution is a shared decision [corpus](../ref/glossary.md#corpus){ .glossary-term }. It holds the principles that govern every QM project, the process that keeps projects consistent, and the template each new project starts from.
+The Quaternion Media constitution is a shared decision corpus. It holds the principles that govern every QM project, the process that keeps projects consistent, and the template each new project starts from.
 
-Projects adopt the corpus **by reference**:
+Projects adopt the [corpus](../ref/glossary.md#corpus){ .glossary-term } **by reference**:
 
 1. A project may add constraints on top of the corpus.
 2. A project may not waive a corpus constraint. An exception requires an amendment to the corpus itself, ratified at the org level.
@@ -42,7 +42,7 @@ Each principle names its enforcement mechanism. Read the full charter for the re
 
 ## The records
 
-Twelve org records are drafted and awaiting [ratification](../ref/glossary.md#ratification){ .glossary-term }. Every one is marked `Proposed`, because ratification requires a second active code owner. The [records index](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records) links to each record.
+Twelve org records are drafted and awaiting ratification. Every one is marked `Proposed`, because [ratification](../ref/glossary.md#ratification){ .glossary-term } requires a second active code owner. The [records index](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records) links to each record.
 
 ## Related
 

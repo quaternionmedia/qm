@@ -25,7 +25,7 @@ Every word above that is doing unusual work links to its definition. If a senten
 
     **Learn what QM is and how it works**
 
-    - [Overview](about/overview.md) — the [corpus](ref/glossary.md#corpus){ .glossary-term }, its principles, and the records
+    - [Overview](about/overview.md) — the corpus, its principles, and the records
     - [Architecture](about/architecture.md) — the branch-per-project model
     - [History](about/history.md) — how the corpus evolved
 
@@ -38,7 +38,7 @@ Every word above that is doing unusual work links to its definition. If a senten
     - [Getting started](usage/getting-started.md) — clone, read, and make your first change
     - [Questions a new developer asks](usage/questions-a-new-developer-asks.md) — first-week questions, and the command that answers each
     - [Forking a new project](usage/first-project.md) — adopt the corpus in a new project
-    - [Next steps](usage/next-steps.md) — [propagation](ref/glossary.md#propagation){ .glossary-term }, audits, and project phases
+    - [Next steps](usage/next-steps.md) — propagation, audits, and project phases
 
 === "Do a task"
 
