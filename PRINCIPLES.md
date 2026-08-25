@@ -367,8 +367,9 @@ Both halves matter, and the second decays first. A model that is not the decisio
 procedure but *is* credited with the guard has been let back in through the door
 this principle closes — the guard's authority would rest on the thing with no
 halting guarantee. It rests on the person who read it, broke it, watched it go
-red, and is accountable for it (P4, and
-`records/DRAFT-human-only-contributorship.md`).
+red, and is accountable for it — **P10**, whose test this is: not whether a tool
+did most of the visible work, but whether the named party can answer for it
+(`records/DRAFT-human-only-contributorship.md`).
 
 Two rules this organisation already had turn out to be one rule. Everything runs
 through `uv run qm <command>`; every paid model call passes through one gate.
