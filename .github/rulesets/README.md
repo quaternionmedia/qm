@@ -177,7 +177,7 @@ and one account authored every file here — so `required_approving_review_count
 1` is unsatisfiable by the only person who can satisfy it, and the usual escape,
 a `pull_request`-scoped admin bypass, is a rule that permits exactly the thing
 it forbids. A is written at zero for that reason rather than as a concession:
-the governance moved to the check list, which one person *can* approve once and
+the governance moved to the check list, which an author *can* satisfy once and
 then cannot skip.
 
 `bypass_actors` is empty, admins included. That is not a lockout risk, because

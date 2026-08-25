@@ -7,7 +7,7 @@
 
 The Quaternion Media constitution is a shared decision corpus. It holds the principles that govern every QM project, the process that keeps projects consistent, and the template each new project starts from.
 
-Projects adopt the corpus **by reference**:
+Projects adopt the [corpus](../ref/glossary.md#corpus){ .glossary-term } **by reference**:
 
 1. A project may add constraints on top of the corpus.
 2. A project may not waive a corpus constraint. An exception requires an amendment to the corpus itself, ratified at the org level.
@@ -17,10 +17,10 @@ Projects adopt the corpus **by reference**:
 
 | Artifact | Binding? | What it holds |
 |---|---|---|
-| **Record** (`records/`, `adr/`) | Yes, once `Accepted` | One decision, with context, alternatives, and consequences |
-| **Register** (`registers/`) | Yes, as defined by the record that creates it | Living data, such as carried patches |
-| **Handbook** (`handbook/`) | On QM's own conduct only | Policy and procedure |
-| **Perspective** (`perspectives/`) | No | Dated, attributed opinion: incidents, retrospectives, lessons |
+| **[Record](../ref/glossary.md#record){ .glossary-term }** (`records/`, `adr/`) | Yes, once `Accepted` | One decision, with context, alternatives, and consequences |
+| **[Register](../ref/glossary.md#register){ .glossary-term }** (`registers/`) | Yes, as defined by the record that creates it | Living data, such as carried patches |
+| **[Handbook](../ref/glossary.md#handbook){ .glossary-term }** (`handbook/`) | On QM's own conduct only | Policy and procedure |
+| **[Perspective](../ref/glossary.md#perspective){ .glossary-term }** (`perspectives/`) | No | Dated, attributed opinion: incidents, retrospectives, lessons |
 
 ## The charter
 
@@ -29,7 +29,7 @@ Projects adopt the corpus **by reference**:
 1. **Ownership is the deliverable** — systems must keep working if every vendor and upstream disappears.
 2. **Commons-first economics** — capability gaps are closed upstream; sponsorship is a first-class budget line.
 3. **Seams on standard protocols** — third-party components connect only through protocols with multiple independent implementations.
-4. **Build the seam, buy the engines** — custom code goes in the small control plane; engines are selected, not written.
+4. **Build the [seam](../ref/glossary.md#seam){ .glossary-term }, buy the engines** — custom code goes in the small control plane; engines are selected, not written.
 5. **One house stack, deeply known** — QM's own repositories use one stack; contributions use the target community's stack.
 6. **Decisions are documented or they didn't happen** — a decision that lives only in a chat log is not owned by the organization.
 7. **Public by default** — work ships in the open unless a specific, named reason requires otherwise.
@@ -42,7 +42,7 @@ Each principle names its enforcement mechanism. Read the full charter for the re
 
 ## The records
 
-Twelve org records are drafted and awaiting ratification. Every one is marked `Proposed`, because ratification requires a second active code owner. The [records index](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records) links to each record.
+Twelve org records are drafted and awaiting ratification. Every one is marked `Proposed`, because [ratification](../ref/glossary.md#ratification){ .glossary-term } requires a second active code owner. The [records index](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records) links to each record.
 
 ## Related
 

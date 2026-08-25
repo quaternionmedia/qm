@@ -597,10 +597,12 @@ def build(
         # convention the next reader does not have: it opens the file, not the
         # page, and it opens it in a session that knows nothing.
         "reading": {
-            "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
+            "refresh": "uv run qm docs generate",
+            "refresh_without_the_cli": (
+                "python ci/harness_status.py --no-local --write harness-status.json"),
             "staleness_budget_hours": STALENESS_BUDGET_HOURS,
             "human_view": "python ci/harness_dashboard.py harness-status.json --out status.html",
-            "agent_view": "python ci/harness_dashboard.py harness-status.json --format md",
+            "agent_view": "uv run qm harness",
             "unknown_convention": (
                 '{"unknown": "<reason>"} is a value. It means the fact could '
                 "not be established and says why. It is not zero, not empty, "

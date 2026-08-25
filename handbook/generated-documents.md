@@ -31,9 +31,9 @@ anything. One definition, two entry points; see `pyproject.toml`'s header.
 
 | Document | Holds | Quotable for | Refresh |
 |---|---|---|---|
-| `governance-status.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `python ci/governance_status.py --write governance-status.yaml` |
-| `harness-status.json` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `python ci/harness_status.py --no-local --write harness-status.json` |
-| `gate-status.json` | every automated check, what it refuses, **what it cannot see**, and whether anything blocks a merge | 168h | `python ci/gate_status.py --write gate-status.json` |
+| `governance-status.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `uv run qm docs generate` |
+| `harness-status.json` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `uv run qm docs generate` |
+| `gate-status.json` | every automated check, what it refuses, **what it cannot see**, and whether anything blocks a merge | 168h | `uv run qm docs generate` |
 | `inventory-public.json` | every repository the org has, against the roster and this disk, with each one's **activity on three axes** — attention claimed, recency measured, risk machine-scoped and in the gitignored companion | 168h | `uv run qm inventory --write` |
 
 `harness-status.json` carries its own refresh command, staleness budget and
@@ -49,7 +49,7 @@ current age.
 To read the harness document as prose rather than JSON:
 
 ```
-python ci/harness_dashboard.py harness-status.json --format md
+uv run qm harness
 ```
 
 `/status` runs both commands and reports what needs a person.
@@ -61,7 +61,7 @@ dashboard is broken. All of these are run **from the corpus root**, in this
 repository:
 
 ```
-python ci/harness_dashboard.py harness-status.json --format md    # agent view
+uv run qm harness                                                 # agent view
 python ci/harness_dashboard.py harness-status.json --out status.html
 python ci/governance_render.py governance-status.yaml --out status.html
 ```

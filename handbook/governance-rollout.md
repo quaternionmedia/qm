@@ -148,9 +148,9 @@ that have not been audited.
 ## What is deliberately waiting
 
 **Ratification, on a second code owner.** GitHub does not count a PR author's
-own approval, and one account authored this corpus. A ratification gate that
-one person can satisfy alone is a gate in name only, so the Status field
-waits for the thing that makes it mean something.
+own approval. A ratification gate an author can satisfy by approving their own
+change is a gate in name only, so the Status field waits for the thing that
+makes it mean something.
 
 The cost is real and worth naming: while every record is `Proposed`, the
 corpus contains **no worked example** of a ratified record, of an

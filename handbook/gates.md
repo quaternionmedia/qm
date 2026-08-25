@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-22T17:49:51Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-08-23T18:49:37Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -16,7 +16,7 @@
 
 **Every gate below is therefore advisory.** A green check means *someone was told*, not *this was prevented*. Advisory is a legitimate state — most governance here is advisory on purpose — but it is not the same claim, and a reader who conflates them will trust a merge nobody checked.
 
-**14 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 13 ok, 0 warn, 1 unknown.
+**17 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 16 ok, 0 warn, 1 unknown.
 
 ## Every gate
 
@@ -29,6 +29,9 @@
 | [ok] | `governance-status` | main, push | pull_request, push | no | A committed `governance-status.yaml` that no longer renders the commits it names, and a rendered view that has drifted from it. |
 | [ok] | `reuse-lint` | main, push | pull_request, push | yes | A file with no copyright or licence information, a bad or deprecated SPDX expression, or an unused licence file. |
 | [ok] | `symlink-integrity` | main, push | pull_request, push | no | A pointer file that has stopped being a symlink -- mode other than 120000 -- which is how a Windows checkout silently forks a shared document into two. |
+| [ok] | `docs-audit` | pull_request | pull_request | no | A documentation site that builds but does not hold together -- a page the navigation does not reach, a link to a page that is not published, a claim the audit's four dimensions can check. |
+| [ok] | `docs-draft` | pull_request | pull_request, workflow_dispatch | no | Nothing. It builds a preview of the site for the change under review, so a documentation change can be looked at rather than imagined. |
+| [ok] | `docs-deploy` | push | push | no | Nothing. It publishes the site from the default branch. A failure here means the published site is older than `main`, which is a fact worth seeing and not a rule anybody violated. |
 | [ok] | `tag-claims` | tag | push, workflow_dispatch | yes | A pushed `v*` tag that is lightweight, misnamed, or whose annotation is missing `Reviewed-by`, `Manually-tested`, `Automated-gate` or `Not-covered`. |
 | [ok] | `tag-determinism` | tag | push, workflow_dispatch | no | A `v*` tag whose captured test run declares a skip, a rerun or a retry, or whose suite does not pass at all. |
 | [??] | `secret-scan` | main | — | no | A commit introducing a credential the scanner recognises. |
@@ -48,6 +51,9 @@ Read this before quoting a green check. Every defect this corpus has found in it
 - **`governance-status`** — Whether the document is current. It checks faithfulness to the refs it names, not age -- a document generated from unfetched refs passed this once, which is why the workflow fetches first.
 - **`reuse-lint`** — Whether the licence asserted is the licence intended, or whether a dependency's licence is compatible with it.
 - **`symlink-integrity`** — A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.
+- **`docs-audit`** — Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest.
+- **`docs-draft`** — Anything -- it is a build, not a check, and it is listed here because a workflow nobody declared is a workflow nobody can rely on. Declaring it says plainly that it refuses nothing.
+- **`docs-deploy`** — Whether what it published is correct, or whether anybody reads it. It is a deployment, and it is declared for the same reason the draft build is.
 - **`tag-claims`** — Whether the review or the manual test happened -- it reads an annotation a human wrote. It does not gate tag creation, which needs a host-side tag-protection ruleset, and it runs after the tag exists.
 - **`tag-determinism`** — Whether the suite is deterministic. It refuses a run that announces nondeterminism; one that is nondeterministic and silent about it passes. It also says nothing about coverage: a suite asserting little passes as readily as one asserting much.
 - **`secret-scan`** — Everything about how it is configured. It is an installed application with no workflow file in this repository and no record describing it, so nothing here states what it scans, who can dismiss a finding, or what happens if it is uninstalled. It appears on pull requests and that is the whole of what this corpus knows about it.
@@ -67,6 +73,9 @@ Read this before quoting a green check. Every defect this corpus has found in it
 | `governance-status` | `handbook/generated-documents.md` |
 | `reuse-lint` | `records/DRAFT-outbound-licensing.md`, `records/DRAFT-open-license-exclusion-and-upstream-remediation.md` |
 | `symlink-integrity` | `records/DRAFT-ide-integrated-governance-discovery.md` |
+| `docs-audit` | `records/DRAFT-the-read-document-governs.md` |
+| `docs-draft` | *nothing stated — it guards a habit rather than a decision* |
+| `docs-deploy` | *nothing stated — it guards a habit rather than a decision* |
 | `tag-claims` | `records/DRAFT-version-tags-are-claims.md` |
 | `tag-determinism` | `records/DRAFT-version-tags-are-claims.md` |
 | `secret-scan` | *nothing stated — it guards a habit rather than a decision* |
@@ -78,9 +87,6 @@ Read this before quoting a green check. Every defect this corpus has found in it
 ## Where claim and evidence disagree
 
 - [??] **`secret-scan`** — **unknown** — an installed application with no workflow file in this repository; nothing here can read its configuration
-- [!!] **`docs-audit.yml`** is a workflow nobody declared. It is not adopted into the list above — a gate this page cannot describe is a gate nobody can rely on. Add it to `ci/gate-registry.yaml`.
-- [!!] **`docs-draft.yml`** is a workflow nobody declared. It is not adopted into the list above — a gate this page cannot describe is a gate nobody can rely on. Add it to `ci/gate-registry.yaml`.
-- [!!] **`docs.yml`** is a workflow nobody declared. It is not adopted into the list above — a gate this page cannot describe is a gate nobody can rely on. Add it to `ci/gate-registry.yaml`.
 
 ## Reading this document
 
