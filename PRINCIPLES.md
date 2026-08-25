@@ -357,3 +357,59 @@ the same way.
 (`records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`). It carries
 the session's counts, what the rule unifies, and why a mutation-score gate was
 rejected in favour of a per-guard note.
+
+## P17 — Shrink the black box: undecidable judgement, decidable guards
+
+**A model is a black box with no halting guarantee, so it is never the check. It
+is what writes the check.**
+
+Two rules this organisation already had turn out to be one rule. Everything runs
+through `uv run qm <command>`; every paid model call passes through one gate.
+Both were argued from cost and from interruption, and both do the same thing:
+**take a decision away from something that cannot be decided and give it to
+something that can.**
+
+Three obligations follow.
+
+- **Every guard is a total function** — it terminates on all inputs and returns a
+  value. A check with no bound is a check that might not return, and a check that
+  might not return is not a check.
+- **A bound that fires is reported, never absorbed.** Bounding an undecidable
+  question makes it decidable at a stated cost: you learn "did not finish in N",
+  not "will not finish". That trade is only sound while the firing is visible. **A
+  bound caught and discarded is worse than no bound**, because it turns a halting
+  failure into a plausible answer.
+- **The black box's surface is minimised, and what remains is metered at one
+  seam.** Every act moved from judgement into a command shrinks the region where
+  nothing can be decided. What cannot be moved goes through `qmcp`, so the
+  admitted non-determinism has one door and that door counts what passes.
+
+**The halting problem is not an obstacle here; it is the boundary condition that
+says where to put the wall.** No general procedure decides termination, and
+adding a bound decides it trivially. So the design question is never "can this be
+decided" — it is **where is the wall, and does anyone see it when it is hit.**
+
+Measured here: a facet asked for a page that contains it, and the recursion ran
+109 levels before Python's limit stopped it. The bound was real and did its job.
+The error was then caught by a guard written for a different purpose, every frame
+above returned a plausible answer, a function deliberately taken from 8.15s to
+0.07s went back to 1.478s, and nothing failed for four pull requests.
+
+**The obligations restrict the model far less than they sound.** The
+deterministic, time-bounded guards are built *with* the non-deterministic tool: a
+model is bad at being a decision procedure and good at writing one. Write the
+check, run it, break it, watch it go red (P16), and then stop being the check.
+
+Said plainly, because the plain form is the operative one:
+
+> **Work yourself out of the jobs you are not good at, playing to your
+> strengths.**
+
+An agent waiting on a fourteen-minute suite is doing a scheduler's job badly.
+Threading the run and spending the interval writing guards is the same time on
+the half it is good at — and the drift between what was expected while it ran and
+what it reported is itself the next guard's material.
+
+→ Org record: **Shrink the black box: undecidable judgement, decidable guards**
+(`records/DRAFT-shrink-the-black-box.md`). It carries the two rules it unifies,
+the worked recursion, and what the mapping has not earned.
