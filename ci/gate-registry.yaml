@@ -340,11 +340,13 @@ gates:
       - ci/protocols.py --check
       - ci/curriculum.py --check
       - ci/addresses.py --check
+      - ci/capabilities.py --check
     enforces:
       - ci/exception-registry.yaml
       - ci/policy-registry.yaml
       - ci/lane-registry.yaml
       - ci/protocol-registry.yaml
+      - ci/capability-registry.yaml
       - curriculum/org.yaml
       - project-seed/address-vectors.json
     cannot_see: >
