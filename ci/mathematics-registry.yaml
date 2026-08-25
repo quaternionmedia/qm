@@ -193,3 +193,41 @@ mappings:
       candidate is delta phase transitions per week per repository, which
       dossier has the timestamps for. Until then this entry is earned for
       accumulation and states nothing about rates.
+
+  - layer: a generated artifact and the command that regenerates it
+    structure: a fixed point of the generator
+    state: earned
+    decides: >
+      what "the documentation is current" means, checkably. Not "somebody
+      regenerated it recently" but `regenerate(x) == x` -- so drift is distance
+      from the fixed point and a stale artifact is a failing assertion rather
+      than a judgement. It settles the design question the other way round from
+      how it is usually asked: the generator must be idempotent, and a
+      generator that is not cannot ride the ordinary command at all.
+    measured: >
+      qmetronome: 24 screenshots, 23 recordings and 24 guide pages regenerated
+      by `./gradlew test` carry zero drift, while the two artifacts in the same
+      repository that need a remembered command are stale -- a changelog one
+      release behind its newest tag, and a results table pasted by hand. One
+      repository, one author, one standard, so the difference is the mechanism
+      and not the discipline.
+
+      qm: `ci/glossary_links.py` was written claiming idempotence and did not
+      have it -- it linked the first *bare* use, so each pass linked one more
+      occurrence and it rewrote 17 pages on its second run. Running it twice is
+      what found that. The structure named the defect before anybody read the
+      code.
+    unearned: >
+      the repair direction. A fixed-point generator cannot fix its own bad
+      output, because bad output is still a fixed point: the broken glossary
+      link had to be reverted by hand before a corrected pass could run.
+      Nothing states how a generated artifact gets back to a good fixed point,
+      and "revert and rerun" is a habit rather than a mechanism.
+
+      And the property is checked per generator rather than required of them.
+      `dossier`'s ring recordings only became a fixed point when a per-run CSS
+      id was normalised out; nothing would have failed had it stayed.
+    next: >
+      assert idempotence in the seed's own test helpers, so a new generator
+      gets the check without its author thinking of it. That is the difference
+      between a structure that is known and one that is enforced.

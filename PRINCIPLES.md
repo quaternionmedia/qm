@@ -13,6 +13,22 @@ or style guide, and the routing is stated. The known failure mode of
 principles-records is the motherhood statement — unfalsifiable, decorative.
 Every record below names its enforcement mechanism.
 
+**Each principle therefore ends in one of three states, and they are the same
+three P15 asks of a mathematical mapping.** That is not a coincidence worth
+leaving unstated: the charter is one of the layers P15 governs, and it has run
+that discipline under different words since it was written.
+
+| here | `ci/mathematics-registry.yaml` | means |
+|---|---|---|
+| **→ Org record** | `earned` | a record with teeth exists, and names them |
+| **→ Routed to** | `decorative` | a value with no architectural consequence to weigh, sent to the handbook or the style guide on purpose |
+| **→ Enforced through** | `shared` | no record of its own; another principle's mechanism carries it, and that principle is named |
+
+`decorative` is not an insult in either place. An unlabelled decoration is what
+turns a charter into ornament, and the label is what keeps the difference
+visible. A state moves in both directions: a principle whose record stops having
+teeth is not still `earned` because it once was.
+
 ---
 
 ## P1 — Ownership is the deliverable
@@ -356,12 +372,12 @@ that decays first:
 the mapping table, and the two instances that stand today — one earned, one
 decorative and said to be.
 
-↔ Edges: none yet, and this is the one worth revisiting. The charter's own `Org
-record` / `Routed to` / `Enforced through` split is P15's
-earned/decorative/aspirational discipline under different words, which would
-make the charter a layer P15 governs and this a real `bears`. Stating that is a
-change to the charter, not an edge to declare here, and it is queued as its own
-  decision.
+↔ Edges: none, and the reason is settled rather than open now. The relationship
+  P15 has is to *the charter itself* — its preamble states the three states as
+  this principle's discipline applied to principles — and this vocabulary models
+  one principle's relationship to another, deliberately. Expressing it would need
+  a `P0` that does not exist, which is exactly the manufactured edge the check
+  was built to refuse.
 
 ## P16 — A check is evidence only after it has been seen to fail
 
