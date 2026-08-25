@@ -140,7 +140,11 @@ do I do meanwhile*, and it does not answer *who sees that it fired*.
 - **All model interaction moves behind `qmcp`.** Not for tidiness: one door is
   what makes the admitted non-determinism countable, and `spend.py`'s zero-budget
   first pass is the same idea in the cost dimension — establish the number
-  without spending to find it out.
+  without spending to find it out. The door is `qmcp/governed.py`: a fixed
+  sequence of total stages around exactly one call to something with no halting
+  guarantee, budgeted before it and bounded after it, ending at the
+  human-in-the-loop queue and not passing it. It takes the model as a callable
+  the caller supplies, so this record's mechanism names no vendor.
 - **A caught bound must be reported.** `gather`-style per-source guards keep
   their reason for existing and gain an obligation: what they swallowed is
   surfaced, not merely survived.
@@ -158,3 +162,20 @@ fail: restoring the `build` call turns the guard red.
 The registry entry this record adds names what it has **not** earned: no bound
 is stated for a `qm` command's own runtime, so obligation 1 is asserted of
 guards and unmeasured for commands.
+
+The door, at `qmcp` commit `bbaab3d`. Six mutations were run against
+`governed.py` and its guards and each was watched go red — deleting the budget
+check drafts a run that must refuse, removing the size branch drafts an
+oversized answer, and hard-coding the elapsed verdict absorbs a bound that
+fired. What the seam **does not** enforce is named in the module rather than
+left to a reader: a slow call is measured and reported and nothing interrupts
+it, so obligation 2 holds in the reporting direction and not in the stopping
+one, and there is deliberately no test asserting otherwise.
+
+Obligation 3 gained an unexpected piece of evidence. A check written to hold
+`uv run qmcp <command>` as the mechanism found that six of the ten command
+groups those modules told people to run did not exist — the modules imported,
+their functions worked and their tests passed, so nothing was red. A route
+named in a docstring and absent from the dispatcher is this principle's
+mechanism being described rather than being there, and a reader cannot tell
+those apart without typing it.
