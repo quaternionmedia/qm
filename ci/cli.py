@@ -189,6 +189,11 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "capabilities",
+        help="what each named thing this estate can do has reached",
+        add_help=False,
+    )
+    sub.add_parser(
         "prose", help="the opening of every entry point, side by side",
         add_help=False,
     )
@@ -297,6 +302,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
     "protocols": ("protocols", False, []),
+    "capabilities": ("capabilities", False, []),
     "prose": ("prose", False, []),
     "addresses": ("addresses", False, []),
     "divergence": ("divergence", False, []),
