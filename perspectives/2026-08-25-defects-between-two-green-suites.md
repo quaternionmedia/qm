@@ -5,7 +5,7 @@
 | **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
 | **Author** | Peter Kagstrom |
 | **Tools** | Claude Opus 5, the assistant that wrote both sides of the seams described here and then ran them against each other |
-| **Task** | A short retrospective on one hour spent running `qm`, `qmcp` and `dossier` together on one machine, rather than testing each. Four defects were found. Every one of them sat between two passing test suites, and one of the four had been introduced by this same assistant sixty minutes earlier. |
+| **Task** | A short retrospective on one session spent running `qm`, `qmcp` and `dossier` together on one machine, rather than testing each. Four defects were found. Every one of them sat between two passing test suites, and one of the four had been introduced by this same assistant earlier in the same session. |
 
 ## 0. Standing, scope, and evidence base
 
@@ -68,7 +68,7 @@ the queue carry `prompt` and not `context`. A governed run's state was in the
 context, so `qmcp human list` showed two rows with the same text, separable only
 by reading the identifier suffix (E1).
 
-**And the fourth was sixty minutes old.** A documentation page merged earlier
+**And the fourth was this session's own.** A documentation page merged earlier
 the same session told a reader to `curl localhost:8000` — a third port, wrong in
 a fourth way, written by the assistant that had just read the comment explaining
 why 8000 was wrong. It was found in the first minute of the round.
@@ -95,15 +95,16 @@ was given.
 This is the corpus's own P16 in a form the record does not yet state. P16 says a
 check is evidence only after it has been seen to fail, and the mutation
 discipline that follows from it operates *within* a component. The seam has no
-owner, so it has no mutation, so nobody has watched it go red. `records/DRAFT-
-a-check-is-evidence-only-after-it-has-failed.md` would be stronger for saying
-so. **This is a suggestion for a maintainer, not a change to the record.**
+owner, so it has no mutation, so nobody has watched it go red.
+`records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md` would be
+stronger for saying so. **This is a suggestion for a maintainer, not a change to the record.**
 
 ## 4. What it cost, and what that suggests
 
-The round took about an hour including the fixes. It produced four defects, of
-which two — the silent truncation and the unreachable client — would have been
-found by a user rather than by a test, and one had been shipped that morning.
+The round took part of one session including the fixes. It produced four
+defects, of which two — the silent truncation and the unreachable client —
+would have been found by a user rather than by a test, and one had been shipped
+in this same session.
 
 The observation worth keeping is not "integration testing is good". It is
 narrower and more actionable: **the defects were in the places where two
