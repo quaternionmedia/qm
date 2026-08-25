@@ -1,7 +1,7 @@
 # Protocols index
 
 The [protocols](https://github.com/quaternionmedia/qm/tree/main/protocols) are
-the procedures somebody runs on purpose. A protocol takes judgement, produces a
+the procedures somebody runs on purpose. A [protocol](../ref/glossary.md#protocol){ .glossary-term } takes judgement, produces a
 dated artifact, and is invoked — nothing triggers one automatically.
 
 That is the whole distinction from a [gate](glossary.md#gate). A gate runs
@@ -18,7 +18,7 @@ the table below says what each protocol is for, not when it was last done.
 | [plain-language.md](https://github.com/quaternionmedia/qm/blob/main/protocols/plain-language.md) | Can somebody who has never seen this repository read its first page and know what it is for? |
 | [security-review.md](https://github.com/quaternionmedia/qm/blob/main/protocols/security-review.md) | What could leak from this repository, and what actually protects it right now? |
 | [local-demo.md](https://github.com/quaternionmedia/qm/blob/main/protocols/local-demo.md) | Does this project actually do the thing, on this machine, today? *(optional)* |
-| [curriculum.md](https://github.com/quaternionmedia/qm/blob/main/protocols/curriculum.md) | In what order should someone with no context read this corpus, and what can they do afterwards? *(optional)* |
+| [curriculum.md](https://github.com/quaternionmedia/qm/blob/main/protocols/curriculum.md) | In what order should someone with no context read this [corpus](../ref/glossary.md#corpus){ .glossary-term }, and what can they do afterwards? *(optional)* |
 
 Each protocol states its own budget in its page, and `uv run qm protocols`
 prints them alongside the last run. They are not copied here, because a budget
@@ -26,7 +26,7 @@ restated in a second place is a number nothing updates.
 
 Each run writes a dated page under
 [protocols/runs/](https://github.com/quaternionmedia/qm/tree/main/protocols/runs).
-A run is a record of what was true on one day, so runs are added rather than
+A run is a [record](../ref/glossary.md#record){ .glossary-term } of what was true on one day, so runs are added rather than
 edited.
 
 ## Plain language review

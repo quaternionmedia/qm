@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-22T17:49:51Z",
+  "generated_at": "2026-08-23T18:49:37Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -42,17 +42,17 @@
     "blocks_a_merge": false
   },
   "totals": {
-    "gates": 14,
-    "built": 14,
+    "gates": 17,
+    "built": 17,
     "declared_not_built": 0,
     "by_state": {
-      "ok": 13,
+      "ok": 16,
       "warn": 0,
       "unknown": 1
     },
     "gate_main": 10,
     "seed": 5,
-    "undeclared_workflows": 3
+    "undeclared_workflows": 0
   },
   "gates": [
     {
@@ -292,6 +292,97 @@
       "state": "ok"
     },
     {
+      "id": "docs-audit",
+      "gates": [
+        "pull_request"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "docs-audit.yml",
+      "job": "audit",
+      "runs": [
+        "ci/docs_audit.py",
+        ".github/workflows/docs-audit.yml"
+      ],
+      "enforces": [
+        "records/DRAFT-the-read-document-governs.md"
+      ],
+      "refuses": "A documentation site that builds but does not hold together -- a page the navigation does not reach, a link to a page that is not published, a claim the audit's four dimensions can check.",
+      "cannot_see": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Docs audit",
+        "triggers": [
+          "pull_request"
+        ],
+        "jobs": [
+          "audit"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "docs-draft",
+      "gates": [
+        "pull_request"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "docs-draft.yml",
+      "job": "draft",
+      "runs": [
+        ".github/workflows/docs-draft.yml"
+      ],
+      "enforces": [],
+      "refuses": "Nothing. It builds a preview of the site for the change under review, so a documentation change can be looked at rather than imagined.",
+      "cannot_see": "Anything -- it is a build, not a check, and it is listed here because a workflow nobody declared is a workflow nobody can rely on. Declaring it says plainly that it refuses nothing.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Docs draft",
+        "triggers": [
+          "pull_request",
+          "workflow_dispatch"
+        ],
+        "jobs": [
+          "draft"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "docs-deploy",
+      "gates": [
+        "push"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "docs.yml",
+      "job": "deploy",
+      "runs": [
+        ".github/workflows/docs.yml"
+      ],
+      "enforces": [],
+      "refuses": "Nothing. It publishes the site from the default branch. A failure here means the published site is older than `main`, which is a fact worth seeing and not a rule anybody violated.",
+      "cannot_see": "Whether what it published is correct, or whether anybody reads it. It is a deployment, and it is declared for the same reason the draft build is.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "\ud83d\udcda Documentation",
+        "triggers": [
+          "push"
+        ],
+        "jobs": [
+          "deploy"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
       "id": "tag-claims",
       "gates": [
         "tag"
@@ -500,9 +591,5 @@
       "state": "ok"
     }
   ],
-  "undeclared_workflows": [
-    "docs-audit.yml",
-    "docs-draft.yml",
-    "docs.yml"
-  ]
+  "undeclared_workflows": []
 }

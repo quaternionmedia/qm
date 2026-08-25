@@ -62,6 +62,9 @@ jobs:
       - name: Every protocol has a page and steps somebody could run
         run: python ci/protocols.py --check
 
+      - name: Every capability's rungs are ordered and its design pointer resolves
+        run: python ci/capabilities.py --check
+
       - name: Every curriculum unit cites a document and states its Status
         run: python ci/curriculum.py --check
 

@@ -5,14 +5,14 @@
 
 ## The branch-per-project model
 
-Projects do not copy the corpus into their own repositories. Instead:
+Projects do not copy the [corpus](../ref/glossary.md#corpus){ .glossary-term } into their own repositories. Instead:
 
 - Each project's decision records live on a `project/<name>` branch **of this repository**.
 - The project adds this repository as a git submodule, checked out on that branch.
-- When the org ratifies a new record, it reaches the project through a merge of `main` into the project's branch. This is called **propagation**.
+- When the org ratifies a new [record](../ref/glossary.md#record){ .glossary-term }, it reaches the project through a merge of `main` into the project's branch. This is called **[propagation](../ref/glossary.md#propagation){ .glossary-term }**.
 - The project's own records stay on its branch, numbered `ADR-NNNN`.
 
-This arrangement is called **adoption by reference**.
+This arrangement is called **[adoption by reference](../ref/glossary.md#adoption-by-reference){ .glossary-term }**.
 
 ## Why it works this way
 
@@ -20,9 +20,9 @@ This arrangement is called **adoption by reference**.
 
 **The branch list is the project registry.** A project that has no `project/<name>` branch is, by definition, not governed by the corpus. There is no separate list to keep in sync.
 
-**Adoption is checked, not assumed.** The fork procedure has eight steps, each with a check that proves it worked. Projects are audited afterward to confirm the submodule, the CI workflows, the seed files, and the first records are all in place.
+**Adoption is checked, not assumed.** The fork procedure has eight steps, each with a check that proves it worked. Projects are audited afterward to confirm the submodule, the CI workflows, the [seed](../ref/glossary.md#seed){ .glossary-term } files, and the first records are all in place.
 
-**Ratification happens once.** When a record becomes `Accepted` on `main`, the next propagation merge carries it to each project. Every project sees the same set of binding records.
+**[Ratification](../ref/glossary.md#ratification){ .glossary-term } happens once.** When a record becomes `Accepted` on `main`, the next propagation merge carries it to each project. Every project sees the same set of binding records.
 
 ## How a project adopts
 
