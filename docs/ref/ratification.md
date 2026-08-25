@@ -5,7 +5,7 @@
 
 ## What ratification is
 
-Ratification turns a draft record into a binding one. It is a human action, at both the org level and the project level. One commit:
+[Ratification](../ref/glossary.md#ratification){ .glossary-term } turns a draft [record](../ref/glossary.md#record){ .glossary-term } into a binding one. It is a human action, at both the org level and the project level. One commit:
 
 1. flips the record's Status to `Accepted`,
 2. assigns the number from the index (`QM-NNNN` or `ADR-NNNN`),
@@ -35,7 +35,7 @@ Ratification turns a draft record into a binding one. It is a human action, at b
 
 ## Ratification is the last gate, not the only one
 
-Every change to the corpus arrives as a pull request — a typo fix and a new record alike. Contributors work on a branch (`evolve/<slug>`, `perspective/<date>-<slug>`, or a `project/<name>` base) and merge their own pull request once every gate is green. Nothing reaches `main` by direct push. The pull request is the audit record; the human gates are ratification and the version tag, and neither of them is the pull request.
+Every change to the [corpus](../ref/glossary.md#corpus){ .glossary-term } arrives as a pull request — a typo fix and a new record alike. Contributors work on a branch (`evolve/<slug>`, `perspective/<date>-<slug>`, or a `project/<name>` base) and merge their own pull request once every [gate](../ref/glossary.md#gate){ .glossary-term } is green. Nothing reaches `main` by direct push. The pull request is the audit record; the human gates are ratification and the version tag, and neither of them is the pull request.
 
 Branch protection makes this mechanical where it is enabled. The rule stands either way.
 
