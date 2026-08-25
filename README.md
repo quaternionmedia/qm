@@ -95,6 +95,7 @@ qm/
 
 | # | Title | Status | Date |
 |---|---|---|---|
+| — | [A capability has four phases](records/DRAFT-a-capability-has-four-phases.md) | Proposed | 2026-08-25 |
 | — | [Decision-record discipline](records/DRAFT-decision-record-discipline.md) | Proposed | 2026-06-09 |
 | — | [Open-license exclusion and upstream-contribution remediation](records/DRAFT-open-license-exclusion-and-upstream-remediation.md) | Proposed | 2026-06-09 |
 | — | [A disagreement is a delta](records/DRAFT-a-disagreement-is-a-delta.md) | Proposed | 2026-08-17 |
