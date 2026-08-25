@@ -29,6 +29,8 @@ remediation.** Project instances add deployment-and-provenance records
 (offline mirrors, source-built images, internal CA, restore-verified
 backups), whose CI gates are the teeth.
 
+↔ Edges: shares-teeth P8
+
 ## P2 — Commons-first economics
 
 "Open-source maintainers first, consultants second" is a causal claim, not a
@@ -42,6 +44,8 @@ is a small debt default against the commons the business stands on.
 register as the audit surface — a patch carried anywhere is a commitment made
 by the org, so the register is org-level by design.
 
+↔ Edges: ordered-by P4, bears P7
+
 ## P3 — Seams on standard protocols
 
 Replaceability is the risk strategy. Third-party components touch a system
@@ -52,6 +56,11 @@ than proprietary code, because they survive even an open license.
 
 → Org record: **Seams on standard protocols**, with the replaceability test
 and the exception mechanism as teeth.
+
+↔ Edges: none — replaceability is a property of a component's boundary, and no
+other principle here constrains or is constrained by which protocols a seam
+speaks. P4 is the nearest neighbour and is a different question: P3 asks what a
+boundary is made of, P4 asks which side of it a capability belongs on.
 
 ## P4 — Build the seam, buy the engines
 
@@ -70,6 +79,8 @@ engine should reasonably own.
 ratifies its own control-plane instance record with size-smell revision
 triggers.
 
+↔ Edges: orders P2
+
 ## P5 — One house stack, deeply known
 
 What *we build* uses one stack, deeply: Python — FastAPI, SQLModel/Pydantic,
@@ -86,6 +97,11 @@ PRs.
 explicit carve-outs for contributions and client- or platform-mandated
 stacks.
 
+↔ Edges: none — a house-stack rule is about what QM's own repositories are
+written in, and nothing else in this charter turns on the answer. It looks
+adjacent to P4 and is not: P4 decides build-or-buy and is silent on language,
+and P5 explicitly does not govern what QM contributes upstream.
+
 ## P6 — Decisions are documented or they didn't happen
 
 Documentation-forward means gap-analysis-first design, rationale recorded
@@ -96,6 +112,8 @@ decision the organization doesn't possess.
 
 → Org record: **Decision-record discipline** — the process, template, and
 lint, adopted by every project via the seed.
+
+↔ Edges: bears P7
 
 ## P7 — Public by default
 
@@ -108,6 +126,8 @@ community can read.
 → Routed to the **handbook** (business policy: contractual exceptions, no
 architectural alternatives to weigh), with a defined promotion path to record
 form if its boundary ever needs adjudicable teeth.
+
+↔ Edges: rests-on P2, rests-on P6
 
 ## P8 — Systems over heroics
 
@@ -122,6 +142,8 @@ instance layer); no separate org record — principles may share enforcement,
 and a mirror record would violate one-decision-per-record from the other
 direction.
 
+↔ Edges: shares-teeth P1
+
 ## P9 — Minimal, legible deliverables
 
 Single-file HTML visualizations, modular JS, restrained aesthetics, prose
@@ -130,6 +152,11 @@ maintainer.
 
 → Routed to the **style guide**. Taste encoded as constitutional law degrades
 both.
+
+↔ Edges: none — legibility is routed to the style guide precisely because it has
+no architectural consequence to weigh, and a principle with no consequence
+cannot order, complete, bear or rest on another. Its isolation and its routing
+are the same fact.
 
 ## P10 — Credit tracks accountability, not output
 
@@ -145,6 +172,8 @@ party can answer for it is.
 migration as delivered teeth and a branch-protection rule against unmonitored
 co-author trailers as the mechanism still owed.
 
+↔ Edges: bears P17
+
 ## P11 — Governance finds the reader, not the reverse
 
 A constitution nobody encounters doesn't bind — it just exists. Every QM repo
@@ -157,6 +186,11 @@ by a human every session.
 → Org record: **IDE-integrated governance discovery**, with the
 AGENTS.md-and-pointers convention and the checked-in VS Code workspace
 config as teeth.
+
+↔ Edges: none — discovery is a delivery mechanism for every other principle
+rather than a claim any of them depends on. An edge to each would be seventeen
+edges carrying no information, which is the shape this check exists to keep out;
+an edge to one would be arbitrary.
 
 ## P12 — Show it by running it
 
@@ -193,6 +227,8 @@ exit, because doctest passes an example that declares no output; a generator
 fails when an artifact it names is absent; a skip is not a pass; and the check
 is satisfied by a run observed on the default branch, not by a workflow file
 that would have run.
+
+↔ Edges: bears P16
 
 ## P13 — A person is interrupted only by a decision
 
@@ -241,6 +277,8 @@ named workflow are recorded per workflow, and a workflow whose count grows
 without a stated reason is a regression. The corresponding measure on the other
 side is how many interruptions a session produced that were not decisions.
 
+↔ Edges: completed-by P14
+
 ## P14 — A change that can only be typed schedules interface work
 
 **Doing a needed thing by typing is a diagnosis, not a delivery.** Dropping to a
@@ -275,6 +313,8 @@ rather than removed, and no state is carried by colour alone.
 (`records/DRAFT-a-route-is-an-address.md`). This principle restates its §5; the
 four rules above about what the interface owes are stated in §1–§4 of that
 record and summarised here only as a pointer.
+
+↔ Edges: completes P13
 
 ## P15 — A loop is not a knot, and the layer's mathematics is sought on purpose
 
@@ -315,6 +355,13 @@ that decays first:
 (`records/DRAFT-a-knot-is-a-cycle-of-obligation.md`). It carries the measurement,
 the mapping table, and the two instances that stand today — one earned, one
 decorative and said to be.
+
+↔ Edges: none yet, and this is the one worth revisiting. The charter's own `Org
+record` / `Routed to` / `Enforced through` split is P15's
+earned/decorative/aspirational discipline under different words, which would
+make the charter a layer P15 governs and this a real `bears`. Stating that is a
+change to the charter, not an edge to declare here, and it is queued as its own
+  decision.
 
 ## P16 — A check is evidence only after it has been seen to fail
 
@@ -357,6 +404,8 @@ the same way.
 (`records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`). It carries
 the session's counts, what the rule unifies, and why a mutation-score gate was
 rejected in favour of a per-guard note.
+
+↔ Edges: rests-on P12, bears P17
 
 ## P17 — Shrink the black box: undecidable judgement, decidable guards
 
@@ -427,3 +476,6 @@ what it reported is itself the next guard's material.
 → Org record: **Shrink the black box: undecidable judgement, decidable guards**
 (`records/DRAFT-shrink-the-black-box.md`). It carries the two rules it unifies,
 the worked recursion, and what the mapping has not earned.
+
+↔ Edges: rests-on P10, rests-on P16
+
