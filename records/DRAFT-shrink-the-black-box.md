@@ -32,7 +32,14 @@ the code it produces.
 ## Decision
 
 **A model is a black box with no halting guarantee, so it is never the check.
-It is what writes the check.**
+It drafts the check; a person authors it.**
+
+Both halves are load-bearing and the second is the one that decays first. A
+model that is not the decision procedure but *is* credited with the guard has
+been let back in through the door this record closes: the guard's authority
+would then rest on the thing with no halting guarantee. It rests on the person
+who read it, broke it, watched it go red, and is accountable for it —
+`records/DRAFT-human-only-contributorship.md`.
 
 Three obligations follow, and they are the whole of the decision:
 
@@ -55,10 +62,17 @@ Three obligations follow, and they are the whole of the decision:
 ### The productive inversion
 
 The obligations above sound like a restriction on the model. They are the
-opposite: **the deterministic, time-bounded guards are built _with_ the
+opposite: **the deterministic, time-bounded guards are drafted _with_ the
 non-deterministic tool.** An agent is bad at being a decision procedure and good
-at writing one. So the work is to write the check, run it, break it, watch it go
-red (P16), and then never be the check again.
+at producing the syntax of one. So the work is to draft the check, run it, break
+it, watch it go red (P16), and hand a person something they can author — and
+then never be the check again.
+
+**Which is why P16 is the transfer of authorship and not a testing habit.** A
+guard nobody has seen fail is a draft. Breaking it, watching it go red, and
+writing the mutation down is what a person does to take responsibility for it,
+and after that the guard is theirs. The tool typed it; the mutation note is the
+signature.
 
 Said plainly, and this wording is the one to keep:
 
@@ -67,7 +81,7 @@ Said plainly, and this wording is the one to keep:
 
 The concrete instance this record was written from: an agent that waits for a
 fourteen-minute test suite is doing a scheduler's job badly. Threading the run
-and spending the interval writing checks is the same time spent on the half it
+and spending the interval drafting checks is the same time spent on the half it
 is good at — and the drift between "what I expected while it ran" and "what it
 reported" is itself material for the next guard.
 

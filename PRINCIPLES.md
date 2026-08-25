@@ -361,7 +361,14 @@ rejected in favour of a per-guard note.
 ## P17 — Shrink the black box: undecidable judgement, decidable guards
 
 **A model is a black box with no halting guarantee, so it is never the check. It
-is what writes the check.**
+drafts the check; a person authors it.**
+
+Both halves matter, and the second decays first. A model that is not the decision
+procedure but *is* credited with the guard has been let back in through the door
+this principle closes — the guard's authority would rest on the thing with no
+halting guarantee. It rests on the person who read it, broke it, watched it go
+red, and is accountable for it (P4, and
+`records/DRAFT-human-only-contributorship.md`).
 
 Two rules this organisation already had turn out to be one rule. Everything runs
 through `uv run qm <command>`; every paid model call passes through one gate.
@@ -396,9 +403,15 @@ above returned a plausible answer, a function deliberately taken from 8.15s to
 0.07s went back to 1.478s, and nothing failed for four pull requests.
 
 **The obligations restrict the model far less than they sound.** The
-deterministic, time-bounded guards are built *with* the non-deterministic tool: a
-model is bad at being a decision procedure and good at writing one. Write the
-check, run it, break it, watch it go red (P16), and then stop being the check.
+deterministic, time-bounded guards are drafted *with* the non-deterministic tool:
+a model is bad at being a decision procedure and good at producing the syntax of
+one. Draft the check, run it, break it, watch it go red (P16), hand a person
+something they can author — and then stop being the check.
+
+**P16 is the transfer, not a testing habit.** A guard nobody has seen fail is a
+draft. Breaking it and writing the mutation down beside it is what a person does
+to take responsibility for it; after that the guard is theirs. The tool typed it,
+and the mutation note is the signature.
 
 Said plainly, because the plain form is the operative one:
 
@@ -406,7 +419,7 @@ Said plainly, because the plain form is the operative one:
 > strengths.**
 
 An agent waiting on a fourteen-minute suite is doing a scheduler's job badly.
-Threading the run and spending the interval writing guards is the same time on
+Threading the run and spending the interval drafting guards is the same time on
 the half it is good at — and the drift between what was expected while it ran and
 what it reported is itself the next guard's material.
 
