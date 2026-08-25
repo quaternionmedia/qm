@@ -129,6 +129,15 @@ jobs:
       - name: Every declared restatement names its record, and the reverse
         run: python ci/check_restatements.py
 
+      # One layer up. `check_restatements.py` pairs a record with the documents
+      # that summarise it; nothing paired a principle with another principle,
+      # and a draft of P17 contradicted P10 in its central sentence with six of
+      # seventeen principles named by nobody at the time. This never requires an
+      # edge -- an unforced graph is the point -- it requires a declaration, and
+      # `none` with a reason is a first-class answer.
+      - name: Every principle declares its edges, or declares it has none
+        run: python ci/check_principle_edges.py
+
       # A seed carries placeholders on purpose; a copy that keeps one is a
       # template being shown to its reader. Guarded on the directory existing, so
       # it is a logged skip on main and a real check on a project/<name> branch --

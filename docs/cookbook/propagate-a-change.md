@@ -7,10 +7,10 @@ Carry an org-level change from `main` to an adopting project's branch.
 
 ## When to propagate
 
-- A record was ratified on `main` and projects need it.
+- A [record](../ref/glossary.md#record){ .glossary-term } was ratified on `main` and projects need it.
 - A project's branch has fallen behind and should catch up.
 
-Propagation is a human decision. Nothing triggers it automatically.
+[Propagation](../ref/glossary.md#propagation){ .glossary-term } is a human decision. Nothing triggers it automatically.
 
 ## The procedure
 

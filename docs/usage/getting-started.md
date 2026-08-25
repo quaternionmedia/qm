@@ -13,7 +13,7 @@ adopts it, so what is written here applies to all of them.
 assumes you have read it and gets on with the steps.
 
 One thing is worth explaining before you start, because everything else rests
-on it. A **record** is one decision, written down. It says what was decided,
+on it. A **[record](../ref/glossary.md#record){ .glossary-term }** is one decision, written down. It says what was decided,
 what the situation was, what else was considered, and what it costs. It is not
 a guide and not a tutorial. It is a decision with its reasoning attached, so
 that a year from now somebody can see why rather than guess.
@@ -29,13 +29,13 @@ cd qm
 
 ## 2. Read the charter
 
-Read [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md). It is short and states what QM believes. Everything else in the corpus is cut from it.
+Read [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md). It is short and states what QM believes. Everything else in the [corpus](../ref/glossary.md#corpus){ .glossary-term } is cut from it.
 
 ## 3. Learn the rules that bind
 
 1. **Only `records/` binds.** Records are the only binding documents. Everything else points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: ratification requires approval from a second active code owner.
-3. **Every change arrives as a pull request** — from a typo fix to a new record. It is the audit record rather than a request for attention, and its author merges it once every gate is green. Nothing reaches `main` by direct push.
+2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: [ratification](../ref/glossary.md#ratification){ .glossary-term } requires approval from a second active code owner.
+3. **Every change arrives as a pull request** — from a typo fix to a new record. It is the audit record rather than a request for attention, and its author merges it once every [gate](../ref/glossary.md#gate){ .glossary-term } is green. Nothing reaches `main` by direct push.
 4. **Two moments need a human, and the pull request is neither**: ratifying a record, and putting a version tag on a project. A tag says a person read the change set, ran it against the real thing, and saw the checks pass. `main` is not a claim, so merging into it is not a release.
 
 ## 4. Find what you need
