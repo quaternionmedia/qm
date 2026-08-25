@@ -5,12 +5,12 @@
 
 ## Two kinds of record
 
-- **Org records:** `QM-NNNN`. Numbered at ratification, by the index in the repository's [README](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records).
+- **Org records:** `QM-NNNN`. Numbered at [ratification](../ref/glossary.md#ratification){ .glossary-term }, by the index in the repository's [README](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records).
 - **Project records:** `ADR-NNNN`. Numbered locally by each project, starting at 0001.
 
 ## The precedence rule
 
-**QM records bind all projects.** A project record may add constraints on top of a QM record. It may not waive one.
+**QM records bind all projects.** A project [record](../ref/glossary.md#record){ .glossary-term } may add constraints on top of a [QM record](../ref/glossary.md#qm-record){ .glossary-term }. It may not waive one.
 
 If a project genuinely needs an exception, the path is an amendment to the QM record, ratified at the org level — never a project-level workaround.
 
@@ -25,12 +25,12 @@ Only `records/` binds. Everything else carries force by pointing at a record:
 | Directory | Force | If it conflicts with a record |
 |---|---|---|
 | `records/` | binding on every project | it **is** the rule |
-| `registers/` | binding, as the record that creates it says | the record wins; a register is data, not a second rule |
+| `registers/` | binding, as the record that creates it says | the record wins; a [register](../ref/glossary.md#register){ .glossary-term } is data, not a second rule |
 | `handbook/` | policy, binding on QM's own conduct | the record wins; the page needs correcting or promoting |
-| `perspectives/` | none | no conflict is possible; a perspective is opinion |
+| `perspectives/` | none | no conflict is possible; a [perspective](../ref/glossary.md#perspective){ .glossary-term } is opinion |
 | `project-seed/` | none in itself | it is a template; the copy is governed where it lands |
 
-A project record may tighten a handbook page the same way it may tighten a record — and may not relax either. If a handbook page ever needs to settle a dispute rather than describe a practice, that is the signal to promote it to a record. Each page states its own promotion path.
+A project record may tighten a [handbook](../ref/glossary.md#handbook){ .glossary-term } page the same way it may tighten a record — and may not relax either. If a handbook page ever needs to settle a dispute rather than describe a practice, that is the signal to promote it to a record. Each page states its own promotion path.
 
 ## The drafting discipline
 

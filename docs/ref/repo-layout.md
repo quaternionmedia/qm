@@ -1,7 +1,7 @@
 # Repository layout
 
 !!! info "Scope"
-    This page describes [quaternionmedia/qm](https://github.com/quaternionmedia/qm), the corpus repository itself. An adopting project's layout is described by the seed it copies.
+    This page describes [quaternionmedia/qm](https://github.com/quaternionmedia/qm), the [corpus](../ref/glossary.md#corpus){ .glossary-term } repository itself. An adopting project's layout is described by the [seed](../ref/glossary.md#seed){ .glossary-term } it copies.
 
 ## The tree
 
@@ -54,4 +54,4 @@ An adopting project's records are **not** in this tree. They live on that projec
 ## Related
 
 - [Branch namespaces](namespaces.md) — the branch model
-- [Handbook index](handbook.md) — what each handbook page answers
+- [Handbook index](handbook.md) — what each [handbook](../ref/glossary.md#handbook){ .glossary-term } page answers

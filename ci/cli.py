@@ -146,6 +146,16 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "edges",
+        help="every principle declares how it relates to the others, or why not",
+        add_help=False,
+    )
+    sub.add_parser(
+        "glossary-links",
+        help="link the first use of each glossary term on every docs page",
+        add_help=False,
+    )
+    sub.add_parser(
         "slot", help="is this contributor's pull request slot free?", add_help=False
     )
     sub.add_parser(
@@ -275,6 +285,8 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "gates": ("gate_dashboard", False, ["gate-status.json", "--format", "md"]),
     "tags": ("tag_audit", False, []),
     "restatements": ("check_restatements", False, []),
+    "edges": ("check_principle_edges", False, []),
+    "glossary-links": ("glossary_links", False, []),
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
     "pins": ("check_submodule_pins", True, []),

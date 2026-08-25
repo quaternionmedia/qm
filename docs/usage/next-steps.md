@@ -1,10 +1,10 @@
 # Next steps
 
-What happens after a project has adopted the corpus.
+What happens after a project has adopted the [corpus](../ref/glossary.md#corpus){ .glossary-term }.
 
 ## Propagation: staying in sync
 
-When the org changes `main` — a ratified record, an updated procedure — the change reaches your project through a **propagation merge**:
+When the org changes `main` — a ratified [record](../ref/glossary.md#record){ .glossary-term }, an updated procedure — the change reaches your project through a **[propagation](../ref/glossary.md#propagation){ .glossary-term } merge**:
 
 1. Someone cuts a `propagate/<name>-<date>` branch from your `project/<name>` branch.
 2. They merge `main` into it and open a pull request whose base is `project/<name>`.
@@ -19,7 +19,7 @@ See [Propagate a change](../cookbook/propagate-a-change.md) for the commands, an
 The org audits adopted projects to confirm each one has:
 
 - the `governance/qm` submodule on the right branch,
-- the four seed CI workflows,
+- the four [seed](../ref/glossary.md#seed){ .glossary-term } CI workflows,
 - the seed files (`AGENTS.md`, editor config) in place,
 - records seeded on its branch.
 

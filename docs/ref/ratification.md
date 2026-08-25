@@ -1,11 +1,11 @@
 # Ratification
 
 !!! info "Canonical"
-    This page states the ratification mechanics. Cited as `docs/ref/ratification.md`.
+    This page states the [ratification](../ref/glossary.md#ratification){ .glossary-term } mechanics. Cited as `docs/ref/ratification.md`.
 
 ## What ratification is
 
-Ratification turns a draft record into a binding one. It is a human action, at both the org level and the project level. One commit:
+Ratification turns a draft [record](../ref/glossary.md#record){ .glossary-term } into a binding one. It is a human action, at both the org level and the project level. One commit:
 
 1. flips the record's Status to `Accepted`,
 2. assigns the number from the index (`QM-NNNN` or `ADR-NNNN`),
@@ -29,13 +29,13 @@ Ratification turns a draft record into a binding one. It is a human action, at b
     listed in the index as `0001`, gives exactly that. The message names the
     index rather than the filename, so the cause is not obvious from the error.
 
-    This bites the first person ever to ratify, which is the one act the corpus
+    This bites the first person ever to ratify, which is the one act the [corpus](../ref/glossary.md#corpus){ .glossary-term }
     is waiting to perform. Nothing in the repository stated the convention
     before this page did.
 
 ## Ratification is the last gate, not the only one
 
-Every change to the corpus arrives as a pull request — a typo fix and a new record alike. Contributors work on a branch (`evolve/<slug>`, `perspective/<date>-<slug>`, or a `project/<name>` base) and merge their own pull request once every gate is green. Nothing reaches `main` by direct push. The pull request is the audit record; the human gates are ratification and the version tag, and neither of them is the pull request.
+Every change to the corpus arrives as a pull request — a typo fix and a new record alike. Contributors work on a branch (`evolve/<slug>`, `perspective/<date>-<slug>`, or a `project/<name>` base) and merge their own pull request once every [gate](../ref/glossary.md#gate){ .glossary-term } is green. Nothing reaches `main` by direct push. The pull request is the audit record; the human gates are ratification and the version tag, and neither of them is the pull request.
 
 Branch protection makes this mechanical where it is enabled. The rule stands either way.
 
@@ -49,7 +49,7 @@ The discipline is still enforced meanwhile — the lints and checks run in CI to
 
 Some records name follow-on work that triggers when they are Accepted:
 
-- **Open-license record:** on acceptance, the `ADR-0001` on the `project/streaming-infrastructure` branch receives a dated amendment recording adoption by reference. Its body is not touched.
+- **Open-license record:** on acceptance, the `ADR-0001` on the `project/streaming-infrastructure` branch receives a dated amendment recording [adoption by reference](../ref/glossary.md#adoption-by-reference){ .glossary-term }. Its body is not touched.
 
 Some records describe machinery that costs nothing to run early. That machinery can be live while the record is still `Proposed`; the two states are independent. The current inventory is in [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md).
 

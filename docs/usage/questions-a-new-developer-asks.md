@@ -29,7 +29,7 @@ Some projects mount the corpus somewhere other than `governance/qm`; check
 | Repository | Calls itself | Its part in the demo |
 |---|---|---|
 | `qm` | the decisions, and the checks that keep them honest | governance, the gates, the CLI |
-| `qmcp` | a Model Context Protocol server | the harness: it measures work and answers over HTTP |
+| `qmcp` | a Model Context [Protocol](../ref/glossary.md#protocol){ .glossary-term } server | the harness: it measures work and answers over HTTP |
 | `dossier` | the control panel | draws the harness's answer in a terminal |
 | `codecartographer` | a tool for mapping source code as graphs | draws the same answer in a browser |
 
@@ -44,12 +44,12 @@ active, and it lists others — `rad` among them. `uv run qm inventory` prints i
 
 **"I just cloned this. What do I run first?"**
 
-`uv run qm devloop` measures your local environment against what the loop needs,
+`uv run qm devloop` measures your local environment against what the [loop](../ref/glossary.md#loop){ .glossary-term } needs,
 and `uv run qm brief` builds the opening brief for a session. Then read
 [Getting started](getting-started.md) and the worked example in
 [walkthrough/](https://github.com/quaternionmedia/qm/tree/main/walkthrough).
 
-`uv run qm workspace` writes the multi-root workspace file from the roster,
+`uv run qm workspace` writes the multi-root [workspace](../ref/glossary.md#workspace){ .glossary-term } file from the roster,
 which is what actually puts the repositories in front of you.
 
 **"Will my commits be rejected for anything I have not set up?"**
