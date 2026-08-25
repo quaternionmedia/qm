@@ -33,7 +33,7 @@ dossier addresses a branch as `owner/repo/branch/` plus
 legitimately named `evolve-protect-main` produces the identical address, and
 neither can be turned back into a ref git accepts.
 
-**30 of the 32 branches in this corpus contain a slash**, because every
+**30 of the 32 branches in this [corpus](../ref/glossary.md#corpus){ .glossary-term } contain a slash**, because every
 namespace is `evolve/`, `project/`, `perspective/` or `propagate/`. Listing
 active branches as deltas means linking a row to a ref, and that link is broken
 for almost every branch in the organisation.
@@ -60,7 +60,7 @@ one.
 | `ask` | a question waiting on a person, by id |
 
 `ask` is what lets a control panel show *which* question is outstanding rather
-than how many. Without it a harness's human-in-the-loop queue crosses as a
+than how many. Without it a [harness](../ref/glossary.md#harness){ .glossary-term }'s human-in-the-loop queue crosses as a
 count, and a count is not something a person can answer.
 
 `delta` and `invocation` are the two the dashboard milestone needs: a workflow

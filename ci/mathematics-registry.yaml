@@ -133,3 +133,101 @@ mappings:
       state the precedence pairs, then check whether real deltas respect them.
       dossier holds 156 deltas across three phases, which is enough data to
       find out whether the implied order is the observed one.
+
+  - layer: the boundary between an agent's judgement and the code it produces
+    structure: >
+      a decidability boundary -- an undecidable region, and total functions
+      outside it
+    state: earned
+    decides: >
+      where a guard may live. A check with no bound is a check that might not
+      return, so it is not a check; a bound that fires and is caught without
+      being reported turns a halting failure into a plausible answer. Both were
+      settled by the structure rather than by taste, and both had been argued
+      previously from cost and interruption instead.
+    measured: >
+      dossier: `waiting_org` asked `overview.build` for its attention rows, and
+      `build` builds every facet including that one. 109 levels of nested
+      `build` before Python's recursion limit stopped it; the RecursionError
+      caught by a per-source guard; every frame above returning a plausible
+      answer. overview.build 0.061s -> 1.478s, unnoticed for four pull
+      requests. Guarded now by a call-count assertion, seen to fail.
+    unearned: >
+      no bound is stated for a `qm` command's own runtime. The obligation is
+      asserted of guards and unmeasured for commands, so "every guard is a
+      total function" is checked and "every command terminates" is assumed.
+      Nothing yet measures the size of the undecidable region either, so
+      "shrink it" has a direction and no metric.
+    next: >
+      state a runtime bound per command in the gate registry, the way
+      `cannot_see` states a blind spot. Then the claim is checkable rather
+      than asserted.
+
+  - layer: a delta, and the readings either side of it
+    structure: >
+      a difference of two samples -- the discrete analogue of an integral over
+      a stabilised axis
+    state: earned
+    decides: >
+      that a change is stored as a reading, an act, and another reading, rather
+      than as a summary of what the act achieved. It settled the disk store's
+      append-only design against the governance store's replace-what-it-read
+      design: the question worth asking of a disk is what *grew*, and no single
+      reading answers it. It also decides what a delta may be compared against
+      -- a difference across two coordinate systems is refused rather than
+      averaged into a trend that happened on neither.
+    measured: >
+      dossier's `disk_snapshot` / `disk_reclaim` tables and
+      `dossier disk delta`: a reclaim carries the two readings it sits between,
+      and a delta across two machines is refused. Each snapshot carries the
+      machine it describes, which is the stabilised axis being named.
+    unearned: >
+      the rate. A difference of two samples is the accumulated change; nothing
+      here computes or uses a derivative -- how fast a repository is moving,
+      how quickly a queue drains -- although the data has timestamps and could.
+      And the axis is stabilised by convention rather than by check: nothing
+      refuses a comparison across two *phase vocabularies*, only across two
+      machines.
+    next: >
+      pick one rate worth having and measure it, or record that none is. The
+      candidate is delta phase transitions per week per repository, which
+      dossier has the timestamps for. Until then this entry is earned for
+      accumulation and states nothing about rates.
+
+  - layer: a generated artifact and the command that regenerates it
+    structure: a fixed point of the generator
+    state: earned
+    decides: >
+      what "the documentation is current" means, checkably. Not "somebody
+      regenerated it recently" but `regenerate(x) == x` -- so drift is distance
+      from the fixed point and a stale artifact is a failing assertion rather
+      than a judgement. It settles the design question the other way round from
+      how it is usually asked: the generator must be idempotent, and a
+      generator that is not cannot ride the ordinary command at all.
+    measured: >
+      qmetronome: 24 screenshots, 23 recordings and 24 guide pages regenerated
+      by `./gradlew test` carry zero drift, while the two artifacts in the same
+      repository that need a remembered command are stale -- a changelog one
+      release behind its newest tag, and a results table pasted by hand. One
+      repository, one author, one standard, so the difference is the mechanism
+      and not the discipline.
+
+      qm: `ci/glossary_links.py` was written claiming idempotence and did not
+      have it -- it linked the first *bare* use, so each pass linked one more
+      occurrence and it rewrote 17 pages on its second run. Running it twice is
+      what found that. The structure named the defect before anybody read the
+      code.
+    unearned: >
+      the repair direction. A fixed-point generator cannot fix its own bad
+      output, because bad output is still a fixed point: the broken glossary
+      link had to be reverted by hand before a corrected pass could run.
+      Nothing states how a generated artifact gets back to a good fixed point,
+      and "revert and rerun" is a habit rather than a mechanism.
+
+      And the property is checked per generator rather than required of them.
+      `dossier`'s ring recordings only became a fixed point when a per-run CSS
+      id was normalised out; nothing would have failed had it stayed.
+    next: >
+      assert idempotence in the seed's own test helpers, so a new generator
+      gets the check without its author thinking of it. That is the difference
+      between a structure that is known and one that is enforced.

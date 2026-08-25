@@ -31,7 +31,14 @@ import json
 import sys
 from pathlib import Path
 
-from dashboard_style import STYLE
+# Run as a script, `ci/` is on the path and the bare import resolves. Imported
+# as `ci.harness_dashboard` -- which is what a `qm` route does -- it does not,
+# and the module fails at import with a name that says nothing about the cause.
+# `gate_dashboard.py` has carried this line since it was routed; this one had no
+# route, so nothing ever imported it and the gap sat unnoticed.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from dashboard_style import STYLE  # noqa: E402
 
 OK, WARN, UNKNOWN = "ok", "warn", "unknown"
 
