@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-06-09 |
-| **Pends on** | Nothing — ready for ratification |
+| **Pends on** | §5's boundary, which is where a version review settles it. The scan now covers the runtime dependency closure rather than everything installed, and a project's *test* environment sits on the line: a suite that records a published artifact pulls a library the deployed runtime never loads. `MIT-CMU` is the live instance — on neither the OSI nor the FSF list, so §1 excludes it, while the package declaring it is a documentation tool. Nothing below waits on that answer; the encoding in §4 is correct either way. |
 | **Principle** | P1 — ownership is the deliverable; P2 — commons-first economics |
 
 ## Context
