@@ -34,15 +34,24 @@ readiness`, `python scripts/license_gate.py` all answer for themselves.
 | what | where | state |
 |---|---|---|
 | **A topology declares what it needs** | qmcp #34 | **Merged** at `42a2eae` — its four checks were green; see §3.1 for why this page first said they had not run. qmcp's slot is free (the fourteen open pull requests there are dependabot's) |
-| **A view declares what it needs** | dossier `feat/a-view-declares-what-it-needs` | Committed, **not pushed**, no pull request. Local gates were running when this page was written |
-| **This handoff and its retrospective** | qm `handoff/views-declare-what-they-need` | Committed, not pushed |
+| **A view declares what it needs** | dossier #55 | Open, not draft, assigned. Local gates run twice: **1382 passed**; the two step failures are both the setup, established rather than assumed — see §3.5 and §3.6 |
+| **This handoff and its retrospective** | qm #108, **merged** at `f1e25fb` | Merged by another session while this page was still being written, taking `233c3bd`. The commit after it is not in that merge and carries the corrections in §3.1 and the retrospective's §6a and §6b |
 
 ### Working trees
 
-qm and qmcp are clean. dossier is clean on its branch. `codecartographer` has a
-modified `governance/qm` on a branch this session did not create and did not
-touch — **another session is working in that clone**; reconcile before writing
-there.
+All four are clean. Two of them are shared, and this page was written around
+that rather than through it:
+
+- **qm's clone is checked out on `main`**, not on this page's branch — another
+  session merged #108 and left it there. This page's later commits were made
+  through `git worktree` rather than by switching the shared checkout under
+  somebody. That is the cheap move and it is worth knowing about.
+- **codecartographer** has a modified `governance/qm` on `feat/unify-ui-paths`,
+  a branch this session did not create and did not touch. Reconcile before
+  writing there.
+
+`handbook/async-contract.md` is the set of rules that exist because of this,
+and it is short.
 
 ---
 
@@ -136,6 +145,14 @@ picture in that summary, and the window is long enough to act inside.
   distinguishable from "four passed". Every input exists — the workflow files
   carry their triggers, `gh run list` says what ran — and nothing joins them.
   It belongs in the seed.
+- **And it is not a set difference, which is probably why it does not exist.**
+  This page's own pull request, qm #108, reports seven checks while twelve
+  workflows declare `pull_request`. All five absences are correct: four are
+  filtered out by `paths:` that the diff does not touch, and `namespace-guard`
+  is scoped to `branches: ['project/**']`. A naive comparison would report five
+  missing checks on a healthy pull request — **which is the same error in the
+  opposite direction**, and a guard that cries wolf is the one people learn to
+  ignore. The check has to evaluate the filters against the diff.
 - **Until it exists**: read the count, not the verdict. Four workflows declared
   and two rows on the summary is not a green.
 - **One artifact still carries the wrong reading and cannot be edited.** The
@@ -186,7 +203,35 @@ exported payload. They can disagree and nothing notices.
   when you most want to know what it last did, and it is an artifact you can
   commit and diff.
 
-### 3.5 `waiting()`'s truncation guard is inert
+### 3.5 A screenshot test that fails about one run in two
+
+`tests/ui/test_tui.py::TestTUIScreenshotsParameterized::test_screenshot_tab_at_resolution[size0-desktop-tab-branches-Branches]`,
+failing with `NoMatches: No nodes match '#hygiene-table'` — the node itself,
+not its contents, so the tab pane had not mounted when the shot was taken.
+
+- **What is established**: it failed in the first full local run and passed in
+  the second, and passes 54 of 54 in isolation. dossier #55 touches neither
+  `tui/app.py` nor `tests/ui/test_tui.py`. The suite runs under
+  `pytest-randomly`, so ordering differs run to run.
+- **Done looks like**: the shot waiting on the pane being mounted rather than
+  on a settle interval. A flake in a screenshot test is worse than a flake
+  elsewhere, because the remedy people reach for is re-running until it is
+  green, and that is also how a real regression gets past.
+- **Not fixed in #55**, deliberately — it predates that branch and fixing it
+  there would put an unrelated change in a reviewable diff.
+
+### 3.6 Two workflows installing into the same site-packages
+
+`reuse-lint :: Install REUSE` failed in both full local runs and passes when
+that workflow is run alone (223 of 223 files compliant). Several workflows call
+`python -m pip install` against the same user site-packages, and the local
+runner runs them together where the hosted one gives each job its own machine.
+
+That the concurrency is the mechanism is **inference**; that the step passes
+alone is observed. Either way it is the local runner's property and not the
+repository's — the hosted `REUSE lint` is green on both #55 and #108.
+
+### 3.7 `waiting()`'s truncation guard is inert
 
 It reads `total` from the harness document; the harness does not send one, so
 `total` falls back to the page length and `more` is always zero. Honest — it
@@ -251,5 +296,5 @@ docstring and the pull request body both say a dashboard change shows up in
 `git status`, and the file changes on every run regardless. Fixing it also
 removes the CI skip that exists only because the runner has no `dossier.db`.
 
-Everything above it is done: qmcp #34 is merged and that slot is free, and
-dossier's branch needs only a pull request.
+Everything above it is done: qmcp #34 is merged and that slot is free, qm #108
+is merged, and dossier #55 is open with its gates run twice.
