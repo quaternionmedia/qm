@@ -131,43 +131,104 @@ them and to enforce them on other people's code, and I broke all three inside
 one session. Knowing a rule is not the same as having a check, which is the
 argument P16 makes and which I keep re-proving accidentally.
 
-## 6. The green that meant nothing
+## 6. The green that meant nothing, and the fifth instance of §2
 
-The last finding is the one I would take out of this session if I could take
-only one.
+This section was written as the session's headline finding and it was wrong. It
+is left here in its corrected form because **how it was wrong is the better
+material**, and because deleting it would remove the only instance in this
+document that got caught before publication rather than after.
 
-`qmcp` #34 was opened, and its `pull_request` workflows never fired — no
+### What I wrote
+
+`qmcp` #34 was opened, and its `pull_request` workflows had not fired — no
 `Tests`, no `ADR lint`, no `One PR per contributor`, on the opening and on a
-forced `synchronize` (E1). Only the push-triggered submodule check ran.
+push (E1). Only the push-triggered submodule check had run.
 
     GitGuardian Security Checks: pass
     check-submodule-refs: pass
 
-**`gh pr checks` reports all-pass.** The pull request reads merge-ready.
+**`gh pr checks` reported all-pass.** I wrote that the events had *stopped*,
+gave it the highest severity on the handoff page, wrote "do not merge #34", and
+observed that seventeen pull requests had been merged that day on exactly that
+signal.
 
-Seventeen pull requests merged earlier that day on exactly that signal, and I
-had checked each one the same way. Had the events stopped an hour earlier I
-would have merged unverified changes while reporting them as gated, and the
-report would have been sincere.
+### What was true
 
-This is a new face of a thing this corpus already knows. The catalogue so far is
-*a check with a hole*, *a check answering a different question*, and *a check
-measuring its own scaffolding*. This is **a check that did not run, and a
-summary that cannot tell that from passing**. `gh pr checks` aggregates what
-exists; absence has no row.
+They had not stopped. They had not arrived yet (E1):
 
-**The check that would catch it does not exist.** It would have to know what
-*should* have run — the workflows a repository declares for `pull_request` —
-and compare that to what did. Every input is available: the workflow files
-declare their triggers, and the runs API says what ran. Nothing joins them.
-That is the next piece of work, and it belongs in the seed so every project
-gets it.
+    created   2026-08-26T23:54:05Z   (pull request opened)
+    pushed    2026-08-26T23:57:42Z   (00ce67f)
+    queued    2026-08-26T23:59:39Z   pull_request x4 -> all four success
 
-I could not establish why the events stopped (E3: repository, account or
-platform; all three fit what was observed). That is a smaller question than the
-signal being unable to say so.
+About six minutes from opening to queueing. I looked inside that window, twice,
+and concluded from two observations that a mechanism had failed.
+
+**This is §2 again, and it is the fifth instance in this document.** Delivery
+lag is the ordinary cause. "The events have stopped" is the interesting one.
+`DRAFT-decision-record-discipline.md` §8 says to name the ordinary cause first
+and §10 says an unexpected uniform result is a tooling fault until shown
+otherwise; I quoted both in this same document, in §2, about a mistake I had
+made three hours earlier, and then made it again in the section arguing it was
+the most important thing I had found.
+
+The tell was available and I read past it: **every one of the four was
+missing.** A repository-level fault that silences exactly the four
+`pull_request` workflows and leaves the `push` one working is a very specific
+failure. "None of them has started yet" explains the same picture with nothing
+exotic in it.
+
+### What survives, and it is smaller
+
+A summary that shows two rows for six declared checks reads as all-pass, and
+`gh pr checks` has no way to say *four have not reported*. Absence has no row.
+That is real, it is transient, and it is enough to act on inside a six-minute
+window — which is precisely what I did, in the wrong direction.
+
+So this is still a face of the thing the corpus knows — *a check with a hole*,
+*a check answering a different question*, *a check measuring its own
+scaffolding*, and now **a check that has not run, reported identically to one
+that passed**. The catalogue entry stands; the severity does not.
+
+**The check that would catch it does not exist**, and is worth building anyway:
+compare the `pull_request` workflows a repository declares against what has
+reported, so pending is distinguishable from passing. Every input is available
+— the workflow files carry their triggers, `gh run list` says what ran —
+and nothing joins them. It belongs in the seed.
+
+**And the cheaper remedy, which is not a check**: wait, then look again. The
+correction here cost one command run ten hours later. The claim would have
+gone out in a handoff page telling the next session not to merge a green pull
+request, and that page would have been read as fact.
+
+## 6a. A red suite that was the machine, not the branch
+
+One more from the same hour, and the same shape.
+
+`uv run --extra preflight qm preflight` reported **ten steps failed of ten**;
+dossier's local runner reported five of five. Every failure was the first
+`run:` step of its job, and every message was identical (E1):
+
+    WSL (13 - Relay) ERROR: CreateProcessCommon:640:
+    execvpe(/bin/bash) failed: No such file or directory
+
+Windows resolves `bash` to the WSL shim, which then looks for Git Bash's
+interpreter inside the WSL namespace, where it is not. Running the same command
+from a Git Bash shell works. Nothing was wrong with either branch.
+
+Reported as-is — "preflight fails, ten of ten" — that is a true sentence and a
+false report. `AGENTS.md` item 10 names this exactly: *an unexpected uniform
+result is a tooling fault until shown otherwise*. **The uniformity is the
+evidence**, and it is the same evidence I ignored an hour earlier when all four
+of #34's workflows were missing together.
 
 ## 7. What to distrust here
+
+**Start with §6.** It was published-ready and wrong, and it is the second time
+in this document that the interesting explanation beat the ordinary one. Two
+instances in one session is a rate, not an accident, and the pattern is
+specific: it happens when the wrong answer is *more worth writing up* than the
+right one. Every finding here that made me want to write a section deserves the
+same suspicion §6 turned out to need.
 
 The measurements are checkable and were checked by running them. The
 explanations are mine, and §1's claim — that a "cannot do" paragraph is

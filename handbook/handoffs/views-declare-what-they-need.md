@@ -9,7 +9,7 @@ on somebody.
 | **Stamped** | 2026-08-27 |
 | **qm** | `4126c87` on `main`; this page's branch is cut from it |
 | **dossier** | `1c37b96` on `feat/a-view-declares-what-it-needs` |
-| **qmcp** | `00ce67f` on `evolve/a-topology-declares-what-it-needs` |
+| **qmcp** | `42a2eae` on `main` — #34 merged after this page was first written |
 | **codecartographer** | `3480feb` on `feat/unify-ui-paths` — **another session's branch**, not touched here |
 
 **Every number on this page was true at those commits and nowhere else.**
@@ -26,14 +26,14 @@ readiness`, `python scripts/license_gate.py` all answer for themselves.
 |---|---|
 | qm | #97–#107 — P17's mechanism, the charter's three states, the capability vocabulary, two propagations, the licence amendment |
 | dossier | #42–#54 — ring and pointer work, clone, delta compounds, the recursion fix, harness queue truncation, the trim sweep, the capability window, the blind-review fixes, one GIF per narrative |
-| qmcp | #31–#33 — the governed seam, its documentation, the seams a local round found |
+| qmcp | #31–#34 — the governed seam, its documentation, the seams a local round found, and the needs a topology declares |
 | codecartographer | #94 — the capability graph |
 
 ### Open, and not merged
 
 | what | where | state |
 |---|---|---|
-| **A topology declares what it needs** | qmcp #34 | Open, not draft. **Its checks did not run** — see §3.1 |
+| **A topology declares what it needs** | qmcp #34 | **Merged** at `42a2eae` — its four checks were green; see §3.1 for why this page first said they had not run. qmcp's slot is free (the fourteen open pull requests there are dependabot's) |
 | **A view declares what it needs** | dossier `feat/a-view-declares-what-it-needs` | Committed, **not pushed**, no pull request. Local gates were running when this page was written |
 | **This handoff and its retrospective** | qm `handoff/views-declare-what-they-need` | Committed, not pushed |
 
@@ -102,35 +102,47 @@ row it added is a live question — see §4.
 
 ## 3. Triage
 
-Ordered by what it costs to be wrong about.
+**§3.1 is first because this session called it the headline and it was not.**
+It is closed, and it is left standing rather than deleted because the reading
+that produced it is the thing worth carrying forward. The rest are open, and
+§3.2 is the one that costs most to be wrong about.
 
-### 3.1 A pull request that reads green and was never checked
+### 3.1 A summary that cannot say "has not run yet"
 
-**qmcp #34's `pull_request` workflows did not fire.** `Tests`, `ADR lint` and
-`One PR per contributor` produced no runs, on the pull request opening *and* on
-a forced `synchronize` from an empty commit. Only `Submodule refs` ran, because
-it triggers on `push`.
+**qmcp #34 is fine and this entry is smaller than it was first written.** For
+about six minutes after the pull request opened, `Tests`, `ADR lint` and `One
+PR per contributor` had no runs while `gh pr checks` reported:
 
     GitGuardian Security Checks: pass
     check-submodule-refs: pass
 
-**`gh pr checks` reports all-pass**, so the pull request reads merge-ready. The
-seventeen merged before it were merged on exactly that signal.
+— all-pass, from the two that had reported, with **no row at all** for the four
+that had not. Read inside that window the pull request looks merge-ready.
 
-- **Severity**: highest on this page. Not because the change is risky — it is
-  small and locally green — but because the *signal* is wrong, and a wrong
-  signal is worse than a red one.
-- **What is established**: the workflows are `active`, carry no path filters,
-  and ran normally on the previous pull request in the same repository hours
-  earlier. Nothing is queued or awaiting approval. Push-triggered runs work.
-- **What is not established**: the cause. Repository-level, account-level or
-  platform — this session could not tell which from here. **Inference, not
-  fact.**
-- **Done looks like**: either the events resume and #34 shows four checks, or
-  somebody establishes why they stopped. **Do not merge #34 on the current
-  green.**
-- **Worth checking across the estate**: whether any other repository is in the
-  same state, because the same reading would mislead there too.
+The four then queued and all four succeeded (E1):
+
+    created   2026-08-26T23:54:05Z   (pull request opened)
+    pushed    2026-08-26T23:57:42Z   (00ce67f)
+    queued    2026-08-26T23:59:39Z   pull_request x4 -> all success
+
+**This session read it as the events having stopped and it was delivery lag** —
+the ordinary cause, missed by not waiting. What survives is the smaller and
+still real thing: a check that has not run and a check that passed are the same
+picture in that summary, and the window is long enough to act inside.
+
+- **Severity**: low and transient. #34 is verified and can be merged.
+- **Done looks like**: something that compares the `pull_request` workflows a
+  repository *declares* against what has reported, so "four still pending" is
+  distinguishable from "four passed". Every input exists — the workflow files
+  carry their triggers, `gh run list` says what ran — and nothing joins them.
+  It belongs in the seed.
+- **Until it exists**: read the count, not the verdict. Four workflows declared
+  and two rows on the summary is not a green.
+- **One artifact still carries the wrong reading and cannot be edited.** The
+  empty commit pushed to force a re-trigger is on `main` as `00ce67f`, with the
+  message *"Re-trigger the pull-request checks, which did not fire on the first
+  push"*. They did fire, two minutes later. Leave it; it is history, and this
+  page is the correction.
 
 ### 3.2 The narrative pictures are not reproducible
 
@@ -213,8 +225,14 @@ for. Needs a count from qmcp or a second request.
 
 Marked as inference, not fact.
 
-- **Why qmcp's pull-request events stopped.** §3.1. Everything checkable was
-  checked; the cause was not reached.
+- **Whether the local workflow runner agrees with the hosted one, on this
+  machine.** It cannot be run from a PowerShell session here: every step fails
+  at its first `run:` with `WSL ... execvpe(/bin/bash) failed`, because
+  Windows resolves `bash` to the WSL shim, which then looks for Git Bash's
+  interpreter inside the WSL namespace. Ten steps of ten in qm, five of five
+  in dossier, every one at the first `run:` — the uniform result `AGENTS.md`
+  item 10 says to read as a tooling fault. **Launching it from a Git Bash
+  shell is the workaround**; the hosted runs are the evidence that stands.
 - **Whether MIT-CMU is OSI-approved in fact.** SPDX's data says `osi_approved:
   False` and that data is right about every licence that could be checked
   against independent knowledge. It is one source.
@@ -227,6 +245,11 @@ Marked as inference, not fact.
 
 ## 7. The single next action
 
-**Establish why qmcp #34's checks did not run**, and do not merge it until they
-do or somebody decides to merge without them. Everything else on this page can
-wait; that one is a wrong signal, and a wrong signal spreads.
+**§3.2 — record the narrative pictures against a seeded database.** It is the
+one open item whose current state makes a false claim in shipped text: the
+docstring and the pull request body both say a dashboard change shows up in
+`git status`, and the file changes on every run regardless. Fixing it also
+removes the CI skip that exists only because the runner has no `dossier.db`.
+
+Everything above it is done: qmcp #34 is merged and that slot is free, and
+dossier's branch needs only a pull request.
