@@ -136,6 +136,14 @@ picture in that summary, and the window is long enough to act inside.
   distinguishable from "four passed". Every input exists — the workflow files
   carry their triggers, `gh run list` says what ran — and nothing joins them.
   It belongs in the seed.
+- **And it is not a set difference, which is probably why it does not exist.**
+  This page's own pull request, qm #108, reports seven checks while twelve
+  workflows declare `pull_request`. All five absences are correct: four are
+  filtered out by `paths:` that the diff does not touch, and `namespace-guard`
+  is scoped to `branches: ['project/**']`. A naive comparison would report five
+  missing checks on a healthy pull request — **which is the same error in the
+  opposite direction**, and a guard that cries wolf is the one people learn to
+  ignore. The check has to evaluate the filters against the diff.
 - **Until it exists**: read the count, not the verdict. Four workflows declared
   and two rows on the summary is not a green.
 - **One artifact still carries the wrong reading and cannot be edited.** The

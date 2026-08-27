@@ -1,4 +1,4 @@
-# Perspective — The Precondition Nobody Declared, and the Green That Meant Nothing
+# Perspective — The Precondition Nobody Declared, and Three Silences I Read as Facts
 
 | | |
 |---|---|
@@ -221,14 +221,48 @@ result is a tooling fault until shown otherwise*. **The uniformity is the
 evidence**, and it is the same evidence I ignored an hour earlier when all four
 of #34's workflows were missing together.
 
+## 6b. A watcher that watched nothing
+
+Having just written §6, I set a watcher on the next pull request's checks so I
+would not read them too early again. It polled every thirty seconds and emitted
+nothing, which I read as *no checks have landed yet*.
+
+It was emitting nothing because `jq` is not installed on this machine (E1). Every
+poll printed three lines of `jq: command not found` to stderr, which is not the
+event stream, and returned quiet.
+
+Three in one evening, and this one is the purest: **§6 was delivery lag read as
+absence; §6a was a broken interpreter read as a red suite; this was a broken
+instrument read as an absence of events.** All three are the same sentence —
+*nothing came back, so nothing is there* — and in all three the instrument had
+failed rather than the subject.
+
+The remedy is not a check. It is that **an instrument reporting nothing has to
+be shown reporting something before its silence means anything**, which is P16
+applied to the tool you are measuring with rather than to the guard you are
+shipping. I have written that sentence into a record and enforced it on other
+people's code, and I still armed a watcher and trusted its first silence.
+
+## 6c. What all of this cost, and what it did not
+
+The session's actual work — a readiness model in two repositories, its four
+readings, the brittleness pass — was done before any of §6, §6a and §6b
+happened. Every one of those three came from *reporting* on the work rather
+than doing it.
+
+That is not an argument for reporting less. It is an argument that the
+reporting deserves the same standard of evidence as the code, and this
+document is the first place in this session where it got it: §6 was corrected
+before it was published, by waiting ten hours and running one command.
+
 ## 7. What to distrust here
 
-**Start with §6.** It was published-ready and wrong, and it is the second time
-in this document that the interesting explanation beat the ordinary one. Two
-instances in one session is a rate, not an accident, and the pattern is
-specific: it happens when the wrong answer is *more worth writing up* than the
-right one. Every finding here that made me want to write a section deserves the
-same suspicion §6 turned out to need.
+**Start with §6.** It was published-ready and wrong, and with §6a and §6b it is
+three instances in one evening of the same sentence: *nothing came back, so
+nothing is there*. Three is a rate, not an accident, and the pattern is
+specific — it happens when the wrong answer is *more worth writing up* than
+the right one. Every finding here that made me want to write a section deserves
+the same suspicion §6 turned out to need.
 
 The measurements are checkable and were checked by running them. The
 explanations are mine, and §1's claim — that a "cannot do" paragraph is
