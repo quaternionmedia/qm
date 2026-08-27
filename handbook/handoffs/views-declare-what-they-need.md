@@ -6,7 +6,7 @@ on somebody.
 
 | | |
 |---|---|
-| **Stamped** | 2026-08-27 |
+| **Stamped** | 2026-08-27 UTC — the evening of the 26th where this was written. Every timestamp quoted below is UTC, which is the clock the host's run records use |
 | **qm** | `4126c87` on `main`; this page's branch is cut from it |
 | **dossier** | `1c37b96` on `feat/a-view-declares-what-it-needs` |
 | **qmcp** | `42a2eae` on `main` — #34 merged after this page was first written |
