@@ -241,4 +241,4 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): —
+Drafts in flight (numberless, by title): *Adopt the QM constitution, and scope looksatwords to language corpora* (`DRAFT-adopt-the-corpus-and-scope-looksatwords-to-language.md`, Proposed)
