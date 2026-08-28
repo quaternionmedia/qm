@@ -247,4 +247,4 @@ subassemblies; Firmware toolchain seam (toolchain modules: arduino-cli and espto
 printer seam (monitor printer controllers over the G-code line protocol);
 rad host integration for apothecary (the rings address nine cells); One
 screen: the world, and what stands in front of it; Personal data stays on
-the device, by construction.
+the device, by construction; What Apothecary's `v0.0.2` asserts.
