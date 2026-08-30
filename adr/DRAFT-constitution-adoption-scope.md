@@ -44,8 +44,8 @@ optional co-location in the other (DataFactorio → factorio-server).
    exists to SBOM yet).
 3. **House stack — adopted, no carve-out.** FastAPI, SQLModel, Pydantic, and
    Click are exactly the org's blessed Python stack; this project is a direct
-   instance of P5, not an exception to it. The frontend is single-file/modular
-   JS and CSS in `src/datafactorio/static/`, consistent with P5's stated
+   instance of `one-house-stack`, not an exception to it. The frontend is single-file/modular
+   JS and CSS in `src/datafactorio/static/`, consistent with `one-house-stack`'s stated
    complement ("single-file HTML/JS for visualization deliverables") — note the
    README's description of the frontend as "D3.js" is aspirational/historical:
    no `d3` package appears in `package.json` or as a vendored/CDN script; the
@@ -59,7 +59,7 @@ optional co-location in the other (DataFactorio → factorio-server).
    (`"source": "sysadmin"`, `it_nodes`/`it_edges`/`it_metrics`) is a second
    producer against that same seam, not a source-level dependency — DataFactorio
    has no build-time or import-time reference to factorio-sysops, and works
-   identically with it absent. This is P3 (seams on standard protocols) applied
+   identically with it absent. This is `seams-on-standard-protocols` (seams on standard protocols) applied
    to composing sibling repos, not just third-party vendor risk, and is the
    mechanism that keeps "standalone" and "build off each other" simultaneously
    true.
@@ -116,7 +116,7 @@ optional co-location in the other (DataFactorio → factorio-server).
 1. **Treat the reference (streaming-infrastructure) project's ADR-0001 as
    sufficient and skip a DataFactorio-specific one** — rejected: the reference
    project's baseline audit is about its own components (MediaMTX, Frigate,
-   etc.), which says nothing about this project's actual dependency tree; P6
+   etc.), which says nothing about this project's actual dependency tree; `decisions-are-documented`
    ("decisions are documented or they didn't happen") requires this project's
    own audit to exist here, not be inferred by analogy.
 2. **Describe the factorio-sysops/factorio-server relationship as a formal
