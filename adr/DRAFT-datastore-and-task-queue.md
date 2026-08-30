@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-07 |
 | **Pends on** | The choice of compliant replacements for the datastore and the broker. Nobody has scoped that migration, and this record declines to pick one by implication. |
-| **Principle** | P1 — ownership is the deliverable |
+| **Principle** | `ownership-is-the-deliverable` — ownership is the deliverable |
 
 ## Context
 
