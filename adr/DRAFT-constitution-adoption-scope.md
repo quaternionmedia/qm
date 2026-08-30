@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-11 |
 | **Pends on** | One outbound-licensing input the org has not settled for this project: qmcp declares **no license at all** — no `LICENSE` file, and no `license` key in `pyproject.toml` — so unlike every other project adopted so far there is no existing grant to either reproduce or replace. Which class of the outbound-licensing record this falls into is §9's C1, and it is the reason this adoption ships without `REUSE.toml`, without `LICENSES/`, and without `reuse-lint.yml`. Every other disposition below is fixed regardless. |
-| **Principle** | P6 — decisions are documented or they didn't happen |
+| **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen |
 
 ## Context
 
