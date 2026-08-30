@@ -5,7 +5,7 @@
 | **Status** | Draft |
 | **Date** | 2026-08-09 |
 | **Pends on** | `quaternionmedia/rad` PR #1; the *rad release milestones* draft naming this project a `v0.0.2` proving consumer |
-| **Principle** | P3 seams on standard protocols; P6 decisions documented |
+| **Principle** | `seams-on-standard-protocols` seams on standard protocols; `decisions-are-documented` decisions documented |
 
 ## Context
 
