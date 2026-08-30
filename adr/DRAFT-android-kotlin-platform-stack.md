@@ -4,11 +4,11 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-06-27 |
-| **Pends on** | Org recognition of a platform-mandated-stack carve-out alongside the existing client-mandated one (P5) |
+| **Pends on** | Org recognition of a platform-mandated-stack carve-out alongside the existing client-mandated one (`one-house-stack`) |
 
 ## Context
 
-The org's house stack (P5) is Python — FastAPI, SQLModel/Pydantic, Metaflow,
+The org's house stack (`one-house-stack`) is Python — FastAPI, SQLModel/Pydantic, Metaflow,
 Click, Jinja2 — plus single-file HTML/JS for visualization deliverables, with
 an explicit carve-out for client-mandated stacks. qmetronome is an Android
 application whose UI, lifecycle, and hardware integration (Glyph Matrix,
@@ -19,7 +19,7 @@ real Android app binding a vendor AIDL service, registering a
 
 This is not a preference question the way ORM or web-framework choice is for
 a server project — it is a property of the target platform, identical in
-kind to the client-mandated-stack exception P5 already names, just mandated
+kind to the client-mandated-stack exception `one-house-stack` already names, just mandated
 by the device's OS rather than by a client contract.
 
 ## Decision
@@ -37,12 +37,12 @@ we don't.
 ## Consequences
 
 - This project contributes no evidence toward or against the house stack's
-  cross-project pattern-transfer benefit (P5's stated rationale) — it is
+  cross-project pattern-transfer benefit (`one-house-stack`'s stated rationale) — it is
   outside that comparison by construction, not an exception eroding it.
 - Test tooling follows the platform too: Robolectric (Apache-2.0) is adopted
   for unit tests that touch Android framework classes, because the
   alternative (the SDK's stub jar) throws on every call outside an
-  instrumented/Robolectric environment. This is an engine selection (P4) for
+  instrumented/Robolectric environment. This is an engine selection (`build-the-seam-buy-the-engines`) for
   the mobile platform's equivalent problem, not a house-stack departure.
 - Future QM mobile/cross-platform projects (iOS, desktop, browser) will hit
   the same shape of mandate with different specifics (Swift/Kotlin
@@ -56,13 +56,13 @@ we don't.
    piece of exclusive hardware; multiplatform abstraction cost isn't earned
    yet. Revisit if a second target platform is ever in scope.
 2. **Treat the whole project as an unexamined exception** — rejected for the
-   same P6 reason as the SDK-dependency ADR: an undocumented departure is a
+   same `decisions-are-documented` reason as the SDK-dependency ADR: an undocumented departure is a
    decision the org doesn't possess.
 
 ## Revision triggers
 
 - A second QM mobile/cross-platform project exists — the platform-mandated-
-  stack pattern should be named at org level (a QM record amendment to P5 or
+  stack pattern should be named at org level (a QM record amendment to `one-house-stack` or
   a sibling record) rather than re-derived per project.
 - A Python-native toolchain for production Android apps becomes viable
   (Chaquopy-style embedding maturing past prototype quality, or similar) —

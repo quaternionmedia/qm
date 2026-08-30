@@ -65,7 +65,7 @@ both paths already share does the work.
 
 ## Consequences
 
-- Full compliance with the org's seams doctrine (P3) and license rule (P1)
+- Full compliance with the org's seams doctrine (`seams-on-standard-protocols`) and license rule (`ownership-is-the-deliverable`)
   without any exception or remediation needed, in both directions: the
   protocol has multiple independent implementations (any MIDI-capable device
   or DAW), the API is AOSP platform code, and the dependency surface added is
@@ -92,7 +92,7 @@ both paths already share does the work.
   to block it - the alternative (a hard block) would also wrongly prevent
   the common, non-looping case on devices without Thru enabled.
 - This ADR is filed for the record despite requiring no exception, because
-  P6 ("decisions are documented or they didn't happen") applies equally to
+  `decisions-are-documented` ("decisions are documented or they didn't happen") applies equally to
   decisions that turned out clean - an undocumented good decision is just as
   invisible to a future reader as an undocumented compromise.
 
