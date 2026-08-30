@@ -84,12 +84,12 @@ either sibling is in play.
    only state that matters operationally (`.env`, `data/`). No control-plane
    code beyond that exists here, matching the doctrine's stated shape more
    directly than either sibling project.
-6. **Systems over heroics (P8) — already the operating model, worth
+6. **Systems over heroics (`systems-over-heroics`) — already the operating model, worth
    recording rather than just cross-referencing.** `make backup`/`make
    restore`/`make security-check`/`make network-info` are already declarative,
    scriptable operations recreatable from version control — no SSH-freeform
    administration is documented as the supported path. This repo is the
-   concrete instance P8 names as belonging to "each project's deployment-
+   concrete instance `systems-over-heroics` names as belonging to "each project's deployment-
    and-provenance record."
 7. **Contribution and sponsorship policy — adopted mechanically, currently
    inactive.** No dependency is locally patched at build time; nothing to
@@ -142,7 +142,7 @@ either sibling is in play.
    project.
 3. **Treat this repo as out of scope for the constitution entirely, since
    it's "just infra"** — rejected: it is the org's clearest instance yet of
-   "build the seam, buy the engines" and P8 in practice; excluding it would
+   "build the seam, buy the engines" and `systems-over-heroics` in practice; excluding it would
    discard the best-fitting example in the corpus rather than record it.
 
 ## Revision triggers
