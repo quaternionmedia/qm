@@ -241,7 +241,7 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): Glyph Matrix SDK dependency
+Drafts in flight (numberless, by title): Glyph Matrix SDK dependency; QM Constitution Adoption Scope for a Sideloaded Mobile App.
 *(pends: org-level disposition for closed hardware-vendor SDKs)*; Android/
 Kotlin platform stack *(pends: platform-mandated-stack carve-out, analogous
 to the existing client-mandated one)*; MIDI clock as an open-standard seam;
