@@ -176,7 +176,7 @@ costs nothing beyond choosing a name for it.
    external PLM or CAD-kernel scene-graph package)** — rejected under the
    seams/house-stack doctrine: Apothecary's whole value proposition is a
    small, deeply-understood Pydantic model compiled to OpenSCAD/JSCAD; a
-   general external scene-graph engine is exactly the kind of "engine" P4
+   general external scene-graph engine is exactly the kind of "engine" `build-the-seam-buy-the-engines`
    would ask "should this be bought," and the answer here is no — the
    hierarchy is thin metadata over existing primitives, not a CSG/rendering
    capability that needs an engine.
