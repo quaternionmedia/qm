@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-29T19:33:18Z",
+  "generated_at": "2026-08-29T23:59:04Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -47,11 +47,11 @@
   },
   "totals": {
     "repositories": 34,
-    "slots_measured": 31,
-    "slots_unknown": 3,
-    "compliant": 28,
+    "slots_measured": 34,
+    "slots_unknown": 0,
+    "compliant": 31,
     "over_limit": 3,
-    "governance_readable": 14,
+    "governance_readable": 11,
     "governance_precondition_met": 1,
     "phase_scaffolded": 10,
     "phase_stated_above_governance": 4,
@@ -62,7 +62,7 @@
       "ready": 12
     },
     "threads_stalled": 18,
-    "threads_unreadable": 3
+    "threads_unreadable": 0
   },
   "repositories": [
     {
@@ -180,7 +180,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-29T19:32:22Z",
+        "observed_at": "2026-08-29T23:58:03Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -351,7 +351,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 50,
-        "observed_at": "2026-08-29T19:32:29Z",
+        "observed_at": "2026-08-29T23:58:10Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -404,7 +404,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 107,
-        "observed_at": "2026-08-29T19:32:33Z",
+        "observed_at": "2026-08-29T23:58:14Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -467,7 +467,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23348.6,
+          "idle_hours": 23353.0,
           "stalled": true
         }
       ],
@@ -489,7 +489,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T19:32:12Z",
+        "observed_at": "2026-08-29T23:57:53Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -596,7 +596,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:12:49Z"
           },
-          "idle_hours": 162.3,
+          "idle_hours": 166.8,
           "stalled": true
         },
         {
@@ -614,7 +614,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 439.7,
+          "idle_hours": 444.2,
           "stalled": true
         }
       ],
@@ -633,7 +633,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T19:32:14Z",
+        "observed_at": "2026-08-29T23:57:55Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -687,7 +687,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:13:26Z"
           },
-          "idle_hours": 162.3,
+          "idle_hours": 166.7,
           "stalled": true
         }
       ],
@@ -706,7 +706,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 111,
-        "observed_at": "2026-08-29T19:32:20Z",
+        "observed_at": "2026-08-29T23:58:02Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -795,7 +795,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-29T19:32:17Z",
+        "observed_at": "2026-08-29T23:57:58Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -808,35 +808,23 @@
       "phase_source": "scaffolded",
       "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-32.\n",
       "slots": {
-        "unknown": "check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-32/pulls failed:"
+        "repository": "quaternionmedia/private-32",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
       },
       "release": {
-        "unknown": "tags for quaternionmedia/private-32: gh: Not Found (HTTP 404)"
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": {
-        "unknown": "open pull requests could not be read, so neither could threads"
-      },
+      "threads": [],
       "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "submodule",
-          "ide",
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": null,
-          "submodule_branch": null,
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 0,
-          "workflows_absent": 4,
-          "licensing_present": 0
-        },
-        "behind_corpus": 233,
-        "observed_at": "2026-08-29T19:32:24Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
     },
     {
@@ -847,34 +835,61 @@
       "phase_source": "scaffolded",
       "note": "Name and paths live in ci/workspace-private.yaml, which is not committed. This repository is private, and a public roster that named it would defeat the inventory's own redaction of the same repository as private-33.\n",
       "slots": {
-        "unknown": "check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-33/pulls failed:"
+        "repository": "quaternionmedia/private-33",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 8,
+            "title": "chore(deps): bump starlette from 0.50.0 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/starlette-1.3.1",
+            "draft": false
+          },
+          {
+            "number": 6,
+            "title": "chore(deps): bump idna from 3.11 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/idna-3.15",
+            "draft": false
+          },
+          {
+            "number": 5,
+            "title": "chore(deps): bump pytest from 9.0.2 to 9.0.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pytest-9.0.3",
+            "draft": false
+          },
+          {
+            "number": 4,
+            "title": "chore(deps): bump pygments from 2.19.2 to 2.20.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pygments-2.20.0",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
       },
       "release": {
-        "unknown": "tags for quaternionmedia/private-33: gh: Not Found (HTTP 404)"
+        "state": "ahead",
+        "latest": "v1.4.1",
+        "annotated": true,
+        "unreleased_commits": 44,
+        "asserts": "a human reviewed, manually tested and gated this commit"
       },
-      "threads": {
-        "unknown": "open pull requests could not be read, so neither could threads"
-      },
+      "threads": [],
       "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "ide",
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": "governance/qm",
-          "submodule_branch": "project/private-33",
-          "ide_present": 0,
-          "ide_absent": 3,
-          "workflows_present": 1,
-          "workflows_absent": 3,
-          "licensing_present": 0
-        },
-        "behind_corpus": 233,
-        "observed_at": "2026-08-29T19:32:18Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
     },
     {
@@ -917,7 +932,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T19:32:25Z",
+        "observed_at": "2026-08-29T23:58:06Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -988,7 +1003,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 170.1,
+          "idle_hours": 174.5,
           "stalled": true
         }
       ],
@@ -1005,7 +1020,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 140,
-        "observed_at": "2026-08-29T19:32:15Z",
+        "observed_at": "2026-08-29T23:57:56Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1018,33 +1033,23 @@
       "phase_source": "scaffolded",
       "note": "Name and paths live in ci/workspace-private.yaml, which is not committed, for the same reason as private-32 and private-33 above. Governed via a project/<name> branch here.\n",
       "slots": {
-        "unknown": "check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-34/pulls failed:"
+        "repository": "quaternionmedia/private-34",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
       },
       "release": {
-        "unknown": "tags for quaternionmedia/private-34: gh: Not Found (HTTP 404)"
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
       },
-      "threads": {
-        "unknown": "open pull requests could not be read, so neither could threads"
-      },
+      "threads": [],
       "governance": {
-        "precondition": "incomplete",
-        "missing": [
-          "workflows",
-          "licensing"
-        ],
-        "detail": {
-          "submodule": "governance/qm",
-          "submodule_branch": "project/private-34",
-          "ide_present": 3,
-          "ide_absent": 0,
-          "workflows_present": 3,
-          "workflows_absent": 1,
-          "licensing_present": 0
-        },
-        "behind_corpus": 233,
-        "observed_at": "2026-08-29T19:32:28Z",
-        "asserted_by": null,
-        "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
     },
     {
@@ -1106,7 +1111,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T19:32:31Z",
+        "observed_at": "2026-08-29T23:58:12Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1168,7 +1173,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3483.5,
+          "idle_hours": 3487.9,
           "stalled": true
         }
       ],
@@ -1290,7 +1295,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 3,
-        "observed_at": "2026-08-29T19:32:26Z",
+        "observed_at": "2026-08-29T23:58:07Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1361,7 +1366,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-28T01:45:19Z"
           },
-          "idle_hours": 41.8,
+          "idle_hours": 46.2,
           "stalled": false
         },
         {
@@ -1379,7 +1384,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-21T16:20:56Z"
           },
-          "idle_hours": 195.2,
+          "idle_hours": 199.6,
           "stalled": true
         }
       ],
@@ -1562,7 +1567,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-26T14:53:23Z"
           },
-          "idle_hours": 3004.7,
+          "idle_hours": 3009.1,
           "stalled": true
         },
         {
@@ -1580,7 +1585,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-23T23:10:53Z"
           },
-          "idle_hours": 3068.4,
+          "idle_hours": 3072.8,
           "stalled": true
         },
         {
@@ -1598,7 +1603,7 @@
             "mergeable_state": "dirty",
             "updated_at": "2026-04-19T03:27:49Z"
           },
-          "idle_hours": 3184.1,
+          "idle_hours": 3188.5,
           "stalled": true
         }
       ],
@@ -1681,7 +1686,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-11T08:00:47Z"
           },
-          "idle_hours": 3371.5,
+          "idle_hours": 3376.0,
           "stalled": true
         }
       ],
@@ -1873,7 +1878,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-06-22T22:17:43Z"
           },
-          "idle_hours": 10389.3,
+          "idle_hours": 10393.7,
           "stalled": true
         }
       ],
@@ -1985,7 +1990,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-07-13T07:24:23Z"
           },
-          "idle_hours": 9900.1,
+          "idle_hours": 9904.6,
           "stalled": true
         }
       ],
@@ -2096,7 +2101,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-12-22T07:01:05Z"
           },
-          "idle_hours": 6012.5,
+          "idle_hours": 6017.0,
           "stalled": true
         }
       ],
@@ -2198,7 +2203,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-03-04T02:29:45Z"
           },
-          "idle_hours": 4289.1,
+          "idle_hours": 4293.5,
           "stalled": true
         },
         {
@@ -2216,7 +2221,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-01-04T01:07:48Z"
           },
-          "idle_hours": 14466.4,
+          "idle_hours": 14470.9,
           "stalled": true
         }
       ],
@@ -2326,7 +2331,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-01-17T11:44:43Z"
           },
-          "idle_hours": 5383.8,
+          "idle_hours": 5388.2,
           "stalled": true
         },
         {
@@ -2344,7 +2349,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-02-21T06:35:43Z"
           },
-          "idle_hours": 4549.0,
+          "idle_hours": 4553.4,
           "stalled": true
         }
       ],

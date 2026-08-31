@@ -36,12 +36,34 @@ answering it would settle the question by accident.
 
 ### §1 — The four stages, and what each one means
 
-| stage | holds | entered by |
-|---|---|---|
-| `test` | the current development target — where work lands first | a pull request, as `main` takes one today |
-| `dev` | what has passed versioned approval | promotion from `test` |
-| `prod` | what QM deploys, fed by CI from `dev` | promotion from `dev`, never a direct push |
-| `main` | what is publicly released and generally adopted | promotion from `prod`, at a tag |
+| stage | holds | entered by | rewritable |
+|---|---|---|---|
+| `test` | the current development target — local and ephemeral work, where it lands first | a pull request, as `main` takes one today | **yes** |
+| `dev` | what has passed versioned approval | promotion from `test` | no |
+| `prod` | what QM deploys, fed by CI from `dev` | promotion from `dev`, never a direct push | no |
+| `main` | what is publicly released and generally adopted | promotion from `prod`, at a tag | no |
+
+### §1a — `test` is ephemeral, and that is the whole of what makes it useful
+
+`test` may be reset, squashed, rebuilt and force-pushed. Nothing may pin it,
+nothing may branch from it expecting the branch to survive, and no downstream
+consumer may read it. It is the one ref in this model where a rewrite is an
+ordinary operation rather than the act
+`ci/exception-registry.yaml` records the corpus as forbidding.
+
+The other three are **durable**: append-only, no rebase, no squash, no
+force-push. `ci/mathematics-registry.yaml`'s *propagation, and the pin that
+reads a project branch* is the structure — a pin is a reference to a commit by
+content, so rewriting a ref that anything reads makes the pinned commit
+unreachable and every consumer wrong at once. That constraint binds a ref
+exactly when something may read it, which is why it binds three of these four
+and not the first.
+
+This is also the answer to *"we will likely need to squash, or purge and
+rebuild, certain repos or branches"*. On `test`, that is routine and needs no
+ceremony. On `dev`, `prod`, `main` or any `project/<name>`, it is a history
+rewrite: `protocols/history-archive.md` runs first, and the decision is a
+person's.
 
 ### §2 — Whether a stage is a ref is not settled here
 

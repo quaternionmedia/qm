@@ -363,6 +363,15 @@ mappings:
       refusal before it, and no branch protection exists on `project/*`. The
       monotonicity is a convention four repositories currently happen to
       respect.
+
+      The structure also says where it does *not* apply, and that half is
+      newer than the rest of this entry. A pin is a reference something holds,
+      so the constraint binds a ref exactly when something may read it -- which
+      makes an ephemeral development ref, that nothing pins and nothing
+      branches from, legitimately rewritable. `records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md`
+      §1a names `test` as that ref. Nothing yet enforces the boundary either:
+      no check refuses a pin that points at an ephemeral ref, which is the one
+      way this distinction gets violated by accident.
     next: >
       a ruleset on `project/*` refusing force-push, which would make the
       structure enforced rather than observed. `uv run qm rulesets` already
