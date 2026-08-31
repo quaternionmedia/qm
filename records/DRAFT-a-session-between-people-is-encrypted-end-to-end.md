@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-31 |
-| **Pends on** | The first consumer. No multi-party session transport exists anywhere in this estate today, so nothing can yet prove or violate this record — and naming the first project that builds one is a person's decision, not a default. `leo` is the likeliest candidate by its own description and currently carries no transport at all. |
+| **Pends on** | Nothing — the first consumer is named. `rad` builds it, in the `messaging/` host seam governed by its own record, and the seam reaches every rad host: `codecartographer`, a native Android port (referenced as `private-35`, a private repository), and any future host, all adopting one `Session` rather than reimplementing the protocol. `leo` remains a candidate for a document-collaboration session and is not the first. |
 | **Principle** | `seams-on-standard-protocols` — replaceability is the risk strategy; `ownership-is-the-deliverable`; `decisions-are-documented` |
 | **Restated in** | Nothing. |
 
@@ -135,11 +135,28 @@ encryption could follow the demo.
 selects engines rather than writing them, and novel cryptography without
 published analysis is the canonical unexercisable claim.
 
+## The first consumer, and its reach
+
+`rad`'s `messaging/` seam is the first implementation, and it is deliberately
+one implementation for many hosts. §2 of that record ships a `Session` and no
+relay; §7 names the hosts that adopt it — `codecartographer` over a browser
+transport, a native Android port over the platform keystore, and the reference
+`index.html` adopting nothing by default. A downstream host supplies a
+transport and a device-trust root and **never the protocol**, which is what
+keeps one encryption guarantee across every rad rather than one per host. The
+seam's conformance surface (that record's §6) is what a host replays to show it
+adopted rather than approximated — the same discipline by which each host
+replays the interaction vectors to show it drew the right menu.
+
 ## Revision triggers
 
-- The first session transport proposed anywhere in the estate. This record's
-  `Pends on` closes, §6's conformance surface gets built, and the identity
-  question in Consequences stops being deferrable.
+- A second session transport, in a project that is not a rad host. rad's seam
+  covers the rad family; a document-collaboration session in `leo`, or chat in
+  another project, is a new consumer and tests whether §2's properties are
+  stated engine-agnostically enough to be adopted a second time.
+- The identity question in Consequences getting an answer anywhere. §5 of the
+  rad record and this record's Consequences both defer it; the first project to
+  answer it sets the pattern the rest adopt.
 - A successor protocol family displacing the ratchet's properties (as MLS is
   doing for large groups) — §2 names properties, not a brand, and the named
   examples are updated to match the field.

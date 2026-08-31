@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-08-31T16:23:35Z'
+generated_at: '2026-08-31T16:35:38Z'
 generator:
   tool: ci/doc_status.py
   signals:
