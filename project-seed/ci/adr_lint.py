@@ -324,6 +324,23 @@ def check_ratified_are_numbered(records: Path) -> list[str]:
     return failures
 
 
+def _title_of(path: Path) -> str:
+    """A record's H1, minus its numbering prefix. Empty when it has no H1."""
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        if line.startswith("# "):
+            return re.sub(r"^(?:ADR|QM)-[0-9X]{4}\s*[-—]\s*", "", line[2:]).strip()
+        if line.strip():
+            break
+    return ""
+
+
+def _flatten(text: str) -> str:
+    """Case- and punctuation-insensitive, so a title quoted in a sentence still
+    matches the heading it came from. Backticks, dashes and stray spacing are
+    exactly what differs between the two, and none of them carries meaning."""
+    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+
 def check_index_matches_directory(records: Path, index: Path) -> list[str]:
     """The index lists every record, and every row names a file that exists.
 
@@ -347,9 +364,20 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
     WHAT IT STILL CANNOT SEE, found by trying to walk past it rather than by
     reading it: a record in a subdirectory of the records directory is invisible
     to both halves, because the scan is `*.md` and a link pointing there lands
-    under a different parent, so neither set holds it and it passes. A link in a
-    bullet or a paragraph does not register either -- only table rows are read,
-    which is deliberate, since the table is the index and a mention is not one.
+    under a different parent, so neither set holds it and it passes.
+
+    **TWO CONVENTIONS ARE LISTED, BECAUSE THIS CORPUS HAS TWO.** A record counts
+    as listed if a table row links its file, *or* if its title appears in the
+    index prose -- which is the `Drafts in flight (numberless, by title): ...`
+    line this seed's own `adr/README.md` template ships. The org corpus lists
+    unratified drafts as linked table rows; the seed tells a project to list
+    them by title in that line, and numbers arrive in the table only at
+    ratification.
+
+    Reading only the table was wrong and would have failed every project that
+    followed the template it was given. It was caught on a project branch whose
+    author had listed all three records exactly as the seed prescribes, in a
+    commit whose message says "and put it in the index" -- because they had.
     """
     if not index.exists():
         return [f"{index}: index file not found."]
@@ -394,10 +422,25 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
             if landed.parent == records.resolve():
                 in_index_files.add(landed.name)
 
+    # The second convention: a record listed by title in the index prose. The
+    # title is the H1 minus its `ADR-XXXX — ` / `QM-XXXX — ` prefix, compared
+    # with punctuation and case flattened, because the drafts line is written
+    # by a person and a title is quoted the way a sentence quotes it.
+    prose = _flatten(index_text)
+    listed_by_title = set()
+    for path in records.glob("*.md"):
+        if path.name in in_index_files or path.name in ("README.md", "TEMPLATE.md"):
+            continue
+        title = _title_of(path)
+        if title and _flatten(title) in prose:
+            listed_by_title.add(path.name)
+
     failures = []
-    for name in sorted(on_disk_files - in_index_files):
+    for name in sorted(on_disk_files - in_index_files - listed_by_title):
         failures.append(
-            f"{index}: {name} exists in {records}/ and no row in the index links it."
+            f"{index}: {name} exists in {records}/ and the index neither links it "
+            f"nor names its title. List it as a table row, or in the "
+            f"`Drafts in flight (numberless, by title)` line."
         )
     for name in sorted(in_index_files - on_disk_files):
         failures.append(

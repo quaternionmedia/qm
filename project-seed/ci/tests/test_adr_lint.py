@@ -367,3 +367,37 @@ def test_the_annotation_survives_comment_stripping(repo: Path):
     write(repo / "README.md", index_for([], ["DRAFT-x.md"]))
     commit_all(repo, "add draft")
     assert lint(repo).returncode == 0
+
+
+def test_a_record_listed_only_by_title_in_the_drafts_line_is_listed(repo: Path):
+    """**THE SEED'S OWN CONVENTION, WHICH THE TABLE-ONLY CHECK REJECTED.**
+
+    `project-seed/adr/README.md` ships a `Drafts in flight (numberless, by
+    title): ---` line and tells a project to list unratified drafts there;
+    numbers reach the table at ratification. Reading only the table failed
+    every project that followed the template it was given, and it was caught on
+    a branch whose commit message said "and put it in the index" -- because
+    they had.
+
+    Mutation: drop the `listed_by_title` set from
+    `check_index_matches_directory` and this fails.
+    """
+    write(repo / "records" / "DRAFT-x.md",
+          '# ADR-XXXX --- A Thing With A Name\n\n| | |\n|---|---|\n| **Status** | Proposed |\n')
+    write(repo / "README.md",
+          '| # | Title | Status | Date |\n|---|---|---|---|\n\nDrafts in flight (numberless, by title): A Thing With A Name.\n')
+    commit_all(repo, "list a draft the way the seed template says to")
+    assert lint(repo).returncode == 0, lint(repo).stdout
+
+
+def test_a_record_in_neither_the_table_nor_the_prose_is_still_caught(repo: Path):
+    """The relaxation must not become a hole: a record nobody listed at all
+    still fails, in both conventions."""
+    write(repo / "records" / "DRAFT-y.md",
+          '# ADR-XXXX --- Nobody Listed This\n\n| | |\n|---|---|\n| **Status** | Proposed |\n')
+    write(repo / "README.md",
+          '| # | Title | Status | Date |\n|---|---|---|---|\n\nDrafts in flight (numberless, by title): ---\n')
+    commit_all(repo, "a record listed nowhere")
+    result = lint(repo)
+    assert result.returncode == 1, result.stdout
+    assert "DRAFT-y.md" in result.stdout
