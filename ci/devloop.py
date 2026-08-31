@@ -43,6 +43,14 @@ from pathlib import Path
 
 import yaml
 
+# Imported two ways -- as `ci.<name>` by the qm CLI and as a bare script -- so
+# this file's own directory goes first, exactly as ci/make_workspace.py does.
+# Both tools must read the roster through the same loader or they answer the
+# same question differently, which is what they did.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from roster import label as roster_label  # noqa: E402
+from roster import load as roster_load  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 INVENTORY = ROOT / "inventory-public.json"
 WORKSPACE = ROOT / "ci" / "workspace.yaml"
@@ -173,10 +181,27 @@ def checkout(inventory: dict, roster: list[dict], roots: list[Path], deep: bool)
     # at all. Joining on the inventory reported every private roster repository
     # as absent whether or not it was on the disk, because `None` is never a
     # key in `found` -- a confident claim the tool structurally could not make.
+    # A NAMELESS ENTRY IS UNRESOLVED, NEVER ABSENT FROM THE QUESTION. This read
+    # `if not name or name in found: continue`, so a private roster entry --
+    # which carries a `ref` and no `name` until the uncommitted companion is
+    # merged -- was dropped from the missing list entirely. The count then said
+    # every roster repository was on this disk while one was not, and it said it
+    # confidently. `uv run qm workspace` resolves the same roster through
+    # `roster.merge_private` and reported the same repository as MISSING, so the
+    # two views of one question disagreed and nothing compared them.
+    #
+    # `ci/tests/test_devloop.py` now asserts the two agree, which is the check
+    # that makes this stay fixed rather than a comment saying it was.
     missing = []
     for entry in roster:
         name = entry.get("name")
-        if not name or name in found:
+        if not name:
+            # The companion was absent, so the name is unknown here. Report it
+            # by its reference rather than skipping it: unknown is a state, and
+            # silently not counting it is the failure above.
+            missing.append(roster_label(entry))
+            continue
+        if name in found:
             continue
         missing.append(name if name in allowed else "a repository not listed publicly")
 
@@ -395,7 +420,12 @@ def render(state: dict, wanted: tuple[str, ...]) -> str:
 
 def gather(roots: list[Path], deep: bool) -> dict:
     inventory = load_json(INVENTORY)
-    roster = (load_yaml(WORKSPACE).get("repositories") or [])
+    # Through `roster.load`, which merges the uncommitted private companion, so
+    # a private entry arrives carrying its name on a machine that has the
+    # companion and its reference on one that does not. Reading the committed
+    # file directly gave every private entry a `None` name, which the missing
+    # check above then skipped.
+    roster = roster_load()
     state = {
         "stability": stability(load_yaml(LEDGER)),
         "checkout": checkout(inventory, roster, roots, deep),
