@@ -130,6 +130,7 @@ qm/
 | — | [A principle is addressed by its name](records/DRAFT-a-principle-is-addressed-by-its-name.md) | Proposed | 2026-08-29 |
 | — | [A stage is recorded, and `main` receives releases rather than asserting them](records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md) | Proposed | 2026-08-29 |
 | — | [Repositories at the same tag interoperate](records/DRAFT-a-shared-tag-asserts-interoperability.md) | Proposed | 2026-08-30 |
+| — | [A session between people is encrypted end to end](records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md) | Proposed | 2026-08-31 |
 | — | [A family is bordered by what it drives](records/DRAFT-a-family-is-bordered-by-what-it-drives.md) | Proposed | 2026-08-28 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.

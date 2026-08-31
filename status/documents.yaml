@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-08-31T13:47:12Z'
+generated_at: '2026-08-31T16:23:35Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -104,9 +104,9 @@ readiness:
     in ci/workspace.yaml. Nothing here is derived from the repository.
   measured:
     records:
-      total: 36
+      total: 37
       ratified: 0
-      proposed: 34
+      proposed: 35
     documents_in_unknown_state: 0
     reading_within_budget: true
     reading_total_lines: 1132
@@ -121,11 +121,11 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 186
+  documents: 187
   by_state:
     draft: 2
     generated: 7
-    proposed: 34
+    proposed: 35
     standing: 69
     transient: 22
     unreviewed: 52
@@ -1385,6 +1385,13 @@ documents:
   state_from_filename: draft
   state: proposed
 - path: records/DRAFT-a-route-is-an-address.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
+- path: records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md
   class: record
   class_reason: an org decision record
   declared_status: Proposed
