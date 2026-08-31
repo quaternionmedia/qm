@@ -266,3 +266,12 @@ repositories:
       the plan had to establish it exists.
     paths: [qm/looksatwords, looksatwords]
 
+  - name: moat
+    role: unmanaged
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT
+      networking. governance-status.yaml lists it under org.unmanaged_named;
+      adoption is drafted on an unmerged pull request and nothing binds yet.
+    paths: [qm/moat, moat]
