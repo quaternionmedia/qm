@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-29T16:38:51Z",
+  "generated_at": "2026-08-29T19:12:58Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -180,7 +180,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-29T16:37:55Z",
+        "observed_at": "2026-08-29T19:11:58Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -351,7 +351,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 50,
-        "observed_at": "2026-08-29T16:38:01Z",
+        "observed_at": "2026-08-29T19:12:05Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -404,7 +404,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 107,
-        "observed_at": "2026-08-29T16:38:05Z",
+        "observed_at": "2026-08-29T19:12:09Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -467,7 +467,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23345.7,
+          "idle_hours": 23348.3,
           "stalled": true
         }
       ],
@@ -489,7 +489,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T16:37:45Z",
+        "observed_at": "2026-08-29T19:11:48Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -596,7 +596,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:12:49Z"
           },
-          "idle_hours": 159.4,
+          "idle_hours": 162.0,
           "stalled": true
         },
         {
@@ -614,7 +614,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 436.8,
+          "idle_hours": 439.4,
           "stalled": true
         }
       ],
@@ -633,7 +633,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T16:37:46Z",
+        "observed_at": "2026-08-29T19:11:49Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -687,7 +687,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:13:26Z"
           },
-          "idle_hours": 159.4,
+          "idle_hours": 162.0,
           "stalled": true
         }
       ],
@@ -706,7 +706,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 111,
-        "observed_at": "2026-08-29T16:37:53Z",
+        "observed_at": "2026-08-29T19:11:56Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -795,7 +795,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-29T16:37:50Z",
+        "observed_at": "2026-08-29T19:11:53Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -834,7 +834,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T16:37:56Z",
+        "observed_at": "2026-08-29T19:11:59Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -872,7 +872,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T16:37:51Z",
+        "observed_at": "2026-08-29T19:11:54Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -917,7 +917,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T16:37:57Z",
+        "observed_at": "2026-08-29T19:12:01Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -988,7 +988,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 167.2,
+          "idle_hours": 169.7,
           "stalled": true
         }
       ],
@@ -1005,7 +1005,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 140,
-        "observed_at": "2026-08-29T16:37:48Z",
+        "observed_at": "2026-08-29T19:11:51Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1042,7 +1042,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T16:38:00Z",
+        "observed_at": "2026-08-29T19:12:03Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1106,7 +1106,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T16:38:03Z",
+        "observed_at": "2026-08-29T19:12:07Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1168,7 +1168,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3480.6,
+          "idle_hours": 3483.2,
           "stalled": true
         }
       ],
@@ -1290,7 +1290,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 3,
-        "observed_at": "2026-08-29T16:37:58Z",
+        "observed_at": "2026-08-29T19:12:02Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1361,7 +1361,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-28T01:45:19Z"
           },
-          "idle_hours": 38.9,
+          "idle_hours": 41.5,
           "stalled": false
         },
         {
@@ -1379,7 +1379,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-21T16:20:56Z"
           },
-          "idle_hours": 192.3,
+          "idle_hours": 194.9,
           "stalled": true
         }
       ],
@@ -1562,7 +1562,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-26T14:53:23Z"
           },
-          "idle_hours": 3001.8,
+          "idle_hours": 3004.3,
           "stalled": true
         },
         {
@@ -1580,7 +1580,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-23T23:10:53Z"
           },
-          "idle_hours": 3065.5,
+          "idle_hours": 3068.0,
           "stalled": true
         },
         {
@@ -1598,7 +1598,7 @@
             "mergeable_state": "dirty",
             "updated_at": "2026-04-19T03:27:49Z"
           },
-          "idle_hours": 3181.2,
+          "idle_hours": 3183.7,
           "stalled": true
         }
       ],
@@ -1681,7 +1681,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-11T08:00:47Z"
           },
-          "idle_hours": 3368.6,
+          "idle_hours": 3371.2,
           "stalled": true
         }
       ],
@@ -1873,7 +1873,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-06-22T22:17:43Z"
           },
-          "idle_hours": 10386.3,
+          "idle_hours": 10388.9,
           "stalled": true
         }
       ],
@@ -1985,7 +1985,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-07-13T07:24:23Z"
           },
-          "idle_hours": 9897.2,
+          "idle_hours": 9899.8,
           "stalled": true
         }
       ],
@@ -2096,7 +2096,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-12-22T07:01:05Z"
           },
-          "idle_hours": 6009.6,
+          "idle_hours": 6012.2,
           "stalled": true
         }
       ],
@@ -2198,7 +2198,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-03-04T02:29:45Z"
           },
-          "idle_hours": 4286.2,
+          "idle_hours": 4288.7,
           "stalled": true
         },
         {
@@ -2216,7 +2216,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-01-04T01:07:48Z"
           },
-          "idle_hours": 14463.5,
+          "idle_hours": 14466.1,
           "stalled": true
         }
       ],
@@ -2326,7 +2326,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-01-17T11:44:43Z"
           },
-          "idle_hours": 5380.9,
+          "idle_hours": 5383.5,
           "stalled": true
         },
         {
@@ -2344,7 +2344,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-02-21T06:35:43Z"
           },
-          "idle_hours": 4546.1,
+          "idle_hours": 4548.6,
           "stalled": true
         }
       ],

@@ -380,6 +380,16 @@ mappings:
       whatever the origin now holds. That settles "does purging remove the
       data" -- it does not -- before anybody argues about it, and it is why
       rotation precedes rewriting rather than following it.
+
+      It also settles what an archive is, and the answer is uncomfortable. An
+      archive is a *deliberate* fork of the abandoned graph, so it has exactly
+      the property that makes a fork defeat a purge. **It restores
+      recoverability and it does not restore secrecy.** Preserving an archive
+      and purging sensitive material are therefore the same operation pointed
+      in opposite directions, and both can only hold when the archive is out of
+      public reach -- offline, or private, with access as the control the
+      history no longer provides. A readable archive of a purged repository has
+      removed nothing, and it looks like diligence.
     measured: none
     unearned: >
       every part of it that is about this organisation. The property is well
@@ -393,9 +403,10 @@ mappings:
       Nothing enumerates what would break, either. The pins are known, the
       forks are not, and a fork is the half that survives a purge.
     next: >
-      if a rewrite is authorised, measure it: count the submodule pins that
-      break, the forks that retain the old graph, and the clones that diverge.
-      One rewrite moves this to earned or refutes it.
+      `protocols/history-archive.md`, run once. It takes the object counts, the
+      bundle, the pin list and the fork list before a rewrite, and re-measures
+      after -- which is the measurement that moves this to earned or refutes
+      it. Nothing else moves it, because nothing else has been done.
 
   - layer: the promotion pipeline a change climbs
     structure: >
