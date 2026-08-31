@@ -251,3 +251,31 @@ def test_a_perspective_is_left_as_its_author_wrote_it(tmp_path: Path):
         'We leaned on ' + ORDINAL_FORM + '\n', encoding="utf-8"
     )
     assert edges.ordinal_references(tmp_path) == []
+
+
+def test_a_file_scope_annotation_covers_a_colliding_vocabulary(tmp_path: Path):
+    """**THE FALSE POSITIVE THIS GUARD MET ON ITS FIRST REAL INTEGRATION.**
+
+    The letter-and-number form is not reserved to the charter. A remediation
+    plan numbered its own work packages the same way -- headings, and blocking
+    rows pointing at them -- and every one matched. Annotating each line would
+    have edited a correct document to keep a tool quiet.
+
+    Mutation: delete the file-scope branch from `ordinal_references` and this
+    fails.
+    """
+    (tmp_path / "plans").mkdir(parents=True)
+    (tmp_path / "plans" / "a-plan.md").write_text(
+        '# A plan\n\n<!-- principle-name: allow "its own work packages, not charter principles" -->\n\n### ' + ORDINAL_FORM + ' -- do the thing\nBlocks on ' + ORDINAL_FORM + '.\n',
+        encoding="utf-8",
+    )
+    assert edges.ordinal_references(tmp_path) == []
+
+
+def test_a_file_scope_annotation_with_no_reason_does_not_cover(tmp_path: Path):
+    (tmp_path / "plans").mkdir(parents=True)
+    (tmp_path / "plans" / "a-plan.md").write_text(
+        '# A plan\n\n<!-- principle-name: allow "" -->\n\nRests on ' + ORDINAL_FORM + '.\n',
+        encoding="utf-8",
+    )
+    assert edges.ordinal_references(tmp_path) != []

@@ -13,7 +13,7 @@ route and holds nothing; `wip/delta-entity-type-local` is 556 lines that exist
 on one disk. `test_a_cherry_picked_branch_is_not_counted_as_loss` and
 `test_a_branch_with_its_own_work_is_counted_as_loss` are those two.
 
-THE MUTATIONS, per P16, quoted as they printed.
+THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
 
   `unique_commits` counting every cherry line instead of only the `+` ones
 

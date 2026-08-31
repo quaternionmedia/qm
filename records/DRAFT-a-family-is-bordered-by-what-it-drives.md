@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-28 |
 | **Pends on** | §4 — whether the video-production repositories are a fourth family of this estate or sit outside it. That is a scope decision a person makes, and nothing here settles it. |
-| **Principle** | P3 — seams on standard protocols; P6 — decisions are documented or they didn't happen |
+| **Principle** | `seams-on-standard-protocols` — seams on standard protocols; `decisions-are-documented` — decisions are documented or they didn't happen |
 | **Restated in** | Nothing. |
 
 ## Context
@@ -151,8 +151,8 @@ spanning an LED controller and a PDF annotator cannot answer the only question a
 family exists to answer — does this change belong here — because everything
 qualifies.
 
-**Group by stack, following P5.** The border would cut through all three
-families and join parts of each, since the estate is polyglot. P5 also governs
+**Group by stack, following `one-house-stack`.** The border would cut through all three
+families and join parts of each, since the estate is polyglot. `one-house-stack` also governs
 what QM writes rather than what belongs with what, so this would be reusing a
 principle to answer a question it does not address.
 

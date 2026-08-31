@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-29T13:28:42Z",
+  "generated_at": "2026-08-29T14:43:26Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -54,13 +54,13 @@
       },
       {
         "path": "handbook/handoffs/README.md",
-        "lines": 151
+        "lines": 153
       }
     ],
-    "total_lines": 1130,
+    "total_lines": 1132,
     "budget_lines": 700,
     "within_budget": false,
-    "headroom_lines": -430,
+    "headroom_lines": -432,
     "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
     "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open.",
     "excluded": {
@@ -110,13 +110,13 @@
     "claim_is_not_evidence": "milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.",
     "measured": {
       "records": {
-        "total": 33,
+        "total": 34,
         "ratified": 0,
-        "proposed": 31
+        "proposed": 32
       },
       "documents_in_unknown_state": 0,
       "reading_within_budget": false,
-      "reading_total_lines": 1130,
+      "reading_total_lines": 1132,
       "reading_budget_lines": 700,
       "gates": {
         "unknown": "held in gate-status.json, which this generator does not read -- one document does not restate another's figures"
@@ -128,14 +128,14 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 176,
+    "documents": 183,
     "by_state": {
       "draft": 2,
       "generated": 7,
-      "proposed": 31,
-      "standing": 66,
-      "transient": 20,
-      "unreviewed": 50
+      "proposed": 32,
+      "standing": 68,
+      "transient": 22,
+      "unreviewed": 52
     },
     "disagreements": 0,
     "unknown": 0
@@ -702,7 +702,25 @@
       "state": "transient"
     },
     {
+      "path": "handbook/handoffs/the-estate-has-one-copy.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
       "path": "handbook/handoffs/the-loop-that-checks-itself.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/the-menu-contract-nobody-could-fetch.md",
       "class": "handoff",
       "class_reason": "working instructions, deleted when the work lands",
       "declared_status": null,
@@ -1210,7 +1228,27 @@
       "state": "unreviewed"
     },
     {
+      "path": "perspectives/2026-08-26-the-plan-was-still-running.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
       "path": "perspectives/2026-08-27-the-precondition-nobody-declared.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-27-two-views-that-go-stale-together.md",
       "class": "perspective",
       "class_reason": "dated, attributed, non-binding opinion",
       "declared_status": null,
@@ -1361,6 +1399,16 @@
     },
     {
       "path": "plans/hil-testing-session.md",
+      "class": "other",
+      "class_reason": "not in a governed directory",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "plans/moat-remediation.md",
       "class": "other",
       "class_reason": "not in a governed directory",
       "declared_status": null,
@@ -1540,6 +1588,16 @@
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
     },
     {
+      "path": "protocols/runs/2026-08-27-local-demo.md",
+      "class": "protocol",
+      "class_reason": "a procedure run deliberately, and its runs",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
       "path": "protocols/security-review.md",
       "class": "protocol",
       "class_reason": "a procedure run deliberately, and its runs",
@@ -1569,6 +1627,15 @@
     },
     {
       "path": "records/DRAFT-a-disagreement-is-a-delta.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
       "class": "record",
       "class_reason": "an org decision record",
       "declared_status": "Proposed",

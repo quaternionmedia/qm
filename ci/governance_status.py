@@ -108,10 +108,24 @@ PROJECT_NS = "project/"
 # path check reports a correctly vendored project as not tracking the corpus.
 CORPUS_URL_MARK = "/qm"
 IDE_ARTIFACTS = ("AGENTS.md", "CLAUDE.md", ".github/copilot-instructions.md")
+# The four `handbook/forking-a-project.md` step 4 requires a fork to copy. Not
+# the six that sit in `project-seed/ci/`: `signature-check.yml` and
+# `tag-claims.yml` are this corpus's own and step 4 does not ask a project for
+# them, so counting them would report every adopting project as incomplete.
+#
+# THIS LIST WAS SHORT BY ONE, AND THE OMISSION WAS THE SLOT GATE. It named
+# three, and `one-pr-check.yml` was the missing one -- the same defect step 4's
+# own text records having been corrected for ("this step said 'all three' and
+# named it nowhere, so a fork done exactly to procedure came up one gate
+# short"). The prose was repaired and this list was not, so the generated
+# status reported `seed_workflow_filenames_absent: []` for two adopting
+# projects that are both missing the slot gate on the host today. A scope list
+# that disagrees with the procedure it claims to measure reports on itself.
 SEED_WORKFLOWS = (
     ".github/workflows/adr-lint.yml",
     ".github/workflows/submodule-check.yml",
     ".github/workflows/reuse-lint.yml",
+    ".github/workflows/one-pr-check.yml",
 )
 LICENCE_ARTIFACTS = ("LICENSE", "REUSE.toml")
 

@@ -13,7 +13,7 @@ failures which look like nothing: a `Pends on` opening with "Nothing" counted as
 a dependency, and one shared ask split across the four ways this corpus spells a
 dash.
 
-THE MUTATIONS, per P16, quoted as they printed.
+THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
 
   cutting the shared ask on the em dash alone, as the first version did
 

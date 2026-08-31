@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-29T13:28:41Z",
+  "generated_at": "2026-08-29T14:43:25Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -46,22 +46,22 @@
     ]
   },
   "totals": {
-    "repositories": 16,
-    "slots_measured": 13,
+    "repositories": 17,
+    "slots_measured": 14,
     "slots_unknown": 3,
     "compliant": 12,
-    "over_limit": 1,
+    "over_limit": 2,
     "governance_readable": 14,
-    "governance_precondition_met": 6,
-    "phase_scaffolded": 9,
+    "governance_precondition_met": 1,
+    "phase_scaffolded": 10,
     "phase_stated_above_governance": 4,
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 1,
+      "draft": 3,
       "ready": 5
     },
-    "threads_stalled": 6,
+    "threads_stalled": 7,
     "threads_unreadable": 3
   },
   "repositories": [
@@ -166,19 +166,21 @@
       },
       "threads": [],
       "governance": {
-        "precondition": "met",
-        "missing": [],
+        "precondition": "incomplete",
+        "missing": [
+          "workflows"
+        ],
         "detail": {
           "submodule": "governance/qm",
           "submodule_branch": "project/dossier",
           "ide_present": 3,
           "ide_absent": 0,
           "workflows_present": 3,
-          "workflows_absent": 0,
+          "workflows_absent": 1,
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-29T13:28:12Z",
+        "observed_at": "2026-08-29T14:42:54Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -344,12 +346,12 @@
           "submodule_branch": "project/qmcp",
           "ide_present": 3,
           "ide_absent": 0,
-          "workflows_present": 2,
+          "workflows_present": 3,
           "workflows_absent": 1,
           "licensing_present": 0
         },
         "behind_corpus": 50,
-        "observed_at": "2026-08-29T13:28:18Z",
+        "observed_at": "2026-08-29T14:43:01Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -388,19 +390,21 @@
       },
       "threads": [],
       "governance": {
-        "precondition": "met",
-        "missing": [],
+        "precondition": "incomplete",
+        "missing": [
+          "workflows"
+        ],
         "detail": {
           "submodule": "governance/qm",
           "submodule_branch": "project/rad",
           "ide_present": 3,
           "ide_absent": 0,
           "workflows_present": 3,
-          "workflows_absent": 0,
+          "workflows_absent": 1,
           "licensing_present": 2
         },
         "behind_corpus": 107,
-        "observed_at": "2026-08-29T13:28:21Z",
+        "observed_at": "2026-08-29T14:43:04Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -463,7 +467,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23342.5,
+          "idle_hours": 23343.8,
           "stalled": true
         }
       ],
@@ -481,11 +485,11 @@
           "ide_present": 0,
           "ide_absent": 3,
           "workflows_present": 0,
-          "workflows_absent": 3,
+          "workflows_absent": 4,
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T13:28:03Z",
+        "observed_at": "2026-08-29T14:42:44Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -592,7 +596,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:12:49Z"
           },
-          "idle_hours": 156.3,
+          "idle_hours": 157.5,
           "stalled": true
         },
         {
@@ -610,24 +614,26 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 433.7,
+          "idle_hours": 434.9,
           "stalled": true
         }
       ],
       "governance": {
-        "precondition": "met",
-        "missing": [],
+        "precondition": "incomplete",
+        "missing": [
+          "workflows"
+        ],
         "detail": {
           "submodule": "governance/qm",
           "submodule_branch": "project/apothecary",
           "ide_present": 3,
           "ide_absent": 0,
           "workflows_present": 3,
-          "workflows_absent": 0,
+          "workflows_absent": 1,
           "licensing_present": 2
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T13:28:05Z",
+        "observed_at": "2026-08-29T14:42:46Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -681,24 +687,26 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:13:26Z"
           },
-          "idle_hours": 156.3,
+          "idle_hours": 157.5,
           "stalled": true
         }
       ],
       "governance": {
-        "precondition": "met",
-        "missing": [],
+        "precondition": "incomplete",
+        "missing": [
+          "workflows"
+        ],
         "detail": {
           "submodule": "governance/qm",
           "submodule_branch": "project/datum",
           "ide_present": 3,
           "ide_absent": 0,
           "workflows_present": 3,
-          "workflows_absent": 0,
+          "workflows_absent": 1,
           "licensing_present": 2
         },
         "behind_corpus": 111,
-        "observed_at": "2026-08-29T13:28:11Z",
+        "observed_at": "2026-08-29T14:42:52Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -773,19 +781,21 @@
       },
       "threads": [],
       "governance": {
-        "precondition": "met",
-        "missing": [],
+        "precondition": "incomplete",
+        "missing": [
+          "workflows"
+        ],
         "detail": {
           "submodule": "governance/qm",
           "submodule_branch": "project/codecartographer",
           "ide_present": 3,
           "ide_absent": 0,
           "workflows_present": 3,
-          "workflows_absent": 0,
+          "workflows_absent": 1,
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-29T13:28:08Z",
+        "observed_at": "2026-08-29T14:42:49Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -820,11 +830,11 @@
           "ide_present": 0,
           "ide_absent": 3,
           "workflows_present": 0,
-          "workflows_absent": 3,
+          "workflows_absent": 4,
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T13:28:13Z",
+        "observed_at": "2026-08-29T14:42:55Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -858,11 +868,11 @@
           "ide_present": 0,
           "ide_absent": 3,
           "workflows_present": 1,
-          "workflows_absent": 2,
+          "workflows_absent": 3,
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T13:28:09Z",
+        "observed_at": "2026-08-29T14:42:51Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -903,11 +913,11 @@
           "ide_present": 0,
           "ide_absent": 3,
           "workflows_present": 1,
-          "workflows_absent": 2,
+          "workflows_absent": 3,
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T13:28:14Z",
+        "observed_at": "2026-08-29T14:42:56Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -978,7 +988,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 164.0,
+          "idle_hours": 165.3,
           "stalled": true
         }
       ],
@@ -990,12 +1000,12 @@
           "submodule_branch": "project/carlos",
           "ide_present": 3,
           "ide_absent": 0,
-          "workflows_present": 3,
+          "workflows_present": 4,
           "workflows_absent": 0,
           "licensing_present": 2
         },
         "behind_corpus": 140,
-        "observed_at": "2026-08-29T13:28:06Z",
+        "observed_at": "2026-08-29T14:42:48Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1019,6 +1029,7 @@
       "governance": {
         "precondition": "incomplete",
         "missing": [
+          "workflows",
           "licensing"
         ],
         "detail": {
@@ -1027,11 +1038,11 @@
           "ide_present": 3,
           "ide_absent": 0,
           "workflows_present": 3,
-          "workflows_absent": 0,
+          "workflows_absent": 1,
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T13:28:17Z",
+        "observed_at": "2026-08-29T14:42:59Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1091,11 +1102,11 @@
           "ide_present": 3,
           "ide_absent": 0,
           "workflows_present": 2,
-          "workflows_absent": 1,
+          "workflows_absent": 2,
           "licensing_present": 1
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T13:28:20Z",
+        "observed_at": "2026-08-29T14:43:02Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1157,7 +1168,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3477.4,
+          "idle_hours": 3478.7,
           "stalled": true
         }
       ],
@@ -1275,13 +1286,105 @@
           "ide_present": 0,
           "ide_absent": 3,
           "workflows_present": 0,
-          "workflows_absent": 3,
+          "workflows_absent": 4,
           "licensing_present": 0
         },
         "behind_corpus": 3,
-        "observed_at": "2026-08-29T13:28:16Z",
+        "observed_at": "2026-08-29T14:42:57Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
+      }
+    },
+    {
+      "name": "moat",
+      "slug": "quaternionmedia/moat",
+      "role": "unmanaged",
+      "phase": "v0.0.1",
+      "phase_source": "scaffolded",
+      "note": "homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT networking. governance-status.yaml lists it under org.unmanaged_named; adoption is drafted on an unmerged pull request and nothing binds yet.\n",
+      "slots": {
+        "repository": "quaternionmedia/moat",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 4,
+            "title": "🏞 MoatNet",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "qm",
+            "head": "moatnet",
+            "draft": true
+          },
+          {
+            "number": 3,
+            "title": "💡 QM plan",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "head": "qm",
+            "draft": true
+          }
+        ],
+        "violations": [
+          {
+            "author": "mrharpo",
+            "base": "",
+            "numbers": [
+              3,
+              4
+            ]
+          }
+        ],
+        "exit_status": 1,
+        "compliant": false
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [
+        {
+          "name": "moatnet",
+          "stage": "draft",
+          "pr": 4,
+          "base": "qm",
+          "title": "🏞 MoatNet",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 5824,
+            "changed_files": 20,
+            "commits": 4,
+            "deletions": 0,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-28T01:45:19Z"
+          },
+          "idle_hours": 37.0,
+          "stalled": false
+        },
+        {
+          "name": "qm",
+          "stage": "draft",
+          "pr": 3,
+          "base": "main",
+          "title": "💡 QM plan",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 4876,
+            "changed_files": 27,
+            "commits": 2,
+            "deletions": 10,
+            "mergeable_state": "unstable",
+            "updated_at": "2026-08-21T16:20:56Z"
+          },
+          "idle_hours": 190.4,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }
     }
   ]

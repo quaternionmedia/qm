@@ -206,6 +206,16 @@ def ordinal_references(root: Path) -> list[str]:
     Symlinks are skipped because writing through one writes the target, and the
     target is scanned on its own.
 
+    **THE PATTERN IS A PROXY, AND A PROXY MATCHES WHAT IT DID NOT MEAN.** The
+    letter-and-number form is not reserved to this charter, and the first
+    integration this guard met proved it: a remediation plan numbers its own
+    work packages the same way -- headings, and `Blocks on` rows pointing at
+    them -- and every one of them matched. Annotating twenty of those lines
+    would have edited a correct document to keep a tool quiet, which is the
+    trade `records/DRAFT-deltas-compose.md` refuses. So the annotation is
+    honoured at file scope as well as line scope: one at the top of a document
+    whose own vocabulary collides, with the reason stated once.
+
     Mutation: write a bare ordinal principle reference anywhere under
     `records/` -- the old charter-position form -- and this fails. Verified by
     doing it, on the record behind the evidence principle, which is the one
@@ -223,6 +233,16 @@ def ordinal_references(root: Path) -> list[str]:
             if any(part in rel for part in NOT_BINDING) or path.is_symlink():
                 continue
             text = path.read_text(encoding="utf-8", errors="replace")
+            # A file-scope annotation covers a document whose own vocabulary
+            # uses the same shape. It is read from the first few lines only, so
+            # it has to be declared where a reader meets it rather than buried
+            # where only the tool would find it.
+            head = "\n".join(text.splitlines()[:5])
+            file_reason = ORDINAL_ALLOWED.search(head)
+            if file_reason is not None and file_reason.group("quoted").strip("\"'"):
+                if ORDINAL.search(text):
+                    allowed += 1
+                continue
             for number, line in enumerate(text.splitlines(), start=1):
                 for hit in ORDINAL.finditer(line):
                     reason = ORDINAL_ALLOWED.search(line)

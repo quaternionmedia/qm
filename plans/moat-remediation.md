@@ -1,5 +1,7 @@
 # moat remediation
 
+<!-- principle-name: allow "P1-P10 below are this plan's own work packages, numbered independently of the charter; its one charter reference is by name" -->
+
 **What this is.** Everything outstanding in `quaternionmedia/moat`, written as
 slices a session can pick up cold, ordered by dependency and by which slot each
 one consumes.
@@ -82,7 +84,7 @@ git log -p --all -S 'qwertyui' -- charts/frigate/values.yaml | head
 |---|---|
 | Rewrite history | every clone and any downstream pin breaks; the corpus forbids this in its own repository and has never sanctioned it elsewhere |
 | Accept the disclosure, rely on rotation | the credentials stay readable forever; rotation is the only thing standing between them and use |
-| Make the repository private | removes the disclosure and forfeits P7 public-by-default, and creates the private-name obligation the corpus already carries an exception for |
+| Make the repository private | removes the disclosure and forfeits `public-by-default`, and creates the private-name obligation the corpus already carries an exception for |
 
 **Done when.** The choice is written into a record with its cost stated, or
 registered as an exception with a removal condition. Not when it is agreed in a
