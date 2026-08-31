@@ -86,11 +86,52 @@ class Window:
     detail: str = ""
 
 
+def _sibling_roots() -> list[Path]:
+    """Where the other repositories are looked for.
+
+    Beside this clone and one level up, by convention. `QM_SIBLINGS`
+    (os.pathsep-separated directories) **replaces** that when set, because a
+    git worktree is beside nothing -- its parents are wherever the worktree was
+    made -- and a session working from one found every sibling "not beside this
+    clone" while all four sat in the usual place. Replaces rather than extends:
+    two sources of truth for which repositories a demo may read is how an
+    allowlist stops being one, and the same call was made in codecartographer's
+    `/system` router the same week.
+    """
+    import os
+
+    override = os.environ.get("QM_SIBLINGS", "")
+    if override.strip():
+        return [Path(part) for part in override.split(os.pathsep) if part.strip()]
+    return [SIBLINGS, SIBLINGS.parent]
+
+
 def sibling(name: str) -> Path | None:
-    """A repository beside this clone, or None."""
-    for base in (SIBLINGS, SIBLINGS.parent):
+    """A Python project beside this clone, or None.
+
+    `pyproject.toml` is the test because a sibling here is something whose
+    interpreter the demo will run a script under. A repository with no Python
+    in it is not a window and not a reader -- see `clone` for what it can be.
+    """
+    for base in _sibling_roots():
         found = base / name
         if (found / "pyproject.toml").is_file():
+            return found
+    return None
+
+
+def clone(name: str) -> Path | None:
+    """Any git repository beside this clone, or None.
+
+    The derived system monitor reads a repository's *contents*, and the
+    repository it is best aimed at -- moat, a homelab of charts and terraform
+    -- has no `pyproject.toml`. Resolving the derive target with `sibling`
+    reported it "not beside this clone" while it sat in the usual place, which
+    was this demo describing its own resolver rather than the machine.
+    """
+    for base in _sibling_roots():
+        found = base / name
+        if (found / ".git").exists():
             return found
     return None
 
@@ -415,6 +456,259 @@ print(json.dumps({
 WINDOWS: dict[str, str] = {"dossier": DOSSIER, "codecartographer": CODECARTO}
 
 
+# --- the second act: one thread, three readers ---------------------------------
+#
+# **A FOURTH WINDOW WOULD HAVE BEEN A LIE.** looksatwords does not draw a
+# topology, and its own adoption record (`project/looksatwords`, §3) says what it
+# does instead: qmcp names the handful of decisions a thread settled; dossier
+# carries those through a lifecycle; looksatwords reads the *turns* underneath
+# -- the ninety-seven that were not decisions -- and says what they were about.
+# Asking it to agree about boxes and arrows would test nothing it does.
+#
+# So the second act takes ONE THREAD from the harness and hands it to three
+# readers, each under its own interpreter with JSON on a pipe, exactly as the
+# first act does with a topology:
+#
+#   qmcp           what the thread settled, and which shapes it could run now
+#                  given what this demo supplies (`orchestration.runnable_now`)
+#   looksatwords   which topics the turns carried, which tangents never resolved
+#   dossier        which of its views could answer with this subject selected
+#                  (`readiness.survey`) -- the same "what do I need" model, from
+#                  the panel's side
+#
+# **WHAT AGREEMENT MEANS HERE.** The readers do not draw one thing, so they
+# cannot agree about a picture. What they can agree about is the seam: every
+# reader must report the same thread length and the same count of turns that
+# carry prose, because those are the two figures looksatwords' seam code says
+# are different facts and are the ones a truncation would silently change. And
+# looksatwords must emit no decision and no delta -- it reads turns and owns
+# nothing in the other two, which is the border its record draws.
+
+# One thread from the archive when there is one, else this. Stated, not
+# silent, and carrying one empty turn and one tool-shaped turn on purpose so
+# the prose-versus-turns distinction is exercised every time.
+THREAD_FIXTURE = {
+    "source": "fixture", "id": "fixture-one-thread", "partial": False,
+    "title": "How the panel reads the thread archive",
+    "turns": [
+        {"id": "t0", "role": "user", "at": None,
+         "text": "We need to decide how the panel reads the thread archive."},
+        {"id": "t1", "role": "assistant", "at": None,
+         "text": "The obvious move is to import the harness package directly."},
+        {"id": "t2", "role": "assistant", "at": None, "text": ""},
+        {"id": "t3", "role": "user", "at": None,
+         "text": "That couples them. If the storage layout changes, the panel "
+                 "breaks, and the archive never asked to be involved."},
+        {"id": "t4", "role": "assistant", "at": None,
+         "text": "Then it crosses as HTTP on loopback and a schema. The port is "
+                 "a setting; the host is not."},
+        {"id": "t5", "role": "user", "at": None,
+         "text": "Quick tangent: should the panel cache what it reads?"},
+        {"id": "t6", "role": "assistant", "at": None,
+         "text": "Anyway, back to the seam. A precondition names what "
+                 "satisfies it, so a view that cannot answer says why."},
+        {"id": "t7", "role": "user", "at": None,
+         "text": "Agreed. The harness stays the one author of a thread row."},
+    ],
+}
+
+
+THREAD = r'''
+import json, os, sys
+from pathlib import Path
+
+SUBJECT = os.environ.get("TRIO_SUBJECT", "codecartographer")
+FIXTURE = bool(os.environ.get("TRIO_FIXTURE"))
+STATED = json.loads(os.environ["TRIO_THREAD_FIXTURE"])
+
+from qmcp.orchestration import PLANE, runnable_now, unmet, by_type
+from qmcp.agentframework.models.enums import TopologyType
+
+
+class _Chose(Exception):
+    """The operator asked for the fixture."""
+
+
+thread, source, settled = None, "fixture", []
+try:
+    if FIXTURE:
+        raise _Chose
+    from qmcp.spend import FREE, Budget
+    from qmcp.threads import consolidate
+    from qmcp.threads.chatgpt import ChatGPTThreads
+    from qmcp.threads.claude import ClaudeThreads
+
+    root = Path(os.environ.get("QMCP_THREADS_ROOT",
+                               Path.home() / ".qmcp" / "threads"))
+    names = consolidate.roster(Path("governance") / "qm")
+    for source_class in (ClaudeThreads, ChatGPTThreads):
+        try:
+            reader = source_class(root=root)
+            for candidate in reader.fetch([], Budget(authorised=FREE)):
+                prose = [t for t in candidate.turns if (t.text or "").strip()]
+                if len(prose) < 8:
+                    continue
+                reading = consolidate.about(candidate, names)
+                if SUBJECT not in " ".join(reading.projects
+                                           if hasattr(reading, "projects")
+                                           else []):
+                    continue
+                # **THE OTHER SIDE'S ANSWER, NOT RECOMPUTED.** What the thread
+                # settled is qmcp's to say; the reader's own extractor says it
+                # with a budget of FREE, because these files are on the disk.
+                found = reader.deltas(candidate, Budget(authorised=FREE))
+                # The first payload is the thread itself -- `deltas` always
+                # emits it, so an inconclusive conversation stays visible.
+                # What it *settled* is the rest.
+                settled = [d.get("delta", {}).get("title") or d.get("name")
+                           for d in (found or [])[1:] if isinstance(d, dict)]
+                thread = {
+                    "source": getattr(reader, "perspective", source_class.__name__),
+                    "id": candidate.id, "title": candidate.title,
+                    "partial": candidate.partial,
+                    "turns": [{"id": t.id, "role": t.role, "at": t.at,
+                               "text": t.text} for t in candidate.turns],
+                }
+                source = "thread archive"
+                break
+        except Exception as error:
+            print(f"# {source_class.__name__}: {type(error).__name__}: {error}",
+                  file=sys.stderr)
+        if thread is not None:
+            break
+except _Chose:
+    pass
+except Exception as error:
+    print(f"# archive unavailable: {type(error).__name__}: {error}",
+          file=sys.stderr)
+
+if thread is None:
+    thread = STATED
+    settled = ["How the panel reads the thread archive"]
+    source = "fixture"
+
+prose = sum(1 for t in thread["turns"] if (t.get("text") or "").strip())
+
+# **WHAT THIS DEMO SUPPLIES, STATED.** It has the harness built and nothing
+# else: no budget somebody authorised, no worker pool, no model, and no person
+# at the keyboard. `runnable_now` says which shapes that is enough for, and
+# `unmet` says what the rest are short of -- the topology declares its needs,
+# per the walkthrough that landed with qmcp #34.
+have = {"built": True}
+runnable = [t.value for t in runnable_now(**have)]
+short = {}
+for capability in PLANE:
+    missing = [n.key for n in unmet(capability, **have)]
+    if missing:
+        short[capability.topology.value] = missing
+
+print(json.dumps({
+    "thread": thread, "source": source, "settled": settled,
+    "turns_total": len(thread["turns"]), "turns_with_text": prose,
+    "runnable_now": runnable, "short": short,
+}))
+'''
+
+
+LOOKSATWORDS = r'''
+import json, sys
+from looksatwords import harness
+from looksatwords.frontend.visualizer_backend import ThreadVisualizerBackend
+
+document = json.loads(sys.stdin.read())
+raw = document["thread"]
+thread = harness.Thread(source=raw["source"], id=raw["id"],
+                        title=raw.get("title") or "", turns=tuple(raw["turns"]),
+                        partial=bool(raw.get("partial")))
+# THE SEAM'S OWN CONVERSION, so the counts reported below are the ones the
+# project reports to its own users, not a second reading done for the demo.
+text, report = harness.as_conversation(thread)
+
+backend = ThreadVisualizerBackend()
+backend.parseConversation(text)
+backend.identifyThreads()
+backend.detectTangents()
+summary = backend.getAnalysisSummary()
+
+print(json.dumps({
+    "turns_total": report["turns_total"],
+    "turns_with_text": report["turns_with_text"],
+    "turns_used": report["turns_used"],
+    "truncated": report["truncated"],
+    "speakers": sorted(backend.speakers),
+    "topics": [{"name": t["name"], "points": len(t["points"])}
+               for t in backend.threads],
+    "tangents": {"total": summary["tangent_count"],
+                 "unresolved": summary["unresolved_tangents"]},
+    "dynamic_topics": summary["dynamic_topics_enabled"],
+}))
+'''
+
+
+DOSSIER_READINESS = r'''
+import json, os, sys
+from dossier import readiness, views
+
+document = json.loads(sys.stdin.read())
+subject = os.environ.get("TRIO_SUBJECT", "codecartographer")
+
+# The reading a person gets with this subject selected. The harness address is
+# a dead port on purpose: the demo makes no claim about a running harness in
+# this act, and a view that needs one must say so rather than read as ready.
+found = readiness.survey(selection=object(), clone_of=subject,
+                         harness_base="http://127.0.0.1:9",
+                         corpus=os.path.join("governance", "qm"))
+ready = [r.view.tab for r in found if r.ready]
+waiting = {}
+for r in found:
+    if r.ready:
+        continue
+    first = r.blocking[0].need
+    waiting.setdefault(first.key, []).append(r.view.title)
+
+print(json.dumps({
+    "views": len(found), "ready": len(ready), "waiting": waiting,
+    "declared": sum(1 for v in views.VIEWS if v.needs),
+    "thread_turns_seen": len(document["thread"]["turns"]),
+}))
+'''
+
+
+# The derived system monitor, if this checkout of codecartographer carries it.
+# **PRESENCE IS CHECKED ON DISK, NEVER ASSUMED**: it landed on a local branch,
+# and the sibling's checked-out tree may be older. When the module is absent
+# the demo says so and moves on; a reader that imported it anyway would be the
+# demo importing its own scaffolding.
+CODECARTO_DERIVED = r'''
+import json, os, sys
+from pathlib import Path
+from codecarto.services import system_composer
+
+document = json.loads(sys.stdin.read())
+target = Path(os.environ["TRIO_DERIVE_FROM"])
+composed = system_composer.compose(target)
+roles = {}
+for c in composed["components"]:
+    roles[c["role"]] = roles.get(c["role"], 0) + 1
+print(json.dumps({
+    "system": composed["system"], "commit": composed["commit"],
+    "components": len(composed["components"]), "roles": roles,
+    "edges": len(composed["edges"]),
+    "thread_turns_seen": len(document["thread"]["turns"]),
+}))
+'''
+
+
+# Name -> the script that reader runs. Kept apart from WINDOWS on purpose:
+# a window draws a topology and is held to agreement about a picture; a reader
+# reads a thread and is held to the seam's counts.
+READERS: dict[str, str] = {
+    "looksatwords": LOOKSATWORDS,
+    "dossier": DOSSIER_READINESS,
+    "codecartographer": CODECARTO_DERIVED,
+}
+
+
 # The gap between columns. Wide enough that two renderings do not read as one
 # wrapped paragraph, narrow enough not to cost a column its content.
 GUTTER = 4
@@ -609,6 +903,242 @@ def _agree(args, say, result: dict, drew: list["Window"], terminal: int) -> int:
     return 0
 
 
+def _readers(args, say, result: dict) -> int:
+    """The second act: one thread from the harness, read three ways.
+
+    Returns 0 when every reader that ran agrees with the harness about the
+    seam's two counts and looksatwords authored nothing; 1 otherwise. A reader
+    whose repository is not beside this clone, or whose checkout lacks the
+    module, is reported and not counted -- the same rule the windows follow.
+    """
+    import os
+
+    say("\n" + "=" * 72)
+    say("SECOND ACT -- one thread, three readers")
+    say("=" * 72)
+
+    harness = sibling("qmcp")
+    say(f"\n[1] {harness.name} serves one thread, and says what it settled")
+    env_extra = {"TRIO_THREAD_FIXTURE": json.dumps(THREAD_FIXTURE)}
+    saved = {k: os.environ.get(k) for k in env_extra}
+    os.environ.update(env_extra)
+    try:
+        ok, out = _run(harness, THREAD, subject=args.subject,
+                       fixture=args.fixture)
+    finally:
+        for key, value in saved.items():
+            if value is None:
+                os.environ.pop(key, None)
+            else:
+                os.environ[key] = value
+    if not ok:
+        result["problems"].append(f"the harness could not serve a thread: {out}")
+        say(f"    the harness could not serve one:\n{out}")
+        return 1
+
+    document = out.strip().splitlines()[-1]
+    served = json.loads(document)
+    thread = served["thread"]
+    readers: dict[str, Any] = {
+        "source": served["source"],
+        "turns_total": served["turns_total"],
+        "turns_with_text": served["turns_with_text"],
+        "settled": served["settled"],
+        "runnable_now": served["runnable_now"],
+        "read": {},
+    }
+    result["readers"] = readers
+    say(f"    thread       {thread['source']}/{thread['id']}")
+    say(f"    title        {thread.get('title') or '(untitled)'}")
+    say(f"    data         {served['source']}")
+    say(f"    turns        {served['turns_total']}, of which "
+        f"{served['turns_with_text']} carry prose")
+    say(f"    settled      {len(served['settled'])} delta(s): "
+        + (", ".join(served["settled"][:3]) or "none"))
+    say(f"    runnable now {', '.join(served['runnable_now']) or 'nothing'} "
+        f"-- given only a built harness")
+    for shape, missing in list(served["short"].items())[:8]:
+        say(f"                 {shape:<12} short of {', '.join(missing)}")
+
+    problems: list[str] = []
+    step = 2
+
+    # looksatwords: the turns.
+    project = sibling("looksatwords")
+    say(f"\n[{step}] looksatwords reads the turns")
+    if project is None:
+        say("    looksatwords is not beside this clone -- not read")
+        readers["read"]["looksatwords"] = {"read": False,
+                                           "why": "not beside this clone"}
+    else:
+        window = _reader("looksatwords", project, LOOKSATWORDS, document)
+        if not window.ok:
+            readers["read"]["looksatwords"] = {"read": False, "why": window.detail}
+            say(f"    could not read it:\n{window.detail}")
+        else:
+            found = window.found
+            readers["read"]["looksatwords"] = {"read": True, **found}
+            say(f"    speakers     {', '.join(found['speakers'])}")
+            say(f"    topics       "
+                + (", ".join(f"{t['name']} ({t['points']})"
+                             for t in found["topics"][:8]) or "none found"))
+            say(f"    tangents     {found['tangents']['total']}, "
+                f"{found['tangents']['unresolved']} unresolved")
+            say(f"    turns        {found['turns_total']} total, "
+                f"{found['turns_with_text']} with prose, "
+                f"{found['turns_used']} used"
+                + (" -- TRUNCATED" if found["truncated"] else ""))
+            problems.extend(_seam_problems(served, found))
+    step += 1
+
+    # dossier: what could answer with this subject selected.
+    project = sibling("dossier")
+    say(f"\n[{step}] dossier says which views could answer, with "
+        f"{args.subject} selected")
+    if project is None:
+        say("    dossier is not beside this clone -- not read")
+        readers["read"]["dossier"] = {"read": False, "why": "not beside this clone"}
+    else:
+        window = _reader("dossier", project, DOSSIER_READINESS, document,
+                         subject=args.subject)
+        if not window.ok:
+            readers["read"]["dossier"] = {"read": False, "why": window.detail}
+            say(f"    could not read it:\n{window.detail}")
+        else:
+            found = window.found
+            readers["read"]["dossier"] = {"read": True, **found}
+            say(f"    ready        {found['ready']} of {found['views']} views "
+                f"({found['declared']} declare a need)")
+            for key, titles in found["waiting"].items():
+                say(f"    waiting on   {key}: {', '.join(titles)}")
+            if found["thread_turns_seen"] != served["turns_total"]:
+                problems.append("dossier was handed a different thread than "
+                                "the harness served")
+    step += 1
+
+    # codecartographer: the derived system monitor, if this checkout has it.
+    project = sibling("codecartographer")
+    say(f"\n[{step}] codecartographer derives {args.subject}'s system from its "
+        f"clone")
+    target = clone(args.subject)
+    if project is None:
+        say("    codecartographer is not beside this clone -- not read")
+        readers["read"]["codecartographer"] = {"read": False,
+                                               "why": "not beside this clone"}
+    elif not (project / "codecarto" / "services" / "system_composer.py").is_file():
+        why = ("this checkout of codecartographer does not carry the derived "
+               "system monitor (feat/the-monitor-derives-the-system)")
+        say(f"    {why} -- not read")
+        readers["read"]["codecartographer"] = {"read": False, "why": why}
+    elif target is None:
+        say(f"    {args.subject} is not beside this clone, so there is nothing "
+            f"to derive from -- not read")
+        readers["read"]["codecartographer"] = {
+            "read": False, "why": f"{args.subject} not beside this clone"}
+    else:
+        os.environ["TRIO_DERIVE_FROM"] = str(target)
+        try:
+            window = _reader("codecartographer", project, CODECARTO_DERIVED,
+                             document)
+        finally:
+            os.environ.pop("TRIO_DERIVE_FROM", None)
+        if not window.ok:
+            readers["read"]["codecartographer"] = {"read": False,
+                                                   "why": window.detail}
+            say(f"    could not derive it:\n{window.detail}")
+        else:
+            found = window.found
+            readers["read"]["codecartographer"] = {"read": True, **found}
+            say(f"    derived      {found['components']} component(s), "
+                f"{found['edges']} edge(s), from {found['system']} at "
+                f"{found['commit']}")
+            say(f"    roles        " + ", ".join(
+                f"{n} {role}" for role, n in sorted(found["roles"].items())))
+
+    say("\n" + "-" * 72)
+    say("THE SEAM")
+    say("-" * 72)
+    read = [n for n, r in readers["read"].items() if r.get("read")]
+    say(f"  {len(read)} reader(s) read the thread the harness served: "
+        + (", ".join(read) or "none"))
+    result["problems"].extend(problems)
+    if problems:
+        say("\n  DISAGREEMENT:")
+        for problem in problems:
+            say(f"    - {problem}")
+        return 1
+    if "looksatwords" in read:
+        say("  looksatwords reported the harness's own turn counts and emitted "
+            "no decision:")
+        say("  qmcp says what the thread settled; looksatwords says what the "
+            "other turns were about.")
+    return 0
+
+
+def _seam_problems(served: dict, found: dict) -> list[str]:
+    """What looksatwords is held to: the seam's two counts, and the border.
+
+    **A FUNCTION, SO IT CAN BE FED A WRONG ANSWER.** The first version of this
+    check lived inline and its test asserted that the border's *message*
+    appeared in the source -- a mutation that emptied the check and kept the
+    string passed it. This takes the harness's document and the reader's and
+    returns the disagreements, so a test hands it an over-count and an
+    authored decision and watches both come back named.
+    """
+    problems: list[str] = []
+    # THE SEAM'S TWO COUNTS, BOTH SIDES. They are different facts -- how long
+    # the thread is, and how much of it is prose -- and a truncation would
+    # move exactly one of them.
+    if found["turns_total"] != served["turns_total"]:
+        problems.append(
+            f"looksatwords read {found['turns_total']} turns and the "
+            f"harness served {served['turns_total']}")
+    if found["turns_with_text"] != served["turns_with_text"]:
+        problems.append(
+            f"looksatwords found prose in {found['turns_with_text']} turns "
+            f"and the harness counted {served['turns_with_text']} -- the "
+            f"seam's second count disagrees")
+    # THE BORDER: it reads turns and owns nothing in the other two.
+    authored = [k for k in found if k in ("deltas", "decisions", "settled",
+                                          "delta")]
+    if authored:
+        problems.append(
+            f"looksatwords emitted {authored}; its record says it never "
+            f"authors a decision or a delta")
+    return problems
+
+
+@dataclass
+class Reading:
+    """What one reader reported, as the JSON it printed."""
+
+    name: str
+    ok: bool
+    found: dict = field(default_factory=dict)
+    detail: str = ""
+
+
+def _reader(name: str, project: Path, script: str, document: str,
+            subject: str = "") -> Reading:
+    """One reader, fed the thread on stdin. Same pipe, same rule as `_window`:
+    this side never edits what the other side reported."""
+    import os
+
+    env = _env(project)
+    if subject:
+        env["TRIO_SUBJECT"] = subject
+    done = subprocess.run([interpreter(project), "-c", script], cwd=project,
+                          input=document, capture_output=True, text=True,
+                          timeout=300, env=env)
+    if done.returncode != 0:
+        return Reading(name, False, detail=(done.stderr or done.stdout)[-900:])
+    try:
+        return Reading(name, True,
+                       found=json.loads(done.stdout.strip().splitlines()[-1]))
+    except Exception as error:                     # noqa: BLE001
+        return Reading(name, False, detail=f"unreadable answer: {error}")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="qm demo",
@@ -651,6 +1181,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--json", action="store_true", dest="as_json",
         help=("emit the result as one JSON document instead of prose. The "
               "exit status is the same either way"))
+    parser.add_argument(
+        "--skip-readers", action="store_true", dest="skip_readers",
+        help=("stop after the topology act. The second act hands one thread "
+              "to looksatwords, dossier and codecartographer as readers; it "
+              "is part of the demo and skipping it is stated in the output"))
     return parser
 
 
@@ -663,6 +1198,10 @@ def main(argv: list[str] | None = None) -> int:
         for name in WINDOWS:
             found = sibling(name)
             print(f"{name:<20} {found if found else 'not beside this clone'}")
+        print("readers:")
+        for name in READERS:
+            found = sibling(name)
+            print(f"  {name:<18} {found if found else 'not beside this clone'}")
         return 0
 
     chosen = list(WINDOWS)
@@ -782,6 +1321,39 @@ def main(argv: list[str] | None = None) -> int:
     for name, found in result["windows"].items():
         if not found["drew"]:
             say(f"  - Anything about {name}: {found['why']}")
+
+    # **THE SECOND ACT RUNS AFTER THE FIRST HAS AGREED**, so a disagreement
+    # about the topology is never buried under a page of thread analysis. It
+    # shares the exit status: a reader that disagrees with the harness about
+    # the seam's counts is as much a defect as a window that drew a different
+    # picture.
+    if args.skip_readers:
+        say("\n  - The second act was skipped (--skip-readers): nothing about "
+            "looksatwords, readiness or the derived monitor.")
+    else:
+        verdict = _readers(args, say, result)
+        if verdict != 0:
+            # **THE VERDICT IS ONE FIELD.** The first act had already set
+            # `agreed` true, and a failing second act left it standing -- a
+            # mutation that made looksatwords over-count by one produced a
+            # JSON document with the disagreement in `problems` and `agreed:
+            # true` above it. Two answers to one question in one document.
+            result["agreed"] = False
+            if args.as_json:
+                print(json.dumps(result, indent=2))
+            return verdict
+        say("\n" + "-" * 72)
+        say("WHAT THE SECOND ACT DID NOT ESTABLISH")
+        say("-" * 72)
+        say("  - That the topics are right. looksatwords reports what its "
+            "extractor found; nothing here judges it.")
+        say("  - Anything about the running services. Every reader ran under "
+            "its own interpreter on a pipe; dossier's readiness was measured "
+            "against a harness address nobody answers on, so the views that "
+            "need one read as waiting, on purpose.")
+        for name, found in result.get("readers", {}).get("read", {}).items():
+            if not found.get("read"):
+                say(f"  - Anything about {name}: {found['why']}")
 
     if args.as_json:
         print(json.dumps(result, indent=2))
