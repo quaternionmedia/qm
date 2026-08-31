@@ -114,7 +114,7 @@ def test_a_source_may_carry_an_anchor_after_the_path(tmp_path: Path):
 def test_a_source_that_is_not_a_path_is_left_alone(tmp_path: Path):
     """A record cited by title, or a policy sourced from a conversation."""
     root = root_with(tmp_path)
-    assert problems([policy(source="the charter, P12")], root) == []
+    assert problems([policy(source="the charter, `show-it-by-running-it`")], root) == []
 
 
 # --- refusing silence -------------------------------------------------------

@@ -1,7 +1,7 @@
 """The hook that fires when a command goes around a declared route.
 
 **THE HOOK IS A GUARD, SO IT IS SUBJECT TO ITS OWN SUBJECT MATTER.** Charter
-P16: a check is evidence only after it has been seen to fail. A hook nobody has
+`a-check-is-evidence-after-it-fails`: a check is evidence only after it has been seen to fail. A hook nobody has
 watched fire is a file that makes everyone feel better, and this one is worse
 than most if it is wrong — a guard that cries wolf on legitimate work gets
 switched off, and a switched-off guard is worse than none.

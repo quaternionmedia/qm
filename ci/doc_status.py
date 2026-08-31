@@ -86,8 +86,24 @@ GENERATED = {
 # lines in a session whose stated aim included cutting it -- an unmeasured
 # figure moves in whichever direction nobody is watching.
 # records/DRAFT-governance-arrives-as-a-mechanism.md 4 sets the budget.
-MANDATORY_READING = ("AGENTS.md", "handbook/async-contract.md",
+#
+# THIS LIST IS THE MEASUREMENT'S SCOPE, AND A SCOPE NOBODY CHECKS IS A RESULT
+# ABOUT THE SCAFFOLDING. It held three documents and reported 631 lines against
+# a 700-line budget, comfortably inside it, while `AGENTS.md` item 1 told every
+# reader to read `PRINCIPLES.md` *in full* -- 497 lines that no figure counted.
+# The charter is in the list now, and `scope_note` below states what is left
+# out and why, so the next reader can argue with the boundary instead of
+# discovering it in a tuple.
+MANDATORY_READING = ("AGENTS.md", "PRINCIPLES.md", "handbook/async-contract.md",
                      "handbook/handoffs/README.md")
+# `README.md` is mandated in part rather than in full -- AGENTS.md item 1 asks
+# for its three invariants, not its 149 lines -- so counting the page would
+# overstate the load in the same direction as omitting the charter understated
+# it. Named here because an exclusion nobody can see is indistinguishable from
+# an oversight, which is what this whole block is about.
+MANDATORY_READING_EXCLUDED = {
+    "README.md": "mandated in part -- three invariants, not the whole page",
+}
 READING_BUDGET_LINES = 700
 
 
@@ -113,6 +129,13 @@ def reading_load(root: Path) -> dict:
         "the_budget_is_a_ratchet": (
             "It is lowered as prose is deleted, never raised on contact. Raising "
             "it is an amendment to that record, argued in the open."
+        ),
+        "excluded": MANDATORY_READING_EXCLUDED,
+        "scope_note": (
+            "`documents` is the scope of this measurement and not a derived "
+            "fact. A figure inside its budget means the listed documents are "
+            "inside it, and nothing more -- read `excluded` before quoting "
+            "`within_budget`."
         ),
     }
 
@@ -189,7 +212,13 @@ def normalise(declared: str | None) -> str | None:
 
 
 def classify(path: Path, root: Path) -> tuple[str, str]:
-    """(class, why) for one path. Class decides which vocabulary applies."""
+    """(class, why) for one path. Class decides which vocabulary applies.
+
+    PAIRED WITH `handbook/style-guide.md`'s "Every home" table, which names
+    these classes and this function back. The two are one taxonomy written in
+    two places, and they are repaired together -- they were written separately
+    and disagreed for as long as both existed.
+    """
     rel = path.relative_to(root).as_posix()
     if rel in GENERATED:
         return "generated", "a tool writes it"
@@ -206,6 +235,19 @@ def classify(path: Path, root: Path) -> tuple[str, str]:
         return "handoff", "working instructions, deleted when the work lands"
     if rel.startswith("handbook/"):
         return "handbook", "policy binding on QM's own conduct"
+    # `docs/` is the reference tier named in handbook/style-guide.md, and it
+    # had no class here because the scan below never reached it -- so the tier
+    # the style guide privileges was the one the tooling could not see. The
+    # three below it are the same omission: each is a governed directory whose
+    # pages fell through to "not in a governed directory".
+    if rel.startswith("docs/"):
+        return "reference", "the reference: contracts, interfaces, procedures"
+    if rel.startswith("protocols/"):
+        return "protocol", "a procedure run deliberately, and its runs"
+    if rel.startswith("curriculum/"):
+        return "curriculum", "a reading order, citing documents it does not restate"
+    if rel.startswith("walkthrough/"):
+        return "walkthrough", "a worked example, executed by the test command"
     if rel in ("PRINCIPLES.md", "AGENTS.md", "README.md"):
         return "entry", "read first, by everyone"
     return "other", "not in a governed directory"
@@ -362,9 +404,17 @@ def build(root: Path) -> dict:
     # Collected as a set and sorted, so the output does not depend on which
     # generator ran first. An order-dependent document cannot be checked, and
     # this one lists a view that is written after it.
+    # THE SCAN IS THE SCOPE, AND THE SCOPE DECIDES WHAT `totals.unknown` MEANS.
+    # This list held five patterns and `totals.unknown` was 0, which read as
+    # "every governed document's state can be established" -- the wording of an
+    # alpha requirement. `docs/` was not in the list, so the tier
+    # handbook/style-guide.md calls the reference was never asked for a state
+    # at all, along with protocols/, curriculum/ and walkthrough/. A document
+    # nothing scans is not a document in a good state.
     found: set[str] = set()
     for pattern in ("records/*.md", "perspectives/*.md", "handbook/**/*.md",
-                    "plans/*.md",
+                    "plans/*.md", "docs/**/*.md", "protocols/**/*.md",
+                    "curriculum/*.md", "walkthrough/*.md",
                     "PRINCIPLES.md", "AGENTS.md", "README.md"):
         for path in root.glob(pattern):
             found.add(path.relative_to(root).as_posix())

@@ -180,7 +180,7 @@ with a date looks checked.
     worse than none — a green check standing where a reader believes something
     is enforced.
 
-    **This item, item 10 and item 12 are one rule**, and charter P16 states
+    **This item, item 10 and item 12 are one rule**, and charter `a-check-is-evidence-after-it-fails` states
     it once — record `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`.
     A check is evidence only after it has been seen to fail. The tool
     answering a different question, the setup describing itself, and the
@@ -202,7 +202,7 @@ with a date looks checked.
     subject is one run at one commit. This is about text, not code: an
     assertion that goes stale fails, which is the property prose lacks.
 
-15. **Show it by running it** — charter P12, record
+15. **Show it by running it** — charter `show-it-by-running-it`, record
     `records/DRAFT-one-executable-walkthrough.md`. A worked example lives in
     `walkthrough/`, executed by the ordinary test command, and nothing describes
     a behaviour in a second place beside the code. What prose cannot hold is

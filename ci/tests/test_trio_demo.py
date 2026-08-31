@@ -387,7 +387,7 @@ def test_the_deployed_front_ends_agree():
 # is red before a single operator is applied. A mutation run against a red
 # baseline establishes nothing in either direction. The mutations named below
 # were therefore applied by hand, watched go red, and restored -- which is what
-# charter P16 asks for; the tool is the convenience, not the rule.
+# charter `a-check-is-evidence-after-it-fails` asks for; the tool is the convenience, not the rule.
 
 
 def test_a_measured_edge_prints_the_same_figure_the_other_window_prints():

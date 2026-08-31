@@ -21,7 +21,7 @@ and an inflated coverage figure is worse than none, because it hides exactly the
 module it claims.
 
 **WHAT THIS CANNOT DO.** Tell whether the test that runs a module *checks*
-anything about it. `qm posture` answers that by mutation, and charter P16 is why
+anything about it. `qm posture` answers that by mutation, and charter `a-check-is-evidence-after-it-fails` is why
 the two are different questions. This is the cheaper floor: is there anything at
 all.
 

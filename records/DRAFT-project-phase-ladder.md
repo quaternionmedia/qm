@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-09 |
 | **Pends on** | Each project naming what its own `v0.0.2` and beyond assert, in its own records. The ladder below binds without them; the rungs above the first stay undefined per project until they do. |
-| **Principle** | P6 — decisions are documented or they didn't happen; P8 — systems over heroics |
+| **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `systems-over-heroics` — systems over heroics |
 
 ## Context
 

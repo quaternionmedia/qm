@@ -122,6 +122,12 @@ qm/
 | — | [Nothing unattended spends money](records/DRAFT-no-unattended-spending.md) | Proposed | 2026-08-20 |
 | — | [A route is an address, and an unavailable one is still shown](records/DRAFT-a-route-is-an-address.md) | Proposed | 2026-08-20 |
 | — | [A knot is a cycle of obligation, not a cycle in the graph](records/DRAFT-a-knot-is-a-cycle-of-obligation.md) | Proposed | 2026-08-21 |
+| — | [A check is evidence only after it has been seen to fail](records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md) | Proposed | 2026-08-22 |
+| — | [Shrink the black box: undecidable judgement, decidable guards](records/DRAFT-shrink-the-black-box.md) | Proposed | 2026-08-25 |
+| — | [Going private is an act, and the party who does it owns what follows](records/DRAFT-going-private-is-an-act-with-obligations.md) | Draft | 2026-08-16 |
+| — | [The base is the deliverable, and it is stable when a pass adds nothing](records/DRAFT-the-base-is-the-deliverable.md) | Draft | 2026-08-16 |
+| — | [Nothing is both a claim and its own evidence](records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md) | Proposed | 2026-08-29 |
+| — | [A principle is addressed by its name](records/DRAFT-a-principle-is-addressed-by-its-name.md) | Proposed | 2026-08-29 |
 | — | [A family is bordered by what it drives](records/DRAFT-a-family-is-bordered-by-what-it-drives.md) | Proposed | 2026-08-28 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.

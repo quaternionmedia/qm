@@ -15,7 +15,7 @@
 : A project-level decision record, numbered `ADR-NNNN` per project starting at 0001. See [Record precedence](precedence.md).
 
 **Black box** { #black-box }
-: A component whose behaviour cannot be decided in advance — for QM's purposes, a language model. P17 says it is never the check: it drafts the check and a person authors it. See [PRINCIPLES.md P17](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md).
+: A component whose behaviour cannot be decided in advance — for QM's purposes, a language model. `shrink-the-black-box` says it is never the check: it drafts the check and a person authors it. See [PRINCIPLES.md `shrink-the-black-box`](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md).
 
 **Corpus** { #corpus }
 : This repository and the shared rule set it holds: the constitution every QM project adopts.
@@ -51,7 +51,7 @@
 : The status every record in this corpus currently carries. It means the decision is written down and is not yet final. Making one final is [ratification](#ratification), which needs a second person to agree. See [Ratification](ratification.md).
 
 **Protocol** { #protocol }
-: A wire format or interface with multiple independent implementations, which is what makes a component swappable. P3's replaceability test is stated against protocols rather than licences, because a proprietary protocol outlasts an open licence. See [records/DRAFT-seams-on-standard-protocols.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-seams-on-standard-protocols.md).
+: A wire format or interface with multiple independent implementations, which is what makes a component swappable. `seams-on-standard-protocols`'s replaceability test is stated against protocols rather than licences, because a proprietary protocol outlasts an open licence. See [records/DRAFT-seams-on-standard-protocols.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-seams-on-standard-protocols.md).
 
 **QM record** { #qm-record }
 : An org-level decision record, numbered `QM-NNNN` at ratification. Binds every project. See [Record precedence](precedence.md).

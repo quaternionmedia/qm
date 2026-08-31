@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-14 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P8 — systems over heroics; P6 — decisions are documented or they didn't happen; P11 — governance finds the reader, not the reverse |
+| **Principle** | `systems-over-heroics` — systems over heroics; `decisions-are-documented` — decisions are documented or they didn't happen; `governance-finds-the-reader` — governance finds the reader, not the reverse |
 | **Restated in** | Nothing, deliberately. See §4 |
 
 ## Context

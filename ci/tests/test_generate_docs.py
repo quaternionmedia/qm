@@ -1,6 +1,6 @@
-"""The regeneration command, which is the P12 mechanism and was untested.
+"""The regeneration command, which is the `show-it-by-running-it` mechanism and was untested.
 
-**THE COMMAND CHARTER P12 RESTS ON.** "Regeneration rides the command people
+**THE COMMAND CHARTER `show-it-by-running-it` RESTS ON.** "Regeneration rides the command people
 already run" — this is that command. Drift is supposed to arrive as an
 uncommitted diff nobody can miss, and the whole arrangement depends on this
 running the right steps in the right order.

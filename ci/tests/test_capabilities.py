@@ -9,7 +9,7 @@ that only demonstrated the strengths would leave the gap for somebody to find at
 the worst moment, which is the shape
 `records/DRAFT-a-capability-has-four-phases.md` was written about.
 
-THE MUTATIONS, per P16, quoted as they printed:
+THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed:
 
 The ordered-rungs check removed, so a claim can stand above an empty rung:
 

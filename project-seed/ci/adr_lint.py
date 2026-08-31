@@ -83,6 +83,10 @@ EXEMPTION = re.compile(
 )
 
 NUMBERED_FILENAME = re.compile(r"^(?:ADR|QM)-(\d{4})-.+\.md$")
+# A markdown link target inside an index row. Matched on the row rather than on
+# the whole file so prose elsewhere in an index page cannot register a record
+# as listed -- the table is the index, and a mention in a paragraph is not one.
+INDEX_LINK = re.compile(r"\]\(([^)]+\.md)\)")
 STATUS_ROW = re.compile(r"^\|\s*\*\*Status\*\*\s*\|\s*(.+?)\s*\|", re.MULTILINE)
 RATIFIED = ("accepted", "deprecated", "superseded")
 
@@ -304,7 +308,7 @@ def check_ratified_are_numbered(records: Path) -> list[str]:
     the case where the ratifier stopped one step earlier.
 
     Found by performing the ratification steps wrongly on purpose rather than by
-    reading the lint, which is the practice charter P16 states.
+    reading the lint, which is the practice charter `a-check-is-evidence-after-it-fails` states.
     """
     failures = []
     for path in sorted(records.glob("*.md")):
@@ -321,8 +325,36 @@ def check_ratified_are_numbered(records: Path) -> list[str]:
 
 
 def check_index_matches_directory(records: Path, index: Path) -> list[str]:
+    """The index lists every record, and every row names a file that exists.
+
+    TWO COMPARISONS, AND ONLY ONE OF THEM CAN FIRE BEFORE A RATIFICATION. The
+    numbered comparison below is the older half: it reads the number out of a
+    filename and out of a row's first cell. Numbers are assigned at
+    ratification, so in a corpus where nothing has been ratified yet *both*
+    sets are empty, and it compares nothing to nothing and reports clean --
+    every run, for the whole life of the check, while the index it guards can
+    be missing records. That is not a hypothetical: it was the state of this
+    corpus's own index when the filename comparison was added, and four records
+    were absent, two of them the records behind charter principles.
+
+    So the filename comparison is the half that works from day one. It matches
+    each record file against the link targets in the index's table rows, by
+    basename, so it is indifferent to whether an index links `DRAFT-x.md` from
+    inside the directory or `records/DRAFT-x.md` from the repository root.
+
+    A check that cannot fail is not evidence -- charter `a-check-is-evidence-after-it-fails`.
+
+    WHAT IT STILL CANNOT SEE, found by trying to walk past it rather than by
+    reading it: a record in a subdirectory of the records directory is invisible
+    to both halves, because the scan is `*.md` and a link pointing there lands
+    under a different parent, so neither set holds it and it passes. A link in a
+    bullet or a paragraph does not register either -- only table rows are read,
+    which is deliberate, since the table is the index and a mention is not one.
+    """
     if not index.exists():
         return [f"{index}: index file not found."]
+
+    index_text = index.read_text(encoding="utf-8")
 
     on_disk = {
         int(m.group(1))
@@ -330,8 +362,17 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
         if (m := NUMBERED_FILENAME.match(p.name))
     }
 
+    # The directory's own furniture is not a record. An index and a template
+    # are never listed in the index, and reading them as missing rows would
+    # make the check fire on every correctly-set-up project.
+    on_disk_files = {
+        p.name for p in records.glob("*.md")
+        if p.name not in ("README.md", "TEMPLATE.md") and p.resolve() != index.resolve()
+    }
+
     in_index = set()
-    for line in index.read_text(encoding="utf-8").splitlines():
+    in_index_files = set()
+    for line in index_text.splitlines():
         if not line.strip().startswith("|"):
             continue
         cells = [c.strip() for c in line.strip().strip("|").split("|")]
@@ -340,8 +381,28 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
         first = re.sub(r"^(?:ADR|QM)-", "", cells[0]).strip()
         if first.isdigit():
             in_index.add(int(first))
+        for target in INDEX_LINK.findall(line):
+            # Only links that land *in the records directory* are index rows.
+            # An index page carries other tables -- this corpus's own README
+            # links the handbook and the docs site from the same file -- and
+            # reading those as record rows reported fourteen handbook pages as
+            # missing records the first time this ran. Resolve the target
+            # against the index's own directory, because an index inside the
+            # records directory links `DRAFT-x.md` and one at the repository
+            # root links `records/DRAFT-x.md`, and both are correct.
+            landed = (index.parent / target).resolve()
+            if landed.parent == records.resolve():
+                in_index_files.add(landed.name)
 
     failures = []
+    for name in sorted(on_disk_files - in_index_files):
+        failures.append(
+            f"{index}: {name} exists in {records}/ and no row in the index links it."
+        )
+    for name in sorted(in_index_files - on_disk_files):
+        failures.append(
+            f"{index}: a row links {name}, which is not a file in {records}/."
+        )
     for number in sorted(on_disk - in_index):
         failures.append(
             f"{index}: record {number:04d} exists on disk but is absent from the index."

@@ -5,7 +5,8 @@
 | **Status** | Proposed |
 | **Date** | 2026-06-09 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P6 — decisions are documented or they didn't happen |
+| **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen |
+| **Restated in** | `AGENTS.md`; `project-seed/ide/AGENTS.md` |
 
 ## Context
 

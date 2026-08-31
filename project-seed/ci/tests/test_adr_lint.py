@@ -36,6 +36,7 @@ def test_quoting_the_banned_list_in_a_code_span_is_not_a_violation(repo: Path):
         repo / "records" / "DRAFT-x.md",
         record(body="The lint rejects `previously` and `corrected` in drafts.\n"),
     )
+    write(repo / "README.md", index_for([], ["DRAFT-x.md"]))
     commit_all(repo, "add draft quoting the list")
     assert lint(repo).returncode == 0
 
@@ -45,6 +46,7 @@ def test_a_fenced_block_is_also_excluded(repo: Path):
         repo / "records" / "DRAFT-x.md",
         record(body="Example:\n\n```\npreviously|corrected\n```\n"),
     )
+    write(repo / "README.md", index_for([], ["DRAFT-x.md"]))
     commit_all(repo, "add draft with a fenced block")
     assert lint(repo).returncode == 0
 
@@ -95,7 +97,7 @@ def test_a_draft_that_is_not_ratified_is_left_alone(repo: Path):
     """The ordinary state of every record in this corpus. A check that fired on
     a `Proposed` draft would fail on an untouched repository."""
     write(repo / "records" / "DRAFT-x.md", record(status="Proposed"))
-    write(repo / "README.md", index_for([]))
+    write(repo / "README.md", index_for([], ["DRAFT-x.md"]))
     commit_all(repo, "an ordinary draft")
     assert lint(repo).returncode == 0
 
@@ -216,6 +218,58 @@ def test_an_index_row_with_no_record_is_caught(repo: Path):
     assert "0007" in result.stdout
 
 
+def test_an_unnumbered_record_missing_from_the_index_is_caught(repo: Path):
+    """**THE CASE THE NUMBER COMPARISON COULD NOT REACH.**
+
+    Numbers are assigned at ratification. Before the first one, no filename
+    carries a number and no row carries a number, so both sides of the number
+    comparison are empty and it reports clean whatever the index says. A corpus
+    can sit in that state for its whole life, which this one did: four records
+    were absent from its index, two of them the records behind charter
+    principles, while the check reported clean on every run.
+
+    Mutation: delete the `on_disk_files - in_index_files` loop from
+    `check_index_matches_directory` and this test fails.
+    """
+    write(repo / "records" / "DRAFT-y.md", record())
+    write(repo / "README.md", index_for([]))
+    commit_all(repo, "unnumbered record absent from the index")
+    result = lint(repo)
+    assert result.returncode == 1, result.stdout
+    assert "DRAFT-y.md" in result.stdout
+
+
+def test_an_index_row_linking_a_record_that_does_not_exist_is_caught(repo: Path):
+    """The other direction, also unreachable by number before a ratification.
+
+    Mutation: delete the `in_index_files - on_disk_files` loop and this fails.
+    """
+    write(repo / "README.md", index_for([], ["DRAFT-gone.md"]))
+    commit_all(repo, "index row for a record that is not there")
+    result = lint(repo)
+    assert result.returncode == 1, result.stdout
+    assert "DRAFT-gone.md" in result.stdout
+
+
+def test_a_link_outside_the_records_directory_is_not_read_as_a_row(repo: Path):
+    """An index page carries other tables, and they are not record rows.
+
+    This corpus's own README links the handbook and the docs site from tables
+    in the same file. Reading every table link as a record row reported
+    fourteen handbook pages as records that do not exist, the first time the
+    filename comparison ran.
+    """
+    write(repo / "records" / "DRAFT-x.md", record())
+    second_table = """
+| Page | What it answers |
+|---|---|
+| [Async contract](handbook/async-contract.md) | concurrency |
+"""
+    write(repo / "README.md", index_for([], ["DRAFT-x.md"]) + second_table)
+    commit_all(repo, "an index page with a second table")
+    assert lint(repo).returncode == 0
+
+
 # --- the empty case, which is where a check quietly stops enforcing ------------
 
 
@@ -253,6 +307,7 @@ def test_a_word_that_narrates_nothing_is_not_a_violation(repo: Path):
     """
     write(repo / "records" / "DRAFT-x.md",
           record(body="Neither is a mistake and neither is corrected.\n"))
+    write(repo / "README.md", index_for([], ["DRAFT-x.md"]))
     commit_all(repo, "add draft")
     assert lint(repo).returncode == 0, "a proxy must not cost a true sentence"
 
@@ -260,6 +315,7 @@ def test_a_word_that_narrates_nothing_is_not_a_violation(repo: Path):
 def test_previously_unknown_is_not_narration(repo: Path):
     write(repo / "records" / "DRAFT-x.md",
           record(body="A previously unknown failure mode turned up.\n"))
+    write(repo / "README.md", index_for([], ["DRAFT-x.md"]))
     commit_all(repo, "add draft")
     assert lint(repo).returncode == 0
 
@@ -283,6 +339,7 @@ def test_an_annotated_hit_is_allowed_and_counted(repo: Path):
     write(repo / "records" / "DRAFT-x.md",
           record(body='It previously said so. <!-- adr-lint: allow "quoting a '
                       'source, not this draft" -->\n'))
+    write(repo / "README.md", index_for([], ["DRAFT-x.md"]))
     commit_all(repo, "add draft")
     result = lint(repo)
     assert result.returncode == 0, result.stdout
@@ -307,5 +364,6 @@ def test_the_annotation_survives_comment_stripping(repo: Path):
     write(repo / "records" / "DRAFT-x.md",
           record(body='<!-- adr-lint: allow "on the line above" -->\n'
                       'It previously said so.\n'))
+    write(repo / "README.md", index_for([], ["DRAFT-x.md"]))
     commit_all(repo, "add draft")
     assert lint(repo).returncode == 0

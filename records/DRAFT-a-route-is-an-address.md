@@ -5,8 +5,8 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-20 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P13 — a person is interrupted only by a decision; P11 — governance finds the reader; P9 — minimal, legible deliverables |
-| **Restated in** | `PRINCIPLES.md` P14 restates §5 only. §1–§4 are stated here and nowhere else |
+| **Principle** | `interrupted-only-by-a-decision` — a person is interrupted only by a decision; `governance-finds-the-reader` — governance finds the reader; `minimal-legible-deliverables` — minimal, legible deliverables |
+| **Restated in** | `PRINCIPLES.md` `typing-schedules-interface-work` restates §5 only. §1–§4 are stated here and nowhere else |
 
 ## Context
 
@@ -58,7 +58,7 @@ mode of a second copy of a menu is specific and bad: a documented number that
 opens something else. It is worse than a missing document, because a reader who
 finds nothing looks; a reader who finds `6.2` presses it.
 
-This is `P12 — show it by running it` applied to an interface rather than a
+This is `show-it-by-running-it` applied to an interface rather than a
 behaviour, and the mechanism is the one that record already names: the artifact
 rides the ordinary test command, and is recorded rather than compared.
 
@@ -124,7 +124,7 @@ converts one into the other.
 So: **the act of doing something by typing that a person would reasonably expect
 to do in the interface creates an item against that interface.** Named, in the
 same place the organisation keeps its other open work, saying which workflow
-needed it. `PRINCIPLES.md` P14 restates this and it is the section with teeth.
+needed it. `PRINCIPLES.md` `typing-schedules-interface-work` restates this and it is the section with teeth.
 
 The measure is already defined — `records/DRAFT-clis-are-for-machines-and-debugging.md`
 counts the steps a person must type to complete a named workflow. This says what

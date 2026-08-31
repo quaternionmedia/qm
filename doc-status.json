@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-23T18:49:38Z",
+  "generated_at": "2026-08-29T13:28:42Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -45,20 +45,28 @@
         "lines": 247
       },
       {
+        "path": "PRINCIPLES.md",
+        "lines": 497
+      },
+      {
         "path": "handbook/async-contract.md",
         "lines": 235
       },
       {
         "path": "handbook/handoffs/README.md",
-        "lines": 149
+        "lines": 151
       }
     ],
-    "total_lines": 631,
+    "total_lines": 1130,
     "budget_lines": 700,
-    "within_budget": true,
-    "headroom_lines": 69,
+    "within_budget": false,
+    "headroom_lines": -430,
     "budget_source": "records/DRAFT-governance-arrives-as-a-mechanism.md 4",
-    "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open."
+    "the_budget_is_a_ratchet": "It is lowered as prose is deleted, never raised on contact. Raising it is an amendment to that record, argued in the open.",
+    "excluded": {
+      "README.md": "mandated in part -- three invariants, not the whole page"
+    },
+    "scope_note": "`documents` is the scope of this measurement and not a derived fact. A figure inside its budget means the listed documents are inside it, and nothing more -- read `excluded` before quoting `within_budget`."
   },
   "readiness": {
     "claim": {
@@ -102,13 +110,13 @@
     "claim_is_not_evidence": "milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.",
     "measured": {
       "records": {
-        "total": 29,
+        "total": 33,
         "ratified": 0,
-        "proposed": 27
+        "proposed": 31
       },
       "documents_in_unknown_state": 0,
-      "reading_within_budget": true,
-      "reading_total_lines": 631,
+      "reading_within_budget": false,
+      "reading_total_lines": 1130,
       "reading_budget_lines": 700,
       "gates": {
         "unknown": "held in gate-status.json, which this generator does not read -- one document does not restate another's figures"
@@ -120,14 +128,14 @@
     "no_score_is_computed": "This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all."
   },
   "totals": {
-    "documents": 131,
+    "documents": 176,
     "by_state": {
       "draft": 2,
       "generated": 7,
-      "proposed": 27,
-      "standing": 30,
-      "transient": 18,
-      "unreviewed": 47
+      "proposed": 31,
+      "standing": 66,
+      "transient": 20,
+      "unreviewed": 50
     },
     "disagreements": 0,
     "unknown": 0
@@ -173,6 +181,266 @@
       "state": "generated",
       "refresh": "python ci/doc_status.py --write doc-status.json",
       "present": true
+    },
+    {
+      "path": "docs/about/architecture.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/about/history.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/about/index.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/about/overview.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/cookbook/add-a-perspective.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/cookbook/build-these-docs.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/cookbook/draft-a-record.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": "Starts at `Draft` or `Proposed`",
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/cookbook/index.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/cookbook/propagate-a-change.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/cookbook/read-status-documents.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/cookbook/run-ci-locally.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/index.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/ref/addresses.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/ref/glossary.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/ref/handbook.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/ref/index.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/ref/namespaces.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/ref/precedence.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/ref/protocols.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/ref/ratification.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/ref/repo-layout.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/usage/first-project.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/usage/getting-started.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/usage/index.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/usage/next-steps.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "docs/usage/questions-a-new-developer-asks.md",
+      "class": "reference",
+      "class_reason": "the reference: contracts, interfaces, procedures",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
     },
     {
       "path": "gate-status.json",
@@ -362,6 +630,15 @@
       "state": "transient"
     },
     {
+      "path": "handbook/handoffs/hil-review-2026-08-25.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
       "path": "handbook/handoffs/qmcp-flows-as-deltas.md",
       "class": "handoff",
       "class_reason": "working instructions, deleted when the work lands",
@@ -453,6 +730,15 @@
     },
     {
       "path": "handbook/handoffs/two-views-one-dataset.md",
+      "class": "handoff",
+      "class_reason": "working instructions, deleted when the work lands",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "transient"
+    },
+    {
+      "path": "handbook/handoffs/views-declare-what-they-need.md",
       "class": "handoff",
       "class_reason": "working instructions, deleted when the work lands",
       "declared_status": null,
@@ -904,6 +1190,36 @@
       "state": "unreviewed"
     },
     {
+      "path": "perspectives/2026-08-25-defects-between-two-green-suites.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-25-the-suite-that-outgrew-its-loop.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
+      "path": "perspectives/2026-08-27-the-precondition-nobody-declared.md",
+      "class": "perspective",
+      "class_reason": "dated, attributed, non-binding opinion",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "indexed_status": "Unreviewed",
+      "state": "unreviewed"
+    },
+    {
       "path": "perspectives/README.md",
       "class": "index",
       "class_reason": "the index for its directory, not a member of it",
@@ -1144,6 +1460,105 @@
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
     },
     {
+      "path": "protocols/README.md",
+      "class": "index",
+      "class_reason": "the index for its directory, not a member of it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "protocols/curriculum.md",
+      "class": "protocol",
+      "class_reason": "a procedure run deliberately, and its runs",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "protocols/local-demo.md",
+      "class": "protocol",
+      "class_reason": "a procedure run deliberately, and its runs",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "protocols/plain-language.md",
+      "class": "protocol",
+      "class_reason": "a procedure run deliberately, and its runs",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "protocols/runs/2026-08-17-local-demo.md",
+      "class": "protocol",
+      "class_reason": "a procedure run deliberately, and its runs",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "protocols/runs/2026-08-19-plain-language.md",
+      "class": "protocol",
+      "class_reason": "a procedure run deliberately, and its runs",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "protocols/runs/2026-08-21-trio-demo.md",
+      "class": "protocol",
+      "class_reason": "a procedure run deliberately, and its runs",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "protocols/runs/2026-08-23-security-review.md",
+      "class": "protocol",
+      "class_reason": "a procedure run deliberately, and its runs",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "protocols/security-review.md",
+      "class": "protocol",
+      "class_reason": "a procedure run deliberately, and its runs",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
+    },
+    {
+      "path": "records/DRAFT-a-capability-has-four-phases.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
       "path": "records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md",
       "class": "record",
       "class_reason": "an org decision record",
@@ -1163,6 +1578,15 @@
     },
     {
       "path": "records/DRAFT-a-knot-is-a-cycle-of-obligation.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
+      "path": "records/DRAFT-a-principle-is-addressed-by-its-name.md",
       "class": "record",
       "class_reason": "an org decision record",
       "declared_status": "Proposed",
@@ -1324,6 +1748,15 @@
       "state": "proposed"
     },
     {
+      "path": "records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
       "path": "records/DRAFT-one-executable-walkthrough.md",
       "class": "record",
       "class_reason": "an org decision record",
@@ -1369,6 +1802,15 @@
       "state": "proposed"
     },
     {
+      "path": "records/DRAFT-shrink-the-black-box.md",
+      "class": "record",
+      "class_reason": "an org decision record",
+      "declared_status": "Proposed",
+      "state_from_status_row": "proposed",
+      "state_from_filename": "draft",
+      "state": "proposed"
+    },
+    {
       "path": "records/DRAFT-the-base-is-the-deliverable.md",
       "class": "record",
       "class_reason": "an org decision record",
@@ -1403,6 +1845,16 @@
       "state_from_status_row": "proposed",
       "state_from_filename": "draft",
       "state": "proposed"
+    },
+    {
+      "path": "walkthrough/01-two-views-one-dataset.md",
+      "class": "walkthrough",
+      "class_reason": "a worked example, executed by the test command",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "standing",
+      "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
     }
   ]
 }

@@ -3,7 +3,7 @@
 
 Org-level tooling, copied nowhere. One command a human runs before a pull
 request, so drift shows up as an uncommitted diff rather than as staleness
-nobody sees -- charter P12, and `records/DRAFT-one-executable-walkthrough.md`.
+nobody sees -- charter `show-it-by-running-it`, and `records/DRAFT-one-executable-walkthrough.md`.
 
 WHY THIS EXISTS. Six generated artifacts live at this repository's root and in
 `handbook/`, each with its own refresh command written down in its own

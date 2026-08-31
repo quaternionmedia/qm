@@ -28,7 +28,7 @@ Not candidates. Listed so nobody re-opens them by accident.
 | Two views disagreeing is **a delta, not an error** | same record; neither side wins |
 | A **claim** and a **measurement** are separate documents | `records/DRAFT-project-phase-ladder.md` §4 |
 | A count nobody took is **`unknown`**, never zero | `harness-status.json`'s reading block |
-| A person is interrupted **only by a decision** | `PRINCIPLES.md` P13 |
+| A person is interrupted **only by a decision** | `PRINCIPLES.md` `interrupted-only-by-a-decision` |
 
 ## 1. Identity and composition
 
@@ -82,7 +82,7 @@ Not candidates. Listed so nobody re-opens them by accident.
 
 - **One queue or many.** The harness has `ask`; a review request and a
   ratification are the same shape. One vocabulary or three is undecided.
-- **Answerability.** P13 says a notification owes a way to act. Standardising
+- **Answerability.** `interrupted-only-by-a-decision` says a notification owes a way to act. Standardising
   *what an answer looks like* is the mechanical half: an option from a declared
   set, free text, or a delta reference.
 - **Expiry.** Every queue grows. What an unanswered question becomes after long
