@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-29T16:14:15Z",
+  "generated_at": "2026-08-29T16:38:51Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",

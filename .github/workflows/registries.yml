@@ -73,3 +73,6 @@ jobs:
 
       - name: Every family a repository claims is one the record declares
         run: python ci/families.py --check
+
+      - name: Every mathematical mapping states what it decides and has not earned
+        run: python ci/check_mathematics.py --check
