@@ -277,6 +277,7 @@ repositories:
 
   - name: moat
     role: unmanaged
+    family: infra
     phase: v0.0.1
     phase_source: scaffolded
     note: >
@@ -484,4 +485,38 @@ repositories:
     family: irl
     note: >
       A parametric physical assembly. Name and paths live in
+      ci/workspace-private.yaml, which is not committed.
+
+  # --- The rest of the infra family --------------------------------------
+  #
+  # Placed by records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3: these
+  # decide where other things run and how they are reached. A repository that
+  # is merely *deployed* is not here -- that border refuses an etherpad, a
+  # video recorder and a game server, each of which runs on infrastructure
+  # without being it.
+
+  - name: ztgui
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: infra
+    note: a interface onto the overlay network members are reached across
+    paths: [ztgui, qm/ztgui]
+
+  - ref: private-23
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: infra
+    note: >
+      Cloud configuration. Name and paths live in ci/workspace-private.yaml,
+      which is not committed.
+
+  - ref: private-26
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: infra
+    note: >
+      Functions for systems and operating systems. Name and paths live in
       ci/workspace-private.yaml, which is not committed.

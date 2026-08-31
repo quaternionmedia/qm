@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-30T19:23:58Z",
+  "generated_at": "2026-08-30T23:44:40Z",
   "source": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
   "reading": {
     "families_come_from": "the record, not this file -- renaming one there makes a roster claim stop resolving",
@@ -18,6 +18,16 @@
         "qmcp",
         "codecartographer",
         "looksatwords"
+      ]
+    },
+    {
+      "name": "infra",
+      "drives": "where a thing runs, and how it is reached \u2014 ingress, identity, storage, DNS, observability, the network path",
+      "members": [
+        "moat",
+        "ztgui",
+        "private-23",
+        "private-26"
       ]
     },
     {
@@ -74,7 +84,6 @@
     "alfred",
     "benchmark",
     "factorio-sysops",
-    "moat",
     "private-32",
     "private-33",
     "private-34",

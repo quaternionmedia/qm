@@ -69,7 +69,7 @@ another also emits. Not by shared vocabulary: *cue*, *loop* and *track* each
 mean different things in two of the three, and a border drawn on words would
 have placed one program in all of them.
 
-### §3 — The estate is five families
+### §3 — The estate is six families
 
 | family | drives | named public members |
 |---|---|---|
@@ -77,7 +77,28 @@ have placed one program in all of them.
 | `instruments` | **the sound** — looping, synthesis, tempo, remote control surfaces | holophonor; midiphonor; carlos; qmetronome; wolf; ludwig; waveofhormuz |
 | `performer-display` | **the performer** — what a player reads while playing | joe; leo |
 | `irl` | **matter** — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | apothecary; datum; scad-chess; stomp; ira; uPhonor; and three private repositories, referenced rather than named |
+| `infra` | **where a thing runs, and how it is reached** — ingress, identity, storage, DNS, observability, the network path | moat; ztgui; and two private repositories, referenced rather than named |
 | `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | qm; qmcp; dossier; codecartographer; looksatwords |
+
+`infra` is what everything else runs on, and it is a family rather than
+substrate — a distinction §4 now has to carry twice, because the two cases look
+alike and part in one place. **Substrate is built *with*; infrastructure is run
+*on*.** A radial menu is compiled into a host and ships inside it, so it has no
+independent existence and belongs to no family. A platform is never imported by
+anything: it holds identity, ingress, storage, DNS and the network path, and a
+repository that stops using it does not lose a dependency, it loses a home.
+
+The border refuses more than it admits here, which is how it earns its keep.
+A deployment *of a service* — an etherpad, a video recorder, a game server —
+runs on infrastructure and is not infrastructure, so none of them is placed
+here on the strength of having a Dockerfile. What is asked is whether the
+repository decides where other things run, not whether it is deployed.
+
+`infra` extends `core` in the sense that the corpus and its tooling are among
+the things it hosts. That relation is a **seam** under §5 and not a family
+relation: the two are peers in this table, and neither contains the other.
+Reading `infra` as a subdivision of `core` would make every family a
+subdivision of it eventually, since everything runs somewhere.
 
 `irl` is where §2's border was tested hardest, and it moved three
 repositories. A foot controller, an LED controller and a micro-looper each
