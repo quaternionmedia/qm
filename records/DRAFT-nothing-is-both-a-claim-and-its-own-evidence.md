@@ -7,7 +7,7 @@
 | **Pends on** | Nothing — ready for ratification |
 | **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `systems-over-heroics` — systems over heroics |
 | **Restated in** | Nothing. |
-| **Unifies** | `records/DRAFT-attention-is-a-claim-activity-is-measured.md`; `records/DRAFT-version-tags-are-claims.md`; `records/DRAFT-project-phase-ladder.md`; `records/DRAFT-few-integers-in-durable-text.md`; `records/DRAFT-a-capability-has-four-phases.md` |
+| **Unifies** | `records/DRAFT-attention-is-a-claim-activity-is-measured.md`; `records/DRAFT-version-tags-are-claims.md`; `records/DRAFT-project-phase-ladder.md`; `records/DRAFT-few-integers-in-durable-text.md`; `records/DRAFT-a-capability-has-four-phases.md`; `records/DRAFT-a-family-is-bordered-by-what-it-drives.md` |
 
 ## Context
 
@@ -95,8 +95,9 @@ they stop being five conventions and become one rule with five faces.
 | the project phase ladder | a roadmap | a claim with `phase_source` naming who made it |
 | a capability has four phases | a maturity model | a rung claimed, with evidence named per phase |
 | few integers in durable text | a style rule | a number in prose is a claim whose expiry the prose omits |
+| a family is bordered by what it drives | a grouping of repositories | a claim about which repositories are one system, stated in the roster |
 
-A sixth subject is decided by this record rather than by a sixth derivation.
+The sixth arrived while this record was being drafted: a repository family is a claim about which repositories are one working system, and it was written against this rule rather than deriving it again.
 
 ## Consequences
 

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-29T14:43:25Z",
+  "generated_at": "2026-08-29T16:14:15Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -46,11 +46,11 @@
     ]
   },
   "totals": {
-    "repositories": 17,
-    "slots_measured": 14,
+    "repositories": 34,
+    "slots_measured": 31,
     "slots_unknown": 3,
-    "compliant": 12,
-    "over_limit": 2,
+    "compliant": 28,
+    "over_limit": 3,
     "governance_readable": 14,
     "governance_precondition_met": 1,
     "phase_scaffolded": 10,
@@ -58,10 +58,10 @@
     "threads_by_stage": {
       "local": 0,
       "pushed": 0,
-      "draft": 3,
-      "ready": 5
+      "draft": 7,
+      "ready": 12
     },
-    "threads_stalled": 7,
+    "threads_stalled": 18,
     "threads_unreadable": 3
   },
   "repositories": [
@@ -180,7 +180,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-29T14:42:54Z",
+        "observed_at": "2026-08-29T16:13:15Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -351,7 +351,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 50,
-        "observed_at": "2026-08-29T14:43:01Z",
+        "observed_at": "2026-08-29T16:13:22Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -404,7 +404,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 107,
-        "observed_at": "2026-08-29T14:43:04Z",
+        "observed_at": "2026-08-29T16:13:25Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -467,7 +467,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23343.8,
+          "idle_hours": 23345.3,
           "stalled": true
         }
       ],
@@ -489,7 +489,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T14:42:44Z",
+        "observed_at": "2026-08-29T16:13:04Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -596,7 +596,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:12:49Z"
           },
-          "idle_hours": 157.5,
+          "idle_hours": 159.0,
           "stalled": true
         },
         {
@@ -614,7 +614,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 434.9,
+          "idle_hours": 436.4,
           "stalled": true
         }
       ],
@@ -633,7 +633,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T14:42:46Z",
+        "observed_at": "2026-08-29T16:13:06Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -687,7 +687,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:13:26Z"
           },
-          "idle_hours": 157.5,
+          "idle_hours": 159.0,
           "stalled": true
         }
       ],
@@ -706,7 +706,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 111,
-        "observed_at": "2026-08-29T14:42:52Z",
+        "observed_at": "2026-08-29T16:13:13Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -795,7 +795,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-29T14:42:49Z",
+        "observed_at": "2026-08-29T16:13:10Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -834,7 +834,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T14:42:55Z",
+        "observed_at": "2026-08-29T16:13:16Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -872,7 +872,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T14:42:51Z",
+        "observed_at": "2026-08-29T16:13:11Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -917,7 +917,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T14:42:56Z",
+        "observed_at": "2026-08-29T16:13:18Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -988,7 +988,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 165.3,
+          "idle_hours": 166.8,
           "stalled": true
         }
       ],
@@ -1005,7 +1005,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 140,
-        "observed_at": "2026-08-29T14:42:48Z",
+        "observed_at": "2026-08-29T16:13:08Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1042,7 +1042,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T14:42:59Z",
+        "observed_at": "2026-08-29T16:13:20Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1106,7 +1106,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-29T14:43:02Z",
+        "observed_at": "2026-08-29T16:13:24Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1168,7 +1168,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3478.7,
+          "idle_hours": 3480.2,
           "stalled": true
         }
       ],
@@ -1290,7 +1290,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 3,
-        "observed_at": "2026-08-29T14:42:57Z",
+        "observed_at": "2026-08-29T16:13:19Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1361,7 +1361,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-28T01:45:19Z"
           },
-          "idle_hours": 37.0,
+          "idle_hours": 38.5,
           "stalled": false
         },
         {
@@ -1379,7 +1379,972 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-21T16:20:56Z"
           },
-          "idle_hours": 190.4,
+          "idle_hours": 191.9,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "ShowRunner",
+      "slug": "quaternionmedia/ShowRunner",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "show control for live performances; the hub the periphery names itself after",
+      "slots": {
+        "repository": "quaternionmedia/ShowRunner",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 29,
+            "title": "⬆️ Bump python-socketio from 5.16.1 to 5.16.2",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/python-socketio-5.16.2",
+            "draft": false
+          },
+          {
+            "number": 28,
+            "title": "⬆️ Bump python-engineio from 4.13.1 to 4.13.2",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/python-engineio-4.13.2",
+            "draft": false
+          },
+          {
+            "number": 27,
+            "title": "⬆️ Bump starlette from 1.0.0 to 1.3.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/starlette-1.3.1",
+            "draft": false
+          },
+          {
+            "number": 26,
+            "title": "⬆️ Bump aiohttp from 3.13.5 to 3.14.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/aiohttp-3.14.1",
+            "draft": false
+          },
+          {
+            "number": 25,
+            "title": "⬆️ Bump python-multipart from 0.0.26 to 0.0.31",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/python-multipart-0.0.31",
+            "draft": false
+          },
+          {
+            "number": 22,
+            "title": "feat: add ShowMidi plugin for MIDI and MIDI CC cue types",
+            "author": "Copilot",
+            "bot": true,
+            "base": "main",
+            "head": "copilot/add-cue-type-midi-control-changes",
+            "draft": true
+          },
+          {
+            "number": 21,
+            "title": "⬆️ Bump sqladmin from 0.24.0 to 0.25.1",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/sqladmin-0.25.1",
+            "draft": false
+          },
+          {
+            "number": 20,
+            "title": "⬆️ Bump idna from 3.11 to 3.15",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/idna-3.15",
+            "draft": false
+          },
+          {
+            "number": 19,
+            "title": "⬆️ Bump pymdown-extensions from 10.21.2 to 10.21.3",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/pymdown-extensions-10.21.3",
+            "draft": false
+          },
+          {
+            "number": 18,
+            "title": "⬆️ Bump nicegui from 3.10.0 to 3.12.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/nicegui-3.12.0",
+            "draft": false
+          },
+          {
+            "number": 16,
+            "title": "feat(tests): NiceGUI page-level UI tests + Playwright E2E scaffolding",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "feat/meta-intro-video",
+            "head": "feat/playwright-ui-tests",
+            "draft": false
+          },
+          {
+            "number": 15,
+            "title": "🛂 Migration",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "head": "migrations",
+            "draft": false
+          },
+          {
+            "number": 14,
+            "title": "⬆️ Bump lxml from 6.0.4 to 6.1.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/uv/lxml-6.1.0",
+            "draft": false
+          },
+          {
+            "number": 12,
+            "title": "feat: ShowProgrammer — meta intro video pipeline, live clock, async dispatch",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "feat/meta-intro-video",
+            "draft": false
+          }
+        ],
+        "violations": [
+          {
+            "author": "subcontrabass",
+            "base": "",
+            "numbers": [
+              12,
+              16
+            ]
+          }
+        ],
+        "exit_status": 1,
+        "compliant": false
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v0.1.0",
+        "annotated": false,
+        "unreleased_commits": 1,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
+      "threads": [
+        {
+          "name": "feat/playwright-ui-tests",
+          "stage": "ready",
+          "pr": 16,
+          "base": "feat/meta-intro-video",
+          "title": "feat(tests): NiceGUI page-level UI tests + Playwright E2E scaffolding",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 1278,
+            "changed_files": 17,
+            "commits": 3,
+            "deletions": 1,
+            "mergeable_state": "clean",
+            "updated_at": "2026-04-26T14:53:23Z"
+          },
+          "idle_hours": 3001.3,
+          "stalled": true
+        },
+        {
+          "name": "migrations",
+          "stage": "ready",
+          "pr": 15,
+          "base": "main",
+          "title": "🛂 Migration",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 567,
+            "changed_files": 14,
+            "commits": 2,
+            "deletions": 76,
+            "mergeable_state": "clean",
+            "updated_at": "2026-04-23T23:10:53Z"
+          },
+          "idle_hours": 3065.0,
+          "stalled": true
+        },
+        {
+          "name": "feat/meta-intro-video",
+          "stage": "ready",
+          "pr": 12,
+          "base": "main",
+          "title": "feat: ShowProgrammer — meta intro video pipeline, live clock, async dispatch",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 7179,
+            "changed_files": 20,
+            "commits": 14,
+            "deletions": 504,
+            "mergeable_state": "dirty",
+            "updated_at": "2026-04-19T03:27:49Z"
+          },
+          "idle_hours": 3180.8,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "Cuelist-python",
+      "slug": "quaternionmedia/Cuelist-python",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "helpers for Cuelist, and a ShowRunner plugin by its own description",
+      "slots": {
+        "repository": "quaternionmedia/Cuelist-python",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "QLab-python",
+      "slug": "quaternionmedia/QLab-python",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "interface to a third-party cue system",
+      "slots": {
+        "repository": "quaternionmedia/QLab-python",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 2,
+            "title": "🎭 Theatremix",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "head": "theatremix",
+            "draft": true
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [
+        {
+          "name": "theatremix",
+          "stage": "draft",
+          "pr": 2,
+          "base": "main",
+          "title": "🎭 Theatremix",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 4020,
+            "changed_files": 24,
+            "commits": 22,
+            "deletions": 544,
+            "mergeable_state": "clean",
+            "updated_at": "2026-04-11T08:00:47Z"
+          },
+          "idle_hours": 3368.2,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "TheatreMix-python",
+      "slug": "quaternionmedia/TheatreMix-python",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "interface to a third-party mixing system",
+      "slots": {
+        "repository": "quaternionmedia/TheatreMix-python",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "cesar",
+      "slug": "quaternionmedia/cesar",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "a unified lighting, sound and video controller for theatre",
+      "slots": {
+        "repository": "quaternionmedia/cesar",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "ira",
+      "slug": "quaternionmedia/ira",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "LED control for live theatre",
+      "slots": {
+        "repository": "quaternionmedia/ira",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "ShowStopper",
+      "slug": "quaternionmedia/ShowStopper",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "timing for the performing arts",
+      "slots": {
+        "repository": "quaternionmedia/ShowStopper",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "aes",
+      "slug": "quaternionmedia/aes",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "audio-over-IP transport scripts",
+      "slots": {
+        "repository": "quaternionmedia/aes",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "holophonor",
+      "slug": "quaternionmedia/holophonor",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "live looping; the hub two others name themselves after",
+      "slots": {
+        "repository": "quaternionmedia/holophonor",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 11,
+            "title": "🚰 Pipewire",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "head": "pipewire",
+            "draft": true
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v0.1.0",
+        "annotated": false,
+        "unreleased_commits": 31,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
+      "threads": [
+        {
+          "name": "pipewire",
+          "stage": "draft",
+          "pr": 11,
+          "base": "main",
+          "title": "🚰 Pipewire",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 428,
+            "changed_files": 9,
+            "commits": 10,
+            "deletions": 52,
+            "mergeable_state": "clean",
+            "updated_at": "2025-06-22T22:17:43Z"
+          },
+          "idle_hours": 10385.9,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "midiphonor",
+      "slug": "quaternionmedia/midiphonor",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "a holophonor implementation in the browser, by its own description",
+      "slots": {
+        "repository": "quaternionmedia/midiphonor",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v0.2.0",
+        "annotated": false,
+        "unreleased_commits": 32,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "uPhonor",
+      "slug": "quaternionmedia/uPhonor",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "a micro-holophonor, by its own description",
+      "slots": {
+        "repository": "quaternionmedia/uPhonor",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 33,
+            "title": "Bump vite from 6.1.0 to 6.4.2",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/vite-6.4.2",
+            "draft": false
+          },
+          {
+            "number": 32,
+            "title": "Bump rollup from 4.34.6 to 4.59.0",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/rollup-4.59.0",
+            "draft": false
+          },
+          {
+            "number": 29,
+            "title": "🐍 Python",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "head": "cffi",
+            "draft": true
+          },
+          {
+            "number": 7,
+            "title": "Bump esbuild and vite",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/multi-a91bf2f4f6",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "current",
+        "latest": "v0.9.0",
+        "annotated": false,
+        "unreleased_commits": 0,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
+      "threads": [
+        {
+          "name": "cffi",
+          "stage": "draft",
+          "pr": 29,
+          "base": "main",
+          "title": "🐍 Python",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 6751,
+            "changed_files": 25,
+            "commits": 6,
+            "deletions": 42,
+            "mergeable_state": "clean",
+            "updated_at": "2025-07-13T07:24:23Z"
+          },
+          "idle_hours": 9896.8,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "stomp",
+      "slug": "quaternionmedia/stomp",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "a MIDI foot controller",
+      "slots": {
+        "repository": "quaternionmedia/stomp",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "wolf",
+      "slug": "quaternionmedia/wolf",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "a remote MIDI controller",
+      "slots": {
+        "repository": "quaternionmedia/wolf",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "ludwig",
+      "slug": "quaternionmedia/ludwig",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "remote mixing",
+      "slots": {
+        "repository": "quaternionmedia/ludwig",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 9,
+            "title": "🌌 Universal",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "head": "api",
+            "draft": true
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v0.1.0",
+        "annotated": false,
+        "unreleased_commits": 20,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
+      "threads": [
+        {
+          "name": "api",
+          "stage": "draft",
+          "pr": 9,
+          "base": "main",
+          "title": "🌌 Universal",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 4593,
+            "changed_files": 27,
+            "commits": 4,
+            "deletions": 74,
+            "mergeable_state": "clean",
+            "updated_at": "2025-12-22T07:01:05Z"
+          },
+          "idle_hours": 6009.2,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "waveofhormuz",
+      "slug": "quaternionmedia/waveofhormuz",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "an oscillator module",
+      "slots": {
+        "repository": "quaternionmedia/waveofhormuz",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v2.2.0",
+        "annotated": false,
+        "unreleased_commits": 1,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "joe",
+      "slug": "quaternionmedia/joe",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "realtime sheet-music rendering",
+      "slots": {
+        "repository": "quaternionmedia/joe",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 8,
+            "title": "Docs/onboarding hardening",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "docs/onboarding-hardening",
+            "draft": false
+          },
+          {
+            "number": 7,
+            "title": "⬆ Bump actions/checkout from 4 to 6 in /.github/workflows",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/github_actions/dot-github/workflows/actions/checkout-6",
+            "draft": false
+          },
+          {
+            "number": 4,
+            "title": "🖐 p5.js",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "head": "p5",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [
+        {
+          "name": "docs/onboarding-hardening",
+          "stage": "ready",
+          "pr": 8,
+          "base": "main",
+          "title": "Docs/onboarding hardening",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 6879,
+            "changed_files": 34,
+            "commits": 20,
+            "deletions": 242,
+            "mergeable_state": "clean",
+            "updated_at": "2026-03-04T02:29:45Z"
+          },
+          "idle_hours": 4285.7,
+          "stalled": true
+        },
+        {
+          "name": "p5",
+          "stage": "ready",
+          "pr": 4,
+          "base": "main",
+          "title": "🖐 p5.js",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 3103,
+            "changed_files": 11,
+            "commits": 14,
+            "deletions": 7,
+            "mergeable_state": "clean",
+            "updated_at": "2025-01-04T01:07:48Z"
+          },
+          "idle_hours": 14463.1,
+          "stalled": true
+        }
+      ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "leo",
+      "slug": "quaternionmedia/leo",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "a web document viewer, annotator and collaborator",
+      "slots": {
+        "repository": "quaternionmedia/leo",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [
+          {
+            "number": 67,
+            "title": "feat: uv-driven CLI with comprehensive test suite",
+            "author": "subcontrabass",
+            "bot": false,
+            "base": "main",
+            "head": "uv-refactor",
+            "draft": false
+          },
+          {
+            "number": 66,
+            "title": "⬆ Bump the production-dependencies group across 1 directory with 3 updates",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/production-dependencies-d064ebc736",
+            "draft": false
+          },
+          {
+            "number": 65,
+            "title": "⬆ Bump actions/checkout from 4 to 6 in /.github/workflows",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/github_actions/dot-github/workflows/actions/checkout-6",
+            "draft": false
+          },
+          {
+            "number": 64,
+            "title": "⬆ Bump vite from 7.1.3 to 7.1.11",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/vite-7.1.11",
+            "draft": false
+          },
+          {
+            "number": 63,
+            "title": "⬆ Bump actions/setup-node from 4 to 6 in /.github/workflows",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/github_actions/dot-github/workflows/actions/setup-node-6",
+            "draft": false
+          },
+          {
+            "number": 61,
+            "title": "📇 Setlist",
+            "author": "mrharpo",
+            "bot": false,
+            "base": "main",
+            "head": "setlist",
+            "draft": false
+          },
+          {
+            "number": 59,
+            "title": "⬆ Bump vite from 7.1.3 to 7.1.4 in the development-dependencies group",
+            "author": "dependabot[bot]",
+            "bot": true,
+            "base": "main",
+            "head": "dependabot/npm_and_yarn/development-dependencies-da77792d36",
+            "draft": false
+          }
+        ],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "unreleased",
+        "latest": null,
+        "unreleased_commits": null,
+        "asserts": "no v tag has ever been cut, so nothing has been asserted"
+      },
+      "threads": [
+        {
+          "name": "uv-refactor",
+          "stage": "ready",
+          "pr": 67,
+          "base": "main",
+          "title": "feat: uv-driven CLI with comprehensive test suite",
+          "author": "subcontrabass",
+          "delta": {
+            "additions": 5897,
+            "changed_files": 41,
+            "commits": 7,
+            "deletions": 165,
+            "mergeable_state": "clean",
+            "updated_at": "2026-01-17T11:44:43Z"
+          },
+          "idle_hours": 5380.5,
+          "stalled": true
+        },
+        {
+          "name": "setlist",
+          "stage": "ready",
+          "pr": 61,
+          "base": "main",
+          "title": "📇 Setlist",
+          "author": "mrharpo",
+          "delta": {
+            "additions": 6496,
+            "changed_files": 35,
+            "commits": 19,
+            "deletions": 927,
+            "mergeable_state": "clean",
+            "updated_at": "2026-02-21T06:35:43Z"
+          },
+          "idle_hours": 4545.6,
           "stalled": true
         }
       ],

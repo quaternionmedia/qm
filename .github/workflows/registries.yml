@@ -70,3 +70,6 @@ jobs:
 
       - name: Every address vector parses as declared and round-trips
         run: python ci/addresses.py --check
+
+      - name: Every family a repository claims is one the record declares
+        run: python ci/families.py --check

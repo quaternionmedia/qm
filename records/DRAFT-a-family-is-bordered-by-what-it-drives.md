@@ -73,9 +73,9 @@ have placed one program in all of them.
 
 | family | drives | named public members |
 |---|---|---|
-| show control | **the room** — cues, lighting, sound and video playback, audio transport | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ira; ShowStopper; aes |
-| instruments | **the sound** — looping, control surfaces, synthesis, tempo | holophonor; midiphonor; uPhonor; carlos; qmetronome; stomp; wolf; ludwig; waveofhormuz |
-| performer display | **the performer** — what a player reads while playing | joe; leo |
+| `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ira; ShowStopper; aes |
+| `instruments` | **the sound** — looping, control surfaces, synthesis, tempo | holophonor; midiphonor; uPhonor; carlos; qmetronome; stomp; wolf; ludwig; waveofhormuz |
+| `performer-display` | **the performer** — what a player reads while playing | joe; leo |
 
 Two asymmetries, recorded rather than smoothed:
 
@@ -122,11 +122,17 @@ repository at a time.
 
 ## Consequences
 
-**Nothing reads this yet, and that is the sequencing rather than an oversight.**
-The roster has no field for a family. Settling the decision first means whatever
-is generated later is generated from a decision instead of from a schema
-somebody guessed at. Until that field exists, this record is the only place the
-estate is grouped, and a claim held in prose is a claim nothing checks.
+**The roster carries the claim and `uv run qm families` reads it.** A
+repository names its family in `ci/workspace.yaml`, and the set of families is
+read out of §3 of this record rather than copied into the tool -- so renaming a
+family here is a roster claim that stops resolving, which is the failure that
+announces itself. `ci/families.py --check` refuses a claim naming a family this
+record does not declare, and reports a repository that claims none as
+*unstated*, never as *none*.
+
+What no check reaches is §2, and it is the half that matters: whether a
+repository really belongs where somebody put it. The border is what the thing
+drives, and reading it needs a person who knows what the code does.
 
 **Three borders means three ways to be in the wrong repository**, where before
 there were none, because there was no border to be on the wrong side of. That is

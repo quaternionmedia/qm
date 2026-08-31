@@ -195,6 +195,10 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "families", help="which repositories are claimed to be one working system",
+        add_help=False,
+    )
+    sub.add_parser(
         "protocols", help="the procedures run deliberately, and when each last ran",
         add_help=False,
     )
@@ -313,6 +317,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "inbound": ("inbound", False, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
+    "families": ("families", False, []),
     "protocols": ("protocols", False, []),
     "capabilities": ("capabilities", False, []),
     "prose": ("prose", False, []),

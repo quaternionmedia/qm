@@ -219,6 +219,7 @@ repositories:
   # nothing here can see whether either holds unpushed work.
   - name: carlos
     role: project
+    family: instruments
     phase: v0.0.1
     phase_source: stated
     note: >
@@ -243,6 +244,7 @@ repositories:
 
   - name: qmetronome
     role: project
+    family: instruments
     phase: v0.0.3
     phase_source: stated
     note: named as the v0.0.3 Android target
@@ -275,3 +277,157 @@ repositories:
       networking. governance-status.yaml lists it under org.unmanaged_named;
       adoption is drafted on an unmerged pull request and nothing binds yet.
     paths: [qm/moat, moat]
+
+  # --- The performing estate --------------------------------------------
+  #
+  # Placed by records/DRAFT-a-family-is-bordered-by-what-it-drives.md, whose
+  # section 3 is where the families are declared and ci/families.py reads them
+  # from. `role: unmanaged` is the honest word for every entry below: they are
+  # repositories the org has, named here so the corpus can see them, and not
+  # one of them has adopted the constitution. Presence is not adoption, and a
+  # family claim is not adoption either.
+  #
+  # `phase: n/a` on every one of them, which is the word the corpus's own entry
+  # uses and for the same reason: the ladder binds a project that carries
+  # governance, and it does not apply to a repository that has never been
+  # forked. Writing v0.0.1 would claim the ladder's floor on behalf of
+  # repositories nobody has adopted -- a claim inferred from the roster rather
+  # than made by a person, which is the substitution this file refuses
+  # everywhere else. `n/a` is not `unstated`: it says the question does not
+  # arise, and adopting one of these is what makes it arise.
+
+  - name: ShowRunner
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: show control for live performances; the hub the periphery names itself after
+    paths: [ShowRunner, qm/ShowRunner]
+
+  - name: Cuelist-python
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: helpers for Cuelist, and a ShowRunner plugin by its own description
+    paths: [Cuelist-python, qm/Cuelist-python]
+
+  - name: QLab-python
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: interface to a third-party cue system
+    paths: [QLab-python, qm/QLab-python]
+
+  - name: TheatreMix-python
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: interface to a third-party mixing system
+    paths: [TheatreMix-python, qm/TheatreMix-python]
+
+  - name: cesar
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: a unified lighting, sound and video controller for theatre
+    paths: [cesar, qm/cesar]
+
+  - name: ira
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: LED control for live theatre
+    paths: [ira, qm/ira]
+
+  - name: ShowStopper
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: timing for the performing arts
+    paths: [ShowStopper, qm/ShowStopper]
+
+  - name: aes
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: audio-over-IP transport scripts
+    paths: [aes, qm/aes]
+
+  - name: holophonor
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: live looping; the hub two others name themselves after
+    paths: [holophonor, qm/holophonor]
+
+  - name: midiphonor
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: a holophonor implementation in the browser, by its own description
+    paths: [midiphonor, qm/midiphonor]
+
+  - name: uPhonor
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: a micro-holophonor, by its own description
+    paths: [uPhonor, qm/uPhonor]
+
+  - name: stomp
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: a MIDI foot controller
+    paths: [stomp, qm/stomp]
+
+  - name: wolf
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: a remote MIDI controller
+    paths: [wolf, qm/wolf]
+
+  - name: ludwig
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: remote mixing
+    paths: [ludwig, qm/ludwig]
+
+  - name: waveofhormuz
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: an oscillator module
+    paths: [waveofhormuz, qm/waveofhormuz]
+
+  - name: joe
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: performer-display
+    note: realtime sheet-music rendering
+    paths: [joe, qm/joe]
+
+  - name: leo
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: performer-display
+    note: a web document viewer, annotator and collaborator
+    paths: [leo, qm/leo]
