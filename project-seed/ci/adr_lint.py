@@ -324,11 +324,22 @@ def check_ratified_are_numbered(records: Path) -> list[str]:
     return failures
 
 
+# The three H1 forms this estate writes, all meaning "unratified record":
+#   `# QM-XXXX --- Title`     the org corpus
+#   `# ADR-XXXX --- Title`    a project following the seed template
+#   `# DRAFT --- Title`       a project that marks the state instead of the slot
+# Only the title travels into an index, so all three prefixes come off. Handling
+# two of the three silently dropped a word from every title in the third, and
+# every one of that project's eleven records then read as unlisted while its
+# index listed all eleven correctly.
+TITLE_PREFIX = re.compile(r"^(?:DRAFT|(?:ADR|QM)-[0-9X]{4})\s*[-–—]\s*")
+
+
 def _title_of(path: Path) -> str:
-    """A record's H1, minus its numbering prefix. Empty when it has no H1."""
+    """A record's H1, minus whichever prefix marks it. Empty when it has no H1."""
     for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
         if line.startswith("# "):
-            return re.sub(r"^(?:ADR|QM)-[0-9X]{4}\s*[-—]\s*", "", line[2:]).strip()
+            return TITLE_PREFIX.sub("", line[2:]).strip()
         if line.strip():
             break
     return ""

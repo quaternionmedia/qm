@@ -10,6 +10,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
+
 from conftest import commit_all, git, index_for, record, run_tool, write
 
 
@@ -401,3 +403,27 @@ def test_a_record_in_neither_the_table_nor_the_prose_is_still_caught(repo: Path)
     result = lint(repo)
     assert result.returncode == 1, result.stdout
     assert "DRAFT-y.md" in result.stdout
+
+
+@pytest.mark.parametrize("h1", [
+    "# QM-XXXX --- A Thing With A Name",
+    "# ADR-XXXX --- A Thing With A Name",
+    "# DRAFT --- A Thing With A Name",
+])
+def test_every_h1_prefix_this_estate_writes_yields_the_same_title(repo: Path, h1: str):
+    """**THREE CONVENTIONS, ONE TITLE.**
+
+    The org corpus writes `QM-XXXX`, a project following the seed writes
+    `ADR-XXXX`, and one project marks the state instead of the slot and writes
+    `DRAFT`. Only the title reaches an index. Handling two of the three dropped
+    a word from every title in the third, and all eleven of that project's
+    records read as unlisted while its index listed all eleven correctly.
+
+    Mutation: remove `DRAFT` from `TITLE_PREFIX` and the third case fails.
+    """
+    write(repo / "records" / "DRAFT-x.md",
+          h1 + '\n\n| | |\n|---|---|\n| **Status** | Proposed |\n')
+    write(repo / "README.md",
+          '| # | Title | Status | Date |\n|---|---|---|---|\n\nDrafts in flight (numberless, by title):\n\n- A Thing With A Name\n')
+    commit_all(repo, "index a draft by title")
+    assert lint(repo).returncode == 0, lint(repo).stdout
