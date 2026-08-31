@@ -437,13 +437,32 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
     # title is the H1 minus its `ADR-XXXX — ` / `QM-XXXX — ` prefix, compared
     # with punctuation and case flattened, because the drafts line is written
     # by a person and a title is quoted the way a sentence quotes it.
-    prose = _flatten(index_text)
+    # A title counts as listed when a whole *segment* of the index equals it --
+    # a bullet item, or one semicolon-separated part of the drafts line. Bare
+    # substring containment was the first implementation, and an adversarial
+    # pass walked straight through it: a record titled "The" passed against an
+    # index whose prose merely contained the word. Equality over segments keeps
+    # both listing conventions working and closes the accidental third one,
+    # "mentioned somewhere".
+    segments = set()
+    for line in index_text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith(("- ", "* ")):
+            segments.add(_flatten(stripped[2:]))
+        elif "by title)" in stripped:
+            after = stripped.split(":", 1)[-1]
+            for part in after.replace(";", "\n").splitlines():
+                segments.add(_flatten(part.rstrip(".")))
+        elif ";" in stripped and not stripped.startswith("|"):
+            for part in stripped.replace(";", "\n").splitlines():
+                segments.add(_flatten(part.rstrip(".")))
+    segments.discard("")
     listed_by_title = set()
     for path in records.glob("*.md"):
         if path.name in in_index_files or path.name in ("README.md", "TEMPLATE.md"):
             continue
-        title = _title_of(path)
-        if title and _flatten(title) in prose:
+        title = _flatten(_title_of(path))
+        if title and title in segments:
             listed_by_title.add(path.name)
 
     failures = []

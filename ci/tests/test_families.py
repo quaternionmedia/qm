@@ -18,7 +18,7 @@ import families  # noqa: E402
 
 TABLE = """# A record
 
-## §3 — The performing estate is three families
+### §3 — The performing estate is three families
 
 | family | drives | named public members |
 |---|---|---|
@@ -105,4 +105,36 @@ def test_a_public_repository_is_written_by_name():
     entries = [{"name": "public-thing", "family": "a-family"}]
     out = families.document(entries, {"a-family": "something"})
     assert out["families"][0]["members"] == ["public-thing"]
+
+
+def test_a_table_outside_section_three_declares_nothing(tmp_path):
+    """**THE ADVERSARIAL APPENDIX.** A backticked first cell is a proxy for a
+    family row, and scanned over the whole record it matched any table
+    anywhere -- an appended appendix declared a seventh family that the roster
+    check would then have accepted claims against.
+
+    Mutation: scan the whole text instead of the section and this fails.
+    """
+    body = "\n".join([
+        "# R", "", "### §3 — families", "",
+        "| family | drives | m |", "|---|---|---|",
+        "| `real` | **x** | a |", "",
+        "### §4 — other", "",
+        "| a | b |", "|---|---|",
+        "| `impostor` | y |", "",
+    ])
+    t = tmp_path / "r.md"
+    t.write_text(body, encoding="utf-8")
+    found = families.declared(t)
+    assert "real" in found
+    assert "impostor" not in found
+
+
+def test_the_committed_record_declares_exactly_the_known_set():
+    """The drift guard the adversarial pass showed was missing: nothing pinned
+    the declared set, so a stray row would have shifted the vocabulary with
+    no test noticing."""
+    assert sorted(families.declared()) == [
+        "core", "infra", "instruments", "irl", "performer-display",
+        "show-control"]
 

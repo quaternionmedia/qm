@@ -427,3 +427,23 @@ def test_every_h1_prefix_this_estate_writes_yields_the_same_title(repo: Path, h1
           '| # | Title | Status | Date |\n|---|---|---|---|\n\nDrafts in flight (numberless, by title):\n\n- A Thing With A Name\n')
     commit_all(repo, "index a draft by title")
     assert lint(repo).returncode == 0, lint(repo).stdout
+
+
+def test_a_title_appearing_as_a_mere_substring_is_not_listed(repo: Path):
+    """**THE WALK-AROUND THE ADVERSARIAL PASS FOUND.** A record titled "The"
+    passed against an index whose prose merely contained the word. A title
+    counts only when a whole segment -- a bullet, or one semicolon-separated
+    part of the drafts line -- equals it.
+
+    Mutation: compare by containment instead of segment equality and this
+    fails.
+    """
+    write(repo / "records" / "DRAFT-the.md",
+          '# DRAFT --- The\n\n| | |\n|---|---|\n| **Status** | Proposed |\n')
+    write(repo / "README.md",
+          '| # | Title | Status | Date |\n|---|---|---|---|\n\nDrafts in flight (numberless, by title): nothing yet, but the word appears.\n')
+    commit_all(repo, "an index that merely contains the word")
+    result = lint(repo)
+    assert result.returncode == 1, result.stdout
+    assert "DRAFT-the.md" in result.stdout
+

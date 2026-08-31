@@ -112,7 +112,7 @@ def read_enforcement(repo: str) -> dict:
         detail = (proc.stderr or proc.stdout or "").strip().splitlines()[:1]
         return unknown(f"could not read rulesets: {detail[0] if detail else 'no detail'}")
     try:
-        rulesets = json.loads(proc.stdout or "[]")
+        rulesets = yaml.safe_load(proc.stdout or "[]")
     except json.JSONDecodeError as exc:
         return unknown(f"rulesets response was not JSON: {exc}")
 
@@ -311,7 +311,7 @@ def main(argv: list[str] | None = None) -> int:
         if not target.is_file():
             print(f"{args.check}: not present. Run the refresh command.", file=sys.stderr)
             return 1
-        committed = json.loads(target.read_text(encoding="utf-8"))
+        committed = yaml.safe_load(target.read_text(encoding="utf-8"))
         fresh = build(Path(args.registry), Path(args.workflows), args.repo, host=False)
         if local_layers(committed) != local_layers(fresh):
             print(
@@ -334,7 +334,7 @@ def main(argv: list[str] | None = None) -> int:
         # fails differently on every machine that lacks it.
         Path(args.write).parent.mkdir(parents=True, exist_ok=True)
         Path(args.write).write_text(
-            json.dumps(document, indent=2) + "\n", encoding="utf-8", newline="\n"
+            yaml.safe_dump(document, sort_keys=False, allow_unicode=True) + "\n", encoding="utf-8", newline="\n"
         )
         print(f"wrote {args.write}")
         return 0

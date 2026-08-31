@@ -51,11 +51,26 @@ FAMILY_ROW = re.compile(r"^\|\s*`(?P<name>[a-z][a-z0-9-]*)`\s*\|(?P<drives>[^|]*
 
 
 def declared(record: Path = RECORD) -> dict[str, str]:
-    """`{name: what it drives}` for every family the record declares."""
+    """`{name: what it drives}` for every family §3's table declares.
+
+    **§3'S TABLE, NOT THE WHOLE DOCUMENT.** The row pattern is a proxy — a
+    backticked first cell — and scanned over the full record it matched any
+    table anywhere: an adversarial pass appended an appendix table with a
+    backticked cell and this function declared a seventh family, silently,
+    which the roster check would then have *accepted* claims against. The
+    declaring section is named in this module's own docstring, so the scan is
+    bounded to it, and a family added anywhere else does not exist.
+    """
     if not record.is_file():
         return {}
     text = record.read_text(encoding="utf-8")
-    return {m.group("name"): m.group("drives").strip() for m in FAMILY_ROW.finditer(text)}
+    start = text.find("### §3")
+    if start < 0:
+        return {}
+    end = text.find("\n### ", start + 1)
+    section = text[start:end] if end > 0 else text[start:]
+    return {m.group("name"): m.group("drives").strip()
+            for m in FAMILY_ROW.finditer(section)}
 
 
 def claims(entries: list[dict]) -> list[tuple[str, str | None]]:
@@ -155,6 +170,23 @@ def main(argv: list[str] | None = None) -> int:
     if found:
         print(f"\nfamilies: {len(found)} problem(s).", file=sys.stderr)
         return 1
+
+    if args.check:
+        # THE SEAM FILE IS CHECKED FOR STALENESS HERE, because this is the one
+        # entry registries.yml already runs and the file two repositories pin
+        # was otherwise regenerated and verified by nothing a runner executes
+        # -- the adversarial review's completeness finding 7. Tree-only by
+        # construction: the roster, the record, and the committed file.
+        committed_path = Path("families.json")
+        if committed_path.is_file():
+            fresh = document(entries, families)
+            committed = json.loads(committed_path.read_text(encoding="utf-8"))
+            fresh.pop("generated_at", None); committed.pop("generated_at", None)
+            if fresh != committed:
+                print("families.json no longer matches the roster and the "
+                      "record. Regenerate: uv run qm families --write "
+                      "families.json", file=sys.stderr)
+                return 1
 
     if args.write:
         rendered = json.dumps(document(entries, families), indent=2)

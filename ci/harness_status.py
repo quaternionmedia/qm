@@ -153,6 +153,10 @@ def slot_layer(slug: str, per_base: list[str]) -> dict:
     if not out:
         return unknown(f"check_one_pr produced no output: {err.splitlines()[0] if err else 'silent'}")
     try:
+        # A check command's stdout is JSON by that command's contract. YAML
+        # here made the unparseable case unparseable no longer -- any prose is
+        # a valid YAML string -- so "not JSON" became a str payload and the
+        # collector crashed on item assignment instead of reporting unknown.
         payload = json.loads(out)
     except json.JSONDecodeError:
         return unknown(f"check_one_pr output was not JSON: {out.splitlines()[0][:120]}")
@@ -266,6 +270,7 @@ def pr_detail(slug: str, number: int) -> dict:
     if status != 0 or not out:
         return unknown(f"pulls/{number}: {(err or 'no output').splitlines()[0]}")
     try:
+        # Same contract: subprocess stdout is JSON, only the document is YAML.
         return json.loads(out)
     except json.JSONDecodeError:
         return unknown(f"pulls/{number}: response was not JSON")
@@ -738,7 +743,7 @@ def main(argv: list[str] | None = None) -> int:
         not args.no_pr_detail,
     )
 
-    text = json.dumps(status, indent=2, ensure_ascii=False) + "\n"
+    text = yaml.safe_dump(status, sort_keys=False, allow_unicode=True) + "\n"
     if args.write:
         args.write.write_text(text, encoding="utf-8", newline="\n")
         totals = status["totals"]

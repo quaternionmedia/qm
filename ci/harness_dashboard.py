@@ -28,6 +28,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import yaml
 import sys
 from pathlib import Path
 
@@ -779,7 +780,7 @@ def main(argv: list[str] | None = None) -> int:
             f"harness_dashboard: no document at {args.document}. "
             "Refusing to render an empty page, which would read as a clean org."
         )
-    document = json.loads(args.document.read_text(encoding="utf-8"))
+    document = yaml.safe_load(args.document.read_text(encoding="utf-8"))
     if document.get("schema") != 1 or "repositories" not in document:
         sys.exit(
             f"harness_dashboard: {args.document} is not a harness status document "

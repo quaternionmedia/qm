@@ -511,7 +511,7 @@ def main(argv: list[str] | None = None) -> int:
         if not target.is_file():
             print(f"{args.check}: not present.", file=sys.stderr)
             return 1
-        committed = json.loads(target.read_text(encoding="utf-8"))
+        committed = yaml.safe_load(target.read_text(encoding="utf-8"))
         if comparable(committed) != comparable(build(root)):
             print(f"{args.check} no longer describes the documents on disk.\n"
                   f"Run: python ci/doc_status.py --write {args.check}", file=sys.stderr)
@@ -523,7 +523,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.write:
         Path(args.write).parent.mkdir(parents=True, exist_ok=True)
         Path(args.write).write_text(
-            json.dumps(document, indent=2) + "\n", encoding="utf-8", newline="\n"
+            yaml.safe_dump(document, sort_keys=False, allow_unicode=True) + "\n", encoding="utf-8", newline="\n"
         )
         print(f"wrote {args.write}")
         return 0

@@ -153,9 +153,19 @@ def tiers(document: dict, reported: dict[str, list[dict]]) -> list[dict]:
         done = subprocess.run([sys.executable, str(interop), "--check"],
                               cwd=str(ROOT), capture_output=True,
                               encoding="utf-8", errors="replace")
+        # `--check` reads declared strings, and the verdict says so. The first
+        # wording was "every contract surface agrees", which is the claim
+        # `--verify` earns by running the hosts -- a tier must not spend
+        # evidence it did not collect, least of all the tier that requires the
+        # most. `--verify` is not run here because the members' suites just
+        # ran above; re-running them to re-earn one sentence would double the
+        # batch's cost to say what the pins already say.
         found.append({"tier": "contract", "needs": "every family reporting, and a seam",
                       "reached": True, "failed": done.returncode != 0,
-                      "verdict": "every contract surface agrees" if done.returncode == 0
+                      "verdict": ("every contract surface claims one version "
+                                  "(declared strings -- `qm interop --verify` "
+                                  "is the run-backed form)")
+                                 if done.returncode == 0
                                  else "a contract surface disagrees"})
     else:
         found.append({"tier": "contract", "needs": "every family reporting, and a seam",

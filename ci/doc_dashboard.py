@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import yaml
 import sys
 from pathlib import Path
 
@@ -209,7 +210,7 @@ def main(argv: list[str] | None = None) -> int:
     if not path.is_file():
         print(f"{args.document}: not present.", file=sys.stderr)
         return 1
-    doc = json.loads(path.read_text(encoding="utf-8"))
+    doc = yaml.safe_load(path.read_text(encoding="utf-8"))
 
     if args.state and args.state not in (doc.get("states") or {}):
         print(f"unknown state {args.state!r}. The vocabulary is closed: "

@@ -13,6 +13,7 @@ renderer can only be honest about what the document admits.
 from __future__ import annotations
 
 import json
+import yaml
 import re
 import subprocess
 import sys
@@ -666,14 +667,14 @@ def test_the_committed_document_exists_and_parses() -> None:
     """The path AGENTS.md sends the next agent to. If it is absent, they get nothing."""
     committed = CI_DIR.parent / "status/harness.yaml"
     assert committed.exists(), "status/harness.yaml is not committed"
-    doc = json.loads(committed.read_text(encoding="utf-8"))
+    doc = yaml.safe_load(committed.read_text(encoding="utf-8"))
     assert doc["schema"] == 1
     assert doc["repositories"]
 
 
 def test_the_committed_document_carries_its_own_reading_instructions() -> None:
     """A convention that lives only in a handbook page is one the reader lacks."""
-    doc = json.loads((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
+    doc = yaml.safe_load((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
     reading = doc["reading"]
     assert reading["refresh"]
     assert reading["staleness_budget_hours"] == hs.STALENESS_BUDGET_HOURS
@@ -683,7 +684,7 @@ def test_the_committed_document_carries_its_own_reading_instructions() -> None:
 
 def test_the_committed_document_omits_the_machine_layer() -> None:
     """One machine's branch names must not become an organisation fact."""
-    doc = json.loads((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
+    doc = yaml.safe_load((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
     assert "local" not in doc["generator"]["layers"]
     for repo in doc["repositories"]:
         assert "local" not in repo, repo["name"]
@@ -691,7 +692,7 @@ def test_the_committed_document_omits_the_machine_layer() -> None:
 
 def test_the_committed_document_renders_in_both_formats() -> None:
     """A document nobody can render is a document nobody will read."""
-    doc = json.loads((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
+    doc = yaml.safe_load((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
     assert "<table>" in hd.render(doc)
     assert "| Repository |" in hd.render_markdown(doc)
 

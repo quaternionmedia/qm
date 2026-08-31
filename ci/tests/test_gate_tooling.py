@@ -12,6 +12,7 @@ test passes because this repository happens to be in the state it asserts.
 from __future__ import annotations
 
 import json
+import yaml
 import subprocess
 import sys
 from pathlib import Path
@@ -237,7 +238,7 @@ def test_check_ignores_the_host_layer(tmp_path: Path):
     run(STATUS, "--no-host", "--registry", str(reg), "--workflows", str(wfs),
         "--write", str(doc_path))
 
-    doc = json.loads(doc_path.read_text(encoding="utf-8"))
+    doc = yaml.safe_load(doc_path.read_text(encoding="utf-8"))
     doc["enforcement"] = {"repository": "o/r", "rulesets_applied": 9,
                           "blocks_a_merge": True}
     doc["generated_at"] = "1999-01-01T00:00:00Z"

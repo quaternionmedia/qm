@@ -15,6 +15,17 @@
 | `evolve/<slug>` | org-level work in progress | deleted after merge |
 | `workspace/<slug>` | a research [workspace](../ref/glossary.md#workspace){ .glossary-term } that never merges back | permanent, terminal |
 
+## The stage refs, which are not work namespaces
+
+`test`, `dev`, `prod` and `main` are **stages** — claims about how far a change
+has travelled, decided in the [record](../ref/glossary.md#record){ .glossary-term } *A stage is recorded, and `main` receives
+releases rather than asserting them*. Work never happens on one: a branch is
+still cut in one of the five namespaces above, and a stage only ever receives
+merges. `test` is the one rewritable ref in the model; the other three are
+append-only. Until that record is ratified and the stages are pushed, they are
+a local staging convention, and this section is what keeps a reader from
+sorting them under "a branch outside the five is a mistake".
+
 ## Rules for `project/<name>` branches
 
 **A `project/<name>` branch is never merged into `main`.** Not once, not squashed, not partially. It exists permanently and holds exactly one thing: how one project's governance differs from `main`.
