@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-30T19:03:07Z",
+  "generated_at": "2026-08-30T19:23:58Z",
   "source": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
   "reading": {
     "families_come_from": "the record, not this file -- renaming one there makes a roster claim stop resolving",
@@ -22,17 +22,30 @@
     },
     {
       "name": "instruments",
-      "drives": "the sound \u2014 looping, control surfaces, synthesis, tempo",
+      "drives": "the sound \u2014 looping, synthesis, tempo, remote control surfaces",
       "members": [
         "carlos",
         "qmetronome",
         "holophonor",
         "midiphonor",
-        "uPhonor",
-        "stomp",
         "wolf",
         "ludwig",
         "waveofhormuz"
+      ]
+    },
+    {
+      "name": "irl",
+      "drives": "matter \u2014 a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+      "members": [
+        "apothecary",
+        "datum",
+        "ira",
+        "uPhonor",
+        "stomp",
+        "scad-chess",
+        "private-03",
+        "private-05",
+        "private-07"
       ]
     },
     {
@@ -52,7 +65,6 @@
         "QLab-python",
         "TheatreMix-python",
         "cesar",
-        "ira",
         "ShowStopper",
         "aes"
       ]
@@ -60,9 +72,7 @@
   ],
   "unstated": [
     "alfred",
-    "apothecary",
     "benchmark",
-    "datum",
     "factorio-sysops",
     "moat",
     "private-32",

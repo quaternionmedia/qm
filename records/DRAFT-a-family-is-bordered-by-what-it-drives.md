@@ -69,14 +69,34 @@ another also emits. Not by shared vocabulary: *cue*, *loop* and *track* each
 mean different things in two of the three, and a border drawn on words would
 have placed one program in all of them.
 
-### §3 — The estate is four families, three of them performing
+### §3 — The estate is five families
 
 | family | drives | named public members |
 |---|---|---|
-| `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ira; ShowStopper; aes |
-| `instruments` | **the sound** — looping, control surfaces, synthesis, tempo | holophonor; midiphonor; uPhonor; carlos; qmetronome; stomp; wolf; ludwig; waveofhormuz |
+| `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ShowStopper; aes |
+| `instruments` | **the sound** — looping, synthesis, tempo, remote control surfaces | holophonor; midiphonor; carlos; qmetronome; wolf; ludwig; waveofhormuz |
 | `performer-display` | **the performer** — what a player reads while playing | joe; leo |
+| `irl` | **matter** — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | apothecary; datum; scad-chess; stomp; ira; uPhonor; and three private repositories, referenced rather than named |
 | `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | qm; qmcp; dossier; codecartographer; looksatwords |
+
+`irl` is where §2's border was tested hardest, and it moved three
+repositories. A foot controller, an LED controller and a micro-looper each
+*drive* sound or light — which put them in a performing family — and each is
+also a board somebody solders into an enclosure. Both readings are true, and
+the map is a function, so one had to win.
+
+Matter wins for these three, and the reason is the test rather than the taste:
+what the repository *emits* is a physical thing, and the sound or light is what
+that thing does once it exists. A reader looking for the pedal will look for the
+pedal. `cesar` stays in `show-control` by the same test — it emits a program
+that drives lights, and nothing you can hold.
+
+This is the revision trigger in this record firing rather than being written
+around: *a repository that drives two of the families means either the border
+is drawn wrong or the thing is a seam wearing a single repository*. Here the
+border was drawn on one axis and the estate turned out to have two, and the
+cost is visible — `show-control` lost `ira`, `instruments` lost `stomp` and
+`uPhonor`, and a search for either in its old family now finds nothing.
 
 `core` is the family that drives none of the three above, and that is the
 point of naming it rather than leaving it unstated. It drives **the work

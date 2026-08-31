@@ -1,29 +1,31 @@
-# Cookbook — the `instruments` family
+# Cookbook — the `irl` family
 
 **This page is generated.** Every figure comes from `families.json` and from the clones on this disk, and `uv run qm cookbook --check` fails the build when it stops being true. Do not edit it; edit the roster or the record and regenerate.
 
-**Drives** the sound — looping, synthesis, tempo, remote control surfaces
+**Drives** matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work
 
-![the instruments family](./instruments.svg)
+![the irl family](./irl.svg)
 
 ## Who is in it
 
 | member | governed |
 |---|---|
-| `carlos` | yes |
-| `qmetronome` | yes |
-| `holophonor` | no |
-| `midiphonor` | no |
-| `wolf` | no |
-| `ludwig` | no |
-| `waveofhormuz` | no |
+| `apothecary` | yes |
+| `datum` | yes |
+| `ira` | no |
+| `uPhonor` | no |
+| `stomp` | no |
+| `scad-chess` | no |
+| `private-03` | no |
+| `private-05` | no |
+| `private-07` | no |
 
 ## Starting here
 
-2 of 7 members carry governance, so this family has a governed entry point. Begin in `carlos`:
+2 of 9 members carry governance, so this family has a governed entry point. Begin in `apothecary`:
 
 ```sh
-cd carlos
+cd apothecary
 uv run qm cowork          # or read AGENTS.md, if this repo has no CLI
 ```
 

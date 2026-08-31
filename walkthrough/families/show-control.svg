@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="266" viewBox="0 0 560 266" role="img" aria-label="the show-control family and its members">
-<rect width="560" height="266" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="240" viewBox="0 0 560 240" role="img" aria-label="the show-control family and its members">
+<rect width="560" height="240" fill="none"/>
 <text x="14" y="28" font-family="monospace" font-size="14" font-weight="bold" fill="currentColor">show-control</text>
 <text x="14" y="48" font-family="monospace" font-size="12" fill="currentColor">. ShowRunner</text>
 <text x="244" y="48" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
@@ -11,11 +11,9 @@
 <text x="244" y="126" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
 <text x="14" y="152" font-family="monospace" font-size="12" fill="currentColor">. cesar</text>
 <text x="244" y="152" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="178" font-family="monospace" font-size="12" fill="currentColor">. ira</text>
+<text x="14" y="178" font-family="monospace" font-size="12" fill="currentColor">. ShowStopper</text>
 <text x="244" y="178" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="204" font-family="monospace" font-size="12" fill="currentColor">. ShowStopper</text>
+<text x="14" y="204" font-family="monospace" font-size="12" fill="currentColor">. aes</text>
 <text x="244" y="204" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="230" font-family="monospace" font-size="12" fill="currentColor">. aes</text>
-<text x="244" y="230" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="262" font-family="monospace" font-size="10" fill="currentColor" opacity="0.6">* governed  . not adopted</text>
+<text x="14" y="236" font-family="monospace" font-size="10" fill="currentColor" opacity="0.6">* governed  . not adopted</text>
 </svg>

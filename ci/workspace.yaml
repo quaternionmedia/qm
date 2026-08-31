@@ -170,6 +170,7 @@ repositories:
 
   - name: apothecary
     role: project
+    family: irl
     phase: v0.0.2
     phase_source: stated
     note: parametric assembly; named as a v0.0.2 integration consumer
@@ -177,6 +178,7 @@ repositories:
 
   - name: datum
     role: project
+    family: irl
     phase: v0.0.1
     phase_source: scaffolded
     note: schema and wire contract; governance propagation open
@@ -345,7 +347,7 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: show-control
+    family: irl
     note: LED control for live theatre
     paths: [ira, qm/ira]
 
@@ -385,7 +387,7 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: instruments
+    family: irl
     note: a micro-holophonor, by its own description
     paths: [uPhonor, qm/uPhonor]
 
@@ -393,7 +395,7 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: instruments
+    family: irl
     note: a MIDI foot controller
     paths: [stomp, qm/stomp]
 
@@ -436,3 +438,50 @@ repositories:
     family: performer-display
     note: a web document viewer, annotator and collaborator
     paths: [leo, qm/leo]
+
+  # --- The rest of the irl family ----------------------------------------
+  #
+  # Placed by records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3: what
+  # these emit is a physical thing. `role: unmanaged` and `phase: n/a` for the
+  # same reason as the performing estate above -- none has been forked, and the
+  # ladder binds a project that carries governance.
+  #
+  # The three `ref:` entries are private repositories. They are referenced and
+  # never named here, exactly as private-32 through private-34 are, because a
+  # public roster that named them would defeat the inventory's own redaction.
+  # Their names and paths live in ci/workspace-private.yaml, uncommitted.
+
+  - name: scad-chess
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: a chess set designed in OpenSCAD; the deliverable is the printed set
+    paths: [scad-chess, qm/scad-chess]
+
+  - ref: private-03
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: >
+      A parametric physical assembly. Name and paths live in
+      ci/workspace-private.yaml, which is not committed.
+
+  - ref: private-05
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: >
+      A parametric physical assembly. Name and paths live in
+      ci/workspace-private.yaml, which is not committed.
+
+  - ref: private-07
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: >
+      A parametric physical assembly. Name and paths live in
+      ci/workspace-private.yaml, which is not committed.

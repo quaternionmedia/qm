@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-30T19:03:06Z",
+  "generated_at": "2026-08-30T19:23:57Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -46,10 +46,10 @@
     ]
   },
   "totals": {
-    "repositories": 34,
-    "slots_measured": 34,
-    "slots_unknown": 0,
-    "compliant": 31,
+    "repositories": 38,
+    "slots_measured": 35,
+    "slots_unknown": 3,
+    "compliant": 32,
     "over_limit": 3,
     "governance_readable": 11,
     "governance_precondition_met": 1,
@@ -62,7 +62,7 @@
       "ready": 12
     },
     "threads_stalled": 19,
-    "threads_unreadable": 0
+    "threads_unreadable": 3
   },
   "repositories": [
     {
@@ -180,7 +180,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-30T19:02:08Z",
+        "observed_at": "2026-08-30T19:22:58Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -351,7 +351,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 50,
-        "observed_at": "2026-08-30T19:02:15Z",
+        "observed_at": "2026-08-30T19:23:05Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -404,7 +404,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 107,
-        "observed_at": "2026-08-30T19:02:19Z",
+        "observed_at": "2026-08-30T19:23:08Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -467,7 +467,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23372.1,
+          "idle_hours": 23372.5,
           "stalled": true
         }
       ],
@@ -489,7 +489,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-30T19:01:58Z",
+        "observed_at": "2026-08-30T19:22:48Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -596,7 +596,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:12:49Z"
           },
-          "idle_hours": 185.8,
+          "idle_hours": 186.2,
           "stalled": true
         },
         {
@@ -614,7 +614,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 463.2,
+          "idle_hours": 463.6,
           "stalled": true
         }
       ],
@@ -633,7 +633,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-30T19:02:00Z",
+        "observed_at": "2026-08-30T19:22:50Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -687,7 +687,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:13:26Z"
           },
-          "idle_hours": 185.8,
+          "idle_hours": 186.2,
           "stalled": true
         }
       ],
@@ -706,7 +706,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 111,
-        "observed_at": "2026-08-30T19:02:06Z",
+        "observed_at": "2026-08-30T19:22:56Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -795,7 +795,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-30T19:02:03Z",
+        "observed_at": "2026-08-30T19:22:53Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -932,7 +932,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-30T19:02:11Z",
+        "observed_at": "2026-08-30T19:23:00Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1003,7 +1003,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 193.6,
+          "idle_hours": 193.9,
           "stalled": true
         }
       ],
@@ -1020,7 +1020,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 140,
-        "observed_at": "2026-08-30T19:02:01Z",
+        "observed_at": "2026-08-30T19:22:51Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1111,7 +1111,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-30T19:02:17Z",
+        "observed_at": "2026-08-30T19:23:06Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1173,7 +1173,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3507.0,
+          "idle_hours": 3507.4,
           "stalled": true
         }
       ],
@@ -1295,7 +1295,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 3,
-        "observed_at": "2026-08-30T19:02:12Z",
+        "observed_at": "2026-08-30T19:23:01Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1366,7 +1366,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-28T01:45:19Z"
           },
-          "idle_hours": 65.3,
+          "idle_hours": 65.6,
           "stalled": true
         },
         {
@@ -1384,7 +1384,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-21T16:20:56Z"
           },
-          "idle_hours": 218.7,
+          "idle_hours": 219.0,
           "stalled": true
         }
       ],
@@ -1567,7 +1567,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-26T14:53:23Z"
           },
-          "idle_hours": 3028.2,
+          "idle_hours": 3028.5,
           "stalled": true
         },
         {
@@ -1585,7 +1585,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-23T23:10:53Z"
           },
-          "idle_hours": 3091.9,
+          "idle_hours": 3092.2,
           "stalled": true
         },
         {
@@ -1603,7 +1603,7 @@
             "mergeable_state": "dirty",
             "updated_at": "2026-04-19T03:27:49Z"
           },
-          "idle_hours": 3207.6,
+          "idle_hours": 3207.9,
           "stalled": true
         }
       ],
@@ -1686,7 +1686,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-11T08:00:47Z"
           },
-          "idle_hours": 3395.0,
+          "idle_hours": 3395.4,
           "stalled": true
         }
       ],
@@ -1878,7 +1878,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-06-22T22:17:43Z"
           },
-          "idle_hours": 10412.8,
+          "idle_hours": 10413.1,
           "stalled": true
         }
       ],
@@ -1990,7 +1990,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-07-13T07:24:23Z"
           },
-          "idle_hours": 9923.6,
+          "idle_hours": 9924.0,
           "stalled": true
         }
       ],
@@ -2101,7 +2101,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-12-22T07:01:05Z"
           },
-          "idle_hours": 6036.0,
+          "idle_hours": 6036.4,
           "stalled": true
         }
       ],
@@ -2203,7 +2203,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-03-04T02:29:45Z"
           },
-          "idle_hours": 4312.6,
+          "idle_hours": 4312.9,
           "stalled": true
         },
         {
@@ -2221,7 +2221,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-01-04T01:07:48Z"
           },
-          "idle_hours": 14489.9,
+          "idle_hours": 14490.3,
           "stalled": true
         }
       ],
@@ -2331,7 +2331,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-01-17T11:44:43Z"
           },
-          "idle_hours": 5407.3,
+          "idle_hours": 5407.7,
           "stalled": true
         },
         {
@@ -2349,10 +2349,98 @@
             "mergeable_state": "clean",
             "updated_at": "2026-02-21T06:35:43Z"
           },
-          "idle_hours": 4572.5,
+          "idle_hours": 4572.8,
           "stalled": true
         }
       ],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "scad-chess",
+      "slug": "quaternionmedia/scad-chess",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "a chess set designed in OpenSCAD; the deliverable is the printed set",
+      "slots": {
+        "repository": "quaternionmedia/scad-chess",
+        "per_base": [],
+        "contributor": null,
+        "open_prs": [],
+        "violations": [],
+        "exit_status": 0,
+        "compliant": true
+      },
+      "release": {
+        "state": "ahead",
+        "latest": "v1.0",
+        "annotated": false,
+        "unreleased_commits": 11,
+        "asserts": "lightweight tag: carries no annotation, so it names no reviewer and no manual test"
+      },
+      "threads": [],
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "private-03",
+      "slug": "quaternionmedia/private-03",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "A parametric physical assembly. Name and paths live in ci/workspace-private.yaml, which is not committed.\n",
+      "slots": {
+        "unknown": "check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-03/pulls failed:"
+      },
+      "release": {
+        "unknown": "tags for quaternionmedia/private-03: gh: Not Found (HTTP 404)"
+      },
+      "threads": {
+        "unknown": "open pull requests could not be read, so neither could threads"
+      },
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "private-05",
+      "slug": "quaternionmedia/private-05",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "A parametric physical assembly. Name and paths live in ci/workspace-private.yaml, which is not committed.\n",
+      "slots": {
+        "unknown": "check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-05/pulls failed:"
+      },
+      "release": {
+        "unknown": "tags for quaternionmedia/private-05: gh: Not Found (HTTP 404)"
+      },
+      "threads": {
+        "unknown": "open pull requests could not be read, so neither could threads"
+      },
+      "governance": {
+        "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
+      }
+    },
+    {
+      "name": "private-07",
+      "slug": "quaternionmedia/private-07",
+      "role": "unmanaged",
+      "phase": "n/a",
+      "phase_source": "n/a",
+      "note": "A parametric physical assembly. Name and paths live in ci/workspace-private.yaml, which is not committed.\n",
+      "slots": {
+        "unknown": "check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-07/pulls failed:"
+      },
+      "release": {
+        "unknown": "tags for quaternionmedia/private-07: gh: Not Found (HTTP 404)"
+      },
+      "threads": {
+        "unknown": "open pull requests could not be read, so neither could threads"
+      },
       "governance": {
         "unknown": "no project/<name> branch in the corpus, so there is nothing to read"
       }

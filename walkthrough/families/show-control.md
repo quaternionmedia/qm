@@ -15,7 +15,6 @@
 | `QLab-python` | no |
 | `TheatreMix-python` | no |
 | `cesar` | no |
-| `ira` | no |
 | `ShowStopper` | no |
 | `aes` | no |
 
