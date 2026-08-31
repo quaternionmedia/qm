@@ -122,6 +122,7 @@ qm/
 | — | [Nothing unattended spends money](records/DRAFT-no-unattended-spending.md) | Proposed | 2026-08-20 |
 | — | [A route is an address, and an unavailable one is still shown](records/DRAFT-a-route-is-an-address.md) | Proposed | 2026-08-20 |
 | — | [A knot is a cycle of obligation, not a cycle in the graph](records/DRAFT-a-knot-is-a-cycle-of-obligation.md) | Proposed | 2026-08-21 |
+| — | [A family is bordered by what it drives](records/DRAFT-a-family-is-bordered-by-what-it-drives.md) | Proposed | 2026-08-28 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
