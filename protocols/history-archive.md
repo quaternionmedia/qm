@@ -30,10 +30,30 @@ purge. **An archive restores recoverability. It does not restore secrecy.** If
 the reason for the rewrite is that something in the history should not be
 readable, then an archive that anyone can read has removed nothing.
 
-So the archive is placed **out of public reach** — an offline bundle, or a
-private mirror — and access to it becomes the control that the history no
-longer provides. A public archive ref of a purged repository is the failure
-mode this page exists to prevent, and it looks like diligence.
+So the archive is placed **out of public reach**, and access to it becomes the
+control that the history no longer provides. A public archive ref of a purged
+repository is the failure mode this page exists to prevent, and it looks like
+diligence.
+
+**The org's answer is a private mirror repository, one per archived
+repository.** That buys recoverability by anyone with access and makes access
+the whole control — re-made every time somebody is added, and unverifiable by
+any command on this page. Say who can read it, in the run.
+
+**A private mirror creates a private repository name, and this corpus forbids
+publishing one.** That is not a general caution, it is a mechanical constraint
+here: `ci/policy-registry.yaml`'s `no-private-name-in-a-public-artifact` is
+enforced by `uv run qm private-names`, and a mirror named after the repository
+it archives is a new private name that a tracked file must never carry. **So
+this page names no mirror.** The convention is recorded where private names are
+already recorded — the gitignored companion beside `inventory-private.json` —
+and the run refers to a mirror by its reference, never by its name.
+
+There is a second-order trap in it. `qm private-names` reads its list of names
+from that companion or from the host, so a mirror created today is a name the
+check does not know until the list is refreshed. Between creating a mirror and
+refreshing the list, every `clean` the check reports is a statement about the
+old list. Refresh first, then write anything.
 
 **If the material is credentials, rotate first.** A rewrite is cleanup after
 rotation, never instead of it: anything pushed to a public repository should be
@@ -57,17 +77,24 @@ difference is what the rewrite did.
 ## 2. Take the archive, and verify it independently
 
 ```sh
-git clone --mirror git@github.com:quaternionmedia/<repo>.git <repo>-archive.git
-git -C <repo>-archive.git bundle create ../<repo>-<date>.bundle --all
+git clone --mirror git@github.com:quaternionmedia/<repo>.git <local-clone>.git
+git -C <local-clone>.git bundle create ../<repo>-<date>.bundle --all
 git bundle verify ../<repo>-<date>.bundle
+
+# Then the private mirror, whose name comes from the gitignored companion and
+# is never written into a tracked file:
+gh repo create "quaternionmedia/$(archive_name_for <repo>)" --private
+git -C <local-clone>.git push --mirror "git@github.com:quaternionmedia/$(archive_name_for <repo>).git"
+gh api "repos/quaternionmedia/$(archive_name_for <repo>)" --jq .private   # must print true
 ```
 
 *Verify:* `git bundle verify` exits zero, and the object count in the bundle
 matches step 1. A bundle that was written but never verified is a backup
 nobody has restored, which is the state most backups are in.
 
-**Do not push the archive to a public remote.** If it goes to a forge at all it
-goes to a private repository, and the run records who can read it.
+*Verify the mirror is private before pushing anything else to it*, with the
+`--jq .private` call above. A mirror created public and flipped afterwards was
+public while it was being populated, and that window is the whole exposure.
 
 ## 3. Record every pin that the rewrite will break
 
