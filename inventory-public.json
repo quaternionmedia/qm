@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-30T13:02:44Z",
+  "generated_at": "2026-08-30T14:01:30Z",
   "generator": {
     "tool": "ci/inventory.py",
     "produced_by": "assistant-2026-08",

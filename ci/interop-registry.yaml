@@ -1,0 +1,55 @@
+# Contract surfaces, and every repository that sits on one.
+#
+# The decision is records/DRAFT-a-shared-tag-asserts-interoperability.md: equal
+# numbers assert that these artifacts were proven to work together, and unequal
+# ones assert nothing about the pair. This file is the list the check reads, and
+# the list is the mechanism -- a surface nobody registered is a surface nothing
+# compares, which is the state the whole estate was in when a publisher governed
+# `0.6.0` while a consumer replayed `0.4.0` and both reported green.
+#
+# WHY THIS IS LOCAL AND ADVISORY. It reads sibling clones, so it says different
+# things on two machines and belongs nowhere near CI -- a runner has no siblings
+# and a pull request would go red for a reason its author cannot fix. It is the
+# same constraint `ci/devloop.py` carries and for the same reason.
+#
+# Per surface:
+#   publisher        the repository that owns the contract and its version
+#   implementations  every repository that pins a version it replayed
+#   pattern          a regex with a `version` group, read from that file
+#
+# A `pattern` rather than a parser on purpose: the pinned version lives in a
+# host's own test file, in that host's own language, and requiring a shared
+# format would be the coupling the seam exists to avoid.
+
+schema: 1
+
+surfaces:
+  - id: rad-interaction-contract
+    what: >
+      The radial menu's executable interaction contract. The publisher's vector
+      set is the measurement; an implementation claims the version it replayed.
+    publisher:
+      repo: rad
+      file: conformance/vectors.json
+      json_key: version
+    implementations:
+      - repo: codecartographer
+        file: web/tests/rad/conformance.test.mjs
+        pattern: "const PINNED = '(?P<version>[^']+)'"
+        covers: >
+          the ring, pointer and timing half. It renders a ring and accepts no
+          cell input, so the cell cases are reported not-applicable by name.
+      - repo: dossier
+        file: tests/ui/test_rad_conformance.py
+        pattern: 'PINNED = "(?P<version>[^"]+)"'
+        covers: >
+          the cell-addressing half. It has no pointer to give an angle, so the
+          ring, pointer and timing cases are not applicable to it.
+    cannot_see: >
+      Whether an implementation that claims a version actually replayed it --
+      this reads a declared string, not a test run. It also cannot see coverage:
+      the two implementations here replay disjoint halves of the set, so both
+      claiming one version is necessary for interoperability and not sufficient
+      for the contract being proven. That second half is
+      records/DRAFT-a-shared-tag-asserts-interoperability.md 4 and no check
+      reaches it.

@@ -199,6 +199,10 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "interop", help="every repository on one contract surface claims the same version",
+        add_help=False,
+    )
+    sub.add_parser(
         "protocols", help="the procedures run deliberately, and when each last ran",
         add_help=False,
     )
@@ -318,6 +322,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
     "families": ("families", False, []),
+    "interop": ("interop", False, []),
     "protocols": ("protocols", False, []),
     "capabilities": ("capabilities", False, []),
     "prose": ("prose", False, []),
