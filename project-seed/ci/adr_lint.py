@@ -87,6 +87,17 @@ NUMBERED_FILENAME = re.compile(r"^(?:ADR|QM)-(\d{4})-.+\.md$")
 # the whole file so prose elsewhere in an index page cannot register a record
 # as listed -- the table is the index, and a mention in a paragraph is not one.
 INDEX_LINK = re.compile(r"\]\(([^)]+\.md)\)")
+# A counted allowance for records an index may not name: exactly N records may
+# be unlisted, with the reason stated. It exists for one case -- a record whose
+# title (and filename) names a private repository, on a public branch. Listing
+# the title republishes the name; listing the filename does too; and a blanket
+# allowance would turn the index check off. The count is what keeps the gate a
+# gate: one more unlisted record than the count fails until a person raises the
+# number and restates why.
+ALLOW_UNLISTED = re.compile(
+    r"adr-lint:\s*allow-unlisted\s+(?P<count>\d+)\s+\"(?P<reason>[^\"]+)\"",
+    re.IGNORECASE,
+)
 STATUS_ROW = re.compile(r"^\|\s*\*\*Status\*\*\s*\|\s*(.+?)\s*\|", re.MULTILINE)
 RATIFIED = ("accepted", "deprecated", "superseded")
 
@@ -465,8 +476,25 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
         if title and title in segments:
             listed_by_title.add(path.name)
 
+    unlisted = sorted(on_disk_files - in_index_files - listed_by_title)
+    allowance = ALLOW_UNLISTED.search(index_text)
     failures = []
-    for name in sorted(on_disk_files - in_index_files - listed_by_title):
+    if allowance:
+        allowed = int(allowance.group("count"))
+        if len(unlisted) <= allowed:
+            if unlisted:
+                print(f"ADR lint: {len(unlisted)} record(s) unlisted under a "
+                      f"counted allowance of {allowed} -- "
+                      f"{allowance.group('reason')}")
+            unlisted = []
+        else:
+            failures.append(
+                f"{index}: {len(unlisted)} record(s) are unlisted and the "
+                f"allowance covers {allowed}. The count is the gate: raise it "
+                f"only with a restated reason."
+            )
+            unlisted = []
+    for name in unlisted:
         failures.append(
             f"{index}: {name} exists in {records}/ and the index neither links it "
             f"nor names its title. List it as a table row, or in the "

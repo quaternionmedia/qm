@@ -419,28 +419,27 @@ mappings:
 
   - layer: the promotion pipeline a change climbs
     structure: >
-      a total order on stages with promotion as a monotone map -- and, if what
-      is promoted is an artifact rather than a commit, a fibration over that
-      order rather than a set of branches
+      a total order on stages with promotion as a monotone map, carried by
+      refs: each stage is a branch and promotion is a merge from the stage
+      before it
     state: aspirational
     decides: >
-      whether `prod` needs to be a branch at all. If promotion moves commits,
-      each stage is a ref and the order is enforced by merge direction; if it
-      moves built artifacts, the stages are labels on a build and `prod` is a
-      deployment target with no ref behind it. The two produce different
-      repositories, and the question is settled by which object is promoted --
-      not by preference, and not after the branches exist.
+      that every stage is a ref and promotion is a merge -- settled in the
+      stage record's 2 on the fact that this estate ships repositories and
+      records rather than built images, so a label-on-a-build model would have
+      invented a build for things that do not have one. What the structure
+      still decides daily: a promotion that skips a stage is not a promotion,
+      because the map is monotone over the whole order.
     measured: none
     unearned: >
-      everything. No stage branch exists in any repository, and
-      `docs/ref/namespaces.md` declares five namespaces of which none is a
-      stage -- so there is no measurement, no branch and no build. It is
-      recorded now so that the first stage branch created is a test of a
-      stated claim rather than the start of a habit.
+      the enforcement. The stage refs exist locally in five repositories and
+      nothing is pushed, so no merge has ever been refused for skipping a
+      stage and the eleven scripts and five workflows that key on `main` still
+      key on it. The first pushed promotion is the measurement.
     next: >
-      state whether promotion moves commits or artifacts. That single answer
-      determines whether this is a branch model or a build model, and every
-      other question in the migration is downstream of it.
+      push the stages and move the enforcement surface to the entry stage in
+      one change, then record the first refused out-of-order merge -- the
+      moment this moves to earned.
 
   - layer: the per-base exemption to the one-slot rule
     structure: >

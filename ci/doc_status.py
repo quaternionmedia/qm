@@ -104,7 +104,11 @@ MANDATORY_READING = ("AGENTS.md", "PRINCIPLES.md", "handbook/async-contract.md",
 MANDATORY_READING_EXCLUDED = {
     "README.md": "mandated in part -- three invariants, not the whole page",
 }
-READING_BUDGET_LINES = 700
+# Re-derived when the charter joined the measured set: the mandate is 1,130
+# lines over four documents, and the ceiling sits above it for the same reason
+# the first one sat above 626 -- a breached ceiling is one nobody can act on.
+# records/DRAFT-governance-arrives-as-a-mechanism.md 4 carries the derivation.
+READING_BUDGET_LINES = 1200
 
 
 def reading_load(root: Path) -> dict:

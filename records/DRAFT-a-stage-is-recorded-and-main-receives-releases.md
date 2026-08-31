@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-29 |
-| **Pends on** | §2 — whether promotion moves commits or built artifacts. Every other clause here holds either way; that one decides whether `prod` is a ref at all, and it is deliberately unsettled until the branches are pushed. `ci/mathematics-registry.yaml` holds it as the aspirational mapping *the promotion pipeline a change climbs*. |
+| **Pends on** | Nothing — §2 is settled: promotion moves commits. The push itself still waits on the standing local-only instruction, which is an operational hold rather than an open decision. |
 | **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `public-by-default` — public by default |
 | **Restated in** | Nothing. |
 
@@ -65,17 +65,20 @@ ceremony. On `dev`, `prod`, `main` or any `project/<name>`, it is a history
 rewrite: `protocols/history-archive.md` runs first, and the decision is a
 person's.
 
-### §2 — Whether a stage is a ref is not settled here
+### §2 — Promotion moves commits, and a stage is a ref
 
-If promotion moves **commits**, each stage is a branch and the order is
-enforced by merge direction. If it moves **built artifacts**, the stages are
-labels on a build, `prod` needs no ref, and `main` remains the only long-lived
-branch. The two are not stylistic variants: they produce different
-repositories, different gates, and different work in the sixteen files that
-name `main` today.
+Each stage is a branch, and the order is enforced by merge direction: a change
+enters `test` by pull request, and reaches `dev`, `prod` and `main` only as a
+merge from the stage before it. The alternative — stages as labels CI stamps
+on built artifacts — was live while this record pended and lost on one fact:
+this estate's deliverable is repositories and records, not built images, so a
+label model would have invented a build for things that do not have one.
 
-This record does not answer it. The branches are staged so that either answer
-is cheap on the day it is given, and the answer is given when they are pushed.
+The cost was priced before the choice and is accepted with it: the enforcement
+surface that keys on `main` — eleven scripts and five workflows at last count,
+plus `check_pr_base` and the namespace guard — moves to key on the entry stage,
+together, across every repository that carries the stages. Until that lands,
+`main` remains the working target and the stage refs remain staged.
 
 ### §3 — `main` receives a release; the tag still makes the claim
 
@@ -124,7 +127,7 @@ do, together, across five repositories with live submodule pins. That asymmetry
 is the strongest practical argument for answering §2 before pushing, and it is
 not an argument for either answer.
 
-**A stage branch that exists is a claim that promotion moves commits.** Staging
+**A pushed stage branch enacts this record; a staged one only prepares it.** Staging
 them locally is not that claim; pushing them is. That is why they are staged
 and not pushed, and why this record is Proposed rather than a description of
 something already done.

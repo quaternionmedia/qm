@@ -447,3 +447,29 @@ def test_a_title_appearing_as_a_mere_substring_is_not_listed(repo: Path):
     assert result.returncode == 1, result.stdout
     assert "DRAFT-the.md" in result.stdout
 
+
+def test_a_counted_allowance_covers_exactly_that_many_unlisted_records(repo: Path):
+    """A record whose title names a private repository cannot be listed by
+    title or filename without republishing the name. The allowance is counted
+    so the gate stays a gate: one more unlisted record than the count fails.
+
+    Mutation: drop the `len(unlisted) <= allowed` comparison and the second
+    half of this fails.
+    """
+    write(repo / "records" / "DRAFT-private-thing.md",
+          '# ADR-XXXX --- Adopts The Secret Repo\n\n| | |\n|---|---|\n| **Status** | Proposed |\n')
+    allowance = '<!-- adr-lint: allow-unlisted 1 "the title names a private repository" -->'
+    write(repo / "README.md",
+          '| # | Title | Status | Date |\n|---|---|---|---|\n\n'
+          + allowance
+          + '\n\nDrafts in flight (numberless, by title): ---\n')
+    commit_all(repo, "one unlisted record under a counted allowance")
+    assert lint(repo).returncode == 0, lint(repo).stdout
+
+    write(repo / "records" / "DRAFT-second-thing.md",
+          '# ADR-XXXX --- A Second Unlisted Thing\n\n| | |\n|---|---|\n| **Status** | Proposed |\n')
+    commit_all(repo, "a second unlisted record exceeds the count")
+    result = lint(repo)
+    assert result.returncode == 1, result.stdout
+    assert "allowance covers 1" in result.stdout
+

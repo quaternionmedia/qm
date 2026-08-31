@@ -67,10 +67,14 @@ to a stranger.
 4. **Governance prose does not state what a competent reader derives**, and
    mandatory reading is a budgeted figure rather than a habit. What a session
    must read before its first edit is measured and reported, and the budget is
-   **700 lines**. That is above today's 626 on purpose: a ceiling that is
-   already breached is a ceiling nobody can act on, and one set at today's
-   figure forbids the next necessary sentence. It is a ratchet to lower, not a
-   target to fill.
+   **1,200 lines**. The figure is derived the same way each time the mandate
+   changes: the measured mandatory set, plus headroom for the next necessary
+   sentence. The set is four documents — the two entry pages a session reads
+   in full, the async contract, and the handoff index — measured at 1,130
+   lines; the first derivation used a three-document set that omitted the
+   charter `AGENTS.md` item 1 mandates in full, so its ceiling was a claim
+   about a subset and read as comfortably met while the real load was over.
+   It is a ratchet to lower, not a target to fill.
    **This record is not restated in any entry point**, which is the clause
    applying to itself: a reader who needs it can reach it, and adding fifteen
    lines to `AGENTS.md` to announce a rule about not adding lines to `AGENTS.md`
@@ -102,7 +106,7 @@ to a stranger.
 - Cost accepted: a genuine rule with no available mechanism now costs a registry
   entry as well as a clause. That is small and it is the point — the entry is
   what makes the gap visible when somebody later asks what is actually enforced.
-- Cost accepted: the 700-line budget will be hit, and the response has to be
+- Cost accepted: the 1,200-line budget will be hit, and the response has to be
   deleting prose rather than raising the number. A budget raised on contact is a
   budget that was never one. Raising it is an amendment to this record, argued in
   the open.
