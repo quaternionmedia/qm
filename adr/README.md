@@ -241,6 +241,11 @@ together.
 |---|---|---|---|
 | | | | |
 
+<!-- adr-lint: allow-unlisted 1 "titles and filenames name a private repository; listing either would republish the name. The records are on this branch beside this index." -->
+
 Drafts in flight (numberless, by title): Constitution adoption scope · LDP/1
+- Dependency disposition
+- LDP/1 is the sole driver boundary
+- Ring capture, first-cycle semantics
 is the sole driver boundary · Ring capture, first-cycle semantics ·
 Dependency disposition.
