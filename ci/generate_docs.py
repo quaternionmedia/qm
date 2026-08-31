@@ -104,6 +104,13 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
         None,
     ),
     (
+        "family cookbook",
+        ["ci/cookbook.py", "walkthrough/families", "--write"],
+        "walkthrough/families/README.md",
+        False,
+        ["ci/cookbook.py", "walkthrough/families", "--check"],
+    ),
+    (
         "document states",
         ["ci/doc_status.py", "--write", "doc-status.json"],
         "doc-status.json",

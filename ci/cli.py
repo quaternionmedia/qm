@@ -203,6 +203,10 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "cookbook", help="one onboarding page per family, generated from this disk",
+        add_help=False,
+    )
+    sub.add_parser(
         "protocols", help="the procedures run deliberately, and when each last ran",
         add_help=False,
     )
@@ -323,6 +327,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "lanes": ("lanes", False, []),
     "families": ("families", False, []),
     "interop": ("interop", False, []),
+    "cookbook": ("cookbook", False, []),
     "protocols": ("protocols", False, []),
     "capabilities": ("capabilities", False, []),
     "prose": ("prose", False, []),

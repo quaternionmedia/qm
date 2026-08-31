@@ -8,6 +8,7 @@ copy of the families would have been the fifth.
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -80,3 +81,28 @@ def test_renaming_a_family_in_the_record_breaks_the_claim_visibly(tmp_path: Path
     renamed = record(tmp_path, TABLE.replace("`instruments`", "`sound-sources`"))
     declared = families.declared(renamed)
     assert families.problems([{"name": "x", "family": "instruments"}], declared)
+
+
+def test_a_private_repository_is_written_by_reference_never_by_name():
+    """**THE LEAK THE FIRST WRITE PRODUCED.**
+
+    `roster.load` merges the uncommitted private companion, so on a machine
+    that has it a private entry arrives carrying its real name. A writer using
+    `roster.label` -- which prefers `name` -- serialises that into a committed
+    file. Three names reached `families.json` this way and
+    `uv run qm private-names` is what caught them.
+
+    Mutation: use `roster.label` in `document` instead of `publishable` and
+    this fails.
+    """
+    entries = [{"ref": "private-99", "name": "the-real-name", "family": None}]
+    out = families.document(entries, {"a-family": "something"})
+    assert out["unstated"] == ["private-99"]
+    assert "the-real-name" not in json.dumps(out)
+
+
+def test_a_public_repository_is_written_by_name():
+    entries = [{"name": "public-thing", "family": "a-family"}]
+    out = families.document(entries, {"a-family": "something"})
+    assert out["families"][0]["members"] == ["public-thing"]
+

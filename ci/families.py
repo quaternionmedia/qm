@@ -35,6 +35,7 @@ import argparse
 import json
 import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -79,6 +80,22 @@ def problems(entries: list[dict], families: dict[str, str]) -> list[str]:
     return found
 
 
+def publishable(entry: dict) -> str:
+    """What a repository may be called in a committed file.
+
+    **NOT `roster.label`.** That prefers `name`, and `roster.load` merges the
+    uncommitted private companion -- so on a machine that has the companion a
+    private repository arrives carrying its real name, and a writer using
+    `label` serialises it. This one prefers the `ref`, which is the redacted
+    form and the only one a committed artifact may hold.
+
+    `uv run qm private-names` caught exactly this: three private names reached
+    `families.json` on the first write, from a helper that looked correct and
+    was correct for printing to a terminal.
+    """
+    return entry.get("ref") or entry.get("name") or "<unnamed>"
+
+
 def document(entries: list[dict], families: dict[str, str]) -> dict:
     """The families as data, for a consumer that is not this CLI.
 
@@ -94,10 +111,13 @@ def document(entries: list[dict], families: dict[str, str]) -> dict:
     """
     members: dict[str, list[str]] = {name: [] for name in families}
     unstated: list[str] = []
-    for name, family in claims(entries):
+    for entry in entries:
+        name = publishable(entry)
+        family = entry.get("family")
         (members[family] if family in members else unstated).append(name)
     return {
         "schema": 1,
+        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "source": str(RECORD).replace("\\", "/"),
         "reading": {
             "families_come_from": "the record, not this file -- renaming one there "

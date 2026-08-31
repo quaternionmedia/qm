@@ -1,0 +1,14 @@
+# Cookbook — the families
+
+One page per family, generated from `families.json` and the clones on this disk. The families themselves are decided in `records/DRAFT-a-family-is-bordered-by-what-it-drives.md`; this is the onboarding view of them.
+
+| family | drives | members | governed |
+|---|---|---|---|
+| [`core`](./core.md) | the corpus and its tooling — governance, the archive, the deltas, the maps, the language data | 5 | 5 |
+| [`instruments`](./instruments.md) | the sound — looping, control surfaces, synthesis, tempo | 9 | 2 |
+| [`performer-display`](./performer-display.md) | the performer — what a player reads while playing | 2 | 0 |
+| [`show-control`](./show-control.md) | the room — cues, lighting, sound and video playback, audio transport | 8 | 0 |
+
+`10` rostered repositories claim no family. That is *unstated*, not *none* — nobody has answered the question for them, and a page that listed them as unfamilied would be inventing an answer.
+
+*Generated 2026-08-30.*
