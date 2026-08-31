@@ -2,6 +2,7 @@
 """Every repository on one contract surface claims the same version, or none do.
 
     uv run qm interop            # what each repository claims
+    uv run qm interop --verify   # run each host's replay and read what it covered
     uv run qm interop --check    # exit non-zero when a surface disagrees
 
 The decision is `records/DRAFT-a-shared-tag-asserts-interoperability.md`: equal
@@ -14,13 +15,17 @@ pull request that went red for a missing clone would be red for a reason its
 author cannot fix. `--check` is a local pre-flight, not a gate. `ci/devloop.py`
 carries the same constraint for the same reason.
 
-WHAT IT CANNOT DO. Tell whether an implementation that claims a version
-actually replayed it: this reads a declared string, not a test run. And it
-cannot see coverage. Two implementations may claim one version while replaying
-disjoint halves of the set -- which is the state of the one surface registered
-today -- so agreement here is necessary for interoperability and not sufficient
-for the contract being proven. That second half is the record's 4, and no check
-reaches it.
+TWO MODES, AND THEY PROVE DIFFERENT THINGS. Without `--verify` this reads
+declared strings: it establishes that the repositories agree on a number, and
+nothing about whether any of them replayed it. With `--verify` it runs each
+implementation's own suite -- `npm` in one, `uv run pytest` in another -- and
+reads one printed sentence from each, so the counts come from runs.
+
+WHAT NEITHER MODE REACHES. A clean union is a sum compared against a total.
+Two implementations could replay one case twice and miss another and still add
+up, so `covers all` is necessary for the contract being proven and not
+sufficient. `records/DRAFT-a-shared-tag-asserts-interoperability.md` 4 is the
+clause, and this is the part of it no check here discharges.
 """
 
 from __future__ import annotations
@@ -28,6 +33,8 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -79,6 +86,65 @@ def declared_version(path: Path, spec: dict) -> str:
     return found.group("version") if found else UNKNOWN
 
 
+
+def total_cases(surface: dict, roots) -> int | None:
+    """How many cases the publisher governs, or None when it cannot be read."""
+    spec = surface["publisher"]
+    clone = clone_of(spec["repo"], roots)
+    if clone is None:
+        return None
+    try:
+        return len(json.loads((clone / spec["file"]).read_text(encoding="utf-8"))["cases"])
+    except (OSError, json.JSONDecodeError, KeyError):
+        return None
+
+
+def prove(surface: dict, spec: dict, roots) -> dict:
+    """Run one implementation's replay and read what it covered.
+
+    The command is the host's own -- `npm` here, `uv run pytest` there -- and
+    the only thing agreed across the seam is one printed sentence. Requiring a
+    shared runner would be the coupling the seam exists to avoid.
+    """
+    out = {"repo": spec["repo"], "ran": False, "passed": False,
+           "applicable": None, "not_applicable": None, "why": ""}
+    clone = clone_of(spec["repo"], roots)
+    if clone is None:
+        out["why"] = "no clone on this disk"
+        return out
+    proves = spec.get("proves")
+    if not proves:
+        out["why"] = "declares no proving command"
+        return out
+    cwd = (clone / proves.get("cwd", ".")).resolve()
+    # Resolve the launcher rather than trusting the bare name. On Windows `npm`
+    # is `npm.cmd`, and `subprocess` without a shell finds neither -- it reports
+    # "the system cannot find the file specified", which reads like a missing
+    # repository rather than a missing shim. `shell=True` would fix it and hand
+    # a registry string to a shell, which this file will not do.
+    command = list(proves["command"])
+    launcher = shutil.which(command[0])
+    if launcher is None:
+        out["why"] = f"{command[0]!r} is not on PATH"
+        return out
+    command[0] = launcher
+    try:
+        done = subprocess.run(command, cwd=str(cwd), capture_output=True,
+                              encoding="utf-8", errors="replace", timeout=900, shell=False)
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        out["why"] = f"could not run: {exc}"
+        return out
+    out["ran"] = True
+    out["passed"] = done.returncode == 0
+    text = (done.stdout or "") + (done.stderr or "")
+    found = re.search(surface.get("coverage", ""), text) if surface.get("coverage") else None
+    if found:
+        out["applicable"] = int(found.group("applicable"))
+        out["not_applicable"] = int(found.group("not_applicable"))
+    else:
+        out["why"] = "ran, and printed no coverage line this surface can read"
+    return out
+
 def read_surface(surface: dict, roots) -> dict:
     out = {"id": surface["id"], "what": surface.get("what", ""),
            "cannot_see": surface.get("cannot_see", ""), "claims": []}
@@ -124,6 +190,8 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true",
                         help="exit non-zero when a surface disagrees")
+    parser.add_argument("--verify", action="store_true",
+                        help="run each implementation's replay and read what it covered")
     parser.add_argument("--org-folder", action="append", default=[],
                         help="another root to look for clones in")
     args = parser.parse_args(argv)
@@ -152,11 +220,58 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"  !! {problem}")
         else:
             print("  -- every repository on this surface claims the same version")
+        if args.verify:
+            governed = total_cases(surface, roots)
+            proofs = [prove(surface, spec, roots)
+                      for spec in surface.get("implementations", [])]
+            print("\n  replayed, by running each host's own suite:")
+            covered = 0
+            for proof in proofs:
+                if not proof["ran"]:
+                    print(f"  ?? {proof['repo']:20} did not run -- {proof['why']}")
+                    failed.append(
+                        f"{read['id']}: {proof['repo']} did not run -- {proof['why']}")
+                    continue
+                verdict = "passing" if proof["passed"] else "FAILING"
+                counts = (f"{proof['applicable']} applicable, "
+                          f"{proof['not_applicable']} not applicable"
+                          if proof["applicable"] is not None else proof["why"])
+                ok = proof["passed"] and proof["applicable"] is not None
+                print(f"  {'  ' if ok else '!!'} {proof['repo']:20} "
+                      f"{verdict:8} {counts}")
+                if not proof["passed"]:
+                    failed.append(f"{read['id']}: {proof['repo']} replay failed")
+                if proof["applicable"] is None:
+                    failed.append(f"{read['id']}: {proof['repo']} -- {proof['why']}")
+                else:
+                    covered += proof["applicable"]
+            if governed is None:
+                failed.append(f"{read['id']}: the governed case count is unreadable")
+            else:
+                # NECESSARY, NOT SUFFICIENT. This compares a total against a
+                # sum. Two hosts could replay one case twice and miss another
+                # and still add up, so a clean union is not proof of coverage.
+                # The registry's `cannot_see` says so, and it stays true.
+                verdict = ("covers all" if covered == governed else
+                           "LEAVES A GAP" if covered < governed else
+                           "overlaps -- the halves are not disjoint")
+                print(f"     union: {covered} of {governed} governed cases "
+                      f"-- {verdict}")
+                if covered != governed:
+                    failed.append(
+                        f"{read['id']}: the implementations cover {covered} of "
+                        f"{governed} governed cases")
         if read["cannot_see"]:
             print(f"\n  cannot see: {' '.join(read['cannot_see'].split())}")
 
-    print("\nA declared version is a claim that a set was replayed, not evidence "
-          "that it was. Nothing here ran a test.")
+    if args.verify:
+        print("\nEach count above came from that host's own suite, run just now. "
+              "The union is a sum against a total, so it can be clean while a "
+              "case is replayed twice and another missed.")
+    else:
+        print("\nA declared version is a claim that a set was replayed, not "
+              "evidence that it was. Nothing here ran a test -- pass --verify "
+              "to run them.")
     return 1 if (failed and args.check) else 0
 
 

@@ -83,3 +83,85 @@ def test_the_registry_registers_the_surface_this_estate_has():
         assert entry.get("publisher"), f"{entry['id']} has no publisher"
         assert entry.get("implementations"), f"{entry['id']} has no implementation"
         assert entry.get("cannot_see"), f"{entry['id']} states no blind spot"
+
+
+# --- --verify: the counts come from runs, not from declared strings ----------
+
+
+def test_a_host_that_cannot_be_launched_is_reported_not_counted(tmp_path):
+    """**THE FAILURE THAT READ AS A MISSING REPOSITORY.**
+
+    On Windows `npm` is `npm.cmd`, and `subprocess` without a shell finds
+    neither -- it reports "the system cannot find the file specified", which
+    looks like an absent clone rather than an absent shim. Resolving the
+    launcher on PATH is the fix; `shell=True` would have worked and would hand
+    a registry string to a shell.
+
+    Mutation: drop the `shutil.which` guard and this reports a launch error
+    instead of naming the missing launcher.
+    """
+    spec = {"repo": "nowhere", "file": "f",
+            "proves": {"cwd": ".", "command": ["definitely-not-a-real-launcher"]}}
+    out = interop.prove({"id": "s"}, spec, [tmp_path])
+    assert out["ran"] is False
+    assert "no clone on this disk" in out["why"] or "not on PATH" in out["why"]
+
+
+def test_an_implementation_with_no_proving_command_says_so(tmp_path):
+    (tmp_path / "here" / ".git").mkdir(parents=True)
+    spec = {"repo": "here", "file": "f"}
+    out = interop.prove({"id": "s"}, spec, [tmp_path])
+    assert out["ran"] is False
+    assert "declares no proving command" in out["why"]
+
+
+def test_a_run_that_prints_no_coverage_line_is_not_counted(tmp_path, monkeypatch):
+    """A host that ran and said nothing readable must not contribute zero
+    silently -- zero would sum cleanly with everything."""
+    (tmp_path / "here" / ".git").mkdir(parents=True)
+
+    class Done:
+        returncode = 0
+        stdout = "ran, said nothing this surface can read"
+        stderr = ""
+
+    monkeypatch.setattr(interop.shutil, "which", lambda _: "launcher")
+    monkeypatch.setattr(interop.subprocess, "run", lambda *a, **k: Done())
+    spec = {"repo": "here", "file": "f",
+            "proves": {"cwd": ".", "command": ["x"]}}
+    out = interop.prove({"id": "s", "coverage": "covered (?P<applicable>[0-9]+) of (?P<not_applicable>[0-9]+)"},
+                        spec, [tmp_path])
+    assert out["ran"] is True
+    assert out["applicable"] is None
+    assert "no coverage line" in out["why"]
+
+
+def test_the_coverage_line_is_read_from_the_run(tmp_path, monkeypatch):
+    (tmp_path / "here" / ".git").mkdir(parents=True)
+
+    class Done:
+        returncode = 0
+        stdout = "rad conformance: 47 applicable, all passing; 11 not applicable to this port"
+        stderr = ""
+
+    monkeypatch.setattr(interop.shutil, "which", lambda _: "launcher")
+    monkeypatch.setattr(interop.subprocess, "run", lambda *a, **k: Done())
+    spec = {"repo": "here", "file": "f",
+            "proves": {"cwd": ".", "command": ["x"]}}
+    surface = {"id": "s", "coverage":
+               "rad conformance: (?P<applicable>[0-9]+) applicable, all passing; (?P<not_applicable>[0-9]+) not applicable"}
+    out = interop.prove(surface, spec, [tmp_path])
+    assert out["passed"] is True
+    assert out["applicable"] == 47 and out["not_applicable"] == 11
+
+
+def test_the_registry_declares_how_each_implementation_proves_itself():
+    """A surface whose implementations declare no command can only ever be
+    checked by declared string, which is the weaker half of this tool."""
+    import yaml
+    document = yaml.safe_load(interop.REGISTRY.read_text(encoding="utf-8"))
+    for surface in document["surfaces"]:
+        assert surface.get("coverage"), f"{surface['id']} declares no coverage marker"
+        for impl in surface["implementations"]:
+            assert impl.get("proves", {}).get("command"), (
+                f"{surface['id']}: {impl['repo']} declares no proving command")

@@ -39,17 +39,28 @@ surfaces:
         covers: >
           the ring, pointer and timing half. It renders a ring and accepts no
           cell input, so the cell cases are reported not-applicable by name.
+        proves:
+          cwd: web
+          command: [npm, run, test:rad]
       - repo: dossier
         file: tests/ui/test_rad_conformance.py
         pattern: 'PINNED = "(?P<version>[^"]+)"'
         covers: >
           the cell-addressing half. It has no pointer to give an angle, so the
           ring, pointer and timing cases are not applicable to it.
+        proves:
+          cwd: .
+          command: [uv, run, pytest, tests/ui/test_rad_conformance.py, -q, -p, "no:randomly", -s]
+
+    # Both implementations print one line in this shape, so `--verify` reads
+    # what a run actually covered rather than what a file declares. It is a
+    # shared marker rather than a shared format: each host writes it in its own
+    # runner, and the only thing agreed across the seam is the sentence.
+    coverage: 'rad conformance: (?P<applicable>[0-9]+) applicable, all passing; (?P<not_applicable>[0-9]+) not applicable'
     cannot_see: >
-      Whether an implementation that claims a version actually replayed it --
-      this reads a declared string, not a test run. It also cannot see coverage:
-      the two implementations here replay disjoint halves of the set, so both
-      claiming one version is necessary for interoperability and not sufficient
-      for the contract being proven. That second half is
-      records/DRAFT-a-shared-tag-asserts-interoperability.md 4 and no check
-      reaches it.
+      Whether the union is a real cover. `--verify` runs each host and adds up
+      what each reported applicable, and a sum matching a total can still hide
+      one case replayed twice and another missed. Proving the cover would mean
+      each host naming the cases it executed rather than counting them, which
+      no host does today. Without `--verify` it reaches less still: a declared
+      string, and no evidence any set was replayed.
