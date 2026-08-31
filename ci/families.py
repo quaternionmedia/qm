@@ -32,6 +32,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -78,10 +79,51 @@ def problems(entries: list[dict], families: dict[str, str]) -> list[str]:
     return found
 
 
+def document(entries: list[dict], families: dict[str, str]) -> dict:
+    """The families as data, for a consumer that is not this CLI.
+
+    A SEAM, NOT AN IMPORT. `dossier` and `codecartographer` both need to reach
+    the families, and neither may import this corpus to do it --
+    `records/DRAFT-seams-on-standard-protocols.md` governs, and a Python import
+    would make one of them depend on a governance tool to draw a picture. So
+    the families are written as a file at a stable path and read as JSON.
+
+    `unstated` is a member of the shape rather than an absence, for the reason
+    the roster gives everywhere else: a consumer that had to infer it would
+    infer `none`.
+    """
+    members: dict[str, list[str]] = {name: [] for name in families}
+    unstated: list[str] = []
+    for name, family in claims(entries):
+        (members[family] if family in members else unstated).append(name)
+    return {
+        "schema": 1,
+        "source": str(RECORD).replace("\\", "/"),
+        "reading": {
+            "families_come_from": "the record, not this file -- renaming one there "
+                                  "makes a roster claim stop resolving",
+            "membership_is_a_claim": "stated in ci/workspace.yaml by a person, never "
+                                     "inferred from a dependency graph or a commit date",
+            "unstated_is_not_none": "a repository with no family has not been placed; "
+                                    "nobody answered the question",
+            "do_not": "read a family as a statement that anybody is working on it -- "
+                      "that is `attention`, and it is a different claim",
+        },
+        "families": [
+            {"name": name, "drives": families[name].replace("**", "").strip(),
+             "members": members[name]}
+            for name in sorted(families)
+        ],
+        "unstated": sorted(unstated),
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true",
                         help="exit non-zero on a claim naming an undeclared family")
+    parser.add_argument("--write", metavar="PATH",
+                        help="write the families as JSON for a consumer to read")
     args = parser.parse_args(argv)
 
     families = declared()
@@ -93,6 +135,12 @@ def main(argv: list[str] | None = None) -> int:
     if found:
         print(f"\nfamilies: {len(found)} problem(s).", file=sys.stderr)
         return 1
+
+    if args.write:
+        rendered = json.dumps(document(entries, families), indent=2)
+        Path(args.write).write_text(rendered + chr(10), encoding="utf-8")
+        print(f"wrote {args.write}")
+        return 0
 
     by_family: dict[str, list[str]] = {name: [] for name in families}
     unstated: list[str] = []

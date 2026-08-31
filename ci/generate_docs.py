@@ -97,6 +97,13 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
          "--check", "handbook/gates.md"],
     ),
     (
+        "families",
+        ["ci/families.py", "--write", "families.json"],
+        "families.json",
+        False,
+        None,
+    ),
+    (
         "document states",
         ["ci/doc_status.py", "--write", "doc-status.json"],
         "doc-status.json",

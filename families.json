@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "source": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
+  "reading": {
+    "families_come_from": "the record, not this file -- renaming one there makes a roster claim stop resolving",
+    "membership_is_a_claim": "stated in ci/workspace.yaml by a person, never inferred from a dependency graph or a commit date",
+    "unstated_is_not_none": "a repository with no family has not been placed; nobody answered the question",
+    "do_not": "read a family as a statement that anybody is working on it -- that is `attention`, and it is a different claim"
+  },
+  "families": [
+    {
+      "name": "core",
+      "drives": "the corpus and its tooling \u2014 governance, the archive, the deltas, the maps, the language data",
+      "members": [
+        "qm",
+        "dossier",
+        "qmcp",
+        "codecartographer",
+        "looksatwords"
+      ]
+    },
+    {
+      "name": "instruments",
+      "drives": "the sound \u2014 looping, control surfaces, synthesis, tempo",
+      "members": [
+        "carlos",
+        "qmetronome",
+        "holophonor",
+        "midiphonor",
+        "uPhonor",
+        "stomp",
+        "wolf",
+        "ludwig",
+        "waveofhormuz"
+      ]
+    },
+    {
+      "name": "performer-display",
+      "drives": "the performer \u2014 what a player reads while playing",
+      "members": [
+        "joe",
+        "leo"
+      ]
+    },
+    {
+      "name": "show-control",
+      "drives": "the room \u2014 cues, lighting, sound and video playback, audio transport",
+      "members": [
+        "ShowRunner",
+        "Cuelist-python",
+        "QLab-python",
+        "TheatreMix-python",
+        "cesar",
+        "ira",
+        "ShowStopper",
+        "aes"
+      ]
+    }
+  ],
+  "unstated": [
+    "alfred",
+    "apothecary",
+    "benchmark",
+    "datafactorio",
+    "datum",
+    "factorio-server",
+    "factorio-sysops",
+    "loopwall",
+    "moat",
+    "rad"
+  ]
+}

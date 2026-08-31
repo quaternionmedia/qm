@@ -69,19 +69,38 @@ another also emits. Not by shared vocabulary: *cue*, *loop* and *track* each
 mean different things in two of the three, and a border drawn on words would
 have placed one program in all of them.
 
-### §3 — The performing estate is three families
+### §3 — The estate is four families, three of them performing
 
 | family | drives | named public members |
 |---|---|---|
 | `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ira; ShowStopper; aes |
 | `instruments` | **the sound** — looping, control surfaces, synthesis, tempo | holophonor; midiphonor; uPhonor; carlos; qmetronome; stomp; wolf; ludwig; waveofhormuz |
 | `performer-display` | **the performer** — what a player reads while playing | joe; leo |
+| `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | qm; qmcp; dossier; codecartographer; looksatwords |
 
-Two asymmetries, recorded rather than smoothed:
+`core` is the family that drives none of the three above, and that is the
+point of naming it rather than leaving it unstated. It drives **the work
+itself**: the constitution, the archive of what was decided, the deltas those
+decisions become, the maps drawn over the code, and the language data read out
+of the prose. A change there reaches every other family by changing what
+governs them, which is a different relation from the seams §5 describes and is
+why it is a family rather than substrate.
+
+The border test in §2 still applies to it and still decides. A repository that
+renders a performance is not `core` however much governance it carries, and a
+repository that only ever reads and writes the org's own record of itself is
+`core` however interesting its output. `rad` is the case that shows the test
+working: it is consumed by two `core` members and is substrate to both, so it
+belongs to no family — see §4.
+
+Three asymmetries, recorded rather than smoothed:
 
 - Show control and instruments each have a hub that the periphery names itself
   after. Performer display has none. joe and leo are siblings by what they
   drive, and neither is built on the other.
+- `core` is the only family whose members are adopted. Every member of the
+  three performing families is unadopted today, so a family name says what a
+  repository is part of and nothing about whether governance reaches it.
 - At least one member of this estate is a private repository, which the roster
   references rather than names. This record cannot place it without defeating
   that redaction, so the placement is made where the name is legible: in the

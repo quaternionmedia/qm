@@ -121,6 +121,7 @@ milestone:
 repositories:
   - name: qm
     role: corpus
+    family: core
     phase: n/a
     phase_source: n/a
     attention: active
@@ -137,6 +138,7 @@ repositories:
   # is the substitution the paragraph above refuses.
   - name: dossier
     role: project
+    family: core
     phase: v0.0.1
     phase_source: scaffolded
     attention: active
@@ -145,6 +147,7 @@ repositories:
 
   - name: qmcp
     role: project
+    family: core
     phase: v0.0.1
     phase_source: scaffolded
     attention: active
@@ -181,6 +184,7 @@ repositories:
 
   - name: codecartographer
     role: project
+    family: core
     phase: v0.0.2
     phase_source: stated
     note: code maps; named itself a v0.0.2 RAD consumer
@@ -259,6 +263,7 @@ repositories:
 
   - name: looksatwords
     role: project
+    family: core
     phase: v0.0.1
     phase_source: scaffolded
     note: >
