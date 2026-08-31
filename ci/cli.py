@@ -177,6 +177,16 @@ def build_parser() -> argparse.ArgumentParser:
         "branch", help="what a branch actually carries, against its base", add_help=False
     )
     sub.add_parser(
+        "branches",
+        help="every branch, and what deleting it would cost",
+        add_help=False,
+    )
+    sub.add_parser(
+        "inbound",
+        help="what the projects are waiting on this organisation for",
+        add_help=False,
+    )
+    sub.add_parser(
         "rulesets", help="what the rulesets say, and what the host is running",
         add_help=False,
     )
@@ -299,6 +309,8 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "harness": ("harness_dashboard", False,
                 ["harness-status.json", "--format", "md"]),
     "branch": ("check_pr_base", True, []),
+    "branches": ("branch_census", True, []),
+    "inbound": ("inbound", False, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
     "protocols": ("protocols", False, []),

@@ -740,6 +740,26 @@ class Hub:
         except (ValueError, binascii.Error) as exc:
             return Unknown(f"contents/.gitmodules in {name}: undecodable ({exc})")
 
+    def adr_lint_workflow(self, name: str) -> str | Unknown:
+        """The project's copy of the seed's ADR lint, decoded, or why not.
+
+        Read for one field: `RECORDS_DIR`. The seed workflow offers two models
+        and names them in its own header -- records on this repository's
+        `project/<name>` branch, or records kept locally in the project's own
+        `adr/` -- so a project taking the second is conformant, not deviant,
+        and a census that counts only the first reports it as having decided
+        nothing.
+        """
+        got = self.api(
+            f"repos/{self.org}/{name}/contents/.github/workflows/adr-lint.yml",
+            ".content")
+        if isinstance(got, Unknown):
+            return got
+        try:
+            return base64.b64decode(str(got)).decode("utf-8", "replace")
+        except (ValueError, binascii.Error) as exc:
+            return Unknown(f"adr-lint.yml in {name}: undecodable ({exc})")
+
     def open_prs(self, base: str) -> list[dict] | Unknown:
         got = self.api(
             f"repos/{self.org}/qm/pulls?state=open&base={base}&per_page=100",
@@ -801,7 +821,46 @@ def adoption(hub: Hub, name: str) -> dict | Unknown:
             w.rsplit("/", 1)[-1] for w in SEED_WORKFLOWS if w not in tree
         ),
         "licensing": sorted(a for a in LICENCE_ARTIFACTS if a in tree),
+        # WHERE THIS PROJECT SAYS ITS RECORDS LIVE, so a zero in the census
+        # above can be read. `records.total: 0` on a project branch means one
+        # of two very different things -- nobody has written a record, or the
+        # records are in the project's own repository under the second model
+        # the seed workflow offers. rad is the live instance: eleven drafts in
+        # its own `adr/`, `RECORDS_DIR: adr` in its workflow, and a census that
+        # reports it as having decided nothing.
+        #
+        # `null` is the branch-per-project model and the documented default.
+        # A string is the local path the project declared. `Unknown` is what a
+        # missing or unreadable workflow gets, because a project whose file
+        # could not be read has not thereby chosen a model.
+        "records_dir": records_dir(hub, name, tree),
     }
+
+
+# Matches the seed workflow's own `env:` block, where the two knobs live and
+# where its header says they are the only thing needing an edit. Deliberately
+# not a YAML parse: this file is one line in one block, and pulling a parser in
+# to read it would make the generator's dependency list longer than its job.
+RECORDS_DIR_LINE = re.compile(r"^\s*RECORDS_DIR:\s*(.*?)\s*$", re.MULTILINE)
+
+
+def records_dir(hub: Hub, name: str, tree: set) -> object:
+    """The `RECORDS_DIR` a project's ADR lint declares, or None, or Unknown."""
+    if ".github/workflows/adr-lint.yml" not in tree:
+        # qmetronome runs the lint inline in ci.yml, so an absent filename is
+        # not an absent check -- and it is not a declared local path either.
+        return Unknown(f"{name} has no .github/workflows/adr-lint.yml to read")
+    text = hub.adr_lint_workflow(name)
+    if isinstance(text, Unknown):
+        return text
+    found = RECORDS_DIR_LINE.search(text)
+    if not found:
+        return Unknown(f"adr-lint.yml in {name} declares no RECORDS_DIR")
+    value = found.group(1).strip().strip("'\"")
+    # Empty is the seed's default and means the branch-per-project model, which
+    # the census already counts correctly. Say None rather than "" so the two
+    # cases do not look alike in the document.
+    return value or None
 
 
 def parse_gitmodules(text: str) -> dict:
@@ -954,6 +1013,10 @@ def build(
                 "ide": list(IDE_ARTIFACTS),
                 "seed_workflow_filenames": [w.rsplit("/", 1)[-1] for w in SEED_WORKFLOWS],
                 "licensing": list(LICENCE_ARTIFACTS),
+                # Read out of the project's own adr-lint.yml, so a zero in a
+                # project's record census can be told apart from a project
+                # whose records are somewhere this generator does not look.
+                "records_dir_from": ".github/workflows/adr-lint.yml env RECORDS_DIR",
             },
         },
         "corpus": layer["corpus"],
