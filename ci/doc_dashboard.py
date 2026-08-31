@@ -13,9 +13,9 @@ filtered reads as the whole corpus -- and this is a governance view, where a
 short clean list is the most dangerous thing on offer.
 
 Usage:
-    python ci/doc_dashboard.py doc-status.json
-    python ci/doc_dashboard.py doc-status.json --state draft
-    python ci/doc_dashboard.py doc-status.json --out handbook/document-states.md
+    python ci/doc_dashboard.py status/documents.yaml
+    python ci/doc_dashboard.py status/documents.yaml --state draft
+    python ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md
 """
 
 from __future__ import annotations

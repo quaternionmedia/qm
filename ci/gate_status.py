@@ -25,9 +25,9 @@ measure of how much of this governance is still customary, and deleting an
 entry to make a page green is the one edit the registry forbids.
 
 Usage:
-    python ci/gate_status.py --write gate-status.json
-    python ci/gate_status.py --no-host --write gate-status.json
-    python ci/gate_status.py --check gate-status.json
+    python ci/gate_status.py --write status/gates.yaml
+    python ci/gate_status.py --no-host --write status/gates.yaml
+    python ci/gate_status.py --check status/gates.yaml
 """
 
 from __future__ import annotations
@@ -241,11 +241,11 @@ def build(registry: Path, workflows: Path, repo: str, host: bool) -> dict:
         },
         "reading": {
             "refresh": "uv run qm docs generate",
-            "refresh_without_the_cli": "python ci/gate_status.py --write gate-status.json",
+            "refresh_without_the_cli": "python ci/gate_status.py --write status/gates.yaml",
             "staleness_budget_hours": 168,
-            "human_view": "python ci/gate_dashboard.py gate-status.json --out gates.html",
+            "human_view": "python ci/gate_dashboard.py status/gates.yaml --out gates.html",
             "agent_view": "uv run qm gates",
-            "faithfulness_check": "python ci/gate_status.py --check gate-status.json",
+            "faithfulness_check": "python ci/gate_status.py --check status/gates.yaml",
             "unknown_convention": (
                 '{"unknown": "<reason>"} is a value. It means the fact could not '
                 "be established and says why. It is not zero, not empty, and not "
@@ -327,6 +327,12 @@ def main(argv: list[str] | None = None) -> int:
     document = build(Path(args.registry), Path(args.workflows), args.repo, host=not args.no_host)
 
     if args.write:
+        # The parent is made, not assumed. The standard moved this document
+        # into `status/`, which exists in the repository and does not exist in
+        # a fresh fixture -- three tests failed on exactly that gap the day of
+        # the migration, and a writer that requires its directory to pre-exist
+        # fails differently on every machine that lacks it.
+        Path(args.write).parent.mkdir(parents=True, exist_ok=True)
         Path(args.write).write_text(
             json.dumps(document, indent=2) + "\n", encoding="utf-8", newline="\n"
         )

@@ -113,7 +113,7 @@ def test_label_never_raises(entry, expected):
 
 def test_the_committed_roster_names_no_private_repository():
     """The regression. Two names sat here from 2b50bd6 while
-    inventory-public.json redacted the same two repositories."""
+    status/inventory.yaml redacted the same two repositories."""
     document = yaml.safe_load((CI_DIR / "workspace.yaml").read_text(encoding="utf-8"))
     for entry in document["repositories"]:
         if entry.get("ref", "").startswith("private-"):

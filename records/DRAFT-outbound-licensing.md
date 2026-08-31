@@ -126,7 +126,7 @@ client's own product is a licence the client declines.
     mandates extends to QM's own repositories. Changes to this class table
     are amendments to this record.
     **Which repositories actually satisfy this is not a claim this record
-    makes.** It is measured, with a timestamp, by `governance-status.yaml`'s
+    makes.** It is measured, with a timestamp, by `status/governance.yaml`'s
     `licensing` probe and reported per repository there. This clause states
     the requirement; that document states the compliance, and the two are
     kept apart because a record asserting a universal it never measured is

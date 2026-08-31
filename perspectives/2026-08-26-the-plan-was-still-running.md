@@ -213,7 +213,7 @@ Not proposals for records; the operator decides what becomes one.
    banner, so the check is "every banner is named in step 4".
 
 2. **The gates a project carries is a fact nothing reports.**
-   `governance-status.yaml` records an `adoption.ide` list per project over
+   `status/governance.yaml` records an `adoption.ide` list per project over
    the API. There is no equivalent for workflows, so the table in §3 had to be
    built by hand from clones, and its provenance is worse for it.
 

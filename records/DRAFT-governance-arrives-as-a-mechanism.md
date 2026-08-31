@@ -54,8 +54,8 @@ to a stranger.
 2. **A record states a requirement. It does not assert an empirical
    universal.** "Every QM repository is X" is a sentence a generator writes
    from evidence, with a timestamp, never a sentence a record writes from
-   intent. A record says what must hold; `governance-status.yaml`,
-   `gate-status.json` and their kin say what does. Where a record needs to
+   intent. A record says what must hold; `status/governance.yaml`,
+   `status/gates.yaml` and their kin say what does. Where a record needs to
    refer to compliance, it names the document that measures it.
 
 3. **A record's enforcement clause names its mechanism by path, and the

@@ -37,7 +37,7 @@ WHAT IT DELIBERATELY DOES NOT DO.
     `project/<name>` branch are read from refs here, with no network. A project
     that keeps `adr/` locally -- rad does, and the seed workflow supports it --
     is reported as unreadable *from here*, by name, rather than as having
-    nothing to say. That is the same distinction `governance-status.yaml` draws
+    nothing to say. That is the same distinction `status/governance.yaml` draws
     with `records_dir`, and this is the second reader of it.
   * **It does not close anything.** A row stops appearing when the record's
     author changes it, which is the only party that can know.
@@ -190,7 +190,7 @@ def render(found: list[Waiting], silent: list[str]) -> str:
         # a finding.
         out.append("      Either the records are in the project's own "
                    "repository or none has been written. "
-                   "`governance-status.yaml`'s `records_dir` says which.")
+                   "`status/governance.yaml`'s `records_dir` says which.")
         out.append("")
 
     out.append("  A row leaves this list when its own record's author changes "

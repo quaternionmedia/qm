@@ -3,7 +3,7 @@
 
 `ci/workspace.yaml` is the committed roster. A **private** repository appears
 there as a bare `ref` and nothing else -- naming it would defeat the redaction
-`inventory-public.json` applies to the same repository, which is how the corpus
+`status/inventory.yaml` applies to the same repository, which is how the corpus
 came to contradict itself for five days.
 
 That redaction broke every consumer at once. Four generators read

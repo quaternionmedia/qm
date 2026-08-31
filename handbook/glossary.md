@@ -41,7 +41,7 @@ Each of these has bitten. The disambiguator is the column on the right.
 | **corpus** | this repository. The org-level constitution every project adopts by reference |
 | **project** | a repository that vendors the corpus at `governance/qm` and pins a `project/<name>` branch |
 | **claim** | something a human asserted. Never derived from artifacts. `ci/workspace.yaml` is claims |
-| **evidence** | something a generator measured, with a timestamp. `governance-status.yaml` is evidence |
+| **evidence** | something a generator measured, with a timestamp. `status/governance.yaml` is evidence |
 | **unknown** | a fact that could not be established, spelled `{"unknown": "<reason>"}`. **Not** zero, not empty, not compliant |
 | **advisory** | a gate that reports and cannot block a merge. Every gate here is advisory today |
 | **mechanical** | a rule a script can fail you on. Its opposite is **customary** — written down and unenforced |

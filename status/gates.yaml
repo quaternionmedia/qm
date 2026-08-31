@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-31T00:58:12Z",
+  "generated_at": "2026-08-31T02:48:33Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -20,11 +20,11 @@
   },
   "reading": {
     "refresh": "uv run qm docs generate",
-    "refresh_without_the_cli": "python ci/gate_status.py --write gate-status.json",
+    "refresh_without_the_cli": "python ci/gate_status.py --write status/gates.yaml",
     "staleness_budget_hours": 168,
-    "human_view": "python ci/gate_dashboard.py gate-status.json --out gates.html",
+    "human_view": "python ci/gate_dashboard.py status/gates.yaml --out gates.html",
     "agent_view": "uv run qm gates",
-    "faithfulness_check": "python ci/gate_status.py --check gate-status.json",
+    "faithfulness_check": "python ci/gate_status.py --check status/gates.yaml",
     "unknown_convention": "{\"unknown\": \"<reason>\"} is a value. It means the fact could not be established and says why. It is not zero, not empty, and not compliant -- a gate nobody could measure must never be read as a gate with nothing wrong.",
     "do_not": [
       "quote a figure from this document without its generated_at",
@@ -209,7 +209,7 @@
       "enforces": [
         "handbook/generated-documents.md"
       ],
-      "refuses": "A committed `governance-status.yaml` that no longer renders the commits it names, and a rendered view that has drifted from it.",
+      "refuses": "A committed `status/governance.yaml` that no longer renders the commits it names, and a rendered view that has drifted from it.",
       "cannot_see": "Whether the document is current. It checks faithfulness to the refs it names, not age -- a document generated from unfetched refs passed this once, which is why the workflow fetches first.",
       "evidence": {
         "present": true,

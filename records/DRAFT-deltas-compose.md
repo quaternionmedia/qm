@@ -114,7 +114,7 @@ validation error was giving them.
 
 **Cross-repository relations will dangle.** An address whose delta this side has
 never ingested is normal and stays. It also means a relation count is not a
-measure of anything — the corpus is used to that from `governance-status.yaml`.
+measure of anything — the corpus is used to that from `status/governance.yaml`.
 
 **`same-as` makes duplicate detection possible and does not do it.** Two
 detectors proposing the same strand under two addresses is the ordinary case,

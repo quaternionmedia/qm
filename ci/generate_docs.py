@@ -16,9 +16,9 @@ two needing a remembered command are stale.
 THE NETWORK SPLIT IS THE IMPORTANT PART. Three of these read other repositories
 or the host:
 
-    governance-status.yaml   reads every project's refs
-    harness-status.json      reads pull requests across the org
-    gate-status.json         reads this repository's rulesets
+    status/governance.yaml   reads every project's refs
+    status/harness.yaml      reads pull requests across the org
+    status/gates.yaml         reads this repository's rulesets
 
 `--offline` skips exactly those and says so in the report. It never writes a
 network-derived fact it did not fetch, and it never leaves a stale one looking
@@ -62,38 +62,38 @@ ROOT = _corpus_root()
 # (label, argv, output path, reaches_network, check_argv or None)
 #
 # Order matters twice: a renderer must run after the document it reads, and
-# doc-status.json must run last because it reports on the files the others just
+# status/documents.yaml must run last because it reports on the files the others just
 # wrote. Getting that backwards produces a state page describing the previous
 # run, which is the kind of confidently-wrong artifact this corpus keeps finding.
 STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
     (
         "governance status",
-        ["ci/governance_status.py", "--write", "governance-status.yaml"],
-        "governance-status.yaml",
+        ["ci/governance_status.py", "--write", "status/governance.yaml"],
+        "status/governance.yaml",
         True,
-        ["ci/governance_status.py", "--check", "governance-status.yaml"],
+        ["ci/governance_status.py", "--check", "status/governance.yaml"],
     ),
     (
         "harness status",
-        ["ci/harness_status.py", "--no-local", "--write", "harness-status.json"],
-        "harness-status.json",
+        ["ci/harness_status.py", "--no-local", "--write", "status/harness.yaml"],
+        "status/harness.yaml",
         True,
         None,
     ),
     (
         "gate status",
-        ["ci/gate_status.py", "--write", "gate-status.json"],
-        "gate-status.json",
+        ["ci/gate_status.py", "--write", "status/gates.yaml"],
+        "status/gates.yaml",
         True,
-        ["ci/gate_status.py", "--check", "gate-status.json"],
+        ["ci/gate_status.py", "--check", "status/gates.yaml"],
     ),
     (
         "gate view",
-        ["ci/gate_dashboard.py", "gate-status.json", "--format", "md",
+        ["ci/gate_dashboard.py", "status/gates.yaml", "--format", "md",
          "--out", "handbook/gates.md"],
         "handbook/gates.md",
         False,
-        ["ci/gate_dashboard.py", "gate-status.json", "--format", "md",
+        ["ci/gate_dashboard.py", "status/gates.yaml", "--format", "md",
          "--check", "handbook/gates.md"],
     ),
     (
@@ -112,21 +112,21 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
     ),
     (
         "document states",
-        ["ci/doc_status.py", "--write", "doc-status.json"],
-        "doc-status.json",
+        ["ci/doc_status.py", "--write", "status/documents.yaml"],
+        "status/documents.yaml",
         False,
-        ["ci/doc_status.py", "--check", "doc-status.json"],
+        ["ci/doc_status.py", "--check", "status/documents.yaml"],
     ),
     (
         "document states view",
-        ["ci/doc_dashboard.py", "doc-status.json", "--out", "handbook/document-states.md"],
+        ["ci/doc_dashboard.py", "status/documents.yaml", "--out", "handbook/document-states.md"],
         "handbook/document-states.md",
         False,
-        ["ci/doc_dashboard.py", "doc-status.json", "--check", "handbook/document-states.md"],
+        ["ci/doc_dashboard.py", "status/documents.yaml", "--check", "handbook/document-states.md"],
     ),
 ]
 
-# gate-status.json reaches the host only for its enforcement layer, and writes
+# status/gates.yaml reaches the host only for its enforcement layer, and writes
 # `unknown` instead when told not to. The others have no offline mode.
 OFFLINE_FLAG = {"gate status": "--no-host"}
 

@@ -47,7 +47,7 @@ Read [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.
 | Set up a new QM project | [Forking a new project](first-project.md) |
 | Understand how projects relate to the org | [Architecture](../about/architecture.md) |
 | Learn the branch rules | [Branch namespaces](../ref/namespaces.md) |
-| See where every project stands | [governance-status.yaml](https://github.com/quaternionmedia/qm/blob/main/governance-status.yaml); how to read it: [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) |
+| See where every project stands | [status/governance.yaml](https://github.com/quaternionmedia/qm/blob/main/governance-status.yaml); how to read it: [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) |
 | Learn policy and procedure | [Handbook index](../ref/handbook.md) |
 | Work here as a coding agent | [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md) |
 

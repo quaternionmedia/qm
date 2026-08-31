@@ -60,7 +60,7 @@ inferred:
 - A project whose records are not on its branch is **unknown, not quiet**. It
   keeps `adr/` in its own repository — the second model
   `project-seed/ci/adr-lint.yml` offers — or nobody has written one yet, and
-  `governance-status.yaml`'s `records_dir` says which.
+  `status/governance.yaml`'s `records_dir` says which.
 - It does not judge which rows are the org's to answer. A `Pends on` row is
   prose a person wrote; grouping identical text is mechanical, and reading
   intent would be a guess printed as a finding.

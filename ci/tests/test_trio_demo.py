@@ -580,3 +580,46 @@ def test_a_failing_second_act_clears_the_verdict_in_the_json():
 
     body = inspect.getsource(module.main)
     assert 'result["agreed"] = False' in body
+
+
+# --- the third act: the estate ------------------------------------------------
+
+
+@needs_siblings
+def test_the_estate_act_runs_and_two_hosts_agree():
+    """The finale: the corpus's own statement of the estate, read from the
+    seam by two core members in their own runtimes, held to the window
+    standard -- one host agreeing with itself establishes nothing.
+
+    Mutation: point `_estate` at a missing file and this fails on exit code.
+    """
+    done = _via_cli("--fixture", "--skip-readers")
+    assert done.returncode == 0, done.stdout[-3000:]
+    assert "THIRD ACT -- the estate, drawn from the seam" in done.stdout
+    assert "agree about every family, every member, and every placement" in done.stdout
+
+
+@needs_siblings
+def test_the_estate_act_reports_in_json_with_the_same_verdict():
+    """The JSON must carry the estate the prose claimed -- two answers to one
+    question in one document is the defect the second act already guards."""
+    done = _via_cli("--fixture", "--skip-readers", "--json")
+    assert done.returncode == 0, done.stdout[-3000:]
+    import json as _json
+    found = _json.loads(done.stdout)
+    assert found["agreed"] is True
+    assert sorted(found["estate"]["hosts"]) == ["codecartographer", "dossier"]
+    assert found["estate"]["families"] >= 4
+    assert found["estate"]["placements"] > found["estate"]["families"], (
+        "fewer placements than families would mean empty families agreed")
+
+
+@needs_siblings
+def test_skipping_the_estate_is_stated_in_the_output():
+    """A skip that left no trace would read as a demo that covered less than
+    it claimed -- the same rule the reader act already follows."""
+    done = _via_cli("--fixture", "--skip-readers", "--skip-estate")
+    assert done.returncode == 0, done.stdout[-2000:]
+    assert "third act was skipped" in done.stdout
+    assert "ESTATE AGREEMENT" not in done.stdout
+

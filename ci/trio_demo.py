@@ -709,6 +709,111 @@ READERS: dict[str, str] = {
 }
 
 
+# --- the third act: the estate itself -----------------------------------------
+#
+# Each core member reads `families.json` over the seam -- the file, at its
+# pinned path, in that host's own runtime -- and answers with one shape:
+# family names, member counts, and a flat sorted list of every placement as
+# "family/member". Agreement is judged on the placements, so two hosts that
+# counted alike but placed differently still disagree visibly.
+ESTATE_READ = r'''
+import json, sys
+document = json.loads(sys.stdin.read())
+placements = sorted(
+    f"{f['name']}/{m}" for f in document["families"] for m in f["members"])
+print(json.dumps({
+    "families": sorted(f["name"] for f in document["families"]),
+    "members": sum(len(f["members"]) for f in document["families"]),
+    "unstated": len(document["unstated"]),
+    "placements": placements,
+}))
+'''
+
+
+def _estate(args, say, result) -> int:
+    """The third act: the estate, drawn from the seam by the hosts it names.
+
+    The subject is `families.json` -- the corpus's own statement of which
+    repositories are one working system. Each reader is a core member reading
+    the governed file in its own runtime, and agreement is held to the same
+    standard as the windows: one host agreeing with itself establishes
+    nothing.
+
+    What this deliberately does not do: parse the record, or read the roster.
+    The seam file is the one artifact consumers are told to read, so the demo
+    reads it the way they do -- anything else would demonstrate a private
+    shortcut.
+    """
+    say("\n" + "=" * 72)
+    say("THIRD ACT -- the estate, drawn from the seam")
+    say("=" * 72)
+
+    seam = HERE / "families.json"
+    if not seam.is_file():
+        result["problems"].append("families.json is not at the seam path")
+        say("    families.json is not where the consumers are told it is. "
+            "Nothing was established; `uv run qm docs generate` writes it.")
+        return 1
+    document = seam.read_text(encoding="utf-8")
+    generated = json.loads(document)
+    placed = sum(len(f["members"]) for f in generated["families"])
+    say(f"\n[1] the corpus serves the estate: {len(generated['families'])} "
+        f"families, {placed} placed, {len(generated['unstated'])} unstated")
+    for family in generated["families"]:
+        say(f"      {family['name']:<20} {len(family['members'])} member(s)")
+
+    answers = {}
+    step = 2
+    for name in ("dossier", "codecartographer"):
+        project = sibling(name)
+        say(f"\n[{step}] {name} reads the estate in its own runtime")
+        step += 1
+        if project is None:
+            say(f"    {name} is not beside this clone -- not read")
+            continue
+        window = _reader(name, project, ESTATE_READ, document)
+        if not window.ok:
+            say(f"    could not read it:\n{window.detail}")
+            result["problems"].append(f"{name} could not read the estate")
+            continue
+        answers[name] = window.found
+        say(f"    families {len(window.found['families'])}  "
+            f"members {window.found['members']}  "
+            f"unstated {window.found['unstated']}")
+
+    say("\n" + "-" * 72)
+    say("ESTATE AGREEMENT")
+    say("-" * 72)
+    if len(answers) < 2:
+        say(f"  only {len(answers)} host(s) read it -- agreement is not "
+            f"established by one host agreeing with itself")
+        result["problems"].append("estate: fewer than two hosts read the seam")
+        return 1
+    baseline_host, baseline = sorted(answers.items())[0]
+    for name, found in sorted(answers.items())[1:]:
+        if found["placements"] != baseline["placements"]:
+            ours = set(baseline["placements"])
+            theirs = set(found["placements"])
+            say(f"  {name} DISAGREES with {baseline_host} about the placements:")
+            for missing in sorted(ours - theirs)[:5]:
+                say(f"    it lacks {missing}")
+            for extra in sorted(theirs - ours)[:5]:
+                say(f"    it adds  {extra}")
+            result["problems"].append(f"estate: {name} drew different placements")
+            return 1
+    hosts = " and ".join(sorted(answers))
+    say(f"  {hosts} agree about every family, every member, and every "
+        f"placement -- {len(baseline['placements'])} of them.")
+    result["estate"] = {"hosts": sorted(answers),
+                        "placements": len(baseline["placements"]),
+                        "families": len(generated["families"]),
+                        "unstated": len(generated["unstated"])}
+    say("\n  What this did not establish: that any placement is right. The "
+        "border is what a repository drives, and reading that needs a person. "
+        "Both hosts would faithfully draw a wrong estate.")
+    return 0
+
+
 # The gap between columns. Wide enough that two renderings do not read as one
 # wrapped paragraph, narrow enough not to cost a column its content.
 GUTTER = 4
@@ -1182,6 +1287,9 @@ def build_parser() -> argparse.ArgumentParser:
         help=("emit the result as one JSON document instead of prose. The "
               "exit status is the same either way"))
     parser.add_argument(
+        "--skip-estate", action="store_true",
+        help="skip the third act: the estate read from the seam by two hosts")
+    parser.add_argument(
         "--skip-readers", action="store_true", dest="skip_readers",
         help=("stop after the topology act. The second act hands one thread "
               "to looksatwords, dossier and codecartographer as readers; it "
@@ -1354,6 +1462,21 @@ def main(argv: list[str] | None = None) -> int:
         for name, found in result.get("readers", {}).get("read", {}).items():
             if not found.get("read"):
                 say(f"  - Anything about {name}: {found['why']}")
+
+    # **THE THIRD ACT RUNS AFTER BOTH HAVE AGREED**, for the same reason the
+    # second waits on the first: the estate is the widest claim in the room,
+    # and a disagreement about a topology or a thread must not be buried
+    # under it.
+    if args.skip_estate:
+        say("\n  - The third act was skipped (--skip-estate): nothing about "
+            "the estate.")
+    else:
+        verdict = _estate(args, say, result)
+        if verdict != 0:
+            result["agreed"] = False
+            if args.as_json:
+                print(json.dumps(result, indent=2))
+            return verdict
 
     if args.as_json:
         print(json.dumps(result, indent=2))

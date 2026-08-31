@@ -238,12 +238,12 @@ def test_a_generated_document_is_reported_with_its_age(repo: Path) -> None:
     """A session that cannot see the age quotes the number anyway."""
     write(repo / "PRINCIPLES.md", "# Charter\n")
     write(
-        repo / "harness-status.json",
+        repo / "status/harness.yaml",
         '{"schema": 1, "generated_at": "2026-01-01T00:00:00Z", "repositories": []}\n',
     )
     commit_all(repo, "documents")
     text = brief(repo)
-    assert "harness-status.json" in text
+    assert "status/harness.yaml" in text
     assert "past its 24h budget" in text
     assert "re-derive any figure you act on" in text
 
@@ -254,7 +254,7 @@ def test_a_fresh_document_is_not_reported_as_stale(repo: Path) -> None:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     write(repo / "PRINCIPLES.md", "# Charter\n")
     write(
-        repo / "harness-status.json",
+        repo / "status/harness.yaml",
         f'{{"schema": 1, "generated_at": "{now}", "repositories": []}}\n',
     )
     commit_all(repo, "documents")
@@ -268,14 +268,14 @@ def test_an_absent_document_is_named_rather_than_omitted(repo: Path) -> None:
     write(repo / "PRINCIPLES.md", "# Charter\n")
     commit_all(repo, "charter")
     text = brief(repo)
-    assert "`harness-status.json` — **absent**" in text
+    assert "`status/harness.yaml` — **absent**" in text
     assert "do not assume clean" in text
 
 
 def test_a_document_without_a_stamp_is_age_unknown_not_age_zero(repo: Path) -> None:
     """mtime would say 'minutes old' in every fresh clone, which is every session."""
     write(repo / "PRINCIPLES.md", "# Charter\n")
-    write(repo / "harness-status.json", '{"schema": 1, "repositories": []}\n')
+    write(repo / "status/harness.yaml", '{"schema": 1, "repositories": []}\n')
     commit_all(repo, "documents")
     text = brief(repo)
     assert "**Age unknown**" in text

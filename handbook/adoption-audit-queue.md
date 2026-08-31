@@ -18,8 +18,8 @@ Twelve `project/*` branches exist. Eleven name a repository that can be read;
 
 **This table is the queue, not the state.** It says which projects an audit has
 been through and what class of defect each turned up — facts that stay true.
-Current state is `governance-status.yaml` and `harness-status.json` at the root,
-and `ci/harness_dashboard.py harness-status.json --format md` prints it.
+Current state is `status/governance.yaml` and `status/harness.yaml` at the root,
+and `ci/harness_dashboard.py status/harness.yaml --format md` prints it.
 
 Earlier versions of this table carried cells like "29 commits unpushed locally"
 and "has no remote". Those are one workstation at one moment, they went stale

@@ -23,7 +23,7 @@ lanes:
     question: How does this corpus decide, review and ratify anything at all?
     owns:
       - records/          # decisions, and the drafting rules for decisions
-      - ledger.yaml       # what was predicted, what happened, what it cost
+      - status/ledger.yaml       # what was predicted, what happened, what it cost
       - ci/policy-registry.yaml
       - ci/exception-registry.yaml
       - ci/tool-registry.yaml
@@ -47,7 +47,7 @@ lanes:
     owns:
       - ci/workspace.yaml       # the roster
       - ci/roster.py
-      - inventory-public.json
+      - status/inventory.yaml
       - project-seed/           # what a fork runs in place
       - handbook/forking-a-project.md
     does_not_own: >
@@ -57,11 +57,11 @@ lanes:
       A propagation pull request against each `project/<name>` base, merged and
       never rebased, because a downstream submodule pins the tip.
     measures:
-      - governance-status.yaml, generated from git and the host rather than claims
+      - status/governance.yaml, generated from git and the host rather than claims
       - "`uv run qm private-names`"
     open:
       - >
-        governance-status.yaml and harness-status.json name two private
+        status/governance.yaml and status/harness.yaml name two private
         repositories in their governed-project lists. The roster is redacted;
         these two are generated from the host and are not. Registered in
         ci/exception-registry.yaml with a removal condition.

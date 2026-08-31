@@ -574,7 +574,7 @@ def test_the_real_document_carries_no_unredacted_private_project():
     """The regression this whole change exists for: the governed-project list
     was unfiltered while the document claimed private names were withheld."""
     document = yaml.safe_load(
-        (Path(__file__).resolve().parent.parent.parent / "governance-status.yaml").read_text(encoding="utf-8")
+        (Path(__file__).resolve().parent.parent.parent / "status/governance.yaml").read_text(encoding="utf-8")
     )
     assert document["generator"]["private_repository_names_listed"] is False
     names = [p["name"] for p in document["projects"] if isinstance(p, dict)]

@@ -163,13 +163,13 @@ real bug.
 
 **"Where do these numbers come from, and are they current?"**
 
-`governance-status.yaml` and `harness-status.json`, both at the root of the `qm`
+`status/governance.yaml` and `status/harness.yaml`, both at the root of the `qm`
 clone. Read them rather than recomputing — a figure you derive yourself is a
 second number nothing keeps up to date.
 
-They are not symmetrical. `harness-status.json` carries its own refresh command
+They are not symmetrical. `status/harness.yaml` carries its own refresh command
 and staleness budget in a `reading:` block inside the file.
-`governance-status.yaml` has no such block, and its refresh command and its
+`status/governance.yaml` has no such block, and its refresh command and its
 168-hour budget live only in
 [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 Check the age before quoting either.

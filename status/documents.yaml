@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-31T00:58:16Z",
+  "generated_at": "2026-08-31T02:48:36Z",
   "generator": {
     "tool": "ci/doc_status.py",
     "signals": [
@@ -12,7 +12,7 @@
   },
   "reading": {
     "refresh": "uv run qm docs generate",
-    "refresh_without_the_cli": "python ci/doc_status.py --write doc-status.json",
+    "refresh_without_the_cli": "python ci/doc_status.py --write status/documents.yaml",
     "staleness_budget_hours": 168,
     "agent_view": "uv run qm docs states",
     "toggle": "uv run qm docs states --state draft",
@@ -83,22 +83,22 @@
         {
           "id": "ratification-rehearsed",
           "what": "At least one record ratified end to end, so the five-step path has been walked once",
-          "measured_by": "doc-status.json readiness.records.ratified"
+          "measured_by": "status/documents.yaml readiness.records.ratified"
         },
         {
           "id": "reading-within-budget",
           "what": "Mandatory reading before a first edit stays under its budget",
-          "measured_by": "doc-status.json reading_load.within_budget"
+          "measured_by": "status/documents.yaml reading_load.within_budget"
         },
         {
           "id": "no-unknown-document-states",
           "what": "Every governed document's state can be established",
-          "measured_by": "doc-status.json totals.unknown"
+          "measured_by": "status/documents.yaml totals.unknown"
         },
         {
           "id": "gates-declared-are-built",
           "what": "No gate is declared and unbuilt, or the gap is deliberate and named",
-          "measured_by": "gate-status.json totals.declared_not_built"
+          "measured_by": "status/gates.yaml totals.declared_not_built"
         },
         {
           "id": "semantic-review-done",
@@ -119,7 +119,7 @@
       "reading_total_lines": 1132,
       "reading_budget_lines": 700,
       "gates": {
-        "unknown": "held in gate-status.json, which this generator does not read -- one document does not restate another's figures"
+        "unknown": "held in status/gates.yaml, which this generator does not read -- one document does not restate another's figures"
       },
       "semantic_review": {
         "unknown": "not mechanisable. A human reads every record in one sitting and says so; no count here can stand in for that"
@@ -170,17 +170,6 @@
       "state_from_filename": null,
       "state": "standing",
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
-    },
-    {
-      "path": "doc-status.json",
-      "class": "generated",
-      "class_reason": "a tool writes it",
-      "declared_status": null,
-      "state_from_status_row": null,
-      "state_from_filename": null,
-      "state": "generated",
-      "refresh": "python ci/doc_status.py --write doc-status.json",
-      "present": true
     },
     {
       "path": "docs/about/architecture.md",
@@ -443,28 +432,6 @@
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
     },
     {
-      "path": "gate-status.json",
-      "class": "generated",
-      "class_reason": "a tool writes it",
-      "declared_status": null,
-      "state_from_status_row": null,
-      "state_from_filename": null,
-      "state": "generated",
-      "refresh": "python ci/gate_status.py --write gate-status.json",
-      "present": true
-    },
-    {
-      "path": "governance-status.yaml",
-      "class": "generated",
-      "class_reason": "a tool writes it",
-      "declared_status": null,
-      "state_from_status_row": null,
-      "state_from_filename": null,
-      "state": "generated",
-      "refresh": "python ci/governance_status.py --write governance-status.yaml",
-      "present": true
-    },
-    {
       "path": "handbook/adoption-audit-queue.md",
       "class": "handbook",
       "class_reason": "policy binding on QM's own conduct",
@@ -502,7 +469,7 @@
       "state_from_status_row": null,
       "state_from_filename": null,
       "state": "generated",
-      "refresh": "python ci/doc_dashboard.py doc-status.json --out handbook/document-states.md",
+      "refresh": "python ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md",
       "present": true
     },
     {
@@ -523,7 +490,7 @@
       "state_from_status_row": null,
       "state_from_filename": null,
       "state": "generated",
-      "refresh": "python ci/gate_dashboard.py gate-status.json --format md --out handbook/gates.md",
+      "refresh": "python ci/gate_dashboard.py status/gates.yaml --format md --out handbook/gates.md",
       "present": true
     },
     {
@@ -803,17 +770,6 @@
       "state_from_filename": null,
       "state": "standing",
       "note": "the corpus defines no lifecycle for this class, so this is the absence of a state rather than a state"
-    },
-    {
-      "path": "harness-status.json",
-      "class": "generated",
-      "class_reason": "a tool writes it",
-      "declared_status": null,
-      "state_from_status_row": null,
-      "state_from_filename": null,
-      "state": "generated",
-      "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
-      "present": true
     },
     {
       "path": "inventory.json",
@@ -1940,6 +1896,50 @@
       "state_from_status_row": "proposed",
       "state_from_filename": "draft",
       "state": "proposed"
+    },
+    {
+      "path": "status/documents.yaml",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/doc_status.py --write status/documents.yaml",
+      "present": true
+    },
+    {
+      "path": "status/gates.yaml",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/gate_status.py --write status/gates.yaml",
+      "present": true
+    },
+    {
+      "path": "status/governance.yaml",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/governance_status.py --write status/governance.yaml",
+      "present": true
+    },
+    {
+      "path": "status/harness.yaml",
+      "class": "generated",
+      "class_reason": "a tool writes it",
+      "declared_status": null,
+      "state_from_status_row": null,
+      "state_from_filename": null,
+      "state": "generated",
+      "refresh": "python ci/harness_status.py --no-local --write status/harness.yaml",
+      "present": true
     },
     {
       "path": "walkthrough/01-two-views-one-dataset.md",

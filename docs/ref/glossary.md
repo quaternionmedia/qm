@@ -30,7 +30,7 @@
 : QM's policy and procedure pages, in `handbook/`. Binding on QM's own conduct; a record always wins over a handbook page. See [Handbook index](handbook.md).
 
 **Harness** { #harness }
-: The tooling that coordinates work across concurrent agent sessions: the scripts in `project-seed/ci/` that establish what a session must know, the checks they run, and `harness-status.json`. The governance layer names no product — optional per-tool wrappers live in `adapters/`. See [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
+: The tooling that coordinates work across concurrent agent sessions: the scripts in `project-seed/ci/` that establish what a session must know, the checks they run, and `status/harness.yaml`. The governance layer names no product — optional per-tool wrappers live in `adapters/`. See [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 
 **Knot** { #knot }
 : A cycle in the obligation graph where every edge imposes an order, so the ring has no first step. Untying one means a person chooses, or a stated relation gets cut. Distinct from a loop. See [records/DRAFT-a-knot-is-a-cycle-of-obligation.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-knot-is-a-cycle-of-obligation.md).

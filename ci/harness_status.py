@@ -26,14 +26,14 @@ Any fact this tool could not establish is written as `{"unknown": "<reason>"}`,
 never omitted and never defaulted. A repository whose pull requests could not
 be read must not render like a repository with none, because the second reads
 as compliance and the first is an absence of evidence. This is the same
-convention as governance-status.yaml, deliberately.
+convention as status/governance.yaml, deliberately.
 
 Usage:
-    python ci/harness_status.py --no-local --write harness-status.json
+    python ci/harness_status.py --no-local --write status/harness.yaml
     python ci/harness_status.py --write ~/harness-status.local.json
 
 The committed copy needs --no-local, and the machine-scoped copy needs a path
-outside the repository. There is no third form: `--write harness-status.json`
+outside the repository. There is no third form: `--write status/harness.yaml`
 without --no-local always refuses, because that would commit one person's
 clones. This block used to lead with exactly that invocation.
 """
@@ -66,7 +66,7 @@ CORPUS_PER_BASE = ["project/*"]
 
 # Where the committed copy lives. An agent that cannot guess this path reads
 # nothing, so it is fixed rather than passed, and named in AGENTS.md.
-COMMITTED = CORPUS / "harness-status.json"
+COMMITTED = CORPUS / "status/harness.yaml"
 
 # How long this document may be quoted before it has to be re-derived. Pull
 # request slots turn over in hours -- six sessions produced eight in a day --
@@ -391,7 +391,7 @@ GOVERNANCE_ARTIFACTS = ("submodule", "ide", "workflows", "licensing")
 def governance_evidence(project: dict | None) -> dict:
     """What has actually landed on a project's default branch.
 
-    Read out of governance-status.yaml, which is generated from git and the
+    Read out of status/governance.yaml, which is generated from git and the
     host. Nothing here consults the roster: the roster holds what somebody
     claimed, and a check that reads a claim to decide whether the claim is true
     is not a check.
@@ -578,7 +578,7 @@ def build(
             ),
             "stalled_after_hours": STALLED_AFTER_HOURS,
             "governance_layer_is_evidence": (
-                "read from governance-status.yaml, on each project's default "
+                "read from status/governance.yaml, on each project's default "
                 "branch. Work in an open pull request is work, not evidence."
             ),
             "layers": ["phase", "slots"]
@@ -599,9 +599,9 @@ def build(
         "reading": {
             "refresh": "uv run qm docs generate",
             "refresh_without_the_cli": (
-                "python ci/harness_status.py --no-local --write harness-status.json"),
+                "python ci/harness_status.py --no-local --write status/harness.yaml"),
             "staleness_budget_hours": STALENESS_BUDGET_HOURS,
-            "human_view": "python ci/harness_dashboard.py harness-status.json --out status.html",
+            "human_view": "python ci/harness_dashboard.py status/harness.yaml --out status.html",
             "agent_view": "uv run qm harness",
             "unknown_convention": (
                 '{"unknown": "<reason>"} is a value. It means the fact could '
@@ -681,7 +681,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--governance",
         type=Path,
-        default=CORPUS / "governance-status.yaml",
+        default=CORPUS / "status/governance.yaml",
         help="the generated status document the evidence layer is read from",
     )
     parser.add_argument(

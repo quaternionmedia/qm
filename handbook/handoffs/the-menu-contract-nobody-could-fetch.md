@@ -92,7 +92,7 @@ covered.
 
 ### qm — `evolve/the-status-sees-local-records`, 1 commit
 
-`governance-status.yaml` reports rad with **zero records** while rad holds
+`status/governance.yaml` reports rad with **zero records** while rad holds
 eleven. The census counts a project's `adr/` on its corpus branch, and
 `project/rad` carries only the seeded `README.md` and `TEMPLATE.md`. The
 generator now also reads the `RECORDS_DIR` a project's own `adr-lint.yml`

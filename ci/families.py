@@ -158,6 +158,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.write:
         rendered = json.dumps(document(entries, families), indent=2)
+        Path(args.write).parent.mkdir(parents=True, exist_ok=True)
         Path(args.write).write_text(rendered + chr(10), encoding="utf-8")
         print(f"wrote {args.write}")
         return 0

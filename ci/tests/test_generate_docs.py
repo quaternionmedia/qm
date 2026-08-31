@@ -11,7 +11,7 @@ nothing checked the ordering, the `--check` mode, or what it reports as moved,
 which are the three things only this module decides.
 
 THE TEST WORTH READING IS THE ORDERING ONE. "A renderer must run after the
-document it reads, and `doc-status.json` must run last because it reports on the
+document it reads, and `status/documents.yaml` must run last because it reports on the
 files the others just wrote. Getting that backwards produces a state page
 describing the previous run" — that is written in the module and was checked by
 nothing.
@@ -67,7 +67,7 @@ def checked() -> subprocess.CompletedProcess:
 def test_the_state_document_is_written_last():
     """THE ONE THAT MATTERS.
 
-    `doc-status.json` reports on the files the other steps just wrote. Run it
+    `status/documents.yaml` reports on the files the other steps just wrote. Run it
     earlier and it describes the *previous* run — a state page that is
     confidently wrong, which is the shape this corpus keeps finding.
 
@@ -76,28 +76,28 @@ def test_the_state_document_is_written_last():
     labels = [label for label, *_ in generate_docs.STEPS]
     writes = [out for _, _, out, _, _ in generate_docs.STEPS]
 
-    assert "doc-status.json" in writes, writes
-    at = writes.index("doc-status.json")
-    later = [w for w in writes[at + 1:] if w != "doc-status.json"]
+    assert "status/documents.yaml" in writes, writes
+    at = writes.index("status/documents.yaml")
+    later = [w for w in writes[at + 1:] if w != "status/documents.yaml"]
     # Renderers of doc-status may follow it; nothing that *writes a document it
     # reports on* may.
     assert all(w.endswith(".md") for w in later), (
         f"these write after the state document and would not be described by "
         f"it: {later}")
     assert at >= len(writes) - 3, (
-        f"doc-status.json is step {at + 1} of {len(writes)}; it reports on what "
+        f"status/documents.yaml is step {at + 1} of {len(writes)}; it reports on what "
         f"the others wrote and must come after them")
 
 
 def test_a_renderer_runs_after_the_document_it_reads():
-    """`handbook/gates.md` is rendered from `gate-status.json`. Rendering first
+    """`handbook/gates.md` is rendered from `status/gates.yaml`. Rendering first
     would produce a page describing the previous run.
 
     Mutation: swap a renderer above its source and this fails.
     """
     order = {out: n for n, (_, _, out, _, _) in enumerate(generate_docs.STEPS)}
-    for renderer, source in (("handbook/gates.md", "gate-status.json"),
-                             ("handbook/document-states.md", "doc-status.json")):
+    for renderer, source in (("handbook/gates.md", "status/gates.yaml"),
+                             ("handbook/document-states.md", "status/documents.yaml")):
         if renderer in order and source in order:
             assert order[source] < order[renderer], (
                 f"{renderer} is rendered before {source}, which it reads")
@@ -135,9 +135,9 @@ def test_check_mode_writes_nothing():
     """
     before = {
         path: path.read_bytes()
-        for path in (CORPUS / "governance-status.yaml",
-                     CORPUS / "gate-status.json",
-                     CORPUS / "doc-status.json")
+        for path in (CORPUS / "status/governance.yaml",
+                     CORPUS / "status/gates.yaml",
+                     CORPUS / "status/documents.yaml")
         if path.is_file()
     }
     assert before, "nothing to compare; the documents are absent"

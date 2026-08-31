@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-31T00:58:12Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-08-31T02:48:33Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -26,7 +26,7 @@
 | [ok] | `one-pr-slot` | main | pull_request | yes | A pull request whose author already holds an open slot in this repository. It fails every one of them rather than picking a survivor. |
 | [ok] | `namespace-guard` | main, push | pull_request, push | no | A pull request opened in the wrong direction between namespaces, and a project branch whose own commits touch anything outside `adr/`. |
 | [ok] | `ci-tooling-tests` | main, push | pull_request, push | no | A change to the CI tooling that breaks its own test suite. |
-| [ok] | `governance-status` | main, push | pull_request, push | no | A committed `governance-status.yaml` that no longer renders the commits it names, and a rendered view that has drifted from it. |
+| [ok] | `governance-status` | main, push | pull_request, push | no | A committed `status/governance.yaml` that no longer renders the commits it names, and a rendered view that has drifted from it. |
 | [ok] | `reuse-lint` | main, push | pull_request, push | yes | A file with no copyright or licence information, a bad or deprecated SPDX expression, or an unused licence file. |
 | [ok] | `symlink-integrity` | main, push | pull_request, push | no | A pointer file that has stopped being a symlink -- mode other than 120000 -- which is how a Windows checkout silently forks a shared document into two. |
 | [ok] | `docs-audit` | pull_request | pull_request | no | A documentation site that builds but does not hold together -- a page the navigation does not reach, a link to a page that is not published, a claim the audit's four dimensions can check. |

@@ -48,7 +48,7 @@
 # the roster claims nobody made. This is the same refusal `phase_source` makes.
 #
 # It is a claim, so it is never inferred from a commit date. What is measured
-# lives in inventory-public.json as `recency` -- computed from the default
+# lives in status/inventory.yaml as `recency` -- computed from the default
 # branch's last commit, because neither of the two obvious host fields answers
 # the question: `updatedAt` moves when somebody edits a description, and
 # `pushedAt` moves on a push to any ref, including sweeps that touched
@@ -59,7 +59,7 @@
 # and records/DRAFT-attention-is-a-claim-activity-is-measured.md 7.
 #
 # NOTHING HERE IS EVIDENCE. This file holds what people have asserted. What is
-# actually true of a repository is computed from `governance-status.yaml`,
+# actually true of a repository is computed from `status/governance.yaml`,
 # which is generated from git and the host rather than from anybody's account
 # of them, and the two are shown side by side so the gap survives. A claim is
 # never rewritten to match its evidence, and a claim is never inferred from
@@ -73,7 +73,7 @@ schema: 1
 # THIS IS A CLAIM, like every `phase` below it. A human states the milestone and
 # what it requires; nothing here is derived from the repository, and nothing in
 # the repository is edited to match it. `ci/doc_status.py` reads this block into
-# `doc-status.json`'s `readiness` layer and reports the *measured* figures beside
+# `status/documents.yaml`'s `readiness` layer and reports the *measured* figures beside
 # it, so the gap between what was declared and what is true survives.
 #
 # `version` is the corpus's own, and it is deliberately null: `qm` carries no
@@ -104,16 +104,16 @@ milestone:
   requires:
     - id: ratification-rehearsed
       what: "At least one record ratified end to end, so the five-step path has been walked once"
-      measured_by: "doc-status.json readiness.records.ratified"
+      measured_by: "status/documents.yaml readiness.records.ratified"
     - id: reading-within-budget
       what: "Mandatory reading before a first edit stays under its budget"
-      measured_by: "doc-status.json reading_load.within_budget"
+      measured_by: "status/documents.yaml reading_load.within_budget"
     - id: no-unknown-document-states
       what: "Every governed document's state can be established"
-      measured_by: "doc-status.json totals.unknown"
+      measured_by: "status/documents.yaml totals.unknown"
     - id: gates-declared-are-built
       what: "No gate is declared and unbuilt, or the gap is deliberate and named"
-      measured_by: "gate-status.json totals.declared_not_built"
+      measured_by: "status/gates.yaml totals.declared_not_built"
     - id: semantic-review-done
       what: "All records read in one sitting for contradiction, which no check can do"
       measured_by: "not mechanisable -- a human says so, in a handoff or a record"
@@ -282,7 +282,7 @@ repositories:
     phase_source: scaffolded
     note: >
       homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT
-      networking. governance-status.yaml lists it under org.unmanaged_named;
+      networking. status/governance.yaml lists it under org.unmanaged_named;
       adoption is drafted on an unmerged pull request and nothing binds yet.
     paths: [qm/moat, moat]
 

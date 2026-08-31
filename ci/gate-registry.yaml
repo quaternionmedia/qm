@@ -137,7 +137,7 @@ gates:
     seed: false
     exists: true
     refuses: >
-      A committed `governance-status.yaml` that no longer renders the commits
+      A committed `status/governance.yaml` that no longer renders the commits
       it names, and a rendered view that has drifted from it.
     runs:
       - ci/governance_status.py --check

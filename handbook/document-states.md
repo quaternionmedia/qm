@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-31T00:58:16Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-08-31T02:48:36Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -16,13 +16,13 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 **What the milestone requires**, and where each is measured:
 
 - **`ratification-rehearsed`** — At least one record ratified end to end, so the five-step path has been walked once  
-  *measured by:* `doc-status.json readiness.records.ratified`
+  *measured by:* `status/documents.yaml readiness.records.ratified`
 - **`reading-within-budget`** — Mandatory reading before a first edit stays under its budget  
-  *measured by:* `doc-status.json reading_load.within_budget`
+  *measured by:* `status/documents.yaml reading_load.within_budget`
 - **`no-unknown-document-states`** — Every governed document's state can be established  
-  *measured by:* `doc-status.json totals.unknown`
+  *measured by:* `status/documents.yaml totals.unknown`
 - **`gates-declared-are-built`** — No gate is declared and unbuilt, or the gap is deliberate and named  
-  *measured by:* `gate-status.json totals.declared_not_built`
+  *measured by:* `status/gates.yaml totals.declared_not_built`
 - **`semantic-review-done`** — All records read in one sitting for contradiction, which no check can do  
   *measured by:* `not mechanisable -- a human says so, in a handoff or a record`
 
@@ -157,13 +157,13 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/claude-sonnet-5-2026-07-09-first-beat-timing-retrospective.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-sonnet-5-2026-07-18-test-timeout-halting-problem-retrospective.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/session-transcript-2026-06-09.md` | perspective | — |
-| [G] | `generated` | `doc-status.json` | generated | — |
-| [G] | `generated` | `gate-status.json` | generated | — |
-| [G] | `generated` | `governance-status.yaml` | generated | — |
 | [G] | `generated` | `handbook/document-states.md` | generated | — |
 | [G] | `generated` | `handbook/gates.md` | generated | — |
-| [G] | `generated` | `harness-status.json` | generated | — |
 | [G] | `generated` | `inventory.json` | generated | — |
+| [G] | `generated` | `status/documents.yaml` | generated | — |
+| [G] | `generated` | `status/gates.yaml` | generated | — |
+| [G] | `generated` | `status/governance.yaml` | generated | — |
+| [G] | `generated` | `status/harness.yaml` | generated | — |
 | [S] | `standing` | `AGENTS.md` | entry | — |
 | [S] | `standing` | `PRINCIPLES.md` | entry | — |
 | [S] | `standing` | `README.md` | entry | — |

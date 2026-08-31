@@ -51,7 +51,7 @@ shortest useful thing to read after this.
 | Bring an existing project up to date | [handbook/propagation-runbook.md](handbook/propagation-runbook.md) |
 | Learn the branch and record rules | [Branch namespaces](docs/ref/namespaces.md) and [Record precedence](docs/ref/precedence.md) |
 | Know how far this corpus has got in governing itself | [handbook/governance-rollout.md](handbook/governance-rollout.md) |
-| See where every project stands | [governance-status.yaml](governance-status.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
+| See where every project stands | [status/governance.yaml](status/governance.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
 | Know which checks actually govern, and what each one misses | [handbook/gates.md](handbook/gates.md) — says plainly whether anything blocks a merge |
 | Know what state a document is in before trusting it | [handbook/document-states.md](handbook/document-states.md), or `uv run qm docs states --state proposed` |
 | Look up a word this corpus uses in its own way | [handbook/glossary.md](handbook/glossary.md) |
@@ -84,8 +84,8 @@ qm/
 ├── ci/                    org-level tooling
 ├── adapters/              optional per-tool glue; nothing here is depended on
 ├── docs/                  the documentation site (GitHub Pages)
-├── governance-status.yaml generated; where every project stands
-├── harness-status.json    generated; PR slots, phases, governance evidence
+├── status/governance.yaml generated; where every project stands
+├── status/harness.yaml    generated; PR slots, phases, governance evidence
 ├── AGENTS.md              instructions for coding agents
 ├── .github/               CI workflows and branch protection
 └── LICENSE, LICENSES/     CC-BY-SA-4.0 for corpus prose; REUSE.toml covers the rest

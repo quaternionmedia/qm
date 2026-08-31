@@ -200,7 +200,7 @@ def page(family: dict, states: list[dict], generated_at: str) -> str:
         "every time somebody edits a file, and a check that fails hourly is one "
         "people learn to rerun rather than read.",
         "",
-        "`ci/workspace.yaml` and `inventory-public.json` make the same split for "
+        "`ci/workspace.yaml` and `status/inventory.yaml` make the same split for "
         "the same reason, with the machine-scoped half in an uncommitted "
         "companion. Run `uv run qm cookbook` with no argument to see this "
         "family's state on the disk you are actually sitting at.",

@@ -142,7 +142,7 @@ ref, and `project-seed/ci/check_pr_base.py` refuses a pull request from that
 branch into `main`.
 
 **Note.** `moat` is listed under `org.unmanaged_named` in
-`governance-status.yaml`, which is correct as long as nothing has merged.
+`status/governance.yaml`, which is correct as long as nothing has merged.
 Regenerating that document is what moves it, not editing it.
 
 ---

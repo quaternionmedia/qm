@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-31T00:58:12Z",
+  "generated_at": "2026-08-31T02:48:32Z",
   "generator": {
     "tool": "ci/harness_status.py",
     "org": "quaternionmedia",
@@ -19,7 +19,7 @@
     ],
     "thread_stages_are_states_not_progress": "observable states, not a percentage. Nothing estimates completion: the corpus has no definition of done a tool could read, and a number that looks like progress is the most confidently wrong thing a dashboard can print.",
     "stalled_after_hours": 48,
-    "governance_layer_is_evidence": "read from governance-status.yaml, on each project's default branch. Work in an open pull request is work, not evidence.",
+    "governance_layer_is_evidence": "read from status/governance.yaml, on each project's default branch. Work in an open pull request is work, not evidence.",
     "layers": [
       "phase",
       "slots",
@@ -30,9 +30,9 @@
   },
   "reading": {
     "refresh": "uv run qm docs generate",
-    "refresh_without_the_cli": "python ci/harness_status.py --no-local --write harness-status.json",
+    "refresh_without_the_cli": "python ci/harness_status.py --no-local --write status/harness.yaml",
     "staleness_budget_hours": 24,
-    "human_view": "python ci/harness_dashboard.py harness-status.json --out status.html",
+    "human_view": "python ci/harness_dashboard.py status/harness.yaml --out status.html",
     "agent_view": "uv run qm harness",
     "unknown_convention": "{\"unknown\": \"<reason>\"} is a value. It means the fact could not be established and says why. It is not zero, not empty, and not compliant -- a repository nobody could measure must never be read as a repository with nothing wrong.",
     "do_not": [
@@ -180,7 +180,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-31T00:57:04Z",
+        "observed_at": "2026-08-31T02:47:30Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -351,7 +351,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 50,
-        "observed_at": "2026-08-31T00:57:11Z",
+        "observed_at": "2026-08-31T02:47:37Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -404,7 +404,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 107,
-        "observed_at": "2026-08-31T00:57:15Z",
+        "observed_at": "2026-08-31T02:47:40Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -467,7 +467,7 @@
             "mergeable_state": "clean",
             "updated_at": "2023-12-30T22:55:40Z"
           },
-          "idle_hours": 23378.0,
+          "idle_hours": 23379.9,
           "stalled": true
         }
       ],
@@ -489,7 +489,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-31T00:56:54Z",
+        "observed_at": "2026-08-31T02:47:20Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -596,7 +596,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:12:49Z"
           },
-          "idle_hours": 191.7,
+          "idle_hours": 193.6,
           "stalled": true
         },
         {
@@ -614,7 +614,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-11T11:48:46Z"
           },
-          "idle_hours": 469.1,
+          "idle_hours": 471.0,
           "stalled": true
         }
       ],
@@ -633,7 +633,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-31T00:56:56Z",
+        "observed_at": "2026-08-31T02:47:22Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -687,7 +687,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-08-23T01:13:26Z"
           },
-          "idle_hours": 191.7,
+          "idle_hours": 193.6,
           "stalled": true
         }
       ],
@@ -706,7 +706,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 111,
-        "observed_at": "2026-08-31T00:57:02Z",
+        "observed_at": "2026-08-31T02:47:28Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -795,7 +795,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 10,
-        "observed_at": "2026-08-31T00:56:59Z",
+        "observed_at": "2026-08-31T02:47:25Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -932,7 +932,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-31T00:57:07Z",
+        "observed_at": "2026-08-31T02:47:33Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1003,7 +1003,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-22T17:27:47Z"
           },
-          "idle_hours": 199.5,
+          "idle_hours": 201.3,
           "stalled": true
         }
       ],
@@ -1020,7 +1020,7 @@
           "licensing_present": 2
         },
         "behind_corpus": 140,
-        "observed_at": "2026-08-31T00:56:57Z",
+        "observed_at": "2026-08-31T02:47:24Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1111,7 +1111,7 @@
           "licensing_present": 1
         },
         "behind_corpus": 233,
-        "observed_at": "2026-08-31T00:57:13Z",
+        "observed_at": "2026-08-31T02:47:39Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1173,7 +1173,7 @@
             "mergeable_state": "blocked",
             "updated_at": "2026-04-06T16:02:26Z"
           },
-          "idle_hours": 3512.9,
+          "idle_hours": 3514.8,
           "stalled": true
         }
       ],
@@ -1295,7 +1295,7 @@
           "licensing_present": 0
         },
         "behind_corpus": 3,
-        "observed_at": "2026-08-31T00:57:08Z",
+        "observed_at": "2026-08-31T02:47:34Z",
         "asserted_by": null,
         "asserts": "a complete artifact set means a human may assert v0.0.1, never that they have"
       }
@@ -1306,7 +1306,7 @@
       "role": "unmanaged",
       "phase": "v0.0.1",
       "phase_source": "scaffolded",
-      "note": "homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT networking. governance-status.yaml lists it under org.unmanaged_named; adoption is drafted on an unmerged pull request and nothing binds yet.\n",
+      "note": "homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT networking. status/governance.yaml lists it under org.unmanaged_named; adoption is drafted on an unmerged pull request and nothing binds yet.\n",
       "slots": {
         "repository": "quaternionmedia/moat",
         "per_base": [],
@@ -1366,7 +1366,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-28T01:45:19Z"
           },
-          "idle_hours": 71.2,
+          "idle_hours": 73.0,
           "stalled": true
         },
         {
@@ -1384,7 +1384,7 @@
             "mergeable_state": "unstable",
             "updated_at": "2026-08-21T16:20:56Z"
           },
-          "idle_hours": 224.6,
+          "idle_hours": 226.5,
           "stalled": true
         }
       ],
@@ -1567,7 +1567,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-26T14:53:23Z"
           },
-          "idle_hours": 3034.1,
+          "idle_hours": 3035.9,
           "stalled": true
         },
         {
@@ -1585,7 +1585,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-23T23:10:53Z"
           },
-          "idle_hours": 3097.8,
+          "idle_hours": 3099.6,
           "stalled": true
         },
         {
@@ -1603,7 +1603,7 @@
             "mergeable_state": "dirty",
             "updated_at": "2026-04-19T03:27:49Z"
           },
-          "idle_hours": 3213.5,
+          "idle_hours": 3215.3,
           "stalled": true
         }
       ],
@@ -1686,7 +1686,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-04-11T08:00:47Z"
           },
-          "idle_hours": 3400.9,
+          "idle_hours": 3402.8,
           "stalled": true
         }
       ],
@@ -1878,7 +1878,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-06-22T22:17:43Z"
           },
-          "idle_hours": 10418.7,
+          "idle_hours": 10420.5,
           "stalled": true
         }
       ],
@@ -1990,7 +1990,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-07-13T07:24:23Z"
           },
-          "idle_hours": 9929.6,
+          "idle_hours": 9931.4,
           "stalled": true
         }
       ],
@@ -2101,7 +2101,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-12-22T07:01:05Z"
           },
-          "idle_hours": 6041.9,
+          "idle_hours": 6043.8,
           "stalled": true
         }
       ],
@@ -2203,7 +2203,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-03-04T02:29:45Z"
           },
-          "idle_hours": 4318.5,
+          "idle_hours": 4320.3,
           "stalled": true
         },
         {
@@ -2221,7 +2221,7 @@
             "mergeable_state": "clean",
             "updated_at": "2025-01-04T01:07:48Z"
           },
-          "idle_hours": 14495.8,
+          "idle_hours": 14497.7,
           "stalled": true
         }
       ],
@@ -2331,7 +2331,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-01-17T11:44:43Z"
           },
-          "idle_hours": 5413.2,
+          "idle_hours": 5415.1,
           "stalled": true
         },
         {
@@ -2349,7 +2349,7 @@
             "mergeable_state": "clean",
             "updated_at": "2026-02-21T06:35:43Z"
           },
-          "idle_hours": 4578.4,
+          "idle_hours": 4580.2,
           "stalled": true
         }
       ],

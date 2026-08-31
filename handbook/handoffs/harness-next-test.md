@@ -20,7 +20,7 @@ Re-derive before acting; do not quote these figures as current.*
 | The brief builder | `project-seed/ci/cowork_context.py` | The facts behind `/cowork`, with `unknown` as a real value |
 | The slot check | `project-seed/ci/check_one_pr.py` | One open PR per repository, per contributor |
 | Its workflow | `project-seed/ci/one-pr-check.yml` | Copy into `.github/workflows/` per project |
-| The status document | `ci/harness_status.py` → `harness-status.json` | Headless: two layers, org and machine |
+| The status document | `ci/harness_status.py` → `status/harness.yaml` | Headless: two layers, org and machine |
 | The dashboard | `ci/harness_dashboard.py` | Reads only that document; runs nothing |
 | The workspace | `ci/workspace.yaml` + `ci/make_workspace.py` | The repository roster, and a multi-root workspace built from it |
 

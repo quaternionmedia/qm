@@ -61,7 +61,7 @@ deterministic, human-issued command.**
    **Zero is a fact here, never a sentinel.** Zero calls were authorised and
    zero were made, and both are known precisely. What may be unknown is *how
    many would be needed*, and that stays `unknown` with a reason — the
-   convention `harness-status.json`'s reading block states and the harness
+   convention `status/harness.yaml`'s reading block states and the harness
    payload already follows. A run that reported `would_need: 0` when nobody
    could count would be claiming the work is free, which is the same
    substitution refused everywhere else in this corpus.

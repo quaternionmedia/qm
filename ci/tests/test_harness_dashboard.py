@@ -40,7 +40,7 @@ def document(**overrides) -> dict:
             "local_layer_scope": "one machine, one set of clones",
         },
         "reading": {
-            "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
+            "refresh": "python ci/harness_status.py --no-local --write status/harness.yaml",
             "staleness_budget_hours": 24,
             "unknown_convention": "it is not zero, not empty, and not compliant",
             "do_not": [
@@ -664,8 +664,8 @@ def test_the_markdown_view_runs_nothing() -> None:
 
 def test_the_committed_document_exists_and_parses() -> None:
     """The path AGENTS.md sends the next agent to. If it is absent, they get nothing."""
-    committed = CI_DIR.parent / "harness-status.json"
-    assert committed.exists(), "harness-status.json is not committed"
+    committed = CI_DIR.parent / "status/harness.yaml"
+    assert committed.exists(), "status/harness.yaml is not committed"
     doc = json.loads(committed.read_text(encoding="utf-8"))
     assert doc["schema"] == 1
     assert doc["repositories"]
@@ -673,7 +673,7 @@ def test_the_committed_document_exists_and_parses() -> None:
 
 def test_the_committed_document_carries_its_own_reading_instructions() -> None:
     """A convention that lives only in a handbook page is one the reader lacks."""
-    doc = json.loads((CI_DIR.parent / "harness-status.json").read_text(encoding="utf-8"))
+    doc = json.loads((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
     reading = doc["reading"]
     assert reading["refresh"]
     assert reading["staleness_budget_hours"] == hs.STALENESS_BUDGET_HOURS
@@ -683,7 +683,7 @@ def test_the_committed_document_carries_its_own_reading_instructions() -> None:
 
 def test_the_committed_document_omits_the_machine_layer() -> None:
     """One machine's branch names must not become an organisation fact."""
-    doc = json.loads((CI_DIR.parent / "harness-status.json").read_text(encoding="utf-8"))
+    doc = json.loads((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
     assert "local" not in doc["generator"]["layers"]
     for repo in doc["repositories"]:
         assert "local" not in repo, repo["name"]
@@ -691,15 +691,15 @@ def test_the_committed_document_omits_the_machine_layer() -> None:
 
 def test_the_committed_document_renders_in_both_formats() -> None:
     """A document nobody can render is a document nobody will read."""
-    doc = json.loads((CI_DIR.parent / "harness-status.json").read_text(encoding="utf-8"))
+    doc = json.loads((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
     assert "<table>" in hd.render(doc)
     assert "| Repository |" in hd.render_markdown(doc)
 
 
 def test_inside_corpus_recognises_a_path_that_would_be_committed(tmp_path: Path) -> None:
-    assert hs.inside_corpus(CI_DIR.parent / "harness-status.json")
+    assert hs.inside_corpus(CI_DIR.parent / "status/harness.yaml")
     assert hs.inside_corpus(CI_DIR / "nested" / "thing.json")
-    assert not hs.inside_corpus(tmp_path / "harness-status.json")
+    assert not hs.inside_corpus(tmp_path / "status/harness.yaml")
 
 
 def test_writing_the_machine_layer_into_the_repository_is_refused() -> None:
@@ -711,12 +711,12 @@ def test_writing_the_machine_layer_into_the_repository_is_refused() -> None:
     run with the guard disabled wrote one machine's branch names into the
     committed document — so the file is restored before anything is asserted.
     """
-    committed = CI_DIR.parent / "harness-status.json"
+    committed = CI_DIR.parent / "status/harness.yaml"
     before = committed.read_bytes()
     try:
         result = subprocess.run(
             [sys.executable, str(CI_DIR / "harness_status.py"),
-             "--write", "harness-status.json"],
+             "--write", "status/harness.yaml"],
             capture_output=True, text=True, encoding="utf-8", errors="replace",
             cwd=str(CI_DIR.parent),
         )

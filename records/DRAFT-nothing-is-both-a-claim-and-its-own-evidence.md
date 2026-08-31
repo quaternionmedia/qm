@@ -37,7 +37,7 @@ only by someone already editing the roster.
 
 There is a second cost, and it is the one that bites hardest. When the rule
 lives only inside its instances, a *generator* can quietly violate it and no
-record is being contradicted. `doc-status.json` reported mandatory reading
+record is being contradicted. `status/documents.yaml` reported mandatory reading
 inside its budget while the charter every reader is told to read in full was
 not in the measured set; the figure was a claim about the scaffolding wearing
 the authority of a measurement, and it read as green on an alpha requirement.

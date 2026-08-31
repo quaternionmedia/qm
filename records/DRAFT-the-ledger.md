@@ -36,7 +36,7 @@ rule arrives.
 
 ## Decision
 
-1. **Every substantive action is recorded in `ledger.yaml` before it is taken**,
+1. **Every substantive action is recorded in `status/ledger.yaml` before it is taken**,
    with what it is projected to do. An action too small to project is too small
    to record; the boundary is judgement and is meant to be.
 

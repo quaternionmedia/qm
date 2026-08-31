@@ -21,7 +21,7 @@ cannot be concurrent across repositories that are not checked out, and feedback
 cannot be collected from clones nobody has.
 
 WHAT IT CANNOT SEE. Anything not on this disk. A repository absent from
-`inventory-public.json` is absent from the host as of that document's
+`status/inventory.yaml` is absent from the host as of that document's
 `generated_at`, which may be stale; a clone this tool cannot find may exist
 under a root it was not given. Both are reported as unknown rather than as zero.
 
@@ -52,9 +52,9 @@ from roster import label as roster_label  # noqa: E402
 from roster import load as roster_load  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-INVENTORY = ROOT / "inventory-public.json"
+INVENTORY = ROOT / "status/inventory.yaml"
 WORKSPACE = ROOT / "ci" / "workspace.yaml"
-LEDGER = ROOT / "ledger.yaml"
+LEDGER = ROOT / "status/ledger.yaml"
 POLICIES = ROOT / "ci" / "policy-registry.yaml"
 GATES = ROOT / "ci" / "gate-registry.yaml"
 

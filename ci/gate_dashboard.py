@@ -19,9 +19,9 @@ and ci/governance_render.py, and the same refusals:
     the single failure mode a governance dashboard has.
 
 Usage:
-    python ci/gate_dashboard.py gate-status.json --format md
-    python ci/gate_dashboard.py gate-status.json --out gates.html
-    python ci/gate_dashboard.py gate-status.json --format md --check handbook/gates.md
+    python ci/gate_dashboard.py status/gates.yaml --format md
+    python ci/gate_dashboard.py status/gates.yaml --out gates.html
+    python ci/gate_dashboard.py status/gates.yaml --format md --check handbook/gates.md
 """
 
 from __future__ import annotations
@@ -104,7 +104,7 @@ def render_md(doc: dict) -> str:
     add("# Handbook — The Gates\n")
     add(f"**Generated `{doc.get('generated_at')}`.** Quotable for "
         f"{reading.get('staleness_budget_hours')}h. **Do not edit by hand** — the "
-        f"list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, "
+        f"list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, "
         f"and this page is rendered from the document and nothing else.\n")
     add(f"| | |\n|---|---|")
     add(f"| **Refresh the document** | `{reading.get('refresh')}` |")

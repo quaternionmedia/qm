@@ -55,7 +55,7 @@ machine.
 
 ## The four things that will trip you
 
-### 1. `harness-status.json` expires today
+### 1. `status/harness.yaml` expires today
 
 At the stamped commit it was **22.5 hours old against its own 24-hour budget**.
 It has almost certainly gone stale by the time you read this.
@@ -63,7 +63,7 @@ It has almost certainly gone stale by the time you read this.
 Its `reading:` block carries the refresh command. **Fetch first.** That document
 reads other repositories, and one generated from unfetched refs is a recorded
 past defect in this corpus — it looks current and describes a state nobody is
-in. `governance-status.yaml` is fine: ~23 hours against a 168-hour budget.
+in. `status/governance.yaml` is fine: ~23 hours against a 168-hour budget.
 
 ### 2. Two questions the records cannot answer
 

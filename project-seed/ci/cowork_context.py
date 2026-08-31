@@ -239,8 +239,8 @@ def sibling_branches(root: Path, current: str) -> tuple[list[str], int]:
 # because a session that has to be told the path has already been given the
 # facts by whoever told it.
 GENERATED_DOCUMENTS = (
-    ("governance-status.yaml", "where every project stands", 168),
-    ("harness-status.json", "pull request slots, phases, governance evidence", 24),
+    ("status/governance.yaml", "where every project stands", 168),
+    ("status/harness.yaml", "pull request slots, phases, governance evidence", 24),
 )
 
 
@@ -535,7 +535,7 @@ def emit(root: Path, args: argparse.Namespace) -> str:
     lines.extend(generated_documents(root, mount))
     add("")
     add(
-        "`ci/harness_dashboard.py harness-status.json --format md` renders the "
+        "`ci/harness_dashboard.py status/harness.yaml --format md` renders the "
         "second one for reading; each document also carries its own refresh "
         "command and its own `do_not` list."
     )

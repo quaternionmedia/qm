@@ -27,7 +27,7 @@ Not candidates. Listed so nobody re-opens them by accident.
 | Every row has an **address**, `<owner>/<repo>/<kind>/<id>` | `docs/ref/addresses.md` |
 | Two views disagreeing is **a delta, not an error** | same record; neither side wins |
 | A **claim** and a **measurement** are separate documents | `records/DRAFT-project-phase-ladder.md` §4 |
-| A count nobody took is **`unknown`**, never zero | `harness-status.json`'s reading block |
+| A count nobody took is **`unknown`**, never zero | `status/harness.yaml`'s reading block |
 | A person is interrupted **only by a decision** | `PRINCIPLES.md` `interrupted-only-by-a-decision` |
 
 ## 1. Identity and composition

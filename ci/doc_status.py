@@ -36,8 +36,8 @@ WHAT THIS CANNOT DO
     given a state this tool invented.
 
 Usage:
-    python ci/doc_status.py --write doc-status.json
-    python ci/doc_status.py --check doc-status.json
+    python ci/doc_status.py --write status/documents.yaml
+    python ci/doc_status.py --check status/documents.yaml
 """
 
 from __future__ import annotations
@@ -72,13 +72,13 @@ INDEX_ROW = re.compile(
 # detected: a page is generated because a generator writes it, which is a fact
 # about the tooling and not about the file's contents.
 GENERATED = {
-    "governance-status.yaml": "python ci/governance_status.py --write governance-status.yaml",
-    "harness-status.json": "python ci/harness_status.py --no-local --write harness-status.json",
-    "gate-status.json": "python ci/gate_status.py --write gate-status.json",
-    "doc-status.json": "python ci/doc_status.py --write doc-status.json",
+    "status/governance.yaml": "python ci/governance_status.py --write status/governance.yaml",
+    "status/harness.yaml": "python ci/harness_status.py --no-local --write status/harness.yaml",
+    "status/gates.yaml": "python ci/gate_status.py --write status/gates.yaml",
+    "status/documents.yaml": "python ci/doc_status.py --write status/documents.yaml",
     "inventory.json": "uv run qm inventory --write inventory.json",
-    "handbook/gates.md": "python ci/gate_dashboard.py gate-status.json --format md --out handbook/gates.md",
-    "handbook/document-states.md": "python ci/doc_dashboard.py doc-status.json --out handbook/document-states.md",
+    "handbook/gates.md": "python ci/gate_dashboard.py status/gates.yaml --format md --out handbook/gates.md",
+    "handbook/document-states.md": "python ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md",
 }
 
 # What a session must read before its first edit, per AGENTS.md's opening.
@@ -377,7 +377,7 @@ def readiness(root: Path, rows: list[dict], by_state: dict[str, int], load: dict
         "reading_total_lines": load["total_lines"],
         "reading_budget_lines": load["budget_lines"],
         "gates": unknown(
-            "held in gate-status.json, which this generator does not read -- one "
+            "held in status/gates.yaml, which this generator does not read -- one "
             "document does not restate another's figures"
         ),
         "semantic_review": unknown(
@@ -462,7 +462,7 @@ def build(root: Path) -> dict:
         },
         "reading": {
             "refresh": "uv run qm docs generate",
-            "refresh_without_the_cli": "python ci/doc_status.py --write doc-status.json",
+            "refresh_without_the_cli": "python ci/doc_status.py --write status/documents.yaml",
             "staleness_budget_hours": 168,
             "agent_view": "uv run qm docs states",
             "toggle": "uv run qm docs states --state draft",
@@ -521,6 +521,7 @@ def main(argv: list[str] | None = None) -> int:
 
     document = build(root)
     if args.write:
+        Path(args.write).parent.mkdir(parents=True, exist_ok=True)
         Path(args.write).write_text(
             json.dumps(document, indent=2) + "\n", encoding="utf-8", newline="\n"
         )

@@ -64,7 +64,7 @@ def test_the_committed_page_carries_no_machine_scoped_state():
     date into a *committed* document. Those differ per machine and change on
     every keystroke, so `qm docs check` reported drift the moment anybody edited
     a file -- and a check that fails hourly is one people learn to rerun rather
-    than read. `inventory-public.json` and `inventory-local.json` already make
+    than read. `status/inventory.yaml` and `inventory-local.json` already make
     this split; the page had to make it too.
 
     Mutation: put `state['branch']` or `state['dirty']` back into `page` and

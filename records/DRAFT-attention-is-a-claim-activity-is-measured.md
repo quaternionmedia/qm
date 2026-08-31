@@ -89,7 +89,7 @@ axis, and no axis is allowed to stand for another.**
    that the roster does not list are all deltas rather than fields to fix.
 
 **Mechanism:** `ci/inventory.py`, run as `uv run qm inventory`, writing
-`inventory-public.json` and the two gitignored companions. Per
+`status/inventory.yaml` and the two gitignored companions. Per
 `records/DRAFT-governance-arrives-as-a-mechanism.md` §1 this record arrives with
 that mechanism rather than as prose.
 
