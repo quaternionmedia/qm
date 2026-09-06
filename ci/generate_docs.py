@@ -97,6 +97,16 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
          "--check", "handbook/gates.md"],
     ),
     (
+        # **AFTER THE THREE IT JOINS, BEFORE THE STATE PAGE.** It reads what
+        # they just wrote, so running it earlier would report the previous run
+        # -- the confidently-wrong artifact this ordering exists to prevent.
+        "loose ends",
+        ["ci/loose_ends.py", "--write", "loose-ends.json"],
+        "loose-ends.json",
+        False,
+        ["ci/loose_ends.py", "--check", "loose-ends.json"],
+    ),
+    (
         "document states",
         ["ci/doc_status.py", "--write", "doc-status.json"],
         "doc-status.json",

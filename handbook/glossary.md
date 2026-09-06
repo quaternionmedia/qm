@@ -32,6 +32,7 @@ Each of these has bitten. The disambiguator is the column on the right.
 | | a perspective's `Unreviewed` … `Declined` | the index in `perspectives/README.md`, which is the authority |
 | | a generated document's freshness | `generated_at` plus a staleness budget |
 | **seed** | `project-seed/` — what a fork adopts | some files are **copied**, some are **run in place** |
+| **loose end** | something the org started and has not finished, joined from the documents that each hold part of it | `loose-ends.json`. **Deliberately not called a "review item"**: `review` above already carries three senses and a fourth would make the ambiguity worse, not the list clearer |
 | | not a synonym for "template": a copied file forks, a run-in-place file does not | `handbook/propagation-runbook.md` |
 
 ## Words with a narrow meaning here
@@ -56,6 +57,9 @@ Each of these has bitten. The disambiguator is the column on the right.
 | **preflight** | running every workflow's real steps locally. `uv run --extra preflight qm preflight` |
 | **ledger** | the running record of what each action was predicted to do and what it cost |
 | **grandfathered** | exempt from a gate by a declared date because the remedy would be a forbidden act |
+| **carried** | a loose end somebody has picked up and is following. Still a loose end: it leaves the document when its subject changes, not when somebody says so |
+| **dismissed** | a loose end somebody read and deliberately let go, with the reason. The other half of `carried`, and the only two dispositions there are |
+| **open** | a loose end nobody has judged — **the absence of a claim, and it has no spelling**. Writing it down would turn "nobody has looked" into "somebody decided nothing", which are different facts about the same row |
 
 ## Words this corpus deliberately avoids
 
