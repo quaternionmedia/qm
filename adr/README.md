@@ -243,4 +243,4 @@ together.
 
 Drafts in flight (numberless, by title): QM constitution adoption scope for
 Apothecary; Site/Structure/Substructure/Feature hierarchy for complex
-subassemblies.
+subassemblies; Firmware toolchain seam (arduino-cli and esptool).
