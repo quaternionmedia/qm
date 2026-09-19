@@ -1,0 +1,123 @@
+# The org curriculum: what to read, in what order, and what you can do after.
+#
+# NOT A SUMMARY. Each unit names one document and says what a reader can do once
+# they have read it. A unit that restated its document would be a second copy of
+# a decision, which is the failure `records/DRAFT-the-read-document-governs.md`
+# exists to name -- and the copy is always the one that goes stale.
+#
+# `status_claimed` IS OPTIONAL AND IS CHECKED WHEN PRESENT. Only records carry a
+# Status. Naming one here means `uv run qm curriculum --check` reads the
+# document and refuses a mismatch, so a curriculum cannot teach an unratified
+# record as settled. Omitting it on a record is allowed and is a weaker unit.
+#
+# THIS BINDS NOBODY. No gate requires a curriculum, no project has to adopt this
+# one, and `ci/protocol-registry.yaml` records the curriculum protocol as
+# `optional: true`. A project fork writes its own with `scope: project`, teaches
+# its `adr/`, and reconciles this one underneath with `qm curriculum --merge`.
+
+schema: 1
+id: org
+scope: org
+
+audience: >
+  Someone with no context who has been asked to work in this corpus, human or
+  agent, and who will be judged on their first commit. Ninety minutes of
+  reading. It assumes no prior QM anything and does not assume the reader will
+  finish.
+
+units:
+  - id: charter
+    teaches: PRINCIPLES.md
+    after_this_you_can: >
+      Name the principle a proposed change serves, and notice when a change
+      serves none.
+    prerequisites: []
+
+  - id: invariants
+    teaches: README.md
+    after_this_you_can: >
+      State the three invariants without looking, and say which one a given
+      branch name is about.
+    prerequisites: [charter]
+
+  - id: the-read-document
+    teaches: AGENTS.md
+    after_this_you_can: >
+      Work a session end to end: establish the four facts, pick a branch
+      namespace, run the gates, open a pull request that states decisions.
+    prerequisites: [invariants]
+
+  - id: namespaces
+    teaches: docs/ref/namespaces.md
+    after_this_you_can: >
+      Choose the right branch for a change, and say why a pull request from
+      `project/<name>` into `main` is refused rather than merely discouraged.
+    prerequisites: [the-read-document]
+
+  - id: precedence
+    teaches: docs/ref/precedence.md
+    after_this_you_can: >
+      Resolve a disagreement between an org record and a project one without
+      asking anybody.
+    prerequisites: [namespaces]
+
+  - id: the-two-gates
+    teaches: records/DRAFT-version-tags-are-claims.md
+    status_claimed: Proposed
+    after_this_you_can: >
+      Say what `main` asserts (nothing), what a tag asserts, and why merging
+      your own green pull request is the job rather than a shortcut.
+    prerequisites: [the-read-document]
+
+  - id: ratification
+    teaches: docs/ref/ratification.md
+    after_this_you_can: >
+      Say why every record in this corpus is still `Draft` or `Proposed`, and
+      what would change that.
+    prerequisites: [the-two-gates]
+
+  - id: record-discipline
+    teaches: records/DRAFT-decision-record-discipline.md
+    status_claimed: Proposed
+    after_this_you_can: >
+      Draft a record that passes `adr-lint`, and check a signal before reading
+      it rather than after being wrong about it.
+    prerequisites: [ratification]
+
+  - id: attribution
+    teaches: records/DRAFT-human-only-contributorship.md
+    status_claimed: Proposed
+    after_this_you_can: >
+      Commit without a co-author trailer, and disclose tool involvement in the
+      one place that takes it.
+    prerequisites: [record-discipline]
+
+  - id: restatement
+    teaches: records/DRAFT-the-read-document-governs.md
+    status_claimed: Proposed
+    after_this_you_can: >
+      Notice that a summary and its record have drifted, and repair the summary
+      rather than the record.
+    prerequisites: [record-discipline]
+
+  - id: working-async
+    teaches: handbook/async-contract.md
+    after_this_you_can: >
+      Share a clone with another session without either of you losing work, and
+      know why the slot limit is a sequencing rule and not a bandwidth one.
+    prerequisites: [namespaces]
+
+  - id: what-actually-gates
+    teaches: handbook/gates.md
+    after_this_you_can: >
+      Say what each check refuses and what it cannot see, and stop reading a
+      green check as a rule that was enforced.
+    prerequisites: [working-async]
+
+  - id: what-protects-main
+    teaches: .github/rulesets/README.md
+    after_this_you_can: >
+      Say which rulesets are drafted, which are applied, and what the seven
+      required checks are -- then confirm it against the host rather than
+      against this page.
+    prerequisites: [what-actually-gates]

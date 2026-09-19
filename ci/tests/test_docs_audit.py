@@ -92,10 +92,17 @@ def test_a_link_to_a_sibling_page_resolves(tmp_path: Path):
     assert audit(root)["accuracy: links"] == []
 
 
-def test_a_link_to_a_corpus_file_resolves(tmp_path: Path):
+def test_a_link_to_a_corpus_file_is_reported(tmp_path: Path):
+    """It resolves on disk and 404s once published: only `docs/` is deployed.
+
+    This used to pass. `docs/index.md` linked `../handbook/glossary.md`, the
+    file existed, the check was satisfied, and the published link was dead --
+    on the same page as a correct link to the same glossary.
+    """
     root = site(tmp_path, page="See [agents](AGENTS.md).\n")
     write(root / "AGENTS.md", "# Agents\n")
-    assert audit(root)["accuracy: links"] == []
+    findings = audit(root)["accuracy: links"]
+    assert findings and "outside the published site" in findings[0]
 
 
 def test_external_links_and_anchors_are_not_checked(tmp_path: Path):
@@ -103,10 +110,25 @@ def test_external_links_and_anchors_are_not_checked(tmp_path: Path):
     assert audit(root)["accuracy: links"] == []
 
 
-def test_an_anchor_on_a_real_page_still_resolves(tmp_path: Path):
+def test_an_anchor_that_exists_resolves(tmp_path: Path):
     root = site(tmp_path, page="See [other](other.md#part).\n")
-    write(root / "docs" / "other.md", "# Other\n")
+    write(root / "docs" / "other.md", "# Other\n\n## Part\n")
     assert audit(root)["accuracy: links"] == []
+
+
+def test_an_anchor_declared_with_attr_list_resolves(tmp_path: Path):
+    root = site(tmp_path, page="See [other](other.md#thing).\n")
+    write(root / "docs" / "other.md",
+          "# Other\n\n**Thing** { #thing }\n: a definition\n")
+    assert audit(root)["accuracy: links"] == []
+
+
+def test_an_anchor_naming_nothing_is_reported(tmp_path: Path):
+    """It opens at the top of the page, which reads as the link having worked."""
+    root = site(tmp_path, page="See [other](other.md#absent).\n")
+    write(root / "docs" / "other.md", "# Other\n")
+    findings = audit(root)["accuracy: links"]
+    assert findings and "names no anchor" in findings[0]
 
 
 # --- accuracy: citations ---------------------------------------------------

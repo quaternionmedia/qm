@@ -1,0 +1,137 @@
+# Acts that are a person's by constitution.
+#
+# The decision is records/DRAFT-acts-that-are-a-persons-by-constitution.md. This
+# is the list, and the list is the mechanism: a rule of this kind that lives only
+# in prose gets rediscovered by argument, and the argument is always with
+# somebody who has a good automation idea and no way to see the class.
+#
+# THE TEST, AND IT IS NOT ABOUT RISK. If a machine did this and produced the
+# identical artifact, would the artifact still mean what it means? Where the
+# answer is no, the act is a person's. Tagging a green `main` on a schedule is
+# *low* risk and would still empty the claim, which is why "how bad if it goes
+# wrong" is the wrong question here.
+#
+# Fields per entry:
+#   act        what is done, in the words somebody would use for it
+#   asserts    what the artifact claims *because* a person did it
+#   lost       what stops being true if a machine does it instead
+#   prepared   what may be automated right up to the moment of judgement.
+#              Clause 3, and the reason this rule is not an excuse for manual
+#              work: if an attested act is slow, automate up to it.
+#   evidence   where the act is recorded, or `none` where nothing records it
+#   enforced   what stops a machine doing it, or `nothing` said plainly
+#
+# NOTHING HERE IS INFERRED FROM SURROUNDING EVIDENCE. Every gate green does not
+# ratify a record; a clean `main` does not cut a tag; work being finished does
+# not close a delta. An act nobody performed is outstanding, and the views say
+# so rather than rounding it up.
+
+schema: 1
+
+acts:
+  - act: ratify a record
+    asserts: >
+      The organisation has decided this, and a second person read it as one
+      body rather than as a diff.
+    lost: >
+      A ratification produced by CI is not the organisation deciding. The
+      Status row would read `Accepted` and nothing would have been agreed.
+    prepared: >
+      Every structural check -- `uv run qm review`, the record lint, the
+      restatement pairing, the reading-order budget. All of it runs
+      unattended and none of it ratifies.
+    evidence: the record's Status row, and its number
+    enforced: >
+      nothing mechanical. No record is ratified today, which is the honest
+      state and is what the generated documents report.
+
+  - act: cut a version tag
+    asserts: >
+      A person read the change set, ran it against the real thing, and saw the
+      checks pass.
+    lost: >
+      A tag cut by a scheduled job asserts that a scheduled job ran. The string
+      in git is identical and the claim is gone -- nothing is made dangerous,
+      something is made empty, and the emptiness is invisible.
+    prepared: >
+      The whole release: assembling the change set, running every gate,
+      capturing the test output the tag gate reads, drafting the annotation.
+    evidence: >
+      the annotation's `Reviewed-by`, `Manually-tested`, `Automated-gate` and
+      `Not-covered` trailers
+    enforced: >
+      `project-seed/ci/check_tag_claims.py` refuses a tag that does not carry
+      them. It cannot tell whether the person named actually looked.
+
+  - act: apply the `main` ruleset
+    asserts: >
+      Somebody with admin on the host chose to change what every contributor
+      and every concurrent session may do.
+    lost: >
+      It happens outside any pull request and takes effect immediately for
+      everyone. An agent doing it has changed the rules nobody agreed to change.
+    prepared: >
+      Drafting the rulesets, and `uv run qm rulesets --check`, which reads the
+      host and is safe to run at any time.
+    evidence: the host's own ruleset history
+    enforced: >
+      a standing instruction in the handoff page. An agent with the credential
+      could run it, and the reason it does not is that it was told not to.
+
+  - act: close a delta as complete
+    asserts: The thing this was for is done.
+    lost: >
+      A delta a detector closes is not work anybody finished. Convergence
+      between two views is reported and never closes anything -- the detector
+      cannot know whether somebody acted or one side merely re-synced.
+    prepared: >
+      Detection, phase advancement up to `review`, and every link and note
+      that shows what happened.
+    evidence: the delta's phase and `phase_changed_at`
+    enforced: >
+      `records/DRAFT-a-disagreement-is-a-delta.md` 4, and the self-check's
+      phase ceiling: nothing extracted ever opens past `brainstorm`.
+
+  - act: answer a question in the human-in-the-loop queue
+    asserts: A person was asked, and said this.
+    lost: >
+      An answer a default supplied is not a person's answer. A queue that
+      auto-answers has a full audit trail of decisions nobody took.
+    prepared: >
+      Raising the question, naming its options, carrying it to wherever the
+      person is reading, and recording the reply.
+    evidence: >
+      the `human_responses` row, its `responded_by`, and the `ask` address
+      that carries it across the seam
+    enforced: >
+      `qmcp human respond` refuses an answer outside the declared options and
+      refuses to overwrite an answer already given.
+
+  - act: authorise a paid call
+    asserts: >
+      A person consented to this amount, for this command, now.
+    lost: >
+      Consent to a category is not consent to an amount. A remembered
+      approval is the mechanism by which a careful rule becomes a habit of
+      clicking through.
+    prepared: >
+      The whole free pass: establishing what the work would cost and showing
+      the number the person is being asked to permit.
+    evidence: the declared budget carried with whatever the run produced
+    enforced: >
+      `qmcp/spend.py`. A budget is per command, is never stored, and has no
+      way to widen itself.
+
+  - act: request an export of your own data from a service
+    asserts: The account holder chose to take a copy of their conversations.
+    lost: >
+      A script with a session cookie is not the account holder deciding. It is
+      also scraping against the service's terms.
+    prepared: >
+      Everything after the download: unpacking, splitting, indexing, archiving
+      and emitting deltas -- all free, all offline, none of it a person's.
+    evidence: the export archive itself, and when it arrived
+    enforced: >
+      the service. It responds to the account holder and to nothing else,
+      which is a rule this corpus arrived at independently and found already
+      encoded by somebody else.

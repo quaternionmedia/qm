@@ -1,0 +1,25 @@
+{
+  "_comment": [
+    "Copy to .claude/settings.json to enable. Kept as an example rather than",
+    "enabled by default because a hook changes how every session in this",
+    "repository behaves, and that is a decision for whoever works here rather",
+    "than for whoever wrote the hook.",
+    "",
+    "Set QM_ROUTES_STRICT=1 in the environment to make it refuse rather than",
+    "warn. Start with warn: a hook that blocks something legitimate at a bad",
+    "moment gets switched off, and a switched-off hook is worse than none."
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/hooks/prefer_declared_routes.py"
+          }
+        ]
+      }
+    ]
+  }
+}

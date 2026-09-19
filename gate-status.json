@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-08-16T21:25:03Z",
+  "generated_at": "2026-08-23T18:49:37Z",
   "generator": {
     "tool": "ci/gate_status.py",
     "registry": "ci/gate-registry.yaml",
@@ -42,17 +42,17 @@
     "blocks_a_merge": false
   },
   "totals": {
-    "gates": 13,
-    "built": 13,
+    "gates": 17,
+    "built": 17,
     "declared_not_built": 0,
     "by_state": {
-      "ok": 12,
+      "ok": 16,
       "warn": 0,
       "unknown": 1
     },
     "gate_main": 10,
     "seed": 5,
-    "undeclared_workflows": 3
+    "undeclared_workflows": 0
   },
   "gates": [
     {
@@ -170,11 +170,13 @@
       "workflow": "ci-tooling-tests.yml",
       "job": "tests",
       "runs": [
-        "python -m pytest project-seed/ci/tests ci/tests"
+        "python -m pytest project-seed/ci/tests ci/tests walkthrough -q --doctest-glob=*.md"
       ],
-      "enforces": [],
+      "enforces": [
+        "records/DRAFT-one-executable-walkthrough.md"
+      ],
       "refuses": "A change to the CI tooling that breaks its own test suite.",
-      "cannot_see": "Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one.",
+      "cannot_see": "Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one. For the walkthrough it also cannot see whether a page is worth reading: doctest asserts that an example's printed output is what the page claims, and asserts nothing about whether the example was the one worth showing.",
       "evidence": {
         "present": true,
         "workflow_name": "CI tooling tests",
@@ -290,6 +292,97 @@
       "state": "ok"
     },
     {
+      "id": "docs-audit",
+      "gates": [
+        "pull_request"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "docs-audit.yml",
+      "job": "audit",
+      "runs": [
+        "ci/docs_audit.py",
+        ".github/workflows/docs-audit.yml"
+      ],
+      "enforces": [
+        "records/DRAFT-the-read-document-governs.md"
+      ],
+      "refuses": "A documentation site that builds but does not hold together -- a page the navigation does not reach, a link to a page that is not published, a claim the audit's four dimensions can check.",
+      "cannot_see": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Docs audit",
+        "triggers": [
+          "pull_request"
+        ],
+        "jobs": [
+          "audit"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "docs-draft",
+      "gates": [
+        "pull_request"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "docs-draft.yml",
+      "job": "draft",
+      "runs": [
+        ".github/workflows/docs-draft.yml"
+      ],
+      "enforces": [],
+      "refuses": "Nothing. It builds a preview of the site for the change under review, so a documentation change can be looked at rather than imagined.",
+      "cannot_see": "Anything -- it is a build, not a check, and it is listed here because a workflow nobody declared is a workflow nobody can rely on. Declaring it says plainly that it refuses nothing.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Docs draft",
+        "triggers": [
+          "pull_request",
+          "workflow_dispatch"
+        ],
+        "jobs": [
+          "draft"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "docs-deploy",
+      "gates": [
+        "push"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "docs.yml",
+      "job": "deploy",
+      "runs": [
+        ".github/workflows/docs.yml"
+      ],
+      "enforces": [],
+      "refuses": "Nothing. It publishes the site from the default branch. A failure here means the published site is older than `main`, which is a fact worth seeing and not a rule anybody violated.",
+      "cannot_see": "Whether what it published is correct, or whether anybody reads it. It is a deployment, and it is declared for the same reason the draft build is.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "\ud83d\udcda Documentation",
+        "triggers": [
+          "push"
+        ],
+        "jobs": [
+          "deploy"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
       "id": "tag-claims",
       "gates": [
         "tag"
@@ -316,6 +409,38 @@
         ],
         "jobs": [
           "claims"
+        ],
+        "job_declared": true
+      },
+      "state": "ok"
+    },
+    {
+      "id": "tag-determinism",
+      "gates": [
+        "tag"
+      ],
+      "seed": false,
+      "external": false,
+      "declared_built": true,
+      "workflow": "tag-determinism.yml",
+      "job": "deterministic-validation",
+      "runs": [
+        "project-seed/ci/check_tag_claims.py"
+      ],
+      "enforces": [
+        "records/DRAFT-version-tags-are-claims.md"
+      ],
+      "refuses": "A `v*` tag whose captured test run declares a skip, a rerun or a retry, or whose suite does not pass at all.",
+      "cannot_see": "Whether the suite is deterministic. It refuses a run that announces nondeterminism; one that is nondeterministic and silent about it passes. It also says nothing about coverage: a suite asserting little passes as readily as one asserting much.",
+      "evidence": {
+        "present": true,
+        "workflow_name": "Tag determinism",
+        "triggers": [
+          "push",
+          "workflow_dispatch"
+        ],
+        "jobs": [
+          "deterministic-validation"
         ],
         "job_declared": true
       },
@@ -387,15 +512,21 @@
         "ci/exceptions.py --check",
         "ci/policies.py --check",
         "ci/ledger.py --check",
-        "ci/lanes.py --check"
+        "ci/lanes.py --check",
+        "ci/protocols.py --check",
+        "ci/curriculum.py --check",
+        "ci/addresses.py --check"
       ],
       "enforces": [
         "ci/exception-registry.yaml",
         "ci/policy-registry.yaml",
-        "ci/lane-registry.yaml"
+        "ci/lane-registry.yaml",
+        "ci/protocol-registry.yaml",
+        "curriculum/org.yaml",
+        "project-seed/address-vectors.json"
       ],
-      "refuses": "An exemption with no stated reason or whose named constant has gone; a policy with neither a detector nor a stated reason it cannot have one; a ledger entry that is unattributed, or closed and unscored; two lanes that are settled by the same gate.",
-      "cannot_see": "Whether any registry is complete. Each of these four checks the entries that exist against their own rules; none can tell that an exemption, a policy, a ledger entry or a lane was never written down, and a registry nobody added to is the state all four report as clean. Nor is this gate required to merge -- it is a candidate for A-main.json's required list and stays off it until it has reported green on a real pull request.",
+      "refuses": "An exemption with no stated reason or whose named constant has gone; a policy with neither a detector nor a stated reason it cannot have one; a ledger entry that is unattributed, or closed and unscored; two lanes that are settled by the same gate; a protocol with no page or a step naming a route that does not exist; a curriculum unit citing a document that is not there or claiming a Status its document does not carry; an address vector that does not parse as declared or does not format back to itself.",
+      "cannot_see": "Whether any registry is complete. Each of these seven checks the entries that exist against their own rules; none can tell that an exemption, a policy, a ledger entry, a lane, a protocol, a curriculum unit or an address case was never written down, and a registry nobody added to is the state all seven report as clean. Nor can it see an address that is well-formed and wrong: the grammar has no idea whether the branch exists. It also cannot see whether a protocol was ever run -- that is reported by `uv run qm protocols` and deliberately never refused -- or whether a curriculum unit's prose is true of the document it cites. Nor is this gate required to merge: it is a candidate for A-main.json's required list and stays off it until it has reported green on a real pull request.",
       "evidence": {
         "present": true,
         "workflow_name": "Registries",
@@ -460,9 +591,5 @@
       "state": "ok"
     }
   ],
-  "undeclared_workflows": [
-    "docs-audit.yml",
-    "docs-draft.yml",
-    "docs.yml"
-  ]
+  "undeclared_workflows": []
 }

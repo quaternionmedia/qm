@@ -121,9 +121,23 @@ lanes:
       - ci/cli.py           # one surface, and the only one
       - adapters/           # per-product, none of them required
       - project-seed/ide/
+      - protocols/          # procedures somebody invokes, as against gates
+      - ci/protocols.py
+      - ci/protocol-registry.yaml
+      - curriculum/         # the reading order, and how two of them reconcile
+      - ci/curriculum.py
+      - ci/addresses.py     # how a data point is named, in every system holding it
+      - project-seed/address-vectors.json
+      - docs/ref/addresses.md
+      - ci/divergence.py    # a disagreement between two views is a delta
+      - ci/two_views.py     # git against the status document, as one worked case
+      - walkthrough/        # the executable worked example, run by `qm test`
     does_not_own: >
       What the commands mean. A route that dispatches to a rule does not own
-      the rule, and the CLI decides nothing itself.
+      the rule, and the CLI decides nothing itself. A protocol page owns the
+      procedure and never the decision behind it: a security review reads what
+      the records already say, and a curriculum unit cites a document rather
+      than restating it.
     gate: >
       None of its own. A missing route is a defect in this lane whatever lane
       the rule belongs to -- when there is no route, add one rather than

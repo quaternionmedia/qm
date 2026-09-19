@@ -597,10 +597,12 @@ def build(
         # convention the next reader does not have: it opens the file, not the
         # page, and it opens it in a session that knows nothing.
         "reading": {
-            "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
+            "refresh": "uv run qm docs generate",
+            "refresh_without_the_cli": (
+                "python ci/harness_status.py --no-local --write harness-status.json"),
             "staleness_budget_hours": STALENESS_BUDGET_HOURS,
             "human_view": "python ci/harness_dashboard.py harness-status.json --out status.html",
-            "agent_view": "python ci/harness_dashboard.py harness-status.json --format md",
+            "agent_view": "uv run qm harness",
             "unknown_convention": (
                 '{"unknown": "<reason>"} is a value. It means the fact could '
                 "not be established and says why. It is not zero, not empty, "
@@ -694,6 +696,22 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
+    # **THE REFUSAL COMES BEFORE THE WORK.** This sat after `build`, so
+    # refusing to write cost what writing would have -- about half a minute
+    # of scanning every clone on the machine to produce a document that was
+    # then thrown away. A guard that runs last costs what it prevents.
+    if args.write and not args.no_local and inside_corpus(args.write):
+        sys.exit(
+            f"harness_status: refusing to write the machine layer to "
+            f"{args.write}, which is inside the corpus.\n"
+            "That layer is one person's clones -- branch names, uncommitted "
+            "counts, unpushed work -- and committing it would publish one "
+            "machine's state as an organisation fact that every reader after "
+            "you inherits.\n"
+            "Pass --no-local for the committed copy, or --write somewhere "
+            "outside the repository for a machine-scoped one."
+        )
+
     document = yaml.safe_load(args.roster.read_text(encoding="utf-8"))
     roster = merge_private(document.get("repositories") or [])
     if not roster:
@@ -721,17 +739,6 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     text = json.dumps(status, indent=2, ensure_ascii=False) + "\n"
-    if args.write and not args.no_local and inside_corpus(args.write):
-        sys.exit(
-            f"harness_status: refusing to write the machine layer to "
-            f"{args.write}, which is inside the corpus.\n"
-            "That layer is one person's clones -- branch names, uncommitted "
-            "counts, unpushed work -- and committing it would publish one "
-            "machine's state as an organisation fact that every reader after "
-            "you inherits.\n"
-            "Pass --no-local for the committed copy, or --write somewhere "
-            "outside the repository for a machine-scoped one."
-        )
     if args.write:
         args.write.write_text(text, encoding="utf-8", newline="\n")
         totals = status["totals"]

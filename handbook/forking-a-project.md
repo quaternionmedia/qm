@@ -58,7 +58,7 @@ passes, not when its command exits zero.
    *Verify:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
    is empty, and `adr/README.md` differs from the seed only by the seed
    comment the seed itself says to delete. And
-   `python project-seed/ci/check_pr_base.py --base main --head project/<name>`
+   `uv run qm branch --base main --head project/<name>`
    REFUSES — if it does not, the guard is not in the copy you are running.
 3. **Point the submodule at that branch's tip** (checkout the branch inside
    the submodule, commit the updated pointer in the new project); add

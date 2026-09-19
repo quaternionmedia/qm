@@ -1,0 +1,233 @@
+# The mathematical structure each layer of the stack is claimed to have.
+#
+# The decision is records/DRAFT-a-knot-is-a-cycle-of-obligation.md and
+# PRINCIPLES.md P15. This is the list, and the list is the mechanism: a practice
+# of this kind that lives only in prose becomes a habit of naming things after
+# theorems, and nobody can tell the difference from the outside.
+#
+# THE TEST. A mapping earns its keep when it *decides* something that would
+# otherwise have been decided by taste. Not when it explains something after the
+# fact, and not when it reads well. The knot entry below was adopted because
+# walking symmetric relations produced forty-two rings and every one was noise --
+# the mathematics said which cycles matter before anybody had an opinion.
+#
+# Fields per entry:
+#   layer       what part of the stack this is about
+#   structure   the mathematical object it is claimed to be
+#   state       earned | decorative | aspirational   (see below)
+#   decides     what the mapping settles that taste would otherwise settle.
+#               `nothing` where it settles nothing, which is what makes an
+#               entry decorative rather than a bad entry.
+#   measured    the command and the result that established it, or `none`
+#   unearned    what the structure has that this layer does not yet -- named as
+#               work rather than hidden. This is the field that keeps the
+#               practice evolving instead of congratulating itself.
+#   next        what would move the state, or `nothing stated`
+#
+# THE THREE STATES, AND WHY `decorative` IS NOT AN INSULT.
+#
+#   earned       a measurement decided something. It may be relied on.
+#   decorative   a mnemonic, an aesthetic, a name. Useful and load-bearing for
+#                nothing. Recorded so the practice stays legible -- an
+#                unlabelled decoration is what turns this into ornament.
+#   aspirational a mapping somebody believes is there and nobody has shown.
+#                Held openly so it can be tested rather than assumed.
+#
+# A STATE MOVES IN BOTH DIRECTIONS. An `earned` mapping whose measurement stops
+# holding is not still earned because it once was. Re-integration is the point:
+# what a layer is found to be should change how the layer is built, and a
+# structure that stops fitting should be demoted rather than defended.
+
+schema: 1
+
+mappings:
+  - layer: the relation vocabulary between deltas
+    structure: a closed algebra with declared inverses
+    state: earned
+    decides: >
+      whether a sixth relation may be added, and what reading one backwards
+      means. Both were settled by the structure rather than by argument: the
+      vocabulary is closed, so a new relation is a change to a record, and the
+      inverse table is read rather than restated so the two directions cannot
+      disagree.
+    measured: >
+      dossier/tests/core/test_composition.py -- INVERSES is total over
+      RELATIONS, SYMMETRIC entries are their own inverse, and `derived-from`
+      has none deliberately. check_relation refuses an unknown name with the
+      five stated.
+    unearned: >
+      no composition law. `part-of` then `part-of` is `part-of`, and nothing
+      states or checks that. Transitivity is assumed by `parts_of`'s walk and
+      asserted nowhere.
+    next: >
+      state which relations compose with which, and check the walk against it.
+
+  - layer: cycles in the obligation graph
+    structure: knots, up to a deformation that reorders but never cuts
+    state: earned
+    decides: >
+      which cycles are reported. A ring of relations that impose no order is
+      the unknot -- it closes and constrains nothing -- so the tangle finder
+      searches the directed relations only.
+    measured: >
+      169 real relations from dossier.sweep and qmcp.threads.consolidate --
+      49 part-of, 120 crosses. tangles() reports 0. Walking symmetric relations
+      both ways and ignoring two-node cycles reports 42, every one of the form
+      thread -> project -> thread -> project. Pinned by
+      dossier/tests/core/test_composition.py.
+    unearned: >
+      no invariant. Nothing distinguishes two knots -- no crossing number, no
+      polynomial -- because the graph is not embedded in three-space and its
+      cycles carry no over- and under-crossings.
+    next: >
+      an invariant for obligation graphs, so two tangles can be compared. That
+      question arrives the moment there is more than one knot, and there are
+      none today. It may also turn out that this is a partial-order question
+      wearing a knot's clothes, and establishing that would beat defending the
+      analogy.
+
+  - layer: the service ports
+    structure: mathematical constants -- pi, phi, e
+    state: decorative
+    decides: nothing
+    measured: none
+    unearned: >
+      everything. Three numbers chosen to be recalled without looking. `e` went
+      to the layer whose stated problem is complexity growing faster than
+      anybody can hold, which is a reason and still not a structure.
+    next: >
+      nothing stated. This entry exists to be labelled rather than improved --
+      an unlabelled decoration is what turns the practice into ornament.
+
+  - layer: work shapes and the workers that take them
+    structure: a total function from shape to worker
+    state: aspirational
+    decides: >
+      would decide whether a dispatcher may be called complete. A total
+      function has an answer for every input; the dispatcher today answers
+      `needs a worker` for shapes nothing handles, which is honest and is not
+      totality.
+    measured: none
+    unearned: >
+      totality itself. `unknown` has no worker on purpose, so the function is
+      partial by design, and it is not yet stated whether that is a gap or the
+      correct shape.
+    next: >
+      decide whether `needs a worker` is a value in the codomain -- making the
+      function total over an extended range -- or an admission that it is
+      partial. The two read the same in code and differently in a review.
+
+  - layer: the phase ladder a delta climbs
+    structure: a partial order, not a sequence
+    state: aspirational
+    decides: >
+      would decide whether a delta may skip a phase, and whether two phases can
+      be held at once. Today the ladder is written as a list and read as a
+      sequence, and nothing says which.
+    measured: none
+    unearned: >
+      the order relation itself. Nobody has stated which phases must precede
+      which, so there is no partial order to check against -- only a list whose
+      ordering is implied by the order it was written in.
+    next: >
+      state the precedence pairs, then check whether real deltas respect them.
+      dossier holds 156 deltas across three phases, which is enough data to
+      find out whether the implied order is the observed one.
+
+  - layer: the boundary between an agent's judgement and the code it produces
+    structure: >
+      a decidability boundary -- an undecidable region, and total functions
+      outside it
+    state: earned
+    decides: >
+      where a guard may live. A check with no bound is a check that might not
+      return, so it is not a check; a bound that fires and is caught without
+      being reported turns a halting failure into a plausible answer. Both were
+      settled by the structure rather than by taste, and both had been argued
+      previously from cost and interruption instead.
+    measured: >
+      dossier: `waiting_org` asked `overview.build` for its attention rows, and
+      `build` builds every facet including that one. 109 levels of nested
+      `build` before Python's recursion limit stopped it; the RecursionError
+      caught by a per-source guard; every frame above returning a plausible
+      answer. overview.build 0.061s -> 1.478s, unnoticed for four pull
+      requests. Guarded now by a call-count assertion, seen to fail.
+    unearned: >
+      no bound is stated for a `qm` command's own runtime. The obligation is
+      asserted of guards and unmeasured for commands, so "every guard is a
+      total function" is checked and "every command terminates" is assumed.
+      Nothing yet measures the size of the undecidable region either, so
+      "shrink it" has a direction and no metric.
+    next: >
+      state a runtime bound per command in the gate registry, the way
+      `cannot_see` states a blind spot. Then the claim is checkable rather
+      than asserted.
+
+  - layer: a delta, and the readings either side of it
+    structure: >
+      a difference of two samples -- the discrete analogue of an integral over
+      a stabilised axis
+    state: earned
+    decides: >
+      that a change is stored as a reading, an act, and another reading, rather
+      than as a summary of what the act achieved. It settled the disk store's
+      append-only design against the governance store's replace-what-it-read
+      design: the question worth asking of a disk is what *grew*, and no single
+      reading answers it. It also decides what a delta may be compared against
+      -- a difference across two coordinate systems is refused rather than
+      averaged into a trend that happened on neither.
+    measured: >
+      dossier's `disk_snapshot` / `disk_reclaim` tables and
+      `dossier disk delta`: a reclaim carries the two readings it sits between,
+      and a delta across two machines is refused. Each snapshot carries the
+      machine it describes, which is the stabilised axis being named.
+    unearned: >
+      the rate. A difference of two samples is the accumulated change; nothing
+      here computes or uses a derivative -- how fast a repository is moving,
+      how quickly a queue drains -- although the data has timestamps and could.
+      And the axis is stabilised by convention rather than by check: nothing
+      refuses a comparison across two *phase vocabularies*, only across two
+      machines.
+    next: >
+      pick one rate worth having and measure it, or record that none is. The
+      candidate is delta phase transitions per week per repository, which
+      dossier has the timestamps for. Until then this entry is earned for
+      accumulation and states nothing about rates.
+
+  - layer: a generated artifact and the command that regenerates it
+    structure: a fixed point of the generator
+    state: earned
+    decides: >
+      what "the documentation is current" means, checkably. Not "somebody
+      regenerated it recently" but `regenerate(x) == x` -- so drift is distance
+      from the fixed point and a stale artifact is a failing assertion rather
+      than a judgement. It settles the design question the other way round from
+      how it is usually asked: the generator must be idempotent, and a
+      generator that is not cannot ride the ordinary command at all.
+    measured: >
+      qmetronome: 24 screenshots, 23 recordings and 24 guide pages regenerated
+      by `./gradlew test` carry zero drift, while the two artifacts in the same
+      repository that need a remembered command are stale -- a changelog one
+      release behind its newest tag, and a results table pasted by hand. One
+      repository, one author, one standard, so the difference is the mechanism
+      and not the discipline.
+
+      qm: `ci/glossary_links.py` was written claiming idempotence and did not
+      have it -- it linked the first *bare* use, so each pass linked one more
+      occurrence and it rewrote 17 pages on its second run. Running it twice is
+      what found that. The structure named the defect before anybody read the
+      code.
+    unearned: >
+      the repair direction. A fixed-point generator cannot fix its own bad
+      output, because bad output is still a fixed point: the broken glossary
+      link had to be reverted by hand before a corrected pass could run.
+      Nothing states how a generated artifact gets back to a good fixed point,
+      and "revert and rerun" is a habit rather than a mechanism.
+
+      And the property is checked per generator rather than required of them.
+      `dossier`'s ring recordings only became a fixed point when a per-run CSS
+      id was normalised out; nothing would have failed had it stayed.
+    next: >
+      assert idempotence in the seed's own test helpers, so a new generator
+      gets the check without its author thinking of it. That is the difference
+      between a structure that is known and one that is enforced.

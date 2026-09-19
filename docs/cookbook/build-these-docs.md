@@ -40,7 +40,7 @@ This writes the site to `site/`, which is not committed. On a push to `main`, th
 ## Linking rules
 
 - Links **between docs pages** are relative paths to the `.md` file: `../ref/namespaces.md`.
-- Links **to anything outside `docs/`** — records, handbook pages, source files — use the full GitHub URL: `https://github.com/quaternionmedia/qm/blob/main/...`. The site build cannot reach files outside `docs/`.
+- Links **to anything outside `docs/`** — records, [handbook](../ref/glossary.md#handbook){ .glossary-term } pages, source files — use the full GitHub URL: `https://github.com/quaternionmedia/qm/blob/main/...`. The site build cannot reach files outside `docs/`.
 
 ## Related
 

@@ -54,4 +54,4 @@ An adopting project's records are **not** in this tree. They live on that projec
 ## Related
 
 - [Branch namespaces](namespaces.md) — the branch model
-- [Handbook index](handbook.md) — what each handbook page answers
+- [Handbook index](handbook.md) — what each [handbook](../ref/glossary.md#handbook){ .glossary-term } page answers

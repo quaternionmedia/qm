@@ -6,7 +6,7 @@
 | **Date** | 2026-08-14 |
 | **Pends on** | Nothing — ready for ratification |
 | **Principle** | P11 — governance finds the reader, not the reverse; P6 — decisions are documented or they didn't happen |
-| **Restated in** | `AGENTS.md` item 15 |
+| **Restated in** | `AGENTS.md` item 16 |
 
 ## Context
 

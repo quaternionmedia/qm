@@ -5,9 +5,9 @@
 
 ## How the corpus started
 
-The corpus began as a charter ([PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md)) and a set of draft decision records cut from it. The records, the seed template, and the CI tooling grew from there, shaped by each project adoption.
+The [corpus](../ref/glossary.md#corpus){ .glossary-term } began as a charter ([PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md)) and a set of draft decision records cut from it. The records, the [seed](../ref/glossary.md#seed){ .glossary-term } template, and the CI tooling grew from there, shaped by each project adoption.
 
-All twelve org records are still `Proposed`. This is deliberate: ratification requires a second active code owner. See [Ratification](../ref/ratification.md) and [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md).
+All twelve org records are still `Proposed`. This is deliberate: [ratification](../ref/glossary.md#ratification){ .glossary-term } requires a second active code owner. See [Ratification](../ref/ratification.md) and [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md).
 
 ## Adopting projects
 

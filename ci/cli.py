@@ -146,7 +146,32 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "edges",
+        help="every principle declares how it relates to the others, or why not",
+        add_help=False,
+    )
+    sub.add_parser(
+        "glossary-links",
+        help="link the first use of each glossary term on every docs page",
+        add_help=False,
+    )
+    sub.add_parser(
         "slot", help="is this contributor's pull request slot free?", add_help=False
+    )
+    sub.add_parser(
+        "pins",
+        help="is every submodule pin a commit somebody else could get?",
+        add_help=False,
+    )
+    sub.add_parser(
+        "leaks",
+        help="does anything committed name a person, a machine or a conversation?",
+        add_help=False,
+    )
+    sub.add_parser(
+        "harness",
+        help="the harness status document, rendered as prose",
+        add_help=False,
     )
     sub.add_parser(
         "branch", help="what a branch actually carries, against its base", add_help=False
@@ -157,6 +182,35 @@ def build_parser() -> argparse.ArgumentParser:
     )
     sub.add_parser(
         "lanes", help="the lanes this work is separated into",
+        add_help=False,
+    )
+    sub.add_parser(
+        "protocols", help="the procedures run deliberately, and when each last ran",
+        add_help=False,
+    )
+    sub.add_parser(
+        "capabilities",
+        help="what each named thing this estate can do has reached",
+        add_help=False,
+    )
+    sub.add_parser(
+        "prose", help="the opening of every entry point, side by side",
+        add_help=False,
+    )
+    sub.add_parser(
+        "addresses", help="how one data point is named, in every system that holds it",
+        add_help=False,
+    )
+    sub.add_parser(
+        "divergence", help="where two views of one address disagree, as deltas",
+        add_help=False,
+    )
+    sub.add_parser(
+        "two-views", help="git against the status document, disagreements as deltas",
+        add_help=False,
+    )
+    sub.add_parser(
+        "curriculum", help="the reading order, and how two of them reconcile",
         add_help=False,
     )
     sub.add_parser(
@@ -199,10 +253,34 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "posture", help="what the suite costs and what it catches, together",
+        add_help=False,
+    )
+    sub.add_parser(
         "preflight", help="run every workflow's real steps locally", add_help=False
     )
     sub.add_parser(
         "brief", help="build this session's opening brief from the repository", add_help=False
+    )
+    sub.add_parser(
+        "dashboard", help="what of the trio is up, and how to bring up the rest",
+        add_help=False,
+    )
+    sub.add_parser(
+        "demo", help="run one topology through every window and check they agree",
+        add_help=False,
+    )
+    sub.add_parser(
+        "mathematics", help="every mathematical mapping states what it has not earned",
+        add_help=False,
+    )
+    sub.add_parser(
+        "patterns", help="every high-frequency pattern has a mechanical check",
+        add_help=False,
+    )
+    sub.add_parser(
+        "session", help="write a validated session break observation",
+        add_help=False,
     )
     return parser
 
@@ -212,11 +290,24 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "gates": ("gate_dashboard", False, ["gate-status.json", "--format", "md"]),
     "tags": ("tag_audit", False, []),
     "restatements": ("check_restatements", False, []),
+    "edges": ("check_principle_edges", False, []),
+    "glossary-links": ("glossary_links", False, []),
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
+    "pins": ("check_submodule_pins", True, []),
+    "leaks": ("check_leaks", True, []),
+    "harness": ("harness_dashboard", False,
+                ["harness-status.json", "--format", "md"]),
     "branch": ("check_pr_base", True, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
+    "protocols": ("protocols", False, []),
+    "capabilities": ("capabilities", False, []),
+    "prose": ("prose", False, []),
+    "addresses": ("addresses", False, []),
+    "divergence": ("divergence", False, []),
+    "two-views": ("two_views", False, []),
+    "curriculum": ("curriculum", False, []),
     "private-names": ("check_private_names", False, []),
     "workspace": ("make_workspace", False, []),
     "devloop": ("devloop", False, []),
@@ -227,8 +318,18 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "ledger": ("ledger", False, []),
     "test": ("run_tests", False, []),
     "mutate": ("mutate", False, []),
+    "posture": ("test_posture", False, []),
     "preflight": ("run_workflows_locally", True, []),
     "brief": ("cowork_context", True, []),
+    # Four routes added together, because the omission was one shape rather
+    # than four mistakes: a module with a `main` and no route is reachable only
+    # by a path somebody has to have been told, which is the thing `qm` exists
+    # to make unnecessary. `ci/tests/test_cli.py` now refuses a new one.
+    "dashboard": ("dashboard", False, []),
+    "demo": ("trio_demo", False, []),
+    "mathematics": ("check_mathematics", False, []),
+    "patterns": ("check_pattern_coverage", False, []),
+    "session": ("session_record", False, []),
 }
 
 DOCS_ROUTES: dict[str, tuple[str, list[str]]] = {

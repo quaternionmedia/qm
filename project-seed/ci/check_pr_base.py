@@ -245,9 +245,17 @@ def main() -> int:
     # on a branch named evolve/* passed the namespace check and put a whole
     # project's records on the default branch. Names are a convention; the tree
     # is the thing that lands.
-    if bare_base == args.default and git(
+    # The base is asked too, because the message below asserts something about
+    # it. In the corpus, `main` has no top-level `adr/` and a branch carrying
+    # one is putting a project's records into the org namespace. In a project
+    # repository that keeps its records in its own tree -- which the seed's own
+    # `adr-lint.yml` supports through `RECORDS_DIR` -- `main` legitimately has
+    # one, and refusing there would refuse nearly every pull request the project
+    # ever opens. The claim and the test are now the same question.
+    base_has_records = bool(git("ls-tree", "--name-only", base, "adr").strip())
+    if (bare_base == args.default and not base_has_records and git(
         "ls-tree", "--name-only", head, "adr"
-    ).strip():
+    ).strip()):
         return refuse(
             f"{bare_head} carries a top-level adr/ and targets {bare_base}.\n\n"
             f"adr/ holds one project's records and belongs on that project's own\n"

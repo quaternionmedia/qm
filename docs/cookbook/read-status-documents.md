@@ -35,7 +35,7 @@ Top-level keys: `schema`, `generated_at`, `generator`, `corpus`, `projects`, `or
 
 Each entry in `projects` reports, among other fields:
 
-- `branch` — the project branch's commit, how far behind or ahead of the corpus it is, and the last propagation
+- `branch` — the project branch's commit, how far behind or ahead of the [corpus](../ref/glossary.md#corpus){ .glossary-term } it is, and the last [propagation](../ref/glossary.md#propagation){ .glossary-term }
 - `records` — how many records the project has, and their statuses
 - `adoption` — which adoption artifacts (submodule, workflows, IDE files, licensing) are present
 - `repository` — facts about the project's own repository, or `unknown` with the reason

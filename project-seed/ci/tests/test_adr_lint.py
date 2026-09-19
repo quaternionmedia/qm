@@ -68,6 +68,38 @@ def test_a_numbered_file_that_is_ratified_passes(repo: Path):
     assert lint(repo).returncode == 0
 
 
+def test_a_ratified_record_that_was_never_renamed_is_caught(repo: Path):
+    """**THE HOLE THE FIRST RATIFICATION WOULD HAVE FALLEN INTO.**
+
+    Every other check keys on the filename: one asks whether a *numbered* file
+    is ratified, and the index check compares numbers taken from filenames.
+    A record whose Status was flipped to `Accepted` and whose file was never
+    renamed matched neither, so the lint reported clean — while the record read
+    as ratified to any person opening it.
+
+    `docs/ref/ratification.md` documents the neighbouring failure, where the
+    index *was* updated; that one fires. This is the case where the ratifier
+    stopped one step earlier, and it was silent.
+
+    Mutation: drop `check_ratified_are_numbered` from `main` and this fails.
+    """
+    write(repo / "records" / "DRAFT-x.md", record(status="Accepted"))
+    write(repo / "README.md", index_for([]))
+    commit_all(repo, "flip status without renaming")
+    result = lint(repo)
+    assert result.returncode == 1, result.stdout
+    assert "carries no number" in result.stdout
+
+
+def test_a_draft_that_is_not_ratified_is_left_alone(repo: Path):
+    """The ordinary state of every record in this corpus. A check that fired on
+    a `Proposed` draft would fail on an untouched repository."""
+    write(repo / "records" / "DRAFT-x.md", record(status="Proposed"))
+    write(repo / "README.md", index_for([]))
+    commit_all(repo, "an ordinary draft")
+    assert lint(repo).returncode == 0
+
+
 # --- check 3: ratified bodies are append-only ----------------------------------
 
 
@@ -206,3 +238,74 @@ def test_a_records_directory_that_does_not_exist_is_an_error_not_a_pass(repo: Pa
         "a missing records directory must fail loudly; a mislocated adr/ that "
         "reports clean is indistinguishable from a compliant one"
     )
+
+
+# --- the banned list is a proxy, and a proxy over-matches ----------------------
+
+
+def test_a_word_that_narrates_nothing_is_not_a_violation(repo: Path):
+    """`corrected` was a bare word in the pattern and fired on this sentence --
+    prose about two perspectives that narrates nothing about the draft.
+
+    It was reworded to keep the check quiet, which is the wrong repair: the
+    tool ends consistent and the record ends worse. The pattern now matches a
+    narrating construction rather than a word.
+    """
+    write(repo / "records" / "DRAFT-x.md",
+          record(body="Neither is a mistake and neither is corrected.\n"))
+    commit_all(repo, "add draft")
+    assert lint(repo).returncode == 0, "a proxy must not cost a true sentence"
+
+
+def test_previously_unknown_is_not_narration(repo: Path):
+    write(repo / "records" / "DRAFT-x.md",
+          record(body="A previously unknown failure mode turned up.\n"))
+    commit_all(repo, "add draft")
+    assert lint(repo).returncode == 0
+
+
+def test_real_narration_is_still_caught(repo: Path):
+    """The pair for the two above. A rule narrowed until it fires on nothing is
+    worse than the false positives it removed."""
+    for body in ("This record previously said the opposite.\n",
+                 "That claim was corrected in this revision.\n",
+                 "It originally stated a different threshold.\n",
+                 "An earlier draft named three.\n",
+                 "The figure is now corrected.\n"):
+        write(repo / "records" / "DRAFT-x.md", record(body=body))
+        commit_all(repo, "add draft")
+        assert lint(repo).returncode == 1, f"narration slipped through: {body!r}"
+
+
+def test_an_annotated_hit_is_allowed_and_counted(repo: Path):
+    """An escape hatch with a price. The count is printed so that silencing the
+    check stays visible rather than becoming the way it is used."""
+    write(repo / "records" / "DRAFT-x.md",
+          record(body='It previously said so. <!-- adr-lint: allow "quoting a '
+                      'source, not this draft" -->\n'))
+    commit_all(repo, "add draft")
+    result = lint(repo)
+    assert result.returncode == 0, result.stdout
+    assert "allowed by a stated reason" in result.stdout
+
+
+def test_an_annotation_without_a_reason_is_the_check_turned_off(repo: Path):
+    """Mutation: accept an empty reason and this fails, which is an exemption
+    anybody can apply without saying anything."""
+    write(repo / "records" / "DRAFT-x.md",
+          record(body='It previously said so. <!-- adr-lint: allow "" -->\n'))
+    commit_all(repo, "add draft")
+    result = lint(repo)
+    assert result.returncode == 1
+    assert "states a reason" in result.stdout
+
+
+def test_the_annotation_survives_comment_stripping(repo: Path):
+    """`prose_only` blanks HTML comments, which is right for the scan and would
+    make the annotation invisible to the thing it annotates. The exemption is
+    read from the raw file; this is the test that says so."""
+    write(repo / "records" / "DRAFT-x.md",
+          record(body='<!-- adr-lint: allow "on the line above" -->\n'
+                      'It previously said so.\n'))
+    commit_all(repo, "add draft")
+    assert lint(repo).returncode == 0

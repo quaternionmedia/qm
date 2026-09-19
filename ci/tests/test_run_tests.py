@@ -50,7 +50,15 @@ def test_ci_runs_no_suite_this_route_omits():
 
 
 def test_both_suites_are_present_because_one_would_be_half_the_tooling():
-    assert set(SUITES) == {"project-seed/ci/tests", "ci/tests"}
+    assert {"project-seed/ci/tests", "ci/tests"} <= set(SUITES)
+
+
+def test_the_walkthrough_is_named_on_the_command_line():
+    """records/DRAFT-one-executable-walkthrough.md §2, measured there: pytest
+    ignores `testpaths` the moment it receives a path argument, and this
+    invocation always passes paths. A walkthrough wired through `testpaths`
+    would be collected by nobody and stay green forever."""
+    assert "walkthrough" in SUITES
 
 
 def test_the_suite_paths_exist():
@@ -58,9 +66,12 @@ def test_the_suite_paths_exist():
         assert (CORPUS / suite).is_dir(), f"{suite} is not a directory"
 
 
-def test_quiet_is_the_only_base_argument():
-    """Anything else here is a default an operator did not choose and cannot see."""
-    assert BASE_ARGS == ("-q",)
+def test_the_base_arguments_are_quiet_and_the_doctest_glob_and_nothing_else():
+    """Anything beyond these is a default an operator did not choose and cannot
+    see. `--doctest-glob=*.md` is here because the walkthrough pages *are* the
+    executable -- without it they are collected and no example runs, which is
+    the silent-green failure the record is against."""
+    assert BASE_ARGS == ("-q", "--doctest-glob=*.md")
 
 
 def test_extra_arguments_reach_pytest(capsys, monkeypatch):

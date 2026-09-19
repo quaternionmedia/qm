@@ -48,12 +48,15 @@ gates:
       narration vocabulary in a pre-ratification draft; a vendor or model name
       in a record's prose or a commit subject; a seed copy still showing its
       template placeholder to a reader; a record whose declared restatement
-      does not name it back.
+      does not name it back; a principle that declares no relationship to the
+      others and gives no reason, or declares one the other end does not
+      declare back.
     runs:
       - project-seed/ci/adr_lint.py
       - project-seed/ci/check_attribution.py
       - project-seed/ci/check_placeholders.py
       - ci/check_restatements.py
+      - ci/check_principle_edges.py
     enforces:
       - records/DRAFT-decision-record-discipline.md
       - records/DRAFT-human-only-contributorship.md
@@ -61,7 +64,12 @@ gates:
       - records/DRAFT-governance-arrives-as-a-mechanism.md
     cannot_see: >
       Whether a record is correct, or whether a restatement and its record
-      agree -- it pairs declarations and compares no text. Three of its four
+      agree -- it pairs declarations and compares no text. Nor whether two
+      principles actually conflict: the edge check reads a stated relationship
+      from both ends and knows nothing about what either principle says, so a
+      wrong edge declared consistently passes. It also cannot tell a real
+      isolation from a lazy one -- it can only insist the `none` carries a
+      reason somebody had to write. Three of its four
       sub-checks cannot fire on any ref CI runs against, which is a known
       finding and not yet fixed. One commit subject is exempt from the
       vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the
@@ -111,12 +119,16 @@ gates:
     refuses: >
       A change to the CI tooling that breaks its own test suite.
     runs:
-      - python -m pytest project-seed/ci/tests ci/tests
-    enforces: []
+      - python -m pytest project-seed/ci/tests ci/tests walkthrough -q --doctest-glob=*.md
+    enforces:
+      - records/DRAFT-one-executable-walkthrough.md
     cannot_see: >
       Whether a passing test discriminates. A test that passes against the
       broken tool is inert, and this corpus has shipped two of those -- only a
-      mutation pass finds them, and no gate runs one.
+      mutation pass finds them, and no gate runs one. For the walkthrough it
+      also cannot see whether a page is worth reading: doctest asserts that an
+      example's printed output is what the page claims, and asserts nothing
+      about whether the example was the one worth showing.
 
   - id: governance-status
     workflow: governance-status.yml
@@ -173,6 +185,60 @@ gates:
       They are not symlinked to each other, so this check cannot notice them
       disagreeing.
 
+  - id: docs-audit
+    workflow: docs-audit.yml
+    job: audit
+    gates: [pull_request]
+    seed: false
+    exists: true
+    refuses: >
+      A documentation site that builds but does not hold together -- a page
+      the navigation does not reach, a link to a page that is not published,
+      a claim the audit's four dimensions can check.
+    runs:
+      - ci/docs_audit.py
+      - .github/workflows/docs-audit.yml
+    enforces:
+      - records/DRAFT-the-read-document-governs.md
+    cannot_see: >
+      Whether a page is true. It builds the site and reads what the build
+      reads, so it finds a page nobody can reach and not a page that is wrong.
+      `uv run qm prose` reads the openings; a person reads the rest.
+
+  - id: docs-draft
+    workflow: docs-draft.yml
+    job: draft
+    gates: [pull_request]
+    seed: false
+    exists: true
+    refuses: >
+      Nothing. It builds a preview of the site for the change under review, so
+      a documentation change can be looked at rather than imagined.
+    runs:
+      - .github/workflows/docs-draft.yml
+    enforces: []
+    cannot_see: >
+      Anything -- it is a build, not a check, and it is listed here because a
+      workflow nobody declared is a workflow nobody can rely on. Declaring it
+      says plainly that it refuses nothing.
+
+  - id: docs-deploy
+    workflow: docs.yml
+    job: deploy
+    gates: [push]
+    seed: false
+    exists: true
+    refuses: >
+      Nothing. It publishes the site from the default branch. A failure here
+      means the published site is older than `main`, which is a fact worth
+      seeing and not a rule anybody violated.
+    runs:
+      - .github/workflows/docs.yml
+    enforces: []
+    cannot_see: >
+      Whether what it published is correct, or whether anybody reads it. It is
+      a deployment, and it is declared for the same reason the draft build is.
+
   - id: tag-claims
     workflow: tag-claims.yml
     job: claims
@@ -191,6 +257,25 @@ gates:
       Whether the review or the manual test happened -- it reads an annotation
       a human wrote. It does not gate tag creation, which needs a host-side
       tag-protection ruleset, and it runs after the tag exists.
+
+  - id: tag-determinism
+    workflow: tag-determinism.yml
+    job: deterministic-validation
+    gates: [tag]
+    seed: false
+    exists: true
+    refuses: >
+      A `v*` tag whose captured test run declares a skip, a rerun or a retry, or
+      whose suite does not pass at all.
+    runs:
+      - project-seed/ci/check_tag_claims.py
+    enforces:
+      - records/DRAFT-version-tags-are-claims.md
+    cannot_see: >
+      Whether the suite is deterministic. It refuses a run that announces
+      nondeterminism; one that is nondeterministic and silent about it passes.
+      It also says nothing about coverage: a suite asserting little passes as
+      readily as one asserting much.
 
   - id: secret-scan
     workflow: null
@@ -243,23 +328,39 @@ gates:
       An exemption with no stated reason or whose named constant has gone; a
       policy with neither a detector nor a stated reason it cannot have one; a
       ledger entry that is unattributed, or closed and unscored; two lanes that
-      are settled by the same gate.
+      are settled by the same gate; a protocol with no page or a step naming a
+      route that does not exist; a curriculum unit citing a document that is
+      not there or claiming a Status its document does not carry; an address
+      vector that does not parse as declared or does not format back to itself.
     runs:
       - ci/exceptions.py --check
       - ci/policies.py --check
       - ci/ledger.py --check
       - ci/lanes.py --check
+      - ci/protocols.py --check
+      - ci/curriculum.py --check
+      - ci/addresses.py --check
+      - ci/capabilities.py --check
     enforces:
       - ci/exception-registry.yaml
       - ci/policy-registry.yaml
       - ci/lane-registry.yaml
+      - ci/protocol-registry.yaml
+      - ci/capability-registry.yaml
+      - curriculum/org.yaml
+      - project-seed/address-vectors.json
     cannot_see: >
-      Whether any registry is complete. Each of these four checks the entries
+      Whether any registry is complete. Each of these seven checks the entries
       that exist against their own rules; none can tell that an exemption, a
-      policy, a ledger entry or a lane was never written down, and a registry
-      nobody added to is the state all four report as clean. Nor is this gate
-      required to merge -- it is a candidate for A-main.json's required list
-      and stays off it until it has reported green on a real pull request.
+      policy, a ledger entry, a lane, a protocol, a curriculum unit or an
+      address case was never written down, and a registry nobody added to is
+      the state all seven report as clean. Nor can it see an address that is
+      well-formed and wrong: the grammar has no idea whether the branch exists. It also cannot see whether a protocol was ever run -- that is
+      reported by `uv run qm protocols` and deliberately never refused -- or
+      whether a curriculum unit's prose is true of the document it cites. Nor
+      is this gate required to merge: it is a candidate for A-main.json's
+      required list and stays off it until it has reported green on a real
+      pull request.
 
   - id: rulesets
     workflow: null

@@ -62,10 +62,13 @@ def run(root: Path) -> subprocess.CompletedProcess:
 
 
 def test_declared_and_cited_passes(tmp_path: Path):
+    # A real numbered item, because the declaration names one. A row saying
+    # "item 3" against a document with no numbered list is a stale pointer, and
+    # the check reports it as such.
     corpus(
         tmp_path,
         restated="`AGENTS.md` item 3",
-        agents="Item 3 summarizes records/DRAFT-a-record.md and says so.",
+        agents="3. Item three summarizes records/DRAFT-a-record.md and says so.",
     )
     result = run(tmp_path)
     assert result.returncode == 0, result.stdout + result.stderr
@@ -127,7 +130,7 @@ def test_submodule_spelling_of_a_record_path_counts(tmp_path: Path):
     write(tmp_path / "AGENTS.md", "Nothing here.\n")
     write(
         tmp_path / "project-seed" / "ide" / "AGENTS.md",
-        "Item 3 summarizes governance/qm/records/DRAFT-a-record.md.\n",
+        "3. Item three summarizes governance/qm/records/DRAFT-a-record.md.\n",
     )
     assert run(tmp_path).returncode == 0
 
