@@ -3,7 +3,8 @@
 **Routing.** A task somebody can pick up cold. Delete when its work lands.
 
 **Stamped 2026-09-19.** `test` at `1d96d27`; this branch `evolve/games-family`
-four commits past it, unpushed, in the worktree `repos/qm/qm-games-family`.
+past it and unpushed, in the worktree `repos/qm/qm-games-family` —
+`git log test..evolve/games-family` is the count.
 titanharvest at `397b918` on its own `main`, local only.
 
 ## What this carries
