@@ -5,6 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-09-15 |
 | **Pends on** | Human ratification of *QM constitution adoption scope for Apothecary*, which fixes this project's disposition toward externally-invoked copyleft binaries (its Consequences name `openscad` as the precedent this record extends). |
+| **Tools** | Claude Code (Anthropic) assisted the 2026-09-19 revision (§6's scope, the cross-reference to the printer seam); the human who sponsored the work is the contributor of record. |
 
 ## Context
 
@@ -92,9 +93,13 @@ is a local control, not a service.
    `apothecary <name>: hello` at boot **and periodically** (every few
    seconds) — periodically because the monitor takes longer to attach than
    a boot banner lasts, and a protocol that depends on catching boot is a
-   protocol that fails whenever it matters. Only arduino-cli and esptool
-   ever open the port: Apothecary's own process never does, because a
-   second opener was observed to corrupt reads on a CP2102 bridge.
+   protocol that fails whenever it matters. For the boards this record
+   programs, only arduino-cli and esptool ever open the port: Apothecary's
+   own process does not, because a second opener was observed to corrupt
+   reads on a CP2102 bridge. A board Apothecary *monitors* rather than
+   programs — a printer mainboard speaking G-code — is the deliberate
+   exception, held to one holder per port; that is the *G-code printer
+   seam* record's decision, not this one's.
 
 7. **Serial output streams as server-sent events, and any task pre-empts
    it.** `GET /firmware/devices/stream` keeps one `arduino-cli monitor` per

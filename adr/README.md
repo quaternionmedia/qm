@@ -243,4 +243,5 @@ together.
 
 Drafts in flight (numberless, by title): QM constitution adoption scope for
 Apothecary; Site/Structure/Substructure/Feature hierarchy for complex
-subassemblies; Firmware toolchain seam (arduino-cli and esptool).
+subassemblies; Firmware toolchain seam (arduino-cli and esptool); G-code
+printer seam (monitor printer controllers over the G-code line protocol).
