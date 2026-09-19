@@ -31,4 +31,4 @@ Adopting one is `handbook/forking-a-project.md` — nine steps, taken one reposi
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-08-31 from `families.json`.*
+*Generated 2026-09-19 from `families.json`.*

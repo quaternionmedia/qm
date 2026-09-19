@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-08-31T16:35:38Z'
+generated_at: '2026-09-19T23:52:45Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -104,7 +104,7 @@ readiness:
     in ci/workspace.yaml. Nothing here is derived from the repository.
   measured:
     records:
-      total: 37
+      total: 38
       ratified: 0
       proposed: 35
     documents_in_unknown_state: 0
@@ -121,9 +121,9 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 187
+  documents: 188
   by_state:
-    draft: 2
+    draft: 3
     generated: 7
     proposed: 35
     standing: 69
@@ -1377,6 +1377,13 @@ documents:
   state_from_status_row: proposed
   state_from_filename: draft
   state: proposed
+- path: records/DRAFT-a-loose-end-is-carried-or-dismissed.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Draft
+  state_from_status_row: draft
+  state_from_filename: draft
+  state: draft
 - path: records/DRAFT-a-principle-is-addressed-by-its-name.md
   class: record
   class_reason: an org decision record

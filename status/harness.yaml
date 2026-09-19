@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-08-31T16:35:34Z'
+generated_at: '2026-09-19T23:52:43Z'
 generator:
   tool: ci/harness_status.py
   org: quaternionmedia
@@ -48,21 +48,21 @@ reading:
   - local
 totals:
   repositories: 41
-  slots_measured: 36
-  slots_unknown: 5
-  compliant: 33
-  over_limit: 3
-  governance_readable: 11
+  slots_measured: 33
+  slots_unknown: 8
+  compliant: 31
+  over_limit: 2
+  governance_readable: 14
   governance_precondition_met: 1
   phase_scaffolded: 10
   phase_stated_above_governance: 4
   threads_by_stage:
     local: 0
     pushed: 0
-    draft: 7
-    ready: 12
-  threads_stalled: 19
-  threads_unreadable: 5
+    draft: 6
+    ready: 18
+  threads_stalled: 16
+  threads_unreadable: 8
 repositories:
 - name: qm
   slug: quaternionmedia/qm
@@ -75,7 +75,15 @@ repositories:
     per_base:
     - project/*
     contributor: null
-    open_prs: []
+    open_prs:
+    - number: 110
+      title: Join what the org left open into one document, and keep the claim out
+        of it
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/loose-ends
+      draft: false
     violations: []
     exit_status: 0
     compliant: true
@@ -84,7 +92,23 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads: []
+  threads:
+  - name: evolve/loose-ends
+    stage: ready
+    pr: 110
+    base: main
+    title: Join what the org left open into one document, and keep the claim out of
+      it
+    author: subcontrabass
+    delta:
+      additions: 1914
+      changed_files: 9
+      commits: 2
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-09-19T22:25:06Z'
+    idle_hours: 1.4
+    stalled: false
   governance:
     precondition: n/a
     missing: []
@@ -100,6 +124,13 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
+    - number: 56
+      title: Rework the dossier dashboard into job-driven views
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/dossier-job-driven-views
+      draft: false
     - number: 9
       title: 'build(deps): bump starlette from 0.50.0 to 1.3.1'
       author: dependabot[bot]
@@ -143,7 +174,22 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads: []
+  threads:
+  - name: evolve/dossier-job-driven-views
+    stage: ready
+    pr: 56
+    base: main
+    title: Rework the dossier dashboard into job-driven views
+    author: subcontrabass
+    delta:
+      additions: 3550
+      changed_files: 55
+      commits: 20
+      deletions: 808
+      mergeable_state: clean
+      updated_at: '2026-09-19T17:46:05Z'
+    idle_hours: 6.1
+    stalled: false
   governance:
     precondition: incomplete
     missing:
@@ -157,7 +203,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 10
-    observed_at: '2026-08-31T16:34:29Z'
+    observed_at: '2026-09-19T23:51:32Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -172,6 +218,13 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
+    - number: 35
+      title: Carry the seed workflow this fork was missing
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/carry-the-seed-workflow
+      draft: false
     - number: 20
       title: 'chore(deps): bump python-dotenv from 1.2.1 to 1.2.2'
       author: dependabot[bot]
@@ -278,7 +331,22 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads: []
+  threads:
+  - name: evolve/carry-the-seed-workflow
+    stage: ready
+    pr: 35
+    base: main
+    title: Carry the seed workflow this fork was missing
+    author: subcontrabass
+    delta:
+      additions: 344
+      changed_files: 5
+      commits: 2
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-09-19T20:13:22Z'
+    idle_hours: 3.6
+    stalled: false
   governance:
     precondition: incomplete
     missing:
@@ -293,7 +361,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 0
     behind_corpus: 50
-    observed_at: '2026-08-31T16:34:36Z'
+    observed_at: '2026-09-19T23:51:41Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -308,6 +376,14 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
+    - number: 5
+      title: 'Consolidate rad: host-to-host messaging, the executable ring, and the
+        coordinate'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/consolidate-rad
+      draft: false
     - number: 2
       title: Bump playwright and @playwright/test
       author: dependabot[bot]
@@ -323,7 +399,23 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads: []
+  threads:
+  - name: evolve/consolidate-rad
+    stage: ready
+    pr: 5
+    base: main
+    title: 'Consolidate rad: host-to-host messaging, the executable ring, and the
+      coordinate'
+    author: subcontrabass
+    delta:
+      additions: 3601
+      changed_files: 51
+      commits: 19
+      deletions: 121
+      mergeable_state: clean
+      updated_at: '2026-09-19T22:33:39Z'
+    idle_hours: 1.3
+    stalled: false
   governance:
     precondition: incomplete
     missing:
@@ -337,7 +429,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 107
-    observed_at: '2026-08-31T16:34:39Z'
+    observed_at: '2026-09-19T23:51:44Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -390,7 +482,7 @@ repositories:
       deletions: 44
       mergeable_state: clean
       updated_at: '2023-12-30T22:55:40Z'
-    idle_hours: 23393.7
+    idle_hours: 23856.9
     stalled: true
   governance:
     precondition: incomplete
@@ -408,7 +500,7 @@ repositories:
       workflows_absent: 4
       licensing_present: 0
     behind_corpus: 233
-    observed_at: '2026-08-31T16:34:19Z'
+    observed_at: '2026-09-19T23:51:22Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -423,12 +515,20 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
-    - number: 18
-      title: Fix the viewer, and give datum-core an assembly you can navigate
+    - number: 21
+      title: 'Consolidate every unmerged line: enclosure, photos into pieces, firmware
+        toolchain, viewer range'
       author: subcontrabass
       bot: false
       base: main
-      head: prototype/site-structure-hierarchy
+      head: consolidate/2026-09-19
+      draft: false
+    - number: 19
+      title: Bump anyio from 4.11.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
       draft: false
     - number: 17
       title: Bump idna from 3.11 to 3.15
@@ -458,59 +558,31 @@ repositories:
       base: main
       head: dependabot/uv/urllib3-2.7.0
       draft: false
-    - number: 13
-      title: 'Fractal viewer: wider range, assembly outlines, per-node detail — plus
-        the ruff/black pass'
-      author: subcontrabass
-      bot: false
-      base: main
-      head: feature/fractal-viewer-scale-and-overlays
-      draft: true
-    violations:
-    - author: subcontrabass
-      base: ''
-      numbers:
-      - 13
-      - 18
-    exit_status: 1
-    compliant: false
+    violations: []
+    exit_status: 0
+    compliant: true
   release:
     state: unreleased
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
   threads:
-  - name: prototype/site-structure-hierarchy
+  - name: consolidate/2026-09-19
     stage: ready
-    pr: 18
+    pr: 21
     base: main
-    title: Fix the viewer, and give datum-core an assembly you can navigate
+    title: 'Consolidate every unmerged line: enclosure, photos into pieces, firmware
+      toolchain, viewer range'
     author: subcontrabass
     delta:
-      additions: 7587
-      changed_files: 82
-      commits: 32
-      deletions: 422
+      additions: 86580
+      changed_files: 220
+      commits: 46
+      deletions: 533
       mergeable_state: clean
-      updated_at: '2026-08-23T01:12:49Z'
-    idle_hours: 207.4
-    stalled: true
-  - name: feature/fractal-viewer-scale-and-overlays
-    stage: draft
-    pr: 13
-    base: main
-    title: 'Fractal viewer: wider range, assembly outlines, per-node detail — plus
-      the ruff/black pass'
-    author: subcontrabass
-    delta:
-      additions: 534
-      changed_files: 27
-      commits: 3
-      deletions: 159
-      mergeable_state: clean
-      updated_at: '2026-08-11T11:48:46Z'
-    idle_hours: 484.8
-    stalled: true
+      updated_at: '2026-09-19T21:59:38Z'
+    idle_hours: 1.9
+    stalled: false
   governance:
     precondition: incomplete
     missing:
@@ -524,7 +596,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 233
-    observed_at: '2026-08-31T16:34:20Z'
+    observed_at: '2026-09-19T23:51:24Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -564,14 +636,14 @@ repositories:
     title: 'WP-3: firmware, the pre-HIL run, and a pinned enclosure'
     author: subcontrabass
     delta:
-      additions: 4443
+      additions: 4446
       changed_files: 50
-      commits: 33
+      commits: 34
       deletions: 97
       mergeable_state: clean
-      updated_at: '2026-08-23T01:13:26Z'
-    idle_hours: 207.4
-    stalled: true
+      updated_at: '2026-09-19T22:00:15Z'
+    idle_hours: 1.9
+    stalled: false
   governance:
     precondition: incomplete
     missing:
@@ -585,7 +657,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 111
-    observed_at: '2026-08-31T16:34:27Z'
+    observed_at: '2026-09-19T23:51:31Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -600,6 +672,27 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
+    - number: 98
+      title: Consolidate the overview consumer and the unified UI paths
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/consolidate-overview-and-ui-paths
+      draft: false
+    - number: 97
+      title: 'build(deps): bump anyio from 4.12.1 to 4.14.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
+      draft: false
+    - number: 96
+      title: 'build(deps): bump mkdocs-material from 9.7.1 to 9.7.7'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/mkdocs-material-9.7.7
+      draft: false
     - number: 90
       title: 'build(deps): bump pymdown-extensions from 10.20 to 11.0.1'
       author: dependabot[bot]
@@ -643,7 +736,22 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads: []
+  threads:
+  - name: evolve/consolidate-overview-and-ui-paths
+    stage: ready
+    pr: 98
+    base: main
+    title: Consolidate the overview consumer and the unified UI paths
+    author: subcontrabass
+    delta:
+      additions: 2156
+      changed_files: 54
+      commits: 14
+      deletions: 4998
+      mergeable_state: clean
+      updated_at: '2026-09-19T20:13:32Z'
+    idle_hours: 3.6
+    stalled: false
   governance:
     precondition: incomplete
     missing:
@@ -657,7 +765,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 10
-    observed_at: '2026-08-31T16:34:24Z'
+    observed_at: '2026-09-19T23:51:28Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -672,21 +780,32 @@ repositories:
 
     '
   slots:
-    repository: quaternionmedia/private-32
-    per_base: []
-    contributor: null
-    open_prs: []
-    violations: []
-    exit_status: 0
-    compliant: true
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-32/pulls
+      failed:'
   release:
-    state: unreleased
-    latest: null
-    unreleased_commits: null
-    asserts: no v tag has ever been cut, so nothing has been asserted
-  threads: []
+    unknown: 'tags for quaternionmedia/private-32: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
   governance:
-    unknown: no project/<name> branch in the corpus, so there is nothing to read
+    precondition: incomplete
+    missing:
+    - submodule
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: null
+      submodule_branch: null
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 0
+      workflows_absent: 4
+      licensing_present: 0
+    behind_corpus: 233
+    observed_at: '2026-09-19T23:51:33Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
 - name: private-33
   slug: quaternionmedia/private-33
   role: project
@@ -698,50 +817,31 @@ repositories:
 
     '
   slots:
-    repository: quaternionmedia/private-33
-    per_base: []
-    contributor: null
-    open_prs:
-    - number: 8
-      title: 'chore(deps): bump starlette from 0.50.0 to 1.3.1'
-      author: dependabot[bot]
-      bot: true
-      base: main
-      head: dependabot/uv/starlette-1.3.1
-      draft: false
-    - number: 6
-      title: 'chore(deps): bump idna from 3.11 to 3.15'
-      author: dependabot[bot]
-      bot: true
-      base: main
-      head: dependabot/uv/idna-3.15
-      draft: false
-    - number: 5
-      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
-      author: dependabot[bot]
-      bot: true
-      base: main
-      head: dependabot/uv/pytest-9.0.3
-      draft: false
-    - number: 4
-      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
-      author: dependabot[bot]
-      bot: true
-      base: main
-      head: dependabot/uv/pygments-2.20.0
-      draft: false
-    violations: []
-    exit_status: 0
-    compliant: true
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-33/pulls
+      failed:'
   release:
-    state: ahead
-    latest: v1.4.1
-    annotated: true
-    unreleased_commits: 44
-    asserts: a human reviewed, manually tested and gated this commit
-  threads: []
+    unknown: 'tags for quaternionmedia/private-33: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
   governance:
-    unknown: no project/<name> branch in the corpus, so there is nothing to read
+    precondition: incomplete
+    missing:
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/private-33
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 1
+      workflows_absent: 3
+      licensing_present: 0
+    behind_corpus: 233
+    observed_at: '2026-09-19T23:51:29Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
 - name: factorio-sysops
   slug: quaternionmedia/factorio-sysops
   role: project
@@ -777,7 +877,7 @@ repositories:
       workflows_absent: 3
       licensing_present: 0
     behind_corpus: 233
-    observed_at: '2026-08-31T16:34:31Z'
+    observed_at: '2026-09-19T23:51:35Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -801,6 +901,13 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
+    - number: 18
+      title: Bump anyio from 4.10.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/anyio-4.14.2
+      draft: false
     - number: 17
       title: Turn every dial about its centre, give leads ends, and follow a scroll
       author: subcontrabass
@@ -844,7 +951,7 @@ repositories:
       deletions: 124
       mergeable_state: unstable
       updated_at: '2026-08-22T17:27:47Z'
-    idle_hours: 215.1
+    idle_hours: 678.4
     stalled: true
   governance:
     precondition: met
@@ -858,7 +965,7 @@ repositories:
       workflows_absent: 0
       licensing_present: 2
     behind_corpus: 140
-    observed_at: '2026-08-31T16:34:22Z'
+    observed_at: '2026-09-19T23:51:26Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -873,21 +980,30 @@ repositories:
 
     '
   slots:
-    repository: quaternionmedia/private-34
-    per_base: []
-    contributor: null
-    open_prs: []
-    violations: []
-    exit_status: 0
-    compliant: true
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-34/pulls
+      failed:'
   release:
-    state: unreleased
-    latest: null
-    unreleased_commits: null
-    asserts: no v tag has ever been cut, so nothing has been asserted
-  threads: []
+    unknown: 'tags for quaternionmedia/private-34: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
   governance:
-    unknown: no project/<name> branch in the corpus, so there is nothing to read
+    precondition: incomplete
+    missing:
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/private-34
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 0
+    behind_corpus: 233
+    observed_at: '2026-09-19T23:51:39Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
 - name: qmetronome
   slug: quaternionmedia/qmetronome
   role: project
@@ -938,7 +1054,7 @@ repositories:
       workflows_absent: 2
       licensing_present: 1
     behind_corpus: 233
-    observed_at: '2026-08-31T16:34:37Z'
+    observed_at: '2026-09-19T23:51:42Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -989,7 +1105,7 @@ repositories:
       deletions: 1
       mergeable_state: blocked
       updated_at: '2026-04-06T16:02:26Z'
-    idle_hours: 3528.5
+    idle_hours: 3991.8
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1008,6 +1124,13 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
+    - number: 22
+      title: Adopt the governance corpus, and read the harness archive over its seam
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/adopt-the-governance-corpus
+      draft: false
     - number: 21
       title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
       author: dependabot[bot]
@@ -1072,7 +1195,22 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads: []
+  threads:
+  - name: feat/adopt-the-governance-corpus
+    stage: ready
+    pr: 22
+    base: main
+    title: Adopt the governance corpus, and read the harness archive over its seam
+    author: subcontrabass
+    delta:
+      additions: 3932
+      changed_files: 53
+      commits: 21
+      deletions: 1946
+      mergeable_state: clean
+      updated_at: '2026-09-19T18:02:49Z'
+    idle_hours: 5.8
+    stalled: false
   governance:
     precondition: incomplete
     missing:
@@ -1089,7 +1227,7 @@ repositories:
       workflows_absent: 4
       licensing_present: 0
     behind_corpus: 3
-    observed_at: '2026-08-31T16:34:32Z'
+    observed_at: '2026-09-19T23:51:37Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -1143,13 +1281,13 @@ repositories:
     title: 🏞 MoatNet
     author: mrharpo
     delta:
-      additions: 5824
-      changed_files: 20
-      commits: 4
+      additions: 8741
+      changed_files: 36
+      commits: 11
       deletions: 0
       mergeable_state: unstable
-      updated_at: '2026-08-28T01:45:19Z'
-    idle_hours: 86.8
+      updated_at: '2026-09-08T02:04:05Z'
+    idle_hours: 285.8
     stalled: true
   - name: qm
     stage: draft
@@ -1164,7 +1302,7 @@ repositories:
       deletions: 10
       mergeable_state: unstable
       updated_at: '2026-08-21T16:20:56Z'
-    idle_hours: 240.2
+    idle_hours: 703.5
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1307,7 +1445,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-04-26T14:53:23Z'
-    idle_hours: 3049.7
+    idle_hours: 3513.0
     stalled: true
   - name: migrations
     stage: ready
@@ -1322,7 +1460,7 @@ repositories:
       deletions: 76
       mergeable_state: clean
       updated_at: '2026-04-23T23:10:53Z'
-    idle_hours: 3113.4
+    idle_hours: 3576.7
     stalled: true
   - name: feat/meta-intro-video
     stage: ready
@@ -1337,7 +1475,7 @@ repositories:
       deletions: 504
       mergeable_state: dirty
       updated_at: '2026-04-19T03:27:49Z'
-    idle_hours: 3229.1
+    idle_hours: 3692.4
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1403,7 +1541,7 @@ repositories:
       deletions: 544
       mergeable_state: clean
       updated_at: '2026-04-11T08:00:47Z'
-    idle_hours: 3416.6
+    idle_hours: 3879.9
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1559,7 +1697,7 @@ repositories:
       deletions: 52
       mergeable_state: clean
       updated_at: '2025-06-22T22:17:43Z'
-    idle_hours: 10434.3
+    idle_hours: 10897.6
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1650,7 +1788,7 @@ repositories:
       deletions: 42
       mergeable_state: clean
       updated_at: '2025-07-13T07:24:23Z'
-    idle_hours: 9945.2
+    idle_hours: 10408.5
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1740,7 +1878,7 @@ repositories:
       deletions: 74
       mergeable_state: clean
       updated_at: '2025-12-22T07:01:05Z'
-    idle_hours: 6057.6
+    idle_hours: 6520.9
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1822,7 +1960,7 @@ repositories:
       deletions: 242
       mergeable_state: clean
       updated_at: '2026-03-04T02:29:45Z'
-    idle_hours: 4334.1
+    idle_hours: 4797.4
     stalled: true
   - name: p5
     stage: ready
@@ -1837,7 +1975,7 @@ repositories:
       deletions: 7
       mergeable_state: clean
       updated_at: '2025-01-04T01:07:48Z'
-    idle_hours: 14511.5
+    idle_hours: 14974.7
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1923,7 +2061,7 @@ repositories:
       deletions: 165
       mergeable_state: clean
       updated_at: '2026-01-17T11:44:43Z'
-    idle_hours: 5428.8
+    idle_hours: 5892.1
     stalled: true
   - name: setlist
     stage: ready
@@ -1938,7 +2076,7 @@ repositories:
       deletions: 927
       mergeable_state: clean
       updated_at: '2026-02-21T06:35:43Z'
-    idle_hours: 4594.0
+    idle_hours: 5057.3
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read

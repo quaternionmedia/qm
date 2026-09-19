@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-06T17:57:32Z",
+  "generated_at": "2026-09-19T23:52:45Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
-      "harness-status.json",
-      "doc-status.json",
-      "gate-status.json"
+      "status/harness.yaml",
+      "status/documents.yaml",
+      "status/gates.yaml"
     ],
     "reaches_network": false,
     "rule": "an item is open until a person writes a claim about it",
@@ -20,16 +20,16 @@
     "addresses": "each item addresses its subject with a kind from ci/addresses.py, which is closed. There is no loose-end kind: a loose end is always about something the grammar can name.",
     "sources": {
       "harness": {
-        "document": "harness-status.json",
-        "generated_at": "2026-08-23T18:49:37Z"
+        "document": "status/harness.yaml",
+        "generated_at": "2026-09-19T23:52:43Z"
       },
       "docs": {
-        "document": "doc-status.json",
-        "generated_at": "2026-08-23T18:49:38Z"
+        "document": "status/documents.yaml",
+        "generated_at": "2026-08-31T16:35:38Z"
       },
       "gates": {
-        "document": "gate-status.json",
-        "generated_at": "2026-08-23T18:49:37Z"
+        "document": "status/gates.yaml",
+        "generated_at": "2026-09-19T23:52:44Z"
       }
     }
   },
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 95,
+    "loose_ends": 122,
     "by_kind": {
       "blind-spot": 17,
-      "document-proposed": 27,
-      "document-unreviewed": 47,
-      "over-slot": 1,
-      "stalled-thread": 3
+      "document-proposed": 35,
+      "document-unreviewed": 52,
+      "over-slot": 2,
+      "stalled-thread": 16
     },
-    "open": 95,
+    "open": 122,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -61,7 +61,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-adr-lint",
       "title": "adr-lint cannot see",
-      "detail": "Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.",
+      "detail": "Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Nor whether two principles actually conflict: the edge check reads a stated relationship from both ends and knows nothing about what either principle says, so a wrong edge declared consistently passes. It also cannot tell a real isolation from a lazy one -- it can only insist the `none` carries a reason somebody had to write. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-adr-lint",
       "address_parses": true
     },
@@ -195,6 +195,14 @@
     },
     {
       "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-capability-has-four-phases",
+      "title": "records/DRAFT-a-capability-has-four-phases.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-capability-has-four-phases",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
       "address": "quaternionmedia/qm/doc/records-DRAFT-a-check-is-evidence-only-after-it-has-failed",
       "title": "records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md",
       "detail": "awaiting a human's ratification",
@@ -211,6 +219,14 @@
     },
     {
       "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-family-is-bordered-by-what-it-drives",
+      "title": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-family-is-bordered-by-what-it-drives",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
       "address": "quaternionmedia/qm/doc/records-DRAFT-a-knot-is-a-cycle-of-obligation",
       "title": "records/DRAFT-a-knot-is-a-cycle-of-obligation.md",
       "detail": "awaiting a human's ratification",
@@ -219,10 +235,42 @@
     },
     {
       "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-principle-is-addressed-by-its-name",
+      "title": "records/DRAFT-a-principle-is-addressed-by-its-name.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-principle-is-addressed-by-its-name",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
       "address": "quaternionmedia/qm/doc/records-DRAFT-a-route-is-an-address",
       "title": "records/DRAFT-a-route-is-an-address.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-route-is-an-address",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-session-between-people-is-encrypted-end-to-end",
+      "title": "records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-session-between-people-is-encrypted-end-to-end",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-shared-tag-asserts-interoperability",
+      "title": "records/DRAFT-a-shared-tag-asserts-interoperability.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-shared-tag-asserts-interoperability",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-stage-is-recorded-and-main-receives-releases",
+      "title": "records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-stage-is-recorded-and-main-receives-releases",
       "address_parses": true
     },
     {
@@ -347,6 +395,14 @@
     },
     {
       "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-nothing-is-both-a-claim-and-its-own-evidence",
+      "title": "records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-nothing-is-both-a-claim-and-its-own-evidence",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
       "address": "quaternionmedia/qm/doc/records-DRAFT-one-executable-walkthrough",
       "title": "records/DRAFT-one-executable-walkthrough.md",
       "detail": "awaiting a human's ratification",
@@ -383,6 +439,14 @@
       "title": "records/DRAFT-seams-on-standard-protocols.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-seams-on-standard-protocols",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-shrink-the-black-box",
+      "title": "records/DRAFT-shrink-the-black-box.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-shrink-the-black-box",
       "address_parses": true
     },
     {
@@ -715,6 +779,46 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-25-defects-between-two-green-suites",
+      "title": "perspectives/2026-08-25-defects-between-two-green-suites.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-25-defects-between-two-green-suites",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-25-the-suite-that-outgrew-its-loop",
+      "title": "perspectives/2026-08-25-the-suite-that-outgrew-its-loop.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-25-the-suite-that-outgrew-its-loop",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-26-the-plan-was-still-running",
+      "title": "perspectives/2026-08-26-the-plan-was-still-running.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-26-the-plan-was-still-running",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-27-the-precondition-nobody-declared",
+      "title": "perspectives/2026-08-27-the-precondition-nobody-declared.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-27-the-precondition-nobody-declared",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-27-two-views-that-go-stale-together",
+      "title": "perspectives/2026-08-27-two-views-that-go-stale-together.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-27-two-views-that-go-stale-together",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09",
       "title": "perspectives/claude-fable-5-2026-06-09.md",
       "detail": "written, and no maintainer has looked at it",
@@ -787,37 +891,162 @@
     },
     {
       "kind": "over-slot",
-      "address": "quaternionmedia/apothecary",
-      "title": "quaternionmedia/apothecary is over its pull-request slot",
-      "detail": "subcontrabass holds 2 open pull requests (#13, #18); the contract allows one",
-      "key": "over-slot:quaternionmedia/apothecary",
+      "address": "quaternionmedia/ShowRunner",
+      "title": "quaternionmedia/ShowRunner is over its pull-request slot",
+      "detail": "subcontrabass holds 2 open pull requests (#12, #16); the contract allows one",
+      "key": "over-slot:quaternionmedia/ShowRunner",
+      "address_parses": true
+    },
+    {
+      "kind": "over-slot",
+      "address": "quaternionmedia/moat",
+      "title": "quaternionmedia/moat is over its pull-request slot",
+      "detail": "mrharpo holds 2 open pull requests (#3, #4); the contract allows one",
+      "key": "over-slot:quaternionmedia/moat",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/QLab-python/pr/2",
+      "title": "\ud83c\udfad Theatremix",
+      "detail": "open on main at stage draft, idle 3,880 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/QLab-python/pr/2",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ShowRunner/pr/12",
+      "title": "feat: ShowProgrammer \u2014 meta intro video pipeline, live clock, async dispatch",
+      "detail": "open on main at stage ready, idle 3,692 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/12",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ShowRunner/pr/15",
+      "title": "\ud83d\udec2 Migration",
+      "detail": "open on main at stage ready, idle 3,577 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/15",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ShowRunner/pr/16",
+      "title": "feat(tests): NiceGUI page-level UI tests + Playwright E2E scaffolding",
+      "detail": "open on feat/meta-intro-video at stage ready, idle 3,513 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/16",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
       "address": "quaternionmedia/alfred/pr/113",
       "title": "Config",
-      "detail": "open on main at stage ready, idle 23,204 hours",
+      "detail": "open on main at stage ready, idle 23,857 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/alfred/pr/113",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/apothecary/pr/13",
-      "title": "Fractal viewer: wider range, assembly outlines, per-node detail \u2014 plus the ruff/black pass",
-      "detail": "open on main at stage draft, idle 295 hours",
+      "address": "quaternionmedia/benchmark/pr/7",
+      "title": "fix: handle missing regions/ directory in compile-yaml",
+      "detail": "open on main at stage ready, idle 3,992 hours",
       "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/apothecary/pr/13",
+      "key": "stalled-thread:quaternionmedia/benchmark/pr/7",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/benchmark/pr/7",
-      "title": "fix: handle missing regions/ directory in compile-yaml",
-      "detail": "open on main at stage ready, idle 3,339 hours",
+      "address": "quaternionmedia/carlos/pr/17",
+      "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
+      "detail": "open on they at stage ready, idle 678 hours",
       "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/benchmark/pr/7",
+      "key": "stalled-thread:quaternionmedia/carlos/pr/17",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/holophonor/pr/11",
+      "title": "\ud83d\udeb0 Pipewire",
+      "detail": "open on main at stage draft, idle 10,898 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/holophonor/pr/11",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/4",
+      "title": "\ud83d\udd90 p5.js",
+      "detail": "open on main at stage ready, idle 14,975 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/joe/pr/4",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/8",
+      "title": "Docs/onboarding hardening",
+      "detail": "open on main at stage ready, idle 4,797 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/8",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/leo/pr/61",
+      "title": "\ud83d\udcc7 Setlist",
+      "detail": "open on main at stage ready, idle 5,057 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/leo/pr/61",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/leo/pr/67",
+      "title": "feat: uv-driven CLI with comprehensive test suite",
+      "detail": "open on main at stage ready, idle 5,892 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/leo/pr/67",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ludwig/pr/9",
+      "title": "\ud83c\udf0c Universal",
+      "detail": "open on main at stage draft, idle 6,521 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/ludwig/pr/9",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/moat/pr/3",
+      "title": "\ud83d\udca1 QM plan",
+      "detail": "open on main at stage draft, idle 704 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/moat/pr/3",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/moat/pr/4",
+      "title": "\ud83c\udfde MoatNet",
+      "detail": "open on qm at stage draft, idle 286 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/moat/pr/4",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/uPhonor/pr/29",
+      "title": "\ud83d\udc0d Python",
+      "detail": "open on main at stage draft, idle 10,408 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/uPhonor/pr/29",
       "address_parses": true
     }
   ]
