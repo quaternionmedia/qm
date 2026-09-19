@@ -284,7 +284,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.write:
         out.mkdir(parents=True, exist_ok=True)
         for name, body in files.items():
-            (out / name).write_text(body, encoding="utf-8")
+            # newline="\n": see families.py -- a Windows text write is CRLF.
+            (out / name).write_text(body, encoding="utf-8", newline="\n")
         print(f"wrote {len(files)} file(s) to {out}")
         return 0
 
