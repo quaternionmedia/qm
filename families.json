@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-20T00:41:23Z",
+  "generated_at": "2026-09-20T00:41:34Z",
   "source": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
   "reading": {
     "families_come_from": "the record, not this file -- renaming one there makes a roster claim stop resolving",
@@ -22,7 +22,7 @@
     },
     {
       "name": "games",
-      "drives": "play \u2014 a game somebody plays: its rules, its world and its loop, built on a game engine",
+      "drives": "play \u2014 a game somebody plays: its rules, its world and its loop",
       "members": [
         "golfvs",
         "titanharvest"

@@ -69,7 +69,7 @@ another also emits. Not by shared vocabulary: *cue*, *loop* and *track* each
 mean different things in two of the three, and a border drawn on words would
 have placed one program in all of them.
 
-### §3 — The estate is seven families
+### §3 — The estate is seven families, three of them performing
 
 | family | drives | named public members |
 |---|---|---|
@@ -79,7 +79,7 @@ have placed one program in all of them.
 | `irl` | **matter** — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | apothecary; datum; scad-chess; stomp; ira; uPhonor; and three private repositories, referenced rather than named |
 | `infra` | **where a thing runs, and how it is reached** — ingress, identity, storage, DNS, observability, the network path | moat; ztgui; and two private repositories, referenced rather than named |
 | `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | qm; qmcp; dossier; codecartographer; looksatwords |
-| `games` | **play** — a game somebody plays: its rules, its world and its loop, built on a game engine | golfvs; titanharvest |
+| `games` | **play** — a game somebody plays: its rules, its world and its loop | golfvs; titanharvest |
 
 `games` is the family the border test admits most easily and the one the
 estate never named, because a game is the activity rather than a thing that

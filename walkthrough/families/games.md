@@ -2,7 +2,7 @@
 
 **This page is generated.** Every figure comes from `families.json` and from the clones on this disk, and `uv run qm cookbook --check` fails the build when it stops being true. Do not edit it; edit the roster or the record and regenerate.
 
-**Drives** play — a game somebody plays: its rules, its world and its loop, built on a game engine
+**Drives** play — a game somebody plays: its rules, its world and its loop
 
 ![the games family](./games.svg)
 
