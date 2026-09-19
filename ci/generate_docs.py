@@ -62,9 +62,10 @@ ROOT = _corpus_root()
 # (label, argv, output path, reaches_network, check_argv or None)
 #
 # Order matters twice: a renderer must run after the document it reads, and
-# status/documents.yaml must run last because it reports on the files the others just
-# wrote. Getting that backwards produces a state page describing the previous
-# run, which is the kind of confidently-wrong artifact this corpus keeps finding.
+# status/documents.yaml runs after every file it reports on, with the loose-ends
+# join after that because the state page is one of its sources. Getting that
+# backwards produces a document describing the previous run, which is the kind
+# of confidently-wrong artifact this corpus keeps finding.
 STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
     (
         "governance status",
@@ -97,16 +98,6 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
          "--check", "handbook/gates.md"],
     ),
     (
-        # **AFTER THE THREE IT JOINS, BEFORE THE STATE PAGE.** It reads what
-        # they just wrote, so running it earlier would report the previous run
-        # -- the confidently-wrong artifact this ordering exists to prevent.
-        "loose ends",
-        ["ci/loose_ends.py", "--write", "loose-ends.json"],
-        "loose-ends.json",
-        False,
-        ["ci/loose_ends.py", "--check", "loose-ends.json"],
-    ),
-    (
         "families",
         ["ci/families.py", "--write", "families.json"],
         "families.json",
@@ -133,6 +124,18 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
         "handbook/document-states.md",
         False,
         ["ci/doc_dashboard.py", "status/documents.yaml", "--check", "handbook/document-states.md"],
+    ),
+    (
+        # **LAST, BECAUSE IT READS THE STATE PAGE.** The join takes the harness,
+        # gate and document-state documents as its three sources, so it can
+        # only run once every one of them has been written -- running it
+        # earlier reports the previous run, the confidently-wrong artifact this
+        # ordering exists to prevent.
+        "loose ends",
+        ["ci/loose_ends.py", "--write", "loose-ends.json"],
+        "loose-ends.json",
+        False,
+        ["ci/loose_ends.py", "--check", "loose-ends.json"],
     ),
 ]
 

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-19T23:52:45Z",
+  "generated_at": "2026-09-19T23:56:13Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -21,15 +21,15 @@
     "sources": {
       "harness": {
         "document": "status/harness.yaml",
-        "generated_at": "2026-09-19T23:52:43Z"
+        "generated_at": "2026-09-19T23:56:10Z"
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-08-31T16:35:38Z"
+        "generated_at": "2026-09-19T23:56:12Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-09-19T23:52:44Z"
+        "generated_at": "2026-09-19T23:56:11Z"
       }
     }
   },
