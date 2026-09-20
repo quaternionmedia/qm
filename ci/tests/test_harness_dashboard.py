@@ -986,3 +986,131 @@ def test_the_release_column_reaches_the_rendered_page() -> None:
     assert "| Release |" in page
     assert "v0.2.0" in page and "lightweight" in page and "37" in page
     assert "`main` is readiness" in page
+
+
+# --- the family column, and the rollup per family --------------------------
+#
+# Mutations run against these, each restored from a checked backup before the
+# next, quoted as they printed:
+#
+#   `family_of` returning `str(repo.get("family"))`     -> 1 failed (unstated)
+#   the rollup counting unreadable members as measured  -> 1 failed (adds_up)
+#   the rollup keeping insertion order                  -> 1 PASSED, until the
+#       fixture was reordered so insertion and name order differ; then
+#       AssertionError: assert ['unstated', 'irl', 'core'] == ['core', 'irl', 'unstated']
+#   `family_cell` dropped from the HTML repositories row -> 1 failed (both_views)
+#   thread rows given family None                        -> 1 failed (thread_row)
+#   the generator defaulting a silent entry to "core"    -> 1 failed (verbatim)
+
+
+def families() -> dict:
+    """Three families' worth of the base document: one clean, one over the
+    slot with a stalled thread, one unreadable and unplaced."""
+    doc = document()
+    clean, busy, private = doc["repositories"]
+    clean["family"] = "core"
+    busy["family"] = "irl"
+    busy["threads"] = [{"name": "wip", "base": "main", "stage": "draft",
+                        "stalled": True, "idle_hours": 300, "pr": 9,
+                        "delta": {"commits": 3, "files": 2,
+                                  "insertions": 10, "deletions": 1}}]
+    private["family"] = None
+    # Unplaced first and the families out of name order, so a rollup that
+    # kept insertion order would fail the order assertion rather than pass
+    # it by coincidence.
+    doc["repositories"] = [private, busy, clean]
+    return doc
+
+
+def test_the_family_claim_is_a_column_in_both_views() -> None:
+    doc = families()
+    page = hd.render(doc)
+    md = hd.render_markdown(doc)
+
+    assert '<th scope="col">Family' in page
+    assert '<span class="mono">core</span>' in row_for(page, "clean-repo")
+    assert "| Family (claimed) |" in md
+    assert "| clean-repo | core |" in md
+    assert "| busy-repo | irl |" in md
+
+
+def test_an_unstated_family_is_a_word_never_an_empty_cell() -> None:
+    """An older document has no `family` key at all; a newer one carries
+    null for a repository nobody placed. Both read as unstated, in words.
+
+    Mutation: `family_of` returning `str(repo.get("family"))`, and the
+    older document prints `None` while the cell test fails on `unstated`.
+    """
+    doc = families()
+    md = hd.render_markdown(doc)
+    assert "| private-repo | unstated |" in md
+    assert "| private-repo |  |" not in md
+    assert "| private-repo | None |" not in md
+
+    older = document()
+    for repo in older["repositories"]:
+        repo.pop("family", None)
+    assert hd.family_of(older["repositories"][0]) == hd.UNSTATED
+    assert "| clean-repo | unstated |" in hd.render_markdown(older)
+
+
+def test_the_rollup_adds_up_per_family_with_unstated_last() -> None:
+    """Mutation: count `over` from every member rather than the measured
+    ones, and the unstated row's over/unreadable split fails; drop the sort,
+    and the order fails.
+    """
+    rows = hd.by_family(families())
+
+    assert [r["family"] for r in rows] == ["core", "irl", hd.UNSTATED]
+    core, irl, unstated = rows
+    assert core == {"family": "core", "repositories": 1, "within": 1, "over": 0,
+                    "unreadable": 0, "threads": 0, "stalled": 0}
+    assert irl == {"family": "irl", "repositories": 1, "within": 0, "over": 1,
+                   "unreadable": 0, "threads": 1, "stalled": 1}
+    assert unstated == {"family": hd.UNSTATED, "repositories": 1, "within": 0,
+                        "over": 0, "unreadable": 1, "threads": 0, "stalled": 0}
+
+
+def test_the_rollup_reaches_both_rendered_views() -> None:
+    """A helper nothing calls is a check that enforces nothing."""
+    doc = families()
+    page = hd.render(doc)
+    md = hd.render_markdown(doc)
+
+    assert "<h2>By family</h2>" in page
+    assert "## By family" in md
+    assert "| irl | 1 | 0 | 1 | 0 | 1 | 1 |" in md
+    assert f"| {hd.UNSTATED} | 1 | 0 | 0 | 1 | 0 | 0 |" in md
+    assert "<th scope=\"row\"><span class=\"mono\">irl</span></th>" in page
+
+
+def test_a_thread_row_carries_its_repository_s_family() -> None:
+    doc = families()
+    md = hd.render_markdown(doc)
+    assert "| busy-repo | irl | wip | draft STALLED |" in md
+    row = [t for t in hd.thread_rows(doc) if t["name"] == "wip"][0]
+    assert row["family"] == "irl"
+
+
+def test_the_generator_carries_the_family_claim_verbatim(monkeypatch, tmp_path: Path) -> None:
+    """The record says a family is stated by a person and never inferred; the
+    generator copies the roster's claim and invents nothing for a silent
+    entry.
+
+    Mutation: default the missing claim to any string, and the second
+    assertion fails.
+    """
+    roster = [
+        {"name": "one", "role": "project", "family": "games", "paths": ["one"]},
+        {"name": "two", "role": "project", "paths": ["two"]},
+    ]
+    monkeypatch.setattr(hs, "slot_layer", lambda slug, per_base: {
+        "open_prs": [], "violations": [], "compliant": True})
+    monkeypatch.setattr(hs, "release_layer", lambda slug: {"state": "none"})
+    monkeypatch.setattr(hs, "org_threads", lambda slug, slots, detail: [])
+    doc = hs.build(roster, "example", [tmp_path], False, want_pr_detail=False)
+    by_name = {r["name"]: r for r in doc["repositories"]}
+    assert by_name["one"]["family"] == "games"
+    assert by_name["two"]["family"] is None
+    assert "family_is_a_claim" in doc["generator"]
+    assert any("family" in w for w in doc["reading"]["do_not"])

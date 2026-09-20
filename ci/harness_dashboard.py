@@ -50,6 +50,58 @@ def esc(value: object) -> str:
     return html.escape("" if value is None else str(value))
 
 
+UNSTATED = "unstated"
+
+
+def family_of(repo: dict) -> str:
+    """The family the roster claims for this repository, or `unstated`.
+
+    Never inferred: the generator carries the claim as it was stated, and a
+    null is a question nobody has answered, not a repository outside every
+    family. Printed as a word rather than left blank so a reader cannot take
+    an empty cell for a rendering fault.
+    """
+    return str(repo.get("family") or UNSTATED)
+
+
+def family_cell(repo: dict) -> str:
+    family = family_of(repo)
+    if family == UNSTATED:
+        return f'<td><span class="s-muted">{esc(family)}</span></td>'
+    return f'<td><span class="mono">{esc(family)}</span></td>'
+
+
+def by_family(document: dict) -> list[dict]:
+    """One row per family: what the repositories table says, added up.
+
+    Families in name order, `unstated` last. Every count is over what could be
+    read, as the document's own totals are: a repository whose slots are
+    unknown is in `repositories` and in `unreadable`, and in neither `over`
+    nor `within`, so no family reads as clean because nobody could measure it.
+    """
+    groups: dict[str, list[dict]] = {}
+    for repo in document.get("repositories", []):
+        groups.setdefault(family_of(repo), []).append(repo)
+    names = sorted(n for n in groups if n != UNSTATED)
+    if UNSTATED in groups:
+        names.append(UNSTATED)
+    rows = []
+    for name in names:
+        members = groups[name]
+        measured = [r for r in members if unknown_reason(r.get("slots", {})) is None]
+        threads = [t for r in members for t in threads_of(r)]
+        rows.append({
+            "family": name,
+            "repositories": len(members),
+            "within": sum(1 for r in measured if not r["slots"].get("violations")),
+            "over": sum(1 for r in measured if r["slots"].get("violations")),
+            "unreadable": len(members) - len(measured),
+            "threads": len(threads),
+            "stalled": sum(1 for t in threads if t.get("stalled")),
+        })
+    return rows
+
+
 def unknown_reason(value: object) -> str | None:
     """The reason, if this value is the document's unknown form."""
     if isinstance(value, dict) and "unknown" in value and len(value) == 1:
@@ -177,6 +229,7 @@ def render(document: dict, fragment: bool = False) -> str:
             f'<tr class="{row_class}">'
             f'<th scope="row">{esc(repo.get("name"))}'
             f'<div class="sub">{esc(repo.get("role"))}</div></th>'
+            + family_cell(repo)
             + phase_cell(
                 str(repo.get("phase", UNKNOWN)), str(repo.get("phase_source", UNKNOWN))
             )
@@ -278,7 +331,8 @@ def render(document: dict, fragment: bool = False) -> str:
         thread_html.append(
             f'<tr class="{"over" if thread.get("stalled") else ""}">'
             f'<th scope="row">{esc(thread.get("repository"))}</th>'
-            f'<td><span class="mono">{esc(thread.get("name"))}</span>'
+            + family_cell(thread)
+            + f'<td><span class="mono">{esc(thread.get("name"))}</span>'
             f'<div class="sub">onto {esc(thread.get("base") or "unknown")}'
             f' &middot; {esc(thread.get("scope"))}</div></td>'
             f"<td>{pill(esc(thread.get('stage')), state)}"
@@ -288,7 +342,7 @@ def render(document: dict, fragment: bool = False) -> str:
             f"<td>{where}</td></tr>"
         )
     threads_table = LINE_BREAK.join(thread_html) or (
-        '<tr><td colspan="6" class="s-muted">No threads in flight.</td></tr>'
+        '<tr><td colspan="7" class="s-muted">No threads in flight.</td></tr>'
     )
 
     threads_note = "".join(
@@ -307,8 +361,22 @@ def render(document: dict, fragment: bool = False) -> str:
         else '<p class="reason">The machine layer was not collected.</p>'
     )
 
+    family_html = LINE_BREAK.join(
+        f'<tr class="{"over" if f["over"] else ""}">'
+        f'<th scope="row">{family_cell(f)[4:-5]}</th>'
+        f'<td>{esc(f["repositories"])}</td>'
+        f'<td>{esc(f["within"])}</td>'
+        f'<td>{pill(esc(f["over"]), WARN) if f["over"] else esc(f["over"])}</td>'
+        f'<td>{pill(esc(f["unreadable"]), UNKNOWN) if f["unreadable"] else esc(f["unreadable"])}</td>'
+        f'<td>{esc(f["threads"])}</td>'
+        f'<td>{pill(esc(f["stalled"]), WARN) if f["stalled"] else esc(f["stalled"])}</td>'
+        "</tr>"
+        for f in by_family(document)
+    )
+
     return (FRAGMENT if fragment else TEMPLATE).format(
         style=STYLE,
+        families=family_html,
         org=esc(generator.get("org")),
         generated_at=esc(document.get("generated_at")),
         rule=esc(generator.get("rule")),
@@ -370,6 +438,7 @@ BODY = """<main>
 <table>
 <thead><tr>
   <th scope="col">Repository</th>
+  <th scope="col">Family <span class="s-muted">(claimed)</span></th>
   <th scope="col">Phase <span class="s-muted">(claimed)</span></th>
   <th scope="col">v0.0.1 governance <span class="s-muted">(evidence)</span></th>
   <th scope="col">Open PRs</th>
@@ -385,6 +454,29 @@ BODY = """<main>
   <span><span class="pill p-ok">ok</span> measured, within the rule</span>
   <span><span class="pill p-warn">warn</span> measured, needs a human</span>
   <span><span class="pill p-unknown">unknown</span> not measured — not the same as nothing wrong</span>
+</div>
+
+<h2>By family</h2>
+<p>The table above, added up per family. A family is a <b>claim</b> a person
+made in <span class="mono">ci/workspace.yaml</span>, bordered by the record the
+document names; <span class="s-muted">unstated</span> is a repository nobody has
+placed, not one outside every family. Counts are over what could be read:
+<b>unreadable</b> repositories are in neither <b>within</b> nor <b>over</b>.</p>
+<div class="scroll">
+<table>
+<thead><tr>
+  <th scope="col">Family</th>
+  <th scope="col">Repositories</th>
+  <th scope="col">Within the rule</th>
+  <th scope="col">Over</th>
+  <th scope="col">Unreadable</th>
+  <th scope="col">Threads in flight</th>
+  <th scope="col">Stalled</th>
+</tr></thead>
+<tbody>
+{families}
+</tbody>
+</table>
 </div>
 
 <h2>Threads in flight</h2>
@@ -407,6 +499,7 @@ about. Stalled means untouched for more than {stalled_after}h.</p>
 <table>
 <thead><tr>
   <th scope="col">Repository</th>
+  <th scope="col">Family</th>
   <th scope="col">Thread</th>
   <th scope="col">Stage</th>
   <th scope="col">Delta</th>
@@ -542,7 +635,8 @@ def thread_rows(document: dict) -> list[dict]:
     rows = []
     for repo in document.get("repositories", []):
         for thread in threads_of(repo):
-            rows.append({**thread, "repository": repo.get("name")})
+            rows.append({**thread, "repository": repo.get("name"),
+                         "family": repo.get("family")})
     order = {"pushed": 0, "local": 1, "draft": 2, "ready": 3}
     return sorted(
         rows,
@@ -653,11 +747,11 @@ def render_markdown(document: dict) -> str:
         f"precondition; {totals.get('phase_scaffolded')} phases scaffolded."
     )
     add("")
-    add("| Repository | Phase (claimed) | Source | v0.0.1 governance (evidence) | Slot | Release |")
-    add("|---|---|---|---|---|---|")
+    add("| Repository | Family (claimed) | Phase (claimed) | Source | v0.0.1 governance (evidence) | Slot | Release |")
+    add("|---|---|---|---|---|---|---|")
     for repo in document.get("repositories", []):
         add(
-            f"| {repo.get('name')} | {repo.get('phase')} | "
+            f"| {repo.get('name')} | {family_of(repo)} | {repo.get('phase')} | "
             f"{repo.get('phase_source')} | {md_state(repo.get('governance'))} | "
             f"{md_slot(repo.get('slots', {}))} | {md_release(repo.get('release'))} |"
         )
@@ -672,6 +766,24 @@ def render_markdown(document: dict) -> str:
     )
     add("")
 
+    add("## By family")
+    add("")
+    add(
+        "The table above, added up per family. A family is a claim a person "
+        "made in `ci/workspace.yaml`; `unstated` is a repository nobody has "
+        "placed, not one outside every family. Unreadable repositories are in "
+        "neither *within* nor *over*."
+    )
+    add("")
+    add("| Family | Repositories | Within the rule | Over | Unreadable | Threads in flight | Stalled |")
+    add("|---|---|---|---|---|---|---|")
+    for f in by_family(document):
+        add(
+            f"| {f['family']} | {f['repositories']} | {f['within']} | "
+            f"{f['over']} | {f['unreadable']} | {f['threads']} | {f['stalled']} |"
+        )
+    add("")
+
     add("## Threads in flight")
     add("")
     add(
@@ -684,12 +796,12 @@ def render_markdown(document: dict) -> str:
         f"{generator.get('stalled_after_hours')}h."
     )
     add("")
-    add("| Repository | Thread | Stage | Delta | Idle | PR | Scope |")
-    add("|---|---|---|---|---|---|---|")
+    add("| Repository | Family | Thread | Stage | Delta | Idle | PR | Scope |")
+    add("|---|---|---|---|---|---|---|---|")
     for thread in thread_rows(document):
         flag = " STALLED" if thread.get("stalled") else ""
         add(
-            f"| {thread.get('repository')} | {thread.get('name')} "
+            f"| {thread.get('repository')} | {family_of(thread)} | {thread.get('name')} "
             f"| {thread.get('stage')}{flag} | {delta_text(thread.get('delta'))} "
             f"| {idle_text(thread.get('idle_hours'))} "
             f"| {('#' + str(thread['pr'])) if thread.get('pr') else '-'} "
