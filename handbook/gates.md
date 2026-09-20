@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-09-20T14:23:18Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
+**Generated `2026-09-20T14:43:09Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|

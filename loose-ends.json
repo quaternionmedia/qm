@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-20T14:24:06Z",
+  "generated_at": "2026-09-20T14:43:54Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -21,15 +21,15 @@
     "sources": {
       "harness": {
         "document": "status/harness.yaml",
-        "generated_at": "2026-09-20T14:23:17Z"
+        "generated_at": "2026-09-20T14:43:09Z"
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-20T14:24:05Z"
+        "generated_at": "2026-09-20T14:43:53Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-09-20T14:23:18Z"
+        "generated_at": "2026-09-20T14:43:09Z"
       }
     }
   },
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 123,
+    "loose_ends": 124,
     "by_kind": {
       "blind-spot": 17,
       "document-proposed": 35,
-      "document-unreviewed": 53,
+      "document-unreviewed": 54,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 123,
+    "open": 124,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -827,6 +827,14 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-families-delineated",
+      "title": "perspectives/2026-09-20-the-families-delineated.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-families-delineated",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09",
       "title": "perspectives/claude-fable-5-2026-06-09.md",
       "detail": "written, and no maintainer has looked at it",
@@ -917,7 +925,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/QLab-python/pr/2",
       "title": "\ud83c\udfad Theatremix",
-      "detail": "open on main at stage draft, idle 3,894 hours",
+      "detail": "open on main at stage draft, idle 3,895 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/QLab-python/pr/2",
       "address_parses": true
@@ -935,7 +943,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/ShowRunner/pr/15",
       "title": "\ud83d\udec2 Migration",
-      "detail": "open on main at stage ready, idle 3,591 hours",
+      "detail": "open on main at stage ready, idle 3,592 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/ShowRunner/pr/15",
       "address_parses": true
@@ -953,7 +961,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/alfred/pr/113",
       "title": "Config",
-      "detail": "open on main at stage ready, idle 23,871 hours",
+      "detail": "open on main at stage ready, idle 23,872 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/alfred/pr/113",
       "address_parses": true
@@ -962,7 +970,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/benchmark/pr/7",
       "title": "fix: handle missing regions/ directory in compile-yaml",
-      "detail": "open on main at stage ready, idle 4,006 hours",
+      "detail": "open on main at stage ready, idle 4,007 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/benchmark/pr/7",
       "address_parses": true
@@ -989,7 +997,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/joe/pr/4",
       "title": "\ud83d\udd90 p5.js",
-      "detail": "open on main at stage ready, idle 14,989 hours",
+      "detail": "open on main at stage ready, idle 14,990 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/joe/pr/4",
       "address_parses": true
@@ -1025,7 +1033,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/ludwig/pr/9",
       "title": "\ud83c\udf0c Universal",
-      "detail": "open on main at stage draft, idle 6,535 hours",
+      "detail": "open on main at stage draft, idle 6,536 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/ludwig/pr/9",
       "address_parses": true
@@ -1043,7 +1051,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/moat/pr/4",
       "title": "\ud83c\udfde MoatNet",
-      "detail": "open on qm at stage draft, idle 300 hours",
+      "detail": "open on qm at stage draft, idle 301 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/moat/pr/4",
       "address_parses": true
