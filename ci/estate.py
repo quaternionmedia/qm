@@ -43,6 +43,12 @@ WHAT IT REFUSES TO DO.
     because a survey silently short of two repositories reads exactly like a
     survey of everything.
 
+`--by-family` groups the table by the family each roster entry claims,
+unstated last. The family is a claim a person made in `ci/workspace.yaml`
+(`records/DRAFT-a-family-is-bordered-by-what-it-drives.md`), carried verbatim;
+nothing here infers one, and a member with no claim is *unstated*, which is
+not "none" -- nobody has answered the question for it.
+
 WHAT IT CANNOT TELL YOU. Whether a one-copy branch is worth keeping. It says
 what would be lost and how much, and stops; the deletion is a person's act,
 as it is for the single-repository census. Nor can it see a clone the roster
@@ -67,7 +73,8 @@ import yaml
 # what `ci/make_workspace.py` does for the same reason.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from make_workspace import resolve  # noqa: E402
-from roster import ROSTER, label, load  # noqa: E402
+from roster import ROSTER, load  # noqa: E402
+from roster import label as roster_label  # noqa: E402
 
 CORPUS = Path(__file__).resolve().parent.parent
 
@@ -77,6 +84,21 @@ READ_VERBS = frozenset({
     "rev-parse", "status", "for-each-ref", "rev-list", "ls-remote",
     "merge-base", "symbolic-ref",
 })
+
+def label(entry: dict) -> str:
+    """The reference where the entry has one, else its name.
+
+    With `ci/workspace-private.yaml` present the loader fills in a private
+    repository's real name, and `roster.label` returns it. This reading gets
+    pasted into handoffs, and a handoff is committed -- the survey that
+    preceded this module carried two private names that way. So a private
+    entry is called by its reference here, as `families.py` and `rollout.py`
+    call it, and `qm inventory --resolve <ref>` turns it back into a name on
+    the machine that holds the companion. The clone path in the detail block
+    is left as the disk has it: a person acting on that row needs it.
+    """
+    return entry.get("ref") or roster_label(entry)
+
 
 # The current branch relative to a one-copy branch: the checked-out branch
 # itself, an ancestor of it, or neither.
@@ -147,6 +169,7 @@ class Repository:
     name: str
     path: str | None = None            # None is MISSING
     candidates: list[str] = field(default_factory=list)
+    family: str | None = None          # the roster's claim; None is unstated
     branch: str = ""                   # "(detached)" when HEAD is not a branch
     dirty: int = 0
     default: str = ""
@@ -242,7 +265,8 @@ def relation_to_head(repo: Path, branch: str, current: str) -> str:
 def survey_repository(entry: dict, path: Path, remote: str, online: bool) -> Repository:
     repo_path = path
     repo = Repository(name=label(entry), path=str(path),
-                      candidates=list(entry.get("paths", [])))
+                      candidates=list(entry.get("paths", [])),
+                      family=entry.get("family"))
 
     current = (git(repo_path, "rev-parse", "--abbrev-ref", "HEAD") or "").strip()
     repo.branch = "(detached)" if current in ("", "HEAD") else current
@@ -319,7 +343,8 @@ def survey(roster: list[dict], search_roots: list[Path], remote: str = "origin",
         path = resolve(entry, search_roots)
         if path is None:
             found.append(Repository(name=label(entry),
-                                    candidates=list(entry.get("paths", []))))
+                                    candidates=list(entry.get("paths", [])),
+                                    family=entry.get("family")))
             continue
         repo = survey_repository(entry, path, remote, online)
         if online:
@@ -340,13 +365,31 @@ def totals(found: list[Repository]) -> dict[str, int]:
     }
 
 
-def render(found: list[Repository], online: bool) -> str:
-    """One row per repository, then detail for any row that needs a person."""
-    out: list[str] = []
-    width = max(len("repository"), *(len(r.name) for r in found))
-    prs = "prs" if online else "prs (offline)"
-    out.append(f"  {'repository':<{width}}  {'branch':<28}  dirty  one-copy  ahead  {prs}")
+UNSTATED = "(unstated)"
+
+
+def by_family(found: list[Repository]) -> list[tuple[str, list[Repository]]]:
+    """The rows grouped by the family each claims, in name order, unstated last.
+
+    Grouped on the claim as the roster carries it, not on `families.json`:
+    that file is generated from the same roster, and a stale copy would file a
+    member under a family the roster no longer claims. `qm families --check`
+    is what says whether every claim names a declared family; this only sorts.
+    """
+    groups: dict[str, list[Repository]] = {}
     for r in found:
+        groups.setdefault(r.family or UNSTATED, []).append(r)
+    names = sorted(n for n in groups if n != UNSTATED)
+    if UNSTATED in groups:
+        names.append(UNSTATED)
+    return [(n, groups[n]) for n in names]
+
+
+def table(rows: list[Repository], width: int, online: bool) -> list[str]:
+    """The header and one line per repository, MISSING rows included."""
+    prs = "prs" if online else "prs (offline)"
+    out = [f"  {'repository':<{width}}  {'branch':<28}  dirty  one-copy  ahead  {prs}"]
+    for r in rows:
         if r.missing:
             out.append(f"  {r.name:<{width}}  MISSING")
             continue
@@ -356,7 +399,28 @@ def render(found: list[Repository], online: bool) -> str:
             slot = str(len(r.open_prs)) + (" OVER" if r.over_slot else "")
         out.append(f"  {r.name:<{width}}  {r.branch[:28]:<28}  {r.dirty:>5}  "
                    f"{len(r.one_copy):>8}  {len(r.ahead):>5}  {slot}")
-    out.append("")
+    return out
+
+
+def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
+    """One row per repository, then detail for any row that needs a person.
+
+    `grouped` prints the same rows under one heading per family, each with
+    that family's own totals, so a reader can see where one family stands
+    without joining this table against the roster by hand.
+    """
+    out: list[str] = []
+    width = max(len("repository"), *(len(r.name) for r in found))
+    if grouped:
+        for family, rows in by_family(found):
+            t = totals(rows)
+            out.append(f"## {family}  {t['named']} named, {t['found']} on this disk, "
+                       f"{t['with_one_copy']} with one copy, {t['dirty']} dirty")
+            out.extend(table(rows, width, online))
+            out.append("")
+    else:
+        out.extend(table(found, width, online))
+        out.append("")
 
     for r in found:
         if r.missing or not (r.holds_one_copy or r.dirty or r.over_slot):
@@ -440,6 +504,9 @@ def main(argv: list[str] | None = None) -> int:
                         help="ask nothing of the host: no ls-remote, no gh")
     parser.add_argument("--json", action="store_true",
                         help="emit the survey as one JSON document")
+    parser.add_argument("--by-family", action="store_true",
+                        help="group the table by the family each entry claims, "
+                             "unstated last")
     args = parser.parse_args(argv)
 
     for stream in (sys.stdout, sys.stderr):
@@ -465,7 +532,7 @@ def main(argv: list[str] | None = None) -> int:
                   sys.stdout, indent=2)
         sys.stdout.write("\n")
     else:
-        sys.stdout.write(render(found, online))
+        sys.stdout.write(render(found, online, grouped=args.by_family))
     return 0
 
 

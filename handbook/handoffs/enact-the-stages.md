@@ -175,7 +175,7 @@ order is the intention, and the tool reports reality against it.
 2. Branch from `test`: `ci/stages.yaml`; the two placeholder patterns in `ci/rollout.yaml` filled in with the spelling the re-keying chose; the rows in §A read it; tests seen red then green; both `AGENTS.md` reworded; the async contract's §6 reworded (B.2); `CLAUDE.md` to a one-line import in root and seed (B.1) with the record amendment; `records/AGENTS.md` (B.3). Gates green locally, with what the runner cannot reproduce named.
 3. Human: push `test`. Merge the branch into it through a pull request whose base is `test` — the first one, which is the proof that the re-keyed `check_pr_base` accepts the new base.
 4. Break it (§A, last paragraph).
-5. Propagate to each `project/<name>` and each adopting project's copies, one at a time, per the runbook; titanharvest and golfvs are not adopters and are untouched.
+5. Propagate to each `project/<name>` and each adopting project's copies, one at a time, per the runbook; the games family's members are not adopters and are untouched.
 
 ## D. What this page does not do
 

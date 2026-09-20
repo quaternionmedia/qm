@@ -109,3 +109,87 @@ def test_the_picture_is_drawn_from_the_same_states_as_the_prose():
     assert "one" in picture and "two" in picture
     assert "governed" in picture and "not adopted" in picture
     assert "3 dirty" not in picture
+
+
+# --- the disk view resolves clones the way the roster says -----------------
+
+
+def _repo(path: Path) -> Path:
+    path.mkdir(parents=True)
+    (path / ".git").mkdir()
+    return path
+
+
+def test_a_member_is_found_where_the_roster_places_it_not_where_the_probe_looks(
+        tmp_path: Path, monkeypatch) -> None:
+    """`qm cookbook` said qmetronome was not on this disk while `qm estate`
+    found it under ../AndroidStudioProjects, because the cookbook probed
+    `<root>/<name>` and never read the roster's paths.
+
+    Mutation: make `clone_of` skip the roster entry and fall through to the
+    probe, and this fails on the first assertion.
+    """
+    thing = _repo(tmp_path / "elsewhere" / "thing")
+    monkeypatch.setattr(cookbook, "ROSTER_ROOTS", [tmp_path])
+    monkeypatch.setattr(cookbook, "SEARCH_ROOTS", (tmp_path / "nowhere",))
+    index = {"thing": {"name": "thing", "paths": ["elsewhere/thing"]}}
+
+    assert cookbook.clone_of("thing", index) == thing.resolve()
+    assert cookbook.clone_of("thing", {}) is None
+
+
+def test_a_private_member_is_found_by_its_reference(tmp_path: Path, monkeypatch) -> None:
+    """`families.json` names a private member by its reference; the companion
+    supplies the paths. A reference is not a directory, so the probe alone
+    reported every private member as not on this disk.
+    """
+    secret = _repo(tmp_path / "secret")
+    monkeypatch.setattr(cookbook, "ROSTER_ROOTS", [tmp_path])
+    monkeypatch.setattr(cookbook, "SEARCH_ROOTS", (tmp_path / "nowhere",))
+    monkeypatch.setattr(cookbook, "git", lambda path, *args: "main")
+    index = {"private-98": {"ref": "private-98", "name": "secret", "paths": ["secret"]}}
+
+    assert cookbook.clone_of("private-98", index) == secret.resolve()
+    state = cookbook.member_state("private-98", set(), index)
+    assert state["on_disk"] is True
+    assert state["name"] == "private-98"
+
+
+def test_a_member_the_roster_does_not_carry_still_gets_the_probe(tmp_path: Path, monkeypatch) -> None:
+    orphan = _repo(tmp_path / "orphan")
+    monkeypatch.setattr(cookbook, "ROSTER_ROOTS", [tmp_path / "nowhere"])
+    monkeypatch.setattr(cookbook, "SEARCH_ROOTS", (tmp_path,))
+
+    assert cookbook.clone_of("orphan", {}) == orphan
+
+
+def test_build_reads_every_member_through_the_roster(tmp_path: Path, monkeypatch) -> None:
+    """The first version of the roster lookup was overwritten inside `build`
+    by a list that happened to share its name, and every direct test of the
+    resolver stayed green while `uv run qm cookbook` crashed. A test that
+    calls `build` is the one that would have gone red.
+    """
+    _repo(tmp_path / "elsewhere" / "thing")
+    families = tmp_path / "families.json"
+    families.write_text(
+        '{"families": [{"name": "f", "drives": "x", "members": ["thing", "gone"]}],'
+        ' "unstated": []}', encoding="utf-8")
+    monkeypatch.setattr(cookbook, "FAMILIES", families)
+    monkeypatch.setattr(cookbook, "ROSTER_ROOTS", [tmp_path])
+    monkeypatch.setattr(cookbook, "SEARCH_ROOTS", (tmp_path / "nowhere",))
+    monkeypatch.setattr(cookbook, "adopted_names", lambda: set())
+    monkeypatch.setattr(cookbook, "roster_index", lambda: {
+        "thing": {"name": "thing", "paths": ["elsewhere/thing"]}})
+    monkeypatch.setattr(cookbook, "git", lambda path, *args: "main")
+    seen = []
+    real = cookbook.member_state
+    monkeypatch.setattr(cookbook, "member_state",
+                        lambda name, adopted, index=None: seen.append(index) or real(name, adopted, index))
+
+    files = cookbook.build(tmp_path / "out")
+
+    assert set(files) == {"f.md", "f.svg", "README.md"}
+    assert "| `thing` | no |" in files["f.md"]
+    assert "| `gone` | no |" in files["f.md"]
+    # The roster index, not the README's line list, reached every lookup.
+    assert seen and all(isinstance(i, dict) and "thing" in i for i in seen)

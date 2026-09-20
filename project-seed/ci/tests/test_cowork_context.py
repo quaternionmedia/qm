@@ -324,3 +324,23 @@ def test_a_malformed_registry_is_reported_not_crashed(repo: Path) -> None:
     write(repo / "ci" / "exception-registry.yaml", "exceptions: [unclosed\n")
     commit_all(repo, "broken registry")
     assert "did not parse" in brief(repo)
+
+
+def test_a_stamp_the_yaml_writer_single_quotes_is_still_an_age(repo: Path) -> None:
+    """`yaml.safe_dump` writes `generated_at: '2026-...'`, which is what
+    `status/harness.yaml` carries. The brief read that as no stamp at all and
+    told a session to treat every figure as unverified, thirteen hours into a
+    24h budget.
+
+    Mutation: admit only a double quote before the timestamp, and this fails
+    on the budget line.
+    """
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    write(
+        repo / "status/harness.yaml",
+        "schema: 1\ngenerated_at: '2026-01-01T00:00:00Z'\nrepositories: []\n",
+    )
+    commit_all(repo, "documents")
+    text = brief(repo)
+    assert "past its 24h budget" in text
+    assert "Age unknown" not in text

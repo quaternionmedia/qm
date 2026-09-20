@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-09-20T03:02:02Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-09-20T14:43:53Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -60,10 +60,10 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 35 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 53 |
+| [-] `unreviewed` | 54 |
 | [G] `generated` | 7 |
 | [S] `standing` | 72 |
-| [T] `transient` | 23 |
+| [T] `transient` | 22 |
 
 ## Documents
 
@@ -151,6 +151,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-27-the-precondition-nobody-declared.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-27-two-views-that-go-stale-together.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-20-the-consolidation-cycle.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-09-20-the-families-delineated.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
@@ -243,6 +244,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/disk-tooling.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/dossier-delta-review.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/enact-the-stages.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/families-delineated.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/for-a-stronger-model.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/governance-loop-poc.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/governance-status-generator.md` | handoff | — |
@@ -256,8 +258,6 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/session-2026-08-23.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/six-branches-reached-origin.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-active-four.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/the-games-family-and-titanharvest.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/the-loop-that-checks-itself.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-pair-and-the-fresh-setup.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-gate-and-tag-teeth.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-views-one-dataset.md` | handoff | — |

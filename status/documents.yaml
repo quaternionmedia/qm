@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T03:02:02Z'
+generated_at: '2026-09-20T14:43:53Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -127,8 +127,8 @@ totals:
     generated: 7
     proposed: 35
     standing: 72
-    transient: 23
-    unreviewed: 53
+    transient: 22
+    unreviewed: 54
   disagreements: 0
   unknown: 0
 documents:
@@ -520,6 +520,13 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
+- path: handbook/handoffs/families-delineated.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
 - path: handbook/handoffs/for-a-stronger-model.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
@@ -605,20 +612,6 @@ documents:
   state_from_filename: null
   state: transient
 - path: handbook/handoffs/the-active-four.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/the-games-family-and-titanharvest.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/the-loop-that-checks-itself.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1053,6 +1046,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-09-20-the-consolidation-cycle.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-09-20-the-families-delineated.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null

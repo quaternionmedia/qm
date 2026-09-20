@@ -30,6 +30,15 @@ printed.
     AssertionError: assert ['here'] == ['here', 'elsewhere']
     AssertionError: assert {'named': 1, ...copy': 1, ...} == {'named': 2, ...copy': 1, ...}
 
+  the family claim dropped from MISSING rows, the unstated group left
+  wherever it fell, every family heading given the estate's totals, and the
+  label preferring a private entry's name to its reference -- one test each
+
+    AssertionError: assert [('r', 'games...quiet', None)] == [('r', 'games...quiet', None)]
+    AssertionError: assert [('(unstated)...core', ['a'])] == [('core', ['a..., ['z', 'y'])]
+    assert '## games  2 named, 1 on this disk, ...' in "## games  3 named, 1 on this disk, ..."
+    AssertionError: assert 'secret' == 'private-99'
+
 AND ONE FAULT IN THE SCAFFOLDING THAT RAN THEM. The first pass applied the
 three mutations in sequence with a restore between each, and the restore
 copied from a backup that a shell fallback had never written -- so the second
@@ -398,3 +407,107 @@ def test_the_survey_takes_no_flag_that_acts():
         refused = run("--offline", flag, cwd=CI_DIR)
         assert refused.returncode != 0, flag
         assert "unrecognized arguments" in refused.stderr, flag
+
+
+# --- the families ------------------------------------------------------------
+
+
+def test_the_family_claim_rides_with_the_row_and_nothing_infers_one(tmp_path):
+    """The family is what the roster entry says, MISSING rows included, and an
+    entry that says nothing is None -- unstated, never a default.
+
+    Mutation: drop `family=entry.get("family")` from `survey`, and this fails
+    on the first assertion.
+    """
+    work = clone_pair(tmp_path, "r")
+    roster = [{"name": "r", "paths": ["r"], "family": "games"},
+              {"name": "gone", "paths": ["gone"], "family": "infra"},
+              {"name": "quiet", "paths": ["quiet"]}]
+
+    found = estate.survey(roster, [tmp_path], online=False)
+
+    assert [(r.name, r.family) for r in found] == [
+        ("r", "games"), ("gone", "infra"), ("quiet", None)]
+    doc = estate.as_document(found, tmp_path / "roster.yaml", [tmp_path], False)
+    assert [r["family"] for r in doc["repositories"]] == ["games", "infra", None]
+    assert work.exists()
+
+
+def test_by_family_groups_in_name_order_with_unstated_last(tmp_path):
+    """Mutation: sort the unstated group first, or drop the sort, and the
+    order assertion fails."""
+    rows = [estate.Repository(name=n, family=f) for n, f in
+            [("z", None), ("b", "irl"), ("a", "core"), ("c", "irl"), ("y", None)]]
+
+    grouped = estate.by_family(rows)
+
+    assert [(family, [r.name for r in members]) for family, members in grouped] == [
+        ("core", ["a"]), ("irl", ["b", "c"]), (estate.UNSTATED, ["z", "y"])]
+
+
+def test_by_family_prints_every_row_once_under_its_family_with_its_own_totals(tmp_path):
+    """The grouped table carries the same rows as the flat one, each under
+    one heading, and each heading carries that family's totals rather than
+    the estate's.
+
+    Mutation: print `totals(found)` on every heading, and the games line
+    fails; drop the MISSING branch from `table`, and `gone` is missing from
+    both shapes.
+    """
+    work = clone_pair(tmp_path, "r")
+    git(work, "checkout", "-q", "-b", "alone")
+    commit(work, "one.txt")
+    git(work, "checkout", "-q", "main")
+    roster = [{"name": "r", "paths": ["r"], "family": "games"},
+              {"name": "gone", "paths": ["gone"], "family": "games"},
+              {"name": "quiet", "paths": ["quiet"]}]
+    found = estate.survey(roster, [tmp_path], online=False)
+
+    flat = estate.render(found, online=False)
+    grouped = estate.render(found, online=False, grouped=True)
+
+    assert "## games  2 named, 1 on this disk, 1 with one copy, 0 dirty" in grouped
+    assert f"## {estate.UNSTATED}  1 named, 0 on this disk, 0 with one copy, 0 dirty" in grouped
+    assert grouped.index("## games") < grouped.index(f"## {estate.UNSTATED}")
+    for line in (l for l in flat.splitlines() if l.startswith("  ") and (
+            l.strip().startswith(("r ", "gone", "quiet")))):
+        assert grouped.count(line) == flat.count(line), line
+    assert "3 repositories named, 1 found" in grouped
+
+
+def test_by_family_is_a_flag_on_the_command_and_changes_only_the_table(tmp_path):
+    work = clone_pair(tmp_path, "r")
+    roster = roster_for(tmp_path, "r", extra="    family: core\n")
+
+    flat = run("--roster", str(roster), "--search-root", str(tmp_path),
+               "--offline", cwd=tmp_path)
+    grouped = run("--roster", str(roster), "--search-root", str(tmp_path),
+                  "--offline", "--by-family", cwd=tmp_path)
+
+    assert flat.returncode == 0 and grouped.returncode == 0, grouped.stderr
+    assert "## core" not in flat.stdout
+    assert "## core  1 named, 1 on this disk" in grouped.stdout
+    assert flat.stdout.splitlines()[-1] == grouped.stdout.splitlines()[-1]
+    assert work.exists()
+
+
+def test_a_private_entry_is_called_by_its_reference_not_its_name(tmp_path):
+    """The companion fills in a private repository's name so the clone can be
+    found; the row is still printed as the reference, because this reading
+    gets pasted into committed pages.
+
+    Mutation: `label` returning `roster_label(entry)` first, and this fails
+    on the row name while the clone is still found.
+    """
+    work = clone_pair(tmp_path, "secret")
+    entry = {"ref": "private-99", "name": "secret", "paths": ["secret"]}
+
+    row = estate.survey([entry], [tmp_path], online=False)[0]
+
+    assert row.name == "private-99"
+    assert row.path == str(work.resolve())
+    # A clean row prints no detail block and so no path; the name must then
+    # appear nowhere at all.
+    text = estate.render([row], online=False)
+    assert "  private-99  main" in text
+    assert "secret" not in text

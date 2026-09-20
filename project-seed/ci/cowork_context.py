@@ -256,7 +256,14 @@ def document_age_hours(path: Path) -> float | None:
         text = path.read_text(encoding="utf-8", errors="replace")
     except OSError:
         return None
-    match = re.search(r'"?generated_at"?\s*:\s*"?(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)', text)
+    # Either quote or none: `yaml.safe_dump` writes the stamp single-quoted,
+    # a JSON companion double-quoted, and a hand-written page bare. The first
+    # form is what `status/harness.yaml` carries, and a pattern that admitted
+    # only the second reported its age as unknown while the stamp sat on
+    # line 2.
+    match = re.search(
+        r'''["']?generated_at["']?\s*:\s*["']?(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)''', text
+    )
     if not match:
         return None
     stamped = datetime.strptime(match.group(1), "%Y-%m-%dT%H:%M:%S").replace(

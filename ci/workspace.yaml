@@ -248,6 +248,33 @@ repositories:
       committed, for the same reason as private-32 and private-33 above.
       Governed via a project/<name> branch here.
 
+  # Both of these carry a project/<name> branch in this repository and were
+  # absent from this roster, so status/governance.yaml (which reads the
+  # branches) saw them and every reader of this file (families, rollout,
+  # harness, estate) did not.
+  - ref: private-36
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      Name and paths live in ci/workspace-private.yaml, which is not
+      committed, for the same reason as private-32 through private-34 above.
+      Governed via a project/<name> branch here, which carries its records as
+      drafts; no family claimed until governance has run for it.
+
+  - name: streaming-infrastructure
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      Governed via project/streaming-infrastructure here, whose one record
+      calls the codebase the `qmstream` control plane. No repository by either
+      name is on the host under this org, so there is nothing to clone and
+      status/governance.yaml reports its host layer as unknown. No family
+      claimed until governance has run for it. The paths are where a clone
+      would go, as for every entry not cloned here.
+    paths: [streaming-infrastructure, qm/streaming-infrastructure]
+
   - name: qmetronome
     role: project
     family: instruments
@@ -525,8 +552,9 @@ repositories:
   #
   # Placed by records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3: a
   # game is the activity, not a thing that serves one. Neither has adopted the
-  # constitution; golfvs carries its own decision log and titanharvest mirrors
-  # that shape. Presence is not adoption, and a family claim is not either.
+  # constitution; golfvs carries its own decision log and its private sibling
+  # mirrors that shape. Presence is not adoption, and a family claim is not
+  # either.
 
   - name: golfvs
     role: unmanaged
@@ -536,15 +564,15 @@ repositories:
     note: arcade physics golf with asymmetric defence, built in Godot
     paths: [golfvs, qm/golfvs]
 
-  - name: titanharvest
+  - ref: private-38
     role: unmanaged
     phase: n/a
     phase_source: n/a
     family: games
     note: >
-      mech farming in dangerous space, built in Godot; a sibling of golfvs by
-      shape. Lives where the Godot project manager put it, not under repos/.
-    paths: ["../Documents/titanharvest", qm/titanharvest]
+      A game built in Godot; a sibling of golfvs by shape. Private on the
+      host, so name and paths live in ci/workspace-private.yaml, which is not
+      committed -- the same reason as every other ref: entry here.
 
   - name: rad-godot
     role: unmanaged
@@ -553,5 +581,5 @@ repositories:
     note: >
       rad, the radial menu, as a Godot addon: the contract's vectors replayed
       in GDScript. No family claimed: rad's implementations are a seam, not a
-      roster family. Private on the host. Lives beside the Godot projects.
-    paths: ["../Documents/rad-godot", qm/rad-godot, rad-godot]
+      roster family.
+    paths: [qm/rad-godot, rad-godot]

@@ -504,6 +504,12 @@ def build(
             "name": name,
             "slug": slug,
             "role": entry.get("role", "unknown"),
+            # The family is a claim too, made by a person in the roster and
+            # bordered by records/DRAFT-a-family-is-bordered-by-what-it-drives.md.
+            # None is unstated -- nobody has answered -- and a view that turns
+            # it into a family has inferred what the record says only a
+            # person may state.
+            "family": entry.get("family"),
             # The claim, carried verbatim with its provenance. A view that
             # loses `phase_source` has turned a default into a finding.
             "phase": entry.get("phase", "unknown"),
@@ -574,6 +580,12 @@ def build(
                 "phase and phase_source come from ci/workspace.yaml and record "
                 "what a human stated. They are never derived from artifacts."
             ),
+            "family_is_a_claim": (
+                "family comes from ci/workspace.yaml, where a person stated it; "
+                "the families themselves are declared in "
+                "records/DRAFT-a-family-is-bordered-by-what-it-drives.md. "
+                "null is unstated, which is not none."
+            ),
             "thread_stages": list(THREAD_STAGES),
             "thread_stages_are_states_not_progress": (
                 "observable states, not a percentage. Nothing estimates "
@@ -618,6 +630,8 @@ def build(
                 "quote a figure from this document without its generated_at",
                 "treat a phase as evidence: phase is what a human claimed",
                 "treat the governance layer as a claim: it is what has landed",
+                "read a null family as a repository that belongs to none: it "
+                "is one nobody has placed",
                 "regenerate this in CI -- it reads other repositories, so every "
                 "unrelated pull request would go red for a reason its author "
                 "cannot fix",

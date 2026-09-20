@@ -11,7 +11,7 @@
 | member | governed |
 |---|---|
 | `golfvs` | no |
-| `titanharvest` | no |
+| `private-38` | no |
 
 ## Starting here
 

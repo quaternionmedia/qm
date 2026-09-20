@@ -35,6 +35,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 FAMILIES = ROOT / "families.json"
 SEARCH_ROOTS = (ROOT.parent, ROOT.parent.parent)
+# What the roster's `paths` are relative to: two directories above this clone,
+# as `ci/make_workspace.py` and `ci/estate.py` assume. One convention.
+ROSTER_ROOTS = [ROOT.parent.parent]
 
 
 def git(path: Path, *args: str) -> str:
@@ -46,7 +49,46 @@ def git(path: Path, *args: str) -> str:
     return done.stdout.strip() if done.returncode == 0 else ""
 
 
-def clone_of(name: str) -> Path | None:
+def roster_index() -> dict[str, dict]:
+    """Every roster entry, keyed by its name and by its reference.
+
+    `families.json` carries a private member as its reference. The loader
+    merges `ci/workspace-private.yaml` where it is present, so the entry the
+    reference maps to carries the real candidate paths on a machine that
+    holds them, and none anywhere else.
+    """
+    sys.path.insert(0, str(ROOT / "ci"))
+    try:
+        import roster
+        entries = roster.load()
+    except Exception:
+        return {}
+    index: dict[str, dict] = {}
+    for entry in entries:
+        for key in (entry.get("name"), entry.get("ref")):
+            if key:
+                index[key] = entry
+    return index
+
+
+def clone_of(name: str, index: dict[str, dict] | None = None) -> Path | None:
+    """The clone the roster says, else the bare probe the roster predates.
+
+    The probe alone -- `<root>/<name>` -- reported qmetronome as not on this
+    disk, where the roster places it under `../AndroidStudioProjects`, and
+    every private member likewise, because a reference is not a directory. A
+    second resolver disagreeing with the first is how two views of one disk
+    come to say different things. So the roster's candidates go first,
+    through the resolver the workspace and the estate use, and the probe
+    remains only for a member the roster does not carry at all.
+    """
+    entry = (roster_index() if index is None else index).get(name)
+    if entry is not None:
+        sys.path.insert(0, str(ROOT / "ci"))
+        from make_workspace import resolve
+        found = resolve(entry, ROSTER_ROOTS)
+        if found is not None:
+            return found
     for root in SEARCH_ROOTS:
         candidate = root / name
         if (candidate / ".git").exists():
@@ -54,9 +96,9 @@ def clone_of(name: str) -> Path | None:
     return None
 
 
-def member_state(name: str, adopted: set[str]) -> dict:
+def member_state(name: str, adopted: set[str], index: dict[str, dict] | None = None) -> dict:
     """What the disk says about one member. Never a default that reads as good."""
-    clone = clone_of(name)
+    clone = clone_of(name, index)
     if clone is None:
         return {"name": name, "on_disk": False, "branch": "-", "dirty": None,
                 "last": "-", "adopted": name in adopted}
@@ -220,6 +262,7 @@ def page(family: dict, states: list[dict], generated_at: str) -> str:
 def build(out: Path) -> dict[str, str]:
     document = json.loads(FAMILIES.read_text(encoding="utf-8"))
     adopted = adopted_names()
+    entries = roster_index()
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     files: dict[str, str] = {}
     index = [
@@ -234,7 +277,7 @@ def build(out: Path) -> dict[str, str]:
         "|---|---|---|---|",
     ]
     for family in document["families"]:
-        states = [member_state(name, adopted) for name in family["members"]]
+        states = [member_state(name, adopted, entries) for name in family["members"]]
         files[f"{family['name']}.md"] = page(family, states, stamp)
         files[f"{family['name']}.svg"] = svg(family["name"], states)
         governed = sum(1 for s in states if s["adopted"])
@@ -295,10 +338,11 @@ def main(argv: list[str] | None = None) -> int:
     # of the public inventory.
     document = json.loads(FAMILIES.read_text(encoding="utf-8"))
     adopted = adopted_names()
+    entries = roster_index()
     print("This disk, right now. None of it is committed anywhere.")
     print()
     for family in document["families"]:
-        states = [member_state(name, adopted) for name in family["members"]]
+        states = [member_state(name, adopted, entries) for name in family["members"]]
         absent = [s for s in states if not s["on_disk"]]
         dirty = [s for s in states if s["on_disk"] and s["dirty"]]
         print(f"## {family['name']}")
