@@ -50,14 +50,14 @@ author/contributor field exists to record.
    world.** A pull request body, a review comment, an issue or a commit
    message carries the human's name, so it is the human's statement of the
    change — and it addresses nobody. A sentence *to* the contributor about
-   how the change is to be handled ("not to be merged without your click",
-   "worth your eye", "assigned, no review requested") is a tool speaking to
-   its operator under the operator's name; on the host it reads as the
-   contributor talking to themself. Such things are said in the session and
-   settled there; the artifact states decisions and facts, in the third
-   person where a person must be named. `project-seed/ci/check_pr_voice.py`
-   refuses the second person and the handling phrases in a pull request
-   body; it cannot see the third person, and does not try to.
+   how the change is to be handled — who merges it, what deserves their
+   attention, that no review is wanted — is a tool speaking to its operator
+   under the operator's name; on the host it reads as the contributor
+   talking to themself. Such things are said in the session and settled
+   there; the artifact states decisions and facts, in the third person where
+   a person must be named. `project-seed/ci/check_pr_voice.py` refuses the
+   second person and the handling phrases in a pull request body; it cannot
+   see the third person, and does not try to.
 6. This governs attribution metadata — commit trailers, bylines, index
    entries, and each perspective file's own header table and closing
    signature. Existing commits are not amended; commit history is left

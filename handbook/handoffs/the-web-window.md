@@ -104,7 +104,8 @@ disposable and the branches are on `origin`.
 ## 5. Standing constraints
 
 - **Nothing pulled to `main` without Peter's explicit approval.** Pull requests
-  are fine. This overrides `AGENTS.md` item 3's *merge it yourself*.
+  are fine. This overrides `AGENTS.md` item 3, which has the session merge
+  once the gates are green.
 - Not *keep everything local*: pushing and opening pull requests is allowed and
   was done.
 - Human-only contributorship on every commit: no trailer, no model name. Every

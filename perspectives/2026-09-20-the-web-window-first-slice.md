@@ -46,7 +46,7 @@ were being seen red, which is the property that makes this class of failure
 dangerous. The second mutation of a tracked file then restored a *different*
 uncommitted edit to the file's committed state, silently discarding it.
 
-The rule that came out: **commit before you mutate.** The test's docstring
+The rule that came out: **commit before mutating.** The test's docstring
 carries the episode. The check that would have caught it — asserting the tree
 is clean after each restore — is now in the ritual as a printed dirty-count
 (E1), which is a habit rather than a gate.
@@ -100,10 +100,10 @@ id-less entry (E1, seen red).
 
 `generate_docs.py --offline` rewrote `status/gates.yaml` to say the host was
 not asked (E1: `unknown: --no-host was passed`), replacing a real answer with
-an honest absence. The generator warned that a rewrite you did not expect is a
+an honest absence. The generator warns that an unexpected rewrite is a
 finding, and it was. Those files were restored and only the document index
 that names the new plan was kept. Nothing catches this except reading the
-diff, which the generator asks you to do.
+diff, which the generator asks for.
 
 ### 2.7 A heredoc carries an escape sequence
 
@@ -180,13 +180,15 @@ what it cannot see.
 
 ### 2.14 Seven pull requests in which the contributor talked to himself
 
-Every pull request body this session opened began "**Not to be merged without
-your click** — assigned, no review requested", and one said a change was
-"worth your eye". Posted under the contributor's account, that is the
-contributor telling himself not to merge his own work (E1: the host shows the
-body as his comment). The words were his instruction to the tool — *"PRs are
-fine, nothing pulled to main without my manual click"* — carried out of the
-session and into an artefact he signs. He had said this before, more than once.
+Every pull request body this session opened began with a sentence telling
+the contributor not to merge it, and one told him which decision deserved his
+attention. Quoted once, as the evidence, from qm #116 as first posted:
+*"Not to be merged without your click — assigned, no review requested."*
+Posted under the contributor's account, that is the contributor telling himself
+not to merge his own work (E1: the host shows the body as his comment). The
+words were his instruction to the tool — *"PRs are fine, nothing pulled to main
+without my manual click"* — carried out of the session and into an artefact he
+signs. He had said this before, more than once.
 
 The false assumption: that a pull request body is the session's report to the
 reviewer. It is not. It is the reviewer's statement of the change to everyone
@@ -267,4 +269,4 @@ and had never executed a line.
 Phase 2 of the plan draws a live flow on a topology's shape. Everything in §2
 says: start with the fixture that reports bad (a harness whose invocations
 carry an address no box has), commit the fixture before mutating anything,
-and put the browser on a tab you have measured is active. The rest is drawing.
+and put the browser on a tab measured to be active. The rest is drawing.

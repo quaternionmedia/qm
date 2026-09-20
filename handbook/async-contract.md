@@ -103,10 +103,10 @@ working. Your own unresolved question arriving as pull request text is not.
 
 **And the body speaks as the contributor, to the world.** It is posted under a
 human's account and it is their statement of the change, so it addresses
-nobody — not "your click", not "worth your eye", not "assigned, no review
-requested". Those are a session's words to the person who asked, and posted
-under that person's name they read as the person talking to themself. Say them
-in the session; write the third person where a person must be named.
+nobody: not who is to merge it, not what deserves their attention, not that no
+review is wanted. Those are a session's words to the person who asked, and
+posted under that person's name they read as the person talking to themself.
+Say them in the session; write the third person where a person must be named.
 `records/DRAFT-human-only-contributorship.md` clause 5 is the decision.
 
 **Mechanical.** `project-seed/ci/check_pr_voice.py`, a step in
