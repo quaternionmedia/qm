@@ -187,6 +187,16 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "merge",
+        help="your open pull requests, live; merge one when every gate is green",
+        add_help=False,
+    )
+    sub.add_parser(
+        "estate",
+        help="every rostered repository, and what of it exists on this disk alone",
+        add_help=False,
+    )
+    sub.add_parser(
         "rulesets", help="what the rulesets say, and what the host is running",
         add_help=False,
     )
@@ -331,6 +341,8 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "branch": ("check_pr_base", True, []),
     "branches": ("branch_census", True, []),
     "inbound": ("inbound", False, []),
+    "merge": ("merge_review", False, []),
+    "estate": ("estate", False, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
     "families": ("families", False, []),

@@ -49,6 +49,7 @@ shortest useful thing to read after this.
 | Run several agent sessions at once | [handbook/async-contract.md](handbook/async-contract.md) — one PR per repo per contributor, and why |
 | Set up a new QM project | [Forking a new project](docs/usage/first-project.md) |
 | Bring an existing project up to date | [handbook/propagation-runbook.md](handbook/propagation-runbook.md) |
+| Land what exists only on this disk | [handbook/consolidation-runbook.md](handbook/consolidation-runbook.md) |
 | Learn the branch and record rules | [Branch namespaces](docs/ref/namespaces.md) and [Record precedence](docs/ref/precedence.md) |
 | Know how far this corpus has got in governing itself | [handbook/governance-rollout.md](handbook/governance-rollout.md) |
 | See where every project stands | [status/governance.yaml](status/governance.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
@@ -145,6 +146,7 @@ Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/
 | `handbook/forking-a-project.md` | Standing up a new project, with the check that proves each step worked |
 | `handbook/governance-rollout.md` | How far this corpus has got in governing itself, and what ratification waits on |
 | `handbook/propagation-runbook.md` | How an org change reaches an adopted project, in both repositories |
+| `handbook/consolidation-runbook.md` | How work that exists only on one disk reaches `main`, one pull request per repository, and what a green pull request cannot see |
 | `handbook/adoption-audit-queue.md` | Which projects are audited, and how the next agent runs the rest |
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
 | `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
