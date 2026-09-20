@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Draft |
 | **Date** | 2026-09-06 |
-| **Principle** | `P11 — Governance finds the reader, not the reverse` |
+| **Principle** | `governance-finds-the-reader` — governance finds the reader, not the reverse |
 
 ## Context
 
@@ -27,7 +27,7 @@ documents nobody has reviewed; and seventeen gates each declaring, in its own
 `cannot_see` field, something it knows it cannot check. Ninety-five items, every
 one already written down, and no reader who has seen them together.
 
-P11 is the principle at stake and it is about exactly this shape: *a
+`governance-finds-the-reader` is the principle at stake and it is about exactly this shape: *a
 constitution nobody encounters doesn't bind — it just exists.* A loose end
 recorded in a document read for a different question is in the same position. It
 is not hidden and it is not tracked.
@@ -99,7 +99,7 @@ two counts. It inverts the claim/evidence split — an issue is a claim-shaped
 container holding derived evidence, and it goes stale the moment the underlying
 document changes, with nothing to notice. And it moves the org's standing
 question into a product the corpus reaches only over a seam, which
-`P3 — Seams on standard protocols` would require an exception record to justify
+`seams-on-standard-protocols` would require an exception record to justify
 for a single-implementation dependency.
 
 **Persist the dispositions in the generated document and regenerate carefully.**
@@ -109,7 +109,7 @@ gate, by a fork running seed scripts in place, and by anybody typing
 the command is one somebody is encouraged to run.
 
 **Do nothing, and read the three documents together when it matters.** This is
-the honest status quo and it is what P11 refuses: the facts are available to a
+the honest status quo and it is what `governance-finds-the-reader` refuses: the facts are available to a
 reader who already knows to look for them, which is not the reader the principle
 is about. It also has a measurable cost — ninety-five items, and no evidence
 anybody has seen the number.
