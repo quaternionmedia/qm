@@ -56,11 +56,18 @@ need a reset at all.
    any time, from the CLI, the overlay or the monitor; and **operator
    controls** (`gcode.CONTROL_CODES`: heater targets with temperature
    caps, fan, homing, bounded jogs, steppers off, SD start/pause/abort,
-   mesh on/off) only while a per-port **control latch** is armed -- an
-   explicit act with a five-minute lifetime that every accepted command
-   renews, that a released link drops, and that the monitor's overlay
-   surfaces as a toggle. `M112` (emergency stop) is accepted regardless.
-   Nothing streams a job, writes EEPROM or configures firmware.
+   mesh on/off, the plain bed probe `G29` and a single bounded `G30`)
+   only while a per-port **control latch** is armed -- an explicit act
+   with a five-minute lifetime that every accepted command renews, that a
+   released link drops, and that the monitor's overlay surfaces as a
+   toggle. `M112` (emergency stop) is accepted regardless. A bed reading
+   -- the stored mesh, probe offset and temperatures, with or without a
+   probe first -- is the one composite the seam runs on its own: as a job
+   that holds the link for the minutes a probe takes, refuses other
+   traffic meanwhile (the emergency stop excepted), and saves what the
+   firmware said as a record, so the readings before and after a turn of
+   the bed screws can be compared. Nothing writes EEPROM or configures
+   firmware.
 2. **The byte transport is an engine slot.** A `Transport` protocol
    (`write`, `read(timeout)`, `pulse_reset`, `close`) with two engines:
    **pyserial** (BSD; any baud rate, Linux/macOS/Windows; a declared
@@ -99,13 +106,24 @@ need a reset at all.
    `maintenance` is never overridden by a poll. The site-devices view
    refreshes printers whose link is already held and never opens a port
    itself.
-6. **Not a print host.** Streaming a job to a printer, queueing, and
-   webcam/timelapse are the domain of OctoPrint, Klipper/Moonraker and
-   their kin. The latched controls in §1 are what a person standing at the
-   machine would do from its own screen -- preheat, home, jog, pause --
-   not a job pipeline. If Apothecary ever needs to *send* a print, P4's ordering rule
-   applies first (which engine owns this?), and that is a new record — with
-   a seams exception if the answer is one host's REST API.
+6. **A host for one print at a time, and no more than that.** The seam
+   streams a sliced file to the printer itself: kept on the host, checked
+   once as a whole against the same bounds a typed control meets (no
+   settings writes, no firmware update, no kill, no temperature over the
+   caps), then fed one line per `ok` -- the firmware's own flow control --
+   as a job that keeps the link between lines for the polls and for the
+   heater, fan and break-wait controls, and refuses motion, the SD card, a
+   reset and a release until it ends. Pause stops the feed; cancel, a
+   refused line and a silent one send a fixed safe-off (heaters and fan
+   off, motors free, no blind park); the emergency stop ends it with
+   nothing more sent. Every print is a record with its outcome. P4's
+   ordering question -- which engine owns this? -- is answered by §2 and
+   §4 together: the seam already owns the line protocol and the held link,
+   and a second holder of the port (OctoPrint, Moonraker) is exactly the
+   contention §4 exists to prevent, so one print streamed over the link
+   that is already open is the smaller thing. Queueing, a slicer, a
+   webcam, a timelapse and a print farm are not: they remain the domain of
+   those hosts, and wanting one of them is the trigger below.
 
 ## Consequences
 
@@ -142,7 +160,7 @@ need a reset at all.
    API** — lost for the monitor: it makes a print host a hard prerequisite
    for showing a temperature, and each host's API is single-implementation,
    so the seam would be *worse* than the wire protocol underneath it. It
-   remains the right answer for §6.
+   remains the right answer for what §6 leaves out.
 2. **Reuse `arduino-cli monitor` (already the serial engine for sketches)
    as the transport** — rejected: it is one-way in practice (stdin is not a
    reliable command channel), spends seconds on port discovery per open,
@@ -164,11 +182,21 @@ need a reset at all.
    hotend or drives a bed into a nozzle. Two allowlists with bounds, and a
    latch in front of the one that moves anything, keep the failure mode
    to "refused" rather than "melted"; extending the lists is a deliberate
-   edit here, not a runtime setting.
+   edit here, not a runtime setting. A streamed file is not a console: it
+   is checked whole before the first line, behind the same latch.
+7. **Filling the firmware's buffer ahead of its `ok`s (line numbers and
+   checksums, `N…*…`)** — rejected for now: it is faster on a slow serial
+   link, but a resend protocol is a second state machine to get right, and
+   at 115200 baud one line per `ok` keeps a Marlin planner fed. A print
+   that stutters on a real machine is the trigger to revisit.
 
 ## Revision triggers
 
-- Apothecary needs to send a print or motion command — §6: a new record.
+- A print queue, a slicer, a camera, or more than one printer fed at once
+  is wanted — §6: a new record, and P4's ordering question again with a
+  host's REST API as a candidate answer.
+- A streamed print stutters on a real machine — alternative 7: line
+  numbers and checksums, or a buffer ahead of the `ok`s.
 - A second firmware family (RepRapFirmware, Klipper) is plugged in and the
   Marlin-shaped parsers miss something the viewer needs.
 - A fleet view needs status fresher than the last client poll — add the
