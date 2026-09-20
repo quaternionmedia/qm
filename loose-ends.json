@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-20T17:17:49Z",
+  "generated_at": "2026-09-20T19:12:54Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-20T17:17:48Z"
+        "generated_at": "2026-09-20T19:12:54Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 126,
+    "loose_ends": 127,
     "by_kind": {
       "blind-spot": 18,
       "document-proposed": 36,
-      "document-unreviewed": 54,
+      "document-unreviewed": 55,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 126,
+    "open": 127,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -847,6 +847,14 @@
       "title": "perspectives/2026-09-20-the-families-delineated.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-families-delineated",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-web-window-first-slice",
+      "title": "perspectives/2026-09-20-the-web-window-first-slice.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-web-window-first-slice",
       "address_parses": true
     },
     {

@@ -1,7 +1,7 @@
 # Handoff — the web window, first slice
 
-**Stamped 2026-09-20.** `qm` `main` at `f23a875`; this page's branch
-`evolve/the-web-window` at its tip; `codecartographer` `main` at `4e30271`;
+**Stamped 2026-09-20.** `qm` `main` at `23e4d35` (#115 merged); this page's
+branch `evolve/the-web-window` rebased onto it; `codecartographer` `main` at `4e30271`;
 `qmcp` `main` at `3e25711`; `looksatwords` `main` at `32d3371`; `rad` `main` at
 `a39d3bf`. Every figure here was true at those commits and nowhere else. The
 next session re-derives before acting: `uv run qm slot --repo <owner/name>`,
@@ -20,9 +20,9 @@ every branch below.
 
 | Repository | Branch | Carries | Pull request |
 |---|---|---|---|
-| qm | `evolve/the-web-window` | the plan; `ci/dashboard.py` gains a fourth surface (`prose`, `looksatwords`, root two) and drops the retired standalone `/topology` page from the web surface's list; this page and its retrospective; the regenerated document index | **none — the `main` slot holds #115.** Pushed, waiting. Open it when #115 merges |
+| qm | `evolve/the-web-window` | the plan; `ci/dashboard.py` gains a fourth surface (`prose`, `looksatwords`, root two) and drops the retired standalone `/topology` page from the web surface's list; `docs.yml` stops naming a deploy branch that no longer exists; this page and its retrospective; the regenerated document index | opened once #115 had merged and freed the `main` slot — see the pull request list |
 | qm | `adr/codecartographer-index-current` | the project's `adr/README.md` names `governance/qm` rather than `docs/qm` and lists the rad adoption among its drafts | **#116** → `project/codecartographer`, gates green |
-| codecartographer | `evolve/the-estate-frame` | the estate frame (Phase 0 and 1 of the plan); the local `test` branch's four commits minus its governance-pin bump; the slot workflow checking out only the governance submodule | **#100**, every gate green except `slot`, which is over — see §3 |
+| codecartographer | `evolve/the-estate-frame` | the estate frame (Phase 0 and 1 of the plan); the local `test` branch's four commits minus its governance-pin bump; the slot workflow checking out only the governance submodule; the canvas drawing an edge's colour, width and style from where gJGF puts them; the capability and overview kinds joined to the palette | **#100**, gates green once #99 (another session's) was closed and the slot check re-ran |
 | qmcp | `evolve/the-topology-routes` | `/v1/orchestration/plane`, `/v1/orchestration/runnable`, `/v1/topology/schema/{kind}`, `/v1/topologies` over the existing table, walkthrough 07 | **#36**, gates green |
 | looksatwords | `evolve/the-harness-routes-documented` | the harness routes documented and guarded, a per-thread topics document, the port from the corpus's allocation, a stub archive shared by the tests | **#23**, gates green |
 | rad | `evolve/authored-graph-verbs` | a Proposed record: an authored-graph mode for the ring, with candidate vectors, not applied | **#6**, `verify` was pending when this was written |
@@ -49,7 +49,8 @@ disposable and the branches are on `origin`.
   codecartographer's own record carrying the divergence in its `Pends on` row
   naming `rad`. Done when that row exists on `project/codecartographer`.
 - **The seed's `one-pr-check.yml` cannot check out a project with a private
-  submodule.** codecarto's copy departs from the seed for the reason its
+  submodule.** (Its check did, on #100, report a real thing the moment it could
+  run: a second pull request opened by another session.) codecarto's copy departs from the seed for the reason its
   `adr-lint.yml` already gives. The seed itself is not changed here; done when
   the seed's copy takes the same shape or the departure is written into the
   seed's README as the known exception.
@@ -61,14 +62,21 @@ disposable and the branches are on `origin`.
 
 ## 3. Blocked, and on whom
 
-- **codecartographer's slot is over.** #99 (*Ignore the session brief the
-  harness writes*, five lines to `.gitignore`, opened by another session
-  during this one) and #100 both stand open under one contributor. The slot
-  check on #100 says so and is right. **Folding is Peter's**: either merge #99
-  and re-run #100's checks, or close #99 first and cherry-pick its commit onto
-  `evolve/the-estate-frame`. Do not close a pull request another session
-  opened.
 - **Every merge**, in every repository above.
+- **Eight remote branches in this corpus carry content `main` lacks**, left
+  from another session's audit of the remote on 2026-09-20 (its 35 name-only
+  branches — every tip an ancestor of `main` or of its project branch, verified
+  twice by that session and once more here — were deleted from this one). Each
+  is a person's call, with the reading established here:
+
+  | branch | reading, and the evidence |
+  |---|---|
+  | `evolve/carlos-in-the-roster` | superseded: `main`'s carlos entry carries the same claim plus a family. Delete |
+  | `evolve/the-slot-orders-the-remediation` | superseded: `main`'s `plans/moat-remediation.md` is this one plus a lint allowance. Delete |
+  | `perspective/2026-08-15-a-namespace-with-one-direction`, `perspective/2026-08-15-stating-a-constraint-is-not-enforcing-it` | two retrospectives never landed, one commit each, plus a generated `harness-status.json` that must not land with them. Land the two pages via one pull request if still wanted, else delete |
+  | `evolve/frizzle-kickoff-handoff`, `perspective/2026-08-13-frizzle-kickoff` | a handoff and a perspective whose file names carry a private repository's name (it appears in `ci/workspace-private.yaml`). Do not land as they are; they belong in that repository or need redaction |
+  | `evolve/exploration-branch-namespace` | six commits: a `workspace/*` namespace proposal, workflow edits, `ci/check_discipline_parity.py` and its test. Partly landed elsewhere; wants a reader before anything is done |
+  | `workspace/math-experiments`, `math/hierarchical-complexity` | explorations on an old base; the first is cited from `perspectives/README.md`. Keep, or retire the citation with them |
 - **Answering the human queue from the web** — deferred by decision on
   2026-09-20 and noted in the plan; not to be built until reviewed.
 
