@@ -42,6 +42,16 @@ def _module():
 generate_docs = _module()
 
 
+def _loose_ends():
+    spec = importlib.util.spec_from_file_location("loose_ends", CI / "loose_ends.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+loose_ends = _loose_ends()
+
+
 # One `--check` run for the module. **MEMOISED, NOT MERGED** -- two tests assert
 # two different properties of one invocation, and each spawning its own cost ten
 # seconds because `--check` runs every document's checker as a subprocess.
@@ -71,7 +81,9 @@ def test_the_state_document_is_written_last():
     earlier and it describes the *previous* run — a state page that is
     confidently wrong, which is the shape this corpus keeps finding.
 
-    Mutation: move the `doc status` step earlier and this fails.
+    Mutation: move the `doc status` step earlier and this fails; move the
+    loose-ends join above it and `test_a_renderer_runs_after_the_document_it_reads`'s
+    sibling below catches the join reading a stale page.
     """
     labels = [label for label, *_ in generate_docs.STEPS]
     writes = [out for _, _, out, _, _ in generate_docs.STEPS]
@@ -79,9 +91,19 @@ def test_the_state_document_is_written_last():
     assert "status/documents.yaml" in writes, writes
     at = writes.index("status/documents.yaml")
     later = [w for w in writes[at + 1:] if w != "status/documents.yaml"]
-    # Renderers of doc-status may follow it; nothing that *writes a document it
-    # reports on* may.
-    assert all(w.endswith(".md") for w in later), (
+    # Two things may follow the state page: a renderer of it, and a join that
+    # takes it as a *source* -- which therefore cannot run before it -- provided
+    # the page does not describe that join's output. `ci/doc_status.py`
+    # inventories the governed prose, never a generated `.json`, so the join's
+    # document is not one the page reports on. The exemption is tied to the
+    # fact that earns it: if the join stops reading the state page, it no
+    # longer needs to follow it, and this fails until it is moved back.
+    joins_reading_the_state_page = {"loose-ends.json"}
+    assert "status/documents.yaml" in loose_ends.SOURCES.values(), (
+        "loose-ends.json is exempted as a join that reads the state page, "
+        "but it no longer does")
+    assert all(w.endswith(".md") or w in joins_reading_the_state_page
+               for w in later), (
         f"these write after the state document and would not be described by "
         f"it: {later}")
     assert at >= len(writes) - 3, (
