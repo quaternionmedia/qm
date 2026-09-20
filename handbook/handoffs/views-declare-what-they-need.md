@@ -246,7 +246,7 @@ for. Needs a count from qmcp or a second request.
 |---|---|---|
 | **§5's scope boundary** — whether a project's *test* environment is inside the licence scan. `MIT-CMU` is the live instance: on neither the OSI nor the FSF list, while the package declaring it is a documentation tool | you | Pinned in `DRAFT-open-license-exclusion-and-upstream-remediation.md`'s `Pends on` row. **Nothing waits on it**; the encoding is correct either way |
 | **`main` protection** — six drafted rulesets unapplied, so every "never push to main" rule here is customary | you | queued, per your instruction |
-| **A live share link** — `claude.ai/share/7bbc74b5-7d95-4ca1-9610-0f628b2d64a8`, still recoverable from commit `0c1ac0b` on pushed `main`. Removing it from the working tree did not remove it from history, so revoking is the only fix | you | named in the 2026-08-23 security review |
+| **A live share link** — a `claude.ai/share/` link (`7bb…a8`, as `uv run qm leaks` prints it), still recoverable from commit `0c1ac0b` on pushed `main`. Removing it from the working tree did not remove it from history, so revoking is the only fix | you | named in the 2026-08-23 security review |
 
 ---
 

@@ -331,7 +331,12 @@ gates:
       are settled by the same gate; a protocol with no page or a step naming a
       route that does not exist; a curriculum unit citing a document that is
       not there or claiming a Status its document does not carry; an address
-      vector that does not parse as declared or does not format back to itself.
+      vector that does not parse as declared or does not format back to itself;
+      a family claim naming a family the record does not declare; a
+      mathematical mapping that does not state what it has not earned; and a
+      tracked file that names a person's home directory, a path through one
+      person's disk layout or a session's scratch space, a shared-conversation
+      link, or a conversation archive.
     runs:
       - ci/exceptions.py --check
       - ci/policies.py --check
@@ -341,6 +346,9 @@ gates:
       - ci/curriculum.py --check
       - ci/addresses.py --check
       - ci/capabilities.py --check
+      - ci/families.py --check
+      - ci/check_mathematics.py --check
+      - project-seed/ci/check_leaks.py
     enforces:
       - ci/exception-registry.yaml
       - ci/policy-registry.yaml
@@ -349,6 +357,7 @@ gates:
       - ci/capability-registry.yaml
       - curriculum/org.yaml
       - project-seed/address-vectors.json
+      - handbook/what-is-not-the-organisation.md
     cannot_see: >
       Whether any registry is complete. Each of these seven checks the entries
       that exist against their own rules; none can tell that an exemption, a
@@ -357,7 +366,10 @@ gates:
       the state all seven report as clean. Nor can it see an address that is
       well-formed and wrong: the grammar has no idea whether the branch exists. It also cannot see whether a protocol was ever run -- that is
       reported by `uv run qm protocols` and deliberately never refused -- or
-      whether a curriculum unit's prose is true of the document it cites. Nor
+      whether a curriculum unit's prose is true of the document it cites. The
+      leak check sees a path and a link; it cannot see an editor named in
+      prose, a process somebody saw running, or what a person said quoted into
+      a page, and the reader is the check for those. Nor
       is this gate required to merge: it is a candidate for A-main.json's
       required list and stays off it until it has reported green on a real
       pull request.

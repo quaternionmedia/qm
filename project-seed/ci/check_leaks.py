@@ -22,6 +22,17 @@ identifiers and archive paths must never be published — and until this file
 nothing enforced it. `check_private_names.py` covers private *repository* names
 and nothing else.
 
+**TWO MORE KINDS, FOR THE SAME LINE.** `handbook/what-is-not-the-organisation.md`
+draws it: the workstation, the agent driving a session, and the conversation
+are not the organisation, and a committed file describes none of them. The
+mechanical part of that is a path. A personal directory (the Documents or
+Desktop folder, an IDE's projects folder) used as a path is one person's disk
+layout; a session's scratch space used as a path is the tool's, not the
+corpus's. Both were found committed here on 2026-09-20 — a handoff naming
+where two clones sat on one disk, a ledger entry naming a scratch script. The
+rest of that line — an editor by name, a process seen running, what somebody
+said — is prose, and the reader is the check.
+
 **FINDINGS ARE REPORTED REDACTED.** A sweep that echoes what it found has
 published it a second time, into a terminal and whatever reads that terminal.
 
@@ -73,6 +84,22 @@ KINDS: list[tuple[str, str, re.Pattern]] = [
      re.compile(r"(?i)(?P<who>(?:[A-Za-z]:[\\/]|~[\\/]|\.{1,2}[\\/])"
                 r"[\w.\\/-]*(?:claude_history|chatgpt_history|"
                 r"conversations\.json))")),
+    # A directory an operating system or an IDE makes for a *person*, used as a
+    # path. Case-sensitive, followed by a separator and a component of at least
+    # two characters, so `the Documents folder` in prose, `api/documents/` in
+    # a route, and a heading followed by an escape in source (`"## Documents\n"`,
+    # where the backslash is not a separator) are not matched; the thing
+    # matched is a location on somebody's disk.
+    ("workstation-layout", "a path through one person's home layout",
+     re.compile(r"(?<![A-Za-z0-9_-])(?P<who>(?:\.\.[\\/])?(?:Documents|Desktop|"
+                r"Downloads|OneDrive|Dropbox|AndroidStudioProjects|IdeaProjects|"
+                r"PycharmProjects|WebstormProjects)[\\/][^\s\"'`)\]]{2,})")),
+    # A session's scratch space, used as a path. What a tool wrote there was
+    # never the organisation's, and a committed reference to it points at a
+    # file that no other machine has.
+    ("session-scratch", "a path inside a session's scratch space",
+     re.compile(r"(?<![A-Za-z0-9_-])(?P<who>(?:\.?scratchpad|\.claude[\\/]projects|"
+                r"\.codex[\\/]sessions)[\\/][^\s\"'`)\]]+)")),
 ]
 
 # Extensions worth reading. Binaries are skipped; an SVG is text and is exactly
@@ -167,7 +194,8 @@ def main(argv: list[str] | None = None) -> int:
         # The denominator, always. `clean` against four files and `clean`
         # against four hundred are the same word and not the same claim.
         print(f"clean   {len(files)} tracked file(s) carry no account name, "
-              f"shared-conversation link or archive path.")
+              f"home-layout or scratch path, shared-conversation link or "
+              f"archive path.")
         print("        History is not read. What is committed stays committed.")
     else:
         by_kind: dict[str, list[dict]] = {}
