@@ -161,3 +161,35 @@ def test_a_member_the_roster_does_not_carry_still_gets_the_probe(tmp_path: Path,
     monkeypatch.setattr(cookbook, "SEARCH_ROOTS", (tmp_path,))
 
     assert cookbook.clone_of("orphan", {}) == orphan
+
+
+def test_build_reads_every_member_through_the_roster(tmp_path: Path, monkeypatch) -> None:
+    """The first version of the roster lookup was overwritten inside `build`
+    by a list that happened to share its name, and every direct test of the
+    resolver stayed green while `uv run qm cookbook` crashed. A test that
+    calls `build` is the one that would have gone red.
+    """
+    _repo(tmp_path / "elsewhere" / "thing")
+    families = tmp_path / "families.json"
+    families.write_text(
+        '{"families": [{"name": "f", "drives": "x", "members": ["thing", "gone"]}],'
+        ' "unstated": []}', encoding="utf-8")
+    monkeypatch.setattr(cookbook, "FAMILIES", families)
+    monkeypatch.setattr(cookbook, "ROSTER_ROOTS", [tmp_path])
+    monkeypatch.setattr(cookbook, "SEARCH_ROOTS", (tmp_path / "nowhere",))
+    monkeypatch.setattr(cookbook, "adopted_names", lambda: set())
+    monkeypatch.setattr(cookbook, "roster_index", lambda: {
+        "thing": {"name": "thing", "paths": ["elsewhere/thing"]}})
+    monkeypatch.setattr(cookbook, "git", lambda path, *args: "main")
+    seen = []
+    real = cookbook.member_state
+    monkeypatch.setattr(cookbook, "member_state",
+                        lambda name, adopted, index=None: seen.append(index) or real(name, adopted, index))
+
+    files = cookbook.build(tmp_path / "out")
+
+    assert set(files) == {"f.md", "f.svg", "README.md"}
+    assert "| `thing` | no |" in files["f.md"]
+    assert "| `gone` | no |" in files["f.md"]
+    # The roster index, not the README's line list, reached every lookup.
+    assert seen and all(isinstance(i, dict) and "thing" in i for i in seen)
