@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-20T17:07:23Z",
+  "generated_at": "2026-09-20T17:17:49Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -21,15 +21,15 @@
     "sources": {
       "harness": {
         "document": "status/harness.yaml",
-        "generated_at": "2026-09-20T17:06:37Z"
+        "generated_at": "2026-09-20T17:17:01Z"
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-20T17:07:22Z"
+        "generated_at": "2026-09-20T17:17:48Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-09-20T17:06:37Z"
+        "generated_at": "2026-09-20T17:17:01Z"
       }
     }
   },
@@ -1031,7 +1031,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/leo/pr/61",
       "title": "\ud83d\udcc7 Setlist",
-      "detail": "open on main at stage ready, idle 5,074 hours",
+      "detail": "open on main at stage ready, idle 5,075 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/leo/pr/61",
       "address_parses": true
@@ -1040,7 +1040,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/leo/pr/67",
       "title": "feat: uv-driven CLI with comprehensive test suite",
-      "detail": "open on main at stage ready, idle 5,909 hours",
+      "detail": "open on main at stage ready, idle 5,910 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/leo/pr/67",
       "address_parses": true
