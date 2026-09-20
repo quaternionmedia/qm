@@ -9,8 +9,7 @@ before quoting — `uv run qm estate --by-family` is the reading.
 
 | repository | ref | commit | date |
 |---|---|---|---|
-| qm | `origin/main` (#114 merged); the local stage `test` is level with it | `f23a875` | 2026-09-20 |
-| qm | `evolve/the-moves-landed` (this branch, #115), six commits on `origin/main` | `d2d0769` | 2026-09-20 |
+| qm | `origin/main` after #115, which this page landed with; the local stage `test` is level with it | `b958723`, the tip #115 merged | 2026-09-20 |
 | the performing estate | every member is public on the host; `uv run qm workspace --family show-control --family instruments --family performer-display` resolves all sixteen when each is cloned at its `qm/<name>` candidate | — | 2026-09-20 |
 | dossier, looksatwords | `origin/main`; each also holds a pushed `feat/loose-ends` one commit ahead of `main`, with no pull request | `bd322d3`, `32d3371` | 2026-09-20 |
 | golfvs | `docs/rad-defence-ring`, pushed, level with its origin; cloned at its `qm/<name>` candidate | `48dedef` | 2026-09-19 |
@@ -99,7 +98,7 @@ border-counting consequence states the relation rather than a number.
   `performing` phase of `ci/rollout.yaml` — and prose in the record's §3
   heading. `qm workspace` takes the three names by hand. Whether a group of
   families deserves a name a tool can resolve is a person's call, and a
-  second copy of the three names is what this branch declined to add.
+  second copy of the three names is what #115 declined to add.
 - **`feat/loose-ends` in dossier and in looksatwords each carry one commit
   `main` does not**, pushed, with no pull request; both slots are free.
   looksatwords' branch predates `looksatwords/harness.py`, which `qm demo`
@@ -125,7 +124,7 @@ border-counting consequence states the relation rather than a number.
 ## Blocked on a person
 
 - Everything `six-branches-reached-origin.md` and `enact-the-stages.md` list,
-  unchanged by this branch: alfred's pin, the held pull requests, the push of
+  unchanged by #115: alfred's pin, the held pull requests, the push of
   `test`.
 
 ## Could not be verified (inference)
