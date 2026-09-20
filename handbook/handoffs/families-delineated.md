@@ -10,9 +10,9 @@ before quoting — `uv run qm estate --by-family` is the reading.
 | repository | ref | commit | date |
 |---|---|---|---|
 | qm | `origin/main` (#114 merged); the local stage `test` is level with it | `f23a875` | 2026-09-20 |
-| golfvs | `docs/rad-defence-ring`, pushed, level with its origin; at `repos/qm/golfvs` | `48dedef` | 2026-09-19 |
-| a private roster entry (`private-38` in `ci/workspace-private.yaml`) | `main`, level with its origin; at `repos/qm/<name>` | `1b86508` | 2026-09-20 |
-| rad-godot | `main`, level with its origin; **public since 2026-09-20**; at `repos/qm/rad-godot` | `6dd9485` | 2026-09-19 |
+| golfvs | `docs/rad-defence-ring`, pushed, level with its origin; cloned at its `qm/<name>` candidate | `48dedef` | 2026-09-19 |
+| a private roster entry (`private-38` in `ci/workspace-private.yaml`) | `main`, level with its origin; cloned at its `qm/<name>` candidate | `1b86508` | 2026-09-20 |
+| rad-godot | `main`, level with its origin; **public since 2026-09-20**; cloned at its `qm/<name>` candidate | `6dd9485` | 2026-09-19 |
 | a private roster entry (`private-36`) | `origin/project/<name>`, merged with the pre-#110 `main` | `a13f8f2` | 2026-09-19 |
 | streaming-infrastructure | `origin/project/streaming-infrastructure`; no repository on the host | `b0265d1` | 2026-08-08 |
 
@@ -47,14 +47,14 @@ row and every handoff that named it are regenerated or rewritten.
 `private-36` and `streaming-infrastructure` — both `project/<name>` branches
 the corpus carried and the roster did not — are rostered as `role: project`,
 `phase: v0.0.1`, `scaffolded`, with no family claimed. `rad-godot`'s note no
-longer says private, and its `../Documents` candidate is gone.
+longer says private, and its candidate paths are the conventions.
 `uv run qm private-names --source host` is clean at the stamp; it was red on
 `origin/main` at `90a1bd7` with two names in thirteen and three files.
 
-**Every Godot-adjacent clone is under `repos/qm/`**, where each entry's
-`qm/<name>` candidate resolves; `uv run qm estate --by-family` reads all three
-present and clean. The multi-root workspace was regenerated from the roster
-(`uv run qm workspace`) so the editor reopens them there.
+**Every games-family and Godot-adjacent clone resolves at its `qm/<name>`
+candidate**; `uv run qm estate --by-family` reads all three present and
+clean, and the multi-root workspace was regenerated from the roster
+(`uv run qm workspace`).
 
 **Two handoff pages retired**: `the-games-family-and-titanharvest.md` (both
 decisions it was blocked on are taken: the branch landed as #111, the
@@ -94,13 +94,12 @@ three commits it stamps are on their repositories' `origin/main`).
   own output, and the signature step asks `gh api` for the host's verdict on
   SHAs the host had not seen. After the push every executed step passed
   locally and all nine host checks passed on #114 (E1).
-- The `codex` process seen on this workstation is the ChatGPT extension's
-  app-server, started when the editor opened; no second session was found in
-  any clone (E1: every tree the estate read was as the previous handoff left
-  it). It is not proof there was none.
 
 ## Standing constraints
 
-- **Not local-only.** Pull requests are fine; the merge click is the human's,
-  by instruction, whatever `AGENTS.md` item 3 says.
+- **Not local-only.** Pull requests are fine.
+- **In this repository a pull request is merged by a person.** A session opens
+  it, gets every gate green, assigns it, and stops. `AGENTS.md` item 3 still
+  says the author merges; that disagreement is a person's to settle, and until
+  it is, this constraint is the one in force.
 - One open pull request per repository, per contributor. This branch is qm's.

@@ -149,6 +149,7 @@ Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/
 | `handbook/consolidation-runbook.md` | How work that exists only on one disk reaches `main`, one pull request per repository, and what a green pull request cannot see |
 | `handbook/adoption-audit-queue.md` | Which projects are audited, and how the next agent runs the rest |
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
+| `handbook/what-is-not-the-organisation.md` | What a committed file never describes — the workstation, the agent, the conversation — and the check for the mechanical part |
 | `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
 | `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
 | `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |

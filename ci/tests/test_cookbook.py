@@ -122,8 +122,8 @@ def _repo(path: Path) -> Path:
 
 def test_a_member_is_found_where_the_roster_places_it_not_where_the_probe_looks(
         tmp_path: Path, monkeypatch) -> None:
-    """`qm cookbook` said qmetronome was not on this disk while `qm estate`
-    found it under ../AndroidStudioProjects, because the cookbook probed
+    """`qm cookbook` said a member was not on this disk while `qm estate`
+    found it at a path only the roster carries, because the cookbook probed
     `<root>/<name>` and never read the roster's paths.
 
     Mutation: make `clone_of` skip the roster entry and fall through to the

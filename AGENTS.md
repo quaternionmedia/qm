@@ -229,6 +229,16 @@ with a date looks checked.
     cannot tell that a summary and its record disagree, and it cannot find a
     restatement nobody declared — the declaration is yours to make.
 
+17. **The workstation, the agent and the conversation are not the
+    organisation** — `handbook/what-is-not-the-organisation.md`. A committed
+    file states what is true of the organisation: not where a clone sits on
+    one disk, which editor held it, what the tool driving a session did with
+    its shell, or what anybody said. A decision enters as a decision, never
+    as reported speech; a commit message describes the change and not the
+    conversation behind it. `uv run qm leaks` refuses the mechanical part —
+    a home path, a personal folder, a scratch path, a shared link — and runs
+    as a gate; the rest is yours to read for before you push.
+
 ## If you're forking this corpus into a new project
 
 See `docs/usage/first-project.md` and `handbook/forking-a-project.md` — do not improvise a lighter

@@ -4,13 +4,13 @@
 |---|---|
 | **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
 | **Author** | Peter Kagstrom |
-| **Tools** | Claude Opus 5 (1M context), driving the session |
-| **Task** | One session opened to compare this workstation with the host, family by family, and closed with every reader of the estate able to say where one family stands. This is why it went the way it did: the assumptions that were wrong first, the defects the session caused as well as the ones it found, and for each the check that would have caught it and whether that check now exists. |
+| **Tools** | Claude Opus 5 |
+| **Task** | One session opened to compare one disk's clones with the host, family by family, and closed with every reader of the estate able to say where one family stands. This is why it went the way it did: the assumptions that were wrong first, the defects the session caused as well as the ones it found, and for each the check that would have caught it and whether that check now exists. |
 
 ## 0. Standing and evidence
 
-One workstation, the clones under `repos/qm/` and three under `Documents/`,
-git 2.37, the host reached through `gh`. Commits are stamped in
+One disk, most clones at their conventional candidate paths and three
+outside them, git 2.37, the host reached through `gh`. Commits are stamped in
 `handbook/handoffs/families-delineated.md`; every figure here is one run at
 that stamp.
 
@@ -62,7 +62,7 @@ could see without the host. Not built; it would have caught one of the two.
 Two generators of one roster, out of step.
 
 **What was true.** Both read the same roster. The estate had been run from
-the scratchpad against origin's copy of `ci/workspace.yaml` with the local
+outside the clone against origin's copy of `ci/workspace.yaml` with the local
 `ci/` modules on the path — and the roster loader merges the gitignored
 companion from that local directory, which supplies three private entries'
 real names. So the estate printed the names and the committed seam file
@@ -80,9 +80,9 @@ gets. Reading it before asserting the delta is the check, and it exists.
 `qm estate` found it. The same disk, the same minute.
 
 **What was true.** The cookbook probed `<root>/<name>`; the estate and the
-workspace generator resolve the roster's `paths`. `qmetronome` lives under
-`../AndroidStudioProjects`, which only the roster knows, and every private
-member is a reference, which is not a directory. A second resolver
+workspace generator resolve the roster's `paths`. `qmetronome` lives at a
+path only the roster carries, and every private member is a reference,
+which is not a directory. A second resolver
 disagreeing with the first is exactly how two views of one address come to
 say different things (`records/DRAFT-a-disagreement-is-a-delta.md`).
 
@@ -152,20 +152,10 @@ in `check_signatures.py`. Does not exist; named in the handoff.
 
 **And the trap re-hit.** The first run of the gate runner was piped into
 `tail`, printed nothing and exited zero. `handbook/async-contract.md` §8
-names this — *a pipe replaces the exit code* — and the session read it that
-morning. The second run went to a file and exited one.
+names this — *a pipe replaces the exit code*. The second run went to a
+file and exited one.
 
-## 9. A patch written through a shell heredoc, twice
-
-Two edits were lost to escaping: a `\'''` sequence that Python read as the
-end of a triple-quoted string, and a `\\'` that the heredoc collapsed to `'`
-and Python then read as the end of a raw string. Both were the session's own,
-both were caught by a failing parse before anything ran, and the memory that
-warns about exactly this was in the session's context. The check is a
-practice, not a tool: a patch goes into a file through a file-writing tool,
-and the shell runs the file.
-
-## 10. What the roster could not see, because a roster is a claim
+## 9. What the roster could not see, because a roster is a claim
 
 Two `project/<name>` branches on origin had no roster entry.
 `status/governance.yaml` reads the branches and listed both — one redacted
@@ -176,13 +166,3 @@ is stated by a person (`records/DRAFT-a-family-is-bordered-by-what-it-drives.md`
 The comparison — every project branch has a row — is the check, and it does
 not exist; its design caveat is in the handoff, because a runner without the
 companion cannot match a private branch to its reference.
-
-## 11. What was not a finding
-
-The `codex` process on the workstation was the ChatGPT extension's
-app-server, started with the editor. Reading its command line took one call
-and closed the question; reporting a second session would have opened one for
-someone else. Two clones refused to move because the editor's workspace held
-them; the third, outside the workspace, moved. That is a fact about the
-editor and the roster now states the intended layout, so the estate reads one
-of them MISSING until the move, which is true.

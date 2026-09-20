@@ -13,6 +13,7 @@ The [handbook](https://github.com/quaternionmedia/qm/tree/main/handbook) holds Q
 | [generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) | The status documents: refresh commands, staleness budgets, dashboards |
 | [style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) | Where explanation belongs: inline, README, `docs/`, or a retrospective |
 | [public-by-default.md](https://github.com/quaternionmedia/qm/blob/main/handbook/public-by-default.md) | When work may be closed |
+| [what-is-not-the-organisation.md](https://github.com/quaternionmedia/qm/blob/main/handbook/what-is-not-the-organisation.md) | What a committed file never describes: the workstation, the agent, the conversation |
 | [handoffs/](https://github.com/quaternionmedia/qm/tree/main/handbook/handoffs) | Work a later session can pick up cold |
 
 ## Related

@@ -219,10 +219,7 @@ repositories:
     paths: [factorio-sysops, qm/factorio-sysops]
 
   # Both of these carry a project/<name> branch in this repository, so the
-  # corpus governs them, and both were absent from this roster -- which meant
-  # `qm inventory` reported them under "the corpus cannot see these" while the
-  # corpus was propagating into them. Neither is cloned in this workspace, so
-  # nothing here can see whether either holds unpushed work.
+  # corpus governs them.
   - name: carlos
     role: project
     family: instruments
@@ -235,8 +232,7 @@ repositories:
       drawn from what it happens to contain. It is what the project works
       toward and not an attainment -- nothing here is evidence, and the tag
       that would assert arrival has not been cut. Its default branch is `they`,
-      not `main`, and that branch last moved in 2025 while the host reports a
-      push today, which is the discrepancy that made this roster gap visible.
+      not `main`.
     paths: [carlos, qm/carlos]
 
   - ref: private-34
@@ -248,10 +244,8 @@ repositories:
       committed, for the same reason as private-32 and private-33 above.
       Governed via a project/<name> branch here.
 
-  # Both of these carry a project/<name> branch in this repository and were
-  # absent from this roster, so status/governance.yaml (which reads the
-  # branches) saw them and every reader of this file (families, rollout,
-  # harness, estate) did not.
+  # Both of these carry a project/<name> branch in this repository, so the
+  # corpus governs them.
   - ref: private-36
     role: project
     phase: v0.0.1
@@ -272,7 +266,7 @@ repositories:
       name is on the host under this org, so there is nothing to clone and
       status/governance.yaml reports its host layer as unknown. No family
       claimed until governance has run for it. The paths are where a clone
-      would go, as for every entry not cloned here.
+      would go.
     paths: [streaming-infrastructure, qm/streaming-infrastructure]
 
   - name: qmetronome
@@ -298,8 +292,7 @@ repositories:
     note: >
       language data -- make, gather, analyze, visualise. Named in
       plans/governance-prose-signals.md as where prose analysis belongs, rather
-      than in ci/. It was absent from this roster until 2026-08-16, which is why
-      the plan had to establish it exists.
+      than in ci/.
     paths: [qm/looksatwords, looksatwords]
 
   - name: moat
