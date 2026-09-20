@@ -134,6 +134,7 @@ qm/
 | — | [A session between people is encrypted end to end](records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md) | Proposed | 2026-08-31 |
 | — | [A family is bordered by what it drives](records/DRAFT-a-family-is-bordered-by-what-it-drives.md) | Proposed | 2026-08-28 |
 | — | [A loose end is carried or dismissed, and open is the absence of both](records/DRAFT-a-loose-end-is-carried-or-dismissed.md) | Draft | 2026-09-06 |
+| — | [The workstation, the agent and the conversation are not the organisation](records/DRAFT-what-is-not-the-organisation.md) | Proposed | 2026-09-20 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
@@ -149,7 +150,7 @@ Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/
 | `handbook/consolidation-runbook.md` | How work that exists only on one disk reaches `main`, one pull request per repository, and what a green pull request cannot see |
 | `handbook/adoption-audit-queue.md` | Which projects are audited, and how the next agent runs the rest |
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
-| `handbook/what-is-not-the-organisation.md` | What a committed file never describes — the workstation, the agent, the conversation — and the check for the mechanical part |
+| `handbook/what-is-not-the-organisation.md` | What to do about the line `records/DRAFT-what-is-not-the-organisation.md` draws: the workstation, the agent and the conversation stay out of a committed file, and how to check before a push |
 | `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
 | `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
 | `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |

@@ -230,14 +230,16 @@ with a date looks checked.
     restatement nobody declared — the declaration is yours to make.
 
 17. **The workstation, the agent and the conversation are not the
-    organisation** — `handbook/what-is-not-the-organisation.md`. A committed
-    file states what is true of the organisation: not where a clone sits on
-    one disk, which editor held it, what the tool driving a session did with
-    its shell, or what anybody said. A decision enters as a decision, never
-    as reported speech; a commit message describes the change and not the
-    conversation behind it. `uv run qm leaks` refuses the mechanical part —
-    a home path, a personal folder, a scratch path, a shared link — and runs
-    as a gate; the rest is yours to read for before you push.
+    organisation** — record `records/DRAFT-what-is-not-the-organisation.md`,
+    with `handbook/what-is-not-the-organisation.md` as the thing to do. A
+    committed file states what is true of the organisation: not where a clone
+    sits on one disk, which editor held it, what the tool driving a session
+    did with its shell, or what anybody said. A decision enters as a decision,
+    never as reported speech; a commit message describes the change and not
+    the conversation behind it. `uv run qm leaks` refuses the mechanical part
+    — a home path, a personal folder, a scratch path, a shared link — and runs
+    as the `leak-check.yml` gate; the rest is yours to read for before you
+    push.
 
 ## If you're forking this corpus into a new project
 

@@ -160,18 +160,27 @@ uv run qm private-names --strict
 uv run qm leaks
 ```
 
-These two read a machine — the host's list of private repositories, and the
-shapes of a person's name or a shared-conversation link — so they are kept off
+The first reads the host's list of private repositories, so it is kept off
 the runner on purpose (`.github/workflows/registries.yml` says why) and no
-gate will run them for you. They run here, before anything is pushed, because
-a page pushed without them can carry a private repository's name into a public
-artifact, and the first run of this runbook did exactly that and had to be
-repaired after the push. `--strict` turns "no source of private names was
-available" from a pass into a failure; a machine without the host's list has
-not checked anything.
+gate will run it for you. The second reads tracked files only and does run as
+a gate (`leak-check.yml`); it runs here as well because a push is the moment
+after which nothing can be taken back. Both run before anything is pushed,
+because a page pushed without them can carry a private repository's name or
+one person's disk into a public artifact, and the first run of this runbook
+did exactly that and had to be repaired after the push. `--strict` turns "no
+source of private names was available" from a pass into a failure; a machine
+without the host's list has not checked anything.
+
+Then read, because the check cannot: `records/DRAFT-what-is-not-the-organisation.md`
+draws the line at the workstation, the agent and the conversation, and the
+check sees only paths and links. An editor named in a handoff, a process seen
+running, a tool narrating its own session, a person's words quoted into a
+constraint — each is found by a reader, and this is the step where the reader
+looks.
 
 *Verify:* the signature column is uniform `G`, the trailer column is empty,
-`private-names` reports clean (not unverified), `leaks` exits zero, and the
+`private-names` reports clean (not unverified), `leaks` exits zero, the pages
+this cycle wrote name no editor, process, tool or quotation, and the
 `qm branch` output names the merge-base you expected. Commits listed as shared
 with another branch are explained in the pull request, or the branch is re-cut.
 

@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T16:48:39Z'
+generated_at: '2026-09-20T17:06:37Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -41,15 +41,15 @@ enforcement:
   branch_protection_on_main: false
   blocks_a_merge: false
 totals:
-  gates: 17
-  built: 17
+  gates: 18
+  built: 18
   declared_not_built: 0
   by_state:
-    ok: 16
+    ok: 17
     warn: 0
     unknown: 1
-  gate_main: 10
-  seed: 5
+  gate_main: 11
+  seed: 6
   undeclared_workflows: 0
 gates:
 - id: adr-lint
@@ -467,7 +467,6 @@ gates:
   - ci/capabilities.py --check
   - ci/families.py --check
   - ci/check_mathematics.py --check
-  - project-seed/ci/check_leaks.py
   enforces:
   - ci/exception-registry.yaml
   - ci/policy-registry.yaml
@@ -476,7 +475,6 @@ gates:
   - ci/capability-registry.yaml
   - curriculum/org.yaml
   - project-seed/address-vectors.json
-  - handbook/what-is-not-the-organisation.md
   refuses: An exemption with no stated reason or whose named constant has gone; a
     policy with neither a detector nor a stated reason it cannot have one; a ledger
     entry that is unattributed, or closed and unscored; two lanes that are settled
@@ -484,10 +482,7 @@ gates:
     exist; a curriculum unit citing a document that is not there or claiming a Status
     its document does not carry; an address vector that does not parse as declared
     or does not format back to itself; a family claim naming a family the record does
-    not declare; a mathematical mapping that does not state what it has not earned;
-    and a tracked file that names a person's home directory, a path through one person's
-    disk layout or a session's scratch space, a shared-conversation link, or a conversation
-    archive.
+    not declare; a mathematical mapping that does not state what it has not earned.
   cannot_see: 'Whether any registry is complete. Each of these seven checks the entries
     that exist against their own rules; none can tell that an exemption, a policy,
     a ledger entry, a lane, a protocol, a curriculum unit or an address case was never
@@ -495,12 +490,9 @@ gates:
     clean. Nor can it see an address that is well-formed and wrong: the grammar has
     no idea whether the branch exists. It also cannot see whether a protocol was ever
     run -- that is reported by `uv run qm protocols` and deliberately never refused
-    -- or whether a curriculum unit''s prose is true of the document it cites. The
-    leak check sees a path and a link; it cannot see an editor named in prose, a process
-    somebody saw running, or what a person said quoted into a page, and the reader
-    is the check for those. Nor is this gate required to merge: it is a candidate
-    for A-main.json''s required list and stays off it until it has reported green
-    on a real pull request.'
+    -- or whether a curriculum unit''s prose is true of the document it cites. Nor
+    is this gate required to merge: it is a candidate for A-main.json''s required
+    list and stays off it until it has reported green on a real pull request.'
   evidence:
     present: true
     workflow_name: Registries
@@ -509,6 +501,42 @@ gates:
     - push
     jobs:
     - registries
+    job_declared: true
+  state: ok
+- id: leak-check
+  gates:
+  - main
+  - push
+  seed: true
+  external: false
+  declared_built: true
+  workflow: leak-check.yml
+  job: leaks
+  runs:
+  - project-seed/ci/check_leaks.py
+  enforces:
+  - records/DRAFT-what-is-not-the-organisation.md
+  - ci/policy-registry.yaml nothing-committed-describes-the-workstation-the-agent-or-the-conversation
+  refuses: 'A tracked file that carries a person''s home directory, a path through
+    a personal or IDE-made folder, a path into a session''s scratch space, a shared-conversation
+    link, or a conversation archive''s path. Findings are printed redacted; a deliberate
+    example is declared with `leaks: allow` and a reason, and every allowance is counted
+    on every run.'
+  cannot_see: 'Everything on that line that is not a path or a link: an editor named
+    in prose, a process somebody saw running, a tool narrating its own session, a
+    person''s words quoted into a constraint. A pattern for those would fire on every
+    page that legitimately discusses editors or quotes a record, so the reader is
+    the check, at the runbook''s Step 3. Nor can it read history -- a path already
+    pushed stays pushed -- or tell a placeholder from a real account beyond the ones
+    it lists.'
+  evidence:
+    present: true
+    workflow_name: Leak check
+    triggers:
+    - pull_request
+    - push
+    jobs:
+    - leaks
     job_declared: true
   state: ok
 - id: rulesets

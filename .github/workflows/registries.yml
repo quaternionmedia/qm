@@ -76,10 +76,3 @@ jobs:
 
       - name: Every mathematical mapping states what it decides and has not earned
         run: python ci/check_mathematics.py --check
-
-      # Reads `git ls-files` and the tracked files, nothing else, which is the
-      # admission test at the top of this file. It is the one gate for the
-      # line handbook/what-is-not-the-organisation.md draws, and it catches the
-      # mechanical part of that line only.
-      - name: Nothing committed names a person, a machine, or a private conversation
-        run: python project-seed/ci/check_leaks.py

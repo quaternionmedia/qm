@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T16:48:38Z'
+generated_at: '2026-09-20T17:06:37Z'
 generator:
   tool: ci/harness_status.py
   org: quaternionmedia
@@ -83,7 +83,8 @@ repositories:
     contributor: null
     open_prs:
     - number: 115
-      title: 'Record that #114 merged and the Godot-adjacent clones moved under repos/qm'
+      title: Draw the line between the organisation and the workstation, the agent
+        and the conversation
       author: subcontrabass
       bot: false
       base: main
@@ -102,16 +103,17 @@ repositories:
     stage: ready
     pr: 115
     base: main
-    title: 'Record that #114 merged and the Godot-adjacent clones moved under repos/qm'
+    title: Draw the line between the organisation and the workstation, the agent and
+      the conversation
     author: subcontrabass
     delta:
-      additions: 16
-      changed_files: 2
-      commits: 1
-      deletions: 30
+      additions: 533
+      changed_files: 30
+      commits: 4
+      deletions: 226
       mergeable_state: clean
-      updated_at: '2026-09-20T16:19:07Z'
-    idle_hours: 0.5
+      updated_at: '2026-09-20T16:56:55Z'
+    idle_hours: 0.1
     stalled: false
   governance:
     precondition: n/a
@@ -186,7 +188,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 74
-    observed_at: '2026-09-20T16:47:25Z'
+    observed_at: '2026-09-20T17:05:30Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -322,7 +324,7 @@ repositories:
       workflows_absent: 0
       licensing_present: 1
     behind_corpus: 114
-    observed_at: '2026-09-20T16:47:34Z'
+    observed_at: '2026-09-20T17:05:38Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -367,7 +369,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 171
-    observed_at: '2026-09-20T16:47:37Z'
+    observed_at: '2026-09-20T17:05:41Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -421,7 +423,7 @@ repositories:
       deletions: 44
       mergeable_state: clean
       updated_at: '2023-12-30T22:55:40Z'
-    idle_hours: 23873.9
+    idle_hours: 23874.2
     stalled: true
   governance:
     precondition: incomplete
@@ -439,7 +441,7 @@ repositories:
       workflows_absent: 4
       licensing_present: 0
     behind_corpus: 297
-    observed_at: '2026-09-20T16:47:15Z'
+    observed_at: '2026-09-20T17:05:21Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -521,7 +523,7 @@ repositories:
       deletions: 533
       mergeable_state: clean
       updated_at: '2026-09-19T21:59:38Z'
-    idle_hours: 18.8
+    idle_hours: 19.1
     stalled: false
   governance:
     precondition: incomplete
@@ -536,7 +538,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 297
-    observed_at: '2026-09-20T16:47:17Z'
+    observed_at: '2026-09-20T17:05:22Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -583,7 +585,7 @@ repositories:
       deletions: 97
       mergeable_state: clean
       updated_at: '2026-09-19T22:00:15Z'
-    idle_hours: 18.8
+    idle_hours: 19.1
     stalled: false
   governance:
     precondition: incomplete
@@ -598,7 +600,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 175
-    observed_at: '2026-09-20T16:47:23Z'
+    observed_at: '2026-09-20T17:05:28Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -685,7 +687,7 @@ repositories:
       workflows_absent: 1
       licensing_present: 2
     behind_corpus: 74
-    observed_at: '2026-09-20T16:47:20Z'
+    observed_at: '2026-09-20T17:05:25Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -808,7 +810,7 @@ repositories:
       workflows_absent: 3
       licensing_present: 0
     behind_corpus: 297
-    observed_at: '2026-09-20T16:47:28Z'
+    observed_at: '2026-09-20T17:05:33Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -881,7 +883,7 @@ repositories:
       deletions: 124
       mergeable_state: unstable
       updated_at: '2026-08-22T17:27:47Z'
-    idle_hours: 695.3
+    idle_hours: 695.6
     stalled: true
   governance:
     precondition: met
@@ -895,7 +897,7 @@ repositories:
       workflows_absent: 0
       licensing_present: 2
     behind_corpus: 204
-    observed_at: '2026-09-20T16:47:18Z'
+    observed_at: '2026-09-20T17:05:24Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -988,7 +990,7 @@ repositories:
       deletions: 93
       mergeable_state: clean
       updated_at: '2026-09-19T22:26:11Z'
-    idle_hours: 18.4
+    idle_hours: 18.7
     stalled: false
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1067,7 +1069,7 @@ repositories:
       workflows_absent: 2
       licensing_present: 1
     behind_corpus: 297
-    observed_at: '2026-09-20T16:47:35Z'
+    observed_at: '2026-09-20T17:05:40Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -1119,7 +1121,7 @@ repositories:
       deletions: 1
       mergeable_state: blocked
       updated_at: '2026-04-06T16:02:26Z'
-    idle_hours: 4008.8
+    idle_hours: 4009.1
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1215,7 +1217,7 @@ repositories:
       workflows_absent: 0
       licensing_present: 2
     behind_corpus: 67
-    observed_at: '2026-09-20T16:47:31Z'
+    observed_at: '2026-09-20T17:05:35Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -1276,7 +1278,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-09-08T02:04:05Z'
-    idle_hours: 302.7
+    idle_hours: 303.0
     stalled: true
   - name: qm
     stage: draft
@@ -1291,7 +1293,7 @@ repositories:
       deletions: 10
       mergeable_state: unstable
       updated_at: '2026-08-21T16:20:56Z'
-    idle_hours: 720.5
+    idle_hours: 720.8
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1435,7 +1437,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-04-26T14:53:23Z'
-    idle_hours: 3529.9
+    idle_hours: 3530.2
     stalled: true
   - name: migrations
     stage: ready
@@ -1450,7 +1452,7 @@ repositories:
       deletions: 76
       mergeable_state: clean
       updated_at: '2026-04-23T23:10:53Z'
-    idle_hours: 3593.6
+    idle_hours: 3593.9
     stalled: true
   - name: feat/meta-intro-video
     stage: ready
@@ -1465,7 +1467,7 @@ repositories:
       deletions: 504
       mergeable_state: dirty
       updated_at: '2026-04-19T03:27:49Z'
-    idle_hours: 3709.3
+    idle_hours: 3709.6
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1533,7 +1535,7 @@ repositories:
       deletions: 544
       mergeable_state: clean
       updated_at: '2026-04-11T08:00:47Z'
-    idle_hours: 3896.8
+    idle_hours: 3897.1
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1695,7 +1697,7 @@ repositories:
       deletions: 52
       mergeable_state: clean
       updated_at: '2025-06-22T22:17:43Z'
-    idle_hours: 10914.5
+    idle_hours: 10914.8
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1788,7 +1790,7 @@ repositories:
       deletions: 42
       mergeable_state: clean
       updated_at: '2025-07-13T07:24:23Z'
-    idle_hours: 10425.4
+    idle_hours: 10425.7
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1881,7 +1883,7 @@ repositories:
       deletions: 74
       mergeable_state: clean
       updated_at: '2025-12-22T07:01:05Z'
-    idle_hours: 6537.8
+    idle_hours: 6538.1
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1965,7 +1967,7 @@ repositories:
       deletions: 242
       mergeable_state: clean
       updated_at: '2026-03-04T02:29:45Z'
-    idle_hours: 4814.3
+    idle_hours: 4814.6
     stalled: true
   - name: p5
     stage: ready
@@ -1980,7 +1982,7 @@ repositories:
       deletions: 7
       mergeable_state: clean
       updated_at: '2025-01-04T01:07:48Z'
-    idle_hours: 14991.7
+    idle_hours: 14992.0
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -2067,7 +2069,7 @@ repositories:
       deletions: 165
       mergeable_state: clean
       updated_at: '2026-01-17T11:44:43Z'
-    idle_hours: 5909.1
+    idle_hours: 5909.4
     stalled: true
   - name: setlist
     stage: ready
@@ -2082,7 +2084,7 @@ repositories:
       deletions: 927
       mergeable_state: clean
       updated_at: '2026-02-21T06:35:43Z'
-    idle_hours: 5074.2
+    idle_hours: 5074.5
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -2273,7 +2275,7 @@ repositories:
       deletions: 375
       mergeable_state: blocked
       updated_at: '2026-09-20T14:13:24Z'
-    idle_hours: 2.6
+    idle_hours: 2.9
     stalled: false
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
