@@ -281,7 +281,7 @@ repositories:
     phase: v0.0.3
     phase_source: stated
     note: named as the v0.0.3 Android target
-    paths: ["../AndroidStudioProjects/qmetronome", qm/qmetronome]
+    paths: [qmetronome, qm/qmetronome]
 
   - name: benchmark
     role: unmanaged
