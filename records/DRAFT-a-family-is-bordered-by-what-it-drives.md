@@ -69,7 +69,7 @@ another also emits. Not by shared vocabulary: *cue*, *loop* and *track* each
 mean different things in two of the three, and a border drawn on words would
 have placed one program in all of them.
 
-### §3 — The estate is six families
+### §3 — The estate is seven families, three of them performing
 
 | family | drives | named public members |
 |---|---|---|
@@ -79,6 +79,17 @@ have placed one program in all of them.
 | `irl` | **matter** — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | apothecary; datum; scad-chess; stomp; ira; uPhonor; and three private repositories, referenced rather than named |
 | `infra` | **where a thing runs, and how it is reached** — ingress, identity, storage, DNS, observability, the network path | moat; ztgui; and two private repositories, referenced rather than named |
 | `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | qm; qmcp; dossier; codecartographer; looksatwords |
+| `games` | **play** — a game somebody plays: its rules, its world and its loop | golfvs; titanharvest |
+
+`games` is the family the border test admits most easily and the one the
+estate never named, because a game is the activity rather than a thing that
+serves one. `performer-display` also emits pixels a player reads, and the two
+part exactly there: a score display is read *while* the performer does
+something else, and a game *is* what the player is doing. Both members are
+built on one engine and neither is built on the other — the same shape as
+`performer-display`, siblings by what they drive and not by descent. A game
+server is not a member: it runs a game and decides nothing about play, which
+is the refusal `infra` below makes from the other side.
 
 `infra` is what everything else runs on, and it is a family rather than
 substrate — a distinction §4 now has to carry twice, because the two cases look

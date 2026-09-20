@@ -502,7 +502,8 @@ def main(argv: list[str] | None = None) -> int:
     rendered = (render(document) if args.format == "md"
                 else json.dumps(document, indent=2) + "\n")
     if args.write:
-        (root / args.write).write_text(rendered, encoding="utf-8")
+        # newline="\n": see families.py -- a Windows text write is CRLF.
+        (root / args.write).write_text(rendered, encoding="utf-8", newline="\n")
         print(f"wrote {args.write}: {document['totals']['loose_ends']} loose end(s), "
               f"{document['totals']['open']} open")
         return 0

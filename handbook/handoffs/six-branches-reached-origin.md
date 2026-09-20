@@ -2,8 +2,8 @@
 
 **Date:** 2026-09-20. **Repos:** dossier, codecartographer, datum, apothecary, alfred, qm. **Author:** Peter Kagstrom.
 
-The body of unpushed work that [`the-estate-has-one-copy.md`](the-estate-has-one-copy.md)
-and [`the-menu-contract-nobody-could-fetch.md`](the-menu-contract-nobody-could-fetch.md)
+The body of unpushed work that `the-estate-has-one-copy.md` (retired)
+and `the-menu-contract-nobody-could-fetch.md` (retired)
 described as having one copy on one disk has been pushed, reviewed stage by
 stage, and **merged to `main` in seven repositories** with merge commits
 (never squash or rebase): dossier #56, qmcp #35, looksatwords #22, rad #5,

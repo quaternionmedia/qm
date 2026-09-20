@@ -520,3 +520,28 @@ repositories:
     note: >
       Functions for systems and operating systems. Name and paths live in
       ci/workspace-private.yaml, which is not committed.
+
+  # --- The games family ----------------------------------------------------
+  #
+  # Placed by records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3: a
+  # game is the activity, not a thing that serves one. Neither has adopted the
+  # constitution; golfvs carries its own decision log and titanharvest mirrors
+  # that shape. Presence is not adoption, and a family claim is not either.
+
+  - name: golfvs
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: games
+    note: arcade physics golf with asymmetric defence, built in Godot
+    paths: [golfvs, qm/golfvs]
+
+  - name: titanharvest
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: games
+    note: >
+      mech farming in dangerous space, built in Godot; a sibling of golfvs by
+      shape. Lives where the Godot project manager put it, not under repos/.
+    paths: ["../Documents/titanharvest", qm/titanharvest]

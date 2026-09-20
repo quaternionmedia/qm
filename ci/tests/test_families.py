@@ -135,6 +135,6 @@ def test_the_committed_record_declares_exactly_the_known_set():
     the declared set, so a stray row would have shifted the vocabulary with
     no test noticing."""
     assert sorted(families.declared()) == [
-        "core", "infra", "instruments", "irl", "performer-display",
+        "core", "games", "infra", "instruments", "irl", "performer-display",
         "show-control"]
 
