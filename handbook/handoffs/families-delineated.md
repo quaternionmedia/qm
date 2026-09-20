@@ -9,11 +9,10 @@ before quoting — `uv run qm estate --by-family` is the reading.
 
 | repository | ref | commit | date |
 |---|---|---|---|
-| qm | `evolve/families-delineated` (this branch, five commits on `origin/main`) | `035b3b0` | 2026-09-20 |
-| qm | `origin/main`; the local stage `test` is level with it | `90a1bd7` | 2026-09-20 |
-| golfvs | `docs/rad-defence-ring`, pushed, level with its origin | `48dedef` | 2026-09-19 |
-| a private roster entry (`private-38` in `ci/workspace-private.yaml`) | `main`, level with its origin | `1b86508` | 2026-09-20 |
-| rad-godot | `main`, level with its origin; **public since 2026-09-20** | `6dd9485` | 2026-09-19 |
+| qm | `origin/main` (#114 merged); the local stage `test` is level with it | `f23a875` | 2026-09-20 |
+| golfvs | `docs/rad-defence-ring`, pushed, level with its origin; at `repos/qm/golfvs` | `48dedef` | 2026-09-19 |
+| a private roster entry (`private-38` in `ci/workspace-private.yaml`) | `main`, level with its origin; at `repos/qm/<name>` | `1b86508` | 2026-09-20 |
+| rad-godot | `main`, level with its origin; **public since 2026-09-20**; at `repos/qm/rad-godot` | `6dd9485` | 2026-09-19 |
 | a private roster entry (`private-36`) | `origin/project/<name>`, merged with the pre-#110 `main` | `a13f8f2` | 2026-09-19 |
 | streaming-infrastructure | `origin/project/streaming-infrastructure`; no repository on the host | `b0265d1` | 2026-08-08 |
 
@@ -52,9 +51,10 @@ longer says private, and its `../Documents` candidate is gone.
 `uv run qm private-names --source host` is clean at the stamp; it was red on
 `origin/main` at `90a1bd7` with two names in thirteen and three files.
 
-**Three clones moved, one pending.** `golfvs` is at `repos/qm/golfvs`, where
-its `qm/golfvs` candidate resolves. The other two Godot-adjacent clones are
-still under `Documents/` — see below.
+**Every Godot-adjacent clone is under `repos/qm/`**, where each entry's
+`qm/<name>` candidate resolves; `uv run qm estate --by-family` reads all three
+present and clean. The multi-root workspace was regenerated from the roster
+(`uv run qm workspace`) so the editor reopens them there.
 
 **Two handoff pages retired**: `the-games-family-and-titanharvest.md` (both
 decisions it was blocked on are taken: the branch landed as #111, the
@@ -63,18 +63,6 @@ three commits it stamps are on their repositories' `origin/main`).
 
 ## What is unfinished
 
-- **Move `Documents/rad-godot` and the private entry's clone beside it under
-  `repos/qm/`.** Blocked on the editor: both are folders of the open VS Code
-  workspace, and Windows refuses the rename while a workspace holds them
-  (`golfvs`, not in the workspace, moved). Done looks like: both folders out
-  of the workspace, `mv`, then `uv run qm estate --by-family` shows
-  `rad-godot` found (it reads MISSING until then, which is the true state
-  against the roster) and `private-38` found via `qm/…`; then drop the
-  `../Documents/…` candidate from the private companion.
-- **This pull request is merged by a person.** The session's instruction was
-  that nothing reaches `main` without a manual click, so the branch is pushed
-  and the pull request opened and green, and not merged by the session that
-  made it.
 - **Place `private-36` and `streaming-infrastructure` in a family, or say why
   not**, once governance has run for them. That is a `family:` line in
   `ci/workspace.yaml`, by a person. `streaming-infrastructure`'s one record
@@ -94,8 +82,6 @@ three commits it stamps are on their repositories' `origin/main`).
 
 ## Blocked on a person
 
-- The two moves above (release the workspace folders).
-- The merge.
 - Everything `six-branches-reached-origin.md` and `enact-the-stages.md` list,
   unchanged by this branch: alfred's pin, the held pull requests, the push of
   `test`.
@@ -103,12 +89,11 @@ three commits it stamps are on their repositories' `origin/main`).
 ## Could not be verified (inference)
 
 - The local gate run reproduces the workflows' steps and not `uses:` steps,
-  the runner image or secrets. Two steps failed locally and both name the same
-  cause — the branch was not on the host when they ran: `check_pr_base` says
-  so in its own output, and the signature step asks `gh api` for the host's
-  verdict on SHAs the host had not seen (E1: `git log --format=%G?` reads all
-  five as `G` under the same key that signed #112 and #113). The host's own
-  run is the verdict.
+  the runner image or secrets. Before the push two steps failed locally with
+  one cause — the branch was not on the host: `check_pr_base` says so in its
+  own output, and the signature step asks `gh api` for the host's verdict on
+  SHAs the host had not seen. After the push every executed step passed
+  locally and all nine host checks passed on #114 (E1).
 - The `codex` process seen on this workstation is the ChatGPT extension's
   app-server, started when the editor opened; no second session was found in
   any clone (E1: every tree the estate read was as the previous handoff left
@@ -116,5 +101,6 @@ three commits it stamps are on their repositories' `origin/main`).
 
 ## Standing constraints
 
-- **Not local-only.** Pull requests are fine; the merge is the human's.
+- **Not local-only.** Pull requests are fine; the merge click is the human's,
+  by instruction, whatever `AGENTS.md` item 3 says.
 - One open pull request per repository, per contributor. This branch is qm's.
