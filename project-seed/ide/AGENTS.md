@@ -156,6 +156,18 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
     a pull request, so drift shows up as an uncommitted diff rather than as
     staleness nobody sees. A skip is not a pass, and a page that always skips is
     deleted.
+14. **The workstation, the agent and the conversation are not the
+    organisation** — record
+    `governance/qm/records/DRAFT-what-is-not-the-organisation.md`, with
+    `governance/qm/handbook/what-is-not-the-organisation.md` as the thing to
+    do. A committed file states what is true of this project: not where a
+    clone sits on one disk, which editor held it, what the tool driving a
+    session did with its shell, or what anybody said. A decision enters as a
+    decision, never as reported speech; a commit message describes the change
+    and not the conversation behind it. The seed's `leak-check.yml` runs
+    `check_leaks.py` on the mechanical part — a home path, a personal folder,
+    a scratch path, a shared link; the rest is yours to read for before you
+    push.
 
 ## One-time setup on a fresh clone (Windows)
 

@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-09-20T14:43:09Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
+**Generated `2026-09-20T17:17:01Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -16,7 +16,7 @@
 
 **Every gate below is therefore advisory.** A green check means *someone was told*, not *this was prevented*. Advisory is a legitimate state — most governance here is advisory on purpose — but it is not the same claim, and a reader who conflates them will trust a merge nobody checked.
 
-**17 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 16 ok, 0 warn, 1 unknown.
+**18 gates are built; 0 are declared and not built.** The second number is the honest measure of how much of this governance is still customary. States: 17 ok, 0 warn, 1 unknown.
 
 ## Every gate
 
@@ -36,7 +36,8 @@
 | [ok] | `tag-determinism` | tag | push, workflow_dispatch | no | A `v*` tag whose captured test run declares a skip, a rerun or a retry, or whose suite does not pass at all. |
 | [??] | `secret-scan` | main | — | no | A commit introducing a credential the scanner recognises. |
 | [ok] | `commit-signatures` | main | pull_request | yes | A branch carrying a commit with no verifiable signature. |
-| [ok] | `registries` | main, push | pull_request, push | no | An exemption with no stated reason or whose named constant has gone; a policy with neither a detector nor a stated reason it cannot have one; a ledger entry that is unattributed, or closed and unscored; two lanes that are settled by the same gate; a protocol with no page or a step naming a route that does not exist; a curriculum unit citing a document that is not there or claiming a Status its document does not carry; an address vector that does not parse as declared or does not format back to itself. |
+| [ok] | `registries` | main, push | pull_request, push | no | An exemption with no stated reason or whose named constant has gone; a policy with neither a detector nor a stated reason it cannot have one; a ledger entry that is unattributed, or closed and unscored; two lanes that are settled by the same gate; a protocol with no page or a step naming a route that does not exist; a curriculum unit citing a document that is not there or claiming a Status its document does not carry; an address vector that does not parse as declared or does not format back to itself; a family claim naming a family the record does not declare; a mathematical mapping that does not state what it has not earned. |
+| [ok] | `leak-check` | main, push | pull_request, push | yes | A tracked file that carries a person's home directory, a path through a personal or IDE-made folder, a path into a session's scratch space, a shared-conversation link, or a conversation archive's path. Findings are printed redacted; a deliberate example is declared with `leaks: allow` and a reason, and every allowance is counted on every run. |
 | [ok] | `rulesets` |  | — | no | Nothing, on a runner. It is a preflight: `uv run qm rulesets --check` exits non-zero when a ruleset drafted in .github/rulesets/ is absent from the host, or is applied at a different enforcement level, or carries a different set of rule types. |
 | [ok] | `private-names` |  | — | no | Nothing, on a runner. It is a preflight, run on a machine that holds the gitignored companions, and it refuses a private repository's name used as a repository -- after a slash, quoted, or as the value of a name, slug, repository or branch field -- in any tracked file. |
 
@@ -59,6 +60,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 - **`secret-scan`** — Everything about how it is configured. It is an installed application with no workflow file in this repository and no record describing it, so nothing here states what it scans, who can dismiss a finding, or what happens if it is uninstalled. It appears on pull requests and that is the whole of what this corpus knows about it.
 - **`commit-signatures`** — Whether the signer is the person named in the author field, beyond what the key attests. It would establish that an attestation exists, which is currently established for nothing.
 - **`registries`** — Whether any registry is complete. Each of these seven checks the entries that exist against their own rules; none can tell that an exemption, a policy, a ledger entry, a lane, a protocol, a curriculum unit or an address case was never written down, and a registry nobody added to is the state all seven report as clean. Nor can it see an address that is well-formed and wrong: the grammar has no idea whether the branch exists. It also cannot see whether a protocol was ever run -- that is reported by `uv run qm protocols` and deliberately never refused -- or whether a curriculum unit's prose is true of the document it cites. Nor is this gate required to merge: it is a candidate for A-main.json's required list and stays off it until it has reported green on a real pull request.
+- **`leak-check`** — Everything on that line that is not a path or a link: an editor named in prose, a process somebody saw running, a tool narrating its own session, a person's words quoted into a constraint. A pattern for those would fire on every page that legitimately discusses editors or quotes a record, so the reader is the check, at the runbook's Step 3. Nor can it read history -- a path already pushed stays pushed -- or tell a placeholder from a real account beyond the ones it lists.
 - **`rulesets`** — Whether a rule is the right rule. It compares enforcement levels and rule types, not rule parameters, so a required-status-check list that has been emptied on the host reads as a match. It cannot run in CI at all: reading what is applied needs a host credential, and a check that reads a host reds a pull request for a reason its author cannot fix. It also does not read `rule-suites`, which is the log of what an evaluating rule would have blocked and the thing worth reading before promoting one.
 - **`private-names`** — A repository that becomes private after the fact. By records/DRAFT-going-private-is-an-act-with-obligations.md the party who makes a repository private owns removing its name from this corpus, so nothing here watches for the transition: detecting it would need either an organisation-read credential this repository does not hold, or a committed digest list that would be recoverable, since 24 of 33 names are ordinary words of median length 7. It also cannot see history -- two names are published from 2b50bd6 and no forward fix removes them -- and it does not gate a bare-word match in prose, because several private repositories are named after common words and matching those produced 187 findings with no disclosures.
 
@@ -81,6 +83,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 | `secret-scan` | *nothing stated — it guards a habit rather than a decision* |
 | `commit-signatures` | `records/DRAFT-human-only-contributorship.md` |
 | `registries` | `ci/exception-registry.yaml`, `ci/policy-registry.yaml`, `ci/lane-registry.yaml`, `ci/protocol-registry.yaml`, `ci/capability-registry.yaml`, `curriculum/org.yaml`, `project-seed/address-vectors.json` |
+| `leak-check` | `records/DRAFT-what-is-not-the-organisation.md`, `ci/policy-registry.yaml nothing-committed-describes-the-workstation-the-agent-or-the-conversation` |
 | `rulesets` | `ci/policy-registry.yaml main-is-entered-through-a-pull-request`, `.github/rulesets/README.md` |
 | `private-names` | `ci/policy-registry.yaml no-private-name-in-a-public-artifact` |
 

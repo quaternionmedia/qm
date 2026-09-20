@@ -51,7 +51,11 @@ and `uv run qm brief` builds the opening brief for a session. Then read
 [walkthrough/](https://github.com/quaternionmedia/qm/tree/main/walkthrough).
 
 `uv run qm workspace` writes the multi-root [workspace](../ref/glossary.md#workspace){ .glossary-term } file from the roster,
-which is what actually puts the repositories in front of you.
+which is what actually puts the repositories in front of you. `--family
+<name>`, repeatable, narrows it to one working system — `uv run qm families`
+lists them — so the members of a family open together without the rest of the
+estate; a family the record does not declare is refused rather than resolved
+to an empty window.
 
 **"Will my commits be rejected for anything I have not set up?"**
 

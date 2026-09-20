@@ -74,9 +74,9 @@ def roster_index() -> dict[str, dict]:
 def clone_of(name: str, index: dict[str, dict] | None = None) -> Path | None:
     """The clone the roster says, else the bare probe the roster predates.
 
-    The probe alone -- `<root>/<name>` -- reported qmetronome as not on this
-    disk, where the roster places it under `../AndroidStudioProjects`, and
-    every private member likewise, because a reference is not a directory. A
+    The probe alone -- `<root>/<name>` -- reported a member whose clone sits
+    at a path only the roster carries as not on this disk, and every private
+    member likewise, because a reference is not a directory. A
     second resolver disagreeing with the first is how two views of one disk
     come to say different things. So the roster's candidates go first,
     through the resolver the workspace and the estate use, and the probe

@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T14:43:53Z'
+generated_at: '2026-09-20T17:17:48Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -39,17 +39,17 @@ states:
 reading_load:
   documents:
   - path: AGENTS.md
-    lines: 248
+    lines: 260
   - path: PRINCIPLES.md
     lines: 497
   - path: handbook/async-contract.md
     lines: 235
   - path: handbook/handoffs/README.md
     lines: 154
-  total_lines: 1134
+  total_lines: 1146
   budget_lines: 1200
   within_budget: true
-  headroom_lines: 66
+  headroom_lines: 54
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
@@ -104,12 +104,12 @@ readiness:
     in ci/workspace.yaml. Nothing here is derived from the repository.
   measured:
     records:
-      total: 38
+      total: 39
       ratified: 0
-      proposed: 35
+      proposed: 36
     documents_in_unknown_state: 0
     reading_within_budget: true
-    reading_total_lines: 1134
+    reading_total_lines: 1146
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -121,12 +121,12 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 193
+  documents: 195
   by_state:
     draft: 3
     generated: 7
-    proposed: 35
-    standing: 72
+    proposed: 36
+    standing: 73
     transient: 22
     unreviewed: 54
   disagreements: 0
@@ -683,6 +683,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: handbook/test-posture.md
+  class: handbook
+  class_reason: policy binding on QM's own conduct
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: handbook/what-is-not-the-organisation.md
   class: handbook
   class_reason: policy binding on QM's own conduct
   declared_status: null
@@ -1636,6 +1645,13 @@ documents:
   state_from_filename: draft
   state: proposed
 - path: records/DRAFT-version-tags-are-claims.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
+- path: records/DRAFT-what-is-not-the-organisation.md
   class: record
   class_reason: an org decision record
   declared_status: Proposed

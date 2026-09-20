@@ -165,7 +165,7 @@ entries:
       - "A false green in a mutation harness is more often the harness than the test"
       - "Aim a mutation at the test that can see it, not the one whose name matches"
     tests_generated:
-      - "scratchpad/mutate_signatures.py (10 mutations, both new gates)"
+      - "an ad-hoc mutation script, not kept (10 mutations, both new gates)"
     status: closed
 
   - id: 2026-08-15-004

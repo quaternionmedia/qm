@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-20T14:43:54Z",
+  "generated_at": "2026-09-20T17:17:49Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -21,15 +21,15 @@
     "sources": {
       "harness": {
         "document": "status/harness.yaml",
-        "generated_at": "2026-09-20T14:43:09Z"
+        "generated_at": "2026-09-20T17:17:01Z"
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-20T14:43:53Z"
+        "generated_at": "2026-09-20T17:17:48Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-09-20T14:43:09Z"
+        "generated_at": "2026-09-20T17:17:01Z"
       }
     }
   },
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 124,
+    "loose_ends": 126,
     "by_kind": {
-      "blind-spot": 17,
-      "document-proposed": 35,
+      "blind-spot": 18,
+      "document-proposed": 36,
       "document-unreviewed": 54,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 124,
+    "open": 126,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -111,6 +111,14 @@
       "title": "governance-status cannot see",
       "detail": "Whether the document is current. It checks faithfulness to the refs it names, not age -- a document generated from unfetched refs passed this once, which is why the workflow fetches first.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-governance-status",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-leak-check",
+      "title": "leak-check cannot see",
+      "detail": "Everything on that line that is not a path or a link: an editor named in prose, a process somebody saw running, a tool narrating its own session, a person's words quoted into a constraint. A pattern for those would fire on every page that legitimately discusses editors or quotes a record, so the reader is the check, at the runbook's Step 3. Nor can it read history -- a path already pushed stays pushed -- or tell a placeholder from a real account beyond the ones it lists.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-leak-check",
       "address_parses": true
     },
     {
@@ -471,6 +479,14 @@
       "title": "records/DRAFT-version-tags-are-claims.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-version-tags-are-claims",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-what-is-not-the-organisation",
+      "title": "records/DRAFT-what-is-not-the-organisation.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-what-is-not-the-organisation",
       "address_parses": true
     },
     {
@@ -925,7 +941,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/QLab-python/pr/2",
       "title": "\ud83c\udfad Theatremix",
-      "detail": "open on main at stage draft, idle 3,895 hours",
+      "detail": "open on main at stage draft, idle 3,897 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/QLab-python/pr/2",
       "address_parses": true
@@ -934,7 +950,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/ShowRunner/pr/12",
       "title": "feat: ShowProgrammer \u2014 meta intro video pipeline, live clock, async dispatch",
-      "detail": "open on main at stage ready, idle 3,707 hours",
+      "detail": "open on main at stage ready, idle 3,710 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/ShowRunner/pr/12",
       "address_parses": true
@@ -943,7 +959,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/ShowRunner/pr/15",
       "title": "\ud83d\udec2 Migration",
-      "detail": "open on main at stage ready, idle 3,592 hours",
+      "detail": "open on main at stage ready, idle 3,594 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/ShowRunner/pr/15",
       "address_parses": true
@@ -952,7 +968,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/ShowRunner/pr/16",
       "title": "feat(tests): NiceGUI page-level UI tests + Playwright E2E scaffolding",
-      "detail": "open on feat/meta-intro-video at stage ready, idle 3,528 hours",
+      "detail": "open on feat/meta-intro-video at stage ready, idle 3,530 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/ShowRunner/pr/16",
       "address_parses": true
@@ -961,7 +977,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/alfred/pr/113",
       "title": "Config",
-      "detail": "open on main at stage ready, idle 23,872 hours",
+      "detail": "open on main at stage ready, idle 23,874 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/alfred/pr/113",
       "address_parses": true
@@ -970,7 +986,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/benchmark/pr/7",
       "title": "fix: handle missing regions/ directory in compile-yaml",
-      "detail": "open on main at stage ready, idle 4,007 hours",
+      "detail": "open on main at stage ready, idle 4,009 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/benchmark/pr/7",
       "address_parses": true
@@ -979,7 +995,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/carlos/pr/17",
       "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
-      "detail": "open on they at stage ready, idle 693 hours",
+      "detail": "open on they at stage ready, idle 696 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/carlos/pr/17",
       "address_parses": true
@@ -988,7 +1004,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/holophonor/pr/11",
       "title": "\ud83d\udeb0 Pipewire",
-      "detail": "open on main at stage draft, idle 10,912 hours",
+      "detail": "open on main at stage draft, idle 10,915 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/holophonor/pr/11",
       "address_parses": true
@@ -997,7 +1013,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/joe/pr/4",
       "title": "\ud83d\udd90 p5.js",
-      "detail": "open on main at stage ready, idle 14,990 hours",
+      "detail": "open on main at stage ready, idle 14,992 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/joe/pr/4",
       "address_parses": true
@@ -1006,7 +1022,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/joe/pr/8",
       "title": "Docs/onboarding hardening",
-      "detail": "open on main at stage ready, idle 4,812 hours",
+      "detail": "open on main at stage ready, idle 4,815 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/joe/pr/8",
       "address_parses": true
@@ -1015,7 +1031,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/leo/pr/61",
       "title": "\ud83d\udcc7 Setlist",
-      "detail": "open on main at stage ready, idle 5,072 hours",
+      "detail": "open on main at stage ready, idle 5,075 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/leo/pr/61",
       "address_parses": true
@@ -1024,7 +1040,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/leo/pr/67",
       "title": "feat: uv-driven CLI with comprehensive test suite",
-      "detail": "open on main at stage ready, idle 5,907 hours",
+      "detail": "open on main at stage ready, idle 5,910 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/leo/pr/67",
       "address_parses": true
@@ -1033,7 +1049,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/ludwig/pr/9",
       "title": "\ud83c\udf0c Universal",
-      "detail": "open on main at stage draft, idle 6,536 hours",
+      "detail": "open on main at stage draft, idle 6,538 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/ludwig/pr/9",
       "address_parses": true
@@ -1042,7 +1058,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/moat/pr/3",
       "title": "\ud83d\udca1 QM plan",
-      "detail": "open on main at stage draft, idle 718 hours",
+      "detail": "open on main at stage draft, idle 721 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/moat/pr/3",
       "address_parses": true
@@ -1051,7 +1067,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/moat/pr/4",
       "title": "\ud83c\udfde MoatNet",
-      "detail": "open on qm at stage draft, idle 301 hours",
+      "detail": "open on qm at stage draft, idle 303 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/moat/pr/4",
       "address_parses": true
@@ -1060,7 +1076,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/uPhonor/pr/29",
       "title": "\ud83d\udc0d Python",
-      "detail": "open on main at stage draft, idle 10,423 hours",
+      "detail": "open on main at stage draft, idle 10,426 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/uPhonor/pr/29",
       "address_parses": true
