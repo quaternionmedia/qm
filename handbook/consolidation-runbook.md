@@ -155,10 +155,25 @@ commit that also lives on another branch. Paste its output into the pull
 request body. A branch cut from the wrong parent passes every other check,
 because those measure the branch and not where it came from.
 
-*Verify:* the signature column is uniform `G`, the trailer column is empty, and
-the `qm branch` output names the merge-base you expected. Commits listed as
-shared with another branch are explained in the pull request, or the branch is
-re-cut.
+```sh
+uv run qm private-names --strict
+uv run qm leaks
+```
+
+These two read a machine — the host's list of private repositories, and the
+shapes of a person's name or a shared-conversation link — so they are kept off
+the runner on purpose (`.github/workflows/registries.yml` says why) and no
+gate will run them for you. They run here, before anything is pushed, because
+a page pushed without them can carry a private repository's name into a public
+artifact, and the first run of this runbook did exactly that and had to be
+repaired after the push. `--strict` turns "no source of private names was
+available" from a pass into a failure; a machine without the host's list has
+not checked anything.
+
+*Verify:* the signature column is uniform `G`, the trailer column is empty,
+`private-names` reports clean (not unverified), `leaks` exits zero, and the
+`qm branch` output names the merge-base you expected. Commits listed as shared
+with another branch are explained in the pull request, or the branch is re-cut.
 
 ## Step 4 — push, and open one pull request per repository
 
