@@ -20,7 +20,7 @@ every branch below.
 
 | Repository | Branch | Carries | Pull request |
 |---|---|---|---|
-| qm | `evolve/the-web-window` | the plan; `ci/dashboard.py` gains a fourth surface (`prose`, `looksatwords`, root two) and drops the retired standalone `/topology` page from the web surface's list; `docs.yml` stops naming a deploy branch that no longer exists; this page and its retrospective; the regenerated document index | opened once #115 had merged and freed the `main` slot — see the pull request list |
+| qm | `evolve/the-web-window` | the plan; `check_pr_voice.py` and its step in `one-pr-check.yml` (corpus and seed), clause 5 of the contributorship record, the contract's §3 and both `AGENTS.md` restating it; `ci/dashboard.py` gains a fourth surface (`prose`, `looksatwords`, root two) and drops the retired standalone `/topology` page from the web surface's list; `docs.yml` stops naming a deploy branch that no longer exists; this page and its retrospective; the regenerated document index | opened once #115 had merged and freed the `main` slot — see the pull request list |
 | qm | `adr/codecartographer-index-current` | the project's `adr/README.md` names `governance/qm` rather than `docs/qm` and lists the rad adoption among its drafts | **#116** → `project/codecartographer`, gates green |
 | codecartographer | `evolve/the-estate-frame` | the estate frame (Phase 0 and 1 of the plan); the local `test` branch's four commits minus its governance-pin bump; the slot workflow checking out only the governance submodule; the canvas drawing an edge's colour, width and style from where gJGF puts them; the capability and overview kinds joined to the palette; one layout spelling resolved once, an unknown layout answered with a sentence, estate draws re-run on a layout change; the boundary section in `docs/architecture.md` and `tests/test_boundaries.py` | **#100**, gates green |
 | qmcp | `evolve/the-topology-routes` | `/v1/orchestration/plane`, `/v1/orchestration/runnable`, `/v1/topology/schema/{kind}`, `/v1/topologies` over the existing table, walkthrough 07 | **#36**, gates green |
@@ -49,6 +49,11 @@ disposable and the branches are on `origin`.
 - **rad's proposal wants the host-side half.** Its first `Pends on` item is
   codecartographer's own record carrying the divergence in its `Pends on` row
   naming `rad`. Done when that row exists on `project/codecartographer`.
+- **The voice check reaches a project at its next pin bump and workflow
+  re-copy.** `check_pr_voice.py` lives in `project-seed/ci/`; the seed's
+  `one-pr-check.yml` runs it out of the submodule. No project's pin carries it
+  yet, so no project's copy of the workflow names the step yet. Done when the
+  next propagation moves a pin and that project's workflow is re-copied.
 - **The seed's `one-pr-check.yml` cannot check out a project with a private
   submodule.** (Its check did, on #100, report a real thing the moment it could
   run: a second pull request opened by another session.) codecarto's copy departs from the seed for the reason its

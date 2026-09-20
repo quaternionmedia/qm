@@ -84,6 +84,11 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
    slot. Land the upstream change first and let propagation carry it.
    `.github/workflows/one-pr-check.yml` enforces this; run
    `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
+   **The pull request body speaks as the contributor, to the world.** It is
+   posted under a human's account and addresses nobody — a question or a
+   handling instruction for the person who asked belongs in the session,
+   never in the body (`governance/qm/handbook/async-contract.md` §3;
+   `check_pr_voice.py` refuses the second person).
 4. **Human-only contributorship applies to every commit you make here** (see
    `governance/qm/records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored

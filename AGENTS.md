@@ -78,6 +78,12 @@ with a date looks checked.
 
    - **Never request a review**; assign the person who asked for the work.
      Reviewers are named at the tag. `handbook/async-contract.md` §2.
+   - **The pull request body speaks as the contributor, to the world.** It is
+     posted under a human's account; it addresses nobody. What a session has
+     to say to the person who asked — who merges, what is deferred, a question
+     — is said in the session, never written into the body. `check_pr_voice.py`
+     refuses the second person. `handbook/async-contract.md` §3, and clause 5
+     of `records/DRAFT-human-only-contributorship.md`.
    - **Draft means incomplete, and nothing else.** It is not a holding pen for
      finished work: nobody is waiting at the far end of that queue, so a green
      PR left in draft is a change that never reached `main`.

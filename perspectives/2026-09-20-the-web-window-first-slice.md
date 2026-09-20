@@ -178,6 +178,29 @@ data document, a calculation keyed on a caller's spelling, a panel guessing at
 a producer's shape. `tests/test_boundaries.py` is the check; its docstring says
 what it cannot see.
 
+### 2.14 Seven pull requests in which the contributor talked to himself
+
+Every pull request body this session opened began "**Not to be merged without
+your click** — assigned, no review requested", and one said a change was
+"worth your eye". Posted under the contributor's account, that is the
+contributor telling himself not to merge his own work (E1: the host shows the
+body as his comment). The words were his instruction to the tool — *"PRs are
+fine, nothing pulled to main without my manual click"* — carried out of the
+session and into an artefact he signs. He had said this before, more than once.
+
+The false assumption: that a pull request body is the session's report to the
+reviewer. It is not. It is the reviewer's statement of the change to everyone
+else; the session's report to the reviewer is the session. `async-contract.md`
+§3 already said a body states decisions and not questions, and this is the
+same rule from the other side — it states them in the contributor's voice.
+
+The check that would have caught it did not exist and now does:
+`project-seed/ci/check_pr_voice.py`, a step in `one-pr-check.yml`, refuses the
+second person and the handling phrases that leaked, and says what it cannot
+see (the third person). Clause 5 of `DRAFT-human-only-contributorship.md` is
+the decision; `AGENTS.md` item 3 and the seed's restate it. The seven bodies
+were rewritten in place.
+
 ## 3. Defects this session caused
 
 - **The stacked mutations** (§2.1) — a false "seen red" report that was true
@@ -192,6 +215,7 @@ what it cannot see.
   <paths>` commits the whole index, and the deletions had been staged by `git
   rm` earlier; the frame commit carried them. Recut with `reset --soft`. The
   audit record is the reason to care.
+- **Seven pull-request bodies addressed to the contributor**, under his name (§2.14).
 - **A pull-request footer that was a byline.** The tool's default attribution
   line went into #100's body; the house form is a `Tools:` note, as #115
   shows. Replaced.
@@ -231,6 +255,7 @@ ones the author could not.
 | a layout change not re-drawing an estate graph | a browser test watching the re-draw request | yes, seen red with `plotWith` removed |
 | display constants in a data document; a service that persists; a panel that stores | `test_boundaries.py` | yes, each seen red |
 | a stamp dropped by a rebuild the test never crossed | the test walks the redacting path | yes, seen red |
+| a pull-request body addressed to the contributor under his own name | `check_pr_voice.py` in `one-pr-check.yml` | yes, seen red four ways |
 
 The last row is the one that matters most going forward: the seed's
 `one-pr-check.yml` cannot run in any project that vendors a private submodule,

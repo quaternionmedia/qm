@@ -101,6 +101,18 @@ This is distinct from a record's `Pends on` row, which names something *the
 organisation* has not settled. A Proposed record naming one is this process
 working. Your own unresolved question arriving as pull request text is not.
 
+**And the body speaks as the contributor, to the world.** It is posted under a
+human's account and it is their statement of the change, so it addresses
+nobody — not "your click", not "worth your eye", not "assigned, no review
+requested". Those are a session's words to the person who asked, and posted
+under that person's name they read as the person talking to themself. Say them
+in the session; write the third person where a person must be named.
+`records/DRAFT-human-only-contributorship.md` clause 5 is the decision.
+
+**Mechanical.** `project-seed/ci/check_pr_voice.py`, a step in
+`one-pr-check.yml`: it refuses the second person and the handling phrases that
+have leaked, leaves code and quotations alone, and cannot see the third person.
+
 ## 4. Concurrent sessions share one workstation
 
 Two sessions in two repositories are two processes on one machine, and

@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T17:17:01Z'
+generated_at: '2026-09-20T20:22:55Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -41,15 +41,15 @@ enforcement:
   branch_protection_on_main: false
   blocks_a_merge: false
 totals:
-  gates: 18
-  built: 18
+  gates: 19
+  built: 19
   declared_not_built: 0
   by_state:
-    ok: 17
+    ok: 18
     warn: 0
     unknown: 1
-  gate_main: 11
-  seed: 6
+  gate_main: 12
+  seed: 7
   undeclared_workflows: 0
 gates:
 - id: adr-lint
@@ -117,10 +117,38 @@ gates:
   evidence:
     present: true
     workflow_name: One PR per contributor
-    triggers:
+    triggers: &id001
     - pull_request
-    jobs:
+    jobs: &id002
     - slot
+    job_declared: true
+  state: ok
+- id: one-pr-voice
+  gates:
+  - main
+  seed: true
+  external: false
+  declared_built: true
+  workflow: one-pr-check.yml
+  job: slot
+  runs:
+  - project-seed/ci/check_pr_voice.py
+  enforces:
+  - records/DRAFT-human-only-contributorship.md
+  - handbook/async-contract.md
+  refuses: 'A pull request body that speaks to its contributor rather than as them:
+    the second person, the handling phrases that have leaked ("assigned, no review
+    requested", "merge when ready"), or the contributor''s own login mentioned. Code
+    spans, fenced blocks and quoted lines are left alone.'
+  cannot_see: The third person. "Peter merges once the gates are green" is a statement
+    about a person and the tool cannot tell it from a sentence addressed to them without
+    a pronoun, so it is allowed; and whether the body is honest, complete, or about
+    the diff at all.
+  evidence:
+    present: true
+    workflow_name: One PR per contributor
+    triggers: *id001
+    jobs: *id002
     job_declared: true
   state: ok
 - id: namespace-guard

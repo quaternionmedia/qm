@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T19:12:54Z'
+generated_at: '2026-09-20T20:25:57Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -39,17 +39,17 @@ states:
 reading_load:
   documents:
   - path: AGENTS.md
-    lines: 260
+    lines: 266
   - path: PRINCIPLES.md
     lines: 497
   - path: handbook/async-contract.md
-    lines: 235
+    lines: 247
   - path: handbook/handoffs/README.md
     lines: 155
-  total_lines: 1147
+  total_lines: 1165
   budget_lines: 1200
   within_budget: true
-  headroom_lines: 53
+  headroom_lines: 35
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
@@ -109,7 +109,7 @@ readiness:
       proposed: 36
     documents_in_unknown_state: 0
     reading_within_budget: true
-    reading_total_lines: 1147
+    reading_total_lines: 1165
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one

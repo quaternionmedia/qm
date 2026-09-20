@@ -46,7 +46,19 @@ author/contributor field exists to record.
    hand. Naming a human is always fine, including a human who works at or
    through a tool vendor; the ban is on unreachable addresses standing in for
    accountability, not on disclosing that a tool was used.
-4. This governs attribution metadata — commit trailers, bylines, index
+5. **What a contributor's account posts speaks as that contributor, to the
+   world.** A pull request body, a review comment, an issue or a commit
+   message carries the human's name, so it is the human's statement of the
+   change — and it addresses nobody. A sentence *to* the contributor about
+   how the change is to be handled ("not to be merged without your click",
+   "worth your eye", "assigned, no review requested") is a tool speaking to
+   its operator under the operator's name; on the host it reads as the
+   contributor talking to themself. Such things are said in the session and
+   settled there; the artifact states decisions and facts, in the third
+   person where a person must be named. `project-seed/ci/check_pr_voice.py`
+   refuses the second person and the handling phrases in a pull request
+   body; it cannot see the third person, and does not try to.
+6. This governs attribution metadata — commit trailers, bylines, index
    entries, and each perspective file's own header table and closing
    signature. Existing commits are not amended; commit history is left
    alone. Perspectives are different: they carry no ratification gate (see
@@ -105,6 +117,10 @@ author/contributor field exists to record.
    whether the named party can be asked why and can answer.
 
 ## Revision triggers
+
+- A hosted artifact posted under a contributor's account is found addressing
+  that contributor and the voice check did not refuse it — the check's list is
+  then short, and clause 5 names what was missed.
 
 - A tool becomes a legally recognized author in a jurisdiction QM operates
   in — would force reconciling this record with law, not just house style.
