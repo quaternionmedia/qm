@@ -117,7 +117,7 @@ split-brain.
 - A future session repeats a mistake this record describes despite the
   stated discipline — the point at which "stated instruction" needs to
   become a mechanical check (a CI grep, a doc-link checker) rather than
-  staying an accepted gap, mirroring how `docs/qm/records/DRAFT-human-
+  staying an accepted gap, mirroring how `governance/qm/records/DRAFT-human-
   only-contributorship.md` treats its own equivalent soft spot.
 - `codecarto/requirements.txt` and `uv.lock`/`pyproject.toml` are
   unified into one generated source — clause 2's standing concern about

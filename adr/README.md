@@ -14,7 +14,7 @@ This project adopts the QM constitution by reference. Org records bind this
 project; project records may tighten them, never relax them. A genuine
 exception is an amendment ratified at org level.
 
-This directory lives inside the `docs/qm` submodule, on this
+This directory lives inside the `governance/qm` submodule, on this
 project's own dedicated branch (`project/codecartographer`, created from `main`) -
 not copied into this project's own git history. The branch's ancestry *is*
 the pin: there is no separate commit hash to hand-maintain here. `git log
@@ -253,3 +253,4 @@ Drafts in flight (numberless, by title):
 - *Code-map navigation: source-ordered layout, depth-4 hierarchy, view-source* — `DRAFT-code-map-navigation.md`
 - *GitHub token resolution order: gh CLI keyring primary, env vars secondary* — `DRAFT-github-token-resolution.md`
 - *Verify a file's actual consumption path before editing it to fix a flagged issue* — `DRAFT-verify-actual-consumption-before-editing.md`
+- *Adopting rad as this project's radial menu* — `DRAFT-rad-integration.md`
