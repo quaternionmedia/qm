@@ -211,6 +211,10 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "rollout", help="a phased push-through, family by family: claims beside evidence",
+        add_help=False,
+    )
+    sub.add_parser(
         "protocols", help="the procedures run deliberately, and when each last ran",
         add_help=False,
     )
@@ -333,6 +337,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "interop": ("interop", False, []),
     "cookbook": ("cookbook", False, []),
     "family-suite": ("family_suite", False, []),
+    "rollout": ("rollout", False, []),
     "protocols": ("protocols", False, []),
     "capabilities": ("capabilities", False, []),
     "prose": ("prose", False, []),

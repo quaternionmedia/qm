@@ -1,17 +1,17 @@
-# Cookbook — the `performer-display` family
+# Cookbook — the `games` family
 
 **This page is generated.** Every figure comes from `families.json` and from the clones on this disk, and `uv run qm cookbook --check` fails the build when it stops being true. Do not edit it; edit the roster or the record and regenerate.
 
-**Drives** the performer — what a player reads while playing
+**Drives** play — a game somebody plays: its rules, its world and its loop
 
-![the performer-display family](./performer-display.svg)
+![the games family](./games.svg)
 
 ## Who is in it
 
 | member | governed |
 |---|---|
-| `joe` | no |
-| `leo` | no |
+| `golfvs` | no |
+| `titanharvest` | no |
 
 ## Starting here
 

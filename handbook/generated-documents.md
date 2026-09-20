@@ -34,6 +34,7 @@ anything. One definition, two entry points; see `pyproject.toml`'s header.
 | `status/governance.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `uv run qm docs generate` |
 | `status/harness.yaml` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `uv run qm docs generate` |
 | `status/gates.yaml` | every automated check, what it refuses, **what it cannot see**, and whether anything blocks a merge | 168h | `uv run qm docs generate` |
+| `status/rollout.yaml` | a phased push-through, family by family: for every member of every phase, what a person **claimed** beside what the host **shows**, and the states where they disagree | 168h | `uv run qm rollout --write status/rollout.yaml --source host` |
 | `status/inventory.yaml` | every repository the org has, against the roster and this disk, with each one's **activity on three axes** — attention claimed, recency measured, risk machine-scoped and in the gitignored companion | 168h | `uv run qm inventory --write` |
 | `loose-ends.json` | what the org started and has not finished, **joined from three of the documents above** — stalled threads, records waiting on a person, and each gate's declared blind spot | 24h | `uv run qm docs generate` |
 
