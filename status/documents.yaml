@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T00:45:57Z'
+generated_at: '2026-09-20T01:07:48Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -39,17 +39,17 @@ states:
 reading_load:
   documents:
   - path: AGENTS.md
-    lines: 247
+    lines: 248
   - path: PRINCIPLES.md
     lines: 497
   - path: handbook/async-contract.md
     lines: 235
   - path: handbook/handoffs/README.md
-    lines: 156
-  total_lines: 1135
+    lines: 154
+  total_lines: 1134
   budget_lines: 1200
   within_budget: true
-  headroom_lines: 65
+  headroom_lines: 66
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
@@ -109,7 +109,7 @@ readiness:
       proposed: 35
     documents_in_unknown_state: 0
     reading_within_budget: true
-    reading_total_lines: 1135
+    reading_total_lines: 1134
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -126,8 +126,8 @@ totals:
     draft: 3
     generated: 7
     proposed: 35
-    standing: 70
-    transient: 25
+    standing: 72
+    transient: 23
     unreviewed: 52
   disagreements: 0
   unknown: 0
@@ -420,6 +420,15 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
+- path: handbook/consolidation-runbook.md
+  class: handbook
+  class_reason: policy binding on QM's own conduct
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: handbook/document-states.md
   class: generated
   class_reason: a tool writes it
@@ -602,13 +611,6 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/the-estate-has-one-copy.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
 - path: handbook/handoffs/the-games-family-and-titanharvest.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
@@ -617,13 +619,6 @@ documents:
   state_from_filename: null
   state: transient
 - path: handbook/handoffs/the-loop-that-checks-itself.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/the-menu-contract-nobody-could-fetch.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -658,6 +653,15 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
+- path: handbook/merge-review.md
+  class: handbook
+  class_reason: policy binding on QM's own conduct
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: handbook/propagation-runbook.md
   class: handbook
   class_reason: policy binding on QM's own conduct

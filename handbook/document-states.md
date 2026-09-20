@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-09-20T00:45:57Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-09-20T01:07:48Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -10,7 +10,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
 | Records ratified | every requirement below | **0 of 38**; 35 proposed |
-| Mandatory reading | under budget | 1135 of 1200 lines |
+| Mandatory reading | under budget | 1134 of 1200 lines |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -62,8 +62,8 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 52 |
 | [G] `generated` | 7 |
-| [S] `standing` | 70 |
-| [T] `transient` | 25 |
+| [S] `standing` | 72 |
+| [T] `transient` | 23 |
 
 ## Documents
 
@@ -198,11 +198,13 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `handbook/adoption-audit-queue.md` | handbook | — |
 | [S] | `standing` | `handbook/async-contract.md` | handbook | — |
 | [S] | `standing` | `handbook/config-standard.md` | handbook | — |
+| [S] | `standing` | `handbook/consolidation-runbook.md` | handbook | — |
 | [S] | `standing` | `handbook/forking-a-project.md` | handbook | — |
 | [S] | `standing` | `handbook/generated-documents.md` | handbook | — |
 | [S] | `standing` | `handbook/glossary.md` | handbook | — |
 | [S] | `standing` | `handbook/governance-rollout.md` | handbook | — |
 | [S] | `standing` | `handbook/handoffs/README.md` | index | — |
+| [S] | `standing` | `handbook/merge-review.md` | handbook | — |
 | [S] | `standing` | `handbook/propagation-runbook.md` | handbook | — |
 | [S] | `standing` | `handbook/public-by-default.md` | handbook | — |
 | [S] | `standing` | `handbook/style-guide.md` | handbook | — |
@@ -253,10 +255,8 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/session-2026-08-23.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/six-branches-reached-origin.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-active-four.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/the-estate-has-one-copy.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-games-family-and-titanharvest.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-loop-that-checks-itself.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/the-menu-contract-nobody-could-fetch.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-pair-and-the-fresh-setup.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-gate-and-tag-teeth.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-views-one-dataset.md` | handoff | — |

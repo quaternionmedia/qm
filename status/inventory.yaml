@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-20T00:42:03Z",
+  "generated_at": "2026-09-20T01:05:41Z",
   "generator": {
     "tool": "ci/inventory.py",
     "produced_by": "assistant-2026-08",
@@ -37,8 +37,8 @@
   "roster_problem": null,
   "totals": {
     "on_host": 115,
-    "in_roster": 41,
-    "on_host_not_in_roster": 74,
+    "in_roster": 43,
+    "on_host_not_in_roster": 72,
     "in_roster_not_on_host": 0,
     "cloned_here": 0,
     "private": 38,
@@ -57,8 +57,8 @@
       "dormant": 0,
       "retired": 0,
       "external": 0,
-      "unstated": 37,
-      "unrostered": 74
+      "unstated": 39,
+      "unrostered": 72
     }
   },
   "in_roster_not_on_host": [],
@@ -648,10 +648,10 @@
       "default_branch_commit_at": "2026-09-09T16:08:32Z",
       "language": "GDScript",
       "disk_usage_kb": 1258,
-      "in_roster": false,
-      "roster_phase": null,
+      "in_roster": true,
+      "roster_phase": "n/a",
       "cloned_here": false,
-      "attention": "unrostered",
+      "attention": "unstated",
       "recency": "live",
       "name": "golfvs"
     },
@@ -1011,9 +1011,9 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-20T00:36:15Z",
+      "updated_at": "2026-09-20T00:48:33Z",
       "created_at": "2026-06-10T18:00:26Z",
-      "default_branch_commit_at": "2026-09-20T00:36:05Z",
+      "default_branch_commit_at": "2026-09-20T00:48:28Z",
       "language": "Python",
       "disk_usage_kb": 2954,
       "in_roster": true,
@@ -1932,11 +1932,11 @@
       "created_at": "2026-09-19T23:50:28Z",
       "default_branch_commit_at": "2026-09-20T00:39:39Z",
       "language": "GDScript",
-      "disk_usage_kb": 0,
-      "in_roster": false,
-      "roster_phase": null,
+      "disk_usage_kb": 458,
+      "in_roster": true,
+      "roster_phase": "n/a",
       "cloned_here": false,
-      "attention": "unrostered",
+      "attention": "unstated",
       "recency": "live",
       "ref": "private-38",
       "label": "quaternionmedia private repo 38"

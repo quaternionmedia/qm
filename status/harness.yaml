@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T00:43:30Z'
+generated_at: '2026-09-20T01:07:06Z'
 generator:
   tool: ci/harness_status.py
   org: quaternionmedia
@@ -47,10 +47,10 @@ reading:
   committed_copy_omits:
   - local
 totals:
-  repositories: 41
-  slots_measured: 33
+  repositories: 43
+  slots_measured: 35
   slots_unknown: 8
-  compliant: 31
+  compliant: 33
   over_limit: 2
   governance_readable: 14
   governance_precondition_met: 2
@@ -59,7 +59,7 @@ totals:
   threads_by_stage:
     local: 0
     pushed: 0
-    draft: 6
+    draft: 7
     ready: 12
   threads_stalled: 16
   threads_unreadable: 8
@@ -156,8 +156,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 47
-    observed_at: '2026-09-20T00:42:26Z'
+    behind_corpus: 57
+    observed_at: '2026-09-20T01:06:03Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -291,8 +291,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 1
-    behind_corpus: 87
-    observed_at: '2026-09-20T00:42:38Z'
+    behind_corpus: 97
+    observed_at: '2026-09-20T01:06:12Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -335,8 +335,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 144
-    observed_at: '2026-09-20T00:42:41Z'
+    behind_corpus: 154
+    observed_at: '2026-09-20T01:06:15Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -389,7 +389,7 @@ repositories:
       deletions: 44
       mergeable_state: clean
       updated_at: '2023-12-30T22:55:40Z'
-    idle_hours: 23857.8
+    idle_hours: 23858.2
     stalled: true
   governance:
     precondition: incomplete
@@ -406,8 +406,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 270
-    observed_at: '2026-09-20T00:42:17Z'
+    behind_corpus: 280
+    observed_at: '2026-09-20T01:05:54Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -488,7 +488,7 @@ repositories:
       deletions: 533
       mergeable_state: clean
       updated_at: '2026-09-19T21:59:38Z'
-    idle_hours: 2.7
+    idle_hours: 3.1
     stalled: false
   governance:
     precondition: incomplete
@@ -502,8 +502,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 270
-    observed_at: '2026-09-20T00:42:18Z'
+    behind_corpus: 280
+    observed_at: '2026-09-20T01:05:56Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -549,7 +549,7 @@ repositories:
       deletions: 97
       mergeable_state: clean
       updated_at: '2026-09-19T22:00:15Z'
-    idle_hours: 2.7
+    idle_hours: 3.1
     stalled: false
   governance:
     precondition: incomplete
@@ -563,8 +563,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 148
-    observed_at: '2026-09-20T00:42:24Z'
+    behind_corpus: 158
+    observed_at: '2026-09-20T01:06:02Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -649,8 +649,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 47
-    observed_at: '2026-09-20T00:42:21Z'
+    behind_corpus: 57
+    observed_at: '2026-09-20T01:05:59Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -686,8 +686,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 270
-    observed_at: '2026-09-20T00:42:27Z'
+    behind_corpus: 280
+    observed_at: '2026-09-20T01:06:04Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -722,8 +722,8 @@ repositories:
       workflows_present: 1
       workflows_absent: 3
       licensing_present: 0
-    behind_corpus: 270
-    observed_at: '2026-09-20T00:42:23Z'
+    behind_corpus: 280
+    observed_at: '2026-09-20T01:06:00Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -761,8 +761,8 @@ repositories:
       workflows_present: 1
       workflows_absent: 3
       licensing_present: 0
-    behind_corpus: 270
-    observed_at: '2026-09-20T00:42:29Z'
+    behind_corpus: 280
+    observed_at: '2026-09-20T01:06:06Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -836,7 +836,7 @@ repositories:
       deletions: 124
       mergeable_state: unstable
       updated_at: '2026-08-22T17:27:47Z'
-    idle_hours: 679.3
+    idle_hours: 679.6
     stalled: true
   governance:
     precondition: met
@@ -849,8 +849,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 177
-    observed_at: '2026-09-20T00:42:20Z'
+    behind_corpus: 187
+    observed_at: '2026-09-20T01:05:57Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -884,8 +884,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 0
-    behind_corpus: 270
-    observed_at: '2026-09-20T00:42:36Z'
+    behind_corpus: 280
+    observed_at: '2026-09-20T01:06:10Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -938,8 +938,8 @@ repositories:
       workflows_present: 2
       workflows_absent: 2
       licensing_present: 1
-    behind_corpus: 270
-    observed_at: '2026-09-20T00:42:39Z'
+    behind_corpus: 280
+    observed_at: '2026-09-20T01:06:14Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -990,7 +990,7 @@ repositories:
       deletions: 1
       mergeable_state: blocked
       updated_at: '2026-04-06T16:02:26Z'
-    idle_hours: 3992.7
+    idle_hours: 3993.1
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1085,8 +1085,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 40
-    observed_at: '2026-09-20T00:42:35Z'
+    behind_corpus: 50
+    observed_at: '2026-09-20T01:06:09Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -1146,7 +1146,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-09-08T02:04:05Z'
-    idle_hours: 286.6
+    idle_hours: 287.0
     stalled: true
   - name: qm
     stage: draft
@@ -1161,7 +1161,7 @@ repositories:
       deletions: 10
       mergeable_state: unstable
       updated_at: '2026-08-21T16:20:56Z'
-    idle_hours: 704.4
+    idle_hours: 704.8
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1304,7 +1304,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-04-26T14:53:23Z'
-    idle_hours: 3513.8
+    idle_hours: 3514.2
     stalled: true
   - name: migrations
     stage: ready
@@ -1319,7 +1319,7 @@ repositories:
       deletions: 76
       mergeable_state: clean
       updated_at: '2026-04-23T23:10:53Z'
-    idle_hours: 3577.5
+    idle_hours: 3577.9
     stalled: true
   - name: feat/meta-intro-video
     stage: ready
@@ -1334,7 +1334,7 @@ repositories:
       deletions: 504
       mergeable_state: dirty
       updated_at: '2026-04-19T03:27:49Z'
-    idle_hours: 3693.3
+    idle_hours: 3693.6
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1400,7 +1400,7 @@ repositories:
       deletions: 544
       mergeable_state: clean
       updated_at: '2026-04-11T08:00:47Z'
-    idle_hours: 3880.7
+    idle_hours: 3881.1
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1556,7 +1556,7 @@ repositories:
       deletions: 52
       mergeable_state: clean
       updated_at: '2025-06-22T22:17:43Z'
-    idle_hours: 10898.4
+    idle_hours: 10898.8
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1647,7 +1647,7 @@ repositories:
       deletions: 42
       mergeable_state: clean
       updated_at: '2025-07-13T07:24:23Z'
-    idle_hours: 10409.3
+    idle_hours: 10409.7
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1737,7 +1737,7 @@ repositories:
       deletions: 74
       mergeable_state: clean
       updated_at: '2025-12-22T07:01:05Z'
-    idle_hours: 6521.7
+    idle_hours: 6522.1
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1819,7 +1819,7 @@ repositories:
       deletions: 242
       mergeable_state: clean
       updated_at: '2026-03-04T02:29:45Z'
-    idle_hours: 4798.2
+    idle_hours: 4798.6
     stalled: true
   - name: p5
     stage: ready
@@ -1834,7 +1834,7 @@ repositories:
       deletions: 7
       mergeable_state: clean
       updated_at: '2025-01-04T01:07:48Z'
-    idle_hours: 14975.6
+    idle_hours: 14976.0
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1920,7 +1920,7 @@ repositories:
       deletions: 165
       mergeable_state: clean
       updated_at: '2026-01-17T11:44:43Z'
-    idle_hours: 5893.0
+    idle_hours: 5893.4
     stalled: true
   - name: setlist
     stage: ready
@@ -1935,7 +1935,7 @@ repositories:
       deletions: 927
       mergeable_state: clean
       updated_at: '2026-02-21T06:35:43Z'
-    idle_hours: 5058.1
+    idle_hours: 5058.5
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -2073,6 +2073,78 @@ repositories:
     unknown: 'tags for quaternionmedia/private-26: gh: Not Found (HTTP 404)'
   threads:
     unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: golfvs
+  slug: quaternionmedia/golfvs
+  role: unmanaged
+  phase: n/a
+  phase_source: n/a
+  note: arcade physics golf with asymmetric defence, built in Godot
+  slots:
+    repository: quaternionmedia/golfvs
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 1
+      title: The first run opens on defence, the range never ends, and it builds for
+        four platforms (ADR-020 to ADR-030)
+      author: subcontrabass
+      bot: false
+      base: main
+      head: camera-orbit-and-selector-corner
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.0.2-prealpha
+    annotated: true
+    unreleased_commits: 0
+    asserts: a human reviewed, manually tested and gated this commit
+  threads:
+  - name: camera-orbit-and-selector-corner
+    stage: draft
+    pr: 1
+    base: main
+    title: The first run opens on defence, the range never ends, and it builds for
+      four platforms (ADR-020 to ADR-030)
+    author: subcontrabass
+    delta:
+      additions: 6592
+      changed_files: 61
+      commits: 22
+      deletions: 373
+      mergeable_state: clean
+      updated_at: '2026-09-19T23:36:21Z'
+    idle_hours: 1.5
+    stalled: false
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: titanharvest
+  slug: quaternionmedia/titanharvest
+  role: unmanaged
+  phase: n/a
+  phase_source: n/a
+  note: 'mech farming in dangerous space, built in Godot; a sibling of golfvs by shape.
+    Lives where the Godot project manager put it, not under repos/.
+
+    '
+  slots:
+    repository: quaternionmedia/titanharvest
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 
