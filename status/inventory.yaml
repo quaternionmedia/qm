@@ -1,1650 +1,1945 @@
-schema: 1
-generated_at: '2026-08-30T14:01:30Z'
-generator:
-  tool: ci/inventory.py
-  produced_by: assistant-2026-08
-  org: quaternionmedia
-  private_repository_names_listed: false
-  absolute_paths_written: false
-  private_repositories_referenced_as: private-NN, by creation order
-  companion_files:
-    inventory-private.json: reference -> name. Gitignored, never committed.
-    inventory-local.json: clone paths on one machine. Gitignored, never committed.
-  roster_is_a_claim: ci/workspace.yaml is a human's list. Presence in this inventory is not adoption,
-    not a backlog, and not a phase claim.
-  activity_axes:
-    attention: 'A CLAIM, from ci/workspace.yaml: active, queued, dormant, retired, external. `unstated`
-      means nobody answered; `unrostered` means the corpus does not list the repository.'
-    recency: 'MEASURED, from the default branch''s last commit date: archived, live, quiet, cold, unknown.
-      Not from updatedAt and not from pushedAt -- see default_branch_commits.'
-    risk: 'MEASURED, and machine-scoped, so it is in inventory-local.json and never here: unpushed, dirty,
-      pin-drift, clean, unreadable.'
-  default_branch_commits: read
-reading:
-  refresh: uv run qm inventory --write
-  resolve: uv run qm inventory --resolve private-03
-  staleness_budget_hours: 168
-  do_not:
-  - read this as a list of repositories that should adopt governance
-  - 'read `cloned_here: false` as a repository that does not exist'
-  - commit either companion file, or quote a resolved name anywhere
-  - quote a count without generated_at -- the org gains repositories
-  - read updated_at or a host pushed_at as work happening -- neither is
-  - 'read `attention` as evidence: it is what a human claimed'
-  - 'read `recency` as intent: a live repository nobody meant to touch is still live, and a cold one may
-    be finished rather than neglected'
-roster_problem: null
-totals:
-  on_host: 111
-  in_roster: 34
-  on_host_not_in_roster: 77
-  in_roster_not_on_host: 0
-  cloned_here: 41
-  private: 35
-  forks: 10
-  archived: 2
-  by_recency:
-    live: 12
-    quiet: 19
-    cold: 75
-    archived: 2
-    unknown: 3
-  by_attention:
-    active: 4
-    queued: 0
-    dormant: 0
-    retired: 0
-    external: 0
-    unstated: 30
-    unrostered: 77
-in_roster_not_on_host: []
-repositories:
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-12-08T00:34:32Z'
-  created_at: '2023-01-15T06:26:00Z'
-  default_branch_commit_at: '2025-12-08T00:34:26Z'
-  language: null
-  disk_usage_kb: 78
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: quiet
-  name: .github
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-02-15T21:33:42Z'
-  created_at: '2019-10-05T20:46:14Z'
-  default_branch_commit_at: '2019-10-06T17:25:59Z'
-  language: C++
-  disk_usage_kb: 3
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: AsyncServer
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-04-11T06:54:16Z'
-  created_at: '2026-04-10T20:32:51Z'
-  default_branch_commit_at: '2026-04-11T06:53:55Z'
-  language: Python
-  disk_usage_kb: 162
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: Cuelist-python
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2021-09-20T19:53:01Z'
-  created_at: '2021-09-20T19:53:00Z'
-  default_branch_commit_at: '2021-09-13T22:41:46Z'
-  language: C++
-  disk_usage_kb: 25
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: ESP32FastLEDSketches
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2021-09-16T18:07:20Z'
-  created_at: '2021-09-12T00:13:57Z'
-  default_branch_commit_at: '2021-09-16T18:07:01Z'
-  language: C
-  disk_usage_kb: 41
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: Esp32-Dual-Core-Audio-Sampling-and-FastLED-Demo
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-21T19:26:01Z'
-  created_at: '2021-01-19T02:18:20Z'
-  default_branch_commit_at: '2024-02-02T04:55:34Z'
-  language: JavaScript
-  disk_usage_kb: 2659
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: LaunchChess
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-06-30T22:30:00Z'
-  created_at: '2022-06-30T22:30:00Z'
-  default_branch_commit_at: '2022-06-30T22:30:24Z'
-  language: null
-  disk_usage_kb: 1
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: New-Dev-Setup
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2018-11-24T00:46:12Z'
-  created_at: '2018-11-05T08:22:15Z'
-  default_branch_commit_at: '2018-11-05T19:30:09Z'
-  language: Python
-  disk_usage_kb: 26
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: OctoPrint-Ira
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-04-26T19:50:12Z'
-  created_at: '2024-02-24T20:48:47Z'
-  default_branch_commit_at: '2025-04-26T19:40:11Z'
-  language: Jupyter Notebook
-  disk_usage_kb: 461
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: QLab-python
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-06-03T17:08:54Z'
-  created_at: '2022-12-31T23:50:36Z'
-  default_branch_commit_at: '2026-04-21T23:11:40Z'
-  language: Python
-  disk_usage_kb: 3106
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: ShowRunner
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2024-11-21T00:28:48Z'
-  created_at: '2020-05-19T00:39:01Z'
-  default_branch_commit_at: '2024-11-21T00:25:34Z'
-  language: Python
-  disk_usage_kb: 33
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: ShowStopper
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-11-19T07:39:20Z'
-  created_at: '2025-11-19T00:26:37Z'
-  default_branch_commit_at: '2025-11-19T07:39:10Z'
-  language: Python
-  disk_usage_kb: 316
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: TheatreMix-python
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-02-15T17:53:07Z'
-  created_at: '2021-08-06T02:49:40Z'
-  default_branch_commit_at: '2021-08-06T02:49:04Z'
-  language: Shell
-  disk_usage_kb: 1
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: aes
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2023-07-30T23:36:51Z'
-  created_at: '2023-04-15T21:45:36Z'
-  default_branch_commit_at: '2023-07-30T23:36:40Z'
-  language: Python
-  disk_usage_kb: 204
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: al-admin
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2023-06-03T00:48:14Z'
-  created_at: '2023-06-03T00:48:13Z'
-  default_branch_commit_at: '2024-01-04T00:26:48Z'
-  language: null
-  disk_usage_kb: 13
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: al-deploy
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2023-06-09T02:38:04Z'
-  created_at: '2023-06-09T02:36:15Z'
-  default_branch_commit_at: '2023-06-09T02:40:39Z'
-  language: Dockerfile
-  disk_usage_kb: 171
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: al-web
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2023-07-04T08:46:23Z'
-  created_at: '2019-09-14T06:59:16Z'
-  default_branch_commit_at: '2024-01-12T01:09:56Z'
-  language: JavaScript
-  disk_usage_kb: 4206
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: alfred
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-01-09T21:27:37Z'
-  created_at: '2022-01-09T19:16:21Z'
-  default_branch_commit_at: '2022-01-11T21:58:59Z'
-  language: Dockerfile
-  disk_usage_kb: 10
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: alfred-docker
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-12T00:58:58Z'
-  created_at: '2018-07-13T07:35:22Z'
-  default_branch_commit_at: '2026-08-12T00:58:55Z'
-  language: Python
-  disk_usage_kb: 1835
-  in_roster: true
-  roster_phase: v0.0.2
-  cloned_here: true
-  attention: unstated
-  recency: live
-  name: apothecary
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-04-06T15:54:47Z'
-  created_at: '2020-03-14T13:01:57Z'
-  default_branch_commit_at: '2026-04-06T15:54:07Z'
-  language: JavaScript
-  disk_usage_kb: 346
-  in_roster: true
-  roster_phase: v0.0.2
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: benchmark
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-22T02:39:11Z'
-  created_at: '2025-08-18T23:34:07Z'
-  default_branch_commit_at: '2026-08-22T02:39:00Z'
-  language: Python
-  disk_usage_kb: 27078
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: unstated
-  recency: live
-  name: carlos
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2023-12-25T05:21:25Z'
-  created_at: '2019-08-28T20:24:41Z'
-  default_branch_commit_at: '2019-08-30T05:36:39Z'
-  language: Python
-  disk_usage_kb: 60923
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: cesar
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-25T17:36:23Z'
-  created_at: '2023-04-26T23:04:28Z'
-  default_branch_commit_at: '2026-08-25T17:31:05Z'
-  language: Python
-  disk_usage_kb: 8548
-  in_roster: true
-  roster_phase: v0.0.2
-  cloned_here: true
-  attention: unstated
-  recency: live
-  name: codecartographer
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2020-06-23T14:43:47Z'
-  created_at: '2020-06-23T14:43:45Z'
-  default_branch_commit_at: '2020-02-10T22:22:23Z'
-  language: Python
-  disk_usage_kb: 520
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: cookiecutter-pypackage
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2024-06-03T14:26:44Z'
-  created_at: '2024-06-03T14:26:44Z'
-  default_branch_commit_at: '2023-11-18T14:47:08Z'
-  language: C++
-  disk_usage_kb: 51085
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: dRehmFlight
-- private: false
-  fork: false
-  archived: true
-  updated_at: '2024-04-06T00:12:38Z'
-  created_at: '2019-03-31T06:32:37Z'
-  default_branch_commit_at: '2021-01-12T18:53:34Z'
-  language: JavaScript
-  disk_usage_kb: 3379
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: archived
-  name: dash_smoothie
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-12-16T22:59:48Z'
-  created_at: '2024-02-10T17:19:00Z'
-  default_branch_commit_at: '2024-03-18T01:00:43Z'
-  language: TypeScript
-  disk_usage_kb: 1091
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: datafactorio_v1
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-11T12:12:17Z'
-  created_at: '2026-08-08T16:26:08Z'
-  default_branch_commit_at: '2026-08-11T11:53:46Z'
-  language: Python
-  disk_usage_kb: 472
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: unstated
-  recency: live
-  name: datum
-- private: false
-  fork: false
-  archived: true
-  updated_at: '2024-04-06T00:13:45Z'
-  created_at: '2018-11-24T02:20:34Z'
-  default_branch_commit_at: '2018-11-26T20:22:22Z'
-  language: Dockerfile
-  disk_usage_kb: 4
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: archived
-  name: docker-vue
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-27T00:51:26Z'
-  created_at: '2026-01-18T01:38:27Z'
-  default_branch_commit_at: '2026-08-27T00:50:45Z'
-  language: Python
-  disk_usage_kb: 2240
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: active
-  recency: live
-  name: dossier
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-07-05T11:59:15Z'
-  created_at: '2026-07-05T01:58:50Z'
-  default_branch_commit_at: '2026-07-05T11:59:10Z'
-  language: Lua
-  disk_usage_kb: 167
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: factorio-sysops
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2022-01-09T19:30:48Z'
-  created_at: '2021-11-14T03:09:16Z'
-  default_branch_commit_at: '2023-01-28T08:44:21Z'
-  language: Python
-  disk_usage_kb: 1378
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: fastapi-crudrouter
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2023-05-18T00:40:06Z'
-  created_at: '2019-05-28T22:28:24Z'
-  default_branch_commit_at: '2019-05-28T22:42:14Z'
-  language: Dockerfile
-  disk_usage_kb: 2
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: fastapi-traefik-cookiecutter
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2025-10-23T04:13:35Z'
-  created_at: '2025-10-23T04:13:34Z'
-  default_branch_commit_at: '2024-11-04T16:12:18Z'
-  language: Python
-  disk_usage_kb: 27
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: fountain
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2021-05-01T21:43:10Z'
-  created_at: '2018-08-31T23:54:12Z'
-  default_branch_commit_at: '2020-12-18T06:53:00Z'
-  language: C++
-  disk_usage_kb: 1388
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: freewheeling
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-02-04T06:15:11Z'
-  created_at: '2025-02-04T06:05:11Z'
-  default_branch_commit_at: '2025-02-04T06:15:02Z'
-  language: Shell
-  disk_usage_kb: 13
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: frigate
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2024-01-11T04:48:09Z'
-  created_at: '2024-01-11T03:46:25Z'
-  default_branch_commit_at: '2024-01-12T01:58:14Z'
-  language: JavaScript
-  disk_usage_kb: 11
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: haiku
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-05-24T23:22:36Z'
-  created_at: '2021-05-10T18:39:31Z'
-  default_branch_commit_at: '2025-05-24T23:22:31Z'
-  language: Python
-  disk_usage_kb: 1231
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: holophonor
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-11-29T02:48:21Z'
-  created_at: '2018-04-05T23:26:03Z'
-  default_branch_commit_at: '2020-11-10T19:05:22Z'
-  language: C++
-  disk_usage_kb: 185
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: ira
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-15T18:09:36Z'
-  created_at: '2026-08-15T06:29:22Z'
-  default_branch_commit_at: '2026-08-15T06:44:10Z'
-  language: C#
-  disk_usage_kb: 3077
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: live
-  name: janus
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2024-12-13T01:34:57Z'
-  created_at: '2018-10-09T05:03:04Z'
-  default_branch_commit_at: '2024-12-13T00:58:17Z'
-  language: Python
-  disk_usage_kb: 1577
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: joe
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-02-15T21:31:38Z'
-  created_at: '2020-12-19T22:30:02Z'
-  default_branch_commit_at: '2019-07-02T01:44:15Z'
-  language: Python
-  disk_usage_kb: 1
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: karaoke
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-06-25T06:06:35Z'
-  created_at: '2026-06-25T06:05:57Z'
-  default_branch_commit_at: '2026-06-25T06:04:18Z'
-  language: Python
-  disk_usage_kb: 319
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: quiet
-  name: karaoke-kiosk
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2020-06-11T23:28:22Z'
-  created_at: '2020-06-11T23:28:20Z'
-  default_branch_commit_at: '2020-06-05T19:01:41Z'
-  language: Python
-  disk_usage_kb: 163104
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: kburns-slideshow
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2023-01-17T01:47:44Z'
-  created_at: '2019-03-15T19:43:39Z'
-  default_branch_commit_at: '2022-02-15T20:33:54Z'
-  language: JavaScript
-  disk_usage_kb: 106
-  in_roster: false
-  roster_phase: null
-  cloned_here: true
-  attention: unrostered
-  recency: cold
-  name: kpl
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-03-21T13:45:32Z'
-  created_at: '2022-01-27T19:51:26Z'
-  default_branch_commit_at: '2022-01-28T21:09:01Z'
-  language: Python
-  disk_usage_kb: 48
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: launchchess-python
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-09-03T04:52:15Z'
-  created_at: '2018-08-01T21:54:49Z'
-  default_branch_commit_at: '2025-09-03T04:52:09Z'
-  language: TypeScript
-  disk_usage_kb: 12093
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: leo
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-01-27T01:11:53Z'
-  created_at: '2024-08-11T11:02:07Z'
-  default_branch_commit_at: '2026-01-17T12:36:15Z'
-  language: Python
-  disk_usage_kb: 1868
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: looksatwords
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-12-19T05:08:59Z'
-  created_at: '2021-03-11T19:45:26Z'
-  default_branch_commit_at: '2025-12-19T04:57:15Z'
-  language: Python
-  disk_usage_kb: 156
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: ludwig
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-02-08T00:14:10Z'
-  created_at: '2024-02-11T19:28:31Z'
-  default_branch_commit_at: '2025-02-08T00:13:57Z'
-  language: TypeScript
-  disk_usage_kb: 13
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: meiosis-cookiecutter
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-09-01T20:43:12Z'
-  created_at: '2022-03-16T17:21:59Z'
-  default_branch_commit_at: '2022-07-25T15:13:41Z'
-  language: TypeScript
-  disk_usage_kb: 10708
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: midiphonor
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-07-02T14:29:46Z'
-  created_at: '2022-07-13T17:22:42Z'
-  default_branch_commit_at: '2025-07-02T14:29:42Z'
-  language: HTML
-  disk_usage_kb: 1301
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: milestones
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-02-15T17:59:20Z'
-  created_at: '2019-09-06T02:35:10Z'
-  default_branch_commit_at: '2019-09-13T05:45:02Z'
-  language: JavaScript
-  disk_usage_kb: 222
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: mith
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-05-03T04:52:35Z'
-  created_at: '2019-05-09T18:14:50Z'
-  default_branch_commit_at: '2026-05-03T04:52:23Z'
-  language: HCL
-  disk_usage_kb: 301
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: moat
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-08-22T23:13:16Z'
-  created_at: '2020-06-23T16:53:04Z'
-  default_branch_commit_at: '2022-08-22T22:32:12Z'
-  language: JavaScript
-  disk_usage_kb: 6272
-  in_roster: false
-  roster_phase: null
-  cloned_here: true
-  attention: unrostered
-  recency: cold
-  name: moe
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2020-05-08T00:00:40Z'
-  created_at: '2020-05-08T00:00:38Z'
-  default_branch_commit_at: '2020-05-07T23:47:18Z'
-  language: Python
-  disk_usage_kb: 33466
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: moviepy
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-04-21T15:50:39Z'
-  created_at: '2025-01-01T22:28:56Z'
-  default_branch_commit_at: '2026-04-21T15:50:23Z'
-  language: null
-  disk_usage_kb: 93084
-  in_roster: false
-  roster_phase: null
-  cloned_here: true
-  attention: unrostered
-  recency: quiet
-  name: obsidian-templates
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2023-07-12T17:28:13Z'
-  created_at: '2020-05-28T18:54:29Z'
-  default_branch_commit_at: '2023-04-15T17:58:53Z'
-  language: Python
-  disk_usage_kb: 5861
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: otto
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-27T00:50:57Z'
-  created_at: '2026-06-10T18:00:26Z'
-  default_branch_commit_at: '2026-08-27T00:50:48Z'
-  language: Python
-  disk_usage_kb: 2888
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: active
-  recency: live
-  name: qm
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-27T00:17:45Z'
-  created_at: '2026-01-19T01:34:00Z'
-  default_branch_commit_at: '2026-08-27T00:13:40Z'
-  language: Python
-  disk_usage_kb: 1023
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: active
-  recency: live
-  name: qmcp
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-11T12:03:47Z'
-  created_at: '2026-06-29T00:25:07Z'
-  default_branch_commit_at: '2026-08-11T12:02:38Z'
-  language: Kotlin
-  disk_usage_kb: 81807
-  in_roster: true
-  roster_phase: v0.0.3
-  cloned_here: true
-  attention: unstated
-  recency: live
-  name: qmetronome
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-05-07T16:43:20Z'
-  created_at: '2026-05-07T16:38:29Z'
-  default_branch_commit_at: '2026-05-07T16:43:15Z'
-  language: null
-  disk_usage_kb: 147
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: quiet
-  name: qmmv
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-08-19T18:53:14Z'
-  created_at: '2026-08-09T09:50:15Z'
-  default_branch_commit_at: '2026-08-19T18:50:19Z'
-  language: JavaScript
-  disk_usage_kb: 9217
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: active
-  recency: live
-  name: rad
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2019-09-01T23:24:45Z'
-  created_at: '2019-09-01T23:22:38Z'
-  default_branch_commit_at: '2019-09-01T23:02:07Z'
-  language: JavaScript
-  disk_usage_kb: 2489
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: readysetjazz
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-04-02T00:10:53Z'
-  created_at: '2021-03-19T01:52:12Z'
-  default_branch_commit_at: '2025-04-02T00:09:56Z'
-  language: OpenSCAD
-  disk_usage_kb: 19391
-  in_roster: false
-  roster_phase: null
-  cloned_here: true
-  attention: unrostered
-  recency: cold
-  name: scad-chess
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-04-02T12:51:09Z'
-  created_at: '2026-02-21T00:49:36Z'
-  default_branch_commit_at: '2026-02-21T01:21:15Z'
-  language: Python
-  disk_usage_kb: 1299
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: quiet
-  name: sqlmodel-ui
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-02-15T17:54:54Z'
-  created_at: '2021-07-30T02:15:14Z'
-  default_branch_commit_at: '2021-07-30T03:43:13Z'
-  language: C++
-  disk_usage_kb: 4
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: stomp
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-01-31T00:16:43Z'
-  created_at: '2026-01-30T19:19:33Z'
-  default_branch_commit_at: '2026-01-31T00:16:36Z'
-  language: Python
-  disk_usage_kb: 10
-  in_roster: false
-  roster_phase: null
-  cloned_here: true
-  attention: unrostered
-  recency: quiet
-  name: sv
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-10-23T13:41:20Z'
-  created_at: '2022-10-23T13:41:20Z'
-  default_branch_commit_at: null
-  language: null
-  disk_usage_kb: 0
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: unknown
-  name: techops
-- private: false
-  fork: true
-  archived: false
-  updated_at: '2022-10-22T22:43:51Z'
-  created_at: '2022-10-22T23:56:19Z'
-  default_branch_commit_at: '2022-10-22T20:43:12Z'
-  language: Python
-  disk_usage_kb: 9338
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: textual
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-02-15T18:00:27Z'
-  created_at: '2021-10-20T18:00:53Z'
-  default_branch_commit_at: '2021-10-20T17:59:33Z'
-  language: null
-  disk_usage_kb: 17
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: tocCATa
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-07-12T23:00:53Z'
-  created_at: '2025-02-08T00:50:16Z'
-  default_branch_commit_at: '2025-07-12T23:00:49Z'
-  language: C
-  disk_usage_kb: 626
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: uPhonor
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2026-05-30T03:13:42Z'
-  created_at: '2026-04-22T17:40:39Z'
-  default_branch_commit_at: '2026-05-13T15:20:42Z'
-  language: C++
-  disk_usage_kb: 1334
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  name: waveofhormuz
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-01-27T00:18:51Z'
-  created_at: '2025-01-27T00:14:33Z'
-  default_branch_commit_at: '2025-01-27T00:16:58Z'
-  language: null
-  disk_usage_kb: 991
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: william-penn-convocation-slides
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2022-02-15T17:55:59Z'
-  created_at: '2020-08-20T20:14:00Z'
-  default_branch_commit_at: '2021-02-08T21:24:34Z'
-  language: Python
-  disk_usage_kb: 274
-  in_roster: true
-  roster_phase: n/a
-  cloned_here: true
-  attention: unstated
-  recency: cold
-  name: wolf
-- private: false
-  fork: false
-  archived: false
-  updated_at: '2025-09-02T21:22:43Z'
-  created_at: '2021-01-27T17:23:56Z'
-  default_branch_commit_at: '2021-01-29T22:47:13Z'
-  language: JavaScript
-  disk_usage_kb: 19
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  name: ztgui
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2018-11-24T00:50:14Z'
-  created_at: '2017-10-13T21:58:09Z'
-  default_branch_commit_at: '2017-10-25T21:27:20Z'
-  language: Python
-  disk_usage_kb: 40
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-01
-  label: quaternionmedia private repo 1
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2023-02-25T23:12:16Z'
-  created_at: '2017-10-13T23:02:19Z'
-  default_branch_commit_at: '2023-02-25T23:12:08Z'
-  language: Shell
-  disk_usage_kb: 5431
-  in_roster: false
-  roster_phase: null
-  cloned_here: true
-  attention: unrostered
-  recency: cold
-  ref: private-02
-  label: quaternionmedia private repo 2
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2018-11-24T00:46:24Z'
-  created_at: '2018-05-01T18:51:11Z'
-  default_branch_commit_at: '2018-09-23T01:13:02Z'
-  language: OpenSCAD
-  disk_usage_kb: 27
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-03
-  label: quaternionmedia private repo 3
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2019-10-02T17:03:54Z'
-  created_at: '2018-05-01T23:32:01Z'
-  default_branch_commit_at: '2018-11-29T23:58:08Z'
-  language: Vue
-  disk_usage_kb: 269
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-04
-  label: quaternionmedia private repo 4
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2018-11-24T00:47:56Z'
-  created_at: '2018-07-13T07:32:37Z'
-  default_branch_commit_at: '2018-07-21T16:18:39Z'
-  language: OpenSCAD
-  disk_usage_kb: 687
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-05
-  label: quaternionmedia private repo 5
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2018-11-24T00:49:44Z'
-  created_at: '2018-07-13T07:33:35Z'
-  default_branch_commit_at: '2018-07-26T08:00:06Z'
-  language: null
-  disk_usage_kb: 1
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-06
-  label: quaternionmedia private repo 6
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2018-11-24T00:47:22Z'
-  created_at: '2018-07-13T07:34:10Z'
-  default_branch_commit_at: '2018-07-21T16:18:58Z'
-  language: OpenSCAD
-  disk_usage_kb: 11
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-07
-  label: quaternionmedia private repo 7
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2020-03-07T04:27:58Z'
-  created_at: '2018-07-21T05:55:19Z'
-  default_branch_commit_at: '2020-03-07T04:27:51Z'
-  language: null
-  disk_usage_kb: 17
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-08
-  label: quaternionmedia private repo 8
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2020-03-15T12:53:28Z'
-  created_at: '2018-10-19T00:15:44Z'
-  default_branch_commit_at: '2020-03-14T20:30:37Z'
-  language: Python
-  disk_usage_kb: 992
-  in_roster: false
-  roster_phase: null
-  cloned_here: true
-  attention: unrostered
-  recency: cold
-  ref: private-09
-  label: quaternionmedia private repo 9
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2019-05-31T18:47:13Z'
-  created_at: '2018-10-21T04:28:54Z'
-  default_branch_commit_at: '2019-05-31T18:46:46Z'
-  language: JavaScript
-  disk_usage_kb: 7969
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-10
-  label: quaternionmedia private repo 10
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2019-01-07T20:34:15Z'
-  created_at: '2018-12-20T19:01:43Z'
-  default_branch_commit_at: '2019-01-07T20:34:13Z'
-  language: null
-  disk_usage_kb: 3
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-11
-  label: quaternionmedia private repo 11
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2019-05-12T04:26:43Z'
-  created_at: '2019-02-15T06:59:53Z'
-  default_branch_commit_at: '2019-05-12T04:26:17Z'
-  language: HTML
-  disk_usage_kb: 119
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-12
-  label: quaternionmedia private repo 12
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2020-05-12T05:20:05Z'
-  created_at: '2019-02-16T20:30:55Z'
-  default_branch_commit_at: '2020-05-12T05:19:46Z'
-  language: JavaScript
-  disk_usage_kb: 2633
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-13
-  label: quaternionmedia private repo 13
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2019-03-19T05:16:09Z'
-  created_at: '2019-03-19T04:04:37Z'
-  default_branch_commit_at: '2019-03-19T05:15:35Z'
-  language: Python
-  disk_usage_kb: 6
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-14
-  label: quaternionmedia private repo 14
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2021-10-24T22:11:09Z'
-  created_at: '2019-05-04T19:36:04Z'
-  default_branch_commit_at: '2021-10-24T22:10:51Z'
-  language: Python
-  disk_usage_kb: 56
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-15
-  label: quaternionmedia private repo 15
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2019-10-07T01:13:50Z'
-  created_at: '2019-10-07T01:13:47Z'
-  default_branch_commit_at: '2019-10-07T01:13:48Z'
-  language: null
-  disk_usage_kb: 0
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-16
-  label: quaternionmedia private repo 16
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2020-04-27T02:42:03Z'
-  created_at: '2020-01-07T20:40:20Z'
-  default_branch_commit_at: '2020-04-27T02:41:19Z'
-  language: JavaScript
-  disk_usage_kb: 30
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-17
-  label: quaternionmedia private repo 17
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2020-06-23T16:47:54Z'
-  created_at: '2020-01-22T01:46:36Z'
-  default_branch_commit_at: '2020-06-06T19:57:27Z'
-  language: Python
-  disk_usage_kb: 6
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-18
-  label: quaternionmedia private repo 18
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2020-05-19T01:11:35Z'
-  created_at: '2020-05-19T01:02:03Z'
-  default_branch_commit_at: '2020-05-19T01:11:33Z'
-  language: null
-  disk_usage_kb: 1
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-19
-  label: quaternionmedia private repo 19
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2020-09-28T19:56:05Z'
-  created_at: '2020-08-13T22:36:37Z'
-  default_branch_commit_at: '2020-09-28T19:45:33Z'
-  language: Python
-  disk_usage_kb: 14
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-20
-  label: quaternionmedia private repo 20
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2020-08-17T23:52:30Z'
-  created_at: '2020-08-15T21:13:58Z'
-  default_branch_commit_at: '2020-08-17T23:51:54Z'
-  language: Python
-  disk_usage_kb: 4
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-21
-  label: quaternionmedia private repo 21
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2020-12-22T19:12:28Z'
-  created_at: '2020-12-20T01:23:27Z'
-  default_branch_commit_at: '2020-12-22T19:12:14Z'
-  language: Python
-  disk_usage_kb: 2
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-22
-  label: quaternionmedia private repo 22
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2021-05-20T06:13:19Z'
-  created_at: '2021-05-20T06:09:28Z'
-  default_branch_commit_at: '2021-05-20T06:13:07Z'
-  language: null
-  disk_usage_kb: 2
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-23
-  label: quaternionmedia private repo 23
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2021-10-27T21:05:28Z'
-  created_at: '2021-10-27T21:04:07Z'
-  default_branch_commit_at: '2021-10-27T21:05:25Z'
-  language: null
-  disk_usage_kb: 1
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-24
-  label: quaternionmedia private repo 24
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2022-09-12T22:25:52Z'
-  created_at: '2022-09-12T22:25:52Z'
-  default_branch_commit_at: '2022-09-12T22:25:55Z'
-  language: null
-  disk_usage_kb: 1
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-25
-  label: quaternionmedia private repo 25
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2023-06-27T12:23:02Z'
-  created_at: '2023-06-27T12:23:01Z'
-  default_branch_commit_at: '2023-06-27T12:23:03Z'
-  language: null
-  disk_usage_kb: 0
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-26
-  label: quaternionmedia private repo 26
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2026-06-30T10:13:29Z'
-  created_at: '2023-10-30T20:14:23Z'
-  default_branch_commit_at: '2026-06-30T10:13:13Z'
-  language: Python
-  disk_usage_kb: 31
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: quiet
-  ref: private-27
-  label: quaternionmedia private repo 27
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2024-04-02T17:44:56Z'
-  created_at: '2024-04-02T17:16:13Z'
-  default_branch_commit_at: '2024-04-02T17:44:20Z'
-  language: Jupyter Notebook
-  disk_usage_kb: 4
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: cold
-  ref: private-28
-  label: quaternionmedia private repo 28
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2024-06-01T14:18:28Z'
-  created_at: '2024-06-01T14:18:27Z'
-  default_branch_commit_at: null
-  language: null
-  disk_usage_kb: 0
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: unknown
-  ref: private-29
-  label: quaternionmedia private repo 29
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2024-07-11T06:28:41Z'
-  created_at: '2024-07-11T06:28:41Z'
-  default_branch_commit_at: null
-  language: null
-  disk_usage_kb: 0
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: unknown
-  ref: private-30
-  label: quaternionmedia private repo 30
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2024-11-23T01:32:44Z'
-  created_at: '2024-11-23T01:32:00Z'
-  default_branch_commit_at: '2016-10-13T02:10:07Z'
-  language: JavaScript
-  disk_usage_kb: 2751
-  in_roster: false
-  roster_phase: null
-  cloned_here: true
-  attention: unrostered
-  recency: cold
-  ref: private-31
-  label: quaternionmedia private repo 31
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2026-07-14T00:30:26Z'
-  created_at: '2025-07-29T17:03:12Z'
-  default_branch_commit_at: '2026-07-14T00:30:20Z'
-  language: Shell
-  disk_usage_kb: 42
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  ref: private-32
-  label: quaternionmedia private repo 32
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2026-07-14T00:30:55Z'
-  created_at: '2025-12-16T23:01:15Z'
-  default_branch_commit_at: '2026-07-14T00:30:51Z'
-  language: JavaScript
-  disk_usage_kb: 1962
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: true
-  attention: unstated
-  recency: quiet
-  ref: private-33
-  label: quaternionmedia private repo 33
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2026-08-10T13:58:34Z'
-  created_at: '2026-08-08T16:26:22Z'
-  default_branch_commit_at: '2026-08-10T13:53:54Z'
-  language: Python
-  disk_usage_kb: 1102
-  in_roster: true
-  roster_phase: v0.0.1
-  cloned_here: false
-  attention: unstated
-  recency: live
-  ref: private-34
-  label: quaternionmedia private repo 34
-- private: true
-  fork: false
-  archived: false
-  updated_at: '2026-08-18T02:50:35Z'
-  created_at: '2026-08-18T02:49:26Z'
-  default_branch_commit_at: '2026-08-12T01:26:46Z'
-  language: Kotlin
-  disk_usage_kb: 52313
-  in_roster: false
-  roster_phase: null
-  cloned_here: false
-  attention: unrostered
-  recency: live
-  ref: private-35
-  label: quaternionmedia private repo 35
+{
+  "schema": 1,
+  "generated_at": "2026-09-20T00:42:03Z",
+  "generator": {
+    "tool": "ci/inventory.py",
+    "produced_by": "assistant-2026-08",
+    "org": "quaternionmedia",
+    "private_repository_names_listed": false,
+    "absolute_paths_written": false,
+    "private_repositories_referenced_as": "private-NN, by creation order",
+    "companion_files": {
+      "inventory-private.json": "reference -> name. Gitignored, never committed.",
+      "inventory-local.json": "clone paths on one machine. Gitignored, never committed."
+    },
+    "roster_is_a_claim": "ci/workspace.yaml is a human's list. Presence in this inventory is not adoption, not a backlog, and not a phase claim.",
+    "activity_axes": {
+      "attention": "A CLAIM, from ci/workspace.yaml: active, queued, dormant, retired, external. `unstated` means nobody answered; `unrostered` means the corpus does not list the repository.",
+      "recency": "MEASURED, from the default branch's last commit date: archived, live, quiet, cold, unknown. Not from updatedAt and not from pushedAt -- see default_branch_commits.",
+      "risk": "MEASURED, and machine-scoped, so it is in inventory-local.json and never here: unpushed, dirty, pin-drift, clean, unreadable."
+    },
+    "default_branch_commits": "read"
+  },
+  "reading": {
+    "refresh": "uv run qm inventory --write",
+    "resolve": "uv run qm inventory --resolve private-03",
+    "staleness_budget_hours": 168,
+    "do_not": [
+      "read this as a list of repositories that should adopt governance",
+      "read `cloned_here: false` as a repository that does not exist",
+      "commit either companion file, or quote a resolved name anywhere",
+      "quote a count without generated_at -- the org gains repositories",
+      "read updated_at or a host pushed_at as work happening -- neither is",
+      "read `attention` as evidence: it is what a human claimed",
+      "read `recency` as intent: a live repository nobody meant to touch is still live, and a cold one may be finished rather than neglected"
+    ]
+  },
+  "roster_problem": null,
+  "totals": {
+    "on_host": 115,
+    "in_roster": 41,
+    "on_host_not_in_roster": 74,
+    "in_roster_not_on_host": 0,
+    "cloned_here": 0,
+    "private": 38,
+    "forks": 10,
+    "archived": 2,
+    "by_recency": {
+      "live": 12,
+      "quiet": 22,
+      "cold": 76,
+      "archived": 2,
+      "unknown": 3
+    },
+    "by_attention": {
+      "active": 4,
+      "queued": 0,
+      "dormant": 0,
+      "retired": 0,
+      "external": 0,
+      "unstated": 37,
+      "unrostered": 74
+    }
+  },
+  "in_roster_not_on_host": [],
+  "repositories": [
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-12-08T00:34:32Z",
+      "created_at": "2023-01-15T06:26:00Z",
+      "default_branch_commit_at": "2025-12-08T00:34:26Z",
+      "language": null,
+      "disk_usage_kb": 78,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "quiet",
+      "name": ".github"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-02-15T21:33:42Z",
+      "created_at": "2019-10-05T20:46:14Z",
+      "default_branch_commit_at": "2019-10-06T17:25:59Z",
+      "language": "C++",
+      "disk_usage_kb": 3,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "AsyncServer"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-04-11T06:54:16Z",
+      "created_at": "2026-04-10T20:32:51Z",
+      "default_branch_commit_at": "2026-04-11T06:53:55Z",
+      "language": "Python",
+      "disk_usage_kb": 162,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "Cuelist-python"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2021-09-20T19:53:01Z",
+      "created_at": "2021-09-20T19:53:00Z",
+      "default_branch_commit_at": "2021-09-13T22:41:46Z",
+      "language": "C++",
+      "disk_usage_kb": 25,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "ESP32FastLEDSketches"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2021-09-16T18:07:20Z",
+      "created_at": "2021-09-12T00:13:57Z",
+      "default_branch_commit_at": "2021-09-16T18:07:01Z",
+      "language": "C",
+      "disk_usage_kb": 41,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "Esp32-Dual-Core-Audio-Sampling-and-FastLED-Demo"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-08-21T19:26:01Z",
+      "created_at": "2021-01-19T02:18:20Z",
+      "default_branch_commit_at": "2024-02-02T04:55:34Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 2659,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "LaunchChess"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-06-30T22:30:00Z",
+      "created_at": "2022-06-30T22:30:00Z",
+      "default_branch_commit_at": "2022-06-30T22:30:24Z",
+      "language": null,
+      "disk_usage_kb": 1,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "New-Dev-Setup"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2018-11-24T00:46:12Z",
+      "created_at": "2018-11-05T08:22:15Z",
+      "default_branch_commit_at": "2018-11-05T19:30:09Z",
+      "language": "Python",
+      "disk_usage_kb": 26,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "OctoPrint-Ira"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-04-26T19:50:12Z",
+      "created_at": "2024-02-24T20:48:47Z",
+      "default_branch_commit_at": "2025-04-26T19:40:11Z",
+      "language": "Jupyter Notebook",
+      "disk_usage_kb": 461,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "QLab-python"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-06-03T17:08:54Z",
+      "created_at": "2022-12-31T23:50:36Z",
+      "default_branch_commit_at": "2026-04-21T23:11:40Z",
+      "language": "Python",
+      "disk_usage_kb": 3106,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "ShowRunner"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2024-11-21T00:28:48Z",
+      "created_at": "2020-05-19T00:39:01Z",
+      "default_branch_commit_at": "2024-11-21T00:25:34Z",
+      "language": "Python",
+      "disk_usage_kb": 33,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "ShowStopper"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-11-19T07:39:20Z",
+      "created_at": "2025-11-19T00:26:37Z",
+      "default_branch_commit_at": "2025-11-19T07:39:10Z",
+      "language": "Python",
+      "disk_usage_kb": 316,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "TheatreMix-python"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-02-15T17:53:07Z",
+      "created_at": "2021-08-06T02:49:40Z",
+      "default_branch_commit_at": "2021-08-06T02:49:04Z",
+      "language": "Shell",
+      "disk_usage_kb": 1,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "aes"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-07-30T23:36:51Z",
+      "created_at": "2023-04-15T21:45:36Z",
+      "default_branch_commit_at": "2023-07-30T23:36:40Z",
+      "language": "Python",
+      "disk_usage_kb": 204,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "al-admin"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-06-03T00:48:14Z",
+      "created_at": "2023-06-03T00:48:13Z",
+      "default_branch_commit_at": "2024-01-04T00:26:48Z",
+      "language": null,
+      "disk_usage_kb": 13,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "al-deploy"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-06-09T02:38:04Z",
+      "created_at": "2023-06-09T02:36:15Z",
+      "default_branch_commit_at": "2023-06-09T02:40:39Z",
+      "language": "Dockerfile",
+      "disk_usage_kb": 171,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "al-web"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-07-04T08:46:23Z",
+      "created_at": "2019-09-14T06:59:16Z",
+      "default_branch_commit_at": "2024-01-12T01:09:56Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 4206,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "alfred"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-01-09T21:27:37Z",
+      "created_at": "2022-01-09T19:16:21Z",
+      "default_branch_commit_at": "2022-01-11T21:58:59Z",
+      "language": "Dockerfile",
+      "disk_usage_kb": 10,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "alfred-docker"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-08-12T00:58:58Z",
+      "created_at": "2018-07-13T07:35:22Z",
+      "default_branch_commit_at": "2026-08-12T00:58:55Z",
+      "language": "Python",
+      "disk_usage_kb": 3673,
+      "in_roster": true,
+      "roster_phase": "v0.0.2",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "apothecary"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-04-06T15:54:47Z",
+      "created_at": "2020-03-14T13:01:57Z",
+      "default_branch_commit_at": "2026-04-06T15:54:07Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 346,
+      "in_roster": true,
+      "roster_phase": "v0.0.2",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "benchmark"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-08-22T02:39:11Z",
+      "created_at": "2025-08-18T23:34:07Z",
+      "default_branch_commit_at": "2026-08-22T02:39:00Z",
+      "language": "Python",
+      "disk_usage_kb": 27119,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "live",
+      "name": "carlos"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-12-25T05:21:25Z",
+      "created_at": "2019-08-28T20:24:41Z",
+      "default_branch_commit_at": "2019-08-30T05:36:39Z",
+      "language": "Python",
+      "disk_usage_kb": 60923,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "cesar"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-20T00:33:56Z",
+      "created_at": "2023-04-26T23:04:28Z",
+      "default_branch_commit_at": "2026-09-20T00:33:49Z",
+      "language": "Python",
+      "disk_usage_kb": 9043,
+      "in_roster": true,
+      "roster_phase": "v0.0.2",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "live",
+      "name": "codecartographer"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2020-06-23T14:43:47Z",
+      "created_at": "2020-06-23T14:43:45Z",
+      "default_branch_commit_at": "2020-02-10T22:22:23Z",
+      "language": "Python",
+      "disk_usage_kb": 520,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "cookiecutter-pypackage"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2024-06-03T14:26:44Z",
+      "created_at": "2024-06-03T14:26:44Z",
+      "default_branch_commit_at": "2023-11-18T14:47:08Z",
+      "language": "C++",
+      "disk_usage_kb": 51085,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "dRehmFlight"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": true,
+      "updated_at": "2024-04-06T00:12:38Z",
+      "created_at": "2019-03-31T06:32:37Z",
+      "default_branch_commit_at": "2021-01-12T18:53:34Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 3379,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "archived",
+      "name": "dash_smoothie"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-12-16T22:59:48Z",
+      "created_at": "2024-02-10T17:19:00Z",
+      "default_branch_commit_at": "2024-03-18T01:00:43Z",
+      "language": "TypeScript",
+      "disk_usage_kb": 1091,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "datafactorio_v1"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-08-11T12:12:17Z",
+      "created_at": "2026-08-08T16:26:08Z",
+      "default_branch_commit_at": "2026-08-11T11:53:46Z",
+      "language": "Python",
+      "disk_usage_kb": 473,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "datum"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": true,
+      "updated_at": "2024-04-06T00:13:45Z",
+      "created_at": "2018-11-24T02:20:34Z",
+      "default_branch_commit_at": "2018-11-26T20:22:22Z",
+      "language": "Dockerfile",
+      "disk_usage_kb": 4,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "archived",
+      "name": "docker-vue"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-20T00:32:24Z",
+      "created_at": "2026-01-18T01:38:27Z",
+      "default_branch_commit_at": "2026-09-20T00:32:17Z",
+      "language": "Python",
+      "disk_usage_kb": 3587,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "active",
+      "recency": "live",
+      "name": "dossier"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-07-05T11:59:15Z",
+      "created_at": "2026-07-05T01:58:50Z",
+      "default_branch_commit_at": "2026-07-05T11:59:10Z",
+      "language": "Lua",
+      "disk_usage_kb": 167,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "factorio-sysops"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2022-01-09T19:30:48Z",
+      "created_at": "2021-11-14T03:09:16Z",
+      "default_branch_commit_at": "2023-01-28T08:44:21Z",
+      "language": "Python",
+      "disk_usage_kb": 1378,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "fastapi-crudrouter"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-05-18T00:40:06Z",
+      "created_at": "2019-05-28T22:28:24Z",
+      "default_branch_commit_at": "2019-05-28T22:42:14Z",
+      "language": "Dockerfile",
+      "disk_usage_kb": 2,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "fastapi-traefik-cookiecutter"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2025-10-23T04:13:35Z",
+      "created_at": "2025-10-23T04:13:34Z",
+      "default_branch_commit_at": "2024-11-04T16:12:18Z",
+      "language": "Python",
+      "disk_usage_kb": 27,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "fountain"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2021-05-01T21:43:10Z",
+      "created_at": "2018-08-31T23:54:12Z",
+      "default_branch_commit_at": "2020-12-18T06:53:00Z",
+      "language": "C++",
+      "disk_usage_kb": 1388,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "freewheeling"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-02-04T06:15:11Z",
+      "created_at": "2025-02-04T06:05:11Z",
+      "default_branch_commit_at": "2025-02-04T06:15:02Z",
+      "language": "Shell",
+      "disk_usage_kb": 13,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "frigate"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-19T20:02:18Z",
+      "created_at": "2026-09-19T20:01:50Z",
+      "default_branch_commit_at": "2026-09-09T16:08:32Z",
+      "language": "GDScript",
+      "disk_usage_kb": 1258,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "live",
+      "name": "golfvs"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2024-01-11T04:48:09Z",
+      "created_at": "2024-01-11T03:46:25Z",
+      "default_branch_commit_at": "2024-01-12T01:58:14Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 11,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "haiku"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-05-24T23:22:36Z",
+      "created_at": "2021-05-10T18:39:31Z",
+      "default_branch_commit_at": "2025-05-24T23:22:31Z",
+      "language": "Python",
+      "disk_usage_kb": 1231,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "holophonor"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-11-29T02:48:21Z",
+      "created_at": "2018-04-05T23:26:03Z",
+      "default_branch_commit_at": "2020-11-10T19:05:22Z",
+      "language": "C++",
+      "disk_usage_kb": 185,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "ira"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-05T07:32:29Z",
+      "created_at": "2026-08-15T06:29:22Z",
+      "default_branch_commit_at": "2026-09-05T07:32:24Z",
+      "language": "C#",
+      "disk_usage_kb": 3164,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "live",
+      "name": "janus"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2024-12-13T01:34:57Z",
+      "created_at": "2018-10-09T05:03:04Z",
+      "default_branch_commit_at": "2024-12-13T00:58:17Z",
+      "language": "Python",
+      "disk_usage_kb": 1577,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "joe"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-02-15T21:31:38Z",
+      "created_at": "2020-12-19T22:30:02Z",
+      "default_branch_commit_at": "2019-07-02T01:44:15Z",
+      "language": "Python",
+      "disk_usage_kb": 1,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "karaoke"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-06-25T06:06:35Z",
+      "created_at": "2026-06-25T06:05:57Z",
+      "default_branch_commit_at": "2026-06-25T06:04:18Z",
+      "language": "Python",
+      "disk_usage_kb": 374,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "quiet",
+      "name": "karaoke-kiosk"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2020-06-11T23:28:22Z",
+      "created_at": "2020-06-11T23:28:20Z",
+      "default_branch_commit_at": "2020-06-05T19:01:41Z",
+      "language": "Python",
+      "disk_usage_kb": 163104,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "kburns-slideshow"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-01-17T01:47:44Z",
+      "created_at": "2019-03-15T19:43:39Z",
+      "default_branch_commit_at": "2022-02-15T20:33:54Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 106,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "kpl"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-03-21T13:45:32Z",
+      "created_at": "2022-01-27T19:51:26Z",
+      "default_branch_commit_at": "2022-01-28T21:09:01Z",
+      "language": "Python",
+      "disk_usage_kb": 48,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "launchchess-python"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-09-03T04:52:15Z",
+      "created_at": "2018-08-01T21:54:49Z",
+      "default_branch_commit_at": "2025-09-03T04:52:09Z",
+      "language": "TypeScript",
+      "disk_usage_kb": 12093,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "leo"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-20T00:24:59Z",
+      "created_at": "2024-08-11T11:02:07Z",
+      "default_branch_commit_at": "2026-09-20T00:24:52Z",
+      "language": "Python",
+      "disk_usage_kb": 6235,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "live",
+      "name": "looksatwords"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-12-19T05:08:59Z",
+      "created_at": "2021-03-11T19:45:26Z",
+      "default_branch_commit_at": "2025-12-19T04:57:15Z",
+      "language": "Python",
+      "disk_usage_kb": 156,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "ludwig"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-02-08T00:14:10Z",
+      "created_at": "2024-02-11T19:28:31Z",
+      "default_branch_commit_at": "2025-02-08T00:13:57Z",
+      "language": "TypeScript",
+      "disk_usage_kb": 13,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "meiosis-cookiecutter"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-09-01T20:43:12Z",
+      "created_at": "2022-03-16T17:21:59Z",
+      "default_branch_commit_at": "2022-07-25T15:13:41Z",
+      "language": "TypeScript",
+      "disk_usage_kb": 10708,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "midiphonor"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-07-02T14:29:46Z",
+      "created_at": "2022-07-13T17:22:42Z",
+      "default_branch_commit_at": "2025-07-02T14:29:42Z",
+      "language": "HTML",
+      "disk_usage_kb": 1301,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "milestones"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-02-15T17:59:20Z",
+      "created_at": "2019-09-06T02:35:10Z",
+      "default_branch_commit_at": "2019-09-13T05:45:02Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 222,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "mith"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-05-03T04:52:35Z",
+      "created_at": "2019-05-09T18:14:50Z",
+      "default_branch_commit_at": "2026-05-03T04:52:23Z",
+      "language": "HCL",
+      "disk_usage_kb": 363,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "moat"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-08-22T23:13:16Z",
+      "created_at": "2020-06-23T16:53:04Z",
+      "default_branch_commit_at": "2022-08-22T22:32:12Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 6272,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "moe"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2020-05-08T00:00:40Z",
+      "created_at": "2020-05-08T00:00:38Z",
+      "default_branch_commit_at": "2020-05-07T23:47:18Z",
+      "language": "Python",
+      "disk_usage_kb": 33466,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "moviepy"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-08-31T21:14:36Z",
+      "created_at": "2025-01-01T22:28:56Z",
+      "default_branch_commit_at": "2026-08-31T21:13:02Z",
+      "language": null,
+      "disk_usage_kb": 96813,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "live",
+      "name": "obsidian-templates"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-07-12T17:28:13Z",
+      "created_at": "2020-05-28T18:54:29Z",
+      "default_branch_commit_at": "2023-04-15T17:58:53Z",
+      "language": "Python",
+      "disk_usage_kb": 5861,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "otto"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-20T00:36:15Z",
+      "created_at": "2026-06-10T18:00:26Z",
+      "default_branch_commit_at": "2026-09-20T00:36:05Z",
+      "language": "Python",
+      "disk_usage_kb": 2954,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "active",
+      "recency": "live",
+      "name": "qm"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-20T00:23:50Z",
+      "created_at": "2026-01-19T01:34:00Z",
+      "default_branch_commit_at": "2026-09-20T00:23:46Z",
+      "language": "Python",
+      "disk_usage_kb": 1036,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "active",
+      "recency": "live",
+      "name": "qmcp"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-08-11T12:03:47Z",
+      "created_at": "2026-06-29T00:25:07Z",
+      "default_branch_commit_at": "2026-08-11T12:02:38Z",
+      "language": "Kotlin",
+      "disk_usage_kb": 81807,
+      "in_roster": true,
+      "roster_phase": "v0.0.3",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "qmetronome"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-05-07T16:43:20Z",
+      "created_at": "2026-05-07T16:38:29Z",
+      "default_branch_commit_at": "2026-05-07T16:43:15Z",
+      "language": null,
+      "disk_usage_kb": 147,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "quiet",
+      "name": "qmmv"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-20T00:34:47Z",
+      "created_at": "2026-08-09T09:50:15Z",
+      "default_branch_commit_at": "2026-09-20T00:34:41Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 12884,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "active",
+      "recency": "live",
+      "name": "rad"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2019-09-01T23:24:45Z",
+      "created_at": "2019-09-01T23:22:38Z",
+      "default_branch_commit_at": "2019-09-01T23:02:07Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 2489,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "readysetjazz"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-04-02T00:10:53Z",
+      "created_at": "2021-03-19T01:52:12Z",
+      "default_branch_commit_at": "2025-04-02T00:09:56Z",
+      "language": "OpenSCAD",
+      "disk_usage_kb": 19391,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "scad-chess"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-04-02T12:51:09Z",
+      "created_at": "2026-02-21T00:49:36Z",
+      "default_branch_commit_at": "2026-02-21T01:21:15Z",
+      "language": "Python",
+      "disk_usage_kb": 1299,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "quiet",
+      "name": "sqlmodel-ui"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-02-15T17:54:54Z",
+      "created_at": "2021-07-30T02:15:14Z",
+      "default_branch_commit_at": "2021-07-30T03:43:13Z",
+      "language": "C++",
+      "disk_usage_kb": 4,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "stomp"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-01-31T00:16:43Z",
+      "created_at": "2026-01-30T19:19:33Z",
+      "default_branch_commit_at": "2026-01-31T00:16:36Z",
+      "language": "Python",
+      "disk_usage_kb": 10,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "quiet",
+      "name": "sv"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-10-23T13:41:20Z",
+      "created_at": "2022-10-23T13:41:20Z",
+      "default_branch_commit_at": null,
+      "language": null,
+      "disk_usage_kb": 0,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "unknown",
+      "name": "techops"
+    },
+    {
+      "private": false,
+      "fork": true,
+      "archived": false,
+      "updated_at": "2022-10-22T22:43:51Z",
+      "created_at": "2022-10-22T23:56:19Z",
+      "default_branch_commit_at": "2022-10-22T20:43:12Z",
+      "language": "Python",
+      "disk_usage_kb": 9338,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "textual"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-02-15T18:00:27Z",
+      "created_at": "2021-10-20T18:00:53Z",
+      "default_branch_commit_at": "2021-10-20T17:59:33Z",
+      "language": null,
+      "disk_usage_kb": 17,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "tocCATa"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-07-12T23:00:53Z",
+      "created_at": "2025-02-08T00:50:16Z",
+      "default_branch_commit_at": "2025-07-12T23:00:49Z",
+      "language": "C",
+      "disk_usage_kb": 626,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "uPhonor"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-05-30T03:13:42Z",
+      "created_at": "2026-04-22T17:40:39Z",
+      "default_branch_commit_at": "2026-05-13T15:20:42Z",
+      "language": "C++",
+      "disk_usage_kb": 1334,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "waveofhormuz"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-01-27T00:18:51Z",
+      "created_at": "2025-01-27T00:14:33Z",
+      "default_branch_commit_at": "2025-01-27T00:16:58Z",
+      "language": null,
+      "disk_usage_kb": 991,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "name": "william-penn-convocation-slides"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-02-15T17:55:59Z",
+      "created_at": "2020-08-20T20:14:00Z",
+      "default_branch_commit_at": "2021-02-08T21:24:34Z",
+      "language": "Python",
+      "disk_usage_kb": 274,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "wolf"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2025-09-02T21:22:43Z",
+      "created_at": "2021-01-27T17:23:56Z",
+      "default_branch_commit_at": "2021-01-29T22:47:13Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 19,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "name": "ztgui"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2018-11-24T00:50:14Z",
+      "created_at": "2017-10-13T21:58:09Z",
+      "default_branch_commit_at": "2017-10-25T21:27:20Z",
+      "language": "Python",
+      "disk_usage_kb": 40,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-01",
+      "label": "quaternionmedia private repo 1"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-02-25T23:12:16Z",
+      "created_at": "2017-10-13T23:02:19Z",
+      "default_branch_commit_at": "2023-02-25T23:12:08Z",
+      "language": "Shell",
+      "disk_usage_kb": 5431,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-02",
+      "label": "quaternionmedia private repo 2"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2018-11-24T00:46:24Z",
+      "created_at": "2018-05-01T18:51:11Z",
+      "default_branch_commit_at": "2018-09-23T01:13:02Z",
+      "language": "OpenSCAD",
+      "disk_usage_kb": 27,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "ref": "private-03",
+      "label": "quaternionmedia private repo 3"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2019-10-02T17:03:54Z",
+      "created_at": "2018-05-01T23:32:01Z",
+      "default_branch_commit_at": "2018-11-29T23:58:08Z",
+      "language": "Vue",
+      "disk_usage_kb": 269,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-04",
+      "label": "quaternionmedia private repo 4"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2018-11-24T00:47:56Z",
+      "created_at": "2018-07-13T07:32:37Z",
+      "default_branch_commit_at": "2018-07-21T16:18:39Z",
+      "language": "OpenSCAD",
+      "disk_usage_kb": 687,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "ref": "private-05",
+      "label": "quaternionmedia private repo 5"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2018-11-24T00:49:44Z",
+      "created_at": "2018-07-13T07:33:35Z",
+      "default_branch_commit_at": "2018-07-26T08:00:06Z",
+      "language": null,
+      "disk_usage_kb": 1,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-06",
+      "label": "quaternionmedia private repo 6"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2018-11-24T00:47:22Z",
+      "created_at": "2018-07-13T07:34:10Z",
+      "default_branch_commit_at": "2018-07-21T16:18:58Z",
+      "language": "OpenSCAD",
+      "disk_usage_kb": 11,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "ref": "private-07",
+      "label": "quaternionmedia private repo 7"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2020-03-07T04:27:58Z",
+      "created_at": "2018-07-21T05:55:19Z",
+      "default_branch_commit_at": "2020-03-07T04:27:51Z",
+      "language": null,
+      "disk_usage_kb": 17,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-08",
+      "label": "quaternionmedia private repo 8"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2020-03-15T12:53:28Z",
+      "created_at": "2018-10-19T00:15:44Z",
+      "default_branch_commit_at": "2020-03-14T20:30:37Z",
+      "language": "Python",
+      "disk_usage_kb": 992,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-09",
+      "label": "quaternionmedia private repo 9"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2019-05-31T18:47:13Z",
+      "created_at": "2018-10-21T04:28:54Z",
+      "default_branch_commit_at": "2019-05-31T18:46:46Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 7969,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-10",
+      "label": "quaternionmedia private repo 10"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2019-01-07T20:34:15Z",
+      "created_at": "2018-12-20T19:01:43Z",
+      "default_branch_commit_at": "2019-01-07T20:34:13Z",
+      "language": null,
+      "disk_usage_kb": 3,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-11",
+      "label": "quaternionmedia private repo 11"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2019-05-12T04:26:43Z",
+      "created_at": "2019-02-15T06:59:53Z",
+      "default_branch_commit_at": "2019-05-12T04:26:17Z",
+      "language": "HTML",
+      "disk_usage_kb": 119,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-12",
+      "label": "quaternionmedia private repo 12"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2020-05-12T05:20:05Z",
+      "created_at": "2019-02-16T20:30:55Z",
+      "default_branch_commit_at": "2020-05-12T05:19:46Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 2633,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-13",
+      "label": "quaternionmedia private repo 13"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2019-03-19T05:16:09Z",
+      "created_at": "2019-03-19T04:04:37Z",
+      "default_branch_commit_at": "2019-03-19T05:15:35Z",
+      "language": "Python",
+      "disk_usage_kb": 6,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-14",
+      "label": "quaternionmedia private repo 14"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2021-10-24T22:11:09Z",
+      "created_at": "2019-05-04T19:36:04Z",
+      "default_branch_commit_at": "2021-10-24T22:10:51Z",
+      "language": "Python",
+      "disk_usage_kb": 56,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-15",
+      "label": "quaternionmedia private repo 15"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2019-10-07T01:13:50Z",
+      "created_at": "2019-10-07T01:13:47Z",
+      "default_branch_commit_at": "2019-10-07T01:13:48Z",
+      "language": null,
+      "disk_usage_kb": 0,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-16",
+      "label": "quaternionmedia private repo 16"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2020-04-27T02:42:03Z",
+      "created_at": "2020-01-07T20:40:20Z",
+      "default_branch_commit_at": "2020-04-27T02:41:19Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 30,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-17",
+      "label": "quaternionmedia private repo 17"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2020-06-23T16:47:54Z",
+      "created_at": "2020-01-22T01:46:36Z",
+      "default_branch_commit_at": "2020-06-06T19:57:27Z",
+      "language": "Python",
+      "disk_usage_kb": 6,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-18",
+      "label": "quaternionmedia private repo 18"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2020-05-19T01:11:35Z",
+      "created_at": "2020-05-19T01:02:03Z",
+      "default_branch_commit_at": "2020-05-19T01:11:33Z",
+      "language": null,
+      "disk_usage_kb": 1,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-19",
+      "label": "quaternionmedia private repo 19"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2020-09-28T19:56:05Z",
+      "created_at": "2020-08-13T22:36:37Z",
+      "default_branch_commit_at": "2020-09-28T19:45:33Z",
+      "language": "Python",
+      "disk_usage_kb": 14,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-20",
+      "label": "quaternionmedia private repo 20"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2020-08-17T23:52:30Z",
+      "created_at": "2020-08-15T21:13:58Z",
+      "default_branch_commit_at": "2020-08-17T23:51:54Z",
+      "language": "Python",
+      "disk_usage_kb": 4,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-21",
+      "label": "quaternionmedia private repo 21"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2020-12-22T19:12:28Z",
+      "created_at": "2020-12-20T01:23:27Z",
+      "default_branch_commit_at": "2020-12-22T19:12:14Z",
+      "language": "Python",
+      "disk_usage_kb": 2,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-22",
+      "label": "quaternionmedia private repo 22"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2021-05-20T06:13:19Z",
+      "created_at": "2021-05-20T06:09:28Z",
+      "default_branch_commit_at": "2021-05-20T06:13:07Z",
+      "language": null,
+      "disk_usage_kb": 2,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "ref": "private-23",
+      "label": "quaternionmedia private repo 23"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2021-10-27T21:05:28Z",
+      "created_at": "2021-10-27T21:04:07Z",
+      "default_branch_commit_at": "2021-10-27T21:05:25Z",
+      "language": null,
+      "disk_usage_kb": 1,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-24",
+      "label": "quaternionmedia private repo 24"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2022-09-12T22:25:52Z",
+      "created_at": "2022-09-12T22:25:52Z",
+      "default_branch_commit_at": "2022-09-12T22:25:55Z",
+      "language": null,
+      "disk_usage_kb": 1,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-25",
+      "label": "quaternionmedia private repo 25"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2023-06-27T12:23:02Z",
+      "created_at": "2023-06-27T12:23:01Z",
+      "default_branch_commit_at": "2023-06-27T12:23:03Z",
+      "language": null,
+      "disk_usage_kb": 0,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "cold",
+      "ref": "private-26",
+      "label": "quaternionmedia private repo 26"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-06-30T10:13:29Z",
+      "created_at": "2023-10-30T20:14:23Z",
+      "default_branch_commit_at": "2026-06-30T10:13:13Z",
+      "language": "Python",
+      "disk_usage_kb": 31,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "quiet",
+      "ref": "private-27",
+      "label": "quaternionmedia private repo 27"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2024-04-02T17:44:56Z",
+      "created_at": "2024-04-02T17:16:13Z",
+      "default_branch_commit_at": "2024-04-02T17:44:20Z",
+      "language": "Jupyter Notebook",
+      "disk_usage_kb": 4,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-28",
+      "label": "quaternionmedia private repo 28"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2024-06-01T14:18:28Z",
+      "created_at": "2024-06-01T14:18:27Z",
+      "default_branch_commit_at": null,
+      "language": null,
+      "disk_usage_kb": 0,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "unknown",
+      "ref": "private-29",
+      "label": "quaternionmedia private repo 29"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2024-07-11T06:28:41Z",
+      "created_at": "2024-07-11T06:28:41Z",
+      "default_branch_commit_at": null,
+      "language": null,
+      "disk_usage_kb": 0,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "unknown",
+      "ref": "private-30",
+      "label": "quaternionmedia private repo 30"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2024-11-23T01:32:44Z",
+      "created_at": "2024-11-23T01:32:00Z",
+      "default_branch_commit_at": "2016-10-13T02:10:07Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 2751,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "cold",
+      "ref": "private-31",
+      "label": "quaternionmedia private repo 31"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-07-14T00:30:26Z",
+      "created_at": "2025-07-29T17:03:12Z",
+      "default_branch_commit_at": "2026-07-14T00:30:20Z",
+      "language": "Shell",
+      "disk_usage_kb": 42,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "ref": "private-32",
+      "label": "quaternionmedia private repo 32"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-20T00:20:42Z",
+      "created_at": "2025-12-16T23:01:15Z",
+      "default_branch_commit_at": "2026-09-20T00:20:37Z",
+      "language": "JavaScript",
+      "disk_usage_kb": 1963,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "live",
+      "ref": "private-33",
+      "label": "quaternionmedia private repo 33"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-08-10T13:58:34Z",
+      "created_at": "2026-08-08T16:26:22Z",
+      "default_branch_commit_at": "2026-08-10T13:53:54Z",
+      "language": "Python",
+      "disk_usage_kb": 1188,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
+      "cloned_here": false,
+      "attention": "unstated",
+      "recency": "quiet",
+      "ref": "private-34",
+      "label": "quaternionmedia private repo 34"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-08-18T02:50:35Z",
+      "created_at": "2026-08-18T02:49:26Z",
+      "default_branch_commit_at": "2026-08-12T01:26:46Z",
+      "language": "Kotlin",
+      "disk_usage_kb": 56512,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "quiet",
+      "ref": "private-35",
+      "label": "quaternionmedia private repo 35"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-19T22:00:47Z",
+      "created_at": "2026-09-19T22:00:37Z",
+      "default_branch_commit_at": "2026-08-18T01:48:19Z",
+      "language": "Python",
+      "disk_usage_kb": 286,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "quiet",
+      "ref": "private-36",
+      "label": "quaternionmedia private repo 36"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-19T22:45:51Z",
+      "created_at": "2026-09-19T22:45:43Z",
+      "default_branch_commit_at": "2026-05-18T00:30:30Z",
+      "language": "Python",
+      "disk_usage_kb": 310,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "quiet",
+      "ref": "private-37",
+      "label": "quaternionmedia private repo 37"
+    },
+    {
+      "private": true,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-09-20T00:39:43Z",
+      "created_at": "2026-09-19T23:50:28Z",
+      "default_branch_commit_at": "2026-09-20T00:39:39Z",
+      "language": "GDScript",
+      "disk_usage_kb": 0,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "live",
+      "ref": "private-38",
+      "label": "quaternionmedia private repo 38"
+    }
+  ]
+}

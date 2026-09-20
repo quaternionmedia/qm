@@ -18,6 +18,7 @@ inheriting a previous session's belief instead of asking the repository:
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are very likely running
    right now, in other repositories, for the same reviewer.
+   `uv run qm estate` reports it across every rostered repository;
    `handbook/async-contract.md` is the set of rules that exist only because of
    that, and it is short.
 4. **Which gates exist**, and what each one cannot see.

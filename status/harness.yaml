@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-19T23:56:10Z'
+generated_at: '2026-09-20T00:43:30Z'
 generator:
   tool: ci/harness_status.py
   org: quaternionmedia
@@ -53,14 +53,14 @@ totals:
   compliant: 31
   over_limit: 2
   governance_readable: 14
-  governance_precondition_met: 1
+  governance_precondition_met: 2
   phase_scaffolded: 10
   phase_stated_above_governance: 4
   threads_by_stage:
     local: 0
     pushed: 0
     draft: 6
-    ready: 18
+    ready: 12
   threads_stalled: 16
   threads_unreadable: 8
 repositories:
@@ -75,15 +75,7 @@ repositories:
     per_base:
     - project/*
     contributor: null
-    open_prs:
-    - number: 110
-      title: Join what the org left open into one document, and keep the claim out
-        of it
-      author: subcontrabass
-      bot: false
-      base: main
-      head: evolve/loose-ends
-      draft: false
+    open_prs: []
     violations: []
     exit_status: 0
     compliant: true
@@ -92,23 +84,7 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads:
-  - name: evolve/loose-ends
-    stage: ready
-    pr: 110
-    base: main
-    title: Join what the org left open into one document, and keep the claim out of
-      it
-    author: subcontrabass
-    delta:
-      additions: 1914
-      changed_files: 9
-      commits: 2
-      deletions: 0
-      mergeable_state: clean
-      updated_at: '2026-09-19T22:25:06Z'
-    idle_hours: 1.5
-    stalled: false
+  threads: []
   governance:
     precondition: n/a
     missing: []
@@ -124,13 +100,6 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
-    - number: 56
-      title: Rework the dossier dashboard into job-driven views
-      author: subcontrabass
-      bot: false
-      base: main
-      head: evolve/dossier-job-driven-views
-      draft: false
     - number: 9
       title: 'build(deps): bump starlette from 0.50.0 to 1.3.1'
       author: dependabot[bot]
@@ -174,22 +143,7 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads:
-  - name: evolve/dossier-job-driven-views
-    stage: ready
-    pr: 56
-    base: main
-    title: Rework the dossier dashboard into job-driven views
-    author: subcontrabass
-    delta:
-      additions: 3550
-      changed_files: 55
-      commits: 20
-      deletions: 808
-      mergeable_state: clean
-      updated_at: '2026-09-19T17:46:05Z'
-    idle_hours: 6.2
-    stalled: false
+  threads: []
   governance:
     precondition: incomplete
     missing:
@@ -202,8 +156,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 10
-    observed_at: '2026-09-19T23:55:08Z'
+    behind_corpus: 47
+    observed_at: '2026-09-20T00:42:26Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -218,13 +172,6 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
-    - number: 35
-      title: Carry the seed workflow this fork was missing
-      author: subcontrabass
-      bot: false
-      base: main
-      head: evolve/carry-the-seed-workflow
-      draft: false
     - number: 20
       title: 'chore(deps): bump python-dotenv from 1.2.1 to 1.2.2'
       author: dependabot[bot]
@@ -331,37 +278,21 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads:
-  - name: evolve/carry-the-seed-workflow
-    stage: ready
-    pr: 35
-    base: main
-    title: Carry the seed workflow this fork was missing
-    author: subcontrabass
-    delta:
-      additions: 344
-      changed_files: 5
-      commits: 2
-      deletions: 0
-      mergeable_state: clean
-      updated_at: '2026-09-19T20:13:22Z'
-    idle_hours: 3.7
-    stalled: false
+  threads: []
   governance:
     precondition: incomplete
     missing:
-    - workflows
     - licensing
     detail:
       submodule: governance/qm
       submodule_branch: project/qmcp
       ide_present: 3
       ide_absent: 0
-      workflows_present: 3
-      workflows_absent: 1
-      licensing_present: 0
-    behind_corpus: 50
-    observed_at: '2026-09-19T23:55:15Z'
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 1
+    behind_corpus: 87
+    observed_at: '2026-09-20T00:42:38Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -376,14 +307,6 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
-    - number: 5
-      title: 'Consolidate rad: host-to-host messaging, the executable ring, and the
-        coordinate'
-      author: subcontrabass
-      bot: false
-      base: main
-      head: evolve/consolidate-rad
-      draft: false
     - number: 2
       title: Bump playwright and @playwright/test
       author: dependabot[bot]
@@ -399,23 +322,7 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads:
-  - name: evolve/consolidate-rad
-    stage: ready
-    pr: 5
-    base: main
-    title: 'Consolidate rad: host-to-host messaging, the executable ring, and the
-      coordinate'
-    author: subcontrabass
-    delta:
-      additions: 3601
-      changed_files: 51
-      commits: 19
-      deletions: 121
-      mergeable_state: clean
-      updated_at: '2026-09-19T22:33:39Z'
-    idle_hours: 1.4
-    stalled: false
+  threads: []
   governance:
     precondition: incomplete
     missing:
@@ -428,8 +335,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 107
-    observed_at: '2026-09-19T23:55:18Z'
+    behind_corpus: 144
+    observed_at: '2026-09-20T00:42:41Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -482,7 +389,7 @@ repositories:
       deletions: 44
       mergeable_state: clean
       updated_at: '2023-12-30T22:55:40Z'
-    idle_hours: 23857.0
+    idle_hours: 23857.8
     stalled: true
   governance:
     precondition: incomplete
@@ -499,8 +406,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 233
-    observed_at: '2026-09-19T23:54:58Z'
+    behind_corpus: 270
+    observed_at: '2026-09-20T00:42:17Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -581,7 +488,7 @@ repositories:
       deletions: 533
       mergeable_state: clean
       updated_at: '2026-09-19T21:59:38Z'
-    idle_hours: 1.9
+    idle_hours: 2.7
     stalled: false
   governance:
     precondition: incomplete
@@ -595,8 +502,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 233
-    observed_at: '2026-09-19T23:55:00Z'
+    behind_corpus: 270
+    observed_at: '2026-09-20T00:42:18Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -642,7 +549,7 @@ repositories:
       deletions: 97
       mergeable_state: clean
       updated_at: '2026-09-19T22:00:15Z'
-    idle_hours: 1.9
+    idle_hours: 2.7
     stalled: false
   governance:
     precondition: incomplete
@@ -656,8 +563,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 111
-    observed_at: '2026-09-19T23:55:06Z'
+    behind_corpus: 148
+    observed_at: '2026-09-20T00:42:24Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -672,13 +579,6 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
-    - number: 98
-      title: Consolidate the overview consumer and the unified UI paths
-      author: subcontrabass
-      bot: false
-      base: main
-      head: evolve/consolidate-overview-and-ui-paths
-      draft: false
     - number: 97
       title: 'build(deps): bump anyio from 4.12.1 to 4.14.2'
       author: dependabot[bot]
@@ -736,22 +636,7 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads:
-  - name: evolve/consolidate-overview-and-ui-paths
-    stage: ready
-    pr: 98
-    base: main
-    title: Consolidate the overview consumer and the unified UI paths
-    author: subcontrabass
-    delta:
-      additions: 2156
-      changed_files: 54
-      commits: 14
-      deletions: 4998
-      mergeable_state: clean
-      updated_at: '2026-09-19T20:13:32Z'
-    idle_hours: 3.7
-    stalled: false
+  threads: []
   governance:
     precondition: incomplete
     missing:
@@ -764,8 +649,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 10
-    observed_at: '2026-09-19T23:55:03Z'
+    behind_corpus: 47
+    observed_at: '2026-09-20T00:42:21Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -801,8 +686,8 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 233
-    observed_at: '2026-09-19T23:55:09Z'
+    behind_corpus: 270
+    observed_at: '2026-09-20T00:42:27Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -837,8 +722,8 @@ repositories:
       workflows_present: 1
       workflows_absent: 3
       licensing_present: 0
-    behind_corpus: 233
-    observed_at: '2026-09-19T23:55:04Z'
+    behind_corpus: 270
+    observed_at: '2026-09-20T00:42:23Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -876,8 +761,8 @@ repositories:
       workflows_present: 1
       workflows_absent: 3
       licensing_present: 0
-    behind_corpus: 233
-    observed_at: '2026-09-19T23:55:10Z'
+    behind_corpus: 270
+    observed_at: '2026-09-20T00:42:29Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -951,7 +836,7 @@ repositories:
       deletions: 124
       mergeable_state: unstable
       updated_at: '2026-08-22T17:27:47Z'
-    idle_hours: 678.5
+    idle_hours: 679.3
     stalled: true
   governance:
     precondition: met
@@ -964,8 +849,8 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 140
-    observed_at: '2026-09-19T23:55:01Z'
+    behind_corpus: 177
+    observed_at: '2026-09-20T00:42:20Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -999,8 +884,8 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 0
-    behind_corpus: 233
-    observed_at: '2026-09-19T23:55:14Z'
+    behind_corpus: 270
+    observed_at: '2026-09-20T00:42:36Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -1053,8 +938,8 @@ repositories:
       workflows_present: 2
       workflows_absent: 2
       licensing_present: 1
-    behind_corpus: 233
-    observed_at: '2026-09-19T23:55:17Z'
+    behind_corpus: 270
+    observed_at: '2026-09-20T00:42:39Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -1105,7 +990,7 @@ repositories:
       deletions: 1
       mergeable_state: blocked
       updated_at: '2026-04-06T16:02:26Z'
-    idle_hours: 3991.9
+    idle_hours: 3992.7
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1124,13 +1009,6 @@ repositories:
     per_base: []
     contributor: null
     open_prs:
-    - number: 22
-      title: Adopt the governance corpus, and read the harness archive over its seam
-      author: subcontrabass
-      bot: false
-      base: main
-      head: feat/adopt-the-governance-corpus
-      draft: false
     - number: 21
       title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
       author: dependabot[bot]
@@ -1195,39 +1073,20 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads:
-  - name: feat/adopt-the-governance-corpus
-    stage: ready
-    pr: 22
-    base: main
-    title: Adopt the governance corpus, and read the harness archive over its seam
-    author: subcontrabass
-    delta:
-      additions: 3932
-      changed_files: 53
-      commits: 21
-      deletions: 1946
-      mergeable_state: clean
-      updated_at: '2026-09-19T18:02:49Z'
-    idle_hours: 5.9
-    stalled: false
+  threads: []
   governance:
-    precondition: incomplete
-    missing:
-    - submodule
-    - ide
-    - workflows
-    - licensing
+    precondition: met
+    missing: []
     detail:
-      submodule: null
-      submodule_branch: null
-      ide_present: 0
-      ide_absent: 3
-      workflows_present: 0
-      workflows_absent: 4
-      licensing_present: 0
-    behind_corpus: 3
-    observed_at: '2026-09-19T23:55:12Z'
+      submodule: governance/qm
+      submodule_branch: project/looksatwords
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 40
+    observed_at: '2026-09-20T00:42:35Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
@@ -1287,7 +1146,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-09-08T02:04:05Z'
-    idle_hours: 285.9
+    idle_hours: 286.6
     stalled: true
   - name: qm
     stage: draft
@@ -1302,7 +1161,7 @@ repositories:
       deletions: 10
       mergeable_state: unstable
       updated_at: '2026-08-21T16:20:56Z'
-    idle_hours: 703.6
+    idle_hours: 704.4
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1445,7 +1304,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-04-26T14:53:23Z'
-    idle_hours: 3513.0
+    idle_hours: 3513.8
     stalled: true
   - name: migrations
     stage: ready
@@ -1460,7 +1319,7 @@ repositories:
       deletions: 76
       mergeable_state: clean
       updated_at: '2026-04-23T23:10:53Z'
-    idle_hours: 3576.7
+    idle_hours: 3577.5
     stalled: true
   - name: feat/meta-intro-video
     stage: ready
@@ -1475,7 +1334,7 @@ repositories:
       deletions: 504
       mergeable_state: dirty
       updated_at: '2026-04-19T03:27:49Z'
-    idle_hours: 3692.5
+    idle_hours: 3693.3
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1541,7 +1400,7 @@ repositories:
       deletions: 544
       mergeable_state: clean
       updated_at: '2026-04-11T08:00:47Z'
-    idle_hours: 3879.9
+    idle_hours: 3880.7
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1697,7 +1556,7 @@ repositories:
       deletions: 52
       mergeable_state: clean
       updated_at: '2025-06-22T22:17:43Z'
-    idle_hours: 10897.6
+    idle_hours: 10898.4
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1788,7 +1647,7 @@ repositories:
       deletions: 42
       mergeable_state: clean
       updated_at: '2025-07-13T07:24:23Z'
-    idle_hours: 10408.5
+    idle_hours: 10409.3
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1878,7 +1737,7 @@ repositories:
       deletions: 74
       mergeable_state: clean
       updated_at: '2025-12-22T07:01:05Z'
-    idle_hours: 6520.9
+    idle_hours: 6521.7
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -1960,7 +1819,7 @@ repositories:
       deletions: 242
       mergeable_state: clean
       updated_at: '2026-03-04T02:29:45Z'
-    idle_hours: 4797.4
+    idle_hours: 4798.2
     stalled: true
   - name: p5
     stage: ready
@@ -1975,7 +1834,7 @@ repositories:
       deletions: 7
       mergeable_state: clean
       updated_at: '2025-01-04T01:07:48Z'
-    idle_hours: 14974.8
+    idle_hours: 14975.6
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
@@ -2061,7 +1920,7 @@ repositories:
       deletions: 165
       mergeable_state: clean
       updated_at: '2026-01-17T11:44:43Z'
-    idle_hours: 5892.2
+    idle_hours: 5893.0
     stalled: true
   - name: setlist
     stage: ready
@@ -2076,7 +1935,7 @@ repositories:
       deletions: 927
       mergeable_state: clean
       updated_at: '2026-02-21T06:35:43Z'
-    idle_hours: 5057.3
+    idle_hours: 5058.1
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read

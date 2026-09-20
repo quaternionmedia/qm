@@ -319,6 +319,7 @@ reports their absence.
 | A record's Status or number needs changing | **Not yours.** Draft it and hand it back; a human ratifies |
 | A project pends on something the org has not settled | `uv run qm inbound`. Answer the group at the top first — it is the one action that unblocks the most projects |
 | A branch you are about to delete | `uv run qm branches` **in that repository**, first. A branch whose remote is fully merged can still hold commits on one disk, and the two are indistinguishable in a list of names |
+| A consolidation across the estate, or any doubt about what this disk alone holds | `uv run qm estate` from the corpus, first. It runs the census's question over every rostered clone with read commands only: what is on a branch the host has never seen, what is ahead of its remote copy, what is uncommitted, and who is over the one-PR slot. `--offline` asks the host nothing and says so; `--json` is the same survey for a script. It writes nothing and drops nothing -- a roster entry with no clone is a MISSING row, not an absent one |
 
 ## What this page does not authorise
 

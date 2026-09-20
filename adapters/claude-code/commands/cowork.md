@@ -55,6 +55,7 @@ Open your first message with these, in this order:
   session, ask. It survives compaction and it overrides delivery.
 - **Anything else in flight** — a dirty tree you did not dirty, a sibling
   branch, an unpushed commit. Reconcile before writing, not after.
+  `uv run qm estate` answers it across every rostered repository.
 - **Every question whose answer changes what you build.** Ask them now. A pull
   request states decisions; a question that arrives in one hands the drafting
   back to your reviewer.
