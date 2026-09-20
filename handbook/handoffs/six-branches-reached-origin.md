@@ -12,8 +12,8 @@ moved twice under this session while it worked.
 | repository | `origin/main` | date |
 |---|---|---|
 | qm | `7678999` (#112 merged); the local stage `test` is left at `5cc7a55`, seven behind, by Step 9 of the runbook | 2026-09-20 |
-| titanharvest | `1b86508` (#3 merged); private | 2026-09-20 |
-| rad-godot | `6dd9485`; created private that evening, nobody tagged, `main` pushed | 2026-09-20 |
+| a second private roster entry (`private-38` in `ci/workspace-private.yaml`) | `1b86508` (its #3 merged) | 2026-09-20 |
+| rad-godot | `6dd9485`; created private that evening, nobody tagged, `main` pushed; made public 2026-09-20 | 2026-09-20 |
 | dossier | `bd322d38d496` (#56 merged) | 2026-09-20 |
 | qmcp | `3e2571186a1b` (#35 merged) | 2026-09-20 |
 | looksatwords | `32d337191f58` (#22 merged) | 2026-09-20 |
@@ -136,7 +136,10 @@ resolved by regenerating, and only sometimes in source.
   or add the account to the placeholders if it is nobody's.
 - **Two held pull requests** — datum #2 and apothecary #21 — merge or close is
   the person's.
-- **`main`'s working tree names private repositories.** `uv run qm
+- **`main`'s working tree names private repositories.** Closed 2026-09-20 by
+  `evolve/families-delineated`: the roster entry is `private-38`, the pages
+  are regenerated from it, and rad-godot is public. What follows is the
+  finding as it stood. `uv run qm
   private-names --strict` (local-only by design — `registries.yml` says why)
   finds a private repository's name used as a repository in the committed
   roster `ci/workspace.yaml`, in `families.json`, `status/harness.yaml`, and

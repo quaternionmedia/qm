@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T02:48:58Z'
+generated_at: '2026-09-20T14:24:05Z'
 generator:
   tool: ci/rollout.py
   source: host
@@ -151,7 +151,7 @@ phases:
         state: '-'
         detail: ''
     next: handoff-noted
-  - repo: titanharvest
+  - repo: private-38
     steps:
       rekeyed:
         state: n/a
@@ -684,33 +684,33 @@ phases:
   - repo: private-33
     steps:
       rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+        state: '-'
+        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
       pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
+        state: '-'
+        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
       agents-reworded:
         state: n/a
         detail: AGENTS.md is not on the host's default branch
       handoff-noted:
         state: '-'
         detail: ''
-    next: handoff-noted
+    next: rekeyed
   - repo: private-34
     steps:
       rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+        state: '-'
+        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
       pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
+        state: '-'
+        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
       agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
+        state: '-'
+        detail: AGENTS.md does not match /entry stage/ on the host
       handoff-noted:
         state: '-'
         detail: ''
-    next: handoff-noted
+    next: rekeyed
   - repo: rad
     steps:
       rekeyed:

@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T02:48:17Z'
+generated_at: '2026-09-20T14:23:17Z'
 generator:
   tool: ci/harness_status.py
   org: quaternionmedia
@@ -10,6 +10,9 @@ generator:
   phase_ladder_source: records/DRAFT-project-phase-ladder.md
   phase_layer_is_a_claim: phase and phase_source come from ci/workspace.yaml and record
     what a human stated. They are never derived from artifacts.
+  family_is_a_claim: family comes from ci/workspace.yaml, where a person stated it;
+    the families themselves are declared in records/DRAFT-a-family-is-bordered-by-what-it-drives.md.
+    null is unstated, which is not none.
   thread_stages:
   - local
   - pushed
@@ -42,19 +45,21 @@ reading:
   - quote a figure from this document without its generated_at
   - 'treat a phase as evidence: phase is what a human claimed'
   - 'treat the governance layer as a claim: it is what has landed'
+  - 'read a null family as a repository that belongs to none: it is one nobody has
+    placed'
   - regenerate this in CI -- it reads other repositories, so every unrelated pull
     request would go red for a reason its author cannot fix
   committed_copy_omits:
   - local
 totals:
-  repositories: 43
-  slots_measured: 35
-  slots_unknown: 8
-  compliant: 33
+  repositories: 46
+  slots_measured: 40
+  slots_unknown: 6
+  compliant: 38
   over_limit: 2
-  governance_readable: 14
+  governance_readable: 11
   governance_precondition_met: 2
-  phase_scaffolded: 10
+  phase_scaffolded: 12
   phase_stated_above_governance: 4
   threads_by_stage:
     local: 0
@@ -62,11 +67,12 @@ totals:
     draft: 7
     ready: 13
   threads_stalled: 16
-  threads_unreadable: 8
+  threads_unreadable: 6
 repositories:
 - name: qm
   slug: quaternionmedia/qm
   role: corpus
+  family: core
   phase: n/a
   phase_source: n/a
   note: the constitution; every other entry adopts it by reference
@@ -75,15 +81,7 @@ repositories:
     per_base:
     - project/*
     contributor: null
-    open_prs:
-    - number: 112
-      title: 'Smooth the consolidation cycle: the estate survey, the staged merge,
-        and the runbook'
-      author: subcontrabass
-      bot: false
-      base: main
-      head: evolve/smooth-the-consolidation-cycle
-      draft: false
+    open_prs: []
     violations: []
     exit_status: 0
     compliant: true
@@ -92,23 +90,7 @@ repositories:
     latest: null
     unreleased_commits: null
     asserts: no v tag has ever been cut, so nothing has been asserted
-  threads:
-  - name: evolve/smooth-the-consolidation-cycle
-    stage: ready
-    pr: 112
-    base: main
-    title: 'Smooth the consolidation cycle: the estate survey, the staged merge, and
-      the runbook'
-    author: subcontrabass
-    delta:
-      additions: 4344
-      changed_files: 27
-      commits: 3
-      deletions: 2426
-      mergeable_state: clean
-      updated_at: '2026-09-20T01:12:44Z'
-    idle_hours: 1.6
-    stalled: false
+  threads: []
   governance:
     precondition: n/a
     missing: []
@@ -116,6 +98,7 @@ repositories:
 - name: dossier
   slug: quaternionmedia/dossier
   role: project
+  family: core
   phase: v0.0.1
   phase_source: scaffolded
   note: the intended durable surface for governance review
@@ -180,14 +163,15 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 57
-    observed_at: '2026-09-20T02:47:14Z'
+    behind_corpus: 66
+    observed_at: '2026-09-20T14:22:04Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: qmcp
   slug: quaternionmedia/qmcp
   role: project
+  family: core
   phase: v0.0.1
   phase_source: scaffolded
   note: null
@@ -315,14 +299,15 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 1
-    behind_corpus: 97
-    observed_at: '2026-09-20T02:47:22Z'
+    behind_corpus: 106
+    observed_at: '2026-09-20T14:22:13Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: rad
   slug: quaternionmedia/rad
   role: project
+  family: null
   phase: v0.0.1
   phase_source: stated
   note: radial menu; defined the phase ladder above
@@ -359,14 +344,15 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 154
-    observed_at: '2026-09-20T02:47:25Z'
+    behind_corpus: 163
+    observed_at: '2026-09-20T14:22:17Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: alfred
   slug: quaternionmedia/alfred
   role: project
+  family: null
   phase: v0.0.1
   phase_source: scaffolded
   note: video editor; UI migration and Playwright coverage in flight
@@ -413,7 +399,7 @@ repositories:
       deletions: 44
       mergeable_state: clean
       updated_at: '2023-12-30T22:55:40Z'
-    idle_hours: 23859.9
+    idle_hours: 23871.4
     stalled: true
   governance:
     precondition: incomplete
@@ -430,14 +416,15 @@ repositories:
       workflows_present: 0
       workflows_absent: 4
       licensing_present: 0
-    behind_corpus: 280
-    observed_at: '2026-09-20T02:47:04Z'
+    behind_corpus: 289
+    observed_at: '2026-09-20T14:21:54Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: apothecary
   slug: quaternionmedia/apothecary
   role: project
+  family: irl
   phase: v0.0.2
   phase_source: stated
   note: parametric assembly; named as a v0.0.2 integration consumer
@@ -512,7 +499,7 @@ repositories:
       deletions: 533
       mergeable_state: clean
       updated_at: '2026-09-19T21:59:38Z'
-    idle_hours: 4.8
+    idle_hours: 16.4
     stalled: false
   governance:
     precondition: incomplete
@@ -526,14 +513,15 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 280
-    observed_at: '2026-09-20T02:47:06Z'
+    behind_corpus: 289
+    observed_at: '2026-09-20T14:21:56Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: datum
   slug: quaternionmedia/datum
   role: project
+  family: irl
   phase: v0.0.1
   phase_source: scaffolded
   note: schema and wire contract; governance propagation open
@@ -573,7 +561,7 @@ repositories:
       deletions: 97
       mergeable_state: clean
       updated_at: '2026-09-19T22:00:15Z'
-    idle_hours: 4.8
+    idle_hours: 16.4
     stalled: false
   governance:
     precondition: incomplete
@@ -587,14 +575,15 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 158
-    observed_at: '2026-09-20T02:47:12Z'
+    behind_corpus: 167
+    observed_at: '2026-09-20T14:22:03Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: codecartographer
   slug: quaternionmedia/codecartographer
   role: project
+  family: core
   phase: v0.0.2
   phase_source: stated
   note: code maps; named itself a v0.0.2 RAD consumer
@@ -673,14 +662,15 @@ repositories:
       workflows_present: 3
       workflows_absent: 1
       licensing_present: 2
-    behind_corpus: 57
-    observed_at: '2026-09-20T02:47:09Z'
+    behind_corpus: 66
+    observed_at: '2026-09-20T14:21:59Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: private-32
   slug: quaternionmedia/private-32
   role: project
+  family: null
   phase: v0.0.1
   phase_source: scaffolded
   note: 'Name and paths live in ci/workspace-private.yaml, which is not committed.
@@ -689,35 +679,25 @@ repositories:
 
     '
   slots:
-    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-32/pulls
-      failed:'
+    repository: quaternionmedia/private-32
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
   release:
-    unknown: 'tags for quaternionmedia/private-32: gh: Not Found (HTTP 404)'
-  threads:
-    unknown: open pull requests could not be read, so neither could threads
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
   governance:
-    precondition: incomplete
-    missing:
-    - submodule
-    - ide
-    - workflows
-    - licensing
-    detail:
-      submodule: null
-      submodule_branch: null
-      ide_present: 0
-      ide_absent: 3
-      workflows_present: 0
-      workflows_absent: 4
-      licensing_present: 0
-    behind_corpus: 280
-    observed_at: '2026-09-20T02:47:15Z'
-    asserted_by: null
-    asserts: a complete artifact set means a human may assert v0.0.1, never that they
-      have
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: private-33
   slug: quaternionmedia/private-33
   role: project
+  family: null
   phase: v0.0.1
   phase_source: scaffolded
   note: 'Name and paths live in ci/workspace-private.yaml, which is not committed.
@@ -726,34 +706,54 @@ repositories:
 
     '
   slots:
-    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-33/pulls
-      failed:'
+    repository: quaternionmedia/private-33
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 8
+      title: 'chore(deps): bump starlette from 0.50.0 to 1.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      draft: false
+    - number: 6
+      title: 'chore(deps): bump idna from 3.11 to 3.15'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      draft: false
+    - number: 5
+      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      draft: false
+    - number: 4
+      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
   release:
-    unknown: 'tags for quaternionmedia/private-33: gh: Not Found (HTTP 404)'
-  threads:
-    unknown: open pull requests could not be read, so neither could threads
+    state: ahead
+    latest: v1.4.1
+    annotated: true
+    unreleased_commits: 46
+    asserts: a human reviewed, manually tested and gated this commit
+  threads: []
   governance:
-    precondition: incomplete
-    missing:
-    - ide
-    - workflows
-    - licensing
-    detail:
-      submodule: governance/qm
-      submodule_branch: project/private-33
-      ide_present: 0
-      ide_absent: 3
-      workflows_present: 1
-      workflows_absent: 3
-      licensing_present: 0
-    behind_corpus: 280
-    observed_at: '2026-09-20T02:47:11Z'
-    asserted_by: null
-    asserts: a complete artifact set means a human may assert v0.0.1, never that they
-      have
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: factorio-sysops
   slug: quaternionmedia/factorio-sysops
   role: project
+  family: null
   phase: v0.0.1
   phase_source: scaffolded
   note: null
@@ -785,14 +785,15 @@ repositories:
       workflows_present: 1
       workflows_absent: 3
       licensing_present: 0
-    behind_corpus: 280
-    observed_at: '2026-09-20T02:47:16Z'
+    behind_corpus: 289
+    observed_at: '2026-09-20T14:22:07Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: carlos
   slug: quaternionmedia/carlos
   role: project
+  family: instruments
   phase: v0.0.1
   phase_source: stated
   note: 'Browser workspace for sketching synth rigs, governed via project/carlos.
@@ -860,7 +861,7 @@ repositories:
       deletions: 124
       mergeable_state: unstable
       updated_at: '2026-08-22T17:27:47Z'
-    idle_hours: 681.3
+    idle_hours: 692.9
     stalled: true
   governance:
     precondition: met
@@ -873,14 +874,15 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 187
-    observed_at: '2026-09-20T02:47:08Z'
+    behind_corpus: 196
+    observed_at: '2026-09-20T14:21:58Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: private-34
   slug: quaternionmedia/private-34
   role: project
+  family: null
   phase: v0.0.1
   phase_source: scaffolded
   note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
@@ -889,33 +891,115 @@ repositories:
 
     '
   slots:
-    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-34/pulls
+    repository: quaternionmedia/private-34
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 'Build(deps): bump httpcore2 from 2.7.0 to 2.10.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/httpcore2-2.10.0
+      draft: false
+    - number: 1
+      title: 'Build(deps-dev): bump httpx2 from 2.7.0 to 2.12.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/httpx2-2.12.0
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-36
+  slug: quaternionmedia/private-36
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
+    for the same reason as private-32 through private-34 above. Governed via a project/<name>
+    branch here, which carries its records as drafts; no family claimed until governance
+    has run for it.
+
+    '
+  slots:
+    repository: quaternionmedia/private-36
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 1
+      title: Mount governance/qm against project/private-36, and measure unpushed
+        against the right ref
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/mount-the-governance-submodule
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: evolve/mount-the-governance-submodule
+    stage: ready
+    pr: 1
+    base: main
+    title: Mount governance/qm against project/private-36, and measure unpushed against
+      the right ref
+    author: subcontrabass
+    delta:
+      additions: 94
+      changed_files: 9
+      commits: 2
+      deletions: 93
+      mergeable_state: clean
+      updated_at: '2026-09-19T22:26:11Z'
+    idle_hours: 15.9
+    stalled: false
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: streaming-infrastructure
+  slug: quaternionmedia/streaming-infrastructure
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Governed via project/streaming-infrastructure here, whose one record calls
+    the codebase the `qmstream` control plane. No repository by either name is on
+    the host under this org, so there is nothing to clone and status/governance.yaml
+    reports its host layer as unknown. No family claimed until governance has run
+    for it.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/streaming-infrastructure/pulls
       failed:'
   release:
-    unknown: 'tags for quaternionmedia/private-34: gh: Not Found (HTTP 404)'
+    unknown: 'tags for quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP
+      404)'
   threads:
     unknown: open pull requests could not be read, so neither could threads
   governance:
-    precondition: incomplete
-    missing:
-    - workflows
-    - licensing
-    detail:
-      submodule: governance/qm
-      submodule_branch: project/private-34
-      ide_present: 3
-      ide_absent: 0
-      workflows_present: 3
-      workflows_absent: 1
-      licensing_present: 0
-    behind_corpus: 280
-    observed_at: '2026-09-20T02:47:21Z'
-    asserted_by: null
-    asserts: a complete artifact set means a human may assert v0.0.1, never that they
-      have
+    unknown: 'gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found
+      (HTTP 404)'
 - name: qmetronome
   slug: quaternionmedia/qmetronome
   role: project
+  family: instruments
   phase: v0.0.3
   phase_source: stated
   note: named as the v0.0.3 Android target
@@ -962,14 +1046,15 @@ repositories:
       workflows_present: 2
       workflows_absent: 2
       licensing_present: 1
-    behind_corpus: 280
-    observed_at: '2026-09-20T02:47:24Z'
+    behind_corpus: 289
+    observed_at: '2026-09-20T14:22:15Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: benchmark
   slug: quaternionmedia/benchmark
   role: unmanaged
+  family: null
   phase: v0.0.2
   phase_source: stated
   note: named alongside apothecary as a v0.0.2 consumer
@@ -1014,13 +1099,14 @@ repositories:
       deletions: 1
       mergeable_state: blocked
       updated_at: '2026-04-06T16:02:26Z'
-    idle_hours: 3994.8
+    idle_hours: 4006.3
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: looksatwords
   slug: quaternionmedia/looksatwords
   role: project
+  family: core
   phase: v0.0.1
   phase_source: scaffolded
   note: 'language data -- make, gather, analyze, visualise. Named in plans/governance-prose-signals.md
@@ -1109,14 +1195,15 @@ repositories:
       workflows_present: 4
       workflows_absent: 0
       licensing_present: 2
-    behind_corpus: 50
-    observed_at: '2026-09-20T02:47:19Z'
+    behind_corpus: 59
+    observed_at: '2026-09-20T14:22:10Z'
     asserted_by: null
     asserts: a complete artifact set means a human may assert v0.0.1, never that they
       have
 - name: moat
   slug: quaternionmedia/moat
   role: unmanaged
+  family: infra
   phase: v0.0.1
   phase_source: scaffolded
   note: 'homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT networking.
@@ -1170,7 +1257,7 @@ repositories:
       deletions: 0
       mergeable_state: unstable
       updated_at: '2026-09-08T02:04:05Z'
-    idle_hours: 288.7
+    idle_hours: 300.3
     stalled: true
   - name: qm
     stage: draft
@@ -1185,13 +1272,14 @@ repositories:
       deletions: 10
       mergeable_state: unstable
       updated_at: '2026-08-21T16:20:56Z'
-    idle_hours: 706.4
+    idle_hours: 718.0
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: ShowRunner
   slug: quaternionmedia/ShowRunner
   role: unmanaged
+  family: show-control
   phase: n/a
   phase_source: n/a
   note: show control for live performances; the hub the periphery names itself after
@@ -1328,7 +1416,7 @@ repositories:
       deletions: 1
       mergeable_state: clean
       updated_at: '2026-04-26T14:53:23Z'
-    idle_hours: 3515.9
+    idle_hours: 3527.5
     stalled: true
   - name: migrations
     stage: ready
@@ -1343,7 +1431,7 @@ repositories:
       deletions: 76
       mergeable_state: clean
       updated_at: '2026-04-23T23:10:53Z'
-    idle_hours: 3579.6
+    idle_hours: 3591.2
     stalled: true
   - name: feat/meta-intro-video
     stage: ready
@@ -1358,13 +1446,14 @@ repositories:
       deletions: 504
       mergeable_state: dirty
       updated_at: '2026-04-19T03:27:49Z'
-    idle_hours: 3695.3
+    idle_hours: 3706.9
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: Cuelist-python
   slug: quaternionmedia/Cuelist-python
   role: unmanaged
+  family: show-control
   phase: n/a
   phase_source: n/a
   note: helpers for Cuelist, and a ShowRunner plugin by its own description
@@ -1387,6 +1476,7 @@ repositories:
 - name: QLab-python
   slug: quaternionmedia/QLab-python
   role: unmanaged
+  family: show-control
   phase: n/a
   phase_source: n/a
   note: interface to a third-party cue system
@@ -1424,13 +1514,14 @@ repositories:
       deletions: 544
       mergeable_state: clean
       updated_at: '2026-04-11T08:00:47Z'
-    idle_hours: 3882.8
+    idle_hours: 3894.4
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: TheatreMix-python
   slug: quaternionmedia/TheatreMix-python
   role: unmanaged
+  family: show-control
   phase: n/a
   phase_source: n/a
   note: interface to a third-party mixing system
@@ -1453,6 +1544,7 @@ repositories:
 - name: cesar
   slug: quaternionmedia/cesar
   role: unmanaged
+  family: show-control
   phase: n/a
   phase_source: n/a
   note: a unified lighting, sound and video controller for theatre
@@ -1475,6 +1567,7 @@ repositories:
 - name: ira
   slug: quaternionmedia/ira
   role: unmanaged
+  family: irl
   phase: n/a
   phase_source: n/a
   note: LED control for live theatre
@@ -1497,6 +1590,7 @@ repositories:
 - name: ShowStopper
   slug: quaternionmedia/ShowStopper
   role: unmanaged
+  family: show-control
   phase: n/a
   phase_source: n/a
   note: timing for the performing arts
@@ -1519,6 +1613,7 @@ repositories:
 - name: aes
   slug: quaternionmedia/aes
   role: unmanaged
+  family: show-control
   phase: n/a
   phase_source: n/a
   note: audio-over-IP transport scripts
@@ -1541,6 +1636,7 @@ repositories:
 - name: holophonor
   slug: quaternionmedia/holophonor
   role: unmanaged
+  family: instruments
   phase: n/a
   phase_source: n/a
   note: live looping; the hub two others name themselves after
@@ -1580,13 +1676,14 @@ repositories:
       deletions: 52
       mergeable_state: clean
       updated_at: '2025-06-22T22:17:43Z'
-    idle_hours: 10900.5
+    idle_hours: 10912.1
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: midiphonor
   slug: quaternionmedia/midiphonor
   role: unmanaged
+  family: instruments
   phase: n/a
   phase_source: n/a
   note: a holophonor implementation in the browser, by its own description
@@ -1611,6 +1708,7 @@ repositories:
 - name: uPhonor
   slug: quaternionmedia/uPhonor
   role: unmanaged
+  family: irl
   phase: n/a
   phase_source: n/a
   note: a micro-holophonor, by its own description
@@ -1671,13 +1769,14 @@ repositories:
       deletions: 42
       mergeable_state: clean
       updated_at: '2025-07-13T07:24:23Z'
-    idle_hours: 10411.4
+    idle_hours: 10423.0
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: stomp
   slug: quaternionmedia/stomp
   role: unmanaged
+  family: irl
   phase: n/a
   phase_source: n/a
   note: a MIDI foot controller
@@ -1700,6 +1799,7 @@ repositories:
 - name: wolf
   slug: quaternionmedia/wolf
   role: unmanaged
+  family: instruments
   phase: n/a
   phase_source: n/a
   note: a remote MIDI controller
@@ -1722,6 +1822,7 @@ repositories:
 - name: ludwig
   slug: quaternionmedia/ludwig
   role: unmanaged
+  family: instruments
   phase: n/a
   phase_source: n/a
   note: remote mixing
@@ -1761,13 +1862,14 @@ repositories:
       deletions: 74
       mergeable_state: clean
       updated_at: '2025-12-22T07:01:05Z'
-    idle_hours: 6523.8
+    idle_hours: 6535.4
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: waveofhormuz
   slug: quaternionmedia/waveofhormuz
   role: unmanaged
+  family: instruments
   phase: n/a
   phase_source: n/a
   note: an oscillator module
@@ -1792,6 +1894,7 @@ repositories:
 - name: joe
   slug: quaternionmedia/joe
   role: unmanaged
+  family: performer-display
   phase: n/a
   phase_source: n/a
   note: realtime sheet-music rendering
@@ -1843,7 +1946,7 @@ repositories:
       deletions: 242
       mergeable_state: clean
       updated_at: '2026-03-04T02:29:45Z'
-    idle_hours: 4800.3
+    idle_hours: 4811.9
     stalled: true
   - name: p5
     stage: ready
@@ -1858,13 +1961,14 @@ repositories:
       deletions: 7
       mergeable_state: clean
       updated_at: '2025-01-04T01:07:48Z'
-    idle_hours: 14977.7
+    idle_hours: 14989.3
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: leo
   slug: quaternionmedia/leo
   role: unmanaged
+  family: performer-display
   phase: n/a
   phase_source: n/a
   note: a web document viewer, annotator and collaborator
@@ -1944,7 +2048,7 @@ repositories:
       deletions: 165
       mergeable_state: clean
       updated_at: '2026-01-17T11:44:43Z'
-    idle_hours: 5895.1
+    idle_hours: 5906.6
     stalled: true
   - name: setlist
     stage: ready
@@ -1959,13 +2063,14 @@ repositories:
       deletions: 927
       mergeable_state: clean
       updated_at: '2026-02-21T06:35:43Z'
-    idle_hours: 5060.2
+    idle_hours: 5071.8
     stalled: true
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
 - name: scad-chess
   slug: quaternionmedia/scad-chess
   role: unmanaged
+  family: irl
   phase: n/a
   phase_source: n/a
   note: a chess set designed in OpenSCAD; the deliverable is the printed set
@@ -1990,6 +2095,7 @@ repositories:
 - name: private-03
   slug: quaternionmedia/private-03
   role: unmanaged
+  family: irl
   phase: n/a
   phase_source: n/a
   note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
@@ -2008,6 +2114,7 @@ repositories:
 - name: private-05
   slug: quaternionmedia/private-05
   role: unmanaged
+  family: irl
   phase: n/a
   phase_source: n/a
   note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
@@ -2026,6 +2133,7 @@ repositories:
 - name: private-07
   slug: quaternionmedia/private-07
   role: unmanaged
+  family: irl
   phase: n/a
   phase_source: n/a
   note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
@@ -2044,6 +2152,7 @@ repositories:
 - name: ztgui
   slug: quaternionmedia/ztgui
   role: unmanaged
+  family: infra
   phase: n/a
   phase_source: n/a
   note: a interface onto the overlay network members are reached across
@@ -2066,6 +2175,7 @@ repositories:
 - name: private-23
   slug: quaternionmedia/private-23
   role: unmanaged
+  family: infra
   phase: n/a
   phase_source: n/a
   note: 'Cloud configuration. Name and paths live in ci/workspace-private.yaml, which
@@ -2084,6 +2194,7 @@ repositories:
 - name: private-26
   slug: quaternionmedia/private-26
   role: unmanaged
+  family: infra
   phase: n/a
   phase_source: n/a
   note: 'Functions for systems and operating systems. Name and paths live in ci/workspace-private.yaml,
@@ -2102,6 +2213,7 @@ repositories:
 - name: golfvs
   slug: quaternionmedia/golfvs
   role: unmanaged
+  family: games
   phase: n/a
   phase_source: n/a
   note: arcade physics golf with asymmetric defence, built in Godot
@@ -2123,7 +2235,7 @@ repositories:
     compliant: true
   release:
     state: current
-    latest: v0.0.2-prealpha
+    latest: v0.0.3-prealpha
     annotated: true
     unreleased_commits: 0
     asserts: a human reviewed, manually tested and gated this commit
@@ -2136,27 +2248,56 @@ repositories:
       four platforms (ADR-020 to ADR-030)
     author: subcontrabass
     delta:
-      additions: 6592
-      changed_files: 61
-      commits: 22
-      deletions: 373
-      mergeable_state: clean
-      updated_at: '2026-09-19T23:36:21Z'
-    idle_hours: 3.2
+      additions: 8492
+      changed_files: 89
+      commits: 28
+      deletions: 375
+      mergeable_state: blocked
+      updated_at: '2026-09-20T14:13:24Z'
+    idle_hours: 0.2
     stalled: false
   governance:
     unknown: no project/<name> branch in the corpus, so there is nothing to read
-- name: titanharvest
-  slug: quaternionmedia/titanharvest
+- name: private-38
+  slug: quaternionmedia/private-38
   role: unmanaged
+  family: games
   phase: n/a
   phase_source: n/a
-  note: 'mech farming in dangerous space, built in Godot; a sibling of golfvs by shape.
-    Lives where the Godot project manager put it, not under repos/.
+  note: 'A game built in Godot; a sibling of golfvs by shape. Private on the host,
+    so name and paths live in ci/workspace-private.yaml, which is not committed --
+    the same reason as every other ref: entry here.
 
     '
   slots:
-    repository: quaternionmedia/titanharvest
+    repository: quaternionmedia/private-38
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: rad-godot
+  slug: quaternionmedia/rad-godot
+  role: unmanaged
+  family: null
+  phase: n/a
+  phase_source: n/a
+  note: 'rad, the radial menu, as a Godot addon: the contract''s vectors replayed
+    in GDScript. No family claimed: rad''s implementations are a seam, not a roster
+    family.
+
+    '
+  slots:
+    repository: quaternionmedia/rad-godot
     per_base: []
     contributor: null
     open_prs: []
