@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T01:07:48Z'
+generated_at: '2026-09-20T02:48:58Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 192
+  documents: 193
   by_state:
     draft: 3
     generated: 7
     proposed: 35
     standing: 72
     transient: 23
-    unreviewed: 52
+    unreviewed: 53
   disagreements: 0
   unknown: 0
 documents:
@@ -1045,6 +1045,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-08-27-two-views-that-go-stale-together.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-09-20-the-consolidation-cycle.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
