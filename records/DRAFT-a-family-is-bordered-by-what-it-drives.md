@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-28 |
-| **Pends on** | §4 — whether the video-production repositories are a fourth family of this estate or sit outside it. That is a scope decision a person makes, and nothing here settles it. |
+| **Pends on** | §4 — whether the video-production repositories are a fourth performing family of this estate or sit outside it. That is a scope decision a person makes, and nothing here settles it. |
 | **Principle** | `seams-on-standard-protocols` — seams on standard protocols; `decisions-are-documented` — decisions are documented or they didn't happen |
 | **Restated in** | Nothing. |
 
@@ -64,10 +64,10 @@ A repository belongs to a family by what its output acts on.
 
 Not by what it is written in: this estate spans Python, TypeScript, JavaScript,
 C, C++ and Kotlin, and the border cuts across all of them. Not by what it
-emits: two of the three families below emit MIDI, and one emits pixels that
-another also emits. Not by shared vocabulary: *cue*, *loop* and *track* each
-mean different things in two of the three, and a border drawn on words would
-have placed one program in all of them.
+emits: two of the three performing families below emit MIDI, and one emits
+pixels that another also emits. Not by shared vocabulary: *cue*, *loop* and
+*track* each mean different things in two of them, and a border drawn on words
+would have placed one program in all of them.
 
 ### §3 — The estate is seven families, three of them performing
 
@@ -150,20 +150,22 @@ Three asymmetries, recorded rather than smoothed:
 - Show control and instruments each have a hub that the periphery names itself
   after. Performer display has none. joe and leo are siblings by what they
   drive, and neither is built on the other.
-- `core` is the only family whose members are adopted. Every member of the
-  three performing families is unadopted today, so a family name says what a
-  repository is part of and nothing about whether governance reaches it.
+- `core` is the only family every member of which is adopted. Of the three
+  performing families only `instruments` has an adopted member, and most of
+  the estate has none, so a family name says what a repository is part of and
+  nothing about whether governance reaches it. `walkthrough/families/` carries
+  the per-member reading, regenerated from the corpus's own branches.
 - At least one member of this estate is a private repository, which the roster
   references rather than names. This record cannot place it without defeating
   that redaction, so the placement is made where the name is legible: in the
   uncommitted private roster, beside the entry that already holds it.
 
-### §4 — What is outside these three, and what is unsettled
+### §4 — What is outside the performing three, and what is unsettled
 
-Video editing and video generation drive none of the three: they produce media
-before or after a performance rather than during one. They are outside these
-families. Whether they constitute a fourth is the `Pends on` above, and the
-three stand either way.
+Video editing and video generation drive none of the three performing
+families: they produce media before or after a performance rather than during
+one. They are outside those families. Whether they constitute a fourth
+performing family is the `Pends on` above, and the three stand either way.
 
 A radial menu is substrate, not a member. A family member may be built with it,
 and it belongs to no family — the same holds for the front-end component
@@ -205,10 +207,10 @@ What no check reaches is §2, and it is the half that matters: whether a
 repository really belongs where somebody put it. The border is what the thing
 drives, and reading it needs a person who knows what the code does.
 
-**Three borders means three ways to be in the wrong repository**, where before
-there were none, because there was no border to be on the wrong side of. That is
-the intended effect, and it is also the new cost: a contributor now has a
-question to answer that they did not have.
+**Every border is a way to be in the wrong repository**, where before there
+was none, because there was no border to be on the wrong side of. That is the
+intended effect, and it is also the new cost: a contributor now has a question
+to answer that they did not have.
 
 **Most of this estate is cold, and naming it does not warm it.** A family whose
 hub has not moved in a year is a maintenance question. This record makes the
@@ -249,9 +251,9 @@ shape is easier to get right once the border has survived a reading.
 
 ## Revision triggers
 
-- A repository that drives two of the three — one that cues the room and renders
-  the score — means either the border is drawn wrong or the thing is a seam
-  wearing a single repository.
+- A repository that drives two of the performing three — one that cues the
+  room and renders the score — means either the border is drawn wrong or the
+  thing is a seam wearing a single repository.
 - The video-production repositories being placed, either way. That closes the
   `Pends on`, and §4 is rewritten to match.
 - A second private member, or the existing one becoming public. Either changes
