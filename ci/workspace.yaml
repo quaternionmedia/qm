@@ -545,3 +545,13 @@ repositories:
       mech farming in dangerous space, built in Godot; a sibling of golfvs by
       shape. Lives where the Godot project manager put it, not under repos/.
     paths: ["../Documents/titanharvest", qm/titanharvest]
+
+  - name: rad-godot
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    note: >
+      rad, the radial menu, as a Godot addon: the contract's vectors replayed
+      in GDScript. No family claimed: rad's implementations are a seam, not a
+      roster family. Private on the host. Lives beside the Godot projects.
+    paths: ["../Documents/rad-godot", qm/rad-godot, rad-godot]

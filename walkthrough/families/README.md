@@ -12,6 +12,6 @@ One page per family, generated from `families.json` and the clones on this disk.
 | [`performer-display`](./performer-display.md) | the performer — what a player reads while playing | 2 | 0 |
 | [`show-control`](./show-control.md) | the room — cues, lighting, sound and video playback, audio transport | 7 | 0 |
 
-`7` rostered repositories claim no family. That is *unstated*, not *none* — nobody has answered the question for them, and a page that listed them as unfamilied would be inventing an answer.
+`8` rostered repositories claim no family. That is *unstated*, not *none* — nobody has answered the question for them, and a page that listed them as unfamilied would be inventing an answer.
 
 *Generated 2026-09-20.*
