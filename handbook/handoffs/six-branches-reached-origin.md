@@ -11,7 +11,9 @@ moved twice under this session while it worked.
 
 | repository | `origin/main` | date |
 |---|---|---|
-| qm | `5cc7a555e6a4` (#111); the open #112 head is `8ebd0f8ec2bb` | 2026-09-20 |
+| qm | `7678999` (#112 merged); the local stage `test` is left at `5cc7a55`, seven behind, by Step 9 of the runbook | 2026-09-20 |
+| titanharvest | `1b86508` (#3 merged); private | 2026-09-20 |
+| rad-godot | `6dd9485`; created private that evening, nobody tagged, `main` pushed | 2026-09-20 |
 | dossier | `bd322d38d496` (#56 merged) | 2026-09-20 |
 | qmcp | `3e2571186a1b` (#35 merged) | 2026-09-20 |
 | looksatwords | `32d337191f58` (#22 merged) | 2026-09-20 |
@@ -27,8 +29,12 @@ force — this session delivered, and every merge was a person's approval, stage
 by stage. One exception is deliberate and looks like an oversight: qm's local
 branch `test` is the ephemeral stage named by
 `records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md`; it was
-fast-forwarded to `main` and is **not pushed on purpose**. Advancing it after
-#112 merges is that record's own decision, not a reset. Merging to `main`
+fast-forwarded to `main` before #112 and is **not pushed on purpose**. #112 is
+merged and `test` was **left where it was**, seven behind, because advancing
+it is that record's own decision, not a reset; `git rev-list --left-right
+--count test...origin/main` is the measure. The worktrees the cycle's sessions
+cut (`qm-cycle`, three August husks, the POC checkout) are retired with every
+branch kept, and `git worktree list` shows the main clone alone. Merging to `main`
 ratified nothing: every record is DRAFT for a person, and `main` asserts
 nothing until a tag.
 
