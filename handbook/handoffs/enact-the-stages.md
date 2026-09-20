@@ -154,8 +154,23 @@ to depend on.
 
 ## C. Order of operations for the push-through
 
+**It is phased, and the phases are tracked.** `ci/rollout.yaml` holds the
+`stage-enactment` rollout: the steps every repository must pass (`rekeyed`,
+`pin-bumped`, `agents-reworded`, `handoff-noted`) and the phases in order —
+the corpus alone, then `core`, then `games`, then `irl` and `infra`, then the
+three performing families, then the unstated repositories. `uv run qm rollout`
+prints every member's position with the claim beside the evidence;
+`--next` is the work list for the current phase; `--claim REPO STEP` is how a
+person records a step; `--check` refuses a claim the host contradicts; the
+committed `status/rollout.yaml` is the host's view. Two of the four detectors
+are placeholders until step 2 below names the spelling they look for — the
+plan says so in each step's `means`, and until then those rows can only read
+`-` or `unverified`. Reorder the phases in the plan, not in your head; the
+order is the intention, and the tool reports reality against it.
+
+
 1. Human: clear the deck — `uv run qm harness` lists every slot; close, merge or fold until each is free.
-2. Branch from `test`: `ci/stages.yaml`; the rows in §A read it; tests seen red then green; both `AGENTS.md` reworded; the async contract's §6 reworded (B.2); `CLAUDE.md` to a one-line import in root and seed (B.1) with the record amendment; `records/AGENTS.md` (B.3). Gates green locally, with what the runner cannot reproduce named.
+2. Branch from `test`: `ci/stages.yaml`; the two placeholder patterns in `ci/rollout.yaml` filled in with the spelling the re-keying chose; the rows in §A read it; tests seen red then green; both `AGENTS.md` reworded; the async contract's §6 reworded (B.2); `CLAUDE.md` to a one-line import in root and seed (B.1) with the record amendment; `records/AGENTS.md` (B.3). Gates green locally, with what the runner cannot reproduce named.
 3. Human: push `test`. Merge the branch into it through a pull request whose base is `test` — the first one, which is the proof that the re-keyed `check_pr_base` accepts the new base.
 4. Break it (§A, last paragraph).
 5. Propagate to each `project/<name>` and each adopting project's copies, one at a time, per the runbook; titanharvest and golfvs are not adopters and are untouched.

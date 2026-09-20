@@ -1,6 +1,10 @@
 # Handbook — Document States
 
+<<<<<<< HEAD
 **Generated `2026-09-19T23:56:12Z`.** Quotable for 168h. **Do not edit by hand.**
+=======
+**Generated `2026-09-20T00:22:30Z`.** Quotable for 168h. **Do not edit by hand.**
+>>>>>>> 41e5b65 (Track a push-through family by family, with each claim beside the host's evidence)
 
 ## Where this corpus stands
 
@@ -9,8 +13,13 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
+<<<<<<< HEAD
 | Records ratified | every requirement below | **0 of 38**; 35 proposed |
 | Mandatory reading | under budget | 1132 of 1200 lines |
+=======
+| Records ratified | every requirement below | **0 of 37**; 35 proposed |
+| Mandatory reading | under budget | 1134 of 1200 lines |
+>>>>>>> 41e5b65 (Track a push-through family by family, with each claim beside the host's evidence)
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +37,11 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
+<<<<<<< HEAD
 Every governed document in this corpus: **188**, unfiltered.
+=======
+Every governed document in this corpus: **190**, unfiltered.
+>>>>>>> 41e5b65 (Track a push-through family by family, with each claim beside the host's evidence)
 
 | | |
 |---|---|
@@ -62,8 +75,8 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 52 |
 | [G] `generated` | 7 |
-| [S] `standing` | 69 |
-| [T] `transient` | 22 |
+| [S] `standing` | 70 |
+| [T] `transient` | 24 |
 
 ## Documents
 
@@ -235,9 +248,11 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `protocols/runs/2026-08-27-local-demo.md` | protocol | — |
 | [S] | `standing` | `protocols/security-review.md` | protocol | — |
 | [S] | `standing` | `walkthrough/01-two-views-one-dataset.md` | walkthrough | — |
+| [S] | `standing` | `walkthrough/02-rollout-by-family.md` | walkthrough | — |
 | [T] | `transient` | `handbook/handoffs/apply-the-main-ruleset.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/disk-tooling.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/dossier-delta-review.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/enact-the-stages.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/for-a-stronger-model.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/governance-loop-poc.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/governance-status-generator.md` | handoff | — |
@@ -251,6 +266,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/session-2026-08-23.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-active-four.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-estate-has-one-copy.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/the-games-family-and-titanharvest.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-loop-that-checks-itself.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-menu-contract-nobody-could-fetch.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-pair-and-the-fresh-setup.md` | handoff | — |

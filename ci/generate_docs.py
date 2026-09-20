@@ -112,6 +112,16 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
         ["ci/cookbook.py", "walkthrough/families", "--check"],
     ),
     (
+        "rollout",
+        # A write reads the host by default. Offline it is skipped, not written from
+        # this disk: the committed document describes the org, and a local one would
+        # replace it with a description of whichever clones one machine happens to hold.
+        ["ci/rollout.py", "--write", "status/rollout.yaml"],
+        "status/rollout.yaml",
+        True,
+        ["ci/rollout.py", "--check"],
+    ),
+    (
         "document states",
         ["ci/doc_status.py", "--write", "status/documents.yaml"],
         "status/documents.yaml",
