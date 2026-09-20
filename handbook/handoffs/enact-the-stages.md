@@ -2,9 +2,11 @@
 
 **Routing.** A task somebody can pick up cold. Delete when its work lands.
 
-**Stamped 2026-09-19**, `test` at `1d96d27`, written on `evolve/games-family`.
-Every count and line number below was read at that commit by the command named
-beside it; re-run the command before acting on the number.
+**Stamped 2026-09-19**, written on `evolve/games-family` against `test` at
+`1d96d27`; every commit of that `test` is now on `main` through #110 (`1157fa2`),
+and every count and line number below was read at `1d96d27` by the command
+named beside it. The lines have not moved; re-run the command before acting on
+the number anyway.
 
 **Blocks on a human, for two acts in this order:** clearing the deck — every
 repository's pull request slot free, so the re-keying below lands in one pass

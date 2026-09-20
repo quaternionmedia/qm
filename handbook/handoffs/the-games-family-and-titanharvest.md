@@ -36,23 +36,18 @@ and this page does not push.
 
 ## The reconciliation this page exists for
 
-**The families live only on `test`.** `origin/main` and #110's branch
-(`origin/evolve/loose-ends`) carry no family record, no `ci/families.py`, no
-`families.json`. `test` is twenty-eight commits past #110 with no upstream, so
-the whole family estate has one copy, on one disk. A branch cut from
-`origin/main` to add a family finds nothing to add it to; a pull request from
-anything based on `test` carries all twenty-eight commits under its title.
+**The families reached `main` through qm #110** (merged 2026-09-19, `1157fa2`),
+which carried the whole local `test` train — the family record, its tooling,
+the status documents and the records — as a merge, never a rebase. This branch
+was cut from `test` before that merge, has been rebased onto the new `main`,
+and carries only its own commits; `git log origin/main..evolve/games-family`
+is the list. `test` itself is a local stage ref that `main` now contains in
+full; advancing it is the stage record's decision, per
+`six-branches-reached-origin.md`.
 
-So this branch is a commit *for the `test` train*, and how that train reaches
-`main` is a decision about the train — not a pull request per family. The
-session did not open one.
-
-**A second session was live in the main clone throughout.** It regenerated the
-status documents and the family pages at 18:35, rewrote the session brief at
-18:43, and pushed to #110's branch at 18:25. Its working tree was fifteen
-modified files, all timestamp-only regenerations converted to CRLF by the same
-text-write this branch fixes. Nothing in that tree was touched; this work was
-done in a worktree for that reason.
+**A second session was live in the main clone throughout**, and it is the one
+that landed #110. Its handoff, `six-branches-reached-origin.md`, was untracked
+in that clone's tree; this branch takes it into the queue unedited.
 
 ## What titanharvest is, in one paragraph
 
@@ -67,8 +62,8 @@ lives; this page only says it exists and why the roster now carries it.
 
 ## Blocked on a human
 
-- **Whether `evolve/games-family` folds into `test`**, and when `test` goes
-  anywhere. The LF fix is independent of the rest and could go first on its own.
+- Nothing on the branch itself: it is rebased onto `main` and lands by pull
+  request like any other.
 - **Whether `quaternionmedia/titanharvest` is created**, and public or private.
   Its CODEOWNERS carries golfVs's four owners; source 2 names three collaborator
   handles that are on nobody's owner list.
