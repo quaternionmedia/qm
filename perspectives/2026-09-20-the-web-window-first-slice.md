@@ -138,6 +138,46 @@ whose path sat in backticks. The reviewer mounted a sub-application under
 backticks (rendered for a reader, skipped by the pattern); the guard stayed
 green through both (E1). Two tests now refuse each shape, each seen red.
 
+### 2.11 The layout was chosen, and the canvas did not change
+
+Asked why a layout chosen in Graph Settings was not respected on an estate
+graph. Three causes, none of them the one a reader would guess:
+
+- A layout change re-runs *the last plot action*, and only the code-map paths
+  ever set one. An estate draw was never remembered, so the setting changed
+  and nothing re-drew (E2, `layout_context.ts`). Every panel that draws now
+  goes through `plotWith`.
+- Two hand-written tables translated the menu's names to the backend's, and
+  both fell back to `Spring` for any name they did not list — `compound_layout`
+  among them (E2). One rule, no fallback.
+- The serializer normalised the name for the lookup and compared the raw
+  string for its spread constant, so `Kamada_Kawai` came out five times larger
+  than `Kamada Kawai` (E1: x-range −400..363 against −80..73 on the same graph),
+  and an already-suffixed name raised through the route as a 500 (E1).
+
+The same probe found `sorted_square_layout` presuming a `type` on every node —
+a position calculation that assumed a styling attribute — and three hex colours
+riding in the topology metadata that the front end overwrote on arrival.
+
+### 2.12 A stamp set in one place and dropped in the next
+
+dossier's seam gained `generated_at`; the test pinned it and passed; the real
+seam came out with `generated_at: ""` (E1). `build` stamps the picture and
+`_redact_private` rebuilds it field by field, without the new field — and the
+test's fixture had no private project, so it never crossed that branch. The
+check that would have caught it is the one that now exists: the test adds a
+private project. The lesson is §2.1's in another coat: a green test proves the
+path its fixture walks, and the fixture is scaffolding.
+
+### 2.13 Where a figure is calculated, stored and displayed
+
+The review that produced §2.11 also wrote the boundary down —
+`docs/architecture.md`, *Calculated, stored, displayed* — because every one of
+these was a figure or a constant in the wrong layer: a display constant in a
+data document, a calculation keyed on a caller's spelling, a panel guessing at
+a producer's shape. `tests/test_boundaries.py` is the check; its docstring says
+what it cannot see.
+
 ## 3. Defects this session caused
 
 - **The stacked mutations** (§2.1) — a false "seen red" report that was true
@@ -187,6 +227,10 @@ ones the author could not.
 | Mount / backtick-less row | two tests in `test_api_reference.py` | yes, seen red |
 | documents naming a retired port, a stale count, a missing route | `tests/test_docs_routes.py` | yes, seen red on the unrepaired tree |
 | the seed's slot workflow on a project with a private submodule | none; the workflow itself is the check and it could not check out | the project's copy departs from the seed; the seed is unchanged |
+| a layout's spread keyed on spelling; an already-suffixed name raising | `test_a_layout_is_one_calculation_however_it_is_spelled`, `test_the_menus_own_registry_names_lay_out` | yes, seen red |
+| a layout change not re-drawing an estate graph | a browser test watching the re-draw request | yes, seen red with `plotWith` removed |
+| display constants in a data document; a service that persists; a panel that stores | `test_boundaries.py` | yes, each seen red |
+| a stamp dropped by a rebuild the test never crossed | the test walks the redacting path | yes, seen red |
 
 The last row is the one that matters most going forward: the seed's
 `one-pr-check.yml` cannot run in any project that vendors a private submodule,

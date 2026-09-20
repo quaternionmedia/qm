@@ -14,7 +14,7 @@ Read it first; this page is only where the work stands.
 
 ## 1. State
 
-Six branches, five pull requests, nothing merged. **Nothing reaches `main`
+Seven branches, six pull requests, nothing merged. **Nothing reaches `main`
 without Peter's click** — stated by him on 2026-09-20 and the standing rule for
 every branch below.
 
@@ -22,9 +22,10 @@ every branch below.
 |---|---|---|---|
 | qm | `evolve/the-web-window` | the plan; `ci/dashboard.py` gains a fourth surface (`prose`, `looksatwords`, root two) and drops the retired standalone `/topology` page from the web surface's list; `docs.yml` stops naming a deploy branch that no longer exists; this page and its retrospective; the regenerated document index | opened once #115 had merged and freed the `main` slot — see the pull request list |
 | qm | `adr/codecartographer-index-current` | the project's `adr/README.md` names `governance/qm` rather than `docs/qm` and lists the rad adoption among its drafts | **#116** → `project/codecartographer`, gates green |
-| codecartographer | `evolve/the-estate-frame` | the estate frame (Phase 0 and 1 of the plan); the local `test` branch's four commits minus its governance-pin bump; the slot workflow checking out only the governance submodule; the canvas drawing an edge's colour, width and style from where gJGF puts them; the capability and overview kinds joined to the palette | **#100**, gates green once #99 (another session's) was closed and the slot check re-ran |
+| codecartographer | `evolve/the-estate-frame` | the estate frame (Phase 0 and 1 of the plan); the local `test` branch's four commits minus its governance-pin bump; the slot workflow checking out only the governance submodule; the canvas drawing an edge's colour, width and style from where gJGF puts them; the capability and overview kinds joined to the palette; one layout spelling resolved once, an unknown layout answered with a sentence, estate draws re-run on a layout change; the boundary section in `docs/architecture.md` and `tests/test_boundaries.py` | **#100**, gates green |
 | qmcp | `evolve/the-topology-routes` | `/v1/orchestration/plane`, `/v1/orchestration/runnable`, `/v1/topology/schema/{kind}`, `/v1/topologies` over the existing table, walkthrough 07 | **#36**, gates green |
 | looksatwords | `evolve/the-harness-routes-documented` | the harness routes documented and guarded, a per-thread topics document, the port from the corpus's allocation, a stub archive shared by the tests | **#23**, gates green |
+| dossier | `evolve/the-seam-says-when` | the overview seam carries `generated_at`, carried through the redaction pass that first dropped it | **#57**, gates pending when this was written |
 | rad | `evolve/authored-graph-verbs` | a Proposed record: an authored-graph mode for the ring, with candidate vectors, not applied | **#6**, `verify` was pending when this was written |
 
 Every working tree is clean. The branches were built in worktrees under the
