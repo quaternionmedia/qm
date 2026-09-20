@@ -60,7 +60,7 @@ any check.
   A failure attributed to an unnamed tool cannot be compared across incidents
   or counted per tool.
 
-Worked example: `ledger.yaml` 2026-08-16-003. All three were in its first two
+Worked example: `status/ledger.yaml` 2026-08-16-003. All three were in its first two
 drafts.
 
 **Answered for one of them.** The third is no longer a candidate: `tool:` is

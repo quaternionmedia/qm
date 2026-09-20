@@ -18,6 +18,7 @@ CI_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(CI_DIR))
 
 from roster import label, load, merge_private  # noqa: E402
+from roster import redact  # noqa: E402
 
 PUBLIC = [
     {"name": "alfred", "role": "project", "paths": ["qm/alfred"]},
@@ -112,7 +113,7 @@ def test_label_never_raises(entry, expected):
 
 def test_the_committed_roster_names_no_private_repository():
     """The regression. Two names sat here from 2b50bd6 while
-    inventory-public.json redacted the same two repositories."""
+    status/inventory.yaml redacted the same two repositories."""
     document = yaml.safe_load((CI_DIR / "workspace.yaml").read_text(encoding="utf-8"))
     for entry in document["repositories"]:
         if entry.get("ref", "").startswith("private-"):
@@ -127,3 +128,36 @@ def test_the_committed_roster_names_no_private_repository():
 def test_the_real_roster_loads_and_every_entry_is_named():
     for entry in load():
         assert entry.get("name")
+
+
+class _Wrapper:
+    """Stands in for a generator's `Unknown(reason)`, without importing it."""
+
+    __slots__ = ("reason",)
+
+    def __init__(self, reason: str) -> None:
+        self.reason = reason
+
+
+def test_redact_reaches_a_string_inside_a_wrapper():
+    """**THE HOLE THAT WENT THROUGH ONCE.**
+
+    `redact` walks dicts, lists and strings, so a value of any other type fell
+    out of the bottom untouched. A generator grew a wrapper for facts it could
+    not establish, its reason interpolated a repository name, and two private
+    names reached a committed generated document while every field the redactor
+    knew about was clean.
+
+    Mutation: delete the attribute loop from `redact` and this fails.
+    """
+    entry = {"name": "secret", "records_dir": _Wrapper("secret has no workflow to read")}
+    out = redact(entry, "secret", "private-99")
+    assert out["name"] == "private-99"
+    assert out["records_dir"].reason == "private-99 has no workflow to read"
+
+
+def test_redact_leaves_a_wrapper_with_no_string_alone():
+    """A value that carries no redactable string is returned as it was, rather
+    than being mangled into one."""
+    marker = object()
+    assert redact(marker, "secret", "private-99") is marker

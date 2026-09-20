@@ -41,9 +41,9 @@ reasoning, and the seams doctrine in `records/` for why a governance document
 that mandated a particular product would be violating its own charter.
 
 **Read the committed status documents before re-deriving what they hold.**
-`governance-status.yaml` and `harness-status.json` sit at the root.
-`harness-status.json` carries its own refresh command, staleness budget and
-`do_not` list in a `reading:` block inside the file. **`governance-status.yaml`
+`status/governance.yaml` and `status/harness.yaml` sit at the root.
+`status/harness.yaml` carries its own refresh command, staleness budget and
+`do_not` list in a `reading:` block inside the file. **`status/governance.yaml`
 does not** — it has no `reading:` block at all, so its refresh command and its
 168-hour budget are only in `handbook/generated-documents.md`, and for that one
 you do need the page. `handbook/generated-documents.md` indexes both, and
@@ -180,7 +180,7 @@ with a date looks checked.
     worse than none — a green check standing where a reader believes something
     is enforced.
 
-    **This item, item 10 and item 12 are one rule**, and charter P16 states
+    **This item, item 10 and item 12 are one rule**, and charter `a-check-is-evidence-after-it-fails` states
     it once — record `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`.
     A check is evidence only after it has been seen to fail. The tool
     answering a different question, the setup describing itself, and the
@@ -196,13 +196,13 @@ with a date looks checked.
     long after they are written: prefer the relation to the count ("every
     synced repository", not a total), and where a figure is the point, name the
     command and the commit that produced it. Never restate a figure a generated
-    document already holds — `governance-status.yaml` and `harness-status.json`
+    document already holds — `status/governance.yaml` and `status/harness.yaml`
     carry their own, and a copy is a second number nothing updates. A
     verification section is the one place a bare count belongs, because its
     subject is one run at one commit. This is about text, not code: an
     assertion that goes stale fails, which is the property prose lacks.
 
-15. **Show it by running it** — charter P12, record
+15. **Show it by running it** — charter `show-it-by-running-it`, record
     `records/DRAFT-one-executable-walkthrough.md`. A worked example lives in
     `walkthrough/`, executed by the ordinary test command, and nothing describes
     a behaviour in a second place beside the code. What prose cannot hold is

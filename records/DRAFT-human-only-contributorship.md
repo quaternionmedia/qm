@@ -5,7 +5,8 @@
 | **Status** | Proposed |
 | **Date** | 2026-07-05 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P10 — credit tracks accountability, not output |
+| **Principle** | `credit-tracks-accountability` — credit tracks accountability, not output |
+| **Restated in** | `AGENTS.md`; `handbook/async-contract.md`; `project-seed/ide/AGENTS.md` |
 
 ## Context
 

@@ -23,7 +23,7 @@ dossier, `private-32`, `private-33`, factorio-sysops and `private-34`. That
 sentence used to say it had never run in a copying project, and stayed there
 after it stopped being true. `ide/` is the least exercised of the three, and
 which projects carry it *can* now be established from here:
-`governance-status.yaml` records an `adoption.ide` list per project, read over
+`status/governance.yaml` records an `adoption.ide` list per project, read over
 the GitHub API rather than from the checkout. Expect the untested parts to need fixes, and
 send them back rather than fixing them locally: a copy does not track its
 origin.

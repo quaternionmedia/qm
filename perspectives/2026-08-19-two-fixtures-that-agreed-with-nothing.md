@@ -80,7 +80,7 @@ is the trade this organisation already made for addresses, arriving late at the
 seam that needed it more.
 
 The convention for the defect itself was also already here, in
-`harness-status.json`'s own reading block: *unknown is a value, it says why, and
+`status/harness.yaml`'s own reading block: *unknown is a value, it says why, and
 it is not zero, not empty and not compliant.* The seam simply had not adopted
 it. It has now, at payload schema 2, and the reader refuses such a payload
 rather than storing a fiction.

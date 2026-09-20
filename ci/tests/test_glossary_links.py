@@ -1,19 +1,19 @@
 """The first use of a term on a page reaches its definition, and only the first.
 
-**A GLOSSARY NOBODY ARRIVES AT IS A PAGE, NOT A GLOSSARY.** P11's argument one
+**A GLOSSARY NOBODY ARRIVES AT IS A PAGE, NOT A GLOSSARY.** `governance-finds-the-reader`'s argument one
 layer down: a reader meeting `knot` in a record does not stop, open the reference
 section and search. They guess, and a corpus whose words carry precise meanings
 is exactly where guessing is expensive.
 
 **THE PROPERTY THAT MAKES IT SAFE IS THE FIXED POINT.** Running the pass twice
-must change nothing, or it cannot ride the ordinary command (P12) and becomes a
+must change nothing, or it cannot ride the ordinary command (`show-it-by-running-it`) and becomes a
 release step somebody remembers. The first version did not have it: it linked the
 first *bare* use, so after a run the first occurrence was a link and the second
 became the new first bare one. It rewrote seventeen pages on its second pass and
 would have linked one more occurrence per run forever.
 
 The docstring claimed idempotence before the code had it, and running it twice is
-what found that — P16 applied to a generator.
+what found that — `a-check-is-evidence-after-it-fails` applied to a generator.
 """
 
 from __future__ import annotations
@@ -149,7 +149,7 @@ def test_the_terms_are_ordered_longest_first():
 
 
 def test_the_committed_pages_are_current():
-    """P12: regeneration rides the ordinary command, so drift arrives as an
+    """`show-it-by-running-it`: regeneration rides the ordinary command, so drift arrives as an
     uncommitted diff nobody can miss."""
     assert links.main(["--check"]) == 0
 
@@ -172,7 +172,7 @@ def test_a_term_inside_an_indented_code_block_is_left_alone():
     inside a `>>>` line was rewritten into a markdown link and
     `run-ci-locally.md` stopped running.
 
-    P12 doing its job: the example that ran is the example a reader reads, so
+    `show-it-by-running-it` doing its job: the example that ran is the example a reader reads, so
     breaking one is a failure rather than a stale page.
 
     Mutation: drop the indented-block mask and this fails.

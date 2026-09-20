@@ -32,6 +32,7 @@ Some projects mount the corpus somewhere other than `governance/qm`; check
 | `qmcp` | a Model Context [Protocol](../ref/glossary.md#protocol){ .glossary-term } server | the harness: it measures work and answers over HTTP |
 | `dossier` | the control panel | draws the harness's answer in a terminal |
 | `codecartographer` | a tool for mapping source code as graphs | draws the same answer in a browser |
+| `looksatwords` | reads natural language and says what was in it | the second act: reads the turns of one thread the harness served, and names what they were about |
 
 The middle column matters, because each repository's README introduces it on its
 own terms and none of them opens by describing the demo. `dossier` and `qmcp` do
@@ -72,6 +73,16 @@ run yourself, in the terminal you want to watch.
 that they agree, rather than showing you two pictures and leaving the comparison
 to your eye. `uv run qm demo --over-http --side-by-side` does it against the
 running services instead, which is a different and stronger claim.
+
+The demo has a second act. After the windows agree, the harness serves **one
+thread** and three readers take it under their own interpreters: `looksatwords`
+reports the topics the turns carried and which tangents never resolved;
+`dossier` reports which of its views could answer with that subject selected
+and what the rest are waiting on; `codecartographer`, when its checkout carries
+the derived system monitor, derives the subject's system from its clone. The
+readers are held to the [seam](../ref/glossary.md#seam){ .glossary-term } rather than to a picture — every one must report
+the harness's own turn counts, and `looksatwords` must emit no decision, which
+is the border its adoption record draws.
 
 ## Making a change
 
@@ -126,7 +137,7 @@ person who asked for the work; do not request a review.
 Not on its own — a passing test may be asserting nothing. `uv run qm mutate
 <module>` breaks a module on purpose and reports whether its tests noticed.
 `uv run qm posture` reports what the suite costs and what it catches together,
-because either number alone flatters. This is charter principle P16.
+because either number alone flatters. This is charter principle `a-check-is-evidence-after-it-fails`.
 
 **"This says zero. Does that mean nobody looked?"**
 
@@ -152,13 +163,13 @@ real bug.
 
 **"Where do these numbers come from, and are they current?"**
 
-`governance-status.yaml` and `harness-status.json`, both at the root of the `qm`
+`status/governance.yaml` and `status/harness.yaml`, both at the root of the `qm`
 clone. Read them rather than recomputing — a figure you derive yourself is a
 second number nothing keeps up to date.
 
-They are not symmetrical. `harness-status.json` carries its own refresh command
+They are not symmetrical. `status/harness.yaml` carries its own refresh command
 and staleness budget in a `reading:` block inside the file.
-`governance-status.yaml` has no such block, and its refresh command and its
+`status/governance.yaml` has no such block, and its refresh command and its
 168-hour budget live only in
 [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 Check the age before quoting either.

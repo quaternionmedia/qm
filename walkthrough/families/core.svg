@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="188" viewBox="0 0 560 188" role="img" aria-label="the core family and its members">
+<rect width="560" height="188" fill="none"/>
+<text x="14" y="28" font-family="monospace" font-size="14" font-weight="bold" fill="currentColor">core</text>
+<text x="14" y="48" font-family="monospace" font-size="12" fill="currentColor">* qm</text>
+<text x="244" y="48" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">governed</text>
+<text x="14" y="74" font-family="monospace" font-size="12" fill="currentColor">* dossier</text>
+<text x="244" y="74" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">governed</text>
+<text x="14" y="100" font-family="monospace" font-size="12" fill="currentColor">* qmcp</text>
+<text x="244" y="100" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">governed</text>
+<text x="14" y="126" font-family="monospace" font-size="12" fill="currentColor">* codecartographer</text>
+<text x="244" y="126" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">governed</text>
+<text x="14" y="152" font-family="monospace" font-size="12" fill="currentColor">* looksatwords</text>
+<text x="244" y="152" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">governed</text>
+<text x="14" y="184" font-family="monospace" font-size="10" fill="currentColor" opacity="0.6">* governed  . not adopted</text>
+</svg>

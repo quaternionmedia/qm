@@ -34,6 +34,37 @@ Two failure modes follow from that split, and both have bitten:
   carries it back. If you find any, lift it to `main` on a
   `perspective/*` or `evolve/*` branch before continuing.
 
+  `.github/workflows/namespace-guard.yml` refuses that content on the way in,
+  on push as well as on a pull request, so the route is closed rather than
+  merely discouraged.
+
+### The return path, which is a queue rather than a merge
+
+Closing the wrong route does not open a right one, and for a long time the
+upward half of this model ran on somebody remembering. It turns out the
+projects have been writing it down all along: **every `Proposed` record names
+what it pends on**, the ADR lint enforces the row, and many of those rows name
+*the organisation* — an amendment nobody has ratified, a carve-out nobody has
+recognised, a licensing input nobody has settled.
+
+`uv run qm inbound` reads them. It merges nothing and closes nothing; a row
+leaves the list when the record's own author changes it, which is the only
+party that can know. What it adds to a per-project reading is the one thing no
+per-project reading can show: **the same ask pended on by many projects at
+once**, so the cheapest action this organisation can take is the group at the
+top rather than whichever branch somebody happened to open.
+
+Two boundaries, both stated in the tool's output rather than left to be
+inferred:
+
+- A project whose records are not on its branch is **unknown, not quiet**. It
+  keeps `adr/` in its own repository — the second model
+  `project-seed/ci/adr-lint.yml` offers — or nobody has written one yet, and
+  `status/governance.yaml`'s `records_dir` says which.
+- It does not judge which rows are the org's to answer. A `Pends on` row is
+  prose a person wrote; grouping identical text is mechanical, and reading
+  intent would be a guess printed as a finding.
+
 ---
 
 ## Part A — in this repo: bring `project/<name>` current
@@ -286,6 +317,8 @@ reports their absence.
 | Seed artifacts absent from the project repo entirely | Fork steps 4 and 5 were never done. Do them now — the pin alone is not adoption |
 | A divergent in-project implementation of a seed mechanism | Replace it, do not add beside it, and flag the behaviour change in the PR |
 | A record's Status or number needs changing | **Not yours.** Draft it and hand it back; a human ratifies |
+| A project pends on something the org has not settled | `uv run qm inbound`. Answer the group at the top first — it is the one action that unblocks the most projects |
+| A branch you are about to delete | `uv run qm branches` **in that repository**, first. A branch whose remote is fully merged can still hold commits on one disk, and the two are indistinguishable in a list of names |
 
 ## What this page does not authorise
 

@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "note": [
+    "Conformance vectors for the loose-ends document. Shared, not owned: the",
+    "corpus generates the document and each consumer reads it, and every",
+    "consumer runs these cases so that two readings stay honest without one",
+    "importing the other. Same arrangement as address-vectors.json.",
+    "",
+    "ci/loose_ends.py is the generator and the reference reader.",
+    "`python ci/loose_ends.py --vectors` runs this file against it.",
+    "",
+    "WHAT A CASE ASSERTS. Given the item and the claims register in `given`,",
+    "a conforming reader reports the `expect` block: the item's key, whether",
+    "it is open, and its disposition. A reader that renders an unclaimed item",
+    "the same as a dismissed one fails the first case, which is the one this",
+    "file exists for.",
+    "",
+    "Adding a case is cheap and is the right response to any item that was",
+    "read wrongly in the wild. Removing one needs a reason."
+  ],
+  "cases": [
+    {
+      "name": "an item nobody has judged is open, and carries no claim block",
+      "given": {
+        "item": {
+          "kind": "stalled-thread",
+          "address": "quaternionmedia/alfred/pr/113"
+        },
+        "claims": {}
+      },
+      "expect": {
+        "key": "stalled-thread:quaternionmedia/alfred/pr/113",
+        "open": true,
+        "has_claim": false,
+        "disposition": null
+      },
+      "why": "open is the absence of a claim. A reader that invents disposition 'open' cannot tell nobody-looked from somebody-decided-nothing."
+    },
+    {
+      "name": "a dismissed item is not open and keeps its reason",
+      "given": {
+        "item": {
+          "kind": "stalled-thread",
+          "address": "quaternionmedia/alfred/pr/113"
+        },
+        "claims": {
+          "stalled-thread:quaternionmedia/alfred/pr/113": {
+            "disposition": "dismissed",
+            "by": "someone",
+            "at": "2026-09-06",
+            "why": "the work landed elsewhere"
+          }
+        }
+      },
+      "expect": {
+        "key": "stalled-thread:quaternionmedia/alfred/pr/113",
+        "open": false,
+        "has_claim": true,
+        "disposition": "dismissed"
+      },
+      "why": "the reason travels with the decision, or the next reader re-litigates it"
+    },
+    {
+      "name": "a carried item is claimed and still a loose end",
+      "given": {
+        "item": {
+          "kind": "document-proposed",
+          "address": "quaternionmedia/qm/doc/records-DRAFT-house-stack"
+        },
+        "claims": {
+          "document-proposed:quaternionmedia/qm/doc/records-DRAFT-house-stack": {
+            "disposition": "carried",
+            "by": "someone",
+            "at": "2026-09-06"
+          }
+        }
+      },
+      "expect": {
+        "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-house-stack",
+        "open": false,
+        "has_claim": true,
+        "disposition": "carried"
+      },
+      "why": "carried means somebody is following it, not that it is finished. It stays in the document until its subject changes."
+    },
+    {
+      "name": "a claim on a different kind at the same address does not apply",
+      "given": {
+        "item": {
+          "kind": "over-slot",
+          "address": "quaternionmedia/apothecary"
+        },
+        "claims": {
+          "stalled-thread:quaternionmedia/apothecary": {
+            "disposition": "dismissed",
+            "by": "someone",
+            "at": "2026-09-06",
+            "why": "a different finding about the same repository"
+          }
+        }
+      },
+      "expect": {
+        "key": "over-slot:quaternionmedia/apothecary",
+        "open": true,
+        "has_claim": false,
+        "disposition": null
+      },
+      "why": "the key is kind plus address. One repository can hold several findings and dismissing one must never dismiss the rest."
+    },
+    {
+      "name": "an unrecognised disposition does not silently void the item",
+      "given": {
+        "item": {
+          "kind": "blind-spot",
+          "address": "quaternionmedia/qm/doc/gate-adr-lint"
+        },
+        "claims": {
+          "blind-spot:quaternionmedia/qm/doc/gate-adr-lint": {
+            "disposition": "wontfix",
+            "by": "someone",
+            "at": "2026-09-06"
+          }
+        }
+      },
+      "expect": {
+        "key": "blind-spot:quaternionmedia/qm/doc/gate-adr-lint",
+        "open": true,
+        "has_claim": false,
+        "disposition": null
+      },
+      "why": "a typo in a disposition must leave the item open. Accepting any word would let a misspelling quietly close a finding, which is the failure mode a register of decisions can least afford."
+    },
+    {
+      "name": "an address that does not round-trip is not a usable key",
+      "given": {
+        "item": {
+          "kind": "stalled-thread",
+          "address": "quaternionmedia/alfred/pullrequest/113"
+        },
+        "claims": {}
+      },
+      "expect": {
+        "key": "stalled-thread:quaternionmedia/alfred/pullrequest/113",
+        "open": true,
+        "has_claim": false,
+        "disposition": null,
+        "address_parses": false
+      },
+      "why": "`pullrequest` is not in ci/addresses.py's closed KINDS set. The item is still reported -- dropping it would hide a real finding -- but a view cannot navigate to its subject, and address_parses says so rather than leaving a dead link."
+    }
+  ]
+}

@@ -22,7 +22,7 @@ of a venv. See the header of `pyproject.toml`. One definition, two entry points.
 
 WHERE IT RUNS. Relative paths in the generators are corpus-relative, so this
 locates the corpus root -- by marker, walking up from the working directory --
-and refuses to run anywhere else rather than writing `gate-status.json` into
+and refuses to run anywhere else rather than writing `status/gates.yaml` into
 whatever directory you happened to be in.
 """
 
@@ -177,11 +177,37 @@ def build_parser() -> argparse.ArgumentParser:
         "branch", help="what a branch actually carries, against its base", add_help=False
     )
     sub.add_parser(
+        "branches",
+        help="every branch, and what deleting it would cost",
+        add_help=False,
+    )
+    sub.add_parser(
+        "inbound",
+        help="what the projects are waiting on this organisation for",
+        add_help=False,
+    )
+    sub.add_parser(
         "rulesets", help="what the rulesets say, and what the host is running",
         add_help=False,
     )
     sub.add_parser(
         "lanes", help="the lanes this work is separated into",
+        add_help=False,
+    )
+    sub.add_parser(
+        "families", help="which repositories are claimed to be one working system",
+        add_help=False,
+    )
+    sub.add_parser(
+        "interop", help="every repository on one contract surface claims the same version",
+        add_help=False,
+    )
+    sub.add_parser(
+        "cookbook", help="one onboarding page per family, generated from this disk",
+        add_help=False,
+    )
+    sub.add_parser(
+        "family-suite", help="run each family's suites, and say what the batch establishes",
         add_help=False,
     )
     sub.add_parser(
@@ -287,7 +313,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 # command -> (module, is_seed_script, argv transform)
 ROUTES: dict[str, tuple[str, bool, list[str]]] = {
-    "gates": ("gate_dashboard", False, ["gate-status.json", "--format", "md"]),
+    "gates": ("gate_dashboard", False, ["status/gates.yaml", "--format", "md"]),
     "tags": ("tag_audit", False, []),
     "restatements": ("check_restatements", False, []),
     "edges": ("check_principle_edges", False, []),
@@ -297,10 +323,16 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "pins": ("check_submodule_pins", True, []),
     "leaks": ("check_leaks", True, []),
     "harness": ("harness_dashboard", False,
-                ["harness-status.json", "--format", "md"]),
+                ["status/harness.yaml", "--format", "md"]),
     "branch": ("check_pr_base", True, []),
+    "branches": ("branch_census", True, []),
+    "inbound": ("inbound", False, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
+    "families": ("families", False, []),
+    "interop": ("interop", False, []),
+    "cookbook": ("cookbook", False, []),
+    "family-suite": ("family_suite", False, []),
     "protocols": ("protocols", False, []),
     "capabilities": ("capabilities", False, []),
     "prose": ("prose", False, []),
@@ -335,7 +367,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
 DOCS_ROUTES: dict[str, tuple[str, list[str]]] = {
     "generate": ("generate_docs", []),
     "check": ("generate_docs", ["--check"]),
-    "states": ("doc_dashboard", ["doc-status.json"]),
+    "states": ("doc_dashboard", ["status/documents.yaml"]),
     "audit": ("docs_audit", []),
 }
 

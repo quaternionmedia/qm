@@ -1,6 +1,6 @@
 """Link the first use of a glossary term on each page to its definition.
 
-**A GLOSSARY NOBODY ARRIVES AT IS A PAGE, NOT A GLOSSARY.** P11 says governance
+**A GLOSSARY NOBODY ARRIVES AT IS A PAGE, NOT A GLOSSARY.** `governance-finds-the-reader` says governance
 finds the reader rather than the reverse, and the same argument applies one layer
 down: a reader meeting `knot` in a record does not stop, open the reference
 section, and search. They guess, and a corpus whose words carry precise meanings
@@ -12,7 +12,7 @@ where a reader is deciding whether they know the word; the fourth is noise.
 
 **IT IS A FIXED POINT, AND THAT IS THE PROPERTY WORTH HAVING.** Running this
 twice changes nothing, because an already-linked occurrence is not a bare one.
-That is what makes it safe to ride the ordinary command (P12) rather than being a
+That is what makes it safe to ride the ordinary command (`show-it-by-running-it`) rather than being a
 release step somebody remembers: drift arrives as an uncommitted diff nobody can
 miss, and a second run is never a second edit.
 
@@ -65,7 +65,7 @@ MASKS = (
     # masked at first, and the executable cookbook pages write their doctests
     # as four-space indented blocks -- so `project-seed/ci/...` inside a `>>>`
     # line was rewritten into a markdown link and the page stopped running.
-    # `run-ci-locally.md` went red, which is P12 doing exactly its job: the
+    # `run-ci-locally.md` went red, which is `show-it-by-running-it` doing exactly its job: the
     # example that ran is the example a reader reads, so breaking one is a
     # failure rather than a stale page.
     re.compile(r"(?:^(?:\t| {4,}).*$\n?)+", re.MULTILINE),
@@ -104,7 +104,7 @@ def link_first(text: str, found: dict[str, str], depth: str) -> str:
         # occurrence per run forever.
         #
         # The docstring claimed idempotence before the code had it, and
-        # running it twice is what found that -- P16 applied to a
+        # running it twice is what found that -- `a-check-is-evidence-after-it-fails` applied to a
         # generator.
         if f"glossary.md#{anchor})" in text:
             continue

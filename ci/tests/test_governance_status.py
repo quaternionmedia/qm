@@ -574,8 +574,70 @@ def test_the_real_document_carries_no_unredacted_private_project():
     """The regression this whole change exists for: the governed-project list
     was unfiltered while the document claimed private names were withheld."""
     document = yaml.safe_load(
-        (Path(__file__).resolve().parent.parent.parent / "governance-status.yaml").read_text(encoding="utf-8")
+        (Path(__file__).resolve().parent.parent.parent / "status/governance.yaml").read_text(encoding="utf-8")
     )
     assert document["generator"]["private_repository_names_listed"] is False
     names = [p["name"] for p in document["projects"] if isinstance(p, dict)]
     assert names, "no projects in the document"
+
+
+# --- where a project says its records live ----------------------------------
+#
+# `records.total: 0` on a project branch means one of two very different
+# things, and the document could not tell them apart: nobody has written a
+# record, or the project keeps them in its own repository under the second
+# model `project-seed/ci/adr-lint.yml` offers in its own header. rad is the
+# live instance -- eleven drafts in its own `adr/`, `RECORDS_DIR: adr` in its
+# workflow, and a census reporting it as having decided nothing.
+
+WORKFLOW = ".github/workflows/adr-lint.yml"
+
+
+class StubHub:
+    """A Hub that answers one file, so `records_dir` can be read alone."""
+
+    def __init__(self, text):
+        self._text = text
+
+    def adr_lint_workflow(self, name):
+        return self._text
+
+
+def test_a_local_records_dir_is_reported_as_the_path_it_declares():
+    hub = StubHub("env:\n  QM_SUBMODULE: governance/qm\n  RECORDS_DIR: adr\n")
+    assert gs.records_dir(hub, "rad", {WORKFLOW}) == "adr"
+
+
+def test_the_seed_default_is_none_rather_than_an_empty_string():
+    """Empty means the branch-per-project model, which the census already
+    counts. `""` and `None` reading alike in the document is how a default gets
+    mistaken for a declaration."""
+    hub = StubHub("env:\n  QM_SUBMODULE: governance/qm\n  RECORDS_DIR:\n")
+    assert gs.records_dir(hub, "alpha", {WORKFLOW}) is None
+
+
+def test_a_quoted_path_is_read_without_its_quotes():
+    hub = StubHub('env:\n  RECORDS_DIR: "adr"\n')
+    assert gs.records_dir(hub, "alpha", {WORKFLOW}) == "adr"
+
+
+def test_a_project_with_no_seed_workflow_is_unknown_not_default():
+    """qmetronome runs the lint inline in `ci.yml`, so an absent filename is
+    not an absent check -- and it is not a declaration of the default either.
+    Reporting `None` here would state a choice the project never made."""
+    got = gs.records_dir(StubHub("unused"), "qmetronome", set())
+    assert isinstance(got, gs.Unknown)
+    assert "adr-lint.yml" in got.reason
+
+
+def test_a_workflow_declaring_no_knob_is_unknown():
+    hub = StubHub("env:\n  QM_SUBMODULE: governance/qm\n")
+    got = gs.records_dir(hub, "alpha", {WORKFLOW})
+    assert isinstance(got, gs.Unknown)
+    assert "RECORDS_DIR" in got.reason
+
+
+def test_an_unreadable_workflow_stays_unknown():
+    """A file that could not be read is not a project that chose the default."""
+    hub = StubHub(gs.Unknown("contents/adr-lint.yml in alpha: 404"))
+    assert isinstance(gs.records_dir(hub, "alpha", {WORKFLOW}), gs.Unknown)

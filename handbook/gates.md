@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-08-23T18:49:37Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, and this page is rendered from the document and nothing else.
+**Generated `2026-09-19T23:56:11Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -22,11 +22,11 @@
 
 | | Gate | Stands before | Trigger | Seed | Refuses |
 |---|---|---|---|---|---|
-| [ok] | `adr-lint` | main, push | pull_request, push | yes | A record whose header table, status or index row is malformed; banned narration vocabulary in a pre-ratification draft; a vendor or model name in a record's prose or a commit subject; a seed copy still showing its template placeholder to a reader; a record whose declared restatement does not name it back. |
+| [ok] | `adr-lint` | main, push | pull_request, push | yes | A record whose header table, status or index row is malformed; banned narration vocabulary in a pre-ratification draft; a vendor or model name in a record's prose or a commit subject; a seed copy still showing its template placeholder to a reader; a record whose declared restatement does not name it back; a principle that declares no relationship to the others and gives no reason, or declares one the other end does not declare back. |
 | [ok] | `one-pr-slot` | main | pull_request | yes | A pull request whose author already holds an open slot in this repository. It fails every one of them rather than picking a survivor. |
 | [ok] | `namespace-guard` | main, push | pull_request, push | no | A pull request opened in the wrong direction between namespaces, and a project branch whose own commits touch anything outside `adr/`. |
 | [ok] | `ci-tooling-tests` | main, push | pull_request, push | no | A change to the CI tooling that breaks its own test suite. |
-| [ok] | `governance-status` | main, push | pull_request, push | no | A committed `governance-status.yaml` that no longer renders the commits it names, and a rendered view that has drifted from it. |
+| [ok] | `governance-status` | main, push | pull_request, push | no | A committed `status/governance.yaml` that no longer renders the commits it names, and a rendered view that has drifted from it. |
 | [ok] | `reuse-lint` | main, push | pull_request, push | yes | A file with no copyright or licence information, a bad or deprecated SPDX expression, or an unused licence file. |
 | [ok] | `symlink-integrity` | main, push | pull_request, push | no | A pointer file that has stopped being a symlink -- mode other than 120000 -- which is how a Windows checkout silently forks a shared document into two. |
 | [ok] | `docs-audit` | pull_request | pull_request | no | A documentation site that builds but does not hold together -- a page the navigation does not reach, a link to a page that is not published, a claim the audit's four dimensions can check. |
@@ -44,7 +44,7 @@
 
 Read this before quoting a green check. Every defect this corpus has found in its own tooling was a check that reported success while enforcing nothing.
 
-- **`adr-lint`** — Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.
+- **`adr-lint`** — Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Nor whether two principles actually conflict: the edge check reads a stated relationship from both ends and knows nothing about what either principle says, so a wrong edge declared consistently passes. It also cannot tell a real isolation from a lazy one -- it can only insist the `none` carries a reason somebody had to write. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.
 - **`one-pr-slot`** — Whether the two pull requests are actually related. It counts slots, not subject matter, and the `--per-base` exemption is a glob somebody passes.
 - **`namespace-guard`** — A branch cut from the wrong parent whose direction is nonetheless legal. `check_pr_base.py` reports the inheritance; nothing fails on it.
 - **`ci-tooling-tests`** — Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one. For the walkthrough it also cannot see whether a page is worth reading: doctest asserts that an example's printed output is what the page claims, and asserts nothing about whether the example was the one worth showing.
@@ -80,7 +80,7 @@ Read this before quoting a green check. Every defect this corpus has found in it
 | `tag-determinism` | `records/DRAFT-version-tags-are-claims.md` |
 | `secret-scan` | *nothing stated — it guards a habit rather than a decision* |
 | `commit-signatures` | `records/DRAFT-human-only-contributorship.md` |
-| `registries` | `ci/exception-registry.yaml`, `ci/policy-registry.yaml`, `ci/lane-registry.yaml`, `ci/protocol-registry.yaml`, `curriculum/org.yaml`, `project-seed/address-vectors.json` |
+| `registries` | `ci/exception-registry.yaml`, `ci/policy-registry.yaml`, `ci/lane-registry.yaml`, `ci/protocol-registry.yaml`, `ci/capability-registry.yaml`, `curriculum/org.yaml`, `project-seed/address-vectors.json` |
 | `rulesets` | `ci/policy-registry.yaml main-is-entered-through-a-pull-request`, `.github/rulesets/README.md` |
 | `private-names` | `ci/policy-registry.yaml no-private-name-in-a-public-artifact` |
 

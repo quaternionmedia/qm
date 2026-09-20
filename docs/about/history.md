@@ -21,7 +21,7 @@ Several projects have adopted the corpus, each on its own `project/<name>` branc
 
 There is **no reference instance for a server or container runtime**. The `project/streaming-infrastructure` branch is a design branch, not an adopted project; no repository exists behind it.
 
-The current state of every project is in [governance-status.yaml](https://github.com/quaternionmedia/qm/blob/main/governance-status.yaml). Read that file rather than trusting counts written into prose — a number in a sentence goes stale silently.
+The current state of every project is in [status/governance.yaml](https://github.com/quaternionmedia/qm/blob/main/governance-status.yaml). Read that file rather than trusting counts written into prose — a number in a sentence goes stale silently.
 
 ## Where the reasons live
 

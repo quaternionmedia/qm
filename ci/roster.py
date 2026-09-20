@@ -3,7 +3,7 @@
 
 `ci/workspace.yaml` is the committed roster. A **private** repository appears
 there as a bare `ref` and nothing else -- naming it would defeat the redaction
-`inventory-public.json` applies to the same repository, which is how the corpus
+`status/inventory.yaml` applies to the same repository, which is how the corpus
 came to contradict itself for five days.
 
 That redaction broke every consumer at once. Four generators read
@@ -86,6 +86,22 @@ def redact(node, name: str, ref: str):
     Bounded like ci/check_private_names.py, for the same reason: a plain
     substring replace rewrites a longer repository that merely contains this
     one.
+
+    **IT WALKS TYPES, WHICH IS THE HOLE, AND THE HOLE HAS BEEN THROUGH ONCE.**
+    The docstring above says it walks the whole entry rather than naming the
+    fields, because a field list goes stale against a shape that changes. True,
+    and it enumerates *types* instead -- so a value that is not a dict, a list
+    or a string falls through the bottom unredacted. That happened: a generator
+    grew an `Unknown(reason)` wrapper for facts it could not establish, the
+    reason string interpolated a repository name, and two private names reached
+    a committed generated document while every field the redactor knew about
+    was clean. `uv run qm private-names` is what caught it.
+
+    So anything carrying a redactable string attribute is redacted through that
+    attribute, in place, by duck typing rather than by importing the class --
+    `ci/roster.py` must not depend on a generator that depends on it. A new
+    wrapper gets this for free; a new wrapper that hides its string somewhere
+    else does not, and that is the residue.
     """
     if isinstance(node, dict):
         return {k: redact(v, name, ref) for k, v in node.items()}
@@ -93,4 +109,9 @@ def redact(node, name: str, ref: str):
         return [redact(v, name, ref) for v in node]
     if isinstance(node, str):
         return re.sub(rf"(?<![A-Za-z0-9_-]){re.escape(name)}(?![A-Za-z0-9_-])", ref, node)
+    for attribute in ("reason", "text", "message"):
+        current = getattr(node, attribute, None)
+        if isinstance(current, str):
+            setattr(node, attribute, redact(current, name, ref))
+            return node
     return node

@@ -5,8 +5,8 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-25 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P17 — shrink the black box; P15 — the layer's mathematics is sought on purpose; P16 — a check is evidence only after it has failed |
-| **Restated in** | `PRINCIPLES.md` P17 |
+| **Principle** | `shrink-the-black-box` — shrink the black box; `a-loop-is-not-a-knot` — the layer's mathematics is sought on purpose; `a-check-is-evidence-after-it-fails` — a check is evidence only after it has failed |
+| **Restated in** | `PRINCIPLES.md` `shrink-the-black-box` |
 
 ## Context
 
@@ -24,7 +24,7 @@ Both were argued from cost and from interruption. Neither said what they have in
 common, and they have the same shape: **each takes a decision away from something
 that cannot be decided and gives it to something that can.**
 
-That is a statement about computability, and this corpus has a principle (P15)
+That is a statement about computability, and this corpus has a principle (`a-loop-is-not-a-knot`)
 that says a layer's mathematics is looked for on purpose. This record does that
 for the layer nobody had named — the boundary between an agent's judgement and
 the code it produces.
@@ -65,10 +65,10 @@ The obligations above sound like a restriction on the model. They are the
 opposite: **the deterministic, time-bounded guards are drafted _with_ the
 non-deterministic tool.** An agent is bad at being a decision procedure and good
 at producing the syntax of one. So the work is to draft the check, run it, break
-it, watch it go red (P16), and hand a person something they can author — and
+it, watch it go red (`a-check-is-evidence-after-it-fails`), and hand a person something they can author — and
 then never be the check again.
 
-**Which is why P16 is the transfer of authorship and not a testing habit.** A
+**Which is why `a-check-is-evidence-after-it-fails` is the transfer of authorship and not a testing habit.** A
 guard nobody has seen fail is a draft. Breaking it, watching it go red, and
 writing the mutation down is what a person does to take responsibility for it,
 and after that the guard is theirs. The tool typed it; the mutation note is the
@@ -88,7 +88,7 @@ reported" is itself material for the next guard.
 ## Why this is mathematics and not metaphor
 
 The mapping is added to `ci/mathematics-registry.yaml` with its state named, as
-P15 requires. The short form:
+`a-loop-is-not-a-knot` requires. The short form:
 
 **The halting problem is not an obstacle here; it is the boundary condition that
 tells you where to put the wall.** No general procedure decides whether an

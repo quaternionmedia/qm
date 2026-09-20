@@ -2,7 +2,7 @@
 #
 # WHY THIS EXISTS. A ledger entry attributed to "this tool" is unfalsifiable: a
 # reader cannot tell which tool, run by whom, or over what period. Every entry
-# in `ledger.yaml` names one of these ids, so an attribution resolves to a
+# in `status/ledger.yaml` names one of these ids, so an attribution resolves to a
 # vendor, a product and an operator.
 #
 # EVERY ENTRY, NOT ONLY THE FAILURES. Tool authorship is audited on the same
@@ -39,7 +39,7 @@ tools:
       produces; the operator authors, reviews, and decides. Its observed
       failure modes over 2026-08-14/16 are catalogued in
       perspectives/2026-08-15-what-is-shaping-this-tool.md, and the incidents
-      themselves are in ledger.yaml.
+      themselves are in status/ledger.yaml.
 
   - id: human
     kind: person

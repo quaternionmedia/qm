@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-08-23T18:49:38Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-09-19T23:56:12Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,26 +9,26 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 29**; 27 proposed |
-| Mandatory reading | under budget | 631 of 700 lines |
+| Records ratified | every requirement below | **0 of 38**; 35 proposed |
+| Mandatory reading | under budget | 1132 of 1200 lines |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
 
 - **`ratification-rehearsed`** — At least one record ratified end to end, so the five-step path has been walked once  
-  *measured by:* `doc-status.json readiness.records.ratified`
+  *measured by:* `status/documents.yaml readiness.records.ratified`
 - **`reading-within-budget`** — Mandatory reading before a first edit stays under its budget  
-  *measured by:* `doc-status.json reading_load.within_budget`
+  *measured by:* `status/documents.yaml reading_load.within_budget`
 - **`no-unknown-document-states`** — Every governed document's state can be established  
-  *measured by:* `doc-status.json totals.unknown`
+  *measured by:* `status/documents.yaml totals.unknown`
 - **`gates-declared-are-built`** — No gate is declared and unbuilt, or the gap is deliberate and named  
-  *measured by:* `gate-status.json totals.declared_not_built`
+  *measured by:* `status/gates.yaml totals.declared_not_built`
 - **`semantic-review-done`** — All records read in one sitting for contradiction, which no check can do  
   *measured by:* `not mechanisable -- a human says so, in a handoff or a record`
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **131**, unfiltered.
+Every governed document in this corpus: **188**, unfiltered.
 
 | | |
 |---|---|
@@ -58,21 +58,27 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 27 |
-| [D] `draft` | 2 |
-| [-] `unreviewed` | 47 |
+| [P] `proposed` | 35 |
+| [D] `draft` | 3 |
+| [-] `unreviewed` | 52 |
 | [G] `generated` | 7 |
-| [S] `standing` | 30 |
-| [T] `transient` | 18 |
+| [S] `standing` | 69 |
+| [T] `transient` | 22 |
 
 ## Documents
 
 | | State | Document | Class | Declared |
 |---|---|---|---|---|
+| [P] | `proposed` | `records/DRAFT-a-capability-has-four-phases.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-disagreement-is-a-delta.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-family-is-bordered-by-what-it-drives.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-knot-is-a-cycle-of-obligation.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-principle-is-addressed-by-its-name.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-route-is-an-address.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-shared-tag-asserts-interoperability.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-acts-that-are-a-persons-by-constitution.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-attention-is-a-claim-activity-is-measured.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-build-the-seam-buy-the-engines.md` | record | Proposed |
@@ -88,14 +94,17 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-ide-integrated-governance-discovery.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-monitoring-seam-and-instance-identity.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-no-unattended-spending.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-one-executable-walkthrough.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-open-license-exclusion-and-upstream-remediation.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-outbound-licensing.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-project-phase-ladder.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-seams-on-standard-protocols.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-shrink-the-black-box.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-the-ledger.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-the-read-document-governs.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-version-tags-are-claims.md` | record | Proposed |
+| [D] | `draft` | `records/DRAFT-a-loose-end-is-carried-or-dismissed.md` | record | Draft |
 | [D] | `draft` | `records/DRAFT-going-private-is-an-act-with-obligations.md` | record | Draft |
 | [D] | `draft` | `records/DRAFT-the-base-is-the-deliverable.md` | record | Draft |
 | [-] | `unreviewed` | `perspectives/2026-07-05-on-human-only-contributorship.md` | perspective | — |
@@ -136,6 +145,11 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-21-what-a-system-says-about-itself.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-22-what-it-cost-to-get-one-panel-right.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-23-the-rules-with-nothing-behind-them.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-25-defects-between-two-green-suites.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-25-the-suite-that-outgrew-its-loop.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-26-the-plan-was-still-running.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-27-the-precondition-nobody-declared.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-27-two-views-that-go-stale-together.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
@@ -145,16 +159,42 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/claude-sonnet-5-2026-07-09-first-beat-timing-retrospective.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-sonnet-5-2026-07-18-test-timeout-halting-problem-retrospective.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/session-transcript-2026-06-09.md` | perspective | — |
-| [G] | `generated` | `doc-status.json` | generated | — |
-| [G] | `generated` | `gate-status.json` | generated | — |
-| [G] | `generated` | `governance-status.yaml` | generated | — |
 | [G] | `generated` | `handbook/document-states.md` | generated | — |
 | [G] | `generated` | `handbook/gates.md` | generated | — |
-| [G] | `generated` | `harness-status.json` | generated | — |
 | [G] | `generated` | `inventory.json` | generated | — |
+| [G] | `generated` | `status/documents.yaml` | generated | — |
+| [G] | `generated` | `status/gates.yaml` | generated | — |
+| [G] | `generated` | `status/governance.yaml` | generated | — |
+| [G] | `generated` | `status/harness.yaml` | generated | — |
 | [S] | `standing` | `AGENTS.md` | entry | — |
 | [S] | `standing` | `PRINCIPLES.md` | entry | — |
 | [S] | `standing` | `README.md` | entry | — |
+| [S] | `standing` | `docs/about/architecture.md` | reference | — |
+| [S] | `standing` | `docs/about/history.md` | reference | — |
+| [S] | `standing` | `docs/about/index.md` | reference | — |
+| [S] | `standing` | `docs/about/overview.md` | reference | — |
+| [S] | `standing` | `docs/cookbook/add-a-perspective.md` | reference | — |
+| [S] | `standing` | `docs/cookbook/build-these-docs.md` | reference | — |
+| [S] | `standing` | `docs/cookbook/draft-a-record.md` | reference | Starts at `Draft` or `Proposed` |
+| [S] | `standing` | `docs/cookbook/index.md` | reference | — |
+| [S] | `standing` | `docs/cookbook/propagate-a-change.md` | reference | — |
+| [S] | `standing` | `docs/cookbook/read-status-documents.md` | reference | — |
+| [S] | `standing` | `docs/cookbook/run-ci-locally.md` | reference | — |
+| [S] | `standing` | `docs/index.md` | reference | — |
+| [S] | `standing` | `docs/ref/addresses.md` | reference | — |
+| [S] | `standing` | `docs/ref/glossary.md` | reference | — |
+| [S] | `standing` | `docs/ref/handbook.md` | reference | — |
+| [S] | `standing` | `docs/ref/index.md` | reference | — |
+| [S] | `standing` | `docs/ref/namespaces.md` | reference | — |
+| [S] | `standing` | `docs/ref/precedence.md` | reference | — |
+| [S] | `standing` | `docs/ref/protocols.md` | reference | — |
+| [S] | `standing` | `docs/ref/ratification.md` | reference | — |
+| [S] | `standing` | `docs/ref/repo-layout.md` | reference | — |
+| [S] | `standing` | `docs/usage/first-project.md` | reference | — |
+| [S] | `standing` | `docs/usage/getting-started.md` | reference | — |
+| [S] | `standing` | `docs/usage/index.md` | reference | — |
+| [S] | `standing` | `docs/usage/next-steps.md` | reference | — |
+| [S] | `standing` | `docs/usage/questions-a-new-developer-asks.md` | reference | — |
 | [S] | `standing` | `handbook/adoption-audit-queue.md` | handbook | — |
 | [S] | `standing` | `handbook/async-contract.md` | handbook | — |
 | [S] | `standing` | `handbook/config-standard.md` | handbook | — |
@@ -173,6 +213,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `plans/first-ratification.md` | other | — |
 | [S] | `standing` | `plans/governance-prose-signals.md` | other | — |
 | [S] | `standing` | `plans/hil-testing-session.md` | other | — |
+| [S] | `standing` | `plans/moat-remediation.md` | other | — |
 | [S] | `standing` | `plans/open-work.md` | other | — |
 | [S] | `standing` | `plans/qmpm-standardisations.md` | other | — |
 | [S] | `standing` | `plans/readme-onramp.md` | other | — |
@@ -182,6 +223,18 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `plans/thread-archive-access.md` | other | — |
 | [S] | `standing` | `plans/v0.0.1-blockers.md` | other | — |
 | [S] | `standing` | `plans/v0.0.1-review-packet.md` | other | — |
+| [S] | `standing` | `protocols/README.md` | index | — |
+| [S] | `standing` | `protocols/curriculum.md` | protocol | — |
+| [S] | `standing` | `protocols/history-archive.md` | protocol | — |
+| [S] | `standing` | `protocols/local-demo.md` | protocol | — |
+| [S] | `standing` | `protocols/plain-language.md` | protocol | — |
+| [S] | `standing` | `protocols/runs/2026-08-17-local-demo.md` | protocol | — |
+| [S] | `standing` | `protocols/runs/2026-08-19-plain-language.md` | protocol | — |
+| [S] | `standing` | `protocols/runs/2026-08-21-trio-demo.md` | protocol | — |
+| [S] | `standing` | `protocols/runs/2026-08-23-security-review.md` | protocol | — |
+| [S] | `standing` | `protocols/runs/2026-08-27-local-demo.md` | protocol | — |
+| [S] | `standing` | `protocols/security-review.md` | protocol | — |
+| [S] | `standing` | `walkthrough/01-two-views-one-dataset.md` | walkthrough | — |
 | [T] | `transient` | `handbook/handoffs/apply-the-main-ruleset.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/disk-tooling.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/dossier-delta-review.md` | handoff | — |
@@ -189,6 +242,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/governance-loop-poc.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/governance-status-generator.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/harness-next-test.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/hil-review-2026-08-25.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qmcp-flows-as-deltas.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-of-the-records.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-session.md` | handoff | — |
@@ -196,10 +250,13 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/session-2026-08-15.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/session-2026-08-23.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-active-four.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/the-estate-has-one-copy.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-loop-that-checks-itself.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/the-menu-contract-nobody-could-fetch.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-pair-and-the-fresh-setup.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-gate-and-tag-teeth.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-views-one-dataset.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/views-declare-what-they-need.md` | handoff | — |
 
 ## Reading this document
 

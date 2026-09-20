@@ -51,7 +51,7 @@ shortest useful thing to read after this.
 | Bring an existing project up to date | [handbook/propagation-runbook.md](handbook/propagation-runbook.md) |
 | Learn the branch and record rules | [Branch namespaces](docs/ref/namespaces.md) and [Record precedence](docs/ref/precedence.md) |
 | Know how far this corpus has got in governing itself | [handbook/governance-rollout.md](handbook/governance-rollout.md) |
-| See where every project stands | [governance-status.yaml](governance-status.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
+| See where every project stands | [status/governance.yaml](status/governance.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
 | Know which checks actually govern, and what each one misses | [handbook/gates.md](handbook/gates.md) — says plainly whether anything blocks a merge |
 | Know what state a document is in before trusting it | [handbook/document-states.md](handbook/document-states.md), or `uv run qm docs states --state proposed` |
 | Look up a word this corpus uses in its own way | [handbook/glossary.md](handbook/glossary.md) |
@@ -84,8 +84,8 @@ qm/
 ├── ci/                    org-level tooling
 ├── adapters/              optional per-tool glue; nothing here is depended on
 ├── docs/                  the documentation site (GitHub Pages)
-├── governance-status.yaml generated; where every project stands
-├── harness-status.json    generated; PR slots, phases, governance evidence
+├── status/governance.yaml generated; where every project stands
+├── status/harness.yaml    generated; PR slots, phases, governance evidence
 ├── AGENTS.md              instructions for coding agents
 ├── .github/               CI workflows and branch protection
 └── LICENSE, LICENSES/     CC-BY-SA-4.0 for corpus prose; REUSE.toml covers the rest
@@ -122,6 +122,17 @@ qm/
 | — | [Nothing unattended spends money](records/DRAFT-no-unattended-spending.md) | Proposed | 2026-08-20 |
 | — | [A route is an address, and an unavailable one is still shown](records/DRAFT-a-route-is-an-address.md) | Proposed | 2026-08-20 |
 | — | [A knot is a cycle of obligation, not a cycle in the graph](records/DRAFT-a-knot-is-a-cycle-of-obligation.md) | Proposed | 2026-08-21 |
+| — | [A check is evidence only after it has been seen to fail](records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md) | Proposed | 2026-08-22 |
+| — | [Shrink the black box: undecidable judgement, decidable guards](records/DRAFT-shrink-the-black-box.md) | Proposed | 2026-08-25 |
+| — | [Going private is an act, and the party who does it owns what follows](records/DRAFT-going-private-is-an-act-with-obligations.md) | Draft | 2026-08-16 |
+| — | [The base is the deliverable, and it is stable when a pass adds nothing](records/DRAFT-the-base-is-the-deliverable.md) | Draft | 2026-08-16 |
+| — | [Nothing is both a claim and its own evidence](records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md) | Proposed | 2026-08-29 |
+| — | [A principle is addressed by its name](records/DRAFT-a-principle-is-addressed-by-its-name.md) | Proposed | 2026-08-29 |
+| — | [A stage is recorded, and `main` receives releases rather than asserting them](records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md) | Proposed | 2026-08-29 |
+| — | [Repositories at the same tag interoperate](records/DRAFT-a-shared-tag-asserts-interoperability.md) | Proposed | 2026-08-30 |
+| — | [A session between people is encrypted end to end](records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md) | Proposed | 2026-08-31 |
+| — | [A family is bordered by what it drives](records/DRAFT-a-family-is-bordered-by-what-it-drives.md) | Proposed | 2026-08-28 |
+| — | [A loose end is carried or dismissed, and open is the absence of both](records/DRAFT-a-loose-end-is-carried-or-dismissed.md) | Draft | 2026-09-06 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
