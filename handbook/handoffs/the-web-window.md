@@ -1,9 +1,10 @@
 # Handoff — the web window: what landed, and the phases that remain
 
-**Stamped 2026-09-20, after the merges.** `qm` `main` at `de8f383`;
-`project/codecartographer` at `d10bb28`; `codecartographer` `main` at
-`23f5803`; `qmcp` `main` at `116beb8`; `looksatwords` `main` at `20f4a58`;
-`rad` `main` at `3e8794f`; `dossier` `main` at `d42967a`. Every figure here was
+**Stamped 2026-09-21, after the landing.** `qm` `main` at `2fb2828`;
+`project/codecartographer` at `51a832a`, carrying `main` at `de8f383`;
+`codecartographer` `main` at `c5ed009`, pinned to that tip; `qmcp` `main` at
+`d834916`; `looksatwords` `main` at `01da481`; `rad` `main` at `3e8794f`;
+`dossier` `main` at `d42967a`. Every figure here was
 true at those commits and nowhere else; the next session re-derives before
 acting. The plan is [`plans/the-web-window.md`](../../plans/the-web-window.md)
 and this page is where its remaining phases are picked up. Read the plan's
@@ -39,15 +40,24 @@ own pull request, merged with explicit approval:
 it did — fourteen findings, the defects the session caused written the same
 way as the ones it found.
 
+**Landed the next day**, each as its own merged pull request: the propagation
+of `main` to `project/codecartographer` (its first CI run red on the newer
+`adr_lint.py`, the twelve drafts then listed as linked rows); codecartographer's
+pin moved to that tip with its seed workflows re-copied, so its `one-pr-check.yml`
+carries the voice step and `leak-check.yml` joins its gates; and three
+docs-only pointers so a session opening a project finds this page —
+codecartographer's `docs/llm/roadmap/README.md` (*Picking up the web window*),
+qmcp's `docs/ROADMAP.md` (Phase 9), looksatwords' `docs/open-questions.md`.
+`perspectives/2026-09-21-landing-the-slice.md` is what the landing found.
+
 ## 1. Residue of the landed slice — small, and each is a session's first hour
 
 | what | where | done when |
 |---|---|---|
-| **Propagation** of codecartographer's governance pin to `project/codecartographer`'s tip | `handbook/propagation-runbook.md`: a `propagate/codecartographer-<date>` branch cut from the project branch, `main` merged in (never rebased), a pull request based on `project/codecartographer`, then the submodule moved in codecartographer and its seed workflows re-copied | codecartographer's `governance/qm` pin is the project branch's tip; its `one-pr-check.yml` carries the voice step; its `adr/README.md` reads as merged |
+| **A stranded branch inside codecartographer's governance submodule clone** | `adr/one-graph-path`: two commits of 2026-08-25 amending `adr/DRAFT-rad-integration.md`, on no remote — `check_submodule_pins.py` reports it as *at risk* on every local run. The record it amends is the one Phase 3 begins with | read on the workstation that holds it; what still applies is carried into the Phase 3 record on a pull request based on `project/codecartographer`, and the branch is then pushed or deleted, never left as the only copy |
 | **The `topology` address kind** in the corpus's address grammar | `docs/ref/addresses.md`, `project-seed/address-vectors.json`; qmcp #36 says so beside its constant and its shared-vectors test will read the new vector | qmcp's `tests/test_addresses.py` passes against the pinned vectors with the kind present |
 | **A codecarto row in `dossier.sources`** | `the-third-side.md` step one; nothing in codecartographer changes | `dossier sources` lists the web window, reachable or not, with a reason when not |
-| **The two 2026-08-15 retrospective branches** | landed by the pull request that carries this page | `git push origin --delete perspective/2026-08-15-a-namespace-with-one-direction perspective/2026-08-15-stating-a-constraint-is-not-enforcing-it` once merged |
-| **The seed's `one-pr-check.yml` on a project with a private submodule** | codecartographer's copy departs from the seed, checking out only the governance submodule, for the reason its `adr-lint.yml` gives | the seed's copy takes the same shape, or `project-seed/ci/README.md` names the departure as the known exception |
+| **The seed's `adr-lint.yml`, `one-pr-check.yml` and `leak-check.yml` on a project with a private submodule** | codecartographer's copies depart from the seed at the checkout step — `submodules: false` and a governance-only init — for the reason stated there; the seed's `submodule-check.yml` already takes that shape | the three seed copies take the same shape, or `project-seed/ci/README.md` names the departure as the known exception |
 | **dossier's public test suite names two private repositories** | `tests/core/test_overview_redacts_private.py`, the fixture rows; pre-existing | the fixtures name invented repositories, as that file's newest test already does |
 
 ## 2. Phase 2 — the live flow on the shape
@@ -166,8 +176,9 @@ codecartographer, or this corpus's `walkthrough/`.
   requests are opened green and assigned; the merge is a human act, said in
   the session and in pages like this one, **never in a pull request body**
   (`check_pr_voice.py` refuses it; `handbook/async-contract.md` §3).
-- One open pull request per repository, per contributor. Slots are free in
-  every repository named here at the stamp above.
+- One open pull request per repository, per contributor. At the stamp above
+  the only open slot in the repositories named here is the one carrying this
+  page.
 - Identity, not reachability, for every server; never a default port.
 - Human-only contributorship on every commit; a `Tools:` note where the
   artifact calls for one.
