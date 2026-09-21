@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-20T17:17:49Z",
+  "generated_at": "2026-09-21T01:06:42Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-20T17:17:48Z"
+        "generated_at": "2026-09-21T01:06:42Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-09-20T17:17:01Z"
+        "generated_at": "2026-09-20T20:22:55Z"
       }
     }
   },
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 126,
+    "loose_ends": 128,
     "by_kind": {
-      "blind-spot": 18,
+      "blind-spot": 19,
       "document-proposed": 36,
-      "document-unreviewed": 54,
+      "document-unreviewed": 55,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 126,
+    "open": 128,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -135,6 +135,14 @@
       "title": "one-pr-slot cannot see",
       "detail": "Whether the two pull requests are actually related. It counts slots, not subject matter, and the `--per-base` exemption is a glob somebody passes.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-one-pr-slot",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-one-pr-voice",
+      "title": "one-pr-voice cannot see",
+      "detail": "The third person. \"Peter merges once the gates are green\" is a statement about a person and the tool cannot tell it from a sentence addressed to them without a pronoun, so it is allowed; and whether the body is honest, complete, or about the diff at all.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-one-pr-voice",
       "address_parses": true
     },
     {
@@ -847,6 +855,14 @@
       "title": "perspectives/2026-09-20-the-families-delineated.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-families-delineated",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-web-window-first-slice",
+      "title": "perspectives/2026-09-20-the-web-window-first-slice.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-web-window-first-slice",
       "address_parses": true
     },
     {

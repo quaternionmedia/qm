@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-09-20T17:17:48Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-09-21T01:06:42Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -10,7 +10,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
 | Records ratified | every requirement below | **0 of 39**; 36 proposed |
-| Mandatory reading | under budget | 1146 of 1200 lines |
+| Mandatory reading | under budget | 1165 of 1200 lines |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **195**, unfiltered.
+Every governed document in this corpus: **198**, unfiltered.
 
 | | |
 |---|---|
@@ -60,10 +60,10 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 36 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 54 |
+| [-] `unreviewed` | 55 |
 | [G] `generated` | 7 |
-| [S] `standing` | 73 |
-| [T] `transient` | 22 |
+| [S] `standing` | 74 |
+| [T] `transient` | 23 |
 
 ## Documents
 
@@ -153,6 +153,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-27-two-views-that-go-stale-together.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-20-the-consolidation-cycle.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-20-the-families-delineated.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-09-20-the-web-window-first-slice.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
@@ -226,6 +227,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `plans/semantic-review-instrument.md` | other | — |
 | [S] | `standing` | `plans/the-active-set-and-the-pair.md` | other | — |
 | [S] | `standing` | `plans/the-third-side.md` | other | — |
+| [S] | `standing` | `plans/the-web-window.md` | other | — |
 | [S] | `standing` | `plans/thread-archive-access.md` | other | — |
 | [S] | `standing` | `plans/v0.0.1-blockers.md` | other | — |
 | [S] | `standing` | `plans/v0.0.1-review-packet.md` | other | — |
@@ -261,6 +263,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/six-branches-reached-origin.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-active-four.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-pair-and-the-fresh-setup.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/the-web-window.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-gate-and-tag-teeth.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-views-one-dataset.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/views-declare-what-they-need.md` | handoff | — |
