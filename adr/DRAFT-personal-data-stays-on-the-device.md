@@ -197,12 +197,20 @@ and must keep working; human-only contributorship.
    with their serial numbers and addresses, camera placements with the
    browser's label for the camera, bed readings with the person's note,
    uploaded G-code; the picture root -- the pictures a person named and,
-   under `captures/`, the frames a camera took; and the page's own
-   `localStorage`, which holds a panel layout and never leaves the
-   browser. The comms log is served on loopback and saved only when the
-   person clicks *Download*, into their own downloads folder. The state
-   folder and a camera's `captures/` are made readable by the account
-   alone, whatever the umask says of the person's other files. The test
+   under `captures/` and `uploads/`, what the browser put there (a
+   camera's frames; the pictures a person added from a file picker, kept
+   as they named them); and the page's own `localStorage`, which holds a
+   panel layout and never leaves the browser. A page forgets only what
+   the browser put there -- one kept picture, or all of them, on request
+   and after asking -- and never a picture a person named: those are
+   removed by the person, by hand. What a page placed or pinned (a
+   camera at a piece, a board's identity at a node) is listed by the same
+   page, every site's, and taken back the same way. The comms log is
+   served on loopback and saved only when the person clicks *Download*,
+   into their own downloads folder. The state folder, a camera's
+   `captures/` and the browser's `uploads/` are made readable by the
+   account alone, whatever the umask says of the person's other files.
+   The test
    suites -- `test run`, `test all`, `docs generate` -- run their servers
    on state and pictures of their own, never the person's. The picture
    root is `APOTHECARY_PICTURE_ROOT` or the folder the server was started
@@ -236,8 +244,11 @@ and must keep working; human-only contributorship.
    route refuses a file that is not a picture; that a job's name is a name
    and the pages escape what they show; that a sketch with a profile is not
    built, the state folder and captures are the account's alone, and the
-   suites' servers are fenced. A change that loosens any of these is a
-   change to that file and to this record.
+   suites' servers are fenced. `tests/test_pictures_api.py` checks that a
+   page forgets only what is directly under `captures/` and `uploads/`,
+   never the folder's own pictures, never through a link, and not into a
+   kept folder that is itself a link elsewhere. A change that loosens any
+   of these is a change to those files and to this record.
 8. **The named exception: secured user accounts.** A future record may let
    data leave this machine for an account the person holds and has
    authenticated to, with consent given per account, per kind of data, and
