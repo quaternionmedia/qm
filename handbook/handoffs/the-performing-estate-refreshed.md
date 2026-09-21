@@ -54,10 +54,15 @@ The findings a next session most needs:
   CI (no Android platform here); Cuelist-python could not install from its own
   lock until #1.
 
-**A workspace opens one family or several.** `uv run qm workspace --family
-<name>`, repeatable, checked against `families.json` — landed in #115. The
-performing estate's workspace resolves all sixteen members when each is
-cloned at its `qm/<name>` candidate.
+**A workspace opens one family or several, with the corpus first.** `uv run
+qm workspace --family <name>`, repeatable, checked against `families.json`,
+landed in #115; `--include qm` (this branch) puts the corpus beside the
+members, so a session opened in the workspace finds `AGENTS.md`, `/cowork`
+and this page first. The performing machine's workspace is
+`uv run qm workspace --family show-control --family instruments --family
+performer-display --include qm`, and it resolves all seventeen when each
+repository is cloned at its `qm/<name>` candidate. Future work on the
+performing estate is done from that workspace.
 
 **ShowRunner has one base.** #30 carries `main` plus the three pull requests
 it supersedes (#12 ⊂ #16, and #22), a `python_version < '3.13'` marker on the
