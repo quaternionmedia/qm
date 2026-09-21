@@ -39,7 +39,7 @@ policies:
 
   - id: config-is-not-overridden-on-the-command-line
     invariant: "A session does not pass -c to git, in either direction"
-    source: ledger.yaml 2026-08-15-001
+    source: status/ledger.yaml 2026-08-15-001
     detectable: false
     undetectable_because: >
       The safe direction leaves no trace. A commit made with
@@ -65,9 +65,27 @@ policies:
     preventers:
       - "a harness hook redirecting bare pytest to `qm test` (not built)"
 
+  - id: nothing-committed-describes-the-workstation-the-agent-or-the-conversation
+    invariant: "A committed file states what is true of the organisation; the workstation, the agent driving a session, and the conversation are not it"
+    source: records/DRAFT-what-is-not-the-organisation.md
+    detectable: true
+    detector: project-seed/ci/check_leaks.py
+    detector_reads: >
+      every tracked file, for the mechanical part of the line -- a home
+      directory, a path through a personal or IDE-made folder, a path into a
+      session's scratch space, a shared-conversation link, a conversation
+      archive's path -- and reports each finding redacted
+    preventers: []
+    note: >
+      The detector sees paths and links and nothing else. An editor named in
+      prose, a process seen running, a tool narrating its own session, or a
+      person's words quoted into a page are found by a reader, at the
+      consolidation runbook's Step 3, and the record says so rather than
+      implying coverage the pattern does not have.
+
   - id: no-private-name-in-a-public-artifact
     invariant: "A committable document never carries a private repository name or an operator's path"
-    source: ledger.yaml 2026-08-16-003
+    source: status/ledger.yaml 2026-08-16-003
     detectable: true
     detector: ci/tests/test_inventory.py
     detector_reads: >
@@ -135,7 +153,7 @@ policies:
       Read stderr before calling a tool silent. Prefer the artefact you did not
       create. A correction names a class, not the instance it arrived on. Name
       the actor in a failure sentence.
-    source: ledger.yaml
+    source: status/ledger.yaml
     detectable: false
     undetectable_because: >
       These are about how a reader reasons, and leave no artifact. Twenty-four

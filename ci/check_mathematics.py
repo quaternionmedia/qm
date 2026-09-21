@@ -2,7 +2,7 @@
 
     python ci/check_mathematics.py
 
-`PRINCIPLES.md` P15 and `records/DRAFT-a-knot-is-a-cycle-of-obligation.md` say
+`PRINCIPLES.md` `a-loop-is-not-a-knot` and `records/DRAFT-a-knot-is-a-cycle-of-obligation.md` say
 the mathematics a layer has is looked for on purpose. This is what stops that
 becoming a habit of naming things after theorems.
 

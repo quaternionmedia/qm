@@ -165,7 +165,7 @@ entries:
       - "A false green in a mutation harness is more often the harness than the test"
       - "Aim a mutation at the test that can see it, not the one whose name matches"
     tests_generated:
-      - "scratchpad/mutate_signatures.py (10 mutations, both new gates)"
+      - "an ad-hoc mutation script, not kept (10 mutations, both new gates)"
     status: closed
 
   - id: 2026-08-15-004
@@ -422,7 +422,7 @@ entries:
       assistant-2026-08 wrote 34 private repository names, several of them
       people's names, and 28 absolute paths containing the reviewer's username,
       into the working tree of a repository that is public. It also contradicted
-      two decisions the corpus had already written down: governance-status.yaml
+      two decisions the corpus had already written down: status/governance.yaml
       records private_repository_names_listed false, and make_workspace.py
       states it writes no absolute paths. assistant-2026-08 consulted neither
       before generating a second inventory, and so reintroduced a problem the
@@ -510,7 +510,7 @@ entries:
       (2) MATCHED, in the exact predicted failure mode -- and the check did not find
       it. `--check` passed clean on the first run. Three entries named
       `status/ledger.yaml`, a path the reverted config migration would create, while
-      the tree has `ledger.yaml`. It passed because it verified only the `detector`
+      the tree has `status/ledger.yaml`. It passed because it verified only the `detector`
       column and never `source`: the tool's blind spot and the error were the same
       blind spot. Found by walking every path the registry names. Both halves fixed --
       `source` is now verified, with a test and a mutation.
@@ -614,7 +614,7 @@ entries:
 
       (2) It will be defective on its first run. Seven of eight new tools this
       session were. The likeliest defect is reading a field name that does not
-      exist in a document -- inventory-public.json and ci/workspace.yaml use
+      exist in a document -- status/inventory.yaml and ci/workspace.yaml use
       different words for the same repository, and nothing forces them to agree.
 
       (3) The specific risk here is privacy, and it has already happened once
@@ -642,7 +642,7 @@ entries:
       The streak is 0.
 
       (2) MATCHED, exactly as written -- "reading a field name that does not exist in
-      a document". Private entries in inventory-public.json carry `ref` and `label`
+      a document". Private entries in status/inventory.yaml carry `ref` and `label`
       and no `name` at all, while public ones carry `name`, in the same file. Then the
       same split, once the roster was redacted, raised KeyError in a generator and
       would have raised it in three more. One shared loader now guarantees `name`,
@@ -749,7 +749,7 @@ entries:
          sentence listing repositories has no slash and no quotes. The tier keys
          on whether the *name* is ambiguous, not on the context.
 
-      Redacting governance-status.yaml also broke its own faithfulness check,
+      Redacting status/governance.yaml also broke its own faithfulness check,
       which re-derives the git layer and compares by project name. A redacted
       document cannot be bound to a `project/<name>` ref offline. It now
       resolves references through the gitignored companion where present and

@@ -84,6 +84,11 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
    slot. Land the upstream change first and let propagation carry it.
    `.github/workflows/one-pr-check.yml` enforces this; run
    `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
+   **The pull request body speaks as the contributor, to the world.** It is
+   posted under a human's account and addresses nobody — a question or a
+   handling instruction for the person who asked belongs in the session,
+   never in the body (`governance/qm/handbook/async-contract.md` §3;
+   `check_pr_voice.py` refuses the second person).
 4. **Human-only contributorship applies to every commit you make here** (see
    `governance/qm/records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored
@@ -143,7 +148,7 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
     worse than no guard — it is a green check standing exactly where a reader
     believes something is enforced. See the same record's §9 and §10.
 
-13. **Show it by running it** — P12 of the charter, with
+13. **Show it by running it** — `show-it-by-running-it` of the charter, with
     `governance/qm/records/DRAFT-one-executable-walkthrough.md` as the record.
     This project's `walkthrough/` is one ordered set of pages that the ordinary
     test command executes: `walkthrough/NN-<slug>.md`, run by pytest with
@@ -156,6 +161,18 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
     a pull request, so drift shows up as an uncommitted diff rather than as
     staleness nobody sees. A skip is not a pass, and a page that always skips is
     deleted.
+14. **The workstation, the agent and the conversation are not the
+    organisation** — record
+    `governance/qm/records/DRAFT-what-is-not-the-organisation.md`, with
+    `governance/qm/handbook/what-is-not-the-organisation.md` as the thing to
+    do. A committed file states what is true of this project: not where a
+    clone sits on one disk, which editor held it, what the tool driving a
+    session did with its shell, or what anybody said. A decision enters as a
+    decision, never as reported speech; a commit message describes the change
+    and not the conversation behind it. The seed's `leak-check.yml` runs
+    `check_leaks.py` on the mechanical part — a home path, a personal folder,
+    a scratch path, a shared link; the rest is yours to read for before you
+    push.
 
 ## One-time setup on a fresh clone (Windows)
 

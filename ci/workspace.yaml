@@ -48,7 +48,7 @@
 # the roster claims nobody made. This is the same refusal `phase_source` makes.
 #
 # It is a claim, so it is never inferred from a commit date. What is measured
-# lives in inventory-public.json as `recency` -- computed from the default
+# lives in status/inventory.yaml as `recency` -- computed from the default
 # branch's last commit, because neither of the two obvious host fields answers
 # the question: `updatedAt` moves when somebody edits a description, and
 # `pushedAt` moves on a push to any ref, including sweeps that touched
@@ -59,7 +59,7 @@
 # and records/DRAFT-attention-is-a-claim-activity-is-measured.md 7.
 #
 # NOTHING HERE IS EVIDENCE. This file holds what people have asserted. What is
-# actually true of a repository is computed from `governance-status.yaml`,
+# actually true of a repository is computed from `status/governance.yaml`,
 # which is generated from git and the host rather than from anybody's account
 # of them, and the two are shown side by side so the gap survives. A claim is
 # never rewritten to match its evidence, and a claim is never inferred from
@@ -73,7 +73,7 @@ schema: 1
 # THIS IS A CLAIM, like every `phase` below it. A human states the milestone and
 # what it requires; nothing here is derived from the repository, and nothing in
 # the repository is edited to match it. `ci/doc_status.py` reads this block into
-# `doc-status.json`'s `readiness` layer and reports the *measured* figures beside
+# `status/documents.yaml`'s `readiness` layer and reports the *measured* figures beside
 # it, so the gap between what was declared and what is true survives.
 #
 # `version` is the corpus's own, and it is deliberately null: `qm` carries no
@@ -104,16 +104,16 @@ milestone:
   requires:
     - id: ratification-rehearsed
       what: "At least one record ratified end to end, so the five-step path has been walked once"
-      measured_by: "doc-status.json readiness.records.ratified"
+      measured_by: "status/documents.yaml readiness.records.ratified"
     - id: reading-within-budget
       what: "Mandatory reading before a first edit stays under its budget"
-      measured_by: "doc-status.json reading_load.within_budget"
+      measured_by: "status/documents.yaml reading_load.within_budget"
     - id: no-unknown-document-states
       what: "Every governed document's state can be established"
-      measured_by: "doc-status.json totals.unknown"
+      measured_by: "status/documents.yaml totals.unknown"
     - id: gates-declared-are-built
       what: "No gate is declared and unbuilt, or the gap is deliberate and named"
-      measured_by: "gate-status.json totals.declared_not_built"
+      measured_by: "status/gates.yaml totals.declared_not_built"
     - id: semantic-review-done
       what: "All records read in one sitting for contradiction, which no check can do"
       measured_by: "not mechanisable -- a human says so, in a handoff or a record"
@@ -121,6 +121,7 @@ milestone:
 repositories:
   - name: qm
     role: corpus
+    family: core
     phase: n/a
     phase_source: n/a
     attention: active
@@ -137,6 +138,7 @@ repositories:
   # is the substitution the paragraph above refuses.
   - name: dossier
     role: project
+    family: core
     phase: v0.0.1
     phase_source: scaffolded
     attention: active
@@ -145,6 +147,7 @@ repositories:
 
   - name: qmcp
     role: project
+    family: core
     phase: v0.0.1
     phase_source: scaffolded
     attention: active
@@ -167,6 +170,7 @@ repositories:
 
   - name: apothecary
     role: project
+    family: irl
     phase: v0.0.2
     phase_source: stated
     note: parametric assembly; named as a v0.0.2 integration consumer
@@ -174,6 +178,7 @@ repositories:
 
   - name: datum
     role: project
+    family: irl
     phase: v0.0.1
     phase_source: scaffolded
     note: schema and wire contract; governance propagation open
@@ -181,6 +186,7 @@ repositories:
 
   - name: codecartographer
     role: project
+    family: core
     phase: v0.0.2
     phase_source: stated
     note: code maps; named itself a v0.0.2 RAD consumer
@@ -213,12 +219,10 @@ repositories:
     paths: [factorio-sysops, qm/factorio-sysops]
 
   # Both of these carry a project/<name> branch in this repository, so the
-  # corpus governs them, and both were absent from this roster -- which meant
-  # `qm inventory` reported them under "the corpus cannot see these" while the
-  # corpus was propagating into them. Neither is cloned in this workspace, so
-  # nothing here can see whether either holds unpushed work.
+  # corpus governs them.
   - name: carlos
     role: project
+    family: instruments
     phase: v0.0.1
     phase_source: stated
     note: >
@@ -228,8 +232,7 @@ repositories:
       drawn from what it happens to contain. It is what the project works
       toward and not an attainment -- nothing here is evidence, and the tag
       that would assert arrival has not been cut. Its default branch is `they`,
-      not `main`, and that branch last moved in 2025 while the host reports a
-      push today, which is the discrepancy that made this roster gap visible.
+      not `main`.
     paths: [carlos, qm/carlos]
 
   - ref: private-34
@@ -241,12 +244,38 @@ repositories:
       committed, for the same reason as private-32 and private-33 above.
       Governed via a project/<name> branch here.
 
+  # Both of these carry a project/<name> branch in this repository, so the
+  # corpus governs them.
+  - ref: private-36
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      Name and paths live in ci/workspace-private.yaml, which is not
+      committed, for the same reason as private-32 through private-34 above.
+      Governed via a project/<name> branch here, which carries its records as
+      drafts; no family claimed until governance has run for it.
+
+  - name: streaming-infrastructure
+    role: project
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      Governed via project/streaming-infrastructure here, whose one record
+      calls the codebase the `qmstream` control plane. No repository by either
+      name is on the host under this org, so there is nothing to clone and
+      status/governance.yaml reports its host layer as unknown. No family
+      claimed until governance has run for it. The paths are where a clone
+      would go.
+    paths: [streaming-infrastructure, qm/streaming-infrastructure]
+
   - name: qmetronome
     role: project
+    family: instruments
     phase: v0.0.3
     phase_source: stated
     note: named as the v0.0.3 Android target
-    paths: ["../AndroidStudioProjects/qmetronome", qm/qmetronome]
+    paths: [qmetronome, qm/qmetronome]
 
   - name: benchmark
     role: unmanaged
@@ -257,12 +286,293 @@ repositories:
 
   - name: looksatwords
     role: project
+    family: core
     phase: v0.0.1
     phase_source: scaffolded
     note: >
       language data -- make, gather, analyze, visualise. Named in
       plans/governance-prose-signals.md as where prose analysis belongs, rather
-      than in ci/. It was absent from this roster until 2026-08-16, which is why
-      the plan had to establish it exists.
+      than in ci/.
     paths: [qm/looksatwords, looksatwords]
 
+  - name: moat
+    role: unmanaged
+    family: infra
+    phase: v0.0.1
+    phase_source: scaffolded
+    note: >
+      homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT
+      networking. status/governance.yaml lists it under org.unmanaged_named;
+      adoption is drafted on an unmerged pull request and nothing binds yet.
+    paths: [qm/moat, moat]
+
+  # --- The performing estate --------------------------------------------
+  #
+  # Placed by records/DRAFT-a-family-is-bordered-by-what-it-drives.md, whose
+  # section 3 is where the families are declared and ci/families.py reads them
+  # from. `role: unmanaged` is the honest word for every entry below: they are
+  # repositories the org has, named here so the corpus can see them, and not
+  # one of them has adopted the constitution. Presence is not adoption, and a
+  # family claim is not adoption either.
+  #
+  # `phase: n/a` on every one of them, which is the word the corpus's own entry
+  # uses and for the same reason: the ladder binds a project that carries
+  # governance, and it does not apply to a repository that has never been
+  # forked. Writing v0.0.1 would claim the ladder's floor on behalf of
+  # repositories nobody has adopted -- a claim inferred from the roster rather
+  # than made by a person, which is the substitution this file refuses
+  # everywhere else. `n/a` is not `unstated`: it says the question does not
+  # arise, and adopting one of these is what makes it arise.
+
+  - name: ShowRunner
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: show control for live performances; the hub the periphery names itself after
+    paths: [ShowRunner, qm/ShowRunner]
+
+  - name: Cuelist-python
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: helpers for Cuelist, and a ShowRunner plugin by its own description
+    paths: [Cuelist-python, qm/Cuelist-python]
+
+  - name: QLab-python
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: interface to a third-party cue system
+    paths: [QLab-python, qm/QLab-python]
+
+  - name: TheatreMix-python
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: interface to a third-party mixing system
+    paths: [TheatreMix-python, qm/TheatreMix-python]
+
+  - name: cesar
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: a unified lighting, sound and video controller for theatre
+    paths: [cesar, qm/cesar]
+
+  - name: ira
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: LED control for live theatre
+    paths: [ira, qm/ira]
+
+  - name: ShowStopper
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: timing for the performing arts
+    paths: [ShowStopper, qm/ShowStopper]
+
+  - name: aes
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: show-control
+    note: audio-over-IP transport scripts
+    paths: [aes, qm/aes]
+
+  - name: holophonor
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: live looping; the hub two others name themselves after
+    paths: [holophonor, qm/holophonor]
+
+  - name: midiphonor
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: a holophonor implementation in the browser, by its own description
+    paths: [midiphonor, qm/midiphonor]
+
+  - name: uPhonor
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: a micro-holophonor, by its own description
+    paths: [uPhonor, qm/uPhonor]
+
+  - name: stomp
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: a MIDI foot controller
+    paths: [stomp, qm/stomp]
+
+  - name: wolf
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: a remote MIDI controller
+    paths: [wolf, qm/wolf]
+
+  - name: ludwig
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: remote mixing
+    paths: [ludwig, qm/ludwig]
+
+  - name: waveofhormuz
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: an oscillator module
+    paths: [waveofhormuz, qm/waveofhormuz]
+
+  - name: joe
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: performer-display
+    note: realtime sheet-music rendering
+    paths: [joe, qm/joe]
+
+  - name: leo
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: performer-display
+    note: a web document viewer, annotator and collaborator
+    paths: [leo, qm/leo]
+
+  # --- The rest of the irl family ----------------------------------------
+  #
+  # Placed by records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3: what
+  # these emit is a physical thing. `role: unmanaged` and `phase: n/a` for the
+  # same reason as the performing estate above -- none has been forked, and the
+  # ladder binds a project that carries governance.
+  #
+  # The three `ref:` entries are private repositories. They are referenced and
+  # never named here, exactly as private-32 through private-34 are, because a
+  # public roster that named them would defeat the inventory's own redaction.
+  # Their names and paths live in ci/workspace-private.yaml, uncommitted.
+
+  - name: scad-chess
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: a chess set designed in OpenSCAD; the deliverable is the printed set
+    paths: [scad-chess, qm/scad-chess]
+
+  - ref: private-03
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: >
+      A parametric physical assembly. Name and paths live in
+      ci/workspace-private.yaml, which is not committed.
+
+  - ref: private-05
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: >
+      A parametric physical assembly. Name and paths live in
+      ci/workspace-private.yaml, which is not committed.
+
+  - ref: private-07
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: irl
+    note: >
+      A parametric physical assembly. Name and paths live in
+      ci/workspace-private.yaml, which is not committed.
+
+  # --- The rest of the infra family --------------------------------------
+  #
+  # Placed by records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3: these
+  # decide where other things run and how they are reached. A repository that
+  # is merely *deployed* is not here -- that border refuses an etherpad, a
+  # video recorder and a game server, each of which runs on infrastructure
+  # without being it.
+
+  - name: ztgui
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: infra
+    note: a interface onto the overlay network members are reached across
+    paths: [ztgui, qm/ztgui]
+
+  - ref: private-23
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: infra
+    note: >
+      Cloud configuration. Name and paths live in ci/workspace-private.yaml,
+      which is not committed.
+
+  - ref: private-26
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: infra
+    note: >
+      Functions for systems and operating systems. Name and paths live in
+      ci/workspace-private.yaml, which is not committed.
+
+  # --- The games family ----------------------------------------------------
+  #
+  # Placed by records/DRAFT-a-family-is-bordered-by-what-it-drives.md 3: a
+  # game is the activity, not a thing that serves one. Neither has adopted the
+  # constitution; golfvs carries its own decision log and its private sibling
+  # mirrors that shape. Presence is not adoption, and a family claim is not
+  # either.
+
+  - name: golfvs
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: games
+    note: arcade physics golf with asymmetric defence, built in Godot
+    paths: [golfvs, qm/golfvs]
+
+  - ref: private-38
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: games
+    note: >
+      A game built in Godot; a sibling of golfvs by shape. Private on the
+      host, so name and paths live in ci/workspace-private.yaml, which is not
+      committed -- the same reason as every other ref: entry here.
+
+  - name: rad-godot
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    note: >
+      rad, the radial menu, as a Godot addon: the contract's vectors replayed
+      in GDScript. No family claimed: rad's implementations are a seam, not a
+      roster family.
+    paths: [qm/rad-godot, rad-godot]

@@ -53,6 +53,11 @@ EXEMPT = {"inventory-private.json", "inventory-local.json"}
 # Files that are data but are not evidence and not a registry: packaging and
 # tool config, which belong at the root by their own tools' convention.
 ROOT_ALLOWED = {"pyproject.toml", "uv.lock", "REUSE.toml", "zensical.toml",
+                # A seam file, not packaging: two consumers read it over the
+                # seam at this path, in JSON, and the standard keeps JSON where
+                # a consumer requires it. families-seam-stays-json-at-the-root
+                # in ci/exception-registry.yaml is the argued entry.
+                "families.json",
                 "license-report.json"}
 
 # Files that name a pre-standard path deliberately and must never be rewritten.

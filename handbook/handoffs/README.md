@@ -14,12 +14,17 @@ between them are recorded here rather than inside each one.
 ## The queue
 
 **Ordered by expected delta**, highest first, against the current milestone:
-*managing qmcp's flows with dossier by planning deltas*. The first three are one
+*managing qmcp's flows with dossier by planning deltas*. The first two are one
 chain — each is the next page's blocker — so taking them out of order buys
 nothing.
 
 | Handoff | Blocks on | Repo |
 |---|---|---|
+| [`the-web-window.md`](the-web-window.md) | **a person, for six merges** -- the plan `plans/the-web-window.md` is written and its first slice is built across five repositories: the estate frame in codecartographer (#100), the designer's routes in qmcp (#36), the harness routes and a topics document in looksatwords (#23), an authored-graph proposal in rad (#6), the records index on `project/codecartographer` (#116), and the plan itself in this corpus. Also carries the remote-branch audit another session left in its transcript: the content branches that remain with a reading each, after the name-only and the superseded ones were deleted. Phases 2 to 6 are not started | qm + codecartographer + qmcp + looksatwords + rad |
+| [`families-delineated.md`](families-delineated.md) | **a person, for two family claims and four decisions** — every reader of the estate now delineates by family (`qm estate --by-family`, a family column and a **By family** section in both harness views, a cookbook that resolves clones through the roster), and `qm workspace --family` opens one family or several, checked against the seam file; the performing estate is cloned and its workspace written, and the record counts its performing families the same way everywhere. Landed as #114 and #115, which also drew the line `records/DRAFT-what-is-not-the-organisation.md` states. What remains: the two new entries want a family claim once governance has run, two checks are named and unbuilt, and two `feat/loose-ends` commits wait on a person | qm |
+| [`six-branches-reached-origin.md`](six-branches-reached-origin.md) | **a human, for two held pull requests and one submodule pin** — the one-copy body of work is merged to `main` in seven repositories, including qm #110; what remains is datum #2 and apothecary #21 held by decision, alfred's local-only `governance/qm` pin that must not be pushed, and a leftover queue per repository, each cut from the new `main` | every repo |
+| [`enact-the-stages.md`](enact-the-stages.md) | **a human, for two acts in order** — clear every slot, then push `test`, which the stage record says is the enactment. Carries the re-keying inventory (every line that decides on `main`, read at `test`), the two `AGENTS.md` sentences that become the trap on that day, and the cross-tool findings: every named tool now reads `AGENTS.md` natively, the `CLAUDE.md` symlink is nine bytes on a Windows clone without `core.symlinks`, and one policy page names an adapter's slash commands. The push-through is phased family by family in `ci/rollout.yaml` and tracked by `uv run qm rollout` | every repo |
+| [`views-declare-what-they-need.md`](views-declare-what-they-need.md) | nothing — **read this first**: where 2026-08-27 left four repositories, with a readiness model built in two of them. Its §2 is five independent things to review asynchronously and its §3 is triage, ordered. Its §3.1 is closed and left standing on purpose — a pull request read as having lost its checks, six minutes before they arrived, and written up as the session's headline. Also names what is blocked on a person and what could not be verified, including a local workflow runner that fails ten steps of ten on this machine for one environment reason | every repo |
 | [`hil-review-2026-08-25.md`](hil-review-2026-08-25.md) | **a human, and nothing else** — nothing in it is a task. It is the list of decisions waiting for one after the 2026-08-24/25 session, with what to look at per pull request, what to distrust, and the three claims made in that session that turned out to be wrong. Delete it when its work lands | every repo |
 | [`session-2026-08-23.md`](session-2026-08-23.md) | nothing — **read this first**: where 2026-08-22/23 left all four repositories, with every branch merged, every slot free and nothing held back. Names the standing constraints a cold session will not infer, the model-layer decision that is taken and unbuilt, eight open items with their commands, and what to distrust in the page itself | every repo |
 | [`the-active-four.md`](the-active-four.md) | nothing — **read this first**: which four repositories are active, what is unfinished in each, and the gate that had failed since its repository was created without anybody noticing | every repo |
@@ -63,7 +68,7 @@ one.
 `project/datum`'s propagation landed as **#39**, after #34
 was closed unmerged on 2026-08-09. It is not level with `main` now, and no
 project branch is: all twelve fell behind again when #38 and #41 landed. Read
-`governance-status.yaml`'s `behind_corpus` rather than a number on this page.
+`status/governance.yaml`'s `behind_corpus` rather than a number on this page.
 
 ## Rules that apply to every one of these
 

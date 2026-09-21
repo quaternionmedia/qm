@@ -28,7 +28,7 @@ warning found by reading the lint rather than by ratifying:
 > `index lists record 0001 with no matching file.`
 
 **That warning is itself unratified evidence** — established against a fixture
-rather than a real ratification, which is precisely the state P16 says is not
+rather than a real ratification, which is precisely the state `a-check-is-evidence-after-it-fails` says is not
 evidence yet. So the steps were performed wrongly on purpose while drafting
 this, and **the warning turned out to describe only the safer of two failures.**
 
@@ -44,7 +44,7 @@ now catches it, and `project-seed/ci/tests/test_adr_lint.py` proves it by
 mutation.
 
 **That hole was found by doing the thing wrongly, not by reading the lint** —
-which is the argument for P16 arriving in the same breath as the first
+which is the argument for `a-check-is-evidence-after-it-fails` arriving in the same breath as the first
 ratification it governs. The first ratification is also the first test of the
 ratification path, and it should be a record whose content nobody has to argue
 about while the mechanics are being shaken out.
@@ -53,7 +53,7 @@ about while the mechanics are being shaken out.
 
 ### 1. A knot is a cycle of obligation, not a cycle in the graph
 
-`records/DRAFT-a-knot-is-a-cycle-of-obligation.md` — principle **P15**.
+`records/DRAFT-a-knot-is-a-cycle-of-obligation.md` — principle **`a-loop-is-not-a-knot`**.
 
 | | |
 |---|---|
@@ -70,7 +70,7 @@ That is a falsifiable sentence about this organisation's data.
 ### 2. A check is evidence only after it has been seen to fail
 
 `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md` — principle
-**P16**.
+**`a-check-is-evidence-after-it-fails`**.
 
 | | |
 |---|---|
@@ -90,12 +90,12 @@ govern. This is the repair.
 
 They are the two halves of one stance, and ratifying them apart would lose it:
 
-- **P15** says: look for the structure a layer actually has, and *measure the
+- **`a-loop-is-not-a-knot`** says: look for the structure a layer actually has, and *measure the
   claim before relying on it*.
-- **P16** says: a measurement you have not seen fail is not yet a measurement.
+- **`a-check-is-evidence-after-it-fails`** says: a measurement you have not seen fail is not yet a measurement.
 
-P15 without P16 is how a corpus ends up naming things after theorems. P16
-without P15 is rigour with nothing to be rigorous about. Each is the other's
+`a-loop-is-not-a-knot` without `a-check-is-evidence-after-it-fails` is how a corpus ends up naming things after theorems. `a-check-is-evidence-after-it-fails`
+without `a-loop-is-not-a-knot` is rigour with nothing to be rigorous about. Each is the other's
 guard.
 
 ## What they unify
@@ -106,12 +106,12 @@ things a contributor must hold is cheaper to accept than one that adds to it.
 
 | Already in force | Now stated once as |
 |---|---|
-| `decision-record-discipline` §7 — check a signal before reading it | P16, face one: the *tool* answered a different question |
-| `decision-record-discipline` §9 — the scaffolding is part of the measurement | P16, face two: the *setup* is untested |
-| `decision-record-discipline` §10 — a guard is not finished until someone routes around it | P16, face three: the *guard* is untested |
-| P12 — show it by running it | P16 is P12 applied to the tests themselves |
-| `deltas-compose` — a cycle is reported, never broken | P15 — *which* cycles are worth reporting |
-| `a-route-is-an-address` — an address says two readings are about one thing | P15's measurement depends on it; the loops were found by walking addresses |
+| `decision-record-discipline` §7 — check a signal before reading it | `a-check-is-evidence-after-it-fails`, face one: the *tool* answered a different question |
+| `decision-record-discipline` §9 — the scaffolding is part of the measurement | `a-check-is-evidence-after-it-fails`, face two: the *setup* is untested |
+| `decision-record-discipline` §10 — a guard is not finished until someone routes around it | `a-check-is-evidence-after-it-fails`, face three: the *guard* is untested |
+| `show-it-by-running-it` — show it by running it | `a-check-is-evidence-after-it-fails` is `show-it-by-running-it` applied to the tests themselves |
+| `deltas-compose` — a cycle is reported, never broken | `a-loop-is-not-a-knot` — *which* cycles are worth reporting |
+| `a-route-is-an-address` — an address says two readings are about one thing | `a-loop-is-not-a-knot`'s measurement depends on it; the loops were found by walking addresses |
 
 **The three sections stay where they are.** They hold the worked examples and
 the examples are the value. What ratification changes is that they stop being
@@ -123,10 +123,10 @@ Four questions. None is answerable by a check, which is why they are here.
 
 1. **Is the knot/loop distinction the right one to bind the organisation to**,
    or is it one session's convenient reading of one relation set?
-2. **Is P16's obligation proportionate?** It costs a few minutes per guard,
+2. **Is `a-check-is-evidence-after-it-fails`'s obligation proportionate?** It costs a few minutes per guard,
    forever, against six defects found in one session. Is that the right trade at
    this size?
-3. **Should P16 have teeth beyond prose?** The record rejects a mutation-score
+3. **Should `a-check-is-evidence-after-it-fails` have teeth beyond prose?** The record rejects a mutation-score
    gate and says why. That rejection is a judgement, not a finding.
 4. **Is ratifying anything at all right while there is one code owner?** The
    page says the gate waits on a second. Going ahead is a decision to treat
@@ -156,14 +156,14 @@ should not reach the renaming step.
 ## B — Is the record true?
 
 - [ ] **Reproduce the measurement in the record you are ratifying.**
-      For P15: `uv run qm addresses` and the relation walk the record names.
+      For `a-loop-is-not-a-knot`: `uv run qm addresses` and the relation walk the record names.
       **Do not accept the record's own figure** — the point of ratification is
       that somebody checked.
 - [ ] **The numbers in the record match what you just ran**, or the record says
       which commit its numbers came from and you agree that is enough.
-- [ ] **Name one other thing that would produce the same result.** For P15: are
+- [ ] **Name one other thing that would produce the same result.** For `a-loop-is-not-a-knot`: are
       the forty-two loops an artefact of how `crosses` is stored rather than a
-      fact about the work? For P16: were the six unproven guards unproven
+      fact about the work? For `a-check-is-evidence-after-it-fails`: were the six unproven guards unproven
       because of the rule's absence, or because of one author's habits?
 - [ ] **The record states what it did *not* establish.** A record with no such
       section is a record that has not looked.
@@ -175,7 +175,7 @@ should not reach the renaming step.
       decoration.
 - [ ] **The record binds behaviour you are willing to be held to** — including
       on a day when it is inconvenient.
-- [ ] **The consequences are affordable.** For P16 specifically: you are
+- [ ] **The consequences are affordable.** For `a-check-is-evidence-after-it-fails` specifically: you are
       accepting a few minutes per new guard, forever.
 - [ ] **Nothing in it names a vendor or a product** where an invariant would do.
 
@@ -185,13 +185,13 @@ should not reach the renaming step.
       up.
 - [ ] **Read the `Restated in` targets yourself.** The check proves the
       declarations pair; it *cannot* tell that a summary and its record
-      disagree. For these two: `PRINCIPLES.md` P15 and P16, and `AGENTS.md`
+      disagree. For these two: `PRINCIPLES.md` `a-loop-is-not-a-knot` and `a-check-is-evidence-after-it-fails`, and `AGENTS.md`
       items 10, 12, 13.
 - [ ] **Where the summary and the record differ, the record is what the
       organisation decided** and the summary is repaired — never the reverse.
       `AGENTS.md` item 16.
 - [ ] **The unification table above is accurate**: open
-      `records/DRAFT-decision-record-discipline.md` §7, §9, §10 and confirm P16
+      `records/DRAFT-decision-record-discipline.md` §7, §9, §10 and confirm `a-check-is-evidence-after-it-fails`
       states each of them and adds nothing you did not intend.
 
 ## E — Only now, the mechanics
@@ -216,7 +216,7 @@ should not reach the renaming step.
       defect or an environment difference.
 - [ ] **`python project-seed/ci/adr_lint.py --records-dir records --index README.md`**
       exits zero. This is the check that catches a missed rename.
-- [ ] **In the spirit of P16, break it once.** Two failures, not one, and they
+- [ ] **In the spirit of `a-check-is-evidence-after-it-fails`, break it once.** Two failures, not one, and they
       are different:
       - Flip Status to `Accepted` and add the index row **without renaming the
         file**. The lint fails with `index lists record 0001 with no matching

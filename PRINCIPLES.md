@@ -14,8 +14,8 @@ principles-records is the motherhood statement — unfalsifiable, decorative.
 Every record below names its enforcement mechanism.
 
 **Each principle therefore ends in one of three states, and they are the same
-three P15 asks of a mathematical mapping.** That is not a coincidence worth
-leaving unstated: the charter is one of the layers P15 governs, and it has run
+three `a-loop-is-not-a-knot` asks of a mathematical mapping.** That is not a coincidence worth
+leaving unstated: the charter is one of the layers `a-loop-is-not-a-knot` governs, and it has run
 that discipline under different words since it was written.
 
 | here | `ci/mathematics-registry.yaml` | means |
@@ -31,7 +31,7 @@ teeth is not still `earned` because it once was.
 
 ---
 
-## P1 — Ownership is the deliverable
+## ownership-is-the-deliverable — Ownership is the deliverable
 
 What QM sells — to clients and to itself — is independence: systems that
 continue to work if every vendor, cloud, and upstream disappears tomorrow.
@@ -45,9 +45,9 @@ remediation.** Project instances add deployment-and-provenance records
 (offline mirrors, source-built images, internal CA, restore-verified
 backups), whose CI gates are the teeth.
 
-↔ Edges: shares-teeth P8
+↔ Edges: shares-teeth systems-over-heroics
 
-## P2 — Commons-first economics
+## commons-first-economics — Commons-first economics
 
 "Open-source maintainers first, consultants second" is a causal claim, not a
 slogan: the consulting is credible *because* the maintenance is real.
@@ -60,9 +60,9 @@ is a small debt default against the commons the business stands on.
 register as the audit surface — a patch carried anywhere is a commitment made
 by the org, so the register is org-level by design.
 
-↔ Edges: ordered-by P4, bears P7
+↔ Edges: ordered-by build-the-seam-buy-the-engines, bears public-by-default
 
-## P3 — Seams on standard protocols
+## seams-on-standard-protocols — Seams on standard protocols
 
 Replaceability is the risk strategy. Third-party components touch a system
 only through protocols and formats with multiple independent implementations.
@@ -75,10 +75,10 @@ and the exception mechanism as teeth.
 
 ↔ Edges: none — replaceability is a property of a component's boundary, and no
 other principle here constrains or is constrained by which protocols a seam
-speaks. P4 is the nearest neighbour and is a different question: P3 asks what a
-boundary is made of, P4 asks which side of it a capability belongs on.
+speaks. `build-the-seam-buy-the-engines` is the nearest neighbour and is a different question: `seams-on-standard-protocols` asks what a
+boundary is made of, `build-the-seam-buy-the-engines` asks which side of it a capability belongs on.
 
-## P4 — Build the seam, buy the engines
+## build-the-seam-buy-the-engines — Build the seam, buy the engines
 
 Custom code concentrates where sovereignty matters most: the small control
 plane holding state, policy, and orchestration. Engines — muxers, databases,
@@ -87,7 +87,7 @@ should own a capability upstream, an engine QM writes is published to the
 commons as a standalone package rather than absorbed into the seam. The seam
 is deliberately boring, and it is the one place where bus-factor is *ours*,
 which is the only acceptable place for it. Ordering rule resolving the
-tension with P2: every new capability first asks *which engine should own
+tension with `commons-first-economics`: every new capability first asks *which engine should own
 this upstream* before defaulting to the seam; seam logic is whatever no
 engine should reasonably own.
 
@@ -95,9 +95,9 @@ engine should reasonably own.
 ratifies its own control-plane instance record with size-smell revision
 triggers.
 
-↔ Edges: orders P2
+↔ Edges: orders commons-first-economics
 
-## P5 — One house stack, deeply known
+## one-house-stack — One house stack, deeply known
 
 What *we build* uses one stack, deeply: Python — FastAPI, SQLModel/Pydantic,
 Metaflow, Click, Jinja2 — plus single-file HTML/JS for visualization
@@ -115,10 +115,10 @@ stacks.
 
 ↔ Edges: none — a house-stack rule is about what QM's own repositories are
 written in, and nothing else in this charter turns on the answer. It looks
-adjacent to P4 and is not: P4 decides build-or-buy and is silent on language,
-and P5 explicitly does not govern what QM contributes upstream.
+adjacent to `build-the-seam-buy-the-engines` and is not: `build-the-seam-buy-the-engines` decides build-or-buy and is silent on language,
+and `one-house-stack` explicitly does not govern what QM contributes upstream.
 
-## P6 — Decisions are documented or they didn't happen
+## decisions-are-documented — Decisions are documented or they didn't happen
 
 Documentation-forward means gap-analysis-first design, rationale recorded
 alongside changes, and decision memory kept under squash discipline: drafts
@@ -129,23 +129,23 @@ decision the organization doesn't possess.
 → Org record: **Decision-record discipline** — the process, template, and
 lint, adopted by every project via the seed.
 
-↔ Edges: bears P7
+↔ Edges: bears public-by-default
 
-## P7 — Public by default
+## public-by-default — Public by default
 
 Work ships in the open unless a specific, named reason (client
 confidentiality, credentials, embargoed security fixes) requires otherwise;
-the burden of proof sits on closing, not opening. This is the substrate P2
-and P6 stand on — public fork branches, decision records clients and
+the burden of proof sits on closing, not opening. This is the substrate `commons-first-economics`
+and `decisions-are-documented` stand on — public fork branches, decision records clients and
 community can read.
 
 → Routed to the **handbook** (business policy: contractual exceptions, no
 architectural alternatives to weigh), with a defined promotion path to record
 form if its boundary ever needs adjudicable teeth.
 
-↔ Edges: rests-on P2, rests-on P6
+↔ Edges: rests-on commons-first-economics, rests-on decisions-are-documented
 
-## P8 — Systems over heroics
+## systems-over-heroics — Systems over heroics
 
 The conductor's job is to make the performance not depend on the conductor.
 Operations are declarative — GitOps, static config, stateless services
@@ -153,14 +153,14 @@ recreatable from version control — automated as DAGs (retention, backup
 *restore verification*, upstream scanning), and observable. No SSH-to-prod,
 no snowflake state, no 2 a.m. brilliance as a system input.
 
-→ Enforced through each project's deployment-and-provenance record (P1's
+→ Enforced through each project's deployment-and-provenance record (`ownership-is-the-deliverable`'s
 instance layer); no separate org record — principles may share enforcement,
 and a mirror record would violate one-decision-per-record from the other
 direction.
 
-↔ Edges: shares-teeth P1
+↔ Edges: shares-teeth ownership-is-the-deliverable
 
-## P9 — Minimal, legible deliverables
+## minimal-legible-deliverables — Minimal, legible deliverables
 
 Single-file HTML visualizations, modular JS, restrained aesthetics, prose
 without ornament: legibility is respect for the reader and the future
@@ -174,7 +174,7 @@ no architectural consequence to weigh, and a principle with no consequence
 cannot order, complete, bear or rest on another. Its isolation and its routing
 are the same fact.
 
-## P10 — Credit tracks accountability, not output
+## credit-tracks-accountability — Credit tracks accountability, not output
 
 Authorship and contributor credit — commit trailers, perspective bylines,
 CREDITS-style recognition — are reserved for parties who can be asked why a
@@ -188,9 +188,9 @@ party can answer for it is.
 migration as delivered teeth and a branch-protection rule against unmonitored
 co-author trailers as the mechanism still owed.
 
-↔ Edges: bears P17
+↔ Edges: bears shrink-the-black-box
 
-## P11 — Governance finds the reader, not the reverse
+## governance-finds-the-reader — Governance finds the reader, not the reverse
 
 A constitution nobody encounters doesn't bind — it just exists. Every QM repo
 puts its governance in the paths a reader is already going to walk: the file
@@ -208,7 +208,7 @@ rather than a claim any of them depends on. An edge to each would be seventeen
 edges carrying no information, which is the shape this check exists to keep out;
 an edge to one would be arbitrary.
 
-## P12 — Show it by running it
+## show-it-by-running-it — Show it by running it
 
 Documentation that describes behaviour is a second copy of that behaviour, and
 a second copy drifts. The org's answer is that the demonstration is a
@@ -244,9 +244,9 @@ fails when an artifact it names is absent; a skip is not a pass; and the check
 is satisfied by a run observed on the default branch, not by a workflow file
 that would have run.
 
-↔ Edges: bears P16
+↔ Edges: bears a-check-is-evidence-after-it-fails
 
-## P13 — A person is interrupted only by a decision
+## interrupted-only-by-a-decision — A person is interrupted only by a decision
 
 A command line is an instrument for machines and for debugging. It is where a
 tool is driven when the driver is a script, and where a person goes when
@@ -293,13 +293,13 @@ named workflow are recorded per workflow, and a workflow whose count grows
 without a stated reason is a regression. The corresponding measure on the other
 side is how many interruptions a session produced that were not decisions.
 
-↔ Edges: completed-by P14
+↔ Edges: completed-by typing-schedules-interface-work
 
-## P14 — A change that can only be typed schedules interface work
+## typing-schedules-interface-work — A change that can only be typed schedules interface work
 
 **Doing a needed thing by typing is a diagnosis, not a delivery.** Dropping to a
 command line to make a change is legitimate and often correct — it is how
-something gets fixed today, and P13 already says automation and diagnosis both
+something gets fixed today, and `interrupted-only-by-a-decision` already says automation and diagnosis both
 need a command line. What is not legitimate is the loop closing there, with the
 change made and nothing recorded about the interface that could not carry it.
 
@@ -309,7 +309,7 @@ place the organisation keeps its other open work, naming the workflow that
 needed it. Not a commitment to build it — a proposal, and a fact about where the
 interface stops.
 
-This is the half P13 was missing. P13 counts the steps a person must type to
+This is the half `interrupted-only-by-a-decision` was missing. `interrupted-only-by-a-decision` counts the steps a person must type to
 complete a named workflow and calls a growing count a regression; without a rule
 that turns a count into scheduled work, the measurement is a thermometer nobody
 is obliged to act on.
@@ -330,9 +330,9 @@ rather than removed, and no state is carried by colour alone.
 four rules above about what the interface owes are stated in §1–§4 of that
 record and summarised here only as a pointer.
 
-↔ Edges: completes P13
+↔ Edges: completes interrupted-only-by-a-decision
 
-## P15 — A loop is not a knot, and the layer's mathematics is sought on purpose
+## a-loop-is-not-a-knot — A loop is not a knot, and the layer's mathematics is sought on purpose
 
 **Every cycle closes; that is what makes it a cycle.** So closure cannot be what
 distinguishes a problem from a shape. A cycle is a **knot** when it carries
@@ -373,13 +373,13 @@ the mapping table, and the two instances that stand today — one earned, one
 decorative and said to be.
 
 ↔ Edges: none, and the reason is settled rather than open now. The relationship
-  P15 has is to *the charter itself* — its preamble states the three states as
+  `a-loop-is-not-a-knot` has is to *the charter itself* — its preamble states the three states as
   this principle's discipline applied to principles — and this vocabulary models
   one principle's relationship to another, deliberately. Expressing it would need
   a `P0` that does not exist, which is exactly the manufactured edge the check
   was built to refuse.
 
-## P16 — A check is evidence only after it has been seen to fail
+## a-check-is-evidence-after-it-fails — A check is evidence only after it has been seen to fail
 
 **Reading a check does not tell you what it checks.** It tells you what its
 author meant. Those coincide most of the time, and the times they do not are
@@ -412,7 +412,7 @@ answer was five. **Every defect of behaviour was found by making something
 fail.** Six of those were guards written in that same session, by the same
 author, to check those exact properties, and read after writing.
 
-This is P12 turned on the tests themselves. A document describing behaviour is
+This is `show-it-by-running-it` turned on the tests themselves. A document describing behaviour is
 unproven until the behaviour produced it; a test is a document too, and drifts
 the same way.
 
@@ -421,9 +421,9 @@ the same way.
 the session's counts, what the rule unifies, and why a mutation-score gate was
 rejected in favour of a per-guard note.
 
-↔ Edges: rests-on P12, bears P17
+↔ Edges: rests-on show-it-by-running-it, bears shrink-the-black-box
 
-## P17 — Shrink the black box: undecidable judgement, decidable guards
+## shrink-the-black-box — Shrink the black box: undecidable judgement, decidable guards
 
 **A model is a black box with no halting guarantee, so it is never the check. It
 drafts the check; a person authors it.**
@@ -432,7 +432,7 @@ Both halves matter, and the second decays first. A model that is not the decisio
 procedure but *is* credited with the guard has been let back in through the door
 this principle closes — the guard's authority would rest on the thing with no
 halting guarantee. It rests on the person who read it, broke it, watched it go
-red, and is accountable for it — **P10**, whose test this is: not whether a tool
+red, and is accountable for it — **`credit-tracks-accountability`**, whose test this is: not whether a tool
 did most of the visible work, but whether the named party can answer for it
 (`records/DRAFT-human-only-contributorship.md`).
 
@@ -471,10 +471,10 @@ above returned a plausible answer, a function deliberately taken from 8.15s to
 **The obligations restrict the model far less than they sound.** The
 deterministic, time-bounded guards are drafted *with* the non-deterministic tool:
 a model is bad at being a decision procedure and good at producing the syntax of
-one. Draft the check, run it, break it, watch it go red (P16), hand a person
+one. Draft the check, run it, break it, watch it go red (`a-check-is-evidence-after-it-fails`), hand a person
 something they can author — and then stop being the check.
 
-**P16 is the transfer, not a testing habit.** A guard nobody has seen fail is a
+**`a-check-is-evidence-after-it-fails` is the transfer, not a testing habit.** A guard nobody has seen fail is a
 draft. Breaking it and writing the mutation down beside it is what a person does
 to take responsibility for it; after that the guard is theirs. The tool typed it,
 and the mutation note is the signature.
@@ -493,5 +493,5 @@ what it reported is itself the next guard's material.
 (`records/DRAFT-shrink-the-black-box.md`). It carries the two rules it unifies,
 the worked recursion, and what the mapping has not earned.
 
-↔ Edges: rests-on P10, rests-on P16
+↔ Edges: rests-on credit-tracks-accountability, rests-on a-check-is-evidence-after-it-fails
 

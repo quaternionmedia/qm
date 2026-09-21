@@ -101,7 +101,7 @@ And the row is one a consumer ingests with no translation — these are
 ## 4. Against this repository, for real
 
 The two views above were literals so this page can assert on them. The same
-chain runs against the actual repository: `governance-status.yaml` is one view,
+chain runs against the actual repository: `status/governance.yaml` is one view,
 `git rev-parse` is the other.
 
     >>> from two_views import document_view, git_view, reconcile, unobservable

@@ -237,3 +237,48 @@ def test_placeholders_are_lowercase_so_the_comparison_works():
     """
     for name in PLACEHOLDERS:
         assert name == name.lower(), name
+
+
+# --- the two kinds for the line the handbook draws --------------------------
+
+
+def test_a_personal_directory_used_as_a_path_is_a_finding(repo: Path):
+    """Found 2026-09-20 in a handoff naming where two clones sat on one disk.
+
+    Mutation: drop the workstation-layout pattern and this fails on the kind.
+    """
+    # leaks: allow this file is the check's own fixtures
+    commit(repo, "handbook/handoffs/page.md", "the clone is still under `../Documents/thing`")
+    assert kinds(repo) == ["workstation-layout"]
+
+
+def test_an_ide_projects_folder_used_as_a_path_is_a_finding(repo: Path):
+    # leaks: allow this file is the check's own fixtures
+    commit(repo, "ci/roster.yaml", 'paths: ["../AndroidStudioProjects/app", qm/app]')
+    assert kinds(repo) == ["workstation-layout"]
+
+
+def test_the_word_documents_in_prose_or_a_route_is_not_a_path(repo: Path):
+    """`the Documents folder` says where a thing is by name and not by path;
+    `api/documents/` is a route; a heading followed by an escape in source is
+    neither. All three matched the first draft of the pattern."""
+    commit(repo, "docs/page.md",
+           "keep it out of the Documents folder; GET api/documents/42 returns it")
+    # leaks: allow this file is the check's own fixtures
+    commit(repo, "ci/tool.py", 'add("## Documents\\n")')
+    assert kinds(repo) == []
+
+
+def test_a_session_scratch_path_is_a_finding(repo: Path):
+    """Found 2026-09-20 in a ledger entry naming a script in a scratch space.
+
+    Mutation: drop the session-scratch pattern and this fails on the kind.
+    """
+    # leaks: allow this file is the check's own fixtures
+    commit(repo, "status/ledger.yaml", "- scratchpad/mutate_all.py (10 mutations)")
+    assert kinds(repo) == ["session-scratch"]
+
+
+def test_the_word_scratchpad_in_prose_is_not_a_path(repo: Path):
+    commit(repo, "ci/mutate.py", "# an ad-hoc script written into a scratchpad and thrown away")
+    assert kinds(repo) == []

@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-20 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P13 — a person is interrupted only by a decision; P1 — ownership is the deliverable; P8 — systems over heroics |
+| **Principle** | `interrupted-only-by-a-decision` — a person is interrupted only by a decision; `ownership-is-the-deliverable` — ownership is the deliverable; `systems-over-heroics` — systems over heroics |
 | **Restated in** | Nothing. The qmPM standardisations page cites it, which is a citation rather than a restatement: that page decides nothing and says so |
 
 ## Context
@@ -30,7 +30,7 @@ That page's reasoning is the same reasoning as this record: **a scheduled
 program that acts while nobody is watching is a different kind of thing from the
 same program run by a person.**
 
-There is also a governance reason, and it is P1's. A component is owned only if
+There is also a governance reason, and it is `ownership-is-the-deliverable`'s. A component is owned only if
 it can be run, rebuilt and modified without anyone's permission. A metered
 dependency is a rental, and a rental that bills on a timer is one whose meter
 somebody else controls. Keeping every paid call attached to a human command is
@@ -61,7 +61,7 @@ deterministic, human-issued command.**
    **Zero is a fact here, never a sentinel.** Zero calls were authorised and
    zero were made, and both are known precisely. What may be unknown is *how
    many would be needed*, and that stays `unknown` with a reason — the
-   convention `harness-status.json`'s reading block states and the harness
+   convention `status/harness.yaml`'s reading block states and the harness
    payload already follows. A run that reported `would_need: 0` when nobody
    could count would be claiming the work is free, which is the same
    substitution refused everywhere else in this corpus.
@@ -86,7 +86,7 @@ deterministic, human-issued command.**
 7. **The unpaid path stays.** Anything built on a paid service keeps a mode that
    works without it — degraded, partial, or refusing with a reason. A capability
    that only exists while the meter runs is one this organisation does not own,
-   and P1 is what that costs.
+   and `ownership-is-the-deliverable` is what that costs.
 
 8. **This is not a budget.** No threshold makes an unattended call acceptable.
    The rule is about who caused it, not how much it was, and a cheap call made
@@ -107,9 +107,9 @@ summarisation. A watcher that classifies incoming work. Anything that keeps a
 model warm. Each is a real capability and each is refused.
 
 **A metered call and an interruption become the same event**, which resolves
-what looks like a tension with P13. P13 says a person is interrupted only by a
+what looks like a tension with `interrupted-only-by-a-decision`. `interrupted-only-by-a-decision` says a person is interrupted only by a
 decision, and spending money *is* a decision — the one kind of step that must
-not be automated away. Interruptions for sequencing are the thing P13 removes;
+not be automated away. Interruptions for sequencing are the thing `interrupted-only-by-a-decision` removes;
 this is not one of those.
 
 **Cost stays legible without anybody instrumenting it.** If every call has a
@@ -138,10 +138,10 @@ before it is known. It is also the mechanism by which a careful rule becomes a
 habit of clicking through.
 
 **Allow scheduled calls with a notification.** Rejected. A notification about
-money already spent is a report, not a decision, and P13's own clause is that a
+money already spent is a report, not a decision, and `interrupted-only-by-a-decision`'s own clause is that a
 prompt without options is a report delivered as an interruption.
 
-**Rely on provider-side limits.** Rejected under P1. That is somebody else's
+**Rely on provider-side limits.** Rejected under `ownership-is-the-deliverable`. That is somebody else's
 mechanism protecting this organisation from itself, and it is a rental of the
 control as well as the service.
 

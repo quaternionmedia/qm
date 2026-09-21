@@ -1,0 +1,1101 @@
+{
+  "schema": 1,
+  "generated_at": "2026-09-21T01:06:42Z",
+  "generator": {
+    "tool": "ci/loose_ends.py",
+    "joins": [
+      "status/harness.yaml",
+      "status/documents.yaml",
+      "status/gates.yaml"
+    ],
+    "reaches_network": false,
+    "rule": "an item is open until a person writes a claim about it",
+    "claims_source": "registers/loose-end-claims.yaml",
+    "claims_are_never_generated": "a claim is what a person asserted. It is read from the register and never written here, because a claim written into a generated document is erased by the next run.",
+    "dispositions": [
+      "carried",
+      "dismissed"
+    ],
+    "open_is_the_absence_of_a_claim": "an item nobody has judged carries no claim block. That is a different fact from one somebody looked at and let go.",
+    "addresses": "each item addresses its subject with a kind from ci/addresses.py, which is closed. There is no loose-end kind: a loose end is always about something the grammar can name.",
+    "sources": {
+      "harness": {
+        "document": "status/harness.yaml",
+        "generated_at": "2026-09-20T17:17:01Z"
+      },
+      "docs": {
+        "document": "status/documents.yaml",
+        "generated_at": "2026-09-21T01:06:42Z"
+      },
+      "gates": {
+        "document": "status/gates.yaml",
+        "generated_at": "2026-09-20T20:22:55Z"
+      }
+    }
+  },
+  "reading": {
+    "refresh": "python ci/loose_ends.py --write loose-ends.json",
+    "staleness_budget_hours": 24,
+    "as_fresh_as": "its stalest input; each source's own time is in generator.sources",
+    "do_not": [
+      "do not write a claim into this file -- it is regenerated, and the register at registers/loose-end-claims.yaml is where a decision survives",
+      "do not read an absent kind as zero: a source that could not be read is recorded as unknown in generator.sources",
+      "do not treat the total as a backlog to burn down. A declared blind spot is a gap somebody chose and wrote down."
+    ]
+  },
+  "totals": {
+    "loose_ends": 128,
+    "by_kind": {
+      "blind-spot": 19,
+      "document-proposed": 36,
+      "document-unreviewed": 55,
+      "over-slot": 2,
+      "stalled-thread": 16
+    },
+    "open": 128,
+    "claimed": 0,
+    "sources_unreadable": 0
+  },
+  "loose_ends": [
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-adr-lint",
+      "title": "adr-lint cannot see",
+      "detail": "Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Nor whether two principles actually conflict: the edge check reads a stated relationship from both ends and knows nothing about what either principle says, so a wrong edge declared consistently passes. It also cannot tell a real isolation from a lazy one -- it can only insist the `none` carries a reason somebody had to write. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-adr-lint",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-ci-tooling-tests",
+      "title": "ci-tooling-tests cannot see",
+      "detail": "Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one. For the walkthrough it also cannot see whether a page is worth reading: doctest asserts that an example's printed output is what the page claims, and asserts nothing about whether the example was the one worth showing.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-ci-tooling-tests",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-commit-signatures",
+      "title": "commit-signatures cannot see",
+      "detail": "Whether the signer is the person named in the author field, beyond what the key attests. It would establish that an attestation exists, which is currently established for nothing.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-commit-signatures",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-docs-audit",
+      "title": "docs-audit cannot see",
+      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-audit",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-docs-deploy",
+      "title": "docs-deploy cannot see",
+      "detail": "Whether what it published is correct, or whether anybody reads it. It is a deployment, and it is declared for the same reason the draft build is.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-deploy",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-docs-draft",
+      "title": "docs-draft cannot see",
+      "detail": "Anything -- it is a build, not a check, and it is listed here because a workflow nobody declared is a workflow nobody can rely on. Declaring it says plainly that it refuses nothing.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-draft",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-governance-status",
+      "title": "governance-status cannot see",
+      "detail": "Whether the document is current. It checks faithfulness to the refs it names, not age -- a document generated from unfetched refs passed this once, which is why the workflow fetches first.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-governance-status",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-leak-check",
+      "title": "leak-check cannot see",
+      "detail": "Everything on that line that is not a path or a link: an editor named in prose, a process somebody saw running, a tool narrating its own session, a person's words quoted into a constraint. A pattern for those would fire on every page that legitimately discusses editors or quotes a record, so the reader is the check, at the runbook's Step 3. Nor can it read history -- a path already pushed stays pushed -- or tell a placeholder from a real account beyond the ones it lists.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-leak-check",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-namespace-guard",
+      "title": "namespace-guard cannot see",
+      "detail": "A branch cut from the wrong parent whose direction is nonetheless legal. `check_pr_base.py` reports the inheritance; nothing fails on it.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-namespace-guard",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-one-pr-slot",
+      "title": "one-pr-slot cannot see",
+      "detail": "Whether the two pull requests are actually related. It counts slots, not subject matter, and the `--per-base` exemption is a glob somebody passes.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-one-pr-slot",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-one-pr-voice",
+      "title": "one-pr-voice cannot see",
+      "detail": "The third person. \"Peter merges once the gates are green\" is a statement about a person and the tool cannot tell it from a sentence addressed to them without a pronoun, so it is allowed; and whether the body is honest, complete, or about the diff at all.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-one-pr-voice",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-private-names",
+      "title": "private-names cannot see",
+      "detail": "A repository that becomes private after the fact. By records/DRAFT-going-private-is-an-act-with-obligations.md the party who makes a repository private owns removing its name from this corpus, so nothing here watches for the transition: detecting it would need either an organisation-read credential this repository does not hold, or a committed digest list that would be recoverable, since 24 of 33 names are ordinary words of median length 7. It also cannot see history -- two names are published from 2b50bd6 and no forward fix removes them -- and it does not gate a bare-word match in prose, because several private repositories are named after common words and matching those produced 187 findings with no disclosures.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-private-names",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-registries",
+      "title": "registries cannot see",
+      "detail": "Whether any registry is complete. Each of these seven checks the entries that exist against their own rules; none can tell that an exemption, a policy, a ledger entry, a lane, a protocol, a curriculum unit or an address case was never written down, and a registry nobody added to is the state all seven report as clean. Nor can it see an address that is well-formed and wrong: the grammar has no idea whether the branch exists. It also cannot see whether a protocol was ever run -- that is reported by `uv run qm protocols` and deliberately never refused -- or whether a curriculum unit's prose is true of the document it cites. Nor is this gate required to merge: it is a candidate for A-main.json's required list and stays off it until it has reported green on a real pull request.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-registries",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-reuse-lint",
+      "title": "reuse-lint cannot see",
+      "detail": "Whether the licence asserted is the licence intended, or whether a dependency's licence is compatible with it.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-reuse-lint",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-rulesets",
+      "title": "rulesets cannot see",
+      "detail": "Whether a rule is the right rule. It compares enforcement levels and rule types, not rule parameters, so a required-status-check list that has been emptied on the host reads as a match. It cannot run in CI at all: reading what is applied needs a host credential, and a check that reads a host reds a pull request for a reason its author cannot fix. It also does not read `rule-suites`, which is the log of what an evaluating rule would have blocked and the thing worth reading before promoting one.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-rulesets",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-secret-scan",
+      "title": "secret-scan cannot see",
+      "detail": "Everything about how it is configured. It is an installed application with no workflow file in this repository and no record describing it, so nothing here states what it scans, who can dismiss a finding, or what happens if it is uninstalled. It appears on pull requests and that is the whole of what this corpus knows about it.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-secret-scan",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-symlink-integrity",
+      "title": "symlink-integrity cannot see",
+      "detail": "A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-symlink-integrity",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-tag-claims",
+      "title": "tag-claims cannot see",
+      "detail": "Whether the review or the manual test happened -- it reads an annotation a human wrote. It does not gate tag creation, which needs a host-side tag-protection ruleset, and it runs after the tag exists.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-tag-claims",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-tag-determinism",
+      "title": "tag-determinism cannot see",
+      "detail": "Whether the suite is deterministic. It refuses a run that announces nondeterminism; one that is nondeterministic and silent about it passes. It also says nothing about coverage: a suite asserting little passes as readily as one asserting much.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-tag-determinism",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-capability-has-four-phases",
+      "title": "records/DRAFT-a-capability-has-four-phases.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-capability-has-four-phases",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-check-is-evidence-only-after-it-has-failed",
+      "title": "records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-check-is-evidence-only-after-it-has-failed",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-disagreement-is-a-delta",
+      "title": "records/DRAFT-a-disagreement-is-a-delta.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-disagreement-is-a-delta",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-family-is-bordered-by-what-it-drives",
+      "title": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-family-is-bordered-by-what-it-drives",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-knot-is-a-cycle-of-obligation",
+      "title": "records/DRAFT-a-knot-is-a-cycle-of-obligation.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-knot-is-a-cycle-of-obligation",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-principle-is-addressed-by-its-name",
+      "title": "records/DRAFT-a-principle-is-addressed-by-its-name.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-principle-is-addressed-by-its-name",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-route-is-an-address",
+      "title": "records/DRAFT-a-route-is-an-address.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-route-is-an-address",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-session-between-people-is-encrypted-end-to-end",
+      "title": "records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-session-between-people-is-encrypted-end-to-end",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-shared-tag-asserts-interoperability",
+      "title": "records/DRAFT-a-shared-tag-asserts-interoperability.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-shared-tag-asserts-interoperability",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-stage-is-recorded-and-main-receives-releases",
+      "title": "records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-stage-is-recorded-and-main-receives-releases",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-acts-that-are-a-persons-by-constitution",
+      "title": "records/DRAFT-acts-that-are-a-persons-by-constitution.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-acts-that-are-a-persons-by-constitution",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-attention-is-a-claim-activity-is-measured",
+      "title": "records/DRAFT-attention-is-a-claim-activity-is-measured.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-attention-is-a-claim-activity-is-measured",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-build-the-seam-buy-the-engines",
+      "title": "records/DRAFT-build-the-seam-buy-the-engines.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-build-the-seam-buy-the-engines",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-clis-are-for-machines-and-debugging",
+      "title": "records/DRAFT-clis-are-for-machines-and-debugging.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-clis-are-for-machines-and-debugging",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-contribution-and-sponsorship-policy",
+      "title": "records/DRAFT-contribution-and-sponsorship-policy.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-contribution-and-sponsorship-policy",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-decision-record-discipline",
+      "title": "records/DRAFT-decision-record-discipline.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-decision-record-discipline",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-deltas-compose",
+      "title": "records/DRAFT-deltas-compose.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-deltas-compose",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-few-integers-in-durable-text",
+      "title": "records/DRAFT-few-integers-in-durable-text.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-few-integers-in-durable-text",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-governance-arrives-as-a-mechanism",
+      "title": "records/DRAFT-governance-arrives-as-a-mechanism.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-governance-arrives-as-a-mechanism",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-granularity-is-a-perspective",
+      "title": "records/DRAFT-granularity-is-a-perspective.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-granularity-is-a-perspective",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-house-stack",
+      "title": "records/DRAFT-house-stack.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-house-stack",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-human-only-contributorship",
+      "title": "records/DRAFT-human-only-contributorship.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-human-only-contributorship",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-ide-integrated-governance-discovery",
+      "title": "records/DRAFT-ide-integrated-governance-discovery.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-ide-integrated-governance-discovery",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-monitoring-seam-and-instance-identity",
+      "title": "records/DRAFT-monitoring-seam-and-instance-identity.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-monitoring-seam-and-instance-identity",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-no-unattended-spending",
+      "title": "records/DRAFT-no-unattended-spending.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-no-unattended-spending",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-nothing-is-both-a-claim-and-its-own-evidence",
+      "title": "records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-nothing-is-both-a-claim-and-its-own-evidence",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-one-executable-walkthrough",
+      "title": "records/DRAFT-one-executable-walkthrough.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-one-executable-walkthrough",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-open-license-exclusion-and-upstream-remediation",
+      "title": "records/DRAFT-open-license-exclusion-and-upstream-remediation.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-open-license-exclusion-and-upstream-remediation",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-outbound-licensing",
+      "title": "records/DRAFT-outbound-licensing.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-outbound-licensing",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-project-phase-ladder",
+      "title": "records/DRAFT-project-phase-ladder.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-project-phase-ladder",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-seams-on-standard-protocols",
+      "title": "records/DRAFT-seams-on-standard-protocols.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-seams-on-standard-protocols",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-shrink-the-black-box",
+      "title": "records/DRAFT-shrink-the-black-box.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-shrink-the-black-box",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-the-ledger",
+      "title": "records/DRAFT-the-ledger.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-the-ledger",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-the-read-document-governs",
+      "title": "records/DRAFT-the-read-document-governs.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-the-read-document-governs",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-version-tags-are-claims",
+      "title": "records/DRAFT-version-tags-are-claims.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-version-tags-are-claims",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-what-is-not-the-organisation",
+      "title": "records/DRAFT-what-is-not-the-organisation.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-what-is-not-the-organisation",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-07-05-on-human-only-contributorship",
+      "title": "perspectives/2026-07-05-on-human-only-contributorship.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-07-05-on-human-only-contributorship",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-07-21-verify-before-fixing",
+      "title": "perspectives/2026-07-21-verify-before-fixing.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-07-21-verify-before-fixing",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-07-alfred-brownfield-adoption",
+      "title": "perspectives/2026-08-07-alfred-brownfield-adoption.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-07-alfred-brownfield-adoption",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-07-verification-discipline-in-assisted-sessions",
+      "title": "perspectives/2026-08-07-verification-discipline-in-assisted-sessions.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-07-verification-discipline-in-assisted-sessions",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-08-a-board-is-an-engine-you-sell",
+      "title": "perspectives/2026-08-08-a-board-is-an-engine-you-sell.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-08-a-board-is-an-engine-you-sell",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-08-hardware-onramp-invisible-artifacts",
+      "title": "perspectives/2026-08-08-hardware-onramp-invisible-artifacts.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-08-hardware-onramp-invisible-artifacts",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-08-reading-the-proxy-instead-of-the-thing",
+      "title": "perspectives/2026-08-08-reading-the-proxy-instead-of-the-thing.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-08-reading-the-proxy-instead-of-the-thing",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-09-adopting-a-corpus-whose-harness-is-unmerged",
+      "title": "perspectives/2026-08-09-adopting-a-corpus-whose-harness-is-unmerged.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-09-adopting-a-corpus-whose-harness-is-unmerged",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-09-explanation-in-the-wrong-place",
+      "title": "perspectives/2026-08-09-explanation-in-the-wrong-place.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-09-explanation-in-the-wrong-place",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-09-tests-that-enumerate-around-the-defect",
+      "title": "perspectives/2026-08-09-tests-that-enumerate-around-the-defect.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-09-tests-that-enumerate-around-the-defect",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-09-the-reviewer-is-the-shared-resource",
+      "title": "perspectives/2026-08-09-the-reviewer-is-the-shared-resource.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-09-the-reviewer-is-the-shared-resource",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-11-inflation-deflation-and-what-discovery-looks-like",
+      "title": "perspectives/2026-08-11-inflation-deflation-and-what-discovery-looks-like.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-11-inflation-deflation-and-what-discovery-looks-like",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-11-measuring-your-own-scaffolding",
+      "title": "perspectives/2026-08-11-measuring-your-own-scaffolding.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-11-measuring-your-own-scaffolding",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix",
+      "title": "perspectives/2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-13-the-mechanical-governance-loop",
+      "title": "perspectives/2026-08-13-the-mechanical-governance-loop.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-13-the-mechanical-governance-loop",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-13-thirteen-breaks-and-the-five-that-became-yours",
+      "title": "perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-13-thirteen-breaks-and-the-five-that-became-yours",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-14-before-it-meets-a-stranger",
+      "title": "perspectives/2026-08-14-before-it-meets-a-stranger.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-14-before-it-meets-a-stranger",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-14-one-schema-for-intended-work",
+      "title": "perspectives/2026-08-14-one-schema-for-intended-work.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-14-one-schema-for-intended-work",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-14-precedence-lost-to-readership",
+      "title": "perspectives/2026-08-14-precedence-lost-to-readership.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-14-precedence-lost-to-readership",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-14-teeth-and-what-the-mutations-said",
+      "title": "perspectives/2026-08-14-teeth-and-what-the-mutations-said.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-14-teeth-and-what-the-mutations-said",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-15-the-exit-code-was-green",
+      "title": "perspectives/2026-08-15-the-exit-code-was-green.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-15-the-exit-code-was-green",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-15-two-corrections-that-did-not-take",
+      "title": "perspectives/2026-08-15-two-corrections-that-did-not-take.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-15-two-corrections-that-did-not-take",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-15-what-is-shaping-this-tool",
+      "title": "perspectives/2026-08-15-what-is-shaping-this-tool.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-15-what-is-shaping-this-tool",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-16-the-base-was-the-deliverable",
+      "title": "perspectives/2026-08-16-the-base-was-the-deliverable.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-16-the-base-was-the-deliverable",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-16-the-harness-measured-its-own-cache",
+      "title": "perspectives/2026-08-16-the-harness-measured-its-own-cache.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-16-the-harness-measured-its-own-cache",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-16-what-the-checks-were-not-checking",
+      "title": "perspectives/2026-08-16-what-the-checks-were-not-checking.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-16-what-the-checks-were-not-checking",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-18-a-ring-in-a-terminal",
+      "title": "perspectives/2026-08-18-a-ring-in-a-terminal.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-18-a-ring-in-a-terminal",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-18-the-numbers-were-the-distraction",
+      "title": "perspectives/2026-08-18-the-numbers-were-the-distraction.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-18-the-numbers-were-the-distraction",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-19-a-gate-that-never-passed",
+      "title": "perspectives/2026-08-19-a-gate-that-never-passed.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-19-a-gate-that-never-passed",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-19-the-suite-tested-a-model-of-the-system",
+      "title": "perspectives/2026-08-19-the-suite-tested-a-model-of-the-system.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-19-the-suite-tested-a-model-of-the-system",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-19-three-fields-and-none-of-them-is-activity",
+      "title": "perspectives/2026-08-19-three-fields-and-none-of-them-is-activity.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-19-three-fields-and-none-of-them-is-activity",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-19-two-fixtures-that-agreed-with-nothing",
+      "title": "perspectives/2026-08-19-two-fixtures-that-agreed-with-nothing.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-19-two-fixtures-that-agreed-with-nothing",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-20-eight-commands-and-a-count",
+      "title": "perspectives/2026-08-20-eight-commands-and-a-count.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-20-eight-commands-and-a-count",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-20-the-demo-found-what-the-fix-did-not",
+      "title": "perspectives/2026-08-20-the-demo-found-what-the-fix-did-not.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-20-the-demo-found-what-the-fix-did-not",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-21-a-green-suite-and-eight-holes",
+      "title": "perspectives/2026-08-21-a-green-suite-and-eight-holes.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-21-a-green-suite-and-eight-holes",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-21-what-a-system-says-about-itself",
+      "title": "perspectives/2026-08-21-what-a-system-says-about-itself.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-21-what-a-system-says-about-itself",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-22-what-it-cost-to-get-one-panel-right",
+      "title": "perspectives/2026-08-22-what-it-cost-to-get-one-panel-right.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-22-what-it-cost-to-get-one-panel-right",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-23-the-rules-with-nothing-behind-them",
+      "title": "perspectives/2026-08-23-the-rules-with-nothing-behind-them.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-23-the-rules-with-nothing-behind-them",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-25-defects-between-two-green-suites",
+      "title": "perspectives/2026-08-25-defects-between-two-green-suites.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-25-defects-between-two-green-suites",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-25-the-suite-that-outgrew-its-loop",
+      "title": "perspectives/2026-08-25-the-suite-that-outgrew-its-loop.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-25-the-suite-that-outgrew-its-loop",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-26-the-plan-was-still-running",
+      "title": "perspectives/2026-08-26-the-plan-was-still-running.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-26-the-plan-was-still-running",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-27-the-precondition-nobody-declared",
+      "title": "perspectives/2026-08-27-the-precondition-nobody-declared.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-27-the-precondition-nobody-declared",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-27-two-views-that-go-stale-together",
+      "title": "perspectives/2026-08-27-two-views-that-go-stale-together.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-27-two-views-that-go-stale-together",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-consolidation-cycle",
+      "title": "perspectives/2026-09-20-the-consolidation-cycle.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-consolidation-cycle",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-families-delineated",
+      "title": "perspectives/2026-09-20-the-families-delineated.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-families-delineated",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-web-window-first-slice",
+      "title": "perspectives/2026-09-20-the-web-window-first-slice.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-web-window-first-slice",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09",
+      "title": "perspectives/claude-fable-5-2026-06-09.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09-mathematical-limits",
+      "title": "perspectives/claude-fable-5-2026-06-09-mathematical-limits.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09-mathematical-limits",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09_philosophy",
+      "title": "perspectives/claude-fable-5-2026-06-09_philosophy.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09_philosophy",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-sonnet-4-6-2026-06-27-mobile-cross-platform-governance",
+      "title": "perspectives/claude-sonnet-4-6-2026-06-27-mobile-cross-platform-governance.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-sonnet-4-6-2026-06-27-mobile-cross-platform-governance",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective",
+      "title": "perspectives/claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-sonnet-5-2026-07-04-qmetronome-onramp-retrospective",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-sonnet-5-2026-07-08-mobile-timing-precision-perspective",
+      "title": "perspectives/claude-sonnet-5-2026-07-08-mobile-timing-precision-perspective.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-sonnet-5-2026-07-08-mobile-timing-precision-perspective",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-sonnet-5-2026-07-09-first-beat-timing-retrospective",
+      "title": "perspectives/claude-sonnet-5-2026-07-09-first-beat-timing-retrospective.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-sonnet-5-2026-07-09-first-beat-timing-retrospective",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-sonnet-5-2026-07-18-test-timeout-halting-problem-retrospective",
+      "title": "perspectives/claude-sonnet-5-2026-07-18-test-timeout-halting-problem-retrospective.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-sonnet-5-2026-07-18-test-timeout-halting-problem-retrospective",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-session-transcript-2026-06-09",
+      "title": "perspectives/session-transcript-2026-06-09.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-session-transcript-2026-06-09",
+      "address_parses": true
+    },
+    {
+      "kind": "over-slot",
+      "address": "quaternionmedia/ShowRunner",
+      "title": "quaternionmedia/ShowRunner is over its pull-request slot",
+      "detail": "subcontrabass holds 2 open pull requests (#12, #16); the contract allows one",
+      "key": "over-slot:quaternionmedia/ShowRunner",
+      "address_parses": true
+    },
+    {
+      "kind": "over-slot",
+      "address": "quaternionmedia/moat",
+      "title": "quaternionmedia/moat is over its pull-request slot",
+      "detail": "mrharpo holds 2 open pull requests (#3, #4); the contract allows one",
+      "key": "over-slot:quaternionmedia/moat",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/QLab-python/pr/2",
+      "title": "\ud83c\udfad Theatremix",
+      "detail": "open on main at stage draft, idle 3,897 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/QLab-python/pr/2",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ShowRunner/pr/12",
+      "title": "feat: ShowProgrammer \u2014 meta intro video pipeline, live clock, async dispatch",
+      "detail": "open on main at stage ready, idle 3,710 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/12",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ShowRunner/pr/15",
+      "title": "\ud83d\udec2 Migration",
+      "detail": "open on main at stage ready, idle 3,594 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/15",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ShowRunner/pr/16",
+      "title": "feat(tests): NiceGUI page-level UI tests + Playwright E2E scaffolding",
+      "detail": "open on feat/meta-intro-video at stage ready, idle 3,530 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/16",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/113",
+      "title": "Config",
+      "detail": "open on main at stage ready, idle 23,874 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/113",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/benchmark/pr/7",
+      "title": "fix: handle missing regions/ directory in compile-yaml",
+      "detail": "open on main at stage ready, idle 4,009 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/benchmark/pr/7",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/carlos/pr/17",
+      "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
+      "detail": "open on they at stage ready, idle 696 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/carlos/pr/17",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/holophonor/pr/11",
+      "title": "\ud83d\udeb0 Pipewire",
+      "detail": "open on main at stage draft, idle 10,915 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/holophonor/pr/11",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/4",
+      "title": "\ud83d\udd90 p5.js",
+      "detail": "open on main at stage ready, idle 14,992 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/joe/pr/4",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/8",
+      "title": "Docs/onboarding hardening",
+      "detail": "open on main at stage ready, idle 4,815 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/8",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/leo/pr/61",
+      "title": "\ud83d\udcc7 Setlist",
+      "detail": "open on main at stage ready, idle 5,075 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/leo/pr/61",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/leo/pr/67",
+      "title": "feat: uv-driven CLI with comprehensive test suite",
+      "detail": "open on main at stage ready, idle 5,910 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/leo/pr/67",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ludwig/pr/9",
+      "title": "\ud83c\udf0c Universal",
+      "detail": "open on main at stage draft, idle 6,538 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/ludwig/pr/9",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/moat/pr/3",
+      "title": "\ud83d\udca1 QM plan",
+      "detail": "open on main at stage draft, idle 721 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/moat/pr/3",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/moat/pr/4",
+      "title": "\ud83c\udfde MoatNet",
+      "detail": "open on qm at stage draft, idle 303 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/moat/pr/4",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/uPhonor/pr/29",
+      "title": "\ud83d\udc0d Python",
+      "detail": "open on main at stage draft, idle 10,426 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/uPhonor/pr/29",
+      "address_parses": true
+    }
+  ]
+}

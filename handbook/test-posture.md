@@ -31,7 +31,7 @@ Green was the only signal. And green is compatible with:
 - a module with a `main()` that **no test executes at all** (five of these, one
   of them running in every fork).
 
-Charter **P16** states the rule — a check is evidence only after it has been
+Charter **`a-check-is-evidence-after-it-fails`** states the rule — a check is evidence only after it has been
 seen to fail. This page is the operational half: what to measure, how often, and
 what to do when the number moves.
 
@@ -183,7 +183,7 @@ blocking.
   indentation. Standard library only, so a fork that has installed nothing can
   run it.
 - The session-template fixture pattern in `conftest.py`.
-- The obligation from P16: a new guard carries its mutation line.
+- The obligation from `a-check-is-evidence-after-it-fails`: a new guard carries its mutation line.
 
 **Staying in `qm`:**
 

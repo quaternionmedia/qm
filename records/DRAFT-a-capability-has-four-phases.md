@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-25 |
 | **Pends on** | Nothing — ready for ratification. The evidence rules in §3 are stated per phase and each is a precondition rather than a proof, so a project may adopt the ladder before it can compute every rung. |
-| **Principle** | P6 — decisions are documented or they didn't happen; P12 — show it by running it; P16 — a check is evidence only after it has failed |
+| **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `show-it-by-running-it` — show it by running it; `a-check-is-evidence-after-it-fails` — a check is evidence only after it has failed |
 | **Restated in** | none yet |
 
 ## Context

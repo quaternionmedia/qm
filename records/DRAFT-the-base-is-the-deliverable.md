@@ -30,7 +30,7 @@ Read as a set of requirements it has four parts, and they are not equally built:
 | **concurrent, overlapping, asynchronous** | more than one session, in more than one clone, at once | `handbook/async-contract.md`, the slot rule, `project/<name>` bases |
 | **conflicting** | two contributors may disagree, and the corpus must hold both until something settles it | `Pends on`, `perspectives/` as opinion, precedence |
 | **approved and validated** | two human gates: ratification and the version tag | `records/DRAFT-version-tags-are-claims.md` |
-| **data-driven iteration** | the corpus measures itself and changes because of what it measured | `ledger.yaml`, the registries, the generated documents |
+| **data-driven iteration** | the corpus measures itself and changes because of what it measured | `status/ledger.yaml`, the registries, the generated documents |
 
 ## 2. The base, and why naming it changes the work
 

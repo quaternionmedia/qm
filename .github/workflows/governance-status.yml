@@ -1,6 +1,6 @@
 name: Governance status
 
-# The committed governance-status.yaml is a rendering of specific commits. This
+# The committed status/governance.yaml is a rendering of specific commits. This
 # job asks the only question CI can honestly answer about it: given the commits
 # the document names, are the numbers in it right?
 #
@@ -22,12 +22,12 @@ on:
   push:
     branches: [main]
     paths:
-      - 'governance-status.yaml'
+      - 'status/governance.yaml'
       - 'ci/**'
       - '.github/workflows/governance-status.yml'
   pull_request:
     paths:
-      - 'governance-status.yaml'
+      - 'status/governance.yaml'
       - 'ci/**'
       - '.github/workflows/governance-status.yml'
 
@@ -78,11 +78,11 @@ jobs:
           git for-each-ref --format='%(refname:short)' 'refs/remotes/origin/project/*'
 
       - name: The document faithfully renders the commits it names
-        run: python ci/governance_status.py --check governance-status.yaml
+        run: python ci/governance_status.py --check status/governance.yaml
 
       - name: It also renders
         # A document that cannot be rendered is a document nobody will read.
         # The renderer touches no network either, so this costs nothing.
         run: |
-          python ci/governance_render.py governance-status.yaml --out /tmp/governance-status.html
+          python ci/governance_render.py status/governance.yaml --out /tmp/governance-status.html
           test -s /tmp/governance-status.html

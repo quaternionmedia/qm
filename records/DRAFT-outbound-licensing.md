@@ -5,14 +5,14 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-08 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P1 — ownership is the deliverable; P2 — commons-first economics; P7 — public by default |
+| **Principle** | `ownership-is-the-deliverable` — ownership is the deliverable; `commons-first-economics` — commons-first economics; `public-by-default` — public by default |
 
 ## Context
 
 The open-license record fixes what QM may consume. Nothing states what QM's
 own work is licensed under, and no repository on any branch of this corpus
 carries a licence file. A public repository with no licence grants no rights
-beyond reading, so P7's default publishes the artifact and withholds the
+beyond reading, so `public-by-default`'s default publishes the artifact and withholds the
 commons — the opposite of what publishing it was for.
 
 The gap is not theoretical. This corpus's fork procedure instructs an adopting
@@ -126,7 +126,7 @@ client's own product is a licence the client declines.
     mandates extends to QM's own repositories. Changes to this class table
     are amendments to this record.
     **Which repositories actually satisfy this is not a claim this record
-    makes.** It is measured, with a timestamp, by `governance-status.yaml`'s
+    makes.** It is measured, with a timestamp, by `status/governance.yaml`'s
     `licensing` probe and reported per repository there. This clause states
     the requirement; that document states the compliance, and the two are
     kept apart because a record asserting a universal it never measured is
@@ -135,7 +135,7 @@ client's own product is a licence the client declines.
 
 ## Consequences
 
-- P7 gains legal effect. Publication becomes a grant rather than a gesture,
+- `public-by-default` gains legal effect. Publication becomes a grant rather than a gesture,
   and the fork procedure stops instructing projects to copy files they have
   no permission to copy.
 - `reuse lint` is independent of runtime shape, so a project that cannot run
@@ -179,7 +179,7 @@ client's own product is a licence the client declines.
    own product at exactly the classes QM ships to clients, and would make the
    embeddable deliverable unsellable.
 4. **Apache-2.0 or MIT throughout** — rejected: no derivative-openness
-   guarantee at all, which reduces P1 and P2 to descriptions of QM's habits.
+   guarantee at all, which reduces `ownership-is-the-deliverable` and `commons-first-economics` to descriptions of QM's habits.
    It genuinely removes all upstream-contribution friction; that is the
    benefit being traded away, and §8 is the cheaper way to buy it back.
 5. **EUPL-1.2** — rejected on legibility rather than substance. Its

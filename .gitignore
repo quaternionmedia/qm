@@ -65,3 +65,8 @@ inventory-local.json
 # from 2b50bd6 while the inventory redacted them as private-32 and private-33;
 # the corpus contradicted itself and nothing read both files at once.
 ci/workspace-private.yaml
+
+# One machine's layout: extra candidate paths for public roster entries, by
+# name. The committed roster carries conventions; where a clone actually lives
+# on somebody's disk is that person's fact. See ci/roster.py.
+ci/workspace-local.yaml

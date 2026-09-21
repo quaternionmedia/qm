@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-11 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P3 — replaceability is the risk strategy; P6 — decisions are documented or they didn't happen |
+| **Principle** | `seams-on-standard-protocols` — replaceability is the risk strategy; `decisions-are-documented` — decisions are documented or they didn't happen |
 
 ## Context
 

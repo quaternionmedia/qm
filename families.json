@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "generated_at": "2026-09-20T17:17:02Z",
+  "source": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
+  "reading": {
+    "families_come_from": "the record, not this file -- renaming one there makes a roster claim stop resolving",
+    "membership_is_a_claim": "stated in ci/workspace.yaml by a person, never inferred from a dependency graph or a commit date",
+    "unstated_is_not_none": "a repository with no family has not been placed; nobody answered the question",
+    "do_not": "read a family as a statement that anybody is working on it -- that is `attention`, and it is a different claim"
+  },
+  "families": [
+    {
+      "name": "core",
+      "drives": "the corpus and its tooling \u2014 governance, the archive, the deltas, the maps, the language data",
+      "members": [
+        "qm",
+        "dossier",
+        "qmcp",
+        "codecartographer",
+        "looksatwords"
+      ]
+    },
+    {
+      "name": "games",
+      "drives": "play \u2014 a game somebody plays: its rules, its world and its loop",
+      "members": [
+        "golfvs",
+        "private-38"
+      ]
+    },
+    {
+      "name": "infra",
+      "drives": "where a thing runs, and how it is reached \u2014 ingress, identity, storage, DNS, observability, the network path",
+      "members": [
+        "moat",
+        "ztgui",
+        "private-23",
+        "private-26"
+      ]
+    },
+    {
+      "name": "instruments",
+      "drives": "the sound \u2014 looping, synthesis, tempo, remote control surfaces",
+      "members": [
+        "carlos",
+        "qmetronome",
+        "holophonor",
+        "midiphonor",
+        "wolf",
+        "ludwig",
+        "waveofhormuz"
+      ]
+    },
+    {
+      "name": "irl",
+      "drives": "matter \u2014 a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+      "members": [
+        "apothecary",
+        "datum",
+        "ira",
+        "uPhonor",
+        "stomp",
+        "scad-chess",
+        "private-03",
+        "private-05",
+        "private-07"
+      ]
+    },
+    {
+      "name": "performer-display",
+      "drives": "the performer \u2014 what a player reads while playing",
+      "members": [
+        "joe",
+        "leo"
+      ]
+    },
+    {
+      "name": "show-control",
+      "drives": "the room \u2014 cues, lighting, sound and video playback, audio transport",
+      "members": [
+        "ShowRunner",
+        "Cuelist-python",
+        "QLab-python",
+        "TheatreMix-python",
+        "cesar",
+        "ShowStopper",
+        "aes"
+      ]
+    }
+  ],
+  "unstated": [
+    "alfred",
+    "benchmark",
+    "factorio-sysops",
+    "private-32",
+    "private-33",
+    "private-34",
+    "private-36",
+    "rad",
+    "rad-godot",
+    "streaming-infrastructure"
+  ]
+}
