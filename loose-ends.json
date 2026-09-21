@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-21T01:06:42Z",
+  "generated_at": "2026-09-21T01:44:38Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-21T01:06:42Z"
+        "generated_at": "2026-09-21T01:44:37Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 128,
+    "loose_ends": 130,
     "by_kind": {
       "blind-spot": 19,
       "document-proposed": 36,
-      "document-unreviewed": 55,
+      "document-unreviewed": 57,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 128,
+    "open": 130,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -655,6 +655,22 @@
       "title": "perspectives/2026-08-14-teeth-and-what-the-mutations-said.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-14-teeth-and-what-the-mutations-said",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-15-a-namespace-with-one-direction",
+      "title": "perspectives/2026-08-15-a-namespace-with-one-direction.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-15-a-namespace-with-one-direction",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-15-stating-a-constraint-is-not-enforcing-it",
+      "title": "perspectives/2026-08-15-stating-a-constraint-is-not-enforcing-it.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-15-stating-a-constraint-is-not-enforcing-it",
       "address_parses": true
     },
     {

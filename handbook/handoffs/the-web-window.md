@@ -1,160 +1,181 @@
-# Handoff — the web window, first slice
+# Handoff — the web window: what landed, and the phases that remain
 
-**Stamped 2026-09-20, at session close.** `qm` `main` at `23e4d35`;
-`project/codecartographer` at `d10bb28` (#116 merged); `codecartographer`
-`main` at `4e30271`; `qmcp` `main` at `3e25711`; `looksatwords` `main` at
-`32d3371`; `rad` `main` at `a39d3bf`; `dossier` `main` at `bd322d3`. Every
-figure here was true at those commits and nowhere else. The next session
-re-derives before acting: `uv run qm slot --repo <owner/name>`, `gh pr checks`,
-and the branch check name their own answers.
-
-The plan this slice implements is [`plans/the-web-window.md`](../../plans/the-web-window.md).
-Read it first; this page is only where the work stands.
+**Stamped 2026-09-20, after the merges.** `qm` `main` at `de8f383`;
+`project/codecartographer` at `d10bb28`; `codecartographer` `main` at
+`23f5803`; `qmcp` `main` at `116beb8`; `looksatwords` `main` at `20f4a58`;
+`rad` `main` at `3e8794f`; `dossier` `main` at `d42967a`. Every figure here was
+true at those commits and nowhere else; the next session re-derives before
+acting. The plan is [`plans/the-web-window.md`](../../plans/the-web-window.md)
+and this page is where its remaining phases are picked up. Read the plan's
+*Constraints inherited* first: every phase below is bounded by them.
 
 ---
 
-## 0. What the day produced, in one paragraph
+## 0. What landed
 
-A recap of codecartographer in its family and a triage of its documents; the
-plan `plans/the-web-window.md`, with nine decisions taken in session; its first
-slice built across five repositories -- the estate frame in the window, the
-designer's routes in the harness, the harness routes documented and a topics
-document in the prose reader, a stamped seam in the terminal, an authored-graph
-proposal for the menu; a review of where every figure is calculated, stored and
-displayed, written as a section and a test file; an audit of the corpus's remote
-branches completed (name-only and superseded ones deleted, the rest read); and a
-gate, `check_pr_voice.py`, written after seven pull request bodies were found
-addressing the contributor under his own name. Six pull requests stand open and
-green; one has merged. A local demo of the window against the real harness,
-registry and dossier seam is up and recorded.
+Phases 0 and 1 of the plan, across five repositories in one day, each as its
+own pull request, merged with explicit approval:
 
-## 1. State
+- **codecartographer** — the estate frame: `estate_service` identifies every
+  seam by a document whose shape the window knows; `/estate/seams` is the
+  liveness table; Capabilities, Overview and Estate panels beside Topology on
+  the one canvas; one seam client for the four outcomes; the boundary between
+  calculated, stored and displayed stated in `docs/architecture.md` and checked
+  by `tests/test_boundaries.py`; layouts resolved once whatever the spelling;
+  every document read against the application by `tests/test_docs_routes.py`.
+- **qmcp** — `GET /v1/orchestration/plane`, `GET /v1/orchestration/runnable`,
+  `GET /v1/topology/schema/{kind}`, and `/v1/topologies` (POST, GET, GET one,
+  PUT) over the table that existed with no route; `walkthrough/07`.
+- **looksatwords** — every `/api/harness/*` route documented and guarded both
+  ways; `GET /api/harness/threads/{source}/{thread_id}/topics`, a document a
+  graph can draw; its port from the corpus's allocation.
+- **dossier** — the overview seam carries `generated_at`.
+- **rad** — a Proposed record: an authored-graph mode for the ring.
+- **this corpus** — the plan; the prose reader's surface on the dashboard;
+  `check_pr_voice.py` in `one-pr-check.yml`; clause 5 of the contributorship
+  record; the remote-branch audit completed.
 
-Seven branches; #116 merged at `d10bb28`; six pull requests open, every gate green (rad's `deploy` skips on a pull request by design), every branch on its base's tip and fully pushed. **Nothing reaches `main`
-without Peter's click** — stated by him on 2026-09-20 and the standing rule for
-every branch below.
+`perspectives/2026-09-20-the-web-window-first-slice.md` is why it went the way
+it did — fourteen findings, the defects the session caused written the same
+way as the ones it found.
 
-| Repository | Branch | Carries | Pull request |
-|---|---|---|---|
-| qm | `evolve/the-web-window` (`2373498`) | the plan; `check_pr_voice.py` and its step in `one-pr-check.yml` (corpus and seed), clause 5 of the contributorship record, the contract's §3 and both `AGENTS.md` restating it; `ci/dashboard.py` gains a fourth surface (`prose`, `looksatwords`, root two) and drops the retired standalone `/topology` page from the web surface's list; `docs.yml` stops naming a deploy branch that no longer exists; this page and its retrospective; the regenerated document index | opened once #115 had merged and freed the `main` slot — see the pull request list |
-| qm | `adr/codecartographer-index-current` | the project's `adr/README.md` names `governance/qm` rather than `docs/qm` and lists the rad adoption among its drafts | **#116, merged** at `d10bb28` |
-| codecartographer | `evolve/the-estate-frame` (`257bc4b`) | the estate frame (Phase 0 and 1 of the plan); the local `test` branch's four commits minus its governance-pin bump; the slot workflow checking out only the governance submodule; the canvas drawing an edge's colour, width and style from where gJGF puts them; the capability and overview kinds joined to the palette; one layout spelling resolved once, an unknown layout answered with a sentence, estate draws re-run on a layout change; the boundary section in `docs/architecture.md` and `tests/test_boundaries.py` | **#100**, gates green |
-| qmcp | `evolve/the-topology-routes` (`c706b58`) | `/v1/orchestration/plane`, `/v1/orchestration/runnable`, `/v1/topology/schema/{kind}`, `/v1/topologies` over the existing table, walkthrough 07 | **#36**, gates green |
-| looksatwords | `evolve/the-harness-routes-documented` (`085f845`) | the harness routes documented and guarded, a per-thread topics document, the port from the corpus's allocation, a stub archive shared by the tests | **#23**, gates green |
-| dossier | `evolve/the-seam-says-when` (`5d05d7d`) | the overview seam carries `generated_at`, carried through the redaction pass that first dropped it | **#57**, gates green |
-| rad | `evolve/authored-graph-verbs` (`7a0919e`) | a Proposed record: an authored-graph mode for the ring, with candidate vectors, not applied | **#6**, gates green |
+## 1. Residue of the landed slice — small, and each is a session's first hour
 
-Every working tree is clean. The branches were built in worktrees under the
-session scratchpad, not in the clones under `repos/qm/`, because another
-session was committing in the `qm` clone throughout; those worktrees are
-disposable and the branches are on `origin`.
+| what | where | done when |
+|---|---|---|
+| **Propagation** of codecartographer's governance pin to `project/codecartographer`'s tip | `handbook/propagation-runbook.md`: a `propagate/codecartographer-<date>` branch cut from the project branch, `main` merged in (never rebased), a pull request based on `project/codecartographer`, then the submodule moved in codecartographer and its seed workflows re-copied | codecartographer's `governance/qm` pin is the project branch's tip; its `one-pr-check.yml` carries the voice step; its `adr/README.md` reads as merged |
+| **The `topology` address kind** in the corpus's address grammar | `docs/ref/addresses.md`, `project-seed/address-vectors.json`; qmcp #36 says so beside its constant and its shared-vectors test will read the new vector | qmcp's `tests/test_addresses.py` passes against the pinned vectors with the kind present |
+| **A codecarto row in `dossier.sources`** | `the-third-side.md` step one; nothing in codecartographer changes | `dossier sources` lists the web window, reachable or not, with a reason when not |
+| **The two 2026-08-15 retrospective branches** | landed by the pull request that carries this page | `git push origin --delete perspective/2026-08-15-a-namespace-with-one-direction perspective/2026-08-15-stating-a-constraint-is-not-enforcing-it` once merged |
+| **The seed's `one-pr-check.yml` on a project with a private submodule** | codecartographer's copy departs from the seed, checking out only the governance submodule, for the reason its `adr-lint.yml` gives | the seed's copy takes the same shape, or `project-seed/ci/README.md` names the departure as the known exception |
+| **dossier's public test suite names two private repositories** | `tests/core/test_overview_redacts_private.py`, the fixture rows; pre-existing | the fixtures name invented repositories, as that file's newest test already does |
 
-## 1a. What is running on this workstation, and how to stop it
+## 2. Phase 2 — the live flow on the shape
 
-Three servers this session started for the review demo, each on the port the
-corpus allocates and each identified by asking it what it is:
+**What.** A topology is drawn as a shape; the harness knows what is running
+through it. `GET /v1/invocations` and `GET /v1/human/requests` already exist and
+every row carries an address (`owner/repo/invocation/<id>`,
+`owner/repo/ask/<id>`). The window joins those addresses to the boxes it drew
+and shows run state on them — the `idle / active / success / failed` channel
+`SystemRenderer` already has for the PAM view, moved onto the one canvas as an
+extension rather than a second renderer. A Harness panel shows recent runs and
+the human queue **read-only**, including how many rows the harness held back
+(`dossier.human`'s `Reading.more` is the model).
 
-| port | process | serves | from |
-|---|---|---|---|
-| 3141 | pid 29592 | the harness (`QMCP Server`) | qmcp worktree at `evolve/the-topology-routes` |
-| 2718 | pid 16584 | the window (`codecarto 0.3.0`, `/app`) | codecartographer worktree at `evolve/the-estate-frame`, `DOSSIER_OVERVIEW_SEAM` pointed at a seam generated from the real dossier database |
-| 1414 | pid 17756 | the prose reader | looksatwords worktree at `evolve/the-harness-routes-documented`, scratch database |
+**Where.** codecartographer: a `web/src/features/graph/extensions/` extension
+that overlays state by address; a `harness_panel.ts` beside the estate panels,
+through `plotWith` like the rest; `qmcp_client` gains `invocations()` and
+`queue()`; `estate_service`'s harness seam grows the two routes in its
+`routes` list. qmcp: nothing for polling. **Polling first**, because it needs
+nothing from the harness; an event stream (`/v1/events`, SSE) second, because
+it is cleaner and is one more surface to govern — decided on 2026-09-20.
 
-`netstat -ano | findstr ":2718 :3141 :1414"` confirms the pids; `taskkill /PID
-<pid> /F` stops each. Nothing else on this machine holds these ports. The
-worktrees, the demo guide, the recorded screenshots and the pull-in checklist
-live in the session's own scratch space, which is disposable once the branches
-have merged and is deliberately not named here; the checklist's content is §1's
-table read top to bottom, and the demo guide's is the pull request bodies.
+**Read first.** `feat/the-monitor-derives-the-system` in the codecartographer
+clone (unpushed, 2026-08-27): `codecarto/services/system_composer.py` and
+`web/src/features/graph/services/derived_system.ts` are the idea — a system
+derived from what a repository holds, PAM as one definition among others. It
+edits a renderer `main` deleted, so it is read, not merged.
 
-## 2. What is unfinished, and what done looks like
+**Done when.** A stub harness fixture whose invocations name box addresses
+turns those boxes' state on the canvas (browser test, on the non-default
+ports); a fixture whose invocation names an address no box has is **reported
+in the panel, never dropped**; the queue panel shows the held-back count from
+a fixture that pages; the overlay is a `BaseExtension` and no new renderer
+exists (`test_boundaries.py`'s canvas-import guard stays green). Nothing in the
+window posts to the queue.
 
-- **The immediate next act is the merge of qm #117**, then cutting the
-  two-retrospectives pull request into the freed `main` slot (the two pages,
-  not the generated `harness-status.json`), then the four neighbour merges in
-  any order and codecartographer #100 -- §1's table, read top to bottom. The
-  one ordering that matters: #117 before looksatwords #23, so that project's
-  port test runs beside a current qm clone rather than skips.
+**Traps, from the retrospective.** Commit before mutating; delete `dist-pure/`
+before trusting a green pure test; the Graph tab must be *active* for a node to
+be visible (`focusDockPanel`); a source directory named like an API prefix is
+proxied to the backend.
 
-- **The two 2026-08-15 retrospectives.** Decided: land via one pull request,
-  cut from `main` after #117 merges. Done when the two pages are on `main` and
-  both `perspective/2026-08-15-*` branches are deleted.
-- **The `topology` address kind in the corpus.** qmcp #36 addresses saved
-  designs as `<owner>/<repo>/topology/<name>` and says beside the constant that
-  the corpus does not know the kind. Done when `docs/ref/addresses.md` and
-  `project-seed/address-vectors.json` carry it, on a qm branch, and qmcp's
-  shared-vectors test still passes. Not started.
-- **looksatwords' port test skips in the canonical layout** until the qm branch
-  lands — the row it reads is on `evolve/the-web-window`. Done when that
-  merges and the test runs rather than skips beside a current qm clone.
-- **rad's proposal wants the host-side half.** Its first `Pends on` item is
-  codecartographer's own record carrying the divergence in its `Pends on` row
-  naming `rad`. Done when that row exists on `project/codecartographer`.
-- **The voice check reaches a project at its next pin bump and workflow
-  re-copy.** `check_pr_voice.py` lives in `project-seed/ci/`; the seed's
-  `one-pr-check.yml` runs it out of the submodule. No project's pin carries it
-  yet, so no project's copy of the workflow names the step yet. Done when the
-  next propagation moves a pin and that project's workflow is re-copied.
-- **The seed's `one-pr-check.yml` cannot check out a project with a private
-  submodule.** (Its check did, on #100, report a real thing the moment it could
-  run: a second pull request opened by another session.) codecarto's copy departs from the seed for the reason its
-  `adr-lint.yml` already gives. The seed itself is not changed here; done when
-  the seed's copy takes the same shape or the departure is written into the
-  seed's README as the known exception.
-- **Phases 2 to 6 of the plan** are not started. Phase 2 (the live flow on the
-  shape) should begin by reading the unpushed local branch
-  `feat/the-monitor-derives-the-system` in the codecartographer clone — its
-  `system_composer.py` and `derived_system.ts` are the idea, written against a
-  renderer `main` has since deleted.
+## 3. Phase 3 — the topology designer
 
-## 3. Blocked, and on whom
+**Read first (3a).** A Designer panel that lists what `/v1/orchestration/plane`
+declares: each shape with `status`, what it spends, writes or decides, its
+`needs` and what supplies each; a REFUSED shape drawn refused, a BRAINSTORM
+drawn as a proposal; `/v1/orchestration/runnable?workers=&budget=&model=` as a
+"what could run with this hand" control. Nothing here is computed in the window
+— the plane is the harness's, and `drift` (`stubs`, `undeclared`,
+`unregistered_types`) greys a shape whose declaration lies.
 
-- **Every merge**, in every repository above.
-- **Eight remote branches in this corpus carry content `main` lacks**, left
-  from another session's audit of the remote on 2026-09-20 (its 35 name-only
-  branches — every tip an ancestor of `main` or of its project branch, verified
-  twice by that session and once more here — were deleted from this one). Each
-  is a person's call, with the reading established here:
+**Author (3b).** Compose boxes and arrows in the harness's vocabulary
+(`input/worker/gate/store/output`; `flow/feedback/refusal`) on the canvas. The
+form for a shape's `config` is built from `GET /v1/topology/schema/{kind}`;
+the design saves through `POST /v1/topologies` and reloads through `GET`; the
+response's `capability` block is the plane's verdict and is shown as given.
+**Saving a refused shape is allowed and running it is not** — the harness says
+so in the response; the window renders that, adds nothing.
 
-  | branch | reading, and the evidence |
-  |---|---|
-  | `evolve/carlos-in-the-roster`, `evolve/the-slot-orders-the-remediation` | **deleted on 2026-09-20 by decision**: superseded — `main`'s carlos entry carries the same claim plus a family; `main`'s `plans/moat-remediation.md` is the branch's plus a lint allowance |
-  | `perspective/2026-08-15-a-namespace-with-one-direction`, `perspective/2026-08-15-stating-a-constraint-is-not-enforcing-it` | two retrospectives never landed, one commit each, plus a generated `harness-status.json` that must not land with them. **Decided 2026-09-20: land the two pages via one pull request**, cut from `main` after this branch's own pull request has merged (one `main` slot); the seam file stays out. Then delete both branches |
-  | `evolve/frizzle-kickoff-handoff`, `perspective/2026-08-13-frizzle-kickoff` | a handoff and a perspective whose file names carry a private repository's name (it appears in `ci/workspace-private.yaml`). Do not land as they are; they belong in that repository or need redaction |
-  | `evolve/exploration-branch-namespace` | six commits from 2026-08-15 on a base every touched file has moved past: a `workspace/*` namespace proposal (`docs/ref/namespaces.md` names the namespace today), a handoff, and `ci/check_discipline_parity.py` -- a presence check that each rule in the root `AGENTS.md` also appears in `project-seed/ide/AGENTS.md`, keyed by anchor phrase rather than item number. That check is the one thing here still unbuilt and still wanted: `handbook/async-contract.md` says a rule that belongs in both files has to be written twice and that `symlink-integrity` cannot notice one missing. Read here: do not merge the branch; re-implement the parity check against today's two files as its own slice, then delete the branch |
-  | `workspace/math-experiments`, `math/hierarchical-complexity` | explorations on an old base; the first is cited from `perspectives/README.md`. Keep, or retire the citation with them |
-- **Answering the human queue from the web** — deferred by decision on
-  2026-09-20 and noted in the plan; not to be built until reviewed.
+**The authored verbs.** rad #6 proposes an authored-graph mode in which
+`add-node`, `reverse` and `edit-label` are honest. Its first `Pends on` item is
+codecartographer's own record carrying the divergence in its `Pends on` row,
+naming `rad` — the host-side half of the standard's §5.5 channel. Do that first
+(a pull request on `project/codecartographer`), then build the verbs in
+`rad/host/` with `MenuContext.graph: 'authored' | 'derived'` set per canvas.
+Derived graphs offer them **disabled, never substituted**.
 
-## 4. What could not be verified, marked as such
+**Done when.** A design saved in the browser reads back from the harness with
+the same config; a `council` design shows the refusal sentence verbatim; the
+conformance suite stays green with the new verbs present and disabled on a
+parsed map; `test_boundaries.py` stays green (the window still stores nothing
+— the design lives in the harness).
 
-- The local workflow runner passed nine steps of ten in codecartographer; the
-  tenth was `pip install reuse` in a uv venv without pip. The REUSE tool run
-  with its encoding extra reports compliant, and the hosted `reuse` gate is
-  green. *Inference:* the local failure is the environment, not the work.
-- looksatwords' e2e and screenshot suites were not run (they drive a browser
-  and start servers). *Inference:* the recorded pictures may have moved with
-  the UI; `uv run looksatwords screenshots` re-records them.
-- rad's candidate vectors were replayed against the reference core by a
-  scratch runner, not by the repository's runner, which has no branch for the
-  new suite type. That is the record's own statement of the situation.
-- Whether qmcp's name-collision check races: two POSTs with one name could hit
-  the unique index and answer 500 rather than 409. Read from the code; not
-  observed.
+## 4. Phase 4 — manipulation
 
-## 5. Standing constraints
+Run a shape whose plane status is `runs` (`delegation`, `crosscheck`) against
+declared workers and a declared budget, through the governed seam, and watch it
+in Phase 2's overlay; its draft lands in the human queue. **Every decision is
+the harness's:** an execution route in qmcp (not yet written), the spend
+declared and consented there (`records/DRAFT-no-unattended-spending.md`), the
+refusal of a shape against an attested act asked of `orchestration.refuses` at
+run. Nothing in the window turns a draft into a decision, and **answering the
+queue from the web is deferred by decision** — build nothing for it until it
+has been reviewed.
 
-- **Nothing pulled to `main` without Peter's explicit approval.** Pull requests
-  are fine. This overrides `AGENTS.md` item 3, which has the session merge
-  once the gates are green.
-- Not *keep everything local*: pushing and opening pull requests is allowed and
-  was done.
-- Human-only contributorship on every commit: no trailer, no model name. Every
-  commit above is signed and carries the contributor's name only. Pull request
-  bodies close with a `Tools:` note, as qm #115 does.
-- The retirement pass over the other handoff pages that the `/handoff` contract
-  asks for was **not done here**: `handbook/handoffs/README.md` was being edited
-  by another session on #115's branch at the time, and two branches rewriting
-  one table is the conflict `async-contract.md` §5 exists to prevent. This page
-  is added to the queue as one row; the retirement pass belongs to whichever
-  session next holds the `main` slot with a clean view of the directory.
+## 5. Phase 5 — cartography and chrestomathy
+
+**In codecartographer.** The `annotate_lexicon` toggle into the main parse
+flow (it lives only in the legacy control panel today); lexicon-layer colouring
+as legend rows; a Chrestomathy panel: choose a construct — a layer, a lexicon
+group — and see it across every language with a lexicon; a third language's
+lexicon in `codecarto/data/lexicons/` (`docs/llm/roadmap/lexicon.md`, *Adding a
+language*).
+
+**The looksatwords bridge, both ways.** A thread → the repositories it was
+about (`GET /v1/topology/relations/{subject}` on the harness, weighted) → the
+code map of one; a file or symbol → the threads that spoke of it, with the
+topics each carried (`GET /api/harness/threads/{source}/{thread_id}/topics` on
+the prose reader, landed in #23). The join is the address. The prose seam
+already has a row in the Estate table with no panel; this is the panel.
+
+**Done when.** The Estate table's prose row has a panel; a thread's topics
+draw on the canvas with the same caveat discipline as every other seam; a
+construct chosen in one language shows its neighbours in the others.
+
+## 6. Phase 6 — the triangle, executed
+
+One walkthrough page showing a change cross the panel, the harness and the
+map, run by the ordinary test command. **Where it lives is still open**
+(`the-third-side.md`'s question 8): `dossier/walkthrough`, `qmcp/walkthrough`,
+codecartographer, or this corpus's `walkthrough/`.
+
+## 7. Standing constraints
+
+- **Nothing reaches `main` without the human's explicit approval.** Pull
+  requests are opened green and assigned; the merge is a human act, said in
+  the session and in pages like this one, **never in a pull request body**
+  (`check_pr_voice.py` refuses it; `handbook/async-contract.md` §3).
+- One open pull request per repository, per contributor. Slots are free in
+  every repository named here at the stamp above.
+- Identity, not reachability, for every server; never a default port.
+- Human-only contributorship on every commit; a `Tools:` note where the
+  artifact calls for one.
+
+## 8. What could not be verified here
+
+- Whether the voice check catches the *third* person addressing the
+  contributor by name. It does not try to; that is its stated blind spot.
+- Whether the two retrospectives landed by the carrying pull request still
+  describe a live state — they are dated 2026-08-15 and were read as records
+  of that day, not re-derived.
