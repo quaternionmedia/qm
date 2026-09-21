@@ -62,18 +62,19 @@ corpus allocates and each identified by asking it what it is:
 
 `netstat -ano | findstr ":2718 :3141 :1414"` confirms the pids; `taskkill /PID
 <pid> /F` stops each. Nothing else on this machine holds these ports. The
-worktrees live under the session scratchpad
-(`...\scratchpad\wt\`) and the demo guide, screenshots and pull-in checklist
-under `...\scratchpad\demo\`; all are disposable once the branches have merged.
+worktrees, the demo guide, the recorded screenshots and the pull-in checklist
+live in the session's own scratch space, which is disposable once the branches
+have merged and is deliberately not named here; the checklist's content is §1's
+table read top to bottom, and the demo guide's is the pull request bodies.
 
 ## 2. What is unfinished, and what done looks like
 
 - **The immediate next act is the merge of qm #117**, then cutting the
   two-retrospectives pull request into the freed `main` slot (the two pages,
   not the generated `harness-status.json`), then the four neighbour merges in
-  any order and codecartographer #100. The checklist is
-  `...\scratchpad\demo\PULL-IN-CHECKLIST.md`; its order is also §1's table
-  read top to bottom.
+  any order and codecartographer #100 -- §1's table, read top to bottom. The
+  one ordering that matters: #117 before looksatwords #23, so that project's
+  port test runs beside a current qm clone rather than skips.
 
 - **The two 2026-08-15 retrospectives.** Decided: land via one pull request,
   cut from `main` after #117 merges. Done when the two pages are on `main` and
