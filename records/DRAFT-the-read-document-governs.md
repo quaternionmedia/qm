@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-14 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P11 — governance finds the reader, not the reverse; P6 — decisions are documented or they didn't happen |
+| **Principle** | `governance-finds-the-reader` — governance finds the reader, not the reverse; `decisions-are-documented` — decisions are documented or they didn't happen |
 | **Restated in** | `AGENTS.md` item 16 |
 
 ## Context
@@ -42,7 +42,7 @@ not a copy of the decision. In practice it *is* the decision, and the record
 becomes a description of what the organisation would have decided if anyone had
 reached it.
 
-This is the failure mode P11 names, arriving from inside. Governance found the
+This is the failure mode `governance-finds-the-reader` names, arriving from inside. Governance found the
 reader; what it handed them was a second copy.
 
 ## Decision

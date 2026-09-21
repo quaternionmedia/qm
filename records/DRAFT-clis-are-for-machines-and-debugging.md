@@ -5,8 +5,8 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-20 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P13 — a person is interrupted only by a decision; P8 — systems over heroics |
-| **Restated in** | `PRINCIPLES.md` P13 |
+| **Principle** | `interrupted-only-by-a-decision` — a person is interrupted only by a decision; `systems-over-heroics` — systems over heroics |
+| **Restated in** | `PRINCIPLES.md` `interrupted-only-by-a-decision` |
 
 ## Context
 

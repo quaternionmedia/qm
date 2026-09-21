@@ -18,6 +18,7 @@ inheriting a previous session's belief instead of asking the repository:
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are very likely running
    right now, in other repositories, for the same reviewer.
+   `uv run qm estate` reports it across every rostered repository;
    `handbook/async-contract.md` is the set of rules that exist only because of
    that, and it is short.
 4. **Which gates exist**, and what each one cannot see.
@@ -41,9 +42,9 @@ reasoning, and the seams doctrine in `records/` for why a governance document
 that mandated a particular product would be violating its own charter.
 
 **Read the committed status documents before re-deriving what they hold.**
-`governance-status.yaml` and `harness-status.json` sit at the root.
-`harness-status.json` carries its own refresh command, staleness budget and
-`do_not` list in a `reading:` block inside the file. **`governance-status.yaml`
+`status/governance.yaml` and `status/harness.yaml` sit at the root.
+`status/harness.yaml` carries its own refresh command, staleness budget and
+`do_not` list in a `reading:` block inside the file. **`status/governance.yaml`
 does not** — it has no `reading:` block at all, so its refresh command and its
 168-hour budget are only in `handbook/generated-documents.md`, and for that one
 you do need the page. `handbook/generated-documents.md` indexes both, and
@@ -77,6 +78,12 @@ with a date looks checked.
 
    - **Never request a review**; assign the person who asked for the work.
      Reviewers are named at the tag. `handbook/async-contract.md` §2.
+   - **The pull request body speaks as the contributor, to the world.** It is
+     posted under a human's account; it addresses nobody. What a session has
+     to say to the person who asked — who merges, what is deferred, a question
+     — is said in the session, never written into the body. `check_pr_voice.py`
+     refuses the second person. `handbook/async-contract.md` §3, and clause 5
+     of `records/DRAFT-human-only-contributorship.md`.
    - **Draft means incomplete, and nothing else.** It is not a holding pen for
      finished work: nobody is waiting at the far end of that queue, so a green
      PR left in draft is a change that never reached `main`.
@@ -180,7 +187,7 @@ with a date looks checked.
     worse than none — a green check standing where a reader believes something
     is enforced.
 
-    **This item, item 10 and item 12 are one rule**, and charter P16 states
+    **This item, item 10 and item 12 are one rule**, and charter `a-check-is-evidence-after-it-fails` states
     it once — record `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`.
     A check is evidence only after it has been seen to fail. The tool
     answering a different question, the setup describing itself, and the
@@ -196,13 +203,13 @@ with a date looks checked.
     long after they are written: prefer the relation to the count ("every
     synced repository", not a total), and where a figure is the point, name the
     command and the commit that produced it. Never restate a figure a generated
-    document already holds — `governance-status.yaml` and `harness-status.json`
+    document already holds — `status/governance.yaml` and `status/harness.yaml`
     carry their own, and a copy is a second number nothing updates. A
     verification section is the one place a bare count belongs, because its
     subject is one run at one commit. This is about text, not code: an
     assertion that goes stale fails, which is the property prose lacks.
 
-15. **Show it by running it** — charter P12, record
+15. **Show it by running it** — charter `show-it-by-running-it`, record
     `records/DRAFT-one-executable-walkthrough.md`. A worked example lives in
     `walkthrough/`, executed by the ordinary test command, and nothing describes
     a behaviour in a second place beside the code. What prose cannot hold is
@@ -227,6 +234,18 @@ with a date looks checked.
     `python ci/check_restatements.py` verifies the declarations pair up. It
     cannot tell that a summary and its record disagree, and it cannot find a
     restatement nobody declared — the declaration is yours to make.
+
+17. **The workstation, the agent and the conversation are not the
+    organisation** — record `records/DRAFT-what-is-not-the-organisation.md`,
+    with `handbook/what-is-not-the-organisation.md` as the thing to do. A
+    committed file states what is true of the organisation: not where a clone
+    sits on one disk, which editor held it, what the tool driving a session
+    did with its shell, or what anybody said. A decision enters as a decision,
+    never as reported speech; a commit message describes the change and not
+    the conversation behind it. `uv run qm leaks` refuses the mechanical part
+    — a home path, a personal folder, a scratch path, a shared link — and runs
+    as the `leak-check.yml` gate; the rest is yours to read for before you
+    push.
 
 ## If you're forking this corpus into a new project
 

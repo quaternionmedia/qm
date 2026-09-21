@@ -12,6 +12,7 @@ test passes because this repository happens to be in the state it asserts.
 from __future__ import annotations
 
 import json
+import yaml
 import subprocess
 import sys
 from pathlib import Path
@@ -99,7 +100,7 @@ def test_the_renderer_cannot_run_a_command():
 def test_the_renderer_does_not_write_to_its_document(tmp_path: Path):
     reg = registry(tmp_path, entry("a", "wf", "job"))
     wfs = workflows_dir(tmp_path, wf="job")
-    doc_path = tmp_path / "gate-status.json"
+    doc_path = tmp_path / "status/gates.yaml"
     assert run(STATUS, "--no-host", "--registry", str(reg), "--workflows", str(wfs),
                "--write", str(doc_path)).returncode == 0
     before = doc_path.read_bytes()
@@ -207,7 +208,7 @@ def test_a_gate_with_no_cannot_see_is_a_gap_not_a_clean_bill(tmp_path: Path):
 def test_check_passes_on_a_fresh_document(tmp_path: Path):
     reg = registry(tmp_path, entry("a", "wf", "job"))
     wfs = workflows_dir(tmp_path, wf="job")
-    doc_path = tmp_path / "gate-status.json"
+    doc_path = tmp_path / "status/gates.yaml"
     run(STATUS, "--no-host", "--registry", str(reg), "--workflows", str(wfs),
         "--write", str(doc_path))
     assert run(STATUS, "--registry", str(reg), "--workflows", str(wfs),
@@ -217,7 +218,7 @@ def test_check_passes_on_a_fresh_document(tmp_path: Path):
 def test_check_fails_when_the_registry_moves_on(tmp_path: Path):
     reg = registry(tmp_path, entry("a", "wf", "job"))
     wfs = workflows_dir(tmp_path, wf="job")
-    doc_path = tmp_path / "gate-status.json"
+    doc_path = tmp_path / "status/gates.yaml"
     run(STATUS, "--no-host", "--registry", str(reg), "--workflows", str(wfs),
         "--write", str(doc_path))
     registry(tmp_path, entry("a", "wf", "job"), entry("b", "wf2", "job2"))
@@ -233,11 +234,11 @@ def test_check_ignores_the_host_layer(tmp_path: Path):
     """
     reg = registry(tmp_path, entry("a", "wf", "job"))
     wfs = workflows_dir(tmp_path, wf="job")
-    doc_path = tmp_path / "gate-status.json"
+    doc_path = tmp_path / "status/gates.yaml"
     run(STATUS, "--no-host", "--registry", str(reg), "--workflows", str(wfs),
         "--write", str(doc_path))
 
-    doc = json.loads(doc_path.read_text(encoding="utf-8"))
+    doc = yaml.safe_load(doc_path.read_text(encoding="utf-8"))
     doc["enforcement"] = {"repository": "o/r", "rulesets_applied": 9,
                           "blocks_a_merge": True}
     doc["generated_at"] = "1999-01-01T00:00:00Z"

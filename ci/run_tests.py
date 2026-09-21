@@ -56,7 +56,19 @@ SUITES = ("project-seed/ci/tests", "ci/tests", "walkthrough")
 # ignores `testpaths` the moment it receives a path argument, and this
 # invocation always passes paths -- so a testpaths-wired walkthrough would be
 # collected by nobody and stay green forever.
-BASE_ARGS = ("-q", "--doctest-glob=*.md")
+# `-n auto` is a deliberate default and not a hidden one: `main` prints the
+# whole command before running it, so an operator sees the workers and can
+# override with `qm test -- -n 0`. Measured on this suite, on 16 cores:
+# 280s serial, 77s parallel, 1370 passed and 2 skipped either way, stable
+# across three runs. The reason it is a default rather than a flag is the cost
+# argument -- a four-minute gate is one people skip between runs, and a skipped
+# gate is worth nothing however correct it is.
+#
+# IT MUST MATCH CI. This tuple and `.github/workflows/ci-tooling-tests.yml`'s
+# pytest line are asserted equal by `ci/tests/test_run_tests.py`, because a
+# local run that collects or schedules differently from CI is the divergence
+# this module exists to prevent.
+BASE_ARGS = ("-q", "--doctest-glob=*.md", "-n", "auto")
 
 
 def main(argv: list[str] | None = None) -> int:

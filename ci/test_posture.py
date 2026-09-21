@@ -17,7 +17,7 @@ the other worse in a way nobody sees:
 
 So this reports them side by side and refuses to print one without the other.
 
-**THE YIELD IS MEASURED BY BREAKING THINGS, NOT BY COUNTING TESTS.** Charter P16:
+**THE YIELD IS MEASURED BY BREAKING THINGS, NOT BY COUNTING TESTS.** Charter `a-check-is-evidence-after-it-fails`:
 a check is evidence only after it has been seen to fail. A count of tests, a
 line-coverage percentage and a green tick are all compatible with a suite that
 asserts nothing — this corpus has produced all three. `qm mutate` breaks a module

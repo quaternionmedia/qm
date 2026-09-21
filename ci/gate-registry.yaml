@@ -93,6 +93,28 @@ gates:
       Whether the two pull requests are actually related. It counts slots, not
       subject matter, and the `--per-base` exemption is a glob somebody passes.
 
+  - id: one-pr-voice
+    workflow: one-pr-check.yml
+    job: slot
+    gates: [main]
+    seed: true
+    exists: true
+    refuses: >
+      A pull request body that speaks to its contributor rather than as them:
+      the second person, the handling phrases that have leaked ("assigned, no
+      review requested", "merge when ready"), or the contributor's own login
+      mentioned. Code spans, fenced blocks and quoted lines are left alone.
+    runs:
+      - project-seed/ci/check_pr_voice.py
+    enforces:
+      - records/DRAFT-human-only-contributorship.md
+      - handbook/async-contract.md
+    cannot_see: >
+      The third person. "Peter merges once the gates are green" is a statement
+      about a person and the tool cannot tell it from a sentence addressed to
+      them without a pronoun, so it is allowed; and whether the body is honest,
+      complete, or about the diff at all.
+
   - id: namespace-guard
     workflow: namespace-guard.yml
     job: namespace
@@ -137,7 +159,7 @@ gates:
     seed: false
     exists: true
     refuses: >
-      A committed `governance-status.yaml` that no longer renders the commits
+      A committed `status/governance.yaml` that no longer renders the commits
       it names, and a rendered view that has drifted from it.
     runs:
       - ci/governance_status.py --check
@@ -331,7 +353,9 @@ gates:
       are settled by the same gate; a protocol with no page or a step naming a
       route that does not exist; a curriculum unit citing a document that is
       not there or claiming a Status its document does not carry; an address
-      vector that does not parse as declared or does not format back to itself.
+      vector that does not parse as declared or does not format back to itself;
+      a family claim naming a family the record does not declare; a
+      mathematical mapping that does not state what it has not earned.
     runs:
       - ci/exceptions.py --check
       - ci/policies.py --check
@@ -341,6 +365,8 @@ gates:
       - ci/curriculum.py --check
       - ci/addresses.py --check
       - ci/capabilities.py --check
+      - ci/families.py --check
+      - ci/check_mathematics.py --check
     enforces:
       - ci/exception-registry.yaml
       - ci/policy-registry.yaml
@@ -361,6 +387,32 @@ gates:
       is this gate required to merge: it is a candidate for A-main.json's
       required list and stays off it until it has reported green on a real
       pull request.
+
+  - id: leak-check
+    workflow: leak-check.yml
+    job: leaks
+    gates: [main, push]
+    seed: true
+    exists: true
+    refuses: >
+      A tracked file that carries a person's home directory, a path through a
+      personal or IDE-made folder, a path into a session's scratch space, a
+      shared-conversation link, or a conversation archive's path. Findings are
+      printed redacted; a deliberate example is declared with `leaks: allow`
+      and a reason, and every allowance is counted on every run.
+    runs:
+      - project-seed/ci/check_leaks.py
+    enforces:
+      - records/DRAFT-what-is-not-the-organisation.md
+      - ci/policy-registry.yaml nothing-committed-describes-the-workstation-the-agent-or-the-conversation
+    cannot_see: >
+      Everything on that line that is not a path or a link: an editor named in
+      prose, a process somebody saw running, a tool narrating its own session,
+      a person's words quoted into a constraint. A pattern for those would
+      fire on every page that legitimately discusses editors or quotes a
+      record, so the reader is the check, at the runbook's Step 3. Nor can it
+      read history -- a path already pushed stays pushed -- or tell a
+      placeholder from a real account beyond the ones it lists.
 
   - id: rulesets
     workflow: null

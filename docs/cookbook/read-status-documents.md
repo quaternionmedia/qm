@@ -1,6 +1,6 @@
 # Read status documents
 
-Read `governance-status.yaml` and `harness-status.json` correctly.
+Read `status/governance.yaml` and `status/harness.yaml` correctly.
 
 ## What they are
 
@@ -8,8 +8,8 @@ Two generated files, committed on `main`:
 
 | Document | Holds | Refresh command | Stale after |
 |---|---|---|---|
-| `governance-status.yaml` | Where every project stands: branch state, records, adoption artifacts | `python ci/governance_status.py --write governance-status.yaml` | 168 hours |
-| `harness-status.json` | Pull request slots, phases claimed, work in flight | `python ci/harness_status.py --no-local --write harness-status.json` | 24 hours |
+| `status/governance.yaml` | Where every project stands: branch state, records, adoption artifacts | `python ci/governance_status.py --write status/governance.yaml` | 168 hours |
+| `status/harness.yaml` | Pull request slots, phases claimed, work in flight | `python ci/harness_status.py --no-local --write status/harness.yaml` | 24 hours |
 
 CI does not regenerate them. A person runs the refresh command and commits the result.
 
@@ -17,19 +17,19 @@ CI does not regenerate them. A person runs the refresh command and commits the r
 
 Each file carries a `generated_at` timestamp. Check it before quoting any figure: a stale number delivered with confidence looks checked, and is not.
 
-`harness-status.json` also carries a `reading:` block inside the file — its own refresh command, staleness budget, and a `do_not` list. `governance-status.yaml` has no such block; its rules live only in [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
+`status/harness.yaml` also carries a `reading:` block inside the file — its own refresh command, staleness budget, and a `do_not` list. `status/governance.yaml` has no such block; its rules live only in [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 
 ## Render them as pages
 
 ```bash
-# governance-status.yaml → markdown
-python ci/governance_render.py governance-status.yaml
+# status/governance.yaml → markdown
+python ci/governance_render.py status/governance.yaml
 
-# harness-status.json → markdown
-python ci/harness_dashboard.py harness-status.json --format md
+# status/harness.yaml → markdown
+python ci/harness_dashboard.py status/harness.yaml --format md
 ```
 
-## What governance-status.yaml contains
+## What status/governance.yaml contains
 
 Top-level keys: `schema`, `generated_at`, `generator`, `corpus`, `projects`, `org`, and `undefined`.
 

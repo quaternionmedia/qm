@@ -6,12 +6,14 @@ The [handbook](https://github.com/quaternionmedia/qm/tree/main/handbook) holds Q
 |---|---|
 | [forking-a-project.md](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md) | How to stand up a new project, with a check for each step |
 | [propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) | How an org change reaches an adopted project |
+| [consolidation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/consolidation-runbook.md) | How work that exists only on one disk reaches `main`, repository by repository |
 | [governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) | How far the [corpus](../ref/glossary.md#corpus){ .glossary-term } has got in governing itself, and what [ratification](../ref/glossary.md#ratification){ .glossary-term } waits on |
 | [adoption-audit-queue.md](https://github.com/quaternionmedia/qm/blob/main/handbook/adoption-audit-queue.md) | Which projects are audited, and how to run the rest |
 | [async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) | The rules that exist because several agent sessions run at once |
 | [generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) | The status documents: refresh commands, staleness budgets, dashboards |
 | [style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) | Where explanation belongs: inline, README, `docs/`, or a retrospective |
 | [public-by-default.md](https://github.com/quaternionmedia/qm/blob/main/handbook/public-by-default.md) | When work may be closed |
+| [what-is-not-the-organisation.md](https://github.com/quaternionmedia/qm/blob/main/handbook/what-is-not-the-organisation.md) | The working form of the record that keeps the workstation, the agent and the conversation out of a committed file |
 | [handoffs/](https://github.com/quaternionmedia/qm/tree/main/handbook/handoffs) | Work a later session can pick up cold |
 
 ## Related

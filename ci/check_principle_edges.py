@@ -2,12 +2,12 @@
 
 **A PRINCIPLE THAT NOTHING POINTS AT IS A PRINCIPLE NOTHING WILL BE CHECKED
 AGAINST.** Measured on 2026-08-25, before this check existed: six of seventeen
-principles were named by nobody and named nobody -- P3, P5, P9, P10, P11, P15.
-P10 was among them, and P10 is the one that says a tool is an instrument a human
+principles were named by nobody and named nobody -- `seams-on-standard-protocols`, `one-house-stack`, `minimal-legible-deliverables`, `credit-tracks-accountability`, `governance-finds-the-reader`, `a-loop-is-not-a-knot`.
+`credit-tracks-accountability` was among them, and `credit-tracks-accountability` is the one that says a tool is an instrument a human
 directs rather than a party who can answer for the result.
 
-A draft of P17 then said the model "is what writes the check", which contradicts
-P10 in its central sentence. Nothing surfaced it. `check_restatements.py` pairs a
+A draft of `shrink-the-black-box` then said the model "is what writes the check", which contradicts
+`credit-tracks-accountability` in its central sentence. Nothing surfaced it. `check_restatements.py` pairs a
 *record* with the documents that summarise it -- one layer down -- and at charter
 level there was no check at all. It was caught by a person reading the sentence.
 
@@ -26,11 +26,11 @@ nothing here, and that is correct" -- a different fact from "nobody wired Enter"
 **THE VOCABULARY IS CLOSED, WITH DECLARED INVERSES.** Not a new structure: this
 is a second instance of the one `dossier.composition.RELATIONS` already earned in
 `ci/mathematics-registry.yaml`, and naming it again there would be the ornament
-P15 refuses. A free string would let a typo become a category.
+`a-loop-is-not-a-knot` refuses. A free string would let a typo become a category.
 
 WHAT THIS CANNOT DO. Tell whether two principles actually conflict. It checks
 that a relationship somebody stated is stated from both ends and uses a word from
-the list. Whether P17 really rests on P10 is a reading, and no script has one.
+the list. Whether `shrink-the-black-box` really rests on `credit-tracks-accountability` is a reading, and no script has one.
 """
 
 from __future__ import annotations
@@ -44,13 +44,13 @@ CHARTER = Path("PRINCIPLES.md")
 # The four kinds, read off relationships already in the charter's prose rather
 # than imagined. Each maps to the word its other end must use.
 #
-#   orders        a tension resolved by precedence.   P4 orders P2, and P4's own
+#   orders        a tension resolved by precedence.   `build-the-seam-buy-the-engines` orders `commons-first-economics`, and `build-the-seam-buy-the-engines`'s own
 #                 text has said so since it was written.
-#   completes     supplies a half the other was missing. P14 -> P13, in those
+#   completes     supplies a half the other was missing. `typing-schedules-interface-work` -> `interrupted-only-by-a-decision`, in those
 #                 words.
-#   shares-teeth  enforced through the other's mechanism. P8 -> P1. Symmetric:
+#   shares-teeth  enforced through the other's mechanism. `systems-over-heroics` -> `ownership-is-the-deliverable`. Symmetric:
 #                 sharing is mutual and there is no direction to name.
-#   rests-on      the claim is false unless the other holds. P17 -> P10.
+#   rests-on      the claim is false unless the other holds. `shrink-the-black-box` -> `credit-tracks-accountability`.
 INVERSES: dict[str, str] = {
     "orders": "ordered-by",
     "ordered-by": "orders",
@@ -63,11 +63,24 @@ INVERSES: dict[str, str] = {
 
 SYMMETRIC = frozenset({"shares-teeth"})
 
-# `↔ Edges: rests-on P10, completes P16`
+# `↔ Edges: rests-on credit-tracks-accountability, completes show-it-by-running-it`
 # `↔ Edges: none -- <reason>`
+#
+# A PRINCIPLE IS ADDRESSED BY ITS NAME, NOT BY AN ORDINAL. A heading carried a
+# position where it now carries a name, and every reference in the corpus
+# addressed the position. An ordinal is a claim about where a thing sits, so
+# inserting a principle anywhere but the end reaims every reference below it --
+# and nothing here could have noticed, because a reference to a position that
+# has shifted is still well-formed and resolves to the wrong principle rather
+# than to none. A name moves with the thing it names, so the same edit leaves
+# every reference either correct or visibly dangling.
+#
+# `kind` and `other` are now the same shape, which is why the whitespace
+# between them is required rather than optional: `rests-on show-it-by-running-it`
+# splits on the space and nowhere else.
 LINE = re.compile(r"^↔ Edges:\s*(?P<value>.+?)\s*$", re.MULTILINE)
-HEADING = re.compile(r"^## (?P<name>P\d+) — (?P<title>.*)$", re.MULTILINE)
-EDGE = re.compile(r"^(?P<kind>[a-z-]+)\s+(?P<other>P\d+)$")
+HEADING = re.compile(r"^## (?P<name>[a-z][a-z0-9-]*) — (?P<title>.*)$", re.MULTILINE)
+EDGE = re.compile(r"^(?P<kind>[a-z-]+)\s+(?P<other>[a-z][a-z0-9-]*)$")
 
 # A reason shorter than this is a label. The number matches the bar
 # `actions.REGISTRY` sets for `only`, for the same reason: "not applicable" is
@@ -112,7 +125,7 @@ def declared(body: str) -> tuple[list[tuple[str, str]], str | None, str | None]:
         piece = piece.strip()
         match = EDGE.match(piece)
         if match is None:
-            return [], None, f"cannot read {piece!r} as `<kind> P<n>`"
+            return [], None, f"cannot read {piece!r} as `<kind> <principle-name>`"
         kind, other = match.group("kind"), match.group("other")
         if kind not in INVERSES:
             known = ", ".join(sorted(set(INVERSES)))
@@ -142,9 +155,9 @@ def check(text: str) -> list[str]:
             if other == name:
                 problems.append(f"{name} declares an edge to itself")
 
-    # **BOTH ENDS, WHICH IS THE WHOLE MECHANISM.** A one-sided edge is how P4
-    # has said it orders P2 since it was written while P2 says nothing -- a
-    # reader arriving at P2 never learns it is ordered.
+    # **BOTH ENDS, WHICH IS THE WHOLE MECHANISM.** A one-sided edge is how `build-the-seam-buy-the-engines`
+    # has said it orders `commons-first-economics` since it was written while `commons-first-economics` says nothing -- a
+    # reader arriving at `commons-first-economics` never learns it is ordered.
     for name, edges in stated.items():
         for kind, other in edges:
             want = INVERSES[kind]
@@ -156,6 +169,106 @@ def check(text: str) -> list[str]:
     return problems
 
 
+# An ordinal reference to a principle, in any document that still binds.
+ORDINAL = re.compile(r"\bP(?:1[0-7]|[1-9])\b")
+
+# The escape hatch, and it costs a stated reason -- the same shape and the same
+# price as `adr_lint.py`'s. It exists because a document that *names* the
+# forbidden form in order to forbid it is describing the rule rather than
+# breaking it, and this file is the first such document. Stripping code spans
+# instead was the other option and it was rejected: a backticked name is how
+# this corpus writes a principle reference, so a guard blind to backticks would
+# be blind to the most likely way a stale one gets written.
+ORDINAL_ALLOWED = re.compile(
+    r"principle-name:\s*allow\s+(?P<quoted>\S.*?)\s*(?:-->|$)", re.IGNORECASE
+)
+
+# Where a principle reference has to be a name. Everything else in the
+# repository is outside this scan, and two directories are outside it on
+# purpose rather than by omission -- see `ordinal_references`.
+BINDING = ("AGENTS.md", "README.md", "records", "handbook", "docs", "ci",
+           "project-seed", "plans", "protocols", "curriculum", "walkthrough")
+NOT_BINDING = ("perspectives/", "handbook/handoffs/", "__pycache__", ".venv/")
+READABLE = (".md", ".py", ".yaml", ".yml", ".json")
+
+
+def ordinal_references(root: Path) -> list[str]:
+    """Every place a binding document still addresses a principle by position.
+
+    WHAT THIS DELIBERATELY DOES NOT READ. `perspectives/` is dated, attributed,
+    non-binding opinion: a retrospective records what somebody wrote on a day,
+    and editing one to match a later renaming would falsify the thing its value
+    depends on. `handbook/handoffs/` is transient by its own definition --
+    deleted when the work lands -- so a handoff is left as its author left it.
+    Both exclusions mean an ordinal survives in this repository, and reading a
+    green result here as "no ordinal anywhere" is wrong.
+
+    Symlinks are skipped because writing through one writes the target, and the
+    target is scanned on its own.
+
+    **THE PATTERN IS A PROXY, AND A PROXY MATCHES WHAT IT DID NOT MEAN.** The
+    letter-and-number form is not reserved to this charter, and the first
+    integration this guard met proved it: a remediation plan numbers its own
+    work packages the same way -- headings, and `Blocks on` rows pointing at
+    them -- and every one of them matched. Annotating twenty of those lines
+    would have edited a correct document to keep a tool quiet, which is the
+    trade `records/DRAFT-deltas-compose.md` refuses. So the annotation is
+    honoured at file scope as well as line scope: one at the top of a document
+    whose own vocabulary collides, with the reason stated once.
+
+    Mutation: write a bare ordinal principle reference anywhere under
+    `records/` -- the old charter-position form -- and this fails. Verified by
+    doing it, on the record behind the evidence principle, which is the one
+    whose own subject this is.
+    """
+    problems = []
+    allowed = 0
+    for entry in BINDING:
+        base = root / entry
+        paths = [base] if base.is_file() else sorted(
+            p for p in base.rglob("*") if p.is_file() and p.suffix in READABLE
+        ) if base.is_dir() else []
+        for path in paths:
+            rel = path.relative_to(root).as_posix()
+            if any(part in rel for part in NOT_BINDING) or path.is_symlink():
+                continue
+            text = path.read_text(encoding="utf-8", errors="replace")
+            # A file-scope annotation covers a document whose own vocabulary
+            # uses the same shape. It is read from the first few lines only, so
+            # it has to be declared where a reader meets it rather than buried
+            # where only the tool would find it.
+            head = "\n".join(text.splitlines()[:5])
+            file_reason = ORDINAL_ALLOWED.search(head)
+            if file_reason is not None and file_reason.group("quoted").strip("\"'"):
+                if ORDINAL.search(text):
+                    allowed += 1
+                continue
+            for number, line in enumerate(text.splitlines(), start=1):
+                for hit in ORDINAL.finditer(line):
+                    reason = ORDINAL_ALLOWED.search(line)
+                    if reason is None:
+                        problems.append(
+                            f"{rel}:{number}: addresses a principle as "
+                            f"{hit.group(0)!r}. A principle is addressed by its "
+                            f"name -- an ordinal reaims itself when one is "
+                            f"inserted above it, and stays well-formed while it "
+                            f"does. If this names the form in order to forbid "
+                            f"it, annotate the line: "
+                            f"principle-name: allow \"why this is not a reference\""
+                        )
+                    elif not reason.group("quoted").strip("\"'"):
+                        problems.append(
+                            f"{rel}:{number}: an exemption states a reason. An "
+                            f"empty one is the check turned off."
+                        )
+                    else:
+                        allowed += 1
+    if allowed:
+        print(f"principle names: {allowed} ordinal(s) allowed by a stated "
+              f"reason. Each is a place the form is named in order to refuse it.")
+    return problems
+
+
 def main() -> int:
     if not CHARTER.is_file():
         print(f"check_principle_edges: {CHARTER} is not here.", file=sys.stderr)
@@ -163,7 +276,7 @@ def main() -> int:
 
     text = CHARTER.read_text(encoding="utf-8")
     found = principles(text)
-    problems = check(text)
+    problems = check(text) + ordinal_references(Path("."))
 
     for problem in problems:
         print(f"  {problem}")

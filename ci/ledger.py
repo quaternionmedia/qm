@@ -31,7 +31,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
-LEDGER = ROOT / "ledger.yaml"
+LEDGER = ROOT / "status/ledger.yaml"
 TOOL_REGISTRY = ROOT / "ci" / "tool-registry.yaml"
 
 REQUIRED = ("id", "action", "kind", "projected_impact", "status", "tool")

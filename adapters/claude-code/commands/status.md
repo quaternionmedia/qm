@@ -14,8 +14,8 @@ push. Anything it surfaces that needs doing is proposed to the human, not done.
 From the corpus clone (or `governance/qm` inside a project):
 
 ```
-python ci/harness_status.py --no-local --write harness-status.json
-python ci/harness_dashboard.py harness-status.json --format md
+python ci/harness_status.py --no-local --write status/harness.yaml
+python ci/harness_dashboard.py status/harness.yaml --format md
 ```
 
 The first command takes a few seconds per repository — it reads open pull

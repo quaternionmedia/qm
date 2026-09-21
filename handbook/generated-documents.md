@@ -31,20 +31,35 @@ anything. One definition, two entry points; see `pyproject.toml`'s header.
 
 | Document | Holds | Quotable for | Refresh |
 |---|---|---|---|
-| `governance-status.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `uv run qm docs generate` |
-| `harness-status.json` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `uv run qm docs generate` |
-| `gate-status.json` | every automated check, what it refuses, **what it cannot see**, and whether anything blocks a merge | 168h | `uv run qm docs generate` |
-| `inventory-public.json` | every repository the org has, against the roster and this disk, with each one's **activity on three axes** — attention claimed, recency measured, risk machine-scoped and in the gitignored companion | 168h | `uv run qm inventory --write` |
+| `status/governance.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `uv run qm docs generate` |
+| `status/harness.yaml` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `uv run qm docs generate` |
+| `status/gates.yaml` | every automated check, what it refuses, **what it cannot see**, and whether anything blocks a merge | 168h | `uv run qm docs generate` |
+| `status/rollout.yaml` | a phased push-through, family by family: for every member of every phase, what a person **claimed** beside what the host **shows**, and the states where they disagree | 168h | `uv run qm rollout --write status/rollout.yaml --source host` |
+| `status/inventory.yaml` | every repository the org has, against the roster and this disk, with each one's **activity on three axes** — attention claimed, recency measured, risk machine-scoped and in the gitignored companion | 168h | `uv run qm inventory --write` |
+| `loose-ends.json` | what the org started and has not finished, **joined from three of the documents above** — stalled threads, records waiting on a person, and each gate's declared blind spot | 24h | `uv run qm docs generate` |
 
-`harness-status.json` carries its own refresh command, staleness budget and
+`status/harness.yaml` carries its own refresh command, staleness budget and
 `do_not` list in a `reading:` block **inside the file**, so you do not need this
-page to read that one correctly. **`governance-status.yaml` has no `reading:`
+page to read that one correctly. **`status/governance.yaml` has no `reading:`
 block** — its top-level keys are `schema`, `generated_at`, `generator`, `corpus`,
 `projects`, `org` — so the refresh command and the 168h budget in the table above
 are the only statement of them anywhere, and this page is load-bearing for it.
 Giving that document a `reading:` block of its own is the fix; until then, do not
 read the sentence above as covering both. `/cowork` prints both with their
 current age.
+
+`loose-ends.json` is the only one here that **measures nothing**. It is a join
+over documents this corpus already generates, so it reaches no network, runs in
+a fraction of a second, and can hold no fact its sources do not. It also carries
+the one thing the others do not: a **claim** layer, read from
+`registers/loose-end-claims.yaml` and never written back — because a person's
+decision written into a regenerated document survives until the next `qm docs
+generate`, which is no time at all.
+
+Its conformance vectors are `project-seed/loose-end-vectors.json`, run by
+`python ci/loose_ends.py --vectors`. A consumer that renders an unclaimed item
+the same as a dismissed one fails the first case, which is the one the file
+exists for.
 
 To read the harness document as prose rather than JSON:
 
@@ -62,8 +77,8 @@ repository:
 
 ```
 uv run qm harness                                                 # agent view
-python ci/harness_dashboard.py harness-status.json --out status.html
-python ci/governance_render.py governance-status.yaml --out status.html
+python ci/harness_dashboard.py status/harness.yaml --out status.html
+python ci/governance_render.py status/governance.yaml --out status.html
 ```
 
 In **`quaternionmedia/dossier`** — one command does refresh, load and launch:
@@ -152,7 +167,7 @@ is ready to build on and nothing more. A `v` tag asserts what the version-tags
 record's §2 requires: a human reviewed it, a human manually tested it against
 its real runtime, and its automated validation passed and is deterministic.
 
-So `harness-status.json` carries a `release` layer per repository, and the gap
+So `status/harness.yaml` carries a `release` layer per repository, and the gap
 between the two is the fact worth reading — commits carried on the default
 branch that no tag has asserted. Three states that must not be collapsed:
 
@@ -183,7 +198,7 @@ than trusting anyone to remember.
 
 ## The document that is never committed, and the policy that is
 
-`disk-status.json` is the exception this page needs, because it breaks the rule
+`status/disk.yaml` is the exception this page needs, because it breaks the rule
 above and is right to.
 
 The other two documents are mostly organisation facts with a machine-scoped

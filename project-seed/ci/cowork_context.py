@@ -239,8 +239,8 @@ def sibling_branches(root: Path, current: str) -> tuple[list[str], int]:
 # because a session that has to be told the path has already been given the
 # facts by whoever told it.
 GENERATED_DOCUMENTS = (
-    ("governance-status.yaml", "where every project stands", 168),
-    ("harness-status.json", "pull request slots, phases, governance evidence", 24),
+    ("status/governance.yaml", "where every project stands", 168),
+    ("status/harness.yaml", "pull request slots, phases, governance evidence", 24),
 )
 
 
@@ -256,7 +256,14 @@ def document_age_hours(path: Path) -> float | None:
         text = path.read_text(encoding="utf-8", errors="replace")
     except OSError:
         return None
-    match = re.search(r'"?generated_at"?\s*:\s*"?(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)', text)
+    # Either quote or none: `yaml.safe_dump` writes the stamp single-quoted,
+    # a JSON companion double-quoted, and a hand-written page bare. The first
+    # form is what `status/harness.yaml` carries, and a pattern that admitted
+    # only the second reported its age as unknown while the stamp sat on
+    # line 2.
+    match = re.search(
+        r'''["']?generated_at["']?\s*:\s*["']?(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)''', text
+    )
     if not match:
         return None
     stamped = datetime.strptime(match.group(1), "%Y-%m-%dT%H:%M:%S").replace(
@@ -535,7 +542,7 @@ def emit(root: Path, args: argparse.Namespace) -> str:
     lines.extend(generated_documents(root, mount))
     add("")
     add(
-        "`ci/harness_dashboard.py harness-status.json --format md` renders the "
+        "`ci/harness_dashboard.py status/harness.yaml --format md` renders the "
         "second one for reading; each document also carries its own refresh "
         "command and its own `do_not` list."
     )

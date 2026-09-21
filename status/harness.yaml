@@ -1,0 +1,2336 @@
+schema: 1
+generated_at: '2026-09-20T17:17:01Z'
+generator:
+  tool: ci/harness_status.py
+  org: quaternionmedia
+  rule: one open pull request per repository, per contributor
+  rule_source: handbook/async-contract.md
+  corpus_exemption:
+  - project/*
+  phase_ladder_source: records/DRAFT-project-phase-ladder.md
+  phase_layer_is_a_claim: phase and phase_source come from ci/workspace.yaml and record
+    what a human stated. They are never derived from artifacts.
+  family_is_a_claim: family comes from ci/workspace.yaml, where a person stated it;
+    the families themselves are declared in records/DRAFT-a-family-is-bordered-by-what-it-drives.md.
+    null is unstated, which is not none.
+  thread_stages:
+  - local
+  - pushed
+  - draft
+  - ready
+  thread_stages_are_states_not_progress: 'observable states, not a percentage. Nothing
+    estimates completion: the corpus has no definition of done a tool could read,
+    and a number that looks like progress is the most confidently wrong thing a dashboard
+    can print.'
+  stalled_after_hours: 48
+  governance_layer_is_evidence: read from status/governance.yaml, on each project's
+    default branch. Work in an open pull request is work, not evidence.
+  layers:
+  - phase
+  - slots
+  - governance
+  local_layer_scope: null
+  search_roots: []
+reading:
+  refresh: uv run qm docs generate
+  refresh_without_the_cli: python ci/harness_status.py --no-local --write status/harness.yaml
+  staleness_budget_hours: 24
+  human_view: python ci/harness_dashboard.py status/harness.yaml --out status.html
+  agent_view: uv run qm harness
+  unknown_convention: '{"unknown": "<reason>"} is a value. It means the fact could
+    not be established and says why. It is not zero, not empty, and not compliant
+    -- a repository nobody could measure must never be read as a repository with nothing
+    wrong.'
+  do_not:
+  - quote a figure from this document without its generated_at
+  - 'treat a phase as evidence: phase is what a human claimed'
+  - 'treat the governance layer as a claim: it is what has landed'
+  - 'read a null family as a repository that belongs to none: it is one nobody has
+    placed'
+  - regenerate this in CI -- it reads other repositories, so every unrelated pull
+    request would go red for a reason its author cannot fix
+  committed_copy_omits:
+  - local
+totals:
+  repositories: 46
+  slots_measured: 40
+  slots_unknown: 6
+  compliant: 38
+  over_limit: 2
+  governance_readable: 11
+  governance_precondition_met: 2
+  phase_scaffolded: 12
+  phase_stated_above_governance: 4
+  threads_by_stage:
+    local: 0
+    pushed: 0
+    draft: 7
+    ready: 14
+  threads_stalled: 16
+  threads_unreadable: 6
+repositories:
+- name: qm
+  slug: quaternionmedia/qm
+  role: corpus
+  family: core
+  phase: n/a
+  phase_source: n/a
+  note: the constitution; every other entry adopts it by reference
+  slots:
+    repository: quaternionmedia/qm
+    per_base:
+    - project/*
+    contributor: null
+    open_prs:
+    - number: 115
+      title: Draw the line between the organisation and the workstation; open a family
+        as a workspace; count the performing families once
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/the-moves-landed
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: evolve/the-moves-landed
+    stage: ready
+    pr: 115
+    base: main
+    title: Draw the line between the organisation and the workstation; open a family
+      as a workspace; count the performing families once
+    author: subcontrabass
+    delta:
+      additions: 946
+      changed_files: 34
+      commits: 7
+      deletions: 257
+      mergeable_state: clean
+      updated_at: '2026-09-20T17:11:07Z'
+    idle_hours: 0.1
+    stalled: false
+  governance:
+    precondition: n/a
+    missing: []
+    asserts: this repository is the corpus
+- name: dossier
+  slug: quaternionmedia/dossier
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: the intended durable surface for governance review
+  slots:
+    repository: quaternionmedia/dossier
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 9
+      title: 'build(deps): bump starlette from 0.50.0 to 1.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      draft: false
+    - number: 7
+      title: 'build(deps): bump idna from 3.11 to 3.15'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      draft: false
+    - number: 6
+      title: 'build(deps): bump mako from 1.3.10 to 1.3.12'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/mako-1.3.12
+      draft: false
+    - number: 4
+      title: 'build(deps-dev): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      draft: false
+    - number: 3
+      title: 'build(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/dossier
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 74
+    observed_at: '2026-09-20T17:15:55Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: qmcp
+  slug: quaternionmedia/qmcp
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: null
+  slots:
+    repository: quaternionmedia/qmcp
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 20
+      title: 'chore(deps): bump python-dotenv from 1.2.1 to 1.2.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/python-dotenv-1.2.2
+      draft: false
+    - number: 19
+      title: 'chore(deps): bump authlib from 1.6.6 to 1.6.11'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/authlib-1.6.11
+      draft: false
+    - number: 18
+      title: 'chore(deps): bump python-multipart from 0.0.21 to 0.0.26'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/python-multipart-0.0.26
+      draft: false
+    - number: 17
+      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      draft: false
+    - number: 16
+      title: 'chore(deps): bump cryptography from 46.0.3 to 46.0.7'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/cryptography-46.0.7
+      draft: false
+    - number: 15
+      title: 'chore(deps): bump aiohttp from 3.13.3 to 3.13.4'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/aiohttp-3.13.4
+      draft: false
+    - number: 14
+      title: 'chore(deps): bump fastmcp from 2.14.3 to 3.2.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/fastmcp-3.2.0
+      draft: false
+    - number: 13
+      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      draft: false
+    - number: 11
+      title: 'chore(deps): bump requests from 2.32.5 to 2.33.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/requests-2.33.0
+      draft: false
+    - number: 10
+      title: 'chore(deps): bump pyasn1 from 0.6.2 to 0.6.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pyasn1-0.6.3
+      draft: false
+    - number: 8
+      title: 'chore(deps): bump pyjwt from 2.10.1 to 2.12.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pyjwt-2.12.0
+      draft: false
+    - number: 5
+      title: 'chore(deps): bump pydantic-ai-slim from 1.44.0 to 1.56.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pydantic-ai-slim-1.56.0
+      draft: false
+    - number: 4
+      title: 'chore(deps): bump pydantic-ai from 1.44.0 to 1.56.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pydantic-ai-1.56.0
+      draft: false
+    - number: 3
+      title: 'build(deps): bump protobuf from 6.33.4 to 6.33.5'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/protobuf-6.33.5
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: incomplete
+    missing:
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/qmcp
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 1
+    behind_corpus: 114
+    observed_at: '2026-09-20T17:16:03Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: rad
+  slug: quaternionmedia/rad
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: stated
+  note: radial menu; defined the phase ladder above
+  slots:
+    repository: quaternionmedia/rad
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 2
+      title: Bump playwright and @playwright/test
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/multi-6aef298a9b
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/rad
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 171
+    observed_at: '2026-09-20T17:16:06Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: alfred
+  slug: quaternionmedia/alfred
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: video editor; UI migration and Playwright coverage in flight
+  slots:
+    repository: quaternionmedia/alfred
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 116
+      title: Bump actions/download-artifact from 3 to 4.1.7 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/download-artifact-4.1.7
+      draft: false
+    - number: 113
+      title: Config
+      author: mrharpo
+      bot: false
+      base: main
+      head: config
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.2.0
+    annotated: false
+    unreleased_commits: 37
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: config
+    stage: ready
+    pr: 113
+    base: main
+    title: Config
+    author: mrharpo
+    delta:
+      additions: 58
+      changed_files: 10
+      commits: 9
+      deletions: 44
+      mergeable_state: clean
+      updated_at: '2023-12-30T22:55:40Z'
+    idle_hours: 23874.3
+    stalled: true
+  governance:
+    precondition: incomplete
+    missing:
+    - submodule
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: null
+      submodule_branch: null
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 0
+      workflows_absent: 4
+      licensing_present: 0
+    behind_corpus: 297
+    observed_at: '2026-09-20T17:15:45Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: apothecary
+  slug: quaternionmedia/apothecary
+  role: project
+  family: irl
+  phase: v0.0.2
+  phase_source: stated
+  note: parametric assembly; named as a v0.0.2 integration consumer
+  slots:
+    repository: quaternionmedia/apothecary
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 21
+      title: 'Consolidate every unmerged line: enclosure, photos into pieces, firmware
+        toolchain, viewer range'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: consolidate/2026-09-19
+      draft: false
+    - number: 19
+      title: Bump anyio from 4.11.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
+      draft: false
+    - number: 17
+      title: Bump idna from 3.11 to 3.15
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      draft: false
+    - number: 16
+      title: Bump pytest from 9.0.0 to 9.0.3
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      draft: false
+    - number: 15
+      title: Bump starlette from 0.49.3 to 1.3.1
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      draft: false
+    - number: 14
+      title: Bump urllib3 from 2.6.2 to 2.7.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/urllib3-2.7.0
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: consolidate/2026-09-19
+    stage: ready
+    pr: 21
+    base: main
+    title: 'Consolidate every unmerged line: enclosure, photos into pieces, firmware
+      toolchain, viewer range'
+    author: subcontrabass
+    delta:
+      additions: 86580
+      changed_files: 220
+      commits: 46
+      deletions: 533
+      mergeable_state: clean
+      updated_at: '2026-09-19T21:59:38Z'
+    idle_hours: 19.3
+    stalled: false
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/apothecary
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 297
+    observed_at: '2026-09-20T17:15:47Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: datum
+  slug: quaternionmedia/datum
+  role: project
+  family: irl
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: schema and wire contract; governance propagation open
+  slots:
+    repository: quaternionmedia/datum
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 'WP-3: firmware, the pre-HIL run, and a pinned enclosure'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: wp3-firmware
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.0.1
+    annotated: false
+    unreleased_commits: 5
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: wp3-firmware
+    stage: ready
+    pr: 2
+    base: main
+    title: 'WP-3: firmware, the pre-HIL run, and a pinned enclosure'
+    author: subcontrabass
+    delta:
+      additions: 4446
+      changed_files: 50
+      commits: 34
+      deletions: 97
+      mergeable_state: clean
+      updated_at: '2026-09-19T22:00:15Z'
+    idle_hours: 19.3
+    stalled: false
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/datum
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 175
+    observed_at: '2026-09-20T17:15:53Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: codecartographer
+  slug: quaternionmedia/codecartographer
+  role: project
+  family: core
+  phase: v0.0.2
+  phase_source: stated
+  note: code maps; named itself a v0.0.2 RAD consumer
+  slots:
+    repository: quaternionmedia/codecartographer
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 97
+      title: 'build(deps): bump anyio from 4.12.1 to 4.14.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
+      draft: false
+    - number: 96
+      title: 'build(deps): bump mkdocs-material from 9.7.1 to 9.7.7'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/mkdocs-material-9.7.7
+      draft: false
+    - number: 90
+      title: 'build(deps): bump pymdown-extensions from 10.20 to 11.0.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pymdown-extensions-11.0.1
+      draft: false
+    - number: 89
+      title: 'build(deps-dev): bump postcss from 8.5.19 to 8.5.25 in /web'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/web/postcss-8.5.25
+      draft: false
+    - number: 88
+      title: 'build(deps): bump brace-expansion from 1.1.16 to 1.1.18 in /web'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/web/brace-expansion-1.1.18
+      draft: false
+    - number: 87
+      title: 'build(deps): bump black from 25.12.0 to 26.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/black-26.3.1
+      draft: false
+    - number: 85
+      title: 'build(deps): bump setuptools from 80.9.0 to 83.0.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/setuptools-83.0.0
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/codecartographer
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 74
+    observed_at: '2026-09-20T17:15:50Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: private-32
+  slug: quaternionmedia/private-32
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed.
+    This repository is private, and a public roster that named it would defeat the
+    inventory''s own redaction of the same repository as private-32.
+
+    '
+  slots:
+    repository: quaternionmedia/private-32
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-33
+  slug: quaternionmedia/private-33
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed.
+    This repository is private, and a public roster that named it would defeat the
+    inventory''s own redaction of the same repository as private-33.
+
+    '
+  slots:
+    repository: quaternionmedia/private-33
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 8
+      title: 'chore(deps): bump starlette from 0.50.0 to 1.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      draft: false
+    - number: 6
+      title: 'chore(deps): bump idna from 3.11 to 3.15'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      draft: false
+    - number: 5
+      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      draft: false
+    - number: 4
+      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v1.4.1
+    annotated: true
+    unreleased_commits: 46
+    asserts: a human reviewed, manually tested and gated this commit
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: factorio-sysops
+  slug: quaternionmedia/factorio-sysops
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: null
+  slots:
+    repository: quaternionmedia/factorio-sysops
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: incomplete
+    missing:
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/factorio-sysops
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 1
+      workflows_absent: 3
+      licensing_present: 0
+    behind_corpus: 297
+    observed_at: '2026-09-20T17:15:57Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: carlos
+  slug: quaternionmedia/carlos
+  role: project
+  family: instruments
+  phase: v0.0.1
+  phase_source: stated
+  note: 'Browser workspace for sketching synth rigs, governed via project/carlos.
+    `stated`, not `scaffolded`: carlos names the rung in its own GOVERNANCE.md, so
+    the claim is the project''s rather than an inference drawn from what it happens
+    to contain. It is what the project works toward and not an attainment -- nothing
+    here is evidence, and the tag that would assert arrival has not been cut. Its
+    default branch is `they`, not `main`.
+
+    '
+  slots:
+    repository: quaternionmedia/carlos
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 18
+      title: Bump anyio from 4.10.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/anyio-4.14.2
+      draft: false
+    - number: 17
+      title: Turn every dial about its centre, give leads ends, and follow a scroll
+      author: subcontrabass
+      bot: false
+      base: they
+      head: fix/dials-cable-ends-and-scroll
+      draft: false
+    - number: 3
+      title: Bump idna from 3.10 to 3.15
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/idna-3.15
+      draft: false
+    - number: 2
+      title: Bump starlette from 0.47.2 to 1.3.1
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/starlette-1.3.1
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: fix/dials-cable-ends-and-scroll
+    stage: ready
+    pr: 17
+    base: they
+    title: Turn every dial about its centre, give leads ends, and follow a scroll
+    author: subcontrabass
+    delta:
+      additions: 1689
+      changed_files: 45
+      commits: 8
+      deletions: 124
+      mergeable_state: unstable
+      updated_at: '2026-08-22T17:27:47Z'
+    idle_hours: 695.8
+    stalled: true
+  governance:
+    precondition: met
+    missing: []
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/carlos
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 204
+    observed_at: '2026-09-20T17:15:48Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: private-34
+  slug: quaternionmedia/private-34
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
+    for the same reason as private-32 and private-33 above. Governed via a project/<name>
+    branch here.
+
+    '
+  slots:
+    repository: quaternionmedia/private-34
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 'Build(deps): bump httpcore2 from 2.7.0 to 2.10.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/httpcore2-2.10.0
+      draft: false
+    - number: 1
+      title: 'Build(deps-dev): bump httpx2 from 2.7.0 to 2.12.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/httpx2-2.12.0
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-36
+  slug: quaternionmedia/private-36
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
+    for the same reason as private-32 through private-34 above. Governed via a project/<name>
+    branch here, which carries its records as drafts; no family claimed until governance
+    has run for it.
+
+    '
+  slots:
+    repository: quaternionmedia/private-36
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 1
+      title: Mount governance/qm against project/private-36, and measure unpushed
+        against the right ref
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/mount-the-governance-submodule
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: evolve/mount-the-governance-submodule
+    stage: ready
+    pr: 1
+    base: main
+    title: Mount governance/qm against project/private-36, and measure unpushed against
+      the right ref
+    author: subcontrabass
+    delta:
+      additions: 94
+      changed_files: 9
+      commits: 2
+      deletions: 93
+      mergeable_state: clean
+      updated_at: '2026-09-19T22:26:11Z'
+    idle_hours: 18.8
+    stalled: false
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: streaming-infrastructure
+  slug: quaternionmedia/streaming-infrastructure
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Governed via project/streaming-infrastructure here, whose one record calls
+    the codebase the `qmstream` control plane. No repository by either name is on
+    the host under this org, so there is nothing to clone and status/governance.yaml
+    reports its host layer as unknown. No family claimed until governance has run
+    for it. The paths are where a clone would go.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/streaming-infrastructure/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP
+      404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: 'gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found
+      (HTTP 404)'
+- name: qmetronome
+  slug: quaternionmedia/qmetronome
+  role: project
+  family: instruments
+  phase: v0.0.3
+  phase_source: stated
+  note: named as the v0.0.3 Android target
+  slots:
+    repository: quaternionmedia/qmetronome
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 14
+      title: 'findings: ADR drafts for hardware volume routing (#12) and animation
+        click modes (#11)'
+      author: Copilot
+      bot: true
+      base: main
+      head: copilot/research-hardware-button-bug-and-animation-enhance
+      draft: true
+    - number: 13
+      title: Route hardware volume keys to media stream in MainActivity
+      author: Copilot
+      bot: true
+      base: main
+      head: copilot/fix-volume-button-issue
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.2.0
+    annotated: true
+    unreleased_commits: 3
+    asserts: a human reviewed, manually tested and gated this commit
+  threads: []
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/qmetronome
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 2
+      workflows_absent: 2
+      licensing_present: 1
+    behind_corpus: 297
+    observed_at: '2026-09-20T17:16:04Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: benchmark
+  slug: quaternionmedia/benchmark
+  role: unmanaged
+  family: null
+  phase: v0.0.2
+  phase_source: stated
+  note: named alongside apothecary as a v0.0.2 consumer
+  slots:
+    repository: quaternionmedia/benchmark
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 8
+      title: 'chore(deps-dev): bump vite from 7.3.1 to 7.3.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/vite-7.3.2
+      draft: false
+    - number: 7
+      title: 'fix: handle missing regions/ directory in compile-yaml'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: fix/ci-empty-regions-dir
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: fix/ci-empty-regions-dir
+    stage: ready
+    pr: 7
+    base: main
+    title: 'fix: handle missing regions/ directory in compile-yaml'
+    author: subcontrabass
+    delta:
+      additions: 2
+      changed_files: 2
+      commits: 1
+      deletions: 1
+      mergeable_state: blocked
+      updated_at: '2026-04-06T16:02:26Z'
+    idle_hours: 4009.2
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: looksatwords
+  slug: quaternionmedia/looksatwords
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'language data -- make, gather, analyze, visualise. Named in plans/governance-prose-signals.md
+    as where prose analysis belongs, rather than in ci/.
+
+    '
+  slots:
+    repository: quaternionmedia/looksatwords
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 21
+      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      draft: false
+    - number: 20
+      title: 'chore(deps): bump pillow from 12.1.0 to 12.2.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pillow-12.2.0
+      draft: false
+    - number: 19
+      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      draft: false
+    - number: 18
+      title: 'chore(deps): bump requests from 2.32.5 to 2.33.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/requests-2.33.0
+      draft: false
+    - number: 17
+      title: 'chore(deps): bump nltk from 3.9.2 to 3.9.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/nltk-3.9.3
+      draft: false
+    - number: 16
+      title: 'chore(deps): bump tornado from 6.5.4 to 6.5.5'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/tornado-6.5.5
+      draft: false
+    - number: 14
+      title: 'chore(deps): bump bokeh from 3.8.1 to 3.8.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/bokeh-3.8.2
+      draft: false
+    - number: 13
+      title: 'chore(deps): bump urllib3 from 2.6.2 to 2.6.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/urllib3-2.6.3
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: met
+    missing: []
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/looksatwords
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 67
+    observed_at: '2026-09-20T17:16:00Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: moat
+  slug: quaternionmedia/moat
+  role: unmanaged
+  family: infra
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT networking.
+    status/governance.yaml lists it under org.unmanaged_named; adoption is drafted
+    on an unmerged pull request and nothing binds yet.
+
+    '
+  slots:
+    repository: quaternionmedia/moat
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 4
+      title: 🏞 MoatNet
+      author: mrharpo
+      bot: false
+      base: qm
+      head: moatnet
+      draft: true
+    - number: 3
+      title: 💡 QM plan
+      author: mrharpo
+      bot: false
+      base: main
+      head: qm
+      draft: true
+    violations:
+    - author: mrharpo
+      base: ''
+      numbers:
+      - 3
+      - 4
+    exit_status: 1
+    compliant: false
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: moatnet
+    stage: draft
+    pr: 4
+    base: qm
+    title: 🏞 MoatNet
+    author: mrharpo
+    delta:
+      additions: 8741
+      changed_files: 36
+      commits: 11
+      deletions: 0
+      mergeable_state: unstable
+      updated_at: '2026-09-08T02:04:05Z'
+    idle_hours: 303.2
+    stalled: true
+  - name: qm
+    stage: draft
+    pr: 3
+    base: main
+    title: 💡 QM plan
+    author: mrharpo
+    delta:
+      additions: 4876
+      changed_files: 27
+      commits: 2
+      deletions: 10
+      mergeable_state: unstable
+      updated_at: '2026-08-21T16:20:56Z'
+    idle_hours: 720.9
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ShowRunner
+  slug: quaternionmedia/ShowRunner
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: show control for live performances; the hub the periphery names itself after
+  slots:
+    repository: quaternionmedia/ShowRunner
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 29
+      title: ⬆️ Bump python-socketio from 5.16.1 to 5.16.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/python-socketio-5.16.2
+      draft: false
+    - number: 28
+      title: ⬆️ Bump python-engineio from 4.13.1 to 4.13.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/python-engineio-4.13.2
+      draft: false
+    - number: 27
+      title: ⬆️ Bump starlette from 1.0.0 to 1.3.1
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      draft: false
+    - number: 26
+      title: ⬆️ Bump aiohttp from 3.13.5 to 3.14.1
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/aiohttp-3.14.1
+      draft: false
+    - number: 25
+      title: ⬆️ Bump python-multipart from 0.0.26 to 0.0.31
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/python-multipart-0.0.31
+      draft: false
+    - number: 22
+      title: 'feat: add ShowMidi plugin for MIDI and MIDI CC cue types'
+      author: Copilot
+      bot: true
+      base: main
+      head: copilot/add-cue-type-midi-control-changes
+      draft: true
+    - number: 21
+      title: ⬆️ Bump sqladmin from 0.24.0 to 0.25.1
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/sqladmin-0.25.1
+      draft: false
+    - number: 20
+      title: ⬆️ Bump idna from 3.11 to 3.15
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      draft: false
+    - number: 19
+      title: ⬆️ Bump pymdown-extensions from 10.21.2 to 10.21.3
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pymdown-extensions-10.21.3
+      draft: false
+    - number: 18
+      title: ⬆️ Bump nicegui from 3.10.0 to 3.12.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/nicegui-3.12.0
+      draft: false
+    - number: 16
+      title: 'feat(tests): NiceGUI page-level UI tests + Playwright E2E scaffolding'
+      author: subcontrabass
+      bot: false
+      base: feat/meta-intro-video
+      head: feat/playwright-ui-tests
+      draft: false
+    - number: 15
+      title: 🛂 Migration
+      author: mrharpo
+      bot: false
+      base: main
+      head: migrations
+      draft: false
+    - number: 14
+      title: ⬆️ Bump lxml from 6.0.4 to 6.1.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/lxml-6.1.0
+      draft: false
+    - number: 12
+      title: 'feat: ShowProgrammer — meta intro video pipeline, live clock, async
+        dispatch'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/meta-intro-video
+      draft: false
+    violations:
+    - author: subcontrabass
+      base: ''
+      numbers:
+      - 12
+      - 16
+    exit_status: 1
+    compliant: false
+  release:
+    state: ahead
+    latest: v0.1.0
+    annotated: false
+    unreleased_commits: 1
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: feat/playwright-ui-tests
+    stage: ready
+    pr: 16
+    base: feat/meta-intro-video
+    title: 'feat(tests): NiceGUI page-level UI tests + Playwright E2E scaffolding'
+    author: subcontrabass
+    delta:
+      additions: 1278
+      changed_files: 17
+      commits: 3
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-04-26T14:53:23Z'
+    idle_hours: 3530.4
+    stalled: true
+  - name: migrations
+    stage: ready
+    pr: 15
+    base: main
+    title: 🛂 Migration
+    author: mrharpo
+    delta:
+      additions: 567
+      changed_files: 14
+      commits: 2
+      deletions: 76
+      mergeable_state: clean
+      updated_at: '2026-04-23T23:10:53Z'
+    idle_hours: 3594.1
+    stalled: true
+  - name: feat/meta-intro-video
+    stage: ready
+    pr: 12
+    base: main
+    title: 'feat: ShowProgrammer — meta intro video pipeline, live clock, async dispatch'
+    author: subcontrabass
+    delta:
+      additions: 7179
+      changed_files: 20
+      commits: 14
+      deletions: 504
+      mergeable_state: dirty
+      updated_at: '2026-04-19T03:27:49Z'
+    idle_hours: 3709.8
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: Cuelist-python
+  slug: quaternionmedia/Cuelist-python
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: helpers for Cuelist, and a ShowRunner plugin by its own description
+  slots:
+    repository: quaternionmedia/Cuelist-python
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: QLab-python
+  slug: quaternionmedia/QLab-python
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: interface to a third-party cue system
+  slots:
+    repository: quaternionmedia/QLab-python
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 🎭 Theatremix
+      author: mrharpo
+      bot: false
+      base: main
+      head: theatremix
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: theatremix
+    stage: draft
+    pr: 2
+    base: main
+    title: 🎭 Theatremix
+    author: mrharpo
+    delta:
+      additions: 4020
+      changed_files: 24
+      commits: 22
+      deletions: 544
+      mergeable_state: clean
+      updated_at: '2026-04-11T08:00:47Z'
+    idle_hours: 3897.3
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: TheatreMix-python
+  slug: quaternionmedia/TheatreMix-python
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: interface to a third-party mixing system
+  slots:
+    repository: quaternionmedia/TheatreMix-python
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: cesar
+  slug: quaternionmedia/cesar
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: a unified lighting, sound and video controller for theatre
+  slots:
+    repository: quaternionmedia/cesar
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ira
+  slug: quaternionmedia/ira
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: LED control for live theatre
+  slots:
+    repository: quaternionmedia/ira
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ShowStopper
+  slug: quaternionmedia/ShowStopper
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: timing for the performing arts
+  slots:
+    repository: quaternionmedia/ShowStopper
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: aes
+  slug: quaternionmedia/aes
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: audio-over-IP transport scripts
+  slots:
+    repository: quaternionmedia/aes
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: holophonor
+  slug: quaternionmedia/holophonor
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: live looping; the hub two others name themselves after
+  slots:
+    repository: quaternionmedia/holophonor
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 11
+      title: 🚰 Pipewire
+      author: mrharpo
+      bot: false
+      base: main
+      head: pipewire
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.1.0
+    annotated: false
+    unreleased_commits: 31
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: pipewire
+    stage: draft
+    pr: 11
+    base: main
+    title: 🚰 Pipewire
+    author: mrharpo
+    delta:
+      additions: 428
+      changed_files: 9
+      commits: 10
+      deletions: 52
+      mergeable_state: clean
+      updated_at: '2025-06-22T22:17:43Z'
+    idle_hours: 10915.0
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: midiphonor
+  slug: quaternionmedia/midiphonor
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: a holophonor implementation in the browser, by its own description
+  slots:
+    repository: quaternionmedia/midiphonor
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.2.0
+    annotated: false
+    unreleased_commits: 32
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: uPhonor
+  slug: quaternionmedia/uPhonor
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: a micro-holophonor, by its own description
+  slots:
+    repository: quaternionmedia/uPhonor
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 33
+      title: Bump vite from 6.1.0 to 6.4.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/vite-6.4.2
+      draft: false
+    - number: 32
+      title: Bump rollup from 4.34.6 to 4.59.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/rollup-4.59.0
+      draft: false
+    - number: 29
+      title: 🐍 Python
+      author: mrharpo
+      bot: false
+      base: main
+      head: cffi
+      draft: true
+    - number: 7
+      title: Bump esbuild and vite
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/multi-a91bf2f4f6
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.9.0
+    annotated: false
+    unreleased_commits: 0
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: cffi
+    stage: draft
+    pr: 29
+    base: main
+    title: 🐍 Python
+    author: mrharpo
+    delta:
+      additions: 6751
+      changed_files: 25
+      commits: 6
+      deletions: 42
+      mergeable_state: clean
+      updated_at: '2025-07-13T07:24:23Z'
+    idle_hours: 10425.9
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: stomp
+  slug: quaternionmedia/stomp
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: a MIDI foot controller
+  slots:
+    repository: quaternionmedia/stomp
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: wolf
+  slug: quaternionmedia/wolf
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: a remote MIDI controller
+  slots:
+    repository: quaternionmedia/wolf
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ludwig
+  slug: quaternionmedia/ludwig
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: remote mixing
+  slots:
+    repository: quaternionmedia/ludwig
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 9
+      title: 🌌 Universal
+      author: mrharpo
+      bot: false
+      base: main
+      head: api
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.1.0
+    annotated: false
+    unreleased_commits: 20
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: api
+    stage: draft
+    pr: 9
+    base: main
+    title: 🌌 Universal
+    author: mrharpo
+    delta:
+      additions: 4593
+      changed_files: 27
+      commits: 4
+      deletions: 74
+      mergeable_state: clean
+      updated_at: '2025-12-22T07:01:05Z'
+    idle_hours: 6538.3
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: waveofhormuz
+  slug: quaternionmedia/waveofhormuz
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: an oscillator module
+  slots:
+    repository: quaternionmedia/waveofhormuz
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v2.2.0
+    annotated: false
+    unreleased_commits: 1
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: joe
+  slug: quaternionmedia/joe
+  role: unmanaged
+  family: performer-display
+  phase: n/a
+  phase_source: n/a
+  note: realtime sheet-music rendering
+  slots:
+    repository: quaternionmedia/joe
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 8
+      title: Docs/onboarding hardening
+      author: subcontrabass
+      bot: false
+      base: main
+      head: docs/onboarding-hardening
+      draft: false
+    - number: 7
+      title: ⬆ Bump actions/checkout from 4 to 6 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/checkout-6
+      draft: false
+    - number: 4
+      title: 🖐 p5.js
+      author: mrharpo
+      bot: false
+      base: main
+      head: p5
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: docs/onboarding-hardening
+    stage: ready
+    pr: 8
+    base: main
+    title: Docs/onboarding hardening
+    author: subcontrabass
+    delta:
+      additions: 6879
+      changed_files: 34
+      commits: 20
+      deletions: 242
+      mergeable_state: clean
+      updated_at: '2026-03-04T02:29:45Z'
+    idle_hours: 4814.8
+    stalled: true
+  - name: p5
+    stage: ready
+    pr: 4
+    base: main
+    title: 🖐 p5.js
+    author: mrharpo
+    delta:
+      additions: 3103
+      changed_files: 11
+      commits: 14
+      deletions: 7
+      mergeable_state: clean
+      updated_at: '2025-01-04T01:07:48Z'
+    idle_hours: 14992.2
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: leo
+  slug: quaternionmedia/leo
+  role: unmanaged
+  family: performer-display
+  phase: n/a
+  phase_source: n/a
+  note: a web document viewer, annotator and collaborator
+  slots:
+    repository: quaternionmedia/leo
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 67
+      title: 'feat: uv-driven CLI with comprehensive test suite'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: uv-refactor
+      draft: false
+    - number: 66
+      title: ⬆ Bump the production-dependencies group across 1 directory with 3 updates
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/production-dependencies-d064ebc736
+      draft: false
+    - number: 65
+      title: ⬆ Bump actions/checkout from 4 to 6 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/checkout-6
+      draft: false
+    - number: 64
+      title: ⬆ Bump vite from 7.1.3 to 7.1.11
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/vite-7.1.11
+      draft: false
+    - number: 63
+      title: ⬆ Bump actions/setup-node from 4 to 6 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/setup-node-6
+      draft: false
+    - number: 61
+      title: 📇 Setlist
+      author: mrharpo
+      bot: false
+      base: main
+      head: setlist
+      draft: false
+    - number: 59
+      title: ⬆ Bump vite from 7.1.3 to 7.1.4 in the development-dependencies group
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/development-dependencies-da77792d36
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: uv-refactor
+    stage: ready
+    pr: 67
+    base: main
+    title: 'feat: uv-driven CLI with comprehensive test suite'
+    author: subcontrabass
+    delta:
+      additions: 5897
+      changed_files: 41
+      commits: 7
+      deletions: 165
+      mergeable_state: clean
+      updated_at: '2026-01-17T11:44:43Z'
+    idle_hours: 5909.5
+    stalled: true
+  - name: setlist
+    stage: ready
+    pr: 61
+    base: main
+    title: 📇 Setlist
+    author: mrharpo
+    delta:
+      additions: 6496
+      changed_files: 35
+      commits: 19
+      deletions: 927
+      mergeable_state: clean
+      updated_at: '2026-02-21T06:35:43Z'
+    idle_hours: 5074.7
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: scad-chess
+  slug: quaternionmedia/scad-chess
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: a chess set designed in OpenSCAD; the deliverable is the printed set
+  slots:
+    repository: quaternionmedia/scad-chess
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v1.0
+    annotated: false
+    unreleased_commits: 11
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-03
+  slug: quaternionmedia/private-03
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-03/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-03: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-05
+  slug: quaternionmedia/private-05
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-05/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-05: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-07
+  slug: quaternionmedia/private-07
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-07/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-07: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ztgui
+  slug: quaternionmedia/ztgui
+  role: unmanaged
+  family: infra
+  phase: n/a
+  phase_source: n/a
+  note: a interface onto the overlay network members are reached across
+  slots:
+    repository: quaternionmedia/ztgui
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-23
+  slug: quaternionmedia/private-23
+  role: unmanaged
+  family: infra
+  phase: n/a
+  phase_source: n/a
+  note: 'Cloud configuration. Name and paths live in ci/workspace-private.yaml, which
+    is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-23/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-23: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-26
+  slug: quaternionmedia/private-26
+  role: unmanaged
+  family: infra
+  phase: n/a
+  phase_source: n/a
+  note: 'Functions for systems and operating systems. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-26/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-26: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: golfvs
+  slug: quaternionmedia/golfvs
+  role: unmanaged
+  family: games
+  phase: n/a
+  phase_source: n/a
+  note: arcade physics golf with asymmetric defence, built in Godot
+  slots:
+    repository: quaternionmedia/golfvs
+    per_base: []
+    contributor: null
+    open_prs:
+    - number: 1
+      title: The first run opens on defence, the range never ends, and it builds for
+        four platforms (ADR-020 to ADR-030)
+      author: subcontrabass
+      bot: false
+      base: main
+      head: camera-orbit-and-selector-corner
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.0.3-prealpha
+    annotated: true
+    unreleased_commits: 0
+    asserts: a human reviewed, manually tested and gated this commit
+  threads:
+  - name: camera-orbit-and-selector-corner
+    stage: draft
+    pr: 1
+    base: main
+    title: The first run opens on defence, the range never ends, and it builds for
+      four platforms (ADR-020 to ADR-030)
+    author: subcontrabass
+    delta:
+      additions: 8492
+      changed_files: 89
+      commits: 28
+      deletions: 375
+      mergeable_state: blocked
+      updated_at: '2026-09-20T14:13:24Z'
+    idle_hours: 3.1
+    stalled: false
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-38
+  slug: quaternionmedia/private-38
+  role: unmanaged
+  family: games
+  phase: n/a
+  phase_source: n/a
+  note: 'A game built in Godot; a sibling of golfvs by shape. Private on the host,
+    so name and paths live in ci/workspace-private.yaml, which is not committed --
+    the same reason as every other ref: entry here.
+
+    '
+  slots:
+    repository: quaternionmedia/private-38
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: rad-godot
+  slug: quaternionmedia/rad-godot
+  role: unmanaged
+  family: null
+  phase: n/a
+  phase_source: n/a
+  note: 'rad, the radial menu, as a Godot addon: the contract''s vectors replayed
+    in GDScript. No family claimed: rad''s implementations are a seam, not a roster
+    family.
+
+    '
+  slots:
+    repository: quaternionmedia/rad-godot
+    per_base: []
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+

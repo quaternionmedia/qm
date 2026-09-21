@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-09 |
 | **Pends on** | Each project naming what its own `v0.0.2` and beyond assert, in its own records. The ladder below binds without them; the rungs above the first stay undefined per project until they do. |
-| **Principle** | P6 — decisions are documented or they didn't happen; P8 — systems over heroics |
+| **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `systems-over-heroics` — systems over heroics |
 
 ## Context
 
@@ -28,7 +28,7 @@ parametric-assembly tool's are different work, judged by different evidence,
 and a shared definition of them would either be so loose it asserts nothing or
 so specific it fits one project and distorts the rest.
 
-There is a second failure this record has to keep out. `governance-status.yaml`
+There is a second failure this record has to keep out. `status/governance.yaml`
 declines to compute a term named `adopted`, for a stated reason: no record
 gives a file set, a ref, or a predicate, and the corpus warns against filename
 checks standing in for adoption. That caution is right and survives here. A
@@ -61,7 +61,7 @@ worth having precisely because it can only ever disqualify.
 4. **The claim and the evidence are separate documents, and neither may be
    derived from the other.** The roster (`ci/workspace.yaml`) holds what a human
    has stated, marked `stated` or `scaffolded` so the difference survives
-   reading. The evidence is computed from `governance-status.yaml`, which is
+   reading. The evidence is computed from `status/governance.yaml`, which is
    generated from git and the host rather than from anybody's account of them.
    A view shows both and shows the gap; nothing rewrites a claim to match its
    evidence, and nothing infers a claim from artifacts.
@@ -103,7 +103,7 @@ answered per project by whoever last looked.
 
 **Compute the phase from the artifacts.** Rejected, and it is the tempting one.
 It would make the table self-maintaining and it would quietly redefine adoption
-as a filename check — the exact substitution `governance-status.yaml` refuses to
+as a filename check — the exact substitution `status/governance.yaml` refuses to
 make, for the exact reason it gives. Computing a floor is disqualification;
 computing attainment is a machine making a human's claim on their behalf.
 
@@ -123,7 +123,7 @@ to say where it is going until it arrives.
 - Projects that named a higher phase carry a visible gap until they write its
   definition. Apothecary, codecartographer and benchmark have `v0.0.2` stated
   and no record defining it; qmetronome has `v0.0.3` on the same terms.
-- `governance-status.yaml`'s `undefined` entry for `adopted` narrows rather than
+- `status/governance.yaml`'s `undefined` entry for `adopted` narrows rather than
   closes. This record supplies the precondition set and declines to supply a
   boolean, so the generator continues to list artifacts and derive no verdict.
 

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="162" viewBox="0 0 560 162" role="img" aria-label="the infra family and its members">
+<rect width="560" height="162" fill="none"/>
+<text x="14" y="28" font-family="monospace" font-size="14" font-weight="bold" fill="currentColor">infra</text>
+<text x="14" y="48" font-family="monospace" font-size="12" fill="currentColor">. moat</text>
+<text x="244" y="48" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
+<text x="14" y="74" font-family="monospace" font-size="12" fill="currentColor">. ztgui</text>
+<text x="244" y="74" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
+<text x="14" y="100" font-family="monospace" font-size="12" fill="currentColor">. private-23</text>
+<text x="244" y="100" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
+<text x="14" y="126" font-family="monospace" font-size="12" fill="currentColor">. private-26</text>
+<text x="244" y="126" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
+<text x="14" y="158" font-family="monospace" font-size="10" fill="currentColor" opacity="0.6">* governed  . not adopted</text>
+</svg>

@@ -105,6 +105,23 @@ exceptions:
     removal_condition: "A tool stops requiring its config at the root."
     announced: "listed in the checker"
 
+  - id: families-seam-stays-json-at-the-root
+    rule: "No data file at the repository root; YAML everywhere"
+    rule_source: handbook/config-standard.md
+    enforced_by: ci/config_standard.py
+    constant: ROOT_ALLOWED
+    scope: "families.json"
+    reason: >
+      The standard's own carve-out applied: JSON is kept only where a consumer
+      requires it, and two consumers do -- dossier and codecartographer read
+      this file over the seam at a pinned path, in runtimes where YAML would
+      add a dependency to draw a picture. Moving or re-serialising it breaks
+      the seam to satisfy a rule about files nothing external reads.
+    removal_condition: >
+      Both consumers move to a path under status/ and a serialisation they can
+      read without a new dependency, in the same change that moves the file.
+    announced: "listed in the checker"
+
   - id: migration-keeps-its-own-vocabulary
     rule: "References to a pre-standard path are rewritten to the new one"
     rule_source: handbook/config-standard.md

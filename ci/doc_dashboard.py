@@ -13,15 +13,16 @@ filtered reads as the whole corpus -- and this is a governance view, where a
 short clean list is the most dangerous thing on offer.
 
 Usage:
-    python ci/doc_dashboard.py doc-status.json
-    python ci/doc_dashboard.py doc-status.json --state draft
-    python ci/doc_dashboard.py doc-status.json --out handbook/document-states.md
+    python ci/doc_dashboard.py status/documents.yaml
+    python ci/doc_dashboard.py status/documents.yaml --state draft
+    python ci/doc_dashboard.py status/documents.yaml --out handbook/document-states.md
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import yaml
 import sys
 from pathlib import Path
 
@@ -209,7 +210,7 @@ def main(argv: list[str] | None = None) -> int:
     if not path.is_file():
         print(f"{args.document}: not present.", file=sys.stderr)
         return 1
-    doc = json.loads(path.read_text(encoding="utf-8"))
+    doc = yaml.safe_load(path.read_text(encoding="utf-8"))
 
     if args.state and args.state not in (doc.get("states") or {}):
         print(f"unknown state {args.state!r}. The vocabulary is closed: "

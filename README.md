@@ -49,9 +49,10 @@ shortest useful thing to read after this.
 | Run several agent sessions at once | [handbook/async-contract.md](handbook/async-contract.md) — one PR per repo per contributor, and why |
 | Set up a new QM project | [Forking a new project](docs/usage/first-project.md) |
 | Bring an existing project up to date | [handbook/propagation-runbook.md](handbook/propagation-runbook.md) |
+| Land what exists only on this disk | [handbook/consolidation-runbook.md](handbook/consolidation-runbook.md) |
 | Learn the branch and record rules | [Branch namespaces](docs/ref/namespaces.md) and [Record precedence](docs/ref/precedence.md) |
 | Know how far this corpus has got in governing itself | [handbook/governance-rollout.md](handbook/governance-rollout.md) |
-| See where every project stands | [governance-status.yaml](governance-status.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
+| See where every project stands | [status/governance.yaml](status/governance.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
 | Know which checks actually govern, and what each one misses | [handbook/gates.md](handbook/gates.md) — says plainly whether anything blocks a merge |
 | Know what state a document is in before trusting it | [handbook/document-states.md](handbook/document-states.md), or `uv run qm docs states --state proposed` |
 | Look up a word this corpus uses in its own way | [handbook/glossary.md](handbook/glossary.md) |
@@ -84,8 +85,8 @@ qm/
 ├── ci/                    org-level tooling
 ├── adapters/              optional per-tool glue; nothing here is depended on
 ├── docs/                  the documentation site (GitHub Pages)
-├── governance-status.yaml generated; where every project stands
-├── harness-status.json    generated; PR slots, phases, governance evidence
+├── status/governance.yaml generated; where every project stands
+├── status/harness.yaml    generated; PR slots, phases, governance evidence
 ├── AGENTS.md              instructions for coding agents
 ├── .github/               CI workflows and branch protection
 └── LICENSE, LICENSES/     CC-BY-SA-4.0 for corpus prose; REUSE.toml covers the rest
@@ -122,6 +123,18 @@ qm/
 | — | [Nothing unattended spends money](records/DRAFT-no-unattended-spending.md) | Proposed | 2026-08-20 |
 | — | [A route is an address, and an unavailable one is still shown](records/DRAFT-a-route-is-an-address.md) | Proposed | 2026-08-20 |
 | — | [A knot is a cycle of obligation, not a cycle in the graph](records/DRAFT-a-knot-is-a-cycle-of-obligation.md) | Proposed | 2026-08-21 |
+| — | [A check is evidence only after it has been seen to fail](records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md) | Proposed | 2026-08-22 |
+| — | [Shrink the black box: undecidable judgement, decidable guards](records/DRAFT-shrink-the-black-box.md) | Proposed | 2026-08-25 |
+| — | [Going private is an act, and the party who does it owns what follows](records/DRAFT-going-private-is-an-act-with-obligations.md) | Draft | 2026-08-16 |
+| — | [The base is the deliverable, and it is stable when a pass adds nothing](records/DRAFT-the-base-is-the-deliverable.md) | Draft | 2026-08-16 |
+| — | [Nothing is both a claim and its own evidence](records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md) | Proposed | 2026-08-29 |
+| — | [A principle is addressed by its name](records/DRAFT-a-principle-is-addressed-by-its-name.md) | Proposed | 2026-08-29 |
+| — | [A stage is recorded, and `main` receives releases rather than asserting them](records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md) | Proposed | 2026-08-29 |
+| — | [Repositories at the same tag interoperate](records/DRAFT-a-shared-tag-asserts-interoperability.md) | Proposed | 2026-08-30 |
+| — | [A session between people is encrypted end to end](records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md) | Proposed | 2026-08-31 |
+| — | [A family is bordered by what it drives](records/DRAFT-a-family-is-bordered-by-what-it-drives.md) | Proposed | 2026-08-28 |
+| — | [A loose end is carried or dismissed, and open is the absence of both](records/DRAFT-a-loose-end-is-carried-or-dismissed.md) | Draft | 2026-09-06 |
+| — | [The workstation, the agent and the conversation are not the organisation](records/DRAFT-what-is-not-the-organisation.md) | Proposed | 2026-09-20 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
@@ -134,8 +147,10 @@ Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/
 | `handbook/forking-a-project.md` | Standing up a new project, with the check that proves each step worked |
 | `handbook/governance-rollout.md` | How far this corpus has got in governing itself, and what ratification waits on |
 | `handbook/propagation-runbook.md` | How an org change reaches an adopted project, in both repositories |
+| `handbook/consolidation-runbook.md` | How work that exists only on one disk reaches `main`, one pull request per repository, and what a green pull request cannot see |
 | `handbook/adoption-audit-queue.md` | Which projects are audited, and how the next agent runs the rest |
 | `handbook/public-by-default.md` | When work may be closed, and the path to promoting that to a record |
+| `handbook/what-is-not-the-organisation.md` | What to do about the line `records/DRAFT-what-is-not-the-organisation.md` draws: the workstation, the agent and the conversation stay out of a committed file, and how to check before a push |
 | `handbook/style-guide.md` | Which tier a sentence belongs in: inline, README, `docs/`, or a retrospective |
 | `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
 | `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |

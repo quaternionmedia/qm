@@ -22,7 +22,7 @@ word that a private repository happens to be called, reported and never gated
 on. Without that split this check produced 187 findings and no disclosures.
 
 WHY IT EXISTS. Two private repository names sat in the committed
-`ci/workspace.yaml` from 2b50bd6 while `inventory-public.json` redacted the same
+`ci/workspace.yaml` from 2b50bd6 while `status/inventory.yaml` redacted the same
 two repositories as `private-32` and `private-33`. Both files were committed,
 each looked right alone, and nothing read them together. This reads them
 together.
@@ -189,7 +189,7 @@ def repository_context(name: str) -> re.Pattern[str]:
 def pattern(name: str) -> re.Pattern[str]:
     """A private name, not a longer name that happens to contain it.
 
-    A plain substring search reported `inventory-public.json` as carrying a
+    A plain substring search reported `status/inventory.yaml` as carrying a
     private name. It carries a *public* repository whose name is three
     characters longer and contains the private one -- so the file's whole
     guarantee appeared broken, by the check rather than by the file. Repository
