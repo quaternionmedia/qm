@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-20T17:17:49Z",
+  "generated_at": "2026-09-21T01:12:05Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-20T17:17:48Z"
+        "generated_at": "2026-09-21T01:09:13Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 126,
+    "loose_ends": 127,
     "by_kind": {
       "blind-spot": 18,
       "document-proposed": 36,
-      "document-unreviewed": 54,
+      "document-unreviewed": 55,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 126,
+    "open": 127,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -839,6 +839,14 @@
       "title": "perspectives/2026-09-20-the-consolidation-cycle.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-consolidation-cycle",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-estate-surveyed-by-many-hands",
+      "title": "perspectives/2026-09-20-the-estate-surveyed-by-many-hands.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-estate-surveyed-by-many-hands",
       "address_parses": true
     },
     {
