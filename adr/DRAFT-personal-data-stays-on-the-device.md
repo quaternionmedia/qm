@@ -201,18 +201,19 @@ and must keep working; human-only contributorship.
    camera's frames; the pictures a person added from a file picker, kept
    as they named them); and the page's own `localStorage`, which holds a
    panel layout and never leaves the browser. A page forgets only what
-   the browser put there -- one kept picture, or all of them, on request
-   and after asking -- and never a picture a person named: those are
-   removed by the person, by hand. What a page placed or pinned (a
-   camera at a piece, a board's identity at a node) is listed by the same
-   page, every site's, and taken back the same way. The comms log is
-   served on loopback and saved only when the person clicks *Download*,
-   into their own downloads folder. The state folder, a camera's
-   `captures/` and the browser's `uploads/` are made readable by the
-   account alone, whatever the umask says of the person's other files.
-   The test
-   suites -- `test run`, `test all`, `docs generate` -- run their servers
-   on state and pictures of their own, never the person's. The picture
+   the browser put there -- one kept picture on request, all of them
+   after asking once -- and never a picture a person named: those are
+   removed by the person, by hand, and a page that offered to would be
+   offering to delete a folder it does not own. What a page placed or
+   pinned (a camera at a piece, a board's identity at a node) is listed
+   by the same page, every site's, and taken back the same way. The
+   comms log is served on loopback and saved only when the person clicks
+   *Download*, into their own downloads folder. The state folder, a
+   camera's `captures/` and the browser's `uploads/` are made readable by
+   the account alone, whatever the umask says of the person's other
+   files. The test suites -- `test run`, `test all`, `docs generate` --
+   run their servers on state and pictures of their own, never the
+   person's. The picture
    root is `APOTHECARY_PICTURE_ROOT` or the folder the server was started
    in, and it is never the whole machine, the person's home folder (by
    `HOME` and by the account, which a variable cannot move) or anything
