@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Draft |
 | **Date** | 2026-09-20 |
-| **Tools** | Drafted with Claude Code (Anthropic) against `consolidate/2026-09-19`, with the audit that grounds it run as a fan-out of readers over the repository and their findings checked by hand and by `strace`; the human who sponsored the work is the contributor of record. |
+| **Tools** | Drafted with Claude Code (Anthropic). The audit that grounds it was run against `consolidate/2026-09-19` as a fan-out of readers over the repository, its findings checked by hand and by `strace`. What each import of the package loads, and what each install point weighed here would guard, was established by importing each module in a fresh interpreter: against `review/2026-09-26` at `595b433`, where importing the package installs the guard, and against scratch copies of that commit with the install moved to each shape weighed here. The `uvicorn` behaviour in §3 is that of uvicorn 0.38.0, run in a network namespace of its own. The human who sponsored the work is the contributor of record. |
 
 ## Context
 
@@ -13,9 +13,10 @@ frames a camera takes, the pieces built from them, the comms log of a
 printer on the bench, its bed readings, the files streamed to it, the
 boards pinned to a site, their serial numbers and addresses. The proposed
 rule *It runs on your machine and the data stays there*
-(`docs/plans/proposals/runs-and-stays-local.md`) says none of that leaves
-the machine and nothing is loaded from elsewhere while a person is using
-the tool; the vendored three.js (`static/vendor/three/README.md`) is that
+(`docs/plans/proposals/runs-and-stays-local.md` at `consolidate/2026-09-19`)
+says none of that leaves the machine and nothing is loaded from elsewhere
+while a person is using the tool; the vendored three.js
+(`apothecary/static/vendor/three/README.md`) is that
 rule applied once, and `tests/test_stays_local.py` checks the picture path
 against it at test time.
 
@@ -70,6 +71,24 @@ them in the program as it stood:
   `apothecary test all` ran its server on the person's own state and
   pictures.
 
+Apothecary is also a library other programs import. The README's *From
+Python* builds a scene with `from apothecary import Cube, Scene, ...`;
+`examples/scene_snowplow.py` renders a part the same way; the datum
+project depends on a released, pinned apothecary (`apothecary/release.py`);
+a notebook or a build script that uses the shapes is the same kind of
+program. What `import apothecary` loads -- the shapes, the transforms, the
+scene and its templates, the models -- reads no photograph, no port and
+nothing under the state folder, and neither do the parts under
+`apothecary.projects` or the meshes. What does read them sits in these
+packages and one module: `apothecary.vision` and
+`apothecary.gathering` open photographs; `apothecary.firmware` holds the
+state folder and the serial link with its comms log; `apothecary.routes`
+keeps camera frames, uploads and camera placements; `apothecary/api.py`
+serves the picture root and the state; the command line's package
+(`apothecary/cli/`) drives all of them. A guard that went on whenever any
+of apothecary was imported would take the network from every program that
+uses the shapes, for data none of them holds.
+
 The requirement, stated by the sponsor: personal data stays on the device
 **based on the architecture of the system, never the decision of an agent
 or a user**, with one named eventual exception, *secured user accounts*.
@@ -78,17 +97,18 @@ Constraints: the firmware toolchain must still be installable from the
 firmware page (arduino-cli is downloaded from a fixed release host);
 arduino-cli, esptool and OpenSCAD are subprocesses the guard cannot see
 into; the browser tests and the docs generator run servers on this machine
-and must keep working; human-only contributorship.
+and must keep working; a program that imports apothecary for its geometry
+is that program's process, not apothecary's, and keeps its network;
+human-only contributorship.
 
 ## Decision
 
-1. **The process cannot reach past this machine.** Importing the
-   `apothecary` package installs a guard (`apothecary/stays_local.py`)
-   before any of its code runs: the socket class -- the Python one and the
-   C one beneath it -- is replaced by a checked subclass that refuses to
-   connect, send a datagram (`sendto` and `sendmsg` alike) or bind a
-   listener anywhere but a loopback address or a Unix socket, and every
-   other name the originals were bound to (`socket.SocketType`,
+1. **An apothecary process cannot reach past this machine.** A guard
+   (`apothecary/stays_local.py`) holds it there: the socket class -- the
+   Python one and the C one beneath it -- is replaced by a checked subclass
+   that refuses to connect, send a datagram (`sendto` and `sendmsg` alike)
+   or bind a listener anywhere but a loopback address or a Unix socket,
+   and every other name the originals were bound to (`socket.SocketType`,
    `ssl.socket`, whatever a module imported by name) is rebound to the
    checked class; `socket.create_connection`, `http.client`'s connect and
    the TLS socket's connect are checked the same way; and the resolver
@@ -100,10 +120,43 @@ and must keep working; human-only contributorship.
    Loopback is not enough on its own where a service there forwards, so
    port 53 on loopback -- the resolver's stub, which sends whatever it is
    handed upstream -- is refused to every socket: a name is asked through
-   the guarded resolver, never by hand. Every apothecary process is under
-   it: the server, the command line, the docs generator's server, the
-   tests. There is no flag, environment variable, configuration file or
-   route that turns it off.
+   the guarded resolver, never by hand.
+   The guard is installed by the first statement of each module through
+   which apothecary runs or reads personal data, before any of that
+   module's own code:
+   - the application module, `apothecary/api.py`, which `apothecary
+     serve`, `uvicorn apothecary.api:app` and the docs generator's server
+     all load;
+   - the command line, `apothecary/cli/__init__.py`, which the
+     `apothecary` console script and `python -m apothecary` both import,
+     and which runs before any module of the command line's package;
+   - the `__init__` of each package that reads personal data --
+     `apothecary.vision` and `apothecary.gathering` (photographs),
+     `apothecary.firmware` (the state folder, the serial link and its
+     comms log), `apothecary.routes` (camera frames, uploads, camera
+     placements) -- so no module in them can be imported without the
+     guard going on, whoever imports it;
+   - the test suites' root `conftest.py`, which calls `install_guard()`
+     before any test is collected.
+
+   The server, the command line, the docs generator's server and the tests
+   are under it from the first statement of the install point each of them
+   loads. Python runs `apothecary/__init__.py` before any module inside the
+   package, so what `import apothecary` loads -- the geometry library, with
+   pydantic and jinja2 beneath it -- runs before the guard in each of them;
+   it reads nothing personal and makes no socket, and §7 holds it to that.
+   Any other program is under the guard from the moment it imports one of
+   those modules, for the rest of its life.
+   `import apothecary` and the rest of the geometry library -- the
+   shapes, transforms, scene and templates, the models, the parts and
+   assemblies under `apothecary.projects`, the meshes -- install nothing
+   and read nothing personal, and a program that uses them keeps its
+   network. `apothecary.vocabulary` reads nothing personal and is under the
+   guard all the same, because it imports `apothecary.vision.models`. A
+   module that reads personal data is written inside one of those
+   packages, or its own package installs the guard the same way; §7's scan
+   holds that line for the readers it names. There is no flag, environment
+   variable, configuration file or route that turns the guard off.
 2. **One allowance, a tool fetch, and one caller.** The firmware installer
    downloads arduino-cli through `tool_fetch(url)`, which refuses any URL
    whose host is not one of the fixed `TOOL_SOURCES` (the release API, the
@@ -135,7 +188,13 @@ and must keep working; human-only contributorship.
    too, so a page from elsewhere can neither post to a route here nor
    fetch or embed from one; a link from elsewhere that opens a page here
    (a GET navigation) still works. Pages, static files, the API and the
-   docs alike.
+   docs alike. A single `uvicorn` process loads the application module,
+   and with it the guard, before it binds, so a listener anywhere but
+   loopback is refused at the socket; a `uvicorn` parent run with
+   `--workers` or `--reload` binds the listener itself and never imports
+   apothecary (each child process loads the application), and on that
+   listener this middleware is what refuses a request from past this
+   machine.
 4. **The pages the server sends cannot load from or send to another
    origin.** The same middleware puts a Content-Security-Policy on every
    response: scripts, styles, images, media, fonts, fetches, workers and
@@ -222,11 +281,24 @@ and must keep working; human-only contributorship.
    the picture route serves is a picture, judged by its first bytes; any
    other file under the root is refused.
 7. **The rule is held by tests that would fail before a person could
-   relax it.** `tests/test_stays_local.py` checks that importing the
-   package installs the guard and that every way of connecting, the TLS
-   socket and the resolver included, is refused past loopback; that a tool
-   fetch reaches its sources and nothing else, takes no proxy, has one
-   caller and accepts only a version; that every function in the command
+   relax it.** `tests/test_stays_local.py` checks, each import in a fresh
+   interpreter, that importing the geometry library (`apothecary`, its
+   shapes and scene, the parts under `apothecary.projects`) leaves the
+   process's network as it found it and makes no socket and looks up no
+   name while it loads (an audit hook sees no `socket.*` event), and that
+   importing each install point in §1 -- the application module, the
+   command line, and the vision, gathering, firmware and routes packages --
+   installs the guard; that a test session is under the guard before its
+   first test is collected (the root `conftest.py`); that no module
+   outside those packages, the command line's package and the application
+   module imports `serial`, calls `state_dir()`, resolves the picture root
+   or opens an image, so a module that reads personal data by one of those
+   means where no install point covers it fails a test before it merges
+   (one that reaches the data another way is named in the risk register);
+   that every way of connecting, the TLS socket and the resolver included,
+   is refused past loopback; that a tool fetch reaches
+   its sources and nothing else, takes no proxy, has one caller and
+   accepts only a version; that every function in the command
    line that binds a server goes through `require_loopback`; that the app
    answers a non-loopback client, a listener bound elsewhere and a foreign
    `Host` with 403 on every kind of route and a loopback one with the
@@ -255,10 +327,13 @@ and must keep working; human-only contributorship.
    authenticated to, with consent given per account, per kind of data, and
    revocable; nothing leaves under a shared, default or anonymous account,
    and nothing leaves that the person did not name. Until such a record is
-   Accepted there is no code path for it: `stays_local.py` is what would
-   have to change, and the tests in §7 are what would have to be edited,
-   which is the review. An agent proposing that code is proposing that
-   record, not a feature.
+   Accepted there is no code path for it: `stays_local.py` or one of §1's
+   install points is what would have to change, and the tests in §7 are
+   what would have to be edited, which is the review. The one path that
+   needs neither is a module outside the guarded packages that reaches
+   personal data by a means §7's scan does not name, and the risk register
+   names it. An agent proposing that code is proposing that record, not a
+   feature.
 
 ## Service inventory
 
@@ -297,18 +372,48 @@ What this record does not close, and what would show it:
 | An installed core's `platform.txt` hooks, or a process on this machine racing the managed config's rewrite | a core is a program the person installed, and its hooks run at compile as it says; a process rewriting a file under the person's account is code running as them | a hook line the core's release did not carry; a config file whose content is not `ARDUINO_CLI_CONFIG` when arduino-cli reads it |
 | `ARDUINO_CLI` (or `PATH`) names the arduino-cli binary the seam runs | naming a program to run is installing one, and the tests use it to stand in a scripted arduino-cli; whatever is named runs under the managed config and the scrubbed environment | a binary at that path that is not arduino-cli; a checksum of the managed binary would close it and is not built |
 | Another user on the same machine | the state folder and the captures are files under the person's home, with the person's own permissions; loopback is shared by every account | a file mode wider than the person's; the OS's boundary, not this program's |
+| A module outside the guarded packages reads personal data | the guard goes on by package, a module can be written anywhere in the tree, and §7's scan looks for known readers (`serial`, `state_dir()`, the picture root, an image library); a module that reaches the data another way passes it | the scan failing; a `strace -e trace=openat` of a program that imports only the geometry library opening a file under the state folder, a picture or a serial device |
+| A socket, a pooled connection or a name lookup made before an install point -- by a program that imports apothecary, or by the geometry library and the libraries it imports, which `import apothecary` runs before every install point | the guard replaces classes, not the sockets that exist: a socket made before the install binds `0.0.0.0` after it (measured), so a program that connects first and imports a personal-data package after keeps that connection; and Python runs a package's `__init__` before any module inside it | a connection held open across the import of a guarded package; a `socket.*` audit event while `import apothecary` loads (§7), or a socket call under `strace -f -e trace=network` of `python -c 'import apothecary'` |
+| A `uvicorn` parent run with `--workers` or `--reload` binds a listener wherever it is told | uvicorn binds in the parent and loads the application in each child process; the parent never imports apothecary, so the guard is not in it, and `LocalOnly` refuses what arrives from past this machine | a listener on a non-loopback address held by a uvicorn parent (`ss -ltnp`) |
 
 ## Consequences
 
 - A person or an agent cannot make personal data leave this machine by
   setting anything; they can only edit the guard, which is one file with a
-  test on every door, and that edit is reviewed against this record.
+  test on every door, take away an install point, which a test in §7
+  names, or write a module outside the guarded packages that reaches the
+  data, which §7's scan looks for by the readers it names; each is an
+  edit reviewed against this record.
+- A program that uses the geometry library -- a notebook, a build script,
+  a downstream project's build, `examples/scene_snowplow.py` -- keeps its
+  network: it fetches, uploads and resolves names as it would without
+  apothecary. The rule governs apothecary's processes and the data they
+  hold, not a process that imported apothecary for its shapes.
+- A program that imports the server, the command line or a package that
+  reads personal data accepts the guard from that import to its end: from
+  then on a socket it makes, a connection it opens and a name it looks up
+  past this machine are refused with the rule's message, whatever it goes
+  on to do, apart from §2's tool fetch. A socket it made before that
+  import (the risk register) and a process it starts (the constraints)
+  are outside the guard. A program that needs a personal-data package and
+  the network in one process is asking for §8's record.
+- `apothecary.vocabulary` comes under the guard with `apothecary.vision`,
+  which it imports; a program that wants the vocabulary alone accepts the
+  guard too.
+- Cost accepted: an install point per package that reads personal data,
+  not one for the whole library, each a line a reviewer keeps at the top
+  of its module; a module that reads personal data is written inside one
+  of those packages or brings its own.
+- Cost accepted: in every apothecary process the geometry library and the
+  libraries it imports load before the guard. A socket one of them made at
+  import would be outside it; §7's audit of `import apothecary` is what
+  would show it.
 - A feature that needs an outside service is not built until it can be
   built here, or until §8's record exists -- the proposed rule's own
-  consequence, now with a mechanism behind it.
-- The Swagger and ReDoc pages are gone; `/openapi.json` remains. A person
-  who wants a rendered API page renders it from that file with a tool on
-  their machine.
+  consequence, with a mechanism behind it.
+- FastAPI's Swagger and ReDoc pages are not served; `/openapi.json` is. A
+  person who wants a rendered API page renders it from that file with a
+  tool on their machine.
 - The firmware page's *Install / update arduino-cli* still works: it is
   the one tool fetch, in the server process, on its own thread, to the
   fixed hosts. Core and library installs are arduino-cli's own fetches
@@ -316,9 +421,9 @@ What this record does not close, and what would show it:
   `~/.arduino15/arduino-cli.yaml` -- an extra index, a proxy -- has no
   effect under apothecary; that is the point, and the firmware page says
   which file is in use.
-- A board scan no longer asks Arduino's cloud what a USB device is; an
-  unrecognised device is shown by its port and its USB ids, as before,
-  without a name from elsewhere.
+- A board scan does not ask Arduino's cloud what a USB device is; an
+  unrecognised device is shown by its port and its USB ids, without a
+  name from elsewhere.
 - A page that legitimately needed another origin -- a map tile, a font, a
   library -- would have to be vendored, as three.js was; the policy will
   not let it load otherwise. That is the cost, and it is accepted.
@@ -327,9 +432,14 @@ What this record does not close, and what would show it:
 - A page on the person's own machine that reaches the server by a name
   that is not loopback (a hosts-file alias, `app.localhost`) gets 403;
   `localhost`, `127.0.0.1` and `[::1]` are the names.
-- `python -m uvicorn apothecary.api:app --host 0.0.0.0` no longer binds at
-  all: the listener is refused at the socket, with the rule's message,
-  before the middleware would have refused each request.
+- `python -m uvicorn apothecary.api:app --host 0.0.0.0`, as one process,
+  does not bind at all: the application module installs the guard before
+  the listener is made, the listener is refused at the socket, and the
+  process stops with the rule's message in what it prints. With
+  `--workers` or `--reload` the parent, which never imports apothecary,
+  binds where it is told; a request from this machine is answered on that
+  listener, and `LocalOnly` answers each request that arrives from past
+  this machine with 403.
 - A job is named with letters, digits, spaces and `.+-/_`; a name that was
   markup is refused with 422.
 - A link on a page elsewhere still opens the viewer; a script on a page
@@ -337,7 +447,7 @@ What this record does not close, and what would show it:
 
 ## Alternatives considered
 
-1. **A test-time guard only** (what `tests/test_stays_local.py` was) --
+1. **A test-time guard only** (a check that runs only under pytest) --
    lost because it keeps the promise only while the tests run; the program
    itself would send whatever a later edit or a flag told it to.
 2. **A setting, off by default** (`APOTHECARY_LOCAL_ONLY=1`) -- lost
@@ -362,6 +472,51 @@ What this record does not close, and what would show it:
    it would remove the multicast question and the dependence on
    arduino-cli for a scan, at the cost of the board-name match its
    installed cores provide; deferred, and named as the trigger below.
+8. **The guard installed by importing the `apothecary` package** -- one
+   install point and the simplest rule a reader could want: any process
+   that loads any apothecary code is under it. It lost because it takes
+   the network from every program that uses the geometry library for what
+   the library is for. Measured with the guard installed this way:
+   `from apothecary import Cube` followed by
+   `socket.getaddrinfo('pypi.org', 443)` raises `LeftTheMachine`, and
+   `examples/scene_snowplow.py` renders its scene and then cannot resolve
+   a name. What that import loads holds nothing this record names as
+   personal and makes no socket, so the guard protects no data by going on
+   there; it decides the network of a process that is not apothecary's.
+   What it has that the install points here lack: in the server and the
+   command line the guard goes on before the geometry library and the
+   libraries it imports (pydantic, jinja2) load, where here it goes on
+   after them (measured by listing the loaded modules when the guard first
+   goes on), so a socket one of them made at import would be refused under
+   it and is outside the guard here. Its promise of a guard before any code
+   runs is still narrower than it reads: a socket made before the import
+   binds `0.0.0.0` after it.
+9. **The application module and the command line alone** -- the fewest
+   install points, and every process this record names is still under
+   the guard. It lost because a program that imports
+   `apothecary.firmware.devices`, `apothecary.firmware.gcode`,
+   `apothecary.vision`, `apothecary.gathering` or
+   `apothecary.routes.pictures` directly would read serial numbers, the
+   state folder or photographs with the network open (measured with the
+   install in those two modules alone: none of those imports installs the
+   guard). The rule would hold for apothecary's processes and not for its
+   data, and the data is what the requirement names.
+10. **The guard installed when `apothecary.stays_local` is imported** --
+    the install would follow the guard's own module, which the server, the
+    command line and the firmware modules import already. It lost because
+    the guard's own module is not where the data is read:
+    `apothecary.vision` and `apothecary.gathering` do not import it, so
+    photographs would be read unguarded; and what imports it without
+    reading personal data -- a caller of `is_loopback` or
+    `require_loopback`, the tests that look at the guard -- would be put
+    under the guard for that alone.
+11. **The geometry library as its own distribution, with the application
+    package installing the guard on import** -- the cleanest boundary:
+    importing the application is choosing the rule, and the library cannot
+    be guarded by mistake. It lost for now because it is packaging work
+    nobody has planned -- the wheel ships `apothecary/` alone and cannot
+    render a part (`todo.md`) -- and it splits the package the datum
+    project pins. It is a revision trigger below.
 
 ## Revision triggers
 
@@ -379,6 +534,21 @@ What this record does not close, and what would show it:
 - A person needs the viewer on another device on their own network (a
   tablet at the printer) -- that is §8's record, or a local tunnel the
   person sets up outside the program, never a `--host`.
+- Photo gathering ships as the `photos` extra, `api.py` is split into
+  routers, or the geometry library ships as its own distribution -- the
+  install points go with their modules and §1's list is edited to match;
+  whether `apothecary.vocabulary` stays under the guard is settled with
+  vision's share of the extra.
+- §7's scan finds personal data read outside the guarded packages -- the
+  module goes into one of them, or its package installs the guard, with a
+  line here.
+- The geometry library starts to load a guarded package, or to make a
+  socket or look up a name while it loads (a fresh-interpreter check on
+  `import apothecary` fails) -- the import or the call is cut, or the
+  library's reach is decided here.
+- A program needs a personal-data package in a process that also uses the
+  network (a build that reads a photograph and uploads its result) --
+  that is §8's record, not another install point.
 
 ## Amendments
 
