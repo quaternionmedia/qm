@@ -14,12 +14,13 @@ between them are recorded here rather than inside each one.
 ## The queue
 
 **Ordered by expected delta**, highest first, against the current milestone:
-*managing qmcp's flows with dossier by planning deltas*. The first two are one
-chain — each is the next page's blocker — so taking them out of order buys
-nothing.
+*managing qmcp's flows with dossier by planning deltas*, except the first row,
+which decides which of the others survive. The two after it are one chain —
+each is the next page's blocker — so taking them out of order buys nothing.
 
 | Handoff | Blocks on | Repo |
 |---|---|---|
+| [`design-review-of-the-estate.md`](design-review-of-the-estate.md) | **nothing — the owner asked for it**: a design review of this corpus by `handbook/design-review-runbook.md`, the method apothecary #22 ran — ten audit areas fitted to a governance corpus, the leads measured at `d6dc5cd` handed over as hypotheses with the command behind each, and the semantic review kept downstream rather than redone. Then the order for the rest of the estate, tiered by adoption and activity and re-derived from the host, because `qm estate` needs sibling clones | qm, then every repo |
 | [`the-web-window.md`](the-web-window.md) | **nothing — read this first for the window**: Phases 0 and 1 of `plans/the-web-window.md` landed on 2026-09-20 in five repositories, and this page is where Phases 2 to 6 are picked up — the live flow on a topology's shape, the designer on the routes the harness now serves, manipulation through the governed seam, cartography with chrestomathy and the prose reader's bridge, the triangle walkthrough — each with what to read first, where it goes, and what done looks like. Also the slice's residue: a propagation, an address kind, a `dossier.sources` row | qm + codecartographer + qmcp + looksatwords + rad + dossier |
 | [`families-delineated.md`](families-delineated.md) | **a person, for two family claims and four decisions** — every reader of the estate now delineates by family (`qm estate --by-family`, a family column and a **By family** section in both harness views, a cookbook that resolves clones through the roster), and `qm workspace --family` opens one family or several, checked against the seam file; the performing estate is cloned and its workspace written, and the record counts its performing families the same way everywhere. Landed as #114 and #115, which also drew the line `records/DRAFT-what-is-not-the-organisation.md` states. What remains: the two new entries want a family claim once governance has run, two checks are named and unbuilt, and two `feat/loose-ends` commits wait on a person | qm |
 | [`six-branches-reached-origin.md`](six-branches-reached-origin.md) | **a human, for two held pull requests and one submodule pin** — the one-copy body of work is merged to `main` in seven repositories, including qm #110; what remains is datum #2 and apothecary #21 held by decision, alfred's local-only `governance/qm` pin that must not be pushed, and a leftover queue per repository, each cut from the new `main` | every repo |
