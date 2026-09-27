@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-09-27T18:34:09Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-09-27T18:34:45Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -10,7 +10,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
 | Records ratified | every requirement below | **0 of 39**; 36 proposed |
-| Mandatory reading | under budget | 1165 of 1200 lines |
+| Mandatory reading | under budget | 1166 of 1200 lines |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **202**, unfiltered.
+Every governed document in this corpus: **203**, unfiltered.
 
 | | |
 |---|---|
@@ -63,7 +63,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] `unreviewed` | 58 |
 | [G] `generated` | 7 |
 | [S] `standing` | 75 |
-| [T] `transient` | 23 |
+| [T] `transient` | 24 |
 
 ## Documents
 
@@ -249,6 +249,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `walkthrough/01-two-views-one-dataset.md` | walkthrough | — |
 | [S] | `standing` | `walkthrough/02-rollout-by-family.md` | walkthrough | — |
 | [T] | `transient` | `handbook/handoffs/apply-the-main-ruleset.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/design-review-of-the-estate.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/disk-tooling.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/dossier-delta-review.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/enact-the-stages.md` | handoff | — |
