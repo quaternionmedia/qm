@@ -153,6 +153,22 @@ repositories:
     attention: active
     paths: [qm/qmcp, qmcp]
 
+  - name: vox
+    role: project
+    family: core
+    phase: v0.0.1
+    phase_source: scaffolded
+    attention: active
+    note: >
+      the voice-interaction seam. States an EngineContract an HTTP speech
+      engine must answer and names no engine; qmcp vendors it as a submodule
+      to answer its human-in-the-loop queue by speaking. Placed in core by
+      the border test in
+      records/DRAFT-a-family-is-bordered-by-what-it-drives.md 2 -- what its
+      output acts on is the corpus's own tooling, not the sound it emits and
+      not the family of the engine it talks to.
+    paths: [qm/vox, vox]
+
   - name: rad
     role: project
     phase: v0.0.1
