@@ -1,8 +1,8 @@
 # Handoff — what is waiting on a person, 2026-09-27
 
-**Stamped 2026-09-27.** `qm` `main` at `d6dc5cd`; `vox` `main` at `d54a7f7`;
-`joe` `main` at `6e1ad16`; `qmcp` `main` at `d834916`; `dossier` `main` at
-`d42967a`. Every figure was true at those commits and nowhere else.
+**Stamped 2026-09-27, restamped after the merges below.** `qm` `main` at
+`d1aca4f`; `vox` `main` at `4b2e64d`; `joe` `main` at `6e1ad16`; `qmcp`
+`main` at `77b73ca`; `dossier` `main` at `b21ce32`. Every figure was true at those commits and nowhere else.
 
 **Nothing on this page is a task.** It is the list of decisions after the
 2026-09-27 session, in the order they want deciding, with what to look at
@@ -11,9 +11,11 @@ this is the queue. Delete this page when its work lands.
 
 ---
 
-## 1. The pull requests, open and green
+## 1. The pull requests — all four merged on 2026-09-27
 
-Each has passed its own gates and a docs/testing review. None is a draft.
+Each passed its gates and a docs/testing review, then merged: `qmcp` #38
+at `77b73ca`, `vox` #5 at `4b2e64d`, `dossier` #58 at `b21ce32`, `qm`
+#122 at `cacaed8`. The *look at* column stays for a reader auditing them.
 
 | | Checks | What it is | Look at |
 |---|---|---|---|
@@ -22,9 +24,9 @@ Each has passed its own gates and a docs/testing review. None is a draft.
 | **`dossier` #58** | 7/7 | `dossier dev doctor`, the three-process preflight | the database section. It fails when `DOSSIER_DATABASE_URL` is unset and a real database is present, which is a deliberate refusal to run rather than a warning. |
 | **`qm` #122** | 10/10 | the handoff, the retrospective, and vox's roster entry | the retrospective's §9 and §12: a private name reaching a public repository through a gate no workflow runs, and a recorded artifact that churned on one platform while CI saw nothing. |
 
-**`qmcp` #38 has never been merged for a mechanical reason, not a judgement
-one.** Its checks failed identically from 2026-09-22 until `vox` was made
-public; a merge was then refused by a guard on merging without review.
+**`qmcp` #38 waited on a mechanical reason, not a judgement one.** Its
+checks failed identically from 2026-09-22 until `vox` was made public,
+and it merged with the rest on 2026-09-27.
 
 ## 2. Decisions nobody has taken
 
@@ -47,7 +49,12 @@ Ordered by what they block.
    the subtree `00d8077` had removed as unused. They are load-bearing now.
    A lean default install and a working `joe voice` can both be had through
    an optional `voice` extra; that is a decision, not a fix.
-4. **Which lockfile `joe` keeps.** `pdm.lock` (2024-12-29), `uv.lock`
+4. **~~Whether `vox` and `joe` carry license files~~ — decided
+   2026-09-27.** `vox` is Apache-2.0 and `joe` is MIT, the holder named
+   per `records/DRAFT-outbound-licensing.md` §0; `vox` #6 and `joe` #12
+   carry the files that make each repository's existing metadata claim a
+   real grant.
+5. **Which lockfile `joe` keeps.** `pdm.lock` (2024-12-29), `uv.lock`
    (current) and `requirements.txt` all describe its Python dependencies,
    and the third omits `httpx` while `pyproject.toml` declares it.
 

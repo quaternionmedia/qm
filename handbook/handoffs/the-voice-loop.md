@@ -1,8 +1,8 @@
 # Handoff — the voice loop, and the three-process development environment
 
-**Stamped 2026-09-27.** `qm` `main` at `d6dc5cd`; `vox` `main` at `d54a7f7`;
-`joe` `main` at `6e1ad16`; `qmcp` `main` at `d834916`; `dossier` `main` at
-`d42967a`. Every figure here was true at those commits and nowhere else.
+**Stamped 2026-09-27, restamped after the merges below.** `qm` `main` at
+`d1aca4f`; `vox` `main` at `4b2e64d`; `joe` `main` at `6e1ad16`; `qmcp`
+`main` at `77b73ca`; `dossier` `main` at `b21ce32`. Every figure here was true at those commits and nowhere else.
 Re-derive before acting on any of it.
 
 `vox` and `joe` carry no `governance/qm` submodule, so the cross-repository
@@ -17,7 +17,7 @@ page is a decision.
 
 ## 0. What landed
 
-Six pull requests merged, all in repositories outside the corpus.
+Ten pull requests merged, one of them the corpus's own.
 
 | Repository | Merged | What it carries |
 |---|---|---|
@@ -27,6 +27,10 @@ Six pull requests merged, all in repositories outside the corpus.
 | `vox` | #1, #2 | the deterministic closed loop; artifacts written LF and mutated files restored byte-for-byte |
 | `vox` | #3 | the engine contract as a value; every product name moved to `vox.adapters` |
 | `vox` | #4 | an offline synthesizer, and a live loop that creates its own input |
+| `vox` | #5 | `HANDOFF.md` replaced with the surface that exists |
+| `dossier` | #58 | `dossier dev doctor`, the three-process preflight |
+| `qmcp` | #38 | the HITL queue answered by voice, `vox` vendored at `d54a7f7` |
+| `qm` | #122 | this handoff, the retrospective, and `vox`'s roster entry in `core` |
 
 **The full round trip runs.** Text through a real synthesizer, through
 whisper, back out and back in:
@@ -74,9 +78,10 @@ second with no engine, no model and no hardware.
   `project-seed/ci/cowork_context.py` as the callers that default the
   exemption; `ci/estate.py` is not among them. *Done* is the reader and the
   gate agreeing, or the registry saying why they should not.
-- **The human loop is not built** — speaking an instruction, an agent
-  acting, the result spoken back. `qmcp human voice` is its approval case,
-  and the harness beneath it is now deterministic enough to iterate on.
+- **The approval case is built; the wider loop is not.** `qmcp` #38 landed
+  `qmcp human voice`, answering the HITL queue by speech. Speaking an
+  instruction, an agent acting, and the result spoken back remains
+  unbuilt; the harness beneath it is deterministic enough to iterate on.
 
 ## 2. The development environment
 
@@ -149,5 +154,8 @@ and RMS. Speak while it runs; the one that moves is the one to set as
   builds the frontend and deploys it. Three files are published and none
   carries anything personal. Named here because it was not obvious before
   the merge.
+- **`vox` is Apache-2.0 and `joe` is MIT**, decided 2026-09-27. `vox` #6
+  and `joe` #12 carry the license files; each repository's metadata
+  claimed a license no file granted until they merge.
 - **Merged branches were not deleted** where `handbook/handoffs/README.md`
   places deletion outside what a handoff authorises.
