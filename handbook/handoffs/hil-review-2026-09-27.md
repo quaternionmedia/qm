@@ -11,15 +11,16 @@ this is the queue. Delete this page when its work lands.
 
 ---
 
-## 1. Three pull requests, open and green
+## 1. The pull requests, open and green
 
 Each has passed its own gates and a docs/testing review. None is a draft.
 
 | | Checks | What it is | Look at |
 |---|---|---|---|
-| **`qmcp` #38** | 7/7 | answering the HITL queue by voice | `choose_option` — it reads a request's `options` rather than taking `options[0]` as the approval, because a request carrying `["reject", "approve"]` recorded a spoken "yes" as `reject`. Every prior test used the conventional order. |
+| **`qmcp` #38** | 7/7 | answering the HITL queue by voice; vox pinned at `d54a7f7` | `choose_option` — it reads a request's `options` rather than taking `options[0]` as the approval, because a request carrying `["reject", "approve"]` recorded a spoken "yes" as `reject`. Every prior test used the conventional order. |
+| **`vox` #5** | — | the handoff replaced with the surface that exists | it is 100 lines where the old one was 256, and the old one named classes that had been gone since `#3`. |
 | **`dossier` #58** | 7/7 | `dossier dev doctor`, the three-process preflight | the database section. It fails when `DOSSIER_DATABASE_URL` is unset and a real database is present, which is a deliberate refusal to run rather than a warning. |
-| **`qm` #122** | 10/10 | the handoff and the retrospective | the retrospective's §9 and §12: a private name reaching a public repository through a gate no workflow runs, and a recorded artifact that churned on one platform while CI saw nothing. |
+| **`qm` #122** | 10/10 | the handoff, the retrospective, and vox's roster entry | the retrospective's §9 and §12: a private name reaching a public repository through a gate no workflow runs, and a recorded artifact that churned on one platform while CI saw nothing. |
 
 **`qmcp` #38 has never been merged for a mechanical reason, not a judgement
 one.** Its checks failed identically from 2026-09-22 until `vox` was made
@@ -29,10 +30,14 @@ public; a merge was then refused by a guard on merging without review.
 
 Ordered by what they block.
 
-1. **Whether `vox` joins the roster, and in which family.** It appears in
-   no `ci/workspace.yaml` entry and no `families.json` member list, so no
-   estate reader sees it and no governance figure counts it. Membership is
-   a claim a person makes and is never inferred.
+1. **~~Whether `vox` joins the roster~~ — decided 2026-09-27.** It is in
+   `ci/workspace.yaml` and `families.json` as a member of `core`, placed by
+   the border test in
+   `records/DRAFT-a-family-is-bordered-by-what-it-drives.md` §2: what its
+   output acts on is the corpus's own tooling, not the sound it emits and
+   not the family of the engine it talks to. The placement is the part
+   worth a second look — `instruments` drives *the sound*, and vox
+   synthesizes, which §2 says is the wrong test.
 2. **Whether `joe` should carry the corpus.** Without a `governance/qm`
    submodule, none of the gates, the slot check or `/cowork` reach it — and
    it is now a public repository that deploys to GitHub Pages on every push
@@ -104,5 +109,6 @@ rewritten and was renamed mid-session, so nothing here touched it.
 ## 5. What none of this authorises
 
 Ratifying anything. Merging to `main` in this corpus. Deleting a branch.
-Force-pushing. Adding `vox` or `joe` to a roster, which is §2's first two
-decisions and a person's to make.
+Force-pushing. Placing `joe` in a family or giving it the corpus, which is
+§2's second decision and a person's to make — `vox`'s placement was made on
+2026-09-27 and is recorded rather than assumed.

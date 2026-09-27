@@ -5,8 +5,10 @@
 `d42967a`. Every figure here was true at those commits and nowhere else.
 Re-derive before acting on any of it.
 
-`vox` and `joe` carry no `governance/qm` submodule and `vox` is on no roster,
-so the cross-repository state is recorded here and nowhere else.
+`vox` and `joe` carry no `governance/qm` submodule, so the cross-repository
+state is recorded here and nowhere else. `vox` joined the roster on
+2026-09-27, in `core`; `joe` is in `performer-display` and predates this
+work.
 [`hil-review-2026-09-27.md`](hil-review-2026-09-27.md) is the companion:
 what is waiting on a person, in the order it wants deciding. Nothing in this
 page is a decision.
