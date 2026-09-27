@@ -200,13 +200,43 @@ go through `pathlib`; adding it first would mean either a permanently red job
 or one marked `continue-on-error`, which is a green check standing where
 nothing is enforced.
 
-## 12. Two defects introduced here
+## 12. A recorded artifact that churned, and a harness that did not restore
 
-**An escape written through a heredoc.** A replacement targeting
+Both found on the authoring machine, after CI had passed on both.
+
+`Path.write_text` translates newlines to the platform separator. The
+walkthrough's artifact is therefore written CRLF on Windows and LF on Linux,
+so every local test run left `walkthrough/closed-loop.md` reported modified
+while the runner's drift gate saw nothing. `git diff` printed no lines and the
+file was 1466 bytes against a committed 1424: the whole difference was 42 line
+endings. A drift gate that passes on one platform while the authoring platform
+shows a dirty tree teaches a contributor to ignore it.
+
+The mutation harness had the same fault with worse consequences. It read each
+target with `read_text` and restored it with `write_text`, so a LF source file
+came back CRLF, and a run left four tracked files under `vox/` modified — by a
+harness whose entire contract is to leave no trace. An earlier check had
+compared *content* after a run and reported clean, which was true: content was
+identical every time and the bytes were not. The check and the defect passed
+each other.
+
+Both writers now pin the newline. The harness reads and writes bytes and
+asserts its own restore, because putting tracked source back is the one thing
+it must never get quietly wrong.
+
+## 13. Two defects introduced here
+
+**An escape written through a heredoc, twice.** A replacement targeting
 `"\\" in filename` failed to match, so the first of two substitutions silently
 did nothing while the second succeeded, leaving `api.py` calling an undefined
 function. It surfaced because a `grep` hit *count* was checked rather than an
-exit status. This failure mode was already written down.
+exit status. Later in the same session the identical mechanism collapsed a
+`newline="\n"` argument into a literal line break and broke
+`walkthrough/test_closed_loop.py`. This failure mode was written down before
+either happened, and the second occurrence came after the first had been
+diagnosed. The rule that actually holds is narrower than "be careful": text
+containing backslash escapes is written with an editor, never assembled inside
+a shell heredoc.
 
 **A fixture colliding with the one it borrowed from.** A new `voice_dirs`
 fixture created `Data/Audio` under the same `tmp_path` as the existing
@@ -214,7 +244,7 @@ fixture created `Data/Audio` under the same `tmp_path` as the existing
 `FileExistsError` across eleven parametrizations. Composing a fixture means
 reading what it builds, not what it is named.
 
-## 13. What the loop still does not establish
+## 14. What the loop still does not establish
 
 The deterministic engine carries text faithfully because it is a codec. It
 establishes the seam, the HTTP contract, the file handoff and the loop closing,

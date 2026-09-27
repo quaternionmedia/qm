@@ -1,8 +1,8 @@
 # Handoff — the voice loop: what landed, and the one thing that did not
 
-**Stamped 2026-09-27.** `qm` `main` at `d6dc5cd`; `vox` `main` at `a9d7988`;
-`joe` `main` at `fa0ce67`; `qmcp` `main` at `d834916` with
-`feat/voice-interaction` at `cb071a6`. Every figure here was true at those
+**Stamped 2026-09-27.** `qm` `main` at `d6dc5cd`; `vox` `main` at `1746485`;
+`joe` `main` at `03839f6`; `qmcp` `main` at `d834916` with
+`feat/voice-interaction` pinning vox at that same `1746485`. Every figure here was true at those
 commits and nowhere else. Re-derive before acting on any of it.
 
 `vox` and `joe` carry no `governance/qm` submodule, and `vox` is on no roster.
@@ -19,6 +19,7 @@ commands.
 | `joe` | #8 — the application | merged, `e32eb73` |
 | `joe` | #9 — speech analysis | merged, `fa0ce67` |
 | `vox` | #1 — the deterministic loop | merged, `a9d7988` |
+| `vox` | #2 — artifacts written as LF | merged, `1746485` |
 | `qmcp` | #38 — voice-answered HITL | **open, ready, green, unmerged** |
 | `joe` | #10 — the Python suite in CI | merged, `03839f6` |
 
@@ -34,9 +35,10 @@ clone a private submodule. Five failures, one cause.
 
 ## 1. What remains
 
-**`qmcp` #38 is one click.** All seven checks pass, the branch is
-`MERGEABLE`/`CLEAN`, and it is no longer a draft. Merging it is the last step
-of the chain above.
+**`qmcp` #38 is one click.** It is no longer a draft, its checks pass, and its
+vox pin is that repository's current `main`. Merging it is the last step of
+the chain above, and the only one an agent could not perform: the merge was
+refused by a guard on merging without review.
 
 Unfinished work, each with what done looks like:
 
