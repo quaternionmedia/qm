@@ -1,11 +1,11 @@
-# Perspective — The Voice Loop: Nine Checks That Answered a Different Question
+# Perspective — The Voice Loop: Checks That Answered a Different Question
 
 | | |
 |---|---|
 | **Standing** | Perspective — non-binding, attributed, dated. Not a record; never ratified; cite by author and date. |
 | **Author** | Peter Kagstrom |
 | **Tools** | Claude Opus 5 (1M context) |
-| **Task** | A three-repository voice-interaction seam, taken from a suite of mocks to a closed deterministic loop, and from three tangled branches to two merged lines. Nine of the findings share one shape: a check reported on something other than what it appeared to be about. |
+| **Task** | A three-repository voice-interaction seam, taken from a suite of mocks to a closed deterministic loop, and from three tangled branches to two merged lines. Most of what follows shares one shape: a check reporting on something other than what it appeared to be about. |
 
 ## 0. Standing and evidence
 
@@ -171,7 +171,36 @@ without touching the commit.
 reading before concluding a commit is unsigned, and one that survived only
 because the two sources were compared rather than the first being believed.
 
-## 11. Two defects introduced here
+## 11. A suite that had only ever run in one place
+
+`joe`'s Python tests ran on no runner. Its single workflow builds and
+publishes the frontend and reads no Python, so every result the suite had ever
+produced came from one Windows workstation. Reconciling the two branches made
+a workflow possible for the first time, and the first run on `ubuntu-latest`
+reported two things Windows cannot show.
+
+`OSError: PortAudio library not found`, at collection, before any test ran.
+`sounddevice` binds a native library that its Windows wheel bundles and its
+Linux wheel does not; `capture.py` imports it at module scope and `api.py`
+imports `capture`. Installing `libportaudio2` cleared it.
+
+Then 74 passed and 6 failed, all in `tests/test_main.py`, all one cause:
+
+    midi_path: str = f"{current_path}\Data\Output\{iteration}\MIDI\\"
+
+Paths composed with literal backslashes are one filename component on Linux
+rather than a directory structure. The same line is the source of the
+`invalid escape sequence` warnings on `\D`, `\O` and `\M`, which a later
+Python raises rather than warns. The defect is years old, unrelated to any of
+this work, and had nowhere to surface.
+
+The workflow runs on `windows-latest`, which is where the application runs, and
+records the above in its own comment. A matrix is worth adding once those paths
+go through `pathlib`; adding it first would mean either a permanently red job
+or one marked `continue-on-error`, which is a green check standing where
+nothing is enforced.
+
+## 12. Two defects introduced here
 
 **An escape written through a heredoc.** A replacement targeting
 `"\\" in filename` failed to match, so the first of two substitutions silently
@@ -185,7 +214,7 @@ fixture created `Data/Audio` under the same `tmp_path` as the existing
 `FileExistsError` across eleven parametrizations. Composing a fixture means
 reading what it builds, not what it is named.
 
-## 12. What the loop still does not establish
+## 13. What the loop still does not establish
 
 The deterministic engine carries text faithfully because it is a codec. It
 establishes the seam, the HTTP contract, the file handoff and the loop closing,

@@ -20,6 +20,7 @@ commands.
 | `joe` | #9 — speech analysis | merged, `fa0ce67` |
 | `vox` | #1 — the deterministic loop | merged, `a9d7988` |
 | `qmcp` | #38 — voice-answered HITL | **open, ready, green, unmerged** |
+| `joe` | #10 — the Python suite in CI | merged, `03839f6` |
 
 `joe`'s two lines are reconciled. `main` had diverged from the application's
 branch at `a9685fc` (2024-04-19) and carried one commit since — the one adding
@@ -45,10 +46,19 @@ Unfinished work, each with what done looks like:
   accuracy is not. *Done* is a recorded run of `uv run vox loop` without
   `--offline` against a live backend, with the transcript kept beside the
   claim.
-- **`joe` runs no tests in CI.** Its only workflow builds and deploys the
-  frontend. The 80 Python tests and the Playwright suite run nowhere. The
-  obstacle that made this impossible is gone: everything is now on one line.
-  *Done* is a workflow that has been watched going red.
+- **`joe` composes paths with literal backslashes.**
+  `Modules/utilities.py` builds `f"{current_path}\Data\Output\{iteration}\MIDI\\"`,
+  which is one filename component on Linux rather than a directory structure,
+  and is also the source of `invalid escape sequence` warnings that a later
+  Python raises. Six tests in `tests/test_main.py` fail on `ubuntu-latest` for
+  this one reason; 74 pass. The merged workflow runs on `windows-latest`
+  and reports 80 passed. *Done* is those paths going through `pathlib`, after
+  which that workflow can become a matrix instead of Windows only.
+- **`joe`'s Playwright suite runs nowhere.** `tests/e2e/` needs browser
+  binaries and a live server, and neither is set up. The Python suite is
+  covered by `joe` #10, the first workflow in that repository to read any
+  Python. *Done* for the E2E half is a workflow that has been watched going
+  red.
 - **The human loop is not built** — speaking an instruction, an agent acting,
   the result spoken back. `qmcp human voice` is its approval case. The harness
   was built first so this has something deterministic to iterate against.
