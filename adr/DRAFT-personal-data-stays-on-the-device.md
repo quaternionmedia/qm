@@ -157,8 +157,9 @@ human-only contributorship.
    packages, or its own package installs the guard the same way; §7's scan
    holds that line for the readers it names. There is no flag, environment
    variable, configuration file or route that turns the guard off.
-2. **One allowance, a tool fetch, and one caller.** The firmware installer
-   downloads arduino-cli through `tool_fetch(url)`, which refuses any URL
+2. **One allowance, a tool fetch, and two callers.** The firmware installer
+   downloads arduino-cli, and the OpenSCAD installer a development snapshot
+   of OpenSCAD, through `tool_fetch(url)`, which refuses any URL
    whose host is not one of the fixed `TOOL_SOURCES` (the release API, the
    archive, where the archive redirects) before anything is opened, and
    admits the sockets and the name lookups beneath that one call, on that
@@ -167,8 +168,9 @@ human-only contributorship.
    refused mid-fetch, and the fetch takes no proxy from the environment. A tool
    fetch is a GET of a release archive at a URL built from a version
    string, and a version is three numbers or it is refused; no personal
-   data is in it. A test holds the callers of `tool_fetch` to the
-   installer module: a second caller is a second door, and is reviewed as
+   data is in it; an OpenSCAD snapshot's version is its date, three
+   numbers too. A test holds the callers of `tool_fetch` to those two
+   installer modules: a third caller is a third door, and is reviewed as
    one.
 3. **The server listens on this machine, and answers it alone.** Every
    `--host` the command line offers goes through `require_loopback()`: a
@@ -265,7 +267,15 @@ human-only contributorship.
    removed by the person, by hand, and a page that offered to would be
    offering to delete a folder it does not own. What a page placed or
    pinned (a camera at a piece, a board's identity at a node) is listed
-   by the same page, every site's, and taken back the same way. The
+   by the same page, every site's, and taken back the same way; a
+   picture pinned at a place in the world (a look), with the width a
+   person typed for it, is one of these. `uploads/` also takes the
+   pictures a person drops or pastes on the page, a pasted one named for
+   when it was pasted. Forgetting a kept picture unpins its looks; a piece
+   made from one of its shapes stays, marked as made from a picture since
+   forgotten, and keeps the outline it was made from until the site is
+   reset or the piece dropped -- a made piece is a part, and is saved,
+   varied and committed as a part is. The
    comms log is served on loopback and saved only when the person clicks
    *Download*, into their own downloads folder. The state folder, a
    camera's `captures/` and the browser's `uploads/` are made readable by
@@ -297,7 +307,7 @@ human-only contributorship.
    (one that reaches the data another way is named in the risk register);
    that every way of connecting, the TLS socket and the resolver included,
    is refused past loopback; that a tool fetch reaches
-   its sources and nothing else, takes no proxy, has one caller and
+   its sources and nothing else, takes no proxy, has the two installers as its callers and
    accepts only a version; that every function in the command
    line that binds a server goes through `require_loopback`; that the app
    answers a non-loopback client, a listener bound elsewhere and a foreign
@@ -346,6 +356,7 @@ mirror the person owns.
 | Service | Reached by | What is sent | Replaceable by |
 |---|---|---|---|
 | GitHub releases (`api.github.com`, `github.com`, `objects.githubusercontent.com`, `release-assets.githubusercontent.com`) | the firmware installer, on *Install / update arduino-cli* | a GET of a version string's release archive and its checksums | an entry in `TOOL_SOURCES` and `RELEASES_*` |
+| `files.openscad.org` | the OpenSCAD installer, on `apothecary openscad install` | a GET of a snapshot archive named by its date | an entry in `TOOL_SOURCES` |
 | `downloads.arduino.cc` | arduino-cli, on a core or library install | the index and archive names it needs | arduino-cli's own `directories`/index settings in `ARDUINO_CLI_CONFIG` |
 | `espressif.github.io`, `arduino.esp8266.com`, `github.com` (rp2040 index) | arduino-cli, on a third-party core install | the index and archive names | an entry in `PACKAGE_INDEXES` |
 | Arduino's cloud board API (`api2.arduino.cc`) | nothing: off by `ARDUINO_CLI_CONFIG` | -- | -- |
@@ -415,7 +426,7 @@ What this record does not close, and what would show it:
   person who wants a rendered API page renders it from that file with a
   tool on their machine.
 - The firmware page's *Install / update arduino-cli* still works: it is
-  the one tool fetch, in the server process, on its own thread, to the
+  a tool fetch, in the server process, on its own thread, to the
   fixed hosts. Core and library installs are arduino-cli's own fetches
   from the hosts in its managed config. A person's own
   `~/.arduino15/arduino-cli.yaml` -- an extra index, a proxy -- has no
