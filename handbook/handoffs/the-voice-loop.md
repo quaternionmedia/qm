@@ -66,6 +66,14 @@ second with no engine, no model and no hardware.
   defect was fixed in `vox` by pinning `newline="\n"` in the writers.
 - **`dossier`'s `db-backups/` is not ignored.** It is empty, so nothing is
   tracked today; a backup written there would appear as untracked.
+- **`qm estate` reports a compliant repository as over its slot limit.**
+  It counts open pull requests per contributor without the `project/*`
+  exemption that `check_one_pr.py` applies, so `qm` reads `2 OVER` while the
+  gate reads *every contributor holds at most one slot* and exits 0. The
+  exception registry names `ci/harness_status.py` and
+  `project-seed/ci/cowork_context.py` as the callers that default the
+  exemption; `ci/estate.py` is not among them. *Done* is the reader and the
+  gate agreeing, or the registry saying why they should not.
 - **The human loop is not built** — speaking an instruction, an agent
   acting, the result spoken back. `qmcp human voice` is its approval case,
   and the harness beneath it is now deterministic enough to iterate on.
