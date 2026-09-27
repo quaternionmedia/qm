@@ -55,7 +55,7 @@ commit, or leaves.
 | The structural pass over the records | `uv run qm review` | 30 findings, 12 of them universals to read by hand and 7 dangling citations |
 | Generated documents | `uv run qm docs check` | exit 1: `status/documents.yaml` has drifted |
 | Leaks | `uv run qm leaks` | clean |
-| Test yield, each minutes long: run in the background | `uv run --extra dev qm posture`, `uv run --extra dev qm mutate` | last baseline `.qm-posture.json`, 2026-08-21; no workflow runs either |
+| Test yield, each minutes long: run in the background | `uv run --extra dev qm posture`; then `uv run --extra dev qm mutate <module>` per guard posture ranks lowest, with `--tests <suite>` where the module's tests live elsewhere (bare `qm mutate` exits 2: `module` is required) | last baseline `.qm-posture.json`, 2026-08-21; no workflow runs either |
 | The command surface | `uv run qm --help` | 48 subcommands |
 | Weight | `git ls-files ci records` | `ci/` modules 21,535 lines, `ci/tests` 15,494, twelve `*-registry.yaml` plus three other `ci/*.yaml`; 39 records |
 | The entry path | follow `handbook/forking-a-project.md` into a scratch repository and run its gates; for each rule in `AGENTS.md`, a branch that violates it | not run: which gate exits non-zero for which rule |
