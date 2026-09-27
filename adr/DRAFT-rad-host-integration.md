@@ -99,10 +99,17 @@ standard for every ring it draws.** The specifics:
    from what the page says it is pointing at (`POST /menu/resolve`), with
    every option returned in its cell:
    - the **node ring**, on a piece: zoom in, move, a Device option when a
-     board is pinned to the piece (absent, not greyed, when none is), a Word
-     option when the piece came from a picture, get shape, why this;
+     board is pinned to the piece (absent, not greyed, when none is), why
+     this, into and up where they lead somewhere; on a root structure that
+     can hold a picture, a **Camera** group (pin here, live or still, look,
+     keep, unpin) and a **Picture** group (add, the folder's pictures, its
+     looks, make -- make all and each found shape --, size, find, unpin,
+     forget); on a piece made from a picture, a Picture group with its word
+     and drop;
    - the **canvas ring**, on empty scene: arrangements and groups (each a
-     further ring, lettered into groups of eight when longer), fit, reset;
+     further ring, lettered into groups of eight when longer), the made
+     pieces under one Made option, a **Pictures** group (add, the floor's
+     camera and picture groups under Floor, purge, gather), fit, reset;
    - the **device ring**, on a board: watch, poll, monitor, query, pin or
      unpin, rescan, and — for a printer only — a **control ring** behind it:
      heat, home, jog (seated so the keypad *is* the jog pad: Y+ up, X+
@@ -110,7 +117,10 @@ standard for every ring it draws.** The specifics:
      off, stop (marked destructive), arm or disarm. On the monitor page the
      device ring is the top ring, titled by the port.
 
-   Every device and control verb is the viewer's to carry out
+   Making a piece from a shape, making them all, dropping a made piece and
+   changing its word change the arrangement, and the server carries them
+   through the intent route, as it carries reset; every other camera and
+   picture verb is the viewer's. Every device and control verb is the viewer's to carry out
    (`CARRIED_BY`): the ring hands the choice to the handler the page already
    has, the monitor's control chain checks the latch and the allowlist, and
    the intent route never opens a port. An option with nothing behind it is
