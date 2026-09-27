@@ -1,118 +1,143 @@
-# Handoff — the voice loop: what landed, and the one thing that did not
+# Handoff — the voice loop, and the three-process development environment
 
-**Stamped 2026-09-27.** `qm` `main` at `d6dc5cd`; `vox` `main` at `1746485`;
-`joe` `main` at `03839f6`; `qmcp` `main` at `d834916` with
-`feat/voice-interaction` pinning vox at that same `1746485`. Every figure here was true at those
-commits and nowhere else. Re-derive before acting on any of it.
+**Stamped 2026-09-27.** `qm` `main` at `d6dc5cd`; `vox` `main` at `d54a7f7`;
+`joe` `main` at `6e1ad16`; `qmcp` `main` at `d834916`; `dossier` `main` at
+`d42967a`. Every figure here was true at those commits and nowhere else.
+Re-derive before acting on any of it.
 
-`vox` and `joe` carry no `governance/qm` submodule, and `vox` is on no roster.
-The cross-repository state is therefore recorded here and nowhere else.
-`vox/HANDOFF.md` is the per-repository page and holds the verification
-commands.
+`vox` and `joe` carry no `governance/qm` submodule and `vox` is on no roster,
+so the cross-repository state is recorded here and nowhere else.
+[`hil-review-2026-09-27.md`](hil-review-2026-09-27.md) is the companion:
+what is waiting on a person, in the order it wants deciding. Nothing in this
+page is a decision.
 
 ---
 
-## 0. State
+## 0. What landed
 
-| Repository | Pull request | Outcome |
+Six pull requests merged, all in repositories outside the corpus.
+
+| Repository | Merged | What it carries |
 |---|---|---|
-| `joe` | #8 — the application | merged, `e32eb73` |
-| `joe` | #9 — speech analysis | merged, `fa0ce67` |
-| `vox` | #1 — the deterministic loop | merged, `a9d7988` |
-| `vox` | #2 — artifacts written as LF | merged, `1746485` |
-| `qmcp` | #38 — voice-answered HITL | **open, ready, green, unmerged** |
-| `joe` | #10 — the Python suite in CI | merged, `03839f6` |
+| `joe` | #8, #9 | the application, and the two lines reconciled; speech analysis; filename hardening extended to the voice route |
+| `joe` | #10 | the Python suite in CI, on Windows, where it had never run anywhere |
+| `joe` | #11 | input-device selection, and recording at a rate devices accept |
+| `vox` | #1, #2 | the deterministic closed loop; artifacts written LF and mutated files restored byte-for-byte |
+| `vox` | #3 | the engine contract as a value; every product name moved to `vox.adapters` |
+| `vox` | #4 | an offline synthesizer, and a live loop that creates its own input |
 
-`joe`'s two lines are reconciled. `main` had diverged from the application's
-branch at `a9685fc` (2024-04-19) and carried one commit since — the one adding
-`.github/`. The merge kept both workflow files and produced a tree where
-`uv run --frozen pytest tests/` reports 80 passed and `npm ci && npm run build`
-both exit 0.
+**The full round trip runs.** Text through a real synthesizer, through
+whisper, back out and back in:
 
-`vox` is now **public**. It was created private, which is why every check on
-`qmcp` #38 had failed since 2026-09-22: a public repository's runner cannot
-clone a private submodule. Five failures, one cause.
+```
+uv run vox loop --echo-dir <engine's audio dir> --say "ship it on friday"
+  heard:  'Ship it on Friday.'
+  echoed: 'Ship it on Friday.'
+  closed: True
+```
 
-## 1. What remains
+`uv run vox loop --offline` closes the same loop in about two thirds of a
+second with no engine, no model and no hardware.
 
-**`qmcp` #38 is one click.** It is no longer a draft, its checks pass, and its
-vox pin is that repository's current `main`. Merging it is the last step of
-the chain above, and the only one an agent could not perform: the merge was
-refused by a guard on merging without review.
+## 1. What remains, and what done looks like
 
-Unfinished work, each with what done looks like:
-
-- **The live half is unproven by anything automatic.** No test starts a real
-  joe and drives whisper, and none drives real `pyttsx3`. The offline engine is
-  a codec wearing joe's HTTP contract: the seam is proven, transcription
-  accuracy is not. *Done* is a recorded run of `uv run vox loop` without
-  `--offline` against a live backend, with the transcript kept beside the
-  claim.
+- **`joe` cannot record on several host APIs.** The rate fix changed
+  WASAPI's complaint from `Invalid sample rate` to `Invalid device`, and
+  MME and DirectSound return errors naming no cause. *Done* is one device
+  on each host API recording a non-silent second, or the reason written
+  down.
+- **`joe` carries two Python lockfiles.** `pdm.lock` is from 2024-12-29 and
+  nothing reads it; `uv.lock` is current. `requirements.txt` is a third
+  list and omits `httpx`, which `pyproject.toml` declares. *Done* is one
+  source of truth and the others deleted.
 - **`joe` composes paths with literal backslashes.**
-  `Modules/utilities.py` builds `f"{current_path}\Data\Output\{iteration}\MIDI\\"`,
-  which is one filename component on Linux rather than a directory structure,
-  and is also the source of `invalid escape sequence` warnings that a later
-  Python raises. Six tests in `tests/test_main.py` fail on `ubuntu-latest` for
-  this one reason; 74 pass. The merged workflow runs on `windows-latest`
-  and reports 80 passed. *Done* is those paths going through `pathlib`, after
-  which that workflow can become a matrix instead of Windows only.
+  `Modules/utilities.py` builds `f"{current_path}\Data\Output\..."`, which
+  is one filename component on Linux and the source of `invalid escape
+  sequence` warnings a later Python raises. Six tests fail on
+  `ubuntu-latest` for this one reason; 74 pass. *Done* is `pathlib`, after
+  which `joe` #10's workflow can become a matrix instead of Windows only.
 - **`joe`'s Playwright suite runs nowhere.** `tests/e2e/` needs browser
-  binaries and a live server, and neither is set up. The Python suite is
-  covered by `joe` #10, the first workflow in that repository to read any
-  Python. *Done* for the E2E half is a workflow that has been watched going
-  red.
-- **The human loop is not built** — speaking an instruction, an agent acting,
-  the result spoken back. `qmcp human voice` is its approval case. The harness
-  was built first so this has something deterministic to iterate against.
-- **`qmcp`'s 11 skipped tests are not a pass.** They are unexamined, and that
-  repository's tag-determinism gate treats skips as a failure at tag time.
+  binaries and a live server. *Done* is a workflow watched going red.
+- **`dossier`'s suite rewrites four files with platform line endings** on
+  every run — `docs/rad-commands.md` and three SVGs — and re-encodes a GIF
+  by nine bytes, so `git status` shows drift that is not drift. The same
+  defect was fixed in `vox` by pinning `newline="\n"` in the writers.
+- **`dossier`'s `db-backups/` is not ignored.** It is empty, so nothing is
+  tracked today; a backup written there would appear as untracked.
+- **The human loop is not built** — speaking an instruction, an agent
+  acting, the result spoken back. `qmcp human voice` is its approval case,
+  and the harness beneath it is now deterministic enough to iterate on.
 
-## 2. Blocked on a person
+## 2. The development environment
 
-- **Whether `vox` joins the roster, and in which family.** It appears in no
-  `ci/workspace.yaml` entry and no `families.json` member list. Membership is a
-  claim a person makes and is never inferred.
-- **Whether `joe` should carry the corpus.** Without a `governance/qm`
-  submodule none of the gates, the slot check or `/cowork` reach it.
-- **The torch subtree.** `joe`'s lock grew from 82 packages to 113 and the 31
-  added are torch, triton and CUDA — the subtree `00d8077` had removed. They
-  were unused leftovers then and are load-bearing now, so re-adding them does
-  not undo that commit. A lean default install and a working `joe voice` can
-  both be had through an optional `voice` extra. That is a decision and was
-  left as one.
+Three processes on one workstation, in clones that cannot import each
+other. `dossier dev doctor` is the preflight and rides `dossier` #58;
+`dossier/docs/dev-loop.md` is the page.
 
-## 3. What no check covers
+| Role | Clone | Port | Moved by |
+|---|---|---|---|
+| harness | `qmcp` | 3141 | `DOSSIER_HARNESS_PORT` |
+| panel | `dossier` | 1618 | `DOSSIER_PORT` |
+| maps | `codecartographer` | 2718 | `CODECARTO_PORT` |
+| speech | `joe` | 8000 | `JOE_PORT` |
+
+The allocation is declared once in `dossier/src/dossier/threads.py`. Only
+the harness is required. 8000 is the one to move first when two loops run
+at once: it is the port anything grabs, and the one `dossier`'s `seam-port`
+diagnostic exists because of.
+
+**Set `DOSSIER_DATABASE_URL` before running `dossier`'s suite.**
+`pytest_configure` shells `dossier dev purge` against whatever database the
+CLI resolves. Measured 2026-09-27: 0 of 117 project rows in the working
+database match any purge pattern, so a run that day destroyed nothing — and
+several of the patterns are ordinary words such as `user/` and `doc/`.
+
+## 3. Audio capture on this workstation
+
+Measured 2026-09-27. None of it is visible in a device listing:
+
+- **20+ input devices across four host APIs**, with the same microphone
+  appearing four times under a byte-identical name.
+- **The backend default is a capture card**, not a microphone.
+- **Every device is natively 44100 or 48000 Hz.** Opening one at 16000
+  failed on all four APIs, including the default — the path `record()` took
+  before #11.
+- **WDM-KS devices open without error and return garbage**: samples around
+  `-2e38`, or NaN.
+
+`joe voice level --every` records briefly from each input and reports peak
+and RMS. Speak while it runs; the one that moves is the one to set as
+`JOE_INPUT_DEVICE`.
+
+## 4. What no check covers
 
 - **No workflow runs `qm private-names`.** `registries.yml` excludes it
-  deliberately, because its admission test is that a check reads committed
-  files and nothing else, and this one reads a gitignored companion or the
-  forge. The consequence was observed rather than theorised: a handoff page
-  naming a private repository was committed and pushed to a public one, and
-  every gate on that pull request was green. The docstring claiming CI runs it
-  has been corrected; the gap is stated rather than closed, because closing it
-  means either a gate that reds a pull request for a reason its author cannot
-  fix, or a runner credentialed to enumerate the organisation's private
-  repositories.
+  deliberately: its admission test is that a check reads committed files and
+  nothing else, and this one reads a gitignored companion or the forge. A
+  private repository name reached a public repository through that gap on
+  2026-09-27, and was resolved by making the repository public rather than
+  by redacting.
 - **Nothing detects a public repository vendoring a private submodule.**
-  `check-submodule-refs` fails on it, but reports it as a possibly-unpushed
-  pin, and names the ambiguity in its own error text rather than resolving it.
-  Draft status kept that red invisible for five days.
-- **The path-escape case `..\outside.wav` is weaker on Linux**, where a
-  backslash is an ordinary filename character and the 404 means *absent* rather
-  than *refused*. The `../` cases exercise containment on both, and the
-  mutation dropping the containment check is caught by those.
+  `check-submodule-refs` fails on it and reports it as a possibly-unpushed
+  pin, naming the ambiguity in its own error text and giving the command
+  that distinguishes them.
+- **`vox`'s path-escape test is weaker on Linux**, where a backslash is an
+  ordinary filename character and the 404 means *absent* rather than
+  *refused*.
+- **No test asserts what the synthesizer sounds like**, and none can. That
+  whisper cannot read it is measured against a live engine, with a control,
+  and recorded as `vox.synth.SPEECH_IS_NOT_TRANSCRIBABLE`.
 
-## 4. Standing constraints
+## 5. Standing constraints
 
 - *Keep everything local* is **not** in force.
-- **`joe`'s `package-lock.json` is dirty and was dirty on arrival** — +387/−201,
-  on no branch. It was stashed for the rebase and restored to that exact state.
-  It is uncommitted by decision, not by oversight.
-- **Merged branches were not deleted.** `handbook/handoffs/README.md` places
-  branch deletion outside what a handoff authorises, so `docs/onboarding-hardening`
-  and `feat/voice-interaction` remain.
-
----
-
-*Only the repositories above were audited. Other pages in this directory were
-not checked against `main`, so their queue rows stand as they were.*
+- **`vox` is public as of 2026-09-27.** It was created private, which is why
+  every check on `qmcp` #38 failed from 2026-09-22 onward: a public
+  repository's runner cannot clone a private submodule.
+- **`joe` now publishes to GitHub Pages.** Merging #8 brought the
+  application onto a `main` that already carried `deploy.yml`, so a push
+  builds the frontend and deploys it. Three files are published and none
+  carries anything personal. Named here because it was not obvious before
+  the merge.
+- **Merged branches were not deleted** where `handbook/handoffs/README.md`
+  places deletion outside what a handoff authorises.
