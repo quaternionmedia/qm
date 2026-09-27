@@ -40,7 +40,7 @@ redo it.
 ## Before you start
 
 - **A direct request, carried verbatim.** The owner's charge goes, word for
-  word, into every brief. It sets the bar, and it is what a skeptic tests a cut
+  word, into every audit and skeptic brief. It sets the bar, and it is what a skeptic tests a cut
   against. Briefs are working files; the charge is never committed.
 - **Scripts measure; readers judge.** Phase 0 is scripts. Reading an area for
   what it costs is judgement a script cannot give, and that is the stated
@@ -51,8 +51,8 @@ redo it.
 - **Every launch states its count first.** How many skeptics and workers run
   depends on what the audit finds, so each phase's count, retries included, is
   shown and confirmed before that phase launches, never reported after it
-  (`records/DRAFT-no-unattended-spending.md` §2). *What it costs*, below, is
-  the scale to expect.
+  (`records/DRAFT-no-unattended-spending.md` §2). Budget the lead's day as
+  well as the workers'; the first run's scale is in apothecary #22's body.
 - **The four facts** from `AGENTS.md`: the commit and branch, the pull request
   slot, what else is in flight, which gates exist. Start from the tip of work
   already in flight and stack on it, rather than from a `main` it is about to
@@ -93,8 +93,7 @@ None is required, and where one disagrees with this page, this page wins.
   raw output in a file.
 - **The entry path, run.** Follow the README's own first example. Build the
   package from a clean copy and install it into an empty environment. Feed the
-  CI gate a suite that errors and read its exit status directly. In the first
-  run these three produced the worst findings of the whole review.
+  CI gate a suite that errors and read its exit status directly.
 
 Auditors read these files and re-run nothing. One shared profile keeps every
 area's numbers comparable and keeps the machine for the work.
@@ -179,10 +178,8 @@ It returns `{refuted, reason, correction, evidence}`. A finding that is right
 but overstated is upheld, with the correction the triage must apply. Skeptics
 are cheap because the evidence field tells them where to look.
 
-Send them deletions and nothing else. In the first run a broader trigger
-(anything destructive, or anything severe) multiplied the count several times
-over and was stopped before it ran; the narrow one still caught the cut a
-skeptic exists to stop, a deletion of something another repository depends on.
+Send them deletions and nothing else: a broader trigger multiplies the count
+without catching more.
 
 ### 4 — Triage into workstreams
 
@@ -239,8 +236,8 @@ landed branch is appended to the `adjust` of a workstream not yet started.
 - **Commits** are small and each is green. The subject is one sentence saying
   what is now true; the body says why, with evidence. The repository's
   contributorship rule holds: in this estate the owner is the author, no
-  co-author trailer, no tool as author, and a `Tools:` line naming the
-  workstream.
+  co-author trailer, no tool as author, and a `Tools:` line naming the tool
+  and the workstream.
 - **Owned files only.** A test elsewhere that must follow a behaviour change is
   changed and named in the notes. Format and auto-fix only the files you
   changed, never a directory. Never stage a submodule pin.
@@ -274,7 +271,7 @@ commits get the same ladder.
 |---|---|
 | Before (phase 0) | sizes; a per-test profile per tier; CI's duration from the host; the entry path; the package built and installed clean; the gate fed a failure; lint, advisories, dead code |
 | Each commit (worker) | the brief's checks; the fast tier; the slow-suite files touched, then the slow suite once, in its lane; each new test seen failing on the base |
-| Each merged tip (lead) | every tier; lint; licence compliance and the dependency audit, where they exist; the package installed into an empty environment and exercised; the repository's own run-everything command, its exit status read directly and never through a pipe; no co-author trailer in the branch's history; submodule pins unchanged; generated artifacts regenerated only after rebuilding what they are made from |
+| Each merged tip (lead) | every tier; lint; licence compliance and the dependency audit, where they exist; the package installed into an empty environment and exercised; the repository's own run-everything command, its exit status read directly and never through a pipe; no co-author trailer in the branch's history; every commit signed where the repository gates it (`git log --format='%G? %h %s' <base>..<tip>`, no `N`); submodule pins unchanged; generated artifacts regenerated only after rebuilding what they are made from |
 | After (final tip) | the before measurements, repeated the same way, and CI's own run on the pull request |
 
 One pull request carries the whole review, from a branch in the repository's
@@ -364,52 +361,10 @@ A repository that is quiet, has no consumer and has no stated attention gets
 **triage only**: one sitting that ends in a keep, archive or adopt proposal for
 the owner, not an audit.
 
-## What it costs
-
-*The first run, stamped: apothecary, base `1835b47`, delivered as apothecary
-#22 on 2026-09-26, on a four-core machine running two sessions at a time. An
-example, not a promise.*
-
-| | |
-|---|---|
-| Ask to a green pull request | about ten hours of wall clock |
-| Audit | 11 areas; 189 findings and 132 keep lines; about 250 reader-minutes, killed attempts included |
-| Skeptics | 45, on deletions: 44 upheld, every one with a correction; 1 refuted |
-| Lead fixes during the audit | 14 commits, closing 33 findings |
-| Triage | 21 workstreams owning 195 files; 20 not-now; 28 keep |
-| Execution | two runs; 20 workstreams by workers and 1 by the lead; 35 steps skipped, each with a reason |
-| Spend | about 11 M tokens and 5,000 tool calls for audit and execution; 2.6 M tokens more for the owner's follow-ups |
-| Result | net −12,188 lines; unit tier ~245 s → 32 s; browser tier ~362 s → ~217 s; CI from one serial job of about ten minutes to two parallel jobs, the longer under five |
-
-The lead is busy throughout: reproducing, fixing, reading each branch,
-integrating. Budget the lead's day as well as the workers'.
-
-## What the first run found
-
-| What went wrong | What the phases above now say |
-|---|---|
-| A skeptic for every destructive or severe finding queued over a hundred behind a cap of two | skeptics on deletions only, cheaply, skipping the done list |
-| Readers and workers running long suites in the foreground were killed as hung, most heavily in the browser lane | background anything long and poll it; time-limit foreground commands; run a slow suite file by file |
-| One worker that ran out of retries failed the whole run, killing another lane mid-flight | a worker's failure fails its own workstream only |
-| Network drops cost a workstream, a fix round, and the lead's session for over an hour | workers run on without the lead; dead worktrees are salvaged as patches; small workstreams are redone by hand |
-| A retry inherited the dead attempt's dirty worktree; one attempt finished the work and never reported | build on an existing branch, inspect leftovers, report what was already done |
-| The tool's isolation guard refused compound shell lines; its permission guard refused bulk deletions | plain, literal commands, one per call; a refused deletion is run by the lead and the commit says so |
-| Briefs went stale as other branches landed | re-locate by content; check whether a step is done; append follow-ups to `adjust` |
-| The triage put an owner's question inside a step | the lead decides the interim in `adjust` and asks the owner |
-| A test outside a workstream's files had to follow a behaviour change; one merge conflict at integration | allowed, with a note; the conflict resolved by the owning workstream's intent |
-| The lead's own fixes broke a pinned test, nested links and a command's error path | the full ladder after every batch of lead commits |
-| Test runs dirtied the tree: byte noise in screenshots, a real device in a picture, pictures from stale builds | a pixel tolerance, fixed layout, fake hardware, rebuild before regenerating |
-| A fix round died, the script read that as nothing to fix, and the gate passed the unfixed tip | an empty or failed fix round stops the loop and escalates |
-| Three review lenses reported one defect three times | deduplicate before fixing |
-| Savings estimates summed to more than twice what was removed | rank by them; report only measured numbers |
-| CI did not run on the stacked pull request | confirm it runs; widen the trigger if the base is filtered out |
-| The pull request body put the owner's open questions to him in the second person, and the project carried no voice check to refuse it | questions are asked in the session; the body records the decisions |
-
 ## What this page does not authorise
 
 Launching parallel sessions without a direct request, or past a stated count.
 Taking a decision that is on the owner's list. Ratifying anything; the code for
-a governance decision waits for ratification. Merging to `main` or to a
-`project/*` branch without the owner's word in the session. Deleting a branch,
+a governance decision waits for ratification. Deleting a branch,
 force-pushing, or rewriting a branch a submodule pins. Opening anything on the
 never-touch list.

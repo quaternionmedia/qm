@@ -31,7 +31,8 @@ RULES (non-negotiable):
 ## 1. `design-review-audit`: phases 1 and 3
 
 `args`: `{ repo, commit, scratch, purpose, outOfScope, charge, rules, areas:
-[{key, brief}], done: [id], doneNote, skepticCap }`. `skepticCap` is the
+[{key, brief}], done: ['area:id'], doneNote, skepticCap }`. Each `done`
+entry is `area:id`, the runbook's join key; a bare id matches nothing. `skepticCap` is the
 count the owner confirmed. Deletions past it are returned unverified rather
 than launched; confirm a new cap and resume from the run id, and the audits
 replay from cache.
@@ -198,6 +199,9 @@ LENS ${l.key}: ${l.text}
 Only real defects, each with evidence you produced by running something, and a concrete fix. Empty is an answer.
 ${tail}`, { label: `review:${l.key}`, phase: 'Review', isolation: 'worktree', schema: FOUND })
   .then((r) => r && { lens: l.key, ...r })))).filter(Boolean)
+// A lens that died is not a lens that found nothing.
+const lost = A.lenses.filter((l) => !reviews.some((r) => r.lens === l.key)).map((l) => l.key)
+if (lost.length) return { stopped: 'review', lost, tip, reviews }
 let found = reviews.flatMap((r) => r.findings.map((f) => ({ lens: r.lens, ...f })))
 for (let round = 1; round <= 3; round++) {
   if (found.length) {
@@ -211,7 +215,7 @@ ${tail}`, { label: `fix:r${round}`, phase: 'Fix', isolation: 'worktree', schema:
     if (!r || r.status === 'failed' || !r.branch) return { stopped: `fix round ${round}`, tip, open: found, reviews }
     tip = r.branch
   }
-  const g = await agent(`Final gate, in a fresh worktree of ${A.repo}: git switch --detach ${tip}. Fix nothing. Run and report each with its actual outcome: ${A.all}; the behaviour the spec promises, exercised; git log --format=%B ${A.base}..${tip} | grep -ci co-authored-by (expect 0); git diff --stat ${A.base}..${tip}. Findings are only failures you saw.
+  const g = await agent(`Final gate, in a fresh worktree of ${A.repo}: git switch --detach ${tip}. Fix nothing. Run and report each with its actual outcome: ${A.all}; the behaviour the spec promises, exercised; git log --format=%B ${A.base}..${tip}, counting Co-authored-by lines yourself (expect 0); git log --format='%G? %h %s' ${A.base}..${tip} (expect no N where the repository gates signatures); git diff --stat ${A.base}..${tip}. Findings are only failures you saw.
 SPEC: ${A.spec}
 ${tail}`, { label: `gate:r${round}`, phase: 'Gate', isolation: 'worktree', schema: FOUND }).catch(() => null)
   if (!g) return { stopped: `gate round ${round}`, tip, open: found, reviews }

@@ -1,14 +1,14 @@
 ---
 name: design-review
 description: Drive the QM corpus's design-review runbook with this CLI's Workflow tool - measure, audit by area with evidence, a skeptic on every deletion, triage into file-disjoint workstreams, execute in worktree lanes, integrate, and deliver one pull request with a verdict.
-argument-hint: "[repository path or owner/name] [--plan-only]"
+argument-hint: "[--plan-only]"
 disable-model-invocation: true
 ---
 
 # /design-review
 
-Target: **$ARGUMENTS** (none means the repository this session is in;
-`--plan-only` stops after the triage and reports in the session).
+Target: the repository this session is in. `--plan-only` stops after the
+triage and reports in the session.
 
 This file is a convenience over a method it does not own. The method is
 `handbook/design-review-runbook.md` in the QM corpus, and the queue in
@@ -19,6 +19,8 @@ particular to driving the method with this CLI.
 
 ## Read first
 
+- **Run from a checkout of the target itself.** Workers get worktrees of the
+  session's repository; to review another, clone it and start the session there.
 - **The runbook, in full.** In a qm checkout, `handbook/design-review-runbook.md`;
   in an adopting project, `governance/qm/handbook/design-review-runbook.md` if
   its pin carries it; otherwise from the host with
@@ -43,13 +45,12 @@ block first: start, predicted end, kill time, purpose.
 | Final lane | `design-review-execute` again, stacked on the others' tips | docs, then CI |
 | Each owner decision that changes code | `design-review-change` | a build, one per lens, and up to three fix and gate rounds |
 
-Count the runtime's own restarts in: in the first run (apothecary #22,
-2026-09-26), fifteen workstreams took thirty-three starts.
+Count the runtime's own restarts in: a workstream can take more than one start.
 
 ## What this CLI does to a long run
 
-- **Concurrency** is capped at the CPU count less two: two agents at a time on a
-  four-core machine. Plan the wall clock with that, not with the agent count.
+- **Concurrency** is capped at the CPU count less two. Plan the wall clock from
+  the cap, not the agent count.
 - **An agent silent for about three minutes is killed** and restarted, the
   threshold growing with each retry. Every prompt carries the background-and-poll
   rule; the RULES block in [orchestration.md](orchestration.md) has it.

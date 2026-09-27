@@ -27,7 +27,8 @@ entirely. Nothing checks for them.
 | `status` | what is in flight across the org |
 | `skills/design-review/` | `handbook/design-review-runbook.md`, driven with the CLI's workflow tool; `orchestration.md` holds the scripts |
 
-The skill is linked the same way, as a directory, into `.claude/skills/`:
+Unlike the commands, the skill is not linked in this corpus. To use it here or
+in a project, link it as a directory into `.claude/skills/`:
 
 ```sh
 mkdir -p .claude/skills
