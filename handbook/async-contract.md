@@ -224,6 +224,7 @@ matters most**:
 |---|---|---|
 | `.vscode/settings.json`, `.vscode/extensions.json` | `120000` | `project-seed/ide/.vscode/…` |
 | `.claude/commands/*.md` | `120000` | `adapters/claude-code/commands/…` — optional, outside the seed |
+| `.claude/skills/design-review` | `120000` | `adapters/claude-code/skills/design-review/` — a directory; optional, outside the seed |
 | `CLAUDE.md`, `.github/copilot-instructions.md` | `120000` | the **root** `AGENTS.md` — not the seed |
 | `AGENTS.md` | `100644` | **a second, genuinely different document** |
 

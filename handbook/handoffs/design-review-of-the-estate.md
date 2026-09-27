@@ -27,7 +27,8 @@ runbook, then this page. Nothing else first.
   is in the `dev` extra: bare `uv run qm test` exits 1 with `No module named
   pytest`. Every `uv run` below that runs tests carries `--extra dev`.
 - **The adapter.** With Claude Code, `adapters/claude-code/skills/design-review/`
-  drives the runbook; it is not linked here, so link it per
+  drives the runbook, linked here as `.claude/skills/design-review`, so
+  `/design-review` works in a clone of qm; a project links it per
   `adapters/claude-code/README.md`.
 - **The four facts.** At the stamp, `uv run qm slot --repo quaternionmedia/qm
   --per-base 'project/*'` showed the `main` slot free and one draft, #121 into

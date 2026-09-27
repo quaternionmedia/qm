@@ -27,12 +27,23 @@ entirely. Nothing checks for them.
 | `status` | what is in flight across the org |
 | `skills/design-review/` | `handbook/design-review-runbook.md`, driven with the CLI's workflow tool; `orchestration.md` holds the scripts |
 
-Unlike the commands, the skill is not linked in this corpus. To use it here or
-in a project, link it as a directory into `.claude/skills/`:
+The skill is linked in this corpus as a directory, `.claude/skills/design-review`,
+so a clone of qm has `/design-review` with no setup. A project that vendors the
+corpus links the same directory once, and it follows the governance pin from
+then on:
 
 ```sh
 mkdir -p .claude/skills
-ln -s ../../adapters/claude-code/skills/design-review .claude/skills/design-review
+ln -s ../../governance/qm/adapters/claude-code/skills/design-review .claude/skills/design-review
+```
+
+The link resolves once the project's pin carries the skill. A machine that
+wants it in every repository links a qm clone's copy into its user-level skills
+directory:
+
+```sh
+mkdir -p ~/.claude/skills
+ln -s <qm clone>/adapters/claude-code/skills/design-review ~/.claude/skills/design-review
 ```
 
 Each is prose instructing a model, so each is a habit written down rather than a
