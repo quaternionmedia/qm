@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-21T01:44:38Z",
+  "generated_at": "2026-09-27T23:39:22Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-21T01:44:37Z"
+        "generated_at": "2026-09-27T23:39:21Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 130,
+    "loose_ends": 132,
     "by_kind": {
       "blind-spot": 19,
       "document-proposed": 36,
-      "document-unreviewed": 57,
+      "document-unreviewed": 59,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 130,
+    "open": 132,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -879,6 +879,22 @@
       "title": "perspectives/2026-09-20-the-web-window-first-slice.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-web-window-first-slice",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-21-landing-the-slice",
+      "title": "perspectives/2026-09-21-landing-the-slice.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-21-landing-the-slice",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-27-the-voice-loop",
+      "title": "perspectives/2026-09-27-the-voice-loop.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-27-the-voice-loop",
       "address_parses": true
     },
     {
