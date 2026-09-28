@@ -319,94 +319,58 @@ def test_offline_asks_nothing_of_the_host(tmp_path, monkeypatch):
     assert any("as of the last fetch" in n for n in repo.notes)
 
 
-def test_online_counts_the_current_user_s_open_pull_requests_drafts_included(
-        tmp_path, monkeypatch):
-    """Two open, one of them a draft, is over the one-PR slot. The draft
-    counts because it holds the slot like any other."""
+def _gh_returning(prs):
+    def fake_gh(args, cwd):
+        return subprocess.CompletedProcess(args, 0, stdout=json.dumps(prs), stderr="")
+    return fake_gh
+
+
+def test_online_asks_for_the_current_user_s_open_pull_requests(tmp_path, monkeypatch):
+    """Two parallel pull requests, both ready, are within the rule."""
     work = clone_pair(tmp_path, "r")
     asked: list[list[str]] = []
+    prs = [{"number": 1, "headRefName": "a", "isDraft": False, "baseRefName": "main"},
+           {"number": 2, "headRefName": "b", "isDraft": False, "baseRefName": "main"}]
 
     def fake_gh(args, cwd):
         asked.append(args)
-        body = json.dumps([{"number": 1, "headRefName": "a", "isDraft": False},
-                           {"number": 2, "headRefName": "b", "isDraft": True}])
-        return subprocess.CompletedProcess(args, 0, stdout=body, stderr="")
+        return _gh_returning(prs)(args, cwd)
 
     monkeypatch.setattr(estate, "run_gh", fake_gh)
 
     repo = survey_one(work, online=True)
 
     assert asked and asked[0][:2] == ["pr", "list"] and "@me" in asked[0]
+    assert "baseRefName" in asked[0][-1]
     assert len(repo.open_prs) == 2
-    assert repo.over_slot
+    assert repo.stacked_ready == []
+    assert "STACKED" not in estate.render([repo], online=True)
+
+
+def test_a_ready_pull_request_stacked_on_another_is_flagged(tmp_path, monkeypatch):
+    """The reader agrees with the gate: ready with an open parent is flagged."""
+    work = clone_pair(tmp_path, "r")
+    monkeypatch.setattr(estate, "run_gh", _gh_returning([
+        {"number": 1, "headRefName": "a", "isDraft": False, "baseRefName": "main"},
+        {"number": 2, "headRefName": "b", "isDraft": False, "baseRefName": "a"},
+    ]))
+
+    repo = survey_one(work, online=True)
+
+    assert [p["number"] for p in repo.stacked_ready] == [2]
     text = estate.render([repo], online=True)
-    assert "2 OVER" in text
-    assert "#2 b draft" in text
+    assert "2 STACKED" in text
+    assert "ready but stacked: #2 b -> a" in text
 
 
-def test_a_project_base_holds_its_own_slot_in_the_corpus(tmp_path, monkeypatch):
-    """The reader agrees with the gate: `check_one_pr.py --per-base project/*`
-    gives each project/* base its own slot in the corpus, so one pull request
-    into main beside one into project/x is compliant, not 2 OVER."""
+def test_a_stacked_draft_is_within_the_rule(tmp_path, monkeypatch):
     work = clone_pair(tmp_path, "r")
+    monkeypatch.setattr(estate, "run_gh", _gh_returning([
+        {"number": 1, "headRefName": "a", "isDraft": False, "baseRefName": "main"},
+        {"number": 2, "headRefName": "b", "isDraft": True, "baseRefName": "a"},
+    ]))
 
-    def fake_gh(args, cwd):
-        body = json.dumps([
-            {"number": 1, "headRefName": "a", "isDraft": False,
-             "baseRefName": "main"},
-            {"number": 2, "headRefName": "b", "isDraft": True,
-             "baseRefName": "project/apothecary"},
-        ])
-        return subprocess.CompletedProcess(args, 0, stdout=body, stderr="")
-
-    monkeypatch.setattr(estate, "run_gh", fake_gh)
-    entry = {"name": work.name, "paths": [work.name], "role": "corpus"}
-    repo = estate.survey([entry], [work.parent], online=True)[0]
-
-    assert len(repo.open_prs) == 2
-    assert not repo.over_slot
-    assert "OVER" not in estate.render([repo], online=True)
-
-
-def test_two_into_one_project_base_are_still_over(tmp_path, monkeypatch):
-    """The exemption is per base, not a blanket pass for project/*."""
-    work = clone_pair(tmp_path, "r")
-
-    def fake_gh(args, cwd):
-        body = json.dumps([
-            {"number": 1, "headRefName": "a", "isDraft": False,
-             "baseRefName": "project/apothecary"},
-            {"number": 2, "headRefName": "b", "isDraft": False,
-             "baseRefName": "project/apothecary"},
-        ])
-        return subprocess.CompletedProcess(args, 0, stdout=body, stderr="")
-
-    monkeypatch.setattr(estate, "run_gh", fake_gh)
-    entry = {"name": work.name, "paths": [work.name], "role": "corpus"}
-    repo = estate.survey([entry], [work.parent], online=True)[0]
-
-    assert repo.over_slot
-
-
-def test_outside_the_corpus_no_base_is_exempt(tmp_path, monkeypatch):
-    """A project repository has no project/* branches of its own; two open
-    pull requests there are over the slot whatever their bases."""
-    work = clone_pair(tmp_path, "r")
-
-    def fake_gh(args, cwd):
-        body = json.dumps([
-            {"number": 1, "headRefName": "a", "isDraft": False,
-             "baseRefName": "main"},
-            {"number": 2, "headRefName": "b", "isDraft": False,
-             "baseRefName": "project/whatever"},
-        ])
-        return subprocess.CompletedProcess(args, 0, stdout=body, stderr="")
-
-    monkeypatch.setattr(estate, "run_gh", fake_gh)
-    entry = {"name": work.name, "paths": [work.name], "role": "project"}
-    repo = estate.survey([entry], [work.parent], online=True)[0]
-
-    assert repo.over_slot
+    assert survey_one(work, online=True).stacked_ready == []
 
 
 def test_a_host_that_says_no_leaves_the_slot_unknown_rather_than_free(
@@ -418,7 +382,7 @@ def test_a_host_that_says_no_leaves_the_slot_unknown_rather_than_free(
     repo = survey_one(work, online=True)
 
     assert repo.open_prs is None
-    assert not repo.over_slot
+    assert repo.stacked_ready == []
     assert any("pull requests unknown" in n for n in repo.notes)
     assert "  ?" in estate.render([repo], online=True)
 
