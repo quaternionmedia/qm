@@ -285,8 +285,10 @@ neither. Every record stays `DRAFT` for a person.
 
 *Verify:* `git log -1 --format=%P origin/main` shows two parents, and
 `gh pr view <number> --json state,mergeCommit` reports `MERGED` with that
-commit. A pull request stacked on it has been retargeted onto `main`:
-`uv run qm slot` shows it, and it is marked ready once its gates pass there.
+commit. `qm merge` has retargeted any pull request stacked on it onto `main`
+before deleting the branch: `uv run qm slot` shows it. Update its branch from
+`main`, and mark it ready once its gates pass there
+(`handbook/async-contract.md` §1).
 
 ## Step 7 — retire the handoff pages whose work landed
 

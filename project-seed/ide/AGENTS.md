@@ -83,7 +83,9 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
    Two changes that could land alone are two PRs, each ready against its base.
    A PR that needs another's work is cut from that branch, targets it as its
    base, and stays a draft until the one beneath it merges, however finished
-   it is. Never close a PR in favour of one that contains it
+   it is. When it does, retarget the next PR onto the target *before*
+   deleting the merged branch — deleting it first closes every PR based on
+   it. Never close a PR in favour of one that contains it
    (`governance/qm/handbook/async-contract.md` §1).
    `.github/workflows/one-pr-check.yml` refuses a ready stacked PR; run
    `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.

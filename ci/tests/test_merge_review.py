@@ -34,10 +34,19 @@ first and after the last.
 
   the merge issued as `--squash` in place of `--merge`
 
-    E       At index 0 diff: ('pr', 'merge', '7', '--repo', 'o/r', '--squash',
-            '--delete-branch') != ('pr', 'merge', '7', '--repo', 'o/r',
-            '--merge', '--delete-branch')
+    E       At index 0 diff: ('pr', 'merge', '7', '--repo', 'o/r', '--squash')
+            != ('pr', 'merge', '7', '--repo', 'o/r', '--merge')
     FAILED test_the_merge_is_a_merge_commit_and_deletes_the_branch
+
+  `retire_branch` ignoring a failed retarget
+
+    FAILED test_a_failed_retarget_leaves_the_branch_in_place
+    1 failed, 29 passed
+
+  `retire_branch` deleting the branch before the retargets
+
+    FAILED test_the_merge_is_a_merge_commit_and_deletes_the_branch
+    FAILED test_a_stacked_pull_request_is_retargeted_before_the_branch_goes
 
   `listing` calling `merge` on each row it renders
 
@@ -89,7 +98,8 @@ class FakeHost:
     """Answers `gh` from a script of replies and remembers every call."""
 
     def __init__(self, *, view=None, checks=None, listing=None, login="someone",
-                 merge=None, after=None, checks_reply=None, listing_reply=None):
+                 merge=None, after=None, checks_reply=None, listing_reply=None,
+                 stacked=(), retarget=None):
         self.view = READY_VIEW if view is None else view
         self.checks = GREEN_CHECKS if checks is None else checks
         self.listing = [self.view] if listing is None else listing
@@ -101,6 +111,8 @@ class FakeHost:
         self.after = ({"mergedAt": "2026-09-19T10:00:00Z",
                        "mergeCommit": {"oid": "abc123"}}
                       if after is None else after)
+        self.stacked = list(stacked)
+        self.retarget = done() if retarget is None else retarget
         self.calls: list[tuple[str, ...]] = []
 
     def __call__(self, *args: str) -> subprocess.CompletedProcess:
@@ -122,11 +134,22 @@ class FakeHost:
             return done(self.login + "\n")
         if verb == ("pr", "merge"):
             return self.merge
+        if args[0] == "api" and "pulls?state=open&base=" in args[1]:
+            return done(json.dumps(self.stacked))
+        if args[:3] == ("api", "-X", "PATCH"):
+            return self.retarget
+        if args[:3] == ("api", "-X", "DELETE"):
+            return done()
         raise AssertionError(f"unscripted gh call: {args}")
 
     @property
     def merges(self) -> list[tuple[str, ...]]:
         return [c for c in self.calls if c[:2] == ("pr", "merge")]
+
+    @property
+    def writes(self) -> list[tuple[str, ...]]:
+        """PATCH and DELETE, in the order issued."""
+        return [c[2:4] for c in self.calls if c[:2] == ("api", "-X")]
 
 
 @pytest.fixture
@@ -274,17 +297,37 @@ def test_squash_and_rebase_are_refused_before_the_host_is_asked(host, flag):
 
 def test_the_merge_is_a_merge_commit_and_deletes_the_branch(host):
     """Exactly this vector and no other: `--merge` because a rewritten branch
-    breaks every submodule pin pointing at it, `--delete-branch` because a
-    merged branch left on the host is a slot that looks occupied.
+    breaks every submodule pin pointing at it, and the branch deleted after.
 
     Mutation: change `--merge` to `--squash` in `merge` and this is red.
     """
     fake = host()
     code, text = run_main("--repo", REPO, "--pr", "7", "--yes")
     assert code == 0
-    assert fake.merges == [
-        ("pr", "merge", "7", "--repo", REPO, "--merge", "--delete-branch")]
+    assert fake.merges == [("pr", "merge", "7", "--repo", REPO, "--merge")]
+    assert fake.writes == [("DELETE", f"repos/{REPO}/git/refs/heads/evolve/slice")]
     assert "abc123" in text and "2026-09-19T10:00:00Z" in text
+
+
+def test_a_stacked_pull_request_is_retargeted_before_the_branch_goes(host):
+    """Deleting the branch first closes every pull request based on it."""
+    fake = host(view={**READY_VIEW, "baseRefName": "main"}, stacked=[8, 9])
+    code, text = run_main("--repo", REPO, "--pr", "7", "--yes")
+    assert code == 0
+    assert fake.writes == [("PATCH", f"repos/{REPO}/pulls/8"),
+                           ("PATCH", f"repos/{REPO}/pulls/9"),
+                           ("DELETE", f"repos/{REPO}/git/refs/heads/evolve/slice")]
+    assert ("-f", "base=main") == fake.calls[-3][-2:]
+    assert "#8 moved down onto main" in text
+
+
+def test_a_failed_retarget_leaves_the_branch_in_place(host):
+    fake = host(view={**READY_VIEW, "baseRefName": "main"}, stacked=[8],
+                retarget=done("", "HTTP 422", 1))
+    code, text = run_main("--repo", REPO, "--pr", "7", "--yes")
+    assert code == 0
+    assert ("DELETE", f"repos/{REPO}/git/refs/heads/evolve/slice") not in fake.writes
+    assert "left in place" in text and "HTTP 422" in text
 
 
 def test_the_act_re_verifies_live_and_refuses_on_a_blocker(host):

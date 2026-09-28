@@ -46,7 +46,9 @@ the listing cannot say READY where the act would refuse.
 ## What it never does
 
 It never pushes to `main`, never closes a pull request, and never merges by
-any route but the host's own merge commit with the branch deleted. Closing is
+any route but the host's own merge commit. The merged branch is deleted
+only after every pull request stacked on it has been retargeted onto the
+merged one's base, because deleting it first closes them. Closing is
 a git operation with an ordering trap of its own (`AGENTS.md` item 3) and
 stays a person's deliberate act.
 
