@@ -241,5 +241,4 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): QM constitution adoption scope for
-qmcp.
+Drafts in flight (numberless, by title): QM constitution adoption scope for qmcp.
