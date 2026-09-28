@@ -153,10 +153,11 @@ def stalled_threads(harness: Any) -> list[dict]:
 
 
 def over_slot(harness: Any) -> list[dict]:
-    """A repository holding more open pull requests than the contract allows.
+    """A repository holding a pull request that is ready while stacked.
 
-    The rule and its exemptions are the harness document's; this reports the
-    violations it already recorded rather than recounting them.
+    The rule is the harness document's; this reports the violations it
+    already recorded rather than recounting them. The kind keeps the name
+    `over-slot` because dispositions are keyed on it.
     """
     found = []
     for repo in harness.get("repositories", []):
@@ -168,14 +169,14 @@ def over_slot(harness: Any) -> list[dict]:
             found.append({
                 "kind": "over-slot",
                 "address": str(slug),
-                "title": f"{slug} is over its pull-request slot",
+                "title": f"{slug} has a ready pull request stacked on another",
                 "detail": _violation(violation),
             })
     return found
 
 
 def _violation(violation: Any) -> str:
-    """One slot violation, in a sentence.
+    """One stack violation, in a sentence.
 
     The harness records these as a mapping, and pasting the mapping into a
     detail column puts JSON in front of a person for a fact that is one
@@ -189,12 +190,13 @@ def _violation(violation: Any) -> str:
         return str(violation)
     numbers = violation.get("numbers") or []
     author = violation.get("author") or "somebody"
-    base = violation.get("base") or ""
-    where = f" against {base}" if base else ""
+    base = violation.get("base") or "another pull request's branch"
+    parent = violation.get("parent")
+    on = f" (#{parent})" if parent else ""
     if numbers:
         listed = ", ".join(f"#{n}" for n in numbers)
-        return (f"{author} holds {len(numbers)} open pull requests{where} "
-                f"({listed}); the contract allows one")
+        return (f"{author}'s {listed} is ready but stacked on {base}{on}; "
+                "it stays a draft until that one merges")
     return json.dumps(violation, sort_keys=True)
 
 

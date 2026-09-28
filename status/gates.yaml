@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T20:22:55Z'
+generated_at: '2026-09-28T05:15:29Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -110,13 +110,16 @@ gates:
   - project-seed/ci/check_one_pr.py
   enforces:
   - handbook/async-contract.md
-  refuses: A pull request whose author already holds an open slot in this repository.
-    It fails every one of them rather than picking a survivor.
-  cannot_see: Whether the two pull requests are actually related. It counts slots,
-    not subject matter, and the `--per-base` exemption is a glob somebody passes.
+  refuses: A pull request marked ready whose base is the branch of another open pull
+    request in the same repository. It fails every such pull request of the author,
+    not only the one whose event ran it.
+  cannot_see: Whether a pull request is one change. A branch cut from another pull
+    request's branch but opened against the target, carrying its parent's commits.
+    A pull request closed in favour of one that contains it -- closed pull requests
+    are not read.
   evidence:
     present: true
-    workflow_name: One PR per contributor
+    workflow_name: Stacked PRs are drafts
     triggers: &id001
     - pull_request
     jobs: &id002
@@ -146,7 +149,7 @@ gates:
     the diff at all.
   evidence:
     present: true
-    workflow_name: One PR per contributor
+    workflow_name: Stacked PRs are drafts
     triggers: *id001
     jobs: *id002
     job_declared: true

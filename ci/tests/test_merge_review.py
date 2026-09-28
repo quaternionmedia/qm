@@ -214,10 +214,14 @@ def test_the_listing_issues_only_read_verbs(host):
     assert fake.merges == []
 
 
-def test_the_listing_says_when_the_slot_holds_more_than_one(host):
+def test_the_listing_counts_open_pull_requests_and_keeps_a_draft_out_of_ready(host):
+    """Two open is not a finding; the stacked draft is simply not READY."""
     host(listing=[READY_VIEW, {**READY_VIEW, "number": 8, "isDraft": True}])
     text = merge_review.listing([("r", REPO)])
-    assert "more than the one slot" in text
+    assert "2 open pull requests" in text
+    assert "stacked on another pull request" in text
+    ready = [line for line in text.splitlines() if "READY:" in line]
+    assert ready and f"{REPO}#7" in ready[0] and "#8" not in ready[0]
 
 
 def test_an_unreadable_repository_is_unknown_rather_than_empty(host):

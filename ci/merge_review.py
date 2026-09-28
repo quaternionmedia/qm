@@ -168,7 +168,7 @@ def blockers(pr: PullRequest) -> list[str]:
     if pr.state != OPEN:
         why.append(f"state is {pr.state or 'unknown'}, not {OPEN}")
     if pr.draft:
-        why.append("it is a draft, and draft means incomplete")
+        why.append("it is a draft: incomplete, or stacked on another pull request")
     if pr.mergeable != MERGEABLE:
         why.append(f"mergeable is {pr.mergeable or 'unknown'}, not {MERGEABLE}")
     if pr.merge_state != CLEAN:
@@ -272,11 +272,10 @@ def render(pr: PullRequest) -> list[str]:
 def listing(repos: list[tuple[str, str | None]]) -> str:
     """What a person reads before choosing which pull request to merge.
 
-    Beside each repository: whether the contributor holds more than one open
-    pull request there. That is the slot rule (`handbook/async-contract.md`
-    section 1), and it is why the view is per repository rather than one flat
-    queue -- the second open pull request in a repository is the one that
-    should not have been opened yet, whatever its checks say.
+    Grouped per repository. A pull request stacked on another is a draft
+    until the one beneath it merges (`handbook/async-contract.md` section 1),
+    so the draft blocker keeps it out of READY; one marked ready anyway fails
+    the stack gate and is kept out by its failing check.
     """
     out: list[str] = []
     unreadable: list[str] = []
@@ -292,9 +291,9 @@ def listing(repos: list[tuple[str, str | None]]) -> str:
             continue
         if not found:
             continue
-        slots = ("one open pull request" if len(found) == 1
-                 else f"{len(found)} open pull requests -- more than the one slot")
-        out.append(f"  {slug}: {slots}")
+        count = ("one open pull request" if len(found) == 1
+                 else f"{len(found)} open pull requests")
+        out.append(f"  {slug}: {count}")
         for pr in sorted(found, key=lambda p: p.number):
             out.extend(render(pr))
             if not blockers(pr):

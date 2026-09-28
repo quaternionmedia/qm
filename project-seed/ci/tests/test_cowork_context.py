@@ -218,11 +218,11 @@ def test_a_long_branch_list_says_how_many_it_left_off(repo: Path) -> None:
     assert "…and 4 more, not listed" in text
 
 
-def test_offline_reports_the_slot_as_unread_not_as_free(repo: Path) -> None:
+def test_offline_reports_the_pull_requests_as_unread_not_as_clean(repo: Path) -> None:
     """The whole point: 'nothing was read' must never render as 'nothing wrong'."""
     text = brief(repo)
     assert "`--offline` was passed, so no pull request was read" in text
-    assert "Your slot is free" not in text
+    assert "None of yours is ready while stacked" not in text
 
 
 def test_out_writes_the_same_text_it_printed(repo: Path) -> None:

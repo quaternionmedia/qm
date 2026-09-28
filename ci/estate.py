@@ -23,10 +23,10 @@ host does not:
   dirty       uncommitted changes in the working tree. Not a branch, and the
               cheapest thing here to lose.
 
-With the host reachable it also asks, per repository, how many pull requests
-the current user has open, because one open pull request per repository per
-contributor is the sequencing rule (`handbook/async-contract.md` 1) and a
-draft holds the slot like any other.
+With the host reachable it also asks, per repository, which pull requests
+the current user has open, and flags one that is ready while its base is
+another of them: a stacked pull request stays a draft until the one beneath it
+merges (`handbook/async-contract.md` 1).
 
 WHAT IT REFUSES TO DO.
 
@@ -58,7 +58,6 @@ does not name: a repository is surveyed because somebody wrote it down.
 from __future__ import annotations
 
 import argparse
-import fnmatch
 import json
 import subprocess
 import sys
@@ -66,11 +65,6 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 import yaml
-
-# The one exemption to the one-slot rule, kept equal to what one-pr-check.yml
-# passes to check_one_pr.py and what harness_status.py defaults; the registry
-# entry in ci/exception-registry.yaml names every module that carries this.
-CORPUS_PER_BASE = ["project/*"]
 
 # This module is imported two ways: as `ci.<name>` by the qm CLI, and as a
 # bare script by anyone running it directly. A plain sibling import works
@@ -182,7 +176,6 @@ class Repository:
     one_copy: list[OneCopy] = field(default_factory=list)
     ahead: list[Ahead] = field(default_factory=list)
     open_prs: list[dict] | None = None  # None: not asked, or the host said no
-    per_base: list[str] = field(default_factory=list)  # base globs with a slot each
     notes: list[str] = field(default_factory=list)
 
     @property
@@ -200,25 +193,18 @@ class Repository:
         return bool(self.one_copy or self.ahead)
 
     @property
-    def over_slot(self) -> bool:
-        """The gate's reading, not a bare count.
+    def stacked_ready(self) -> list[dict]:
+        """Open pull requests marked ready whose base is another one's branch.
 
-        `check_one_pr.py --per-base project/*` gives each matching base its
-        own slot, so this groups the same way; `per_base` is empty everywhere
-        the roster grants no exemption. The two disagreed once: this reader
-        said `2 OVER` while the gate exited 0 on the same repository.
+        The gate's rule (`check_one_pr.py`) over this user's own pull
+        requests only: a parent opened by somebody else is not listed here,
+        and the gate still sees it.
         """
         if self.open_prs is None:
-            return False
-        shared = 0
-        exempt: dict[str, int] = {}
-        for pr in self.open_prs:
-            base = pr.get("baseRefName", "")
-            if any(fnmatch.fnmatch(base, pattern) for pattern in self.per_base):
-                exempt[base] = exempt.get(base, 0) + 1
-            else:
-                shared += 1
-        return shared > 1 or any(n > 1 for n in exempt.values())
+            return []
+        heads = {pr.get("headRefName") for pr in self.open_prs}
+        return [pr for pr in self.open_prs
+                if not pr.get("isDraft") and pr.get("baseRefName") in heads]
 
 
 def default_branch(repo: Path, remote: str, online: bool) -> tuple[str, str]:
@@ -290,11 +276,7 @@ def survey_repository(entry: dict, path: Path, remote: str, online: bool) -> Rep
     repo_path = path
     repo = Repository(name=label(entry), path=str(path),
                       candidates=list(entry.get("paths", [])),
-                      family=entry.get("family"),
-                      # The corpus exemption check_one_pr.py applies as
-                      # --per-base, named in ci/exception-registry.yaml.
-                      per_base=CORPUS_PER_BASE
-                      if entry.get("role") == "corpus" else [])
+                      family=entry.get("family"))
 
     current = (git(repo_path, "rev-parse", "--abbrev-ref", "HEAD") or "").strip()
     repo.branch = "(detached)" if current in ("", "HEAD") else current
@@ -425,7 +407,7 @@ def table(rows: list[Repository], width: int, online: bool) -> list[str]:
         if r.open_prs is None:
             slot = "-" if not online else "?"
         else:
-            slot = str(len(r.open_prs)) + (" OVER" if r.over_slot else "")
+            slot = str(len(r.open_prs)) + (" STACKED" if r.stacked_ready else "")
         out.append(f"  {r.name:<{width}}  {r.branch[:28]:<28}  {r.dirty:>5}  "
                    f"{len(r.one_copy):>8}  {len(r.ahead):>5}  {slot}")
     return out
@@ -452,7 +434,7 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
         out.append("")
 
     for r in found:
-        if r.missing or not (r.holds_one_copy or r.dirty or r.over_slot):
+        if r.missing or not (r.holds_one_copy or r.dirty or r.stacked_ready):
             continue
         out.append(f"  {r.name}  ({r.path})")
         if r.dirty:
@@ -462,11 +444,9 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
         for b in r.ahead:
             out.append(f"      ahead     +{b.unpushed:<3} {b.name}  "
                        f"(not on its remote copy)")
-        if r.over_slot:
-            heads = ", ".join(f"#{p.get('number')} {p.get('headRefName')}"
-                              + (" draft" if p.get("isDraft") else "")
-                              for p in r.open_prs)
-            out.append(f"      over the one-PR slot: {heads}")
+        for p in r.stacked_ready:
+            out.append(f"      ready but stacked: #{p.get('number')} "
+                       f"{p.get('headRefName')} -> {p.get('baseRefName')}")
         out.append("")
 
     for r in found:
@@ -511,7 +491,7 @@ def as_document(found: list[Repository], roster: Path, search_roots: list[Path],
         "offline": not online,
         "repositories": [
             {**asdict(r), "missing": r.missing, "holds_one_copy": r.holds_one_copy,
-             "over_slot": r.over_slot}
+             "stacked_ready": r.stacked_ready}
             for r in found
         ],
         "totals": totals(found),

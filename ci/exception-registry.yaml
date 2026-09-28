@@ -57,30 +57,6 @@ exceptions:
       unsigned run has to be absorbed, and moving it is a reviewable edit.
     announced: "counted as debt on stderr on every run; the count does not go down"
 
-  - id: project-branches-hold-their-own-slot
-    rule: "One open pull request per repository, per contributor"
-    rule_source: handbook/async-contract.md
-    enforced_by: project-seed/ci/check_one_pr.py
-    constant: "--per-base"
-    defaulted_in:
-      - ci/harness_status.py            # CORPUS_PER_BASE
-      - project-seed/ci/cowork_context.py   # CORPUS_PER_BASE
-      - ci/estate.py                    # CORPUS_PER_BASE, so the reader and the gate agree
-    scope: "pull requests whose base matches project/*"
-    reason: >
-      Each project branch is pinned by a different downstream submodule, so a
-      change to one is not a change to another. Combining them would invent a
-      dependency between unrelated projects.
-    removal_condition: >
-      Project branches stop being pinned independently, which would mean the
-      submodule model had changed.
-    announced: "named in the workflow and printed by the tool"
-    note: >
-      The exemption is a flag somebody passes, and two callers hardcode the
-      default independently with nothing keeping them equal. The registry first
-      attributed the constant to check_one_pr.py, which does not hold one --
-      --drift caught that on its first run.
-
   - id: machine-scoped-inventory-files
     rule: "Data files live in ci/ or status/, as YAML"
     rule_source: handbook/config-standard.md
