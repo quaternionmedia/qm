@@ -58,6 +58,7 @@ does not name: a repository is surveyed because somebody wrote it down.
 from __future__ import annotations
 
 import argparse
+import fnmatch
 import json
 import subprocess
 import sys
@@ -65,6 +66,11 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 import yaml
+
+# The one exemption to the one-slot rule, kept equal to what one-pr-check.yml
+# passes to check_one_pr.py and what harness_status.py defaults; the registry
+# entry in ci/exception-registry.yaml names every module that carries this.
+CORPUS_PER_BASE = ["project/*"]
 
 # This module is imported two ways: as `ci.<name>` by the qm CLI, and as a
 # bare script by anyone running it directly. A plain sibling import works
@@ -176,6 +182,7 @@ class Repository:
     one_copy: list[OneCopy] = field(default_factory=list)
     ahead: list[Ahead] = field(default_factory=list)
     open_prs: list[dict] | None = None  # None: not asked, or the host said no
+    per_base: list[str] = field(default_factory=list)  # base globs with a slot each
     notes: list[str] = field(default_factory=list)
 
     @property
@@ -194,7 +201,24 @@ class Repository:
 
     @property
     def over_slot(self) -> bool:
-        return self.open_prs is not None and len(self.open_prs) > 1
+        """The gate's reading, not a bare count.
+
+        `check_one_pr.py --per-base project/*` gives each matching base its
+        own slot, so this groups the same way; `per_base` is empty everywhere
+        the roster grants no exemption. The two disagreed once: this reader
+        said `2 OVER` while the gate exited 0 on the same repository.
+        """
+        if self.open_prs is None:
+            return False
+        shared = 0
+        exempt: dict[str, int] = {}
+        for pr in self.open_prs:
+            base = pr.get("baseRefName", "")
+            if any(fnmatch.fnmatch(base, pattern) for pattern in self.per_base):
+                exempt[base] = exempt.get(base, 0) + 1
+            else:
+                shared += 1
+        return shared > 1 or any(n > 1 for n in exempt.values())
 
 
 def default_branch(repo: Path, remote: str, online: bool) -> tuple[str, str]:
@@ -266,7 +290,11 @@ def survey_repository(entry: dict, path: Path, remote: str, online: bool) -> Rep
     repo_path = path
     repo = Repository(name=label(entry), path=str(path),
                       candidates=list(entry.get("paths", [])),
-                      family=entry.get("family"))
+                      family=entry.get("family"),
+                      # The corpus exemption check_one_pr.py applies as
+                      # --per-base, named in ci/exception-registry.yaml.
+                      per_base=CORPUS_PER_BASE
+                      if entry.get("role") == "corpus" else [])
 
     current = (git(repo_path, "rev-parse", "--abbrev-ref", "HEAD") or "").strip()
     repo.branch = "(detached)" if current in ("", "HEAD") else current
@@ -323,7 +351,8 @@ def host_pull_requests(repo: Repository) -> None:
     report a free slot on a repository nobody asked.
     """
     done = run_gh(["pr", "list", "--author", "@me", "--state", "open",
-                   "--json", "number,headRefName,isDraft"], Path(repo.path))
+                   "--json", "number,headRefName,isDraft,baseRefName"],
+                  Path(repo.path))
     if done.returncode != 0:
         detail = (done.stderr or "").strip().splitlines()
         repo.notes.append("pull requests unknown: "
