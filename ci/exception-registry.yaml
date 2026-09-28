@@ -65,6 +65,7 @@ exceptions:
     defaulted_in:
       - ci/harness_status.py            # CORPUS_PER_BASE
       - project-seed/ci/cowork_context.py   # CORPUS_PER_BASE
+      - ci/estate.py                    # CORPUS_PER_BASE, so the reader and the gate agree
     scope: "pull requests whose base matches project/*"
     reason: >
       Each project branch is pinned by a different downstream submodule, so a

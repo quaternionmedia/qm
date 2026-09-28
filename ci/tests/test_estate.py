@@ -344,6 +344,71 @@ def test_online_counts_the_current_user_s_open_pull_requests_drafts_included(
     assert "#2 b draft" in text
 
 
+def test_a_project_base_holds_its_own_slot_in_the_corpus(tmp_path, monkeypatch):
+    """The reader agrees with the gate: `check_one_pr.py --per-base project/*`
+    gives each project/* base its own slot in the corpus, so one pull request
+    into main beside one into project/x is compliant, not 2 OVER."""
+    work = clone_pair(tmp_path, "r")
+
+    def fake_gh(args, cwd):
+        body = json.dumps([
+            {"number": 1, "headRefName": "a", "isDraft": False,
+             "baseRefName": "main"},
+            {"number": 2, "headRefName": "b", "isDraft": True,
+             "baseRefName": "project/apothecary"},
+        ])
+        return subprocess.CompletedProcess(args, 0, stdout=body, stderr="")
+
+    monkeypatch.setattr(estate, "run_gh", fake_gh)
+    entry = {"name": work.name, "paths": [work.name], "role": "corpus"}
+    repo = estate.survey([entry], [work.parent], online=True)[0]
+
+    assert len(repo.open_prs) == 2
+    assert not repo.over_slot
+    assert "OVER" not in estate.render([repo], online=True)
+
+
+def test_two_into_one_project_base_are_still_over(tmp_path, monkeypatch):
+    """The exemption is per base, not a blanket pass for project/*."""
+    work = clone_pair(tmp_path, "r")
+
+    def fake_gh(args, cwd):
+        body = json.dumps([
+            {"number": 1, "headRefName": "a", "isDraft": False,
+             "baseRefName": "project/apothecary"},
+            {"number": 2, "headRefName": "b", "isDraft": False,
+             "baseRefName": "project/apothecary"},
+        ])
+        return subprocess.CompletedProcess(args, 0, stdout=body, stderr="")
+
+    monkeypatch.setattr(estate, "run_gh", fake_gh)
+    entry = {"name": work.name, "paths": [work.name], "role": "corpus"}
+    repo = estate.survey([entry], [work.parent], online=True)[0]
+
+    assert repo.over_slot
+
+
+def test_outside_the_corpus_no_base_is_exempt(tmp_path, monkeypatch):
+    """A project repository has no project/* branches of its own; two open
+    pull requests there are over the slot whatever their bases."""
+    work = clone_pair(tmp_path, "r")
+
+    def fake_gh(args, cwd):
+        body = json.dumps([
+            {"number": 1, "headRefName": "a", "isDraft": False,
+             "baseRefName": "main"},
+            {"number": 2, "headRefName": "b", "isDraft": False,
+             "baseRefName": "project/whatever"},
+        ])
+        return subprocess.CompletedProcess(args, 0, stdout=body, stderr="")
+
+    monkeypatch.setattr(estate, "run_gh", fake_gh)
+    entry = {"name": work.name, "paths": [work.name], "role": "project"}
+    repo = estate.survey([entry], [work.parent], online=True)[0]
+
+    assert repo.over_slot
+
+
 def test_a_host_that_says_no_leaves_the_slot_unknown_rather_than_free(
         tmp_path, monkeypatch):
     work = clone_pair(tmp_path, "r")
