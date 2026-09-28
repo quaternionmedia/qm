@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-27T23:57:56Z",
+  "generated_at": "2026-09-28T01:06:49Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-27T23:57:56Z"
+        "generated_at": "2026-09-28T01:06:48Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 132,
+    "loose_ends": 133,
     "by_kind": {
       "blind-spot": 19,
       "document-proposed": 36,
-      "document-unreviewed": 59,
+      "document-unreviewed": 60,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 132,
+    "open": 133,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -895,6 +895,14 @@
       "title": "perspectives/2026-09-27-the-voice-loop.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-27-the-voice-loop",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-28-the-loop-lands-its-remains",
+      "title": "perspectives/2026-09-28-the-loop-lands-its-remains.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-28-the-loop-lands-its-remains",
       "address_parses": true
     },
     {

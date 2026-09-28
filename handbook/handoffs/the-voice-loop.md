@@ -17,7 +17,7 @@ page is a decision.
 
 ## 0. What landed
 
-Ten pull requests merged, one of them the corpus's own.
+Fifteen pull requests merged, two of them the corpus's own.
 
 | Repository | Merged | What it carries |
 |---|---|---|
@@ -31,6 +31,11 @@ Ten pull requests merged, one of them the corpus's own.
 | `dossier` | #58 | `dossier dev doctor`, the three-process preflight |
 | `qmcp` | #38 | the HITL queue answered by voice, `vox` vendored at `d54a7f7` |
 | `qm` | #122 | this handoff, the retrospective, and `vox`'s roster entry in `core` |
+| `vox` | #6 | the Apache-2.0 license the wheel metadata was already claiming as MIT |
+| `joe` | #12 | the MIT license file both metadata files were already claiming |
+| `joe` | #13 | paths through pathlib, the suite green on ubuntu for the first time, one lockfile |
+| `dossier` | #59 | recorded artifacts written LF, `db-backups/` ignored |
+| `qm` | #126 | the estate reads the one-slot rule with the gate's own exemption |
 
 **The full round trip runs.** Text through a real synthesizer, through
 whisper, back out and back in:
@@ -52,36 +57,23 @@ second with no engine, no model and no hardware.
   MME and DirectSound return errors naming no cause. *Done* is one device
   on each host API recording a non-silent second, or the reason written
   down.
-- **`joe` carries two Python lockfiles.** `pdm.lock` is from 2024-12-29 and
-  nothing reads it; `uv.lock` is current. `requirements.txt` is a third
-  list and omits `httpx`, which `pyproject.toml` declares. *Done* is one
-  source of truth and the others deleted.
-- **`joe` composes paths with literal backslashes.**
-  `Modules/utilities.py` builds `f"{current_path}\Data\Output\..."`, which
-  is one filename component on Linux and the source of `invalid escape
-  sequence` warnings a later Python raises. Six tests fail on
-  `ubuntu-latest` for this one reason; 74 pass. *Done* is `pathlib`, after
-  which `joe` #10's workflow can become a matrix instead of Windows only.
-- **`joe`'s Playwright suite runs nowhere.** `tests/e2e/` needs browser
-  binaries and a live server. *Done* is a workflow watched going red.
-- **`dossier`'s suite rewrites four files with platform line endings** on
-  every run — `docs/rad-commands.md` and three SVGs — and re-encodes a GIF
-  by nine bytes, so `git status` shows drift that is not drift. The same
-  defect was fixed in `vox` by pinning `newline="\n"` in the writers.
-- **`dossier`'s `db-backups/` is not ignored.** It is empty, so nothing is
-  tracked today; a backup written there would appear as untracked.
-- **`qm estate` reports a compliant repository as over its slot limit.**
-  It counts open pull requests per contributor without the `project/*`
-  exemption that `check_one_pr.py` applies, so `qm` reads `2 OVER` while the
-  gate reads *every contributor holds at most one slot* and exits 0. The
-  exception registry names `ci/harness_status.py` and
-  `project-seed/ci/cowork_context.py` as the callers that default the
-  exemption; `ci/estate.py` is not among them. *Done* is the reader and the
-  gate agreeing, or the registry saying why they should not.
-- **The approval case is built; the wider loop is not.** `qmcp` #38 landed
-  `qmcp human voice`, answering the HITL queue by speech. Speaking an
-  instruction, an agent acting, and the result spoken back remains
-  unbuilt; the harness beneath it is deterministic enough to iterate on.
+- **`joe`'s Playwright specs run in CI, and the red never came.** The
+  first dispatch of `e2e.yml` (joe #13) was expected red on the belief the
+  specs needed a server nothing starts; it came back green, 25 passed,
+  because `playwright.config.js` starts the dev server itself. joe #14
+  widened the trigger to pushes and pull requests. The workflow has not
+  yet been seen to fail, so what a red looks like there is still untested.
+- **`dossier`'s GIF re-encode is still only measured.** The four
+  line-ending writers are pinned (dossier #59, churn reproduced and then
+  gone on the same run); the nine-byte `first-run.gif` re-encode needs the
+  real database to reproduce, and the scratch-database run left the file
+  byte-identical.
+- **The approval case is exercised; the wider loop is not built.** The
+  closed loop ran against the live engine on 2026-09-27
+  (`uv run vox loop --echo-dir <the engine's audio dir> --say ...`,
+  `closed: True`), and a real launch approval waits on the harness queue
+  (§6). Speaking an instruction, an agent acting, and the result spoken
+  back as a standing service remains unbuilt.
 
 ## 2. The development environment
 
@@ -154,8 +146,16 @@ and RMS. Speak while it runs; the one that moves is the one to set as
   builds the frontend and deploys it. Three files are published and none
   carries anything personal. Named here because it was not obvious before
   the merge.
-- **`vox` is Apache-2.0 and `joe` is MIT**, decided 2026-09-27. `vox` #6
-  and `joe` #12 carry the license files; each repository's metadata
-  claimed a license no file granted until they merge.
+- **`vox` is Apache-2.0 and `joe` is MIT**, decided and merged
+  2026-09-27 (`vox` #6, `joe` #12); each repository's metadata had
+  claimed a license no file granted.
+- **The design-review launch waits on the harness queue**, not in a
+  terminal: an approval request on the human queue (port 3141,
+  `/v1/human/requests`, id `design-review-qm-audit-2026-09-27`,
+  re-queued on expiry) states the exact count. A session picking this
+  up reads the answer from the queue, launches on approve with the
+  counts the request states, and puts the next phase's count back on
+  the queue the same way. Answering by speech is one command:
+  `uv run qmcp human voice <request-id>`.
 - **Merged branches were not deleted** where `handbook/handoffs/README.md`
   places deletion outside what a handoff authorises.
