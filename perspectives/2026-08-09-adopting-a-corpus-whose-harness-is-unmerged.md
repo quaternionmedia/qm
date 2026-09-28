@@ -15,7 +15,7 @@ handoff queue all implied: that the corpus has a harness, and that adopting a
 project connects that project to it.
 
 `git ls-tree origin/main ci` returns nothing. There is no `ci/` directory on
-`main`. No `governance-status.yaml`, no `harness-status.json`, no
+`main`. No `status/governance.yaml`, no `status/harness.yaml`, no
 `handbook/async-contract.md`, no `handbook/handoffs/` — including the three
 dossier pages the session was working from — and nothing in
 `project-seed/ide/.claude/commands/`. All of it, 18 commits and +9,151 lines

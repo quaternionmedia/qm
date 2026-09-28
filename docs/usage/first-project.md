@@ -7,7 +7,7 @@ How a new project adopts the QM corpus.
 
 ## The eight steps
 
-The handbook numbers the steps 0 through 7. Each has a verification check; run the check rather than assuming the step worked.
+The [handbook](../ref/glossary.md#handbook){ .glossary-term } numbers the steps 0 through 7. Each has a verification check; run the check rather than assuming the step worked.
 
 **0. Confirm your starting commit.** Check which commit you are forking from, in both repositories.
 
@@ -17,17 +17,17 @@ The handbook numbers the steps 0 through 7. Each has a verification check; run t
 
 **3. Point the submodule at the branch.** Check out `project/<name>` inside the submodule, commit the updated pointer, and add `branch = project/<name>` to the project's `.gitmodules`.
 
-**4. Wire CI.** Copy all four seed workflows into `.github/workflows/`, verbatim: `adr-lint.yml`, `submodule-check.yml`, `reuse-lint.yml`, and `one-pr-check.yml`. Also wire the license gates the open-license record requires for the project's runtime shape.
+**4. Wire CI.** Copy all four [seed](../ref/glossary.md#seed){ .glossary-term } workflows into `.github/workflows/`, verbatim: `adr-lint.yml`, `submodule-check.yml`, `reuse-lint.yml`, and `one-pr-check.yml`. Also wire the license gates the open-license [record](../ref/glossary.md#record){ .glossary-term } requires for the project's runtime shape.
 
 **5. Wire governance discovery.** Copy `project-seed/ide/` recursively onto the project root, using a method that preserves symlinks (`cp -a`, `rsync -a`). Fill in the project-specific sections of `AGENTS.md` and replace the `<name>` placeholders. Check that the project's `.gitignore` does not swallow the copied files.
 
 **6. Seed the first records.** Write the project's first records on its branch as numberless drafts — conventionally an adoption record and a scope record.
 
-**7. Register carried patches.** If the project carries patches against upstream software, register them in the org-level [registers/carried-patches.md](https://github.com/quaternionmedia/qm/blob/main/registers/carried-patches.md).
+**7. [Register](../ref/glossary.md#register){ .glossary-term } carried patches.** If the project carries patches against upstream software, register them in the org-level [registers/carried-patches.md](https://github.com/quaternionmedia/qm/blob/main/registers/carried-patches.md).
 
 ## After adoption
 
-- [Next steps](next-steps.md) — propagation, audits, and project phases
+- [Next steps](next-steps.md) — [propagation](../ref/glossary.md#propagation){ .glossary-term }, audits, and project phases
 - [Architecture](../about/architecture.md) — why the structure is this way
 
 ## Related

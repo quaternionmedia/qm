@@ -19,9 +19,9 @@ and ci/governance_render.py, and the same refusals:
     the single failure mode a governance dashboard has.
 
 Usage:
-    python ci/gate_dashboard.py gate-status.json --format md
-    python ci/gate_dashboard.py gate-status.json --out gates.html
-    python ci/gate_dashboard.py gate-status.json --format md --check handbook/gates.md
+    python ci/gate_dashboard.py status/gates.yaml --format md
+    python ci/gate_dashboard.py status/gates.yaml --out gates.html
+    python ci/gate_dashboard.py status/gates.yaml --format md --check handbook/gates.md
 """
 
 from __future__ import annotations
@@ -29,6 +29,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import yaml
 import sys
 from pathlib import Path
 
@@ -104,7 +105,7 @@ def render_md(doc: dict) -> str:
     add("# Handbook — The Gates\n")
     add(f"**Generated `{doc.get('generated_at')}`.** Quotable for "
         f"{reading.get('staleness_budget_hours')}h. **Do not edit by hand** — the "
-        f"list lives in `ci/gate-registry.yaml`, the document in `gate-status.json`, "
+        f"list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, "
         f"and this page is rendered from the document and nothing else.\n")
     add(f"| | |\n|---|---|")
     add(f"| **Refresh the document** | `{reading.get('refresh')}` |")
@@ -243,7 +244,7 @@ def main(argv: list[str] | None = None) -> int:
     if not path.is_file():
         print(f"{args.document}: not present.", file=sys.stderr)
         return 1
-    doc = json.loads(path.read_text(encoding="utf-8"))
+    doc = yaml.safe_load(path.read_text(encoding="utf-8"))
 
     fmt = args.format or ("html" if (args.out or "").endswith(".html") else "md")
     page = render_html(doc) if fmt == "html" else render_md(doc)

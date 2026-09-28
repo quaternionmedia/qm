@@ -7,7 +7,7 @@ matched `44 killed` inside the string `28/44 killed` — so the denominator was
 read as the numerator and every score came out perfect.
 
 It was printed, read, and repeated to a person before anything checked it. In a
-tool built to measure whether checks catch things. That is charter P16's whole
+tool built to measure whether checks catch things. That is charter `a-check-is-evidence-after-it-fails`'s whole
 claim in one artefact: reading the code told the author what they meant, and
 only comparing it against a known number told them what it did.
 

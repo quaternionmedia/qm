@@ -59,6 +59,37 @@ protocols:
       the creation of `main`. And the other twelve repositories this corpus
       governs: every step above reads this one.
 
+  - id: history-archive
+    name: History archive, before a rewrite
+    question: >
+      What did this repository's history contain before the rewrite, and where
+      is the copy that still has it?
+    page: protocols/history-archive.md
+    invoked_by: a human, or an agent asked to
+    # An archive is invoked by an event, not a clock -- but it goes stale in the
+    # ordinary way, because history moves. Past this budget the last run no
+    # longer describes the repository it was taken from, so a rewrite needs a
+    # fresh one rather than the one on file.
+    cadence_days: 30
+    optional: false
+    produces: protocols/runs/<date>-history-archive.md
+    steps:
+      - uv run qm pins
+      - git rev-list --objects --all | wc -l
+      - git clone --mirror git@github.com:quaternionmedia/<repo>.git <repo>-archive.git
+      - git bundle create <repo>-<date>.bundle --all
+      - git bundle verify <repo>-<date>.bundle
+      - gh api repos/quaternionmedia/<repo>/forks --jq '.[].full_name'
+    cannot_see: >
+      Whether anybody already holds a copy. It enumerates the forks the host
+      reports and the pins this corpus records, and neither is the set of
+      people who have cloned a public repository. Whether the material was ever
+      read, or by whom. Whether a private mirror stays private, which is an
+      access decision re-made every time somebody is added and which no command
+      here reads. And whether the rewrite was the right response at all -- this
+      protocol establishes that the prior state was preserved and the new state
+      measured, and has no view on the decision.
+
   - id: local-demo
     name: Local demo
     question: Does this project actually do the thing, on this machine, today?

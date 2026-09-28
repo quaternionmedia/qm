@@ -13,11 +13,13 @@ inheriting a previous session's belief instead of asking the repository:
 
 1. **The commit you are working against**, and the branch. Every number in every
    page here was true at some commit and nowhere else.
-2. **Whether your pull request slot is free.** One open pull request per
-   repository, per contributor. `uv run qm slot --repo <owner/name>` answers it.
+2. **Which pull requests you already hold open, and how they stack.** Small,
+   atomic pull requests; a dependent one is stacked on its parent as a draft.
+   `uv run qm slot --repo <owner/name>` lists them.
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are very likely running
    right now, in other repositories, for the same reviewer.
+   `uv run qm estate` reports it across every rostered repository;
    `handbook/async-contract.md` is the set of rules that exist only because of
    that, and it is short.
 4. **Which gates exist**, and what each one cannot see.
@@ -41,13 +43,13 @@ reasoning, and the seams doctrine in `records/` for why a governance document
 that mandated a particular product would be violating its own charter.
 
 **Read the committed status documents before re-deriving what they hold.**
-`governance-status.yaml` and `harness-status.json` sit at the root.
-`harness-status.json` carries its own refresh command, staleness budget and
-`do_not` list in a `reading:` block inside the file. **`governance-status.yaml`
+`status/governance.yaml` and `status/harness.yaml` sit at the root.
+`status/harness.yaml` carries its own refresh command, staleness budget and
+`do_not` list in a `reading:` block inside the file. **`status/governance.yaml`
 does not** — it has no `reading:` block at all, so its refresh command and its
 168-hour budget are only in `handbook/generated-documents.md`, and for that one
 you do need the page. `handbook/generated-documents.md` indexes both, and
-`ci/harness_dashboard.py harness-status.json --format md` renders the second
+`uv run qm harness` renders the second
 as prose. Check the age before quoting a figure — a stale number delivered
 with a date looks checked.
 
@@ -77,9 +79,16 @@ with a date looks checked.
 
    - **Never request a review**; assign the person who asked for the work.
      Reviewers are named at the tag. `handbook/async-contract.md` §2.
-   - **Draft means incomplete, and nothing else.** It is not a holding pen for
-     finished work: nobody is waiting at the far end of that queue, so a green
-     PR left in draft is a change that never reached `main`.
+   - **The pull request body speaks as the contributor, to the world.** It is
+     posted under a human's account; it addresses nobody. What a session has
+     to say to the person who asked — who merges, what is deferred, a question
+     — is said in the session, never written into the body. `check_pr_voice.py`
+     refuses the second person. `handbook/async-contract.md` §3, and clause 5
+     of `records/DRAFT-human-only-contributorship.md`.
+   - **Draft means incomplete, or stacked on an open PR, and nothing else.** It
+     is not a holding pen for finished work: nobody is waiting at the far end
+     of that queue, so a green PR left in draft against `main` is a change that
+     never reached it.
    - **Closing a pull request is a git operation.** Pushing a PR's head onto its
      base *merges* it — GitHub records the merge, and a later `gh pr close` is a
      silent no-op. **Close the PR first, then push**, or retarget it. The order
@@ -95,23 +104,26 @@ with a date looks checked.
      `propagate/<name>-<date>` PR, merged and never rebased, because a downstream
      submodule pins the tip. `project-seed/ci/check_pr_base.py` refuses the wrong
      direction and `docs/ref/namespaces.md` is the canonical branch naming.
-   - **One open PR per repository, per contributor** — not one per task. It is a
-     sequencing constraint, not a bandwidth one. `handbook/async-contract.md` §1.
-     In *this* repository each `project/<name>` branch holds its own slot,
-     because each is pinned by a different downstream submodule; that is the only
-     exemption.
+   - **One change per PR; parallel when independent, stacked when dependent.**
+     Two changes that could land alone are two PRs, each ready against its
+     base. A PR that needs another's work is cut from that branch, targets it
+     as its base, and stays a draft until the one beneath it merges, however
+     finished it is. When it does, retarget the next PR onto the target
+     *before* deleting the merged branch — deleting it first closes every PR
+     based on it; `uv run qm merge` keeps that order. Never close a PR in
+     favour of one that contains it. `handbook/async-contract.md` §1.
 
 4. **Check what your branch actually carries, before opening the PR.**
-   `python project-seed/ci/check_pr_base.py --base <base> --head <branch>`
-   reports the merge-base, the commit and file counts, the authors, and any
+   `uv run qm branch --base <base> --head <branch>` reports the merge-base,
+   the commit and file counts, the authors, and any
    commits that also live on another branch. A branch cut from the wrong parent
    passes every other check — its tests are green and its lint is clean,
    because those measure the branch and not where it came from. One PR in this
    org sat open carrying 18 commits of unrelated work under a title describing
    one CI check. Paste the output into the description.
 5. **Run the CI locally before you call a pull request ready.**
-   `python project-seed/ci/run_workflows_locally.py` executes the workflows'
-   actual steps. Reading a workflow and running the commands you think it
+   `uv run --extra preflight qm preflight` executes the workflows' actual
+   steps. Reading a workflow and running the commands you think it
    contains is not the same thing, and the difference is where false "CI is
    green" claims come from — the first local run of this repo's own workflows
    failed a step that every hand-run check had passed. Report what you ran and
@@ -180,7 +192,7 @@ with a date looks checked.
     worse than none — a green check standing where a reader believes something
     is enforced.
 
-    **This item, item 10 and item 12 are one rule**, and charter P16 states
+    **This item, item 10 and item 12 are one rule**, and charter `a-check-is-evidence-after-it-fails` states
     it once — record `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`.
     A check is evidence only after it has been seen to fail. The tool
     answering a different question, the setup describing itself, and the
@@ -196,13 +208,13 @@ with a date looks checked.
     long after they are written: prefer the relation to the count ("every
     synced repository", not a total), and where a figure is the point, name the
     command and the commit that produced it. Never restate a figure a generated
-    document already holds — `governance-status.yaml` and `harness-status.json`
+    document already holds — `status/governance.yaml` and `status/harness.yaml`
     carry their own, and a copy is a second number nothing updates. A
     verification section is the one place a bare count belongs, because its
     subject is one run at one commit. This is about text, not code: an
     assertion that goes stale fails, which is the property prose lacks.
 
-15. **Show it by running it** — charter P12, record
+15. **Show it by running it** — charter `show-it-by-running-it`, record
     `records/DRAFT-one-executable-walkthrough.md`. A worked example lives in
     `walkthrough/`, executed by the ordinary test command, and nothing describes
     a behaviour in a second place beside the code. What prose cannot hold is
@@ -227,6 +239,18 @@ with a date looks checked.
     `python ci/check_restatements.py` verifies the declarations pair up. It
     cannot tell that a summary and its record disagree, and it cannot find a
     restatement nobody declared — the declaration is yours to make.
+
+17. **The workstation, the agent and the conversation are not the
+    organisation** — record `records/DRAFT-what-is-not-the-organisation.md`,
+    with `handbook/what-is-not-the-organisation.md` as the thing to do. A
+    committed file states what is true of the organisation: not where a clone
+    sits on one disk, which editor held it, what the tool driving a session
+    did with its shell, or what anybody said. A decision enters as a decision,
+    never as reported speech; a commit message describes the change and not
+    the conversation behind it. `uv run qm leaks` refuses the mechanical part
+    — a home path, a personal folder, a scratch path, a shared link — and runs
+    as the `leak-check.yml` gate; the rest is yours to read for before you
+    push.
 
 ## If you're forking this corpus into a new project
 

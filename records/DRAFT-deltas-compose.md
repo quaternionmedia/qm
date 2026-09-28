@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-20 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P6 — decisions are documented or they didn't happen; P8 — systems over heroics |
+| **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `systems-over-heroics` — systems over heroics |
 | **Restated in** | Nothing. The qmPM standardisations page cites it, which is a citation rather than a restatement: that page decides nothing and says so |
 
 ## Context
@@ -114,7 +114,7 @@ validation error was giving them.
 
 **Cross-repository relations will dangle.** An address whose delta this side has
 never ingested is normal and stays. It also means a relation count is not a
-measure of anything — the corpus is used to that from `governance-status.yaml`.
+measure of anything — the corpus is used to that from `status/governance.yaml`.
 
 **`same-as` makes duplicate detection possible and does not do it.** Two
 detectors proposing the same strand under two addresses is the ordinary case,

@@ -105,16 +105,16 @@ def test_a_source_that_does_not_exist_is_refused(tmp_path: Path):
 
 
 def test_a_source_may_carry_an_anchor_after_the_path(tmp_path: Path):
-    """`ledger.yaml 2026-08-15-001` names a file and an entry within it."""
+    """`status/ledger.yaml 2026-08-15-001` names a file and an entry within it."""
     root = root_with(tmp_path)
-    write(tmp_path / "ledger.yaml", "entries: []\n")
-    assert problems([policy(source="ledger.yaml 2026-08-15-001")], root) == []
+    write(tmp_path / "status/ledger.yaml", "entries: []\n")
+    assert problems([policy(source="status/ledger.yaml 2026-08-15-001")], root) == []
 
 
 def test_a_source_that_is_not_a_path_is_left_alone(tmp_path: Path):
     """A record cited by title, or a policy sourced from a conversation."""
     root = root_with(tmp_path)
-    assert problems([policy(source="the charter, P12")], root) == []
+    assert problems([policy(source="the charter, `show-it-by-running-it`")], root) == []
 
 
 # --- refusing silence -------------------------------------------------------

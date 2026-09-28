@@ -33,6 +33,13 @@ It carries:
 Delete a handoff page when its work lands. The method that outlives it belongs
 in a runbook, not here.
 
+Before writing yours, apply that rule to the pages already there: retire every
+page whose work is on `main`, fold the unfinished residue of a partly landed
+page into the page that stays, then refill the queue table in
+`handbook/handoffs/README.md` so that it lists every page in the directory and
+nothing that is gone. `handbook/consolidation-runbook.md` Step 7 is the
+procedure.
+
 ## The retrospective — why it went the way it did
 
 Write it to `perspectives/<date>-<slug>.md` in the corpus. **Every why goes

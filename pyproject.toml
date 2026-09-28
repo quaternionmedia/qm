@@ -43,6 +43,12 @@ qm = "ci.cli:main"
 [project.optional-dependencies]
 dev = [
   "pytest>=8.0",
+  # The suite runs parallel by default -- ci/run_tests.py BASE_ARGS, measured
+  # at 280s serial against 77s parallel. Without this the declared entry point
+  # errors on an unknown option rather than running slowly, which is the right
+  # failure: a gate that silently dropped its workers would be reporting on a
+  # different run from CI.
+  "pytest-xdist>=3.5",
 ]
 # The documentation site generator. An extra rather than a runtime dependency:
 # `uv run qm slot` must not need a static-site builder installed, and a

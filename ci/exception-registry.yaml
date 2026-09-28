@@ -57,29 +57,6 @@ exceptions:
       unsigned run has to be absorbed, and moving it is a reviewable edit.
     announced: "counted as debt on stderr on every run; the count does not go down"
 
-  - id: project-branches-hold-their-own-slot
-    rule: "One open pull request per repository, per contributor"
-    rule_source: handbook/async-contract.md
-    enforced_by: project-seed/ci/check_one_pr.py
-    constant: "--per-base"
-    defaulted_in:
-      - ci/harness_status.py            # CORPUS_PER_BASE
-      - project-seed/ci/cowork_context.py   # CORPUS_PER_BASE
-    scope: "pull requests whose base matches project/*"
-    reason: >
-      Each project branch is pinned by a different downstream submodule, so a
-      change to one is not a change to another. Combining them would invent a
-      dependency between unrelated projects.
-    removal_condition: >
-      Project branches stop being pinned independently, which would mean the
-      submodule model had changed.
-    announced: "named in the workflow and printed by the tool"
-    note: >
-      The exemption is a flag somebody passes, and two callers hardcode the
-      default independently with nothing keeping them equal. The registry first
-      attributed the constant to check_one_pr.py, which does not hold one --
-      --drift caught that on its first run.
-
   - id: machine-scoped-inventory-files
     rule: "Data files live in ci/ or status/, as YAML"
     rule_source: handbook/config-standard.md
@@ -103,6 +80,23 @@ exceptions:
       Each is placed by a tool that requires it there. Moving them would break
       the tool to satisfy a rule about a different kind of file.
     removal_condition: "A tool stops requiring its config at the root."
+    announced: "listed in the checker"
+
+  - id: families-seam-stays-json-at-the-root
+    rule: "No data file at the repository root; YAML everywhere"
+    rule_source: handbook/config-standard.md
+    enforced_by: ci/config_standard.py
+    constant: ROOT_ALLOWED
+    scope: "families.json"
+    reason: >
+      The standard's own carve-out applied: JSON is kept only where a consumer
+      requires it, and two consumers do -- dossier and codecartographer read
+      this file over the seam at a pinned path, in runtimes where YAML would
+      add a dependency to draw a picture. Moving or re-serialising it breaks
+      the seam to satisfy a rule about files nothing external reads.
+    removal_condition: >
+      Both consumers move to a path under status/ and a serialisation they can
+      read without a new dependency, in the same change that moves the file.
     announced: "listed in the checker"
 
   - id: migration-keeps-its-own-vocabulary

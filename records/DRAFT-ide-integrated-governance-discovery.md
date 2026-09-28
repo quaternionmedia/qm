@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-07-05 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P11 — governance finds the reader, not the reverse |
+| **Principle** | `governance-finds-the-reader` — governance finds the reader, not the reverse |
 
 ## Context
 

@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-08 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P6 — decisions are documented or they didn't happen; P8 — systems over heroics |
+| **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `systems-over-heroics` — systems over heroics |
 | **Restated in** | `AGENTS.md` item 3; `project-seed/ide/AGENTS.md` item 3; `handbook/async-contract.md` §2 |
 
 ## Context

@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-15 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P6 — decisions are documented or they didn't happen; P8 — systems over heroics |
+| **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `systems-over-heroics` — systems over heroics |
 | **Restated in** | Nothing |
 
 ## Context
@@ -36,7 +36,7 @@ rule arrives.
 
 ## Decision
 
-1. **Every substantive action is recorded in `ledger.yaml` before it is taken**,
+1. **Every substantive action is recorded in `status/ledger.yaml` before it is taken**,
    with what it is projected to do. An action too small to project is too small
    to record; the boundary is judgement and is meant to be.
 

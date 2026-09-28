@@ -25,7 +25,7 @@ every governance file is otherwise absent rather than unreadable, and a check
 that looks for one will report the project as ungoverned.
 
 Add `--offline` only if `gh` is unavailable. Then say in your first message
-that the pull request slot is **unread**, not that it is free.
+that your open pull requests are **unread**, not that there are none.
 
 ## 2. Read what governs you
 
@@ -48,13 +48,14 @@ count, a status or a branch state from a document, check it.
 Open your first message with these, in this order:
 
 - **The commit you are working against**, and the branch.
-- **Your pull request slot**: free, already holding one you will add to, or
-  over the limit. If over, say which pull requests and stop — folding is the
-  human's call, and closing one is a decision with an order to it.
+- **Your open pull requests**, and how they stack. If one is ready while
+  stacked, say which and mark it draft until the one beneath it merges. A new
+  change that needs one of them is cut from its branch as a draft against it.
 - **Whether *keep everything local* is in force.** If you cannot tell from the
   session, ask. It survives compaction and it overrides delivery.
 - **Anything else in flight** — a dirty tree you did not dirty, a sibling
   branch, an unpushed commit. Reconcile before writing, not after.
+  `uv run qm estate` answers it across every rostered repository.
 - **Every question whose answer changes what you build.** Ask them now. A pull
   request states decisions; a question that arrives in one hands the drafting
   back to your reviewer.

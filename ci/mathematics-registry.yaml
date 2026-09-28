@@ -1,7 +1,7 @@
 # The mathematical structure each layer of the stack is claimed to have.
 #
 # The decision is records/DRAFT-a-knot-is-a-cycle-of-obligation.md and
-# PRINCIPLES.md P15. This is the list, and the list is the mechanism: a practice
+# PRINCIPLES.md `a-loop-is-not-a-knot`. This is the list, and the list is the mechanism: a practice
 # of this kind that lives only in prose becomes a habit of naming things after
 # theorems, and nobody can tell the difference from the outside.
 #
@@ -133,3 +133,310 @@ mappings:
       state the precedence pairs, then check whether real deltas respect them.
       dossier holds 156 deltas across three phases, which is enough data to
       find out whether the implied order is the observed one.
+
+  - layer: the boundary between an agent's judgement and the code it produces
+    structure: >
+      a decidability boundary -- an undecidable region, and total functions
+      outside it
+    state: earned
+    decides: >
+      where a guard may live. A check with no bound is a check that might not
+      return, so it is not a check; a bound that fires and is caught without
+      being reported turns a halting failure into a plausible answer. Both were
+      settled by the structure rather than by taste, and both had been argued
+      previously from cost and interruption instead.
+    measured: >
+      dossier: `waiting_org` asked `overview.build` for its attention rows, and
+      `build` builds every facet including that one. 109 levels of nested
+      `build` before Python's recursion limit stopped it; the RecursionError
+      caught by a per-source guard; every frame above returning a plausible
+      answer. overview.build 0.061s -> 1.478s, unnoticed for four pull
+      requests. Guarded now by a call-count assertion, seen to fail.
+    unearned: >
+      no bound is stated for a `qm` command's own runtime. The obligation is
+      asserted of guards and unmeasured for commands, so "every guard is a
+      total function" is checked and "every command terminates" is assumed.
+      Nothing yet measures the size of the undecidable region either, so
+      "shrink it" has a direction and no metric.
+    next: >
+      state a runtime bound per command in the gate registry, the way
+      `cannot_see` states a blind spot. Then the claim is checkable rather
+      than asserted.
+
+  - layer: a delta, and the readings either side of it
+    structure: >
+      a difference of two samples -- the discrete analogue of an integral over
+      a stabilised axis
+    state: earned
+    decides: >
+      that a change is stored as a reading, an act, and another reading, rather
+      than as a summary of what the act achieved. It settled the disk store's
+      append-only design against the governance store's replace-what-it-read
+      design: the question worth asking of a disk is what *grew*, and no single
+      reading answers it. It also decides what a delta may be compared against
+      -- a difference across two coordinate systems is refused rather than
+      averaged into a trend that happened on neither.
+    measured: >
+      dossier's `disk_snapshot` / `disk_reclaim` tables and
+      `dossier disk delta`: a reclaim carries the two readings it sits between,
+      and a delta across two machines is refused. Each snapshot carries the
+      machine it describes, which is the stabilised axis being named.
+    unearned: >
+      the rate. A difference of two samples is the accumulated change; nothing
+      here computes or uses a derivative -- how fast a repository is moving,
+      how quickly a queue drains -- although the data has timestamps and could.
+      And the axis is stabilised by convention rather than by check: nothing
+      refuses a comparison across two *phase vocabularies*, only across two
+      machines.
+    next: >
+      pick one rate worth having and measure it, or record that none is. The
+      candidate is delta phase transitions per week per repository, which
+      dossier has the timestamps for. Until then this entry is earned for
+      accumulation and states nothing about rates.
+
+  - layer: a generated artifact and the command that regenerates it
+    structure: a fixed point of the generator
+    state: earned
+    decides: >
+      what "the documentation is current" means, checkably. Not "somebody
+      regenerated it recently" but `regenerate(x) == x` -- so drift is distance
+      from the fixed point and a stale artifact is a failing assertion rather
+      than a judgement. It settles the design question the other way round from
+      how it is usually asked: the generator must be idempotent, and a
+      generator that is not cannot ride the ordinary command at all.
+    measured: >
+      qmetronome: 24 screenshots, 23 recordings and 24 guide pages regenerated
+      by `./gradlew test` carry zero drift, while the two artifacts in the same
+      repository that need a remembered command are stale -- a changelog one
+      release behind its newest tag, and a results table pasted by hand. One
+      repository, one author, one standard, so the difference is the mechanism
+      and not the discipline.
+
+      qm: `ci/glossary_links.py` was written claiming idempotence and did not
+      have it -- it linked the first *bare* use, so each pass linked one more
+      occurrence and it rewrote 17 pages on its second run. Running it twice is
+      what found that. The structure named the defect before anybody read the
+      code.
+    unearned: >
+      the repair direction. A fixed-point generator cannot fix its own bad
+      output, because bad output is still a fixed point: the broken glossary
+      link had to be reverted by hand before a corrected pass could run.
+      Nothing states how a generated artifact gets back to a good fixed point,
+      and "revert and rerun" is a habit rather than a mechanism.
+
+      And the property is checked per generator rather than required of them.
+      `dossier`'s ring recordings only became a fixed point when a per-run CSS
+      id was normalised out; nothing would have failed had it stayed.
+    next: >
+      assert idempotence in the seed's own test helpers, so a new generator
+      gets the check without its author thinking of it. That is the difference
+      between a structure that is known and one that is enforced.
+
+  - layer: a measurement and the set it was taken over
+    structure: >
+      a predicate under an explicit quantifier -- a value reported together
+      with the domain it was evaluated on, rather than a value alone
+    state: earned
+    decides: >
+      whether a green figure is a statement about the corpus or about the
+      tool's own list, which is not a matter of taste and was being settled by
+      taste four times over. The rule that follows is mechanical: a scope list
+      is derived from the thing it claims to cover, or diffed against it and
+      refused when the two disagree. Taste would have said "the generator looks
+      right"; the structure says an unbound quantifier makes the result
+      undefined, whatever it prints.
+    measured: >
+      four instances in one week, each green and each wrong. `reading_load`
+      reported 631 of 700 lines within budget over a hardcoded three-document
+      tuple while `AGENTS.md` mandated a fourth in full -- 1130 of 700 once the
+      domain matched the mandate. `check_index_matches_directory` compared
+      numbers to numbers, and before the first ratification both sets were
+      empty, so it had reported clean for its whole life while four records
+      were absent from the index. `ci/doc_status.py`'s scan omitted `docs/`,
+      the tier `handbook/style-guide.md` calls the reference, so
+      `totals.unknown: 0` was a statement about a subset -- 131 documents
+      became 176 when the domain was corrected. `SEED_WORKFLOWS` named three of
+      the four workflows the fork procedure requires, and correcting it showed
+      `one-pr-check.yml` missing from twelve of fourteen governed projects.
+    unearned: >
+      there is no shared mechanism. Each of the four was repaired by hand, and
+      a fifth generator written tomorrow gets none of this. The domain is
+      published as prose in a `scope_note` rather than as a structure anything
+      reads, and nothing anywhere compares a declared domain against an
+      intended one -- which is the actual check, and it does not exist.
+
+      It is also unproven for the case that matters most: every instance found
+      so far was a domain that was too small. Nothing here would catch a domain
+      that is too large, where a figure is diluted rather than flattered.
+    next: >
+      a helper in the seed that refuses to emit a figure without a domain, so a
+      generator cannot report a bare value by accident. Until that exists this
+      mapping is a rule four tools happen to follow.
+
+  - layer: a reference, and the edits its referent admits
+    structure: >
+      invariance under the edit monoid -- a key rather than an index into a
+      sequence
+    state: earned
+    decides: >
+      that a principle is addressed by name and not by position, and that the
+      name is declared rather than derived from the title. Both fall out of the
+      structure and neither needed an opinion: an index is not invariant under
+      insertion, so inserting a principle anywhere but the end reaims every
+      reference below it; and a title-derived key is not invariant under
+      retitling, so improving a wording would move every reference to it. The
+      failure an index produces is the one nothing can detect -- a stale
+      reference stays well-formed and resolves to the wrong principle rather
+      than to none.
+    measured: >
+      `uv run qm edges`. 184 references rewritten across 54 files; the guard
+      then caught six genuine reintroductions when four pre-rename branches
+      were folded, and dangled nothing. The renaming was verified by mutation:
+      emptying the ordinal scan fails two tests, disabling the escape hatch
+      fails two more.
+    unearned: >
+      uniqueness is enforced and proximity is not. Two principles named closely
+      enough to be confused pass, because the check compares strings and a
+      near-collision is a reading. The exemption is also file-scoped, so a
+      document can opt out of the rule wholesale with one stated reason -- which
+      was necessary the first time it met a plan numbering its own work
+      packages the same way, and is a hole somebody could walk through
+      deliberately.
+    next: >
+      nothing stated. The near-collision case is a reading and may not be
+      mechanisable at all, which is worth saying rather than leaving as an
+      implied gap.
+
+  - layer: a repository and the family it belongs to
+    structure: a partial function, not a relation and not a partition
+    state: earned
+    decides: >
+      three things that were otherwise taste. That a repository in two families
+      is refused, which is what makes a change needing two families a *seam*
+      rather than a merge -- the single most expensive mistake available in
+      this estate, and it is now foreclosed by the shape of the map instead of
+      by a paragraph. That an absent family is *unstated* and never *none*,
+      because the function is partial by construction rather than by
+      forgetfulness. And that substrate belongs to no family, which a partition
+      would have forbidden by requiring cover.
+    measured: >
+      `uv run qm families --check`. Nineteen members mapped across three
+      families, fifteen rostered repositories unstated, none in two. Both
+      branches of the check mutated and seen to fail; the empty-declared-set
+      case is tested, because an empty codomain would let every claim pass.
+    unearned: >
+      disjointness is enforced by the file format rather than by a check --
+      `family` is a scalar in `ci/workspace.yaml`, so two families cannot be
+      expressed, and nothing would notice if the key became a list. The
+      codomain is read from the record, so it moves correctly; the *domain* is
+      the roster, and a family member that is in no roster entry at all is
+      invisible. An estate with a missing member and a complete one are the
+      same shape here.
+
+      And the border itself is unearned entirely. §2 of the record says a
+      repository belongs by what it drives, and no check reads a repository.
+    next: >
+      the first repository that genuinely drives two of the three. The scalar
+      is what has to change to express it, and that is the signal to re-read §2
+      rather than to widen the type.
+
+  - layer: propagation, and the pin that reads a project branch
+    structure: >
+      a monotone map into an append-only history -- a downstream pin is a lower
+      bound on the branch, and it only rises
+    state: earned
+    decides: >
+      that `project/<name>` takes merge commits and never a rebase or a squash,
+      and that propagation runs one way. Not a style preference: a pin is a
+      reference to a commit by content, so rewriting the branch makes the
+      pinned commit unreachable and every parent that recorded it wrong at
+      once. It also decides the direction -- org content committed on a project
+      branch is stranded, because nothing carries it back up the map.
+    measured: >
+      today's dry run, at `rehearsal/main-2026-08-29`: all four project bases
+      merge `main` with zero conflicts -- dossier, codecartographer, qmcp at 50
+      commits behind, and looksatwords. The runbook's steady-state check is the
+      standing form of the same measurement.
+    unearned: >
+      nothing enforces append-only. `submodule-check.yml` notices a pin that
+      can no longer be fetched, which is detection after the loss rather than
+      refusal before it, and no branch protection exists on `project/*`. The
+      monotonicity is a convention four repositories currently happen to
+      respect.
+
+      The structure also says where it does *not* apply, and that half is
+      newer than the rest of this entry. A pin is a reference something holds,
+      so the constraint binds a ref exactly when something may read it -- which
+      makes an ephemeral development ref, that nothing pins and nothing
+      branches from, legitimately rewritable. `records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md`
+      §1a names `test` as that ref. Nothing yet enforces the boundary either:
+      no check refuses a pin that points at an ephemeral ref, which is the one
+      way this distinction gets violated by accident.
+    next: >
+      a ruleset on `project/*` refusing force-push, which would make the
+      structure enforced rather than observed. `uv run qm rulesets` already
+      reads what the host applies and would show it.
+
+  - layer: rewriting published history
+    structure: >
+      content addressing -- an object's identity is a function of its content,
+      so a rewrite constructs a new graph rather than editing the old one
+    state: aspirational
+    decides: >
+      that a purge cannot be partial. Because identity is derived from content,
+      changing any object changes every descendant's identity, so all pins
+      break together, every clone diverges, and a fork retains the old graph
+      whatever the origin now holds. That settles "does purging remove the
+      data" -- it does not -- before anybody argues about it, and it is why
+      rotation precedes rewriting rather than following it.
+
+      It also settles what an archive is, and the answer is uncomfortable. An
+      archive is a *deliberate* fork of the abandoned graph, so it has exactly
+      the property that makes a fork defeat a purge. **It restores
+      recoverability and it does not restore secrecy.** Preserving an archive
+      and purging sensitive material are therefore the same operation pointed
+      in opposite directions, and both can only hold when the archive is out of
+      public reach -- offline, or private, with access as the control the
+      history no longer provides. A readable archive of a purged repository has
+      removed nothing, and it looks like diligence.
+    measured: none
+    unearned: >
+      every part of it that is about this organisation. The property is well
+      known and it has never been exercised here: `ci/exception-registry.yaml`
+      records that the corpus forbids force-push outright and names the
+      decision as a person's, so nothing in this estate has measured what a
+      rewrite costs. Claiming it as earned on the strength of how git is built
+      would be the ornament this registry's header warns about -- the structure
+      is real and the *consequences here* are predicted rather than observed.
+
+      Nothing enumerates what would break, either. The pins are known, the
+      forks are not, and a fork is the half that survives a purge.
+    next: >
+      `protocols/history-archive.md`, run once. It takes the object counts, the
+      bundle, the pin list and the fork list before a rewrite, and re-measures
+      after -- which is the measurement that moves this to earned or refutes
+      it. Nothing else moves it, because nothing else has been done.
+
+  - layer: the promotion pipeline a change climbs
+    structure: >
+      a total order on stages with promotion as a monotone map, carried by
+      refs: each stage is a branch and promotion is a merge from the stage
+      before it
+    state: aspirational
+    decides: >
+      that every stage is a ref and promotion is a merge -- settled in the
+      stage record's 2 on the fact that this estate ships repositories and
+      records rather than built images, so a label-on-a-build model would have
+      invented a build for things that do not have one. What the structure
+      still decides daily: a promotion that skips a stage is not a promotion,
+      because the map is monotone over the whole order.
+    measured: none
+    unearned: >
+      the enforcement. The stage refs exist locally in five repositories and
+      nothing is pushed, so no merge has ever been refused for skipping a
+      stage and the eleven scripts and five workflows that key on `main` still
+      key on it. The first pushed promotion is the measurement.
+    next: >
+      push the stages and move the enforcement surface to the entry stage in
+      one change, then record the first refused out-of-order merge -- the
+      moment this moves to earned.

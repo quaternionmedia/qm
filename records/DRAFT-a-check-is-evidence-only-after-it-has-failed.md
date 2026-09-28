@@ -5,8 +5,8 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-22 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P16 — a check is evidence only after it has failed; P12 — show it by running it; P6 — decisions are documented or they didn't happen |
-| **Restated in** | `PRINCIPLES.md` P16; `AGENTS.md` item 13 |
+| **Principle** | `a-check-is-evidence-after-it-fails` — a check is evidence only after it has failed; `show-it-by-running-it` — show it by running it; `decisions-are-documented` — decisions are documented or they didn't happen |
+| **Restated in** | `PRINCIPLES.md` `a-check-is-evidence-after-it-fails`; `AGENTS.md` item 13 |
 | **Unifies** | `records/DRAFT-decision-record-discipline.md` §7, §9, §10 |
 
 ## Context
@@ -89,8 +89,8 @@ faces:
 | §9 | be careful with fixtures | the *setup* is untested; make it fail |
 | §10 | be thorough with guards | the *guard* is untested; make it fail |
 
-P12 is the same shape one level up: a document that describes behaviour is
-unproven until the behaviour produced it. This record is P12 applied to the
+`show-it-by-running-it` is the same shape one level up: a document that describes behaviour is
+unproven until the behaviour produced it. This record is `show-it-by-running-it` applied to the
 checks themselves — **the tests are documentation of behaviour too, and they
 drift the same way.**
 

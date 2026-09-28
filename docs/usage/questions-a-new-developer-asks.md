@@ -29,9 +29,10 @@ Some projects mount the corpus somewhere other than `governance/qm`; check
 | Repository | Calls itself | Its part in the demo |
 |---|---|---|
 | `qm` | the decisions, and the checks that keep them honest | governance, the gates, the CLI |
-| `qmcp` | a Model Context Protocol server | the harness: it measures work and answers over HTTP |
+| `qmcp` | a Model Context [Protocol](../ref/glossary.md#protocol){ .glossary-term } server | the harness: it measures work and answers over HTTP |
 | `dossier` | the control panel | draws the harness's answer in a terminal |
 | `codecartographer` | a tool for mapping source code as graphs | draws the same answer in a browser |
+| `looksatwords` | reads natural language and says what was in it | the second act: reads the turns of one thread the harness served, and names what they were about |
 
 The middle column matters, because each repository's README introduces it on its
 own terms and none of them opens by describing the demo. `dossier` and `qmcp` do
@@ -44,13 +45,17 @@ active, and it lists others — `rad` among them. `uv run qm inventory` prints i
 
 **"I just cloned this. What do I run first?"**
 
-`uv run qm devloop` measures your local environment against what the loop needs,
+`uv run qm devloop` measures your local environment against what the [loop](../ref/glossary.md#loop){ .glossary-term } needs,
 and `uv run qm brief` builds the opening brief for a session. Then read
 [Getting started](getting-started.md) and the worked example in
 [walkthrough/](https://github.com/quaternionmedia/qm/tree/main/walkthrough).
 
-`uv run qm workspace` writes the multi-root workspace file from the roster,
-which is what actually puts the repositories in front of you.
+`uv run qm workspace` writes the multi-root [workspace](../ref/glossary.md#workspace){ .glossary-term } file from the roster,
+which is what actually puts the repositories in front of you. `--family
+<name>`, repeatable, narrows it to one working system — `uv run qm families`
+lists them — so the members of a family open together without the rest of the
+estate; a family the record does not declare is refused rather than resolved
+to an empty window.
 
 **"Will my commits be rejected for anything I have not set up?"**
 
@@ -72,6 +77,16 @@ run yourself, in the terminal you want to watch.
 that they agree, rather than showing you two pictures and leaving the comparison
 to your eye. `uv run qm demo --over-http --side-by-side` does it against the
 running services instead, which is a different and stronger claim.
+
+The demo has a second act. After the windows agree, the harness serves **one
+thread** and three readers take it under their own interpreters: `looksatwords`
+reports the topics the turns carried and which tangents never resolved;
+`dossier` reports which of its views could answer with that subject selected
+and what the rest are waiting on; `codecartographer`, when its checkout carries
+the derived system monitor, derives the subject's system from its clone. The
+readers are held to the [seam](../ref/glossary.md#seam){ .glossary-term } rather than to a picture — every one must report
+the harness's own turn counts, and `looksatwords` must emit no decision, which
+is the border its adoption record draws.
 
 ## Making a change
 
@@ -100,17 +115,18 @@ partly exercised locally, and that a local pass is evidence rather than proof.
 **"Do I open a pull request for this?"**
 
 Yes, and you merge it yourself once the gates are green. Never push `main`
-directly. Draft means incomplete — a finished pull request left in draft is a
-change that never arrives.
+directly. Draft means incomplete, or stacked on another open pull request — a
+finished pull request left in draft against `main` is a change that never
+arrives.
 
 **"How many pull requests can I have open?"**
 
-One per repository, for agent-produced work. Drafts count; automation accounts
-do not; and `project/<name>` branches are exempt, because each is pinned by a
-different downstream repository. `uv run qm slot --repo <owner>/<name>` answers
-it for one repository. The rule is a sequencing constraint rather than a limit on
-how much you can do — [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md)
-§1 has the reasoning and the exemptions.
+As many as you have independent changes. Each pull request carries one change;
+independent ones sit side by side, each ready against its base. One that needs
+another's work is cut from that branch, based on it, and stays a draft until the
+one beneath it merges. `uv run qm slot --repo <owner>/<name>` lists yours and
+refuses a stacked one marked ready — [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md)
+§1 has the reasoning.
 
 **"Who has to approve it?"**
 
@@ -126,7 +142,7 @@ person who asked for the work; do not request a review.
 Not on its own — a passing test may be asserting nothing. `uv run qm mutate
 <module>` breaks a module on purpose and reports whether its tests noticed.
 `uv run qm posture` reports what the suite costs and what it catches together,
-because either number alone flatters. This is charter principle P16.
+because either number alone flatters. This is charter principle `a-check-is-evidence-after-it-fails`.
 
 **"This says zero. Does that mean nobody looked?"**
 
@@ -152,13 +168,13 @@ real bug.
 
 **"Where do these numbers come from, and are they current?"**
 
-`governance-status.yaml` and `harness-status.json`, both at the root of the `qm`
+`status/governance.yaml` and `status/harness.yaml`, both at the root of the `qm`
 clone. Read them rather than recomputing — a figure you derive yourself is a
 second number nothing keeps up to date.
 
-They are not symmetrical. `harness-status.json` carries its own refresh command
+They are not symmetrical. `status/harness.yaml` carries its own refresh command
 and staleness budget in a `reading:` block inside the file.
-`governance-status.yaml` has no such block, and its refresh command and its
+`status/governance.yaml` has no such block, and its refresh command and its
 168-hour budget live only in
 [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 Check the age before quoting either.

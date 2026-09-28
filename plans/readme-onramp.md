@@ -52,7 +52,7 @@ for the one page that answers their question. Agents keep `AGENTS.md`.
 |---|---|
 | Title + 3 sentences | what this corpus is; adopted by reference; tighten, never relax. Link to the published docs site. |
 | **Read this first** | the three invariants, one line each: only `records/` binds; every record is `Proposed`, deliberately; every change arrives as a pull request and nobody merges their own. |
-| **Start here** | ~6 audience rows → `PRINCIPLES.md`, `docs/usage/getting-started.md`, `docs/usage/first-project.md`, `docs/ref/`, `governance-status.yaml`, and one row: *working here as a coding agent → `AGENTS.md`*. |
+| **Start here** | ~6 audience rows → `PRINCIPLES.md`, `docs/usage/getting-started.md`, `docs/usage/first-project.md`, `docs/ref/`, `status/governance.yaml`, and one row: *working here as a coding agent → `AGENTS.md`*. |
 | **Layout** | the tree, one line per top-level entry, no argument. Full annotation lives in `docs/ref/repo-layout.md`. |
 | **Index — org records** | unchanged table (CI reads this file), plus two sentences on why every row is `Proposed` and a link to `handbook/governance-rollout.md`. |
 | **Contributing** | branch, draft PR, human merge — three lines, linking `docs/ref/namespaces.md` and `handbook/async-contract.md`. |
@@ -162,8 +162,8 @@ No test asserts any of these strings (checked `project-seed/ci/tests/`,
 **Out of scope, stated in the PR body:**
 
 - `ci/governance_status.py:145,149` — these strings are *emitted into*
-  `governance-status.yaml`, and refreshing it needs
-  `python ci/governance_status.py --write governance-status.yaml`, which reads
+  `status/governance.yaml`, and refreshing it needs
+  `python ci/governance_status.py --write status/governance.yaml`, which reads
   other repositories. They also carry a substantive claim (the namespace table
   "has four entries") that is a governance finding, not a pointer. Leave to a
   change that can regenerate the document.
@@ -250,7 +250,7 @@ No test asserts any of these strings (checked `project-seed/ci/tests/`,
 - [ ] `python project-seed/ci/adr_lint.py --records-dir records --index README.md` passes
 - [ ] `python -m reuse lint` passes
 - [ ] `python -m pytest project-seed/ci/tests ci/tests` passes (runtime-string edits)
-- [ ] `python ci/governance_render.py governance-status.yaml` still renders
+- [ ] `python ci/governance_render.py status/governance.yaml` still renders
 - [ ] `grep -rn "README's \"" --include='*.md' --include='*.py' --include='*.yml' .`
       returns only the four out-of-scope sites
 - [ ] `wc -l README.md` ≤ 90

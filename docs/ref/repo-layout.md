@@ -19,8 +19,8 @@ qm/
 ├── project-seed/          what a new project copies: adr/, ci/, ide/
 ├── ci/                    org-level tooling: the status generators
 ├── docs/                  this documentation site
-├── governance-status.yaml generated: where every project stands
-├── harness-status.json    generated: PR slots and work in flight
+├── status/governance.yaml generated: where every project stands
+├── status/harness.yaml    generated: open PRs and work in flight
 ├── .github/               CI workflows, CODEOWNERS, ruleset config
 ├── adapters/              optional per-tool glue; nothing depends on it
 ├── LICENSE                CC-BY-SA-4.0, for corpus prose
@@ -40,8 +40,8 @@ Do not edit these by hand:
 
 | File | Refresh command |
 |---|---|
-| `governance-status.yaml` | `python ci/governance_status.py --write governance-status.yaml` |
-| `harness-status.json` | `python ci/harness_status.py --no-local --write harness-status.json` |
+| `status/governance.yaml` | `python ci/governance_status.py --write status/governance.yaml` |
+| `status/harness.yaml` | `python ci/harness_status.py --no-local --write status/harness.yaml` |
 
 Both are committed; CI does not regenerate them. See [Read status documents](../cookbook/read-status-documents.md) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 
@@ -54,4 +54,4 @@ An adopting project's records are **not** in this tree. They live on that projec
 ## Related
 
 - [Branch namespaces](namespaces.md) — the branch model
-- [Handbook index](handbook.md) — what each handbook page answers
+- [Handbook index](handbook.md) — what each [handbook](../ref/glossary.md#handbook){ .glossary-term } page answers

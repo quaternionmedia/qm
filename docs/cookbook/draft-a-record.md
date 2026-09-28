@@ -1,6 +1,6 @@
 # Draft a record
 
-Write a decision record, at the org level or the project level.
+Write a decision [record](../ref/glossary.md#record){ .glossary-term }, at the org level or the project level.
 
 ## Copy the template
 
@@ -12,7 +12,7 @@ cp TEMPLATE.md records/DRAFT-<slug>.md
 cp adr/TEMPLATE.md adr/DRAFT-<slug>.md
 ```
 
-The file stays named `DRAFT-*.md` until a human ratifies it. Numbers are assigned at ratification, not before.
+The file stays named `DRAFT-*.md` until a human ratifies it. Numbers are assigned at [ratification](../ref/glossary.md#ratification){ .glossary-term }, not before.
 
 ## Fill in the template
 

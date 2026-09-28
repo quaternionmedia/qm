@@ -1,6 +1,6 @@
 # The governance status seam — what exists, and what a human must settle
 
-**What this is.** `ci/governance_status.py` emits `governance-status.yaml`, a
+**What this is.** `ci/governance_status.py` emits `status/governance.yaml`, a
 document describing the state of governance across the org.
 `ci/governance_render.py` turns that document into one self-contained HTML page.
 CI verifies the document against the commits it names. Nothing else in this
@@ -16,7 +16,7 @@ human can answer.
 ## The seam, and what each side may not do
 
 ```
-   git + gh  ──►  ci/governance_status.py  ──►  governance-status.yaml  ──►  a reader
+   git + gh  ──►  ci/governance_status.py  ──►  status/governance.yaml  ──►  a reader
                   the only thing that            the contract              render_html,
                   knows what a rule means                                  dossier, a job
 ```
@@ -181,9 +181,9 @@ org-wide status file it cannot refresh.
 ## Running it
 
 ```sh
-python ci/governance_status.py --write governance-status.yaml   # needs gh
-python ci/governance_status.py --check governance-status.yaml   # offline
-python ci/governance_render.py governance-status.yaml --out status.html
+python ci/governance_status.py --write status/governance.yaml   # needs gh
+python ci/governance_status.py --check status/governance.yaml   # offline
+python ci/governance_render.py status/governance.yaml --out status.html
 python -m pytest project-seed/ci/tests ci/tests -q
 python project-seed/ci/run_workflows_locally.py
 ```

@@ -5,8 +5,8 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-21 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P15 — a loop is not a knot; P6 — decisions are documented or they didn't happen |
-| **Restated in** | `PRINCIPLES.md` P15 |
+| **Principle** | `a-loop-is-not-a-knot` — a loop is not a knot; `decisions-are-documented` — decisions are documented or they didn't happen |
+| **Restated in** | `PRINCIPLES.md` `a-loop-is-not-a-knot` |
 
 ## Context
 
@@ -168,7 +168,7 @@ structure that stops fitting is demoted rather than defended.
 
 **Report every cycle and let a reader filter.** Rejected on the measurement:
 forty-two to zero is not a ratio a reader filters, it is a ratio that trains
-them to stop looking. `PRINCIPLES.md` P13 is the same failure in a different
+them to stop looking. `PRINCIPLES.md` `interrupted-only-by-a-decision` is the same failure in a different
 place — a system that interrupts constantly gets its interruptions ignored.
 
 **Report symmetric cycles above some length.** This was the proposal that got

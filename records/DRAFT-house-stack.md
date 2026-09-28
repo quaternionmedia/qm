@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-06-09 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P5 — one stack, deeply known |
+| **Principle** | `one-house-stack` — one stack, deeply known |
 
 ## Context
 

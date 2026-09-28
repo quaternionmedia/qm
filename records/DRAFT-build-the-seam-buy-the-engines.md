@@ -5,7 +5,7 @@
 | **Status** | Proposed |
 | **Date** | 2026-06-09 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P4 — custom code concentrates where sovereignty matters |
+| **Principle** | `build-the-seam-buy-the-engines` — custom code concentrates where sovereignty matters |
 
 ## Context
 

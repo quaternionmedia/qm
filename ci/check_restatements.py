@@ -80,6 +80,10 @@ ENTRY_POINT_GLOBS = ("handbook/**/*.md",)
 RESTATED_ROW = re.compile(
     r"^\|\s*\*\*Restated in\*\*\s*\|(?P<value>.*?)\|\s*$", re.MULTILINE
 )
+# `| **Unifies** | `records/DRAFT-a.md`; `records/DRAFT-b.md` |`
+UNIFIES_ROW = re.compile(
+    r"^\|\s*\*\*Unifies\*\*\s*\|(?P<value>.*?)\|\s*$", re.MULTILINE
+)
 ITEM_POINTER = re.compile(r"`([^`]+)`\s+item\s+(\d+)")
 BACKTICKED = re.compile(r"`(?P<path>[^`]+?\.md)`")
 
@@ -115,6 +119,30 @@ def declared_restatements(record_text: str) -> set[str]:
     set()
     """
     match = RESTATED_ROW.search(record_text)
+    if match is None:
+        return set()
+    value = match.group("value")
+    if value.strip().lower() in ("", "none", "nothing", "-", "*none.*"):
+        return set()
+    return {normalise(m.group("path")) for m in BACKTICKED.finditer(value)}
+
+
+def declared_unifications(record_text: str) -> set[str]:
+    """The records a record says it unifies.
+
+    The same shape as `Restated in` and a different relation: that row names
+    documents which *summarize* this record, this one names records whose rule
+    this record states once. Both are one-directional by design -- only the
+    author knows which of the two a passage is doing.
+
+    >>> sorted(declared_unifications("| **Unifies** | `records/DRAFT-x.md` |"))
+    ['records/DRAFT-x.md']
+    >>> declared_unifications("| **Unifies** | Nothing |")
+    set()
+    >>> declared_unifications("| **Status** | Proposed |")
+    set()
+    """
+    match = UNIFIES_ROW.search(record_text)
     if match is None:
         return set()
     value = match.group("value")
@@ -217,6 +245,24 @@ def check(root: Path, records_dir: Path) -> tuple[list[str], list[str]]:
     for record in records:
         rel = record.relative_to(root).as_posix()
         declared[rel] = declared_restatements(read(record))
+
+    # `Unifies` is the corpus's other declared relation between records: one
+    # record states a rule that several others hold instances of, and the
+    # instances stay where they are. It was carried by one record for a week
+    # with nothing reading it, which makes it a declaration and not a relation
+    # -- a `Unifies` row naming a record that had been renamed would have read
+    # exactly like one naming a record that exists.
+    on_disk = {record.relative_to(root).as_posix() for record in records}
+    for record in records:
+        rel = record.relative_to(root).as_posix()
+        for named in declared_unifications(read(record)):
+            if named == rel:
+                problems.append(f"{rel}: `Unifies` names itself")
+            elif named not in on_disk:
+                problems.append(
+                    f"{rel}: `Unifies` names {named}, which is not a record in "
+                    f"{records_dir.relative_to(root).as_posix()}/"
+                )
 
     entry_points = entry_point_paths(root)
     if not entry_points:

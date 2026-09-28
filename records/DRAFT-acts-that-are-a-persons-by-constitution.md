@@ -5,8 +5,8 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-20 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P10 — credit tracks accountability, not output; P13 — a person is interrupted only by a decision |
-| **Restated in** | `PRINCIPLES.md` P13's closing paragraph |
+| **Principle** | `credit-tracks-accountability` — credit tracks accountability, not output; `interrupted-only-by-a-decision` — a person is interrupted only by a decision |
+| **Restated in** | `PRINCIPLES.md` `interrupted-only-by-a-decision`'s closing paragraph |
 
 ## Context
 
@@ -67,7 +67,7 @@ change what the act asserts. Such acts are named, and nothing automates one.**
    rule from becoming an excuse for manual work.
 
 4. **An attested act records who, and the record is not a byline.** It names the
-   party who can be asked why and reached if it breaks — P10's test, applied to
+   party who can be asked why and reached if it breaks — `credit-tracks-accountability`'s test, applied to
    acts rather than to authorship. `Reviewed-by` on a tag is the worked example.
 
 5. **A tool that performs one on a person's behalf is refused, however
