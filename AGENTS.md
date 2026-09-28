@@ -108,8 +108,10 @@ with a date looks checked.
      Two changes that could land alone are two PRs, each ready against its
      base. A PR that needs another's work is cut from that branch, targets it
      as its base, and stays a draft until the one beneath it merges, however
-     finished it is. Never close a PR in favour of one that contains it.
-     `handbook/async-contract.md` §1.
+     finished it is. When it does, retarget the next PR onto the target
+     *before* deleting the merged branch — deleting it first closes every PR
+     based on it; `uv run qm merge` keeps that order. Never close a PR in
+     favour of one that contains it. `handbook/async-contract.md` §1.
 
 4. **Check what your branch actually carries, before opening the PR.**
    `uv run qm branch --base <base> --head <branch>` reports the merge-base,

@@ -48,12 +48,29 @@ pull request whose base is the real target — is ready. Every pull request abov
 it is a **draft, even when its work is finished**: ready means merge once green,
 and merging it now would land it in its parent's branch rather than the target.
 
-**When the bottom merges, the next one moves down.** Merge with a merge commit —
-a squash or rebase rewrites the commits the next branch was cut from — and
-delete the merged branch, which makes the host retarget the next pull request
-onto the real target. Mark it ready once its gates pass there. The order lives
-in the base chain, where every reader and every tool can see it, instead of in
-the head of the session that cut the branches.
+**When the bottom merges, the next one moves down, in this order.**
+
+1. Merge the bottom with a merge commit. A squash or rebase rewrites the
+   commits the next branch was cut from.
+2. Retarget the next pull request onto the real target **before** the merged
+   branch is deleted. Deleting a branch through git or the API closes every
+   pull request based on it, and one whose base is gone cannot be reopened
+   until the branch is restored. Only the host's own delete-on-merge setting
+   retargets, and a repository need not have it on. `qm merge` does this step
+   and the next.
+3. Delete the merged branch.
+4. Update the next branch from the target. Workflows filtered on the target
+   branch never ran while it was stacked, and a retarget does not start them;
+   the update is a push, and a push runs everything.
+5. Mark it ready once its gates pass.
+
+On 2026-09-28 this corpus's #128 merged with `gh pr merge --delete-branch`,
+and #129, stacked on it, was closed rather than retargeted. Restoring the
+branch, reopening #129 and retargeting it by hand recovered it; its
+`registries` and `leaks` checks, which run only against `main`, then ran for
+the first time on the update. The order lives in the base chain, where every
+reader and every tool can see it, instead of in the head of the session that
+cut the branches.
 
 **Never close a pull request in favour of one that contains it.** On
 2026-09-20, ShowRunner's #22 (ShowMidi, two commits) was closed unmerged
