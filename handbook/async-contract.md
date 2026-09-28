@@ -30,39 +30,52 @@ source of the clauses below, and each one names the event that produced it.
 
 ---
 
-## 1. One open pull request per repository, per contributor
+## 1. Small pull requests, stacked when one depends on another
 
-At any moment, a repository holds **at most one open pull request per human
-contributor** for agent-produced work. Not one per task, not one per branch.
-One per person, per repository.
+**One pull request carries one change** — one feature, one fix, one record —
+scoped so its diff can be read in one sitting. Two changes that could each land
+alone are two pull requests.
 
-**This is a sequencing constraint, not a review-bandwidth one.** Two pull
-requests that must merge in an order are a puzzle, and the puzzle is what the
-limit prevents. Nobody is queued behind a green pull request: the author merges
-it once the gates pass, so the slot frees itself and the limit binds only on
-work that is genuinely unfinished. A slot held for days is a signal about the
-work, not about anyone's reading speed.
+**Independent changes go in parallel.** Each is its own branch, cut from the
+base it targets, with its own pull request against that base. Each is marked
+ready and merged by its author once its gates pass. There is no limit on how
+many a contributor holds open at once.
 
-Automation accounts are excluded — a contributor cannot close Dependabot's
-pull request to make room for their own. Drafts count, because a draft is
-unfinished work occupying the branch namespace, and unfinished work is exactly
-what this limit is about.
+**Dependent changes go in series, as a stack.** A branch that needs another
+branch's work is cut *from that branch*, and its pull request's base *is* that
+branch, so its diff shows only its own change. Only the bottom of a stack — the
+pull request whose base is the real target — is ready. Every pull request above
+it is a **draft, even when its work is finished**: ready means merge once green,
+and merging it now would land it in its parent's branch rather than the target.
+
+**When the bottom merges, the next one moves down.** Merge with a merge commit —
+a squash or rebase rewrites the commits the next branch was cut from — and
+delete the merged branch, which makes the host retarget the next pull request
+onto the real target. Mark it ready once its gates pass there. The order lives
+in the base chain, where every reader and every tool can see it, instead of in
+the head of the session that cut the branches.
+
+**Never close a pull request in favour of one that contains it.** On
+2026-09-20, ShowRunner's #22 (ShowMidi, two commits) was closed unmerged
+because every commit in it was contained in `integrate/2026-09-20`, which
+opened as #30: twenty-two commits folding three pull requests and their
+reconciliation into one. The rule then in force — one open pull request per
+contributor — made that the correct move, and the result was one diff too large
+to read in place of three that each could be. Under this rule #22 stays open
+and ready against `main`, and the branch that builds on it opens as a draft
+whose base is #22's branch.
+
+Automation accounts are outside the rule: Dependabot's pull requests have their
+own queue.
 
 **Mechanical.** `project-seed/ci/check_one_pr.py`, wired as
-`one-pr-check.yml`. It fails the pull request whose author already holds a
-slot, and prints every slot in the repository so the reader can see which one
-to fold into.
+`one-pr-check.yml`. It fails a pull request that is marked ready while its base
+is the branch of another open pull request, and prints every open pull request
+and the stack it sits in.
 
-**The one exemption.** `--per-base <glob>` gives each base branch matching the
-glob its own slot. It exists for a single shape: several long-lived branches
-each pinned by a *different* downstream consumer, so a change to one is not a
-change to another and combining them would invent a dependency between
-unrelated projects. This corpus's `project/<name>` branches are that shape and
-are the only known instance. The exemption is a glob someone passes and the
-tool prints — an exemption nobody can see in the output has stopped being one.
-
-**Folding has an order, and the order is the whole safeguard.** Close the
-pull request **first**, then push its commits onto the branch that survives.
+**Closing a pull request has an order, and the order is the whole safeguard.**
+Where one must be closed and its commits carried elsewhere, close the pull
+request **first**, then push its commits onto the branch that survives.
 Pushing first *merges* it: the host sees the base now contains the head, marks
 it merged with the pushed commit as the merge commit and whoever pushed as the
 merger, and no review happened. The later `gh pr close` is a no-op against an
@@ -87,9 +100,11 @@ opens: you name nobody and the notification cannot be recalled. This needed
 three corrections across two repositories before it was written down plainly.
 The third one was *"Your role is to tag me, not others."*
 
-**Draft means unfinished.** It is not a holding pen for finished work, and a
-green pull request left in draft is a change that never reached `main` — which
-is the opposite of the job.
+**Draft means unfinished, or stacked.** A draft is either work that is not
+done, or a pull request waiting on the one beneath it in a stack (§1). It is
+not a holding pen for anything else: a green pull request left in draft against
+the real target is a change that never reached `main` — which is the opposite
+of the job.
 
 ## 3. A pull request states decisions, not questions
 
@@ -150,7 +165,8 @@ project.
 ## 6. Every session opens with a context build and closes with a handoff
 
 **Open** with `/cowork`. It re-derives the facts a session would otherwise
-assume: which commit, which branch, which pull request slot is free, what the
+assume: which commit, which branch, which pull requests are open and how they
+stack, what the
 governance pin points at, which gates exist, what the open handoffs are. The
 alternative is a session that inherits its predecessor's beliefs, and *drafts
 have no memory* — the numbers in any page were true when written.
@@ -209,7 +225,7 @@ part a session executes:
 |---|---|---|
 | The scripts a session runs | `project-seed/ci/` | run from the submodule, never copied |
 | The context builder behind `/cowork` | `project-seed/ci/cowork_context.py` | run from the submodule |
-| The slot check | `project-seed/ci/check_one_pr.py` + `one-pr-check.yml` | workflow copied, script run from the submodule |
+| The stack check | `project-seed/ci/check_one_pr.py` + `one-pr-check.yml` | workflow copied, script run from the submodule |
 | The branch check | `project-seed/ci/check_pr_base.py` | run from the submodule |
 | The gate runner | `project-seed/ci/run_workflows_locally.py` | run from the submodule |
 | This page | `handbook/async-contract.md` | read through the submodule mount |

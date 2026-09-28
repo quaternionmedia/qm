@@ -46,7 +46,7 @@ shortest useful thing to read after this.
 | Read a specific decision | the index at the end of this file; each row links to its record |
 | Work here as a coding agent | [AGENTS.md](AGENTS.md) — read it before your first commit; start with `/cowork` |
 | Run any of it | `uv run qm --help` — one entry point for every governance operation here |
-| Run several agent sessions at once | [handbook/async-contract.md](handbook/async-contract.md) — one PR per repo per contributor, and why |
+| Run several agent sessions at once | [handbook/async-contract.md](handbook/async-contract.md) — small PRs, stacked when dependent, and why |
 | Set up a new QM project | [Forking a new project](docs/usage/first-project.md) |
 | Bring an existing project up to date | [handbook/propagation-runbook.md](handbook/propagation-runbook.md) |
 | Land what exists only on this disk | [handbook/consolidation-runbook.md](handbook/consolidation-runbook.md) |
@@ -86,7 +86,7 @@ qm/
 ├── adapters/              optional per-tool glue; nothing here is depended on
 ├── docs/                  the documentation site (GitHub Pages)
 ├── status/governance.yaml generated; where every project stands
-├── status/harness.yaml    generated; PR slots, phases, governance evidence
+├── status/harness.yaml    generated; open PRs, phases, governance evidence
 ├── AGENTS.md              instructions for coding agents
 ├── .github/               CI workflows and branch protection
 └── LICENSE, LICENSES/     CC-BY-SA-4.0 for corpus prose; REUSE.toml covers the rest

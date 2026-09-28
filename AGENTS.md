@@ -13,8 +13,9 @@ inheriting a previous session's belief instead of asking the repository:
 
 1. **The commit you are working against**, and the branch. Every number in every
    page here was true at some commit and nowhere else.
-2. **Whether your pull request slot is free.** One open pull request per
-   repository, per contributor. `uv run qm slot --repo <owner/name>` answers it.
+2. **Which pull requests you already hold open, and how they stack.** Small,
+   atomic pull requests; a dependent one is stacked on its parent as a draft.
+   `uv run qm slot --repo <owner/name>` lists them.
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are very likely running
    right now, in other repositories, for the same reviewer.
@@ -84,9 +85,10 @@ with a date looks checked.
      — is said in the session, never written into the body. `check_pr_voice.py`
      refuses the second person. `handbook/async-contract.md` §3, and clause 5
      of `records/DRAFT-human-only-contributorship.md`.
-   - **Draft means incomplete, and nothing else.** It is not a holding pen for
-     finished work: nobody is waiting at the far end of that queue, so a green
-     PR left in draft is a change that never reached `main`.
+   - **Draft means incomplete, or stacked on an open PR, and nothing else.** It
+     is not a holding pen for finished work: nobody is waiting at the far end
+     of that queue, so a green PR left in draft against `main` is a change that
+     never reached it.
    - **Closing a pull request is a git operation.** Pushing a PR's head onto its
      base *merges* it — GitHub records the merge, and a later `gh pr close` is a
      silent no-op. **Close the PR first, then push**, or retarget it. The order
@@ -102,11 +104,12 @@ with a date looks checked.
      `propagate/<name>-<date>` PR, merged and never rebased, because a downstream
      submodule pins the tip. `project-seed/ci/check_pr_base.py` refuses the wrong
      direction and `docs/ref/namespaces.md` is the canonical branch naming.
-   - **One open PR per repository, per contributor** — not one per task. It is a
-     sequencing constraint, not a bandwidth one. `handbook/async-contract.md` §1.
-     In *this* repository each `project/<name>` branch holds its own slot,
-     because each is pinned by a different downstream submodule; that is the only
-     exemption.
+   - **One change per PR; parallel when independent, stacked when dependent.**
+     Two changes that could land alone are two PRs, each ready against its
+     base. A PR that needs another's work is cut from that branch, targets it
+     as its base, and stays a draft until the one beneath it merges, however
+     finished it is. Never close a PR in favour of one that contains it.
+     `handbook/async-contract.md` §1.
 
 4. **Check what your branch actually carries, before opening the PR.**
    `uv run qm branch --base <base> --head <branch>` reports the merge-base,

@@ -20,7 +20,7 @@ qm/
 ├── ci/                    org-level tooling: the status generators
 ├── docs/                  this documentation site
 ├── status/governance.yaml generated: where every project stands
-├── status/harness.yaml    generated: PR slots and work in flight
+├── status/harness.yaml    generated: open PRs and work in flight
 ├── .github/               CI workflows, CODEOWNERS, ruleset config
 ├── adapters/              optional per-tool glue; nothing depends on it
 ├── LICENSE                CC-BY-SA-4.0, for corpus prose
