@@ -95,6 +95,16 @@ standard for every ring it draws.** The specifics:
    The count is refused for any control nobody has classified, so a control
    cannot appear without somebody deciding what kind of thing it is.
 
+   One kind of control is backed by no ring and stays: the button on a row
+   of the list that shows what a page placed or pinned -- Kept's unpin on a
+   camera, a look or a board, and its forget on a picture the browser kept,
+   every site's -- because *Personal data stays on the device* (§6) asks for
+   a thing to be taken back from the list that shows it, and a ring reaches
+   a pin only from the site it stands in. The census lists these apart
+   (`census.TAKEN_BACK`), counted as controls of their own and claimed by no
+   ring, so the meter neither credits them as backed nor loses them; a
+   control has that standing only by being on that list, in that panel.
+
 6. **Three shapes of ring**, resolved server-side by `apothecary/menu.py`
    from what the page says it is pointing at (`POST /menu/resolve`), with
    every option returned in its cell:
