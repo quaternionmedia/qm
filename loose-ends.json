@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-28T01:06:49Z",
+  "generated_at": "2026-09-28T21:21:17Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-28T01:06:48Z"
+        "generated_at": "2026-09-28T21:21:16Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-09-20T20:22:55Z"
+        "generated_at": "2026-09-28T05:15:29Z"
       }
     }
   },
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 133,
+    "loose_ends": 134,
     "by_kind": {
       "blind-spot": 19,
       "document-proposed": 36,
-      "document-unreviewed": 60,
+      "document-unreviewed": 61,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 133,
+    "open": 134,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -133,7 +133,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-one-pr-slot",
       "title": "one-pr-slot cannot see",
-      "detail": "Whether the two pull requests are actually related. It counts slots, not subject matter, and the `--per-base` exemption is a glob somebody passes.",
+      "detail": "Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-one-pr-slot",
       "address_parses": true
     },
@@ -907,6 +907,14 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-28-the-voice-loop-meets-the-field",
+      "title": "perspectives/2026-09-28-the-voice-loop-meets-the-field.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-28-the-voice-loop-meets-the-field",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09",
       "title": "perspectives/claude-fable-5-2026-06-09.md",
       "detail": "written, and no maintainer has looked at it",
@@ -980,16 +988,16 @@
     {
       "kind": "over-slot",
       "address": "quaternionmedia/ShowRunner",
-      "title": "quaternionmedia/ShowRunner is over its pull-request slot",
-      "detail": "subcontrabass holds 2 open pull requests (#12, #16); the contract allows one",
+      "title": "quaternionmedia/ShowRunner has a ready pull request stacked on another",
+      "detail": "subcontrabass's #12, #16 is ready but stacked on another pull request's branch; it stays a draft until that one merges",
       "key": "over-slot:quaternionmedia/ShowRunner",
       "address_parses": true
     },
     {
       "kind": "over-slot",
       "address": "quaternionmedia/moat",
-      "title": "quaternionmedia/moat is over its pull-request slot",
-      "detail": "mrharpo holds 2 open pull requests (#3, #4); the contract allows one",
+      "title": "quaternionmedia/moat has a ready pull request stacked on another",
+      "detail": "mrharpo's #3, #4 is ready but stacked on another pull request's branch; it stays a draft until that one merges",
       "key": "over-slot:quaternionmedia/moat",
       "address_parses": true
     },
