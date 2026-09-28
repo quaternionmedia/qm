@@ -32,6 +32,11 @@ runbook, then this page. Nothing else first.
   --per-base 'project/*'` showed the `main` slot free and one draft, #121 into
   `project/apothecary`, holding that base's slot for another session. Leave it
   alone. `uv run qm gates` lists the gates and what each cannot see.
+- **The audit launch's consent rides the harness queue** as an approval
+  request naming its exact count (`handbook/handoffs/the-voice-loop.md`
+  §5 has the id and the route), so the owner can answer away from a
+  terminal; each later phase's count goes back on the queue the same
+  way. The rule it implements is unchanged and stated next.
 - **Parallel sessions only on the owner's word in the session**, with the audit
   block and each count stated before its launch, as the runbook's *Before you
   start* says. Without that word, one session runs the phases in sequence.
