@@ -25,8 +25,8 @@ each has been got wrong here by inheriting a previous session's belief instead o
 asking the repository:
 
 1. **The commit you are working against**, and the branch.
-2. **Whether your pull request slot is free** — one open pull request per
-   repository, per contributor:
+2. **Which pull requests you already hold open, and how they stack** — small,
+   atomic pull requests, a dependent one stacked on its parent as a draft:
    `python governance/qm/project-seed/ci/check_one_pr.py --repo <owner/name>`.
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are likely running right
@@ -76,13 +76,16 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
    review request pulls a second person into work that asserts nothing yet, and
    against a branch carrying a live `CODEOWNERS` it fires the moment the PR
    opens — you name no one, and the notification cannot be recalled.
-   **Draft means unfinished, and nothing else.** It is not a holding pen for
-   finished work: a green PR left in draft is a change that never landed.
-   **Keep it to one open PR per repository, per contributor.** Not one per
-   task. This is a sequencing constraint — two PRs that must merge in a given
-   order are a puzzle — and not a bandwidth one, since a green PR frees its own
-   slot. Land the upstream change first and let propagation carry it.
-   `.github/workflows/one-pr-check.yml` enforces this; run
+   **Draft means unfinished, or stacked on an open PR, and nothing else.** It
+   is not a holding pen for finished work: a green PR left in draft against
+   the default branch is a change that never landed.
+   **One change per PR; parallel when independent, stacked when dependent.**
+   Two changes that could land alone are two PRs, each ready against its base.
+   A PR that needs another's work is cut from that branch, targets it as its
+   base, and stays a draft until the one beneath it merges, however finished
+   it is. Never close a PR in favour of one that contains it
+   (`governance/qm/handbook/async-contract.md` §1).
+   `.github/workflows/one-pr-check.yml` refuses a ready stacked PR; run
    `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
    **The pull request body speaks as the contributor, to the world.** It is
    posted under a human's account and addresses nobody — a question or a
