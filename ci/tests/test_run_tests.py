@@ -66,12 +66,37 @@ def test_the_suite_paths_exist():
         assert (CORPUS / suite).is_dir(), f"{suite} is not a directory"
 
 
-def test_the_base_arguments_are_quiet_and_the_doctest_glob_and_nothing_else():
-    """Anything beyond these is a default an operator did not choose and cannot
-    see. `--doctest-glob=*.md` is here because the walkthrough pages *are* the
+def test_the_base_arguments_are_the_three_that_were_chosen_and_nothing_else():
+    """Every default here is one an operator can see and could have chosen.
+
+    `--doctest-glob=*.md` is here because the walkthrough pages *are* the
     executable -- without it they are collected and no example runs, which is
-    the silent-green failure the record is against."""
-    assert BASE_ARGS == ("-q", "--doctest-glob=*.md")
+    the silent-green failure the record is against.
+
+    `-n auto` is here on a measurement: 280s serial against 77s parallel on
+    this suite, identical results, stable over three runs. It is a default
+    rather than a flag because a four-minute gate is one people skip between
+    runs, and a gate nobody runs is worth nothing however correct it is. The
+    original of this test refused invisible defaults, and that still holds --
+    `main` prints the whole command, which the next test asserts, so the
+    workers are on screen before anything runs.
+    """
+    assert BASE_ARGS == ("-q", "--doctest-glob=*.md", "-n", "auto")
+
+
+def test_the_command_is_printed_before_it_runs(capsys, monkeypatch):
+    """**WHAT MAKES A DEFAULT VISIBLE RATHER THAN HIDDEN.**
+
+    Every argument above is chosen for the operator. Printing the whole command
+    is the only thing that keeps that from being a decision made behind them.
+
+    Mutation: drop the `print` from `run_tests.main` and this fails.
+    """
+    monkeypatch.setattr("run_tests.subprocess.run", lambda *a, **k: type("R", (), {"returncode": 0})())
+    main([])
+    printed = capsys.readouterr().out
+    for argument in BASE_ARGS:
+        assert argument in printed, f"{argument} runs but is not shown"
 
 
 def test_extra_arguments_reach_pytest(capsys, monkeypatch):

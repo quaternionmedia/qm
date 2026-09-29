@@ -158,7 +158,7 @@ def test_a_declared_generated_document_absent_from_disk_is_still_listed(tmp_path
     this document lists a view written after itself."""
     corpus(tmp_path)
     doc = build(tmp_path)
-    row = [d for d in doc["documents"] if d["path"] == "gate-status.json"][0]
+    row = [d for d in doc["documents"] if d["path"] == "status/gates.yaml"][0]
     assert row["state"] == "generated"
     assert row["present"] is False
     assert "not on disk" in row["why_absent"]

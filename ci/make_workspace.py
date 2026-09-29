@@ -25,11 +25,18 @@ WHAT IT REFUSES TO DO
   - It does not write absolute paths. Every folder is relative to the workspace
     file, so the result is shareable with anyone whose clones sit in the same
     shape -- and the companion page states that shape rather than assuming it.
+  - It does not accept a family it cannot find declared. `--family` narrows
+    the roster to the members of one or more families, and the names are
+    checked against `families.json` -- the seam file `uv run qm families
+    --write` produces from the record -- so a misspelt family is refused
+    rather than quietly resolving to an empty workspace, which would look
+    exactly like a family with no clones on this disk.
 
 Usage:
     python ci/make_workspace.py
     python ci/make_workspace.py --out ../quaternion-media.code-workspace
     python ci/make_workspace.py --search-root C:/Users/me/repos --check
+    python ci/make_workspace.py --family show-control --family instruments
 """
 
 from __future__ import annotations
@@ -51,6 +58,13 @@ from roster import label as label_of
 from roster import merge_private
 
 UNKNOWN = "unknown"
+UNSTATED = "unstated"
+
+# The seam file, not the record. `ci/families.py` reads the declaring section
+# of the record and writes this; reading it here is the same relation
+# `ci/rollout.py` has to it, and keeps this tool from holding a parser of its
+# own for a table it does not own.
+FAMILIES = Path(__file__).resolve().parent.parent / "families.json"
 
 # Pinned rather than left to whatever a VS Code release defaults to, and the
 # same two keys project-seed/ide/.vscode/settings.json pins for a single
@@ -78,6 +92,52 @@ def load_roster(path: Path) -> list[dict]:
     if not repositories:
         sys.exit(f"make_workspace: {path} lists no repositories")
     return merge_private(repositories, path.parent / "workspace-private.yaml")
+
+
+def declared_families(path: Path = FAMILIES) -> list[str]:
+    """Every family the seam file declares, or none when it is absent."""
+    if not path.is_file():
+        return []
+    document = json.loads(path.read_text(encoding="utf-8"))
+    return [f["name"] for f in document.get("families", []) if f.get("name")]
+
+
+def select_families(
+    roster: list[dict], wanted: list[str], declared: list[str], source: Path = FAMILIES
+) -> list[dict]:
+    """The roster narrowed to `wanted`, refusing a family nobody declared.
+
+    Two refusals, and both are about a workspace that would look right:
+
+      - a name the seam file does not declare. Matching it against the roster
+        would find nothing, and an empty folder list is indistinguishable from
+        a family none of whose members is cloned here;
+      - an empty seam file. With nothing to check against, every name is
+        equally unknown, and the fix is to regenerate it rather than to trust
+        the roster's `family` values unexamined.
+
+    An entry with no `family` is unstated, and it is never in a family
+    selection: nobody has said which system it is part of, and a workspace that
+    included it would have answered for them.
+
+    The selection is ordered by the families as they were asked for, roster
+    order within each, so the folder list groups one system's members together
+    rather than interleaving them in whatever order the roster happens to hold.
+    """
+    if not wanted:
+        return roster
+    if not declared:
+        sys.exit(
+            f"make_workspace: {source} declares no families, so --family cannot be "
+            "checked. Regenerate it: uv run qm families --write families.json"
+        )
+    unknown = [name for name in wanted if name not in declared]
+    if unknown:
+        sys.exit(
+            f"make_workspace: no family named {', '.join(repr(n) for n in unknown)}. "
+            f"Declared: {', '.join(declared)}"
+        )
+    return [e for family in wanted for e in roster if e.get("family") == family]
 
 
 def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
@@ -128,7 +188,9 @@ def build(roster: list[dict], search_roots: list[Path], out: Path) -> tuple[dict
     return workspace, resolved
 
 
-def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) -> str:
+def companion_page(
+    resolved: list[dict], out: Path, search_roots: list[Path], families: list[str] = ()
+) -> str:
     found = [e for e in resolved if e["resolved"] is not None]
     missing = [e for e in resolved if e["resolved"] is None]
     # Scaffolded, not unknown: since the phase-ladder record every project
@@ -157,19 +219,44 @@ def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) ->
         "If your layout differs, re-run the generator with `--search-root`; do not",
         "hand-edit the paths.",
         "",
+    ]
+    if families:
+        # Which families were asked for is stated, and so is the count each
+        # one resolved to, because a family whose every member is missing is
+        # otherwise a heading with nothing under it -- which reads the same as
+        # a family nobody asked for.
+        lines += [
+            "## Which families this is",
+            "",
+            "Narrowed with `--family` to the members of these families, as",
+            "`ci/workspace.yaml` claims them. A family is a claim a person made,",
+            "never inferred; a repository with no family is not in this workspace,",
+            "because nobody has said which system it is part of.",
+            "",
+            "| Family | Members rostered | On this machine |",
+            "|---|---|---|",
+        ]
+        for family in families:
+            members = [e for e in resolved if e.get("family") == family]
+            here = [e for e in members if e["resolved"] is not None]
+            lines.append(f"| `{family}` | {len(members)} | {len(here)} |")
+        lines.append("")
+    lines += [
         "## What is in it",
         "",
-        "| Repository | Role | Phase | Resolved to |",
-        "|---|---|---|---|",
+        "| Repository | Family | Role | Phase | Resolved to |",
+        "|---|---|---|---|---|",
     ]
     for entry in found:
         lines.append(
-            f"| {label_of(entry)} | {entry.get('role', UNKNOWN)} | "
+            f"| {label_of(entry)} | {entry.get('family') or UNSTATED} | "
+            f"{entry.get('role', UNKNOWN)} | "
             f"{entry.get('phase', UNKNOWN)} ({entry.get('phase_source', UNKNOWN)}) | "
             f"`{relative_to(entry['resolved'], out.parent.resolve())}` |"
         )
 
     lines += ["", "## Not on this machine", ""]
+    asked = "asked for" if families else "in the roster"
     if missing:
         lines.append(
             "These are in the roster and were not found. They are listed rather than"
@@ -185,7 +272,7 @@ def companion_page(resolved: list[dict], out: Path, search_roots: list[Path]) ->
             candidates = ", ".join(f"`{p}`" for p in entry.get("paths", []))
             lines.append(f"| {label_of(entry)} | {candidates} |")
     else:
-        lines.append("None — every repository in the roster resolved.")
+        lines.append(f"None — every repository {asked} resolved.")
 
     lines += ["", "## Phases nobody has stated", ""]
     if unplaced:
@@ -245,18 +332,44 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="report only; write nothing. Exit 1 if a roster entry is missing.",
     )
+    parser.add_argument(
+        "--family",
+        action="append",
+        default=[],
+        help="only the members of this family, as families.json declares it. "
+        "Repeatable. The default output name carries the families asked for.",
+    )
+    parser.add_argument(
+        "--families",
+        type=Path,
+        default=FAMILIES,
+        help="the seam file --family is checked against (default: families.json "
+        "at the corpus root)",
+    )
     args = parser.parse_args(argv)
 
     corpus = Path(__file__).resolve().parent.parent
     default_root = corpus.parent.parent
-    out = args.out.resolve() if args.out else (
-        default_root / "quaternion-media.code-workspace"
-    )
+    # A narrowed workspace gets its own file name, so asking for one family
+    # never overwrites the whole-roster workspace beside it.
+    stem = "quaternion-media"
+    if args.family:
+        stem += "-" + "-".join(args.family)
+    out = args.out.resolve() if args.out else (default_root / f"{stem}.code-workspace")
     search_roots = [p.resolve() for p in args.search_root] or [default_root]
 
-    roster = load_roster(args.roster)
+    roster = select_families(
+        load_roster(args.roster), args.family, declared_families(args.families), args.families
+    )
+    if not roster:
+        sys.exit(
+            f"make_workspace: no roster entry claims "
+            f"{', '.join(repr(f) for f in args.family)}. A family with no members "
+            "is a heading, and a workspace of one would look like a family none of "
+            "whose members is cloned here."
+        )
     workspace, resolved = build(roster, search_roots, out)
-    page = companion_page(resolved, out, search_roots)
+    page = companion_page(resolved, out, search_roots, args.family)
 
     missing = [label_of(e) for e in resolved if e["resolved"] is None]
     unplaced = [
@@ -266,7 +379,10 @@ def main(argv: list[str] | None = None) -> int:
     ]
 
     print(f"roster       {args.roster}")
+    if args.family:
+        print(f"families     {', '.join(args.family)}")
     print(f"search root  {', '.join(str(r) for r in search_roots)}")
+    print(f"workspace    {out}")
     print(f"folders      {len(workspace['folders'])} of {len(roster)} resolved")
     if missing:
         print(f"MISSING      {', '.join(missing)}")

@@ -21,7 +21,7 @@ and an inflated coverage figure is worse than none, because it hides exactly the
 module it claims.
 
 **WHAT THIS CANNOT DO.** Tell whether the test that runs a module *checks*
-anything about it. `qm posture` answers that by mutation, and charter P16 is why
+anything about it. `qm posture` answers that by mutation, and charter `a-check-is-evidence-after-it-fails` is why
 the two are different questions. This is the cheaper floor: is there anything at
 all.
 
@@ -44,12 +44,15 @@ CORPUS = CI.parent
 # Modules nothing executes yet, each with why. **Shrink this list; do not grow
 # it.** A new module added here rather than tested is a decision somebody should
 # have to write down, which is the point of the reason being mandatory.
-UNEXERCISED: dict[str, str] = {
-    "ci/devloop.py": (
-        "a developer convenience that shells out to the other gates; it has no "
-        "logic of its own and its parts are tested where they live"
-    ),
-}
+UNEXERCISED: dict[str, str] = {}
+# `ci/devloop.py` was the only entry, exempted as "a developer convenience that
+# shells out to the other gates; it has no logic of its own". That reason was
+# wrong, and the way it was found is the argument for keeping this list short:
+# devloop had a `checkout` counter of its own that read the committed roster
+# directly, skipped every entry without a `name`, and reported one repository
+# on this disk that was not. `uv run qm workspace` answered the same question
+# correctly, and nothing compared them. A module with "no logic of its own" had
+# a defect only a test could hold still.
 
 
 def runnable() -> list[Path]:

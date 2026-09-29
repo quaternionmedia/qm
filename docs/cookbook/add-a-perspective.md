@@ -1,6 +1,6 @@
 # Add a perspective
 
-Write a perspective: dated, attributed, non-binding opinion.
+Write a [perspective](../ref/glossary.md#perspective){ .glossary-term }: dated, attributed, non-binding opinion.
 
 ## What a perspective is for
 
@@ -9,7 +9,7 @@ Write a perspective: dated, attributed, non-binding opinion.
 - **Retrospectives** — how a piece of work actually went
 - **Opinion** — an argued position, signed and dated
 
-What does *not* belong here: new rules (those are records) and procedures (those are handbook pages). See [handbook/style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) for the routing table.
+What does *not* belong here: new rules (those are records) and procedures (those are [handbook](../ref/glossary.md#handbook){ .glossary-term } pages). See [handbook/style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) for the routing table.
 
 ## Name the file
 

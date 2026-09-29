@@ -15,7 +15,7 @@ them here, where nothing would update them.
 
 THREE FILES, SPLIT BY WHAT MAY LEAVE THE MACHINE
 
-    inventory-public.json    public repositories by name, plus counts and
+    status/inventory.yaml    public repositories by name, plus counts and
                              references standing in for the rest. Committable.
     inventory-private.json   reference -> private repository name. Never.
     inventory-local.json     what is cloned on this disk, and where. Never.
@@ -69,7 +69,7 @@ SCHEMA = 1
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_ORG = "quaternionmedia"
 
-PUBLIC = "inventory-public.json"
+PUBLIC = "status/inventory.yaml"
 PRIVATE = "inventory-private.json"
 LOCAL = "inventory-local.json"
 

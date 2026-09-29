@@ -22,7 +22,7 @@ of a venv. See the header of `pyproject.toml`. One definition, two entry points.
 
 WHERE IT RUNS. Relative paths in the generators are corpus-relative, so this
 locates the corpus root -- by marker, walking up from the working directory --
-and refuses to run anywhere else rather than writing `gate-status.json` into
+and refuses to run anywhere else rather than writing `status/gates.yaml` into
 whatever directory you happened to be in.
 """
 
@@ -146,10 +146,56 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
-        "slot", help="is this contributor's pull request slot free?", add_help=False
+        "edges",
+        help="every principle declares how it relates to the others, or why not",
+        add_help=False,
+    )
+    sub.add_parser(
+        "glossary-links",
+        help="link the first use of each glossary term on every docs page",
+        add_help=False,
+    )
+    sub.add_parser(
+        "slot", help="your open pull requests, and is any ready while stacked?",
+        add_help=False
+    )
+    sub.add_parser(
+        "pins",
+        help="is every submodule pin a commit somebody else could get?",
+        add_help=False,
+    )
+    sub.add_parser(
+        "leaks",
+        help="does anything committed name a person, a machine or a conversation?",
+        add_help=False,
+    )
+    sub.add_parser(
+        "harness",
+        help="the harness status document, rendered as prose",
+        add_help=False,
     )
     sub.add_parser(
         "branch", help="what a branch actually carries, against its base", add_help=False
+    )
+    sub.add_parser(
+        "branches",
+        help="every branch, and what deleting it would cost",
+        add_help=False,
+    )
+    sub.add_parser(
+        "inbound",
+        help="what the projects are waiting on this organisation for",
+        add_help=False,
+    )
+    sub.add_parser(
+        "merge",
+        help="your open pull requests, live; merge one when every gate is green",
+        add_help=False,
+    )
+    sub.add_parser(
+        "estate",
+        help="every rostered repository, and what of it exists on this disk alone",
+        add_help=False,
     )
     sub.add_parser(
         "rulesets", help="what the rulesets say, and what the host is running",
@@ -160,7 +206,32 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "families", help="which repositories are claimed to be one working system",
+        add_help=False,
+    )
+    sub.add_parser(
+        "interop", help="every repository on one contract surface claims the same version",
+        add_help=False,
+    )
+    sub.add_parser(
+        "cookbook", help="one onboarding page per family, generated from this disk",
+        add_help=False,
+    )
+    sub.add_parser(
+        "family-suite", help="run each family's suites, and say what the batch establishes",
+        add_help=False,
+    )
+    sub.add_parser(
+        "rollout", help="a phased push-through, family by family: claims beside evidence",
+        add_help=False,
+    )
+    sub.add_parser(
         "protocols", help="the procedures run deliberately, and when each last ran",
+        add_help=False,
+    )
+    sub.add_parser(
+        "capabilities",
+        help="what each named thing this estate can do has reached",
         add_help=False,
     )
     sub.add_parser(
@@ -257,15 +328,31 @@ def build_parser() -> argparse.ArgumentParser:
 
 # command -> (module, is_seed_script, argv transform)
 ROUTES: dict[str, tuple[str, bool, list[str]]] = {
-    "gates": ("gate_dashboard", False, ["gate-status.json", "--format", "md"]),
+    "gates": ("gate_dashboard", False, ["status/gates.yaml", "--format", "md"]),
     "tags": ("tag_audit", False, []),
     "restatements": ("check_restatements", False, []),
+    "edges": ("check_principle_edges", False, []),
+    "glossary-links": ("glossary_links", False, []),
     "review": ("record_review", False, []),
     "slot": ("check_one_pr", True, []),
+    "pins": ("check_submodule_pins", True, []),
+    "leaks": ("check_leaks", True, []),
+    "harness": ("harness_dashboard", False,
+                ["status/harness.yaml", "--format", "md"]),
     "branch": ("check_pr_base", True, []),
+    "branches": ("branch_census", True, []),
+    "inbound": ("inbound", False, []),
+    "merge": ("merge_review", False, []),
+    "estate": ("estate", False, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
+    "families": ("families", False, []),
+    "interop": ("interop", False, []),
+    "cookbook": ("cookbook", False, []),
+    "family-suite": ("family_suite", False, []),
+    "rollout": ("rollout", False, []),
     "protocols": ("protocols", False, []),
+    "capabilities": ("capabilities", False, []),
     "prose": ("prose", False, []),
     "addresses": ("addresses", False, []),
     "divergence": ("divergence", False, []),
@@ -298,7 +385,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
 DOCS_ROUTES: dict[str, tuple[str, list[str]]] = {
     "generate": ("generate_docs", []),
     "check": ("generate_docs", ["--check"]),
-    "states": ("doc_dashboard", ["doc-status.json"]),
+    "states": ("doc_dashboard", ["status/documents.yaml"]),
     "audit": ("docs_audit", []),
 }
 

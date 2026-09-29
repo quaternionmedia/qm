@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bring the trio up from nothing, and say what is already up.
+"""Bring the estate's surfaces up from nothing, and say what is already up.
 
     uv run qm dashboard
     uv run qm dashboard --start harness
@@ -27,9 +27,17 @@ Offering `--start terminal` would produce a process drawing to a pipe nobody is
 reading, and report success.
 
 **THE PORTS ARE CONSTANTS, WHICH IS A MEMORY AID AND NOT A CLAIM.** pi for the
-harness, e for the web front end, phi for the terminal one. Nothing depends on
-the number; each is overridable, and the value here is only the default this
-corpus's own tooling looks on.
+harness, e for the web front end, phi for the terminal one, and root two for the
+prose reader. Nothing depends on the number; each is overridable, and the value
+here is only the default this corpus's own tooling looks on.
+
+**A FOURTH SURFACE READS THE HARNESS'S ARCHIVE RATHER THAN ITS TOPOLOGY.**
+`looksatwords` is not a front end onto the work; it reads the conversations the
+harness archived, on loopback, and reports their topics. It is here because it is
+one more server on the same workstation, and the collision this table exists to
+prevent is a collision between any two of them -- the web front end and half the
+Python world once shared a default, and the panel spent a week reading the wrong
+program.
 """
 
 from __future__ import annotations
@@ -55,7 +63,7 @@ STATE = Path(os.environ.get("QM_DASHBOARD_STATE")
 
 @dataclass(frozen=True)
 class Surface:
-    """One process in the trio, and how to bring it up."""
+    """One process among the surfaces, and how to bring it up."""
 
     name: str
     repo: str
@@ -99,7 +107,8 @@ SURFACES: tuple[Surface, ...] = (
         command=("codecarto", "serve", "--port", "2718"), detachable=True,
         dataview="/app",
         also={"/topology/gjgf": "the same graph, as data",
-              "/topology": "a standalone page, no application needed"},
+              "/topology/available": "whether the harness answered, without "
+                                     "drawing anything"},
         note="draws the harness's topology as a graph"),
     Surface(
         name="terminal", repo="dossier",
@@ -107,6 +116,16 @@ SURFACES: tuple[Surface, ...] = (
         command=("dossier", "dashboard"), detachable=False,
         note="run this in the terminal you want to watch. `dossier serve "
              "--port 1618` is its API, which is a different thing"),
+    Surface(
+        name="prose", repo="looksatwords",
+        role="reads the archive's conversations", port=1414, constant="root two",
+        command=("looksatwords", "serve", "--port", "1414"), detachable=True,
+        dataview="/",
+        also={"/api/harness/threads": "the harness's archive, as this window "
+                                      "lists it",
+              "/docs": "every route this reader serves"},
+        note="reads the harness's thread archive on loopback, so it has "
+             "nothing to list until the harness is up"),
 )
 
 BY_NAME = {s.name: s for s in SURFACES}
@@ -208,7 +227,7 @@ def stop(name: str) -> tuple[bool, str]:
 def report() -> int:
     """The status table, and what to run for anything not up."""
     started = running()
-    print("THE TRIO")
+    print("THE SURFACES")
     print("=" * 74)
     print(f"{'':<10} {'repository':<20} {'port':<7} {'state'}")
     print("-" * 74)
@@ -278,7 +297,7 @@ def report() -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="qm dashboard",
-        description=("Say what of the trio is up, and start what is not. "
+        description=("Say what of the surfaces is up, and start what is not. "
                      "qmcp holds the work; codecartographer is its front end "
                      "on the web and dossier its front end in a terminal."),
         epilog=("With no options this changes nothing -- it reports, and "

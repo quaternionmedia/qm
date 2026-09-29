@@ -1,6 +1,6 @@
 # Handbook — Style Guide: Where Explanation Goes
 
-**Routing.** The style guide `PRINCIPLES.md` P9 names and routes here, rather
+**Routing.** The style guide `PRINCIPLES.md` `minimal-legible-deliverables` names and routes here, rather
 than to a record: *"Taste encoded as constitutional law degrades both."* This
 page states requirements an author can be held to. It creates no gate a human
 does not apply at review, and promoting any clause to record form follows
@@ -25,6 +25,45 @@ a sentence belongs to exactly one of them.
 **All whys go to retrospectives.** If a sentence answers *why is it like
 this*, *what went wrong*, or *what we learned*, it belongs in
 `perspectives/`, whatever file you happened to be editing when you wrote it.
+
+## Every home, and the class the tooling gives it
+
+The four tiers above are where a *sentence* goes. This is the companion
+question — where a *document* lives — and it needs its own table because the
+answers are not the same list.
+
+They were not the same list, and neither table knew the other existed. This
+page named four tiers; `ci/doc_status.py`'s `classify` named eight classes and
+sorted the repository by directory. Between them sat homes this page had never
+placed: `handbook/` is the largest prose directory in the corpus and appeared
+nowhere above, and `docs/` — named here as the reference tier — fell outside
+the generator's scan entirely, so the tier this page privileges was the one
+nothing could report a state for. Two coherent documents, one contradiction, and
+a reader who consulted either built a model the other denied. That is the
+failure `records/DRAFT-the-read-document-governs.md` names, at the level of the
+directory layout rather than a clause.
+
+**This table and `classify` are one pair. When they disagree, they are repaired
+together.**
+
+| Home | Class | Holds | Binds |
+|---|---|---|---|
+| `records/` | `record` | Org decisions. Context and Alternatives are the exception below | Every QM project, once ratified |
+| `handbook/` | `handbook` | Policy on QM's own conduct, and procedure with its verification | QM's conduct, not a project's design |
+| `handbook/handoffs/` | `handoff` | Working instructions for the next session. Deleted when the work lands | Nobody. It is a note, and a stale one is a cost |
+| `docs/` | `reference` | Contracts, interfaces, procedures, how to use the thing | Nobody. It describes rather than decides |
+| `perspectives/` | `perspective` | Every why: rationale, incidents, what was learned | Nobody. Dated, attributed, non-binding |
+| `protocols/` | `protocol` | A procedure run deliberately, and the record of its runs | Nobody. A protocol page owns the procedure, never the decision behind it |
+| `curriculum/` | `curriculum` | A reading order, citing documents it does not restate | Nobody |
+| `walkthrough/` | `walkthrough` | A worked example, executed by the ordinary test command | Nobody. It is evidence, per `show-it-by-running-it` |
+| `PRINCIPLES.md`, `AGENTS.md`, `README.md` | `entry` | Read first, by everyone. Restates records it does not own, and declares each | Everyone reading them, which is why the restatement rule exists |
+
+**`plans/` is a home this page has not placed, and `classify` calls it *not in a
+governed directory*.** Fourteen files sit there. That is stated rather than
+resolved: a plan being executed is a handoff, a plan that was executed is a
+retrospective, and a plan nobody is executing is neither — but which of those
+each file is, is a person's reading and not a rule. Naming the gap is not
+waiving it.
 
 ## The one exception, and its boundary
 

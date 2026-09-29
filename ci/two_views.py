@@ -8,7 +8,7 @@ WHAT THE TWO VIEWS ARE. Both are already in this repository and neither was
 built for this:
 
   git         `git rev-parse` over the `project/**` refs. What is true now.
-  document    `governance-status.yaml`, which records each project branch's
+  document    `status/governance.yaml`, which records each project branch's
               commit at the moment it was generated.
 
 They agree while the document is fresh and disagree the moment a project branch
@@ -51,7 +51,7 @@ sys.path.insert(0, str(ROOT / "ci"))
 from addresses import format_address  # noqa: E402
 from divergence import compare, to_delta  # noqa: E402
 
-DOCUMENT = ROOT / "governance-status.yaml"
+DOCUMENT = ROOT / "status/governance.yaml"
 DEFAULT_OWNER = "quaternionmedia"
 DEFAULT_REPO = "qm"
 

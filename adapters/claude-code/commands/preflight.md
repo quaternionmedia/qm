@@ -20,16 +20,16 @@ Exit 1 means *explain this*, not *broken*. Read the ratio: "1 of 61" is a merge
 you did deliberately; "18 of 20" is a branch you did not mean to be on. Keep the
 output — it goes in the pull request description verbatim.
 
-## 2. Do you have a slot
+## 2. Is anything of yours ready while stacked
 
 ```
 python project-seed/ci/check_one_pr.py --repo <owner/name> --contributor <your login>
 ```
 
-If you are over, stop. Say which pull requests hold the slots and let the human
-decide. If you are told to fold: **close the pull request first, then push** its
-commits onto the branch that survives. Pushing first merges it, with no review
-and no way to undo the record.
+It lists your open pull requests and the stack each sits in. If this change
+needs one of them, cut it from that branch and open it as a draft against it.
+If the check fails, mark the named pull request draft until the one beneath it
+merges. Never close a pull request in favour of one that contains it.
 
 ## 3. Run the gates
 

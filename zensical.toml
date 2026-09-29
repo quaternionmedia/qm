@@ -44,7 +44,10 @@ nav = [
     ] },
 ]
 
-# extra_css = ["stylesheets/extra.css"]
+# The glossary link treatment. Its colours are measured rather than
+# chosen -- ci/tests/test_glossary_contrast.py holds the ratios and the
+# proof that colour alone cannot work on the dark theme.
+extra_css = ["stylesheets/glossary.css"]
 # extra_javascript = ["javascripts/extra.js"]
 
 [project.theme]

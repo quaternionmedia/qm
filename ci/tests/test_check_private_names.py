@@ -1,6 +1,6 @@
 """The private-name check, and the false reading its first version produced.
 
-A plain substring search reported `inventory-public.json` as carrying a private
+A plain substring search reported `status/inventory.yaml` as carrying a private
 name. It carries a *public* repository three characters longer whose name
 contains the private one -- so the file whose entire guarantee is that it holds
 no private name appeared to break that guarantee, by the check rather than by

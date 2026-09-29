@@ -53,7 +53,7 @@ figure:
 | Exemptions, each with a reason | 6 | `ci/exception-registry.yaml` |
 | Policies, detected or explained | 9 — 6 detected, 2 cannot be, 1 planned | `qm policies` |
 | Ledger entries, all attributed | 20 | `qm ledger --check` |
-| Lessons recorded | 36 | `ledger.yaml` |
+| Lessons recorded | 36 | `status/ledger.yaml` |
 
 Read as a list of features that is unremarkable. Read as an answer to *what must
 be true before a loop can run*, it is close to complete, and the shape is:

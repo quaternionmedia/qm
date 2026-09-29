@@ -14,7 +14,15 @@ THREE STATES, AND ONLY ONE OF THEM IS A PASS.
 
 `unverified` exits 0 by default so a fresh clone is not blocked by the absence
 of a file it is never supposed to have, and prints that word first so nobody
-reads it as a pass. `--strict` turns it into a failure, and CI runs it that way.
+reads it as a pass. `--strict` turns it into a failure.
+
+**NO WORKFLOW RUNS THIS CHECK.** `registries.yml` excludes it deliberately and
+says why: it reads a machine — a gitignored companion or the forge — and a
+check that reads a machine reds a pull request for a reason its author cannot
+fix. So this is a command somebody runs, and a name reaching a tracked file is
+caught by a person choosing to look. One did reach one: a handoff page naming a
+private repository was committed and pushed to a public repository, and every
+gate on that pull request was green, because none of them was this.
 
 TWO TIERS, BECAUSE SOME PRIVATE REPOSITORIES ARE NAMED AFTER ORDINARY WORDS.
 A `found` is a name used *as a repository*. A `possible` is prose containing a
@@ -22,7 +30,7 @@ word that a private repository happens to be called, reported and never gated
 on. Without that split this check produced 187 findings and no disclosures.
 
 WHY IT EXISTS. Two private repository names sat in the committed
-`ci/workspace.yaml` from 2b50bd6 while `inventory-public.json` redacted the same
+`ci/workspace.yaml` from 2b50bd6 while `status/inventory.yaml` redacted the same
 two repositories as `private-32` and `private-33`. Both files were committed,
 each looked right alone, and nothing read them together. This reads them
 together.
@@ -34,10 +42,12 @@ than quietly carried.
 
 WHERE THE NAMES COME FROM. `--source local` reads the gitignored companions, so
 it works on the operator's machine and nowhere else. `--source host` asks the
-forge, which is the only source a runner has — a check that reported
-`unverified` on every pull request would be a gate that never fires, and a gate
-that never fires is worse than none, because a reader believes something is
-enforced.
+forge. Either would make this runnable on a runner; neither makes it a gate,
+because `registries.yml`'s admission test is that a check reads committed files
+and nothing else, and this reads a source outside the tree by construction. The
+gap is stated here rather than closed, since closing it means either accepting a
+gate that reds a pull request for a reason its author cannot fix, or giving a
+runner a credential to enumerate an organisation's private repositories.
 """
 
 from __future__ import annotations
@@ -189,7 +199,7 @@ def repository_context(name: str) -> re.Pattern[str]:
 def pattern(name: str) -> re.Pattern[str]:
     """A private name, not a longer name that happens to contain it.
 
-    A plain substring search reported `inventory-public.json` as carrying a
+    A plain substring search reported `status/inventory.yaml` as carrying a
     private name. It carries a *public* repository whose name is three
     characters longer and contains the private one -- so the file's whole
     guarantee appeared broken, by the check rather than by the file. Repository

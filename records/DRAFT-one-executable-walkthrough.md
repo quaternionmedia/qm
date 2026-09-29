@@ -5,7 +5,8 @@
 | **Status** | Proposed |
 | **Date** | 2026-08-11 |
 | **Pends on** | Nothing — ready for ratification |
-| **Principle** | P12 — show it by running it; P9 — minimal, legible deliverables |
+| **Principle** | `show-it-by-running-it` — show it by running it; `minimal-legible-deliverables` — minimal, legible deliverables |
+| **Restated in** | `AGENTS.md`; `project-seed/ide/AGENTS.md` |
 
 ## Context
 

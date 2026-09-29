@@ -25,8 +25,8 @@ each has been got wrong here by inheriting a previous session's belief instead o
 asking the repository:
 
 1. **The commit you are working against**, and the branch.
-2. **Whether your pull request slot is free** — one open pull request per
-   repository, per contributor:
+2. **Which pull requests you already hold open, and how they stack** — small,
+   atomic pull requests, a dependent one stacked on its parent as a draft:
    `python governance/qm/project-seed/ci/check_one_pr.py --repo <owner/name>`.
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are likely running right
@@ -76,14 +76,24 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
    review request pulls a second person into work that asserts nothing yet, and
    against a branch carrying a live `CODEOWNERS` it fires the moment the PR
    opens — you name no one, and the notification cannot be recalled.
-   **Draft means unfinished, and nothing else.** It is not a holding pen for
-   finished work: a green PR left in draft is a change that never landed.
-   **Keep it to one open PR per repository, per contributor.** Not one per
-   task. This is a sequencing constraint — two PRs that must merge in a given
-   order are a puzzle — and not a bandwidth one, since a green PR frees its own
-   slot. Land the upstream change first and let propagation carry it.
-   `.github/workflows/one-pr-check.yml` enforces this; run
+   **Draft means unfinished, or stacked on an open PR, and nothing else.** It
+   is not a holding pen for finished work: a green PR left in draft against
+   the default branch is a change that never landed.
+   **One change per PR; parallel when independent, stacked when dependent.**
+   Two changes that could land alone are two PRs, each ready against its base.
+   A PR that needs another's work is cut from that branch, targets it as its
+   base, and stays a draft until the one beneath it merges, however finished
+   it is. When it does, retarget the next PR onto the target *before*
+   deleting the merged branch — deleting it first closes every PR based on
+   it. Never close a PR in favour of one that contains it
+   (`governance/qm/handbook/async-contract.md` §1).
+   `.github/workflows/one-pr-check.yml` refuses a ready stacked PR; run
    `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
+   **The pull request body speaks as the contributor, to the world.** It is
+   posted under a human's account and addresses nobody — a question or a
+   handling instruction for the person who asked belongs in the session,
+   never in the body (`governance/qm/handbook/async-contract.md` §3;
+   `check_pr_voice.py` refuses the second person).
 4. **Human-only contributorship applies to every commit you make here** (see
    `governance/qm/records/DRAFT-human-only-contributorship.md`): do not add
    yourself, your model name, or any co-author trailer naming an unmonitored
@@ -143,7 +153,7 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
     worse than no guard — it is a green check standing exactly where a reader
     believes something is enforced. See the same record's §9 and §10.
 
-13. **Show it by running it** — P12 of the charter, with
+13. **Show it by running it** — `show-it-by-running-it` of the charter, with
     `governance/qm/records/DRAFT-one-executable-walkthrough.md` as the record.
     This project's `walkthrough/` is one ordered set of pages that the ordinary
     test command executes: `walkthrough/NN-<slug>.md`, run by pytest with
@@ -156,6 +166,18 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
     a pull request, so drift shows up as an uncommitted diff rather than as
     staleness nobody sees. A skip is not a pass, and a page that always skips is
     deleted.
+14. **The workstation, the agent and the conversation are not the
+    organisation** — record
+    `governance/qm/records/DRAFT-what-is-not-the-organisation.md`, with
+    `governance/qm/handbook/what-is-not-the-organisation.md` as the thing to
+    do. A committed file states what is true of this project: not where a
+    clone sits on one disk, which editor held it, what the tool driving a
+    session did with its shell, or what anybody said. A decision enters as a
+    decision, never as reported speech; a commit message describes the change
+    and not the conversation behind it. The seed's `leak-check.yml` runs
+    `check_leaks.py` on the mechanical part — a home path, a personal folder,
+    a scratch path, a shared link; the rest is yours to read for before you
+    push.
 
 ## One-time setup on a fresh clone (Windows)
 

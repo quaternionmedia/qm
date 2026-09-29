@@ -48,12 +48,15 @@ gates:
       narration vocabulary in a pre-ratification draft; a vendor or model name
       in a record's prose or a commit subject; a seed copy still showing its
       template placeholder to a reader; a record whose declared restatement
-      does not name it back.
+      does not name it back; a principle that declares no relationship to the
+      others and gives no reason, or declares one the other end does not
+      declare back.
     runs:
       - project-seed/ci/adr_lint.py
       - project-seed/ci/check_attribution.py
       - project-seed/ci/check_placeholders.py
       - ci/check_restatements.py
+      - ci/check_principle_edges.py
     enforces:
       - records/DRAFT-decision-record-discipline.md
       - records/DRAFT-human-only-contributorship.md
@@ -61,7 +64,12 @@ gates:
       - records/DRAFT-governance-arrives-as-a-mechanism.md
     cannot_see: >
       Whether a record is correct, or whether a restatement and its record
-      agree -- it pairs declarations and compares no text. Three of its four
+      agree -- it pairs declarations and compares no text. Nor whether two
+      principles actually conflict: the edge check reads a stated relationship
+      from both ends and knows nothing about what either principle says, so a
+      wrong edge declared consistently passes. It also cannot tell a real
+      isolation from a lazy one -- it can only insist the `none` carries a
+      reason somebody had to write. Three of its four
       sub-checks cannot fire on any ref CI runs against, which is a known
       finding and not yet fixed. One commit subject is exempt from the
       vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the
@@ -75,15 +83,40 @@ gates:
     seed: true
     exists: true
     refuses: >
-      A pull request whose author already holds an open slot in this
-      repository. It fails every one of them rather than picking a survivor.
+      A pull request marked ready whose base is the branch of another open pull
+      request in the same repository. It fails every such pull request of the
+      author, not only the one whose event ran it.
     runs:
       - project-seed/ci/check_one_pr.py
     enforces:
       - handbook/async-contract.md
     cannot_see: >
-      Whether the two pull requests are actually related. It counts slots, not
-      subject matter, and the `--per-base` exemption is a glob somebody passes.
+      Whether a pull request is one change. A branch cut from another pull
+      request's branch but opened against the target, carrying its parent's
+      commits. A pull request closed in favour of one that contains it -- closed
+      pull requests are not read.
+
+  - id: one-pr-voice
+    workflow: one-pr-check.yml
+    job: slot
+    gates: [main]
+    seed: true
+    exists: true
+    refuses: >
+      A pull request body that speaks to its contributor rather than as them:
+      the second person, the handling phrases that have leaked ("assigned, no
+      review requested", "merge when ready"), or the contributor's own login
+      mentioned. Code spans, fenced blocks and quoted lines are left alone.
+    runs:
+      - project-seed/ci/check_pr_voice.py
+    enforces:
+      - records/DRAFT-human-only-contributorship.md
+      - handbook/async-contract.md
+    cannot_see: >
+      The third person. "Peter merges once the gates are green" is a statement
+      about a person and the tool cannot tell it from a sentence addressed to
+      them without a pronoun, so it is allowed; and whether the body is honest,
+      complete, or about the diff at all.
 
   - id: namespace-guard
     workflow: namespace-guard.yml
@@ -129,7 +162,7 @@ gates:
     seed: false
     exists: true
     refuses: >
-      A committed `governance-status.yaml` that no longer renders the commits
+      A committed `status/governance.yaml` that no longer renders the commits
       it names, and a rendered view that has drifted from it.
     runs:
       - ci/governance_status.py --check
@@ -176,6 +209,60 @@ gates:
       A rule missing from one of the two genuinely different AGENTS.md files.
       They are not symlinked to each other, so this check cannot notice them
       disagreeing.
+
+  - id: docs-audit
+    workflow: docs-audit.yml
+    job: audit
+    gates: [pull_request]
+    seed: false
+    exists: true
+    refuses: >
+      A documentation site that builds but does not hold together -- a page
+      the navigation does not reach, a link to a page that is not published,
+      a claim the audit's four dimensions can check.
+    runs:
+      - ci/docs_audit.py
+      - .github/workflows/docs-audit.yml
+    enforces:
+      - records/DRAFT-the-read-document-governs.md
+    cannot_see: >
+      Whether a page is true. It builds the site and reads what the build
+      reads, so it finds a page nobody can reach and not a page that is wrong.
+      `uv run qm prose` reads the openings; a person reads the rest.
+
+  - id: docs-draft
+    workflow: docs-draft.yml
+    job: draft
+    gates: [pull_request]
+    seed: false
+    exists: true
+    refuses: >
+      Nothing. It builds a preview of the site for the change under review, so
+      a documentation change can be looked at rather than imagined.
+    runs:
+      - .github/workflows/docs-draft.yml
+    enforces: []
+    cannot_see: >
+      Anything -- it is a build, not a check, and it is listed here because a
+      workflow nobody declared is a workflow nobody can rely on. Declaring it
+      says plainly that it refuses nothing.
+
+  - id: docs-deploy
+    workflow: docs.yml
+    job: deploy
+    gates: [push]
+    seed: false
+    exists: true
+    refuses: >
+      Nothing. It publishes the site from the default branch. A failure here
+      means the published site is older than `main`, which is a fact worth
+      seeing and not a rule anybody violated.
+    runs:
+      - .github/workflows/docs.yml
+    enforces: []
+    cannot_see: >
+      Whether what it published is correct, or whether anybody reads it. It is
+      a deployment, and it is declared for the same reason the draft build is.
 
   - id: tag-claims
     workflow: tag-claims.yml
@@ -269,7 +356,9 @@ gates:
       are settled by the same gate; a protocol with no page or a step naming a
       route that does not exist; a curriculum unit citing a document that is
       not there or claiming a Status its document does not carry; an address
-      vector that does not parse as declared or does not format back to itself.
+      vector that does not parse as declared or does not format back to itself;
+      a family claim naming a family the record does not declare; a
+      mathematical mapping that does not state what it has not earned.
     runs:
       - ci/exceptions.py --check
       - ci/policies.py --check
@@ -278,11 +367,15 @@ gates:
       - ci/protocols.py --check
       - ci/curriculum.py --check
       - ci/addresses.py --check
+      - ci/capabilities.py --check
+      - ci/families.py --check
+      - ci/check_mathematics.py --check
     enforces:
       - ci/exception-registry.yaml
       - ci/policy-registry.yaml
       - ci/lane-registry.yaml
       - ci/protocol-registry.yaml
+      - ci/capability-registry.yaml
       - curriculum/org.yaml
       - project-seed/address-vectors.json
     cannot_see: >
@@ -297,6 +390,32 @@ gates:
       is this gate required to merge: it is a candidate for A-main.json's
       required list and stays off it until it has reported green on a real
       pull request.
+
+  - id: leak-check
+    workflow: leak-check.yml
+    job: leaks
+    gates: [main, push]
+    seed: true
+    exists: true
+    refuses: >
+      A tracked file that carries a person's home directory, a path through a
+      personal or IDE-made folder, a path into a session's scratch space, a
+      shared-conversation link, or a conversation archive's path. Findings are
+      printed redacted; a deliberate example is declared with `leaks: allow`
+      and a reason, and every allowance is counted on every run.
+    runs:
+      - project-seed/ci/check_leaks.py
+    enforces:
+      - records/DRAFT-what-is-not-the-organisation.md
+      - ci/policy-registry.yaml nothing-committed-describes-the-workstation-the-agent-or-the-conversation
+    cannot_see: >
+      Everything on that line that is not a path or a link: an editor named in
+      prose, a process somebody saw running, a tool narrating its own session,
+      a person's words quoted into a constraint. A pattern for those would
+      fire on every page that legitimately discusses editors or quotes a
+      record, so the reader is the check, at the runbook's Step 3. Nor can it
+      read history -- a path already pushed stays pushed -- or tell a
+      placeholder from a real account beyond the ones it lists.
 
   - id: rulesets
     workflow: null

@@ -2,7 +2,7 @@
 
 **THE CHECKER WAS ROUTED INTO THE CLI AND NEVER TESTED.** It was written and
 wired in one session, `uv run qm mathematics` exits zero against the real
-registry, and nothing had ever seen it exit non-zero for a reason. Charter P16:
+registry, and nothing had ever seen it exit non-zero for a reason. Charter `a-check-is-evidence-after-it-fails`:
 that is scaffolding, not evidence. `uv run qm posture` found it by trying to
 mutate a module whose tests it could not locate.
 
@@ -156,7 +156,7 @@ def test_earned_without_a_measurement_is_caught(tmp_path: Path):
 
     `earned` is the word that makes a mapping load-bearing. Claiming it without
     naming what measured it is how a corpus ends up naming things after
-    theorems, which is the practice charter P15 exists to prevent, and this
+    theorems, which is the practice charter `a-loop-is-not-a-knot` exists to prevent, and this
     rule is its whole enforcement.
 
     Mutation: remove the earned/measured rule and this fails.

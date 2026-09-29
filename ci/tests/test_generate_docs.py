@@ -1,6 +1,6 @@
-"""The regeneration command, which is the P12 mechanism and was untested.
+"""The regeneration command, which is the `show-it-by-running-it` mechanism and was untested.
 
-**THE COMMAND CHARTER P12 RESTS ON.** "Regeneration rides the command people
+**THE COMMAND CHARTER `show-it-by-running-it` RESTS ON.** "Regeneration rides the command people
 already run" — this is that command. Drift is supposed to arrive as an
 uncommitted diff nobody can miss, and the whole arrangement depends on this
 running the right steps in the right order.
@@ -11,7 +11,7 @@ nothing checked the ordering, the `--check` mode, or what it reports as moved,
 which are the three things only this module decides.
 
 THE TEST WORTH READING IS THE ORDERING ONE. "A renderer must run after the
-document it reads, and `doc-status.json` must run last because it reports on the
+document it reads, and `status/documents.yaml` must run last because it reports on the
 files the others just wrote. Getting that backwards produces a state page
 describing the previous run" — that is written in the module and was checked by
 nothing.
@@ -42,6 +42,16 @@ def _module():
 generate_docs = _module()
 
 
+def _loose_ends():
+    spec = importlib.util.spec_from_file_location("loose_ends", CI / "loose_ends.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+loose_ends = _loose_ends()
+
+
 # One `--check` run for the module. **MEMOISED, NOT MERGED** -- two tests assert
 # two different properties of one invocation, and each spawning its own cost ten
 # seconds because `--check` runs every document's checker as a subprocess.
@@ -67,37 +77,49 @@ def checked() -> subprocess.CompletedProcess:
 def test_the_state_document_is_written_last():
     """THE ONE THAT MATTERS.
 
-    `doc-status.json` reports on the files the other steps just wrote. Run it
+    `status/documents.yaml` reports on the files the other steps just wrote. Run it
     earlier and it describes the *previous* run — a state page that is
     confidently wrong, which is the shape this corpus keeps finding.
 
-    Mutation: move the `doc status` step earlier and this fails.
+    Mutation: move the `doc status` step earlier and this fails; move the
+    loose-ends join above it and `test_a_renderer_runs_after_the_document_it_reads`'s
+    sibling below catches the join reading a stale page.
     """
     labels = [label for label, *_ in generate_docs.STEPS]
     writes = [out for _, _, out, _, _ in generate_docs.STEPS]
 
-    assert "doc-status.json" in writes, writes
-    at = writes.index("doc-status.json")
-    later = [w for w in writes[at + 1:] if w != "doc-status.json"]
-    # Renderers of doc-status may follow it; nothing that *writes a document it
-    # reports on* may.
-    assert all(w.endswith(".md") for w in later), (
+    assert "status/documents.yaml" in writes, writes
+    at = writes.index("status/documents.yaml")
+    later = [w for w in writes[at + 1:] if w != "status/documents.yaml"]
+    # Two things may follow the state page: a renderer of it, and a join that
+    # takes it as a *source* -- which therefore cannot run before it -- provided
+    # the page does not describe that join's output. `ci/doc_status.py`
+    # inventories the governed prose, never a generated `.json`, so the join's
+    # document is not one the page reports on. The exemption is tied to the
+    # fact that earns it: if the join stops reading the state page, it no
+    # longer needs to follow it, and this fails until it is moved back.
+    joins_reading_the_state_page = {"loose-ends.json"}
+    assert "status/documents.yaml" in loose_ends.SOURCES.values(), (
+        "loose-ends.json is exempted as a join that reads the state page, "
+        "but it no longer does")
+    assert all(w.endswith(".md") or w in joins_reading_the_state_page
+               for w in later), (
         f"these write after the state document and would not be described by "
         f"it: {later}")
     assert at >= len(writes) - 3, (
-        f"doc-status.json is step {at + 1} of {len(writes)}; it reports on what "
+        f"status/documents.yaml is step {at + 1} of {len(writes)}; it reports on what "
         f"the others wrote and must come after them")
 
 
 def test_a_renderer_runs_after_the_document_it_reads():
-    """`handbook/gates.md` is rendered from `gate-status.json`. Rendering first
+    """`handbook/gates.md` is rendered from `status/gates.yaml`. Rendering first
     would produce a page describing the previous run.
 
     Mutation: swap a renderer above its source and this fails.
     """
     order = {out: n for n, (_, _, out, _, _) in enumerate(generate_docs.STEPS)}
-    for renderer, source in (("handbook/gates.md", "gate-status.json"),
-                             ("handbook/document-states.md", "doc-status.json")):
+    for renderer, source in (("handbook/gates.md", "status/gates.yaml"),
+                             ("handbook/document-states.md", "status/documents.yaml")):
         if renderer in order and source in order:
             assert order[source] < order[renderer], (
                 f"{renderer} is rendered before {source}, which it reads")
@@ -135,9 +157,9 @@ def test_check_mode_writes_nothing():
     """
     before = {
         path: path.read_bytes()
-        for path in (CORPUS / "governance-status.yaml",
-                     CORPUS / "gate-status.json",
-                     CORPUS / "doc-status.json")
+        for path in (CORPUS / "status/governance.yaml",
+                     CORPUS / "status/gates.yaml",
+                     CORPUS / "status/documents.yaml")
         if path.is_file()
     }
     assert before, "nothing to compare; the documents are absent"

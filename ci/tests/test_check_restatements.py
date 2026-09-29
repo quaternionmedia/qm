@@ -179,3 +179,40 @@ def test_handbook_pages_are_entry_points(tmp_path: Path):
     assert result.returncode == 1
     assert "never names its path" in result.stderr
     assert "not an entry point" not in result.stderr
+
+def test_a_unifies_row_naming_a_record_that_does_not_exist_is_caught(tmp_path: Path):
+    """`Unifies` was a declaration nothing read, for as long as it existed.
+
+    One record carried the row and no tool parsed it, so a row naming a record
+    that had been renamed read exactly like one naming a record that is there.
+
+    Mutation: drop the `Unifies` loop from `check` and this test fails.
+    """
+    corpus(tmp_path)
+    write(
+        tmp_path / "records" / "DRAFT-a-unifier.md",
+        "# U\n\n| **Unifies** | `records/DRAFT-not-here.md` |\n",
+    )
+    result = run(tmp_path)
+    assert result.returncode == 1
+    assert "DRAFT-not-here.md" in result.stderr
+
+
+def test_a_unifies_row_naming_a_record_that_exists_passes(tmp_path: Path):
+    corpus(tmp_path)
+    write(
+        tmp_path / "records" / "DRAFT-a-unifier.md",
+        "# U\n\n| **Unifies** | `records/DRAFT-a-record.md` |\n",
+    )
+    assert run(tmp_path).returncode == 0
+
+
+def test_a_record_cannot_unify_itself(tmp_path: Path):
+    corpus(tmp_path)
+    write(
+        tmp_path / "records" / "DRAFT-a-unifier.md",
+        "# U\n\n| **Unifies** | `records/DRAFT-a-unifier.md` |\n",
+    )
+    result = run(tmp_path)
+    assert result.returncode == 1
+    assert "names itself" in result.stderr

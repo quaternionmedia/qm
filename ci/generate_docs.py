@@ -3,7 +3,7 @@
 
 Org-level tooling, copied nowhere. One command a human runs before a pull
 request, so drift shows up as an uncommitted diff rather than as staleness
-nobody sees -- charter P12, and `records/DRAFT-one-executable-walkthrough.md`.
+nobody sees -- charter `show-it-by-running-it`, and `records/DRAFT-one-executable-walkthrough.md`.
 
 WHY THIS EXISTS. Six generated artifacts live at this repository's root and in
 `handbook/`, each with its own refresh command written down in its own
@@ -16,9 +16,9 @@ two needing a remembered command are stale.
 THE NETWORK SPLIT IS THE IMPORTANT PART. Three of these read other repositories
 or the host:
 
-    governance-status.yaml   reads every project's refs
-    harness-status.json      reads pull requests across the org
-    gate-status.json         reads this repository's rulesets
+    status/governance.yaml   reads every project's refs
+    status/harness.yaml      reads pull requests across the org
+    status/gates.yaml         reads this repository's rulesets
 
 `--offline` skips exactly those and says so in the report. It never writes a
 network-derived fact it did not fetch, and it never leaves a stale one looking
@@ -62,57 +62,94 @@ ROOT = _corpus_root()
 # (label, argv, output path, reaches_network, check_argv or None)
 #
 # Order matters twice: a renderer must run after the document it reads, and
-# doc-status.json must run last because it reports on the files the others just
-# wrote. Getting that backwards produces a state page describing the previous
-# run, which is the kind of confidently-wrong artifact this corpus keeps finding.
+# status/documents.yaml runs after every file it reports on, with the loose-ends
+# join after that because the state page is one of its sources. Getting that
+# backwards produces a document describing the previous run, which is the kind
+# of confidently-wrong artifact this corpus keeps finding.
 STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
     (
         "governance status",
-        ["ci/governance_status.py", "--write", "governance-status.yaml"],
-        "governance-status.yaml",
+        ["ci/governance_status.py", "--write", "status/governance.yaml"],
+        "status/governance.yaml",
         True,
-        ["ci/governance_status.py", "--check", "governance-status.yaml"],
+        ["ci/governance_status.py", "--check", "status/governance.yaml"],
     ),
     (
         "harness status",
-        ["ci/harness_status.py", "--no-local", "--write", "harness-status.json"],
-        "harness-status.json",
+        ["ci/harness_status.py", "--no-local", "--write", "status/harness.yaml"],
+        "status/harness.yaml",
         True,
         None,
     ),
     (
         "gate status",
-        ["ci/gate_status.py", "--write", "gate-status.json"],
-        "gate-status.json",
+        ["ci/gate_status.py", "--write", "status/gates.yaml"],
+        "status/gates.yaml",
         True,
-        ["ci/gate_status.py", "--check", "gate-status.json"],
+        ["ci/gate_status.py", "--check", "status/gates.yaml"],
     ),
     (
         "gate view",
-        ["ci/gate_dashboard.py", "gate-status.json", "--format", "md",
+        ["ci/gate_dashboard.py", "status/gates.yaml", "--format", "md",
          "--out", "handbook/gates.md"],
         "handbook/gates.md",
         False,
-        ["ci/gate_dashboard.py", "gate-status.json", "--format", "md",
+        ["ci/gate_dashboard.py", "status/gates.yaml", "--format", "md",
          "--check", "handbook/gates.md"],
     ),
     (
-        "document states",
-        ["ci/doc_status.py", "--write", "doc-status.json"],
-        "doc-status.json",
+        "families",
+        ["ci/families.py", "--write", "families.json"],
+        "families.json",
         False,
-        ["ci/doc_status.py", "--check", "doc-status.json"],
+        None,
+    ),
+    (
+        "family cookbook",
+        ["ci/cookbook.py", "walkthrough/families", "--write"],
+        "walkthrough/families/README.md",
+        False,
+        ["ci/cookbook.py", "walkthrough/families", "--check"],
+    ),
+    (
+        "rollout",
+        # A write reads the host by default. Offline it is skipped, not written from
+        # this disk: the committed document describes the org, and a local one would
+        # replace it with a description of whichever clones one machine happens to hold.
+        ["ci/rollout.py", "--write", "status/rollout.yaml"],
+        "status/rollout.yaml",
+        True,
+        ["ci/rollout.py", "--check"],
+    ),
+    (
+        "document states",
+        ["ci/doc_status.py", "--write", "status/documents.yaml"],
+        "status/documents.yaml",
+        False,
+        ["ci/doc_status.py", "--check", "status/documents.yaml"],
     ),
     (
         "document states view",
-        ["ci/doc_dashboard.py", "doc-status.json", "--out", "handbook/document-states.md"],
+        ["ci/doc_dashboard.py", "status/documents.yaml", "--out", "handbook/document-states.md"],
         "handbook/document-states.md",
         False,
-        ["ci/doc_dashboard.py", "doc-status.json", "--check", "handbook/document-states.md"],
+        ["ci/doc_dashboard.py", "status/documents.yaml", "--check", "handbook/document-states.md"],
+    ),
+    (
+        # **LAST, BECAUSE IT READS THE STATE PAGE.** The join takes the harness,
+        # gate and document-state documents as its three sources, so it can
+        # only run once every one of them has been written -- running it
+        # earlier reports the previous run, the confidently-wrong artifact this
+        # ordering exists to prevent.
+        "loose ends",
+        ["ci/loose_ends.py", "--write", "loose-ends.json"],
+        "loose-ends.json",
+        False,
+        ["ci/loose_ends.py", "--check", "loose-ends.json"],
     ),
 ]
 
-# gate-status.json reaches the host only for its enforcement layer, and writes
+# status/gates.yaml reaches the host only for its enforcement layer, and writes
 # `unknown` instead when told not to. The others have no offline mode.
 OFFLINE_FLAG = {"gate status": "--no-host"}
 

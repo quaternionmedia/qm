@@ -37,7 +37,7 @@ def test_the_cli_forms_no_verdict():
     a verdict would be a second definition of a governance rule.
 
     Asserted on the imports rather than on substrings: the route table names
-    `gate-status.json`, and a substring check for "json" fails on a filename
+    `status/gates.yaml`, and a substring check for "json" fails on a filename
     while a module that genuinely parsed one could import it under an alias.
     """
     import ast

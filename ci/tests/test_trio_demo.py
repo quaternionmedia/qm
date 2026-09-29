@@ -82,7 +82,17 @@ def test_a_missing_sibling_is_reported_rather_than_skipped_silently():
     """
     module = _module()
     module.SIBLINGS = Path("/nowhere-that-exists")
-    assert module.main([]) == 1
+    # `QM_SIBLINGS` in the operator's shell would replace SIBLINGS and make
+    # this test find the real repositories -- which is what happened the day
+    # the override was added, from a session that had exported it to run the
+    # demo out of a worktree. The test is about the resolver, not the shell.
+    import os
+    saved = os.environ.pop("QM_SIBLINGS", None)
+    try:
+        assert module.main([]) == 1
+    finally:
+        if saved is not None:
+            os.environ["QM_SIBLINGS"] = saved
 
 
 def test_the_windows_read_the_rendering_rather_than_the_payload():
@@ -118,9 +128,18 @@ def test_each_window_runs_under_its_own_interpreter():
     source = DEMO.read_text(encoding="utf-8")
     assert "subprocess.run([sys.executable" not in source, (
         "a window is being run with the demo's own interpreter")
-    assert source.count("subprocess.run(\n        [interpreter(project)") \
-        + source.count("subprocess.run([interpreter(project)") == 2, (
-            "both windows must resolve their own project's interpreter")
+    # **EVERY subprocess, not a fixed count of them.** The first version
+    # asserted exactly two call sites, which failed the day a third kind of
+    # process -- a reader -- was added, while saying nothing about whether
+    # that third one used the right interpreter. The invariant is that no
+    # subprocess is started with anything but its own project's interpreter.
+    started = source.count("subprocess.run(")
+    with_own = (source.count("subprocess.run(\n        [interpreter(project)")
+                + source.count("subprocess.run([interpreter(project)"))
+    assert started >= 2, "the demo starts fewer processes than it has windows"
+    assert with_own == started, (
+        f"{started - with_own} subprocess call(s) do not resolve their own "
+        f"project's interpreter")
 
 
 # --- needs the siblings -------------------------------------------------------
@@ -368,7 +387,7 @@ def test_the_deployed_front_ends_agree():
 # is red before a single operator is applied. A mutation run against a red
 # baseline establishes nothing in either direction. The mutations named below
 # were therefore applied by hand, watched go red, and restored -- which is what
-# charter P16 asks for; the tool is the convenience, not the rule.
+# charter `a-check-is-evidence-after-it-fails` asks for; the tool is the convenience, not the rule.
 
 
 def test_a_measured_edge_prints_the_same_figure_the_other_window_prints():
@@ -408,3 +427,199 @@ def test_both_window_scripts_print_the_figure():
     module = _module()
     assert "figure(e)" in module.CODECARTO
     assert "unmeasured" in module.CODECARTO
+
+
+# --- the second act: one thread, three readers --------------------------------
+#
+# looksatwords is not a fourth window. Its adoption record (`project/looksatwords`
+# §3) says it reads the turns qmcp deliberately discards and authors nothing in
+# qmcp or dossier, so the demo hands it one thread and holds it to the seam --
+# the harness's own two turn counts -- rather than to agreement about a picture.
+
+
+def test_readers_are_a_separate_registry_from_windows():
+    """A reader reads a thread; a window draws a topology. Putting looksatwords
+    in WINDOWS would have made the demo ask it to agree about boxes."""
+    module = _module()
+    assert set(module.READERS) == {"looksatwords", "dossier", "codecartographer"}
+    assert "looksatwords" not in module.WINDOWS
+
+
+def test_the_stated_thread_fixture_exercises_the_prose_distinction():
+    """The seam's two counts are only worth comparing if they can differ, so
+    the fixture carries a turn with no prose on purpose."""
+    module = _module()
+    turns = module.THREAD_FIXTURE["turns"]
+    assert any(not (t["text"] or "").strip() for t in turns), (
+        "the fixture has no empty turn; turns_total and turns_with_text "
+        "could not disagree and the comparison would be vacuous")
+
+
+def test_looksatwords_is_held_to_the_border_not_to_a_picture():
+    """The reader script reports the seam's counts from the project's own
+    conversion. The border and count checks themselves are tested as
+    behaviour below, in `test_the_seam_comparison_catches_...` -- a string
+    assertion here passed a mutation that emptied the check."""
+    module = _module()
+    assert "turns_with_text" in module.LOOKSATWORDS, (
+        "the looksatwords reader must report the seam's second count")
+    assert "as_conversation" in module.LOOKSATWORDS, (
+        "the counts must come from the project's own seam conversion, not a "
+        "second one done for the demo")
+
+
+def test_the_sibling_roots_override_replaces_rather_than_extends(
+        tmp_path, monkeypatch):
+    """A worktree is beside nothing. `QM_SIBLINGS` replaces the convention --
+    two sources of truth for which repositories a demo may read is how an
+    allowlist stops being one."""
+    module = _module()
+    (tmp_path / "only" / "pyproject.toml").parent.mkdir()
+    (tmp_path / "only" / "pyproject.toml").write_text("[project]\n",
+                                                       encoding="utf-8")
+    monkeypatch.setenv("QM_SIBLINGS", str(tmp_path))
+
+    assert module._sibling_roots() == [tmp_path]
+    assert module.sibling("only") == tmp_path / "only"
+    assert module.sibling("qmcp") is None, (
+        "the override extended the roots instead of replacing them")
+
+
+@needs_siblings
+def test_the_second_act_runs_and_the_readers_report_the_seams_counts():
+    """THE ONE THAT MATTERS for the second act. looksatwords must report the
+    harness's own turn counts and emit no decision."""
+    done = _via_cli("--fixture")
+    assert done.returncode == 0, done.stdout[-3000:]
+    assert "SECOND ACT -- one thread, three readers" in done.stdout
+    assert "reported the harness's own turn counts and emitted no decision" \
+        in done.stdout
+
+
+@needs_siblings
+def test_the_second_act_says_what_it_did_not_establish():
+    done = _via_cli("--fixture")
+    assert "WHAT THE SECOND ACT DID NOT ESTABLISH" in done.stdout
+    assert "nothing here judges it" in done.stdout
+
+
+@needs_siblings
+def test_skipping_the_readers_is_stated_in_the_output():
+    """A skip that left no trace would read as a demo that covered less than
+    it claims."""
+    done = _via_cli("--fixture", "--skip-readers")
+    assert done.returncode == 0
+    assert "SECOND ACT" not in done.stdout
+    assert "The second act was skipped" in done.stdout
+
+
+@needs_siblings
+def test_the_json_carries_the_readers_and_the_same_verdict():
+    import json
+
+    document = json.loads(_via_cli("--fixture", "--json").stdout)
+    readers = document["readers"]
+    assert readers["turns_total"] == readers["read"]["looksatwords"]["turns_total"]
+    assert readers["turns_with_text"] == \
+        readers["read"]["looksatwords"]["turns_with_text"]
+    assert "settled" not in readers["read"]["looksatwords"]
+    assert readers["runnable_now"], "a built harness runs at least one shape"
+    assert document["problems"] == []
+
+
+def test_the_seam_comparison_catches_an_overcount_and_an_authored_decision():
+    """**BEHAVIOUR, NOT A STRING.** The first version of the border test
+    asserted that the phrase "never authors a decision" appeared in the
+    source, and a mutation that emptied the check while keeping the message
+    passed it. This feeds the comparison a reader that over-counts by one and
+    a reader that emitted a `settled` key, and expects both named.
+
+    Mutations: drop the count comparison, or the `authored` check, and this
+    fails.
+    """
+    module = _module()
+    served = {"turns_total": 8, "turns_with_text": 7}
+
+    assert module._seam_problems(served, {"turns_total": 8,
+                                          "turns_with_text": 7}) == []
+
+    over = module._seam_problems(served, {"turns_total": 9, "turns_with_text": 7})
+    assert over and "9 turns" in over[0]
+
+    prose = module._seam_problems(served, {"turns_total": 8, "turns_with_text": 6})
+    assert prose and "second count" in prose[0]
+
+    authored = module._seam_problems(
+        served, {"turns_total": 8, "turns_with_text": 7, "settled": ["x"]})
+    assert authored and "never authors" in authored[0]
+
+
+def test_a_derive_target_need_not_be_a_python_project(tmp_path, monkeypatch):
+    """moat is charts and terraform with no `pyproject.toml`. `sibling` is
+    for repositories the demo runs a script under; `clone` is for what a
+    reader derives from, and the two must not be the same test.
+
+    Mutation: resolve the derive target with `sibling` and this fails.
+    """
+    module = _module()
+    (tmp_path / "homelab" / ".git").mkdir(parents=True)
+    monkeypatch.setenv("QM_SIBLINGS", str(tmp_path))
+
+    assert module.sibling("homelab") is None
+    assert module.clone("homelab") == tmp_path / "homelab"
+    import inspect
+    assert "target = clone(args.subject)" in inspect.getsource(module._readers)
+
+
+@needs_siblings
+def test_a_failing_second_act_clears_the_verdict_in_the_json():
+    """One document, one answer. `agreed` was left true by the first act when
+    the second failed, until a mutation showed the JSON carrying both."""
+    module = _module()
+    import inspect
+
+    body = inspect.getsource(module.main)
+    assert 'result["agreed"] = False' in body
+
+
+# --- the third act: the estate ------------------------------------------------
+
+
+@needs_siblings
+def test_the_estate_act_runs_and_two_hosts_agree():
+    """The finale: the corpus's own statement of the estate, read from the
+    seam by two core members in their own runtimes, held to the window
+    standard -- one host agreeing with itself establishes nothing.
+
+    Mutation: point `_estate` at a missing file and this fails on exit code.
+    """
+    done = _via_cli("--fixture", "--skip-readers")
+    assert done.returncode == 0, done.stdout[-3000:]
+    assert "THIRD ACT -- the estate, drawn from the seam" in done.stdout
+    assert "agree about every family, every member, and every placement" in done.stdout
+
+
+@needs_siblings
+def test_the_estate_act_reports_in_json_with_the_same_verdict():
+    """The JSON must carry the estate the prose claimed -- two answers to one
+    question in one document is the defect the second act already guards."""
+    done = _via_cli("--fixture", "--skip-readers", "--json")
+    assert done.returncode == 0, done.stdout[-3000:]
+    import json as _json
+    found = _json.loads(done.stdout)
+    assert found["agreed"] is True
+    assert sorted(found["estate"]["hosts"]) == ["codecartographer", "dossier"]
+    assert found["estate"]["families"] >= 4
+    assert found["estate"]["placements"] > found["estate"]["families"], (
+        "fewer placements than families would mean empty families agreed")
+
+
+@needs_siblings
+def test_skipping_the_estate_is_stated_in_the_output():
+    """A skip that left no trace would read as a demo that covered less than
+    it claimed -- the same rule the reader act already follows."""
+    done = _via_cli("--fixture", "--skip-readers", "--skip-estate")
+    assert done.returncode == 0, done.stdout[-2000:]
+    assert "third act was skipped" in done.stdout
+    assert "ESTATE AGREEMENT" not in done.stdout
+

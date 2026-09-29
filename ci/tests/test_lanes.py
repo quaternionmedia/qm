@@ -110,8 +110,8 @@ def test_a_prefix_that_is_not_a_directory_boundary_does_not_match():
 
 
 def test_a_trailing_comment_in_the_path_is_stripped():
-    lanes = [lane(id="meta", owns=["ledger.yaml       # what was predicted"])]
-    assert owner_of(lanes, "ledger.yaml") == ["meta"]
+    lanes = [lane(id="meta", owns=["status/ledger.yaml       # what was predicted"])]
+    assert owner_of(lanes, "status/ledger.yaml") == ["meta"]
 
 
 def test_a_path_no_lane_claims_is_reported_rather_than_assigned():

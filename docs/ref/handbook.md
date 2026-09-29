@@ -1,17 +1,20 @@
 # Handbook index
 
-The [handbook](https://github.com/quaternionmedia/qm/tree/main/handbook) holds QM's policy and procedure. Handbook pages bind QM's own conduct; if a page ever conflicts with a record, the record wins. Each page states its own path for promotion to record form.
+The [handbook](https://github.com/quaternionmedia/qm/tree/main/handbook) holds QM's policy and procedure. [Handbook](../ref/glossary.md#handbook){ .glossary-term } pages bind QM's own conduct; if a page ever conflicts with a [record](../ref/glossary.md#record){ .glossary-term }, the record wins. Each page states its own path for promotion to record form.
 
 | Page | What it answers |
 |---|---|
 | [forking-a-project.md](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md) | How to stand up a new project, with a check for each step |
 | [propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) | How an org change reaches an adopted project |
-| [governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) | How far the corpus has got in governing itself, and what ratification waits on |
+| [consolidation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/consolidation-runbook.md) | How work that exists only on one disk reaches `main`, repository by repository |
+| [design-review-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/design-review-runbook.md) | How one repository is reviewed top down, from measurement to one pull request with a verdict |
+| [governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) | How far the [corpus](../ref/glossary.md#corpus){ .glossary-term } has got in governing itself, and what [ratification](../ref/glossary.md#ratification){ .glossary-term } waits on |
 | [adoption-audit-queue.md](https://github.com/quaternionmedia/qm/blob/main/handbook/adoption-audit-queue.md) | Which projects are audited, and how to run the rest |
 | [async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) | The rules that exist because several agent sessions run at once |
 | [generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) | The status documents: refresh commands, staleness budgets, dashboards |
 | [style-guide.md](https://github.com/quaternionmedia/qm/blob/main/handbook/style-guide.md) | Where explanation belongs: inline, README, `docs/`, or a retrospective |
 | [public-by-default.md](https://github.com/quaternionmedia/qm/blob/main/handbook/public-by-default.md) | When work may be closed |
+| [what-is-not-the-organisation.md](https://github.com/quaternionmedia/qm/blob/main/handbook/what-is-not-the-organisation.md) | The working form of the record that keeps the workstation, the agent and the conversation out of a committed file |
 | [handoffs/](https://github.com/quaternionmedia/qm/tree/main/handbook/handoffs) | Work a later session can pick up cold |
 
 ## Related

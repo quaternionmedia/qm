@@ -22,7 +22,7 @@ doing what the layer above it assumed.**
 | The check that found them was working | It knew 2 private names of 34; every `clean` it had reported meant "the roster's two names are absent" |
 | Reading all 34 would fix it | 240 hits, almost none disclosures — one private repository is named after the organisation and matched 187 URLs |
 | Tiering by context would fix that | It demoted a real disclosure: a handbook sentence listing repositories has no slash and no quotes |
-| Redacting the documents was the end | It broke `governance-status.yaml`'s own verifier, which joins on the project name |
+| Redacting the documents was the end | It broke `status/governance.yaml`'s own verifier, which joins on the project name |
 | The gate would stop the next one | It cannot see private repositories from CI at all |
 | A gate would gate | **Nothing is required to merge. Ten checks run, none is required, no pull request has ever been reviewed, and the account that opens them merges them.** |
 
@@ -37,9 +37,9 @@ existed, so the gap was findable. It is also what produced the specific failure
 mode: **each mechanism was believed to be doing its job because the layer above
 it said so, and nothing read the two together.**
 
-`ci/workspace.yaml` named two repositories while `inventory-public.json`
+`ci/workspace.yaml` named two repositories while `status/inventory.yaml`
 redacted the same two. Both committed. Both correct alone. Nothing read both.
-`governance-status.yaml` carried `private_repository_names_listed: false`, which
+`status/governance.yaml` carried `private_repository_names_listed: false`, which
 was true of its census and false of the list beside it. `ci/policy-registry.yaml`
 recorded a preventer for `main-is-entered-through-a-pull-request` that had never
 been applied — and the rulesets directory has held six drafts and an apply

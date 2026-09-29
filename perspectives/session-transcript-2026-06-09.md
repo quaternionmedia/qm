@@ -2,12 +2,21 @@
 
 | | |
 |---|---|
-| **Source** | [claude.ai conversation](https://claude.ai/share/7bbc74b5-7d95-4ca1-9610-0f628b2d64a8) (uuid `cff3717f-fb66-438a-844b-b90a9d5f9db1`) |
-| **Local export** | `C:\Users\peter\Documents\claude_history\conversations.json` |
+| **Source** | a conversation with an assistant, exported locally. The share link and the conversation identifiers are held by the author and deliberately not published here — see the note below |
+| **Local export** | the author's own conversation archive; the path is one machine's and is not published |
 | **Conversation title** | Self-hosted streaming infrastructure setup |
 | **Created** | 2026-05-26 |
 | **Updated** | 2026-06-10 |
 | **Standing** | Primary source, not an opinion — a raw session record kept as evidence. Non-binding; cite by date. Distinct from the perspectives around it, which argue a position. |
+
+**Why the provenance is partial.** The rows above once carried a
+`claude.ai/share/` link, two conversation identifiers, and the absolute path of
+the author's archive on one machine. A share link is readable by anyone holding
+it, and a conversation identifier and an archive path are the same class of
+thing this organisation has decided must never be published — the reason
+`qm private-names` exists and the reason the thread archive is never committed.
+Withholding them costs a reader nothing they can act on: the transcript below is
+the evidence, and it is complete. The author can produce the original.
 
 This is the working transcript that produced this repository's content:
 `PRINCIPLES.md`, `TEMPLATE.md`, the first six `records/DRAFT-*.md` files,
