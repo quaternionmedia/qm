@@ -243,4 +243,8 @@ together.
 
 Drafts in flight (numberless, by title): QM constitution adoption scope for
 Apothecary; Site/Structure/Substructure/Feature hierarchy for complex
-subassemblies.
+subassemblies; Firmware toolchain seam (arduino-cli and esptool); G-code
+printer seam (monitor printer controllers over the G-code line protocol);
+rad host integration for apothecary (the rings address nine cells); One
+screen: the world, and what stands in front of it; Personal data stays on
+the device, by construction.
