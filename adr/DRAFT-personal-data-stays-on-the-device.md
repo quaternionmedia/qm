@@ -169,9 +169,15 @@ human-only contributorship.
    fetch is a GET of a release archive at a URL built from a version
    string, and a version is three numbers or it is refused; no personal
    data is in it; an OpenSCAD snapshot's version is its date, three
-   numbers too. A test holds the callers of `tool_fetch` to those two
-   installer modules: a third caller is a third door, and is reviewed as
-   one.
+   numbers too. Where no snapshot is published for the machine (Linux on
+   arm64), the OpenSCAD installer builds that date's OpenSCAD from source:
+   it asks GitHub's API for the commit at that date and the commits its
+   submodules pin, and fetches each commit's source tarball; a commit is
+   forty hexadecimal characters or it is refused, and a submodule outside
+   github.com is refused, before either goes into a URL. The build itself
+   runs with downloads switched off and fetches nothing. A test holds the
+   callers of `tool_fetch` to those two installer modules: a third caller
+   is a third door, and is reviewed as one.
 3. **The server listens on this machine, and answers it alone.** Every
    `--host` the command line offers goes through `require_loopback()`: a
    non-loopback address is an error that names this record, not a choice.
@@ -357,6 +363,7 @@ mirror the person owns.
 |---|---|---|---|
 | GitHub releases (`api.github.com`, `github.com`, `objects.githubusercontent.com`, `release-assets.githubusercontent.com`) | the firmware installer, on *Install / update arduino-cli* | a GET of a version string's release archive and its checksums | an entry in `TOOL_SOURCES` and `RELEASES_*` |
 | `files.openscad.org` | the OpenSCAD installer, on `apothecary openscad install` | a GET of a snapshot archive named by its date | an entry in `TOOL_SOURCES` |
+| `api.github.com`, `codeload.github.com` | the OpenSCAD installer, building from source where no snapshot is published (Linux arm64) | the commit at a snapshot's date, the commits its submodules pin, and a GET of each commit's source tarball | entries in `TOOL_SOURCES` |
 | `downloads.arduino.cc` | arduino-cli, on a core or library install | the index and archive names it needs | arduino-cli's own `directories`/index settings in `ARDUINO_CLI_CONFIG` |
 | `espressif.github.io`, `arduino.esp8266.com`, `github.com` (rp2040 index) | arduino-cli, on a third-party core install | the index and archive names | an entry in `PACKAGE_INDEXES` |
 | Arduino's cloud board API (`api2.arduino.cc`) | nothing: off by `ARDUINO_CLI_CONFIG` | -- | -- |
