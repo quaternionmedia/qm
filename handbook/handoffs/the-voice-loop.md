@@ -1,9 +1,9 @@
 # Handoff — the voice loop, and the three-process development environment
 
-**Stamped 2026-09-27, restamped after the merges below.** `qm` `main` at
-`d1aca4f`; `vox` `main` at `4b2e64d`; `joe` `main` at `6e1ad16`; `qmcp`
-`main` at `77b73ca`; `dossier` `main` at `b21ce32`. Every figure here was true at those commits and nowhere else.
-Re-derive before acting on any of it.
+**Stamped 2026-10-03.** `qm` `main` at `df1cb51`; `vox` `main` at
+`d94fe6b`; `joe` `main` at `2ba994d`; `qmcp` `main` at `ed01fc0`; `dossier`
+`main` at `414be1c`. Every figure here was true at those commits and nowhere
+else. Re-derive before acting on any of it.
 
 `vox` and `joe` carry no `governance/qm` submodule, so the cross-repository
 state is recorded here and nowhere else. `vox` joined the roster on
@@ -13,29 +13,32 @@ work.
 what is waiting on a person, in the order it wants deciding. Nothing in this
 page is a decision.
 
+The why of all of it is in three retrospectives, and not here:
+`perspectives/2026-09-27-the-voice-loop.md`,
+`perspectives/2026-09-28-the-loop-lands-its-remains.md` and
+`perspectives/2026-09-28-the-voice-loop-meets-the-field.md`. The plan the
+open work follows is Phase 10 of `qmcp`'s `docs/ROADMAP.md`, which is itself
+on an open pull request (§1).
+
 ---
 
 ## 0. What landed
 
-Fifteen pull requests merged, two of them the corpus's own.
+Two rounds of merges, grouped by what they carry. The first built the loop
+and landed by 2026-09-28; the second made it answerable from a page, and
+ran to 2026-10-03.
 
 | Repository | Merged | What it carries |
 |---|---|---|
-| `joe` | #8, #9 | the application, and the two lines reconciled; speech analysis; filename hardening extended to the voice route |
-| `joe` | #10 | the Python suite in CI, on Windows, where it had never run anywhere |
-| `joe` | #11 | input-device selection, and recording at a rate devices accept |
-| `vox` | #1, #2 | the deterministic closed loop; artifacts written LF and mutated files restored byte-for-byte |
-| `vox` | #3 | the engine contract as a value; every product name moved to `vox.adapters` |
-| `vox` | #4 | an offline synthesizer, and a live loop that creates its own input |
-| `vox` | #5 | `HANDOFF.md` replaced with the surface that exists |
-| `dossier` | #58 | `dossier dev doctor`, the three-process preflight |
-| `qmcp` | #38 | the HITL queue answered by voice, `vox` vendored at `d54a7f7` |
-| `qm` | #122 | this handoff, the retrospective, and `vox`'s roster entry in `core` |
-| `vox` | #6 | the Apache-2.0 license the wheel metadata was already claiming as MIT |
-| `joe` | #12 | the MIT license file both metadata files were already claiming |
-| `joe` | #13 | paths through pathlib, the suite green on ubuntu for the first time, one lockfile |
-| `dossier` | #59 | recorded artifacts written LF, `db-backups/` ignored |
-| `qm` | #126 | the estate reads the one-slot rule with the gate's own exemption |
+| `joe` | #8–#13 | the application and the speech analysis reconciled on one line; the Python suite in CI, on both platforms, where it had run nowhere; an input device chosen and opened at a rate it accepts; paths through pathlib and one lockfile; the MIT license file |
+| `joe` | #14–#19 | the Playwright specs on every push and pull request; diagnostics that survive the console; the listen route recording until the speaker stops, endpointed with a moving noise floor and a sustained-speech onset; `joe voice setup`, which finds, saves and proves the microphone |
+| `joe` | #20–#22 | capture through a callback stream, which every host API implements, and only a microphone that has recorded is saved; a live conversation panel; pending `qmcp` requests answered by voice from the page |
+| `vox` | #1–#6 | the deterministic closed loop, its artifacts written LF; the engine contract as a value, every product name in `vox.adapters`; an offline synthesizer and a live loop that creates its own input; `HANDOFF.md` replaced with the surface that exists; Apache-2.0 |
+| `vox` | #7, #8 | the prompt played aloud, with `speak` returning when the audio ends; a `conversation` route in the engine contract and `HttpSTT.announce` |
+| `dossier` | #58, #59 | `dossier dev doctor`, the three-process preflight; recorded artifacts written LF and `db-backups/` ignored |
+| `qmcp` | #38–#47 | the HITL queue answered by voice; onboarding followable from a fresh clone; the voice seam a default dependency; the closed-choice dialog — options spoken, an answer naming one taken, noinput told from nomatch; the submodule moved to `vendor/vox`; both servers checked before anything is spoken; only answerable pending requests listed, oldest first, each asked once per run |
+| `qmcp` | #48–#53 | the governance pin bumped; `qmcp cookbook voice`; the dialog's states announced to the engine; `POST /v1/human/requests/{id}/voice` and `GET /v1/human/voice`, loopback-only; `vendor/vox` at the conversation route; `uv run qmcp` as the one declared entry point |
+| `qm` | #122, #124–#133 | this handoff and the three retrospectives; the design-review runbook; the estate reading the slot rule with the gate's exemption; the design-review consent routed through the harness queue; small pull requests — parallel when independent, stacked as drafts when dependent, the stack check, and retarget before delete; `main` propagated into `project/qmcp`; submodule URLs looked up by path |
 
 **The full round trip runs.** Text through a real synthesizer, through
 whisper, back out and back in:
@@ -47,38 +50,94 @@ uv run vox loop --echo-dir <engine's audio dir> --say "ship it on friday"
   closed: True
 ```
 
-`uv run vox loop --offline` closes the same loop in about two thirds of a
-second with no engine, no model and no hardware.
+`uv run vox loop --offline` closes the same loop with no engine, no model and
+no hardware. **Answering a request by voice from a page is two commands**,
+one per server: `uv run joe dev` in `joe`'s checkout and `uv run qmcp serve`
+in `qmcp`'s; `qmcp`'s `docs/integrations/voice.md` is the page for the rest,
+and `uv run qmcp cookbook voice` is the check, offline on `vox`'s
+deterministic engine or `--live` with a person at the speaker.
 
 ## 1. What remains, and what done looks like
 
-- **`joe` cannot record on several host APIs.** The rate fix changed
-  WASAPI's complaint from `Invalid sample rate` to `Invalid device`, and
-  MME and DirectSound return errors naming no cause. *Done* is one device
-  on each host API recording a non-silent second, or the reason written
-  down.
-- **`joe`'s Playwright specs run in CI, and the red never came.** The
-  first dispatch of `e2e.yml` (joe #13) was expected red on the belief the
-  specs needed a server nothing starts; it came back green, 25 passed,
-  because `playwright.config.js` starts the dev server itself. joe #14
-  widened the trigger to pushes and pull requests. The workflow has not
-  yet been seen to fail, so what a red looks like there is still untested.
-- **`dossier`'s GIF re-encode is still only measured.** The four
-  line-ending writers are pinned (dossier #59, churn reproduced and then
-  gone on the same run); the nine-byte `first-run.gif` re-encode needs the
-  real database to reproduce, and the scratch-database run left the file
-  byte-identical.
-- **The approval case is exercised; the wider loop is not built.** The
-  closed loop ran against the live engine on 2026-09-27
-  (`uv run vox loop --echo-dir <the engine's audio dir> --say ...`,
-  `closed: True`), and a real launch approval waits on the harness queue
-  (§6). Speaking an instruction, an agent acting, and the result spoken
-  back as a standing service remains unbuilt.
+- **`joe` records on one host API, and the other three are a reading of one
+  run.** `joe` #20 moved capture to a callback stream, because WDM-KS
+  implements no blocking read, and on the hardware that run used the WDM-KS
+  entry recorded a second of finite samples while every MME, DirectSound and
+  WASAPI input failed to open through both paths. The pull request attributes
+  that to the audio engine's state on that machine rather than to the change,
+  and the ranking of host APIs is exercised by tests, not by that run. *Done*
+  is unchanged: one device on each host API recording a non-silent second, or
+  the reason established rather than read off a single run.
+- **`joe`'s Playwright specs run in CI, and the red has still not come.**
+  joe #14 widened `e2e.yml` to pushes and pull requests; every run since has
+  concluded `success` (`gh run list -R quaternionmedia/joe --workflow
+  e2e.yml`, read 2026-10-03). What a red looks like there is untested. *Done*
+  is one deliberate break dispatched, seen red, and restored.
+- **`dossier`'s GIF re-encode is still only measured.** Nothing on `dossier`
+  `main` has touched `docs/screenshots/first-run.gif` since #59, whose
+  scratch-database run left it byte-identical; the re-encode needs the real
+  database to reproduce.
+- **The wider loop is being built, on open pull requests.** Speaking an
+  instruction, an agent acting, and the result spoken back is Phase 10 of
+  `qmcp`'s roadmap, and three of its six deliverables are open and green
+  against `main`. The table below is the stack.
+
+**The Phase 10 build, open at the stamp.** Every row is green on its checks;
+a draft is one stacked on another open pull request, and nothing else.
+
+| Repository | PR | Branch → base | Carries |
+|---|---|---|---|
+| `qmcp` | #54 | `docs/the-spoken-instruction` → `main` | Phase 10 in `docs/ROADMAP.md`: six deliverables in order, acceptance criteria, the constraints going in. Its boxes are unticked; ticking one belongs to this branch once that deliverable merges |
+| `qmcp` | #55, **draft**, stacked on #54 | `docs/roadmap-current-state` → `docs/the-spoken-instruction` | the roadmap level with the tree: test counts replaced by the relation to `uv run pytest -q`; the voice route in Phase 9; the pause stated as a contract parameter |
+| `qmcp` | #56 | `feat/preflight-command` → `main` | `uv run qmcp preflight`, a dispatcher to the seed workflow runner, and the two pages that name it |
+| `qmcp` | #58 | `feat/free-text-answers-by-voice` → `main` | **deliverable 1.** A request with no options is an open question: the transcript is the answer, read back once as a closed choice between `record` and `again`, under one `max_retries` budget. `qmcp cookbook voice` gains the case |
+| `qmcp` | #57 | `feat/mcp-ask-and-await` → `main` | **deliverable 2.** `create_human_request`, `await_human_response` and `ask_human` on the MCP server; the wait polls the pending listing and reads the request after it leaves it. A walkthrough page runs them |
+| `qmcp` | #59 | `feat/threads-recall` → `main` | **deliverable 3.** `uv run qmcp threads recall <project>`, `--json`, `--speak`, and loopback-only `GET /v1/threads/recall/{project}`, registered before the `{source}/{identifier}` route and guarded by a test for that |
+| `vox` | #10 | `feat/pause-parameter` → `main` | `pause_param` on `EngineContract`; `listen(pause_ms=)` sent only when the contract names it; the offline engine holds the stood-in engine's bounds |
+| `vox` | #9 | `docs/handoff-restamp` → `main` | `HANDOFF.md` at the current tips, naming `vendor/vox` and `joe voice setup` |
+| `qmcp` | #60 | `chore/vox-pause-pin` → `main` | `vendor/vox` moved to the head of `vox` #10's branch |
+| `qm` | #134 | `evolve/reuse-lint-runs-locally` → `main` | the REUSE lint run through `uvx`, so the step needs no pip in the interpreter that runs it; reaches `qmcp` at its next pin bump |
+
+**Deliverable 4, the instruction inbox, has no pull request.** It is cut
+from `chore/vox-pause-pin`, because an instruction's first take needs the
+pause parameter, and opens as a draft on that branch while #60 is open. Its
+dialog is the open question of #58 with a longer first take and a different
+sink; when both are on one branch, one open-question helper serves both.
+Deliverables 5 and 6 — acting on an instruction behind an adapter, and the
+result spoken — are unbuilt.
+
+**What remains after the table merges:**
+
+- **A person at the speaker.** The open question, the agent's ask, and the
+  pause each pass offline on `vox`'s deterministic engine, which is a codec
+  and says nothing about a real take. *Done* is one live run per deliverable,
+  recorded in its pull request or the next page here, in the shape of
+  `qmcp cookbook voice --live`.
+- **The pin moves to `vox`'s merge commit.** #60 pins `vendor/vox` at the
+  head of a branch. Once `vox` #10 merges, the pin moves to the commit on
+  `vox` `main`; `uv run qm pins` is the check that a pin is a commit somebody
+  else could get.
+- **The roadmap's boxes, and `qmcp`'s own pages.** #54's Phase 10 list ticks
+  nothing yet. `qmcp`'s `AGENTS.md` (from #56) explains why a step that
+  installs with pip is red under the local runner; once `qm` #134's pin bump
+  leaves no such step in the workflows, that explanation describes nothing in
+  the tree, and goes in the same change.
+- **Deliverable 3 against a live archive.** #59's run is the test's archive;
+  `uv run qmcp threads recall <project>` has not been run once against the
+  real one, and that run is recorded in its pull request or the next page
+  here.
+- **Two bounds nobody has set.** `run_forever` has no bound on an idle queue,
+  and a standing worker needs one. The request schema's one-minute floor on
+  `timeout_seconds` keeps the ask-and-await walkthrough from exercising a
+  real expiry.
+- **Merged branches in every repository above.** Some remain and some are gone;
+  `handbook/handoffs/README.md` places deletion outside what a handoff
+  authorises, and `uv run qm branches` says what deleting one would cost.
 
 ## 2. The development environment
 
 Three processes on one workstation, in clones that cannot import each
-other. `dossier dev doctor` is the preflight and rides `dossier` #58;
+other. `dossier dev doctor` is the preflight, landed as `dossier` #58;
 `dossier/docs/dev-loop.md` is the page.
 
 | Role | Clone | Port | Moved by |
@@ -99,22 +158,36 @@ CLI resolves. Measured 2026-09-27: 0 of 117 project rows in the working
 database match any purge pattern, so a run that day destroyed nothing — and
 several of the patterns are ordinary words such as `user/` and `doc/`.
 
-## 3. Audio capture on this workstation
+**Point `QMCP_DATABASE_URL` at a path of your own before running `qmcp`'s
+suite.** `qmcp test` unlinks `./qmcp.db` before the run and again after it,
+and that file is the human queue; `qmcp`'s `AGENTS.md` carries this and the
+`--clean=False` alternative. The cookbook checks make a database for the
+run; the suite as a whole is not promised to.
 
-Measured 2026-09-27. None of it is visible in a device listing:
+## 3. Audio capture on the engine's machine
 
-- **20+ input devices across four host APIs**, with the same microphone
-  appearing four times under a byte-identical name.
+Measured 2026-09-27 and 2026-09-29. None of it is visible in a device
+listing:
+
+- **Twenty or more input devices across four host APIs**, with the same
+  microphone appearing once per host API under a byte-identical name.
 - **The backend default is a capture card**, not a microphone.
 - **Every device is natively 44100 or 48000 Hz.** Opening one at 16000
-  failed on all four APIs, including the default — the path `record()` took
-  before #11.
-- **WDM-KS devices open without error and return garbage**: samples around
-  `-2e38`, or NaN.
+  failed on all four APIs, including the default.
+- **WDM-KS devices open without error and return garbage** — samples around
+  `-2e38`, or NaN — and WDM-KS implements no blocking read, so a stream
+  opened for `read()` fails with *Blocking API not supported yet*. Capture
+  goes through a callback for that reason (`joe` #20).
+- **At the 2026-09-29 run, every MME, DirectSound and WASAPI input failed to
+  open**, while the WDM-KS entries opened; §1 says what that does and does not
+  establish.
 
-`joe voice level --every` records briefly from each input and reports peak
-and RMS. Speak while it runs; the one that moves is the one to set as
-`JOE_INPUT_DEVICE`.
+`uv run joe voice setup`, in the engine's checkout, is the route to a
+microphone. It tries every input while the person talks, ranks microphones by
+loudness and each microphone's entries by host API with WDM-KS last, and
+saves only an entry that recorded the test sentence. The choice is read at
+record time; `uv run joe voice devices` marks it and `JOE_INPUT_DEVICE`
+overrides it. `joe voice level --every` still exists and only measures.
 
 ## 4. What no check covers
 
@@ -134,28 +207,50 @@ and RMS. Speak while it runs; the one that moves is the one to set as
 - **No test asserts what the synthesizer sounds like**, and none can. That
   whisper cannot read it is measured against a live engine, with a control,
   and recorded as `vox.synth.SPEECH_IS_NOT_TRANSCRIBABLE`.
+- **The local workflow runner cannot run the REUSE step green in a uv
+  virtual environment**, because the pinned seed installs the tool with pip
+  and `uv`'s environment ships none. `qm` #134 moves the step to `uvx`;
+  until that reaches `qmcp`'s pin, the seed runner reports that step red for
+  an environment reason — and so will `uv run qmcp preflight` once #56
+  merges, since it dispatches to the same runner — and the hosted gate is
+  the one to read.
+- **Whether project names transcribe reliably, and what a sentence-length
+  utterance costs in latency, are unmeasured** — named as such in Phase 10's
+  constraints, and resolution confirms rather than trusts so the first does
+  not have to be.
 
 ## 5. Standing constraints
 
 - *Keep everything local* is **not** in force.
-- **`vox` is public as of 2026-09-27.** It was created private, which is why
-  every check on `qmcp` #38 failed from 2026-09-22 onward: a public
-  repository's runner cannot clone a private submodule.
-- **`joe` now publishes to GitHub Pages.** Merging #8 brought the
-  application onto a `main` that already carried `deploy.yml`, so a push
-  builds the frontend and deploys it. Three files are published and none
-  carries anything personal. Named here because it was not obvious before
-  the merge.
-- **`vox` is Apache-2.0 and `joe` is MIT**, decided and merged
-  2026-09-27 (`vox` #6, `joe` #12); each repository's metadata had
-  claimed a license no file granted.
+- **`vox` is vendored at `vendor/vox`**, never at the repository root:
+  `git submodule update --init vendor/vox` before `uv sync --all-extras`,
+  and the pin is deliberate rather than floated.
+  `perspectives/2026-09-28-the-voice-loop-meets-the-field.md` carries why
+  the root is refused.
+- **The microphone is chosen by `uv run joe voice setup`**, saved in the
+  engine's checkout and read at record time, so a running backend uses it on
+  its next recording. `JOE_INPUT_DEVICE` in the backend's environment still
+  overrides it.
+- **`vox` is public as of 2026-09-27**, and `joe` publishes to GitHub Pages:
+  a push to `main` builds the frontend and deploys three files, none of them
+  personal.
+- **`vox` is Apache-2.0 and `joe` is MIT**, decided and merged 2026-09-27
+  (`vox` #6, `joe` #12).
+- **`qmcp`'s pinned seed carries the parallel-pull-request rule**, since its
+  governance pin at `235708c` includes the corpus merge that stated it. Several
+  ready pull requests stand open there at once with green slot checks, and the
+  stack check refuses a ready one stacked on another. A fork pinned behind that
+  commit still enforces one open pull request per contributor.
 - **The design-review launch waits on the harness queue**, not in a
   terminal: an approval request on the human queue (port 3141,
   `/v1/human/requests`, id `design-review-qm-audit-2026-09-27`,
-  re-queued on expiry) states the exact count. A session picking this
-  up reads the answer from the queue, launches on approve with the
-  counts the request states, and puts the next phase's count back on
-  the queue the same way. Answering by speech is one command:
+  re-queued on expiry) states the exact count. **The queue was not read for
+  this stamp**: the harness was not running (`curl http://127.0.0.1:3141/health`
+  refused the connection), so whether that request is still pending is
+  established by `uv run qmcp human list` against a running server and not by
+  this page. A session picking it up reads the answer from the queue, launches
+  on approve with the counts the request states, and puts the next phase's
+  count back the same way. Answering by speech is one command:
   `uv run qmcp human voice <request-id>`.
-- **Merged branches were not deleted** where `handbook/handoffs/README.md`
-  places deletion outside what a handoff authorises.
+- **Merged branches are not deleted by a handoff**, where
+  `handbook/handoffs/README.md` places deletion outside what one authorises.
