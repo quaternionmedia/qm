@@ -84,6 +84,19 @@ standard for every ring it draws.** The specifics:
    same option. Every `Intent` carries its address; a log of choices reads as
    something a person could type back.
 
+   A ring can also be **opened already entered**: given an option of its tree
+   (by id or label), the host opens it and presses that option's digits from
+   the top, so the ring shows the option's children and the address so far is
+   the one a hand would have pressed -- never a shortcut that skips digits.
+   Apothecary uses it when one step hands over to the next without the person
+   reopening the ring (the browser names several cameras after Allow, and the
+   ring reopens at Camera › Pin here to choose one). Every `Intent` also
+   carries **where the ring stood** on screen (`at`), so a ring that follows
+   from it opens in the same place. Both are host behaviour today
+   (`apothecary/static/ring.js`: `openRing({into})`, `RingInstance.enter`,
+   `Intent.at`); what any rad host may rely on is rad's to define, and they are
+   offered to its record as inputs.
+
 5. **The census is the enforcement.** `apothecary census` counts each page's
    controls of its own and, beside that, how many of them are *ring-backed*:
    a control whose verb is a cell of some ring (`census.RING_BACKED`,
@@ -240,6 +253,9 @@ standard for every ring it draws.** The specifics:
   ring-backed count does not fall, or the meter rises with no ring-backed
   control deleted, mean the doctrine is being carried rather than obeyed and
   §5 is the wrong enforcement.
+- **rad's record defines opening a ring at an address, or what an intent
+  carries about where the ring stood** -- §4's two host behaviours follow
+  rad's definition, and any difference is named in the census docstring.
 - **A ring needs a ninth option**, or a fifth level of nesting to hold
   what it offers. The ceiling is structural here; pressure on it is pressure
   on rad's record, not on a lint.
