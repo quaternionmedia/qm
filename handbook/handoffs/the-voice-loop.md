@@ -59,9 +59,6 @@ deterministic engine or `--live` with a person at the speaker.
 
 ## 1. What remains, and what done looks like
 
-Of the four items this section carried at the stamp before this one, three
-still stand and one became a build.
-
 - **`joe` records on one host API, and the other three are a reading of one
   run.** `joe` #20 moved capture to a callback stream, because WDM-KS
   implements no blocking read, and on the hardware that run used the WDM-KS
@@ -94,8 +91,8 @@ a draft is one stacked on another open pull request, and nothing else.
 | `qmcp` | #55, **draft**, stacked on #54 | `docs/roadmap-current-state` → `docs/the-spoken-instruction` | the roadmap level with the tree: test counts replaced by the relation to `uv run pytest -q`; the voice route in Phase 9; the pause stated as a contract parameter |
 | `qmcp` | #56 | `feat/preflight-command` → `main` | `uv run qmcp preflight`, a dispatcher to the seed workflow runner, and the two pages that name it |
 | `qmcp` | #58 | `feat/free-text-answers-by-voice` → `main` | **deliverable 1.** A request with no options is an open question: the transcript is the answer, read back once as a closed choice between `record` and `again`, under one `max_retries` budget. `qmcp cookbook voice` gains the case |
-| `qmcp` | #57 | `feat/mcp-ask-and-await` → `main` | **deliverable 2.** `create_human_request`, `await_human_response` and `ask_human` on the MCP server; the wait polls the pending listing and reads the request once after it leaves it. A walkthrough page runs them |
-| `qmcp` | #59 | `feat/threads-recall` → `main` | **deliverable 3.** `uv run qmcp threads recall <project>`, `--json`, `--speak`, and loopback-only `GET /v1/threads/recall/{project}`, registered before the `{source}/{identifier}` route and guarded by a test for that. Run against a live archive once |
+| `qmcp` | #57 | `feat/mcp-ask-and-await` → `main` | **deliverable 2.** `create_human_request`, `await_human_response` and `ask_human` on the MCP server; the wait polls the pending listing and reads the request after it leaves it. A walkthrough page runs them |
+| `qmcp` | #59 | `feat/threads-recall` → `main` | **deliverable 3.** `uv run qmcp threads recall <project>`, `--json`, `--speak`, and loopback-only `GET /v1/threads/recall/{project}`, registered before the `{source}/{identifier}` route and guarded by a test for that |
 | `vox` | #10 | `feat/pause-parameter` → `main` | `pause_param` on `EngineContract`; `listen(pause_ms=)` sent only when the contract names it; the offline engine holds the stood-in engine's bounds |
 | `vox` | #9 | `docs/handoff-restamp` → `main` | `HANDOFF.md` at the current tips, naming `vendor/vox` and `joe voice setup` |
 | `qmcp` | #60 | `chore/vox-pause-pin` → `main` | `vendor/vox` moved to the head of `vox` #10's branch |
@@ -121,14 +118,19 @@ result spoken — are unbuilt.
   `vox` `main`; `uv run qm pins` is the check that a pin is a commit somebody
   else could get.
 - **The roadmap's boxes, and `qmcp`'s own pages.** #54's Phase 10 list ticks
-  nothing yet. `qmcp`'s `AGENTS.md` paragraph naming the REUSE step red under
-  `uv run qmcp preflight` (from #56) goes stale when `qm` #134 reaches its
-  pin, and goes in the same change.
+  nothing yet. `qmcp`'s `AGENTS.md` (from #56) explains why a step that
+  installs with pip is red under the local runner; once `qm` #134's pin bump
+  leaves no such step in the workflows, that explanation describes nothing in
+  the tree, and goes in the same change.
+- **Deliverable 3 against a live archive.** #59's run is the test's archive;
+  `uv run qmcp threads recall <project>` has not been run once against the
+  real one, and that run is recorded in its pull request or the next page
+  here.
 - **Two bounds nobody has set.** `run_forever` has no bound on an idle queue,
   and a standing worker needs one. The request schema's one-minute floor on
   `timeout_seconds` keeps the ask-and-await walkthrough from exercising a
   real expiry.
-- **Merged branches on three hosts.** Some remain and some are gone;
+- **Merged branches in every repository above.** Some remain and some are gone;
   `handbook/handoffs/README.md` places deletion outside what a handoff
   authorises, and `uv run qm branches` says what deleting one would cost.
 
@@ -208,8 +210,10 @@ overrides it. `joe voice level --every` still exists and only measures.
 - **The local workflow runner cannot run the REUSE step green in a uv
   virtual environment**, because the pinned seed installs the tool with pip
   and `uv`'s environment ships none. `qm` #134 moves the step to `uvx`;
-  until that reaches `qmcp`'s pin, `uv run qmcp preflight` reports that step
-  red for an environment reason and the hosted gate is the one to read.
+  until that reaches `qmcp`'s pin, the seed runner reports that step red for
+  an environment reason — and so will `uv run qmcp preflight` once #56
+  merges, since it dispatches to the same runner — and the hosted gate is
+  the one to read.
 - **Whether project names transcribe reliably, and what a sentence-length
   utterance costs in latency, are unmeasured** — named as such in Phase 10's
   constraints, and resolution confirms rather than trusts so the first does
@@ -220,8 +224,9 @@ overrides it. `joe voice level --every` still exists and only measures.
 - *Keep everything local* is **not** in force.
 - **`vox` is vendored at `vendor/vox`**, never at the repository root:
   `git submodule update --init vendor/vox` before `uv sync --all-extras`,
-  and the pin is deliberate rather than floated. The retrospective of
-  2026-09-28 carries why the root is refused.
+  and the pin is deliberate rather than floated.
+  `perspectives/2026-09-28-the-voice-loop-meets-the-field.md` carries why
+  the root is refused.
 - **The microphone is chosen by `uv run joe voice setup`**, saved in the
   engine's checkout and read at record time, so a running backend uses it on
   its next recording. `JOE_INPUT_DEVICE` in the backend's environment still
