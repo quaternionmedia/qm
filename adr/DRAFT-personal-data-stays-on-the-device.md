@@ -268,10 +268,10 @@ human-only contributorship.
    offering to delete a folder it does not own. What a page placed or
    pinned (a camera at a piece, a board's identity at a node) is listed
    by the same page, every site's, and taken back the same way; a
-   picture pinned at a place in the world (a look), with the width a
+   picture pinned at a place in the world (a view), with the width a
    person typed for it, is one of these. `uploads/` also takes the
    pictures a person drops or pastes on the page, a pasted one named for
-   when it was pasted. Forgetting a kept picture unpins its looks; a piece
+   when it was pasted. Forgetting a kept picture unpins its views; a piece
    made from one of its shapes stays, marked as made from a picture since
    forgotten, and keeps the outline it was made from until the site is
    reset or the piece dropped -- a made piece is a part, and is saved,
