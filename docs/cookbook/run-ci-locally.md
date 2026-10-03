@@ -57,7 +57,7 @@ python project-seed/ci/check_one_pr.py --repo <owner/name> --contributor <login>
 python project-seed/ci/check_pr_base.py --base main --head <branch>
 
 # Every file has license and copyright metadata
-python -m reuse lint
+uvx 'reuse[charset-normalizer]' lint
 ```
 
 ## Reporting results

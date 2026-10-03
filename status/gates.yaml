@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-28T05:15:29Z'
+generated_at: '2026-10-03T18:43:09Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -249,7 +249,7 @@ gates:
   workflow: reuse-lint.yml
   job: reuse
   runs:
-  - python -m reuse lint
+  - uvx 'reuse[charset-normalizer]' lint
   enforces:
   - records/DRAFT-outbound-licensing.md
   - records/DRAFT-open-license-exclusion-and-upstream-remediation.md
