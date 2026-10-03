@@ -58,8 +58,10 @@ jobs:
         # has none, which made this step fail under the local workflow runner
         # in every uv-managed checkout while the hosted run passed.
         #
-        # The charset-normalizer extra, not bare `reuse`: without it the
-        # package needs libmagic at import time and dies with
-        # NoEncodingModuleError before it lints anything. The runner image has
-        # libmagic; a Windows box does not.
+        # The charset-normalizer extra, not bare `reuse`: bare `reuse` detects
+        # file encodings through python-magic, which needs libmagic on the box
+        # that runs it and which reuse skips outright on Windows, so with no
+        # other encoding module installed it raises NoEncodingModuleError
+        # before it lints anything. charset-normalizer is the one encoding
+        # module reuse accepts that imports everywhere.
         run: uvx 'reuse[charset-normalizer]' lint
