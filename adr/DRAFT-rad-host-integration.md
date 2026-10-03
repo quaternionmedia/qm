@@ -124,11 +124,12 @@ standard for every ring it draws.** The specifics:
    - the **node ring**, on a piece: zoom in, move, a Device option when a
      board is pinned to the piece (absent, not greyed, when none is), why
      this, into and up where they lead somewhere; on a root structure that
-     can hold a picture, a **Camera** group (pin here, live or still, look,
-     keep, unpin) and a **Picture** group (add, the folder's pictures, its
-     looks, make -- make all and each found shape --, size, find, unpin,
-     forget); on a piece made from a picture, a Picture group with its word
-     and drop;
+     can hold a picture, a **Camera** group (pin here, live or still, take
+     picture, unpin) and a **Picture** group (add, the folder's pictures, its
+     views, make -- make all and each found shape --, size, unpin, forget,
+     find shapes); a picture pinned at a place is a *view*, and taking one and
+     finding its shapes are two steps; on a piece made from a picture, a
+     Picture group with its word and drop, and a Part group with edit;
    - the **canvas ring**, on empty scene: arrangements and groups (each a
      further ring, lettered into groups of eight when longer), the made
      pieces under one Made option, a **Pictures** group (add, the floor's
