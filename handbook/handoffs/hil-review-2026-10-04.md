@@ -24,7 +24,7 @@ its own record.
 | `vox` | `a8934ff` | #9, #10 |
 | `joe` | `624fb61` | #23, #24 |
 | `qmcp` | `d239251` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64 |
-| `qm` | see §6 | #134, #135 |
+| `qm` | moves with #135 | #134, #135 |
 
 **The demonstration** is `qmcp`'s `docs/voice-loop-demo.md`, run from a `qmcp`
 checkout of the demo branch. Three tiers, each adding one real thing:
@@ -157,6 +157,10 @@ branch.
   continuity, exit 0. The seed workflow runner under the system interpreter:
   all 11 executed steps passed. `uv run qmcp preflight` at the head before
   #64 merged: 9 of 10, the REUSE step red for the reason in §4.
+- **`qm`, the demo branch built from `main`, #134 at `d793ce5` and #135 at
+  `0fc3fb4`:** `uv run --extra preflight qm preflight`, all 42 executed steps
+  passed. #135's branch alone at `0fc3fb4`: 43 of 43, after a first run read the
+  signature check red on a commit the host had not yet received.
 - **Hosted:** every pull request in §2 green at its head when this page was
   written; on a demo branch only `qmcp`'s submodule check runs, and passed.
 
