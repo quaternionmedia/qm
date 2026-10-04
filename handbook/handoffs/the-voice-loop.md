@@ -97,7 +97,7 @@ one stacked on another open pull request, and nothing else.
 | `qmcp` | #54 | `docs/the-spoken-instruction` → `main` | Phase 10 as built, and Phase 11, habits into auto-approvals, which covers only runs that spend nothing |
 | `qmcp` | #55, **draft**, on #54 | `docs/roadmap-current-state` → `docs/the-spoken-instruction` | the roadmap's test counts replaced by the relation to the command, and Phase 9's voice route stated |
 | `qmcp` | #56 | `feat/preflight-command` → `main` | `uv run qmcp preflight`, a dispatcher to the seed workflow runner |
-| `qmcp` | #58 | `feat/free-text-answers-by-voice` → `main` | **deliverable 1.** An open question answered by voice: the transcript read back, recorded on `record`, a transcript's closing stop not doubled |
+| `qmcp` | #58 | `feat/free-text-answers-by-voice` → `main` | **deliverable 1.** An open question answered by voice: the transcript read back, recorded on `agree`, a transcript's closing stop not doubled |
 | `qmcp` | #60 | `chore/vox-pause-pin` → `main` | `vendor/vox` at the head of `vox` #10's branch |
 | `qmcp` | #61, **draft**, on #60 | `feat/instruction-inbox` → `chore/vox-pause-pin` | **deliverable 2.** The instruction inbox: recorded against a project by whole-word roster matching, spoken with the long pause, nothing run |
 | `qmcp` | #62, **draft**, on #61 | `feat/act-on-instruction` → `feat/instruction-inbox` | **deliverable 3.** Acting on an instruction: consent asked for every runtime; a brief from qmcp's record carrying the project's earlier work; the clone remembered; `local`, the model on the machine reading the clone with tools that cannot write; a coding assistant's command line behind the same contract, given the same brief and resuming nothing |
@@ -105,11 +105,14 @@ one stacked on another open pull request, and nothing else.
 | `qmcp` | #64, **draft**, on #63 | `feat/live-model-demo` → `feat/result-spoken` | `qmcp cookbook instruct --runtime local`, continuity on the real local model in one command; `docs/voice-loop-demo.md`, the loop in three tiers |
 | `qmcp` | #65, **draft**, on #64 | `feat/spoken-conversation` → `feat/live-model-demo` | one standing spoken conversation, started by `qmcp serve --converse`: two commands, then nothing typed; waiting questions asked aloud; the clone found by name; a stalled model call recovered once |
 | `qmcp` | #66, **draft**, on #65 | `fix/voice-loop-review` → `feat/spoken-conversation` | the loop's tests and documents reviewed against its code: the branches no test reached tested, `localmodel check` reporting whether the model is served, the documents corrected |
+| `qmcp` | #73, **draft**, on #72 | `feat/barge-in` → `feat/plain-speech` | every closed question answerable before it ends, by key or by voice; `vendor/vox` at `vox` #14's branch |
+| `qmcp` | #72, **draft**, on #71 | `feat/plain-speech` → `feat/instruction-vocabulary` | what is said is a few plain words, with no syntax read aloud |
 | `qmcp` | #71, **draft**, on #70 | `feat/instruction-vocabulary` → `feat/tacit-agreement` | an instruction's take hinted with the project names it is likely to carry |
 | `qmcp` | #70, **draft**, on #69 | `feat/tacit-agreement` → `fix/audible-voice` | a confident instruction agreed to tacitly unless interrupted; the read-back's word is `agree` |
 | `qmcp` | #69, **draft**, on #68 | `fix/audible-voice` → `feat/answer-controls` | the voice heard: `vendor/vox` at `vox` #12's branch; the consent said with the clone's folder; setup checks the output |
 | `qmcp` | #68, **draft**, on #67 | `feat/answer-controls` → `docs/voice-dev-loop-guide` | closed questions hint and offer their options to the engine; "repeat" re-asks without spending a retry; prompts leave the turn open so the engine cues the person |
 | `qmcp` | #67, **draft**, on #66 | `docs/voice-dev-loop-guide` → `fix/voice-loop-review` | `docs/voice-loop-demo.md` as the loop's onboarding -- what runs where, the workspace, setup with a done-signal per step, the three tiers -- and its cookbook, what to say |
+| `vox` | #14, **draft**, on #13 | `feat/barge-in` → `feat/listen-confidence` | `watch`, `unwatch` and `control` on the contract; a voice that stops when the person interrupts |
 | `vox` | #13, **draft**, on #12 | `feat/listen-confidence` → `fix/sapi-playback` | `confidence_key` on the contract; a listen keeps how sure the engine was |
 | `vox` | #12, **draft**, on #11 | `fix/sapi-playback` → `feat/answer-hints` | the platform voice played through SAPI on Windows, on an output that can be named |
 | `vox` | #11, **draft**, on #10 | `feat/answer-hints` → `feat/pause-parameter` | `hint_param` on `EngineContract`; `options` on an announcement |
@@ -119,6 +122,7 @@ one stacked on another open pull request, and nothing else.
 | `joe` | #24, **draft**, on #23 | `docs/readme-overview` → `feat/instruct-by-voice` | the README's overview: joe's two jobs, and the local model doing the work once a person approves |
 | `joe` | #25, **draft**, on #24 | `docs/cookbook-voice-loop` → `docs/readme-overview` | the cookbook's recipe for joe's half of the voice dev loop |
 | `joe` | #26 | `feat/short-answer-recognition` → `main` | a take transcribed as English, as one utterance, toward its hint, with a beam when short |
+| `joe` | #30, **draft**, on #29 | `feat/barge-in` → `feat/take-confidence` | a take opened while a question is asked; a key, the held talk key or speech over the question interrupts it |
 | `joe` | #29, **draft**, on #28 | `feat/take-confidence` → `feat/live-transcript` | a listen says how sure it is of its transcript |
 | `joe` | #28, **draft**, on #27 | `feat/live-transcript` → `feat/turn-controls` | the take shown as it is written, its words strikable, every segment kept as a datapoint |
 | `joe` | #27, **draft**, on #26 | `feat/turn-controls` → `feat/short-answer-recognition` | answers by key or button, `~` held to keep a turn open, and tones that let the loop run by ear |
