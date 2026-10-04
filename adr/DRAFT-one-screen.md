@@ -2,9 +2,10 @@
 
 | | |
 |---|---|
-| **Status** | Draft |
-| **Date** | 2026-09-20 |
-| **Tools** | Drafted with Claude Code (Anthropic) against `consolidate/2026-09-19`, with the counts below produced by running `apothecary census`; the human who sponsored the work is the contributor of record. |
+| **Status** | Proposed |
+| **Date** | 2026-10-04 |
+| **Pends on** | Nothing — ready for ratification |
+| **Tools** | Drafted with Claude Code (Anthropic) against `consolidate/2026-09-19`, and its counts at one screen measured on apothecary's `review/2026-09-26` by running `apothecary census`; the human who sponsored the work is the contributor of record. |
 
 ## Context
 
@@ -53,10 +54,15 @@ is reclassified to make a number smaller; human-only contributorship.
    or moves a machine. *Popups*: panels tethered to an anchor, opened at
    the node, following it, drawing a leader to it -- the machine's cards,
    chart and latched controls; a devkit's serial; a piece's properties.
-   *Panels*: free or docked windows for what has no place -- the comms
-   log, the bench, the Contents tree, Jobs -- draggable, collapsible,
+   *Panels*: windows for what has no place, docked in **one rail** at one
+   side of the world (the right by default, moved by its swap) -- the
+   site's *Site* panel (its tree with every problem marked and listed, its
+   SCAD, every site's pins, its jobs) and *Selected* stacked, and below them
+   a strip of tabs for *Pictures*, the *Bench* (the toolchain, sketches,
+   flashing, tasks) and any docked machine -- collapsible, floatable,
    remembered per browser, and never able to push the world off the
-   screen.
+   screen. A machine's popup holds everything about that board, printer or
+   devkit, its one log included.
 3. **What has a place in the world is drawn in the world.** The printer's
    body, its board, the nozzle marker that tweens to each poll and moves
    ahead of a jog, the bed's reading as a relief, the build volume: these
@@ -73,12 +79,12 @@ is reclassified to make a number smaller; human-only contributorship.
    animation frame, with no layout reads; an anchor behind the camera or
    out of frame is hidden, an occluded one dimmed. No `CSS2DRenderer` is
    fetched; the vendored set does not grow for this.
-6. **The old routes live on the same modules until the last phase.** The
-   monitor's and the bench's content become modules under
-   `apothecary/static/widgets/`, mounted by the world's panels and by the
-   old pages in a plain layout, so the same browser tests pass on both
-   hosts throughout. Whether the plain layouts survive as kiosk views is
-   for a person to decide when the world can do everything they can.
+6. **The old routes open the world.** The monitor's and the bench's
+   content are modules under `apothecary/static/widgets/`, mounted by the
+   world's panels. `/firmware` opens the world with the Bench, and
+   `/firmware/monitor?port=` opens it with that board's machine, in the
+   site where the board is pinned; the two pages and their templates are
+   gone, and no plain layout is kept as a kiosk view.
 7. **The order of the move** is the plan's (`docs/plans/one-screen-2026-09-20.md`):
    the meter first; anchors and the world's decorations; panels; the
    machine in front of the world; the bench; one screen. Each phase is
@@ -98,8 +104,15 @@ is reclassified to make a number smaller; human-only contributorship.
 - Nothing is fetched: the anchor layer, the panel manager and the leader
   lines are the project's own, MIT-licensed with the rest, and the open-
   license audit table does not change.
-- The census's page list shrinks to one at the end; the numbers along the
-  way are recorded in the plan and in the test that holds them.
+- The census counts one page. On 2026-09-20 three pages held 148 controls
+  of their own, 60 of them on a ring; at one screen the world holds 116, 60
+  of them on the ring, and listens in 77 places. Nothing was reclassified to
+  make the number smaller: the controls that went were duplicates of a
+  ring verb or of another surface (a second log and query box, a second
+  poller, a page of links), and those that stayed without a cell are named
+  (`census.TAKEN_BACK`, the take-back rows the personal-data record asks
+  for). `VIEWER_CEILING` in apothecary's `tests/test_census.py` holds the
+  count, with the before and after of each phase in its note.
 - rad is asked nothing new: a popup is a panel and a panel's verbs are
   ring verbs, which the nine-cells record already covers.
 
@@ -126,18 +139,21 @@ is reclassified to make a number smaller; human-only contributorship.
 5. **Keep the small board scene beside the world** — lost because two
    scenes of the same geometry disagree the moment one is edited, and the
    world already draws the printer.
-6. **Do the bench last, or not at all** — considered, since the toolchain
-   has no place in the world. The plan puts the bench in a docked panel
-   because a devkit *is* a thing at a place (its hello belongs on its
-   node), and a person may decide otherwise at Phase 5.
+6. **Leave the bench a page of its own** — considered, since the
+   toolchain has no place in the world. Lost because a devkit *is* a thing
+   at a place: its hello, what it should run and its flashing belong to
+   its machine at its node, and what is left -- the toolchain, sketches and
+   tasks -- is a tab in the rail, one press from the world rather than a
+   page away from it.
 
 ## Revision triggers
 
 - A site with more pinned boards than anchors can be projected for within
   the frame budget the browser tests hold — the anchor layer needs
   culling by distance or a limit, and the bound in the tests says so.
-- A person asks for the plain layouts as kiosk views after Phase 5 — §6's
-  open decision resolves, and the census keeps two pages.
+- A person asks for a plain layout as a kiosk view (a screen beside the
+  printer showing only its machine) — §6 is revisited, and the census
+  counts the kiosk as a page of its own.
 - rad ratifies a record about panels or tethered popups — this record
   adopts it, as the rad host integration record adopts the nine-cells
   record.
