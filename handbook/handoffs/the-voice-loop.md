@@ -84,9 +84,10 @@ deterministic engine or `--live` with a person at the speaker.
   database to reproduce.
 - **The wider loop is built, on open pull requests, and waits on one review.**
   Speaking an instruction, the local model acting on it, and the answer spoken
-  back is Phase 10 of `qmcp`'s roadmap; all four of its deliverables and a
-  one-command demonstration are open and green, and the review page above
-  takes them as one.
+  back is Phase 10 of `qmcp`'s roadmap; all four of its deliverables, a
+  one-command demonstration and the standing conversation that makes it spoken
+  from end to end are open and green, and the review page above takes them as
+  one.
 
 **The open set at the stamp.** Every row is green on its checks; a draft is
 one stacked on another open pull request, and nothing else.
@@ -102,6 +103,7 @@ one stacked on another open pull request, and nothing else.
 | `qmcp` | #62, **draft**, on #61 | `feat/act-on-instruction` → `feat/instruction-inbox` | **deliverable 3.** Acting on an instruction: consent asked for every runtime; a brief from qmcp's record carrying the project's earlier work; the clone remembered; `local`, the model on the machine reading the clone with tools that cannot write; a coding assistant's command line behind the same contract, given the same brief and resuming nothing |
 | `qmcp` | #63, **draft**, on #62 | `feat/result-spoken` → `feat/act-on-instruction` | **deliverable 4.** The outcome said back; `qmcp cookbook instruct` runs the loop offline; the README states qmcp as the local model backend |
 | `qmcp` | #64, **draft**, on #63 | `feat/live-model-demo` → `feat/result-spoken` | `qmcp cookbook instruct --runtime local`, continuity on the real local model in one command; `docs/voice-loop-demo.md`, the loop in three tiers |
+| `qmcp` | #65, **draft**, on #64 | `feat/spoken-conversation` → `feat/live-model-demo` | one standing spoken conversation, started by `qmcp serve --converse`: two commands, then nothing typed; waiting questions asked aloud; the clone found by name; a stalled model call recovered once |
 | `vox` | #10 | `feat/pause-parameter` → `main` | `pause_param` on `EngineContract`, sent only when the contract names it |
 | `vox` | #9 | `docs/handoff-restamp` → `main` | `HANDOFF.md` at the current tips |
 | `joe` | #23 | `feat/instruct-by-voice` → `main` | **Instruct by voice** on the page |
@@ -120,9 +122,12 @@ its own pull requests, in the order the review page gives.
 
 **What remains after the set lands:**
 
-- **A person at the microphone.** Every tier but the last runs on `vox`'s
-  deterministic engine, which is a codec and says nothing about a real take.
-  *Done* is tier 3 of `qmcp`'s `docs/voice-loop-demo.md` run once and recorded.
+- **A person at the microphone.** Every take so far was scripted, which says
+  nothing about a real one. *Done* is tier 3 of `qmcp`'s
+  `docs/voice-loop-demo.md` -- `uv run joe dev`, `uv run qmcp serve --converse
+  --runtime local`, and then speech -- run once and recorded.
+- **What a standing conversation keeps.** `joe` keeps every take as a file;
+  a retention rule is the review page's decision 5.
 - **The pin moves to `vox`'s merge commit.** #60 pins `vendor/vox` at the
   head of a branch; once `vox` #10 merges, the pin moves to the commit on
   `vox` `main`, and `uv run qm pins` is the check.
