@@ -109,14 +109,15 @@ standard for every ring it draws.** The specifics:
    cannot appear without somebody deciding what kind of thing it is.
 
    One kind of control is backed by no ring and stays: the button on a row
-   of the list that shows what a page placed or pinned -- Kept's unpin on a
-   camera, a look or a board, and its forget on a picture the browser kept,
-   every site's -- because *Personal data stays on the device* (§6) asks for
+   of a list that shows what a page placed, pinned or kept -- the Site
+   panel's *Pinned* section, whose rows unpin a camera, a view or a board,
+   every site's, and the Pictures panel, whose rows forget a picture the
+   browser kept -- because *Personal data stays on the device* (§6) asks for
    a thing to be taken back from the list that shows it, and a ring reaches
    a pin only from the site it stands in. The census lists these apart
    (`census.TAKEN_BACK`), counted as controls of their own and claimed by no
    ring, so the meter neither credits them as backed nor loses them; a
-   control has that standing only by being on that list, in that panel.
+   control has that standing only by being on one of those lists.
 
 6. **Three shapes of ring**, resolved server-side by `apothecary/menu.py`
    from what the page says it is pointing at (`POST /menu/resolve`), with
