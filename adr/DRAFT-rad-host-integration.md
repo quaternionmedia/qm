@@ -97,6 +97,12 @@ standard for every ring it draws.** The specifics:
    `Intent.at`); what any rad host may rely on is rad's to define, and they are
    offered to its record as inputs.
 
+   An option may also be **marked**: drawn outlined with a bullet, and
+   `aria-current` on its wedge, when it is what the page has chosen outside
+   the ring (a picture chosen in the Pictures panel, among the folder's seven
+   newest). A mark is display only: it changes no address and no option's
+   meaning, and the ring keeps no memory of it.
+
 5. **The census is the enforcement.** `apothecary census` counts each page's
    controls of its own and, beside that, how many of them are *ring-backed*:
    a control whose verb is a cell of some ring (`census.RING_BACKED`,
