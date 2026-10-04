@@ -5,8 +5,8 @@
 was true at the commits it names and nowhere else.
 
 **Nothing on this page is a task.** It is one review of the whole open set --
-sixteen pull requests across four repositories -- so the set can be approved
-together and land in order. Once two servers are started, the loop it delivers
+every open pull request below, across four repositories -- so the set can be
+approved together and land in order. Once two servers are started, the loop it delivers
 is spoken from end to end: nothing is typed. [`the-voice-loop.md`](the-voice-loop.md) is the
 state; this is the queue. Delete this page when its work lands.
 
@@ -23,12 +23,13 @@ its own record.
 | Repository | Demo branch head | Merged into it, in order |
 |---|---|---|
 | `vox` | `a8934ff` | #9, #10 |
-| `joe` | `b5aefd8` | #23, #24 |
-| `qmcp` | `f0e679b` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65 |
+| `joe` | `8b927e2` | #23, #24, #25 |
+| `qmcp` | `beb4c64` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67 |
 | `qm` | moves with #135 | #134, #135 |
 
-**The demonstration** is `qmcp`'s `docs/voice-loop-demo.md`, run from a `qmcp`
-checkout of the demo branch. Three tiers, each adding one real thing:
+**The demonstration** is `qmcp`'s `docs/voice-loop-demo.md`, the loop's
+onboarding and cookbook, run from a `qmcp` checkout of the demo branch. Once
+the workstation is set up as it says, three tiers, each adding one real thing:
 
 1. **Nothing real** -- `uv run qmcp cookbook voice`, `uv run qmcp cookbook
    instruct`, `uv run qmcp cookbook instruct --runtime scripted`, `uv run qmcp
@@ -46,7 +47,8 @@ checkout of the demo branch. Three tiers, each adding one real thing:
    given with "approve", the local model reads the project, the answer is said
    back, and "stop listening" ends it. No person has run this tier; it is the
    review's one live step. The same session has run end to end with the server
-   started that way and every take scripted (§6).
+   started that way and every take scripted (§6). The page's cookbook is what to
+   say once it runs.
 
 ## 2. The pull requests
 
@@ -61,11 +63,14 @@ checkout of the demo branch. Three tiers, each adding one real thing:
 | **`qmcp` #62**, draft on #61 | 7/7 | acting on an instruction: consent for every runtime, the brief from qmcp's record, the `local` runtime, the command-line adapter behind the same contract | the brief (`Brief.prompt()`), what the local runtime may read (`inside`), the read protocol in its prompt and why the service's tool field is not used, and walkthrough 09's last section. |
 | **`qmcp` #63**, draft on #62 | 7/7 | the outcome said back; the offline loop | the panel told `speaking` then `idle`, never `recorded`. |
 | **`qmcp` #64**, draft on #63 | 7/7 | `cookbook instruct --runtime local`; `docs/voice-loop-demo.md` | the demo page as a stranger's first read. |
-| **`qmcp` #65**, draft on #64 | -- | one standing spoken conversation, started by `serve --converse` | the words it listens for (`STOP`, `DONE`, `MORE`), the waiting questions asked before each instruction, the clone found by name beside this checkout, the conversation holding the voice tracker so the page's buttons answer that one is running, and a stalled model call recovered once by unloading the model (§3, decisions 5 and 6). |
+| **`qmcp` #65**, draft on #64 | 7/7 | one standing spoken conversation, started by `serve --converse` | the words it listens for (`STOP`, `DONE`, `MORE`), the waiting questions asked before each instruction, the clone found by name beside this checkout, the conversation holding the voice tracker so the page's buttons answer that one is running, and a stalled model call recovered once by unloading the model (§3, decisions 5 and 6). |
+| **`qmcp` #66**, draft on #65 | 7/7 | the loop's tests and documents reviewed against its code | `localmodel check` now asking the service whether the model is served -- the one change of behaviour, made because three callers already said it did; the mutation each new test was seen red against, in the body. |
+| **`qmcp` #67**, draft on #66 | 7/7 | the demo page as the loop's onboarding and cookbook | the page as a stranger's first read: each setup step's signal that it is done, and each recipe against what the conversation does -- the wake word applying to "stop" as well (§3, decision 6). |
 | **`vox` #10** | 3/3 | the pause parameter on the engine contract | the offline engine holding the real engine's bounds, so an out-of-range pause fails offline too. |
 | **`vox` #9** | 3/3 | `HANDOFF.md` at the current tips | that it changes prose only. |
 | **`joe` #23** | 5/5 | **Instruct by voice** on the page | its place in the bottom bar rather than beside **Answer by voice** (§3, decision 4). |
 | **`joe` #24**, draft on #23 | 4/4 | the README's overview | joe's two jobs, and the commands as they are. |
+| **`joe` #25**, draft on #24 | 4/4 | the cookbook's recipe for joe's half of the loop | what it says the conversation leaves on disk (§3, decision 5). |
 | **`qm` #134** | 11/11 | the REUSE lint through `uvx` | the seed copy, which reaches `qmcp` only at its next pin bump. |
 | **`qm` #135** | -- | the voice-loop handoff restamped, and this page | §1 of the handoff, the open set as one table. |
 
@@ -133,6 +138,10 @@ remembered clone.
   and later calls queued behind it until the model was unloaded. A stall is a
   failed run naming the endpoint, not a hang; it is the service's, not the
   set's.
+- **A page names a case its own stack does not carry.** Tier 1 of the
+  onboarding, and #65's module docstring, say an open question is read back.
+  That is #58's behaviour: true on the demo branch now, and on `main` once #58
+  lands before the stack, as §5 orders.
 - **The command-line runtime has never run.** Its command line and its
   reading of the output are asserted; the tool is not on the workstation.
 - **Every local run is Windows.** The hosted checks run the suites on Linux,
@@ -152,9 +161,9 @@ has `main` merged in, and is marked ready before it merges.
 1. **`vox`:** #10, then #9.
 2. **`qmcp`:** #54, then #55 (retargeted onto `main`); #56; #58; then #60,
    after one commit moves its `vendor/vox` pin to `vox` #10's merge commit;
-   then #61, #62, #63, #64 and #65, each retargeted onto `main` as the one
-   beneath it lands.
-3. **`joe`:** #23, then #24.
+   then #61, #62, #63, #64, #65, #66 and #67, each retargeted onto `main` as
+   the one beneath it lands.
+3. **`joe`:** #23, then #24, then #25.
 4. **`qm`:** #134, then #135.
 
 After the set lands: `qm` #134 reaches `qmcp` through a pin bump, which also
@@ -171,8 +180,9 @@ branch.
   --offline` closed; the walkthrough unchanged; the wheel check passed; the
   mutation harness caught 17 of 17.
 - **`joe` at `624fb61`:** `uv run pytest -q` 151 passed; `npx playwright test`
-  45 passed; `npm run build` built, leaving the tree clean. Its head since,
-  `b5aefd8`, adds a README paragraph only.
+  45 passed; `npm run build` built, leaving the tree clean. Its heads since,
+  `b5aefd8` and `8b927e2`, add a README paragraph and a cookbook recipe only;
+  `uv run --frozen pytest tests/ -q` at #25's head `b330317`: 151 passed.
 - **`qmcp` at `d239251`:** `uv run pytest -q` 1139 passed, 11 skipped;
   `cookbook voice` 5 of 5; `cookbook instruct` 4 of 4 and 2 of 2 loops;
   `cookbook instruct --runtime scripted` and `--runtime local` both showed
@@ -188,6 +198,12 @@ branch.
   the remembered clone carrying the first. The seed workflow runner under the system interpreter:
   all 11 executed steps passed. `uv run qmcp preflight` at the head before
   #64 merged: 9 of 10, the REUSE step red for the reason in §4.
+- **`qmcp` at `beb4c64`, with #58's last commit, #66 and #67:** `uv run pytest
+  -q` 1185 passed, 11 skipped; the four tier-1 checks each exited 0 with no `[FAIL]`. At
+  #67's head `c3b8260`, from a worktree on the local model, tier 2's
+  conversation failed with exit 1 for want of a clone without `--clones` and
+  ended `[ok]` with it, as the page says. #66's new tests were each seen red
+  against the mutation they name.
 - **`qm`, the demo branch built from `main`, #134 at `d793ce5` and #135 at
   `0fc3fb4`:** `uv run --extra preflight qm preflight`, all 42 executed steps
   passed. #135's branch alone at `0fc3fb4`: 43 of 43, after a first run read the
