@@ -24,7 +24,7 @@ its own record.
 |---|---|---|
 | `vox` | `a8934ff` | #9, #10 |
 | `joe` | `8b927e2` | #23, #24, #25 |
-| `qmcp` | `7cc6b8b` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67 |
+| `qmcp` | `3f8a7d6` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67 |
 | `qm` | moves with #135 | #134, #135 |
 
 **A checkout of the demo branch.** The loop is on no repository's `main` yet,
@@ -80,7 +80,7 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`qmcp` #63**, draft on #62 | 7/7 | the outcome said back; the offline loop | the panel told `speaking` then `idle`, never `recorded`. |
 | **`qmcp` #64**, draft on #63 | 7/7 | `cookbook instruct --runtime local`; `docs/voice-loop-demo.md` | the demo page as a stranger's first read. |
 | **`qmcp` #65**, draft on #64 | 7/7 | one standing spoken conversation, started by `serve --converse` | the words it listens for (`STOP`, `DONE`, `MORE`), the waiting questions asked before each instruction, the clone found by name beside this checkout, the conversation holding the voice tracker so the page's buttons answer that one is running, and a stalled model call recovered once by unloading the model (§3, decisions 5 and 6). |
-| **`qmcp` #66**, draft on #65 | 7/7 | the loop's tests and documents reviewed against its code | `localmodel check` now asking the service whether the model is served -- the one change of behaviour, made because three callers already said it did; the mutation each new test was seen red against, in the body. |
+| **`qmcp` #66**, draft on #65 | 7/7 | the loop's tests and documents reviewed against its code | `localmodel check` now asking the service whether the model is served, because three callers already said it did; a run that spends its reads asked once for the answer from what it read; the mutation each new test was seen red against, in the body. |
 | **`qmcp` #67**, draft on #66 | 7/7 | the demo page as the loop's onboarding and cookbook | the page as a stranger's first read: each setup step's signal that it is done, and each recipe against what the conversation does -- the wake word applying to "stop" as well (§3, decision 6). |
 | **`vox` #10** | 3/3 | the pause parameter on the engine contract | the offline engine holding the real engine's bounds, so an out-of-range pause fails offline too. |
 | **`vox` #9** | 3/3 | `HANDOFF.md` at the current tips | that it changes prose only. |
@@ -156,8 +156,10 @@ remembered clone.
   cached: unloading freed the GPU and the next load stalled again, so tier 2
   failed from a fresh clone where it had passed earlier that day. The cause is
   not established; the service's log shows each load completing on the GPU and
-  no token generated. A stall is a failed run naming the endpoint, not a hang;
-  it is the service's, not the set's.
+  no token generated. Restarting the service with the commands `localmodel
+  plan` prints cleared it, and every call since has answered. A stall is a
+  failed run naming the endpoint, not a hang; it is the service's, not the
+  set's.
 - **A page names a case its own stack does not carry.** Tier 1 of the
   onboarding, and #65's module docstring, say an open question is read back.
   That is #58's behaviour: true on the demo branch now, and on `main` once #58
@@ -232,6 +234,15 @@ branch.
   instruct` with a `TypeError`; the onboarding now orders and checks both, at
   `7cc6b8b`, where `uv run pytest -q` gives 1185 passed, 11 skipped. Tier 2
   failed on the model service (§4).
+- **`qmcp`'s own clone, beside the other repositories, on the demo branch at
+  `3f8a7d6`, after the service restart:** tier 1's four checks and tier 2 on
+  the local model passed; tier 3 end to end -- `serve --converse --runtime
+  local` with no `--clones`, a scripted speech engine started afterwards and
+  nothing else sent -- ended on "stop listening" with exit 0, the waiting
+  question answered and both instructions done, the second carrying the first.
+  The demo's words, synthesized to files and transcribed by `joe`'s whisper,
+  came back as "Record.", "Approved.", "Stop listening." and "QMCP", and each
+  reaches its option or project through qmcp's matching.
 - **`qm`, the demo branch built from `main`, #134 at `d793ce5` and #135 at
   `0fc3fb4`:** `uv run --extra preflight qm preflight`, all 42 executed steps
   passed. #135's branch alone at `0fc3fb4`: 43 of 43, after a first run read the
