@@ -1,24 +1,29 @@
 # Handoff — the voice loop, and the three-process development environment
 
-**Stamped 2026-10-03.** `qm` `main` at `df1cb51`; `vox` `main` at
+**Stamped 2026-10-04.** `qm` `main` at `df1cb51`; `vox` `main` at
 `d94fe6b`; `joe` `main` at `2ba994d`; `qmcp` `main` at `ed01fc0`; `dossier`
-`main` at `414be1c`. Every figure here was true at those commits and nowhere
-else. Re-derive before acting on any of it.
+`main` at `414be1c`. Nothing has merged on any of them since the previous
+stamp; everything below §0 is open. Every figure here was true at those
+commits and nowhere else. Re-derive before acting on any of it.
 
 `vox` and `joe` carry no `governance/qm` submodule, so the cross-repository
 state is recorded here and nowhere else. `vox` joined the roster on
 2026-09-27, in `core`; `joe` is in `performer-display` and predates this
 work.
-[`hil-review-2026-09-27.md`](hil-review-2026-09-27.md) is the companion:
-what is waiting on a person, in the order it wants deciding. Nothing in this
-page is a decision.
+[`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the companion:
+the whole open set reviewed as one, with the demo branches, the demonstration,
+the decisions waiting on a person and the order the set lands in.
+[`hil-review-2026-09-27.md`](hil-review-2026-09-27.md) holds the decisions
+from the round before it. Nothing in this page is a decision.
 
 The why of all of it is in three retrospectives, and not here:
 `perspectives/2026-09-27-the-voice-loop.md`,
 `perspectives/2026-09-28-the-loop-lands-its-remains.md` and
 `perspectives/2026-09-28-the-voice-loop-meets-the-field.md`. The plan the
 open work follows is Phase 10 of `qmcp`'s `docs/ROADMAP.md`, which is itself
-on an open pull request (§1).
+on an open pull request (§1). **Continuity comes from qmcp, not the model**:
+the loop's agent is a runtime qmcp calls -- the local model it stands up first
+-- handed the project's earlier work from qmcp's own record.
 
 ---
 
@@ -77,59 +82,63 @@ deterministic engine or `--live` with a person at the speaker.
   `main` has touched `docs/screenshots/first-run.gif` since #59, whose
   scratch-database run left it byte-identical; the re-encode needs the real
   database to reproduce.
-- **The wider loop is being built, on open pull requests.** Speaking an
-  instruction, an agent acting, and the result spoken back is Phase 10 of
-  `qmcp`'s roadmap, and three of its six deliverables are open and green
-  against `main`. The table below is the stack.
+- **The wider loop is built, on open pull requests, and waits on one review.**
+  Speaking an instruction, the local model acting on it, and the answer spoken
+  back is Phase 10 of `qmcp`'s roadmap; all four of its deliverables and a
+  one-command demonstration are open and green, and the review page above
+  takes them as one.
 
-**The Phase 10 build, open at the stamp.** Every row is green on its checks;
-a draft is one stacked on another open pull request, and nothing else.
+**The open set at the stamp.** Every row is green on its checks; a draft is
+one stacked on another open pull request, and nothing else.
 
 | Repository | PR | Branch → base | Carries |
 |---|---|---|---|
-| `qmcp` | #54 | `docs/the-spoken-instruction` → `main` | Phase 10 in `docs/ROADMAP.md`: six deliverables in order, acceptance criteria, the constraints going in. Its boxes are unticked; ticking one belongs to this branch once that deliverable merges |
-| `qmcp` | #55, **draft**, stacked on #54 | `docs/roadmap-current-state` → `docs/the-spoken-instruction` | the roadmap level with the tree: test counts replaced by the relation to `uv run pytest -q`; the voice route in Phase 9; the pause stated as a contract parameter |
-| `qmcp` | #56 | `feat/preflight-command` → `main` | `uv run qmcp preflight`, a dispatcher to the seed workflow runner, and the two pages that name it |
-| `qmcp` | #58 | `feat/free-text-answers-by-voice` → `main` | **deliverable 1.** A request with no options is an open question: the transcript is the answer, read back once as a closed choice between `record` and `again`, under one `max_retries` budget. `qmcp cookbook voice` gains the case |
-| `qmcp` | #57 | `feat/mcp-ask-and-await` → `main` | **deliverable 2.** `create_human_request`, `await_human_response` and `ask_human` on the MCP server; the wait polls the pending listing and reads the request after it leaves it. A walkthrough page runs them |
-| `qmcp` | #59 | `feat/threads-recall` → `main` | **deliverable 3.** `uv run qmcp threads recall <project>`, `--json`, `--speak`, and loopback-only `GET /v1/threads/recall/{project}`, registered before the `{source}/{identifier}` route and guarded by a test for that |
-| `vox` | #10 | `feat/pause-parameter` → `main` | `pause_param` on `EngineContract`; `listen(pause_ms=)` sent only when the contract names it; the offline engine holds the stood-in engine's bounds |
-| `vox` | #9 | `docs/handoff-restamp` → `main` | `HANDOFF.md` at the current tips, naming `vendor/vox` and `joe voice setup` |
-| `qmcp` | #60 | `chore/vox-pause-pin` → `main` | `vendor/vox` moved to the head of `vox` #10's branch |
-| `qm` | #134 | `evolve/reuse-lint-runs-locally` → `main` | the REUSE lint run through `uvx`, so the step needs no pip in the interpreter that runs it; reaches `qmcp` at its next pin bump |
+| `qmcp` | #54 | `docs/the-spoken-instruction` → `main` | Phase 10 as built, and Phase 11, habits into auto-approvals, which covers only runs that spend nothing |
+| `qmcp` | #55, **draft**, on #54 | `docs/roadmap-current-state` → `docs/the-spoken-instruction` | the roadmap's test counts replaced by the relation to the command, and Phase 9's voice route stated |
+| `qmcp` | #56 | `feat/preflight-command` → `main` | `uv run qmcp preflight`, a dispatcher to the seed workflow runner |
+| `qmcp` | #58 | `feat/free-text-answers-by-voice` → `main` | **deliverable 1.** An open question answered by voice: the transcript read back, recorded on `record`, a transcript's closing stop not doubled |
+| `qmcp` | #60 | `chore/vox-pause-pin` → `main` | `vendor/vox` at the head of `vox` #10's branch |
+| `qmcp` | #61, **draft**, on #60 | `feat/instruction-inbox` → `chore/vox-pause-pin` | **deliverable 2.** The instruction inbox: recorded against a project by whole-word roster matching, spoken with the long pause, nothing run |
+| `qmcp` | #62, **draft**, on #61 | `feat/act-on-instruction` → `feat/instruction-inbox` | **deliverable 3.** Acting on an instruction: consent asked for every runtime; a brief from qmcp's record carrying the project's earlier work; the clone remembered; `local`, the model on the machine reading the clone with tools that cannot write; a coding assistant's command line behind the same contract, given the same brief and resuming nothing |
+| `qmcp` | #63, **draft**, on #62 | `feat/result-spoken` → `feat/act-on-instruction` | **deliverable 4.** The outcome said back; `qmcp cookbook instruct` runs the loop offline; the README states qmcp as the local model backend |
+| `qmcp` | #64, **draft**, on #63 | `feat/live-model-demo` → `feat/result-spoken` | `qmcp cookbook instruct --runtime local`, continuity on the real local model in one command; `docs/voice-loop-demo.md`, the loop in three tiers |
+| `vox` | #10 | `feat/pause-parameter` → `main` | `pause_param` on `EngineContract`, sent only when the contract names it |
+| `vox` | #9 | `docs/handoff-restamp` → `main` | `HANDOFF.md` at the current tips |
+| `joe` | #23 | `feat/instruct-by-voice` → `main` | **Instruct by voice** on the page |
+| `joe` | #24, **draft**, on #23 | `docs/readme-overview` → `feat/instruct-by-voice` | the README's overview: joe's two jobs, and the local model doing the work once a person approves |
+| `qm` | #134 | `evolve/reuse-lint-runs-locally` → `main` | the REUSE lint through `uvx`; reaches `qmcp` at its next pin bump |
+| `qm` | #135 | `evolve/voice-loop-handoff-2026-10-03` → `main` | this page and its review page |
 
-**Deliverable 4, the instruction inbox, has no pull request.** It is cut
-from `chore/vox-pause-pin`, because an instruction's first take needs the
-pause parameter, and opens as a draft on that branch while #60 is open. Its
-dialog is the open question of #58 with a longer first take and a different
-sink; when both are on one branch, one open-question helper serves both.
-Deliverables 5 and 6 — acting on an instruction behind an adapter, and the
-result spoken — are unbuilt.
+`qmcp` #57 (an MCP tool for a coding-assistant session to ask the queue) and
+#59 (recall from a coding assistant's session store) were closed unmerged: the
+loop's agent is a runtime qmcp calls, and its continuity is qmcp's own record.
 
-**What remains after the table merges:**
+**Each repository has a demo branch**, `demo/voice-loop-2026-10-04`: its
+`main` with every open pull request above merged in order. It is for testing
+and demonstrating the set together, never for merging; the set lands through
+its own pull requests, in the order the review page gives.
 
-- **A person at the speaker.** The open question, the agent's ask, and the
-  pause each pass offline on `vox`'s deterministic engine, which is a codec
-  and says nothing about a real take. *Done* is one live run per deliverable,
-  recorded in its pull request or the next page here, in the shape of
-  `qmcp cookbook voice --live`.
+**What remains after the set lands:**
+
+- **A person at the microphone.** Every tier but the last runs on `vox`'s
+  deterministic engine, which is a codec and says nothing about a real take.
+  *Done* is tier 3 of `qmcp`'s `docs/voice-loop-demo.md` run once and recorded.
 - **The pin moves to `vox`'s merge commit.** #60 pins `vendor/vox` at the
-  head of a branch. Once `vox` #10 merges, the pin moves to the commit on
-  `vox` `main`; `uv run qm pins` is the check that a pin is a commit somebody
-  else could get.
-- **The roadmap's boxes, and `qmcp`'s own pages.** #54's Phase 10 list ticks
-  nothing yet. `qmcp`'s `AGENTS.md` (from #56) explains why a step that
-  installs with pip is red under the local runner; once `qm` #134's pin bump
-  leaves no such step in the workflows, that explanation describes nothing in
-  the tree, and goes in the same change.
-- **Deliverable 3 against a live archive.** #59's run is the test's archive;
-  `uv run qmcp threads recall <project>` has not been run once against the
-  real one, and that run is recorded in its pull request or the next page
-  here.
+  head of a branch; once `vox` #10 merges, the pin moves to the commit on
+  `vox` `main`, and `uv run qm pins` is the check.
+- **One dialog, written twice.** #58's open question and #61's instruction
+  dialog read back and confirm the same way, each with its own copy of the
+  helper that says back what was heard. Once both are on `main`, one serves
+  both.
+- **The roadmap's boxes, and `qmcp`'s own pages.** #54's lists tick nothing
+  yet. `qmcp`'s `AGENTS.md` (from #56) explains a step that installs with pip
+  red under the local runner; once `qm` #134's pin bump leaves no such step,
+  that paragraph goes in the same change.
+- **The command-line runtime against the real tool.** Its command line and its
+  reading of the output are asserted; it has not been run, because the tool is
+  not on the workstation the set was built on.
 - **Two bounds nobody has set.** `run_forever` has no bound on an idle queue,
-  and a standing worker needs one. The request schema's one-minute floor on
-  `timeout_seconds` keeps the ask-and-await walkthrough from exercising a
-  real expiry.
+  and a standing worker needs one.
 - **Merged branches in every repository above.** Some remain and some are gone;
   `handbook/handoffs/README.md` places deletion outside what a handoff
   authorises, and `uv run qm branches` says what deleting one would cost.
@@ -218,10 +227,20 @@ overrides it. `joe voice level --every` still exists and only measures.
   utterance costs in latency, are unmeasured** — named as such in Phase 10's
   constraints, and resolution confirms rather than trusts so the first does
   not have to be.
+- **Nothing checks what the local model says.** The tests assert what is sent
+  to it and how its replies are read, over a stand-in transport; its answers
+  are judged by the person who approved the run. On the workstation the set
+  was built on, the model service's runner was seen to stall partway through
+  a reply after reusing a cached prompt, with later calls queued behind it;
+  every call is capped, so a stall is a failed run naming the endpoint, and
+  unloading the model frees it.
 
 ## 5. Standing constraints
 
 - *Keep everything local* is **not** in force.
+- **Every act is asked, for every runtime**, the local model included. Growing
+  a habit of approval into a rule is Phase 11, after Phase 10 has been used,
+  and only for runs that spend nothing.
 - **`vox` is vendored at `vendor/vox`**, never at the repository root:
   `git submodule update --init vendor/vox` before `uv sync --all-extras`,
   and the pin is deliberate rather than floated.
