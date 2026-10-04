@@ -141,12 +141,19 @@ standard for every ring it draws.** The specifics:
      further ring, lettered into groups of eight when longer), the made
      pieces under one Made option, a **Pictures** group (add, the floor's
      camera and picture groups under Floor, purge, gather), fit, reset;
-   - the **device ring**, on a board: watch, poll, monitor, query, pin or
-     unpin, rescan, and — for a printer only — a **control ring** behind it:
-     heat, home, jog (seated so the keypad *is* the jog pad: Y+ up, X+
-     right, Y− down, X− left, Z± in the right-hand corners), fan, SD, motors
-     off, stop (marked destructive), arm or disarm. On the monitor page the
-     device ring is the top ring, titled by the port.
+   - the **device ring**, on a board: open (the board's Machine), poll,
+     flash, query, pin or unpin, rescan, link (reconnect, reset, release,
+     and on a devkit listen and probe), and — for a printer only — a
+     **control ring** behind it: heat, home, jog (seated so the keypad *is*
+     the jog pad: Y+ up, X+ right, Y− down, X− left, Z± in the right-hand
+     corners), fan, SD, motors off, stop (marked destructive), arm or
+     disarm. Inside a board's Machine the device ring is the top ring,
+     titled by the port. A printer's flash is shown **disabled**, not
+     absent: apothecary never flashes a printer's board, and removing the
+     cell would move every cell after it, so a hand that learned ⌗2728 for
+     jog Y+ would reach something else. This is the one exception to
+     "absent, not greyed": a cell is kept disabled only where its absence
+     would move cells a person already uses.
 
    Making a piece from a shape, making them all, dropping a made piece and
    changing its word change the arrangement, and the server carries them
