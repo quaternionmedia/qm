@@ -24,8 +24,24 @@ its own record.
 |---|---|---|
 | `vox` | `a8934ff` | #9, #10 |
 | `joe` | `8b927e2` | #23, #24, #25 |
-| `qmcp` | `beb4c64` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67 |
+| `qmcp` | `7cc6b8b` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67 |
 | `qm` | moves with #135 | #134, #135 |
+
+**A checkout of the demo branch.** The loop is on no repository's `main` yet,
+so a checkout of `main` answers `uv run qmcp serve --converse` with *No such
+option*. In the `qmcp` clone that sits beside the other repositories -- where
+the conversation looks for a project's clone by its name:
+
+```bash
+git switch demo/voice-loop-2026-10-04
+git submodule update --init
+```
+
+and back afterwards with `git switch main` and the same submodule line; the
+two branches pin different `vox` commits. A separate worktree of the branch
+works as well, given `--clones <the directory holding the repositories>` on
+`serve --converse`. `joe`'s `main` is enough for tier 3; its demo branch adds
+the page's **Instruct by voice**.
 
 **The demonstration** is `qmcp`'s `docs/voice-loop-demo.md`, the loop's
 onboarding and cookbook, run from a `qmcp` checkout of the demo branch. Once
@@ -135,9 +151,13 @@ remembered clone.
   a fixed length, which can end a clause early ("... when a.").
 - **The model service on this workstation stalls.** A generation that reused
   a cached prompt stopped producing tokens until its call's cap cancelled it,
-  and later calls queued behind it until the model was unloaded. A stall is a
-  failed run naming the endpoint, not a hang; it is the service's, not the
-  set's.
+  and later calls queued behind it until the model was unloaded. On 2026-10-04
+  every call stalled from one point on, fresh loads included and with nothing
+  cached: unloading freed the GPU and the next load stalled again, so tier 2
+  failed from a fresh clone where it had passed earlier that day. The cause is
+  not established; the service's log shows each load completing on the GPU and
+  no token generated. A stall is a failed run naming the endpoint, not a hang;
+  it is the service's, not the set's.
 - **A page names a case its own stack does not carry.** Tier 1 of the
   onboarding, and #65's module docstring, say an open question is read back.
   That is #58's behaviour: true on the demo branch now, and on `main` once #58
@@ -204,6 +224,14 @@ branch.
   conversation failed with exit 1 for want of a clone without `--clones` and
   ended `[ok]` with it, as the page says. #66's new tests were each seen red
   against the mutation they name.
+- **A fresh clone of `qmcp`, followed as its onboarding says:** a clone
+  lands on `main`, whose `serve` has no `--converse`; on the demo branch, step
+  1 and tier 1 passed, and `serve --converse` started and waited for the speech
+  engine. Any `uv` command before the submodule line exits 2, and a `vox`
+  submodule left at `main`'s pin passes `cookbook voice` and fails `cookbook
+  instruct` with a `TypeError`; the onboarding now orders and checks both, at
+  `7cc6b8b`, where `uv run pytest -q` gives 1185 passed, 11 skipped. Tier 2
+  failed on the model service (§4).
 - **`qm`, the demo branch built from `main`, #134 at `d793ce5` and #135 at
   `0fc3fb4`:** `uv run --extra preflight qm preflight`, all 42 executed steps
   passed. #135's branch alone at `0fc3fb4`: 43 of 43, after a first run read the
