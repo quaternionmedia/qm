@@ -5,8 +5,9 @@
 was true at the commits it names and nowhere else.
 
 **Nothing on this page is a task.** It is one review of the whole open set --
-fifteen pull requests across four repositories -- so the set can be approved
-together and land in order. [`the-voice-loop.md`](the-voice-loop.md) is the
+sixteen pull requests across four repositories -- so the set can be approved
+together and land in order. Once two servers are started, the loop it delivers
+is spoken from end to end: nothing is typed. [`the-voice-loop.md`](the-voice-loop.md) is the
 state; this is the queue. Delete this page when its work lands.
 
 ---
@@ -22,25 +23,30 @@ its own record.
 | Repository | Demo branch head | Merged into it, in order |
 |---|---|---|
 | `vox` | `a8934ff` | #9, #10 |
-| `joe` | `624fb61` | #23, #24 |
-| `qmcp` | `d239251` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64 |
+| `joe` | `b5aefd8` | #23, #24 |
+| `qmcp` | `f0e679b` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65 |
 | `qm` | moves with #135 | #134, #135 |
 
 **The demonstration** is `qmcp`'s `docs/voice-loop-demo.md`, run from a `qmcp`
 checkout of the demo branch. Three tiers, each adding one real thing:
 
 1. **Nothing real** -- `uv run qmcp cookbook voice`, `uv run qmcp cookbook
-   instruct`, `uv run qmcp cookbook instruct --runtime scripted`. No hardware,
-   no model, nothing spent; each prints `[ok]` per case.
+   instruct`, `uv run qmcp cookbook instruct --runtime scripted`, `uv run qmcp
+   cookbook converse`. No hardware, no model, nothing spent; each prints `[ok]`
+   per case. The last is a whole spoken session with every take scripted.
 2. **The local model** -- `uv run qmcp cookbook instruct --runtime local`.
    Two spoken instructions in one project on the model this server stands up:
    the second gives no clone, asks about "that file", and is answered only
    because qmcp remembered the clone and handed the model what the first
    instruction found. Continuity comes from qmcp, not the model.
-3. **A person at the microphone** -- `uv run joe dev` from `joe`'s demo
-   branch, `uv run qmcp serve`, **Instruct by voice** on the page, then
-   `uv run qmcp instructions act <id> --runtime local --budget 1 --cwd <clone> --voice`.
-   This tier has not been run; it is the review's one live step.
+3. **A person at the microphone: two commands, then speech** -- `uv run joe
+   dev` from `joe`'s demo branch and `uv run qmcp serve --converse --runtime
+   local` from `qmcp`'s. qmcp says it is ready and asks what should be done; an
+   instruction is read back and recorded on "record", consent is asked aloud and
+   given with "approve", the local model reads the project, the answer is said
+   back, and "stop listening" ends it. No person has run this tier; it is the
+   review's one live step. The same session has run end to end with the server
+   started that way and every take scripted (§6).
 
 ## 2. The pull requests
 
@@ -55,6 +61,7 @@ checkout of the demo branch. Three tiers, each adding one real thing:
 | **`qmcp` #62**, draft on #61 | 7/7 | acting on an instruction: consent for every runtime, the brief from qmcp's record, the `local` runtime, the command-line adapter behind the same contract | the brief (`Brief.prompt()`), what the local runtime may read (`inside`), the read protocol in its prompt and why the service's tool field is not used, and walkthrough 09's last section. |
 | **`qmcp` #63**, draft on #62 | 7/7 | the outcome said back; the offline loop | the panel told `speaking` then `idle`, never `recorded`. |
 | **`qmcp` #64**, draft on #63 | 7/7 | `cookbook instruct --runtime local`; `docs/voice-loop-demo.md` | the demo page as a stranger's first read. |
+| **`qmcp` #65**, draft on #64 | -- | one standing spoken conversation, started by `serve --converse` | the words it listens for (`STOP`, `DONE`, `MORE`), the waiting questions asked before each instruction, the clone found by name beside this checkout, the conversation holding the voice tracker so the page's buttons answer that one is running, and a stalled model call recovered once by unloading the model (§3, decisions 5 and 6). |
 | **`vox` #10** | 3/3 | the pause parameter on the engine contract | the offline engine holding the real engine's bounds, so an out-of-range pause fails offline too. |
 | **`vox` #9** | 3/3 | `HANDOFF.md` at the current tips | that it changes prose only. |
 | **`joe` #23** | 5/5 | **Instruct by voice** on the page | its place in the bottom bar rather than beside **Answer by voice** (§3, decision 4). |
@@ -84,7 +91,16 @@ Ordered by what they block.
 4. **Where Instruct by voice sits** (`joe` #23). The voice panel hides when
    nothing is waiting or speaking, which is when an instruction is given, so
    the button is in the bottom bar. Accept, or have the panel stay open.
-5. **The design-review consent request** (`design-review-qm-audit-2026-09-27`)
+5. **What a standing conversation keeps.** It listens take after take while
+   it runs, and `joe` writes every take to `Data/Voice` as
+   `capture_<timestamp>.wav` and keeps it. So everything said near the
+   microphone while the conversation runs stays on disk until deleted. A
+   retention rule -- delete a take once transcribed, or keep a few -- is
+   `joe`'s to decide, before the conversation is left running.
+6. **A wake word by default, or not.** Without `--wake`, every utterance the
+   microphone hears is read back before anything is recorded, and nothing runs
+   without "approve"; with it, an instruction must begin with the word.
+7. **The design-review consent request** (`design-review-qm-audit-2026-09-27`)
    on the harness queue has not been read since 2026-09-27.
 
 Decided in the session that built the set, and recorded here so they are not
@@ -99,8 +115,13 @@ remembered clone.
   request at a time.** The stacked pull requests will each need `main` merged
   in as the ones before them land; the demo branch shows that merge is clean
   at these heads, not at whatever heads exist when it happens.
-- **No person has spoken to it.** Tiers 1 and 2 answer every consent with a
-  script on `vox`'s deterministic engine. Tier 3 is unrun.
+- **No person has spoken to it.** Every take so far was scripted, on `vox`'s
+  deterministic engine or a scripted engine on the port `qmcp serve --converse`
+  was given. Tier 3 with a microphone is unrun; whether whisper hears "record",
+  "approve" and "stop listening" reliably in a real room is unmeasured.
+- **Background speech is read back.** Without a wake word, talk in the room
+  becomes a read-back question; nothing is recorded without "record" and
+  nothing runs without "approve", but the conversation will interrupt.
 - **The local model is a quick reader.** On tier 2 it has named `README.md`
   and answered from it; it has also quoted a heading where a sentence was
   asked for, and once looped between rereading a file and searching for a
@@ -131,8 +152,8 @@ has `main` merged in, and is marked ready before it merges.
 1. **`vox`:** #10, then #9.
 2. **`qmcp`:** #54, then #55 (retargeted onto `main`); #56; #58; then #60,
    after one commit moves its `vendor/vox` pin to `vox` #10's merge commit;
-   then #61, #62, #63 and #64, each retargeted onto `main` as the one beneath
-   it lands.
+   then #61, #62, #63, #64 and #65, each retargeted onto `main` as the one
+   beneath it lands.
 3. **`joe`:** #23, then #24.
 4. **`qm`:** #134, then #135.
 
@@ -150,11 +171,21 @@ branch.
   --offline` closed; the walkthrough unchanged; the wheel check passed; the
   mutation harness caught 17 of 17.
 - **`joe` at `624fb61`:** `uv run pytest -q` 151 passed; `npx playwright test`
-  45 passed; `npm run build` built, leaving the tree clean.
+  45 passed; `npm run build` built, leaving the tree clean. Its head since,
+  `b5aefd8`, adds a README paragraph only.
 - **`qmcp` at `d239251`:** `uv run pytest -q` 1139 passed, 11 skipped;
   `cookbook voice` 5 of 5; `cookbook instruct` 4 of 4 and 2 of 2 loops;
   `cookbook instruct --runtime scripted` and `--runtime local` both showed
-  continuity, exit 0. The seed workflow runner under the system interpreter:
+  continuity, exit 0.
+- **`qmcp` at `320b0d4`, with #65:** `uv run pytest -q` 1171 passed, 11
+  skipped; `cookbook converse` one session `[ok]`. End to end, by a script:
+  `qmcp serve --converse --runtime local --clones <the workspace>` started as a
+  person starts it, speech written to files rather than played, an agent's
+  question put on the queue, then a scripted speech engine started on the port
+  the server was told -- and nothing else sent. At `f0e679b`, with the stall
+  recovery, two such runs on the local model each ended with exit 0, the
+  question answered `approve` by `vox`, two instructions done, the second in
+  the remembered clone carrying the first. The seed workflow runner under the system interpreter:
   all 11 executed steps passed. `uv run qmcp preflight` at the head before
   #64 merged: 9 of 10, the REUSE step red for the reason in §4.
 - **`qm`, the demo branch built from `main`, #134 at `d793ce5` and #135 at
