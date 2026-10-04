@@ -22,9 +22,9 @@ its own record.
 
 | Repository | Demo branch head | Merged into it, in order |
 |---|---|---|
-| `vox` | `c60bf01` | #9, #10, #11 |
-| `joe` | `7bb81da` | #23, #24, #25, #26, #27 |
-| `qmcp` | `454f617` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67, #68 |
+| `vox` | `1cfcf43` | #9, #10, #11, #12 |
+| `joe` | `87be2ec` | #23, #24, #25, #26, #27, #28 |
+| `qmcp` | `4235766` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67, #68, #69 |
 | `qm` | moves with #135 | #134, #135 |
 
 **A checkout of the demo branch.** The loop is on no repository's `main` yet,
@@ -67,7 +67,10 @@ the workstation is set up as it says, three tiers, each adding one real thing:
    say once it runs. With joe's page focused, keys answer without speaking --
    `1`–`9` for a question's options, `R` to repeat, `Shift`+`Esc` to stop, `~`
    held to keep a turn open -- and two tones mark whose turn it is, so the loop
-   runs with nobody looking at a screen.
+   runs with nobody looking at a screen. The take is shown as it is written, and
+   its earlier words can be struck. Before this tier, the onboarding's step 5
+   finds the output qmcp's voice is heard on: on the machine the set was built
+   on, the default output is a second jack.
 
 ## 2. The pull requests
 
@@ -84,8 +87,10 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`qmcp` #64**, draft on #63 | 7/7 | `cookbook instruct --runtime local`; `docs/voice-loop-demo.md` | the demo page as a stranger's first read. |
 | **`qmcp` #65**, draft on #64 | 7/7 | one standing spoken conversation, started by `serve --converse` | the words it listens for (`STOP`, `DONE`, `MORE`), the waiting questions asked before each instruction, the clone found by name beside this checkout, the conversation holding the voice tracker so the page's buttons answer that one is running, and a stalled model call recovered once by unloading the model (§3, decisions 5 and 6). |
 | **`qmcp` #66**, draft on #65 | 7/7 | the loop's tests and documents reviewed against its code | `localmodel check` now asking the service whether the model is served, because three callers already said it did; a run that spends its reads asked once for the answer from what it read; the mutation each new test was seen red against, in the body. |
+| **`qmcp` #69**, draft on #68 | 7/7 | the voice heard: `vendor/vox` at #12's branch; the consent said with the clone's folder; setup checks the output | the written consent keeping the path while the spoken one names the folder. |
 | **`qmcp` #68**, draft on #67 | 7/7 | closed questions hint and offer their options; "repeat" re-asks; prompts leave the turn open | the open question from #58 not yet hinted on the demo branch (§4); a key's answer exempt from the wake word. |
 | **`qmcp` #67**, draft on #66 | 7/7 | the demo page as the loop's onboarding and cookbook | the page as a stranger's first read: each setup step's signal that it is done, and each recipe against what the conversation does -- the wake word applying to "stop" as well (§3, decision 6). |
+| **`vox` #12**, draft on #11 | 3/3 | the platform voice played through SAPI on Windows, on an output that can be named | why: pyttsx3's playback returned without playing (the body's timings); `vox outputs` and `vox say`. |
 | **`vox` #11**, draft on #10 | 3/3 | `hint_param` on the contract; `options` on an announcement | that a hint biases and never constrains, and that the alien contract covers it. |
 | **`vox` #10** | 3/3 | the pause parameter on the engine contract | the offline engine holding the real engine's bounds, so an out-of-range pause fails offline too. |
 | **`vox` #9** | 3/3 | `HANDOFF.md` at the current tips | that it changes prose only. |
@@ -93,6 +98,7 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`joe` #24**, draft on #23 | 4/4 | the README's overview | joe's two jobs, and the commands as they are. |
 | **`joe` #25**, draft on #24 | 4/4 | the cookbook's recipe for joe's half of the loop | what it says the conversation leaves on disk (§3, decision 5). |
 | **`joe` #26** | 5/5 | a take decoded as English, as one utterance, toward its hint, with a beam when short | the measured table in its body, on synthesized speech (§4); English as the default (§3, decision 7). |
+| **`joe` #28**, draft on #27 | 4/4 | the take shown as it is written, its words strikable, every segment a datapoint; the tones on a named output | the datapoint records (§3, decision 5); "scratch that"; the final text being what the panel showed. |
 | **`joe` #27**, draft on #26 | 4/4 | answers by key or button, `~` held to keep a turn open, and tones for the ear | the key bindings and the tones on by default (§3, decision 7); the take ending at once on a key. |
 | **`qm` #134** | 11/11 | the REUSE lint through `uvx` | the seed copy, which reaches `qmcp` only at its next pin bump. |
 | **`qm` #135** | -- | the voice-loop handoff restamped, and this page | §1 of the handoff, the open set as one table. |
@@ -121,10 +127,12 @@ Ordered by what they block.
    the button is in the bottom bar. Accept, or have the panel stay open.
 5. **What a standing conversation keeps.** It listens take after take while
    it runs, and `joe` writes every take to `Data/Voice` as
-   `capture_<timestamp>.wav` and keeps it. So everything said near the
-   microphone while the conversation runs stays on disk until deleted. A
-   retention rule -- delete a take once transcribed, or keep a few -- is
-   `joe`'s to decide, before the conversation is left running.
+   `capture_<timestamp>.wav` and keeps it, and with `joe` #28 every segment of
+   a take as its own WAV and a record of it in `Data/Voice/segments.jsonl`. So
+   everything said near the microphone while the conversation runs stays on
+   disk until deleted. A retention rule -- delete a take once transcribed, keep
+   a few, keep only the records -- is `joe`'s to decide, before the
+   conversation is left running.
 6. **A wake word by default, or not.** Without `--wake`, every utterance the
    microphone hears is read back before anything is recorded, and nothing runs
    without "approve"; with it, an instruction must begin with the word.
@@ -175,6 +183,12 @@ remembered clone.
   onboarding, and #65's module docstring, say an open question is read back.
   That is #58's behaviour: true on the demo branch now, and on `main` once #58
   lands before the stack, as §5 orders.
+- **Which output a person hears is the machine's.** qmcp's voice plays on the
+  system default unless `VOX_OUTPUT_DEVICE` names another; the set cannot
+  know which output someone listens on, and here the default is a second jack.
+- **The live transcript is tested on a scripted stream.** The segmenting, the
+  worker and the strikes are tested; a real take on a real microphone has not
+  been watched being written.
 - **The recognition table is synthesized speech.** joe #26's numbers come
   from two system voices with noise and clipped onsets added; they rank
   settings and claim no rate for a person in a room.
@@ -197,13 +211,14 @@ On approval, each pull request merges when it is ready, in this order.
 before its branch can go. A stacked pull request is retargeted onto `main`,
 has `main` merged in, and is marked ready before it merges.
 
-1. **`vox`:** #10, then #11 (retargeted onto `main`), then #9.
+1. **`vox`:** #10, then #11 and #12, each retargeted onto `main` as the one
+   beneath it lands, then #9.
 2. **`qmcp`:** #54, then #55 (retargeted onto `main`); #56; #58; then #60,
    after one commit moves its `vendor/vox` pin to `vox` #10's merge commit;
-   then #61, #62, #63, #64, #65, #66, #67 and #68, each retargeted onto `main`
-   as the one beneath it lands; #68's `vendor/vox` pin first moves to `vox`
-   #11's merge commit.
-3. **`joe`:** #23, then #24, then #25; #26, then #27.
+   then #61, #62, #63, #64, #65, #66, #67, #68 and #69, each retargeted onto
+   `main` as the one beneath it lands; #68's and #69's `vendor/vox` pins first
+   move to `vox` #11's and #12's merge commits.
+3. **`joe`:** #23, then #24, then #25; #26, then #27, then #28.
 4. **`qm`:** #134, then #135.
 
 After the set lands: `qm` #134 reaches `qmcp` through a pin bump, which also
@@ -266,6 +281,7 @@ branch.
   passed and `npx playwright test` 52 passed -- after a first run on a fresh
   dev server failed 19, not reproduced in three runs since; `qmcp` at
   `454f617`, `uv run pytest -q` 1210 passed, 11 skipped; the four tier-1 checks and `cookbook converse --runtime local` each `[ok]`; and tier 3 rehearsed end to end on the local model with one "repeat" asked, ending with exit 0, the waiting question answered and both instructions done.
+- **The demo branches with `vox` #12, `joe` #28 and `qmcp` #69:** `qmcp` at `4235766`, `uv run pytest -q` 1212 passed, 11 skipped, both conversation checks `[ok]`, and tier 3 rehearsed end to end on the local model with the real voice aimed at a virtual audio cable -- exit 0, both instructions done, and every one of 21 sentences played to its end before the next began; `joe` at `87be2ec`, 189 passed and `npx playwright test` 55 passed.
 - **`qm`, the demo branch built from `main`, #134 at `d793ce5` and #135 at
   `0fc3fb4`:** `uv run --extra preflight qm preflight`, all 42 executed steps
   passed. #135's branch alone at `0fc3fb4`: 43 of 43, after a first run read the
