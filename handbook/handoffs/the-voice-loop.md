@@ -105,6 +105,9 @@ one stacked on another open pull request, and nothing else.
 | `qmcp` | #64, **draft**, on #63 | `feat/live-model-demo` → `feat/result-spoken` | `qmcp cookbook instruct --runtime local`, continuity on the real local model in one command; `docs/voice-loop-demo.md`, the loop in three tiers |
 | `qmcp` | #65, **draft**, on #64 | `feat/spoken-conversation` → `feat/live-model-demo` | one standing spoken conversation, started by `qmcp serve --converse`: two commands, then nothing typed; waiting questions asked aloud; the clone found by name; a stalled model call recovered once |
 | `qmcp` | #66, **draft**, on #65 | `fix/voice-loop-review` → `feat/spoken-conversation` | the loop's tests and documents reviewed against its code: the branches no test reached tested, `localmodel check` reporting whether the model is served, the documents corrected |
+| `qmcp` | #76, **draft**, on #75 | `feat/declared-checks` → `feat/spoken-iteration` | each core project's declared checks run by voice behind consent |
+| `qmcp` | #75, **draft**, on #74 | `feat/spoken-iteration` → `feat/spoken-vocabulary` | try again, same in another project, never mind, and how the loop stands |
+| `qmcp` | #74, **draft**, on #73 | `feat/spoken-vocabulary` → `feat/barge-in` | every phrase the loop acts on declared once, with a wider starting set |
 | `qmcp` | #73, **draft**, on #72 | `feat/barge-in` → `feat/plain-speech` | every closed question answerable before it ends, by key or by voice; `vendor/vox` at `vox` #14's branch |
 | `qmcp` | #72, **draft**, on #71 | `feat/plain-speech` → `feat/instruction-vocabulary` | what is said is a few plain words, with no syntax read aloud |
 | `qmcp` | #71, **draft**, on #70 | `feat/instruction-vocabulary` → `feat/tacit-agreement` | an instruction's take hinted with the project names it is likely to carry |
@@ -122,6 +125,9 @@ one stacked on another open pull request, and nothing else.
 | `joe` | #24, **draft**, on #23 | `docs/readme-overview` → `feat/instruct-by-voice` | the README's overview: joe's two jobs, and the local model doing the work once a person approves |
 | `joe` | #25, **draft**, on #24 | `docs/cookbook-voice-loop` → `docs/readme-overview` | the cookbook's recipe for joe's half of the voice dev loop |
 | `joe` | #26 | `feat/short-answer-recognition` → `main` | a take transcribed as English, as one utterance, toward its hint, with a beam when short |
+| `joe` | #33, **draft**, on #32 | `feat/transcript-lane` → `feat/transcript-pane` | a take shown on the visualiser: its recording on the transport, its words on the piano roll |
+| `joe` | #32, **draft**, on #31 | `feat/transcript-pane` → `feat/voice-vocabulary` | the whole transcript in a pane docked beside the piano roll, kept across a reload |
+| `joe` | #31, **draft**, on #30 | `feat/voice-vocabulary` → `feat/barge-in` | joe's own words: start over, a take marked for tuning, the voice's level |
 | `joe` | #30, **draft**, on #29 | `feat/barge-in` → `feat/take-confidence` | a take opened while a question is asked; a key, the held talk key or speech over the question interrupts it |
 | `joe` | #29, **draft**, on #28 | `feat/take-confidence` → `feat/live-transcript` | a listen says how sure it is of its transcript |
 | `joe` | #28, **draft**, on #27 | `feat/live-transcript` → `feat/turn-controls` | the take shown as it is written, its words strikable, every segment kept as a datapoint |

@@ -15,9 +15,11 @@ state; this is the queue. Delete this page when its work lands.
 ## 1. How to review it: one branch per repository
 
 Each repository has `demo/voice-loop-2026-10-04`: its `main` with every open
-pull request below merged in, in dependency order. One merge conflicted:
-`qmcp` #73 against #58, whose open question shares lines #72 rewrote; the demo
-branch keeps both, #58's read-back in #72's grammar (§4).
+pull request below merged in, in dependency order. Three merges conflicted,
+and each was resolved by keeping both sides: `qmcp` #73 against #58, whose open
+question shares lines #72 rewrote, #58's read-back taking #72's grammar (§4);
+`qmcp` #76 against #58 on where a section of the voice page goes; and `joe`
+#33 against #23 on the end of the stylesheet.
 A demo branch is for testing and demonstrating the set together and is never
 merged; the set lands through its own pull requests (§5), so each change keeps
 its own record.
@@ -25,8 +27,8 @@ its own record.
 | Repository | Demo branch head | Merged into it, in order |
 |---|---|---|
 | `vox` | `e4d59cb` | #9, #10, #11, #12, #13, #14 |
-| `joe` | `b07b7b0` | #23, #24, #25, #26, #27, #28, #29, #30 |
-| `qmcp` | `27e5abc` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67, #68, #69, #70, #71, #72, #73 |
+| `joe` | `25890e7` | #23, #24, #25, #26, #27, #28, #29, #30, #31, #32, #33 |
+| `qmcp` | `5c65815` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67, #68, #69, #70, #71, #72, #73, #74, #75, #76 |
 | `qm` | moves with #135 | #134, #135 |
 
 **A checkout of the demo branch.** The loop is on no repository's `main` yet,
@@ -92,6 +94,9 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`qmcp` #64**, draft on #63 | 7/7 | `cookbook instruct --runtime local`; `docs/voice-loop-demo.md` | the demo page as a stranger's first read. |
 | **`qmcp` #65**, draft on #64 | 7/7 | one standing spoken conversation, started by `serve --converse` | the words it listens for (`STOP`, `DONE`, `MORE`), the waiting questions asked before each instruction, the clone found by name beside this checkout, the conversation holding the voice tracker so the page's buttons answer that one is running, and a stalled model call recovered once by unloading the model (§3, decisions 5 and 6). |
 | **`qmcp` #66**, draft on #65 | 7/7 | the loop's tests and documents reviewed against its code | `localmodel check` now asking the service whether the model is served, because three callers already said it did; a run that spends its reads asked once for the answer from what it read; the mutation each new test was seen red against, in the body. |
+| **`qmcp` #76**, draft on #75 | 7/7 | each core project's declared checks -- tests, offline loops, the gates, the estate, the leak scan -- run by voice behind consent | the first runtime that runs a command (§3, decided below); the table of checks and what each said back, in its body. |
+| **`qmcp` #75**, draft on #74 | 7/7 | "try again", "same in vox", "never mind", and the conversation saying how it stands | that a diagnostic is matched on the whole utterance, so "what happened in vox" is still an instruction. |
+| **`qmcp` #74**, draft on #73 | 7/7 | every phrase the loop acts on declared once, in `vocabulary.toml`, with a wider starting set; `qmcp vocabulary` | what was left out of the yes words, and why; the projects' terms kept out of the hint (§3, decision 12). |
 | **`qmcp` #73**, draft on #72 | 7/7 | every closed question answerable before it ends, by key or by voice; `vendor/vox` at `vox` #14's branch | that a backend or a voice without the routes says the question whole; the pin (§5). |
 | **`qmcp` #72**, draft on #71 | 7/7 | what is said is a few plain words: `speakable` before every sentence, the shorter sentences, the spoken consent | the table of sentences in its body; the written consent unchanged (§3, decision 10). |
 | **`qmcp` #71**, draft on #70 | 7/7 | an instruction's take hinted with the project names, recent first | "camcp" became "qmcp" on a real take; the hint's bound. |
@@ -109,6 +114,9 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`joe` #24**, draft on #23 | 4/4 | the README's overview | joe's two jobs, and the commands as they are. |
 | **`joe` #25**, draft on #24 | 4/4 | the cookbook's recipe for joe's half of the loop | what it says the conversation leaves on disk (§3, decision 5). |
 | **`joe` #26** | 5/5 | a take decoded as English, as one utterance, toward its hint, with a beam when short | the measured table in its body, on synthesized speech (§4); English as the default (§3, decision 7). |
+| **`joe` #33**, draft on #32 | 4/4 | a take shown on the visualiser: its recording on the transport, its words on the piano roll's timeline | word times shared evenly within a segment (§4); the screenshot in its body. |
+| **`joe` #32**, draft on #31 | 4/4 | the whole transcript in a pane docked beside the piano roll, live and kept across a reload | the history read from the datapoints, which grow without bound (§3, decision 5). |
+| **`joe` #31**, draft on #30 | 4/4 | joe's own words declared once: start over, a take marked misheard or heard right, the voice's level | the `label` datapoint, the ground truth a tuning pass needs most. |
 | **`joe` #30**, draft on #29 | 4/4 | a take opened while a question is asked; `interrupted` on the control route | the echo margin, learned once and held, and the cable measurements in its body (§3, decision 11; §4). |
 | **`joe` #29**, draft on #28 | 4/4 | a listen's `confidence`: the weakest segment's mean token probability, `1.0` by key | the measured table in its body (§3, decision 8). |
 | **`joe` #28**, draft on #27 | 4/4 | the take shown as it is written, its words strikable, every segment a datapoint; the tones on a named output | the datapoint records (§3, decision 5); "scratch that"; the final text being what the panel showed. |
@@ -176,12 +184,20 @@ Ordered by what they block.
     `JOE_BARGE_IN=0` leaves only the keys. Through loud speakers a person may
     need to speak up or use the keys; with headphones any speech does it.
     Accept the default, change the margin, or default the voice off.
+12. **The projects' terms in the transcriber's hint** (`qmcp` #74). Off by
+    default (`QMCP_VOICE_HINT_TERMS`): on synthesized speech they helped the
+    jargon be heard, and on the three real takes there are they lowered
+    whisper's confidence and lost one take's words. Keep them off until more
+    real takes -- the `label` datapoints from `joe` #31 -- say otherwise, or
+    turn them on.
 
 Decided in the session that built the set, and recorded here so they are not
 asked again: approvals are required for every runtime for now, the local
 model included; the local runtime and the command-line runtime are read-only
 (the command line is passed no permission flag); `--cwd` wins over a
-remembered clone.
+remembered clone; and each project's declared checks may run their commands
+by voice, after consent, in the project's clone (`qmcp` #76) -- the commands
+fixed in the vocabulary, none taken from what is heard.
 
 ## 4. What to distrust
 
@@ -238,6 +254,17 @@ remembered clone.
   `_ask_open` merges unchanged on the demo branch: no hint, its own re-ask
   sentences, said whole. When it meets #68, #72 and #73 on `main` it takes the
   same hint, options, repeat, wording and `ask_over` as the other read-backs.
+- **A check runs a command in a person's clone.** Each declared one was
+  run through its runtime in a worktree of its project and left the tree's
+  tracked files as they were, and `qm estate` reaches the host to survey.
+  A check added to the vocabulary later carries that property only if someone
+  runs it the same way.
+- **A take's words are placed, not timed.** joe knows when each segment of a
+  take began and ended; a segment's words share its span evenly on the
+  timeline, which is close for short segments and drawn as no more than that.
+- **The transcript is read from the whole datapoints file** on every page load
+  and at the end of every take. It grows with every take and is never pruned
+  (§3, decision 5), so the read slows as it grows.
 - **Answering over a question was measured on a virtual cable, not in a
   room.** The cable carries the question to the "microphone" whole -- the
   worst echo there is -- and the person was a recording: a voice about twice
@@ -265,11 +292,13 @@ has `main` merged in, and is marked ready before it merges.
    the one beneath it lands, then #9.
 2. **`qmcp`:** #54, then #55 (retargeted onto `main`); #56; #58; then #60,
    after one commit moves its `vendor/vox` pin to `vox` #10's merge commit;
-   then #61, #62, #63, #64, #65, #66, #67, #68, #69, #70, #71, #72 and #73, each
+   then #61, #62, #63, #64, #65, #66, #67, #68, #69, #70, #71, #72, #73, #74, #75
+   and #76, each
    retargeted onto `main` as the one beneath it lands; #68's, #69's, #70's and
    #73's `vendor/vox` pins first move to `vox` #11's, #12's, #13's and #14's
    merge commits.
-3. **`joe`:** #23, then #24, then #25; #26, then #27, #28, #29 and #30.
+3. **`joe`:** #23, then #24, then #25; #26, then #27, #28, #29, #30, #31, #32
+   and #33.
 4. **`qm`:** #134, then #135.
 
 After the set lands: `qm` #134 reaches `qmcp` through a pin bump, which also
@@ -344,6 +373,15 @@ branch.
   sentences in the plain wording; `joe` at `b07b7b0`, 212 passed; `vox` at
   `e4d59cb`, 147 passed. Answering over a question, on the virtual cable with
   the branches' own backend: `joe` #30's and `qmcp` #73's bodies.
+- **The demo branches with `qmcp` #74, #75 and #76 and `joe` #31, #32 and
+  #33:** `qmcp` at `5c65815`, `uv run pytest -q` 1308 passed, 11 skipped; the
+  spoken session rehearsed end to end on the scripted runtime with the real
+  voice on a virtual audio cable, exit 0, both instructions done; and a second
+  session in which "Check the gates in qm." was read back, agreed, consented to
+  as *A declared check, one run.*, ran `qm gates --check` in the `qm` clone
+  beside it and said back *Done in qm. gates.md matches gates.yaml.*, the row
+  recorded done. `joe` at `25890e7`, 228 passed and `npx playwright test` 65
+  passed. Every declared check run through its runtime: `qmcp` #76's body.
 - **`qm`, the demo branch built from `main`, #134 at `d793ce5` and #135 at
   `0fc3fb4`:** `uv run --extra preflight qm preflight`, all 42 executed steps
   passed. #135's branch alone at `0fc3fb4`: 43 of 43, after a first run read the
