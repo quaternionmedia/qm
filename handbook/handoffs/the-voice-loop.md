@@ -106,6 +106,12 @@ one stacked on another open pull request, and nothing else.
 | `qmcp` | #65, **draft**, on #64 | `feat/spoken-conversation` → `feat/live-model-demo` | one standing spoken conversation, started by `qmcp serve --converse`: two commands, then nothing typed; waiting questions asked aloud; the clone found by name; a stalled model call recovered once |
 | `qmcp` | #66, **draft**, on #65 | `fix/voice-loop-review` → `feat/spoken-conversation` | the loop's tests and documents reviewed against its code: the branches no test reached tested, `localmodel check` reporting whether the model is served, the documents corrected |
 | `qmcp` | #76, **draft**, on #75 | `feat/declared-checks` → `feat/spoken-iteration` | each core project's declared checks run by voice behind consent |
+| `qmcp` | #77, **draft**, on #55 | `docs/voice-loop-next-phases` → `docs/roadmap-current-state` | the loop's next phases, cleanup before new capabilities |
+| `qmcp` | #78 | `chore/live-anthropic-marker` → `main` | the tests that call the hosted model deselected by default |
+| `qmcp` | #79 | `feat/advisory-council` → `main` | an advisory council declared beside the deciding one |
+| `qmcp` | #80, **draft**, on #76 | `feat/topology-components` → `feat/declared-checks` | reusable components, composed designs, names scoped to a project, the design routes on loopback only |
+| `qmcp` | #81, **draft**, on #76 | `feat/vocabulary-authoring` → `feat/declared-checks` | phrases added by voice to the conversation's commands, behind approval, kept per user |
+| `qmcp` | #82, **draft**, on #80 | `feat/topology-voice` → `feat/topology-components` | saved designs created, composed, listed and run by voice, behind approval; carries #79 and #81 |
 | `qmcp` | #75, **draft**, on #74 | `feat/spoken-iteration` → `feat/spoken-vocabulary` | try again, same in another project, never mind, and how the loop stands |
 | `qmcp` | #74, **draft**, on #73 | `feat/spoken-vocabulary` → `feat/barge-in` | every phrase the loop acts on declared once, with a wider starting set |
 | `qmcp` | #73, **draft**, on #72 | `feat/barge-in` → `feat/plain-speech` | every closed question answerable before it ends, by key or by voice; `vendor/vox` at `vox` #14's branch |

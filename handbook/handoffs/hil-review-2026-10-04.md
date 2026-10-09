@@ -19,7 +19,8 @@ pull request below merged in, in dependency order. Three merges conflicted,
 and each was resolved by keeping both sides: `qmcp` #73 against #58, whose open
 question shares lines #72 rewrote, #58's read-back taking #72's grammar (§4);
 `qmcp` #76 against #58 on where a section of the voice page goes; and `joe`
-#33 against #23 on the end of the stylesheet.
+#33 against #23 on the end of the stylesheet. `qmcp` #77 to #82 merged without
+a conflict.
 A demo branch is for testing and demonstrating the set together and is never
 merged; the set lands through its own pull requests (§5), so each change keeps
 its own record.
@@ -28,7 +29,7 @@ its own record.
 |---|---|---|
 | `vox` | `e4d59cb` | #9, #10, #11, #12, #13, #14 |
 | `joe` | `25890e7` | #23, #24, #25, #26, #27, #28, #29, #30, #31, #32, #33 |
-| `qmcp` | `5c65815` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67, #68, #69, #70, #71, #72, #73, #74, #75, #76 |
+| `qmcp` | `ef06757` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67, #68, #69, #70, #71, #72, #73, #74, #75, #76, then #77, #78, #79, #80, #81 and #82 |
 | `qm` | moves with #135 | #134, #135 |
 
 **A checkout of the demo branch.** The loop is on no repository's `main` yet,
@@ -95,6 +96,12 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`qmcp` #65**, draft on #64 | 7/7 | one standing spoken conversation, started by `serve --converse` | the words it listens for (`STOP`, `DONE`, `MORE`), the waiting questions asked before each instruction, the clone found by name beside this checkout, the conversation holding the voice tracker so the page's buttons answer that one is running, and a stalled model call recovered once by unloading the model (§3, decisions 5 and 6). |
 | **`qmcp` #66**, draft on #65 | 7/7 | the loop's tests and documents reviewed against its code | `localmodel check` now asking the service whether the model is served, because three callers already said it did; a run that spends its reads asked once for the answer from what it read; the mutation each new test was seen red against, in the body. |
 | **`qmcp` #76**, draft on #75 | 7/7 | each core project's declared checks -- tests, offline loops, the gates, the estate, the leak scan -- run by voice behind consent | the first runtime that runs a command (§3, decided below); the table of checks and what each said back, in its body. |
+| **`qmcp` #77**, draft on #55 | 7/7 | the loop's next phases, cleanup before new capabilities, in `docs/voice-loop-next-phases.md` | that it plans and decides nothing; each phase's condition for done. |
+| **`qmcp` #78** | 8/8 | the two tests that call the hosted model deselected by default and run with `-m live_anthropic` | that a deselected test is reported neither run nor passed. |
+| **`qmcp` #79** | 8/8 | an advisory council, `arbiter_can_override` false, declared beside the deciding one | the deciding council still refused outright, and the advisory one still refused an attested act (§3, decided below). |
+| **`qmcp` #80**, draft on #76 | 7/7 | reusable components, designs composing designs, names scoped to a project; the design routes on loopback only | the scoping migration's backfill, run against rows saved before it; the routes moving behind the loopback guard. |
+| **`qmcp` #81**, draft on #76 | 7/7 | phrases added by voice to the conversation's commands, behind approval, kept per user | its defaults (§3, decision 13); that no answer to a consent takes a phrase. |
+| **`qmcp` #82**, draft on #80 | 7/7 | saved designs created, composed, listed and run by voice, and a cross-check by name, each behind approval | what the runner refuses before consent; the known limits in its body; #79's and #81's commits, carried until they merge. |
 | **`qmcp` #75**, draft on #74 | 7/7 | "try again", "same in vox", "never mind", and the conversation saying how it stands | that a diagnostic is matched on the whole utterance, so "what happened in vox" is still an instruction. |
 | **`qmcp` #74**, draft on #73 | 7/7 | every phrase the loop acts on declared once, in `vocabulary.toml`, with a wider starting set; `qmcp vocabulary` | what was left out of the yes words, and why; the projects' terms kept out of the hint (§3, decision 12). |
 | **`qmcp` #73**, draft on #72 | 7/7 | every closed question answerable before it ends, by key or by voice; `vendor/vox` at `vox` #14's branch | that a backend or a voice without the routes says the question whole; the pin (§5). |
@@ -190,6 +197,10 @@ Ordered by what they block.
     whisper's confidence and lost one take's words. Keep them off until more
     real takes -- the `label` datapoints from `joe` #31 -- say otherwise, or
     turn them on.
+13. **How phrase editing behaves** (`qmcp` #81). A phrase that already means
+    something is refused; the declared phrases cannot be removed; an approved
+    edit is heard from the next utterance; every edit is journalled, and the
+    last one can be undone. Accept, or choose others.
 
 Decided in the session that built the set, and recorded here so they are not
 asked again: approvals are required for every runtime for now, the local
@@ -197,7 +208,12 @@ model included; the local runtime and the command-line runtime are read-only
 (the command line is passed no permission flag); `--cwd` wins over a
 remembered clone; and each project's declared checks may run their commands
 by voice, after consent, in the project's clone (`qmcp` #76) -- the commands
-fixed in the vocabulary, none taken from what is heard.
+fixed in the vocabulary, none taken from what is heard. Likewise for the
+additions since: the deciding council stays as it is and an advisory council is
+an option beside it (`qmcp` #79), which the voice runner runs while refusing
+the deciding one before consent (#82); and phrases may be added to the
+conversation's controls and its iteration and diagnostic commands, never to an
+answer, kept in one file per user (#81).
 
 ## 4. What to distrust
 
@@ -272,6 +288,14 @@ fixed in the vocabulary, none taken from what is heard.
   question alone never did. How loud a person is over a speaker's echo at a
   real microphone is unmeasured. One voice run of four failed on a freshly
   started backend, cause not established (`qmcp` #73's body).
+- **A topology run is tested offline only.** `qmcp` #82's runner is
+  exercised by the suite's scripted runtimes and the tier-1 checks; for this
+  page no topology was run on the local model. Its known limits -- the request
+  ceiling checked after each step rather than during one, `debate` and `chain`
+  as sequential passes -- are in its body.
+- **An added phrase changes the loop at once.** `qmcp` #81 reads the per-user
+  phrase file at every utterance, so a phrase approved by voice is live on the
+  next take of every conversation on that machine.
 - **The command-line runtime has never run.** Its command line and its
   reading of the output are asserted; the tool is not on the workstation.
 - **Every local run is Windows.** The hosted checks run the suites on Linux,
@@ -296,7 +320,9 @@ has `main` merged in, and is marked ready before it merges.
    and #76, each
    retargeted onto `main` as the one beneath it lands; #68's, #69's, #70's and
    #73's `vendor/vox` pins first move to `vox` #11's, #12's, #13's and #14's
-   merge commits.
+   merge commits. Then #77, retargeted onto `main` after #55; #78 and #79;
+   #80 and #81, retargeted onto `main` after #76; and #82, retargeted onto
+   `main` once #79, #80 and #81 are in.
 3. **`joe`:** #23, then #24, then #25; #26, then #27, #28, #29, #30, #31, #32
    and #33.
 4. **`qm`:** #134, then #135.
@@ -382,6 +408,11 @@ branch.
   beside it and said back *Done in qm. gates.md matches gates.yaml.*, the row
   recorded done. `joe` at `25890e7`, 228 passed and `npx playwright test` 65
   passed. Every declared check run through its runtime: `qmcp` #76's body.
+- **The demo branch with `qmcp` #77 to #82:** `qmcp` at `ef06757`, the seed
+  workflow runner under the system interpreter, all 11 executed steps passed
+  and the suite at 1413 passed, 9 skipped, 2 deselected; the four tier-1
+  checks each `[ok]`. Each of #77 to #82 ran the same runner at its own head,
+  and the mutation each new guard was seen red against is in its body.
 - **`qm`, the demo branch built from `main`, #134 at `d793ce5` and #135 at
   `0fc3fb4`:** `uv run --extra preflight qm preflight`, all 42 executed steps
   passed. #135's branch alone at `0fc3fb4`: 43 of 43, after a first run read the
