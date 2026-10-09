@@ -1,0 +1,282 @@
+# The performing family, as one demo: who runs, on which port, and what each
+# member is asked to do while it is up.
+#
+# Read by ci/family_demo.py (`uv run qm family-demo`). Hand-authored, so it is
+# a claim and lives in ci/ per handbook/config-standard.md: it states what the
+# demo will ask of each member. What each member actually did is the run's
+# manifest, written outside the repository on every run and never committed.
+#
+# EVERY NAME HERE IS A ROSTER NAME. A member is resolved to a clone through
+# ci/workspace.yaml exactly as `qm estate` resolves it, and the harness refuses
+# a member the roster does not carry. Which family a member belongs to is the
+# roster's claim, not this file's; this file only says when it joins the demo.
+#
+# A PHASE THAT DOES NOT RUN IS STILL LISTED. Its members are declared with a
+# reserved port and with what each needs before it can join, so the demo's
+# denominator is the whole performing family rather than whatever happened to
+# start. A family member this file does not place at all is printed as
+# unplaced by every run.
+#
+# WHICH COMMIT. `ref` absent means the clone's `origin/HEAD` -- the default
+# branch tip, a demo of what has landed. `--ref <member>=<ref>` overrides it
+# for one run, and the manifest records the commit either way.
+#
+# PLACEHOLDERS in commands, environments and URLs:
+#   {checkout}     this run's own clone of the member, at the resolved commit
+#   {state}        this member's scratch directory for this wave
+#   {port:<name>}  a port declared under the member's `ports`
+#   {token}        a string unique to this run, so a stale process from an
+#                  earlier run cannot satisfy an assertion meant for this one
+#
+# Every port sits inside `ports`. Each member's default port is overridden on
+# its command line or in its environment, because the defaults collide -- two
+# members default to the same API port -- and because a developer's own server
+# is usually up on a default port, and measuring it would test whatever code
+# happened to be running there.
+
+schema: 1
+
+ports:
+  first: 18400
+  last: 18499
+
+# The browser the behavioural checks drive. Pinned, so the probe environment is
+# the same on every run; the pin must match a Chromium build already installed,
+# and the harness says so rather than downloading one.
+browser:
+  playwright: "1.62.0"
+  python: "3.12"
+
+phases:
+  - id: core
+    runs: true
+    note: >
+      The hub, the timer, the rack and the two performer displays. The first
+      slice of the simultaneous-run plan, and the only phase that starts.
+  - id: instruments
+    runs: false
+    note: >
+      Looping, MIDI control and mixing. Joins once each member has a baseline of
+      its own and a target that touches no real device.
+  - id: show-control-libraries
+    runs: false
+    note: >
+      Client libraries and transport scripts with no surface of their own. They
+      join through a hub's plugin seam or a fake endpoint, not as processes.
+
+members:
+  # --- core ---------------------------------------------------------------
+
+  - name: ShowRunner
+    phase: core
+    documented: "`uv sync --all-extras`, then `sr start` (README)"
+    install:
+      - [uv, sync, --all-extras, --frozen]
+    prepare: showrunner-config
+    ports: {http: 18400}
+    processes:
+      - id: hub
+        cwd: state
+        command: [uv, run, --no-sync, --project, "{checkout}", sr, start,
+                  --host, 127.0.0.1, --port, "{port:http}",
+                  --config, "{state}/show.toml"]
+        ready: "http://127.0.0.1:{port:http}/db/shows"
+    surface: "http://127.0.0.1:{port:http}/"
+    checks:
+      - name: showrunner-show-reaches-dashboard
+        runner: browser
+        counts: behaviour
+    deviations:
+      - >
+        A show.toml written into scratch carries the database, log file and
+        bind address, and is passed with --config; without it the hub reads a
+        show.toml from its working directory or from the user's home.
+
+  - name: ShowStopper
+    phase: core
+    documented: "`textual run stopwatch.py`, or `textual serve` (pyproject pdm scripts)"
+    install:
+      - [uv, sync]
+    ports: {web: 18410}
+    processes:
+      - id: serve
+        cwd: checkout
+        command: [uv, run, --no-sync, --project, "{checkout}", textual, serve,
+                  --host, 127.0.0.1, --port, "{port:web}", stopwatch.py]
+        ready: "http://127.0.0.1:{port:web}/"
+    surface: "http://127.0.0.1:{port:web}/"
+    checks:
+      - name: showstopper-stopwatch-counts-and-holds
+        runner: terminal
+        counts: behaviour
+      - name: showstopper-served-app-streams
+        runner: browser
+        counts: surface
+    deviations:
+      - >
+        No lock the installer reads: the repository carries a pdm lock, so the
+        environment is resolved at install time and the manifest records the
+        Textual version that ran.
+      - >
+        `textual serve` without --dev, whose devtools connect to a console on a
+        port outside the reserved range.
+
+  - name: carlos
+    phase: core
+    documented: "`uv run carlos check`, then `uv run carlos serve` (README)"
+    install:
+      - [uv, sync, --frozen]
+    ports: {http: 18420}
+    processes:
+      - id: app
+        cwd: checkout
+        env:
+          CARLOS_HOST: 127.0.0.1
+          CARLOS_PORT: "{port:http}"
+          CARLOS_DB: "{state}/carlos-db.json"
+        command: [uv, run, --no-sync, --project, "{checkout}", carlos, serve]
+        ready: "http://127.0.0.1:{port:http}/healthz"
+    surface: "http://127.0.0.1:{port:http}/rack"
+    checks:
+      - name: carlos-rack-draws-the-opening-document
+        runner: browser
+        counts: behaviour
+        # What /healthz must report, so a stale server or a shared database
+        # is caught before the rack is attributed to this run.
+        params:
+          port: "{port:http}"
+          database: "{state}/carlos-db.json"
+    deviations: []
+
+  - name: joe
+    phase: core
+    documented: "`uv sync`, `npm install`, then `uv run joe dev` (README)"
+    install:
+      - [uv, sync, --frozen]
+      - [npm, ci, --no-audit, --no-fund]
+    prepare: joe-scratch
+    ports: {api: 18430, web: 18431}
+    processes:
+      - id: api
+        cwd: state
+        command: [uv, run, --no-sync, --project, "{checkout}", python, -m, uvicorn,
+                  "api:app", --app-dir, "{checkout}",
+                  --host, 127.0.0.1, --port, "{port:api}"]
+        ready: "http://127.0.0.1:{port:api}/api/health"
+      - id: web
+        cwd: checkout
+        command: [node, node_modules/vite/bin/vite.js, --config, "{state}/vite.config.mjs",
+                  --host, 127.0.0.1, --port, "{port:web}", --strictPort]
+        ready: "http://127.0.0.1:{port:web}/joe/"
+    surface: "http://127.0.0.1:{port:web}/joe/"
+    checks:
+      - name: joe-library-lists-the-scratch-recording
+        runner: browser
+        counts: behaviour
+    deviations:
+      - >
+        `joe dev` binds fixed ports and its Vite config proxies /api to a fixed
+        API port, with no override for either. The demo starts the same two
+        servers itself: uvicorn with the port changed and without --reload, and
+        Vite with a scratch config that imports the member's own and points its
+        proxies at this run's API.
+      - >
+        The API runs from a scratch working directory, because its data
+        directories are relative to the working directory.
+
+  - name: leo
+    phase: core
+    documented: "`npm i`, then `npm run dev` (README)"
+    install:
+      - [npm, ci, --no-audit, --no-fund]
+    ports: {web: 18440}
+    processes:
+      - id: web
+        cwd: checkout
+        command: [node, node_modules/vite/bin/vite.js,
+                  --host, 127.0.0.1, --port, "{port:web}", --strictPort]
+        ready: "http://127.0.0.1:{port:web}/"
+    surface: "http://127.0.0.1:{port:web}/"
+    checks:
+      - name: leo-search-selects-a-song
+        runner: browser
+        counts: behaviour
+    deviations:
+      - >
+        Bound to loopback; the member's Vite config binds every interface.
+
+  # --- instruments: declared, not run ---------------------------------------
+
+  - name: holophonor
+    phase: instruments
+    ports: {main: 18450}
+    needs:
+      - a start command that opens no MIDI or audio device, and a readiness probe
+      - a fixed message script the plan's instrument wave can replay
+
+  - name: midiphonor
+    phase: instruments
+    ports: {main: 18455}
+    needs:
+      - its browser target named, and a dev server that takes a port
+      - a test command that is not a placeholder
+
+  - name: wolf
+    phase: instruments
+    ports: {main: 18460}
+    needs:
+      - a start command and a dry-run MIDI target; its default branch is dormant
+        and carries no tests
+
+  - name: ludwig
+    phase: instruments
+    ports: {main: 18465}
+    needs:
+      - a fake mixer target; it is hardware-facing and must not reach a desk
+
+  - name: waveofhormuz
+    phase: instruments
+    ports: {main: 18470}
+    needs:
+      - a default branch the clone records (`origin/HEAD` is unset), then a
+        start command
+
+  - name: qmetronome
+    phase: instruments
+    ports: {main: 18475}
+    needs:
+      - an emulator or device harness; it is an Android build and this demo
+        provisions browsers only
+
+  # --- show-control libraries: declared, not run ----------------------------
+
+  - name: Cuelist-python
+    phase: show-control-libraries
+    ports: {main: 18480}
+    needs:
+      - a ShowRunner plugin entry point the hub loads, so it joins inside the
+        hub's process rather than beside it
+
+  - name: QLab-python
+    phase: show-control-libraries
+    ports: {main: 18484}
+    needs:
+      - a fake QLab endpoint on a reserved port
+
+  - name: TheatreMix-python
+    phase: show-control-libraries
+    ports: {main: 18488}
+    needs:
+      - a fake TheatreMix endpoint on a reserved port
+
+  - name: cesar
+    phase: show-control-libraries
+    ports: {main: 18492}
+    needs:
+      - a mode with no DMX or video output device
+
+  - name: aes
+    phase: show-control-libraries
+    ports: {main: 18496}
+    needs:
+      - a loopback-only sender and receiver pair, measured for drops
