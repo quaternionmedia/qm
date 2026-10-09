@@ -372,3 +372,9 @@ def test_a_check_parameter_naming_an_undeclared_port_is_refused():
     plan = committed_plan()
     member(plan, "carlos")["checks"][0]["params"]["port"] = "{port:api}"
     assert "carlos: {port:api} names no declared port" in problems(plan)
+
+
+def test_the_process_table_keeps_program_names():
+    table = family_demo.parse_process_table("10|4|2048|node.exe\n11|10|1024|esbuild.exe\nnoise\n")
+    assert table == {10: (4, 2048, "node.exe"), 11: (10, 1024, "esbuild.exe")}
+    assert family_demo.descendants(10, table) == {10, 11}

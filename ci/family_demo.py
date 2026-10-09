@@ -444,34 +444,97 @@ def parse_netstat_binds(text: str) -> list[tuple[str, tuple[str, int], int]]:
     return rows
 
 
-def process_table() -> dict[int, tuple[int, int]] | None:
-    """pid -> (parent pid, resident bytes), or None when unknowable."""
+def process_table() -> dict[int, tuple[int, int, str]] | None:
+    """pid -> (parent pid, resident bytes, program name), or None when unknowable.
+
+    On Windows this reads the kernel's process snapshot directly. It asked WMI
+    first, and on a machine busy with other work one query took over half a
+    minute and another timed out -- which turned every shutdown's descendant
+    check into a wait, and an identity check into an unknown.
+    """
+    if WINDOWS:
+        try:
+            return _windows_process_table() or None
+        except (OSError, AttributeError, ValueError):
+            return None
     try:
-        if WINDOWS:
-            script = ("Get-CimInstance Win32_Process | ForEach-Object "
-                      "{ '{0},{1},{2}' -f $_.ProcessId,$_.ParentProcessId,$_.WorkingSetSize }")
-            out = subprocess.run(["powershell", "-NoProfile", "-Command", script],
-                                 capture_output=True, text=True, timeout=60).stdout
-            sep = ","
-        else:
-            out = subprocess.run(["ps", "-eo", "pid=,ppid=,rss="], capture_output=True,
-                                 text=True, timeout=30).stdout
-            sep = None
+        out = subprocess.run(["ps", "-eo", "pid=,ppid=,rss=,comm="], capture_output=True,
+                             text=True, timeout=30).stdout
     except (OSError, subprocess.TimeoutExpired):
         return None
+    out = "\n".join("|".join(line.split(None, 3)) for line in out.splitlines())
+    return parse_process_table(out, bytes_per_unit=1024) or None
+
+
+def _windows_process_table() -> dict[int, tuple[int, int, str]]:
+    import ctypes
+    from ctypes import wintypes
+
+    class Entry(ctypes.Structure):  # PROCESSENTRY32W
+        _fields_ = [("dwSize", wintypes.DWORD), ("cntUsage", wintypes.DWORD),
+                    ("th32ProcessID", wintypes.DWORD), ("th32DefaultHeapID", ctypes.c_size_t),
+                    ("th32ModuleID", wintypes.DWORD), ("cntThreads", wintypes.DWORD),
+                    ("th32ParentProcessID", wintypes.DWORD), ("pcPriClassBase", ctypes.c_long),
+                    ("dwFlags", wintypes.DWORD), ("szExeFile", ctypes.c_wchar * 260)]
+
+    class Memory(ctypes.Structure):  # PROCESS_MEMORY_COUNTERS
+        _fields_ = [("cb", wintypes.DWORD), ("PageFaultCount", wintypes.DWORD)] + [
+            (name, ctypes.c_size_t) for name in (
+                "PeakWorkingSetSize", "WorkingSetSize", "QuotaPeakPagedPoolUsage",
+                "QuotaPagedPoolUsage", "QuotaPeakNonPagedPoolUsage", "QuotaNonPagedPoolUsage",
+                "PagefileUsage", "PeakPagefileUsage")]
+
+    kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel.CreateToolhelp32Snapshot.restype = wintypes.HANDLE
+    kernel.CreateToolhelp32Snapshot.argtypes = (wintypes.DWORD, wintypes.DWORD)
+    kernel.Process32FirstW.argtypes = kernel.Process32NextW.argtypes = (
+        wintypes.HANDLE, ctypes.POINTER(Entry))
+    kernel.OpenProcess.restype = wintypes.HANDLE
+    kernel.OpenProcess.argtypes = (wintypes.DWORD, wintypes.BOOL, wintypes.DWORD)
+    kernel.K32GetProcessMemoryInfo.argtypes = (wintypes.HANDLE, ctypes.POINTER(Memory),
+                                               wintypes.DWORD)
+    kernel.CloseHandle.argtypes = (wintypes.HANDLE,)
+
+    snapshot = kernel.CreateToolhelp32Snapshot(0x2, 0)  # TH32CS_SNAPPROCESS
+    if not snapshot or snapshot == wintypes.HANDLE(-1).value:
+        raise OSError(ctypes.get_last_error(), "no process snapshot")
+    table: dict[int, tuple[int, int, str]] = {}
+    try:
+        entry = Entry()
+        entry.dwSize = ctypes.sizeof(Entry)
+        more = kernel.Process32FirstW(snapshot, ctypes.byref(entry))
+        while more:
+            size = 0
+            handle = kernel.OpenProcess(0x1000, False, entry.th32ProcessID)  # query, limited
+            if handle:
+                counters = Memory()
+                counters.cb = ctypes.sizeof(Memory)
+                if kernel.K32GetProcessMemoryInfo(handle, ctypes.byref(counters),
+                                                  counters.cb):
+                    size = counters.WorkingSetSize
+                kernel.CloseHandle(handle)
+            table[entry.th32ProcessID] = (entry.th32ParentProcessID, size, entry.szExeFile)
+            more = kernel.Process32NextW(snapshot, ctypes.byref(entry))
+    finally:
+        kernel.CloseHandle(snapshot)
+    return table
+
+
+def parse_process_table(text: str, bytes_per_unit: int = 1) -> dict[int, tuple[int, int, str]]:
     table = {}
-    for line in out.splitlines():
-        parts = line.strip().split(sep)
-        if len(parts) == 3 and all(p.strip().isdigit() for p in parts):
-            pid, parent, size = (int(p) for p in parts)
-            table[pid] = (parent, size if WINDOWS else size * 1024)
-    return table or None
+    for line in text.splitlines():
+        parts = line.strip().split("|", 3)
+        if len(parts) >= 3 and all(p.strip().isdigit() for p in parts[:3]):
+            pid, parent, size = (int(p) for p in parts[:3])
+            table[pid] = (parent, size * bytes_per_unit, parts[3].strip() if len(parts) > 3 else "")
+    return table
 
 
 def descendants(root: int, table: dict[int, tuple[int, int]]) -> set[int]:
     """`root` and every process below it in a (pid -> parent) table."""
     children: dict[int, list[int]] = {}
-    for pid, (parent, _size) in table.items():
+    for pid, row in table.items():
+        parent = row[0]
         if pid != parent:
             children.setdefault(parent, []).append(pid)
     found, frontier = {root}, [root]
@@ -1019,10 +1082,12 @@ def observe(built: Stage, table: dict | None) -> None:
     if held is None or not ours:
         built.identity["binds"] = built.identity["unreserved_binds"] = "unknown"
     else:
-        built.identity["binds"] = sorted({f"{proto} {host}:{port}"
+        def named(pid: int) -> str:
+            return f"pid {pid} {table[pid][2]}" if pid in table and len(table[pid]) > 2 else f"pid {pid}"
+        built.identity["binds"] = sorted({f"{proto} {host}:{port} ({named(pid)})"
                                           for proto, (host, port), pid in held if pid in ours})
         built.identity["unreserved_binds"] = sorted(
-            {f"{proto} {host}:{port}" for proto, (host, port), pid in held
+            {f"{proto} {host}:{port} ({named(pid)})" for proto, (host, port), pid in held
              if pid in ours and port not in reserved})
     built.memory = sum(table[pid][1] for pid in ours if pid in table) if ours else "unknown"
 
