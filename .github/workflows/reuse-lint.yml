@@ -48,6 +48,6 @@ jobs:
 
       - name: reuse lint
         # Invoked as a module rather than the console script: the entry point
-        # is not on PATH in every environment, so a local run and a CI run could
-        # disagree.
+        # is not on PATH in every environment, which makes a local run of this
+        # workflow fail where CI passes -- or the reverse, which is worse.
         run: python -m reuse lint
