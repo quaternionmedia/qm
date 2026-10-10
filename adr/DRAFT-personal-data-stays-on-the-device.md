@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Draft |
 | **Date** | 2026-09-20 |
-| **Tools** | Drafted with Claude Code (Anthropic). The audit that grounds it was run against `consolidate/2026-09-19` as a fan-out of readers over the repository, its findings checked by hand and by `strace`. What each import of the package loads, and what each install point weighed here would guard, was established by importing each module in a fresh interpreter: against `review/2026-09-26` at `595b433`, where importing the package installs the guard, and against scratch copies of that commit with the install moved to each shape weighed here. The `uvicorn` behaviour in §3 is that of uvicorn 0.38.0, run in a network namespace of its own. The hosts the Rust install for the ESP32 reaches were established by tracing a real install and an offline build with `strace`, against `build/rust-firmware` at `0c89e92`. The human who sponsored the work is the contributor of record. |
+| **Tools** | Drafted with Claude Code (Anthropic). The audit that grounds it was run against `consolidate/2026-09-19` as a fan-out of readers over the repository, its findings checked by hand and by `strace`. What each import of the package loads, and what each install point weighed here would guard, was established by importing each module in a fresh interpreter: against `review/2026-09-26` at `595b433`, where importing the package installs the guard, and against scratch copies of that commit with the install moved to each shape weighed here. The `uvicorn` behaviour in §3 is that of uvicorn 0.38.0, run in a network namespace of its own. The hosts the Rust install for the ESP32 reaches were established by tracing a real install and an offline build with `strace`, against `build/rust-firmware` at `0c89e92`; the slicer's, by tracing a real OrcaSlicer install and real slices, against `build/slicer` at `aa939b2`. The human who sponsored the work is the contributor of record. |
 
 ## Context
 
@@ -161,7 +161,8 @@ human-only contributorship.
    downloads arduino-cli -- and, for Rust on the ESP32, rustup-init,
    espflash and Espressif's Xtensa Rust, rust-src, LLVM and GCC archives with
    their checksums -- and the OpenSCAD installer a development snapshot of
-   OpenSCAD, through `tool_fetch(url)`, which refuses any URL
+   OpenSCAD, or, for the slicer, OrcaSlicer's pinned release, through
+   `tool_fetch(url)`, which refuses any URL
    whose host is not one of the fixed `TOOL_SOURCES` (the release API, the
    archive, where the archive redirects) before anything is opened, and
    admits the sockets and the name lookups beneath that one call, on that
@@ -228,8 +229,8 @@ human-only contributorship.
    it, and makes a link only of a relative, `http(s)` or `mailto` target;
    a `javascript:` target is shown as the text it was.
 5. **A subprocess that fetches is told where, and nothing else tells
-   it.** arduino-cli, esptool, cargo, espflash and OpenSCAD are outside a
-   Python guard. Of these only arduino-cli and cargo reach out; espflash's
+   it.** arduino-cli, esptool, cargo, espflash, OpenSCAD and OrcaSlicer
+   are outside a Python guard. Of these only arduino-cli and cargo reach out; espflash's
    own update check is switched off on every run (`--skip-update-check`). Every arduino-cli the seam
    starts is given `--config-file` naming a file the package writes from
    `ARDUINO_CLI_CONFIG` whenever it differs: the cloud board lookup off,
@@ -272,6 +273,9 @@ human-only contributorship.
    internet socket. The Rust module finds ports with pyserial's port list,
    which opens nothing and sends nothing; with only that module installed
    there is no board scan by arduino-cli and so no multicast question.
+   OrcaSlicer has no network function here: it runs with a data folder of
+   the slice's own, and a traced slice looked up no name and opened no
+   socket.
 6. **What is kept is kept here, and the picture root is a folder of
    pictures.** Personal data lives in three places and nowhere else: the
    state folder (`~/.apothecary`, or `APOTHECARY_STATE_DIR`) -- devices
@@ -379,6 +383,7 @@ mirror the person owns.
 | `files.openscad.org` | the OpenSCAD installer, on `apothecary openscad install` | a GET of a snapshot archive named by its date | an entry in `TOOL_SOURCES` |
 | `api.github.com`, `codeload.github.com` | the OpenSCAD installer, building from source where no snapshot is published (Linux arm64) | the commit at a snapshot's date, the commits its submodules pin, and a GET of each commit's source tarball | entries in `TOOL_SOURCES` |
 | GitHub releases, as above | the firmware installer, on `apothecary firmware install --rust-esp32` | a GET of espflash's release and Espressif's Xtensa Rust, rust-src, LLVM and GCC archives at pinned versions, their checksum files, and the digests GitHub publishes for assets whose release has none | entries in `TOOL_SOURCES` and the installer's pins |
+| GitHub releases, as above | the OpenSCAD installer's fetch, on `apothecary slicer install` | a GET of OrcaSlicer's release at a pinned version, after the digest GitHub publishes for it is read and matched to the one pinned | entries in `TOOL_SOURCES` and the slicer installer's pins |
 | `static.rust-lang.org` | the firmware installer, on `apothecary firmware install --rust-esp32` | a GET of rustup-init at a pinned version and the `.sha256` beside it | an entry in `TOOL_SOURCES` |
 | `index.crates.io`, `static.crates.io` | `cargo vendor`, on `apothecary firmware install --rust-esp32` | the index entries and crate archives each Rust sketch's `Cargo.lock` names | a source replacement to a mirror the person owns, in the tools dir's cargo config |
 | `downloads.arduino.cc` | arduino-cli, on a core or library install | the index and archive names it needs | arduino-cli's own `directories`/index settings in `ARDUINO_CLI_CONFIG` |

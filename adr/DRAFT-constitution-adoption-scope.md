@@ -141,7 +141,21 @@ rather than only in its third-party dependencies.
   external `openscad` binary (GPL-2.0-or-later, invoked via subprocess, never
   linked or vendored) is explicitly acceptable under the exclusion rule's
   copyleft clause and is out of scope for the Python dependency-manifest gate
-  by construction (it is not a Python or npm package).
+  by construction (it is not a Python or npm package). The same disposition
+  holds for every other external binary the project runs the same way:
+  arduino-cli (GPL-3.0) and esptool (GPL-2.0-or-later) under the *firmware
+  toolchain seam* record; cargo, Espressif's Xtensa Rust and espflash (MIT
+  OR Apache-2.0) and Espressif's GCC (GPL-3.0 with its runtime library
+  exception) for Rust on the ESP32; and OrcaSlicer (AGPL-3.0) under the
+  *slicer seam* record. Each is fetched by the person's own machine from its
+  publisher at a pinned, checked version, run as a separate process over its
+  command line and files, and never linked, vendored or conveyed, so the
+  artifact the project distributes stays MIT. OrcaSlicer's licence adds a
+  network clause (§13) for a modified program offered over a network; the
+  binary is unmodified and the server listens on this machine alone, and
+  running it anywhere else is that record's revision trigger. Should a
+  publisher go, the tool's environment variable names a replacement
+  without a code change.
 - Two named gaps from §2 are accepted as open follow-ups, not silently
   resolved by this ADR: vendoring Three.js, and giving `apothecary` (and
   `datafactorio`) an actual `LICENSE` file plus a `license` field in
