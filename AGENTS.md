@@ -252,6 +252,20 @@ with a date looks checked.
     as the `leak-check.yml` gate; the rest is yours to read for before you
     push.
 
+18. **Durable text states what is true now, for a reader who was not there**
+    — record `records/DRAFT-durable-text-states-what-is-true.md`, with
+    `handbook/style-guide.md` as the procedure. A docstring, a page or a record
+    says what the thing is, what it does, what it cannot do and what to do with
+    it, in the present tense. It does not tell how it came to be: what it
+    replaced, what was found, when, or by whom — the commit, the pull request
+    and `perspectives/` hold that. No phrase set in capitals, no "the one that
+    matters", no check described by what it caught. `uv run qm timeless`
+    refuses the mechanical part on the lines a change adds and runs as the
+    `timeless-check.yml` gate; `--all --summary` measures what the sweep has
+    left. A sweep sorts every passage it touches: a short fact stays inline,
+    an explanation moves to `docs/`, a narrative to a dated retrospective in
+    `perspectives/`.
+
 ## If you're forking this corpus into a new project
 
 See `docs/usage/first-project.md` and `handbook/forking-a-project.md` — do not improvise a lighter
