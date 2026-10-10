@@ -67,3 +67,27 @@ shape, so a consumer never has to infer `none`. `--check` also refuses a stale
 It cannot tell whether a repository really belongs to its family (the border
 test in §2 of the record needs a person who knows what the code drives), and
 it cannot see a family member missing from the roster.
+
+## Capabilities
+
+`ci/capability-registry.yaml` records what each named capability of the estate
+has reached, and what nobody has established about it.
+`records/DRAFT-a-capability-has-four-phases.md` is the decision and names the
+rungs. `phase` is a claim a person makes and nothing derives it, so the gap
+between claim and evidence stays visible. Each evidence field names where to
+look (a path, a command, an address pattern, a document), and `null` means
+nobody has established it, which is unknown rather than failed. Deployment has
+its own rung because it fails without a symptom: a command a package documents
+can be missing while its modules import and its tests pass.
+`uv run qm capabilities --check` refuses a declaration nobody could act on.
+
+## Divergence
+
+`uv run qm divergence` compares two views of the same addresses on a declared
+list of fields and turns each disagreement into a delta
+(`records/DRAFT-a-disagreement-is-a-delta.md`). Both values are kept, with
+which view said which; a delta's name derives from the address and the field
+alone, so re-running detection never opens a second row; a new delta opens at
+`brainstorm`; convergence is reported and closes nothing; and a field one view
+does not hold is reported as missing rather than as a difference. It has no
+opinion about which value is right.

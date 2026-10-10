@@ -119,6 +119,68 @@ mixed with spaces are refused, because they raise in some files and not
 others. Anything deeper than "does it parse" belongs to `codecartographer`,
 which a governance gate does not import.
 
+## Leaks
+
+`uv run qm leaks` (`project-seed/ci/check_leaks.py`) refuses committed text
+that names a person, a machine or a private conversation: the leaks a secret
+scanner does not look for, because none of them is a credential.
+
+- **A home directory with an account name** in it, Windows, macOS or Linux.
+  The pattern is case-sensitive, so `/users/` in a REST route is not a home.
+  Placeholder accounts are listed in `PLACEHOLDERS`, and a new one is added
+  there rather than by widening a pattern.
+- **A shared-conversation link**, which anybody holding it can read.
+- **A path to a thread archive.** The archive's filename alone names an export
+  format and is allowed; a directory in front of it is somebody's disk.
+- **A personal directory used as a path** (the Documents or Desktop folder, an
+  IDE's projects folder) and **a session's scratch space used as a path**:
+  `handbook/what-is-not-the-organisation.md` draws that line, and a path is its
+  mechanical part.
+
+It reads tracked files only, because what is tracked is what is published.
+Findings are printed redacted, enough to recognise and never enough to use,
+and the summary carries the number of files read. An exemption is declared
+with `leaks: allow` and a reason, and the count of exemptions is printed on
+every run. It cannot read history, cannot tell a placeholder from a real name
+beyond the listed ones, and cannot find a leak nobody thought of: `--json` is
+there for a person reading the whole list.
+
+## Branch census
+
+`uv run qm branches` (`project-seed/ci/branch_census.py`) lists every branch in
+a repository and what deleting it would lose. It reads refs, never the working
+tree, and never deletes anything.
+
+| Class | Meaning |
+|---|---|
+| stranded | The local ref is ahead of its own remote: commits on one disk |
+| local | A local branch with no remote at all |
+| gone | A remote branch whose local ref is gone; nothing to lose |
+| ahead | Unmerged work that is pushed and reachable |
+| merged | Every commit is on the default branch; deleting loses nothing |
+
+The classes sort by what it costs to be wrong, so what would be lost comes
+first. Loss is counted by patch, not by sha: `git cherry` reports a commit whose
+patch is already upstream (squashed, cherry-picked, rebased) as landed, so a
+branch ahead by one can hold nothing. It errs toward reporting loss, since a
+commit that landed in a different shape still reads as unique. The default
+branch is asked of the remote rather than assumed, `origin/HEAD` is not a
+branch, and automation branches are summarised in one line. The summary and
+the exit status share one definition of "at risk". It cannot tell whether an
+`ahead` branch is abandoned or paused.
+
+## Record review
+
+`uv run qm review` (`ci/record_review.py`) reads every record as one body and
+reports what only shows in aggregate: an Enforcement clause naming a mechanism
+that does not exist or that no gate declares; universals in a Decision section,
+as candidates for reading rather than defects; citations of paths that do not
+exist; and records nothing points at. A citation into another QM repository is
+resolved in that repository's checkout, found through the roster's
+`repositories:` and `paths:`, and is reported as a cross-repository citation,
+not as dangling; a repository in the roster but not checked out is unknown. It
+does not read a record for meaning, and it is a report, not a gate.
+
 ## Shared shapes
 
 - **An exception costs a stated reason.** `timeless: allow`,
