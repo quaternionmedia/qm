@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Refuse a version tag that does not carry the claims a version tag makes.
 
-SEED FILE, run in place: a forking project runs it out of the governance
+A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it.
 
 WHAT THIS IS FOR. `records/DRAFT-version-tags-are-claims.md` §2 says a `v*` tag

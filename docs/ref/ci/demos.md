@@ -1,4 +1,4 @@
-# The trio demo
+# The trio demo and the surfaces
 
 `uv run qm demo` runs one topology through every window that draws one and
 checks that they agree. It follows `protocols/local-demo.md`: the demo is a
@@ -97,3 +97,37 @@ git repository. A missing sibling is reported, never skipped in silence.
 - Its own mutation score through `uv run qm mutate`: the mutator runs the suite
   against a copy in a temporary directory, from which no sibling resolves, so
   the baseline is red. The mutations named in the tests are applied by hand.
+
+## The surfaces
+
+`uv run qm dashboard` reports which of the estate's surfaces are up and how to
+bring up the rest. The source is `ci/dashboard.py`.
+
+```sh
+uv run qm dashboard                  # what is listening, and what to run
+uv run qm dashboard --start harness  # detach the harness into its own process
+uv run qm dashboard --start web
+uv run qm dashboard --stop harness   # stop what --start launched, by its pid
+```
+
+`qmcp` holds the work and answers over HTTP. `codecartographer` is its front end
+on the web and `dossier` its front end in a terminal. Neither front end owns
+anything: both read the same harness, and a figure that differs between them is
+a defect rather than a point of view, which is why there are two. `looksatwords`
+reads the conversations the harness archived and reports their topics; it is
+listed because it is one more server on the same workstation, and a port
+collision between any two surfaces is what the table prevents.
+
+- **Reporting is the default.** Nothing starts unless `--start` names it.
+- **Servers detach; the terminal front end does not.** `--start` backs a server
+  off into its own process under its repository's own environment and records
+  its pid. `dossier dashboard` draws in the terminal it is run from, so the
+  dashboard prints that command rather than launching it into a pipe.
+- **`--stop` acts on the recorded pid, never the port**, so it never stops a
+  process it did not start.
+- **A busy port is "something is listening"**, not "the harness is up": any
+  process may hold a port, and the ordinary cause of a surprise is a stale
+  process from an earlier session.
+- **The ports are defaults, each overridable**, chosen as a memory aid: pi
+  (3141) for the harness, e (2718) for the web front end, phi for the terminal
+  one, and root two for the prose reader.

@@ -115,3 +115,31 @@ taxonomy written in two places, and they are repaired together.
 
 It cannot tell whether a state is correct, and it gives a handbook page the
 state `standing` rather than inventing one the corpus has not defined.
+
+## The loose-ends document
+
+`ci/loose_ends.py` joins what several generated documents say is unfinished
+into one list: stalled threads and stacked pull requests from
+`status/harness.yaml`, records awaiting ratification and perspectives nobody
+has reviewed from `status/documents.yaml`, and each [gate](../../ref/glossary.md#gate){ .glossary-term }'s declared blind spot
+from `status/gates.yaml`. It is a join, not a measurement: it collects nothing
+fresh and reaches no network, and its evidence is only as fresh as its stalest
+input.
+
+- **Claim and evidence are separate.** Evidence is generated and rewritten on
+  every run. A claim (what a person decided about an item) is read from
+  `registers/loose-end-claims.yaml`, an input the generator never writes, so a
+  person's judgement is never erased. An item nobody has judged has no claim
+  block, and `open` is the absence of a claim rather than a claim.
+- **An address names the thing, not the finding.** Each item addresses its
+  subject with an existing kind from `ci/addresses.py` and carries its own
+  `kind` beside it, so a view can navigate from a loose end to what it
+  concerns. An address that does not parse is reported, not dropped.
+- **Unknown is a value.** An unreadable source is recorded as
+  `{"unknown": "<reason>"}` and its items are absent, never an empty list.
+- **One contract.** The generator and the vector runner share the function
+  that decides how an item reads, so a passing vector is a statement about the
+  document a consumer receives.
+
+It cannot decide whether a loose end matters; the claims [register](../../ref/glossary.md#register){ .glossary-term } is where a
+person writes that down.

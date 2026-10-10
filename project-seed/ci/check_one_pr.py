@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """No pull request is marked ready while it is stacked on another open one.
 
-SEED FILE, run in place. The filename predates the rule and is kept because
+A seed file, run in place. The filename predates the rule and is kept because
 every project's copied one-pr-check.yml runs it by this path.
 
 The rule (handbook/async-contract.md 1): one change per pull request.

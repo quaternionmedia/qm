@@ -45,6 +45,7 @@ nav = [
             "ref/ci/index.md",
             "ref/ci/gates-and-checks.md",
             "ref/ci/status-documents.md",
+            "ref/ci/registries.md",
             "ref/ci/measuring-the-suite.md",
             "ref/ci/docs-tooling.md",
             "ref/ci/demos.md",

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Refuse vendor and model names where they do not belong.
 
-SEED FILE, run in place: a forking project runs it out of the governance
+A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it.
 
 WHAT THIS IS FOR. Tool involvement is disclosed in one place -- a `Tools:` note

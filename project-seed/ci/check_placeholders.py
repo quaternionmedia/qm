@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Refuse a template that is being shown to a reader.
 
-SEED FILE, run in place: a forking project runs it out of the governance
+A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it.
 
 WHAT THIS IS FOR. A seed file carries placeholders on purpose -- `<name>` stands

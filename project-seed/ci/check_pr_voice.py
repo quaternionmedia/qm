@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """A pull request speaks as its contributor, to the world -- never to them.
 
-SEED FILE, run in place.
+A seed file, run in place.
 
 THE RULE. A pull request body is posted under a human's account, so it is that
 human's statement of the change. It addresses nobody. A sentence written *to*

@@ -1,43 +1,20 @@
 """Every script in `ci/` is syntactically valid Python.
 
-**THIS EXISTS BECAUSE IT WAS BEING DONE BY HAND.** After each edit to a script
-here, somebody was typing `python -c "import ast; ast.parse(open(...).read())"`
-and reading the word `parses`. That check is real and it was correct; what was
-wrong is where it lived. A check performed from memory is performed when
-somebody remembers, and the person most likely to forget is the one who has just
-made a large edit — which is exactly when it matters.
+This runs whenever the suite runs, so nobody has to remember to parse a script
+after editing it. It uses `compile` rather than an import: importing a module
+runs it, needs every dependency present, and turns a missing optional package
+into a syntax failure, while `compile` answers whether the file parses, in a
+fork that has installed nothing.
 
-**WHY A TEST AND NOT A COMMAND.** A command is one more thing to know about;
-`AGENTS.md` item 16 is the corpus's own finding that a rule which loses on
-readership does not govern. This runs whenever anybody runs the suite, which is
-before every pull request, and nobody has to be told.
+There is one case per property, not one per file: a failure names every
+offending file and line in one message.
 
-**WHY `compile` AND NOT AN IMPORT.** Importing a module runs it: it would need
-every dependency present, would execute module-level work, and would turn a
-missing optional package into a syntax failure. `compile` answers exactly the
-question being asked — is this parseable — and answers it for a fork that has
-installed nothing.
-
-**AND WHY ONE CASE PER PROPERTY, NOT ONE PER FILE.** This was parameterised over
-every script: 41 ids for a floor check that has never legitimately failed, and
-175 in the corpus twin. A sweep should name every offender in one message rather
-than produce one failure per file for a reader to collect one at a time. What is
-lost is the filename in the test *id*; it is in the failure message instead,
-with the line number, which is where it is more useful.
-
-WHAT THIS DOES NOT CHECK. That a script works, that its imports resolve, or
-that it does what its name says. Those are the other tests here. This is the
-floor: a file that does not parse cannot be any of the above, and it fails in a
-way that is otherwise found by a person at the worst moment.
-
-**DEEPER PARSING IS NOT THIS FILE'S JOB, AND NOT THIS REPOSITORY'S.**
-`codecartographer` is the org's parsing and abstraction tool — ASTs, lexicons,
-abstraction layers, graphs. It is a *project*, and this is the *governance
-corpus* those projects adopt: a gate here that imported a project would invert
-the dependency and would fail in every fork that has not installed it. So the
-rule is the boundary, not the technique — syntax questions a fork must answer
-alone use the standard library, and anything richer than "does it parse" belongs
-in the tool built for it.
+What this does not check: that a script works, that its imports resolve, or
+that it does what its name says. Those are the other tests here; this is the
+floor. Parsing deeper than "does it parse" belongs to `codecartographer`, the
+org's parsing tool, which a governance gate does not import: a fork that has
+not installed it would fail. `docs/ref/ci/gates-and-checks.md` describes the
+compile floor.
 """
 
 from __future__ import annotations
@@ -60,9 +37,8 @@ def scripts() -> list[Path]:
 
 
 def test_there_are_scripts_to_check():
-    """**THE GUARD ON THE GUARD.** A glob that matched nothing would make every
-    check below vacuous, and a vacuous check reports green — the empty-suite
-    failure this corpus keeps finding.
+    """The glob matches something: a glob that matched nothing would make
+    every check below vacuous, and a vacuous check reports green.
 
     Mutation: point `scripts()` at an empty directory and this fails.
     """
@@ -87,11 +63,9 @@ def test_every_script_parses():
 
 def test_no_script_indents_with_tabs():
     """Tabs mixed with spaces parse in some files and raise `TabError` in
-    others, depending on what is above them — so the failure appears in a file
-    nobody just edited.
-
-    Not hypothetical: a docstring written through a shell gained a real tab from
-    an escaped `\\t` five times in one session.
+    others, depending on what is above them, so the failure appears in a file
+    nobody just edited. A docstring written through a shell can gain a real tab
+    from an escaped `\\t`.
 
     Mutation: put a tab at the start of an indented line and this fails.
     """

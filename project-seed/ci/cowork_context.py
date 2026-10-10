@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build a session's opening brief from the repository, not from memory.
 
-SEED FILE, run in place. It answers the questions a session would otherwise
+A seed file, run in place. It answers the questions a session would otherwise
 assume the answer to, and writes them down where the answer can be checked.
 
 WHY A TOOL RATHER THAN A CHECKLIST
