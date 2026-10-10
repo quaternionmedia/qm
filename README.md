@@ -101,6 +101,7 @@ qm/
 | — | [Open-license exclusion and upstream-contribution remediation](records/DRAFT-open-license-exclusion-and-upstream-remediation.md) | Proposed | 2026-06-09 |
 | — | [A disagreement is a delta](records/DRAFT-a-disagreement-is-a-delta.md) | Proposed | 2026-08-17 |
 | — | [Few integers in durable text](records/DRAFT-few-integers-in-durable-text.md) | Proposed | 2026-08-18 |
+| — | [Durable text states what is true, not how it came to be](records/DRAFT-durable-text-states-what-is-true.md) | Proposed | 2026-10-10 |
 | — | [Seams on standard protocols](records/DRAFT-seams-on-standard-protocols.md) | Proposed | 2026-06-09 |
 | — | [Build the seam, buy the engines](records/DRAFT-build-the-seam-buy-the-engines.md) | Proposed | 2026-06-09 |
 | — | [House stack](records/DRAFT-house-stack.md) | Proposed | 2026-06-09 |
