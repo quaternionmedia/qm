@@ -9,21 +9,18 @@
 
 ## Context
 
-The open-license record fixes what QM may consume. Nothing states what QM's
-own work is licensed under, and no repository on any branch of this corpus
-carries a licence file. A public repository with no licence grants no rights
+The open-license record fixes what QM may consume, and says nothing about what
+QM's own work is licensed under. A public repository with no licence grants no rights
 beyond reading, so `public-by-default`'s default publishes the artifact and withholds the
 commons — the opposite of what publishing it was for.
 
-The gap is not theoretical. This corpus's fork procedure instructs an adopting
+The gap is practical. This corpus's fork procedure instructs an adopting
 project to copy `TEMPLATE.md`, `project-seed/adr/`, `project-seed/ci/` and
-`project-seed/ide/` verbatim into its own repository, including a client's,
-with no terms attached. The seed workflow says so in its own header. Read
-literally, the open-license record's §1 also binds QM's own components, which
-makes every unlicensed QM artifact a violation of the rule QM wrote. The
-reference project demonstrates it: the streaming design plan gives its own
-service a License column reading `ours`, which names nothing, while the same
-plan requires the build to fail on any licence outside the allowlist.
+`project-seed/ide/` verbatim into its own repository, including a client's, so
+those files need terms. Read literally, the open-license record's §1 also binds
+QM's own components, which makes an unlicensed QM artifact a violation of the
+rule QM wrote; a License column reading `ours` names nothing, beside a plan
+that requires the build to fail on any licence outside the allowlist.
 
 Delivery mechanism, not preference, decides which licence holds a guarantee.
 A self-hosted service is never conveyed, so a copyleft whose trigger is

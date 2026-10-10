@@ -24,9 +24,8 @@ once per row becomes a function of how many rows exist.
 The organisation already has the ingredients for this to go wrong quietly. It
 has a harness that runs things on command. It has a self-check that runs a suite
 and could as easily run a model. It has a disk tool with a `--check` exit code
-*specifically so a scheduled task can drive it*, and a handoff page recording
-that no such task exists and that scheduling one is a decision nobody has taken.
-That page's reasoning is the same reasoning as this record: **a scheduled
+*specifically so a scheduled task can drive it*, and no such task, because
+scheduling one is a decision of its own. The reasoning is this record's: **a scheduled
 program that acts while nobody is watching is a different kind of thing from the
 same program run by a person.**
 
