@@ -13,19 +13,19 @@ a summary of repository state — including this page's — over `git`.
 
 ## The queue
 
-Twelve `project/*` branches exist. Eleven name a repository that can be read;
-`streaming-infrastructure` names none. Three have been audited.
+Every `project/*` branch names a repository that can be read, except
+`streaming-infrastructure`, which names none. The table says which have been
+audited.
 
 **This table is the queue, not the state.** It says which projects an audit has
 been through and what class of defect each turned up — facts that stay true.
 Current state is `status/governance.yaml` and `status/harness.yaml` at the root,
 and `ci/harness_dashboard.py status/harness.yaml --format md` prints it.
 
-Earlier versions of this table carried cells like "29 commits unpushed locally"
-and "has no remote". Those are one workstation at one moment, they went stale
-within days, and a committed page is the wrong place for them — the same rule
-that keeps the machine-scoped documents out of git. They are gone rather than
-refreshed.
+Cells such as "commits unpushed locally" or "has no remote" describe one
+workstation at one moment, go stale within days, and do not belong on a
+committed page — the same rule that keeps the machine-scoped documents out of
+git.
 
 | Project | qm branch | Own repo | Audited | What an audit found, or would look for |
 |---|---|---|---|---|
@@ -48,8 +48,8 @@ Re-derive every column before acting on it.
 
 Walk `handbook/propagation-runbook.md` end to end. Both parts: the
 `project/<name>` branch in this repo, **and** the project's own repository.
-The second is where every serious finding has come from, because the first is
-the part people remember to check.
+The second is where serious findings come from, because the first is the part
+people remember to check.
 
 Then, per project, expect roughly:
 
@@ -64,11 +64,8 @@ Keep them separate. They have different reviewers and different risk.
 **If two projects could have the same defect, the fix belongs in
 `project-seed/`, not in the project.**
 
-This is not a style preference; it is the finding the audits keep producing.
-qmetronome hit a broken submodule pin on a release build and wrote a check.
-Nothing carried it. apothecary hit the identical failure months later with no
-guard, and datum was carrying it silently at the same time. One project had
-the answer and two needed it.
+A defect one project hits and fixes locally is carried silently by the others
+until each hits it in turn; a fix in the seed reaches all of them.
 
 So when you fix something in a project repo, ask what would have prevented it
 everywhere, put *that* in the seed, and let the project's own PR be a verbatim
@@ -77,12 +74,11 @@ again.
 
 ## How the process evolves
 
-Every audit so far has changed the process, and none of the changes were
-predictable from reading. The loop:
+An audit changes the process, in ways that reading the procedure does not
+predict. The loop:
 
 1. **Run the procedure exactly as written**, including the steps that look
-   unnecessary. The point is to find out where it is wrong, and it has been
-   wrong somewhere every time.
+   unnecessary. The point is to find out where it is wrong.
 2. **When a step misleads you, that is the finding** — bigger than whatever
    you were looking for. A diagnostic that reports a false all-clear is worse
    than no diagnostic, because it ends the investigation.
@@ -93,29 +89,28 @@ predictable from reading. The loop:
 5. **Say which step found it.** That is what tells the next person which
    steps are earning their place.
 
-Three worked examples, so the shape is concrete:
+Worked examples of the shape:
 
-- The "has propagation ever run?" check matched any merge commit. A project
-  merging its own feature branch produced a false all-clear on the one
-  question the step existed to answer.
-- The conflicted-propagation path had no PR shape that worked: with
-  `head=main`, GitHub commits the resolution to `main`.
-- A conflict resolved by keeping both sides passed, then conflicted again on
+- A "has propagation ever run?" check that matches any merge commit gives a
+  false all-clear when a project merges its own feature branch — on the one
+  question the step exists to answer.
+- A conflicted propagation has no working pull-request shape with
+  `head=main`: GitHub commits the resolution to `main`.
+- A conflict resolved by keeping both sides passes, then conflicts again on
   the next propagation — the same insertion arriving from two directions is
   not something git can reconcile.
 
-## Verification, because this is where agents fail
+## Verification
 
-The corpus has an evidence standard; this is where it earns its keep. Every
-one of these produced a confident wrong answer during the audits already run:
+Each of these produces a confident wrong answer:
 
 - **`git -C /c/...` under Git Bash on Windows** silently returns nothing.
-  Use `C:/...` for `-C`. This produced three separate "absent" findings that
-  were false.
-- **`git submodule status | head -1`** reads whichever submodule sorts first.
-  One repo has three. Name the path: `git submodule status governance/qm`.
+  Use `C:/...` for `-C`.
+- **`git submodule status | head -1`** reads whichever submodule sorts first,
+  and a repository can have several. Name the path:
+  `git submodule status governance/qm`.
 - **Piping a check through `head`/`tail` reads the pipe's exit code**, not the
-  check's. A failing case reported success.
+  check's.
 - **Checking for a filename** reports "absent" when a project implemented the
   same behaviour its own way. Search for the behaviour.
 - **A negative test that never ran** passes. If you assert a check fails on
@@ -125,19 +120,16 @@ one of these produced a confident wrong answer during the audits already run:
   filesystem check answer for whatever branch happens to be checked out, which
   during an audit is frequently a branch you created. Read the remote default
   branch — `git cat-file -e origin/main:<path>` — or you will report your own
-  unpushed work as the project's state. This produced a false "healthiest
-  adoption" finding that reached `main`.
+  unpushed work as the project's state.
 - **A branch is not its base.** A PR carries everything between its base and
   its head, which is not the same as what you committed. Before opening one:
   `git merge-base <base> <head>`, then the commit count, file count and author
   of each commit. A branch cut from the wrong parent is internally consistent
-  and passes every check — one such PR sat open carrying 18 commits of someone
-  else's feature work under a title describing a single CI check.
+  and passes every check.
 
-- **Hand-running a workflow's commands** is not running the workflow. The
-  first local execution of this repo's own workflows failed a step that every
-  hand-run equivalent had passed — the workflow called a console script that
-  was not on PATH. Use `project-seed/ci/run_workflows_locally.py`, and say
+- **Hand-running a workflow's commands** is not running the workflow: a
+  workflow can call a console script that is not on PATH, which no hand-run
+  equivalent notices. Use `project-seed/ci/run_workflows_locally.py`, and say
   which steps it cannot reproduce.
 
 State which commit you are working against at the start, and re-derive branch
