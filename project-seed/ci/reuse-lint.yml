@@ -53,15 +53,14 @@ jobs:
       - name: reuse lint
         # Run through uv's tool runner rather than installed with pip. The tool
         # gets an environment of its own, so the step writes into no
-        # interpreter it did not make and does not depend on pip being present
-        # in whichever python is first on PATH -- a uv-made virtual environment
-        # has none, which made this step fail under the local workflow runner
-        # in every uv-managed checkout while the hosted run passed.
+        # interpreter it did not make and needs no pip in whichever python is
+        # first on PATH. A uv-made virtual environment has no pip, so a pip
+        # step fails under the local workflow runner in a uv-managed checkout.
         #
         # The charset-normalizer extra, not bare `reuse`: bare `reuse` detects
         # file encodings through python-magic, which needs libmagic on the box
-        # that runs it and which reuse skips outright on Windows, so with no
-        # other encoding module installed it raises NoEncodingModuleError
-        # before it lints anything. charset-normalizer is the one encoding
-        # module reuse accepts that imports everywhere.
+        # that runs it and which reuse skips on Windows, so with no other
+        # encoding module installed it raises NoEncodingModuleError before it
+        # lints anything. charset-normalizer is the encoding module reuse
+        # accepts that imports everywhere.
         run: uvx 'reuse[charset-normalizer]' lint
