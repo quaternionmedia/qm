@@ -6,6 +6,8 @@
     uv run qm family-demo --wave together --hold  # keep it up; open the page
     uv run qm family-demo --ref leo=origin/setlist
     uv run qm family-demo --plan                  # what would run; starts nothing
+    uv run qm family-demo --stage                 # the core up, and a show run from the hub
+    uv run qm family-demo --stage --hold --open   # then keep it up, in the system browser
 
 **WHAT IT SHOWS.** `ci/family-demo.yaml` names the members, the branch of each
 that runs -- the one carrying the active work, not the default branch -- the
@@ -64,6 +66,17 @@ asserts, outbound traffic that holds no socket open long enough to be listed,
 real audio, MIDI or lighting hardware, and a member the roster does not place --
 that one is printed as unplaced, never dropped.
 
+**THE STAGE.** `--stage` brings the core up together and puts a show on it:
+the plan's `stage` block is created in the hub through the hub's own routes,
+and one page fires its cues through the hub's programmer and performs each
+cue's `family` block on the members, through interfaces each already has. A
+headless check plays the show, asserts each cue's effects, and records a
+picture of the stage after each cue; the landing page shows them in cue order.
+Each member's own check is not run in this mode -- `qm family-demo` runs them --
+so a member's stage result is its isolation's. `ci/family_stage.py` decides,
+`ci/family_stage_run.py` runs, and every link it shows is labelled real or
+relayed: no member calls another, and that is said on the page.
+
 `protocols/local-demo.md` is the protocol this follows. It is the first runnable
 slice of a simultaneous run of the whole performing family: the core phase
 starts, and the phases after it are declared with what each member needs.
@@ -87,6 +100,7 @@ import tempfile
 import time
 import urllib.error
 import urllib.request
+import webbrowser
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
@@ -97,12 +111,14 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from make_workspace import resolve  # noqa: E402
+import family_stage  # noqa: E402
 import roster as corpus_roster  # noqa: E402
 
 CI_DIR = Path(__file__).resolve().parent
 CORPUS = CI_DIR.parent
 PLAN = CI_DIR / "family-demo.yaml"
 PROBES = CI_DIR / "family_demo_probes.py"
+STAGE_RUNTIME = CI_DIR / "family_stage_run.py"
 FAMILIES = CORPUS / "families.json"
 
 # The families whose members make up the performing estate. A member of one of
@@ -185,6 +201,9 @@ def check_plan(plan: dict, rostered: set[str]) -> list[str]:
             problems += _runnable_problems(member)
         elif not member.get("needs"):
             problems.append(f"{name}: a phase that does not run must say what it needs to join")
+    if "stage" in plan:
+        names = [m.get("name") for m in running(plan)]
+        problems += family_stage.check_stage(plan["stage"], names, owner, (first, last))
     return problems
 
 
@@ -331,20 +350,21 @@ def check_result(exit_code: int | None, output: str, not_implemented: str) -> tu
     return "unknown", exit_code is not None and not_implemented in output
 
 
-def member_result(checks: list[dict], readiness: str) -> str:
+def member_result(checks: list[dict], readiness: str, own_check: bool = True) -> str:
     """One member's result in one wave: its own check and the demo's checks of it.
 
     Readiness that did not pass means the checks never ran, so the member is
     `fail` when it was observed not to start and `unknown` when it could not be
     started at all. A member whose own check did not run is never a pass,
-    however its isolation reads.
+    however its isolation reads -- unless the wave does not ask for it
+    (`own_check` false: the stage), and then the result is its isolation's.
     """
     if readiness == "fail":
         return "fail"
     if readiness != "pass":
         return "unknown"
     results = [c["result"] for c in checks]
-    if not any(c.get("owner") == "member" for c in checks):
+    if own_check and not any(c.get("owner") == "member" for c in checks):
         return "unknown"
     if "fail" in results:
         return "fail"
@@ -1032,6 +1052,7 @@ class Stage:
     checks: list[dict] = field(default_factory=list)
     readiness: str = "unknown"
     blocked: str = ""
+    own_check: bool = True
 
     @property
     def name(self) -> str:
@@ -1056,7 +1077,8 @@ class Stage:
             "listener_identity": self.identity,
             "memory_bytes_at_check": self.memory,
             "checks": self.checks,
-            "result": member_result(self.checks, self.readiness),
+            "result": member_result(self.checks, self.readiness, self.own_check),
+            "own_check": "asked" if self.own_check else "not asked in this wave",
         }
 
 
@@ -1377,6 +1399,9 @@ def assert_all(stages: list[Stage], run: Path, plan: dict, wave: str) -> None:
             continue
         demo = [listener_check(built)]
         demo += [c for c in (unbound_check(built), identity_check(built)) if c]
+        if not built.own_check:
+            built.checks = demo
+            continue
         if built.identity.get("verdict") == "foreign":
             own = not_run(built, "a process this run did not start holds one of the "
                                  "member's ports, so a check would measure that one")
@@ -1465,18 +1490,191 @@ def _simultaneous(stages: list[Stage], budget: float, members: dict, work: Path)
         list(pool.map(finish, started))
 
 
-def hold_open(run: Path, seconds: float) -> None:
-    page = run / "index.html"
+def hold_open(run: Path, seconds: float, url: str | None = None) -> None:
+    page = url or (run / "index.html").as_uri()
     if seconds <= 0:
-        print(f"\nholding every member up; open {page.as_uri()}\nCtrl+C stops them.", flush=True)
+        print(f"\nholding every member up; open {page}\nCtrl+C stops them.", flush=True)
         try:
             while True:
                 time.sleep(1)
         except KeyboardInterrupt:
             print("stopping", flush=True)
     else:
-        print(f"\nholding every member up for {seconds:.0f}s; open {page.as_uri()}", flush=True)
+        print(f"\nholding every member up for {seconds:.0f}s; open {page}", flush=True)
         time.sleep(seconds)
+
+
+# ===================================================================
+# THE STAGE -- the core up, a show run from the hub, on one page
+# ===================================================================
+
+def stage_job(plan: dict, order: list[dict], run: Path) -> dict:
+    """What the stage runtime is handed: addresses, the show, the panels, where to write."""
+    host = plan["host"]
+    info = {m["name"]: {"url": expand(m["url"], {"ports": m["ports"], "host": host}),
+                        "host": host, "ports": m["ports"]} for m in order}
+    names = [m["name"] for m in order]
+    return {"host": host, "port": plan["stage"]["port"], "hub": info[family_stage.HUB]["url"],
+            "members": info, "running": names, "order": names, "show": plan["stage"]["show"],
+            "panels": family_stage.panel_view(plan["stage"]["panels"], info),
+            "dir": str(run / "stage"), "shots": str(run / "shots" / "stage"),
+            "result": str(run / "stage" / "check.json")}
+
+
+def runtime_argv(plan: dict, *args: str) -> list[str]:
+    """The stage runtime under the pinned Playwright interpreter the browser probe uses."""
+    pin = plan.get("browser") or {}
+    return ["uv", "run", "--no-project", "--python", str(pin.get("python", "3.12")),
+            "--with", f"playwright=={pin.get('playwright')}", "python", str(STAGE_RUNTIME), *args]
+
+
+def stage_check(plan: dict, job_path: Path, job: dict, run: Path) -> dict:
+    """Run the show headless against the stage that is up, and read back what it asserted."""
+    argv = runtime_argv(plan, "check", str(job_path))
+    log = run / "logs" / "stage-check.log"
+    began = time.monotonic()
+    exit_code = None
+    flags = subprocess.CREATE_NEW_PROCESS_GROUP if WINDOWS else 0
+    with open(log, "w", encoding="utf-8", errors="replace") as out:
+        child = subprocess.Popen(executable(argv), cwd=run / "stage", env=child_env(), stdout=out,
+                                 stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
+                                 creationflags=flags, start_new_session=not WINDOWS)
+        try:
+            exit_code = child.wait(timeout=float(plan["contract"]["check_seconds"]))
+        except subprocess.TimeoutExpired:
+            stop_tree(child)
+    output = tail(str(log), 65536)
+    result, _ = check_result(exit_code, output, plan["contract"]["not_implemented"])
+    record = {"check": "the show, cue by cue", "owner": "demo", "result": result,
+              "exit_code": exit_code, "argv": argv, "log": str(log), "detail": last_line(output),
+              "seconds": round(time.monotonic() - began, 3), "cues": [], "shots": []}
+    path = Path(job["result"])
+    if path.is_file():
+        said = json.loads(path.read_text(encoding="utf-8"))
+        record["cues"] = said.get("cues") or []
+        record["shots"] = [c["shot"] for c in record["cues"] if c.get("shot")]
+        record["console_errors"] = said.get("console_errors") or []
+        if said.get("result") != result:
+            # The file and the exit status disagree, so neither is believed.
+            record["detail"] = (f"the check exited {exit_code} but wrote "
+                                f"{said.get('result')!r}; {record['detail']}")
+            record["result"] = "unknown"
+    elif result == "pass":
+        record["result"], record["detail"] = "unknown", f"it passed but wrote no {path.name}"
+    return record
+
+
+def stage_wave(order: list[dict], members: dict, run: Path, token: str, plan: dict,
+               budget: float, simultaneous: bool, hold: float | None, open_page: bool,
+               work: Path, finish) -> dict:
+    """Bring the core up, start the stage on it, run the show, and take it all down."""
+    stages = [stage(m, members, "stage", run, token, plan) for m in order]
+    for built in stages:
+        built.own_check = False
+    (run / "stage").mkdir(parents=True, exist_ok=True)
+    job = stage_job(plan, order, run)
+    job_path = run / "stage" / "job.json"
+    job_path.write_text(json.dumps(job, indent=2), encoding="utf-8")
+    url = f"http://{job['host']}:{job['port']}/"
+    server = Running(member="stage", id="stage", argv=runtime_argv(plan, "serve", str(job_path)),
+                     cwd=str(run / "stage"), env={}, ready_url=url,
+                     log=str(run / "logs" / "stage-serve.log"))
+    record: dict = {"url": url, "port": job["port"], "job": str(job_path),
+                    "links": family_stage.links(job["show"], job["running"]),
+                    "app_to_app": family_stage.APP_TO_APP, "show": job["show"],
+                    "not_asked": ["each member's own check: --stage runs the show, and "
+                                  "`qm family-demo` without it runs every member's check"]}
+    seams_live: dict = {}
+    ports: dict = {}
+    try:
+        if simultaneous:
+            _simultaneous(stages, budget, members, work)
+        else:
+            for built in stages:
+                print(f"  stage    {built.name:<11} starting", flush=True)
+                bring_up(built, budget, members, work)
+        assert_all(stages, run, plan, "stage")
+        isolation = [member_result(b.checks, b.readiness, False) for b in stages]
+        busy = listening(job["port"])
+        if any(r != "pass" for r in isolation):
+            record["check"] = {"result": "unknown", "cues": [], "shots": [],
+                               "detail": "not run: a member was not up, or not isolated"}
+        elif busy:
+            record["check"] = {"result": "unknown", "cues": [], "shots": [],
+                               "detail": f"not run: port {job['port']} is held by {sorted(busy)}, "
+                                         f"which this run did not start; nothing was killed"}
+        else:
+            print(f"  stage    starting on {url}", flush=True)
+            start(server)
+            wait_ready(server, max(budget, 180.0))
+            if server.readiness != "pass":
+                record["check"] = {"result": server.readiness if server.readiness == "fail"
+                                   else "unknown", "cues": [], "shots": [],
+                                   "detail": f"the stage did not start: {server.readiness_detail}"}
+            else:
+                print("  stage    running the show headless", flush=True)
+                before = live_connections(stages)
+                record["check"] = stage_check(plan, job_path, job, run)
+                seams_live = merge_samples([before, live_connections(stages)])
+        stage_file = run / "stage" / "stage.json"
+        if stage_file.is_file():
+            record["relays"] = json.loads(stage_file.read_text(encoding="utf-8"))
+        record["landing"] = finish(stages, seams_live, record)
+        if (hold is not None or open_page) and server.readiness == "pass":
+            answered = http_post(url + "reset")
+            print(f"\nthe stage is up at {url}; the hub was reset to the top ({answered})",
+                  flush=True)
+            if open_page:
+                webbrowser.open(url)
+            hold_open(run, hold if hold is not None else 0.0, url)
+    finally:
+        record["server_binds"] = observe_server(server, job["port"])
+        stop(server)
+        record["server"] = server.record()
+        ports = take_down(stages, members)
+        ports.update(port_report([job["port"]]))
+    records = {built.name: built.record() for built in stages}
+    for name, member_record in records.items():
+        print(f"  stage    {name:<11} {member_record['result']:<8} "
+              f"ready {seconds(member_record['ready_seconds'])}  {summary(member_record)}",
+              flush=True)
+    check = record.get("check") or {}
+    print(f"  stage    the show: {check.get('result', 'unknown')}, "
+          f"{len(check.get('cues') or [])} cue(s) -- {check.get('detail', '')}", flush=True)
+    return {"start": "simultaneous" if simultaneous else "staggered", "members": records,
+            "ports_after": ports, "live_connections": seams_live, **record}
+
+
+def observe_server(process: Running, port: int) -> dict:
+    """The stage server's process tree and what it holds, read before it is stopped.
+
+    Recorded so `stop` sweeps a descendant that outlives the server -- the
+    stage's browser is one -- and so a socket outside the stage's own port is
+    reported as a hazard, as it is for a member.
+    """
+    table = process_table()
+    if process.popen is None or table is None:
+        return {"binds": "unknown", "unreserved": "unknown"}
+    process.tree = {pid: table[pid][0] if pid in table else -1
+                    for pid in descendants(process.popen.pid, table)}
+    held = binds()
+    if held is None:
+        return {"binds": "unknown", "unreserved": "unknown", "processes": len(process.tree)}
+    mine = sorted({f"{proto} {host}:{bound}" for proto, (host, bound), pid in held
+                   if pid in process.tree})
+    return {"processes": len(process.tree), "binds": mine,
+            "unreserved": [b for b in mine if not b.endswith(f":{port}")]}
+
+
+def http_post(url: str) -> int | None:
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, method="POST"),
+                                    timeout=10) as response:
+            return response.status
+    except urllib.error.HTTPError as exc:
+        return exc.code
+    except (urllib.error.URLError, OSError):
+        return None
 
 
 def seconds(value) -> str:
@@ -1583,6 +1781,11 @@ code{font-size:.85em;overflow-wrap:anywhere}
 .card h3{margin:0 0 4px;font-size:1rem}.live{font-size:.8rem;color:var(--muted)}
 .card ul{margin:4px 0;padding-left:18px;font-size:.85rem}
 .wrap{overflow-x:auto}
+.story{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:16px}
+.story figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:8px;
+padding:10px}
+.story img{width:100%;border:1px solid var(--line);border-radius:4px}
+.story figcaption{font-size:.88rem}.story ul{margin:4px 0;padding-left:18px}
 """
 
 LIVE = """
@@ -1612,8 +1815,15 @@ def contract_status(record: dict) -> str:
 def landing_page(manifest: dict, run: Path) -> str:
     """The demo as a page: every surface, every picture, every unknown."""
     e = html.escape
+
+    def ran(record: dict) -> str:
+        if not record:
+            return "not run"
+        return (f'{result_span(record.get("result", "unknown"))}<br><span class="live">ready '
+                f'{e(str(record.get("ready_seconds", "")))}s</span>')
     rows, cards = [], []
     together_members = (manifest.get("together") or {}).get("members") or {}
+    staged = (manifest.get("stage") or {}).get("members") or {}
     wave0 = manifest.get("wave0") or {}
     for name, member in manifest["members"].items():
         if not member.get("runs"):
@@ -1625,7 +1835,12 @@ def landing_page(manifest: dict, run: Path) -> str:
         stack = member.get("stacks_on") or {}
         contains = {True: "contains it", False: "does not contain it"}.get(
             stack.get("contains"), "not established")
-        status = contract_status(tg or w0)
+        status = contract_status(tg or w0) if (tg or w0) else "not asked"
+        on_stage = staged.get(name, {})
+        stage_cell = (f'<td>{result_span(on_stage.get("result", "unknown"))}<br>'
+                      f'<span class="live">isolation; ready '
+                      f'{e(str(on_stage.get("ready_seconds", "")))}s</span></td>'
+                      if staged else "")
         rows.append(
             f'<tr data-member="{e(name)}"><td><strong>{e(name)}</strong><br>'
             f'<span class="live">{e(member.get("family") or "unstated")}</span></td>'
@@ -1633,10 +1848,8 @@ def landing_page(manifest: dict, run: Path) -> str:
             f'<span class="live">on <code>{e(str(stack.get("claimed") or ""))}</code>, '
             f'{e(contains)}</span></td>'
             f'<td>{e(ports)}</td><td>{e(status)}</td>'
-            f'<td>{result_span(w0.get("result", "unknown")) if w0 else "not run"}'
-            f'<br><span class="live">ready {e(str(w0.get("ready_seconds", "")))}s</span></td>'
-            f'<td>{result_span(tg.get("result", "unknown")) if tg else "not run"}'
-            f'<br><span class="live">ready {e(str(tg.get("ready_seconds", "")))}s</span></td>'
+            f'<td>{ran(w0)}</td><td>{ran(tg)}</td>'
+            f'{stage_cell}'
             f'<td><a href="{e(surface)}">{e(surface)}</a><br>'
             f'<span class="live" data-live="{e(surface)}">not checked</span></td></tr>')
         for wave, record in (("alone", w0), ("together", tg)):
@@ -1677,11 +1890,11 @@ def landing_page(manifest: dict, run: Path) -> str:
 Live links answer only while the run is held open; the pictures are what each
 member's own check took while it ran. Overall: {result_span(manifest["overall"]) if manifest.get("overall")
 else "not decided while the members are still up"}.</p>
-
+{stage_section(manifest, run) if manifest.get("stage") else ""}
 <h2>Members that ran</h2>
 <p>Each runs the branch carrying its active work, with the contract on top.</p>
 <div class="wrap"><table>
-<tr><th>Member</th><th>Branch and commit</th><th>Ports</th><th>Contract</th><th>Alone</th><th>Together</th><th>Surface</th></tr>
+<tr><th>Member</th><th>Branch and commit</th><th>Ports</th><th>Contract</th><th>Alone</th><th>Together</th>{"<th>On the stage</th>" if staged else ""}<th>Surface</th></tr>
 {"".join(rows)}
 </table></div>
 {f"<h3>Where the branch was a judgement</h3><ul>{choices}</ul>" if choices else ""}
@@ -1695,7 +1908,7 @@ processes and by nothing else, reserved ports left unbound, what a member says
 about itself naming this run, and its checkout left as installed.</p>
 
 <h2>What each check saw</h2>
-<div class="cards">{"".join(cards)}</div>
+<div class="cards">{"".join(cards) or "<p>No member's own check ran in this run.</p>"}</div>
 
 <h2>Seams</h2>
 <p>Running together here is process simultaneity: the members share a machine,
@@ -1717,6 +1930,49 @@ seam and a person called Joe alike, so read the files; a name is not a wire.</p>
 <h2>Unknowns</h2><ul>{unknowns}</ul>
 <p class="live">Full record: <a href="manifest.json">manifest.json</a>.</p>
 </main><script>{LIVE}</script></body></html>
+"""
+
+
+def stage_section(manifest: dict, run: Path) -> str:
+    """The show on the stage: its verdict, what links what, and a picture per cue."""
+    e = html.escape
+    stage = manifest["stage"]
+    check = stage.get("check") or {}
+    figures = []
+    for cue in check.get("cues") or []:
+        shot = cue.get("shot")
+        picture = (f'<img alt="The stage after cue {e(str(cue["number"]))}" '
+                   f'src="{e(Path(os.path.relpath(shot, run)).as_posix())}">'
+                   if shot and Path(shot).is_file() else "<p>no picture was recorded</p>")
+        held = "".join(
+            f'<li>{result_span(a["result"])} {e(a["what"])}'
+            f'{" -- " + e(a["detail"]) if a.get("detail") else ""} '
+            f'<span class="live">({e(a.get("by", ""))})</span></li>'
+            for a in cue.get("assertions") or [])
+        figures.append(f'<figure data-cue="{e(str(cue["number"]))}">{picture}<figcaption>'
+                       f'<strong>Cue {e(str(cue["number"]))}, {e(cue["name"])}</strong> '
+                       f'{result_span(cue.get("result", "unknown"))}<ul>{held}</ul>'
+                       f'</figcaption></figure>')
+    links = "".join(f'<li><strong>{e(r["member"])}</strong> {e(r["link"])}: {e(r["says"])}</li>'
+                    for r in stage.get("links") or [])
+    not_asked = "".join(f"<li>{e(n)}</li>" for n in stage.get("not_asked") or [])
+    show = stage.get("show") or {}
+    detail = (f'<p>{e(check["detail"])}</p>'
+              if check.get("detail") and check.get("result") != "pass" else "")
+    return f"""<h2>The stage: {e(show.get("name", ""))}</h2>
+<p>The core up together, a show of {len(show.get("cues") or [])} cues created in the hub through
+its own routes, and one page that fires each cue through the hub's programmer and performs the
+cue's family block on the members. Played headless, cue by cue:
+{result_span(check.get("result", "unknown"))}. The page answers at
+<a href="{e(stage.get("url", ""))}">{e(stage.get("url", ""))}</a> only while the run is held
+(<code>uv run qm family-demo --stage --hold --open</code>).</p>{detail}
+<h3>What links what</h3><ul>{links}</ul>
+<p><strong>App to app: none.</strong> {e(stage.get("app_to_app", ""))}</p>
+<h3>Not asked in this mode</h3><ul>{not_asked}</ul>
+<h3>Storyboard</h3>
+<p>The stage after each cue, in cue order, taken by the check that asserted the lines under
+it. Recorded, never compared.</p>
+<div class="story">{"".join(figures) or "<p>No cue was played.</p>"}</div>
 """
 
 
@@ -1745,14 +2001,20 @@ def missing_artifacts(manifest: dict, run: Path) -> list[str]:
     named = [run / "index.html", run / "manifest.json"]
     records = list((manifest.get("wave0") or {}).values())
     records += list(((manifest.get("together") or {}).get("members") or {}).values())
+    records += list(((manifest.get("stage") or {}).get("members") or {}).values())
+    check = (manifest.get("stage") or {}).get("check") or {}
+    named += [Path(shot) for shot in check.get("shots") or []]
+    if check.get("log"):
+        named.append(Path(check["log"]))
     for record in records:
         for entry in record.get("checks") or []:
             named += [Path(shot) for shot in entry.get("shots") or []]
             if entry.get("log"):
                 named.append(Path(entry["log"]))
-    landing = (manifest.get("together") or {}).get("landing") or {}
-    if landing.get("shot"):
-        named.append(Path(landing["shot"]))
+    for wave in ("together", "stage"):
+        landing = (manifest.get(wave) or {}).get("landing") or {}
+        if landing.get("shot"):
+            named.append(Path(landing["shot"]))
     return [str(p) for p in named if not p.is_file() or p.stat().st_size == 0]
 
 
@@ -1760,7 +2022,8 @@ def collect_hazards(manifest: dict) -> list[str]:
     """What the plan says to stop on or watch for, as observed in this run."""
     found = []
     waves = (("alone", manifest.get("wave0") or {}),
-             ("together", (manifest.get("together") or {}).get("members") or {}))
+             ("together", (manifest.get("together") or {}).get("members") or {}),
+             ("stage", (manifest.get("stage") or {}).get("members") or {}))
     for wave, records in waves:
         for name, record in records.items():
             identity = record.get("listener_identity") or {}
@@ -1776,9 +2039,17 @@ def collect_hazards(manifest: dict) -> list[str]:
             for port, state in (record.get("ports_after") or {}).items():
                 if state.get("free") is not True:
                     found.append(f"{name} {wave}: port {port} not free after shutdown")
-    for port, state in ((manifest.get("together") or {}).get("ports_after") or {}).items():
-        if state.get("free") is not True:
-            found.append(f"together: port {port} not free after shutdown")
+    for wave in ("together", "stage"):
+        for port, state in ((manifest.get(wave) or {}).get("ports_after") or {}).items():
+            if state.get("free") is not True:
+                found.append(f"{wave}: port {port} not free after shutdown")
+    forced = (((manifest.get("stage") or {}).get("server") or {}).get("shutdown") or {})
+    if forced.get("descendants_forced"):
+        found.append(f"the stage left processes that had to be forced: "
+                     f"{forced['descendants_forced']}")
+    loose = ((manifest.get("stage") or {}).get("server_binds") or {}).get("unreserved")
+    if isinstance(loose, list) and loose:
+        found.append(f"the stage holds sockets outside its port: {', '.join(loose)}")
     for name, member in (manifest.get("members") or {}).items():
         native = (member.get("checkout") or {}).get("native_paths") or {}
         if native.get("over_limit"):
@@ -1793,7 +2064,8 @@ def collect_hazards(manifest: dict) -> list[str]:
 def collect_unknowns(manifest: dict) -> list[str]:
     found = []
     for wave, records in (("alone", manifest.get("wave0") or {}),
-                          ("together", (manifest.get("together") or {}).get("members") or {})):
+                          ("together", (manifest.get("together") or {}).get("members") or {}),
+                          ("stage", (manifest.get("stage") or {}).get("members") or {})):
         for name, record in records.items():
             for entry in record.get("checks") or []:
                 if entry["result"] == "unknown":
@@ -1812,6 +2084,15 @@ def collect_unknowns(manifest: dict) -> list[str]:
                          f"{(member.get('stacks_on') or {}).get('claimed')} was not established")
     if (manifest.get("together") or {}).get("live_connections", {}).get("observed") == "unknown":
         found.append("cross-member connections: not observable on this machine")
+    check = (manifest.get("stage") or {}).get("check")
+    if check is not None:
+        if check.get("result") == "unknown":
+            found.append(f"the stage: the show -- {check.get('detail', '')}")
+        for cue in check.get("cues") or []:
+            for held in cue.get("assertions") or []:
+                if held["result"] == "unknown":
+                    found.append(f"the stage, cue {cue['number']}: {held['what']} -- "
+                                 f"{held.get('detail', '')}")
     return found
 
 
@@ -1851,7 +2132,8 @@ def main(argv: list[str] | None = None) -> int:
         description="Bring the performing family up on reserved ports, alone and "
                     "together, and record what each member did.")
     parser.add_argument("--plan-file", type=Path, default=PLAN)
-    parser.add_argument("--wave", choices=("0", "together", "all"), default="all")
+    parser.add_argument("--wave", choices=("0", "together", "all"), default=None,
+                        help="which waves run (default all); not with --stage")
     parser.add_argument("--phase", action="append", default=[],
                         help="run only this phase (repeatable); default every phase that runs")
     parser.add_argument("--member", action="append", default=[],
@@ -1872,7 +2154,19 @@ def main(argv: list[str] | None = None) -> int:
                         help="reinstall even when this commit was installed before")
     parser.add_argument("--plan", action="store_true", dest="dry",
                         help="print what would run and check the roster; start nothing")
+    parser.add_argument("--stage", action="store_true",
+                        help="bring the core up, put the plan's show on it, and play it headless")
+    parser.add_argument("--open", action="store_true", dest="open_page",
+                        help="with --stage: open the stage in the system browser and hold it up")
     args = parser.parse_args(argv)
+    if args.stage and (args.wave or args.member or args.phase):
+        print("family-demo: --stage runs the whole core in a wave of its own; it takes no "
+              "--wave, --member or --phase", file=sys.stderr)
+        return 2
+    if args.open_page and not args.stage:
+        print("family-demo: --open opens the stage, so it needs --stage", file=sys.stderr)
+        return 2
+    args.wave = args.wave or "all"
 
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
@@ -1887,6 +2181,8 @@ def main(argv: list[str] | None = None) -> int:
     except (OSError, yaml.YAMLError, PlanError) as exc:
         print(f"family-demo: {exc}", file=sys.stderr)
         return 2
+    if args.stage and not problems and "stage" not in plan:
+        problems = ["stage: --stage needs a stage block, and this plan has none"]
     if problems:
         print("family-demo: the demo roster cannot run as written:", file=sys.stderr)
         for problem in problems:
@@ -1918,6 +2214,10 @@ def main(argv: list[str] | None = None) -> int:
               f"{ports}{branch}")
     if lonely:
         print(f"  unplaced performing-family members: {', '.join(lonely)}")
+    if args.stage:
+        show = plan["stage"]["show"]
+        print(f"  stage on port {plan['stage']['port']}: {show['name']!r}, "
+              f"{len(show['cues'])} cues; each member's own check is not run")
     if args.dry:
         return 0
 
@@ -2003,6 +2303,8 @@ def main(argv: list[str] | None = None) -> int:
     manifest["members"] = members
 
     started = [m for m in order if members[m["name"]].get("install", {}).get("result") == "pass"]
+    if args.stage:
+        args.wave = "stage"
     if args.wave in ("0", "all"):
         print("wave 0: each member alone", flush=True)
         manifest["wave0"] = wave_zero(order, members, run, token, plan, args.ready_budget, work)
@@ -2023,6 +2325,28 @@ def main(argv: list[str] | None = None) -> int:
             "shot": str(run / "shots" / "landing.png")}], run / "probes" / "landing", plan)
         return result[0] if result else {}
 
+    def finish_stage(stages: list[Stage], live: dict, record: dict) -> dict:
+        """Write the page, with the storyboard, while everything is up; check it in a browser."""
+        manifest["stage"] = {"members": {s.name: s.record() for s in stages},
+                             "live_connections": live, **record}
+        manifest["seams"] = {"named_in_source": named_in_source(
+            members, [m["name"] for m in started])}
+        manifest["unknowns"] = collect_unknowns(manifest)
+        manifest["hazards"] = collect_hazards(manifest)
+        (run / "index.html").write_text(landing_page(manifest, run), encoding="utf-8")
+        result = run_probe([{
+            "member": "landing", "name": "landing-page-shows-every-member",
+            "base": (run / "index.html").as_uri(),
+            "params": {"members": [m["name"] for m in order]},
+            "shot": str(run / "shots" / "landing.png")}], run / "probes" / "landing", plan)
+        return result[0] if result else {}
+
+    if args.wave == "stage":
+        print(f"stage: every core member up, {args.start} start, and the show on them",
+              flush=True)
+        manifest["stage"] = stage_wave(order, members, run, token, plan, args.ready_budget,
+                                       args.start == "simultaneous", args.hold, args.open_page,
+                                       work, finish_stage)
     if args.wave in ("together", "all"):
         print(f"together: every member up, {args.start} start", flush=True)
         manifest["together"] = together(order, members, run, token, plan, args.ready_budget,
@@ -2038,6 +2362,11 @@ def main(argv: list[str] | None = None) -> int:
     landing = (manifest.get("together") or {}).get("landing") or {}
     if landing:
         wave_results.append(landing.get("result", "unknown"))
+    staged = manifest.get("stage") or {}
+    if staged:
+        wave_results += [r["result"] for r in (staged.get("members") or {}).values()]
+        wave_results.append((staged.get("check") or {}).get("result", "unknown"))
+        wave_results.append((staged.get("landing") or {}).get("result", "unknown"))
     status = exit_status(wave_results)
     manifest["overall"] = {0: "pass", 1: "fail", 3: "unknown"}[status]
     manifest["finished_at"] = now()
@@ -2059,7 +2388,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"  hazard  {hazard}")
     print(f"page     {(run / 'index.html').as_uri()}")
     print(f"manifest {run / 'manifest.json'}")
-    print("seams    no check exercises a seam between members; see the page")
+    if staged:
+        print(f"stage    the show: {(staged.get('check') or {}).get('result', 'unknown')}; "
+              f"every family action is relayed by the stage, and no member calls another")
+    else:
+        print("seams    no check exercises a seam between members; see the page")
     return status
 
 

@@ -83,6 +83,91 @@ browser:
   playwright: "1.62.0"
   python: "3.12"
 
+# THE STAGE. `uv run qm family-demo --stage` brings the core up, creates this
+# show in the hub through the hub's own REST routes, and serves one page on
+# `port`: the cue list, a GO button that fires the hub's cue programmer, and a
+# panel per member. For every cue the hub logs, the stage performs the cue's
+# `family` block on the members, through interfaces each already has, and a
+# headless check plays the show and records a picture after every cue.
+# ci/family_stage.py holds the verbs a family block may use and the rules for
+# this block; ci/family_stage_run.py is the one file that names a member's
+# surface.
+#
+# Every link is claimed at its width. The hub firing and logging a cue is real.
+# Every family action is relayed by the stage: no member calls another.
+stage:
+  port: 18405
+  show:
+    name: Demo night
+    cue_list: Main
+    cues:
+      - number: 1
+        name: House open
+        layer: Stage
+        family:
+          leo: {do: show, song: Autumn Leaves, playlist: Jazz 1460}
+          carlos: {do: patch, device: novation.launchpad-x, example: complex}
+      - number: 2
+        name: Count in
+        layer: Sound
+        family:
+          ShowStopper: {do: start}
+          joe: {do: take, notes: [C4, E4, G4, C5]}
+      - number: 3
+        name: Second tune
+        layer: Stage
+        family:
+          leo: {do: show, song: Blue Bossa, playlist: Jazz 1460}
+          carlos: {do: turn}
+      - number: 4
+        name: The solo
+        layer: Sound
+        family:
+          carlos: {do: patch, device: moog.dfam, example: complex}
+          joe: {do: take, notes: [G3, B3, D4, F4, G4]}
+      - number: 5
+        name: Curtain
+        layer: Lights
+        family:
+          ShowStopper: {do: stop}
+          leo: {do: show, song: Take The A Train, playlist: Jazz 1460}
+  # One panel per running member: its role in one line, and whether it is the
+  # member's own page in a frame or the stage's own session of it, pictured.
+  panels:
+    ShowRunner:
+      role: The hub. It fires each cue and logs it.
+      shows: frame
+      path: /programmer
+      note: >
+        ShowRunner's own programmer page, live. Its clock and cue line move
+        when the hub fires, whoever pressed GO.
+    ShowStopper:
+      role: The clock. The show's stopwatch runs from the count-in to the curtain.
+      shows: session
+      note: >
+        The stage's own session, pictured every second while it runs.
+        textual-serve starts one app per connection, so a frame here would be
+        a second stopwatch that nothing presses.
+    carlos:
+      role: The rig. Which instruments are patched, and how they face.
+      shows: session
+      note: >
+        The stage's own session of the rack. The rack's state lives in the tab
+        that holds it, so a frame here would be a rack that nothing turns.
+    joe:
+      role: The take. What was played, heard back as notes.
+      shows: session
+      note: >
+        The stage's own session of joe's page, which fetches the latest result
+        after each take. A frame would stay empty until someone pressed Fetch
+        Latest in it.
+    leo:
+      role: What the performer reads. The chart of the song that is on now.
+      shows: frame
+      note: >
+        leo itself, live. Each cue that names a song loads leo's own link to
+        it here.
+
 phases:
   - id: core
     runs: true
