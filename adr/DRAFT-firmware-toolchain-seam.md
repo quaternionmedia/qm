@@ -1,11 +1,11 @@
-# ADR-XXXX — Firmware toolchain seam: program boards from Apothecary via arduino-cli and esptool
+# ADR-XXXX — Firmware toolchain seam: program boards from Apothecary through toolchain modules
 
 | | |
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-09-15 |
 | **Pends on** | Human ratification of *QM constitution adoption scope for Apothecary*, which fixes this project's disposition toward externally-invoked copyleft binaries (its Consequences name `openscad` as the precedent this record extends). |
-| **Tools** | Claude Code (Anthropic) assisted the 2026-09-19 revision (§6's scope, the cross-reference to the printer seam); the human who sponsored the work is the contributor of record. |
+| **Tools** | Claude Code (Anthropic) assisted the 2026-09-19 revision (§6's scope, the cross-reference to the printer seam) and the 2026-10-10 revision (§2's modules, Rust for the ESP32, §6's port rule); the human who sponsored the work is the contributor of record. |
 
 ## Context
 
@@ -29,6 +29,14 @@ the adoption-scope record's audit already classes that shape as acceptable
 under the open-license record's copyleft clause because it is invoked, never
 linked or vendored.
 
+Not every sketch is Arduino's to build. The owner chose, on 2026-10-08, to
+program the classic ESP32 in Rust as well (`esp-hal`, no_std): a build
+`arduino-cli` cannot make, which this record's own revision trigger
+anticipated. The engines for it -- `cargo` on Espressif's Xtensa Rust, and
+**espflash** (MIT OR Apache-2.0) to flash -- are executables of the same
+shape, and the owner asked that Arduino and the ESP32 be modules of one seam,
+so that a later board family or language is a module added, not a redesign.
+
 Apothecary is a `uv`-managed local tool plus a localhost FastAPI server
 (P5 house stack). The server executes binaries and opens serial ports on
 the machine it runs on; nothing in this decision changes its localhost
@@ -43,16 +51,27 @@ is a local control, not a service.
    `firmware.json` sidecar carrying a default FQBN, required cores and
    libraries, and a human note); installation and validation of the
    toolchain; input validation; and streaming of engine output to the CLI
-   and the web GUI. Apothecary does not compile, link, or flash anything
-   itself.
+   and the web GUI. A sketch may also be a Cargo project in its part's
+   folder (`parts/esp32_blink/rust/`), its `firmware.json` naming its
+   toolchain. Every sketch is named with its toolchain
+   (`esp32_blink@arduino`, `esp32_blink@rust-esp32`) wherever it is shown or
+   asked for; a node that names the behaviour (`esp32_blink`) matches a board
+   running either build, and the board's hello is the same. Apothecary does
+   not compile, link, or flash anything itself.
 
-2. **arduino-cli is the build-and-upload engine; esptool is the raw-flash
-   engine.** Both are reached over a subprocess seam (`apothecary/firmware/
-   toolchains.py`): typed request → argv list → documented output parsed
-   (`--json` for arduino-cli, both the v1.x wrapped and the 0.x bare shapes).
-   Neither is a declared Python dependency, so the dependency-manifest
-   license gate is unaffected by construction; both remain GPL binaries the
-   user runs, exactly as `openscad` is.
+2. **Toolchains are modules behind one interface; each module's engines
+   are reached over a subprocess seam.** A module (`apothecary/firmware/
+   modules/`) says what it builds (languages, board families), finds its
+   tools, reports its status, installs them, and turns a build or a flash
+   into steps: typed request → argv list → documented output parsed. Two
+   exist. *Arduino*: arduino-cli is the build-and-upload engine (`--json`,
+   both the v1.x wrapped and the 0.x bare shapes) and esptool the raw-flash
+   engine. *Rust for the ESP32*: `cargo build --release --offline` builds
+   from vendored crates, and espflash flashes. A later board family or
+   language (the ESP32-C3 on stable Rust, AVR, the RP2040) is a module added
+   to the registry. No engine is a declared Python dependency, so the
+   dependency-manifest license gate is unaffected by construction; each
+   remains a binary the user runs, exactly as `openscad` is.
 
 3. **The installer fetches arduino-cli from Arduino's GitHub releases,
    pinned or latest, and refuses an archive whose SHA-256 does not match
@@ -62,7 +81,21 @@ is a local control, not a service.
    `XDG_DATA_HOME` at a per-revision tree that vanishes on update. Detection
    order for an existing install: `ARDUINO_CLI` env, the tools dir, `PATH`.
    esptool is detected, not installed: on `PATH`, bundled inside the esp32
-   Arduino core, or as an importable module, in that order.
+   Arduino core, or as an importable module, in that order. For Rust on the
+   ESP32, `apothecary firmware install --rust-esp32` fetches, into the tools
+   dir and nowhere else: rustup-init, checked against the `.sha256` published
+   beside it; espflash, checked against the SHA-256 GitHub publishes for the
+   asset; Espressif's Xtensa Rust and rust-src, checked the same way (their
+   release has no checksum file); and Espressif's LLVM and GCC, checked
+   against their releases' own checksum files. Each archive is checked before
+   it is opened, and no downloaded script runs: the Rust components are
+   copied as their manifests list them, and the toolchain is linked into the
+   tools dir's rustup. It then vendors each Rust sketch's crates, so every
+   build afterwards reaches no host. Versions are pinned and move only in a
+   commit that bumps them and re-runs the real install and an offline build.
+   Each install flag installs its own module and nothing else. Detection for
+   Rust: `CARGO` and `ESPFLASH` env, the tools dir, `PATH`; for every
+   engine's variable, `none` means none.
 
 4. **Every engine invocation from the GUI is a background task with a
    polled log; one task runs at a time.** `POST /firmware/…` returns a task
@@ -77,34 +110,47 @@ is a local control, not a service.
    regex; sketch names resolve only to discovered sketches; esptool image
    paths resolve only inside the repository tree. Uploads compile first and
    flash the fresh build (`--build-path` → `--input-dir`), never a stale
-   binary, and the GUI asks for confirmation before any write to a board.
+   binary, and the GUI asks for confirmation before any write to a board. A
+   Rust build remaps every folder it is made in (`--remap-path-prefix`) and
+   its last step reads the whole image and fails if any of them appears, so
+   no build path -- and so no user name -- reaches a flashed board.
 
 6. **A board is described from three independent sources, and the GUI
-   shows where they disagree.** *Detected*: the serial port and USB bridge
-   (`arduino-cli board list`). *Probed*: chip model, revision, MAC and flash
-   size (`esptool flash_id`, which resets the board), cached per port.
+   shows where they disagree.** *Detected*: the serial port and USB bridge,
+   by each module's own finding (`arduino-cli board list` for Arduino;
+   pyserial's port list, which opens nothing, for Rust). *Probed*: chip
+   model, revision, MAC and flash size (`esptool flash_id`, or espflash's
+   `board-info` where there is no esptool; both reset the board), cached per
+   port.
    *Expected*: a `FlashRecord` Apothecary writes on every successful upload
    — sketch, FQBN, SHA-256 of the uploaded binary and of the sketch sources —
    keyed by MAC when known, else by port, kept in
    `~/.apothecary/firmware-state.json` (machine state, never committed), and
    compared against the tree on every view (source edited since; newer build
-   never uploaded; sketch gone). *Observed*: serial output through
-   `arduino-cli monitor`. A sketch identifies itself by printing
+   never uploaded; sketch gone). *Observed*: serial output through each
+   module's own monitor. A sketch identifies itself by printing
    `apothecary <name>: hello` at boot **and periodically** (every few
    seconds) — periodically because the monitor takes longer to attach than
    a boot banner lasts, and a protocol that depends on catching boot is a
    protocol that fails whenever it matters. For the boards this record
-   programs, only arduino-cli and esptool ever open the port: Apothecary's
-   own process does not, because a second opener was observed to corrupt
-   reads on a CP2102 bridge. A board Apothecary *monitors* rather than
+   programs, a port is opened only by the toolchain module that found it,
+   through that module's own engines, one holder at a time: for Arduino,
+   arduino-cli (monitor, upload) and esptool; for Rust on the ESP32,
+   espflash (flash, board-info) and Apothecary's own serial monitor --
+   pyserial, run as a process of its own, opening the port exclusively with
+   DTR and RTS de-asserted so that listening does not reset the board. The
+   server process itself still opens no devkit's port, because a second
+   opener was observed to corrupt reads on a CP2102 bridge. A port two
+   modules find belongs to the first (Arduino's, when arduino-cli is
+   installed). A board Apothecary *monitors* rather than
    programs — a printer mainboard speaking G-code — is the deliberate
    exception, held to one holder per port; that is the *G-code printer
    seam* record's decision, not this one's.
 
 7. **Serial output streams as server-sent events, and any task pre-empts
-   it.** `GET /firmware/devices/stream` keeps one `arduino-cli monitor` per
-   port; the firmware page shows it inline and the fractal viewer floats it
-   over the 3D view as a toggleable terminal. Starting any task stops every
+   it.** `GET /firmware/devices/stream` keeps one monitor per port, the
+   finding module's; a board's Machine in the viewer shows it as the board's
+   one log. Starting any task stops every
    monitor first (an upload needs the port more than an overlay does) and
    the overlay reconnects when the task ends. Bytes are paced through a
    token bucket refilled at the wire rate: a burst the UART could not have
@@ -113,12 +159,14 @@ is a local control, not a service.
    port with a marker line. Genuine output is never throttled — the bucket
    refills as fast as the wire can fill it.
 
-8. **Surfaces.** CLI: `apothecary firmware {install, validate, boards,
-   cores, libraries, sketches, compile, upload, flash-bin, devices, probe,
-   listen}`; `apothecary check` reports toolchain state alongside OpenSCAD.
-   GUI: `/firmware`, a single-file HTML/JS page (P9) in the fractal viewer's
-   visual language, linked from its toolbar; the viewer's "Serial log"
-   toggle. API: `/firmware/status`, `/boards`, `/boards/all`, `/cores`,
+8. **Surfaces.** CLI: `apothecary firmware {install [--rust-esp32],
+   validate, boards, cores, libraries, sketches, compile, upload, flash-bin,
+   devices, probe, listen}`; `apothecary check` reports each module's state
+   alongside OpenSCAD. GUI: the viewer's Bench panel (toolchains and their
+   installs, a ring of the modules; sketches; compile and upload) and a
+   board's Machine (its sketch, flashing, its log); `/firmware` opens the
+   viewer with the Bench. API: `/firmware/status`, `/toolchains` (+
+   `/toolchains/{id}/install`), `/boards`, `/boards/all`, `/cores`,
    `/sketches`, `/devices` (+ `/probe`, `/listen`, `/stream`), and the
    task-returning `POST`s.
 
@@ -183,8 +231,12 @@ is a local control, not a service.
 - arduino-cli or esptool relicenses off an OSI license, is archived, or goes
   twelve months without a release — starts the open-license record's §2
   clock; the seam makes the swap a component change.
-- A part needs a framework arduino-cli cannot build (ESP-IDF native, Zephyr,
-  bare-metal RP2040) — add the engine class per §2 and amend §6.
+- A part needs a board family or language no module builds (ESP-IDF
+  native, Zephyr, the ESP32-C3 in Rust, bare-metal RP2040) — add a module
+  per §2, and say in §6 how it finds and opens its ports.
+- Espressif changes how it publishes the Xtensa toolchain, or a pinned
+  version is bumped — §3's install is re-run for real and offline-built
+  before the bump lands.
 - `apothecary/firmware/` plus its CLI exceeds roughly 4,000 lines, or the
   flash-record file grows into something that wants a schema migration — P4 size smell; re-examine what an engine should
   own.

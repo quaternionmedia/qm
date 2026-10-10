@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Draft |
 | **Date** | 2026-09-20 |
-| **Tools** | Drafted with Claude Code (Anthropic). The audit that grounds it was run against `consolidate/2026-09-19` as a fan-out of readers over the repository, its findings checked by hand and by `strace`. What each import of the package loads, and what each install point weighed here would guard, was established by importing each module in a fresh interpreter: against `review/2026-09-26` at `595b433`, where importing the package installs the guard, and against scratch copies of that commit with the install moved to each shape weighed here. The `uvicorn` behaviour in §3 is that of uvicorn 0.38.0, run in a network namespace of its own. The human who sponsored the work is the contributor of record. |
+| **Tools** | Drafted with Claude Code (Anthropic). The audit that grounds it was run against `consolidate/2026-09-19` as a fan-out of readers over the repository, its findings checked by hand and by `strace`. What each import of the package loads, and what each install point weighed here would guard, was established by importing each module in a fresh interpreter: against `review/2026-09-26` at `595b433`, where importing the package installs the guard, and against scratch copies of that commit with the install moved to each shape weighed here. The `uvicorn` behaviour in §3 is that of uvicorn 0.38.0, run in a network namespace of its own. The hosts the Rust install for the ESP32 reaches were established by tracing a real install and an offline build with `strace`, against `build/rust-firmware` at `0c89e92`. The human who sponsored the work is the contributor of record. |
 
 ## Context
 
@@ -158,8 +158,10 @@ human-only contributorship.
    holds that line for the readers it names. There is no flag, environment
    variable, configuration file or route that turns the guard off.
 2. **One allowance, a tool fetch, and two callers.** The firmware installer
-   downloads arduino-cli, and the OpenSCAD installer a development snapshot
-   of OpenSCAD, through `tool_fetch(url)`, which refuses any URL
+   downloads arduino-cli -- and, for Rust on the ESP32, rustup-init,
+   espflash and Espressif's Xtensa Rust, rust-src, LLVM and GCC archives with
+   their checksums -- and the OpenSCAD installer a development snapshot of
+   OpenSCAD, through `tool_fetch(url)`, which refuses any URL
    whose host is not one of the fixed `TOOL_SOURCES` (the release API, the
    archive, where the archive redirects) before anything is opened, and
    admits the sockets and the name lookups beneath that one call, on that
@@ -167,9 +169,10 @@ human-only contributorship.
    guarded resolver returned for one of them -- so a redirect elsewhere is
    refused mid-fetch, and the fetch takes no proxy from the environment. A tool
    fetch is a GET of a release archive at a URL built from a version
-   string, and a version is three numbers or it is refused; no personal
-   data is in it; an OpenSCAD snapshot's version is its date, three
-   numbers too. Where no snapshot is published for the machine (Linux on
+   string, and a version is three or four numbers, or Espressif's three
+   numbers and a date, or it is refused; an asset's name and a checksum are
+   held to their shapes too; no personal data is in any of them; an
+   OpenSCAD snapshot's version is its date, three numbers too. Where no snapshot is published for the machine (Linux on
    arm64), the OpenSCAD installer builds that date's OpenSCAD from source:
    it asks GitHub's API for the commit at that date and the commits its
    submodules pin, and fetches each commit's source tarball; a commit is
@@ -225,8 +228,9 @@ human-only contributorship.
    it, and makes a link only of a relative, `http(s)` or `mailto` target;
    a `javascript:` target is shown as the text it was.
 5. **A subprocess that fetches is told where, and nothing else tells
-   it.** arduino-cli, esptool and OpenSCAD are outside a Python guard. Of
-   the three only arduino-cli reaches out. Every arduino-cli the seam
+   it.** arduino-cli, esptool, cargo, espflash and OpenSCAD are outside a
+   Python guard. Of these only arduino-cli and cargo reach out; espflash's
+   own update check is switched off on every run (`--skip-update-check`). Every arduino-cli the seam
    starts is given `--config-file` naming a file the package writes from
    `ARDUINO_CLI_CONFIG` whenever it differs: the cloud board lookup off,
    the update check off, the package indexes it may fetch from named
@@ -257,7 +261,17 @@ human-only contributorship.
    to a public address, whether IPv6 is routable, and sends nothing on it. The tools a person installs with
    their own commands -- `playwright install`, `npm install`, `git
    submodule update`, `uv sync` -- are fetches from their sources, run by
-   the person, carrying nothing of theirs.
+   the person, carrying nothing of theirs. cargo reaches out at install
+   time only: `apothecary firmware install --rust-esp32` runs `cargo vendor
+   --locked`, which reads crates.io's sparse index and downloads the crates
+   each Rust sketch's `Cargo.lock` names, and nothing else; its environment
+   is the build's -- every proxy, registry and source override, compiler
+   wrapper and token removed -- and its homes are in the tools dir. Every
+   build afterwards is `cargo --offline` with crates.io replaced by the
+   vendored folder, and a traced build looked up no name and opened no
+   internet socket. The Rust module finds ports with pyserial's port list,
+   which opens nothing and sends nothing; with only that module installed
+   there is no board scan by arduino-cli and so no multicast question.
 6. **What is kept is kept here, and the picture root is a folder of
    pictures.** Personal data lives in three places and nowhere else: the
    state folder (`~/.apothecary`, or `APOTHECARY_STATE_DIR`) -- devices
@@ -364,6 +378,9 @@ mirror the person owns.
 | GitHub releases (`api.github.com`, `github.com`, `objects.githubusercontent.com`, `release-assets.githubusercontent.com`) | the firmware installer, on *Install / update arduino-cli* | a GET of a version string's release archive and its checksums | an entry in `TOOL_SOURCES` and `RELEASES_*` |
 | `files.openscad.org` | the OpenSCAD installer, on `apothecary openscad install` | a GET of a snapshot archive named by its date | an entry in `TOOL_SOURCES` |
 | `api.github.com`, `codeload.github.com` | the OpenSCAD installer, building from source where no snapshot is published (Linux arm64) | the commit at a snapshot's date, the commits its submodules pin, and a GET of each commit's source tarball | entries in `TOOL_SOURCES` |
+| GitHub releases, as above | the firmware installer, on `apothecary firmware install --rust-esp32` | a GET of espflash's release and Espressif's Xtensa Rust, rust-src, LLVM and GCC archives at pinned versions, their checksum files, and the digests GitHub publishes for assets whose release has none | entries in `TOOL_SOURCES` and the installer's pins |
+| `static.rust-lang.org` | the firmware installer, on `apothecary firmware install --rust-esp32` | a GET of rustup-init at a pinned version and the `.sha256` beside it | an entry in `TOOL_SOURCES` |
+| `index.crates.io`, `static.crates.io` | `cargo vendor`, on `apothecary firmware install --rust-esp32` | the index entries and crate archives each Rust sketch's `Cargo.lock` names | a source replacement to a mirror the person owns, in the tools dir's cargo config |
 | `downloads.arduino.cc` | arduino-cli, on a core or library install | the index and archive names it needs | arduino-cli's own `directories`/index settings in `ARDUINO_CLI_CONFIG` |
 | `espressif.github.io`, `arduino.esp8266.com`, `github.com` (rp2040 index) | arduino-cli, on a third-party core install | the index and archive names | an entry in `PACKAGE_INDEXES` |
 | Arduino's cloud board API (`api2.arduino.cc`) | nothing: off by `ARDUINO_CLI_CONFIG` | -- | -- |
@@ -489,7 +506,9 @@ What this record does not close, and what would show it:
 7. **Scanning ports with pyserial instead of `arduino-cli board list`** --
    it would remove the multicast question and the dependence on
    arduino-cli for a scan, at the cost of the board-name match its
-   installed cores provide; deferred, and named as the trigger below.
+   installed cores provide; the Rust module scans with pyserial, the
+   Arduino module still with arduino-cli, and moving the Arduino module's
+   scan is named as the trigger below.
 8. **The guard installed by importing the `apothecary` package** -- one
    install point and the simplest rule a reader could want: any process
    that loads any apothecary code is under it. It lost because it takes
@@ -547,8 +566,12 @@ What this record does not close, and what would show it:
   gap is closed, and this record says so.
 - A tool source or a package index changes hosts -- `TOOL_SOURCES` or
   `PACKAGE_INDEXES` is edited, with a note here.
-- The board scan is made with pyserial -- the multicast question in §5
-  and the risk register go, and the service inventory loses its last row.
+- The Arduino module's board scan is made with pyserial too -- the
+  multicast question in §5 and the risk register go, and the service
+  inventory loses its last row.
+- A Rust sketch's crates are bumped, or another Rust module is added --
+  `cargo vendor` reaches crates.io again at install time only, and a traced
+  build still looks up no name.
 - A person needs the viewer on another device on their own network (a
   tablet at the printer) -- that is §8's record, or a local tunnel the
   person sets up outside the program, never a `--host`.
