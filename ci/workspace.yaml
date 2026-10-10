@@ -452,6 +452,14 @@ repositories:
     note: remote mixing
     paths: [ludwig, qm/ludwig]
 
+  - name: loopwall
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: instruments
+    note: private loop-control repository; no local clone in this workspace yet
+    paths: [loopwall, qm/loopwall]
+
   - name: waveofhormuz
     role: unmanaged
     phase: n/a
