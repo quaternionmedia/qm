@@ -181,7 +181,21 @@ allowed to age — it says what was true on a day, and reads correctly forever.
 
 Existing text is swept, per the record's §6: each repository's durable text is
 brought under these rules in its own pull requests, one area at a time, with
-`check_timeless.py --all --summary` as the measure of what remains. Facts a
-reader needs are kept and restated in the present tense; the telling is
-removed. A lesson that no retrospective yet records is written up as one,
-dated, rather than kept inline.
+`check_timeless.py --all --summary` as the measure of what remains.
+
+**Every passage the sweep touches is sorted into one of three homes**, and
+nothing is dropped unsorted:
+
+| What the passage is | Where it goes | How to tell |
+|---|---|---|
+| **A short fact** | Stays inline, in the present tense | It says what this code is, takes or returns, or cannot do, in a sentence or two, and is wrong if the code changes |
+| **An explanation** | `docs/`, the reference page for the area | A concept, a rule or a behaviour a user needs at length, often true of several modules at once; it is still true next month |
+| **A narrative** | A dated retrospective in the corpus's `perspectives/` | It tells how something came to be, what was found, by what, or what was learned, as an event |
+
+A passage often holds all three. *"The plane declared that the pipeline ran,
+the registry held the stub, so `stubs()` checks every `runs` declaration"*
+splits into a fact for the docstring (`stubs()` lists registered shapes still
+inheriting the base `run`), an explanation for the docs (a `runs` declaration
+is checked against the registry), and a story for the retrospective (the
+afternoon the plane said a stub ran). The sweeping pull request lists each
+passage and its home, so a reviewer can check that nothing was lost.

@@ -262,7 +262,9 @@ with a date looks checked.
     matters", no check described by what it caught. `uv run qm timeless`
     refuses the mechanical part on the lines a change adds and runs as the
     `timeless-check.yml` gate; `--all --summary` measures what the sweep has
-    left.
+    left. A sweep sorts every passage it touches: a short fact stays inline,
+    an explanation moves to `docs/`, a narrative to a dated retrospective in
+    `perspectives/`.
 
 ## If you're forking this corpus into a new project
 

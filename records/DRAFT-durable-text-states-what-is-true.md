@@ -83,9 +83,22 @@ generated view prints beside its tables.
    reason. What the check cannot recognise — a story told in neutral words —
    is for the author and the reviewer.
 
-6. **Existing text is swept, not left for the next edit.** Each repository's
-   durable text is brought under §1 to §3 in its own pull requests, area by
-   area, with the check's full report as the measure of what remains.
+6. **Existing text is swept, not left for the next edit, and every passage is
+   sorted.** Each repository's durable text is brought under §1 to §3 in its
+   own pull requests, area by area, with the check's full report as the measure
+   of what remains. Each passage the sweep touches goes to one of three homes:
+
+   - **A short fact stays inline**, in the present tense: what the thing is,
+     its contract, its limits.
+   - **An explanation moves to the reference documentation** (`docs/`): a
+     concept, a rule or a behaviour a user needs at length, especially one
+     that spans several modules.
+   - **A narrative moves to a dated retrospective** in the corpus's
+     `perspectives/`: how the thing came to be, what was found and by what,
+     and a lesson told as an event.
+
+   The pull request that sweeps an area states, passage by passage, which home
+   each one went to.
 
 ## Consequences
 
@@ -94,11 +107,11 @@ instruction a reader came for. A reader can trust that what a page says is
 about the present, and can find the story, when they want it, in the history
 Git already keeps.
 
-The sweep has a cost: review attention across every repository, and the loss
-of explanations that were only ever told as stories. Where such a story held a
-constraint, the constraint survives as a present-tense fact; where it held
-only the telling, it is dropped. A lesson worth keeping that no retrospective
-yet records is written up as one, dated, rather than kept inline.
+The sweep has a cost: review attention across every repository, a new
+retrospective for each area whose stories are worth keeping, and reference
+pages that grow by the explanations they take in. Nothing is lost in the
+sorting: a constraint a story held survives as a fact, and the story itself is
+kept, dated, where a reader looking for it will find it.
 
 The gate has a cost: an occasional false positive, declared with a reason
 that is counted on every run, and a class of narrative it cannot see, stated
@@ -116,11 +129,10 @@ record's clauses.
    sentence that stops being true is a correctness problem, not a matter of
    taste, and a rule with no gate lost to the habit.
 
-2. **Move every story into a retrospective rather than deleting it.** This
-   relocates the noise rather than removing it, and most of the stories are
-   already in commit messages and pull request bodies. A retrospective is
-   written where a lesson is not yet recorded, not as a destination for every
-   paragraph cut.
+2. **Delete the stories, relying on Git to keep them.** Git does keep them,
+   in a form nobody reads: a lesson recorded only in a deleted docstring is
+   found by somebody who already knows to look. Several of the stories carry
+   lessons no retrospective records, and moving them costs a page per area.
 
 3. **Migrate per file, on the branch already touching it.** Text nobody is
    editing would carry the habit indefinitely, and every new reader meets it
