@@ -116,9 +116,8 @@ def _repo(path: Path) -> Path:
 
 def test_a_member_is_found_where_the_roster_places_it_not_where_the_probe_looks(
         tmp_path: Path, monkeypatch) -> None:
-    """`qm cookbook` said a member was not on this disk while `qm estate`
-    found it at a path only the roster carries, because the cookbook probed
-    `<root>/<name>` and never read the roster's paths.
+    """A member is found at the path the roster carries, not only where a
+    `<root>/<name>` probe looks, so `qm cookbook` and `qm estate` agree.
 
     Mutation: make `clone_of` skip the roster entry and fall through to the
     probe, and this fails on the first assertion.
@@ -158,10 +157,8 @@ def test_a_member_the_roster_does_not_carry_still_gets_the_probe(tmp_path: Path,
 
 
 def test_build_reads_every_member_through_the_roster(tmp_path: Path, monkeypatch) -> None:
-    """The first version of the roster lookup was overwritten inside `build`
-    by a list that happened to share its name, and every direct test of the
-    resolver stayed green while `uv run qm cookbook` crashed. A test that
-    calls `build` is the one that would have gone red.
+    """`build` itself reads every member through the roster: direct tests of
+    the resolver cannot see a lookup overwritten inside `build`.
     """
     _repo(tmp_path / "elsewhere" / "thing")
     families = tmp_path / "families.json"

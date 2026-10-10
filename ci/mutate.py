@@ -42,10 +42,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 # One-for-one textual substitutions. Each is a change that a correct test suite
-# should notice. `return None` -> `return []` is first because it is the one
-# this harness was written for: an empty list is a real answer -- "nothing is
-# applied" -- and a failed call that returns one reports an unreachable host as
-# an unprotected repository.
+# should notice. `return None` -> `return []` is first: an empty list is a real
+# answer ("nothing is applied"), and a failed call that returns one reports an
+# unreachable host as an unprotected repository.
 OPERATORS: tuple[tuple[str, str], ...] = (
     ("return None", "return []"),
     ("return []", "return None"),

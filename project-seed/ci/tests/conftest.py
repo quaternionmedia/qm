@@ -139,8 +139,7 @@ def _repo_template(tmp_path_factory) -> Path:
     # A remote named `origin`, because actions/checkout always configures one
     # and the tools' ref handling is remote-list-dependent by design: a prefix
     # is only stripped when it names a remote that exists. A fixture without a
-    # remote tests a configuration CI never has, and an earlier version of this
-    # file did exactly that, then blamed the tool.
+    # remote would test a configuration CI never has.
     git(r, "remote", "add", "origin", str(r))
     write(r / "README.md", index_for([]))
     (r / "records").mkdir()

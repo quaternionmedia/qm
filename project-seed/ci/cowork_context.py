@@ -168,14 +168,12 @@ def sibling_branches(root: Path, current: str) -> tuple[list[str], int]:
     session did not create, holding work it cannot see. Newest first because
     that is the one a session running right now is on.
 
-    **Remote branches count, and this is the half that was missing.** A fresh
-    clone has exactly one local branch, so a `refs/heads` scan reports a clean
-    repository no matter how much pushed work is waiting. Work that has been
-    pushed and has no pull request is invisible to every other signal a session
-    has -- the stack check reads pull requests, and the handoff pages live on
-    whichever branch they were written on. Two such branches existed in this
-    corpus on 2026-08-14 and no opening brief on any other machine would have
-    named either.
+    Remote branches count. A fresh clone has exactly one local branch, so a
+    `refs/heads` scan reports a clean repository no matter how much pushed
+    work is waiting. Work that has been pushed and has no pull request is
+    invisible to every other signal a session has: the stack check reads pull
+    requests, and the handoff pages live on whichever branch they were written
+    on.
 
     A remote-tracking ref whose local branch is already listed is dropped, so
     the usual case prints one line rather than two.
@@ -287,9 +285,8 @@ def exceptions(root: Path, mount: dict) -> tuple[list[str], str | None]:
     """Every rule this corpus deliberately does not enforce, and where.
 
     A session arriving with no history learns the rules from AGENTS.md and
-    learns nothing about their holes. Before this, that knowledge lived in six
-    constants inside five checks -- so a blind session either tripped over an
-    exemption or reimplemented a rule that had been deliberately suspended.
+    nothing about their holes, so it would either trip over an exemption or
+    reimplement a rule that was deliberately suspended.
 
     Read rather than derived: the registry is a human's list, and a tool that
     inferred exemptions from source would report the ones it recognised and
