@@ -126,8 +126,8 @@ legitimate pages is one people turn off, and then the mechanical part it did
 catch goes with it.
 
 **Leave it to the private-names rule.** Rejected: that rule covers a
-repository's name and nothing else, by its own docstring, and the cycle that
-produced this record was clean under it.
+repository's name and nothing else, by its own docstring, and the class this
+record names passes it.
 
 **Keep the workstation in the roster, since the roster is where paths are.**
 Rejected: the roster's paths are where a clone goes on any machine — a
@@ -135,7 +135,7 @@ convention — and one machine's exception published as a convention misleads
 every other machine. The local companion costs one gitignored file.
 
 **Say nothing, and rely on care.** Rejected: that is this decision without
-the sentence, and the cycle that produced it was run with care.
+the sentence, and careful work commits the class anyway.
 
 ## Revision triggers
 

@@ -119,8 +119,8 @@ said.
 **Infer `attention` from the commit dates.** Rejected for the same reason the
 phase ladder rejects computing a phase from artifacts: it makes the table
 self-maintaining and quietly redefines a human's claim as a machine's
-observation. It is also the failure this record exists because of — the roster's
-comment headers were exactly that inference, written by hand.
+observation. A dated comment header in the roster is exactly that inference,
+written by hand.
 
 **Classify on `pushedAt`.** Rejected on measurement, not on principle. It is the
 field a reasonable person picks, it is right about most repositories, and it is
