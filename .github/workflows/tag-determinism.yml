@@ -8,20 +8,16 @@
 # project's test command, and that the capture is the project's release job to
 # produce. This is that job, for this repository.
 #
-# THIS CORPUS IS A PROJECT TOO. The rule was written here and was unwired here,
-# which is the failure mode the read-document-governs record describes from the
-# other direction: a document that states a requirement its own repository does
-# not meet.
+# This corpus is a project too, and meets the requirement it states.
 #
-# WHY A SEPARATE FILE. `tag-claims.yml` is the file every fork copies verbatim.
-# Adding a project-specific test command to it would put this repository's
+# A separate file because `tag-claims.yml` is the file every fork copies
+# verbatim: a project-specific test command in it would put this repository's
 # pytest invocation into every downstream project on its next pin bump.
 #
-# WHY THE OUTPUT IS REDIRECTED AND NOT PIPED. A pipe replaces the exit code with
-# the last command's, and this corpus has read a failing check as passing that
-# way twice.
+# The output is redirected and not piped, because a pipe replaces the exit code
+# with the last command's, so a failing run would read as passing.
 #
-# WHAT THIS CANNOT DO. Establish that the suite is deterministic. It refuses a
+# What this cannot do: establish that the suite is deterministic. It refuses a
 # run that *announces* nondeterminism -- a skip, a rerun, a retry. A suite that
 # is nondeterministic and silent about it passes here.
 
