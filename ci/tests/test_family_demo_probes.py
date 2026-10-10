@@ -1,9 +1,9 @@
-"""The probe module, run here under this corpus's interpreter without its dependencies.
+"""The demo's own browser check, run here under this corpus's interpreter.
 
-The probes are written to run under another interpreter -- Playwright's, or a
-member's own -- so what can be asserted here is the part that needs neither:
-the registries the harness reads, the job and result format, and that a probe
-which cannot evaluate a check reports `unknown` rather than `fail`.
+The probe is written to run under Playwright's interpreter, so what can be
+asserted here is the part that needs no browser: the job and result format,
+that a probe which cannot evaluate a check reports `unknown` rather than
+`fail`, and that it holds no member's check.
 """
 
 from __future__ import annotations
@@ -15,57 +15,72 @@ from pathlib import Path
 CI_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(CI_DIR))
 
-import family_demo  # noqa: E402
 import family_demo_probes  # noqa: E402
 
 
-def test_the_names_the_harness_reads_from_source_are_the_ones_declared():
-    """`family_demo.probe_names` reads this module's source rather than importing it."""
-    read = family_demo.probe_names()
-    assert read["browser"] == set(family_demo_probes.BROWSER)
-    assert read["terminal"] == set(family_demo_probes.TERMINAL)
-    assert read["browser"] and read["terminal"]
+def test_the_only_check_here_is_the_demo_s_own_page():
+    assert set(family_demo_probes.BROWSER) == {"landing-page-shows-every-member"}
 
 
-def test_every_check_the_plan_names_is_declared_here():
-    plan = family_demo.load_plan()
-    named = {(c["runner"], c["name"]) for m in family_demo.running(plan) for c in m["checks"]}
-    declared = {("browser", n) for n in family_demo_probes.BROWSER}
-    declared |= {("terminal", n) for n in family_demo_probes.TERMINAL}
-    assert named <= declared
+def test_a_check_it_cannot_find_is_unknown_and_never_fail():
+    class Browser:
+        def new_context(self, **kwargs):
+            return Context()
 
+    class Context:
+        def new_page(self):
+            return Page()
 
-def test_a_check_it_cannot_find_is_unknown_and_the_results_file_is_written(tmp_path):
-    job = tmp_path / "job.json"
-    out = tmp_path / "out.json"
-    job.write_text(json.dumps({"checks": [{"member": "x", "name": "nothing"}],
-                               "out": str(out)}), encoding="utf-8")
-    assert family_demo_probes.main(["terminal", str(job)]) == 0
-    [result] = json.loads(out.read_text(encoding="utf-8"))
+        def close(self):
+            pass
+
+    class Page:
+        def on(self, *args):
+            pass
+
+        def close(self):
+            pass
+
+    result = family_demo_probes.one_browser_check(Browser(), {"member": "x", "name": "nothing"})
     assert result["result"] == "unknown"
-    assert "no terminal check is named" in result["detail"]
+    assert "no browser check is named" in result["detail"]
 
 
-def test_a_failed_assertion_is_fail_and_anything_else_is_unknown(monkeypatch):
-    async def asserts(entry):
-        family_demo_probes.check(False, "the stopwatch did not move")
+def test_a_failed_assertion_is_fail():
+    class Page:
+        def goto(self, *args, **kwargs):
+            pass
 
-    async def crashes(entry):
-        raise RuntimeError("the probe itself broke")
+        def locator(self, selector):
+            return Rows(["leo"] if selector == "[data-member]" else [])
 
-    monkeypatch.setitem(family_demo_probes.TERMINAL, "asserts", asserts)
-    monkeypatch.setitem(family_demo_probes.TERMINAL, "crashes", crashes)
-    results = family_demo_probes.run_terminal({"checks": [
-        {"member": "x", "name": "asserts"}, {"member": "x", "name": "crashes"}]})
-    assert [r["result"] for r in results] == ["fail", "unknown"]
-    assert results[0]["detail"] == "the stopwatch did not move"
+    class Rows:
+        def __init__(self, values):
+            self.values = values
+
+        def evaluate_all(self, script):
+            return self.values
+
+    try:
+        family_demo_probes.landing_page_shows_every_member(
+            Page(), {"base": "file:///x", "params": {"members": ["leo", "joe"]}})
+    except family_demo_probes.Failed as exc:
+        assert "no row for ['joe']" in str(exc)
+    else:
+        raise AssertionError("a page missing a member's row passed")
 
 
-def test_bad_usage_exits_two():
-    assert family_demo_probes.main(["window", "job.json"]) == 2
+def test_bad_usage_exits_two(tmp_path):
+    assert family_demo_probes.main(["terminal", "job.json"]) == 2
     assert family_demo_probes.main([]) == 2
 
 
-def test_an_origin_drops_the_page_and_keeps_the_port():
-    assert family_demo_probes.origin("http://127.0.0.1:18420/rack") == "http://127.0.0.1:18420"
-    assert family_demo_probes.origin("http://127.0.0.1:18431/joe/") == "http://127.0.0.1:18431"
+def test_the_results_file_is_written_even_when_playwright_is_absent(tmp_path, monkeypatch):
+    job, out = tmp_path / "job.json", tmp_path / "out.json"
+    job.write_text(json.dumps({"checks": [{"member": "landing", "name": "x"}],
+                               "out": str(out)}), encoding="utf-8")
+    monkeypatch.setitem(sys.modules, "playwright", None)
+    monkeypatch.setitem(sys.modules, "playwright.sync_api", None)
+    assert family_demo_probes.main(["browser", str(job)]) == 0
+    [result] = json.loads(out.read_text(encoding="utf-8"))
+    assert result["result"] == "unknown" and "playwright" in result["detail"]
