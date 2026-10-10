@@ -113,6 +113,13 @@ def pill(text: str, state: str) -> str:
     return f'<span class="pill p-{state}">{esc(text)}</span>'
 
 
+def stacked_ready(v: dict) -> str:
+    """One violation from check_one_pr.py, in words."""
+    listed = ", ".join(f"#{n}" for n in v["numbers"])
+    on = f" (#{v['parent']})" if v.get("parent") else ""
+    return f"{v['author']}'s {listed} is ready but stacked on {v.get('base', '')}{on}"
+
+
 def slot_cell(slots: dict) -> tuple[str, str]:
     """(cell HTML, row class) for one repository's slot state."""
     reason = unknown_reason(slots)
@@ -122,20 +129,16 @@ def slot_cell(slots: dict) -> tuple[str, str]:
             "unmeasured",
         )
     if slots.get("violations"):
-        numbers = []
-        for violation in slots["violations"]:
-            where = f" against {violation['base']}" if violation.get("base") else ""
-            listed = ", ".join(f"#{n}" for n in violation["numbers"])
-            numbers.append(f"{esc(violation['author'])} holds {listed}{esc(where)}")
+        numbers = [esc(stacked_ready(v)) for v in slots["violations"]]
         return (
             "<td>"
-            + pill("over limit", WARN)
+            + pill("ready while stacked", WARN)
             + '<div class="sub">'
             + "<br>".join(numbers)
             + "</div></td>",
             "over",
         )
-    return f"<td>{pill('one slot each', OK)}</td>", ""
+    return f"<td>{pill('no ready stack', OK)}</td>", ""
 
 
 def local_cell(local: object) -> str:
@@ -278,16 +281,14 @@ def render(document: dict, fragment: bool = False) -> str:
         "".join(
             f'<div class="gap"><h3>{esc(r["name"])}</h3>'
             + "".join(
-                f"<p>{esc(v['author'])} holds "
-                + ", ".join(f"#{n}" for n in v["numbers"])
-                + (f" against <span class=\"mono\">{esc(v['base'])}</span>" if v.get("base") else "")
-                + ". One stays open; the rest are closed or folded into it.</p>"
+                f"<p>{esc(stacked_ready(v))}. Mark it draft until the pull "
+                "request beneath it merges.</p>"
                 for v in r["slots"]["violations"]
             )
             + "</div>"
             for r in over
         )
-        or "<p class=\"s-ok\">Every contributor holds at most one slot, in every "
+        or "<p class=\"s-ok\">No stacked pull request is marked ready, in every "
         "repository this document could read.</p>"
     )
 
@@ -381,7 +382,6 @@ def render(document: dict, fragment: bool = False) -> str:
         generated_at=esc(document.get("generated_at")),
         rule=esc(generator.get("rule")),
         rule_source=esc(generator.get("rule_source")),
-        exemption=esc(", ".join(generator.get("corpus_exemption") or []) or "none"),
         n_repos=esc(totals.get("repositories")),
         n_compliant=esc(totals.get("compliant")),
         n_over=esc(totals.get("over_limit")),
@@ -422,7 +422,6 @@ BODY = """<main>
   <span>generated <b>{generated_at}</b></span>
   <span>rule <b>{rule}</b></span>
   <span>defined in <b class="mono">{rule_source}</b></span>
-  <span>corpus exemption <b class="mono">{exemption}</b></span>
 </div>
 
 <div class="cards">
@@ -697,12 +696,7 @@ def md_slot(slots: dict) -> str:
         return f"unknown ({reason})"
     if not slots.get("violations"):
         return "ok"
-    return "OVER — " + "; ".join(
-        f"{v['author']} holds "
-        + ", ".join(f"#{n}" for n in v["numbers"])
-        + (f" against {v['base']}" if v.get("base") else "")
-        for v in slots["violations"]
-    )
+    return "OVER — " + "; ".join(stacked_ready(v) for v in slots["violations"])
 
 
 def render_markdown(document: dict) -> str:
@@ -723,7 +717,6 @@ def render_markdown(document: dict) -> str:
     add("")
     add(f"- generated: **{document.get('generated_at')}**")
     add(f"- rule: {generator.get('rule')} (`{generator.get('rule_source')}`)")
-    add(f"- corpus exemption: `{', '.join(generator.get('corpus_exemption') or []) or 'none'}`")
     add(f"- layers: {', '.join(generator.get('layers') or [])}")
     if reading.get("staleness_budget_hours"):
         add(
@@ -739,7 +732,7 @@ def render_markdown(document: dict) -> str:
     add("")
     add(
         f"**Totals** — {totals.get('repositories')} repositories, "
-        f"{totals.get('compliant')} within the slot rule, "
+        f"{totals.get('compliant')} within the stack rule, "
         f"{totals.get('over_limit')} over it, "
         f"{totals.get('slots_unknown')} unreadable; "
         f"{totals.get('governance_precondition_met')} of "
@@ -816,9 +809,8 @@ def render_markdown(document: dict) -> str:
         slots = repo.get("slots", {})
         if unknown_reason(slots) is None and slots.get("violations"):
             actions.append(
-                f"- **{repo['name']}**: {md_slot(slots)}. One stays open; the "
-                "rest are closed or folded into it. Close the pull request "
-                "FIRST, then push — pushing first merges it."
+                f"- **{repo['name']}**: {md_slot(slots)}. Mark it draft until "
+                "the pull request beneath it merges."
             )
         for thread in threads_of(repo):
             if thread.get("stage") == "pushed":

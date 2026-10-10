@@ -36,7 +36,7 @@ A `project/<name>` branch takes changes **in** and never gives them out:
 
 | Direction | How |
 |---|---|
-| Project records arrive | A pull request whose **base** is `project/<name>`. Each such base holds its own slot under the one-PR rule (the `--per-base 'project/*'` exemption). |
+| Project records arrive | A pull request whose **base** is `project/<name>`. |
 | The branch is created | Cut from `main`, `adr/` copied from `project-seed/adr/`, then **pushed** — not opened as a pull request, because the only base it could target does not exist yet. See [Forking a new project](../usage/first-project.md), step 2. |
 | `main`'s changes arrive | `main` is merged **into** the branch, through a `propagate/<name>-<date>` pull request. Never a rebase: a downstream submodule pins the tip, and a rebase breaks every pin. |
 | The project's repository sees it | Through the submodule pointer, bumped by that same [propagation](../ref/glossary.md#propagation){ .glossary-term } merge. |
@@ -47,4 +47,4 @@ A `project/<name>` branch is therefore never the **head** of a pull request, wha
 
 - [Record precedence](precedence.md) — how records in the two namespaces relate
 - [Propagate a change](../cookbook/propagate-a-change.md) — the merge procedure
-- [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) — the one-PR rule and the rest of the multi-session contract
+- [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) — the stacked-PR rule and the rest of the multi-session contract

@@ -161,10 +161,27 @@ stop and lift it to `main` first.
 ## Part B — in the project's own repo: pick the change up
 
 ```sh
+git -C governance/qm ls-remote origin refs/heads/project/<name>   # the tip, from the host
 git submodule update --remote governance/qm     # tracks branch= in .gitmodules
-git -C governance/qm log --oneline -1           # confirm the tip you expect
+git -C governance/qm log --oneline -1           # confirm it is that tip
 git add governance/qm && git commit             # the parent records an exact commit
 ```
+
+**Take the expected tip from the host, not from the clone.** `--remote` moves
+the pin to the remote-tracking ref, and a submodule initialised with a `branch=`
+line is a single-branch clone whose fetch refspec covers `main` alone — so the
+tracking ref for the project branch is never updated by a plain fetch, and the
+command reports the old tip as the new one with no error. If `log` and
+`ls-remote` disagree, add `+refs/heads/project/<name>:refs/remotes/origin/project/<name>`
+to the submodule's `remote.origin.fetch` and fetch again.
+
+**Stage the pin before running anything that initialises the submodule.**
+`git submodule update --init` checks out the gitlink in the superproject's
+index; run before `git add governance/qm`, it puts the submodule back to the old
+commit and every check then measures that. `run_workflows_locally.py` begins
+every governance workflow with exactly that step. After it, `git -C
+governance/qm rev-parse HEAD` is the tip that was measured — compare it with the
+one that was meant.
 
 **Ask the remote, not the working tree.** Every check below is written against
 paths, and a path resolves to whatever branch is checked out — which during an

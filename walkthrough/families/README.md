@@ -4,7 +4,7 @@ One page per family, generated from `families.json` and the clones on this disk.
 
 | family | drives | members | governed |
 |---|---|---|---|
-| [`core`](./core.md) | the corpus and its tooling — governance, the archive, the deltas, the maps, the language data | 5 | 5 |
+| [`core`](./core.md) | the corpus and its tooling — governance, the archive, the deltas, the maps, the language data | 6 | 5 |
 | [`games`](./games.md) | play — a game somebody plays: its rules, its world and its loop | 2 | 0 |
 | [`infra`](./infra.md) | where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path | 4 | 0 |
 | [`instruments`](./instruments.md) | the sound — looping, synthesis, tempo, remote control surfaces | 7 | 2 |
@@ -14,4 +14,4 @@ One page per family, generated from `families.json` and the clones on this disk.
 
 `10` rostered repositories claim no family. That is *unstated*, not *none* — nobody has answered the question for them, and a page that listed them as unfamilied would be inventing an answer.
 
-*Generated 2026-09-20.*
+*Generated 2026-09-27.*

@@ -83,15 +83,40 @@ gates:
     seed: true
     exists: true
     refuses: >
-      A pull request whose author already holds an open slot in this
-      repository. It fails every one of them rather than picking a survivor.
+      A pull request marked ready whose base is the branch of another open pull
+      request in the same repository. It fails every such pull request of the
+      author, not only the one whose event ran it.
     runs:
       - project-seed/ci/check_one_pr.py
     enforces:
       - handbook/async-contract.md
     cannot_see: >
-      Whether the two pull requests are actually related. It counts slots, not
-      subject matter, and the `--per-base` exemption is a glob somebody passes.
+      Whether a pull request is one change. A branch cut from another pull
+      request's branch but opened against the target, carrying its parent's
+      commits. A pull request closed in favour of one that contains it -- closed
+      pull requests are not read.
+
+  - id: one-pr-voice
+    workflow: one-pr-check.yml
+    job: slot
+    gates: [main]
+    seed: true
+    exists: true
+    refuses: >
+      A pull request body that speaks to its contributor rather than as them:
+      the second person, the handling phrases that have leaked ("assigned, no
+      review requested", "merge when ready"), or the contributor's own login
+      mentioned. Code spans, fenced blocks and quoted lines are left alone.
+    runs:
+      - project-seed/ci/check_pr_voice.py
+    enforces:
+      - records/DRAFT-human-only-contributorship.md
+      - handbook/async-contract.md
+    cannot_see: >
+      The third person. "Peter merges once the gates are green" is a statement
+      about a person and the tool cannot tell it from a sentence addressed to
+      them without a pronoun, so it is allowed; and whether the body is honest,
+      complete, or about the diff at all.
 
   - id: namespace-guard
     workflow: namespace-guard.yml

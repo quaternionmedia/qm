@@ -13,7 +13,7 @@ read for exactly one question, and the questions do not overlap:
 
 | Document | Answers |
 |---|---|
-| `status/harness.yaml` | where does each repository's pull-request slot stand |
+| `status/harness.yaml` | which pull requests are open in each repository, and how they stack |
 | `status/documents.yaml` | what state is each document in |
 | `status/gates.yaml` | what does each automated check refuse, and what can it not see |
 | `status/governance.yaml` | where does each project stand against the corpus |

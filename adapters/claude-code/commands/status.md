@@ -46,8 +46,9 @@ them. The three that matter:
   left work in that state for months.
 - **`stalled`** — untouched past the document's threshold and not landed. Say
   how long, and say what it was.
-- **over the slot limit** — a contributor holding more than one open pull
-  request. Name the numbers; folding is theirs to decide and has an order.
+- **ready while stacked** — a pull request marked ready whose base is another
+  open pull request's branch. Name both numbers; it goes back to draft until
+  the one beneath it merges.
 
 **Then what could not be read**, with the reason. A repository nobody measured
 is not a repository with nothing wrong, and it is the first thing to lose in a

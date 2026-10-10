@@ -15,10 +15,9 @@ uv run qm merge --repo owner/name     # one
 For every open pull request of yours it prints the host's live state — draft
 or not, mergeable or not, the host's own merge verdict, and every check that
 is failing or still pending, by name — and marks a pull request **READY** only
-when all of those are clean at once. Beside each repository it says whether
-you hold more than the one open pull request the slot rule allows
-(`handbook/async-contract.md` §1), because the second one is the one that
-should not have been opened yet, whatever its checks say.
+when all of those are clean at once. A pull request stacked on another is a
+draft until the one beneath it merges (`handbook/async-contract.md` §1), so it
+is never READY; merge the bottom of a stack, and the next one moves down.
 
 This mode mutates nothing. A repository it could not read is listed as
 unknown rather than as empty, and a private entry the clone cannot name is
@@ -47,7 +46,9 @@ the listing cannot say READY where the act would refuse.
 ## What it never does
 
 It never pushes to `main`, never closes a pull request, and never merges by
-any route but the host's own merge commit with the branch deleted. Closing is
+any route but the host's own merge commit. The merged branch is deleted
+only after every pull request stacked on it has been retargeted onto the
+merged one's base, because deleting it first closes them. Closing is
 a git operation with an ordering trap of its own (`AGENTS.md` item 3) and
 stays a person's deliberate act.
 

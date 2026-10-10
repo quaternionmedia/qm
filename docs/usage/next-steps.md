@@ -32,7 +32,7 @@ Two generated files on `main` track the state of the [corpus](../ref/glossary.md
 | Document | Holds | May be stale after |
 |---|---|---|
 | `status/governance.yaml` | Where every project stands: branches, records, adoption artifacts | 168 hours |
-| `status/harness.yaml` | Pull request slots, phases claimed, work in flight | 24 hours |
+| `status/harness.yaml` | Open pull requests, phases claimed, work in flight | 24 hours |
 
 Both are refreshed by a person running a command, not by CI. Check the `generated_at` timestamp before quoting a number from either. See [Read status documents](../cookbook/read-status-documents.md).
 

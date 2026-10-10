@@ -12,8 +12,8 @@
 # separable.
 #
 # NOT A WORKFLOW. Nothing here sequences the lanes or blocks one on another.
-# Work in any lane can start whenever, and the slot rule is unchanged -- one
-# open pull request per repository per contributor, whatever lane it is in.
+# Work in any lane can start whenever, and the stack rule is unchanged -- one
+# change per pull request, stacked as drafts when dependent, whatever lane.
 
 schema: 1
 
