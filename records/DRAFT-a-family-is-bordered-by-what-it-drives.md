@@ -18,11 +18,11 @@ working estate that predates this corpus and exists to put on a show: to cue a
 room, to play an instrument, and to put something in front of a performer while
 they play.
 
-That estate has never been named, and the roster has no way to name it. Its
+That estate has no name, and the roster has no way to give it one. Its
 three claim dimensions are `role`, `phase` with its `phase_source`, and
 `attention`, and each answers a question about a repository **on its own**.
 None of them can say that two repositories are one working system. So that fact
-has lived wherever the last person to set up a show happened to keep it.
+lives wherever the last person to set up a show happens to keep it.
 
 Nothing is broken by this today. The cost arrives on the next change: with no
 border written down, two repositories that meet during a performance are as

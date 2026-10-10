@@ -90,8 +90,8 @@ discover.
    data as `osi_approved` and `fsf_libre`. A project's allowlist is that union
    with deprecated identifiers excluded, produced by a generator and committed
    with its provenance — the source, the criterion, and the date it was taken.
-   A hand-kept list is wrong in two directions at once, and both were found in
-   the same reading: it admits fewer licenses than §1 does, so every honest
+   A hand-kept list is wrong in two directions at once: it admits fewer
+   licenses than §1 does, so every honest
    dependency outside it fails and needs an individual adjudication; and it
    admits identifiers §1 does not, because nothing checks a typed list against
    the criterion it claims to encode.
