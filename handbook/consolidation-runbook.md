@@ -86,9 +86,9 @@ until shown otherwise.
 ## Step 2 — put every scratch branch on a governed name
 
 Nothing reaches origin from a branch outside the namespaces
-`docs/ref/namespaces.md` lists. This organisation kept using a local branch
-literally named `test` as its working target; the stage record names `test` as
-the rewritable entry stage, and nothing may branch from it expecting the branch
+`docs/ref/namespaces.md` lists. A local branch literally named `test` is
+easy to use as a working target; the stage record names `test` as the
+rewritable entry stage, and nothing may branch from it expecting the branch
 to survive. The work that lives there travels under its own name:
 
 ```sh
