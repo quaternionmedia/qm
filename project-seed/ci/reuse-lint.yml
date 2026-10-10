@@ -10,10 +10,9 @@ name: REUSE lint
 # a published tool, so there is nothing project-specific to run from the
 # governance submodule.
 #
-# Deliberately runtime-shape independent. It works identically for a corpus of
-# prose, a Python service, a single-file HTML deliverable and a hardware
-# repository -- which is what the open-license record's SBOM path cannot do,
-# and the gap the qmetronome onramp retrospective named.
+# This gate is independent of runtime shape: it works identically for a corpus
+# of prose, a Python service, a single-file HTML deliverable and a hardware
+# repository, which is what the open-license record's SBOM path cannot do.
 #
 # Start in reporting mode. A repository that has not had its licensing pass
 # will fail this immediately and usefully; make it blocking once it is green,
@@ -25,15 +24,13 @@ on:
     branches: [main]
   pull_request:
 
-# One run per branch per workflow. A second push supersedes the first: nobody
-# reads the result of a run whose commit has already been replaced, and
-# iterative pushes to one pull request branch would otherwise spend most of the
-# minutes on runs where only the last matters.
+# One run per branch per workflow. A second push supersedes the first: the
+# result of a run whose commit has been replaced is not read, and its minutes
+# are billed.
 #
-# Cancellation is scoped to pull requests deliberately. On the default branch
-# and on a project branch the run IS the record of what that commit reported,
-# and cancelling it to start a newer one destroys the only evidence that the
-# earlier commit was ever checked.
+# Cancellation applies to pull requests only. On the default branch and on a
+# project branch the run is the record of what that commit reported, and
+# cancelling it would remove the only evidence that the commit was checked.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}

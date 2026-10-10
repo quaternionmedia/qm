@@ -11,18 +11,16 @@
 # its real runtime, and deterministic automated validation passed -- and the
 # annotation names all three, including what the automated gate did not cover.
 #
-# What this fails, and who can fix it
+# What this fails, and who can fix it: a pushed `v*` tag that is lightweight,
+# misnamed, or missing one of the annotation fields. The fix belongs to whoever
+# cut the tag: delete it, and cut it again with `git tag -a`. Nobody else can
+# repair it, which is why this runs on the tag push and not on a pull request.
 #
-# It fails a pushed `v*` tag that is lightweight, misnamed, or missing one of
-# the four annotation fields. The fix belongs to whoever cut the tag: delete it,
-# and cut it again with `git tag -a`. Nobody else can repair it, which is why
-# this runs on the tag push and not on anybody's pull request.
-#
-# What it does not cover, and the list is the honest part:
+# What it does not cover:
 #
 #   - It cannot tell whether the review or the manual test happened. It reads
-#     an annotation a human wrote. The improvement on offer is that the claim
-#     is now written down against a name, not that it is verified.
+#     an annotation a human wrote: the claim is written down against a name,
+#     not verified.
 #   - It does not gate tag *creation*. §7 asks for a host-side tag-protection
 #     ruleset restricting who may create `v*`; that is repository settings, not
 #     a workflow, and a workflow cannot substitute for it -- this runs after the
@@ -30,9 +28,9 @@
 #   - It does not run the project's tests. §3's determinism clause is checked by
 #     `check_tag_claims.py --test-output <file>` against a captured run, and the
 #     capture is the project's release job to produce, because no seed file
-#     knows this project's test command. Wire it there; do not pipe the run
-#     through `tee` on the way, since a pipe replaces the exit code and this
-#     corpus has read a failing check as passing twice that way.
+#     knows this project's test command. Wire it there, and do not pipe the run
+#     through `tee` on the way: a pipe replaces the exit code with the last
+#     command's, so a failing run reads as passing.
 
 name: Tag claims
 
@@ -40,12 +38,12 @@ on:
   push:
     tags:
       - 'v*'
-  # The audit over every existing tag, on request. Deliberately not on
+  # The audit over every existing tag, on request. Not on
   # pull_request: one bad legacy tag would then fail every unrelated pull
   # request in the repository, for a reason its author cannot fix.
   workflow_dispatch:
 
-# No cancellation. A tag push happens once and the run IS the record of what
+# No cancellation. A tag push happens once and the run is the record of what
 # that tag reported; superseding it would destroy the only evidence.
 permissions:
   contents: read
@@ -59,7 +57,7 @@ jobs:
           submodules: true
           # The tag object itself is the subject. A shallow checkout can arrive
           # without it, and the check would then report "no such tag" for a tag
-          # that exists -- a tooling fault dressed as a finding.
+          # that exists.
           fetch-depth: 0
           fetch-tags: true
 

@@ -4,8 +4,8 @@
 # adr-lint.yml. Only the workflow is copied -- it runs check_one_pr.py out of
 # the governance submodule, so a fix to the rule reaches every project on its
 # next pin bump instead of needing N copies updated. The file, script and job
-# names predate the rule and are kept so that pin bump needs no re-copy and a
-# required `slot` context keeps reporting.
+# names are kept as they are, so a pin bump needs no re-copy and a required
+# `slot` context keeps reporting.
 #
 # The rule and the reasoning are handbook/async-contract.md §1: one change per
 # pull request, parallel when independent, stacked when dependent. A stacked
@@ -27,15 +27,13 @@ on:
     # names, so both must re-run it.
     types: [opened, reopened, synchronize, ready_for_review, converted_to_draft, edited]
 
-# One run per branch per workflow. A second push supersedes the first: nobody
-# reads the result of a run whose commit has already been replaced, and
-# iterative pushes to one pull request branch would otherwise spend most of the
-# minutes on runs where only the last matters.
+# One run per branch per workflow. A second push supersedes the first: the
+# result of a run whose commit has been replaced is not read, and its minutes
+# are billed.
 #
-# Cancellation is scoped to pull requests deliberately. On the default branch
-# and on a project branch the run IS the record of what that commit reported,
-# and cancelling it to start a newer one destroys the only evidence that the
-# earlier commit was ever checked.
+# Cancellation applies to pull requests only. On the default branch and on a
+# project branch the run is the record of what that commit reported, and
+# cancelling it would remove the only evidence that the commit was checked.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
