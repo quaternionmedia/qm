@@ -91,3 +91,38 @@ alone, so re-running detection never opens a second row; a new delta opens at
 `brainstorm`; convergence is reported and closes nothing; and a field one view
 does not hold is reported as missing rather than as a difference. It has no
 opinion about which value is right.
+
+## Exceptions
+
+`ci/exception-registry.yaml` lists every place a rule in this corpus
+deliberately does not apply, so "what is not enforced, and why" is answered in
+one place. An entry is an exemption (a rule that applies, and a named case
+where it does not), not configuration; it carries a reason somebody would
+defend, the rule it suspends, and what would remove it. The registry is the
+claim, not the enforcement: each tool still holds its own constant, and
+`python ci/exceptions.py --drift` reports where the two disagree.
+
+## Curricula
+
+`uv run qm curriculum` prints an ordered path through the corpus: units that
+each name one document, what a reader can do after it, and what must come
+first. `--merge` reports what integrating another curriculum would cost. The
+merge is optimistic (an incoming unit is accepted by default), optional
+(nothing is written without `--write`, and no project is bound), and refuses
+three things: a unit citing a missing document, a unit claiming a Status its
+document does not carry, and a project unit teaching an org document as its
+own. Two units sharing an id and disagreeing are reported and the base is kept.
+Accepted units are appended, never interleaved. `--other-root` names the
+checkout an incoming curriculum's paths resolve against. It cannot tell
+whether the order is good or whether a unit's prose is true of its document.
+
+## Disk policy
+
+`ci/disk-policy.yaml` lists every place the disk tooling may free space;
+`ci/disk_status.py` measures exactly those targets and `ci/disk_reclaim.py`
+deletes exactly those. Each entry's `safety` is the cost of getting it back:
+`refetched` (the owning tool downloads it again; runs by default), `rebuilt`
+(a command a person runs; `--allow rebuilt`), or `destructive` (`--allow
+destructive`, per run). An entry with no `safety` is a policy error. Paths
+expand `${VAR}` from the environment, and an unset variable makes the entry
+`unknown` rather than skipped.

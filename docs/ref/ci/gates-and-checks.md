@@ -181,6 +181,24 @@ resolved in that repository's checkout, found through the roster's
 not as dangling; a repository in the roster but not checked out is unknown. It
 does not read a record for meaning, and it is a report, not a gate.
 
+## Private repository names
+
+`uv run qm private-names` (`ci/check_private_names.py`) refuses a private
+repository name in a tracked file. It has three states, and only `clean` is a
+pass: `found` exits 1, and `unverified` (no source of private names was
+available) exits 0 but prints that word first; `--strict` makes it a failure.
+A `found` is a name used as a repository (after a slash, as a quoted token, or
+as a field naming a repository); prose containing a word that a private
+repository happens to be called is reported as `possible` and never gated on.
+Names are bounded by characters that cannot appear in a repository name, so a
+longer public name containing a private one is not a hit. Occurrences are shown
+redacted, by reference.
+
+`--source local` reads the gitignored companions; `--source host` asks the
+forge. No workflow runs it, because `registries.yml` admits only checks that
+read committed files: this reads a machine. It is a command somebody runs. It
+cannot read history.
+
 ## Shared shapes
 
 - **An exception costs a stated reason.** `timeless: allow`,

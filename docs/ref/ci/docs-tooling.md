@@ -32,3 +32,15 @@ page under `docs/` to its definition in `docs/ref/glossary.md`. The source is
 It cannot know whether a word is used in the glossary's sense: `gate` in a
 [record](../../ref/glossary.md#record){ .glossary-term } means a CI check, and `gate` in a sentence about an airport does not.
 The command prints that limit on every run.
+
+## The glossary link's contrast
+
+`ci/tests/test_glossary_contrast.py` holds the measured colours of the glossary
+link treatment in `docs/stylesheets/glossary.css`. WCAG 1.4.1 allows a
+colour-only link when the colour clears 3:1 against body text and a non-colour
+cue appears on hover and focus. On the dark `slate` theme no colour satisfies
+both that and 4.5:1 against the background, a search over the sRGB cube shows,
+so the link carries a persistent dotted rule at rest; the colour then only has
+to stay readable. If that search ever finds a colour, the persistent cue is no
+longer required. The test checks two ratios and the presence of a cue, not that
+a page is accessible.

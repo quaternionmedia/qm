@@ -143,3 +143,14 @@ input.
 
 It cannot decide whether a loose end matters; the claims [register](../../ref/glossary.md#register){ .glossary-term } is where a
 person writes that down.
+
+## What the projects wait on
+
+`uv run qm inbound` (`ci/inbound.py`) reads every unsettled `Pends on` row from
+the records on the `project/*` branches and groups the rows by what they wait
+on, so one org action that unblocks many projects reads as one group. Rows are
+compared on case, whitespace and the text before the first sentence break,
+aside or dash (in any of the corpus's four spellings), and nothing fuzzier. It
+reads refs, with no network; a project whose records live in its own
+repository is reported as unreadable from here, by name, never as having
+nothing to say. It does not decide what is an org question and closes nothing.

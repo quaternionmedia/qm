@@ -52,6 +52,25 @@ would be expensive, including [seed](../../ref/glossary.md#seed){ .glossary-term
 - The baseline lives in the repository as `.qm-posture.json`, so it travels
   between machines.
 
+## Running the suite
+
+`uv run qm test` (`ci/run_tests.py`) is the one way to run the tests: the
+argument list is the one `.github/workflows/ci-tooling-tests.yml` passes, and
+`ci/tests/test_run_tests.py` asserts the two match. Both suites always run;
+extra arguments are added rather than substituted, so narrowing is `-k` and a
+subset is never reported as the suite's pass. It runs with `-n auto` and prints
+the whole command first, so `qm test -- -n 0` overrides it. It runs CI's
+arguments, not CI's environment, so a local pass is evidence rather than proof.
+
+`ci/tests/test_every_gate_is_exercised.py` requires, for every module in `ci/`
+with a `main`, a test that executes it: an import, a call to its `main`, or an
+invocation by filename, never a mention. Tests are named for their subject
+rather than their module, so this is the only way to tell an untested module
+from one tested under another name. A module nothing executes is listed in
+`UNEXERCISED` with a reason, and an entry is refused once a test runs the
+module or the module is gone. It cannot tell whether a test checks anything;
+the mutation score answers that.
+
 ## What it is not
 
 It is not a gate. It prints a comparison and exits zero whatever it finds:

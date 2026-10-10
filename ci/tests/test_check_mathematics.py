@@ -1,15 +1,10 @@
 """The mathematics registry checker, against registries that should fail.
 
-**THE CHECKER WAS ROUTED INTO THE CLI AND NEVER TESTED.** It was written and
-wired in one session, `uv run qm mathematics` exits zero against the real
-registry, and nothing had ever seen it exit non-zero for a reason. Charter `a-check-is-evidence-after-it-fails`:
-that is scaffolding, not evidence. `uv run qm posture` found it by trying to
-mutate a module whose tests it could not locate.
-
-THE TESTS WORTH READING ARE THE LAST TWO. The checker's whole purpose is to stop
-the practice becoming a habit of naming things after theorems, and the two rules
-that do that work are `earned` needing a measurement and `unearned` never being
-empty. Everything else is shape.
+Each case hands the checker a registry that should fail and expects the
+failure named, so the checker is seen to exit non-zero for a reason (charter
+`a-check-is-evidence-after-it-fails`). The two rules that keep the practice from
+becoming a habit of naming things after theorems are `earned` needing a
+measurement and `unearned` never being empty; everything else is shape.
 """
 
 from __future__ import annotations
@@ -124,8 +119,9 @@ def test_a_state_outside_the_vocabulary_is_caught(tmp_path: Path):
 
 
 def test_a_field_stated_twice_is_caught(tmp_path: Path):
-    """**YAML KEEPS THE LAST AND SAYS NOTHING**, so a second `measured:`
-    replaces the first and the checker reads a value nobody meant.
+    """YAML keeps the last of two equal keys and says nothing, so a second
+    `measured:` replaces the first and the checker reads a value nobody
+    meant.
 
     Written as text because by the time the document is parsed the duplicate is
     gone, which is exactly the problem.
@@ -148,13 +144,11 @@ def test_a_field_stated_twice_is_caught(tmp_path: Path):
     assert any("stated twice" in p for p in problems), problems
 
 
-# --- the two that keep the practice honest ------------------------------------
+# --- earned needs a measurement, and unearned is never empty ------------------
 
 
 def test_earned_without_a_measurement_is_caught(tmp_path: Path):
-    """THE ONE THAT MATTERS.
-
-    `earned` is the word that makes a mapping load-bearing. Claiming it without
+    """`earned` is the word that makes a mapping load-bearing. Claiming it without
     naming what measured it is how a corpus ends up naming things after
     theorems, which is the practice charter `a-loop-is-not-a-knot` exists to prevent, and this
     rule is its whole enforcement.
@@ -191,9 +185,7 @@ def test_aspirational_that_names_a_measurement_is_caught(tmp_path: Path):
 
 
 def test_nothing_unearned_is_caught(tmp_path: Path):
-    """THE OTHER ONE THAT MATTERS.
-
-    An entry with nothing unearned is either a finished mapping, rare enough to
+    """An entry with nothing unearned is either a finished mapping, rare enough to
     be worth arguing about in a record, or somebody who stopped looking.
     Requiring it keeps the practice evolving rather than congratulating itself,
     which is why it applies even to decorative entries.
