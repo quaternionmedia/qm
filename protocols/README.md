@@ -50,8 +50,8 @@ whole of the machine-readable part; `qm protocols` reads the date from it and
 nothing from the contents.
 
 **It reads not one word of what the run said.** A thorough review and a file
-with the right name are the same thing to this tool, which is exactly the class
-of false signal this corpus keeps finding — stated here rather than discovered.
+with the right name are the same thing to this tool, which is a false signal,
+stated here so it is not mistaken for more.
 
 ## `optional`
 

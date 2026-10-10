@@ -139,9 +139,9 @@ meaning has to be the same in two repositories.
 rejection. It trades a true record for a consistent one, and it does the trade
 at the moment somebody is least able to weigh it.
 
-**Resolve `same-as` by merging into one row.** Rejected as lossy in the way this
-corpus keeps refusing: every document already citing the losing address now
-cites nothing.
+**Resolve `same-as` by merging into one row.** Rejected as lossy in the way
+`records/DRAFT-a-disagreement-is-a-delta.md` refuses: every document already
+citing the losing address then cites nothing.
 
 **Compute the container's phase from its parts.** Rejected. It is the single
 most requested convenience in a tool like this and the first place it will lie:

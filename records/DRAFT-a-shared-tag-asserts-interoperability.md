@@ -100,7 +100,7 @@ that project's to amend; this record does not edit them.
 
 **Nothing yet checks any of it.** The mechanism is stated in §4 and built
 nowhere, so today this is a rule a person applies. A coordinate that nothing
-verifies is exactly the kind of claim this corpus keeps finding.
+verifies is a claim with nothing behind it.
 
 ## Alternatives considered
 
