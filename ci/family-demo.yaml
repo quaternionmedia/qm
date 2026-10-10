@@ -236,6 +236,13 @@ members:
     needs:
       - a branch with active work named, then the contract
 
+  - name: loopwall
+    phase: instruments
+    ports: {main: 18445}
+    needs:
+      - the contract's serve with a way to not open a system browser
+      - a seam to the core; its ShowRunner driver is a stub
+
   - name: qmetronome
     phase: instruments
     ports: {main: 18475}
