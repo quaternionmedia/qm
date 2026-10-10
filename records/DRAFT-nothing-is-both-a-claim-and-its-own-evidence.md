@@ -30,10 +30,10 @@ are holding will act on the wrong one.
 The cost of five derivations is not the words. It is that the rule is learned
 five times and generalised zero times — so the sixth subject arrives, nothing
 in the corpus says the rule applies to it, and it gets decided again from
-scratch. That has already happened five times. `ci/workspace.yaml`'s header
-carries the clearest statement of the rule anywhere in this repository —
-*NOTHING HERE IS EVIDENCE* — and it is in a comment in a data file, reachable
-only by someone already editing the roster.
+scratch. `ci/workspace.yaml`'s header carries the clearest statement of the
+rule in this repository — that nothing in the roster is evidence — and it is
+in a comment in a data file, reachable only by someone already editing the
+roster.
 
 There is a second cost, and it is the one that bites hardest. When the rule
 lives only inside its instances, a *generator* can quietly violate it and no

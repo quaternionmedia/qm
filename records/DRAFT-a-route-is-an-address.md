@@ -26,8 +26,8 @@ of those are properties of the *addressing scheme*, not of the documentation —
 and the documentation is where their absence is discovered, always too late,
 because by then the numbers are in somebody's notes.
 
-The four sections below are what that turned out to require. The fifth is the
-part that generalises past menus.
+The four sections below are what that requires. The fifth is the part that
+generalises past menus.
 
 ## Decision
 

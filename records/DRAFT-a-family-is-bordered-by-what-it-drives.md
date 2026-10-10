@@ -111,8 +111,8 @@ relation: the two are peers in this table, and neither contains the other.
 Reading `infra` as a subdivision of `core` would make every family a
 subdivision of it eventually, since everything runs somewhere.
 
-`irl` is where §2's border was tested hardest, and it moved three
-repositories. A foot controller, an LED controller and a micro-looper each
+`irl` is where §2's border is tested hardest, on three repositories. A foot
+controller, an LED controller and a micro-looper each
 *drive* sound or light — which put them in a performing family — and each is
 also a board somebody solders into an enclosure. Both readings are true, and
 the map is a function, so one had to win.
@@ -123,12 +123,12 @@ that thing does once it exists. A reader looking for the pedal will look for the
 pedal. `cesar` stays in `show-control` by the same test — it emits a program
 that drives lights, and nothing you can hold.
 
-This is the revision trigger in this record firing rather than being written
+This is the revision trigger in this record applied rather than written
 around: *a repository that drives two of the families means either the border
-is drawn wrong or the thing is a seam wearing a single repository*. Here the
-border was drawn on one axis and the estate turned out to have two, and the
-cost is visible — `show-control` lost `ira`, `instruments` lost `stomp` and
-`uPhonor`, and a search for either in its old family now finds nothing.
+is drawn wrong or the thing is a seam wearing a single repository*. The estate
+has two axes, what a repository drives and what it emits, and these three are
+placed on the second. The cost is visible: a search for `ira` in
+`show-control`, or for `stomp` and `uPhonor` in `instruments`, finds nothing.
 
 `core` is the family that drives none of the three above, and that is the
 point of naming it rather than leaving it unstated. It drives **the work
@@ -181,8 +181,8 @@ MIDI, OSC, timecode, an audio-over-IP transport, or HTTP with a schema. It does
 not cross as an import, and it does not cross by merging two repositories into
 one.
 
-The clause is written down because the wiring being old makes it invisible. A
-seam nobody had to build is a seam nobody thinks of as a seam.
+The clause is stated because old wiring is invisible: a seam that predates the
+corpus is easy not to recognise as a seam.
 
 ### §6 — Naming a family adopts nothing
 

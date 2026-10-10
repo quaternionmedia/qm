@@ -86,7 +86,7 @@ predictable from reading. The loop:
 2. **When a step misleads you, that is the finding** — bigger than whatever
    you were looking for. A diagnostic that reports a false all-clear is worse
    than no diagnostic, because it ends the investigation.
-3. **Fix the page in the same session.** Not "note it for later": the next
+3. **Fix the page before the run ends.** Not "note it for later": the next
    agent has no memory and will be misled identically.
 4. **Record what the run found**, in `handbook/governance-rollout.md`, in one
    or two lines. A finding nobody can see did not happen.

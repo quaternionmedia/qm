@@ -26,8 +26,8 @@ that cannot be decided and gives it to something that can.**
 
 That is a statement about computability, and this corpus has a principle (`a-loop-is-not-a-knot`)
 that says a layer's mathematics is looked for on purpose. This record does that
-for the layer nobody had named — the boundary between an agent's judgement and
-the code it produces.
+for an unnamed layer — the boundary between an agent's judgement and the code
+it produces.
 
 ## Decision
 

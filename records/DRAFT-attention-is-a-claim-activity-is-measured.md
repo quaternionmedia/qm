@@ -13,33 +13,31 @@
 The org has many times more repositories than any plan has ever considered, and
 the question a session asks first is which of them anybody is working on.
 
-`ci/workspace.yaml` answered it in four comment headers — *Active: the working
-set*, *Worked on 2026-08-09, not since*, and two more. Nothing could read them,
-nothing could check them, and only one of the four was a claim about attention
-at all. The other three were dated observations written as prose, which is a
-measurement with no mechanism behind it and no date attached to the reader's
-copy. They went stale silently, which is what a measurement in a comment does.
+A comment header in `ci/workspace.yaml` can answer it — *Active: the working
+set*, *Worked on 2026-08-09, not since* — but nothing reads or checks a
+comment, and only the first of those is a claim about attention. The second is
+a dated observation written as prose: a measurement with no mechanism behind
+it and no date attached to the reader's copy, which goes stale silently.
 
 `records/DRAFT-project-phase-ladder.md` §4 already settles the shape for the
 adjacent question: the claim and the evidence are separate documents and
 neither may be derived from the other. `phase` says what a project is working
-toward; nothing said whether anybody was working on it.
+toward, and does not say whether anybody is working on it.
 
-The tempting fix is to compute the answer from the host, and it is wrong in a
-way that would have shipped. The host offers three plausible fields and none of
-them answers the question. `updatedAt` moves when somebody edits a description.
-`pushedAt` moves on a push to any ref — a tag, a bot branch, a Pages deploy, a
-sweep — so repositories whose default branches had not moved in years reported
-it on the same afternoon. The nearest field, the default branch's own last
+Computing the answer from the host is tempting and wrong. The host offers three
+plausible fields and none of them answers the question. `updatedAt` moves when
+somebody edits a description. `pushedAt` moves on a push to any ref — a tag, a
+bot branch, a Pages deploy, a sweep — so a repository whose default branch has
+not moved in years can report a push from today. The nearest field, the default branch's own last
 commit, still cannot see work on another branch and cannot see work that never
 left a disk. The measurements are in
 `perspectives/2026-08-19-three-fields-and-none-of-them-is-activity.md`.
 
-That last blindness is not academic. Measuring the clones instead found a
-governance standard that one repository's committed handoff defers to and that
-exists on no remote; a version tag on no remote, in a corpus where the tag is a
-human gate; and a repository every host field reports as dead while it holds the
-largest body of unpushed work in the workspace.
+That last blindness matters. A clone can hold a governance standard that a
+committed handoff defers to and that exists on no remote; a version tag on no
+remote, in a corpus where the tag is a human gate; or the largest body of
+unpushed work in the workspace, in a repository every host field reports as
+dead.
 
 ## Decision
 

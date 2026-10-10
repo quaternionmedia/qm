@@ -123,9 +123,9 @@ to a stranger.
 2. **Let records assert facts and correct them when they go stale** — rejected;
    that is the status quo and it produced §12. Nothing notices, because a false
    universal in prose reads exactly like a true one.
-3. **Track reading length informally** — rejected. It rose 58 lines in a single
-   session that had reducing it as an explicit goal, held by a practitioner who
-   had written the goal down that morning.
+3. **Track reading length informally** — rejected. Reading length rises even
+   in work whose explicit goal is to reduce it, under a practitioner holding
+   that goal in writing.
 4. **Cap the number of records instead** — rejected. Record count is not the
    burden; a stranger reads entry points, and thirteen short records they never
    open cost them nothing.

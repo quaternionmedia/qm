@@ -6,25 +6,17 @@ in `records/`. Its sibling is `handbook/propagation-runbook.md`, which covers
 keeping a project current once it exists — this page is only the first day.
 
 **Read this if** you are standing up a new QM project, or checking whether an
-existing one was set up completely. Three of nine adopting projects turned out
-to be missing at least one step, so the second use is not hypothetical.
+existing one was set up completely: an adopting project can be missing a step.
 
-**How proven each third of the seed is, stated honestly, because a forker
-inherits the untested parts too.** `adr/` has the most mileage: every adopting
-project runs it. Its *first* instance was `project/streaming-infrastructure`,
-which is worth discounting rather than citing — there is no
-`quaternionmedia/streaming-infrastructure` repository behind that branch, so it
-exercised the record format and none of the rest of a fork. The mileage that
-counts is the adopting projects. `ci/` was generalized from the working lint in
-`project/qmetronome`
-and now runs both in this corpus's own CI and in eight adopting projects that
-copied it from here — 191 recorded runs across apothecary, datum, qmetronome,
-dossier, `private-32`, `private-33`, factorio-sysops and `private-34`. That
-sentence used to say it had never run in a copying project, and stayed there
-after it stopped being true. `ide/` is the least exercised of the three, and
-which projects carry it *can* now be established from here:
-`status/governance.yaml` records an `adoption.ide` list per project, read over
-the GitHub API rather than from the checkout. Expect the untested parts to need fixes, and
+**How proven each third of the seed is, because a forker inherits the untested
+parts too.** `adr/` has the most mileage: every adopting project runs it.
+`project/streaming-infrastructure` has no
+`quaternionmedia/streaming-infrastructure` repository behind it, so it
+exercises the record format and none of the rest of a fork; the mileage that
+counts is the adopting projects. `ci/` runs both in this corpus's own CI and in
+the adopting projects that copied it from here. `ide/` is the least exercised
+of the three; `status/governance.yaml` records an `adoption.ide` list per
+project, read over the GitHub API rather than from the checkout. Expect the untested parts to need fixes, and
 send them back rather than fixing them locally: a copy does not track its
 origin.
 

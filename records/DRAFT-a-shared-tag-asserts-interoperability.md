@@ -54,8 +54,8 @@ So a repository whose contract surface moves takes the next coordinate, and a
 counterpart that has not re-proven **may not carry that coordinate** — it stays
 where it is, and the gap between them is visible rather than assumed.
 
-This is what makes the rule worth having. A number that survived either side
-changing would tell a reader that two things fit when nobody had checked.
+A number that survived either side changing would tell a reader that two
+things fit when no one has checked.
 
 ### §3 — Which repositories share a coordinate
 

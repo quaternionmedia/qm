@@ -150,7 +150,7 @@ which gets the same operational result without moving a human gate onto a
 branch.
 
 **Answer §2 now, in favour of branches.** Rejected as the more expensive
-mistake. Deleting a `prod` branch that turned out to be a label is cheap;
+mistake. Deleting a `prod` branch that proves to be a label is cheap;
 unwinding sixteen files and five repositories' worth of base changes is not.
 
 ## Revision triggers

@@ -104,9 +104,8 @@ reported and never broken.**
 ## Consequences
 
 **A board can show work that is not a tree**, which is most of it. It can also
-show a knot nobody had noticed, and that is the payoff — a cycle between three
-strands across two repositories is a real finding and nothing before this could
-express it.
+show a knot no one has noticed — a cycle between three strands across two
+repositories is a real finding, and a tree cannot express it.
 
 **Cycles will appear, and some will be mistakes.** Distinguishing a mistake from
 a genuine tangle is a person's job, and it is a better job than the one the
