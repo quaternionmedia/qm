@@ -18,16 +18,16 @@ uv run qm protocols --check              # refuse a declaration nobody could run
 
 ## Why a procedure needs a registry at all
 
-This corpus's recurring defect is a mechanism that exists and runs nowhere: four
-registry checks wired into no workflow, six rulesets drafted since 2026-08-10
-and never applied, a mutation harness with no caller. Written into a handbook
-page, a procedure has the same failure mode and no counter — nothing says when
+A mechanism that exists and runs nowhere — a registry check wired into no
+workflow, a ruleset drafted and never applied, a mutation harness with no
+caller — is a recurring defect. Written into a handbook page, a procedure has
+the same failure mode and no counter — nothing says when
 it was last done, so *we review security* and *somebody reviewed security in
 June* are the same sentence.
 
 So the registry derives one fact it will not let you assert: **when each
 protocol last ran**, read from the dated files under `runs/`. A protocol that
-has never been run prints `NEVER RUN`. Most of this list has never been run.
+has never been run prints `NEVER RUN`.
 That is reported and never refused — a check that failed on it is a check
 somebody deletes.
 
