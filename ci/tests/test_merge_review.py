@@ -6,7 +6,7 @@ test sees exactly the argument vector the host would have seen and none of
 them reaches the network. That is also what lets the listing be checked for
 the property that matters most: it issued read verbs only.
 
-THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
+The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
 Each was applied to `ci/merge_review.py`, the suite run, and the file restored
 and diffed against its original before the next; the suite was green before the
 first and after the last.

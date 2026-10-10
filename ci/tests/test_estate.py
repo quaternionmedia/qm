@@ -11,7 +11,7 @@ The one thing stood in for is the host CLI: `gh` is reached through a single
 seam, and the tests replace the seam rather than the host, because a test
 that needed a signed-in host to pass would be a test nobody ran offline.
 
-THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they
+The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they
 printed.
 
   `relation_to_head` reading `--is-ancestor` inverted, so a folded branch

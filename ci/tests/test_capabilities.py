@@ -9,7 +9,7 @@ that only demonstrated the strengths would leave the gap for somebody to find at
 the worst moment, which is the shape
 `records/DRAFT-a-capability-has-four-phases.md` was written about.
 
-THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed:
+The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they printed:
 
 The ordered-rungs check removed, so a claim can stand above an empty rung:
 
@@ -210,10 +210,9 @@ def test_the_rendering_marks_a_rung_without_a_tick():
 
 
 def test_the_rendering_is_ascii_so_a_cp1252_console_can_print_it():
-    """It printed a replacement character the first time it ran.
-
-    The same failure `dossier.cli._make_output_encodable` documents, caught
-    here instead of in somebody's terminal.
+    """The rendering is ASCII: the same failure
+    `dossier.cli._make_output_encodable` documents, held here rather than in
+    somebody's terminal.
     """
     mod.render(mod.load()).encode("cp1252")
 
