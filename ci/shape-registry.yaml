@@ -14,8 +14,8 @@
 #   sources      the perspectives that named and counted this shape first
 #   contexts     the valid shape.context values for this type
 #
-# The shapes below are extracted from the perspectives — they are not invented
-# here. Each was named and counted in prose before this registry existed.
+# The shapes below are extracted from the perspectives, not invented here: each
+# was named and counted in prose first.
 
 shapes:
   proxy-for-the-thing:
