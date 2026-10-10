@@ -1,8 +1,8 @@
 # Questions a new developer asks
 
 If you have just been handed several repositories and a login, this page is the
-short version. Every question below is one somebody asked in their first week,
-written the way they asked it, with the command or file that settles it.
+short version. Every question below is one a newcomer asks in their first week,
+written the way they ask it, with the command or file that settles it.
 
 This page is a map rather than the rules themselves. Where it summarises a rule
 it names the document that owns it, and that document wins.

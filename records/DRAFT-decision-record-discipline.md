@@ -12,16 +12,15 @@
 
 Decision documents drift in predictable ways: drafts accumulate references to
 their own revision history, numbers get assigned before ratification and then
-`renumber`, supersession language leaks into documents never published. Drift
-of this kind was observed and fixed in the org's first drafting round; the
+`renumber`, supersession language leaks into documents never published. The
 discipline below makes prevention mechanical rather than memorial.
 
-Adoption itself needs a discipline too, and for a while this corpus only had
-one that fit new projects. A project created under the constitution can be
+Adoption itself needs a discipline too, and one that fits only new projects is
+not enough. A project created under the constitution can be
 compliant from its first commit. A project that predates its adoption of the
 constitution generally cannot: its datastore, its dependencies, and its
 integration shapes were chosen before the records existed. With only
-"instantiated" and "improvised" available as states, such a project faced a
+"instantiated" and "improvised" available as states, such a project faces a
 choice between claiming a compliance it does not have and not adopting at
 all. Both outcomes are worse for the org than an honest third answer, and the
 second is worse than it looks — the projects most in need of governance are
@@ -85,9 +84,9 @@ supplies that answer.
    project and a non-compliant one. A project that has enumerated eight
    conflicts is more governed, not less, than one that has enumerated none
    because nobody looked.
-7. **A claim of fact about a system names how it was established.** This
-   corpus governs how decisions are written and, until this clause, said
-   nothing about how the facts underneath them are checked. A record can be
+7. **A claim of fact about a system names how it was established.**
+   Governing how decisions are written says nothing about how the facts
+   underneath them are checked. A record can be
    flawlessly disciplined — squashed, numberless, honest about its
    alternatives, carrying real revision triggers — and rest on a root cause
    nobody reproduced.
@@ -111,8 +110,8 @@ supplies that answer.
    §7 governs assertions of fact and is satisfied by a reproduction. It says
    nothing about the step from facts to significance — what caused a pattern,
    what a resemblance implies, whether a finding is a finding — and that step
-   has produced this corpus's most consequential errors while every fact
-   underneath stayed true. A reproduction cannot catch it, because there is
+   can produce the most consequential errors while every fact underneath
+   stays true. A reproduction cannot catch it, because there is
    nothing to re-run.
    - **Name the ordinary cause before the interesting one.** A claim that two
      things share a property is incomplete until it says what they share
@@ -146,41 +145,38 @@ supplies that answer.
    most common false reading in practice and the easiest to miss, because
    nothing errors.
 
-   All of these occurred in one day's work on this corpus:
+   Its shapes:
 
    - A comparison run against files a redirect never wrote, because a temporary
-     path resolved differently between two invocations. Three files reported
-     100+ lines of drift; the real answer was 0, 0 and 2, and the number
-     reported was the *other* file's line count.
+     path resolves differently between two invocations, so the drift reported
+     is some other file's line count.
    - A working tree read after a merge that exited non-zero — a conflicted
      half-state, reported as the merge's outcome.
-   - Copies written through a text API that translated every line ending, so
-     eleven branches showed whole-file diffs that were entirely encoding and
-     would have been normalised away on commit: noise that hides whether
-     anything real moved.
-   - A mutation test whose baseline was already failing, so removing the guard
-     changed nothing and "still red" was read as "the guard is live". It proved
+   - Copies written through a text API that translates every line ending, so
+     whole-file diffs that are entirely encoding, and would be normalised away
+     on commit, hide whether anything real moved.
+   - A mutation test whose baseline is already failing, so removing the guard
+     changes nothing and "still red" reads as "the guard is live". It proves
      nothing in either direction.
-   - A verdict reconstructed from raw fields when the document already carried
-     its own verdict field — the same shape as an earlier error where a key was
-     invented outright and every repository consequently reported compliant.
+   - A verdict reconstructed from raw fields when the document carries its own
+     verdict field, or a key invented outright, so that every repository
+     reports compliant.
 
    The discipline: **prefer the artefact you did not create.** Read a document's
    own answer rather than recomputing one. Assert the intermediate — that the
    file is non-empty, that the merge exited zero, that the baseline is green
-   before mutating — because each of these was one assertion away from being
+   before mutating — because each of these is one assertion away from being
    caught. An empty or perfectly uniform result from your own scaffolding is
    scaffolding failure until shown otherwise, exactly as §7 says of a uniform
    result from a tool.
 
 10. **A guard is not finished until someone has tried to route around it.**
     Writing the check is the easy half; the hole is never the case you had in
-    mind, it is the adjacent one. Three independent holes were found in a single
-    new guard on the day it was written — it keyed on the default branch, so any
-    intermediate base walked past it; it matched a branch *name*, so identical
-    content under a different name was clean; and it was wired into CI in a mode
-    that would have failed every legitimate propagation, because the tool's own
-    docstring distinguished a refusal from an advisory and the caller did not.
+    mind, it is the adjacent one: a guard keyed on the default branch, which any
+    intermediate base walks past; a guard matching a branch *name*, which
+    identical content under a different name passes; a guard wired into CI in a
+    mode that fails every legitimate case, because the tool distinguishes a
+    refusal from an advisory and the caller does not.
 
     Break-it-and-watch-it-go-red (§7) proves a guard fires on the case you
     thought of. It cannot find the case you did not. That needs an adversarial
@@ -223,8 +219,8 @@ supplies that answer.
 
 ## Alternatives considered
 
-1. **Convention without enforcement** — rejected: the observed drift occurred
-   *during* an attentive, two-party drafting round; unenforced convention
+1. **Convention without enforcement** — rejected: drift of this kind occurs
+   *during* an attentive, two-party drafting round, and unenforced convention
    does not survive contributor turnover.
 2. **Full RFC process** — rejected as ceremony disproportionate to org size;
    records + lint capture the value at a fraction of the weight.
@@ -241,11 +237,9 @@ supplies that answer.
    several org records admit no waivers at all, so a waiver mechanism here
    would relax them from the outside, which is the one thing project-level
    adoption may never do.
-6. **Leave verification to reviewer diligence** (§7) — rejected on this
-   corpus's own precedent. "Convention without enforcement" was rejected in
-   alternative 1 for vocabulary drift, on the grounds that it did not survive
-   an attentive two-party drafting round. The same argument applies with more
-   force here: a reviewer can see that a record is well-formed, and cannot
+6. **Leave verification to reviewer diligence** (§7) — rejected for the reason
+   alternative 1 gives for vocabulary drift, which applies with more force
+   here: a reviewer can see that a record is well-formed, and cannot
    see that its root cause was never reproduced.
 7. **Require every claim to carry a reproduction, including obvious ones** —
    rejected as the failure mode of the clause rather than a stricter version
