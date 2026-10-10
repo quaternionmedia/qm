@@ -22,6 +22,9 @@ page when it is acted on, and the page is deleted when it is empty.
 | D8 | loopwall `pre-squash-2026-08-09-session` is kept on origin as `archive/pre-squash-2026-08-09-session`. | Peter, 2026-10-10; done |
 | D9 | qmetronome #14 is closed. | Peter, 2026-10-10; done |
 | D10 | Not now: relocking Cuelist-python #1, joe's pull-request deploys, and a forge-speech permission rule. | Peter, 2026-10-10 |
+| D11 | Nothing of the demo is pushed until it is consistent: commits, docs and tests agree. That is its gate. | Peter, 2026-10-10 |
+| D12 | The demo's links between members become real app-to-app links, built locally as part of the demo, not relayed by the stage. | Peter, 2026-10-10 |
+| D13 | `--stage` skips each member's own check, because it would write into the hub's show. Plain `qm family-demo` keeps those checks. | Peter, 2026-10-10 |
 
 ## Open: a decision Peter owns
 
