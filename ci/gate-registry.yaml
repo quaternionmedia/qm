@@ -417,6 +417,30 @@ gates:
       read history -- a path already pushed stays pushed -- or tell a
       placeholder from a real account beyond the ones it lists.
 
+  - id: timeless-check
+    workflow: timeless-check.yml
+    job: timeless
+    gates: [main, push]
+    seed: true
+    exists: true
+    refuses: >
+      Prose added by a change that sets a phrase in capitals, or that narrates
+      how the text or the code came to be. It reads comments and docstrings in
+      code, markdown outside code blocks and spans, and comments in
+      configuration, on the lines the change adds. A deliberate exception is
+      declared with `timeless: allow` and a reason, and every allowance is
+      counted on every run.
+    runs:
+      - project-seed/ci/check_timeless.py
+    enforces:
+      - records/DRAFT-durable-text-states-what-is-true.md
+    cannot_see: >
+      A story told in neutral words, and a present-tense sentence that is no
+      longer true; those are the reviewer's. Text already on the base, which
+      `--all` reports and a sweep removes. Capitals in title case or spaced
+      out, a phrase broken so that no line holds three of its words, and file
+      types it does not read.
+
   - id: rulesets
     workflow: null
     job: null

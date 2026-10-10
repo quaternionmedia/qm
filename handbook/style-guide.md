@@ -2,8 +2,10 @@
 
 **Routing.** The style guide `PRINCIPLES.md` `minimal-legible-deliverables` names and routes here, rather
 than to a record: *"Taste encoded as constitutional law degrades both."* This
-page states requirements an author can be held to. It creates no gate a human
-does not apply at review, and promoting any clause to record form follows
+page states requirements an author can be held to. One of them is a record:
+`records/DRAFT-durable-text-states-what-is-true.md`, restated below under
+*Timeless text*, which this page is the procedure for. Everything else here is
+applied at review, and promoting a clause to record form follows
 `handbook/public-by-default.md`'s promotion path.
 
 **Audience.** Anyone writing in a QM repository, human or agent.
@@ -26,25 +28,50 @@ a sentence belongs to exactly one of them.
 this*, *what went wrong*, or *what we learned*, it belongs in
 `perspectives/`, whatever file you happened to be editing when you wrote it.
 
+## Timeless text
+
+`records/DRAFT-durable-text-states-what-is-true.md` decides this, and this
+section restates it. **Durable text states what is true now and what to do
+with it, for a reader who was not there.** Durable text is anything read
+later: docstrings and comments, `README.md` and `docs/`, handbook pages,
+walkthroughs, `AGENTS.md`, records, configuration headers.
+
+- **Present tense, about the thing as it is.** Say what it is, what it does,
+  what it cannot do, and what the reader should do.
+- **No internal history.** Not what the code replaced, what was missing
+  before, what was found, by whom, when, or how often something failed. The
+  commit, the pull request and the retrospective hold that. Where history
+  explains a constraint, state the constraint and leave the history out.
+- **No ornament.** No phrase set in capitals, no "the one that matters", no
+  check described by what it caught. Bold marks a term or a short clause, in
+  ordinary case.
+
+A docstring that opens with a story becomes one that opens with the fact:
+
+<!-- timeless: allow the struck-through quotation is the example of the habit -->
+> ~~The table existed and nothing served it. A front end growing a designer
+> had nowhere to put a design.~~
+>
+> Saved topology designs, over HTTP. A design is validated through its kind's
+> configuration class and returned with the plane's verdict.
+
+A limits section keeps its content and drops the volume: *What this cannot
+do:* rather than the same words in capitals.
+
+**The gate.** `uv run qm timeless` (in a project,
+`python governance/qm/project-seed/ci/check_timeless.py`) refuses the
+mechanical shapes on the lines a change adds; `--all --summary` measures what
+remains in the whole repository. A deliberate exception is declared on the line
+or the line above with `timeless: allow` and a reason. A story told in neutral
+words passes the check and is the reviewer's to catch.
+
 ## Every home, and the class the tooling gives it
 
-The four tiers above are where a *sentence* goes. This is the companion
-question — where a *document* lives — and it needs its own table because the
-answers are not the same list.
+The four tiers above are where a *sentence* goes. This is where a *document*
+lives.
 
-They were not the same list, and neither table knew the other existed. This
-page named four tiers; `ci/doc_status.py`'s `classify` named eight classes and
-sorted the repository by directory. Between them sat homes this page had never
-placed: `handbook/` is the largest prose directory in the corpus and appeared
-nowhere above, and `docs/` — named here as the reference tier — fell outside
-the generator's scan entirely, so the tier this page privileges was the one
-nothing could report a state for. Two coherent documents, one contradiction, and
-a reader who consulted either built a model the other denied. That is the
-failure `records/DRAFT-the-read-document-governs.md` names, at the level of the
-directory layout rather than a clause.
-
-**This table and `classify` are one pair. When they disagree, they are repaired
-together.**
+**This table and `ci/doc_status.py`'s `classify` are one pair. When they
+disagree, they are repaired together.**
 
 | Home | Class | Holds | Binds |
 |---|---|---|---|
@@ -58,21 +85,19 @@ together.**
 | `walkthrough/` | `walkthrough` | A worked example, executed by the ordinary test command | Nobody. It is evidence, per `show-it-by-running-it` |
 | `PRINCIPLES.md`, `AGENTS.md`, `README.md` | `entry` | Read first, by everyone. Restates records it does not own, and declares each | Everyone reading them, which is why the restatement rule exists |
 
-**`plans/` is a home this page has not placed, and `classify` calls it *not in a
-governed directory*.** Fourteen files sit there. That is stated rather than
-resolved: a plan being executed is a handoff, a plan that was executed is a
-retrospective, and a plan nobody is executing is neither — but which of those
-each file is, is a person's reading and not a rule. Naming the gap is not
-waiving it.
+**`plans/` has no place in this table**, and `classify` calls it *not in a
+governed directory*. A plan being executed is a handoff, a plan that was
+executed is a retrospective, and a plan nobody is executing is neither; which
+of those each file is, is a person's reading and not a rule.
 
 ## The one exception, and its boundary
 
 A decision record's job *is* rationale: `TEMPLATE.md` requires Context and
-Alternatives considered, and a record without them is not a record. That is
-not a hole in the rule, because the two answer different questions:
+Alternatives considered, and a record without them is not a record. The two
+answer different questions:
 
 - **A record** answers *why this decision* — prospective, bounded by the
-  template, about a choice being made.
+  template, about a choice being made, stated as forces and trade-offs.
 - **A retrospective** answers *why it went that way* — experience after the
   fact: what happened, what it cost, what a check would have caught.
 
@@ -83,28 +108,29 @@ does not belong in a retrospective.
 
 Applied to a sentence you have just written:
 
-1. **Does it survive a rewrite of the code it sits beside?** If yes, it is
+1. **Will it still be true after the next commit?** If it describes an earlier
+   state of the code or page, it is history.
+2. **Does it survive a rewrite of the code it sits beside?** If yes, it is
    rationale, and it is in the wrong place if it is inline.
-2. **Would a reader who disagrees with it still need it to use the thing?**
+3. **Would a reader who disagrees with it still need it to use the thing?**
    If no, it is argument, not reference.
-3. **Does it narrate an event?** Events belong in retrospectives. A file that
+4. **Does it narrate an event?** Events belong in retrospectives. A file that
    explains what happened to it is a retrospective wearing another file's
    name.
-4. **Is the README longer than the thing it introduces is deep?** Then it has
+5. **Is the README longer than the thing it introduces is deep?** Then it has
    stopped being an onramp.
 
 ## The first thing a stranger reads
 
-The rule above says where explanation goes. This one is about how the opening of
-a page is written, and it applies to whatever a reader meets first: the README,
-the documentation landing page, the top of a getting-started guide.
+The rules above say where explanation goes. This one is about how the opening
+of a page is written, and it applies to whatever a reader meets first: the
+README, the documentation landing page, the top of a getting-started guide.
 
 **Write the first sentence for somebody who does not yet know why they should
 care.** A real sentence, with a verb, in words they already have. Precision is
 what the rest of the page is for.
 
-The failure mode is specific and it is comfortable, because it reads as rigour.
-This page's own landing sentence used to be:
+An opening like this one fails a newcomer:
 
 > The Quaternion Media constitution: the decisions that govern every QM
 > project, the process that keeps them consistent, and the template each new
@@ -141,21 +167,21 @@ cannot say what this is for, the sentence has not started yet.
 ## What this looks like when it is wrong
 
 A comment block arguing for the design above the code implementing it. A
-README that a reader finishes instead of leaving. A docstring that opens with
-what the author believes about software. A configuration file whose header is
-an essay about an incident — which is how this page came to be written; see
-`perspectives/2026-08-09-explanation-in-the-wrong-place.md`.
+docstring that opens with the story of how its module came to exist. A README
+that a reader finishes instead of leaving. A configuration file whose header is
+an essay about an incident. `perspectives/2026-08-09-explanation-in-the-wrong-place.md`
+holds the reasoning.
 
-Each is legible in isolation and costly in aggregate: rationale next to code
-goes stale silently, because nothing tests it and a later edit has no reason
-to revisit it. A retrospective is dated and attributed, so it is allowed to
-age — it says what was true on a day, and reads correctly forever.
+Each is legible in isolation and costly in aggregate: rationale and history
+next to code go stale silently, because nothing tests them and a later edit has
+no reason to revisit them. A retrospective is dated and attributed, so it is
+allowed to age — it says what was true on a day, and reads correctly forever.
 
 ## Applying it to what already exists
 
-This corpus does not currently satisfy this page, and neither does every
-project adopting it. Migration is per-file, on the branch that is already
-touching the file, rather than a sweep: when you edit a file, move the
-explanation you find in it, and leave the facts. A sweep across files nobody
-is otherwise touching costs review attention and buys nothing that waiting
-does not.
+Existing text is swept, per the record's §6: each repository's durable text is
+brought under these rules in its own pull requests, one area at a time, with
+`check_timeless.py --all --summary` as the measure of what remains. Facts a
+reader needs are kept and restated in the present tense; the telling is
+removed. A lesson that no retrospective yet records is written up as one,
+dated, rather than kept inline.
