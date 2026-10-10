@@ -166,8 +166,8 @@ gate will run it for you. The second reads tracked files only and does run as
 a gate (`leak-check.yml`); it runs here as well because a push is the moment
 after which nothing can be taken back. Both run before anything is pushed,
 because a page pushed without them can carry a private repository's name or
-one person's disk into a public artifact, and the first run of this runbook
-did exactly that and had to be repaired after the push. `--strict` turns "no
+one person's disk into a public artifact, where repairing it after the push
+does not remove it from history. `--strict` turns "no
 source of private names was available" from a pass into a failure; a machine
 without the host's list has not checked anything.
 
