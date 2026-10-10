@@ -71,6 +71,36 @@ from one tested under another name. A module nothing executes is listed in
 module or the module is gone. It cannot tell whether a test checks anything;
 the mutation score answers that.
 
+## Mutation
+
+`uv run qm mutate <module>` (`ci/mutate.py`) applies one-for-one textual
+substitutions to a module and runs its tests against each mutant. A surviving
+mutant means a test is missing or the change makes no behavioural difference;
+the tool cannot tell which and judges none. Every mutant runs against a copy of
+the working tree (with `.git`, without build outputs and caches) staged once
+per [sweep](../../ref/glossary.md#sweep){ .glossary-term }, so an interruption never leaves a tracked file broken, and pytest
+runs with `-B` and no cache so a mutant never imports an earlier mutant's
+bytecode. `--tests` defaults to the obvious test file and says so. It cannot
+see a defect no operator expresses, or whether the test that killed a mutant
+is the one that should have.
+
+## The family suite
+
+`uv run qm family-suite` (`ci/family_suite.py`) runs the member suites of the
+estate's families and adds the assertions that exist only across members. Each
+tier needs more of the estate to have reported than the one above it:
+
+| Tier | Needs | Asserts |
+|---|---|---|
+| shape | one family | every member that ran, ran something |
+| disjoint | two families | no repository is in two families |
+| cover | all families | every declared family had a member run |
+| contract | all, plus the [seam](../../ref/glossary.md#seam){ .glossary-term } | every contract surface agrees across families |
+
+A tier the batch cannot reach is printed `not reached` with what it would take,
+never as passing. It names each failing test, not only a count. It runs sibling
+clones, so it is advisory and local only.
+
 ## What it is not
 
 It is not a gate. It prints a comparison and exits zero whatever it finds:

@@ -199,6 +199,31 @@ forge. No workflow runs it, because `registries.yml` admits only checks that
 read committed files: this reads a machine. It is a command somebody runs. It
 cannot read history.
 
+## Merging
+
+`uv run qm merge` (`ci/merge_review.py`) reads the contributor's open pull
+requests and says which are ready; with a pull request and `--yes` it merges
+that one. Ready is one definition, `blockers`, used by both the listing and the
+act, and each blocker is named (the draft flag, a conflicting file, a check by
+name) rather than reported as "not ready". The act re-reads the live state at
+that moment. It merges with a merge commit only (a squash or rebase flag is
+refused with the reason), retargets every pull request stacked on the merged
+branch before deleting it, and never pushes, closes a pull request or touches
+`main` by another route. Without `--yes` it stops with a non-zero status. It
+cannot see whether a pull request should merge, only whether the host says it
+can; `uv run qm branch` reads what a branch carries.
+
+## The declared-routes hook
+
+`.claude/hooks/prefer_declared_routes.py` is an optional pre-command hook that
+fires when a shell command goes around a route `qm` declares: `pytest` run
+directly instead of `qm test`, mutation by hand instead of `qm mutate`, and the
+like. It warns and allows by default; `QM_ROUTES_STRICT=1` makes it refuse. It
+knows only commands that have a route, never fires on its own remedy (an
+allow-list covers `uv run qm test`), reads shell commands only, and fails open:
+input it cannot read, or that is not an object, lets the work through.
+Enabling it is each contributor's decision.
+
 ## Shared shapes
 
 - **An exception costs a stated reason.** `timeless: allow`,

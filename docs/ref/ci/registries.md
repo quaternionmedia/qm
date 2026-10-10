@@ -126,3 +126,14 @@ deletes exactly those. Each entry's `safety` is the cost of getting it back:
 destructive`, per run). An entry with no `safety` is a policy error. Paths
 expand `${VAR}` from the environment, and an unset variable makes the entry
 `unknown` rather than skipped.
+
+## The mathematics registry
+
+`ci/mathematics-registry.yaml` records each mathematical mapping the estate
+uses, and `uv run qm mathematics` (`ci/check_mathematics.py`) checks the shape
+of each claim, never the mathematics: an `earned` mapping names the
+measurement that earned it, a mapping that decides nothing says `decorative`,
+an `aspirational` one has not been measured, and every entry names what it has
+not earned in `unearned`, which may never be empty. A placeholder-length field
+is refused, and so is a field stated twice in one entry, which YAML would
+otherwise resolve silently to the last value.
