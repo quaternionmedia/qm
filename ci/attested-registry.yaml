@@ -5,7 +5,7 @@
 # in prose gets rediscovered by argument, and the argument is always with
 # somebody who has a good automation idea and no way to see the class.
 #
-# THE TEST, AND IT IS NOT ABOUT RISK. If a machine did this and produced the
+# The test, and it is not about risk. If a machine did this and produced the
 # identical artifact, would the artifact still mean what it means? Where the
 # answer is no, the act is a person's. Tagging a green `main` on a schedule is
 # *low* risk and would still empty the claim, which is why "how bad if it goes
@@ -21,7 +21,7 @@
 #   evidence   where the act is recorded, or `none` where nothing records it
 #   enforced   what stops a machine doing it, or `nothing` said plainly
 #
-# NOTHING HERE IS INFERRED FROM SURROUNDING EVIDENCE. Every gate green does not
+# Nothing here is inferred from surrounding evidence. Every gate green does not
 # ratify a record; a clean `main` does not cut a tag; work being finished does
 # not close a delta. An act nobody performed is outstanding, and the views say
 # so rather than rounding it up.

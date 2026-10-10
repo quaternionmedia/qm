@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Refuse a template that is being shown to a reader.
 
-SEED FILE, run in place: a forking project runs it out of the governance
+A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it.
 
-WHAT THIS IS FOR. A seed file carries placeholders on purpose -- `<name>` stands
+What this is for. A seed file carries placeholders on purpose -- `<name>` stands
 for whatever project copies it. A *copy* carrying the same placeholder is a
 different thing: it is a template being used on its reader. Somebody opens
 `adr/README.md` on `project/datum`, reads "this project's own dedicated branch
@@ -18,7 +18,7 @@ was stated in one banner, enforced nowhere, and absent from
 `project-seed/adr/README.md`'s banner entirely. Ten of twelve project branches
 consequently carry it unsubstituted.
 
-HOW IT DECIDES, without an allowlist. A placeholder is a defect in a copy only
+How it decides, without an allowlist. A placeholder is a defect in a copy only
 if the *seed source of that copy* also has it. So the check pairs each copied
 file with its seed original and refuses any placeholder the seed declared and
 the copy kept. That means:

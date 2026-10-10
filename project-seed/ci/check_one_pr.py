@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """No pull request is marked ready while it is stacked on another open one.
 
-SEED FILE, run in place. The filename predates the rule and is kept because
+A seed file, run in place. The filename predates the rule and is kept because
 every project's copied one-pr-check.yml runs it by this path.
 
 The rule (handbook/async-contract.md 1): one change per pull request.
@@ -12,12 +12,12 @@ request's base IS that branch, and it stays a draft until the one beneath it
 merges -- however finished it is. Ready means merge once green, and merging a
 stacked pull request lands it in its parent's branch rather than the target.
 
-WHAT THIS FAILS
+What this fails
 
   - A human's open pull request that is not a draft and whose base is the head
     branch of another open pull request in the same repository.
 
-WHAT IT CANNOT SEE
+What it cannot see:
 
   - Whether a pull request is one change. Size is not scope.
   - A "stack" that skips the base chain: a branch cut from another pull

@@ -95,9 +95,8 @@ def test_a_link_to_a_sibling_page_resolves(tmp_path: Path):
 def test_a_link_to_a_corpus_file_is_reported(tmp_path: Path):
     """It resolves on disk and 404s once published: only `docs/` is deployed.
 
-    This used to pass. `docs/index.md` linked `../handbook/glossary.md`, the
-    file existed, the check was satisfied, and the published link was dead --
-    on the same page as a correct link to the same glossary.
+    A target that exists in the repository outside `docs/` is reported, however
+    the link is spelled.
     """
     root = site(tmp_path, page="See [agents](AGENTS.md).\n")
     write(root / "AGENTS.md", "# Agents\n")
