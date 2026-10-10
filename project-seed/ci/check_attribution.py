@@ -4,18 +4,16 @@
 A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it.
 
-What this is for. Tool involvement is disclosed in one place -- a `Tools:` note
-on the artifact that calls for one -- and nowhere else. It is not a byline, not a
-commit subject, and not a sentence in a binding record. The existing rule covers
-only the co-author trailer, so a commit titled "Re-refactor docs with <model>"
-passes every check this org has, and that name is then in the permanent history
-of a corpus meant to outlive the product.
+Tool involvement is disclosed in one place, a `Tools:` note on the artifact
+that calls for one, and nowhere else: not a byline, not a commit subject, and
+not a sentence in a binding record. A commit subject naming a model would put
+that name in the permanent history of a corpus meant to outlive the product.
 
 The deeper reason is the seams doctrine: a record naming a vendor's mechanism in
 prose reads, to the next person, as that mechanism being sanctioned. A record
 states the invariant; a clearly-labelled adapter names the product.
 
-TWO CHECKS, both independent and both usable alone:
+Two checks, both independent and both usable alone:
 
     --records-dir DIR   no vendor or model name in the prose of any record there
     --base-ref REF      no vendor or model name in any commit subject REF..HEAD

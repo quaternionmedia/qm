@@ -9,12 +9,9 @@ The record carries a `Restated in` row naming every document that summarizes
 it, and each of those documents names the record's path. A summary that exists
 in only one direction is a defect.
 
-The failure this exists for is silent by construction. `AGENTS.md` item 3 said
-a pull request was opened "for human review" and that an agent must never merge,
-while `records/DRAFT-version-tags-are-claims.md` §4 said `main` asserts nothing
-and the human gate is the tag. Both were in the tree at the same commit, neither
-looked wrong alone, no gate went red, and a session read the entry point and
-built a model of the whole organisation that the record contradicted.
+The failure this guards is silent by construction: an entry point and a record
+can disagree at the same commit, neither looks wrong alone, no gate goes red,
+and a reader of the entry point builds a model the record contradicts.
 
 What this cannot do: two limits, and they are larger than the check:
 

@@ -5,13 +5,11 @@
     uv run qm rulesets --check    # exit non-zero when the two disagree
     uv run qm rulesets --apply    # create or update all of them on the host
 
-Why a route and not a README full of `gh api`. Six ruleset files have sat in
-`.github/rulesets/` since 2026-08-10 with an apply script beside them, and the
-host reports zero rulesets. Nothing read the two together, so the drafts looked
-like configuration and were documentation. This reads them together, which is
-the only way the gap is visible without someone remembering to look.
+It reads the drafted ruleset files in `.github/rulesets/` and the host's
+applied rulesets together, so a draft that was never applied shows as a gap
+rather than looking like configuration.
 
-WHAT `--apply` IS. A wrapper around `.github/rulesets/apply.sh`, which is the
+`--apply` is a wrapper around `.github/rulesets/apply.sh`, which is the
 thing that owns the operation. It changes what every contributor and every
 concurrent session can do, on the host, outside any pull request -- so it is
 never run as part of anything else, and this tool will not reach for it on its

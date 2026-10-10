@@ -4,14 +4,10 @@
 A seed file, run in place. It answers the questions a session would otherwise
 assume the answer to, and writes them down where the answer can be checked.
 
-Why a tool rather than a checklist
-
-Every question below has been answered wrongly, confidently, in a real session
-in this org: a review of a branch nobody was running; a working tree reported
-as the state of a repository; a submodule pin read off the wrong submodule; a
-propagation described from a handbook page whose numbers were four days old. A
-checklist asks a session to remember to look. This looks, and prints what it
-saw with the commit it saw it at.
+A tool rather than a checklist: a checklist asks a session to remember to look
+at which branch is under review, what state the repository is in, which
+submodule pin it carries and how old a handbook page's numbers are. This looks,
+and prints what it saw with the commit it saw it at.
 
 What it refuses to do:
 

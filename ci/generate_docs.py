@@ -5,16 +5,12 @@ Org-level tooling, copied nowhere. One command a human runs before a pull
 request, so drift shows up as an uncommitted diff rather than as staleness
 nobody sees -- charter `show-it-by-running-it`, and `records/DRAFT-one-executable-walkthrough.md`.
 
-Why this exists. Six generated artifacts live at this repository's root and in
-`handbook/`, each with its own refresh command written down in its own
-`reading:` block. That is correct and it is not usable: nobody runs six
-commands from memory, so the ones needing a remembered command go stale and the
-ones riding an existing command do not. That gap has already been measured in
-this corpus -- the artifacts riding the test command carry zero drift and the
-two needing a remembered command are stale.
+Each generated artifact at this repository's root and in `handbook/` carries
+its own refresh command in its own `reading:` block. Nobody runs those from
+memory, so this runs them all: an artifact riding a command people already run
+stays current, and one needing a remembered command goes stale.
 
-The network split is the important part. Three of these read other repositories
-or the host:
+Three of these read other repositories or the host:
 
     status/governance.yaml   reads every project's refs
     status/harness.yaml      reads pull requests across the org

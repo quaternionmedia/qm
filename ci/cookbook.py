@@ -18,9 +18,9 @@ rule applied to a diagram.
 
 What these pages cannot do: tell a reader whether a repository works. They
 report what the org has claimed and what the disk shows -- a family, its
-members, which carry governance, and which have uncommitted work. Three of the
-four families have no adopted member, so their pages are honest about having
-no governed entry point rather than inventing one.
+members, which carry governance, and which have uncommitted work. A family
+with no adopted member gets a page that says it has no governed entry point
+rather than inventing one.
 """
 
 from __future__ import annotations

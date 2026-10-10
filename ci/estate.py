@@ -1,18 +1,12 @@
 #!/usr/bin/env python3
 """Every repository the org rosters, and what of it exists on this disk alone.
 
-A consolidation starts with a question nobody could answer from one place.
 `project-seed/ci/branch_census.py` says, for one repository, which branches
-hold commits that exist on one disk. Before the estate's branches were brought
-to the host, somebody ran that census by hand in every clone the roster names,
-kept the answers in a scratch file, and then did it again when a session
-elsewhere had moved a branch. It was the single most expensive step of the
-whole cycle, and every one of its answers was a fact git already held.
-
-This module asks the same question of every repository at once. It reads the
-roster `ci/make_workspace.py` reads, resolves each entry to a clone the same
-way, and asks each clone -- with read commands only -- what it holds that the
-host does not:
+hold commits that exist on one disk. This asks the same question of every
+repository the roster names at once: it reads the roster
+`ci/make_workspace.py` reads, resolves each entry to a clone the same way, and
+asks each clone, with read commands only, what it holds that the host does
+not:
 
   one-copy    a local branch ahead of the default branch and not on `origin`
               at all; deleting the clone deletes the work. Each is marked as
