@@ -5,7 +5,7 @@
     uv run qm policies --check    # refuse a policy nothing durable enforces
     uv run qm policies --fragile  # only the ones a tool change would silence
 
-THE RULE. Prevention is disposable; detection is not. A policy enforced only by
+Prevention is disposable; detection is not. A policy enforced only by
 a vendor's hook dies when that vendor changes, and dies silently -- nothing
 reports the absence of a hook that used to run. So a policy needs a detector
 that reads an artifact, or a stated reason it cannot have one.
@@ -17,9 +17,8 @@ because the column then reads as coverage.
 
 What this cannot do: it cannot tell that a detector detects the thing its policy
 describes. It reads whether a file exists and whether the fields are consistent.
-A detector that checks the wrong property passes here -- which is exactly the
-error `--drift` caught twice in the exception registry, and this check has no
-equivalent.
+A detector that checks the wrong property passes here, and this check has no
+equivalent of the exception registry's `--drift`.
 """
 
 from __future__ import annotations

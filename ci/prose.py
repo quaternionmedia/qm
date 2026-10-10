@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 """The first thing a stranger reads, from every entry point, side by side.
 
-What this is for. `handbook/style-guide.md` asks that the opening of anything a
-newcomer meets be a real sentence in words they already have. That rule was
-written after this corpus's own landing page was found opening with a colon and
-three abstractions and no verb -- accurate, and unreadable to anybody who did
-not already understand it.
+`handbook/style-guide.md` asks that the opening of anything a newcomer meets be
+a real sentence in words they already have.
 
 Nothing can check whether prose is clear. What a program can do is put the
 opening lines of every entry point on one screen, so a person reads them

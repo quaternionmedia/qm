@@ -5,11 +5,10 @@
     uv run qm exceptions --brief    # the short form, for a session brief
     uv run qm exceptions --drift    # constants named here that no longer exist
 
-Why a session needs this. A session that arrives with no history reads
-`AGENTS.md` and learns the rules. Nothing tells it which rules have holes,
-where, or why — that knowledge lived in six constants inside five checks, and
-in one operator's memory. So a blind session either rediscovers an exemption by
-tripping over it, or reimplements a rule that was deliberately suspended.
+A session that arrives with no history reads `AGENTS.md` and learns the rules,
+but not which rules have holes, where, or why. Without this it either
+rediscovers an exemption by tripping over it, or reimplements a rule that was
+deliberately suspended.
 
 `ci/exception-registry.yaml` is the claim. This reads it, and `--drift` compares
 it against the source: a constant the registry names that no longer exists in

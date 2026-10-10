@@ -35,7 +35,7 @@ Usage:
 The committed copy needs --no-local, and the machine-scoped copy needs a path
 outside the repository. There is no third form: `--write status/harness.yaml`
 without --no-local always refuses, because that would commit one person's
-clones. This block used to lead with exactly that invocation.
+clones.
 """
 
 from __future__ import annotations

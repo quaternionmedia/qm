@@ -3,9 +3,7 @@
 
 Org-level tooling: it lives in ci/, is copied nowhere, and every caller is
 inside this repository. It reads a document and writes a page. That is the whole
-contract. (It described itself as a SEED FILE, which it never was -- nothing
-under project-seed/ is this file, and a forker copying it would be copying a
-tool that reads a document only the corpus generates.)
+contract.
 
 What this may not do, and why the list matters more than the features:
 

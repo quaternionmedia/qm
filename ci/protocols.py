@@ -11,8 +11,7 @@ the two in one place would make a protocol read as always-on and a gate read as
 optional, so `ci/gate-registry.yaml` holds one and `ci/protocol-registry.yaml`
 holds the other.
 
-WHAT `--check` REFUSES, and each of these has an instance in this repository's
-history:
+What `--check` refuses:
 
   * a registered protocol with no page, and a page nobody registered -- the
     claim layer and the artifact layer disagreeing, which is the split
@@ -22,7 +21,7 @@ history:
     renamed route breaks every page that cited it silently;
   * a protocol with no `cannot_see`, which is undescribed rather than thorough.
 
-What it does not refuse: A protocol that has never been run. That is printed,
+What it does not refuse: a protocol that has never been run. That is printed,
 loudly, and it is a fact about the organisation rather than a defect in the
 file -- most of this list has never been run, and a check that failed on it
 would be a check somebody deletes.
