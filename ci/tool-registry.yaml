@@ -1,6 +1,6 @@
 # Tools that operate in this corpus, and where each is disclosed.
 #
-# Why this exists. A ledger entry attributed to "this tool" is unfalsifiable: a
+# A ledger entry attributed to "this tool" is unfalsifiable: a
 # reader cannot tell which tool, run by whom, or over what period. Every entry
 # in `status/ledger.yaml` names one of these ids, so an attribution resolves to a
 # vendor, a product and an operator.
@@ -8,8 +8,7 @@
 # Every entry, not only the failures. Tool authorship is audited on the same
 # terms as tool fault. A register that named an instrument when something went
 # wrong and stayed silent when something went well would let a tool accumulate
-# credit while shedding responsibility, which is the asymmetry the reviewer
-# named on 2026-08-16.
+# credit while shedding responsibility.
 #
 # Naming a vendor is permitted here. `check_attribution.py` guards records prose
 # and commit subjects; `adapters/` and `perspectives/` already name products.
