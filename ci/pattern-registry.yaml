@@ -63,13 +63,8 @@ patterns:
     threshold: 1
     check_exists: true
     check_file: ci/run_tests.py
-    # Four different pytest invocations in one afternoon -- `python -m pytest`,
-    # `uv run --with pytest pytest`, `uv run --extra preflight --with pytest
-    # pytest`, and a bare `pytest` -- each able to collect a different set, in a
-    # session that had just built `qm` as the single entry point. The same
-    # correction had already been given that day about an org tag audit run as a
-    # shell loop, and was applied once without being generalised.
-    # `uv run qm test` is now the only way; the check is that it exists and runs
+    # Improvised pytest invocations can each collect a different set of tests.
+    # `uv run qm test` is the only way; the check is that it exists and runs
     # CI's own arguments.
 
   git-config-override-on-the-command-line:

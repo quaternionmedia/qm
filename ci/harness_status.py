@@ -10,7 +10,7 @@ The split is not tidiness. A renderer that can run a command is a second place
 a governance rule gets defined, and the two definitions drift. Everything the
 dashboard shows must be a fact in this document or it is not shown.
 
-TWO LAYERS, AND THEY ARE NOT THE SAME KIND OF FACT
+Two layers, and they are not the same kind of fact
 
   - `slots` is about the org, read over the network. It is true for everyone.
   - `local` is about one machine, read from one set of clones. It is true for
@@ -20,7 +20,7 @@ TWO LAYERS, AND THEY ARE NOT THE SAME KIND OF FACT
     -- exists nowhere else. A dashboard that showed it as an org fact would be
     lying about its scope.
 
-UNKNOWN IS A VALUE
+Unknown is a value
 
 Any fact this tool could not establish is written as `{"unknown": "<reason>"}`,
 never omitted and never defaulted. A repository whose pull requests could not
@@ -707,10 +707,8 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    # **THE REFUSAL COMES BEFORE THE WORK.** This sat after `build`, so
-    # refusing to write cost what writing would have -- about half a minute
-    # of scanning every clone on the machine to produce a document that was
-    # then thrown away. A guard that runs last costs what it prevents.
+    # The refusal comes before the work, so refusing to write never costs the
+    # scan of every clone that writing would.
     if args.write and not args.no_local and inside_corpus(args.write):
         sys.exit(
             f"harness_status: refusing to write the machine layer to "

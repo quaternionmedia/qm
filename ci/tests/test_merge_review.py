@@ -54,13 +54,9 @@ first and after the last.
     E       ('pr', 'merge')
     FAILED test_the_listing_issues_only_read_verbs
 
-**THE FIRST RED WAS THE SUITE'S OWN.** Before any mutation, the
-`unreadable-checks` row failed against the unmodified module: it passed
-`checks=None` to the fake host, and `None` is that fake's "use the green
-default". The row was asking about green checks and reporting a defect in
-`blockers` that was not there -- the setup describing itself. The rows now
-carry the fake's keyword arguments whole, and the unreadable-checks mutation
-above is the evidence that the repaired row reads the condition it names.
+The rows carry the fake host's keyword arguments whole, because `None` is that
+fake's "use the green default": a row passing `checks=None` would ask about
+green checks while claiming to test unreadable ones.
 """
 
 from __future__ import annotations
@@ -191,11 +187,8 @@ def test_each_failing_condition_alone_blocks_ready(host, label, setup):
     so a predicate that dropped exactly one of them is caught by exactly one
     row here rather than hidden behind the others.
 
-    **THE LAST ROW WAS GREEN FOR THE WRONG REASON THE FIRST TIME.** It passed
-    `checks=None`, and `None` is the fake host's "use the default" -- so the
-    row asked about green checks and reported a module defect that was not
-    there. The setup described itself. Rows now carry the host's keyword
-    arguments whole, so what a row says is what the fake does.
+    Rows carry the host's keyword arguments whole, so what a row says is what
+    the fake does.
 
     Mutation: delete the `if pr.draft` branch of `blockers` and the `draft`
     row goes red alone; delete the pending branch and `pending` goes red.
@@ -226,7 +219,7 @@ def test_no_checks_at_all_is_a_state_and_not_a_read_failure(host):
 
 
 def test_the_listing_issues_only_read_verbs(host):
-    """**THE PROPERTY THE DEFAULT MODE EXISTS FOR.** Whatever the state of the
+    """The property the default mode exists for. Whatever the state of the
     queue -- here one READY pull request, which is the tempting case -- a
     listing never merges, closes or pushes."""
     fake = host()

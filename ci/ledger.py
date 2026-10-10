@@ -15,7 +15,7 @@ or `unknown`, and a `false` is not a defect -- an honest wrong prediction is
 worth more than a vague right one. What is a defect is a closed entry with no
 outcome, which is a prediction quietly dropped.
 
-WHAT IT CANNOT DO. It cannot tell that a projection was vague enough to be
+What it cannot do: it cannot tell that a projection was vague enough to be
 unfalsifiable, or that an outcome was written to match. Both are readings. It
 checks that the fields exist, that closed entries are scored, and that nothing
 open has been abandoned.

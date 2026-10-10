@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Every repository the org rosters, and what of it exists on this disk alone.
 
-**A CONSOLIDATION STARTS WITH A QUESTION NOBODY COULD ANSWER FROM ONE PLACE.**
+A consolidation starts with a question nobody could answer from one place.
 `project-seed/ci/branch_census.py` says, for one repository, which branches
 hold commits that exist on one disk. Before the estate's branches were brought
 to the host, somebody ran that census by hand in every clone the roster names,
@@ -28,7 +28,7 @@ the current user has open, and flags one that is ready while its base is
 another of them: a stacked pull request stays a draft until the one beneath it
 merges (`handbook/async-contract.md` 1).
 
-WHAT IT REFUSES TO DO.
+What it refuses to do:
 
   * **It never writes.** No push, fetch, prune, merge or delete, and no flag
     to ask for one. A survey that can also act is one somebody runs in a
@@ -49,7 +49,7 @@ unstated last. The family is a claim a person made in `ci/workspace.yaml`
 nothing here infers one, and a member with no claim is *unstated*, which is
 not "none" -- nobody has answered the question for it.
 
-WHAT IT CANNOT TELL YOU. Whether a one-copy branch is worth keeping. It says
+What it cannot tell: whether a one-copy branch is worth keeping. It says
 what would be lost and how much, and stops; the deletion is a person's act,
 as it is for the single-repository census. Nor can it see a clone the roster
 does not name: a repository is surveyed because somebody wrote it down.

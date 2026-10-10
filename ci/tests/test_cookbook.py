@@ -27,11 +27,8 @@ def state(name, adopted=False, on_disk=True, dirty=0, branch="main", last="2026-
 
 
 def test_a_family_with_no_governed_member_gets_no_entry_point():
-    """**THE FLATTERING PAGE THIS EXISTS AGAINST.**
-
-    Three of four families have no adopted member. A page that offered a
-    governed entry point anyway would send a newcomer to run a command that
-    does not exist there.
+    """A family with no adopted member gets no governed entry point: one would
+    send a newcomer to run a command that does not exist there.
 
     Mutation: make `page` emit the governed branch unconditionally and this
     fails.
@@ -58,14 +55,11 @@ def test_the_corpus_is_the_entry_point_for_its_own_family():
 
 
 def test_the_committed_page_carries_no_machine_scoped_state():
-    """**THE DESIGN FAULT THIS PAGE WAS BORN WITH.**
-
-    The first version put the branch, the uncommitted count and the last commit
-    date into a *committed* document. Those differ per machine and change on
-    every keystroke, so `qm docs check` reported drift the moment anybody edited
-    a file -- and a check that fails hourly is one people learn to rerun rather
-    than read. `status/inventory.yaml` and `inventory-local.json` already make
-    this split; the page had to make it too.
+    """The committed page carries no machine-scoped state: the branch, the
+    uncommitted count and the last commit date differ per machine and change on
+    every keystroke, so `qm docs check` would report drift whenever anybody
+    edited a file. `status/inventory.yaml` and `inventory-local.json` make the
+    same split.
 
     Mutation: put `state['branch']` or `state['dirty']` back into `page` and
     this fails.

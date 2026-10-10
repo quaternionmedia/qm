@@ -11,14 +11,14 @@
 # its real runtime, and deterministic automated validation passed -- and the
 # annotation names all three, including what the automated gate did not cover.
 #
-# WHAT THIS FAILS, AND WHO CAN FIX IT
+# What this fails, and who can fix it
 #
 # It fails a pushed `v*` tag that is lightweight, misnamed, or missing one of
 # the four annotation fields. The fix belongs to whoever cut the tag: delete it,
 # and cut it again with `git tag -a`. Nobody else can repair it, which is why
 # this runs on the tag push and not on anybody's pull request.
 #
-# WHAT IT DOES NOT COVER, and the list is the honest part:
+# What it does not cover, and the list is the honest part:
 #
 #   - It cannot tell whether the review or the manual test happened. It reads
 #     an annotation a human wrote. The improvement on offer is that the claim

@@ -98,11 +98,9 @@ def record(status: str = "Proposed", body: str = "Context body line.\n") -> str:
 def index_for(numbers: list[int], files: list[str] | None = None) -> str:
     """An index table. Rows carry links, because the lint reads links.
 
-    A row used to be four cells of text with no link in it, which was enough
-    while the index check compared only the numbers it could read out of the
-    first cell. It now also matches each record file against the link targets
-    in the table, so a row that names a record without linking it is a row that
-    does not list it -- for the reader as much as for the check.
+    The index check matches each record file against the link targets in the
+    table, so a row that names a record without linking it does not list it,
+    for the reader as much as for the check.
 
     `files` is for records that carry no number, which before the first
     ratification is all of them.
@@ -124,7 +122,7 @@ def index_for(numbers: list[int], files: list[str] | None = None) -> str:
 def _repo_template(tmp_path_factory) -> Path:
     """One initialised repository, built once for the whole session.
 
-    **BUILT ONCE AND COPIED, NOT BUILT PER TEST.** Ninety-odd tests take the
+    Built once and copied, not built per test. Ninety-odd tests take the
     `repo` fixture, and each build cost four `git` subprocesses -- init, remote
     add, add, commit. Measured on this machine that is about a sixth of a second
     per test, most of it process start, and it bought every test an identical

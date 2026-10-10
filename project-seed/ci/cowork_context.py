@@ -4,7 +4,7 @@
 A seed file, run in place. It answers the questions a session would otherwise
 assume the answer to, and writes them down where the answer can be checked.
 
-WHY A TOOL RATHER THAN A CHECKLIST
+Why a tool rather than a checklist
 
 Every question below has been answered wrongly, confidently, in a real session
 in this org: a review of a branch nobody was running; a working tree reported
@@ -13,7 +13,7 @@ propagation described from a handbook page whose numbers were four days old. A
 checklist asks a session to remember to look. This looks, and prints what it
 saw with the commit it saw it at.
 
-WHAT IT REFUSES TO DO
+What it refuses to do:
 
   - It does not report absence as compliance. A fact it could not establish is
     printed as `unknown` with the reason, never omitted and never defaulted to

@@ -9,13 +9,13 @@ The standard is `handbook/config-standard.md`. In short: hand-authored claims
 live in `ci/` as YAML, generated evidence lives in `status/` as YAML, views live
 in `handbook/`, and machine-scoped files are gitignored and live in neither.
 
-WHY THIS IS A CHECK AND NOT A SCRIPT. The migration runs once; the standard has
+Why this is a check and not a script. The migration runs once; the standard has
 to hold afterwards. A one-off script would move nine files and leave nothing to
 notice the tenth, which is how the corpus reached two formats and no rule in the
 first place. `--migrate` is a mode of the check rather than its own tool, so the
 thing that moves files is the thing that knows where they belong.
 
-WHAT IT CANNOT DO. It cannot tell a claim from a measurement by reading a file --
+What it cannot do: it cannot tell a claim from a measurement by reading a file --
 that is what the folder is for, and the folder is the human's assertion. It
 checks placement, format and naming. A generated document hand-edited into
 `ci/`, or a roster written by a script into `status/`, passes here and is wrong.

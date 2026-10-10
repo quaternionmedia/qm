@@ -4,7 +4,7 @@
 A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it.
 
-WHAT THIS IS FOR. `records/DRAFT-version-tags-are-claims.md` §2 says a `v*` tag
+What this is for. `records/DRAFT-version-tags-are-claims.md` §2 says a `v*` tag
 asserts three things at the tagged commit -- a human reviewed the change set, a
 human manually tested it against its real runtime, and deterministic automated
 validation passed. §6 says the tag is annotated and the annotation names who
@@ -21,7 +21,7 @@ THREE MODES, independent and usable alone:
     --all               every `v*` tag reachable here, as a table plus exit code
     --test-output FILE  a captured test run: refuse skips, reruns, retries
 
-WHAT THIS CANNOT DO, and the list matters more than the checks:
+What this cannot do, and the list matters more than the checks:
 
   - It cannot tell whether the human review happened. It reads an annotation
     somebody wrote. A tag whose annotation names a reviewer who never looked

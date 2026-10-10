@@ -4,7 +4,7 @@
 Org-level tooling, copied nowhere. It reads a document and writes a page. That
 is the whole contract, and it is the same contract ci/governance_render.py has.
 
-WHAT THIS MAY NOT DO, and why the list matters more than the features:
+What this may not do, and why the list matters more than the features:
 
   - It may not run git, gh, or anything else. If a fact is not in the document,
     this renderer does not have it, and the fix is a change to

@@ -7,7 +7,7 @@ contract. (It described itself as a SEED FILE, which it never was -- nothing
 under project-seed/ is this file, and a forker copying it would be copying a
 tool that reads a document only the corpus generates.)
 
-WHAT THIS MAY NOT DO, and why the list matters more than the features:
+What this may not do, and why the list matters more than the features:
 
   - It may not run git or gh. If a fact is not in the document, this renderer
     does not have it, and the fix is a change to governance_status.py where the

@@ -35,7 +35,7 @@
 schema: 1
 
 # Free space below which a volume needs a person. Two thresholds, because two
-# different actions: `warn` is "schedule an hour this week", `critical` is
+# different actions: `warn` is "schedule an hour soon", `critical` is
 # "the next build fails". Ratio and absolute are both checked and the worse one
 # wins -- 10% of a 4TB array is 400GB and fine, 10% of a 128GB laptop is not.
 thresholds:

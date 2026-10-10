@@ -20,7 +20,7 @@ addressed to them. Seven pull requests carried it on one day. A rule that has
 to be remembered under the operator's name is a rule the tool will forget; this
 is the one that does not.
 
-WHAT IT REFUSES
+What it refuses
 
   - the second person anywhere in the body's prose: `you`, `your`, `yours`,
     `yourself`, case-insensitive, as whole words;
@@ -30,7 +30,7 @@ WHAT IT REFUSES
   - the contributor mentioned by their own login (`@login`), when the login is
     given -- a person does not @-mention themself.
 
-WHAT IT LEAVES ALONE
+What it leaves alone
 
   - fenced code blocks and inline code spans: a command may say `--yours`;
   - quoted lines (`> ...`): a body may quote what somebody said;
@@ -39,7 +39,7 @@ WHAT IT LEAVES ALONE
     a person from one addressed to them without the pronoun. That is the
     documented blind spot.
 
-WHAT THIS CANNOT SEE. Whether the body is honest, complete, or about the diff.
+What this cannot see: whether the body is honest, complete, or about the diff.
 It reads for one voice, and a body that addresses the contributor in the third
 person by name walks past it -- which is the shape the rule's own remedy takes
 ("Peter merges"), so the check does not try to forbid it.

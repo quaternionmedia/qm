@@ -12,7 +12,7 @@
 # pull request's base is its parent's branch, and it stays a draft until the
 # parent merges.
 #
-# WHAT THIS FAILS, AND WHO CAN FIX IT
+# What this fails, and who can fix it
 #
 # Every ready pull request of this author whose base is another open pull
 # request's branch. The remedy is `gh pr ready <n> --undo`, which re-runs this.

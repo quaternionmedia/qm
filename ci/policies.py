@@ -10,12 +10,12 @@ a vendor's hook dies when that vendor changes, and dies silently -- nothing
 reports the absence of a hook that used to run. So a policy needs a detector
 that reads an artifact, or a stated reason it cannot have one.
 
-`detectable: false` IS AN ANSWER, NOT A GAP. Most policies here are judgement
+`detectable: false` is an answer, not a gap. Most policies here are judgement
 and leave no artifact. A registry that left those blank would invite a weak
 detector to fill the column, and a weak detector is worse than an honest none
 because the column then reads as coverage.
 
-WHAT THIS CANNOT DO. It cannot tell that a detector detects the thing its policy
+What this cannot do: it cannot tell that a detector detects the thing its policy
 describes. It reads whether a file exists and whether the fields are consistent.
 A detector that checks the wrong property passes here -- which is exactly the
 error `--drift` caught twice in the exception registry, and this check has no

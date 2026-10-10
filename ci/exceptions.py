@@ -5,7 +5,7 @@
     uv run qm exceptions --brief    # the short form, for a session brief
     uv run qm exceptions --drift    # constants named here that no longer exist
 
-WHY A SESSION NEEDS THIS. A session that arrives with no history reads
+Why a session needs this. A session that arrives with no history reads
 `AGENTS.md` and learns the rules. Nothing tells it which rules have holes,
 where, or why — that knowledge lived in six constants inside five checks, and
 in one operator's memory. So a blind session either rediscovers an exemption by
@@ -16,7 +16,7 @@ it against the source: a constant the registry names that no longer exists in
 the file it names is an exemption that has moved, been renamed, or been quietly
 dropped.
 
-WHAT IT CANNOT DO. It cannot tell that an exemption is still justified, that its
+What it cannot do: it cannot tell that an exemption is still justified, that its
 reason is honest, or that a check honours the constant the registry attributes
 to it. `--drift` finds a missing name, not a changed meaning. An exemption
 widened inside a constant this still finds passes.

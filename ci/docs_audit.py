@@ -8,7 +8,7 @@ WHY. `docs.yml` triggers on push and deploys straight to Pages, so the build
 and the first evidence of a broken build is a broken published site. Separately,
 nothing checks that what the docs say matches the corpus they document.
 
-TWO DIMENSIONS, AND THEY FAIL DIFFERENTLY.
+Two dimensions, and they fail differently.
 
   rebuild    the site config parses and the build inputs are all present. A
              config only one parser accepts is a rebuild that works until the
@@ -16,7 +16,7 @@ TWO DIMENSIONS, AND THEY FAIL DIFFERENTLY.
   accuracy   every link resolves, every corpus path named exists, and no docs
              page silently duplicates a corpus document.
 
-WHAT THIS CANNOT DO. It does not run the site generator -- that needs the
+What this cannot do: it does not run the site generator -- that needs the
 generator installed, and it belongs in the workflow where the real build
 happens. This checks the inputs the build reads and the claims the pages make.
 A green result here means the build has what it needs and the pages point at

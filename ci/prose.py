@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The first thing a stranger reads, from every entry point, side by side.
 
-WHAT THIS IS FOR. `handbook/style-guide.md` asks that the opening of anything a
+What this is for. `handbook/style-guide.md` asks that the opening of anything a
 newcomer meets be a real sentence in words they already have. That rule was
 written after this corpus's own landing page was found opening with a colon and
 three abstractions and no verb -- accurate, and unreadable to anybody who did
@@ -12,13 +12,13 @@ opening lines of every entry point on one screen, so a person reads them
 together rather than one at a time months apart, and flag the few patterns that
 are mechanically visible and that the style guide names.
 
-WHAT A FLAG IS AND IS NOT. A flag is a place to look. Every one of them is
+What a flag is and is not. A flag is a place to look. Every one of them is
 legitimate somewhere: a sentence can be long and clear, an opening can name a
 house word because the word is the subject. The flags are ordered by how often
 they have actually indicated a problem here, and none of them fails anything.
 This tool exits zero unless it cannot read a file.
 
-WHAT IT CANNOT SEE. Whether the sentence is true. Whether the reader needed a
+What it cannot see: whether the sentence is true. Whether the reader needed a
 different fact first. Whether the words are the reader's words -- it holds a
 list of this corpus's own house vocabulary and knows nothing about anybody
 else's. And prose after the opening, which is most of the page: this reads the

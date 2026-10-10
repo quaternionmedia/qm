@@ -5,7 +5,7 @@ Org-level tooling, copied nowhere. One command a human runs before a pull
 request, so drift shows up as an uncommitted diff rather than as staleness
 nobody sees -- charter `show-it-by-running-it`, and `records/DRAFT-one-executable-walkthrough.md`.
 
-WHY THIS EXISTS. Six generated artifacts live at this repository's root and in
+Why this exists. Six generated artifacts live at this repository's root and in
 `handbook/`, each with its own refresh command written down in its own
 `reading:` block. That is correct and it is not usable: nobody runs six
 commands from memory, so the ones needing a remembered command go stale and the
@@ -13,7 +13,7 @@ ones riding an existing command do not. That gap has already been measured in
 this corpus -- the artifacts riding the test command carry zero drift and the
 two needing a remembered command are stale.
 
-THE NETWORK SPLIT IS THE IMPORTANT PART. Three of these read other repositories
+The network split is the important part. Three of these read other repositories
 or the host:
 
     status/governance.yaml   reads every project's refs
@@ -136,7 +136,7 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
         ["ci/doc_dashboard.py", "status/documents.yaml", "--check", "handbook/document-states.md"],
     ),
     (
-        # **LAST, BECAUSE IT READS THE STATE PAGE.** The join takes the harness,
+        # Last, because it reads the state page. The join takes the harness,
         # gate and document-state documents as its three sources, so it can
         # only run once every one of them has been written -- running it
         # earlier reports the previous run, the confidently-wrong artifact this

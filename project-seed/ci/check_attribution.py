@@ -4,7 +4,7 @@
 A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it.
 
-WHAT THIS IS FOR. Tool involvement is disclosed in one place -- a `Tools:` note
+What this is for. Tool involvement is disclosed in one place -- a `Tools:` note
 on the artifact that calls for one -- and nowhere else. It is not a byline, not a
 commit subject, and not a sentence in a binding record. The existing rule covers
 only the co-author trailer, so a commit titled "Re-refactor docs with <model>"
@@ -20,7 +20,7 @@ TWO CHECKS, both independent and both usable alone:
     --records-dir DIR   no vendor or model name in the prose of any record there
     --base-ref REF      no vendor or model name in any commit subject REF..HEAD
 
-WHERE A NAME IS FINE, and these are the point rather than loopholes:
+Where a name is fine, and these are the point rather than loopholes:
 
   - **Inside a code span or fence.** A record forbidding a trailer has to quote
     the trailer, exactly as the banned-vocabulary check lets the discipline
@@ -156,7 +156,7 @@ def check_records(records: Path) -> list[str]:
 
 # Commit subjects allowed to name a tool, by full SHA, each with the reason.
 #
-# THE OBJECTION TO A LIST LIKE THIS IS REAL, and it is the one
+# The objection to a list like this is real, and it is the one
 # `check_signatures.py` states when it chooses a date instead: a list of blessed
 # SHAs grows quietly and nobody can tell later which entries were deliberate.
 # Two things answer it here. Every entry carries its reason, printed on every

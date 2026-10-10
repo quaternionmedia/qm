@@ -5,7 +5,7 @@
     uv run qm protocols --id security-review
     uv run qm protocols --check             # refuse an unrunnable declaration
 
-A PROTOCOL IS NOT A GATE. A gate is automatic, refuses, and nobody invokes it.
+A protocol is not a gate. A gate is automatic, refuses, and nobody invokes it.
 A protocol is invoked, takes judgement, and produces a dated artifact. Listing
 the two in one place would make a protocol read as always-on and a gate read as
 optional, so `ci/gate-registry.yaml` holds one and `ci/protocol-registry.yaml`
@@ -22,12 +22,12 @@ history:
     renamed route breaks every page that cited it silently;
   * a protocol with no `cannot_see`, which is undescribed rather than thorough.
 
-WHAT IT DOES NOT REFUSE. A protocol that has never been run. That is printed,
+What it does not refuse: A protocol that has never been run. That is printed,
 loudly, and it is a fact about the organisation rather than a defect in the
 file -- most of this list has never been run, and a check that failed on it
 would be a check somebody deletes.
 
-WHAT THIS CANNOT SEE. Whether a run did what the protocol says. It reads the
+What this cannot see: whether a run did what the protocol says. It reads the
 filename of the artifact and its date; it does not read a word of the contents,
 and it cannot tell a thorough review from a file with the right name.
 """

@@ -5,7 +5,7 @@
     uv run qm rulesets --check    # exit non-zero when the two disagree
     uv run qm rulesets --apply    # create or update all of them on the host
 
-WHY A ROUTE AND NOT A README FULL OF `gh api`. Six ruleset files have sat in
+Why a route and not a README full of `gh api`. Six ruleset files have sat in
 `.github/rulesets/` since 2026-08-10 with an apply script beside them, and the
 host reports zero rulesets. Nothing read the two together, so the drafts looked
 like configuration and were documentation. This reads them together, which is
@@ -17,7 +17,7 @@ concurrent session can do, on the host, outside any pull request -- so it is
 never run as part of anything else, and this tool will not reach for it on its
 own. `--check` reports; only `--apply` writes.
 
-WHAT THIS CANNOT SEE. Whether a rule is the right rule. It compares the drafted
+What this cannot see: whether a rule is the right rule. It compares the drafted
 enforcement level and rule types against the host's, and a ruleset that is
 present and active can still be enforcing something nobody wanted. It also
 cannot see `rule-suites` -- the log of what an evaluating rule *would* have

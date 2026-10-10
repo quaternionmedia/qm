@@ -9,13 +9,13 @@ prose: a fact stated twice, edited once. A reader comparing two governance
 pages in the same window should not be reading two colour systems, and the
 semantic states in particular must mean the same thing on both.
 
-THREE SEMANTIC STATES, AND THE THIRD IS THE POINT
+Three semantic states, and the third is the point
 
 `ok`, `warn`, and `unknown`. A dashboard that has only the first two must
 render a thing it could not measure as one of them, and it always picks the
 reassuring one. `unknown` is a different colour, italic, and never green.
 
-THREE THEME STATES, NOT TWO
+Three theme states, not two
 
 The viewer's "system" setting stamps nothing on the root element, so the bare
 `:root` block carries the complete light palette and the media query is guarded

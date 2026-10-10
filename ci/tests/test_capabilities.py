@@ -1,6 +1,6 @@
 """What the capability registry refuses, and what it deliberately does not.
 
-**THE CHECK IS NARROW ON PURPOSE AND THE TESTS SAY SO.** `ci/capabilities.py`
+The check is narrow on purpose and the tests say so. `ci/capabilities.py`
 verifies that a declaration is *readable* -- ordered rungs, a design pointer
 that resolves in this corpus, a stated limit. It verifies nothing about whether
 the evidence is true, and `test_a_command_that_does_not_exist_is_not_caught`
@@ -85,7 +85,7 @@ def test_a_phase_that_is_not_a_rung_is_refused():
 
 
 def test_a_claim_standing_above_an_unevidenced_rung_is_refused():
-    """THE ONE THAT MATTERS.
+    """A claim standing above an unevidenced rung is refused.
 
     The rungs are ordered, so claiming `execution` while naming nothing for
     `deployment` is a ladder with a missing rung. It is not untidiness: the
@@ -144,7 +144,7 @@ def test_a_null_monitoring_rung_is_fine():
 
 
 def test_a_command_that_does_not_exist_is_not_caught():
-    """**THE LIMIT, PINNED RATHER THAN LEFT TO BE DISCOVERED.**
+    """The limit, pinned: a command that does not exist is not caught.
 
     A capability claiming `deployment` and naming a command nobody can run
     passes this file completely. That is precisely the defect the record is
