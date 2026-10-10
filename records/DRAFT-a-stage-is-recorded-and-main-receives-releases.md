@@ -113,7 +113,7 @@ A `project/<name>` branch is pinned by a downstream submodule and takes changes
 in and never out. Nothing in §1 changes that: propagation still runs from
 whichever ref is the org's development target into each project branch, and the
 five work namespaces in `docs/ref/namespaces.md` are unchanged, and that page
-now carries a stage-refs section naming these four so a reader does not sort
+carries a stage-refs section naming these four so a reader does not sort
 them under "a branch outside the five is a mistake". A stage is a claim about
 how far a change has travelled, not a new kind of branch for a project's
 records.
