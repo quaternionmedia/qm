@@ -11,16 +11,15 @@
 ## Context
 
 `records/DRAFT-clis-are-for-machines-and-debugging.md` settled that a loop only
-walkable by typing has not been built. It did not say what the built thing owes
-a person, and the first serious attempt to document one produced the question
-this record answers.
+walkable by typing has not been built. It does not say what the built thing
+owes a person, and documenting one raises the question this record answers.
 
 A control panel here carries a keyboard menu — nine cells laid out like a numpad,
-opened with one key, every item one keystroke from the centre. Somebody asked for
-an instruction sheet *indexed on the command numbers*, and named an example:
+opened with one key, every item one keystroke from the centre. The document a
+person wants for it is an instruction sheet *indexed on the command numbers*:
 sync is `6.2`.
 
-That request contains a design constraint most menus fail. `6.2` is only worth
+That index contains a design constraint most menus fail. `6.2` is only worth
 writing down if it is stable, and only worth reading if it can be derived. Both
 of those are properties of the *addressing scheme*, not of the documentation —
 and the documentation is where their absence is discovered, always too late,
@@ -86,8 +85,7 @@ press and accepts an arrow key is not guarded; it is guarded against the route
 whoever wrote it happened to think of. `records/DRAFT-decision-record-discipline.md`
 §10 says a guard is not finished until somebody has tried to route around it,
 and a menu is the case where the routes can be *enumerated* — so enumerate them
-and close all of them. In the implementation that prompted this record there
-were five, and the first pass closed three.
+and close all of them.
 
 **A container is unavailable when everything it holds is.** Otherwise a person
 spends inputs opening a level where nothing can be chosen, which is worse than
@@ -104,9 +102,9 @@ state carried by colour alone becomes an item that looks ordinary and refuses to
 be chosen — the interface lying, quietly, to exactly the readers with least
 recourse.
 
-This is not a new rule so much as the existing one held to. The menu already
-drew its selection with a doubled border rather than a highlight, for this
-reason, and then greyed items out with a colour anyway. The general form: when
+This is the existing rule held to: a menu that draws its selection with a
+doubled border rather than a highlight, for this reason, does not then grey
+items out with colour alone. The general form: when
 an interface acquires a new state, the question is not *what colour* but *what
 does this look like with no colour at all*.
 
@@ -118,8 +116,8 @@ recorded as work against the interface — not as the change being done.**
 This is the trigger, and it is deliberately not a prohibition. Dropping to a
 command line to make a change is fine and often correct: it is how something
 gets fixed today. What is not fine is that the loop closes there. The typed
-change is the *diagnosis*; the interface route is the fix, and nothing currently
-converts one into the other.
+change is the *diagnosis*; the interface route is the fix, and without this
+section nothing converts one into the other.
 
 So: **the act of doing something by typing that a person would reasonably expect
 to do in the interface creates an item against that interface.** Named, in the
@@ -165,9 +163,8 @@ installation. Rejected: the numbers are shared between people running different
 builds, which is the case the document exists for.
 
 **Grey out with colour only, and treat the accessible rendering as a later
-pass.** Rejected on evidence rather than principle: the theme that would have
-broken first is the one already in the codebase for readers who need contrast,
-so "later" would have shipped a menu that was wrong for precisely them.
+pass.** Rejected: the theme that breaks first is the one for readers who need
+contrast, so "later" ships a menu that is wrong for precisely them.
 
 **Make §5 a prohibition — no typed changes to things with interfaces.**
 Rejected. It would make the honest diagnostic path a violation, and the

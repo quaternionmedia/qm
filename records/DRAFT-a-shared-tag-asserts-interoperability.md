@@ -14,24 +14,22 @@
 a consumer is *compatibility*, and it says it about one repository. Nothing
 says what it means when two repositories carry the same number.
 
-They already do, and the gap has already cost something measurable.
+They do, and the gap has a measurable cost.
 
 One repository publishes an executable contract — a vector set with a version
-of its own. Two others implement it and pin the version they replayed. On
-2026-08-30 the publisher governed version `0.6.0`, one consumer vendored
-`0.4.0`, and both were green. Neither was lying by its own lights: each
-replayed the set it had, and each reported all passing. What no artifact said
-was that they had stopped agreeing about the contract, because nothing in the
-estate compares one repository's claim against another's.
+of its own. Others implement it and pin the version they replayed. The
+publisher can govern one version while a consumer vendors an older one, and
+both are green: each replays the set it has and reports all passing. No
+artifact says they have stopped agreeing about the contract, because nothing in
+the estate compares one repository's claim against another's.
 
-A second measurement made the shape clearer. The governed set holds 58 cases.
-The two consumers replay **disjoint** halves — 11 cell-addressing cases in the
-one with no pointer, 47 ring, pointer and timing cases in the one with no cell
-input, with no overlap. Each was fully green while covering a fraction, and
-"conformant" read the same in both.
+Coverage diverges the same way. Two consumers can replay **disjoint** parts of
+the governed set — the cell-addressing cases in the one with no pointer, the
+ring, pointer and timing cases in the one with no cell input — each fully green
+while covering a fraction, with "conformant" reading the same in both.
 
-So the numbers were describing repositories, and the thing a reader wanted to
-know was about the *set*.
+So the numbers describe repositories, and the thing a reader wants to know is
+about the *set*.
 
 ## Decision
 
@@ -80,8 +78,8 @@ proof would name a host that had demonstrated part.
 ### §5 — A repository that cannot re-prove holds the set back
 
 It does not get carried. A coordinate advanced past an implementation that has
-not replayed the new set is the drift this record was written from, restated
-with a number on it.
+not replayed the new set is the drift this record addresses, restated with a
+number on it.
 
 ## Consequences
 

@@ -10,9 +10,9 @@
 
 ## Context
 
-Work in this organisation currently targets `main` directly, and `main` is
-where every gate is keyed: sixteen files in this repository name it as the
-base, `project/<name>` branches take changes from it, and
+Work in this organisation targets `main` directly, and `main` is where every
+gate is keyed: files across this repository name it as the base,
+`project/<name>` branches take changes from it, and
 `project-seed/ci/check_pr_base.py` refuses a pull request that does not.
 
 Four stages are wanted instead — a development target, a versioned approval
@@ -75,8 +75,8 @@ this estate's deliverable is repositories and records, not built images, so a
 label model would have invented a build for things that do not have one.
 
 The cost was priced before the choice and is accepted with it: the enforcement
-surface that keys on `main` — eleven scripts and five workflows at last count,
-plus `check_pr_base` and the namespace guard — moves to key on the entry stage,
+surface that keys on `main` — the scripts and workflows that name it, plus
+`check_pr_base` and the namespace guard — moves to key on the entry stage,
 together, across every repository that carries the stages. Until that lands,
 `main` remains the working target and the stage refs remain staged.
 
