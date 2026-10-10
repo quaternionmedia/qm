@@ -7,7 +7,7 @@
 
 The [corpus](../ref/glossary.md#corpus){ .glossary-term } began as a charter ([PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md)) and a set of draft decision records cut from it. The records, the [seed](../ref/glossary.md#seed){ .glossary-term } template, and the CI tooling grew from there, shaped by each project adoption.
 
-All twelve org records are still `Proposed`. This is deliberate: [ratification](../ref/glossary.md#ratification){ .glossary-term } requires a second active code owner. See [Ratification](../ref/ratification.md) and [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md).
+Every org [record](../ref/glossary.md#record){ .glossary-term } is `Proposed`. This is deliberate: [ratification](../ref/glossary.md#ratification){ .glossary-term } requires a second active code owner. See [Ratification](../ref/ratification.md) and [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md).
 
 ## Adopting projects
 
@@ -21,7 +21,7 @@ Several projects have adopted the corpus, each on its own `project/<name>` branc
 
 There is **no reference instance for a server or container runtime**. The `project/streaming-infrastructure` branch is a design branch, not an adopted project; no repository exists behind it.
 
-The current state of every project is in [status/governance.yaml](https://github.com/quaternionmedia/qm/blob/main/governance-status.yaml). Read that file rather than trusting counts written into prose — a number in a sentence goes stale silently.
+The current state of every project is in [status/governance.yaml](https://github.com/quaternionmedia/qm/blob/main/status/governance.yaml). Read that file rather than trusting counts written into prose — a number in a sentence goes stale silently.
 
 ## Where the reasons live
 
