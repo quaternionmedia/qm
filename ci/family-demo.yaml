@@ -105,14 +105,19 @@ members:
 
   - name: ShowRunner
     phase: core
-    branch: feat/family-demo-contract
-    stacks_on: feat/walkthrough
+    # A local merge, made for this demo and never offered for review. The stage
+    # fires its cues through the cue programmer, which is active work on Peter's
+    # integration line (integrate/2026-09-20, draft pull request #30); the split
+    # series that carries the contract (feat/family-demo-contract, on
+    # feat/walkthrough) does not have it. Splitting ShowRunner's work into
+    # reviewable pieces is mrharpo's to do, so this merges the two lines whole
+    # rather than cutting the programmer out of one.
+    branch: demo/family-stage
+    stacks_on: integrate/2026-09-20
     choice: >
-      Two lines are active: the owner's pull request adding the ShowMidi plugin,
-      and a split series of the UI tests and the walkthrough. The series is the
-      one run: ShowMidi changes nothing on the surface this demo drives and
-      needs MIDI hardware this demo does not touch, and the series carries the
-      browser page the check is.
+      The programmer line with the contract series merged into it: the cue
+      programmer, its show and cue routes and the CueLog it keeps, which the
+      stage fires through, together with the contract's serve and check.
     install:
       - [uv, sync, --all-extras, --frozen]
     entry: [uv, run, --no-sync, --project, "{checkout}", sr]
