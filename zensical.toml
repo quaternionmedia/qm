@@ -41,6 +41,10 @@ nav = [
         "ref/ratification.md",
         "ref/handbook.md",
         "ref/glossary.md",
+        { "Tooling" = [
+            "ref/ci/index.md",
+            "ref/ci/demos.md",
+        ] },
     ] },
 ]
 
