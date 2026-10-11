@@ -7,4 +7,5 @@ Step-by-step recipes for common tasks. Each recipe covers the common case and li
 - **[Propagate a change](propagate-a-change.md)** — carry an org change to a project branch
 - **[Read status documents](read-status-documents.md)** — use the generated status files correctly
 - **[Run CI locally](run-ci-locally.md)** — check your work before pushing
+- **[Develop a family member](develop-a-family-member.md)** — see an edit in the running family, then [gate](../ref/glossary.md#gate){ .glossary-term } it
 - **[Build these docs](build-these-docs.md)** — run this site locally

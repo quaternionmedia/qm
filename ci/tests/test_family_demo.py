@@ -990,3 +990,21 @@ def test_a_member_never_inherits_the_environment_qm_runs_in(monkeypatch):
     assert "VIRTUAL_ENV" not in env and "UV_PROJECT_ENVIRONMENT" not in env
     assert env["UV_CACHE_DIR"] == "C:/cache" and env["JOE_CUES"] == "0"
 
+
+def test_the_dev_loop_page_names_flags_the_tool_has_and_what_restarts_each_member(capsys):
+    """The page is checked against the tool and the roster rather than kept beside them.
+
+    Mutation: --port-offset renamed in the parser -- red here.
+    Mutation: a glob added to joe's dev.restart_on and not to the page -- red here.
+    """
+    page = (CI_DIR.parent / "docs" / "cookbook" / "develop-a-family-member.md").read_text(
+        encoding="utf-8")
+    with pytest.raises(SystemExit):
+        family_demo.main(["--help"])
+    usage = capsys.readouterr().out
+    for flag in ("--dev", "--work", "--port-offset", "--src", "--stage"):
+        assert flag in page and flag in usage, flag
+    for entry in family_demo.running(committed_plan()):
+        row = next(line for line in page.splitlines() if line.startswith(f"| {entry['name']} |"))
+        for glob in entry["dev"].get("restart_on") or []:
+            assert f"`{glob}`" in row, (entry["name"], glob)

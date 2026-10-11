@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-10T16:39:45Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-11T18:16:17Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **222**, unfiltered.
+Every governed document in this corpus: **223**, unfiltered.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 62 |
 | [G] `generated` | 7 |
-| [S] `standing` | 76 |
+| [S] `standing` | 77 |
 | [T] `transient` | 38 |
 
 ## Documents
@@ -186,6 +186,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/about/overview.md` | reference | — |
 | [S] | `standing` | `docs/cookbook/add-a-perspective.md` | reference | — |
 | [S] | `standing` | `docs/cookbook/build-these-docs.md` | reference | — |
+| [S] | `standing` | `docs/cookbook/develop-a-family-member.md` | reference | — |
 | [S] | `standing` | `docs/cookbook/draft-a-record.md` | reference | Starts at `Draft` or `Proposed` |
 | [S] | `standing` | `docs/cookbook/index.md` | reference | — |
 | [S] | `standing` | `docs/cookbook/propagate-a-change.md` | reference | — |
