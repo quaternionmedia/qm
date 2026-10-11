@@ -288,8 +288,12 @@ def test_only_this_fire_s_deliveries_are_its_own():
     assert fs.fired_ats(family) == {"earlier", FIRED["fired_at"]}
 
 
-def test_a_link_is_seen_only_where_the_check_asserted_it():
-    """Mutation: link_evidence passing a link no assertion named -- red here."""
+def test_a_link_is_labelled_with_what_the_check_saw_of_it():
+    """App to app only where every assertion of it held; failed, or not seen, otherwise.
+
+    Mutation: link_evidence passing a link no assertion named -- red here.
+    Mutation: a failed link keeping its app-to-app label -- red here.
+    """
     rows = fs.links(stage()["show"], links(), RUNNING)
     check = {"cues": [{"assertions": [
         {"member": "joe", "kind": "delivery", "result": "pass"},
@@ -299,8 +303,10 @@ def test_a_link_is_seen_only_where_the_check_asserted_it():
     seen = {r["member"]: r for r in fs.link_evidence(rows, check)}
     assert (seen["joe"]["result"], seen["joe"]["seen"]) == (
         "pass", "1 of 1 deliveries 2xx; 1 of 1 times the member showed the cue")
-    assert seen["leo"]["result"] == "fail"
-    assert seen["carlos"]["result"] == "unknown"
+    assert seen["joe"]["link"] == "app to app"
+    assert (seen["leo"]["result"], seen["leo"]["link"]) == ("fail", "failed")
+    assert (seen["carlos"]["result"], seen["carlos"]["link"]) == ("unknown", "not seen")
+    assert seen["carlos"]["claimed"] == "app to app"
     assert "not seen in this run" in seen["carlos"]["seen"]
     assert "result" not in seen["ShowRunner"]
 
@@ -606,7 +612,7 @@ def test_the_landing_page_shows_the_storyboard_and_what_each_link_was_seen_doing
     assert "<strong>App to app.</strong>" in page and "App to app: none" not in page
     assert "the hub delivered cue 1 to leo (leo)" in page
     assert "leo</strong> app to app:" in page and "1 of 1 deliveries 2xx" in page
-    assert "carlos</strong> app to app:" in page and "not seen in this run" in page
+    assert "carlos</strong> not seen:" in page and "not seen in this run" in page
 
 
 def test_a_stage_picture_that_is_missing_is_reported(tmp_path):

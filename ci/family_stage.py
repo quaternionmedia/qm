@@ -409,8 +409,10 @@ def combine(results: list[str]) -> str:
 def link_evidence(rows: list[dict], check: dict | None) -> list[dict]:
     """Each link row with what this run's check saw of it: its deliveries and the member's word.
 
-    A link claimed app to app with no assertion of it in this run is
-    `unknown`, never a pass: the claim is the roster's until a check sees it.
+    The roster claims app to app; the label keeps that word only where every
+    assertion of the link held. A link the check saw fail is labelled
+    `failed`, and one it never asserted `not seen` -- never a pass, because the
+    claim is the roster's until a check sees it.
     """
     cues = (check or {}).get("cues") or []
     out = []
@@ -419,12 +421,16 @@ def link_evidence(rows: list[dict], check: dict | None) -> list[dict]:
         if row["link"] == "app to app":
             held = [a for cue in cues for a in cue.get("assertions") or []
                     if a.get("member") == row["member"]]
+            row["claimed"] = row["link"]
             if not held:
-                row.update(result="unknown", seen="not seen in this run: the show did not reach it")
+                row.update(result="unknown", link="not seen",
+                           seen="not seen in this run: the show did not reach it")
             else:
                 sent = [a for a in held if a.get("kind") == "delivery"]
                 said = [a for a in held if a.get("kind") != "delivery"]
                 row["result"] = combine([a["result"] for a in held])
+                row["link"] = {"pass": "app to app", "fail": "failed"}.get(row["result"],
+                                                                          "not seen")
                 row["seen"] = (f"{sum(a['result'] == 'pass' for a in sent)} of {len(sent)} "
                                f"deliveries 2xx; {sum(a['result'] == 'pass' for a in said)} of "
                                f"{len(said)} times the member showed the cue")
