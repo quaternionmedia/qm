@@ -140,6 +140,18 @@ def load_plan(path: Path = PLAN) -> dict:
     return document
 
 
+def index_roster(entries: list[dict]) -> dict[str, dict]:
+    """Each roster entry under its name and, for a private one, its reference.
+
+    A private member is planned by its reference, the only name a committed file
+    may hold; where the private companion is present the loader fills in the
+    real name, so the entry is found by either.
+    """
+    index = {e["name"]: e for e in entries}
+    index.update({e["ref"]: e for e in entries if e.get("ref")})
+    return index
+
+
 def check_plan(plan: dict, rostered: set[str]) -> list[str]:
     """Every reason the plan cannot be run as written. Empty is runnable.
 
@@ -1880,8 +1892,7 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         plan = load_plan(args.plan_file)
-        rostered_entries = corpus_roster.load()
-        rostered = {e["name"]: e for e in rostered_entries}
+        rostered = index_roster(corpus_roster.load())
         problems = check_plan(plan, set(rostered))
         refs = parse_refs(args.ref)
     except (OSError, yaml.YAMLError, PlanError) as exc:
@@ -1963,8 +1974,9 @@ def main(argv: list[str] | None = None) -> int:
                                                      "host": plan["host"]}))
             clone = resolve(rostered[name], search_roots)
             if clone is None:
-                record["install"] = {"result": "unknown",
-                                     "why": f"no clone at {rostered[name].get('paths')}"}
+                where = ("the paths its private entry gives" if rostered[name].get("ref")
+                         else rostered[name].get("paths"))
+                record["install"] = {"result": "unknown", "why": f"no clone at {where}"}
             else:
                 try:
                     ref, commit = resolve_commit(clone, member["branch"], refs.get(name))
