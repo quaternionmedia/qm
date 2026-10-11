@@ -51,12 +51,13 @@ def repo_at(tmp_path: Path, files: dict[str, str]) -> Path:
         (f"qm/{SECRET}/ci", True),
         (f"quaternionmedia/{SECRET}.git", True),
         (f"{SECRET}-docs", False),
+        (f"into propagate/{SECRET}-2026-08-11", True),
         (f"data{SECRET}", False),
         (f"{SECRET}2", False),
         (f"x{SECRET}x", False),
     ],
     ids=["in-prose", "alone", "in-a-path", "in-a-url",
-         "longer-suffix", "longer-prefix", "digit-suffix", "surrounded"],
+         "longer-suffix", "dated-branch", "longer-prefix", "digit-suffix", "surrounded"],
 )
 def test_a_longer_name_containing_the_private_one_is_not_a_match(text, matches):
     assert bool(pattern(SECRET).search(text)) is matches

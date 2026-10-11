@@ -146,7 +146,8 @@ def redact(node, name: str, ref: str):
     if isinstance(node, list):
         return [redact(v, name, ref) for v in node]
     if isinstance(node, str):
-        return re.sub(rf"(?<![A-Za-z0-9_-]){re.escape(name)}(?![A-Za-z0-9_-])", ref, node)
+        # Bounded as ci/check_private_names.py's pattern is, a dated branch included.
+        return re.sub(rf"(?<![A-Za-z0-9_-]){re.escape(name)}(?![A-Za-z0-9_]|-(?!\d))", ref, node)
     for attribute in ("reason", "text", "message"):
         current = getattr(node, attribute, None)
         if isinstance(current, str):
