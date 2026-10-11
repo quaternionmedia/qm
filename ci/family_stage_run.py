@@ -14,41 +14,44 @@ anything running.
 opens the stage's own browser session of each member whose panel is a session,
 and answers on the job's port: the page, `state` (what the page polls), `go`
 and `reset` (passed to the hub's programmer), and the pictures. A watcher
-reads the hub's CueLog; for each entry it has not seen it reads the cue back
-from the hub and relays the cue's `family` block, member by member, recording
-what each member was asked, through which interface, and what was seen
-afterwards. A GO pressed in the hub's own programmer page is relayed the same
-way, because the log is what is watched, not this page's button.
+reads, and only reads: the hub's CueLog, the hub's `GET /family/`, and each
+push member's `GET /family/state`. For each CueLog entry it records the cue,
+what its family block asks of whom, what the hub says it delivered, and what
+each member says now. A GO pressed in the hub's own programmer page is watched
+the same way, because the log is what is watched, not this page's button.
+
+**THE STAGE SENDS NO MEMBER ANYTHING.** The hub delivers every action. The one
+thing the stage does in a member's page is joe's: joe's page shows a take only
+once asked to fetch it, so when joe's own state names a new take, the stage
+presses Fetch Latest in its own session of the page and pictures it. That is a
+read; the take was joe's, started by the hub.
 
 **CHECK.** Opens the stage page in a browser of its own, resets the hub to the
-top, and for each cue presses GO and waits for that cue's relay. Then it
-asserts what it can see without the stage's word for it -- the hub's CueLog
-gained an entry for that cue, joe's latest result is the take relayed, leo's
-frame on the stage page shows the song -- and, for a member only the stage's
-own session can see, that the session saw the change. It saves a picture of
-the stage after each cue. The pictures are recorded and never compared.
-Exit 0: every assertion held. Exit 1: one did not. Any other status: the
-check could not say, and its last line says why.
+top, and for each cue presses GO. Then, without the stage's word for anything,
+it asserts: the hub's CueLog gained an entry for that cue; for every member the
+cue names, the hub's `GET /family/` lists a 2xx delivery of this very fire;
+each push member's own `GET /family/state` names this fire and shows the state
+its action asks for; leo's frame on the stage page, which follows the hub,
+shows the song and says which cue asked for it. It saves a picture of the
+stage after each cue. The pictures are recorded and never compared. Exit 0:
+every assertion held. Exit 1: one did not. Any other status: the check could
+not say, and its last line says why.
 
-**THE ONE PLACE IN THIS CORPUS THAT NAMES A MEMBER'S SURFACE.** A single
-member's check lives in that member. The stage is a coordinated check of
-links the members do not have yet, so it has to press on each one, and every
-surface it presses is one the member's own walkthrough already drives: leo's
-deep link and chart title, joe's upload and run routes and its Fetch Latest
-button, carlos's `t` key and its example loader, the buttons on the page
-ShowStopper serves. Nothing else in `ci/` names one, and a test holds that.
+**THE ONE PLACE IN THIS CORPUS THAT NAMES A MEMBER'S PAGE.** A single member's
+check lives in that member. The stage is a coordinated check of the links
+between the hub and the members, so it reads two members' pages -- leo's chart
+title and follow badge, joe's Fetch Latest button and what it shows -- and every
+one of them is one the member's own walkthrough already drives. Nothing else in
+`ci/` names one, and a test holds that.
 """
 
 from __future__ import annotations
 
-import io
 import json
-import math
 import os
 import queue
 import re
 import signal
-import struct
 import sys
 import threading
 import time
@@ -56,7 +59,6 @@ import traceback
 import urllib.error
 import urllib.parse
 import urllib.request
-import wave
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -64,46 +66,38 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import family_stage as fs  # noqa: E402
 
-# --- member surfaces, each one the member's own walkthrough already uses -------
-
-# ShowStopper: textual-serve's page. The first stopwatch's Start button, which
-# becomes its Stop button once pressed, at this viewport. A click that misses
-# reads as a failure, because the label it waits for never arrives.
-STOPWATCH_VIEWPORT = {"width": 1000, "height": 640}
-STOPWATCH_BUTTON = (85, 95)
-STOP_LABEL = re.compile(rb"Stop(?!watch)")
-
-# carlos: the rack is the page's global `system`; `loadExample` is what its
-# Examples menu calls; `t` turns every device.
-CARLOS_READY = ("() => typeof system !== 'undefined' && !!document.getElementById('view-indicator')"
-                " && document.getElementById('view-indicator').textContent.length > 0")
+# --- member pages, each one the member's own walkthrough already uses -----------
 
 # joe: the results panel's toggle, its Fetch Latest button and what it shows.
 JOE_RESULTS_TOGGLE = "[data-testid=results-toggle]"
 JOE_FETCH = "[data-testid=fetch-latest]"
 JOE_META = "[data-testid=results-meta]"
 
-# leo: the chart's title.
+# leo: the chart's title, and the follow badge's words for the last cue.
 LEO_TITLE = ".page__header__title"
+LEO_FOLLOWING = ".follow-status__says"
 
 SESSION_VIEWPORT = {"width": 1000, "height": 640}
-RELAY_SECONDS = 240
+
+# How long the hub's delivery may take to be listed as done: a push answers
+# within the hub's timeout, and leo reads once a second.
+DELIVERY_SECONDS = 30
+# How long a member's own state may take to show a cue. joe's runs a pipeline.
+SETTLE_SECONDS = {"joe": 240}
+SETTLE_DEFAULT = 20
 
 
 def now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
-def http(method: str, url: str, params: dict | None = None, body=None, ctype: str | None = None,
-         timeout: float = 10.0):
+def http(method: str, url: str, params: dict | None = None, body=None, timeout: float = 10.0):
     """(status, decoded JSON or None). Never raises for an HTTP status; raises for no answer."""
     if params:
         url += ("&" if "?" in url else "?") + urllib.parse.urlencode(params)
     data, headers = None, {}
     if isinstance(body, (dict, list)):
         data, headers = json.dumps(body).encode(), {"Content-Type": "application/json"}
-    elif isinstance(body, bytes):
-        data, headers = body, {"Content-Type": ctype or "application/octet-stream"}
     request = urllib.request.Request(url, data=data, method=method, headers=headers)
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -117,29 +111,23 @@ def http(method: str, url: str, params: dict | None = None, body=None, ctype: st
         return status, raw[:200].decode("utf-8", "replace")
 
 
-def take(midi: list[int], rate: int = 22050, seconds: float = 0.5) -> bytes:
-    """A take: each note half a second, five partials falling off as 1/n, as WAV.
+def read(url: str, timeout: float = 5.0):
+    """The decoded JSON a GET answers with 2xx, or None however it fails."""
+    try:
+        status, answer = http("GET", url, timeout=timeout)
+    except OSError:
+        return None
+    return answer if 200 <= status < 300 else None
 
-    The same recipe as joe's own walkthrough fixture, made with the standard
-    library: the pipeline's harmonic check looks for overtones, so a bare sine
-    would not do.
-    """
-    samples = []
-    for number in midi:
-        frequency = 440.0 * 2 ** ((number - 69) / 12)
-        for i in range(int(seconds * rate)):
-            t = i / rate
-            envelope = min(1.0, t / 0.01, (seconds - t) / 0.05)
-            samples.append(envelope * sum(math.sin(2 * math.pi * frequency * k * t) / k
-                                          for k in range(1, 6)))
-    peak = max(abs(s) for s in samples) or 1.0
-    out = io.BytesIO()
-    with wave.open(out, "wb") as file:
-        file.setnchannels(1)
-        file.setsampwidth(2)
-        file.setframerate(rate)
-        file.writeframes(b"".join(struct.pack("<h", int(32767 * 0.5 * s / peak)) for s in samples))
-    return out.getvalue()
+
+def says(answer) -> str:
+    """A member's own GET /family/state, in one line."""
+    if not isinstance(answer, dict):
+        return "not answering /family/state"
+    cue = answer.get("cue") or {}
+    state = answer.get("state") or {}
+    return f"cue {cue.get('number', '-')}: " + ", ".join(f"{k} {json.dumps(v)}"
+                                                        for k, v in state.items())
 
 
 # ===================================================================
@@ -156,27 +144,25 @@ class Stage:
         self.failed = ""
         self.seeded: dict = {}
         self.pointer: int | None = None
-        self.relays: list[dict] = []   # since the stage started or was last reset
-        self.history: list[dict] = []  # every relay, for the record
+        self.fired: list[dict] = []    # since the stage started or was last reset
+        self.history: list[dict] = []  # every cue fired, for the record
         self.panels: dict = {}
+        self.member_states: dict = {}  # member -> its last GET /family/state
         self.jobs: queue.Queue = queue.Queue()
         self.stopping = threading.Event()
         self.dir = Path(job["dir"])
         (self.dir / "live").mkdir(parents=True, exist_ok=True)
         self.hub = job["hub"].rstrip("/")
-        for member, panel in job["panels"].items():
-            if panel["shows"] == "frame" and panel.get("src"):
-                self.panels[member] = {"frame": panel["src"]}
 
     def snapshot(self) -> dict:
         with self.lock:
             return {"ready": self.ready, "failed": self.failed, "seeded": self.seeded,
-                    "hub": {"pointer": self.pointer}, "relays": json.loads(json.dumps(self.relays)),
-                    "panels": dict(self.panels), "port": self.job["port"]}
+                    "hub": {"pointer": self.pointer}, "fired": json.loads(json.dumps(self.fired)),
+                    "panels": json.loads(json.dumps(self.panels)), "port": self.job["port"]}
 
     def record(self) -> None:
         with self.lock:
-            document = {"seeded": self.seeded, "relays": self.history, "failed": self.failed,
+            document = {"seeded": self.seeded, "fired": self.history, "failed": self.failed,
                         "written_at": now()}
         target = self.dir / "stage.json"
         temporary = target.with_suffix(".tmp")
@@ -196,25 +182,82 @@ class Stage:
         self.call("POST", "/programmer/reset")
 
     def watch(self) -> None:
-        """Relay every CueLog entry the hub writes for this show, in order, once."""
+        """Read the hub and the members, and record each cue the hub logs. Never write."""
         show = self.seeded["show_id"]
         seen = {entry["id"] for entry in self.call("GET", f"/db/shows/{show}/logs",
                                                    params={"limit": 500})}
+        cues = {c["id"]: c for c in self.call("GET", f"/db/cue-lists/"
+                                                     f"{self.seeded['cue_list_id']}/cues")}
+        family: dict = {}
         while not self.stopping.is_set():
             try:
+                # The hub's deliveries as they stood before this look at the log:
+                # a cue first logged now fired after it, so none of its
+                # deliveries is among them.
+                previous = family
+                family = read(self.hub + "/family/") or family
                 entries = self.call("GET", f"/db/shows/{show}/logs", params={"limit": 50})
                 status = self.call("GET", "/programmer/status")
-                with self.lock:
-                    self.pointer = status.get("pointer")
                 for entry in sorted(entries, key=lambda e: e["id"]):
                     if entry["id"] not in seen:
                         seen.add(entry["id"])
                         if entry.get("cue_id") is not None:
-                            self.jobs.put(("relay", entry))
+                            self.log(entry, cues.get(entry["cue_id"]), previous)
+                states = {link["member"]: read(link["url"] + "/family/state", timeout=3)
+                          for link in self.job["resolved"].values() if link["via"] == "push"}
+                self.observe(status.get("pointer"), family, states)
             except (OSError, RuntimeError, ValueError) as exc:
                 with self.lock:
                     self.failed = f"the hub stopped answering: {exc}"
-            self.stopping.wait(0.4)
+            self.stopping.wait(0.5)
+
+    def log(self, entry: dict, cue: dict | None, family: dict) -> None:
+        record = {"number": cue["number"] if cue else None, "name": cue["name"] if cue else None,
+                  "cue_id": entry["cue_id"], "log_id": entry["id"],
+                  "at": entry.get("triggered_at"), "seen_at": now(), "problems": [],
+                  "asked": [], "deliveries": {}, "before": sorted(x for x in fs.fired_ats(family)
+                                                                 if x)}
+        if cue is None:
+            record["problems"] = [f"the hub logged cue id {entry['cue_id']}, which is not "
+                                  f"in the list"]
+        else:
+            actions, record["problems"] = fs.parse_family(cue.get("notes"), self.job["links"])
+            record["asked"] = [{"name": a.name, "member": a.member, "action": a.value,
+                                "summary": fs.summary(a),
+                                "via": self.job["resolved"][a.name]["via"]} for a in actions]
+        with self.lock:
+            self.fired.append(record)
+            self.history.append(record)
+        self.record()
+
+    def observe(self, pointer, family: dict, states: dict) -> None:
+        with self.lock:
+            self.pointer = pointer
+            self.member_states = states
+            for member, answer in states.items():
+                self.panels.setdefault(member, {})["says"] = says(answer)
+            for name, link in self.job["resolved"].items():
+                if link["via"] == "pull":
+                    read_ = [o for o in family.get("last") or [] if o.get("member") == name]
+                    last = read_[-1] if read_ else None
+                    self.panels.setdefault(link["member"], {})["says"] = (
+                        "no cue has asked it for anything yet" if last is None else
+                        f"cue {last['cue'].get('number')}: read from the hub "
+                        f"{last['ms']} ms after it fired" if last.get("status") == 200 else
+                        f"cue {last['cue'].get('number')}: not read yet")
+            for record in self.fired[-3:]:
+                record["deliveries"] = fs.deliveries(family, record["number"],
+                                                     set(record["before"]))
+                for asked in record["asked"]:
+                    outcome = record["deliveries"].get(asked["name"]) or {}
+                    if asked["via"] == "pull":
+                        asked["says"] = "reads its action from the hub, following it"
+                    elif outcome.get("cue"):
+                        action = fs.Action(asked["name"], asked["member"],
+                                           json.dumps(asked["action"], sort_keys=True))
+                        verdict, detail = fs.judge(action, outcome["cue"],
+                                                   states.get(asked["member"]))
+                        asked["says"] = f"{verdict}: {detail}"
 
     def go(self) -> tuple[int, dict]:
         return http("POST", self.hub + "/programmer/go",
@@ -225,7 +268,7 @@ class Stage:
         status, answer = http("POST", self.hub + "/programmer/reset")
         if 200 <= status < 300:
             with self.lock:
-                self.relays = []
+                self.fired = []
         return status, answer
 
 
@@ -236,10 +279,8 @@ class Sessions:
         self.stage = stage
         self.browser = playwright.chromium.launch()
         self.pages: dict = {}
-        self.frames: list[tuple[float, bytes]] = []
-        self.clock_running = False
         self.shots: dict[str, int] = {}
-        self.leo = None
+        self.shown: dict[str, object] = {}
 
     def open(self) -> None:
         for member, panel in self.stage.job["panels"].items():
@@ -250,29 +291,13 @@ class Sessions:
                 self.picture(member)
             except Exception as exc:  # a session that will not open is reported, not fatal
                 with self.stage.lock:
-                    self.stage.panels[member] = {"error": f"{type(exc).__name__}: {exc}"}
+                    self.stage.panels.setdefault(member, {})["error"] = \
+                        f"{type(exc).__name__}: {exc}"
 
-    def page(self, member: str, viewport=SESSION_VIEWPORT):
-        context = self.browser.new_context(viewport=viewport)
-        page = context.new_page()
+    def page(self, member: str):
+        page = self.browser.new_context(viewport=SESSION_VIEWPORT).new_page()
         self.pages[member] = page
         return page
-
-    def open_ShowStopper(self, url: str) -> None:  # noqa: N802 -- the member's name
-        page = self.page("ShowStopper", STOPWATCH_VIEWPORT)
-        page.on("websocket", lambda ws: ws.on(
-            "framereceived",
-            lambda data: self.frames.append((time.monotonic(),
-                                             data if isinstance(data, bytes) else data.encode()))))
-        page.goto(url)
-        if not self.wait_frames(lambda new: b"Start" in new, 30):
-            raise RuntimeError("the stopwatch never drew its Start button")
-        page.wait_for_timeout(500)
-
-    def open_carlos(self, url: str) -> None:
-        page = self.page("carlos")
-        page.goto(url)
-        page.wait_for_function(CARLOS_READY, timeout=30000)
 
     def open_joe(self, url: str) -> None:
         page = self.page("joe")
@@ -280,7 +305,24 @@ class Sessions:
         page.wait_for_selector(JOE_FETCH, state="attached", timeout=30000)
         page.click(JOE_RESULTS_TOGGLE)
 
-    def picture(self, member: str) -> None:
+    def refresh_joe(self, answer) -> None:
+        """When joe's own state names a new take, fetch it in the stage's session."""
+        latest = ((answer or {}).get("state") or {}).get("latest") or {}
+        if not latest.get("file") or latest.get("file") == self.shown.get("joe"):
+            return
+        page = self.pages["joe"]
+        page.evaluate(f"() => document.querySelector('{JOE_FETCH}').click()")
+        stem = latest["file"].rsplit(".", 1)[0]
+        try:
+            page.wait_for_function(
+                f"(stem) => (document.querySelector('{JOE_META}').textContent || '').includes(stem)",
+                arg=stem, timeout=20000)
+        except Exception:
+            pass
+        self.shown["joe"] = latest["file"]
+        self.picture("joe", latest["file"])
+
+    def picture(self, member: str, showing: str | None = None) -> None:
         page = self.pages.get(member)
         if page is None:
             return
@@ -289,197 +331,27 @@ class Sessions:
         page.screenshot(path=str(self.stage.dir / "live" / name))
         self.shots[member] = number
         with self.stage.lock:
-            self.stage.panels[member] = {"shot": f"live/{name}"}
+            panel = self.stage.panels.setdefault(member, {})
+            panel["shot"] = f"live/{name}"
+            panel["showing"] = showing
         stale = self.stage.dir / "live" / f"{member}-{number - 3}.png"
         try:
             stale.unlink()
         except OSError:
             pass
 
-    def wait_frames(self, test, seconds: float, since: int = 0) -> bool:
-        page = self.pages["ShowStopper"]
-        deadline = time.monotonic() + seconds
-        while time.monotonic() < deadline:
-            if test(b"".join(data for _, data in self.frames[since:])):
-                return True
-            page.wait_for_timeout(100)
-        return False
-
-    def frame_rate(self, seconds: float = 1.0) -> int:
-        page = self.pages["ShowStopper"]
-        before = len(self.frames)
-        page.wait_for_timeout(int(seconds * 1000))
-        return len(self.frames) - before
-
-    # --- one verb each --------------------------------------------------
-
-    def do(self, step: dict) -> tuple[str, str, dict]:
-        member = step["member"]
-        if self.stage.job["panels"][member]["shows"] == "session" and member not in self.pages:
-            why = self.stage.panels.get(member, {}).get("error", "it never opened")
-            return "unknown", f"the stage has no session of {member}: {why}", {}
-        return getattr(self, f"{member}_{step['do']}")(step)
-
-    def ShowStopper_start(self, step: dict):  # noqa: N802
-        if self.clock_running:
-            return "pass", "already running: nothing pressed", {"pressed": False}
-        since = len(self.frames)
-        self.pages["ShowStopper"].mouse.click(*STOPWATCH_BUTTON)
-        if not self.wait_frames(lambda new: bool(STOP_LABEL.search(new)), 5, since):
-            return "fail", "pressed Start, and the Stop button never appeared", {}
-        rate = self.frame_rate()
-        self.clock_running = rate > 5
-        result = "pass" if self.clock_running else "fail"
-        return result, f"Stop button shown; the clock redraws {rate} times a second", \
-            {"frames_per_second": rate}
-
-    def ShowStopper_stop(self, step: dict):  # noqa: N802
-        if not self.clock_running:
-            return "pass", "not running: nothing pressed", {"pressed": False}
-        since = len(self.frames)
-        self.pages["ShowStopper"].mouse.click(*STOPWATCH_BUTTON)
-        if not self.wait_frames(lambda new: b"Start" in new, 5, since):
-            return "fail", "pressed Stop, and the Start button never came back", {}
-        self.pages["ShowStopper"].wait_for_timeout(300)
-        rate = self.frame_rate()
-        self.clock_running = rate > 5
-        result = "fail" if self.clock_running else "pass"
-        return result, f"Start button back; the clock redraws {rate} times a second", \
-            {"frames_per_second": rate}
-
-    def carlos_patch(self, step: dict):
-        page = self.pages["carlos"]
-        seen = page.evaluate("""async ([kind, device]) => {
-            const before = system.exportState().name;
-            const r = await fetch(`/api/catalogue/devices/${encodeURIComponent(device)}/examples`);
-            const expected = r.ok ? ((await r.json()).examples[kind] || {}).name : null;
-            await loadExample(kind, device);
-            return {before, expected, after: system.exportState().name,
-                    modules: system.exportState().modules.length,
-                    status: document.getElementById('status').textContent};
-        }""", [step["params"]["example"], step["params"]["device"]])
-        page.wait_for_timeout(400)
-        ok = seen["expected"] is not None and seen["after"] == seen["expected"]
-        return ("pass" if ok else "fail"), \
-            f"rack holds “{seen['after']}” ({seen['modules']} devices), was “{seen['before']}”", seen
-
-    def carlos_turn(self, step: dict):
-        page = self.pages["carlos"]
-        before = page.locator("#view-indicator").text_content()
-        page.keyboard.press("t")
-        page.wait_for_timeout(400)
-        after = page.locator("#view-indicator").text_content()
-        return ("pass" if after != before else "fail"), f"facing {after}, was {before}", \
-            {"before": before, "after": after}
-
-    def joe_take(self, step: dict):
-        wav = take(step["midi"])
-        status, uploaded = http("POST", step["upload"], body=wav, ctype="audio/wav", timeout=30)
-        if status != 200 or not isinstance(uploaded, dict) or "filename" not in uploaded:
-            return "fail", f"upload answered {status}: {uploaded}", {}
-        filename = uploaded["filename"]
-        began = time.monotonic()
-        status, ran = http("POST", step["run"].replace("{filename}", urllib.parse.quote(filename)),
-                           timeout=200)
-        seconds = round(time.monotonic() - began, 1)
-        if status != 200 or not isinstance(ran, dict) or ran.get("returncode") != 0:
-            code = ran.get("returncode") if isinstance(ran, dict) else ran
-            return "fail", f"the pipeline answered {status}, returncode {code}", {"file": filename}
-        status, latest = http("GET", step["latest"], timeout=30)
-        stem = filename.rsplit(".", 1)[0]
-        tracks = list((latest or {}).get("audio", {})) if isinstance(latest, dict) else []
-        events = sum(len(note["start_dur"]) for track in (latest or {}).get("audio", {}).values()
-                     for chroma in track["chroma"].values() for note in chroma["midi"]["notes"]) \
-            if tracks else 0
-        evidence = {"file": filename, "pipeline_seconds": seconds, "latest_tracks": tracks,
-                    "events": events}
-        if tracks != [stem] or events == 0:
-            return "fail", f"latest result is {tracks} with {events} events, not {stem}", evidence
-        page = self.pages["joe"]
-        page.evaluate(f"() => document.querySelector('{JOE_FETCH}').click()")
-        try:
-            page.wait_for_function(
-                f"(stem) => (document.querySelector('{JOE_META}').textContent || '').includes(stem)",
-                arg=stem, timeout=20000)
-            evidence["page"] = page.locator(JOE_META).text_content()[:200]
-        except Exception:
-            evidence["page"] = "the page did not show the take after Fetch Latest"
-            return "fail", evidence["page"], evidence
-        return "pass", f"{events} note events from {stem}, in {seconds}s; the page shows it", evidence
-
-    def leo_show(self, step: dict):
-        with self.stage.lock:
-            self.stage.panels["leo"] = {"frame": step["url"]}
-        if self.leo is None:
-            self.leo = self.browser.new_context(viewport=SESSION_VIEWPORT).new_page()
-        self.leo.goto(step["url"])
-        song = step["params"]["song"]
-        try:
-            self.leo.wait_for_function(
-                f"(song) => (document.querySelector('{LEO_TITLE}') || {{}}).textContent === song",
-                arg=song, timeout=30000)
-        except Exception:
-            title = self.leo.locator(LEO_TITLE).first.text_content(timeout=1000) \
-                if self.leo.locator(LEO_TITLE).count() else None
-            return "fail", f"leo's link shows {title!r}, not {song!r}", {"url": step["url"]}
-        return "pass", f"leo's own link to {song} shows its chart", {"url": step["url"]}
-
-    # --- the worker loop -------------------------------------------------
-
-    def relay(self, entry: dict) -> None:
-        stage = self.stage
-        cues = stage.call("GET", f"/db/cue-lists/{stage.seeded['cue_list_id']}/cues")
-        cue = next((c for c in cues if c["id"] == entry["cue_id"]), None)
-        running = stage.job["running"]
-        record = {"number": cue["number"] if cue else None, "name": cue["name"] if cue else None,
-                  "cue_id": entry["cue_id"], "log_id": entry["id"],
-                  "at": entry.get("triggered_at"), "relayed_at": now(), "done": False,
-                  "problems": [], "steps": [], "idle": []}
-        if cue is None:
-            record["problems"] = [f"the hub logged cue id {entry['cue_id']}, which is not in the list"]
-            actions = []
-        else:
-            actions, record["problems"] = fs.parse_family(cue.get("notes"), running)
-        steps = fs.relay_plan(actions, stage.job["members"], record["number"])
-        for step, action in zip(steps, actions):
-            step["summary"] = fs.summary(action)
-        record["steps"] = steps
-        record["idle"] = [m for m in running if m != fs.HUB and m not in {s["member"] for s in steps}]
-        with stage.lock:
-            stage.relays.append(record)
-            stage.history.append(record)
-        for step in steps:
-            began = time.monotonic()
-            try:
-                step["result"], step["detail"], step["evidence"] = self.do(step)
-            except Exception as exc:
-                step.update(result="unknown", detail=f"{type(exc).__name__}: {str(exc)[:200]}",
-                            evidence={"trace": traceback.format_exc(limit=3)})
-            step["seconds"] = round(time.monotonic() - began, 2)
-            try:
-                self.picture(step["member"])
-            except Exception:
-                pass
-        record["result"] = fs.combine([s["result"] for s in steps] or ["pass"]) \
-            if not record["problems"] else "fail"
-        record["done"] = True
-        stage.record()
-
     def run(self) -> None:
-        last = 0.0
         while not self.stage.stopping.is_set():
-            try:
-                kind, payload = self.stage.jobs.get(timeout=0.25)
-            except queue.Empty:
-                kind = None
-            if kind == "relay":
-                self.relay(payload)
-            if self.clock_running and time.monotonic() - last > 1.0:
-                last = time.monotonic()
+            with self.stage.lock:
+                states = dict(self.stage.member_states)
+            for member in self.pages:
                 try:
-                    self.picture("ShowStopper")
+                    getattr(self, f"refresh_{member}")(states.get(member))
                 except Exception:
-                    pass
+                    with self.stage.lock:
+                        self.stage.panels.setdefault(member, {})["error"] = \
+                            traceback.format_exc(limit=2)
+            self.stage.stopping.wait(0.5)
 
     def close(self) -> None:
         try:
@@ -564,6 +436,13 @@ def handler(stage: Stage, page_html: str):
     return Handler
 
 
+class Server(ThreadingHTTPServer):
+    # Not SO_REUSEADDR: on Windows it would let the stage bind a port somebody
+    # else is already listening on.
+    allow_reuse_address = False
+    daemon_threads = True
+
+
 def serve(job: dict) -> int:
     stage = Stage(job)
     for name in ("SIGINT", "SIGTERM", "SIGBREAK"):
@@ -576,11 +455,10 @@ def serve(job: dict) -> int:
         return 3
     stage.record()
     print(f"seeded {json.dumps(stage.seeded)}", flush=True)
-    order = job["order"]
-    page_html = fs.stage_page({"show": job["show"], "hub_url": job["hub"], "order": order,
-                               "panels": job["panels"],
-                               "links": fs.links(job["show"], job["running"])})
-    server = ThreadingHTTPServer((job["host"], job["port"]), handler(stage, page_html))
+    page_html = fs.stage_page({"show": job["show"], "hub_url": job["hub"], "order": job["order"],
+                               "links": job["links"], "panels": job["panels"],
+                               "rows": job["rows"]})
+    server = Server((job["host"], job["port"]), handler(stage, page_html))
     threads = [threading.Thread(target=server.serve_forever, daemon=True),
                threading.Thread(target=stage.watch, daemon=True),
                threading.Thread(target=worker, args=(stage,), daemon=True)]
@@ -631,6 +509,7 @@ def check(job: dict) -> int:
         cue_list = next(c for c in http("GET", f"{hub}/db/shows/{show['id']}/cue-lists")[1]
                         if c["id"] == seeded["cue_list_id"])
         cues = http("GET", f"{hub}/db/cue-lists/{cue_list['id']}/cues")[1]
+        members = http("GET", f"{hub}/family/")[1]["members"]
     except (OSError, StopIteration, TypeError, KeyError) as exc:
         return finish(3, f"could not read the show from the hub: {exc!r}")
     if (show["name"], cue_list["name"]) != (job["show"]["name"], job["show"]["cue_list"]):
@@ -639,6 +518,12 @@ def check(job: dict) -> int:
     if [(int(c["number"]), c["name"]) for c in cues] != declared:
         return finish(1, f"the hub's cues {[(c['number'], c['name']) for c in cues]} "
                          f"are not the declared {declared}")
+    # The hub's own table of who it delivers to, against the links the stage declared.
+    told = {name: ({"via": "push", "url": link["url"]} if link["via"] == "push"
+                   else {"via": "pull"}) for name, link in job["resolved"].items()}
+    result["hub_members"] = members
+    if members != told:
+        return finish(1, f"the hub's [plugins.family] is {members}, not the declared links {told}")
     result["hub_show"] = {"show_id": show["id"], "cue_list_id": cue_list["id"],
                           "cues": [{"id": c["id"], "number": c["number"], "name": c["name"]}
                                    for c in cues]}
@@ -669,72 +554,111 @@ def check(job: dict) -> int:
     return finish({"pass": 0, "fail": 1}.get(verdict, 3))
 
 
+def poll(read_once, done, seconds: float, page):
+    """Call `read_once` until `done(value)` or time runs out; return the last value."""
+    deadline = time.monotonic() + seconds
+    value = read_once()
+    while not done(value) and time.monotonic() < deadline:
+        page.wait_for_timeout(250)
+        value = read_once()
+    return value
+
+
 def run_cue(page, cue: dict, index: int, hub: str, show_id: int, job: dict, url: str,
             shots: Path) -> dict:
-    """GO once, wait for the relay of that cue, assert what can be seen, and picture it."""
+    """GO once, then assert what the hub delivered and what each member says, and picture it."""
     record = {"number": cue["number"], "name": cue["name"], "assertions": []}
 
-    def held(what: str, ok, detail: str = "", by: str = "check") -> None:
+    def held(what: str, ok, detail: str = "", by: str = "check", **about) -> None:
         result = ok if isinstance(ok, str) else ("pass" if ok else "fail")
-        record["assertions"].append({"what": what, "result": result, "detail": detail, "by": by})
+        record["assertions"].append({"what": what, "result": result, "detail": detail,
+                                     "by": by, **about})
 
-    before = {e["id"] for e in http("GET", f"{hub}/db/shows/{show_id}/logs",
-                                    params={"limit": 500})[1]}
+    number = cue["number"]
+    wanted, problems = fs.parse_family(cue.get("notes"), job["links"])
+    before_logs = {e["id"] for e in http("GET", f"{hub}/db/shows/{show_id}/logs",
+                                         params={"limit": 500})[1]}
+    before = fs.fired_ats(http("GET", f"{hub}/family/")[1])
     page.click("#go")
-    deadline = time.monotonic() + RELAY_SECONDS
-    relay = None
-    while time.monotonic() < deadline:
-        state = http("GET", url + "state")[1]
-        relay = next((r for r in state["relays"] if str(r["number"]) == str(cue["number"])), None)
-        if relay and relay["done"]:
-            break
-        page.wait_for_timeout(250)
-    logged = [e for e in http("GET", f"{hub}/db/shows/{show_id}/logs", params={"limit": 500})[1]
-              if e["id"] not in before]
+    page.wait_for_function(
+        "(n) => document.getElementById('status').textContent"
+        ".startsWith(`the hub fired cue ${n},`)", arg=str(number), timeout=30000)
+
+    logged = poll(lambda: [e for e in http("GET", f"{hub}/db/shows/{show_id}/logs",
+                                           params={"limit": 500})[1] if e["id"] not in before_logs],
+                  bool, 15, page)
     held("the hub's CueLog gained an entry for this cue",
          [e["cue_id"] for e in logged] == [cue["id"]],
          f"new entries name cue ids {[e['cue_id'] for e in logged]}; this cue is {cue['id']}",
          by="the hub's /db/shows/{id}/logs")
-    if not relay or not relay["done"]:
-        held("the stage relayed the cue", False, f"no finished relay within {RELAY_SECONDS}s")
-        record["result"] = "fail"
-        return record
-    wanted, problems = fs.parse_family(cue.get("notes"), job["running"])
-    held("the stage relayed exactly the cue's family block, read from the hub",
-         not problems and [(s["member"], s["do"]) for s in relay["steps"]]
-         == [(a.member, a.verb) for a in wanted],
-         "; ".join(problems) or ", ".join(f"{s['member']} {s['do']}" for s in relay["steps"]))
-    for step in relay["steps"]:
-        held(f"{step['member']} {step['do']}: {step['summary']}", step.get("result", "unknown"),
-             step.get("detail", ""), by=f"the stage, through {step['interface']}")
-        if step["member"] == "leo" and step.get("result") == "pass":
-            song = step["params"]["song"]
+    held("the cue's family block, as the hub holds it, names linked members and spec actions",
+         not problems, "; ".join(problems) or ", ".join(f"{a.name} {fs.summary(a)}"
+                                                        for a in wanted),
+         by="family_stage.parse_family")
+
+    for action in wanted:
+        link = job["resolved"][action.name]
+        member = action.member
+
+        def listed():
+            return fs.deliveries(http("GET", f"{hub}/family/")[1], number, before).get(action.name)
+
+        outcome = poll(listed, lambda o: bool(o and o.get("done")), DELIVERY_SECONDS, page) or {}
+        status = outcome.get("status")
+        delivered = isinstance(status, int) and 200 <= status < 300
+        detail = (f"{link['via']}: {status} in {outcome.get('ms')} ms"
+                  + (f" -- {outcome['error']}" if outcome.get("error") else "")) if outcome else \
+            f"the hub listed no delivery to {action.name} for this fire"
+        held(f"the hub delivered cue {number} to {member} ({action.name})", delivered, detail,
+             by="the hub's GET /family/", member=member, kind="delivery")
+        fired = outcome.get("cue") or {}
+
+        if link["via"] == "push":
+            if not fired:
+                held(f"{member}'s own state shows cue {number}: {fs.summary(action)}", False,
+                     "no delivery of this fire to judge it against", by=f"{member}'s GET "
+                     "/family/state", member=member, kind="state")
+                continue
+            judged = poll(lambda: fs.judge(action, fired, read(link["url"] + "/family/state")),
+                          lambda v: v[0] != "wait",
+                          SETTLE_SECONDS.get(member, SETTLE_DEFAULT), page)
+            held(f"{member}'s own state shows cue {number}: {fs.summary(action)}",
+                 judged[0] == "pass", judged[1], by=f"{member}'s GET /family/state",
+                 member=member, kind="state")
+        elif member == "leo":
+            song = action.value["song"]
             title = page.frame_locator("#frame-leo").locator(LEO_TITLE).first
+            badge = page.frame_locator("#frame-leo").locator(LEO_FOLLOWING).first
             try:
-                expect(title).to_have_text(song, timeout=30000)
-                shown = song
+                expect(title).to_have_text(song, timeout=20000)
+                expect(badge).to_contain_text(f"cue {number}", timeout=5000)
+                shown, says_ = song, badge.text_content(timeout=2000)
             except AssertionError:
                 shown = title.text_content(timeout=2000) if title.count() else None
-            held(f"leo's frame on the stage shows {song}", shown == song,
-                 f"title reads {shown!r}", by="the check's browser")
-        if step["member"] == "joe" and step.get("result") == "pass":
-            status, latest = http("GET", step["latest"], timeout=30)
-            tracks = list(latest.get("audio", {})) if isinstance(latest, dict) else []
-            stem = step["evidence"]["file"].rsplit(".", 1)[0]
-            held("joe's latest result is this take", tracks == [stem],
-                 f"latest names {tracks}", by="joe's /api/results/latest")
-    sessions = [s["member"] for s in relay["steps"]
-                if job["panels"][s["member"]]["shows"] == "session"]
+                says_ = badge.text_content(timeout=2000) if badge.count() else None
+            held(f"leo, following the hub, shows {song} for cue {number}",
+                 shown == song and bool(re.match(rf"cue {number}[,:]", says_ or "")),
+                 f"title reads {shown!r}; its follow badge says {says_!r}",
+                 by="leo's own page, in the stage's frame", member=member, kind="page")
+        else:
+            held(f"{member} pulls cue {number}", "unknown",
+                 "the stage has no way to see a pull member other than leo",
+                 by="check", member=member, kind="page")
+
+    sessions = [a.member for a in wanted if job["panels"][a.member]["shows"] == "session"]
     if sessions:
-        page.wait_for_function(
-            """(members) => members.every(m => { const i = document.getElementById('shot-' + m);
-                 return i && !i.hidden && i.dataset.shown && i.dataset.shown === i.dataset.want; })""",
-            arg=sessions, timeout=10000)
+        try:
+            page.wait_for_function(
+                """(members) => members.every(m => { const i = document.getElementById('shot-' + m);
+                     return i && !i.hidden && i.dataset.shown && i.dataset.shown === i.dataset.want; })""",
+                arg=sessions, timeout=30000)
+        except Exception:
+            held("the stage's own session pictured the member after the cue", "unknown",
+                 f"no fresh picture of {sessions} within 30s", by="the stage page")
     page.wait_for_timeout(1500)
-    shot = shots / f"{index:02d}-cue-{cue['number']}.png"
+    shot = shots / f"{index:02d}-cue-{number}.png"
     page.screenshot(path=str(shot), full_page=True)
     record["shot"] = str(shot)
-    record["relay"] = {k: relay[k] for k in ("log_id", "at", "problems", "idle", "result")}
     record["result"] = fs.combine([a["result"] for a in record["assertions"]])
     return record
 

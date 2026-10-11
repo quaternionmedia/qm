@@ -5,104 +5,74 @@
     uv run qm family-demo --stage --hold --open    # then keep it up and play it by hand
 
 **WHAT IT SHOWS.** `ci/family-demo.yaml` declares a show under `stage:` -- a
-name, a cue list and a handful of cues. Once every core member is up, the
-stage creates that show in ShowRunner through ShowRunner's own REST routes,
-never by writing its database, and serves one page: the show's cues, a GO
-button that calls ShowRunner's cue programmer, and a panel per member. The
-programmer fires the cue and writes a CueLog entry. The stage watches that log,
-and for each new entry it reads the cue back from the hub and performs the
-cue's `family` block against each member's own interface: joe's HTTP API,
-leo's deep link, and the pages ShowStopper and carlos serve, driven in the
-stage's own browser.
+name, a cue list and a handful of cues, each with a `family` block -- and the
+links that join the hub to each member. Once every core member is up, the stage
+creates the show in ShowRunner through ShowRunner's own REST routes, never by
+writing its database, and serves one page: the show's cues, a GO button that
+calls ShowRunner's cue programmer, and a panel per member.
 
-**THE FAMILY BLOCK.** A cue's `notes` is JSON. ShowRunner's programmer reads
-its `osc` and `http` keys and ignores the rest; the stage reads `family`:
+**THE HUB DELIVERS; THE STAGE WATCHES.** A cue's `notes` is JSON, and its
+`family` block names each member by its name in the hub's `[plugins.family]`
+table, with the action the shared spec gives it:
 
-    {"family": {"leo": {"do": "show", "song": "Blue Bossa", "playlist": "Jazz 1460"},
-                "joe": {"do": "take", "notes": ["C4", "E4", "G4", "C5"]}}}
+    {"family": {"showstopper": {"clock": "start"},
+                "carlos": {"patch": "<example name>"},
+                "joe": {"take": {"notes": ["C4", "E4"], "seconds_per_note": 0.5}},
+                "leo": {"song": "Blue Bossa"}}}
 
-Each member names one verb from `VERBS`, with exactly the parameters that verb
-takes. A verb exists only where the member already has an interface that does
-it; one that would need a new interface in the member is not a verb, and the
-member's panel says what cannot be driven instead of pretending.
+When the programmer fires the cue, ShowRunner itself delivers each action: it
+POSTs a push member's action to that member's `/family/cue`, and holds a pull
+member's for it to read from `/family/members/<name>`. The stage performs no
+member action. It presses GO, then asserts what each member says about itself
+-- a push member's `GET /family/state` names the cue just fired and the state
+the action asks for, leo's followed chart shows the song -- and that the hub's
+`GET /family/` shows a 2xx delivery to every member the cue named.
 
-**LINKS ARE CLAIMED NARROWLY.** The stage presses GO through the hub's own
-route, so the hub really fires and logs each cue. Nothing the hub does reaches
-another member: no member calls another, and every family action is performed
-by the stage. Each is labelled `relayed`, with the interface it went through,
-and the page's footer says so. A link between two members appears here only
-when one exists.
+**LINKS ARE CLAIMED NARROWLY.** A link is `app to app` when the hub reaches the
+member with nothing in between, and the stage's check is what establishes it on
+each run. A member the roster gives no link is `not linked`, and a linked one no
+cue asks for anything is `not on any cue`.
 
-This module is the part that decides and holds no state: the vocabulary, the
-parser, the relay plan, the seeding requests and the page. It imports nothing
-outside the standard library, so the stage's runtime (`family_stage_run.py`,
-under the pinned Playwright interpreter) and this corpus's tests both import it.
+This module is the part that decides and holds no state: the action vocabulary,
+the parser, the links, what a member's state must show, the seeding requests and
+the page. It imports nothing outside the standard library, so the stage's
+runtime (`family_stage_run.py`, under the pinned Playwright interpreter) and
+this corpus's tests both import it.
 """
 
 from __future__ import annotations
 
 import json
 import re
-from dataclasses import dataclass, field
-from urllib.parse import quote
+from dataclasses import dataclass
 
-# The hub: it fires cues, and is never relayed one.
+# The hub: it fires cues and delivers their family blocks, and is never sent one.
 HUB = "ShowRunner"
 
 # ShowRunner's cue layers. The stage's cues each carry one, because ShowRunner's
 # script page cannot render a cue without a layer.
 LAYERS = ("Lights", "Sound", "Video", "Audio", "Stage")
 
-# Relay order within one cue: the quick, visible actions first and the take,
-# which runs joe's whole pipeline, last.
+# The order members are listed in on the page: the quick, visible actions first
+# and the take, which runs joe's whole pipeline, last.
 ORDER = ("ShowStopper", "leo", "carlos", "joe")
 
+# A member's name in a family block and in the hub's [plugins.family] table.
+NAME = re.compile(r"^[A-Za-z0-9_-]+$")
 
-@dataclass(frozen=True)
-class Verb:
-    """One thing the stage can make one member do, and the interface it uses."""
-
-    member: str
-    name: str
-    params: dict = field(default_factory=dict)  # name -> "text", "notes" or a tuple of choices
-    via: str = ""   # "api", "url" or "page"
-    says: str = ""  # one line: what it does, through what
-
-
-VERBS: dict[tuple[str, str], Verb] = {}  # keyed by (member, verb)
-for _verb in (
-    Verb("ShowStopper", "start", {}, "page",
-         "presses Start on the first stopwatch of the page ShowStopper serves"),
-    Verb("ShowStopper", "stop", {}, "page",
-         "presses Stop on the stopwatch it started"),
-    Verb("leo", "show", {"song": "text", "playlist": "text"}, "url",
-         "loads leo's own deep link for the song"),
-    Verb("carlos", "patch", {"device": "text", "example": ("simple", "complex")}, "page",
-         "loads a device's example patch into the rack, as the rack's Examples menu does"),
-    Verb("carlos", "turn", {}, "page",
-         "turns every device in the rack, as carlos's own t key does"),
-    Verb("joe", "take", {"notes": "notes"}, "api",
-         "hands joe a synthesized take through its upload route and runs its pipeline on it"),
-):
-    VERBS[(_verb.member, _verb.name)] = _verb
-
-# What each `via` means on the page and in the manifest.
-VIA = {
-    "api": "the member's HTTP API",
-    "url": "the member's own deep link",
-    "page": "the member's served page, in the stage's own browser",
-}
-
-# How a panel shows its member. `frame`: the member's page, live, in a frame --
-# for a member whose state lives on its server or in a URL the stage's page
-# loads. `session`: the stage's own browser session of the member, pictured
-# after each action and every few seconds -- for a member whose state lives in
-# one browser session, where a frame would be a second session nothing drives.
-PANEL_KINDS = ("frame", "session")
-
+# The shared spec's actions, by member: what each may be asked, and nothing else.
+ACTIONS = {"ShowStopper": "clock", "carlos": "patch or turn", "joe": "take", "leo": "song"}
+CLOCK = ("start", "stop", "reset", "lap")
 NOTE = re.compile(r"^([A-G])([#b]?)(-?\d)$")
 SEMITONE = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
 MAX_NOTES = 16
+SECONDS_PER_NOTE = (0.1, 4.0)
+
+# How a panel shows its member. `frame`: the member's own page, live -- for a
+# member whose state is shared by every page it serves, or set by the hub.
+# `session`: the stage's own browser session of the member, pictured -- for a
+# page that shows a result only once asked to fetch it.
+PANEL_KINDS = ("frame", "session")
 
 
 def note_number(name: str) -> int:
@@ -117,28 +87,77 @@ def note_number(name: str) -> int:
     return number
 
 
+def _text(value) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
+def action_problems(member: str, action) -> list[str]:
+    """Every way `action` is not one the shared spec gives `member`."""
+    if not isinstance(action, dict) or len(action) != 1:
+        return [f"{member}: an action is an object with exactly one key"]
+    (key, value), = action.items()
+    if member == "ShowStopper":
+        if key != "clock":
+            return [f"ShowStopper: no action {key!r}; it takes 'clock'"]
+        return [] if value in CLOCK else [f"ShowStopper: clock must be one of {list(CLOCK)}"]
+    if member == "carlos":
+        if key not in ("patch", "turn"):
+            return [f"carlos: no action {key!r}; it takes 'patch' or 'turn'"]
+        return [] if _text(value) else [f"carlos: {key} must be non-empty text"]
+    if member == "leo":
+        if key != "song":
+            return [f"leo: no action {key!r}; it takes 'song'"]
+        return [] if _text(value) else ["leo: song must be non-empty text"]
+    if member == "joe":
+        if key != "take":
+            return [f"joe: no action {key!r}; it takes 'take'"]
+        return _take_problems(value)
+    return [f"{member}: the shared spec gives it no actions"]
+
+
+def _take_problems(take) -> list[str]:
+    if not isinstance(take, dict):
+        return ["joe: take must be an object with notes and seconds_per_note"]
+    problems = [f"joe: take has no {key!r}" for key in sorted(set(take) - {"notes",
+                                                                         "seconds_per_note"})]
+    notes = take.get("notes")
+    if not isinstance(notes, list) or not 1 <= len(notes) <= MAX_NOTES:
+        problems.append(f"joe: take.notes must be a list of 1 to {MAX_NOTES} note names")
+    else:
+        for note in notes:
+            try:
+                note_number(note)
+            except ValueError as exc:
+                problems.append(f"joe: {exc}")
+    seconds = take.get("seconds_per_note")
+    low, high = SECONDS_PER_NOTE
+    if isinstance(seconds, bool) or not isinstance(seconds, (int, float)) \
+            or not low <= seconds <= high:
+        problems.append(f"joe: take.seconds_per_note must be a number from {low} to {high}")
+    return problems
+
+
 @dataclass(frozen=True)
 class Action:
-    member: str
-    verb: str
-    params: tuple  # sorted (name, value) pairs, so an action is hashable and comparable
+    """One member's part of one cue: its name in the block, who it is, what it is asked."""
 
-    def get(self, name: str):
-        return dict(self.params)[name]
+    name: str      # the member's name in the family block and the hub's table
+    member: str    # the roster member
+    text: str      # the action, as sorted JSON, so an Action is hashable
 
-    def as_dict(self) -> dict:
-        return {"member": self.member, "do": self.verb,
-                **{k: list(v) if isinstance(v, tuple) else v for k, v in self.params}}
+    @property
+    def value(self) -> dict:
+        return json.loads(self.text)
 
 
-def parse_family(notes, running: list[str] | set[str]) -> tuple[list[Action], list[str]]:
-    """(actions in relay order, problems) for one cue's notes.
+def parse_family(notes, links: dict) -> tuple[list[Action], list[str]]:
+    """(actions in page order, problems) for one cue's notes.
 
     `notes` is the cue's notes as ShowRunner holds them -- a JSON string -- or
-    already parsed. No notes, or notes with no `family` key, is a cue the
-    family has nothing to do on: no actions and no problems. Anything else that
-    is not a well-formed family block is a problem, and a cue with a problem
-    relays nothing, so a typo cannot half-run a cue.
+    already parsed; `links` is the stage's link table, by block name. No notes,
+    or notes with no `family` key, is a cue the family has nothing to do on.
+    Anything else that is not a well-formed block is a problem, and a cue with a
+    problem is refused whole, so a typo cannot half-run a cue.
     """
     if notes in (None, ""):
         return [], []
@@ -156,110 +175,269 @@ def parse_family(notes, running: list[str] | set[str]) -> tuple[list[Action], li
         return [], ["family must be an object naming at least one member"]
     problems: list[str] = []
     actions: list[Action] = []
-    for member, wanted in family.items():
-        if member == HUB:
-            problems.append(f"{HUB} is the hub: it fires the cue and is never relayed one")
+    for name, action in family.items():
+        link = links.get(name)
+        if link is None:
+            problems.append(f"{name} is not a linked member of this stage; "
+                            f"it links {sorted(links)}")
             continue
-        verbs = sorted(name for owner, name in VERBS if owner == member)
-        if member not in running:
-            problems.append(f"{member} is not a running member of this demo")
-            continue
-        if not verbs:
-            problems.append(f"{member} has no verb the stage can drive")
-            continue
-        if not isinstance(wanted, dict) or not isinstance(wanted.get("do"), str):
-            problems.append(f"{member}: expected an object with a 'do' naming one of {verbs}")
-            continue
-        verb = VERBS.get((member, wanted["do"]))
-        if verb is None:
-            problems.append(f"{member}: no verb {wanted['do']!r}; it has {verbs}")
-            continue
-        given = {k: v for k, v in wanted.items() if k != "do"}
-        before = len(problems)
-        for name in sorted(set(given) - set(verb.params)):
-            problems.append(f"{member} {verb.name}: takes no {name!r}")
-        for name, kind in verb.params.items():
-            if name not in given:
-                problems.append(f"{member} {verb.name}: needs {name!r}")
-            else:
-                problems += [f"{member} {verb.name}: {why}"
-                             for why in _param_problems(name, kind, given[name])]
-        if len(problems) == before:
-            frozen = {k: tuple(v) if isinstance(v, list) else v for k, v in given.items()}
-            actions.append(Action(member, verb.name, tuple(sorted(frozen.items()))))
+        found = action_problems(link["member"], action)
+        problems += found
+        if not found:
+            actions.append(Action(name, link["member"], json.dumps(action, sort_keys=True)))
     if problems:
         return [], problems
-    return sorted(actions, key=lambda a: ORDER.index(a.member)), []
+    rank = {member: i for i, member in enumerate(ORDER)}
+    return sorted(actions, key=lambda a: rank.get(a.member, len(ORDER))), []
 
 
-def _param_problems(name: str, kind, value) -> list[str]:
-    if isinstance(kind, tuple):
-        return [] if value in kind else [f"{name} must be one of {list(kind)}, not {value!r}"]
-    if kind == "text":
-        return [] if isinstance(value, str) and value.strip() else [f"{name} must be non-empty text"]
-    if kind == "notes":
-        if not isinstance(value, list) or not 1 <= len(value) <= MAX_NOTES:
-            return [f"{name} must be a list of 1 to {MAX_NOTES} note names"]
-        found = []
-        for note in value:
-            try:
-                note_number(note)
-            except ValueError as exc:
-                found.append(str(exc))
-        return found
-    raise ValueError(f"unknown parameter kind {kind!r}")
+def summary(action: Action) -> str:
+    """A cue chip: what the member is asked for, in a few words."""
+    (key, value), = action.value.items()
+    if key == "song":
+        return f"shows {value}"
+    if key == "take":
+        return f"takes {' '.join(value['notes'])}"
+    if key == "patch":
+        return f"loads “{value}”"
+    if key == "turn":
+        return f"turns to the {value}"
+    return {"start": "starts the clock", "stop": "stops the clock",
+            "reset": "resets the clock", "lap": "laps the clock"}[value]
 
 
 # ===================================================================
-# THE RELAY PLAN -- what each action calls, before anything is called
+# THE LINKS -- who the hub delivers to, and how
 # ===================================================================
 
-def deep_link(base: str, song: str, playlist: str, cue: int | str) -> str:
-    """leo's own link to a song, made unique per cue.
+def check_links(links, ports: dict[str, dict]) -> list[str]:
+    """Every reason the stage's link table cannot be served as written.
 
-    leo reads its route on a fresh load only: changing the hash of an open page
-    changes the address and not the chart. The query names the cue, so loading
-    the next cue's link is a new document and not a hash change.
+    `ports` maps each running member to its ports by label. A link names the
+    member (`member`) and how the hub reaches it: `push`, the label of the port
+    where the member answers `POST /family/cue` and `GET /family/state`; or
+    `pull`, the query that opens the member's page following the hub, with
+    `{hub}` where the hub's address goes.
     """
-    root = base.split("#", 1)[0].split("?", 1)[0]
-    if not root.endswith("/"):
-        root += "/"
-    return (f"{root}?cue={quote(str(cue), safe='')}"
-            f"#!/song/{quote(song, safe='')}?playlist={quote(playlist, safe='')}")
+    if not isinstance(links, dict) or not links:
+        return ["stage.links must name at least one member the hub delivers to"]
+    problems, seen = [], {}
+    for name, link in links.items():
+        where = f"stage.links.{name}"
+        if not isinstance(name, str) or not NAME.match(name):
+            problems.append(f"{where}: a name is letters, digits, - and _ only")
+        if not isinstance(link, dict):
+            problems.append(f"{where}: must be a mapping")
+            continue
+        member = link.get("member")
+        if member == HUB:
+            problems.append(f"{where}: {HUB} is the hub; it delivers, and is never sent a cue")
+            continue
+        if member not in ports:
+            problems.append(f"{where}: {member!r} is not a running member")
+            continue
+        if member in seen:
+            problems.append(f"{where}: {member} is already linked as {seen[member]}")
+        seen[member] = name
+        if member not in ACTIONS:
+            problems.append(f"{where}: the shared spec gives {member} no actions")
+        kinds = [k for k in ("push", "pull") if k in link]
+        if len(kinds) != 1:
+            problems.append(f"{where}: needs exactly one of push or pull")
+        elif kinds == ["push"] and link["push"] not in ports[member]:
+            problems.append(f"{where}: push names {link['push']!r}, which is not one of "
+                            f"{member}'s ports {sorted(ports[member])}")
+        elif kinds == ["pull"] and not (isinstance(link["pull"], str)
+                                        and link["pull"].startswith("?")
+                                        and "{hub}" in link["pull"]):
+            problems.append(f"{where}: pull must be a query naming {{hub}}, like ?follow={{hub}}")
+    return problems
 
 
-def relay_plan(actions: list[Action], members: dict, cue: int | str) -> list[dict]:
-    """One step per action: the member, the verb, the interface and its addresses.
+def resolve_links(links: dict, members: dict, hub: str) -> dict:
+    """Each link with its address: a push member's base URL, a pull member's followed page.
 
-    `members` maps a member to what the stage was told about it: its `url`
-    and its `ports` by label, on `host`. Pure, so the plan can be read -- and
-    tested -- without anything running.
+    `members` maps a member to its `url`, `host` and `ports`; `hub` is the hub's
+    base URL, with no path.
     """
-    steps = []
-    for action in actions:
-        verb = VERBS[(action.member, action.verb)]
-        info = members.get(action.member) or {}
-        params = {k: list(v) if isinstance(v, tuple) else v for k, v in action.params}
-        step = {"member": action.member, "do": action.verb, "params": params,
-                "via": verb.via, "interface": VIA[verb.via], "says": verb.says,
-                "link": "relayed", "page": info.get("url")}
-        if action.member == "leo":
-            step["url"] = deep_link(info["url"], action.get("song"), action.get("playlist"), cue)
-        elif action.member == "joe":
-            api = f"http://{info['host']}:{info['ports']['api']}"
-            step.update(api=api, upload=f"{api}/api/audio/upload", run=f"{api}/api/run/{{filename}}",
-                        latest=f"{api}/api/results/latest",
-                        midi=[note_number(n) for n in action.get("notes")])
-        steps.append(step)
-    return steps
+    resolved = {}
+    for name, link in links.items():
+        info = members[link["member"]]
+        if "push" in link:
+            resolved[name] = {"member": link["member"], "via": "push",
+                              "url": f"http://{info['host']}:{info['ports'][link['push']]}"}
+        else:
+            page = info["url"].split("#", 1)[0].split("?", 1)[0]
+            resolved[name] = {"member": link["member"], "via": "pull",
+                              "page": page + link["pull"].replace("{hub}", hub)}
+    return resolved
+
+
+def hub_args(resolved: dict) -> list[str]:
+    """What the hub's `serve` is handed, so its [plugins.family] table holds these links."""
+    args = []
+    for name, link in resolved.items():
+        if link["via"] == "push":
+            args += ["--family", f"{name}={link['url']}"]
+    for name, link in resolved.items():
+        if link["via"] == "pull":
+            args += ["--family-pull", name]
+    return args
+
+
+def links(show: dict, link_table: dict, running: list[str] | set[str]) -> list[dict]:
+    """What joins the hub to each running member in this show, claimed no wider than it is."""
+    asked: set[str] = set()
+    for cue in show.get("cues") or []:
+        actions, _ = parse_family({"family": cue.get("family") or {}}, link_table)
+        asked |= {a.member for a in actions}
+    by_member = {link["member"]: (name, link) for name, link in link_table.items()}
+    rows = [{"member": HUB, "link": "real",
+             "says": "the stage presses GO through the hub's own programmer route; the hub "
+                     "fires the cue, logs it, and delivers its family block itself"}]
+    others = [m for m in ORDER if m in running] + sorted(set(running) - set(ORDER) - {HUB})
+    for member in others:
+        if member not in by_member:
+            rows.append({"member": member, "link": "not linked",
+                         "says": "the roster gives it no link, so no cue reaches it"})
+            continue
+        name, link = by_member[member]
+        if member not in asked:
+            rows.append({"member": member, "link": "not on any cue",
+                         "says": f"linked as {name}, but no cue in this show asks it for anything"})
+        elif "push" in link:
+            rows.append({"member": member, "link": "app to app",
+                         "says": f"the hub POSTs each action to {member}'s /family/cue; seen in "
+                                 f"{member}'s GET /family/state and the hub's GET /family/"})
+        else:
+            rows.append({"member": member, "link": "app to app",
+                         "says": f"{member}, opened following the hub, reads its action from the "
+                                 f"hub's GET /family/members/{name}; seen on {member}'s own page "
+                                 f"and in the hub's GET /family/"})
+    return rows
+
+
+APP_TO_APP = ("ShowRunner delivers each cue's family block itself: a push member is sent its "
+              "action at /family/cue, and leo reads its own from the hub. The stage presses GO "
+              "and only watches; it sends no member anything.")
+
+
+# ===================================================================
+# WHAT A MEMBER MUST SAY -- read from its own GET /family/state
+# ===================================================================
+
+def judge(action: Action, fired: dict, answer) -> tuple[str, str]:
+    """('pass' | 'wait' | 'fail', what was seen) for a push member's `GET /family/state`.
+
+    `fired` is the cue object the hub sent: number, name and fired_at. The
+    state must name that very fire -- the same `fired_at` -- and show what the
+    action asks for. `wait` is a state that may still get there; `fail` is
+    one that cannot, such as a take that failed.
+    """
+    if not isinstance(answer, dict):
+        return "wait", f"answered {answer!r}"
+    cue = answer.get("cue")
+    if not isinstance(cue, dict) or cue.get("fired_at") != fired.get("fired_at"):
+        last = cue.get("number") if isinstance(cue, dict) else None
+        return "wait", f"its last cue is {last!r}, not this fire of cue {fired.get('number')}"
+    state = answer.get("state")
+    if not isinstance(state, dict):
+        return "wait", f"state is {state!r}"
+    (key, value), = action.value.items()
+    if key == "clock":
+        if value in ("start", "stop"):
+            want = value == "start"
+            ok = state.get("running") is want
+            return ("pass" if ok else "wait"), f"running {state.get('running')}, " \
+                                               f"elapsed {state.get('elapsed')}"
+        if value == "lap":
+            ok = isinstance(state.get("laps"), list) and len(state["laps"]) > 0
+            return ("pass" if ok else "wait"), f"laps {state.get('laps')}"
+        ok = state.get("running") is False and state.get("laps") == [] \
+            and state.get("elapsed") == 0
+        return ("pass" if ok else "wait"), f"running {state.get('running')}, " \
+                                           f"elapsed {state.get('elapsed')}, laps {state.get('laps')}"
+    if key == "patch":
+        ok = state.get("patch") == value
+        return ("pass" if ok else "wait"), f"patch {state.get('patch')!r}, " \
+                                           f"revision {state.get('revision')}"
+    if key == "turn":
+        ok = state.get("facing") == value
+        return ("pass" if ok else "wait"), f"facing {state.get('facing')!r}, " \
+                                           f"revision {state.get('revision')}"
+    if key == "take":
+        if state.get("error"):
+            return "fail", f"the take failed: {state['error']}"
+        latest = state.get("latest") or {}
+        mine = str(latest.get("file") or "").startswith(f"cue-{fired.get('number')}_")
+        if state.get("busy") or not mine:
+            return "wait", f"busy {state.get('busy')}, latest {latest.get('file')!r}"
+        if not isinstance(latest.get("events"), int) or latest["events"] <= 0:
+            return "fail", f"the take {latest.get('file')} has {latest.get('events')!r} note events"
+        return "pass", f"{latest['events']} note events in {latest['file']}"
+    return "fail", f"nothing says what {key!r} must show"
+
+
+def deliveries(family: dict, number, before: set[str]) -> dict[str, dict]:
+    """The hub's outcome for each member it was asked to reach on this fire of cue `number`.
+
+    `family` is the hub's `GET /family/`; `before` holds every `fired_at` it
+    listed before GO, so a fire of the same cue number from an earlier run of
+    the show is not mistaken for this one.
+    """
+    found: dict[str, dict] = {}
+    for outcome in family.get("last") or []:
+        cue = outcome.get("cue") or {}
+        if str(cue.get("number")) == str(number) and cue.get("fired_at") not in before:
+            found[outcome.get("member")] = outcome
+    return found
+
+
+def fired_ats(family: dict) -> set[str]:
+    return {(o.get("cue") or {}).get("fired_at") for o in family.get("last") or []}
+
+
+def combine(results: list[str]) -> str:
+    """One result from several: any fail fails, then any unknown is unknown."""
+    if "fail" in results:
+        return "fail"
+    if "unknown" in results or not results:
+        return "unknown"
+    return "pass"
+
+
+def link_evidence(rows: list[dict], check: dict | None) -> list[dict]:
+    """Each link row with what this run's check saw of it: its deliveries and the member's word.
+
+    A link claimed app to app with no assertion of it in this run is
+    `unknown`, never a pass: the claim is the roster's until a check sees it.
+    """
+    cues = (check or {}).get("cues") or []
+    out = []
+    for row in rows:
+        row = dict(row)
+        if row["link"] == "app to app":
+            held = [a for cue in cues for a in cue.get("assertions") or []
+                    if a.get("member") == row["member"]]
+            if not held:
+                row.update(result="unknown", seen="not seen in this run: the show did not reach it")
+            else:
+                sent = [a for a in held if a.get("kind") == "delivery"]
+                said = [a for a in held if a.get("kind") != "delivery"]
+                row["result"] = combine([a["result"] for a in held])
+                row["seen"] = (f"{sum(a['result'] == 'pass' for a in sent)} of {len(sent)} "
+                               f"deliveries 2xx; {sum(a['result'] == 'pass' for a in said)} of "
+                               f"{len(said)} times the member showed the cue")
+        out.append(row)
+    return out
 
 
 # ===================================================================
 # THE SHOW -- checked, and created through the hub's own routes
 # ===================================================================
 
-def check_show(show, running: list[str] | set[str]) -> list[str]:
-    """Every reason the declared show cannot be seeded and relayed as written."""
+def check_show(show, link_table: dict) -> list[str]:
+    """Every reason the declared show cannot be seeded and delivered as written."""
     if not isinstance(show, dict):
         return ["stage.show must be a mapping"]
     problems = []
@@ -289,7 +467,7 @@ def check_show(show, running: list[str] | set[str]) -> list[str]:
         if "family" not in cue:
             problems.append(f"{label}: has no family block")
             continue
-        _, found = parse_family({"family": cue["family"]}, running)
+        _, found = parse_family({"family": cue["family"]}, link_table)
         problems += [f"{label}: {p}" for p in found]
     numbers = [c.get("number") for c in cues if isinstance(c, dict)]
     if all(isinstance(n, int) for n in numbers) and numbers != sorted(numbers):
@@ -323,30 +501,34 @@ def check_panels(panels, running: list[str] | set[str]) -> list[str]:
     return problems
 
 
-def panel_view(panels: dict, members: dict) -> dict:
+def panel_view(panels: dict, members: dict, resolved: dict) -> dict:
     """Each panel with its member's address, and the page a framed panel opens on.
 
-    A framed panel with a `path` opens on that page of its member. One without
-    starts empty and is loaded by the first cue that names its member, so the
-    stage never shows a member page that no cue asked for.
+    A framed panel opens on its member's page -- at `path` when the panel names
+    one, and following the hub when the member pulls from it -- so every frame
+    shows the member's own live page from the start.
     """
+    following = {link["member"]: link["page"] for link in resolved.values()
+                 if link["via"] == "pull"}
     view = {}
     for name, panel in panels.items():
         url = members[name]["url"]
         if panel.get("path"):
             url = url.rstrip("/") + "/" + panel["path"].lstrip("/")
-        entry = {**panel, "url": url}
-        if panel["shows"] == "frame" and panel.get("path"):
-            entry["src"] = url
+        entry = {**panel, "url": following.get(name, url)}
+        if panel["shows"] == "frame":
+            entry["src"] = entry["url"]
         view[name] = entry
     return view
 
 
-def check_stage(stage, running: list[str], ports: dict[int, str], span: tuple[int, int]) -> list[str]:
-    """Every reason the plan's `stage` block cannot run: its port, its show, its panels.
+def check_stage(stage, running: list[str], ports: dict[int, str], span: tuple[int, int],
+                member_ports: dict[str, dict] | None = None) -> list[str]:
+    """Every reason the plan's `stage` block cannot run: its port, links, show and panels.
 
-    `ports` maps each port the plan reserves to its member, and `span` is the
-    plan's port range, so the stage's port is held to the same rules as a member's.
+    `ports` maps each port the plan reserves to its member, `span` is the
+    plan's port range, so the stage's port is held to the same rules as a
+    member's, and `member_ports` maps each running member to its ports by label.
     """
     if not isinstance(stage, dict):
         return ["stage: must be a mapping"]
@@ -358,7 +540,10 @@ def check_stage(stage, running: list[str], ports: dict[int, str], span: tuple[in
         problems.append(f"stage: port {port} is already {ports[port]}'s")
     if HUB not in running:
         problems.append(f"stage: {HUB}, the hub, is not a running member")
-    problems += check_show(stage.get("show"), running)
+    member_ports = member_ports if member_ports is not None else {m: {} for m in running}
+    problems += check_links(stage.get("links"), member_ports)
+    link_table = stage.get("links") if isinstance(stage.get("links"), dict) else {}
+    problems += check_show(stage.get("show"), link_table)
     problems += check_panels(stage.get("panels"), running)
     return problems
 
@@ -385,59 +570,6 @@ def seed(show: dict, call) -> dict:
                           "layer": cue["layer"], "notes": cue_notes(cue)})
         cues.append({"id": made["id"], "number": cue["number"], "name": cue["name"]})
     return {"show_id": show_id, "cue_list_id": cue_list["id"], "cues": cues}
-
-
-def links(show: dict, running: list[str] | set[str]) -> list[dict]:
-    """What joins the hub to each member in this show, claimed no wider than it is."""
-    used: dict[str, set[str]] = {}
-    for cue in show.get("cues") or []:
-        actions, _ = parse_family({"family": cue.get("family") or {}}, running)
-        for action in actions:
-            used.setdefault(action.member, set()).add(VERBS[(action.member, action.verb)].via)
-    rows = [{"member": HUB, "link": "real",
-             "says": "the stage presses GO through the hub's own programmer route; the hub "
-                     "fires the cue and writes its CueLog entry"}]
-    others = [m for m in ORDER if m in running] + sorted(set(running) - set(ORDER) - {HUB})
-    for member in others:
-        vias = sorted(used.get(member, ()))
-        if vias:
-            rows.append({"member": member, "link": "relayed",
-                         "says": "performed by the stage through "
-                                 + " and ".join(VIA[v] for v in vias)})
-        elif any(owner == member for owner, _ in VERBS):
-            rows.append({"member": member, "link": "not on any cue",
-                         "says": "drivable, but no cue in this show asks it for anything"})
-        else:
-            rows.append({"member": member, "link": "not drivable",
-                         "says": "no interface the stage could drive it through"})
-    return rows
-
-
-APP_TO_APP = ("No member calls another. ShowRunner fires each cue and logs it, and sends "
-              "nothing to any member; every family action is performed by this stage.")
-
-
-def combine(results: list[str]) -> str:
-    """One result from several: any fail fails, then any unknown is unknown."""
-    if "fail" in results:
-        return "fail"
-    if "unknown" in results or not results:
-        return "unknown"
-    return "pass"
-
-
-def summary(action: Action) -> str:
-    """A cue chip: what the member is asked for, in a few words."""
-    params = dict(action.params)
-    if action.member == "leo":
-        return f"shows {params['song']}"
-    if action.member == "joe":
-        return f"processes a take of {' '.join(params['notes'])}"
-    if (action.member, action.verb) == ("carlos", "patch"):
-        return f"loads the {params['example']} {params['device']} patch"
-    if (action.member, action.verb) == ("carlos", "turn"):
-        return "turns the rack"
-    return f"{action.verb}s the clock"
 
 
 # ===================================================================
@@ -479,7 +611,7 @@ h2{font-size:1.05rem;margin:18px 0 8px}
 table{border-collapse:collapse;width:100%;font-size:.9rem}
 th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
 .pass{color:var(--pass);font-weight:600}.fail{color:var(--fail);font-weight:600}
-.unknown,.running{color:var(--unknown);font-weight:600}
+.unknown,.waiting{color:var(--unknown);font-weight:600}
 .badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:0 8px;
 font-size:.78rem;color:var(--muted);white-space:nowrap}
 .panels{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:14px}
@@ -494,6 +626,7 @@ object-fit:contain;background:#111}
 color:#bbb;font-size:.9rem;padding:16px;text-align:center}
 .view .empty[hidden],.view img[hidden]{display:none}
 .note{font-size:.8rem;color:var(--muted);margin:0}
+.says{font-size:.8rem;margin:0;font-family:ui-monospace,monospace;overflow-wrap:anywhere}
 .panel a,footer a{color:var(--accent);overflow-wrap:anywhere}
 .panel a{font-size:.85rem}
 footer{margin-top:20px;border-top:1px solid var(--line);padding-top:10px;font-size:.9rem}
@@ -524,45 +657,44 @@ $('#reset').addEventListener('click', async () => {
   $('#status').textContent = r.ok ? 'the hub is back at the top of the list'
                                   : `reset failed: ${r.status}`;
 });
-const cell = (r) => `<span class="${esc(r)}">${esc(r)}</span>`;
+function delivered(o) {
+  if (!o) return '<span class="unknown">not listed</span>';
+  if (!o.done) return '<span class="waiting">waiting</span>';
+  const ok = o.status >= 200 && o.status < 300;
+  return `<span class="${ok ? 'pass' : 'fail'}">${esc(o.status ?? 'no answer')}</span>` +
+         (o.ms != null ? ` <span class="sub">${esc(o.ms)} ms</span>` : '') +
+         (o.error ? ` <span class="sub">${esc(o.error)}</span>` : '');
+}
 function render(state) {
-  const relays = state.relays || [];
-  const done = relays.filter(r => r.done).map(r => String(r.number));
+  const fired = state.fired || [];
+  const done = fired.map(f => String(f.number));
   const pointer = (state.hub || {}).pointer;
   document.querySelectorAll('ol.cues > li').forEach((li, i) => {
     li.classList.toggle('done', done.includes(li.dataset.cue));
     li.classList.toggle('next', pointer === i);
   });
-  document.body.dataset.relayed = done.join(' ');
-  const last = relays[relays.length - 1];
+  document.body.dataset.fired = done.join(' ');
+  const last = fired[fired.length - 1];
   if (!last) {
-    $('#relay').innerHTML = '<tr><td>No cue has fired since the stage started or was reset.</td></tr>';
+    $('#deliveries').innerHTML = '<tr><td>No cue has fired since the stage started or was reset.</td></tr>';
   } else {
-    const rows = ['<tr><th>Member</th><th>Asked</th><th>Link</th><th>Result</th><th>Seen</th></tr>',
+    const rows = ['<tr><th>Member</th><th>Asked</th><th>Link</th><th>The hub delivered</th>' +
+                  '<th>The member says</th></tr>',
       `<tr><td>ShowRunner</td><td>fired cue ${esc(last.number)} and logged it</td>` +
-      `<td><span class="badge">real</span></td><td>${cell('pass')}</td>` +
-      `<td>CueLog entry ${esc(last.log_id)} at ${esc(last.at)}</td></tr>`];
+      `<td><span class="badge">real</span></td><td class="pass">CueLog entry ${esc(last.log_id)}</td>` +
+      `<td>${esc(last.at)}</td></tr>`];
     for (const p of last.problems || []) rows.push(`<tr><td colspan="5" class="fail">${esc(p)}</td></tr>`);
-    for (const s of last.steps || []) {
-      rows.push(`<tr><td>${esc(s.member)}</td><td>${esc(s.summary)}</td>` +
-        `<td><span class="badge">${esc(s.link)}</span> <span class="sub">${esc(s.interface)}</span></td>` +
-        `<td>${cell(s.result || 'running')}</td><td>${esc(s.detail || '')}</td></tr>`);
+    for (const a of last.asked || []) {
+      rows.push(`<tr><td>${esc(a.member)}</td><td>${esc(a.summary)}</td>` +
+        `<td><span class="badge">app to app</span> <span class="sub">${esc(a.via)}</span></td>` +
+        `<td>${delivered((last.deliveries || {})[a.name])}</td>` +
+        `<td class="says">${esc(a.says || '')}</td></tr>`);
     }
-    for (const m of last.idle || []) {
-      rows.push(`<tr><td>${esc(m)}</td><td class="sub">nothing on this cue</td><td></td><td></td><td></td></tr>`);
-    }
-    $('#relay').innerHTML = rows.join('');
-    $('#relay-title').textContent = `Cue ${last.number}, ${last.name}: member by member` +
-      (last.done ? '' : ' (relaying)');
+    $('#deliveries').innerHTML = rows.join('');
+    $('#deliveries-title').textContent = `Cue ${last.number}, ${last.name}: member by member`;
   }
   for (const [member, panel] of Object.entries(state.panels || {})) {
     const empty = document.getElementById('empty-' + member);
-    const frame = document.getElementById('frame-' + member);
-    if (frame && panel.frame && frame.dataset.src !== panel.frame) {
-      frame.dataset.src = panel.frame;
-      frame.src = panel.frame;
-      if (empty) empty.hidden = true;
-    }
     const img = document.getElementById('shot-' + member);
     if (img && panel.shot && img.dataset.want !== panel.shot) {
       img.dataset.want = panel.shot;
@@ -571,6 +703,8 @@ function render(state) {
                             if (empty) empty.hidden = true; };
       next.src = panel.shot;
     }
+    const says = document.getElementById('says-' + member);
+    if (says && panel.says !== undefined) says.textContent = panel.says;
   }
 }
 async function poll() {
@@ -590,17 +724,17 @@ def stage_page(view: dict) -> str:
     """The stage as one page. `view` holds what does not change while it runs.
 
     Keys: `show` (the declared show), `hub_url`, `order` (members in panel
-    order), `panels` (member -> role, shows, note, url, and `src` for a framed
-    member that starts with a page), and `links` (from `links`). What changes --
-    the hub's pointer, each relay, each picture -- arrives from the stage's
-    `state` route.
+    order), `links` (the link table, by block name), `panels` (member -> role,
+    shows, note, url, and `src` for a framed member) and `rows` (from
+    `links`). What changes -- the hub's pointer, its deliveries, what each
+    member says, each picture -- arrives from the stage's `state` route.
     """
     from html import escape as e
 
     show = view["show"]
     cues = []
     for cue in show["cues"]:
-        actions, _ = parse_family({"family": cue.get("family") or {}}, view["order"])
+        actions, _ = parse_family({"family": cue.get("family") or {}}, view["links"])
         chips = "".join(f"<li>{e(a.member)} {e(summary(a))}</li>" for a in actions)
         cues.append(f'<li data-cue="{cue["number"]}"><span class="num">{cue["number"]}</span>'
                     f'{e(cue["name"])}<ul class="chips">{chips}</ul></li>')
@@ -608,30 +742,28 @@ def stage_page(view: dict) -> str:
     for member in view["order"]:
         panel = view["panels"][member]
         if panel["shows"] == "frame":
-            src = panel.get("src")
-            body = (f'<iframe id="frame-{e(member)}" title="{e(member)}, live"'
-                    + (f' src="{e(src)}" data-src="{e(src)}"' if src else "") + "></iframe>")
-            if not src:
-                body += (f'<div class="empty" id="empty-{e(member)}">Empty until a cue names '
-                         f'{e(member)}.</div>')
+            body = (f'<iframe id="frame-{e(member)}" title="{e(member)}, live" '
+                    f'src="{e(panel["src"])}"></iframe>')
         else:
             body = (f'<img id="shot-{e(member)}" alt="{e(member)}, the stage\'s own session" hidden>'
                     f'<div class="empty" id="empty-{e(member)}">The stage\'s own session of '
                     f'{e(member)} appears here once it is pictured.</div>')
+        linked = any(link["member"] == member for link in view["links"].values())
+        says = (f'<p class="says" id="says-{e(member)}"></p>' if linked else "")
         panels.append(
             f'<section class="panel" data-panel="{e(member)}"><h3>{e(member)}</h3>'
-            f'<p class="role">{e(panel["role"])}</p><div class="view">{body}</div>'
+            f'<p class="role">{e(panel["role"])}</p><div class="view">{body}</div>{says}'
             f'<p class="note">{e(panel["note"])}</p>'
             f'<a href="{e(panel["url"])}" target="_blank" rel="noopener">Open {e(member)} '
             f'yourself: {e(panel["url"])}</a></section>')
     link_rows = "".join(f'<li><strong>{e(r["member"])}</strong> '
                         f'<span class="badge">{e(r["link"])}</span> {e(r["says"])}</li>'
-                        for r in view["links"])
+                        for r in view["rows"])
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Family stage</title><style>{STAGE_STYLE}</style></head>
-<body data-relayed=""><main>
+<body data-fired=""><main>
 <header class="top"><div><h1>{e(show["name"])}</h1>
 <div class="sub">Cue list {e(show["cue_list"])}, fired by {e(HUB)}, the hub, at
 <a href="{e(view["hub_url"])}" target="_blank" rel="noopener">{e(view["hub_url"])}</a></div></div>
@@ -639,11 +771,11 @@ def stage_page(view: dict) -> str:
 <button id="reset" type="button">Reset</button><span id="status" role="status"></span></div>
 </header>
 <ol class="cues">{"".join(cues)}</ol>
-<h2 id="relay-title">The last cue, member by member</h2>
-<div style="overflow-x:auto"><table id="relay"></table></div>
+<h2 id="deliveries-title">The last cue, member by member</h2>
+<div style="overflow-x:auto"><table id="deliveries"></table></div>
 <h2>The family</h2>
 <div class="panels">{"".join(panels)}</div>
 <footer><h2>What links what</h2><ul>{link_rows}</ul>
-<p><strong>App to app: none.</strong> {e(APP_TO_APP)}</p></footer>
+<p><strong>App to app.</strong> {e(APP_TO_APP)}</p></footer>
 </main><script>{STAGE_SCRIPT}</script></body></html>
 """

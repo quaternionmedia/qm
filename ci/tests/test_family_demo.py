@@ -592,7 +592,7 @@ def test_plan_mode_starts_nothing_and_exits_zero(capsys):
     assert family_demo.main(["--plan"]) == 0
     out = capsys.readouterr().out
     assert "run  ShowRunner" in out and "later wolf" in out
-    assert "feat/family-demo-contract" in out
+    assert "feat/family-control" in out
 
 
 def test_a_work_directory_inside_the_repository_is_refused(capsys):

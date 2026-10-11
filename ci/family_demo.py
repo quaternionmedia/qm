@@ -37,8 +37,8 @@ The run looks for a seam two ways -- which members name another in their tracked
 source, and which member processes hold a connection to another member's port
 while all are up -- and prints both. A name in source is not a wire, and a
 connection table sampled at moments cannot see a short request between samples
-or anything sent over UDP. No result here is an integration result unless a
-check exercised the seam, and none does yet.
+or anything sent over UDP. No result of the waves is an integration result:
+none of their checks exercises a seam. The stage's check does, and says which.
 
 **WHERE IT WRITES.** Nowhere it does not own. Each member is cloned with
 `git clone --shared` into the work directory -- nothing is written into the
@@ -68,14 +68,17 @@ that one is printed as unplaced, never dropped.
 
 **THE STAGE.** `--stage` brings the core up together and puts a show on it:
 the plan's `stage` block is created in the hub through the hub's own routes,
-and one page fires its cues through the hub's programmer and performs each
-cue's `family` block on the members, through interfaces each already has. A
-headless check plays the show, asserts each cue's effects, and records a
-picture of the stage after each cue; the landing page shows them in cue order.
-Each member's own check is not run in this mode -- `qm family-demo` runs them --
-so a member's stage result is its isolation's. `ci/family_stage.py` decides,
-`ci/family_stage_run.py` runs, and every link it shows is labelled real or
-relayed: no member calls another, and that is said on the page.
+the hub is started knowing the plan's links, and one page fires the cues
+through the hub's programmer. The hub delivers each cue's `family` block
+itself -- a push member is sent its action, leo reads its own from the hub --
+and the stage performs no member action. A headless check plays the show and
+asserts, per cue and member, what the member says about itself and what the
+hub says it delivered, and records a picture of the stage after each cue; the
+landing page shows them in cue order. Each member's own check is not run in
+this mode -- `qm family-demo` runs them -- so a member's stage result is its
+isolation's. `ci/family_stage.py` decides, `ci/family_stage_run.py` runs, and
+every link it shows is labelled with what it is: app to app where the hub
+reaches the member with nothing in between.
 
 `protocols/local-demo.md` is the protocol this follows. It is the first runnable
 slice of a simultaneous run of the whole performing family: the core phase
@@ -203,7 +206,9 @@ def check_plan(plan: dict, rostered: set[str]) -> list[str]:
             problems.append(f"{name}: a phase that does not run must say what it needs to join")
     if "stage" in plan:
         names = [m.get("name") for m in running(plan)]
-        problems += family_stage.check_stage(plan["stage"], names, owner, (first, last))
+        member_ports = {m.get("name"): m.get("ports") or {} for m in running(plan)}
+        problems += family_stage.check_stage(plan["stage"], names, owner, (first, last),
+                                             member_ports)
     return problems
 
 
@@ -1509,14 +1514,19 @@ def hold_open(run: Path, seconds: float, url: str | None = None) -> None:
 # ===================================================================
 
 def stage_job(plan: dict, order: list[dict], run: Path) -> dict:
-    """What the stage runtime is handed: addresses, the show, the panels, where to write."""
+    """What the stage runtime is handed: addresses, links, the show, the panels, where to write."""
     host = plan["host"]
     info = {m["name"]: {"url": expand(m["url"], {"ports": m["ports"], "host": host}),
                         "host": host, "ports": m["ports"]} for m in order}
     names = [m["name"] for m in order]
+    hub = next(m for m in order if m["name"] == family_stage.HUB)
+    base = f"http://{host}:{hub['ports'][hub['serves']]}"
+    resolved = family_stage.resolve_links(plan["stage"]["links"], info, base)
     return {"host": host, "port": plan["stage"]["port"], "hub": info[family_stage.HUB]["url"],
+            "hub_base": base, "links": plan["stage"]["links"], "resolved": resolved,
             "members": info, "running": names, "order": names, "show": plan["stage"]["show"],
-            "panels": family_stage.panel_view(plan["stage"]["panels"], info),
+            "panels": family_stage.panel_view(plan["stage"]["panels"], info, resolved),
+            "rows": family_stage.links(plan["stage"]["show"], plan["stage"]["links"], names),
             "dir": str(run / "stage"), "shots": str(run / "shots" / "stage"),
             "result": str(run / "stage" / "check.json")}
 
@@ -1573,6 +1583,10 @@ def stage_wave(order: list[dict], members: dict, run: Path, token: str, plan: di
         built.own_check = False
     (run / "stage").mkdir(parents=True, exist_ok=True)
     job = stage_job(plan, order, run)
+    # The hub is told its links on its own command line, and writes them into
+    # its [plugins.family] table: the stage itself sends no member anything.
+    hub = next(built for built in stages if built.name == family_stage.HUB)
+    hub.processes[0].argv += family_stage.hub_args(job["resolved"])
     job_path = run / "stage" / "job.json"
     job_path.write_text(json.dumps(job, indent=2), encoding="utf-8")
     url = f"http://{job['host']}:{job['port']}/"
@@ -1580,7 +1594,7 @@ def stage_wave(order: list[dict], members: dict, run: Path, token: str, plan: di
                      cwd=str(run / "stage"), env={}, ready_url=url,
                      log=str(run / "logs" / "stage-serve.log"))
     record: dict = {"url": url, "port": job["port"], "job": str(job_path),
-                    "links": family_stage.links(job["show"], job["running"]),
+                    "links": job["rows"], "resolved": job["resolved"],
                     "app_to_app": family_stage.APP_TO_APP, "show": job["show"],
                     "not_asked": ["each member's own check: --stage runs the show, and "
                                   "`qm family-demo` without it runs every member's check"]}
@@ -1616,9 +1630,10 @@ def stage_wave(order: list[dict], members: dict, run: Path, token: str, plan: di
                 before = live_connections(stages)
                 record["check"] = stage_check(plan, job_path, job, run)
                 seams_live = merge_samples([before, live_connections(stages)])
+        record["links"] = family_stage.link_evidence(job["rows"], record["check"])
         stage_file = run / "stage" / "stage.json"
         if stage_file.is_file():
-            record["relays"] = json.loads(stage_file.read_text(encoding="utf-8"))
+            record["observed"] = json.loads(stage_file.read_text(encoding="utf-8"))
         record["landing"] = finish(stages, seams_live, record)
         if (hold is not None or open_page) and server.readiness == "pass":
             answered = http_post(url + "reset")
@@ -1953,7 +1968,8 @@ def stage_section(manifest: dict, run: Path) -> str:
                        f'<strong>Cue {e(str(cue["number"]))}, {e(cue["name"])}</strong> '
                        f'{result_span(cue.get("result", "unknown"))}<ul>{held}</ul>'
                        f'</figcaption></figure>')
-    links = "".join(f'<li><strong>{e(r["member"])}</strong> {e(r["link"])}: {e(r["says"])}</li>'
+    links = "".join(f'<li><strong>{e(r["member"])}</strong> {e(r["link"])}: {e(r["says"])}'
+                    f'{" -- " + e(r["seen"]) if r.get("seen") else ""}</li>'
                     for r in stage.get("links") or [])
     not_asked = "".join(f"<li>{e(n)}</li>" for n in stage.get("not_asked") or [])
     show = stage.get("show") or {}
@@ -1961,13 +1977,13 @@ def stage_section(manifest: dict, run: Path) -> str:
               if check.get("detail") and check.get("result") != "pass" else "")
     return f"""<h2>The stage: {e(show.get("name", ""))}</h2>
 <p>The core up together, a show of {len(show.get("cues") or [])} cues created in the hub through
-its own routes, and one page that fires each cue through the hub's programmer and performs the
-cue's family block on the members. Played headless, cue by cue:
+its own routes, and one page that fires each cue through the hub's programmer. The hub delivers
+each cue's family block to the members itself. Played headless, cue by cue:
 {result_span(check.get("result", "unknown"))}. The page answers at
 <a href="{e(stage.get("url", ""))}">{e(stage.get("url", ""))}</a> only while the run is held
 (<code>uv run qm family-demo --stage --hold --open</code>).</p>{detail}
 <h3>What links what</h3><ul>{links}</ul>
-<p><strong>App to app: none.</strong> {e(stage.get("app_to_app", ""))}</p>
+<p><strong>App to app.</strong> {e(stage.get("app_to_app", ""))}</p>
 <h3>Not asked in this mode</h3><ul>{not_asked}</ul>
 <h3>Storyboard</h3>
 <p>The stage after each cue, in cue order, taken by the check that asserted the lines under
@@ -2389,8 +2405,9 @@ def main(argv: list[str] | None = None) -> int:
     print(f"page     {(run / 'index.html').as_uri()}")
     print(f"manifest {run / 'manifest.json'}")
     if staged:
-        print(f"stage    the show: {(staged.get('check') or {}).get('result', 'unknown')}; "
-              f"every family action is relayed by the stage, and no member calls another")
+        print(f"stage    the show: {(staged.get('check') or {}).get('result', 'unknown')}")
+        for row in staged.get("links") or []:
+            print(f"  link   {row['member']:<12} {row['link']:<15} {row.get('seen', '')}")
     else:
         print("seams    no check exercises a seam between members; see the page")
     return status
