@@ -49,7 +49,7 @@ The findings a next session most needs:
   hazard.
 - No cross-family import exists. The two cross-family non-protocol crossings
   are an executable path (holophonor #11 → uPhonor) and shell provisioning
-  (george → holophonor's JACK host).
+  (`private-02` → holophonor's JACK host).
 - Suites exist in seven of the sixteen repositories; qmetronome's runs only in
   CI (no Android platform here); Cuelist-python could not install from its own
   lock until #1.
