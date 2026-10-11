@@ -1,6 +1,6 @@
 # Handoff — the voice loop, reviewed as one, 2026-10-04
 
-**Stamped 2026-10-04.** `qm` `main` at `df1cb51`; `vox` `main` at `d94fe6b`;
+**Stamped 2026-10-10.** `qm` `main` at `df1cb51`; `vox` `main` at `d94fe6b`;
 `joe` `main` at `2ba994d`; `qmcp` `main` at `ed01fc0`. Every figure on this page
 was true at the commits it names and nowhere else.
 
@@ -20,17 +20,17 @@ and each was resolved by keeping both sides: `qmcp` #73 against #58, whose open
 question shares lines #72 rewrote, #58's read-back taking #72's grammar (§4);
 `qmcp` #76 against #58 on where a section of the voice page goes; and `joe`
 #33 against #23 on the end of the stylesheet. `qmcp` #77 to #82 merged without
-a conflict.
+a conflict, and so did the durable-text sweeps, `qm` #140 and #141, `qmcp` #83 and #84, `joe` #34 and `vox` #15.
 A demo branch is for testing and demonstrating the set together and is never
 merged; the set lands through its own pull requests (§5), so each change keeps
 its own record.
 
 | Repository | Demo branch head | Merged into it, in order |
 |---|---|---|
-| `vox` | `e4d59cb` | #9, #10, #11, #12, #13, #14 |
-| `joe` | `25890e7` | #23, #24, #25, #26, #27, #28, #29, #30, #31, #32, #33 |
-| `qmcp` | `ef06757` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67, #68, #69, #70, #71, #72, #73, #74, #75, #76, then #77, #78, #79, #80, #81 and #82 |
-| `qm` | moves with #135 | #134, #135 |
+| `vox` | `8f76671` | #9, #10, #11, #12, #13, #14, #15 |
+| `joe` | `f3faa67` | #23, #24, #25, #26, #27, #28, #29, #30, #31, #32, #33, #34 |
+| `qmcp` | `40f5de3` | #54, #55, #56, #58, then the stack #60, #61, #62, #63, #64, #65, #66, #67, #68, #69, #70, #71, #72, #73, #74, #75, #76, then #77, #78, #79, #80, #81 and #82, then #83 and #84 |
+| `qm` | moves with #135 | #134, #135, #136, #137, #140, #141, #142 |
 
 **A checkout of the demo branch.** The loop is on no repository's `main` yet,
 so a checkout of `main` answers `uv run qmcp serve --converse` with *No such
@@ -80,6 +80,16 @@ the workstation is set up as it says, three tiers, each adding one real thing:
    finds the output qmcp's voice is heard on: on the machine the set was built
    on, the default output is a second jack.
 
+**The durable-text sweep** is read, not heard. `qm` #136 drafts the rule --
+a docstring, page or record states what is true now, and tells no story of how
+it came to be -- and a gate on the lines a change adds; the sweeps apply it to
+existing text, each with a table in its body sorting every passage it touched
+into a fact kept inline, an explanation moved to `docs/`, or a narrative moved
+to a retrospective (`qm` #137 and #142). In a `qm` clone of the demo branch,
+`uv run qm timeless --all --summary` reads every tracked line, and `--root`
+points it at a clone of another repository. `uv run qm demo --fixture` draws
+one topology from `qmcp` in two windows that must agree.
+
 ## 2. The pull requests
 
 | | Checks | What it is | Look at |
@@ -101,6 +111,8 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`qmcp` #79** | 8/8 | an advisory council, `arbiter_can_override` false, declared beside the deciding one | the deciding council still refused outright, and the advisory one still refused an attested act (§3, decided below). |
 | **`qmcp` #80**, draft on #76 | 7/7 | reusable components, designs composing designs, names scoped to a project; the design routes on loopback only | the scoping migration's backfill, run against rows saved before it; the routes moving behind the loopback guard. |
 | **`qmcp` #81**, draft on #76 | 7/7 | phrases added by voice to the conversation's commands, behind approval, kept per user | its defaults (§3, decision 13); that no answer to a consent takes a phrase. |
+| **`qmcp` #84**, draft on #83 | 7/7 | the rest of `qmcp` swept; `docs/threads.md` and `docs/self-checks.md` added | the statements found false and corrected, in its body: the port default, the address vectors, commands named as routed that are not. |
+| **`qmcp` #83**, draft on #82 | 7/7 | the topology modules' docstrings reduced to facts, their explanations in `docs/agentframework/topologies.md` | the sorting table in its body; the plane's served `why` texts, the one behaviour it changes. |
 | **`qmcp` #82**, draft on #80 | 7/7 | saved designs created, composed, listed and run by voice, and a cross-check by name, each behind approval | what the runner refuses before consent; the known limits in its body; #79's and #81's commits, carried until they merge. |
 | **`qmcp` #75**, draft on #74 | 7/7 | "try again", "same in vox", "never mind", and the conversation saying how it stands | that a diagnostic is matched on the whole utterance, so "what happened in vox" is still an instruction. |
 | **`qmcp` #74**, draft on #73 | 7/7 | every phrase the loop acts on declared once, in `vocabulary.toml`, with a wider starting set; `qmcp vocabulary` | what was left out of the yes words, and why; the projects' terms kept out of the hint (§3, decision 12). |
@@ -111,6 +123,7 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`qmcp` #69**, draft on #68 | 7/7 | the voice heard: `vendor/vox` at #12's branch; the consent said with the clone's folder; setup checks the output | the written consent keeping the path while the spoken one names the folder. |
 | **`qmcp` #68**, draft on #67 | 7/7 | closed questions hint and offer their options; "repeat" re-asks; prompts leave the turn open | the open question from #58 not yet hinted on the demo branch (§4); a key's answer exempt from the wake word. |
 | **`qmcp` #67**, draft on #66 | 7/7 | the demo page as the loop's onboarding and cookbook | the page as a stranger's first read: each setup step's signal that it is done, and each recipe against what the conversation does -- the wake word applying to "stop" as well (§3, decision 6). |
+| **`vox` #15**, draft on #14 | 3/3 | `vox` swept; *The offline engine* in the README | that the mutation record changed only where three descriptions were reworded. |
 | **`vox` #14**, draft on #13 | 3/3 | `watch`, `unwatch` and `control` on the contract; a voice that stops when told | the cut measured on a virtual audio cable, in its body. |
 | **`vox` #13**, draft on #12 | 3/3 | `confidence_key` on the contract; `HttpSTT.last_confidence` | that a take without a reported confidence never inherits the last one's. |
 | **`vox` #12**, draft on #11 | 3/3 | the platform voice played through SAPI on Windows, on an output that can be named | why: pyttsx3's playback returned without playing (the body's timings); `vox outputs` and `vox say`. |
@@ -121,6 +134,7 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`joe` #24**, draft on #23 | 4/4 | the README's overview | joe's two jobs, and the commands as they are. |
 | **`joe` #25**, draft on #24 | 4/4 | the cookbook's recipe for joe's half of the loop | what it says the conversation leaves on disk (§3, decision 5). |
 | **`joe` #26** | 5/5 | a take decoded as English, as one utterance, toward its hint, with a beam when short | the measured table in its body, on synthesized speech (§4); English as the default (§3, decision 7). |
+| **`joe` #34**, draft on #33 | 4/4 | `joe` swept; *Voice* in `docs/modules.md` | the device order `Voice.record` now states. |
 | **`joe` #33**, draft on #32 | 4/4 | a take shown on the visualiser: its recording on the transport, its words on the piano roll's timeline | word times shared evenly within a segment (§4); the screenshot in its body. |
 | **`joe` #32**, draft on #31 | 4/4 | the whole transcript in a pane docked beside the piano roll, live and kept across a reload | the history read from the datapoints, which grow without bound (§3, decision 5). |
 | **`joe` #31**, draft on #30 | 4/4 | joe's own words declared once: start over, a take marked misheard or heard right, the voice's level | the `label` datapoint, the ground truth a tuning pass needs most. |
@@ -128,8 +142,13 @@ the workstation is set up as it says, three tiers, each adding one real thing:
 | **`joe` #29**, draft on #28 | 4/4 | a listen's `confidence`: the weakest segment's mean token probability, `1.0` by key | the measured table in its body (§3, decision 8). |
 | **`joe` #28**, draft on #27 | 4/4 | the take shown as it is written, its words strikable, every segment a datapoint; the tones on a named output | the datapoint records (§3, decision 5); "scratch that"; the final text being what the panel showed. |
 | **`joe` #27**, draft on #26 | 4/4 | answers by key or button, `~` held to keep a turn open, and tones for the ear | the key bindings and the tones on by default (§3, decision 7); the take ending at once on a key. |
-| **`qm` #134** | 11/11 | the REUSE lint through `uvx` | the seed copy, which reaches `qmcp` only at its next pin bump. |
+| **`qm` #134** | 10/11 | the REUSE lint through `uvx` | the seed copy, which reaches `qmcp` only at its next pin bump; `slot` (§4). |
 | **`qm` #135** | -- | the voice-loop handoff restamped, and this page | §1 of the handoff, the open set as one table. |
+| **`qm` #136** | 11/11 | the durable-text record, drafted, *Timeless text* in the style guide, `AGENTS.md` item 18, and `uv run qm timeless` as a gate | the record (§3, decision 14); what the gate cannot see (§4). |
+| **`qm` #137** | 8/8 | a retrospective keeping the stories `qmcp`'s topology docstrings told | that it decides nothing. |
+| **`qm` #140**, draft on #136 | 8/9 | the tooling swept: `ci/`, `project-seed/`, the hooks, `registers/`, the root `pyproject.toml`; a tooling reference under `docs/ref/ci/` | no code changed: syntax trees and loaded data compared, in its body; `slot` (§4). |
+| **`qm` #141**, draft on #136 | 8/9 | the prose swept: records, handbook, entry documents, protocols, workflow headers | that no decision changes; the charter's wording; `slot` (§4). |
+| **`qm` #142**, draft on #137 | 5/6 | four retrospectives keeping the stories the sweeps took out | that they decide nothing; `slot` (§4). |
 
 `qmcp` #57 and #59 were closed unmerged: an MCP tool for a coding-assistant
 session to ask the queue, and recall from a coding assistant's session store.
@@ -201,6 +220,10 @@ Ordered by what they block.
     something is refused; the declared phrases cannot be removed; an approved
     edit is heard from the next utterance; every edit is journalled, and the
     last one can be undone. Accept, or choose others.
+14. **The durable-text record** (`qm` #136), *durable text states what is
+    true*, is Proposed. Ratify it, amend it, or not; its gate runs on `main` once #136
+    merges either way, as every draft record's gate does, and the sweeps stand
+    on their own as edits.
 
 Decided in the session that built the set, and recorded here so they are not
 asked again: approvals are required for every runtime for now, the local
@@ -303,6 +326,19 @@ answer, kept in one file per user (#81).
 - **`uv run qmcp preflight` reports the REUSE step red** in a uv environment
   until `qm` #134 reaches `qmcp`'s pin; the seed runner under the system
   interpreter reports it green.
+- **The timeless gate reads capitals and a short list of phrases.** A story
+  told in plain words passes it. The sweeps read each passage; the gate guards
+  only what is added after, and `--all` counts what it can see, not what is
+  left.
+- **`qmcp`'s copies of three seed workflows keep their old headers** --
+  `leak-check.yml`, `one-pr-check.yml`, `tag-claims.yml`, verbatim copies -- until
+  its governance pin moves past `qm` #140; seven of `qmcp`'s ten remaining
+  findings are those, and the other three are `qmcp/cli.py`, which the sweep
+  left alone.
+- **`qm`'s `slot` check is red on #134, #140, #141 and #142.** It fails every
+  `qm` pull request of this contributor while `qm` #139, outside this set, is
+  marked ready on #138's branch; it names #139, and marking #139 a draft
+  clears it.
 
 ## 5. The order the set lands in
 
@@ -313,7 +349,7 @@ before its branch can go. A stacked pull request is retargeted onto `main`,
 has `main` merged in, and is marked ready before it merges.
 
 1. **`vox`:** #10, then #11, #12, #13 and #14, each retargeted onto `main` as
-   the one beneath it lands, then #9.
+   the one beneath it lands, then #15 and #9.
 2. **`qmcp`:** #54, then #55 (retargeted onto `main`); #56; #58; then #60,
    after one commit moves its `vendor/vox` pin to `vox` #10's merge commit;
    then #61, #62, #63, #64, #65, #66, #67, #68, #69, #70, #71, #72, #73, #74, #75
@@ -321,14 +357,16 @@ has `main` merged in, and is marked ready before it merges.
    retargeted onto `main` as the one beneath it lands; #68's, #69's, #70's and
    #73's `vendor/vox` pins first move to `vox` #11's, #12's, #13's and #14's
    merge commits. Then #77, retargeted onto `main` after #55; #78 and #79;
-   #80 and #81, retargeted onto `main` after #76; and #82, retargeted onto
-   `main` once #79, #80 and #81 are in.
-3. **`joe`:** #23, then #24, then #25; #26, then #27, #28, #29, #30, #31, #32
-   and #33.
-4. **`qm`:** #134, then #135.
+   #80 and #81, retargeted onto `main` after #76; #82, retargeted onto
+   `main` once #79, #80 and #81 are in; then #83 and #84.
+3. **`joe`:** #23, then #24, then #25; #26, then #27, #28, #29, #30, #31, #32,
+   #33 and #34.
+4. **`qm`:** #134, then #135; #136, then #140 and #141, each retargeted onto
+   `main`; #137, then #142.
 
 After the set lands: `qm` #134 reaches `qmcp` through a pin bump, which also
-retires the `AGENTS.md` paragraph from #56; Phase 10's boxes are ticked on the
+retires the `AGENTS.md` paragraph from #56 and copies `qm` #140's three seed
+workflows again; Phase 10's boxes are ticked on the
 roadmap; #58's and #61's read-back helpers become one, #58's open question
 taking #72's wording and #73's `ask_over`; and the demo branches
 are deleted by a person, since deletion is outside what a handoff authorises.
@@ -417,8 +455,22 @@ branch.
   `0fc3fb4`:** `uv run --extra preflight qm preflight`, all 42 executed steps
   passed. #135's branch alone at `0fc3fb4`: 43 of 43, after a first run read the
   signature check red on a commit the host had not yet received.
+- **The demo branches with the durable-text sweeps:** `qm` at `9f3d164`,
+  `uv run --extra preflight qm preflight --event pull_request --base-ref main`,
+  38 of 40 steps passed, the two red ones `slot` (§4) and the signature check
+  on commits the host had not yet received; `qmcp` at `6c837f9`, whose tree
+  `40f5de3` carries, the seed workflow runner, all 11 executed steps passed, 1413 passed, 9 skipped, 2
+  deselected; `joe` at `f3faa67`, 228 passed and `npx playwright test` 65
+  passed; `vox` at `8f76671`, 147 passed, the wheel check passed, 28 of 28
+  mutations caught. In a worktree of `qmcp`'s demo branch with `vendor/vox` at
+  `vox`'s demo head and `governance/qm` at `project/qmcp` with `qm`'s demo
+  merged in, as a pin bump after the set lands would leave it: the same suite
+  count; `cookbook voice`, `instruct` and `converse` each `[ok]`; and `qm demo
+  --fixture` drawing one topology in two windows that agree. `uv run qm
+  timeless --all`: `qm` 0, `joe` 0, `vox` 0, `qmcp` 10.
 - **Hosted:** every pull request in §2 green at its head when this page was
-  written; on a demo branch only `qmcp`'s submodule check runs, and passed.
+  written, apart from `qm`'s `slot` (§4); on a demo branch only `qmcp`'s
+  submodule check runs, and passed.
 
 ## 7. What none of this authorises
 
