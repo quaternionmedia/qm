@@ -40,6 +40,11 @@ base it targets, with its own pull request against that base. Each is marked
 ready and merged by its author once its gates pass. There is no limit on how
 many a contributor holds open at once.
 
+**One active stack per developer is the habit to aim for.** A stack finished
+before the next one starts stays reviewable in one sitting and keeps the map
+of open work small. It is encouraged and never enforced: nothing refuses a
+second stack, and independent changes still go in parallel.
+
 **Dependent changes go in series, as a stack.** A branch that needs another
 branch's work is cut *from that branch*, and its pull request's base *is* that
 branch, so its diff shows only its own change. Only the bottom of a stack — the

@@ -51,7 +51,7 @@ dev = [
   "pytest-xdist>=3.5",
 ]
 # The documentation site generator. An extra rather than a runtime dependency:
-# `uv run qm slot` must not need a static-site builder installed, and a
+# `uv run qm stacks` must not need a static-site builder installed, and a
 # contributor reading records should not have to resolve one. `docs.yml` and
 # `docs-audit.yml` install it themselves on the runner.
 docs = [

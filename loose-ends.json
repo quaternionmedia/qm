@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-28T21:21:17Z",
+  "generated_at": "2026-10-11T18:03:53Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -29,7 +29,7 @@
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-09-28T05:15:29Z"
+        "generated_at": "2026-10-11T18:03:52Z"
       }
     }
   },
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 134,
+    "loose_ends": 135,
     "by_kind": {
-      "blind-spot": 19,
+      "blind-spot": 20,
       "document-proposed": 36,
       "document-unreviewed": 61,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 134,
+    "open": 135,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -131,14 +131,6 @@
     },
     {
       "kind": "blind-spot",
-      "address": "quaternionmedia/qm/doc/gate-one-pr-slot",
-      "title": "one-pr-slot cannot see",
-      "detail": "Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.",
-      "key": "blind-spot:quaternionmedia/qm/doc/gate-one-pr-slot",
-      "address_parses": true
-    },
-    {
-      "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-one-pr-voice",
       "title": "one-pr-voice cannot see",
       "detail": "The third person. \"Peter merges once the gates are green\" is a statement about a person and the tool cannot tell it from a sentence addressed to them without a pronoun, so it is allowed; and whether the body is honest, complete, or about the diff at all.",
@@ -187,6 +179,14 @@
     },
     {
       "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-stacked-drafts",
+      "title": "stacked-drafts cannot see",
+      "detail": "Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-stacked-drafts",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-symlink-integrity",
       "title": "symlink-integrity cannot see",
       "detail": "A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.",
@@ -207,6 +207,14 @@
       "title": "tag-determinism cannot see",
       "detail": "Whether the suite is deterministic. It refuses a run that announces nondeterminism; one that is nondeterministic and silent about it passes. It also says nothing about coverage: a suite asserting little passes as readily as one asserting much.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-tag-determinism",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-timeless-check",
+      "title": "timeless-check cannot see",
+      "detail": "A story told in neutral words, and a present-tense sentence that is no longer true; those are the reviewer's. Text already on the base, which `--all` reports and a sweep removes. Capitals in title case or spaced out, a phrase broken so that no line holds three of its words, and file types it does not read.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-timeless-check",
       "address_parses": true
     },
     {

@@ -373,7 +373,7 @@ def test_a_stacked_draft_is_within_the_rule(tmp_path, monkeypatch):
     assert survey_one(work, online=True).stacked_ready == []
 
 
-def test_a_host_that_says_no_leaves_the_slot_unknown_rather_than_free(
+def test_a_host_that_says_no_leaves_the_stack_unknown_rather_than_clear(
         tmp_path, monkeypatch):
     work = clone_pair(tmp_path, "r")
     monkeypatch.setattr(estate, "run_gh", lambda args, cwd: subprocess.CompletedProcess(

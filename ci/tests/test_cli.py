@@ -146,9 +146,17 @@ def test_a_directory_with_only_one_marker_is_not_the_corpus(tmp_path: Path):
 def test_help_lists_every_command():
     result = run("--help", cwd=CORPUS)
     assert result.returncode == 0
-    for command in ("docs", "gates", "tags", "restatements", "slot", "branch",
+    for command in ("docs", "gates", "tags", "restatements", "stacks", "branch",
                     "preflight", "brief"):
         assert command in result.stdout
+
+
+def test_the_earlier_name_for_stacks_still_runs_and_is_not_listed():
+    """Mutation: drop the `slot` parser or its dispatch entry, and the second
+    assertion fails; give it a help string, and the first does."""
+    listed = run("--help", cwd=CORPUS).stdout
+    assert "stacks" in listed and "slot" not in listed.split()
+    assert run("slot", "--help", cwd=CORPUS).returncode == 0
 
 
 def test_no_arguments_prints_help_rather_than_doing_something():

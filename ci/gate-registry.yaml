@@ -76,7 +76,7 @@ gates:
       rule is taught from -- and check_attribution.py prints that exemption and
       its reason on every run.
 
-  - id: one-pr-slot
+  - id: stacked-drafts
     workflow: one-pr-check.yml
     job: slot
     gates: [main]
