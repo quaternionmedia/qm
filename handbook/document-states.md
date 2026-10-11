@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-09-28T21:21:16Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-11T23:36:44Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **208**, unfiltered.
+Every governed document in this corpus: **210**, unfiltered.
 
 | | |
 |---|---|
@@ -60,7 +60,7 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 36 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 61 |
+| [-] `unreviewed` | 63 |
 | [G] `generated` | 7 |
 | [S] `standing` | 75 |
 | [T] `transient` | 26 |
@@ -160,6 +160,8 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-09-27-the-voice-loop.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-28-the-loop-lands-its-remains.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-28-the-voice-loop-meets-the-field.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-09-a-comment-in-someone-elses-voice.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-11-what-the-harness-was-reading.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |

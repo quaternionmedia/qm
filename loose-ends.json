@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-28T21:21:17Z",
+  "generated_at": "2026-10-11T23:37:29Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-28T21:21:16Z"
+        "generated_at": "2026-10-11T23:36:44Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 134,
+    "loose_ends": 136,
     "by_kind": {
       "blind-spot": 19,
       "document-proposed": 36,
-      "document-unreviewed": 61,
+      "document-unreviewed": 63,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 134,
+    "open": 136,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -911,6 +911,22 @@
       "title": "perspectives/2026-09-28-the-voice-loop-meets-the-field.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-28-the-voice-loop-meets-the-field",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-09-a-comment-in-someone-elses-voice",
+      "title": "perspectives/2026-10-09-a-comment-in-someone-elses-voice.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-09-a-comment-in-someone-elses-voice",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-11-what-the-harness-was-reading",
+      "title": "perspectives/2026-10-11-what-the-harness-was-reading.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-11-what-the-harness-was-reading",
       "address_parses": true
     },
     {
