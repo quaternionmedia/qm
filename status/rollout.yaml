@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-20T17:17:48Z'
+generated_at: '2026-10-11T10:57:18Z'
 generator:
   tool: ci/rollout.py
   source: host
@@ -100,6 +100,21 @@ phases:
         state: '-'
         detail: ''
     next: rekeyed
+  - repo: vox
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
   - repo: codecartographer
     steps:
       rekeyed:
@@ -377,6 +392,21 @@ phases:
   on_a_persons_word: 0
   members:
   - repo: carlos
+    steps:
+      rekeyed:
+        state: '-'
+        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
+      pin-bumped:
+        state: '-'
+        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
+      agents-reworded:
+        state: '-'
+        detail: AGENTS.md does not match /entry stage/ on the host
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: rekeyed
+  - repo: private-34
     steps:
       rekeyed:
         state: '-'
@@ -696,21 +726,6 @@ phases:
         state: '-'
         detail: ''
     next: rekeyed
-  - repo: private-34
-    steps:
-      rekeyed:
-        state: '-'
-        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
-      pin-bumped:
-        state: '-'
-        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
-      agents-reworded:
-        state: '-'
-        detail: AGENTS.md does not match /entry stage/ on the host
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: rekeyed
   - repo: rad
     steps:
       rekeyed:
@@ -732,5 +747,5 @@ summary:
   phases: 6
   done: 0
   current: corpus
-  members: 43
+  members: 44
   contradicted: 0
