@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-10T16:38:54Z",
+  "generated_at": "2026-10-11T10:52:06Z",
   "source": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
   "reading": {
     "families_come_from": "the record, not this file -- renaming one there makes a roster claim stop resolving",
@@ -44,12 +44,12 @@
       "drives": "the sound \u2014 looping, synthesis, tempo, remote control surfaces",
       "members": [
         "carlos",
+        "private-34",
         "qmetronome",
         "holophonor",
         "midiphonor",
         "wolf",
         "ludwig",
-        "loopwall",
         "waveofhormuz"
       ]
     },
@@ -96,7 +96,6 @@
     "factorio-sysops",
     "private-32",
     "private-33",
-    "private-34",
     "private-36",
     "rad",
     "rad-godot",

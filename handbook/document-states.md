@@ -270,9 +270,9 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/holophonor-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/joe-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/leo-simultaneous-run.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/loopwall-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/ludwig-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/midiphonor-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/private-34-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qmcp-flows-as-deltas.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-of-the-records.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-session.md` | handoff | — |

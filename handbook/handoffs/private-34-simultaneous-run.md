@@ -1,12 +1,12 @@
-# Handoff - loopwall simultaneous-run participant
+# Handoff - private-34 simultaneous-run participant
 
-**Goal.** Add Loopwall to the instruments family workspace and establish whether its private repository can participate in the simultaneous-run experiment.
+**Goal.** Add private-34 to the instruments family workspace and establish whether its private repository can participate in the simultaneous-run experiment.
 
-**Stamp.** 2026-09-21. The host confirms `quaternionmedia/loopwall` exists, is private, and defaults to `main`; no local clone was found. The governance corpus has a `project/loopwall` branch and an adoption-audit entry.
+**Stamp.** 2026-09-21. The host confirms the repository rostered as `private-34` exists, is private, and defaults to `main`; no local clone was found. The governance corpus has a `project/private-34` branch and an adoption-audit entry.
 
 ## Current evidence
 
-- `loopwall` is not yet in the committed family claim or local workspace roster at this stamp; this handoff accompanies that metadata change.
+- `private-34` is not yet in the committed family claim or local workspace roster at this stamp; this handoff accompanies that metadata change.
 - The repository's runtime, tests, ports, and protocol are unknown until a clone is available.
 - The adoption-audit note says its branch took `main` by a direct merge without a pull request; re-derive that before acting.
 
@@ -16,13 +16,13 @@ Clone the private repository into one of the rostered candidate paths, verify th
 
 ## Measurement questions
 
-1. What does Loopwall drive or receive, and does that overlap with Holophonor, Midiphonor, Wolf, or Ludwig?
+1. What does private-34 drive or receive, and does that overlap with Holophonor, Midiphonor, Wolf, or Ludwig?
 2. Does it add useful capability or only another process/resource consumer?
 3. Does concurrency change its timing, message loss, or state convergence?
 
 ## Evidence still needed
 
-The owner must provide access or clone the repository. Until then, Loopwall is rostered but unresolved and must not be counted as a green participant or a failed participant.
+The owner must provide access or clone the repository. Until then, private-34 is rostered but unresolved and must not be counted as a green participant or a failed participant.
 
 ## Limits
 

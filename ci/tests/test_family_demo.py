@@ -38,7 +38,7 @@ def committed_plan() -> dict:
 
 
 def rostered() -> set[str]:
-    return {entry["name"] for entry in roster.load()}
+    return set(family_demo.index_roster(roster.load()))
 
 
 def problems(plan: dict) -> list[str]:
@@ -632,6 +632,14 @@ def test_a_broken_plan_exits_two_and_says_why(tmp_path, capsys):
     broken.write_text(yaml.safe_dump(plan), encoding="utf-8")
     assert family_demo.main(["--plan-file", str(broken), "--plan"]) == 2
     assert "leo: port web=1 is outside" in capsys.readouterr().err
+
+
+def test_a_private_member_is_found_by_its_reference_where_the_companion_names_it():
+    """Mutation: index by `name` only, and the planned reference is not found."""
+    merged = [{"ref": "private-34", "name": "a-real-name"}, {"name": "joe"}]
+    index = family_demo.index_roster(merged)
+    assert index["private-34"] is merged[0] and index["a-real-name"] is merged[0]
+    assert set(index) == {"private-34", "a-real-name", "joe"}
 
 
 # --- the dev loop: a working checkout, a second family, a restart while held -----
