@@ -241,5 +241,7 @@ together.
 |---|---|---|---|
 | | | | |
 
+<!-- adr-lint: allow-unlisted 1 "titles and filenames name a private repository; listing either would republish the name. The records are on this branch beside this index." -->
+
 Drafts in flight (numberless, by title): constitution adoption scope for a
 Docker/ops deployment project.
