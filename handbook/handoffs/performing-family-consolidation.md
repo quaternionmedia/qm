@@ -87,15 +87,24 @@ same patch as `75a4383` on origin's `fix/showmidi-winmm-input-reconnect`.
   already exists" warning and the input monitor stayed empty, and the next
   unplug hung the server. Reproduced first-hand.
 - `10dd04f` survives slow unplug cycles and fast flaps *(reproduced first-hand on a virtual port)*.
+- On the Launchkey, `10dd04f` kept input working after every replug and the
+  server up through every unplug. Peter unplugged by hand, and the coordinator
+  watched. Two quick wiggles were both noticed, because USB re-enumeration
+  outlasted a 2 s interval.
 - A replug faster than the reconnect interval leaves both directions dead while
-  the status reads green, on `f8ae176` and with the fix alike *(reported)*. The
-  fix does not cover it.
+  the status reads green, on `f8ae176` and with the fix alike *(reproduced
+  first-hand on a virtual port; not reproduced on the Launchkey)*. The fix does
+  not cover it.
+- `8bbce28` documents the hotplug behaviour in ShowRunner's plugin reference,
+  on the fix branch.
 
 Verification:
 
 - `10dd04f`: 5 slow cycles and 40 flaps at a 0.5 s interval pass *(run first-hand)*.
 - Fast replug: both directions dead with status green, 5 of 5, on `f8ae176`
   and on `10dd04f` *(run first-hand)*.
+- Launchkey 49, `10dd04f`, 2 s interval: 3 of 3 slow cycles with input after
+  each, 2 of 2 quick wiggles detected, and no crash or hang *(run first-hand)*.
 - `gh pr view 22 --repo quaternionmedia/ShowRunner --json headRefOid`:
   `f8ae176`.
 - `git show <commit> | git patch-id --stable`: `10dd04f` and `75a4383` both
