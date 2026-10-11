@@ -628,3 +628,15 @@ def test_a_broken_plan_exits_two_and_says_why(tmp_path, capsys):
     broken.write_text(yaml.safe_dump(plan), encoding="utf-8")
     assert family_demo.main(["--plan-file", str(broken), "--plan"]) == 2
     assert "leo: port web=1 is outside" in capsys.readouterr().err
+
+
+def test_a_member_never_inherits_the_environment_qm_runs_in(monkeypatch):
+    """Mutation: UV_PROJECT_ENVIRONMENT passed through, so a member's `uv sync` installed into
+    the environment `qm` was running from -- red here."""
+    monkeypatch.setenv("VIRTUAL_ENV", "C:/qm/.venv")
+    monkeypatch.setenv("UV_PROJECT_ENVIRONMENT", "C:/qm/.venv")
+    monkeypatch.setenv("UV_CACHE_DIR", "C:/cache")
+    env = family_demo.child_env({"JOE_CUES": "0"})
+    assert "VIRTUAL_ENV" not in env and "UV_PROJECT_ENVIRONMENT" not in env
+    assert env["UV_CACHE_DIR"] == "C:/cache" and env["JOE_CUES"] == "0"
+

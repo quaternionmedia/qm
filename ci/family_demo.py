@@ -392,17 +392,22 @@ def exit_status(results: list[str]) -> int:
 # THE MACHINE -- processes, ports, listeners
 # ===================================================================
 
+# Variables that name this corpus's own environment rather than a member's.
+NOT_A_MEMBER_S = ("VIRTUAL_ENV", "UV_PROJECT_ENVIRONMENT")
+
+
 def child_env(extra: dict | None = None) -> dict:
     """The environment a member starts in.
 
-    `VIRTUAL_ENV` is removed: under `uv run qm` it names this corpus's own
-    environment, and a member's `uv run` would warn about it or, worse, a
-    member that honours it would run against the wrong interpreter. UTF-8 is
+    `VIRTUAL_ENV` and `UV_PROJECT_ENVIRONMENT` are removed: either can name
+    this corpus's own environment, and a member's `uv sync` honours the second
+    -- one ran ShowRunner's sync into the environment `qm` itself was running
+    from, and leo's serve then found no environment of its own. UTF-8 is
     forced because the logs are files, and a member printing a non-ASCII
     character to a file under a legacy code page dies of it -- a death the
     harness would have caused.
     """
-    env = {k: v for k, v in os.environ.items() if k != "VIRTUAL_ENV"}
+    env = {k: v for k, v in os.environ.items() if k not in NOT_A_MEMBER_S}
     env.update(PYTHONUNBUFFERED="1", PYTHONUTF8="1", PYTHONIOENCODING="utf-8",
                NO_COLOR="1", FORCE_COLOR="0")
     env.update(extra or {})
