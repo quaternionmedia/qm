@@ -63,7 +63,7 @@ snapshot (`records/DRAFT-decision-record-discipline.md`,
 5. **House stack — adopted, clean fit, no carve-out needed.** Pydantic,
    FastAPI, Click, pytest are the exact blessed Python stack (`PLAN.md`
    §2). The renderer's vanilla ES modules plus vendored anime.js are not a
-   departure from P5 either — "single-file HTML/JS for visualization
+   departure from `one-house-stack` either — "single-file HTML/JS for visualization
    deliverables" is named in the house-stack principle itself, not an
    exception to it.
 6. **Contribution and sponsorship policy — adopted mechanically, currently
@@ -95,7 +95,7 @@ snapshot (`records/DRAFT-decision-record-discipline.md`,
 
 - Every org record in the pinned snapshot has a stated, specific disposition
   against this project rather than an assumed blanket "adopted" — the point
-  of this ADR existing at all (P6: decisions are documented or they didn't
+  of this ADR existing at all (`decisions-are-documented`: decisions are documented or they didn't
   happen).
 - No deferred cost or open carve-out is created by this ADR; §2 and §7 are
   the only two records needing a scope note rather than a direct 1:1 fit,
