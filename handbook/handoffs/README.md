@@ -47,6 +47,8 @@ each is the next page's blocker — so taking them out of order buys nothing.
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
 | [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
 | [`session-2026-08-12.md`](session-2026-08-12.md) | nothing — where the 2026-08-11/12 session left things, and the decisions waiting | every repo |
+| [`simultaneous-performing-family-plan-2026-09-21.md`](simultaneous-performing-family-plan-2026-09-21.md) | **Wave 0 readiness and private-34's clone** — ten participant handoffs define the probes; the plan defines baseline, pairwise and full-run measurements, with unknown kept distinct from failure | instruments + performer-display + show-control |
+| [`the-performing-estate-refreshed.md`](the-performing-estate-refreshed.md) | **a person, for eight merges and the questions that gate the first stubs** — the performing estate is cloned, tested where a suite exists, and mapped seam by seam with a refuting pass per survey; ShowRunner, leo, joe, Cuelist-python and qmetronome each carry one green pull request; the synthesis names eighteen decisions, five of which gate the first integration stubs. This page's branch is local only until #117 clears qm's slot | every performing-estate repo |
 
 **Three pages are gone rather than marked done**, per the routing rule above.
 `workspace-unlanded.md` first: both decisions it opened with are settled —
