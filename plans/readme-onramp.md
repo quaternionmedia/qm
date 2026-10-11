@@ -225,7 +225,7 @@ No test asserts any of these strings (checked `project-seed/ci/tests/`,
 
 ## Steps
 
-- [ ] Branch `evolve/readme-onramp`; run `/cowork` first to confirm the PR slot is free
+- [ ] Branch `evolve/readme-onramp`; run `/cowork` first to see which pull requests you hold and how they stack
 - [ ] Write `docs/ref/` first — `repo-layout.md`, `namespaces.md`,
       `precedence.md`, `ratification.md`, `handbook.md`, `glossary.md`, `index.md` —
       moving the README's reference blocks verbatim where they are already

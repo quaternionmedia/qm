@@ -151,7 +151,7 @@ should not reach the renaming step.
 - [ ] **Establish the commit.** `git rev-parse --short HEAD` and
       `git status --short`. Every figure below was true at some commit and
       nowhere else.
-- [ ] **Your pull request slot is free.** `uv run qm slot --repo <owner/name>`.
+- [ ] **No pull request of yours is ready while stacked.** `uv run qm stacks --repo <owner/name>`.
 
 ## B — Is the record true?
 
@@ -212,7 +212,7 @@ should not reach the renaming step.
 
 - [ ] **`uv run --extra preflight qm preflight`.** Expect the two environment
       failures — the signature step asks the forge and has no token locally, and
-      the slot step needs an open pull request. **Say which you established:** a
+      the stack step needs an open pull request. **Say which you established:** a
       defect or an environment difference.
 - [ ] **`python project-seed/ci/adr_lint.py --records-dir records --index README.md`**
       exits zero. This is the check that catches a missed rename.

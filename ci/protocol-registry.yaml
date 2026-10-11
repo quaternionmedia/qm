@@ -102,7 +102,7 @@ protocols:
       - uv sync --all-extras
       - uv run pytest -q
       - uv run python examples/<demo>.py
-      - uv run qm slot --repo <owner/name>
+      - uv run qm stacks --repo <owner/name>
     cannot_see: >
       Whether the demo demonstrates anything a user would care about. It checks
       that a committed script runs and that a test covers it; nobody can

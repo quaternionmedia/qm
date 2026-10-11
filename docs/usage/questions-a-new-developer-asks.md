@@ -125,7 +125,7 @@ arrives.
 As many as you have independent changes. Each pull request carries one change;
 independent ones sit side by side, each ready against its base. One that needs
 another's work is cut from that branch, based on it, and stays a draft until the
-one beneath it merges. `uv run qm slot --repo <owner>/<name>` lists yours and
+one beneath it merges. `uv run qm stacks --repo <owner>/<name>` lists yours and
 refuses a stacked one marked ready — [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md)
 §1 has the reasoning.
 
