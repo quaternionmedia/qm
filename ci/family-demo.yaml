@@ -299,12 +299,12 @@ members:
   - name: joe
     phase: core
     branch: feat/family-control
-    stacks_on: docs/walkthrough-after-docs
+    stacks_on: docs/walkthrough
     choice: >
-      The voice-loop stack with both of its stacks merged, the documentation
-      pull requests on top, and the walkthrough on those: every open line of
-      joe's work in one tip. It differs from the walkthrough on the voice loop
-      alone in README.md and docs/cookbook.md only.
+      The voice-loop stack with both of its stacks merged and the walkthrough
+      on it: every open line of joe's work in one tip. The documentation pull
+      requests that named a qmcp flag qmcp has not landed were closed, so the
+      walkthrough sits on the voice loop alone.
     install:
       - [uv, sync, --frozen]
       - [npm, ci, --no-audit, --no-fund]
