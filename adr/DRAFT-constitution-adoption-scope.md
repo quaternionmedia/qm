@@ -74,7 +74,7 @@ rather than only in its third-party dependencies.
 3. **House stack — adopted, no carve-out.** FastAPI, Pydantic, and Click are
    exactly the org's blessed Python stack; Jinja2 (also listed) renders the
    viewer template and the `.scad`/`.jscad` output templates. The frontend
-   (`templates/viewer.html.j2`) is single-file HTML/JS, consistent with P5's
+   (`templates/viewer.html.j2`) is single-file HTML/JS, consistent with `one-house-stack`'s
    stated complement — modulo the CDN-vendoring gap named in §2, which is a
    delivery-mechanism defect in that single file, not a stack deviation.
 
@@ -157,7 +157,7 @@ rather than only in its third-party dependencies.
 1. **Treat DataFactorio's or the streaming-infrastructure project's ADR-0001
    as sufficient and skip an Apothecary-specific one** — rejected: neither
    audits this project's actual dependency tree or its two-renderer
-   architecture; P6 ("decisions are documented or they didn't happen")
+   architecture; `decisions-are-documented` ("decisions are documented or they didn't happen")
    requires this project's own audit to exist here.
 2. **Fold the CDN-vendoring gap into the enforcement mechanism as a
    suppressed exception** — rejected: the open-license record allows no
@@ -165,7 +165,7 @@ rather than only in its third-party dependencies.
    technically silenced.
 3. **Treat the missing `LICENSE` file as out of scope for a governance
    ADR** — rejected: the gap was surfaced *by* doing the license audit this
-   record requires, and P6 argues for recording it here rather than letting
+   record requires, and `decisions-are-documented` argues for recording it here rather than letting
    an audit artifact quietly disappear once this ADR is filed.
 4. **Fail CI on the `apothecary` package's own `UNKNOWN` license disposition
    until §2's gap is fixed** — rejected for this round: it would block every
