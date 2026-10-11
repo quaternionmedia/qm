@@ -241,4 +241,14 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): —
+Drafts in flight (numberless, by title):
+
+- Apothecary Carries a Part Through Design, Visualization and Deployment
+- Detention Suppresses at the Topic, Never in the Payload
+- Enclosure Parts Live in Apothecary
+- The Event Envelope Is the Seam
+- Licensing for Board Designs, Firmware, Enclosures and Documentation
+- A JSON Schema Validator Is a Test Dependency of the Conformance Gate
+- An MQTT Client Library Is a Test Dependency of the Wire Harness
+- Signal-Only Control: The Module Never Switches Mains
+- USB-C Bus Power Is the Reference Power Path

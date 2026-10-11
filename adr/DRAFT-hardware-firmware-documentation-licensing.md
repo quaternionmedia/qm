@@ -18,7 +18,7 @@ board layout, an OpenSCAD enclosure, and a bill of materials are copyrightable
 works that OSI does not review and that dependency-license tooling does not
 see. A project that runs the software gate and stops there would satisfy the
 letter of the org record while leaving its principal deliverable unlicensed —
-which under P1 means unownable, since a recipient with no license grant cannot
+which under `ownership-is-the-deliverable` means unownable, since a recipient with no license grant cannot
 modify or redistribute the thing they hold.
 
 The org record's precedence rule permits a project to add constraints on top of
@@ -81,7 +81,7 @@ The apothecary repository, whose parts library this project extends, is MIT.
    exit plan and a revision trigger, by analogy with the seams record's
    treatment of single-implementation APIs. The reason this sits in a licensing
    record is that a grant a recipient cannot exercise is not a grant in any
-   sense P1 cares about, and sourcing is what makes it exercisable.
+   sense `ownership-is-the-deliverable` cares about, and sourcing is what makes it exercisable.
 8. **Vendor design files are not vendored under an incompatible grant.** A
    manufacturer's reference schematic, symbol, footprint or 3D model enters the
    repository only where its terms permit redistribution and modification;
@@ -90,9 +90,9 @@ The apothecary repository, whose parts library this project extends, is MIT.
 ## Consequences
 
 - Everything a recipient needs to rebuild, modify and redistribute the physical
-  product is granted explicitly, which is what P1 asks and what the software-
+  product is granted explicitly, which is what `ownership-is-the-deliverable` asks and what the software-
   only gate does not deliver.
-- **P1's honest limit for physical goods, stated rather than inherited.**
+- **`ownership-is-the-deliverable`'s honest limit for physical goods, stated rather than inherited.**
   *Ownable-offline-indefinitely* is achievable for software: a recipient can
   hold the source and a compiler that is itself ownable. It is structurally
   unavailable for hardware. A compiler can be forked; a fabrication process
@@ -100,7 +100,7 @@ The apothecary repository, whose parts library this project extends, is MIT.
   license reaches. The strongest truthful claim available here is
   **reproducible by anyone with access to a commodity process**, and clauses 6
   and 7 exist to make that claim true rather than aspirational. It is a weaker
-  claim than P1's, and stating it is preferable to letting a reader carry the
+  claim than `ownership-is-the-deliverable`'s, and stating it is preferable to letting a reader carry the
   software reading across and later discover it does not hold.
 - CERN-OHL-S is reciprocal, and that is a deliberate cost: a commercial
   integrator who modifies the board must publish their modifications. Some
