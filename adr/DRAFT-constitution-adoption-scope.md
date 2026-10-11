@@ -24,7 +24,7 @@ established the pattern of a project-specific adoption-scope ADR resolving
 gaps the reference (self-hosted server) shape doesn't transfer, rather than
 straining the literal language to fit or silently going non-compliant. Several
 of qmetronome's specific findings — the platform-mandated-stack carve-out
-(P5/house-stack), the closed-platform-is-out-of-scope framing for the OS
+(`one-house-stack`/house-stack), the closed-platform-is-out-of-scope framing for the OS
 underneath a client app — recur here structurally, even though the concrete
 platform (Factorio, not Android) and language (Lua, not Kotlin) differ.
 
@@ -118,7 +118,7 @@ a separate repository; nothing here imports source from either.
    factorio-sysops-specific one** — rejected: the platform differs (Factorio
    vs. Android), the language differs (Lua vs. Kotlin), and the specific
    proprietary-platform disposition (§2) needs its own recorded reasoning even
-   though the *shape* of the argument transfers; P6 requires the decision to
+   though the *shape* of the argument transfers; `decisions-are-documented` requires the decision to
    exist here, not be inferred from a sibling project's record.
 3. **Leave the Python asset-generation scripts unaddressed in the license
    scope** — rejected: they are real build-time tooling (Pillow) even though
