@@ -122,7 +122,7 @@ stage:
         layer: Stage
         family:
           leo: {song: Autumn Leaves}
-          carlos: {patch: A grid playing a modular drum rig}
+          carlos: {patch: novation.launchpad-x.complex}
       - number: 2
         name: Count in
         layer: Sound
@@ -139,7 +139,7 @@ stage:
         name: The solo
         layer: Sound
         family:
-          carlos: {patch: "DFAM self-patched: envelope opens the filter, pitch tracks VCO 2"}
+          carlos: {patch: moog.dfam.complex}
           joe: {take: {notes: [G3, B3, D4, F4, G4], seconds_per_note: 0.5}}
       - number: 5
         name: Curtain
