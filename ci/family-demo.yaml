@@ -45,6 +45,17 @@
 # Every port sits inside `ports`, and every member's default port is replaced
 # on its command line: the defaults collide, and a developer's own server is
 # usually up on one, so measuring it would test whatever happened to be running.
+# `--port-offset N` moves all of them, the stage's included, for a second family.
+#
+# THE DEV LOOP. A running member's `dev` block is read only for a member run
+# from a working checkout (`--src`, or `--dev`) under `--reload`, while the
+# family is held. `restart_on` lists the files whose change makes the harness
+# restart the member; `refresh_on`, the files the member reads afresh, whose
+# change only reloads its frame on the stage; `reloads` says what the member
+# reloads by itself. No member is given a reload flag: uvicorn's reloader stops
+# its worker on Windows with a console Ctrl+C, which a member started in a
+# process group of its own ignores, so it logs a reload and goes on serving the
+# old code. The harness restarts the member instead.
 
 schema: 2
 
@@ -228,6 +239,10 @@ members:
     ports: {http: 18400}
     serves: http
     url: "http://{host}:{port:http}/"
+    dev:
+      restart_on: ["src/**/*.py"]
+      reloads: >
+        Nothing: its pages are built in Python, so the harness restarts it.
 
   - name: ShowStopper
     phase: core
@@ -239,6 +254,13 @@ members:
     ports: {web: 18410}
     serves: web
     url: "http://{host}:{port:web}/"
+    dev:
+      restart_on: [family.py, showstopper_cli.py]
+      refresh_on: [stopwatch.py, stopwatch.tcss]
+      reloads: >
+        The stopwatch: textual-serve starts stopwatch.py afresh for every
+        connection, so a reloaded view runs the edited app. The serve process,
+        which holds the show clock and its routes, is restarted.
     deviations:
       - >
         No lock the installer reads: the repository carries a pdm lock, so the
@@ -260,6 +282,12 @@ members:
     ports: {http: 18420}
     serves: http
     url: "http://{host}:{port:http}/rack"
+    dev:
+      restart_on: ["src/**/*.py", "tools/*.py"]
+      refresh_on: ["templates/**/*", "static/**/*"]
+      reloads: >
+        Its page: the rack's template, scripts and styles are read on every
+        request, so a reloaded view shows them. The server is restarted.
     # What the member says about itself, asked before its check: the socket
     # that answered, and the database it resolved. A stale server or a shared
     # database is caught here before the rack is attributed to this run.
@@ -290,6 +318,11 @@ members:
     env:
       JOE_CUES: "0"   # no turn tones: they play on an output device
     url: "http://{host}:{port:web}/joe/"
+    dev:
+      restart_on: ["*.py", "Modules/**/*.py"]
+      reloads: >
+        Its page: Vite's dev server swaps an edited module in place (HMR). The
+        API is restarted, and Vite with it, because one serve runs both.
     # Kept in the clone despite --state: the API resolves Data/ against its
     # working directory, and the pipeline and voice modules against the
     # checkout. Emptied in this run's own clone before each wave.
@@ -309,6 +342,12 @@ members:
     ports: {web: 18440}
     serves: web
     url: "http://{host}:{port:web}/"
+    dev:
+      restart_on: ["leo/*.py"]
+      reloads: >
+        All of its page: leo is served by Vite's dev server, which swaps an
+        edited module in place (HMR) and restarts itself for its own config.
+        Only the command that starts Vite is restarted.
 
   # --- instruments: declared, not run ---------------------------------------
 

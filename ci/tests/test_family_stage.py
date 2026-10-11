@@ -637,3 +637,85 @@ def test_combining_nothing_or_an_unknown_is_unknown_never_pass():
     assert fs.combine(["pass", "unknown"]) == "unknown"
     assert fs.combine(["unknown", "fail"]) == "fail"
     assert fs.combine(["pass", "pass"]) == "pass"
+
+
+# --- one member restarted while the family is held -------------------------------
+
+def test_a_restart_is_refused_when_nothing_holds_the_family(tmp_path):
+    """Mutation: the holding check dropped, so a press waited on a harness that had gone -- red here."""
+    answer = fs.request_restart(tmp_path, "leo", timeout=1)
+    assert answer["result"] == "refused" and fs.restart_status(answer) == 409
+    assert list(tmp_path.iterdir()) == []
+
+
+def test_a_restart_request_is_taken_once_and_answered_to_the_one_who_asked(tmp_path):
+    """Mutation: take_restart_requests leaving the request in place, so one press restarted
+    the member on every tick of the hold -- red here."""
+    (tmp_path / fs.HOLDING).write_text("t", encoding="utf-8")
+    second_look: list = []
+
+    def harness():
+        for _ in range(400):
+            taken = fs.take_restart_requests(tmp_path)
+            if taken:
+                second_look.append(fs.take_restart_requests(tmp_path))
+                fs.answer_restart(tmp_path, taken[0]["nonce"],
+                                  {"member": taken[0]["member"], "result": "pass", "seconds": 2.0})
+                return
+            threading.Event().wait(0.025)
+
+    thread = threading.Thread(target=harness)
+    thread.start()
+    answer = fs.request_restart(tmp_path, "carlos", timeout=10)
+    thread.join()
+    assert answer == {"member": "carlos", "result": "pass", "seconds": 2.0}
+    assert fs.restart_status(answer) == 200 and second_look == [[]]
+    assert sorted(p.name for p in tmp_path.iterdir()) == [fs.HOLDING]
+
+
+def test_a_restart_nobody_answers_times_out_and_withdraws_its_request(tmp_path):
+    (tmp_path / fs.HOLDING).write_text("t", encoding="utf-8")
+    answer = fs.request_restart(tmp_path, "joe", timeout=0.3)
+    assert answer["result"] == "timeout" and fs.restart_status(answer) == 504
+    assert list(tmp_path.glob("*.request")) == []
+    assert fs.restart_status({"result": "fail"}) == fs.restart_status({"result": "unknown"}) == 502
+
+
+def test_the_stage_asks_the_harness_only_for_a_member_it_runs(tmp_path):
+    """Mutation: the stage's membership check dropped, so a press for wolf waited on a harness
+    that holds no wolf -- red here."""
+    control = tmp_path / "control"
+    job = {"hub": "http://127.0.0.1:9/", "dir": str(tmp_path / "stage"), "port": 18405,
+           "order": RUNNING, "control": str(control), "restart_seconds": 0.3}
+    running = family_stage_run.Stage(job)
+    status, answer = family_stage_run.restart(running, "wolf")
+    assert status == 404 and answer["result"] == "refused"
+    assert family_stage_run.restart(running, "leo")[0] == 409  # nothing holds the family
+    (control / fs.HOLDING).write_text("t", encoding="utf-8")
+    assert family_stage_run.restart(running, "leo")[0] == 504  # nothing answered
+    without = family_stage_run.Stage({**job, "control": None})
+    assert family_stage_run.restart(without, "leo")[0] == 409
+
+
+def test_the_stage_state_carries_what_the_harness_did_for_the_page_to_follow(tmp_path):
+    control = tmp_path / "control"
+    job = {"hub": "http://127.0.0.1:9/", "dir": str(tmp_path / "stage"), "port": 18405,
+           "order": RUNNING, "control": str(control)}
+    running = family_stage_run.Stage(job)
+    assert running.snapshot()["dev"] == {}
+    fs.note_event(control, "carlos", "refresh", {"result": "pass", "summary": "a.html changed"})
+    fs.note_event(control, "carlos", "restart", {"result": "pass", "summary": "restarted"})
+    said = running.snapshot()["dev"]["carlos"]
+    assert (said["restarts"], said["refreshes"], said["last"]["kind"]) == (1, 1, "restart")
+
+
+def test_every_panel_can_restart_its_member_and_a_frame_can_be_reloaded():
+    show = stage()["show"]
+    page = fs.stage_page({"show": show, "hub_url": "http://127.0.0.1:18400/", "order": RUNNING,
+                          "links": links(),
+                          "panels": fs.panel_view(stage()["panels"], MEMBERS, resolved()),
+                          "rows": fs.links(show, links(), RUNNING)})
+    for member in RUNNING:
+        assert f'data-restart="{member}"' in page and f'id="op-{member}"' in page
+    assert 'data-refresh="leo"' in page and 'data-refresh="joe"' not in page  # joe is a session
+    assert "follow(state.dev)" in page and "post('restart/'" in page

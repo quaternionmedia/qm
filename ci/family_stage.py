@@ -33,18 +33,29 @@ member with nothing in between, and the stage's check is what establishes it on
 each run. A member the roster gives no link is `not linked`, and a linked one no
 cue asks for anything is `not on any cue`.
 
+**ONE MEMBER RESTARTED WHILE HELD.** The harness started every member, so the
+harness restarts one: the stage's `POST /restart/<member>` leaves a request in
+the run's control directory and waits for the harness's answer, and each panel
+has a button that does the same. The harness also records what it did --
+a restart, or a refresh asked for by a watched file under `--reload` -- and the
+page reloads that member's frame when it sees one.
+
 This module is the part that decides and holds no state: the action vocabulary,
-the parser, the links, what a member's state must show, the seeding requests and
-the page. It imports nothing outside the standard library, so the stage's
-runtime (`family_stage_run.py`, under the pinned Playwright interpreter) and
-this corpus's tests both import it.
+the parser, the links, what a member's state must show, the seeding requests,
+the restart protocol and the page. It imports nothing outside the standard
+library, so the stage's runtime (`family_stage_run.py`, under the pinned
+Playwright interpreter) and this corpus's tests both import it.
 """
 
 from __future__ import annotations
 
 import json
+import os
 import re
+import time
+import uuid
 from dataclasses import dataclass
+from pathlib import Path
 
 # The hub: it fires cues and delivers their family blocks, and is never sent one.
 HUB = "ShowRunner"
@@ -579,6 +590,103 @@ def seed(show: dict, call) -> dict:
 
 
 # ===================================================================
+# RESTARTS -- the stage asks; the harness, which started the member, does it
+# ===================================================================
+
+# Kept in the control directory while the harness holds the family up, and
+# removed when it stops: a restart is answered only then.
+HOLDING = "holding"
+# What the harness has done to each member while held, for the page to follow.
+EVENTS = "events.json"
+
+
+def write_json(path: Path, value) -> None:
+    """Write a whole file or none: the other process never reads half of one."""
+    temporary = path.with_name(path.name + ".tmp")
+    temporary.write_text(json.dumps(value, indent=2, default=str), encoding="utf-8")
+    os.replace(temporary, path)
+
+
+def request_restart(control: Path, member: str, timeout: float) -> dict:
+    """Ask the holding harness to restart `member`, and wait for its answer.
+
+    The answer's `result` is the harness's -- pass, fail or unknown, as it saw
+    the member come back -- or `refused` when nothing holds the family, or
+    `timeout` when the harness did not answer within `timeout` seconds.
+    """
+    if not (control / HOLDING).is_file():
+        return {"member": member, "result": "refused",
+                "detail": "nothing holds the family, so nothing can restart a member; "
+                          "a restart is answered while `qm family-demo --hold` keeps it up"}
+    nonce = uuid.uuid4().hex
+    write_json(control / f"{nonce}.request", {"member": member, "nonce": nonce})
+    done = control / f"{nonce}.done"
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        if done.is_file():
+            answer = json.loads(done.read_text(encoding="utf-8"))
+            done.unlink(missing_ok=True)
+            return answer
+        time.sleep(0.25)
+    (control / f"{nonce}.request").unlink(missing_ok=True)
+    return {"member": member, "result": "timeout",
+            "detail": f"the harness did not answer within {timeout:.0f}s"}
+
+
+def take_restart_requests(control: Path) -> list[dict]:
+    """Every restart asked for since the last look, oldest first; each is taken once."""
+    waiting = []
+    for path in control.glob("*.request"):
+        try:
+            waiting.append((path.stat().st_mtime_ns, path))
+        except OSError:  # withdrawn by a stage that stopped waiting
+            continue
+    taken = []
+    for _, path in sorted(waiting):
+        try:
+            request = json.loads(path.read_text(encoding="utf-8"))
+            path.unlink()
+        except (OSError, ValueError):
+            continue
+        taken.append(request)
+    return taken
+
+
+def answer_restart(control: Path, nonce: str, answer: dict) -> None:
+    write_json(control / f"{nonce}.done", answer)
+
+
+def restart_status(answer: dict) -> int:
+    """The HTTP status the stage answers a restart with."""
+    return {"pass": 200, "refused": 409, "timeout": 504}.get(answer.get("result"), 502)
+
+
+def note_event(control: Path, member: str, kind: str, record: dict) -> dict:
+    """Count a `restart` or a `refresh` of `member` where the page can see it.
+
+    Written by the harness alone. The page reloads a member's frame when its
+    count moves, so a frame shows a restarted server, or a file the member
+    reads afresh on every request, without anybody reloading it by hand.
+    """
+    counted = {"restart": "restarts", "refresh": "refreshes"}[kind]
+    events = read_events(control)
+    entry = events.setdefault(member, {"restarts": 0, "refreshes": 0})
+    entry[counted] = entry.get(counted, 0) + 1
+    entry["last"] = {"kind": kind, **record}
+    write_json(control / EVENTS, events)
+    return entry
+
+
+def read_events(control: Path | None) -> dict:
+    if control is None:
+        return {}
+    try:
+        return json.loads((control / EVENTS).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+# ===================================================================
 # THE PAGE
 # ===================================================================
 
@@ -635,6 +743,8 @@ color:#bbb;font-size:.9rem;padding:16px;text-align:center}
 .says{font-size:.8rem;margin:0;font-family:ui-monospace,monospace;overflow-wrap:anywhere}
 .panel a,footer a{color:var(--accent);overflow-wrap:anywhere}
 .panel a{font-size:.85rem}
+.ops{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ops button{padding:4px 10px;font-size:.85rem}
 footer{margin-top:20px;border-top:1px solid var(--line);padding-top:10px;font-size:.9rem}
 footer ul{padding-left:18px}
 @media (max-width:520px){button#go{width:100%}}
@@ -712,6 +822,34 @@ function render(state) {
     const says = document.getElementById('says-' + member);
     if (says && panel.says !== undefined) says.textContent = panel.says;
   }
+  follow(state.dev);
+}
+const seenEvents = {};
+function refreshFrame(member) {
+  const frame = document.getElementById('frame-' + member);
+  if (frame) frame.src = frame.getAttribute('src');
+}
+document.querySelectorAll('[data-refresh]').forEach(b =>
+  b.addEventListener('click', () => refreshFrame(b.dataset.refresh)));
+document.querySelectorAll('[data-restart]').forEach(b => b.addEventListener('click', async () => {
+  const member = b.dataset.restart, out = document.getElementById('op-' + member);
+  b.disabled = true;
+  out.textContent = 'restarting';
+  const r = await post('restart/' + encodeURIComponent(member));
+  out.textContent = r.ok ? `restarted: stopped and answering again in ${r.body.seconds}s`
+                         : `${r.body.result || r.status}: ${r.body.detail || ''}`;
+  b.disabled = false;
+}));
+function follow(events) {
+  for (const [member, ev] of Object.entries(events || {})) {
+    const count = (ev.restarts || 0) + (ev.refreshes || 0);
+    if (seenEvents[member] === undefined) { seenEvents[member] = count; continue; }
+    if (count === seenEvents[member]) continue;
+    seenEvents[member] = count;
+    if (!ev.last || ev.last.result === 'pass') refreshFrame(member);
+    const out = document.getElementById('op-' + member);
+    if (out && ev.last) out.textContent = ev.last.summary || '';
+  }
 }
 async function poll() {
   try {
@@ -756,9 +894,14 @@ def stage_page(view: dict) -> str:
                     f'{e(member)} appears here once it is pictured.</div>')
         linked = any(link["member"] == member for link in view["links"].values())
         says = (f'<p class="says" id="says-{e(member)}"></p>' if linked else "")
+        refresh = (f'<button type="button" data-refresh="{e(member)}">Reload view</button>'
+                   if panel["shows"] == "frame" else "")
+        ops = (f'<div class="ops"><button type="button" data-restart="{e(member)}">Restart '
+               f'{e(member)}</button>{refresh}<span class="sub" id="op-{e(member)}" '
+               f'role="status"></span></div>')
         panels.append(
             f'<section class="panel" data-panel="{e(member)}"><h3>{e(member)}</h3>'
-            f'<p class="role">{e(panel["role"])}</p><div class="view">{body}</div>{says}'
+            f'<p class="role">{e(panel["role"])}</p><div class="view">{body}</div>{says}{ops}'
             f'<p class="note">{e(panel["note"])}</p>'
             f'<a href="{e(panel["url"])}" target="_blank" rel="noopener">Open {e(member)} '
             f'yourself: {e(panel["url"])}</a></section>')

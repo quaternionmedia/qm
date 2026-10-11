@@ -8,6 +8,8 @@
     uv run qm family-demo --plan                  # what would run; starts nothing
     uv run qm family-demo --stage                 # the core up, and a show run from the hub
     uv run qm family-demo --stage --hold --open   # then keep it up, in the system browser
+    uv run qm family-demo --src leo=../leo        # leo from that working checkout, in place
+    uv run qm family-demo --dev --work W --port-offset 100   # the dev loop, beside W's family
 
 **WHAT IT SHOWS.** `ci/family-demo.yaml` names the members, the branch of each
 that runs -- the one carrying the active work, not the default branch -- the
@@ -80,6 +82,20 @@ isolation's. `ci/family_stage.py` decides, `ci/family_stage_run.py` runs, and
 every link it shows is labelled with what it is: app to app where the hub
 reaches the member with nothing in between.
 
+**THE DEV LOOP.** `--src MEMBER=PATH` runs a member from a working checkout as
+it stands: no clone and no reset, an install in place only when its lock files
+changed, and the manifest records the path, its HEAD and whether it was dirty.
+Its checkout is reported as `dev source` rather than compared, because the
+developer is editing it. `--reload`, while the family is held, restarts a dev
+source when a file its roster entry lists under `dev.restart_on` changes, and
+tells the stage page to reload its frame when one under `dev.refresh_on` does;
+what a member reloads by itself -- Vite's HMR, an app per connection, a template
+read per request -- it keeps doing. `POST /restart/<member>` on the stage, or
+its panel's button, restarts one member while the rest stay up. `--port-offset`
+moves every reserved port, so a dev family runs beside the integration family,
+and `--dev` is all of it: every core member from `<work>/dev/<member>`, reloaded,
+on the stage and held. `docs/cookbook/develop-a-family-member.md` is the loop.
+
 `protocols/local-demo.md` is the protocol this follows. It is the first runnable
 slice of a simultaneous run of the whole performing family: the core phase
 starts, and the phases after it are declared with what each member needs.
@@ -88,6 +104,7 @@ starts, and the phases after it are declared with what each member needs.
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import html
 import json
@@ -129,6 +146,9 @@ FAMILIES = CORPUS / "families.json"
 PERFORMING = ("show-control", "performer-display", "instruments")
 
 RESULTS = ("pass", "fail", "unknown")
+# What the checkout-untouched check says of a member run from a working
+# checkout: not a result, because nothing was compared, and so not counted.
+DEV_SOURCE = "dev source"
 PLACEHOLDER = re.compile(r"\{([a-z]+)(?::([a-z0-9_-]+))?\}")
 # What a placeholder may name, and which ones only the contract's own commands
 # may use: a member's `url` cannot name itself or a directory made per check.
@@ -259,6 +279,7 @@ def _runnable_problems(member: dict) -> list[str]:
     identity = member.get("identity")
     if identity is not None and not all(identity.get(k) for k in ("url", "port", "state")):
         problems.append(f"{name}: identity needs a url, a port field and a state field")
+    problems += _dev_problems(name, member.get("dev"))
     texts = [*map(str, entry or []), *map(str, member.get("serve_args") or []),
              *map(str, (member.get("env") or {}).values())]
     if identity:
@@ -267,6 +288,37 @@ def _runnable_problems(member: dict) -> list[str]:
     # A url naming {url} or {shots} is refused with the rest: neither has a
     # value until the url itself has one.
     problems += _placeholder_problems(name, ports, [str(member.get("url", ""))])
+    return problems
+
+
+# What a member's `dev` block may say: which files restart it under --reload,
+# which only need its view reloaded, and what it reloads by itself.
+DEV_KEYS = ("restart_on", "refresh_on", "reloads")
+
+
+def _dev_problems(name: str, dev) -> list[str]:
+    """Every reason a member's `dev` block cannot be watched as written.
+
+    An unknown key is refused rather than ignored: `restart-on` for
+    `restart_on` would otherwise watch nothing, and say nothing.
+    """
+    if dev is None:
+        return []
+    if not isinstance(dev, dict):
+        return [f"{name}: dev must be a mapping of {', '.join(DEV_KEYS)}"]
+    problems = [f"{name}: dev.{key} is not one of {', '.join(DEV_KEYS)}"
+                for key in sorted(set(dev) - set(DEV_KEYS))]
+    for key in ("restart_on", "refresh_on"):
+        globs = dev.get(key, [])
+        if not isinstance(globs, list) or not all(isinstance(g, str) and g for g in globs):
+            problems.append(f"{name}: dev.{key} must be a list of globs")
+            continue
+        for glob in globs:
+            pure = PurePosixPath(glob)
+            if pure.is_absolute() or ".." in pure.parts or ":" in glob:
+                problems.append(f"{name}: dev.{key} {glob!r} must be a glob inside the checkout")
+    if not isinstance(dev.get("reloads"), str) or not dev["reloads"].strip():
+        problems.append(f"{name}: dev.reloads must say what the member reloads by itself")
     return problems
 
 
@@ -336,6 +388,51 @@ def parse_refs(pairs: list[str]) -> dict[str, str]:
     return refs
 
 
+def parse_sources(pairs: list[str]) -> dict[str, Path]:
+    """`--src MEMBER=PATH`, each member at most once."""
+    sources: dict[str, Path] = {}
+    for pair in pairs:
+        name, sep, path = pair.partition("=")
+        if not sep or not name or not path:
+            raise PlanError(f"--src {pair!r}: expected <member>=<path>")
+        if name in sources:
+            raise PlanError(f"--src {name} is given twice")
+        sources[name] = Path(path)
+    return sources
+
+
+def offset_plan(plan: dict, offset: int) -> dict:
+    """The plan with every port it reserves moved by `offset`.
+
+    The range, each member's ports and the stage's port all move, and every
+    address the run hands out is expanded from those, so nothing else moves by
+    hand. The offset must take the whole range clear of where it was: two
+    families overlapping would share a port, the collision the range exists
+    to prevent.
+    """
+    if offset == 0:
+        return plan
+    span = plan.get("ports") or {}
+    first, last = span.get("first"), span.get("last")
+    if not isinstance(first, int) or not isinstance(last, int) or first > last:
+        raise PlanError("--port-offset needs the plan's ports.first and ports.last")
+    if abs(offset) <= last - first:
+        raise PlanError(f"--port-offset {offset} overlaps the plan's own range {first}..{last}; "
+                        f"a second family needs an offset past {last - first}")
+    if first + offset < 1024 or last + offset > 65535:
+        raise PlanError(f"--port-offset {offset} puts the range at {first + offset}.."
+                        f"{last + offset}, outside 1024..65535")
+    moved = copy.deepcopy(plan)
+    moved["ports"] = {**span, "first": first + offset, "last": last + offset}
+    for member in moved.get("members") or []:
+        member["ports"] = {label: port + offset if isinstance(port, int) else port
+                           for label, port in (member.get("ports") or {}).items()}
+    stage = moved.get("stage")
+    if isinstance(stage, dict) and isinstance(stage.get("port"), int):
+        stage["port"] += offset
+    return moved
+
+
 # ===================================================================
 # RESULTS -- combined without coercion
 # ===================================================================
@@ -363,12 +460,13 @@ def member_result(checks: list[dict], readiness: str, own_check: bool = True) ->
     started at all. A member whose own check did not run is never a pass,
     however its isolation reads -- unless the wave does not ask for it
     (`own_check` false: the stage), and then the result is its isolation's.
+    A check that says `dev source` compared nothing and is not counted.
     """
     if readiness == "fail":
         return "fail"
     if readiness != "pass":
         return "unknown"
-    results = [c["result"] for c in checks]
+    results = [c["result"] for c in checks if c["result"] != DEV_SOURCE]
     if own_check and not any(c.get("owner") == "member" for c in checks):
         return "unknown"
     if "fail" in results:
@@ -972,8 +1070,16 @@ def install(member: dict, repo: Path, logs: Path, stamp: Path, fresh: bool) -> d
         present = all((repo / made).is_dir() for made in previous.get("made") or ["?"])
         if previous.get("key") == key and previous.get("result") == "pass" and present:
             return {**previous, "reused": True}
+    record = {"key": key, **run_install(member, repo, logs)}
+    stamp.parent.mkdir(parents=True, exist_ok=True)
+    stamp.write_text(json.dumps(record, indent=2), encoding="utf-8")
+    return record
+
+
+def run_install(member: dict, repo: Path, logs: Path) -> dict:
+    """Run the member's install commands in `repo`, stopping at the first that fails."""
     steps, result = [], "pass"
-    for argv in commands:
+    for argv in member.get("install") or []:
         began = time.monotonic()
         log = logs / f"install-{member['name']}-{len(steps)}.log"
         with open(log, "w", encoding="utf-8", errors="replace") as out:
@@ -985,10 +1091,92 @@ def install(member: dict, repo: Path, logs: Path, stamp: Path, fresh: bool) -> d
             result = "fail"
             break
     made = [name for name in INSTALLED if (repo / name).is_dir()]
-    record = {"key": key, "result": result, "steps": steps, "at": now(), "reused": False,
-              "made": made}
+    return {"result": result, "steps": steps, "at": now(), "reused": False, "made": made}
+
+
+def install_in_place(member: dict, repo: Path, logs: Path, stamp: Path, fresh: bool) -> dict:
+    """Install a dev source where it stands, only when its lock files changed.
+
+    Keyed on the commands, the checkout's path and its lock files -- not its
+    HEAD, because a developer commits far more often than a lock moves. The
+    key is taken again after the install, so an installer that writes a lock
+    (ShowStopper's `uv sync` writes a uv.lock) is counted once, not every run.
+    """
+    commands = member.get("install") or []
+
+    def key() -> str:
+        return hashlib.sha256(json.dumps([commands, str(repo), lock_digest(repo)]).encode()
+                              ).hexdigest()[:16]
+
+    before = key()
+    why = "no install of this checkout is recorded"
+    if stamp.is_file() and not fresh:
+        previous = json.loads(stamp.read_text(encoding="utf-8"))
+        present = all((repo / made).is_dir() for made in previous.get("made") or ["?"])
+        if previous.get("key") == before and previous.get("result") == "pass" and present:
+            return {**previous, "reused": True}
+        why = ("what the last install made is gone" if previous.get("key") == before
+               else "its lock files or install commands changed")
+    elif fresh:
+        why = "--fresh-install"
+    record = run_install(member, repo, logs)
+    record.update(key=key(), why=why)
     stamp.parent.mkdir(parents=True, exist_ok=True)
     stamp.write_text(json.dumps(record, indent=2), encoding="utf-8")
+    return record
+
+
+def source_problems(sources: dict[str, Path], order: list[dict], refs: dict[str, str],
+                    clones: dict[str, Path | None]) -> list[str]:
+    """Every reason a `--src` cannot be run as the member it names.
+
+    `clones` maps a member to the roster's clone of it, where one resolves. A
+    source that shares no root commit with that clone is another repository --
+    one member's checkout passed for another's -- and is refused rather than run
+    under the wrong name.
+    """
+    running_names = {m["name"] for m in order}
+    problems = []
+    for name, path in sources.items():
+        if name not in running_names:
+            problems.append(f"--src {name}: not a member that runs in this invocation")
+            continue
+        if name in refs:
+            problems.append(f"--src {name}: also given --ref; a dev source runs as it is on disk")
+        top = git(path, "rev-parse", "--show-toplevel") if path.is_dir() else None
+        if top is None or top.returncode != 0 or \
+                Path(top.stdout.strip()).resolve() != path.resolve():
+            problems.append(f"--src {name}: {path} is not the top of a git working tree")
+            continue
+        clone = clones.get(name)
+        if clone is not None:
+            ours = set(git(path, "rev-list", "--max-parents=0", "HEAD").stdout.split())
+            theirs = set(git(clone, "rev-list", "--max-parents=0", "--all").stdout.split())
+            if ours and theirs and not ours & theirs:
+                problems.append(f"--src {name}: {path} shares no root commit with {name}'s "
+                                f"clone at {clone}")
+    return problems
+
+
+def use_source(member: dict, path: Path, clone: Path | None, run: Path, work: Path,
+               fresh: bool) -> dict:
+    """What the manifest records of a member run from a working checkout, installed in place."""
+    head = git(path, "rev-parse", "HEAD").stdout.strip()
+    branch = git(path, "rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
+    state = dirty(path)
+    record = {
+        "source": {"kind": "dev", "path": str(path), "head": head, "branch": branch,
+                   "dirty": bool(state) if state is not None else "unknown",
+                   "dirty_paths": (state or [])[:20]},
+        "source_clone": str(clone) if clone else None, "ref": DEV_SOURCE, "commit": head,
+        "ref_overridden": False, "stacks_on": stacked(path, member.get("stacks_on"), head),
+        "checkout": {"path": str(path), "head": head, "dirty": state, "dev_source": True},
+        "locks": lock_digest(path)}
+    record["install"] = install_in_place(member, path, run / "logs",
+                                         work / "installed" / f"src-{member['name']}.json", fresh)
+    record["checkout"]["after_install"] = dirty(path)
+    if WINDOWS:
+        record["checkout"]["native_paths"] = long_native_paths(path)
     return record
 
 
@@ -1063,6 +1251,8 @@ class Stage:
     readiness: str = "unknown"
     blocked: str = ""
     own_check: bool = True
+    restarts: list[dict] = field(default_factory=list)  # while held, oldest first
+    retired: list[Running] = field(default_factory=list)  # the processes a restart replaced
 
     @property
     def name(self) -> str:
@@ -1089,6 +1279,8 @@ class Stage:
             "checks": self.checks,
             "result": member_result(self.checks, self.readiness, self.own_check),
             "own_check": "asked" if self.own_check else "not asked in this wave",
+            "restarts": self.restarts,
+            "retired_processes": [p.record() for p in self.retired],
         }
 
 
@@ -1150,7 +1342,10 @@ def prepare(built: Stage, members: dict, work: Path) -> bool:
                          f"nothing was killed")
         return False
     paths = built.member.get("state_in_checkout") or []
-    if paths:
+    if paths and (members[built.name].get("checkout") or {}).get("dev_source"):
+        # The developer's own checkout: what is in it is theirs, wherever --work is.
+        built.prepared["state_in_checkout"] = f"kept: {paths} in a dev source is never emptied"
+    elif paths:
         try:
             built.prepared["emptied_in_checkout"] = empty_state_in_checkout(
                 Path(built.context["checkout"]), work, paths)
@@ -1303,9 +1498,15 @@ def untouched_check(built: Stage, members: dict) -> dict:
     Compared with the clone's status right after install, so what an install
     writes -- a lock file the installer makes -- is not counted as the run's.
     Files git ignores are not seen, and a member's declared `state_in_checkout`
-    is ignored by its own repository.
+    is ignored by its own repository. A dev source is not compared: the
+    developer edits it while it runs. What git said of it at the end is kept.
     """
-    before = (members[built.name].get("checkout") or {}).get("after_install")
+    checkout = members[built.name].get("checkout") or {}
+    if checkout.get("dev_source"):
+        return demo_check(built, "checkout-untouched", DEV_SOURCE,
+                          "a working checkout the developer edits while it runs; not compared",
+                          dirty_at_end=dirty(Path(built.context["checkout"])))
+    before = checkout.get("after_install")
     now_ = dirty(Path(built.context["checkout"]))
     if before is None or now_ is None:
         return demo_check(built, "checkout-untouched", "unknown", "git status could not be read")
@@ -1421,9 +1622,24 @@ def assert_all(stages: list[Stage], run: Path, plan: dict, wave: str) -> None:
         built.checks = [own] + demo
 
 
+def refresh_tree(process: Running, table: dict | None) -> None:
+    """Add every descendant alive now to what `stop` sweeps.
+
+    A member may have started processes since it was observed -- textual-serve
+    starts an app per connection -- and a restarted member was never observed.
+    Only while its root still runs, so a reused pid is never taken for its child.
+    """
+    if process.popen is None or table is None or process.popen.poll() is not None:
+        return
+    for pid in descendants(process.popen.pid, table):
+        process.tree.setdefault(pid, table[pid][0] if pid in table else -1)
+
+
 def take_down(stages: list[Stage], members: dict) -> dict:
+    table = process_table()
     for built in reversed(stages):
         for process in reversed(built.processes):
+            refresh_tree(process, table)
             stop(process)
     for built in stages:
         if built.readiness == "pass":
@@ -1453,7 +1669,7 @@ def wave_zero(order: list[dict], members: dict, run: Path, token: str, plan: dic
 
 def together(order: list[dict], members: dict, run: Path, token: str, plan: dict,
              budget: float, simultaneous: bool, hold: float | None, work: Path,
-             finish) -> dict:
+             finish, watches: list[Watch] | tuple = ()) -> dict:
     stages = [stage(m, members, "together", run, token, plan) for m in order]
     seams_live: dict = {}
     landing: dict = {}
@@ -1469,7 +1685,8 @@ def together(order: list[dict], members: dict, run: Path, token: str, plan: dict
         seams_live = merge_samples([before, live_connections(stages)])
         landing = finish(stages, seams_live)
         if hold is not None:
-            hold_open(run, hold)
+            with Hold(stages, budget, None, watches) as holder:
+                hold_open(run, hold, tick=holder.tick)
     finally:
         ports = take_down(stages, members)
     records = {}
@@ -1500,18 +1717,214 @@ def _simultaneous(stages: list[Stage], budget: float, members: dict, work: Path)
         list(pool.map(finish, started))
 
 
-def hold_open(run: Path, seconds: float, url: str | None = None) -> None:
+def hold_open(run: Path, seconds: float, url: str | None = None, tick=None) -> None:
+    """Keep every member up until Ctrl+C, or for `seconds`, calling `tick` as it waits."""
     page = url or (run / "index.html").as_uri()
     if seconds <= 0:
         print(f"\nholding every member up; open {page}\nCtrl+C stops them.", flush=True)
-        try:
-            while True:
-                time.sleep(1)
-        except KeyboardInterrupt:
-            print("stopping", flush=True)
+        deadline = None
     else:
         print(f"\nholding every member up for {seconds:.0f}s; open {page}", flush=True)
-        time.sleep(seconds)
+        deadline = time.monotonic() + seconds
+    try:
+        while deadline is None or time.monotonic() < deadline:
+            time.sleep(0.5)
+            if tick is not None:
+                tick()
+    except KeyboardInterrupt:
+        print("stopping", flush=True)
+
+
+# ===================================================================
+# WHILE HELD -- one member restarted, by request or by a watched file
+# ===================================================================
+
+# How long a restart waits for a stopped member's ports to be free before it
+# refuses to start the member over a port somebody still holds.
+PORT_RELEASE_SECONDS = 15.0
+# A restarted process's log: the first one's name, numbered by the restart.
+RESTARTED_LOG = re.compile(r"(\.restart-\d+)?\.log$")
+
+
+def restart_member(built: Stage, budget: float, why: str) -> dict:
+    """Stop one member's processes and start them again as they were started.
+
+    The same argument vectors, so the hub keeps the family links it was handed
+    on its command line, and the same ports, so every link to the member still
+    reaches it. Its state directory is left as it was. Nothing is emptied.
+    """
+    began = time.monotonic()
+    number = len(built.restarts) + 1
+    old = list(built.processes)
+    table = process_table()
+    for process in reversed(old):
+        refresh_tree(process, table)
+        stop(process)
+    built.retired.extend(old)
+    # A port can stay held for a moment after its process has gone.
+    deadline = time.monotonic() + PORT_RELEASE_SECONDS
+    held = {port: sorted(h) for port in built.served() if (h := listening(port))}
+    while held and time.monotonic() < deadline:
+        time.sleep(0.25)
+        held = {port: sorted(h) for port in built.served() if (h := listening(port))}
+    built.processes = [Running(member=p.member, id=p.id, argv=list(p.argv), cwd=p.cwd,
+                               env=dict(p.env), ready_url=p.ready_url,
+                               log=RESTARTED_LOG.sub(f".restart-{number}.log", p.log))
+                       for p in old]
+    record = {"number": number, "why": why, "at": now()}
+    if held:
+        built.readiness = "fail"
+        record.update(result="fail", detail=f"still held after it stopped: {held}")
+    else:
+        for process in built.processes:
+            start(process)
+            wait_ready(process, budget)
+            read_stub(built, process)
+            if process.readiness != "pass":
+                break
+        states = [p.readiness for p in built.processes]
+        built.readiness = "pass" if states and all(s == "pass" for s in states) else (
+            "fail" if "fail" in states else "unknown")
+        record.update(result=built.readiness,
+                      detail="; ".join(p.readiness_detail for p in built.processes
+                                       if p.readiness_detail),
+                      logs=[p.log for p in built.processes])
+    record["seconds"] = round(time.monotonic() - began, 3)
+    built.restarts.append(record)
+    return record
+
+
+@dataclass
+class Watch:
+    """The files in one dev source whose change restarts the member, or reloads its view.
+
+    Polled, not subscribed: the standard library has no file events, and a scan
+    of a few hundred paths twice a second costs nothing beside a restart. A file
+    under both lists restarts.
+    """
+
+    member: str
+    root: Path
+    restart_on: list[str]
+    refresh_on: list[str]
+    seen: dict[str, tuple[int, str]] = field(default_factory=dict)
+
+    def scan(self) -> dict[str, tuple[int, str]]:
+        found: dict[str, tuple[int, str]] = {}
+        for kind, globs in (("restart", self.restart_on), ("refresh", self.refresh_on)):
+            for pattern in globs:
+                for path in self.root.glob(pattern):
+                    try:
+                        if path.is_file():
+                            found.setdefault(path.relative_to(self.root).as_posix(),
+                                             (path.stat().st_mtime_ns, kind))
+                    except OSError:  # gone between the listing and the look
+                        continue
+        return found
+
+    def start(self) -> "Watch":
+        self.seen = self.scan()
+        return self
+
+    def changed(self) -> dict[str, list[str]]:
+        """Files changed, added or removed since the last look, by what they ask for."""
+        current = self.scan()
+        moved: dict[str, list[str]] = {"restart": [], "refresh": []}
+        for name in sorted(set(current) | set(self.seen)):
+            if current.get(name, (None, ""))[0] != self.seen.get(name, (None, ""))[0]:
+                moved[(current.get(name) or self.seen[name])[1]].append(name)
+        self.seen = current
+        return moved
+
+
+class Hold:
+    """What a held family answers while it waits: restart requests, and watched sources.
+
+    Only the harness restarts a member, because only the harness knows how it
+    was started. The stage asks through the control directory; a watched file
+    asks by changing. Each restart and refresh is noted there for the page.
+    """
+
+    def __init__(self, stages: list[Stage], budget: float, control: Path | None,
+                 watches: list[Watch] | tuple = ()):
+        self.by_name = {built.name: built for built in stages}
+        self.budget, self.control, self.watches = budget, control, list(watches)
+
+    def __enter__(self) -> "Hold":
+        if self.control is not None:
+            self.control.mkdir(parents=True, exist_ok=True)
+            (self.control / family_stage.HOLDING).write_text(now(), encoding="utf-8")
+        for watch in self.watches:
+            watch.start()
+        return self
+
+    def __exit__(self, *exc) -> bool:
+        if self.control is not None:
+            (self.control / family_stage.HOLDING).unlink(missing_ok=True)
+        return False
+
+    def tick(self) -> None:
+        if self.control is not None:
+            for request in family_stage.take_restart_requests(self.control):
+                self.answer(request)
+        for watch in self.watches:
+            moved = watch.changed()
+            if not moved["restart"] and not moved["refresh"]:
+                continue
+            # An editor's save can be several writes; wait for them to settle.
+            for _ in range(8):
+                time.sleep(0.25)
+                more = watch.changed()
+                if not more["restart"] and not more["refresh"]:
+                    break
+                for kind in moved:
+                    moved[kind] += more[kind]
+            if moved["restart"]:
+                self.restart(watch.member, f"{', '.join(sorted(set(moved['restart']))[:3])} changed")
+            else:
+                self.refresh(watch.member, sorted(set(moved["refresh"])))
+
+    def answer(self, request: dict) -> None:
+        name, nonce = request.get("member"), str(request.get("nonce") or "")
+        if name not in self.by_name:
+            answer = {"member": name, "result": "refused",
+                      "detail": f"{name!r} is not a member this run holds"}
+        else:
+            answer = {"member": name, **self.restart(name, "asked for on the stage")}
+        if nonce and self.control is not None:
+            family_stage.answer_restart(self.control, nonce, answer)
+
+    def restart(self, name: str, why: str) -> dict:
+        print(f"  restart  {name:<11} {why}", flush=True)
+        record = restart_member(self.by_name[name], self.budget, why)
+        print(f"  restart  {name:<11} {record['result']}, answering {record['seconds']}s "
+              f"after it was stopped{' -- ' + record['detail'] if record.get('detail') else ''}",
+              flush=True)
+        if self.control is not None:
+            family_stage.note_event(self.control, name, "restart", {
+                "result": record["result"], "why": why, "seconds": record["seconds"],
+                "summary": f"restarted ({why}): {record['result']} in {record['seconds']}s"})
+        return record
+
+    def refresh(self, name: str, files: list[str]) -> None:
+        print(f"  refresh  {name:<11} {', '.join(files[:3])} changed; its view reloads",
+              flush=True)
+        if self.control is not None:
+            family_stage.note_event(self.control, name, "refresh", {
+                "result": "pass", "why": f"{files[0]} changed",
+                "summary": f"{files[0]} changed; view reloaded"})
+
+
+def watches_for(order: list[dict], sources: dict[str, Path]) -> list[Watch]:
+    """A watch for each dev source whose roster entry names files to watch."""
+    found = []
+    for member in order:
+        dev = member.get("dev") or {}
+        if member["name"] in sources and (dev.get("restart_on") or dev.get("refresh_on")):
+            found.append(Watch(member["name"], sources[member["name"]].resolve(),
+                               list(dev.get("restart_on") or []),
+                               list(dev.get("refresh_on") or [])))
+    return found
 
 
 # ===================================================================
@@ -1533,7 +1946,8 @@ def stage_job(plan: dict, order: list[dict], run: Path) -> dict:
             "panels": family_stage.panel_view(plan["stage"]["panels"], info, resolved),
             "rows": family_stage.links(plan["stage"]["show"], plan["stage"]["links"], names),
             "dir": str(run / "stage"), "shots": str(run / "shots" / "stage"),
-            "result": str(run / "stage" / "check.json")}
+            "result": str(run / "stage" / "check.json"),
+            "control": str(run / "stage" / "control")}
 
 
 def runtime_argv(plan: dict, *args: str) -> list[str]:
@@ -1581,13 +1995,16 @@ def stage_check(plan: dict, job_path: Path, job: dict, run: Path) -> dict:
 
 def stage_wave(order: list[dict], members: dict, run: Path, token: str, plan: dict,
                budget: float, simultaneous: bool, hold: float | None, open_page: bool,
-               work: Path, finish) -> dict:
+               work: Path, finish, watches: list[Watch] | tuple = ()) -> dict:
     """Bring the core up, start the stage on it, run the show, and take it all down."""
     stages = [stage(m, members, "stage", run, token, plan) for m in order]
     for built in stages:
         built.own_check = False
     (run / "stage").mkdir(parents=True, exist_ok=True)
     job = stage_job(plan, order, run)
+    # How long the stage waits for a restart it asked for: a member's whole
+    # ready budget, and the time to stop it first.
+    job["restart_seconds"] = max(budget, 180.0) + 60.0
     # The hub is told its links on its own command line, and writes them into
     # its [plugins.family] table: the stage itself sends no member anything.
     hub = next(built for built in stages if built.name == family_stage.HUB)
@@ -1646,7 +2063,10 @@ def stage_wave(order: list[dict], members: dict, run: Path, token: str, plan: di
                   flush=True)
             if open_page:
                 webbrowser.open(url)
-            hold_open(run, hold if hold is not None else 0.0, url)
+            print(f"restart one member: POST {url}restart/<member>, or its panel's button",
+                  flush=True)
+            with Hold(stages, budget, Path(job["control"]), watches) as holder:
+                hold_open(run, hold if hold is not None else 0.0, url, holder.tick)
     finally:
         record["server_binds"] = observe_server(server, job["port"])
         stop(server)
@@ -1861,12 +2281,20 @@ def landing_page(manifest: dict, run: Path) -> str:
                       f'<span class="live">isolation; ready '
                       f'{e(str(on_stage.get("ready_seconds", "")))}s</span></td>'
                       if staged else "")
+        source = member.get("source") or {}
+        if source.get("kind") == "dev":
+            tree = {True: "dirty", False: "clean"}.get(source.get("dirty"), "dirtiness unknown")
+            where = (f'<code>{e(DEV_SOURCE)}</code> <code>{e(commit)}</code><br>'
+                     f'<span class="live"><code>{e(source.get("path", ""))}</code> on '
+                     f'<code>{e(source.get("branch", ""))}</code>, {e(tree)} at the start</span>')
+        else:
+            where = (f'<code>{e(member.get("ref", ""))}</code> <code>{e(commit)}</code><br>'
+                     f'<span class="live">on <code>{e(str(stack.get("claimed") or ""))}</code>, '
+                     f'{e(contains)}</span>')
         rows.append(
             f'<tr data-member="{e(name)}"><td><strong>{e(name)}</strong><br>'
             f'<span class="live">{e(member.get("family") or "unstated")}</span></td>'
-            f'<td><code>{e(member.get("ref", ""))}</code> <code>{e(commit)}</code><br>'
-            f'<span class="live">on <code>{e(str(stack.get("claimed") or ""))}</code>, '
-            f'{e(contains)}</span></td>'
+            f'<td>{where}</td>'
             f'<td>{e(ports)}</td><td>{e(status)}</td>'
             f'<td>{ran(w0)}</td><td>{ran(tg)}</td>'
             f'{stage_cell}'
@@ -2052,7 +2480,8 @@ def collect_hazards(manifest: dict) -> list[str]:
             if isinstance(loose, list) and loose:
                 found.append(f"{name} {wave}: holds sockets outside its reserved ports: "
                              f"{', '.join(loose)}")
-            for process in record.get("processes") or []:
+            for process in [*(record.get("processes") or []),
+                            *(record.get("retired_processes") or [])]:
                 forced = (process.get("shutdown") or {}).get("descendants_forced")
                 if forced:
                     found.append(f"{name} {wave}: {process['id']} left processes that had "
@@ -2179,7 +2608,31 @@ def main(argv: list[str] | None = None) -> int:
                         help="bring the core up, put the plan's show on it, and play it headless")
     parser.add_argument("--open", action="store_true", dest="open_page",
                         help="with --stage: open the stage in the system browser and hold it up")
+    parser.add_argument("--src", action="append", default=[], metavar="MEMBER=PATH",
+                        help="run a member from this working checkout, in place: no clone, "
+                             "no reset, an install only when its locks changed (repeatable)")
+    parser.add_argument("--reload", action="store_true",
+                        help="while held, restart a --src member when a file its dev.restart_on "
+                             "names changes, and reload its view for dev.refresh_on")
+    parser.add_argument("--port-offset", type=int, default=0, metavar="N",
+                        help="move every reserved port by N, to run beside another family")
+    parser.add_argument("--dev", nargs="?", const="", default=None, metavar="DIR",
+                        help="the dev loop: every core member from DIR/<member> (default "
+                             "<work>/dev) as --src, with --reload, --stage and --hold")
     args = parser.parse_args(argv)
+    dev_dir = None
+    if args.dev is not None:
+        if args.wave or args.member or args.phase:
+            print("family-demo: --dev runs the whole core on the stage; it takes no --wave, "
+                  "--member or --phase", file=sys.stderr)
+            return 2
+        args.stage, args.reload = True, True
+        args.hold = 0.0 if args.hold is None else args.hold
+        dev_dir = Path(args.dev) if args.dev else args.work / "dev"
+    if args.reload and args.hold is None and not args.open_page:
+        print("family-demo: --reload restarts members while the family is held; it needs "
+              "--hold, --open or --dev", file=sys.stderr)
+        return 2
     if args.stage and (args.wave or args.member or args.phase):
         print("family-demo: --stage runs the whole core in a wave of its own; it takes no "
               "--wave, --member or --phase", file=sys.stderr)
@@ -2194,11 +2647,12 @@ def main(argv: list[str] | None = None) -> int:
             stream.reconfigure(encoding="utf-8", errors="replace")
 
     try:
-        plan = load_plan(args.plan_file)
+        plan = offset_plan(load_plan(args.plan_file), args.port_offset)
         rostered_entries = corpus_roster.load()
         rostered = {e["name"]: e for e in rostered_entries}
         problems = check_plan(plan, set(rostered))
         refs = parse_refs(args.ref)
+        sources = parse_sources(args.src)
     except (OSError, yaml.YAMLError, PlanError) as exc:
         print(f"family-demo: {exc}", file=sys.stderr)
         return 2
@@ -2224,13 +2678,33 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     search_roots = [p.resolve() for p in args.search_root] or default_search_roots()
     lonely = unplaced(plan, families)
+    if dev_dir is not None:
+        for member in order:
+            sources.setdefault(member["name"], dev_dir / member["name"])
+    clones = {name: resolve(rostered[name], search_roots) if name in rostered else None
+              for name in sources}
+    wrong = source_problems(sources, order, refs, clones)
+    if args.reload and not sources:
+        wrong.append("--reload watches dev sources; name one with --src, or use --dev")
+    if wrong:
+        print("family-demo: these cannot run as dev sources:", file=sys.stderr)
+        for problem in wrong:
+            print(f"  - {problem}", file=sys.stderr)
+        return 2
+    sources = {name: path.resolve() for name, path in sources.items()}
+    watches = watches_for(order, sources) if args.reload else []
 
     print(f"family-demo: {len(order)} member(s) run; search root "
           f"{', '.join(str(r) for r in search_roots)}")
+    if args.port_offset:
+        print(f"  ports moved by {args.port_offset}: "
+              f"{plan['ports']['first']}..{plan['ports']['last']}")
     for member in plan["members"]:
         runs = member in order
         ports = ", ".join(f"{k}={v}" for k, v in member["ports"].items())
         branch = f"  {member['branch']}" if runs else ""
+        if member["name"] in sources:
+            branch = f"  dev source {sources[member['name']]}"
         print(f"  {'run ' if runs else 'later'} {member['name']:<18} {member['phase']:<22} "
               f"{ports}{branch}")
     if lonely:
@@ -2261,6 +2735,8 @@ def main(argv: list[str] | None = None) -> int:
                    CORPUS in args.plan_file.resolve().parents else str(args.plan_file),
                    "plan_sha256": hashlib.sha256(args.plan_file.read_bytes()).hexdigest()[:16]},
         "environment": environment(), "work": str(work), "port_range": plan["ports"],
+        "port_offset": args.port_offset,
+        "sources": {name: str(path) for name, path in sources.items()},
         "contract": plan["contract"], "host": plan["host"],
         "search_roots": [str(r) for r in search_roots], "unplaced": lonely, "members": {},
         "reading": {
@@ -2269,6 +2745,9 @@ def main(argv: list[str] | None = None) -> int:
                       "demo is isolation, and never behaviour",
             "together": "process simultaneity only -- no check exercises a seam between members",
             "ready_seconds": "process start to the first 2xx from the member's url",
+            "dev_source": "a member run with --src is its working checkout as it stood: its "
+                          "path, HEAD and dirty paths are recorded, and its checkout is not "
+                          "compared, so `dev source` is never a pass",
         },
     }
 
@@ -2283,7 +2762,17 @@ def main(argv: list[str] | None = None) -> int:
                           url=expand(member["url"], {"ports": member["ports"],
                                                      "host": plan["host"]}))
             clone = resolve(rostered[name], search_roots)
-            if clone is None:
+            if name in sources:
+                path = sources[name]
+                record.update(use_source(member, path, clone, run, work, args.fresh_install))
+                kept = record["source"]
+                print(f"  source   {name:<12} {path}  {kept['branch']} {kept['head'][:12]}"
+                      f"{'  (dirty)' if kept['dirty'] is True else ''}", flush=True)
+                done = record["install"]
+                print(f"  install  {name:<12} {done['result']}"
+                      + (" (reused: its locks are as they were)" if done.get("reused")
+                         else f" ({done.get('why')})"), flush=True)
+            elif clone is None:
                 record["install"] = {"result": "unknown",
                                      "why": f"no clone at {rostered[name].get('paths')}"}
             else:
@@ -2324,6 +2813,17 @@ def main(argv: list[str] | None = None) -> int:
     manifest["members"] = members
 
     started = [m for m in order if members[m["name"]].get("install", {}).get("result") == "pass"]
+    manifest["reload"] = []
+    for watch in watches:
+        seen = watch.scan()
+        kinds = {kind: sum(1 for _, k in seen.values() if k == kind) for kind in ("restart", "refresh")}
+        empty = [g for g in watch.restart_on + watch.refresh_on if not any(watch.root.glob(g))]
+        manifest["reload"].append({"member": watch.member, "restart_on": watch.restart_on,
+                                   "refresh_on": watch.refresh_on, "files": kinds,
+                                   "globs_matching_nothing": empty})
+        print(f"  reload   {watch.member:<12} restarts on {kinds['restart']} file(s), "
+              f"reloads its view on {kinds['refresh']}"
+              + (f"; matching nothing: {', '.join(empty)}" if empty else ""), flush=True)
     if args.stage:
         args.wave = "stage"
     if args.wave in ("0", "all"):
@@ -2367,11 +2867,12 @@ def main(argv: list[str] | None = None) -> int:
               flush=True)
         manifest["stage"] = stage_wave(order, members, run, token, plan, args.ready_budget,
                                        args.start == "simultaneous", args.hold, args.open_page,
-                                       work, finish_stage)
+                                       work, finish_stage, watches)
     if args.wave in ("together", "all"):
         print(f"together: every member up, {args.start} start", flush=True)
         manifest["together"] = together(order, members, run, token, plan, args.ready_budget,
-                                        args.start == "simultaneous", args.hold, work, finish)
+                                        args.start == "simultaneous", args.hold, work, finish,
+                                        watches)
     manifest.setdefault("seams", {"named_in_source": named_in_source(
         members, [m["name"] for m in started])})
 

@@ -13,7 +13,8 @@ anything running.
 **SERVE.** Creates the declared show in the hub through the hub's REST routes,
 opens the stage's own browser session of each member whose panel is a session,
 and answers on the job's port: the page, `state` (what the page polls), `go`
-and `reset` (passed to the hub's programmer), and the pictures. A watcher
+and `reset` (passed to the hub's programmer), `restart/<member>` (passed to the
+harness holding the family, which started the member), and the pictures. A watcher
 reads, and only reads: the hub's CueLog, the hub's `GET /family/`, and each
 push member's `GET /family/state`. For each CueLog entry it records the cue,
 what its family block asks of whom, what the hub says it delivered, and what
@@ -85,6 +86,10 @@ DELIVERY_SECONDS = 30
 # How long a member's own state may take to show a cue. joe's runs a pipeline.
 SETTLE_SECONDS = {"joe": 240}
 SETTLE_DEFAULT = 20
+# How long `POST /restart/<member>` waits for the harness, when the job names none.
+RESTART_SECONDS = 300
+
+HUB_DOWN = "the hub stopped answering"
 
 
 def now() -> str:
@@ -153,12 +158,19 @@ class Stage:
         self.dir = Path(job["dir"])
         (self.dir / "live").mkdir(parents=True, exist_ok=True)
         self.hub = job["hub"].rstrip("/")
+        # Where a restart is asked for and the harness says what it did.
+        self.control = Path(job["control"]) if job.get("control") else None
+        if self.control is not None:
+            self.control.mkdir(parents=True, exist_ok=True)
 
     def snapshot(self) -> dict:
         with self.lock:
-            return {"ready": self.ready, "failed": self.failed, "seeded": self.seeded,
-                    "hub": {"pointer": self.pointer}, "fired": json.loads(json.dumps(self.fired)),
-                    "panels": json.loads(json.dumps(self.panels)), "port": self.job["port"]}
+            snapshot = {"ready": self.ready, "failed": self.failed, "seeded": self.seeded,
+                        "hub": {"pointer": self.pointer},
+                        "fired": json.loads(json.dumps(self.fired)),
+                        "panels": json.loads(json.dumps(self.panels)), "port": self.job["port"]}
+        snapshot["dev"] = fs.read_events(self.control)
+        return snapshot
 
     def record(self) -> None:
         with self.lock:
@@ -206,9 +218,13 @@ class Stage:
                 states = {link["member"]: read(link["url"] + "/family/state", timeout=3)
                           for link in self.job["resolved"].values() if link["via"] == "push"}
                 self.observe(status.get("pointer"), family, states)
+                with self.lock:
+                    # A hub that was restarted answers again, and says so here.
+                    if self.failed.startswith(HUB_DOWN):
+                        self.failed = ""
             except (OSError, RuntimeError, ValueError) as exc:
                 with self.lock:
-                    self.failed = f"the hub stopped answering: {exc}"
+                    self.failed = f"{HUB_DOWN}: {exc}"
             self.stopping.wait(0.5)
 
     def log(self, entry: dict, cue: dict | None, family: dict) -> None:
@@ -379,6 +395,23 @@ def worker(stage: Stage) -> None:
         stage.stopping.set()
 
 
+def restart(stage: Stage, member: str) -> tuple[int, dict]:
+    """`POST /restart/<member>`: ask the harness holding the family, and pass on its answer.
+
+    The stage started no member, so it restarts none: the harness that started
+    them does, and says how the member came back.
+    """
+    if member not in stage.job["order"]:
+        return 404, {"member": member, "result": "refused",
+                     "detail": f"{member!r} is not a member this stage runs: {stage.job['order']}"}
+    if stage.control is None:
+        return 409, {"member": member, "result": "refused",
+                     "detail": "this stage was started without a control directory"}
+    answer = fs.request_restart(stage.control, member,
+                                float(stage.job.get("restart_seconds", RESTART_SECONDS)))
+    return fs.restart_status(answer), answer
+
+
 def handler(stage: Stage, page_html: str):
     live = stage.dir / "live"
 
@@ -431,6 +464,8 @@ def handler(stage: Stage, page_html: str):
                     return self.json(*stage.reset())
             except OSError as exc:
                 return self.json(502, {"detail": f"the hub did not answer: {exc}"})
+            if path.startswith("/restart/"):
+                return self.json(*restart(stage, urllib.parse.unquote(path[len("/restart/"):])))
             return self.json(404, {"detail": "not here"})
 
     return Handler
