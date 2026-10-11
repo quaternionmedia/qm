@@ -67,7 +67,7 @@ the one beneath it, by Peter (D14).
 | Repo | Defect | Provenance |
 |---|---|---|
 | ShowRunner | ShowMidi: a WinMM input dies after one replug, and the next unplug crashes or hangs the server | reproduced first-hand; fix on `fix/showmidi-winmm-input-reconnect`; see ShowMidi below |
-| ShowRunner | ShowMidi: a replug faster than the reconnect interval leaves both directions dead while the status reads green, with or without the fix | reported; see ShowMidi below |
+| ShowRunner | ShowMidi: a replug faster than the reconnect interval leaves both directions dead while the status reads green, with or without the fix | reproduced first-hand on a virtual port; see ShowMidi below |
 | ShowRunner | ShowMidi defects 2 to 5 | reported, stated in the #22 comment |
 | ShowRunner, carlos | uvicorn hangs at shutdown on Windows after a connection reset | reported |
 | leo `main` | the setlist lists one song fewer than its count (`per_page: -1`) | reported; `setlist` rewrote search |
@@ -86,16 +86,16 @@ same patch as `75a4383` on origin's `fix/showmidi-winmm-input-reconnect`.
 - On a Novation Launchkey 49, the replug gave rtmidi's "valid connection
   already exists" warning and the input monitor stayed empty, and the next
   unplug hung the server. Reproduced first-hand.
-- `10dd04f` survives slow unplug cycles and fast flaps *(reported)*.
+- `10dd04f` survives slow unplug cycles and fast flaps *(reproduced first-hand on a virtual port)*.
 - A replug faster than the reconnect interval leaves both directions dead while
   the status reads green, on `f8ae176` and with the fix alike *(reported)*. The
   fix does not cover it.
 
 Verification:
 
-- `10dd04f`: 5 slow cycles and 40 flaps at a 0.5 s interval pass *(reported)*.
+- `10dd04f`: 5 slow cycles and 40 flaps at a 0.5 s interval pass *(run first-hand)*.
 - Fast replug: both directions dead with status green, 5 of 5, on `f8ae176`
-  and on `10dd04f` *(reported)*.
+  and on `10dd04f` *(run first-hand)*.
 - `gh pr view 22 --repo quaternionmedia/ShowRunner --json headRefOid`:
   `f8ae176`.
 - `git show <commit> | git patch-id --stable`: `10dd04f` and `75a4383` both
