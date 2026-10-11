@@ -121,7 +121,7 @@ def stacked_ready(v: dict) -> str:
 
 
 def slot_cell(slots: dict) -> tuple[str, str]:
-    """(cell HTML, row class) for one repository's slot state."""
+    """(cell HTML, row class) for one repository's stack state."""
     reason = unknown_reason(slots)
     if reason is not None:
         return (
@@ -441,7 +441,7 @@ BODY = """<main>
   <th scope="col">Phase <span class="s-muted">(claimed)</span></th>
   <th scope="col">v0.0.1 governance <span class="s-muted">(evidence)</span></th>
   <th scope="col">Open PRs</th>
-  <th scope="col">Slot</th>
+  <th scope="col">Stacks</th>
   <th scope="col">This machine</th>
 </tr></thead>
 <tbody>
@@ -741,7 +741,7 @@ def render_markdown(document: dict) -> str:
         f"precondition; {totals.get('phase_scaffolded')} phases scaffolded."
     )
     add("")
-    add("| Repository | Family (claimed) | Phase (claimed) | Source | v0.0.1 governance (evidence) | Slot | Release |")
+    add("| Repository | Family (claimed) | Phase (claimed) | Source | v0.0.1 governance (evidence) | Stacks | Release |")
     add("|---|---|---|---|---|---|---|")
     for repo in document.get("repositories", []):
         add(
