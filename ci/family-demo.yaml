@@ -6,18 +6,18 @@
 # demo will ask of each member. What each member actually did is the run's
 # manifest, written outside the repository on every run and never committed.
 #
-# EVERY NAME HERE IS A ROSTER NAME. A member is resolved to a clone through
+# Every name here is a roster name. A member is resolved to a clone through
 # ci/workspace.yaml exactly as `qm estate` resolves it, and the harness refuses
 # a member the roster does not carry. Which family a member belongs to is the
 # roster's claim, not this file's; this file only says when it joins the demo.
 #
-# A PHASE THAT DOES NOT RUN IS STILL LISTED. Its members are declared with a
+# A phase that does not run is still listed. Its members are declared with a
 # reserved port and with what each needs before it can join, so the demo's
 # denominator is the whole performing family rather than whatever happened to
 # start. A family member this file does not place at all is printed as
 # unplaced by every run.
 #
-# WHO OWNS WHICH CHECK. A check of one member alone -- its selectors, what its
+# Who owns which check. A check of one member alone -- its selectors, what its
 # screen must show -- lives in that member, behind the contract's `check`.
 # What needs several members, or the machine, lives here, in ci/family_demo.py:
 # every member up at once, each on its own ports and nothing else's, its state

@@ -11,7 +11,7 @@
     uv run qm family-demo --src leo=../leo        # leo from that working checkout, in place
     uv run qm family-demo --dev --work W --port-offset 100   # the dev loop, beside W's family
 
-**WHAT IT SHOWS.** `ci/family-demo.yaml` names the members, the branch of each
+**What it shows.** `ci/family-demo.yaml` names the members, the branch of each
 that runs -- the one carrying the active work, not the default branch -- the
 phase each joins in and the ports each is given. Every member answers one
 contract, declared once in that file: `serve` on a given address with its
@@ -24,7 +24,7 @@ each live surface and embeds every picture each check took, and writes a
 manifest of commits, commands, ports, timings and results. The page is the
 demo a person opens; the manifest is the record.
 
-**WHO OWNS WHICH CHECK.** A check of one member alone lives in that member,
+**Who owns which check.** A check of one member alone lives in that member,
 behind `check`: the member owns its selectors and what its screen must show,
 and this file never names one. What needs several members, or the machine,
 lives here: each member's ports held by the process tree this run started and
@@ -33,7 +33,7 @@ member reports about itself naming this run's port and scratch state, its
 checkout left as it was installed, every member up at once, and any seam
 between two members.
 
-**WHAT IT DOES NOT SHOW, AND SAYS SO IN EVERY RUN.** Integration. Running the
+**What it does not show, and says so in every run.** Integration. Running the
 members together is process simultaneity: they share a machine, not a protocol.
 The run looks for a seam two ways -- which members name another in their tracked
 source, and which member processes hold a connection to another member's port
@@ -42,13 +42,13 @@ connection table sampled at moments cannot see a short request between samples
 or anything sent over UDP. No result of the waves is an integration result:
 none of their checks exercises a seam. The stage's check does, and says which.
 
-**WHERE IT WRITES.** Nowhere it does not own. Each member is cloned with
+**Where it writes.** Nowhere it does not own. Each member is cloned with
 `git clone --shared` into the work directory -- nothing is written into the
 clone the roster resolves, not even worktree metadata -- and every member is
 handed a scratch directory under the run. The work directory defaults to the
 system temporary directory and is never inside this repository.
 
-**WHAT A RESULT MEANS.** `pass`, `fail` or `unknown`, per check and per wave,
+**What a result means.** `pass`, `fail` or `unknown`, per check and per wave,
 and unknown is never folded into fail: a port somebody else holds, a check that
 could not say, a stub that is not implemented, or a member that never got as far
 as its check is `unknown`, with the reason. The exit status is 0 when every
@@ -56,14 +56,14 @@ member that ran passed, 1 when any failed or an artifact the manifest names is
 missing, 3 when none failed and some were unknown, and 2 for a roster or an
 invocation this cannot run. A skip is not a pass.
 
-**HAZARDS ARE MEASURED, NOT ASSUMED.** While each member is up, every socket
+**Hazards are measured, not assumed.** While each member is up, every socket
 its process tree holds is listed, and one outside its reserved ports is printed
 as a hazard -- a member that opened an OSC port or dialled a console would show
 here, whatever its source says. So are a descendant that had to be forced at
 shutdown, a port still held afterwards, and a branch that does not contain the
 active work it claims to stack on.
 
-**WHAT IT CANNOT SEE.** Whether a member is correct beyond what its own check
+**What it cannot see.** Whether a member is correct beyond what its own check
 asserts, outbound traffic that holds no socket open long enough to be listed,
 real audio, MIDI or lighting hardware, and a member the roster does not place --
 that one is printed as unplaced, never dropped.
@@ -169,7 +169,7 @@ class PlanError(ValueError):
 
 
 # ===================================================================
-# THE PLAN -- read, checked and expanded without starting anything
+# The plan -- read, checked and expanded without starting anything
 # ===================================================================
 
 def load_plan(path: Path = PLAN) -> dict:
@@ -446,7 +446,7 @@ def offset_plan(plan: dict, offset: int) -> dict:
 
 
 # ===================================================================
-# RESULTS -- combined without coercion
+# Results -- combined without coercion
 # ===================================================================
 
 def check_result(exit_code: int | None, output: str, not_implemented: str) -> tuple[str, bool]:
@@ -499,7 +499,7 @@ def exit_status(results: list[str]) -> int:
 
 
 # ===================================================================
-# THE MACHINE -- processes, ports, listeners
+# The machine -- processes, ports, listeners
 # ===================================================================
 
 # Variables that name this corpus's own environment rather than a member's.
@@ -962,7 +962,7 @@ def now() -> str:
 
 
 # ===================================================================
-# MEMBERS -- branch, checkout, install
+# Members -- branch, checkout, install
 # ===================================================================
 
 def git(repo: Path, *args: str) -> subprocess.CompletedProcess:
@@ -1214,7 +1214,7 @@ def empty_state_in_checkout(checkout_path: Path, work: Path, paths: list[str]) -
 
 
 # ===================================================================
-# PROBES -- the demo's own browser check, under its own interpreter
+# Probes -- the demo's own browser check, under its own interpreter
 # ===================================================================
 
 def run_probe(checks: list[dict], where: Path, plan: dict) -> list[dict]:
@@ -1244,7 +1244,7 @@ def run_probe(checks: list[dict], where: Path, plan: dict) -> list[dict]:
 
 
 # ===================================================================
-# A WAVE
+# A wave
 # ===================================================================
 
 @dataclass
@@ -2147,7 +2147,7 @@ def summary(record: dict) -> str:
 
 
 # ===================================================================
-# SEAMS -- named in source, and held open at runtime
+# Seams -- named in source, and held open at runtime
 # ===================================================================
 
 def named_in_source(members: dict, names: list[str]) -> list[dict]:
@@ -2210,7 +2210,7 @@ def merge_samples(samples: list[dict]) -> dict:
 
 
 # ===================================================================
-# THE PAGE AND THE MANIFEST
+# The page and the manifest
 # ===================================================================
 
 STYLE = """

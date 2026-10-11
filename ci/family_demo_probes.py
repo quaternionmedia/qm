@@ -3,18 +3,18 @@
 
     python family_demo_probes.py browser <job.json>
 
-**NO MEMBER'S CHECK IS HERE.** A check of one member alone lives in that
+**No member's check is here.** A check of one member alone lives in that
 member, behind the contract's `check` command (`ci/family-demo.yaml`), because
 the member owns its selectors and what its screen must show. What is here is
 the one browser check that belongs to the demo itself: the page it writes has a
 row for every member that ran, and every picture it embeds loads.
 
-**RUN UNDER ANOTHER INTERPRETER, NOT THIS CORPUS'S.** It runs in an environment
+**Run under another interpreter, not this corpus's.** It runs in an environment
 holding only the pinned Playwright, so it imports nothing from `ci/` and
 nothing outside the standard library at module level, and the harness hands it
 a job as JSON and reads the results back the same way.
 
-**THREE RESULTS, AND THEY ARE NOT INTERCHANGEABLE.** `pass` is an assertion that
+**Three results, and they are not interchangeable.** `pass` is an assertion that
 held. `fail` is an assertion that did not. `unknown` is a check that could not
 be evaluated -- the probe crashed, the browser would not launch -- and it is
 never reported as `fail`, because a broken probe says nothing about the page.
