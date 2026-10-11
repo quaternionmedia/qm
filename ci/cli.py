@@ -156,7 +156,12 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
-        "slot", help="your open pull requests, and is any ready while stacked?",
+        "stacks", help="your open pull requests, and is any ready while stacked?",
+        add_help=False,
+    )
+    # The earlier name, still accepted and left out of the listing.
+    sub.add_parser(
+        "slot",
         add_help=False
     )
     sub.add_parser(
@@ -339,6 +344,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "edges": ("check_principle_edges", False, []),
     "glossary-links": ("glossary_links", False, []),
     "review": ("record_review", False, []),
+    "stacks": ("check_one_pr", True, []),
     "slot": ("check_one_pr", True, []),
     "pins": ("check_submodule_pins", True, []),
     "leaks": ("check_leaks", True, []),

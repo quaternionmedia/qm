@@ -14,7 +14,8 @@ asking the repository rather than inheriting a previous session's belief:
    page here is true at some commit, and not necessarily at yours.
 2. **Which pull requests you already hold open, and how they stack.** Small,
    atomic pull requests; a dependent one is stacked on its parent as a draft.
-   `uv run qm slot --repo <owner/name>` lists them.
+   One active stack at a time is the habit to aim for, never a limit.
+   `uv run qm stacks --repo <owner/name>` lists them.
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are very likely running
    right now, in other repositories, for the same reviewer.
@@ -25,7 +26,7 @@ asking the repository rather than inheriting a previous session's belief:
    `uv run qm gates` lists them with what each one misses;
    `uv run --extra preflight qm preflight` runs their real steps.
 
-**`uv run qm --help` is the whole surface** — slot, branch, gates, tags, docs,
+**`uv run qm --help` is the whole surface** — stacks, branch, gates, tags, docs,
 preflight, brief. It dispatches to the scripts in `ci/` and
 `project-seed/ci/` and decides nothing itself, so a command's output is that
 script's output and its exit status is that script's status. **In a project
