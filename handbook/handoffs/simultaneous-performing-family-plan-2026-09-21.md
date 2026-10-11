@@ -2,7 +2,7 @@
 
 **Goal.** Run the requested repositories together in controlled waves and measure efficacy, interference, and unintended simultaneity effects. This is an experiment plan, not a claim that all ten repositories are runnable services.
 
-**Stamp.** 2026-09-21. The workspace includes `midiphonor`, `holophonor`, `wolf`, `ludwig`, `joe`, `leo`, `carlos`, `ShowRunner`, and `ShowStopper`. `loopwall` exists as a private remote but has no local clone yet; it is being added to the `instruments` family and roster as unresolved.
+**Stamp.** 2026-09-21. The workspace includes `midiphonor`, `holophonor`, `wolf`, `ludwig`, `joe`, `leo`, `carlos`, `ShowRunner`, and `ShowStopper`. `private-34` exists as a private remote but has no local clone yet; it is being added to the `instruments` family and roster as unresolved.
 
 Read [handoffs/README.md](README.md) first, then the ten participant pages named below. The experiment must be repeated against exact commits, not just repository names.
 
@@ -10,7 +10,7 @@ Read [handoffs/README.md](README.md) first, then the ten participant pages named
 
 The requested set contains different kinds of systems:
 
-- **Hubs/services:** ShowRunner, Holophonor, Wolf, possibly Loopwall.
+- **Hubs/services:** ShowRunner, Holophonor, Wolf, possibly private-34.
 - **Browser or UI clients:** Midiphonor, Joe, Leo, Carlos, ShowStopper.
 - **A command-line or hardware-facing endpoint:** Ludwig.
 
@@ -31,7 +31,7 @@ Before Wave 0, record:
 - whether Docker, browser binaries, and hardware access are available;
 - a scratch directory and per-repository logs/databases.
 
-`loopwall` remains **unknown** until its private clone is present and independently verified. Do not substitute an empty folder or remote metadata for runtime evidence.
+`private-34` remains **unknown** until its private clone is present and independently verified. Do not substitute an empty folder or remote metadata for runtime evidence.
 
 ## Waves
 
@@ -45,7 +45,7 @@ Known baseline risks:
 - Wolf has no tests/CI and its latest local commit is from 2021.
 - Ludwig has no tests/CI and is hardware-facing.
 - ShowStopper has no tests/CI and its protocol is not yet established.
-- Loopwall has no local checkout.
+- private-34 has no local checkout.
 
 ### Wave 1: hub plus one client
 
@@ -53,11 +53,11 @@ Run ShowRunner with one supported client or stub at a time: Leo, Joe, Carlos, Mi
 
 ### Wave 2: instrument/control cluster
 
-Run Holophonor, Wolf, Ludwig, and any verified Loopwall instance together, with a fixed message/cue script and no live destructive hardware. Add Midiphonor only after its browser target is known. Measure message ordering, delivery, loop/timer drift, reconnects, CPU, memory, and device errors.
+Run Holophonor, Wolf, Ludwig, and any verified private-34 instance together, with a fixed message/cue script and no live destructive hardware. Add Midiphonor only after its browser target is known. Measure message ordering, delivery, loop/timer drift, reconnects, CPU, memory, and device errors.
 
 ### Wave 3: full requested set
 
-Run ShowRunner, ShowStopper, Carlos, Joe, Leo, Holophonor, Midiphonor, Wolf, Ludwig, and Loopwall only if Wave 0 marked it runnable. Use the same fixture and script as the baselines. Do at least three repetitions, including one staggered start and one simultaneous start, so startup races are distinguishable from steady-state contention.
+Run ShowRunner, ShowStopper, Carlos, Joe, Leo, Holophonor, Midiphonor, Wolf, Ludwig, and private-34 only if Wave 0 marked it runnable. Use the same fixture and script as the baselines. Do at least three repetitions, including one staggered start and one simultaneous start, so startup races are distinguishable from steady-state contention.
 
 ## Measurements
 
@@ -151,10 +151,10 @@ The participant handoffs are:
 - [joe-simultaneous-run.md](joe-simultaneous-run.md)
 - [leo-simultaneous-run.md](leo-simultaneous-run.md)
 - [carlos-simultaneous-run.md](carlos-simultaneous-run.md)
-- [loopwall-simultaneous-run.md](loopwall-simultaneous-run.md)
+- [private-34-simultaneous-run.md](private-34-simultaneous-run.md)
 - [showrunner-simultaneous-run.md](showrunner-simultaneous-run.md)
 - [showstopper-simultaneous-run.md](showstopper-simultaneous-run.md)
 
 ## What this does not authorise
 
-Cloning private Loopwall without access, cutting or merging repository branches, changing dependency locks, running destructive cleanup, or connecting untested software to live show hardware. Those are separate decisions.
+Cloning private private-34 without access, cutting or merging repository branches, changing dependency locks, running destructive cleanup, or connecting untested software to live show hardware. Those are separate decisions.
