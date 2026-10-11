@@ -83,7 +83,7 @@ rather than hidden:
    wire protocol, only a compiled SDK, so there is no upstream to contribute
    to. Revisit if that changes (see revision triggers).
 3. **Treat this as a silent, undocumented exception** — rejected: the org's
-   own discipline (P6, "decisions are documented or they didn't happen")
+   own discipline (`decisions-are-documented`, "decisions are documented or they didn't happen")
    is the reason this ADR exists instead of an unremarked Gradle dependency
    line.
 
