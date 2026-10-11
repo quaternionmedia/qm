@@ -1,6 +1,6 @@
 # Handoff — the voice loop, and the three-process development environment
 
-**Stamped 2026-10-04.** `qm` `main` at `df1cb51`; `vox` `main` at
+**Stamped 2026-10-10.** `qm` `main` at `df1cb51`; `vox` `main` at
 `d94fe6b`; `joe` `main` at `2ba994d`; `qmcp` `main` at `ed01fc0`; `dossier`
 `main` at `414be1c`. Nothing has merged on any of them since the previous
 stamp; everything below §0 is open. Every figure here was true at those
@@ -88,9 +88,15 @@ deterministic engine or `--live` with a person at the speaker.
   one-command demonstration, the standing conversation that makes it spoken
   from end to end, and the onboarding and cookbook that set it up and say what
   to say are open and green, and the review page above takes them as one.
+- **Durable text states what is true now.** `qm` #136 drafts the rule and a
+  gate on added text; `qm` #140 and #141, `qmcp` #83 and #84, `joe` #34 and `vox` #15 sweep the existing text, and `qm` #137 and #142
+  keep the stories it took out. They ride the same demo branches and the same
+  review page.
 
-**The open set at the stamp.** Every row is green on its checks; a draft is
-one stacked on another open pull request, and nothing else.
+**The open set at the stamp.** Every row is green on its checks, apart from
+`qm`'s `slot`, red on every `qm` row pushed while `qm` #139, outside this set,
+is marked ready on #138's branch; a draft is one stacked on another open pull
+request, and nothing else.
 
 | Repository | PR | Branch → base | Carries |
 |---|---|---|---|
@@ -112,6 +118,8 @@ one stacked on another open pull request, and nothing else.
 | `qmcp` | #80, **draft**, on #76 | `feat/topology-components` → `feat/declared-checks` | reusable components, composed designs, names scoped to a project, the design routes on loopback only |
 | `qmcp` | #81, **draft**, on #76 | `feat/vocabulary-authoring` → `feat/declared-checks` | phrases added by voice to the conversation's commands, behind approval, kept per user |
 | `qmcp` | #82, **draft**, on #80 | `feat/topology-voice` → `feat/topology-components` | saved designs created, composed, listed and run by voice, behind approval; carries #79 and #81 |
+| `qmcp` | #83, **draft**, on #82 | `docs/timeless-topology-text` → `feat/topology-voice` | the topology modules' docstrings reduced to facts, their explanations in `docs/agentframework/topologies.md` |
+| `qmcp` | #84, **draft**, on #83 | `docs/timeless-qmcp-text` → `docs/timeless-topology-text` | the rest of `qmcp` swept; `docs/threads.md` and `docs/self-checks.md` |
 | `qmcp` | #75, **draft**, on #74 | `feat/spoken-iteration` → `feat/spoken-vocabulary` | try again, same in another project, never mind, and how the loop stands |
 | `qmcp` | #74, **draft**, on #73 | `feat/spoken-vocabulary` → `feat/barge-in` | every phrase the loop acts on declared once, with a wider starting set |
 | `qmcp` | #73, **draft**, on #72 | `feat/barge-in` → `feat/plain-speech` | every closed question answerable before it ends, by key or by voice; `vendor/vox` at `vox` #14's branch |
@@ -121,6 +129,7 @@ one stacked on another open pull request, and nothing else.
 | `qmcp` | #69, **draft**, on #68 | `fix/audible-voice` → `feat/answer-controls` | the voice heard: `vendor/vox` at `vox` #12's branch; the consent said with the clone's folder; setup checks the output |
 | `qmcp` | #68, **draft**, on #67 | `feat/answer-controls` → `docs/voice-dev-loop-guide` | closed questions hint and offer their options to the engine; "repeat" re-asks without spending a retry; prompts leave the turn open so the engine cues the person |
 | `qmcp` | #67, **draft**, on #66 | `docs/voice-dev-loop-guide` → `fix/voice-loop-review` | `docs/voice-loop-demo.md` as the loop's onboarding -- what runs where, the workspace, setup with a done-signal per step, the three tiers -- and its cookbook, what to say |
+| `vox` | #15, **draft**, on #14 | `docs/timeless-vox-text` → `feat/barge-in` | `vox` swept; *The offline engine* in the README |
 | `vox` | #14, **draft**, on #13 | `feat/barge-in` → `feat/listen-confidence` | `watch`, `unwatch` and `control` on the contract; a voice that stops when the person interrupts |
 | `vox` | #13, **draft**, on #12 | `feat/listen-confidence` → `fix/sapi-playback` | `confidence_key` on the contract; a listen keeps how sure the engine was |
 | `vox` | #12, **draft**, on #11 | `fix/sapi-playback` → `feat/answer-hints` | the platform voice played through SAPI on Windows, on an output that can be named |
@@ -131,6 +140,7 @@ one stacked on another open pull request, and nothing else.
 | `joe` | #24, **draft**, on #23 | `docs/readme-overview` → `feat/instruct-by-voice` | the README's overview: joe's two jobs, and the local model doing the work once a person approves |
 | `joe` | #25, **draft**, on #24 | `docs/cookbook-voice-loop` → `docs/readme-overview` | the cookbook's recipe for joe's half of the voice dev loop |
 | `joe` | #26 | `feat/short-answer-recognition` → `main` | a take transcribed as English, as one utterance, toward its hint, with a beam when short |
+| `joe` | #34, **draft**, on #33 | `docs/timeless-joe-text` → `feat/transcript-lane` | `joe` swept; *Voice* in `docs/modules.md` |
 | `joe` | #33, **draft**, on #32 | `feat/transcript-lane` → `feat/transcript-pane` | a take shown on the visualiser: its recording on the transport, its words on the piano roll |
 | `joe` | #32, **draft**, on #31 | `feat/transcript-pane` → `feat/voice-vocabulary` | the whole transcript in a pane docked beside the piano roll, kept across a reload |
 | `joe` | #31, **draft**, on #30 | `feat/voice-vocabulary` → `feat/barge-in` | joe's own words: start over, a take marked for tuning, the voice's level |
@@ -140,6 +150,11 @@ one stacked on another open pull request, and nothing else.
 | `joe` | #27, **draft**, on #26 | `feat/turn-controls` → `feat/short-answer-recognition` | answers by key or button, `~` held to keep a turn open, and tones that let the loop run by ear |
 | `qm` | #134 | `evolve/reuse-lint-runs-locally` → `main` | the REUSE lint through `uvx`; reaches `qmcp` at its next pin bump |
 | `qm` | #135 | `evolve/voice-loop-handoff-2026-10-03` → `main` | this page and its review page |
+| `qm` | #136 | `evolve/durable-text-states-what-is-true` → `main` | the durable-text record, its procedure in the style guide, and `uv run qm timeless` as a gate |
+| `qm` | #137 | `perspective/2026-10-10-what-the-topology-docstrings-remembered` → `main` | a retrospective keeping the topology docstrings' stories |
+| `qm` | #140, **draft**, on #136 | `evolve/timeless-qm-code` → `evolve/durable-text-states-what-is-true` | the corpus's tooling swept, with a tooling reference |
+| `qm` | #141, **draft**, on #136 | `evolve/timeless-qm-prose` → `evolve/durable-text-states-what-is-true` | the corpus's records, handbook and entry documents swept |
+| `qm` | #142, **draft**, on #137 | `perspective/2026-10-10-what-the-sweep-remembered` → `perspective/2026-10-10-what-the-topology-docstrings-remembered` | four retrospectives keeping the sweeps' stories |
 
 `qmcp` #57 (an MCP tool for a coding-assistant session to ask the queue) and
 #59 (recall from a coding assistant's session store) were closed unmerged: the
@@ -158,6 +173,10 @@ its own pull requests, in the order the review page gives.
   --runtime local`, and then speech -- run once and recorded.
 - **What a standing conversation keeps.** `joe` keeps every take as a file;
   a retention rule is the review page's decision 5.
+- **`qmcp`'s copies of three seed workflows.** `leak-check.yml`,
+  `one-pr-check.yml` and `tag-claims.yml` are copied again when `qmcp`'s pin
+  moves past `qm` #140, which leaves `qmcp/cli.py` the sweep's last findings
+  in `qmcp`.
 - **The pin moves to `vox`'s merge commit.** #60 pins `vendor/vox` at the
   head of a branch; once `vox` #10 merges, the pin moves to the commit on
   `vox` `main`, and `uv run qm pins` is the check.
