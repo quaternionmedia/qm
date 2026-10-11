@@ -457,8 +457,15 @@ def test_identity_must_name_this_run_s_port_and_scratch_state(tmp_path, monkeypa
     assert family_demo.identity_check(built_stage(tmp_path, "leo")) is None
 
 
-def test_a_serve_that_says_it_is_not_implemented_is_a_stub_and_not_a_failure(tmp_path):
-    """A real process: it exits before answering, as a stub's serve does. It binds nothing."""
+def test_a_serve_that_says_it_is_not_implemented_is_a_stub_and_not_a_failure(tmp_path,
+                                                                                monkeypatch):
+    """A real process: it exits before answering, as a stub's serve does. It binds nothing.
+
+    The listener table is stubbed empty: leo's reserved port is read from the
+    committed plan, and a family held up on this machine holds it, which
+    blocked the member before its serve ran and read as a stub that was not.
+    """
+    monkeypatch.setattr(family_demo, "listening", lambda port: set())
     plan = committed_plan()
     marker = plan["contract"]["not_implemented"]
     for says, readiness in ((f"serve: {marker}", "unknown"), ("Traceback: boom", "fail")):
