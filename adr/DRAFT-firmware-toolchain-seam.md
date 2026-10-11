@@ -38,7 +38,7 @@ shape, and the owner asked that Arduino and the ESP32 be modules of one seam,
 so that a later board family or language is a module added, not a redesign.
 
 Apothecary is a `uv`-managed local tool plus a localhost FastAPI server
-(P5 house stack). The server executes binaries and opens serial ports on
+(`one-house-stack` house stack). The server executes binaries and opens serial ports on
 the machine it runs on; nothing in this decision changes its localhost
 binding or adds authentication, and nothing should — a firmware workbench
 is a local control, not a service.
@@ -184,7 +184,7 @@ is a local control, not a service.
   installer never pulls a core the user did not ask for.
 - Cost accepted: the toolchain seam adds roughly 2,400 lines of control-plane
   Python (models, two engine wrappers, installer, task runner, device
-  state, serial streaming, routes, CLI) and one page plus an overlay; P4's
+  state, serial streaming, routes, CLI) and one page plus an overlay; `build-the-seam-buy-the-engines`'s
   size-smell trigger applies (below).
 - Cost accepted: the replay guard is a workaround for a bridge/driver fault
   Apothecary cannot fix. It is bounded (drop, then reopen, then give up with
@@ -223,8 +223,8 @@ is a local control, not a service.
    fact that a board is mid-flash; the GUI's disabled buttons and busy pill
    tell the user what is happening, and a CLI user gets the same answer.
 5. **Do nothing; keep firmware in the Arduino IDE** — rejected: it leaves
-   the part's design record incomplete (P6) and the toolchain unreproducible
-   per machine (P8: no snowflake dev laptops).
+   the part's design record incomplete (`decisions-are-documented`) and the toolchain unreproducible
+   per machine (`systems-over-heroics`: no snowflake dev laptops).
 
 ## Revision triggers
 
@@ -238,7 +238,7 @@ is a local control, not a service.
   version is bumped — §3's install is re-run for real and offline-built
   before the bump lands.
 - `apothecary/firmware/` plus its CLI exceeds roughly 4,000 lines, or the
-  flash-record file grows into something that wants a schema migration — P4 size smell; re-examine what an engine should
+  flash-record file grows into something that wants a schema migration — `build-the-seam-buy-the-engines` size smell; re-examine what an engine should
   own.
 - The server gains any non-localhost binding or authentication — §5's
   threat model changes and this record must be revisited before that ships.

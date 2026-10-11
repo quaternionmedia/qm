@@ -116,7 +116,7 @@ need a reset at all.
    reset and a release until it ends. Pause stops the feed; cancel, a
    refused line and a silent one send a fixed safe-off (heaters and fan
    off, motors free, no blind park); the emergency stop ends it with
-   nothing more sent. Every print is a record with its outcome. P4's
+   nothing more sent. Every print is a record with its outcome. `build-the-seam-buy-the-engines`'s
    ordering question -- which engine owns this? -- is answered by §2 and
    §4 together: the seam already owns the line protocol and the held link,
    and a second holder of the port (OctoPrint, Moonraker) is exactly the
@@ -193,7 +193,7 @@ need a reset at all.
 ## Revision triggers
 
 - A print queue, a slicer, a camera, or more than one printer fed at once
-  is wanted — §6: a new record, and P4's ordering question again with a
+  is wanted — §6: a new record, and `build-the-seam-buy-the-engines`'s ordering question again with a
   host's REST API as a candidate answer.
 - A streamed print stutters on a real machine — alternative 7: line
   numbers and checksums, or a buffer ahead of the `ok`s.
