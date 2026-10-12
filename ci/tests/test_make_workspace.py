@@ -432,3 +432,62 @@ def test_folders_are_grouped_by_the_families_as_asked_for(tmp_path: Path) -> Non
     assert result.returncode == 0, result.stdout + result.stderr
     workspace = json.loads(out.read_text(encoding="utf-8"))
     assert [f["name"] for f in workspace["folders"]] == ["hub", "second-hub", "other"]
+
+
+def test_an_included_entry_comes_first_whatever_its_family(tmp_path: Path) -> None:
+    """The corpus beside a family workspace. Mutation: return `selection`
+    unchanged from `include_named` and `qm` is absent."""
+    search = tmp_path / "src"
+    search.mkdir()
+    for name in ("qm", "hub"):
+        clone(search, name)
+    result, out, _ = generate(
+        tmp_path,
+        [
+            {"name": "hub", "family": "room", "paths": ["hub"]},
+            {"name": "qm", "role": "corpus", "family": "core", "paths": ["qm"]},
+        ],
+        "--family", "room", "--include", "qm",
+        "--families", str(families_file(tmp_path, ["room", "core"])),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    workspace = json.loads(out.read_text(encoding="utf-8"))
+    assert [f["name"] for f in workspace["folders"]] == ["qm · constitution", "hub"]
+
+
+def test_an_included_entry_already_selected_is_not_doubled(tmp_path: Path) -> None:
+    """Mutation: drop the `label_of(e) not in names` filter and `hub` appears twice."""
+    search = tmp_path / "src"
+    search.mkdir()
+    for name in ("hub", "other"):
+        clone(search, name)
+    result, out, _ = generate(
+        tmp_path,
+        [
+            {"name": "other", "family": "room", "paths": ["other"]},
+            {"name": "hub", "family": "room", "paths": ["hub"]},
+        ],
+        "--family", "room", "--include", "hub",
+        "--families", str(families_file(tmp_path, ["room"])),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    workspace = json.loads(out.read_text(encoding="utf-8"))
+    assert [f["name"] for f in workspace["folders"]] == ["hub", "other"]
+
+
+def test_an_unrostered_include_is_refused(tmp_path: Path) -> None:
+    """A typo must not silently produce a workspace without the corpus.
+    Mutation: drop the `unknown` check in `include_named` and this passes
+    with a KeyError-free, corpus-less workspace."""
+    search = tmp_path / "src"
+    search.mkdir()
+    clone(search, "hub")
+    result, out, _ = generate(
+        tmp_path,
+        [{"name": "hub", "family": "room", "paths": ["hub"]}],
+        "--family", "room", "--include", "qn",
+        "--families", str(families_file(tmp_path, ["room"])),
+    )
+    assert result.returncode != 0
+    assert "qn" in result.stderr and "hub" in result.stderr
+    assert not out.exists()

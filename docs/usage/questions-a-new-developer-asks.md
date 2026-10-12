@@ -55,7 +55,8 @@ which is what actually puts the repositories in front of you. `--family
 <name>`, repeatable, narrows it to one working system — `uv run qm families`
 lists them — so the members of a family open together without the rest of the
 estate; a family the record does not declare is refused rather than resolved
-to an empty window.
+to an empty window. `--include qm` puts the corpus first beside a family, so
+the harness, the handoffs and the estate reader open with it.
 
 **"Will my commits be rejected for anything I have not set up?"**
 

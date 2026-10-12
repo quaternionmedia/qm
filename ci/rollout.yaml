@@ -78,7 +78,7 @@ rollouts:
       - name: performing
         families: [instruments, show-control, performer-display]
       - name: unstated
-        # families.json's `unstated` list at the time of writing; a repository
-        # that later claims a family belongs to that family's phase instead.
-        repos: [alfred, benchmark, factorio-sysops, private-32, private-33, private-34, rad]
+        # Repositories with no stated family; a repository that claims a family
+        # belongs to that family's phase instead.
+        repos: [alfred, benchmark, factorio-sysops, private-32, private-33, rad]
     claims: []
