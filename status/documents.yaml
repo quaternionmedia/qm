@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-11T10:52:07Z'
+generated_at: '2026-10-11T18:16:17Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -121,12 +121,12 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 222
+  documents: 223
   by_state:
     draft: 3
     generated: 7
     proposed: 36
-    standing: 76
+    standing: 77
     transient: 38
     unreviewed: 62
   disagreements: 0
@@ -205,6 +205,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: docs/cookbook/build-these-docs.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/cookbook/develop-a-family-member.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null

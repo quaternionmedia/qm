@@ -1,0 +1,432 @@
+# The performing family, as one demo: which branch of each member runs, on
+# which port, and the two commands every member answers.
+#
+# Read by ci/family_demo.py (`uv run qm family-demo`). Hand-authored, so it is
+# a claim and lives in ci/ per handbook/config-standard.md: it states what the
+# demo will ask of each member. What each member actually did is the run's
+# manifest, written outside the repository on every run and never committed.
+#
+# Every name here is a roster name. A member is resolved to a clone through
+# ci/workspace.yaml exactly as `qm estate` resolves it, and the harness refuses
+# a member the roster does not carry. Which family a member belongs to is the
+# roster's claim, not this file's; this file only says when it joins the demo.
+#
+# A phase that does not run is still listed. Its members are declared with a
+# reserved port and with what each needs before it can join, so the demo's
+# denominator is the whole performing family rather than whatever happened to
+# start. A family member this file does not place at all is printed as
+# unplaced by every run.
+#
+# Who owns which check. A check of one member alone -- its selectors, what its
+# screen must show -- lives in that member, behind the contract's `check`.
+# What needs several members, or the machine, lives here, in ci/family_demo.py:
+# every member up at once, each on its own ports and nothing else's, its state
+# in its scratch directory and its checkout untouched, and any seam between
+# two members. The demo knows no member's selectors.
+#
+# WHICH COMMIT. A running member names the `branch` that carries the contract,
+# stacked on the active work it sits on (`stacks_on`), and the harness resolves
+# it in the roster's clone: a local branch first, then `origin/<branch>`. The
+# manifest records which, and whether the branch really contains `stacks_on`.
+# Each member's `feat/family-control` is its contract branch with its side of
+# the family links on top: the routes the hub delivers to, or leo's follow mode.
+# `choice` says why that line of work, where choosing was a judgement.
+# `--ref <member>=<ref>` overrides the branch for one run.
+#
+# PLACEHOLDERS in commands, environments and URLs:
+#   {checkout}     this run's own clone of the member, at the resolved commit
+#   {state}        this member's scratch directory for this wave
+#   {host}         the address every member binds
+#   {port}         the member's served port (`serves`); {port:<name>} any of its ports
+#   {url}          the member's `url`, expanded
+#   {shots}        where this wave's check writes its pictures
+#   {token}        a string unique to this run
+#
+# Every port sits inside `ports`, and every member's default port is replaced
+# on its command line: the defaults collide, and a developer's own server is
+# usually up on one, so measuring it would test whatever happened to be running.
+# `--port-offset N` moves all of them, the stage's included, for a second family.
+#
+# THE DEV LOOP. A running member's `dev` block is read only for a member run
+# from a working checkout (`--src`, or `--dev`) under `--reload`, while the
+# family is held. `restart_on` lists the files whose change makes the harness
+# restart the member; `refresh_on`, the files the member reads afresh, whose
+# change only reloads its frame on the stage; `reloads` says what the member
+# reloads by itself. No member is given a reload flag: uvicorn's reloader stops
+# its worker on Windows with a console Ctrl+C, which a member started in a
+# process group of its own ignores, so it logs a reload and goes on serving the
+# old code. The harness restarts the member instead.
+
+schema: 2
+
+ports:
+  first: 18400
+  last: 18499
+
+host: 127.0.0.1
+
+# THE CONTRACT. Every member that runs is started with `serve` and checked with
+# `check`, appended to its `entry`, and with nothing else.
+#
+#   serve  serves the member on {host}:{port} until interrupted, every database,
+#          log and data file it makes under {state}; it binds no port it was
+#          not given, and answers 2xx at its `url` only once it can be checked.
+#   check  runs the member's own behavioural check against the instance already
+#          answering at {url} -- it starts none -- and writes every picture it
+#          takes under {shots}. Exit 0: every assertion held. Exit 1: one did
+#          not. Any other status: the check could not say, and its last line of
+#          output says why.
+#
+# A member that cannot honour it yet carries a stub: `serve` that refuses, or a
+# `check` that prints `not_implemented` and exits non-zero. A stub is reported
+# as not implemented, never as a pass.
+contract:
+  serve: [serve, --host, "{host}", --port, "{port}", --state, "{state}"]
+  check: [check, --url, "{url}", --shots, "{shots}"]
+  not_implemented: "not implemented"
+  # How long one check may run. joe's runs its audio pipeline, which imports
+  # librosa and music21 before it answers.
+  check_seconds: 600
+
+# The browser the demo's own check of its page drives. Pinned, so that check is
+# the same on every run; the pin must match a Chromium build already installed,
+# and the harness says so rather than downloading one. A member's check brings
+# its own browser.
+browser:
+  playwright: "1.62.0"
+  python: "3.12"
+
+# THE STAGE. `uv run qm family-demo --stage` brings the core up, creates this
+# show in the hub through the hub's own REST routes, and serves one page on
+# `port`: the cue list, a GO button that fires the hub's cue programmer, and a
+# panel per member. ShowRunner delivers each cue's `family` block itself, and
+# the stage performs no member action: it presses GO, then asserts what each
+# member says about itself and what the hub says it delivered. A headless check
+# plays the show and records a picture after every cue. ci/family_stage.py
+# holds the actions the shared spec gives each member and what each member's
+# state must then show; ci/family_stage_run.py is the one file that names a
+# member's page.
+#
+# Every link is claimed at its width. The hub firing and logging a cue is real.
+# A linked member the hub reaches with nothing in between is app to app, and
+# the stage's check establishes it on every run.
+stage:
+  port: 18405
+  # THE LINKS. Each member by its name in a cue's family block -- the name the
+  # hub's [plugins.family] table gives it -- and how the hub reaches it. `push`
+  # is the label of the member's port that answers POST /family/cue and GET
+  # /family/state. `pull` is the query that opens the member's page following
+  # the hub, which then reads its action from GET /family/members/<name>;
+  # {hub} is the hub's address. In the stage, the hub's `serve` is handed these
+  # (--family NAME=URL, --family-pull NAME) and writes them into its show.toml.
+  links:
+    showstopper: {member: ShowStopper, push: web}
+    carlos: {member: carlos, push: http}
+    joe: {member: joe, push: api}
+    leo: {member: leo, pull: "?follow={hub}"}
+  show:
+    name: Demo night
+    cue_list: Main
+    cues:
+      - number: 1
+        name: House open
+        layer: Stage
+        family:
+          leo: {song: Autumn Leaves}
+          carlos: {patch: novation.launchpad-x.complex}
+      - number: 2
+        name: Count in
+        layer: Sound
+        family:
+          showstopper: {clock: start}
+          joe: {take: {notes: [C4, E4, G4, C5], seconds_per_note: 0.5}}
+      - number: 3
+        name: Second tune
+        layer: Stage
+        family:
+          leo: {song: Blue Bossa}
+          carlos: {turn: back}
+      - number: 4
+        name: The solo
+        layer: Sound
+        family:
+          carlos: {patch: moog.dfam.complex}
+          joe: {take: {notes: [G3, B3, D4, F4, G4], seconds_per_note: 0.5}}
+      - number: 5
+        name: Curtain
+        layer: Lights
+        family:
+          showstopper: {clock: stop}
+          leo: {song: Take The A Train}
+  # One panel per running member: its role in one line, and whether it is the
+  # member's own page in a frame or the stage's own session of it, pictured.
+  panels:
+    ShowRunner:
+      role: The hub. It fires each cue, logs it, and delivers its family block.
+      shows: frame
+      path: /programmer
+      note: >
+        ShowRunner's own programmer page, live. Its clock and cue line move
+        when the hub fires, whoever pressed GO.
+    ShowStopper:
+      role: The clock. The show's stopwatch runs from the count-in to the curtain.
+      shows: frame
+      note: >
+        ShowStopper's own page, live. The clock lives in its serve process, and
+        every page it serves shows that one clock, so this frame shows the
+        clock the hub started.
+    carlos:
+      role: The rig. Which instruments are patched, and how they face.
+      shows: frame
+      note: >
+        carlos's own rack, live. The server holds the patch and the facing,
+        and an open rack applies what the hub sends without a reload.
+    joe:
+      role: The take. What was played, heard back as notes.
+      shows: session
+      note: >
+        The stage's own session of joe's page. The page shows a take once it
+        is asked to fetch one, so after each take the stage presses Fetch
+        Latest in its own session -- a read, not the take -- and pictures it.
+    leo:
+      role: What the performer reads. The chart of the song that is on now.
+      shows: frame
+      note: >
+        leo itself, live, opened following the hub: it reads the song from
+        the hub and changes chart in place.
+
+phases:
+  - id: core
+    runs: true
+    note: >
+      The hub, the timer, the rack and the two performer displays. The first
+      slice of the simultaneous-run plan, and the only phase that starts.
+  - id: instruments
+    runs: false
+    note: >
+      Looping, MIDI control and mixing. Joins once each member has a baseline of
+      its own and a target that touches no real device.
+  - id: show-control-libraries
+    runs: false
+    note: >
+      Client libraries and transport scripts with no surface of their own. They
+      join through a hub's plugin seam or a fake endpoint, not as processes.
+
+members:
+  # --- core ---------------------------------------------------------------
+
+  - name: ShowRunner
+    phase: core
+    # The family plugin, on a local merge made for this demo and never offered
+    # for review. The stage fires its cues through the cue programmer, which is
+    # active work on Peter's integration line (integrate/2026-09-20, draft pull
+    # request #30); the split series that carries the contract
+    # (feat/family-demo-contract, on feat/walkthrough) does not have it.
+    # Splitting ShowRunner's work into reviewable pieces is mrharpo's to do, so
+    # demo/family-stage merges the two lines whole rather than cutting the
+    # programmer out of one, and feat/family-dispatch adds the family plugin,
+    # which delivers each fired cue's family block, on top of it.
+    branch: feat/family-dispatch
+    stacks_on: integrate/2026-09-20
+    choice: >
+      The programmer line with the contract series merged into it -- the cue
+      programmer, its show and cue routes and the CueLog it keeps, which the
+      stage fires through, with the contract's serve and check -- and the
+      family plugin on top, which delivers each cue's family block itself.
+    install:
+      - [uv, sync, --all-extras, --frozen]
+    entry: [uv, run, --no-sync, --project, "{checkout}", sr]
+    ports: {http: 18400}
+    serves: http
+    url: "http://{host}:{port:http}/"
+    dev:
+      restart_on: ["src/**/*.py"]
+      reloads: >
+        Nothing: its pages are built in Python, so the harness restarts it.
+
+  - name: ShowStopper
+    phase: core
+    branch: feat/family-control
+    stacks_on: tests
+    install:
+      - [uv, sync]
+    entry: [uv, run, --no-sync, --project, "{checkout}", showstopper]
+    ports: {web: 18410}
+    serves: web
+    url: "http://{host}:{port:web}/"
+    dev:
+      restart_on: [family.py, showstopper_cli.py]
+      refresh_on: [stopwatch.py, stopwatch.tcss]
+      reloads: >
+        The stopwatch: textual-serve starts stopwatch.py afresh for every
+        connection, so a reloaded view runs the edited app. The serve process,
+        which holds the show clock and its routes, is restarted.
+    deviations:
+      - >
+        No lock the installer reads: the repository carries a pdm lock, so the
+        environment is resolved at install time, and `uv sync` writes a uv.lock
+        into the clone, which is recorded and not counted as a write by the run.
+      - >
+        Its check drives the stopwatch through Textual's pilot in the check's
+        own process, and asserts of the served address only that it streams the
+        app: textual-serve starts an app per connection, so there is no single
+        running app to drive.
+
+  - name: carlos
+    phase: core
+    branch: feat/family-control
+    stacks_on: fix/dials-cable-ends-and-scroll
+    install:
+      - [uv, sync, --frozen]
+    entry: [uv, run, --no-sync, --project, "{checkout}", carlos]
+    ports: {http: 18420}
+    serves: http
+    url: "http://{host}:{port:http}/rack"
+    dev:
+      restart_on: ["src/**/*.py", "tools/*.py"]
+      refresh_on: ["templates/**/*", "static/**/*"]
+      reloads: >
+        Its page: the rack's template, scripts and styles are read on every
+        request, so a reloaded view shows them. The server is restarted.
+    # What the member says about itself, asked before its check: the socket
+    # that answered, and the database it resolved. A stale server or a shared
+    # database is caught here before the rack is attributed to this run.
+    identity:
+      url: "http://{host}:{port:http}/healthz"
+      port: port
+      state: database
+
+  - name: joe
+    phase: core
+    branch: feat/family-control
+    stacks_on: docs/walkthrough
+    choice: >
+      The voice-loop stack with both of its stacks merged and the walkthrough
+      on it: every open line of joe's work in one tip. The documentation pull
+      requests that named a qmcp flag qmcp has not landed were closed, so the
+      walkthrough sits on the voice loop alone.
+    install:
+      - [uv, sync, --frozen]
+      - [npm, ci, --no-audit, --no-fund]
+    entry: [uv, run, --no-sync, --project, "{checkout}", joe]
+    # `qmcp` is reserved and never bound: the page's qmcp proxy points at it, so
+    # a qmcp somebody has running cannot answer, and the check expects none to.
+    ports: {web: 18430, api: 18431, qmcp: 18432}
+    serves: web
+    unbound: [qmcp]
+    serve_args: [--api-port, "{port:api}", --qmcp-url, "http://{host}:{port:qmcp}"]
+    env:
+      JOE_CUES: "0"   # no turn tones: they play on an output device
+    url: "http://{host}:{port:web}/joe/"
+    dev:
+      restart_on: ["*.py", "Modules/**/*.py"]
+      reloads: >
+        Its page: Vite's dev server swaps an edited module in place (HMR). The
+        API is restarted, and Vite with it, because one serve runs both.
+    # Kept in the clone despite --state: the API resolves Data/ against its
+    # working directory, and the pipeline and voice modules against the
+    # checkout. Emptied in this run's own clone before each wave.
+    state_in_checkout: [Data]
+
+  - name: leo
+    phase: core
+    branch: feat/family-control
+    stacks_on: walkthrough
+    choice: >
+      The setlist pull request, with the walkthrough on it that asserts a chart
+      and a setlist filter.
+    install:
+      - [uv, sync, --frozen]
+      - [npm, ci, --no-audit, --no-fund]
+    entry: [uv, run, --no-sync, --project, "{checkout}", leo]
+    ports: {web: 18440}
+    serves: web
+    url: "http://{host}:{port:web}/"
+    dev:
+      restart_on: ["leo/*.py"]
+      reloads: >
+        All of its page: leo is served by Vite's dev server, which swaps an
+        edited module in place (HMR) and restarts itself for its own config.
+        Only the command that starts Vite is restarted.
+
+  # --- instruments: declared, not run ---------------------------------------
+
+  - name: holophonor
+    phase: instruments
+    ports: {main: 18450}
+    needs:
+      - the contract's serve, opening no MIDI or audio device
+      - a fixed message script the plan's instrument wave can replay
+
+  - name: midiphonor
+    phase: instruments
+    ports: {main: 18455}
+    needs:
+      - its browser target named, and the contract's serve on a given port
+      - a check that is not a placeholder
+
+  - name: wolf
+    phase: instruments
+    ports: {main: 18460}
+    needs:
+      - the contract, with a dry-run MIDI target; its default branch is dormant
+        and carries no tests
+
+  - name: ludwig
+    phase: instruments
+    ports: {main: 18465}
+    needs:
+      - a fake mixer target; it is hardware-facing and must not reach a desk
+
+  - name: waveofhormuz
+    phase: instruments
+    ports: {main: 18470}
+    needs:
+      - a branch with active work named, then the contract
+
+  - name: private-34
+    phase: instruments
+    ports: {main: 18445}
+    needs:
+      - the contract's serve with a way to not open a system browser
+      - a seam to the core; its ShowRunner driver is a stub
+
+  - name: qmetronome
+    phase: instruments
+    ports: {main: 18475}
+    needs:
+      - an emulator or device harness; it is an Android build and this demo
+        provisions browsers only
+
+  # --- show-control libraries: declared, not run ----------------------------
+
+  - name: Cuelist-python
+    phase: show-control-libraries
+    ports: {main: 18480}
+    needs:
+      - a ShowRunner plugin entry point the hub loads, so it joins inside the
+        hub's process rather than beside it
+
+  - name: QLab-python
+    phase: show-control-libraries
+    ports: {main: 18484}
+    needs:
+      - a fake QLab endpoint on a reserved port
+
+  - name: TheatreMix-python
+    phase: show-control-libraries
+    ports: {main: 18488}
+    needs:
+      - a fake TheatreMix endpoint on a reserved port
+
+  - name: cesar
+    phase: show-control-libraries
+    ports: {main: 18492}
+    needs:
+      - a mode with no DMX or video output device
+
+  - name: aes
+    phase: show-control-libraries
+    ports: {main: 18496}
+    needs:
+      - a loopback-only sender and receiver pair, measured for drops

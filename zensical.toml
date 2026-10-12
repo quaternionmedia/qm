@@ -31,6 +31,7 @@ nav = [
         "cookbook/propagate-a-change.md",
         "cookbook/read-status-documents.md",
         "cookbook/run-ci-locally.md",
+        "cookbook/develop-a-family-member.md",
         "cookbook/build-these-docs.md",
     ] },
     { "Reference" = [
