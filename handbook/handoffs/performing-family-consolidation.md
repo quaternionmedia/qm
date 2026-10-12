@@ -1,30 +1,32 @@
-# Handoff — the performing family, consolidated and running locally
+# Handoff — the performing family, consolidated and on origin
 
-**Goal.** Land the core performing family's local work (ShowRunner,
-ShowStopper, carlos, joe, leo) as stacked pull requests, keep the family demo
-consistent while it lands, and phase the rest of the family in after it.
+**Goal.** Land the core performing family's work (ShowRunner, ShowStopper,
+carlos, joe, leo) as stacked pull requests, keep the family demo consistent
+while it lands, and phase the rest of the family in after it.
 
-**Stamp.** 2026-10-11. The commits in the state table are where each branch
-stood. Every count on this page is true at those commits only, so re-derive it
-before you quote it. Facts carried over from a sub-agent are marked
-*(reported)*; per `handbook/async-contract.md` §9 they are evidence, not
+**Stamp.** 2026-10-12. The commits in the state table are where each branch
+stood on origin. Every count on this page is true at those commits only, so
+re-derive it before you quote it. Facts carried over from a sub-agent are
+marked *(reported)*; per `handbook/async-contract.md` §9 they are evidence, not
 findings.
 
 ## Standing constraints
 
-- **Keep it local.** Nothing below is pushed unless Peter says go (D14). The
-  local-only commits are deliberate, not an oversight.
+- **Peter merges** (D14). Every branch below is pushed; nothing is merged by a
+  session.
 - **Forge speech is Peter's** (D3). A comment or reply is drafted, Peter
   approves the text, and it carries a `Tools:` note. A pull request body
   carries one too.
 - **Private names.** The private instrument is `private-34` in committed text.
   This machine maps the reference to its clone in the gitignored
-  `ci/workspace-private.yaml`, in the corpus clone and in `.int/dev/qm`. Run
-  `uv run qm private-names --source host` before any push.
+  `ci/workspace-private.yaml`. Run
+  `uv run qm private-names --source host --strict` before any push.
+- **Commits are signed.** The corpus's signature gate refuses an unsigned
+  commit made after 2026-08-15. Check `git log --format=%G?` on what you are
+  about to push.
 - **`VIRTUAL_ENV` points at the corpus clone's `.venv`** in this machine's
-  shells. That `.venv` was damaged when another project's install landed in
-  it, and Peter repairs it. Unset `VIRTUAL_ENV` for every command, and run
-  qm's gates from a worktree with its own environment.
+  shells; uv ignores it with a warning. Run qm's gates from a worktree with its
+  own environment.
 
 ## Decided
 
@@ -40,102 +42,148 @@ findings.
 | D8 | `private-34`'s pre-squash branch is kept on origin as `archive/pre-squash-2026-08-09-session`. | Peter, 2026-10-10; done |
 | D9 | qmetronome #14 is closed. | Peter, 2026-10-10; done |
 | D10 | Not now: relocking Cuelist-python #1, joe's pull-request deploys, and a forge-speech permission rule. | Peter, 2026-10-10 |
-| D11 | The demo is not pushed until its commits, docs and tests agree. | Peter, 2026-10-10 |
+| D11 | The demo is not pushed until its commits, docs and tests agree. | Peter, 2026-10-10; done |
 | D12 | The links between members are real app-to-app links, not relayed by the stage. | Peter, 2026-10-10; done |
 | D13 | `--stage` skips each member's own check, because that check writes into the hub's show. Plain `qm family-demo` keeps the checks. | Peter, 2026-10-10 |
-| D14 | Peter merges. Pushes and pull-request creation wait on his go. Open work lands as stacked pull requests. | Peter, 2026-10-11 |
+| D14 | Peter merges. Open work lands as stacked pull requests. | Peter, 2026-10-11 |
 | D15 | The estate refresh is adopted as qm #138, with the demo stacked on it as #139. | Peter, 2026-10-10; done |
 | D16 | ShowMidi's fix, hotplug docs and test scripts go onto #22's own branch, not a separate one. | Peter, 2026-10-11; done, merged as `aac3487` |
+| D17 | Push every branch. Open pull requests where a branch stacks cleanly on an open one; otherwise list it here. Where mrharpo leads (ShowRunner, leo), push and list only. | Peter, 2026-10-12; done |
+| D18 | Re-sign the unpushed qm commits before pushing them. | Peter, 2026-10-12; done |
+| D19 | The fixes from the review of ShowRunner #39 go onto #39's own branch, and the review is posted. | Peter, 2026-10-12; done |
+
+D17 and D19 are acts in ShowRunner beyond what mrharpo asked for, and Peter
+asked for them after D4.
 
 ## State, as stacks (bottom first)
 
-| Repo | Stack | Pushed |
+| Repo | Stack | Pull requests |
 |---|---|---|
-| qm | `main` `df1cb51` → #138 `evolve/performing-estate-refresh` local `d287fce` (origin `3bb5503`) → #139 `evolve/performing-family-demo` local `709f32f` (origin `4801a3c`) | both PR branches are ahead of origin |
-| qm | `evolve/performing-family-consolidation` (this page) and `perspective/2026-10-09-a-comment-in-someone-elses-voice` `901d0d8`, both cut from `main` | no |
-| ShowStopper | #1 `tests` `0b72bc4` → #2 `feat/family-demo-contract` `d4668f1` → `feat/family-control` `c71b0d2` | #1 and #2 yes; control no |
-| carlos | `they` `a5540e7` → #17 `fix/dials-cable-ends-and-scroll` `3e8800f` → `deps/they-batch-2026-10-09` `7750927` → `feat/family-demo-contract` `137f88c` → `feat/family-control` `91678af` | #17 yes; the rest no |
-| joe | `restack/instruct-by-voice` `e15c83f` (#23 with `feat/transcript-lane` merged in, so it fast-forwards #23) → `docs/walkthrough` `ed6e612` → `feat/family-demo-contract` `7c2923c` → `feat/family-control` `dad2a86` | no; #23 and #26 to #33 are open on origin unchanged |
-| leo | #61 `setlist` `8dce16c` (mrharpo) → `dependencies` `62cfd90` → `walkthrough` `93922ea` → `feat/family-demo-contract` `8e70e0d` → `feat/family-control` `dcc82c0` | no |
-| ShowRunner | `main` `aac3487` includes ShowMidi (#22). Held locally per D4, all cut before that merge: `fix/app-request-import` `11244d1` → `feat/ui-tests` `ce6dbed` → `feat/walkthrough` `6d37b67` → `feat/family-demo-contract` `8a8eb6a`, and separately `demo/family-stage` `a0059b6` (integrate `2b28210` plus the contract) → `feat/family-dispatch` `32a3097` | no |
+| qm | `main` `df1cb51` → `evolve/performing-estate-refresh` `39269ec` → `evolve/performing-family-demo` `4f8df09` | #138 ready, green; #139 draft on it, green |
+| qm | `evolve/preflight-reports-environment` `9b03372`, from `main` | #161 ready, green |
+| qm | `evolve/performing-family-consolidation` (this page) and `perspective/2026-10-09-a-comment-in-someone-elses-voice` `00f1256`, both from `main` | none |
+| ShowStopper | `tests` `0b72bc4` → `feat/family-demo-contract` `d4668f1` → `feat/family-control` `c71b0d2` | #1 → #2 draft → #3 draft |
+| carlos | `they` `a5540e7` → `fix/dials-cable-ends-and-scroll` `3e8800f` → `deps/they-batch-2026-10-09` `7750927` → `feat/family-demo-contract` `137f88c` → `feat/family-control` `91678af` | #17; the three above it have none |
+| joe | #23's tip with `feat/transcript-lane` merged in, `restack/instruct-by-voice` `e15c83f` → `docs/walkthrough` `ed6e612` → `feat/family-demo-contract` `7c2923c` → `feat/family-control` `dad2a86` | none; #23 and #26 to #33 open unchanged |
+| leo | `setlist` `8dce16c` (mrharpo) → `dependencies` `62cfd90` → `walkthrough` `93922ea` → `feat/family-demo-contract` `8e70e0d` → `feat/family-control` `dcc82c0` | #61 (mrharpo); none above it |
+| ShowRunner | `fix/app-request-import` `11244d1` → `feat/ui-tests` `ce6dbed` → `feat/walkthrough` `6d37b67` → `feat/family-demo-contract` `8a8eb6a`; and `demo/family-stage` `a0059b6` (integrate `2b28210` plus the contract) → `feat/family-dispatch` `32a3097` | none; integrate is #30, draft |
+| ShowRunner | `main` `aac3487` → `mrharpo/osc` `7c1d3cc` | #39 (mrharpo), green, review posted |
+| looksatwords | `rescued/2024-09-02-flow-notebook`, `rescued/2024-11-30-cli-and-notebooks` | none |
 
-The two qm PR branches were reworded locally to keep a private name out of a
-commit message. Pushing them is a fast-forward of origin; check with
-`git rev-list --count <local>..origin/<branch>`, which must be 0.
+Also on origin with nothing to do but delete once a person agrees:
+`restack/readme-overview`, `restack/cookbook-voice-loop` and
+`docs/walkthrough-after-docs` in joe. They restack #24 and #25, both closed (D5),
+and `docs/walkthrough` replaces the third.
+
+## ShowRunner #39 and the stack
+
+#39 (mrharpo's Connection base and ShowOSC) carries eight fixes on its branch,
+`2171b46..7c1d3cc`, one commit per runtime defect. Each adds a test that fails
+before its fix. They cover a deadlock on Save, Reconnect or shutdown, an
+offline TCP target stalling every send, relays sending the incoming address,
+out-of-order dispatch, a TCP peer never reached again, NaN breaking the
+monitor, unvalidated `args`, and MIDI virtual-port retries. The review comment
+lists them. The `osc` extra now needs `python-osc>=1.10.2`. The three
+socket tests in `tests/test_osc_live.py` skip in CI, which installs no extras.
+
+Integration, checked with #39 at `2171b46` merged into `feat/family-dispatch`:
+
+- Five conflicts, all additive:
+  - `docs/ref/plugins.md`: both sections.
+  - `show.toml`: the stack's live config plus #39's commented examples.
+  - `pyproject.toml`: the stack's `python_version < '3.13'` rtmidi marker plus the `osc` extra.
+  - `tests/test_plugins.py`: the count becomes 20.
+  - `uv.lock`: relocked.
+- The suite passed, the stack's tests plus #39's, none lost.
+- `qm family-demo`, plain and `--stage`, passed: five of five cues delivered.
+
+The stack's only edits to `midi.py` are #22's two original commits, which #39
+contains. When #39 lands on `main`, the stack takes `main` with the same five
+resolutions. That merge was not repeated at `7c1d3cc`.
+
+#30 conflicts with `main` with or without #39. `db.py`'s import list wants the
+union.
+
+The hub then has two OSC senders: ShowProgrammer's `osc-targets` (and
+ShowMixer for Ardour), and ShowOSC. Which one cues go through is undecided.
 
 ## The machine: a manual integration loop
 
 - **Dev checkouts:** each core member is a worktree at
   `repos/qm/.int/dev/<member>`, on its top branch. The qm harness runs from
-  `.int/dev/qm`.
+  `.int/dev/qm`. The held loop from 2026-10-11 is stopped; nothing listens on
+  18400 to 18700.
 - **Live loop:** `uv run qm family-demo --dev --open --work <repos>/qm/.int`,
-  run from `.int/dev/qm`. The stage is on 18405. Vite members hot-reload, and
-  Python members restart when a file changes.
-  `docs/cookbook/develop-a-family-member.md` is the full loop.
+  run from `.int/dev/qm`. `docs/cookbook/develop-a-family-member.md` is the
+  full loop.
 - **Gate before a commit:** the member's own suite, then `qm family-demo` both
   plain and with `--stage`, using `--work <repos>/qm/.int/g --port-offset 100`.
-- **Performing workspace:** `repos/performance-machine.code-workspace` is
-  written by `qm workspace --family show-control --family instruments --family
-  performer-display --include qm`. It resolves every member, `private-34`
-  included, through the private companion.
+  The last gate passed both forms at the tips above.
+- **Wave 0, rest of the family:** `private-34`'s suite and TheatreMix-python's
+  pass from clean clones. The other later members have no suite.
 
 ## Unfinished, and what done looks like
 
-- **qm #138 and #139 pushed** (Peter's go). Done when both fast-forward origin,
-  and the #138 body's docs-check claim is corrected: the commit it described
-  failed `qm docs check` until the cookbook regeneration that is now in it.
-- **Member stacks opened as stacked pull requests** (Peter's go), in the order
-  of the table above. Done when each layer is a pull request on the one beneath
-  it and every layer is green.
-- **ShowRunner's held stack, rebased onto `main`.** ShowMidi landed after these
-  branches were cut, and `demo/family-stage` carries the older ShowMidi from
-  integrate. Done when `feat/family-dispatch` sits on `main`, its suite and
-  `qm family-demo --stage` pass, and mrharpo has been asked through a draft
-  Peter approves (D3, D4).
-- **`private-34` in the demo.** It is declared in the instruments phase and not
-  run. Done when it implements the contract: `serve` on a given port without
-  opening a system browser, and `check` against `/wall/state`. A seam to the
-  hub is a separate question: its ShowRunner driver is a stub.
-- **Handoff queue consolidation** (`handbook/consolidation-runbook.md` Step 7):
-  not done in this pass. Many qm pull requests from other sessions are open.
+- **qm, in order:** Peter merges #161 and #138. #139 is retargeted to `main`
+  and marked ready, then merged. The status documents are regenerated on the
+  new `main` as their own pull request. Done when `qm docs check` is clean and
+  `status/harness.yaml` is inside its budget. A stash in the corpus clone holds
+  the stopped session's regeneration; it is superseded by that pull request.
+- **`the-performing-estate-refreshed.md`** arrives with #138, stamped
+  2026-09-20, and this page replaces it. Done when it is deleted after #138
+  merges. Its open residue is folded below.
+- **carlos:** draft pull requests for the three layers above #17, each based
+  on the one beneath it.
+- **joe:** a base for `docs/walkthrough` once #23's stack lands. Then its
+  stack becomes draft pull requests.
+- **ShowRunner:** after #39 lands, `feat/family-dispatch` takes `main` with
+  the resolutions above. Whether the held branches are wanted is mrharpo's
+  (D4).
+- **`private-34` in the demo:** its contract, `serve` without a system browser
+  and `check` against `/wall/state`. Its seam to the hub is separate; its
+  ShowRunner driver is a stub.
+- **The rest of the family:** each later member's `needs` in
+  `ci/family-demo.yaml`.
+
+From the 2026-09-20 estate page, still open: Cuelist-python #1, qmetronome
+#15, carlos #17, leo #61, ShowRunner #30. ShowStopper's
+`fix/textual-containers` is on origin, waiting to be deleted (D6). dossier and
+looksatwords each keep a `feat/loose-ends` branch with no pull request, by
+decision. The eighteen synthesis questions still gate the first stubs.
 
 ## Blocked, and on whom
 
 - **Peter:**
-  - every push and merge;
+  - every merge;
   - the qm `.venv` repair;
   - two pushed commit messages that name the private instrument (`444f510`,
     `f208a2c` on #138 and #139), which only a history rewrite of those pull
     requests removes;
-  - carlos #17's merge.
+  - deleting the three joe leftovers;
+  - which OSC sender cues use.
 - **mrharpo:**
-  - ShowRunner #30's split, and whether the held branches above are wanted;
+  - #39's merge;
+  - #30's split, and whether the held ShowRunner branches are wanted;
   - leo #61;
-  - the stale drafts holophonor #11, ludwig #9, QLab-python #2,
-    TheatreMix-python's `showrunner` branch, qmetronome #13 and joe #4;
+  - the stale drafts holophonor #11, ludwig #9, QLab-python #2, qmetronome #13
+    and joe #4;
   - archiving cesar and aes.
 
 ## Not verified
 
-- The member stacks' new CI workflows have not run on a hosted runner, and their
+- The member stacks' CI workflows have not run on a hosted runner, and their
   browser pages have not run on Linux *(reported)*.
 - The ShowRunner shutdown hazard: its server leaves child processes that must
-  be forced at shutdown, in every run. Cause not established.
-
-## ShowMidi, landed
-
-#22 merged as `aac3487`. It carries the WinMM input fix: a client whose close
-fails is retired instead of reused. It also carries `scripts/midi/hotplug.py`
-(virtual-device harness), `scripts/midi/watch.py` (hand-test watcher) and
-`docs/cookbook/midi-hotplug.md`, whose results table is the record. One
-limitation stays open there by design: a replug inside one reconnect interval
-is not noticed. It reproduces on a virtual port and did not occur on a
-Launchkey 49.
+  be forced at shutdown, in every gate run with or without #39. Cause not
+  established.
+- #39's fixes were integrated with the stack only at `2171b46`, not at
+  `7c1d3cc`.
 
 ## Defects found, not yet filed (filing is outward, per D3)
 
 | Repo | Defect | Provenance |
 |---|---|---|
+| ShowRunner #39 | `GET /midi/` changed shape; `midi.out` never fires; `/osc` nav entry without python-osc | read, not run; named in the #39 review |
 | ShowRunner | ShowMidi defects 2 to 5 from the first #22 comment | reported |
 | ShowRunner, carlos | uvicorn hangs at shutdown on Windows after a connection reset | reported |
 | leo `main` | the setlist lists one song fewer than its count (`per_page: -1`) | reported; `setlist` rewrote search |
