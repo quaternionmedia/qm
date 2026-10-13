@@ -5,16 +5,17 @@
 | **Status** | Proposed |
 | **Date** | 2026-09-15 |
 | **Pends on** | Human ratification of *QM constitution adoption scope for Apothecary*, which fixes this project's disposition toward externally-invoked copyleft binaries (its Consequences name `openscad` as the precedent this record extends). |
-| **Tools** | Claude Code (Anthropic) assisted the 2026-09-19 revision (§6's scope, the cross-reference to the printer seam) and the 2026-10-10 revision (§2's modules, Rust for the ESP32, §6's port rule); the human who sponsored the work is the contributor of record. |
+| **Checked against** | apothecary `4426724` (`build/governance`) |
+| **Tools** | Drafted with Claude Code (Anthropic); the person who ratifies it is its contributor of record |
 
 ## Context
 
 Several parts in the library are not only geometry. The footpedal is an
 Arduino running MIDI firmware (`parts/footpedal/footpedal.ino`, FastLED +
-Control Surface); the modular RC snowplow is headed the same way. Until now
-Apothecary rendered the enclosure and left the microcontroller to a separate
-tool with no link back to the part — the design record of a physical object
-stopped at the plastic.
+Control Surface); the modular RC snowplow is headed the same way. A tool
+that renders the enclosure and leaves the microcontroller to a separate
+tool, with no link back to the part, keeps a design record of a physical
+object that stops at the plastic.
 
 The two engines that matter are both mature, openly licensed, and built for
 exactly this: **arduino-cli** (GPL-3.0; Arduino's own CLI for boards, cores,
@@ -29,13 +30,13 @@ the adoption-scope record's audit already classes that shape as acceptable
 under the open-license record's copyleft clause because it is invoked, never
 linked or vendored.
 
-Not every sketch is Arduino's to build. The owner chose, on 2026-10-08, to
-program the classic ESP32 in Rust as well (`esp-hal`, no_std): a build
-`arduino-cli` cannot make, which this record's own revision trigger
-anticipated. The engines for it -- `cargo` on Espressif's Xtensa Rust, and
-**espflash** (MIT OR Apache-2.0) to flash -- are executables of the same
-shape, and the owner asked that Arduino and the ESP32 be modules of one seam,
-so that a later board family or language is a module added, not a redesign.
+Not every sketch is Arduino's to build. The classic ESP32 is also
+programmed in Rust (`esp-hal`, no_std): a build `arduino-cli` cannot make.
+The engines for it -- `cargo` on Espressif's Xtensa Rust, and **espflash**
+(MIT OR Apache-2.0) to flash -- are executables of the same shape. A second
+way of building for one board family is the first of several (the
+ESP32-C3 on stable Rust, AVR, the RP2040), and a seam built around one
+engine pair makes each of them a redesign.
 
 Apothecary is a `uv`-managed local tool plus a localhost FastAPI server
 (`one-house-stack` house stack). The server executes binaries and opens serial ports on
@@ -115,7 +116,7 @@ is a local control, not a service.
    its last step reads the whole image and fails if any of them appears, so
    no build path -- and so no user name -- reaches a flashed board.
 
-6. **A board is described from three independent sources, and the GUI
+6. **A board is described from four independent sources, and the GUI
    shows where they disagree.** *Detected*: the serial port and USB bridge,
    by each module's own finding (`arduino-cli board list` for Arduino;
    pyserial's port list, which opens nothing, for Rust). *Probed*: chip
@@ -124,8 +125,10 @@ is a local control, not a service.
    port.
    *Expected*: a `FlashRecord` Apothecary writes on every successful upload
    — sketch, FQBN, SHA-256 of the uploaded binary and of the sketch sources —
-   keyed by MAC when known, else by port, kept in
-   `~/.apothecary/firmware-state.json` (machine state, never committed), and
+   keyed by the board's identity (its MAC, else its bridge's USB serial
+   number, else its port), kept in
+   `~/.apothecary/firmware-state.json` (`APOTHECARY_STATE_DIR` moves the
+   folder; machine state, never committed), and
    compared against the tree on every view (source edited since; newer build
    never uploaded; sketch gone). *Observed*: serial output through each
    module's own monitor. A sketch identifies itself by printing
@@ -139,8 +142,8 @@ is a local control, not a service.
    espflash (flash, board-info) and Apothecary's own serial monitor --
    pyserial, run as a process of its own, opening the port exclusively with
    DTR and RTS de-asserted so that listening does not reset the board. The
-   server process itself still opens no devkit's port, because a second
-   opener was observed to corrupt reads on a CP2102 bridge. A port two
+   server process itself opens no devkit's port, because a second opener
+   corrupts reads on a CP2102 bridge. A port two
    modules find belongs to the first (Arduino's, when arduino-cli is
    installed). A board Apothecary *monitors* rather than
    programs — a printer mainboard speaking G-code — is the deliberate
@@ -151,8 +154,8 @@ is a local control, not a service.
    it.** `GET /firmware/devices/stream` keeps one monitor per port, the
    finding module's; a board's Machine in the viewer shows it as the board's
    one log. Starting any task stops every
-   monitor first (an upload needs the port more than an overlay does) and
-   the overlay reconnects when the task ends. Bytes are paced through a
+   monitor first (a flash needs the port more than a listener does), and a
+   Machine listens again when the task ends. Bytes are paced through a
    token bucket refilled at the wire rate: a burst the UART could not have
    delivered, or a verbatim repeat arriving faster than the wire could
    resend it, is a bridge replay and is dropped; three in a row reopen the
@@ -165,27 +168,60 @@ is a local control, not a service.
    alongside OpenSCAD. GUI: the viewer's Bench panel (toolchains and their
    installs, a ring of the modules; sketches; compile and upload) and a
    board's Machine (its sketch, flashing, its log); `/firmware` opens the
-   viewer with the Bench. API: `/firmware/status`, `/toolchains` (+
-   `/toolchains/{id}/install`), `/boards`, `/boards/all`, `/cores`,
-   `/sketches`, `/devices` (+ `/probe`, `/listen`, `/stream`), and the
-   task-returning `POST`s.
+   viewer with the Bench. API, under `/firmware`: `/status`, `/toolchains`
+   (+ `/toolchains/{id}/install`), `/install`, `/boards`, `/boards/all`,
+   `/cores` (+ `/cores/install`), `/libraries/install`, `/sketches` (+
+   `/sketches/{name}/compile`, `/sketches/{name}/upload`), `/esptool/flash`,
+   `/devices` (+ `/probe`, `/listen`, `/identify`, `/stream`) and `/tasks`
+   (+ `/tasks/{id}`, `/tasks/{id}/cancel`); every `POST` that runs an engine
+   returns a task. The `/printers` routes and `apothecary firmware printer`
+   are the *G-code printer seam* record's.
 
 ## Consequences
 
-- The footpedal gains a `firmware.json` (`arduino:avr:uno`, FastLED, Control
-  Surface). Its sketch does not currently compile against the *current*
-  versions of those libraries (Control Surface 2.x changed the `note()` API
-  and its STL fallback collides with FastLED 3.10's); that is a content
-  defect in the sketch, surfaced by this seam rather than caused by it, and
-  is left for the part's owner — `firmware.json` can pin `Name@Version` if
-  the old combination is wanted.
+- The footpedal carries a `firmware.json` (`arduino:avr:uno`, FastLED,
+  Control Surface). Its sketch does not compile against Control Surface
+  2.x, which changed the `note()` API, beside FastLED 3.10, whose STL
+  fallback collides with Control Surface's; that is a content defect in the
+  sketch, surfaced by this seam rather than caused by it, and is left for
+  the part's owner — `firmware.json` can pin `Name@Version` if the older
+  combination is wanted.
 - Cost accepted: the first `core install esp32:esp32` is a multi-hundred-MB
   download into `~/.arduino15`; the GUI offers it as an explicit button, the
   installer never pulls a core the user did not ask for.
-- Cost accepted: the toolchain seam adds roughly 2,400 lines of control-plane
-  Python (models, two engine wrappers, installer, task runner, device
-  state, serial streaming, routes, CLI) and one page plus an overlay; `build-the-seam-buy-the-engines`'s
-  size-smell trigger applies (below).
+- Cost accepted: the seam is control-plane Python of its own -- models,
+  the modules and their engine wrappers, the installers, the task runner,
+  device state, serial streaming, routes, the CLI -- and the Bench and a
+  board's Machine on the page. Measured with `wc -l
+  apothecary/firmware/*.py apothecary/firmware/modules/*.py
+  apothecary/cli/firmware.py`, the package holds more than this seam: the
+  *G-code printer seam*'s engine wrapper (`gcode.py`) and its jobs, routes
+  and models, which share `devices.py`, `api.py` and `models.py` with this
+  seam's, and the scripted stand-ins the suites and `serve --demo` run
+  (`scripted.py`). At apothecary `4426724` that count is past the 4,000
+  lines this record's trigger set when the seam held one module, and the
+  re-examination `build-the-seam-buy-the-engines` asks for finds:
+  - every engine is bought -- arduino-cli, esptool, cargo, espflash, and
+    pyserial for ports -- and nothing in the package compiles, links,
+    flashes or speaks a bootloader;
+  - what the package holds is orchestration (the task runner, the service
+    both surfaces call), lifecycle state (flash records, pins, the state
+    folder), policy (argv shapes, the port rule, where an install may
+    fetch from) and glue (each module's argv and output parsing, the
+    replay guard);
+  - what grew is a second module with its install, which §2 exists to make
+    an addition; a second seam sharing the package; and the stand-ins;
+  - the largest single piece, the Rust install, is policy rather than an
+    engine: it lays the Xtensa toolchain out as espup does so that every
+    fetch is this process's own tool fetch, checked before it is opened,
+    with nothing written outside the tools dir (Alternative 6);
+  - the Rust module's listening is pyserial behind the seam's engine slot
+    rather than espflash's monitor (Alternative 7).
+
+  Nothing in the package is an engine an upstream should own that is not
+  already bought. The trigger below is restated per part, so that a module
+  or the shared seam growing toward an engine shows on its own, and two
+  seams and two modules sharing one package do not fire it by their sum.
 - Cost accepted: the replay guard is a workaround for a bridge/driver fault
   Apothecary cannot fix. It is bounded (drop, then reopen, then give up with
   a message), observable (marker lines in the log), and confined to the
@@ -193,14 +229,16 @@ is a local control, not a service.
   ever reproduced outside this one bench.
 - `parts/esp32_blink` is the reference implementation of the announce
   protocol in §6 and the smoke test for a fresh board or toolchain.
-- Obligation: the seam's tests run against a scripted fake `arduino-cli`
-  (`tests/conftest.py`), so CI needs no toolchain, serial port, or network.
-  The one E2E test asserts the page is honest about toolchain state in both
-  the installed and missing cases.
+- Obligation: the seam's tests run against the scripted bench in
+  `apothecary/firmware/scripted.py` -- stand-ins for arduino-cli, cargo and
+  espflash, which `serve --demo` runs too -- so CI needs no toolchain,
+  serial port, or network. The browser suites (`tests/e2e/test_bench.py`,
+  `tests/e2e/test_the_firmware_loop.py`) hold the Bench and a board's
+  Machine to what the stand-ins say is installed.
 - Obligation: the replaceability test holds by construction — a different
   build tool (PlatformIO, a bare `avr-gcc`/`avrdude` pair, `idf.py`) is a
-  new class with the same six methods, and the GUI, CLI and task runner do
-  not change. This record should be amended, not rewritten, when one lands.
+  new module with the same six methods, and the GUI, CLI and task runner do
+  not change; §2's list and §6's port rule name it.
 
 ## Alternatives considered
 
@@ -225,6 +263,21 @@ is a local control, not a service.
 5. **Do nothing; keep firmware in the Arduino IDE** — rejected: it leaves
    the part's design record incomplete (`decisions-are-documented`) and the toolchain unreproducible
    per machine (`systems-over-heroics`: no snowflake dev laptops).
+6. **espup as the Rust installer** — espup is Espressif's own installer for
+   the Xtensa toolchain, and the install here lays the toolchain out as it
+   does. Rejected because espup fetches for itself, as a subprocess: its
+   downloads would be outside the socket guard and outside the checks the
+   installer makes, where every fetch here is this process's own tool
+   fetch to `TOOL_SOURCES` (the *Personal data stays on the device, by
+   construction* record, §2), each archive checked against a published or
+   pinned digest before it is opened, and nothing a download carries is
+   run. The cost is the installer's own lines, which the size trigger
+   below counts with the module.
+7. **espflash's monitor for the Rust module's listening** — espflash is
+   already the module's flasher. Rejected because its monitor resets the
+   board when it starts and draws a terminal to be parsed, where pyserial,
+   already the seam's serial engine, lists ports without opening any and
+   opens one without pulling the board into reset (§6).
 
 ## Revision triggers
 
@@ -237,9 +290,16 @@ is a local control, not a service.
 - Espressif changes how it publishes the Xtensa toolchain, or a pinned
   version is bumped — §3's install is re-run for real and offline-built
   before the bump lands.
-- `apothecary/firmware/` plus its CLI exceeds roughly 4,000 lines, or the
-  flash-record file grows into something that wants a schema migration — `build-the-seam-buy-the-engines` size smell; re-examine what an engine should
-  own.
+- Measured with `wc -l` at the commit a change lands on, one toolchain
+  module's own files exceed 2,000 lines -- for Arduino,
+  `firmware/modules/arduino.py` and `firmware/toolchains.py`; for Rust on
+  the ESP32, `firmware/modules/rust_esp32.py`, `firmware/rust_installer.py`,
+  `firmware/serial_monitor.py` and `firmware/image_paths.py`; a module
+  added names its files here -- or the package and its CLI less those
+  files, `gcode.py` and `scripted.py` exceed 6,000 lines, or the
+  flash-record file grows into something that wants a schema migration —
+  `build-the-seam-buy-the-engines` size smell; re-examine what an engine
+  should own. At apothecary `4426724` neither count has reached its line.
 - The server gains any non-localhost binding or authentication — §5's
   threat model changes and this record must be revisited before that ships.
 - The *adoption scope* record is ratified — re-check §2's reliance on its
