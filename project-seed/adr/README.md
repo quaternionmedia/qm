@@ -4,9 +4,8 @@
      (project/<name>, created from main) as adr/README.md, and delete this
      comment. Then replace every <name> placeholder with the project's own
      name: a copy that keeps one is a template being shown to its reader,
-     and project-seed/ci/check_placeholders.py refuses it. This instruction
-     was in project-seed/ide/AGENTS.md's banner and not in this one, which is
-     why ten project branches carried an unsubstituted <name> in this file. See root README.md's "Forking a new project" section. -->
+     and project-seed/ci/check_placeholders.py refuses it. The procedure is
+     handbook/forking-a-project.md, step 2. -->
 
 This directory is the project's decision memory. This file is the contract
 for producing and maintaining it. The discipline exists because decision
