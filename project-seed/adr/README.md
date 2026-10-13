@@ -225,12 +225,13 @@ describing the rule, not breaking it, which is why the template's own
 drafting-rules comment and the discipline record's own enumeration do not
 trip it.
 
-`submodule-check.yml` is the second workflow, and it is self-contained
-rather than run from the submodule. It verifies every submodule's pinned
-commit exists on that submodule's own remote, catching a pointer bump
-committed without pushing the submodule — which resolves fine locally and
-fails much later, in whatever workflow fetches first, as
-`upload-pack: not our ref`. Two QM projects have hit it.
+`submodule-check.yml` is copied the same way, and it too runs its script
+out of the submodule: it checks out the governance submodule and no other,
+and runs `governance/qm/project-seed/ci/check_submodule_pins.py`. It
+verifies every submodule's pinned commit exists on that submodule's own
+remote, catching a pointer bump committed without pushing the submodule —
+which resolves fine locally and fails much later, in whatever workflow
+fetches first, as `upload-pack: not our ref`.
 
 The license gates required by the org open-license record are doctrine
 rather than one fixed script, and they are cumulative: wire an SBOM per
