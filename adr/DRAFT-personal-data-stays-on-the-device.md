@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-10-13 |
-| **Pends on** | Nothing — ready for ratification |
+| **Pends on** | Whether a made piece is saved as a variant. §6 says it is saved, varied and committed as a part is; apothecary `6e420b8` (`build/governance`) gives a made piece's ring Part › Edit, Apply, Revert, View and History, and no Save or Variants. The question is open: this record is ratified once §6 or the page is changed to match the other |
 | **Checked against** | apothecary `77f75c8` (`build/governance`), where §1's install points are built and §7's tests hold them |
 | **Established by** | importing the geometry library and each install point in a fresh interpreter, with an audit hook on `socket.*` events (`tests/test_stays_local.py`, §7), and Alternatives 8 to 10 on a copy of apothecary with the install moved there; `strace -f -e trace=network` of a Rust install, an offline Rust build and an OrcaSlicer slice (§5); uvicorn 0.38.0's binding, in a network namespace of its own (§3) |
 | **Tools** | Drafted with Claude Code (Anthropic); the person who ratifies it is its contributor of record |
@@ -297,7 +297,7 @@ human-only contributorship.
    made from one of its shapes stays, marked as made from a picture since
    forgotten, and keeps the outline it was made from until the site is
    reset or the piece dropped -- a made piece is a part, and is saved,
-   varied and committed as a part is. The
+   varied and committed as a part is (open: see *Pends on*). The
    comms log is served on loopback and saved only when the person clicks
    *Download*, into their own downloads folder. The state folder, a
    camera's `captures/` and the browser's `uploads/` are made readable by
