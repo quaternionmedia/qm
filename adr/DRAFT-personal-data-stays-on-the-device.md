@@ -2,74 +2,66 @@
 
 | | |
 |---|---|
-| **Status** | Draft |
-| **Date** | 2026-09-20 |
-| **Tools** | Drafted with Claude Code (Anthropic). The audit that grounds it was run against `consolidate/2026-09-19` as a fan-out of readers over the repository, its findings checked by hand and by `strace`. What each import of the package loads, and what each install point weighed here would guard, was established by importing each module in a fresh interpreter: against `review/2026-09-26` at `595b433`, where importing the package installs the guard, and against scratch copies of that commit with the install moved to each shape weighed here. The `uvicorn` behaviour in §3 is that of uvicorn 0.38.0, run in a network namespace of its own. The hosts the Rust install for the ESP32 reaches were established by tracing a real install and an offline build with `strace`, against `build/rust-firmware` at `0c89e92`; the slicer's, by tracing a real OrcaSlicer install and real slices, against `build/slicer` at `aa939b2`. The human who sponsored the work is the contributor of record. |
+| **Status** | Proposed |
+| **Date** | 2026-10-13 |
+| **Pends on** | Apothecary installing the guard at §1's install points and nowhere else. At apothecary `4426724` the guard is installed by `apothecary/__init__.py`, which is Alternative 8, and `tests/test_stays_local.py::test_importing_the_package_guards_every_name_for_a_socket` holds that; the record is ready for ratification when `import apothecary` installs nothing and §7's fresh-interpreter test of each install point passes. |
+| **Checked against** | apothecary `4426724` (`build/governance`) |
+| **Established by** | importing the geometry library in a fresh interpreter with an audit hook on `socket.*` events, and each install point weighed in §1 and Alternatives 8 to 10 the same way, on a copy of apothecary with the install moved there (§7); `strace -f -e trace=network` of a Rust install, an offline Rust build and an OrcaSlicer slice (§5); uvicorn 0.38.0's binding, in a network namespace of its own (§3) |
+| **Tools** | Drafted with Claude Code (Anthropic); the person who ratifies it is its contributor of record |
 
 ## Context
 
 Apothecary takes in things that are a person's own: photographs and the
 frames a camera takes, the pieces built from them, the comms log of a
 printer on the bench, its bed readings, the files streamed to it, the
-boards pinned to a site, their serial numbers and addresses. The proposed
-rule *It runs on your machine and the data stays there*
-(`docs/plans/proposals/runs-and-stays-local.md` at `consolidate/2026-09-19`)
-says none of that leaves the machine and nothing is loaded from elsewhere
-while a person is using the tool; the vendored three.js
-(`apothecary/static/vendor/three/README.md`) is that
-rule applied once, and `tests/test_stays_local.py` checks the picture path
-against it at test time.
+boards pinned to a site, their serial numbers and addresses. The rule this
+record makes structural is *it runs on your machine and the data stays
+there*: none of that leaves the machine, and nothing is loaded from
+elsewhere while a person is using the tool. The vendored three.js
+(`apothecary/static/vendor/three/README.md`) is that rule applied to one
+library.
 
 A test-time check is a promise the tests keep. It is not the program's
 shape: a server started with `--host 0.0.0.0`, a page that a later edit
 made load a script from a CDN, a library that phones home the first time
 it is used in production rather than in a test -- each would break the
 promise without a test noticing, and each is one decision away, by a
-person or by an agent. The audit that grounds this record found six of
-them in the program as it stood:
+person or by an agent. A program built from this stack has these ways
+out, whatever its own code intends:
 
 - FastAPI's own Swagger and ReDoc pages, on by default, load their scripts
-  from a public CDN, and one Markdown page carried a picture from a
-  placeholder service that the docs renderer would have fetched.
-- `arduino-cli board list`, which the seam runs on every board scan, asks
-  Arduino's cloud API about every USB device its installed cores do not
-  recognise. `~/.arduino15/inventory.yaml` on the bench machine held two
-  such lookups from that morning, for the printer's FTDI chip and a
-  CP2102: a hardware inventory, with the machine's address and the hours
-  the bench is in use, leaving with no decision by anyone. arduino-cli
-  also checks for its own updates, and lets a proxy variable or an
-  `ARDUINO_*` variable in the environment outrank its config file.
-- The server admitted a request by its peer address alone. A page from
-  elsewhere that resolves its own name to 127.0.0.1 arrives from loopback
-  and reads the server as itself: the captures, the camera labels, the
-  serial numbers, the comms log. A page from elsewhere could also post to
-  a route here without a preflight (a body with no content type is read as
-  JSON), and heat a printer or start a flash, though it could read nothing
-  back.
-- The viewer wrote a query value (`?focus=`) raw into a script literal, so
-  a crafted link the person opened would run script in this origin, read
-  every route, and carry the answer out by navigating -- the one thing a
-  page policy does not govern.
-- The picture root, unset, is the folder the server was started in; a
-  server started in a home folder serves every image beneath it.
-- The Python socket guard did not cover a TLS socket wrapped before it
-  connects, a name looked up on its own, or a proxy on loopback that
-  forwards a tool fetch elsewhere. A second round of skeptics, set to
-  break the first version of the guard without editing a file, found the
-  rest: a datagram sent by `sendmsg`, a listener bound to `0.0.0.0`, a name
-  resolved by `bind` or a reverse lookup, the original socket class still
-  reachable under its other stdlib names (`socket.SocketType`,
-  `ssl.socket`), and -- the one that matters -- that *loopback is not this
-  machine* when a service there forwards: the resolver's stub at
-  `127.0.0.53` takes a hand-built DNS question and sends it upstream.
-  They also found two pages that put a value into the document raw: a job's
-  name, and the tools folder from an environment variable on the firmware
-  page, either of which would let script into this origin; a picture route
-  that served any file under the root, not only pictures; a `sketch.yaml`
-  beside a sketch, which arduino-cli honours whatever the command line
-  says and which can name any host to fetch a platform from; and that
-  `apothecary test all` ran its server on the person's own state and
-  pictures.
+  from a public CDN, and a Markdown renderer fetches a picture a page
+  names from elsewhere.
+- `arduino-cli board list` asks Arduino's cloud API about every USB device
+  its installed cores do not recognise: a hardware inventory, sent with
+  the machine's address at the hours the bench is in use. arduino-cli
+  also checks for its own updates, lets a proxy variable or an
+  `ARDUINO_*` variable in the environment outrank its config file, and
+  honours a `sketch.yaml` beside a sketch, which can name any host to
+  fetch a platform from, over its command line.
+- A server that admits a request by its peer address alone answers a page
+  from elsewhere that resolves its own name to 127.0.0.1: that page
+  arrives from loopback and reads the server as itself -- the captures,
+  the camera labels, the serial numbers, the comms log. A page from
+  elsewhere can also post to a route without a preflight (a body with no
+  content type is read as JSON), and heat a printer or start a flash,
+  though it reads nothing back.
+- A value a page writes raw into a script literal or into the document --
+  a query value, a job's name, a folder named by an environment variable
+  -- lets a crafted link run script in this origin, read every route, and
+  carry the answer out by navigating, which no page policy governs.
+- A picture root left to its default is the folder the server was started
+  in; a server started in a home folder serves every file beneath it, and
+  a route that serves any file under the root serves more than pictures.
+- A Python socket guard has more doors than `connect`: a TLS socket wrapped
+  before it connects; a name looked up on its own, by `bind`, or in
+  reverse; a datagram sent by `sendmsg`; a listener bound to `0.0.0.0`; the
+  original socket class under its other standard-library names
+  (`socket.SocketType`, `ssl.socket`); and loopback that forwards -- the
+  resolver's stub at `127.0.0.53` takes a hand-built DNS question and sends
+  it upstream.
+- A test suite that runs its server on the person's own state folder and
+  pictures writes them into whatever the suite records.
 
 Apothecary is also a library other programs import. The README's *From
 Python* builds a scene with `from apothecary import Cube, Scene, ...`;
@@ -89,14 +81,14 @@ serves the picture root and the state; the command line's package
 of apothecary was imported would take the network from every program that
 uses the shapes, for data none of them holds.
 
-The requirement, stated by the sponsor: personal data stays on the device
-**based on the architecture of the system, never the decision of an agent
-or a user**, with one named eventual exception, *secured user accounts*.
+The requirement: personal data stays on the device **based on the
+architecture of the system, never the decision of an agent or a user**,
+with one named eventual exception, *secured user accounts*.
 
 Constraints: the firmware toolchain must still be installable from the
 firmware page (arduino-cli is downloaded from a fixed release host);
-arduino-cli, esptool and OpenSCAD are subprocesses the guard cannot see
-into; the browser tests and the docs generator run servers on this machine
+arduino-cli, esptool, OpenSCAD and the other tools §5 names are
+subprocesses the guard cannot see into; the browser tests and the docs generator run servers on this machine
 and must keep working; a program that imports apothecary for its geometry
 is that program's process, not apothecary's, and keeps its network;
 human-only contributorship.
@@ -229,8 +221,8 @@ human-only contributorship.
    it, and makes a link only of a relative, `http(s)` or `mailto` target;
    a `javascript:` target is shown as the text it was.
 5. **A subprocess that fetches is told where, and nothing else tells
-   it.** arduino-cli, esptool, cargo, espflash, OpenSCAD and OrcaSlicer
-   are outside a Python guard. Of these only arduino-cli and cargo reach out; espflash's
+   it.** arduino-cli, esptool, cargo, espflash, OpenSCAD, OrcaSlicer and
+   git are outside a Python guard. Of these only arduino-cli and cargo reach out; espflash's
    own update check is switched off on every run (`--skip-update-check`). Every arduino-cli the seam
    starts is given `--config-file` naming a file the package writes from
    `ARDUINO_CLI_CONFIG` whenever it differs: the cloud board lookup off,
@@ -275,7 +267,10 @@ human-only contributorship.
    there is no board scan by arduino-cli and so no multicast question.
    OrcaSlicer has no network function here: it runs with a data folder of
    the slice's own, and a traced slice looked up no name and opened no
-   socket.
+   socket. git, which keeps a part's saved variants as refs, runs in the
+   scrubbed environment with lazy fetches and prompts off
+   (`GIT_NO_LAZY_FETCH`, `GIT_TERMINAL_PROMPT=0`) and is given no remote;
+   sharing a variant is the person's own `git push`.
 6. **What is kept is kept here, and the picture root is a folder of
    pictures.** Personal data lives in three places and nowhere else: the
    state folder (`~/.apothecary`, or `APOTHECARY_STATE_DIR`) -- devices
@@ -372,25 +367,32 @@ human-only contributorship.
 ## Service inventory
 
 The open-license record asks every project for a list of the third-party
-services in a runtime path, with the ownability test answered for each.
-This is that list. Nothing personal is sent to any of them; each is
-reached for a tool, and each is one edit to a fixed list away from a
-mirror the person owns.
+services in a runtime path, with the ownability test answered for each and
+the residual exposure stated. This is that list. Each is reached at install
+time only, for a tool; nothing personal is sent to any of them. What every
+one of them sees is the machine's address, the time of the install and the
+version asked for.
 
-| Service | Reached by | What is sent | Replaceable by |
-|---|---|---|---|
-| GitHub releases (`api.github.com`, `github.com`, `objects.githubusercontent.com`, `release-assets.githubusercontent.com`) | the firmware installer, on *Install / update arduino-cli* | a GET of a version string's release archive and its checksums | an entry in `TOOL_SOURCES` and `RELEASES_*` |
-| `files.openscad.org` | the OpenSCAD installer, on `apothecary openscad install` | a GET of a snapshot archive named by its date | an entry in `TOOL_SOURCES` |
-| `api.github.com`, `codeload.github.com` | the OpenSCAD installer, building from source where no snapshot is published (Linux arm64) | the commit at a snapshot's date, the commits its submodules pin, and a GET of each commit's source tarball | entries in `TOOL_SOURCES` |
-| GitHub releases, as above | the firmware installer, on `apothecary firmware install --rust-esp32` | a GET of espflash's release and Espressif's Xtensa Rust, rust-src, LLVM and GCC archives at pinned versions, their checksum files, and the digests GitHub publishes for assets whose release has none | entries in `TOOL_SOURCES` and the installer's pins |
-| GitHub releases, as above | the OpenSCAD installer's fetch, on `apothecary slicer install` | a GET of OrcaSlicer's release at a pinned version, after the digest GitHub publishes for it is read and matched to the one pinned | entries in `TOOL_SOURCES` and the slicer installer's pins |
-| `static.rust-lang.org` | the firmware installer, on `apothecary firmware install --rust-esp32` | a GET of rustup-init at a pinned version and the `.sha256` beside it | an entry in `TOOL_SOURCES` |
-| `index.crates.io`, `static.crates.io` | `cargo vendor`, on `apothecary firmware install --rust-esp32` | the index entries and crate archives each Rust sketch's `Cargo.lock` names | a source replacement to a mirror the person owns, in the tools dir's cargo config |
-| `downloads.arduino.cc` | arduino-cli, on a core or library install | the index and archive names it needs | arduino-cli's own `directories`/index settings in `ARDUINO_CLI_CONFIG` |
-| `espressif.github.io`, `arduino.esp8266.com`, `github.com` (rp2040 index) | arduino-cli, on a third-party core install | the index and archive names | an entry in `PACKAGE_INDEXES` |
-| Arduino's cloud board API (`api2.arduino.cc`) | nothing: off by `ARDUINO_CLI_CONFIG` | -- | -- |
-| Arduino's update endpoint | nothing: off by `ARDUINO_CLI_CONFIG` | -- | -- |
-| the local link's multicast address | arduino-cli's mDNS discovery, on a board scan | one fixed service question | a port scan with pyserial |
+Where a service is replaceable, it is by a one-line edit to a fixed list in
+the source, reviewed as a change to this record, rather than by a setting: a
+setting naming where to fetch from is a door §2 closes. That is not the
+configuration change open-license §6 asks for, and the adoption scope's
+conflict table carries it.
+
+| Service | Reached by | What is sent | Replaceable by | Residual exposure if it withdrew |
+|---|---|---|---|---|
+| GitHub releases (`api.github.com`, `github.com`, `objects.githubusercontent.com`, `release-assets.githubusercontent.com`) | the firmware installer, on *Install / update arduino-cli* | a GET of a version string's release archive and its checksums | an edit to `TOOL_SOURCES` and `RELEASES_*` | arduino-cli cannot be installed or updated from the page; an installed one, or one on `PATH`, keeps building and flashing |
+| `files.openscad.org` | the OpenSCAD installer, on `apothecary openscad install` | a GET of a snapshot archive named by its date | an edit to `TOOL_SOURCES` | no snapshot can be installed; an installed one, or `openscad` on `PATH`, keeps rendering |
+| `api.github.com`, `codeload.github.com` | the OpenSCAD installer, building from source where no snapshot is published (Linux arm64) | the commit at a snapshot's date, the commits its submodules pin, and a GET of each commit's source tarball | edits to `TOOL_SOURCES` | no source build on Linux arm64; an `openscad` on `PATH` keeps rendering |
+| GitHub releases, as above | the firmware installer, on `apothecary firmware install --rust-esp32` | a GET of espflash's release and Espressif's Xtensa Rust, rust-src, LLVM and GCC archives at pinned versions, their checksum files, and the digests GitHub publishes for assets whose release has none | edits to `TOOL_SOURCES` and the installer's pins | the Rust toolchain cannot be installed; an installed one keeps building offline and flashing |
+| GitHub releases, as above | the OpenSCAD installer's fetch, on `apothecary slicer install` | a GET of OrcaSlicer's release at a pinned version, after the digest GitHub publishes for it is read and matched to the one pinned | edits to `TOOL_SOURCES` and the slicer installer's pins | OrcaSlicer cannot be installed; an installed one, or one `APOTHECARY_ORCASLICER` or `PATH` names, keeps slicing |
+| `static.rust-lang.org` | the firmware installer, on `apothecary firmware install --rust-esp32` | a GET of rustup-init at a pinned version and the `.sha256` beside it | an edit to `TOOL_SOURCES` | as the Rust row above |
+| `index.crates.io`, `static.crates.io` | `cargo vendor`, on `apothecary firmware install --rust-esp32` | the index entries and crate archives each Rust sketch's `Cargo.lock` names | a source replacement to a mirror the person owns, in the tools dir's cargo config | a new or changed `Cargo.lock` cannot be vendored; the vendored crates keep building offline |
+| `downloads.arduino.cc` | arduino-cli, on a core or library install | the index and archive names it needs | arduino-cli's own `directories`/index settings in `ARDUINO_CLI_CONFIG` | official cores and libraries cannot be installed; installed ones keep building |
+| `espressif.github.io`, `arduino.esp8266.com`, `github.com` (rp2040 index) | arduino-cli, on a third-party core install | the index and archive names | an edit to `PACKAGE_INDEXES` | that core cannot be installed; an installed one keeps building |
+| Arduino's cloud board API (`api2.arduino.cc`) | nothing: off by `ARDUINO_CLI_CONFIG` | -- | -- | -- |
+| Arduino's update endpoint | nothing: off by `ARDUINO_CLI_CONFIG` | -- | -- | -- |
+| the local link's multicast address | arduino-cli's mDNS discovery, on a board scan | one fixed service question | a port scan with pyserial | none past the link |
 
 Install-time fetches a person runs by hand (`uv sync`, `playwright
 install`, `npm install`, `git submodule update`) reach their registries
@@ -403,14 +405,14 @@ What this record does not close, and what would show it:
 | Risk | Why it stands | What would show it |
 |---|---|---|
 | A tunnel or forwarder on this machine (`ssh -L`, an editor's port panel, a local proxy that keeps `Host: localhost`) presents a remote peer as 127.0.0.1 | the program cannot tell a forwarded loopback connection from a local one; the forwarder is the person's, outside the program | a second person's requests in the access log; §8's record is the way to want this |
-| A commit carries a screenshot or a serial number | the walkthrough is written by a test run; a run pointed at a person's own server writes their state into tracked files, and `git push` is the person's act, outside the program | a tracked image with a real camera label; the docs generator's own server runs on temporary state |
+| A commit carries a screenshot, a serial number or a home path | the walkthrough is written by a test run, and a run pointed at a person's own server writes their state into tracked files; a fixture, a docstring or a bench record can copy a real board's USB serial number or a path on the author's disk; `git push` is the person's act, outside the program | a tracked image with a real camera label; a tracked file naming a board's real USB serial number, a home folder or a workstation's folder layout -- the seed's leak check (`check_leaks.py`) finds the paths, and a serial number is found only by reading; the docs generator's own server runs on temporary state |
 | A C extension or a dependency opens its own socket | the guard is a Python object | a `strace -e trace=network` of the server showing a connect the tests did not |
 | arduino-cli's multicast question on each scan | its bundled discovery has no off switch | named above; a pyserial scan removes it |
 | A state folder, tools folder or picture root on a network mount | a file written to a mounted share leaves by the kernel's file system client, outside any socket; the mount is the person's, made outside the program | a `mount` listing a network file system under those folders |
 | Code the person runs inside the interpreter (`sitecustomize`, a `.pth` file, `python -c` reaching for the guard's kept originals) | that is running code in the process, which no guard in the process can refuse; the guard keeps the original classes for its own tests | an import hook or a `.pth` file that names sockets; nothing in the package does |
 | A service on loopback that forwards (a proxy the person runs at `127.0.0.1:3128`, say) | loopback is this machine only as far as what listens there; the resolver's stub is refused by port, a proxy the person started is theirs | a listener on loopback that is not apothecary's, with a route out |
 | An installed core's `platform.txt` hooks, or a process on this machine racing the managed config's rewrite | a core is a program the person installed, and its hooks run at compile as it says; a process rewriting a file under the person's account is code running as them | a hook line the core's release did not carry; a config file whose content is not `ARDUINO_CLI_CONFIG` when arduino-cli reads it |
-| `ARDUINO_CLI` and `ESPTOOL` (or `PATH`) name the arduino-cli and esptool the seam runs | naming a program to run is installing one; the tests use `ARDUINO_CLI` to stand in a scripted arduino-cli and set `ESPTOOL=none` so their servers never find the esptool a person's own Arduino install bundles; whatever is named runs under the managed config and the scrubbed environment | a binary at that path that is not the tool it is named for; a checksum of the managed binaries would close it and is not built |
+| `ARDUINO_CLI`, `ESPTOOL`, `CARGO`, `ESPFLASH`, `APOTHECARY_ORCASLICER` and `APOTHECARY_OPENSCAD` (or `PATH`) name the programs the seams run | naming a program to run is installing one; the tests and `serve --demo` use `ARDUINO_CLI`, `CARGO` and `ESPFLASH` to stand in scripted tools (`apothecary/firmware/scripted.py`) and set `ESPTOOL=none` so their servers never find the esptool a person's own Arduino install bundles; whatever is named runs as the tool it stands for would -- arduino-cli under the managed config, the firmware and slicer tools with the scrubbed environment | a binary at that path that is not the tool it is named for; a checksum of the managed binaries would close it and is not built |
 | Another user on the same machine | the state folder and the captures are files under the person's home, with the person's own permissions; loopback is shared by every account | a file mode wider than the person's; the OS's boundary, not this program's |
 | A module outside the guarded packages reads personal data | the guard goes on by package, a module can be written anywhere in the tree, and §7's scan looks for known readers (`serial`, `state_dir()`, the picture root, an image library); a module that reaches the data another way passes it | the scan failing; a `strace -e trace=openat` of a program that imports only the geometry library opening a file under the state folder, a picture or a serial device |
 | A socket, a pooled connection or a name lookup made before an install point -- by a program that imports apothecary, or by the geometry library and the libraries it imports, which `import apothecary` runs before every install point | the guard replaces classes, not the sockets that exist: a socket made before the install binds `0.0.0.0` after it (measured), so a program that connects first and imports a personal-data package after keeps that connection; and Python runs a package's `__init__` before any module inside it | a connection held open across the import of a guarded package; a `socket.*` audit event while `import apothecary` loads (§7), or a socket call under `strace -f -e trace=network` of `python -c 'import apothecary'` |
@@ -449,8 +451,7 @@ What this record does not close, and what would show it:
   import would be outside it; §7's audit of `import apothecary` is what
   would show it.
 - A feature that needs an outside service is not built until it can be
-  built here, or until §8's record exists -- the proposed rule's own
-  consequence, with a mechanism behind it.
+  built here, or until §8's record exists.
 - FastAPI's Swagger and ReDoc pages are not served; `/openapi.json` is. A
   person who wants a rendered API page renders it from that file with a
   tool on their machine.
@@ -565,12 +566,12 @@ What this record does not close, and what would show it:
 - A record for secured user accounts is Proposed -- §8 becomes that
   record's context, and `stays_local.py` its seam.
 - A feature that cannot be built without another origin or an outside
-  service is wanted for a year -- the proposed rule's own trigger.
+  service is wanted for a year.
 - The tests in §7 pass while something still reaches out (a C extension,
   a subprocess carrying personal data) -- the check is theatre until the
   gap is closed, and this record says so.
 - A tool source or a package index changes hosts -- `TOOL_SOURCES` or
-  `PACKAGE_INDEXES` is edited, with a note here.
+  `PACKAGE_INDEXES` is edited, and the service inventory with it.
 - The Arduino module's board scan is made with pyserial too -- the
   multicast question in §5 and the risk register go, and the service
   inventory loses its last row.
@@ -586,8 +587,8 @@ What this record does not close, and what would show it:
   whether `apothecary.vocabulary` stays under the guard is settled with
   vision's share of the extra.
 - §7's scan finds personal data read outside the guarded packages -- the
-  module goes into one of them, or its package installs the guard, with a
-  line here.
+  module goes into one of them, or its package installs the guard, and §1's
+  list names it.
 - The geometry library starts to load a guarded package, or to make a
   socket or look up a name while it loads (a fresh-interpreter check on
   `import apothecary` fails) -- the import or the call is cut, or the
