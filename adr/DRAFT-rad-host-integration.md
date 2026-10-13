@@ -5,23 +5,23 @@
 | **Status** | Proposed |
 | **Date** | 2026-09-19 |
 | **Pends on** | Ratification of rad's own record *The menu addresses nine cells* (`quaternionmedia/rad`, `adr/DRAFT-the-menu-addresses-nine-cells.md`). This record adopts it verbatim; it cannot be Accepted while the thing it adopts is a draft. |
-| **Tools** | Drafted with Claude Code (Anthropic) against the integration branch `consolidate/2026-09-19`, with the counts below produced by running `apothecary census`; the human who sponsored the work is the contributor of record. |
+| **Checked against** | apothecary `4426724` (`build/governance`); rad `3e8794f` (`main`), where *The menu addresses nine cells* is a draft |
+| **Tools** | Drafted with Claude Code (Anthropic); the person who ratifies it is its contributor of record |
 
 ## Context
 
 The viewer (`templates/fractal_viewer.html.j2`) is a page of controls of
-its own: a toolbar, a job form, a Selected panel with boxes and buttons, a
-serial log overlay, and — since the printer seam — a Device section for the
-board pinned to a piece. The monitor page (`templates/monitor.html.j2`) is
-another: a header of buttons and, behind a latch, a control overlay that
-heats, homes and jogs a machine. Every one of those controls was invented for
-one job, and each new feature has added more. The census
+its own: a toolbar, forms, a Selected panel with boxes and buttons, a
+Device section for the board pinned to a piece, and a Machine per board
+with its link's verbs and, behind a latch, controls that heat, home and
+jog a machine. A control invented for one job is one more thing to find,
+to learn and to keep in agreement with every other surface that does the
+same, and each feature that brings its own adds to them. The census
 (`apothecary/census.py`, `apothecary census`) counts them from the page's
-own markup and refuses to give a number when it meets one nobody has
-classified; the count went from twenty to thirty-three to fifty-four on the
-viewer, and the monitor stands at fifty-one. The doctrine behind the census
-is that a page full of controls of its own becomes one ring, and the number
-falls to nothing — but until now there was no ring for it to fall toward.
+own markup, and counts and names any control nobody has classified, so a
+control cannot raise the count unseen. The doctrine behind the census is
+that a page full of controls of its own becomes one ring, and the number
+falls to nothing.
 
 rad (`quaternionmedia/rad`, Apache-2.0, `"private": true` at `0.0.0`, no npm
 export) is the organisation's radial menu: a contract for a ring of at most
@@ -44,8 +44,9 @@ returned a different menu, would be worse than the buttons it replaced.
 Licensing: rad is Apache-2.0, which passes the open-license record. Nothing
 of rad's JavaScript is copied in; apothecary's `apothecary/static/ring.js` is
 its own implementation of rad's contract, held to rad's vectors. The
-rendering library the viewer already loads from a CDN is the adoption
-record's existing gap and is not widened here.
+viewer's rendering library, three.js, is vendored
+(`apothecary/static/vendor/three/`), and the adoption scope's audit table
+carries it.
 
 ## Decision
 
@@ -79,8 +80,8 @@ standard for every ring it draws.** The specifics:
    them to; 5 or Backspace backs out; Escape closes; Enter commits; two
    arrows inside 150 ms are the corner between them, and the same corner is
    reachable by walking. **The digits pressed to reach an option through
-   nested rings are its address** (`2728` is Device › Control › Jog › Y+ from
-   a printer's node). Given the same context the same address reaches the
+   nested rings are its address** (`728` is Control › Jog › Y+ in a
+   printer's device ring, the top ring inside its Machine). Given the same context the same address reaches the
    same option. Every `Intent` carries its address; a log of choices reads as
    something a person could type back.
 
@@ -89,19 +90,18 @@ standard for every ring it draws.** The specifics:
    the top, so the ring shows the option's children and the address so far is
    the one a hand would have pressed -- never a shortcut that skips digits.
    Apothecary uses it when one step hands over to the next without the person
-   reopening the ring (the browser names several cameras after Allow, and the
-   ring reopens at Camera › Pin here to choose one). Every `Intent` also
-   carries **where the ring stood** on screen (`at`), so a ring that follows
-   from it opens in the same place. Both are host behaviour today
-   (`apothecary/static/ring.js`: `openRing({into})`, `RingInstance.enter`,
-   `Intent.at`); what any rad host may rely on is rad's to define, and they are
-   offered to its record as inputs.
+   reopening the ring. Every `Intent` also carries **where the ring stood**
+   on screen (`at`), so a ring that follows from it opens in the same place.
+   Both are this host's behaviour (`apothecary/static/ring.js`:
+   `openRing({into})`, `RingInstance.enter`, `Intent.at`); what any rad host
+   may rely on is rad's to define, and they are offered to its record as
+   inputs.
 
    An option may also be **marked**: drawn outlined with a bullet, and
    `aria-current` on its wedge, when it is what the page has chosen outside
-   the ring (a picture chosen in the Pictures panel, among the folder's seven
-   newest). A mark is display only: it changes no address and no option's
-   meaning, and the ring keeps no memory of it.
+   the ring (a picture chosen in the Pictures panel, a camera's own device).
+   A mark is display only: it changes no address and no option's meaning,
+   and the ring keeps no memory of it.
 
 5. **The census is the enforcement.** `apothecary census` counts each page's
    controls of its own and, beside that, how many of them are *ring-backed*:
@@ -111,8 +111,9 @@ standard for every ring it draws.** The specifics:
    is backed; it falls when the backed control is deleted. The migration is
    therefore one sentence, repeated: a control gains its ⌗ address (written
    into its tooltip, where the control is), is used from the ring, and goes.
-   The count is refused for any control nobody has classified, so a control
-   cannot appear without somebody deciding what kind of thing it is.
+   A control nobody has classified is counted as `unclassified` and listed
+   with its line, so it raises the meter whether or not anybody filed it,
+   and the listing says somebody has to decide what kind of thing it is.
 
    One kind of control is backed by no ring and stays: the button on a row
    of a list that shows what a page placed, pinned or kept -- the Site
@@ -127,40 +128,43 @@ standard for every ring it draws.** The specifics:
 
 6. **Three shapes of ring**, resolved server-side by `apothecary/menu.py`
    from what the page says it is pointing at (`POST /menu/resolve`), with
-   every option returned in its cell:
-   - the **node ring**, on a piece: zoom in, move, a Device option when a
-     board is pinned to the piece (absent, not greyed, when none is), why
-     this, into and up where they lead somewhere; on a root structure that
-     can hold a picture, a **Camera** group (pin here, live or still, take
-     picture, unpin) and a **Picture** group (add, the folder's pictures, its
-     views, make -- make all and each found shape --, size, unpin, forget,
-     find shapes); a picture pinned at a place is a *view*, and taking one and
-     finding its shapes are two steps; on a piece made from a picture, a
-     Picture group with its word and drop, and a Part group with edit;
-   - the **canvas ring**, on empty scene: arrangements and groups (each a
-     further ring, lettered into groups of eight when longer), the made
-     pieces under one Made option, a **Pictures** group (add, the floor's
-     camera and picture groups under Floor, purge, gather), fit, reset;
-   - the **device ring**, on a board: open (the board's Machine), poll,
-     flash, query, pin or unpin, rescan, link (reconnect, reset, release,
-     and on a devkit listen and probe), and — for a printer only — a
-     **control ring** behind it: heat, home, jog (seated so the keypad *is*
-     the jog pad: Y+ up, X+ right, Y− down, X− left, Z± in the right-hand
-     corners), fan, SD, motors off, stop (marked destructive), arm or
-     disarm. Inside a board's Machine the device ring is the top ring,
-     titled by the port. A printer's flash is shown **disabled**, not
-     absent: apothecary never flashes a printer's board, and removing the
-     cell would move every cell after it, so a hand that learned ⌗2728 for
-     jog Y+ would reach something else. This is the one exception to
-     "absent, not greyed": a cell is kept disabled only where its absence
-     would move cells a person already uses.
+   every option returned in its cell. The options that are always there
+   come first and keep one address wherever the ring is opened; what comes
+   and goes is seated after them, so its arrival moves no cell.
+   - the **node ring**, on a piece: Step in, Move and Why this, at 8, 6
+     and 2 on every piece; then what comes with the piece -- the pieces
+     Inside it; a **Camera** and a **Picture** group on a structure that can
+     hold a picture, a made piece's Picture group, or a camera's own verbs;
+     a **Part** group (edit, the staged numbers' apply and revert, the SCAD
+     saved as a variant, how it is viewed, its history) on a part, a camera
+     or a made piece; Print and Slice where a printer is pinned in the site;
+     a **Device** option when a board is pinned to the piece (absent, not
+     greyed, when none is); and Parent, last;
+   - the **canvas ring**, on empty scene: Pieces, Site, View, Panels,
+     Pictures and Rebuild, at 8, 6, 2, 4, 9 and 3; then Step out when the
+     view is stepped into a piece, and Group where the site's pieces have
+     categories (each a further ring, lettered into groups of eight when
+     longer);
+   - the **device ring**, on a board: Open (the board's Machine), Poll,
+     Flash, Query, Pin or Unpin, Rescan, Link (Reconnect, Reboot, Release,
+     and on a devkit Listen and Probe), and — for a printer only — a
+     **Control** ring behind it at 7: Heat, Home, Jog (seated so the keypad
+     *is* the jog pad: Y+ up, X+ right, Y− down, X− left, Z± in the
+     right-hand corners), Level, Print, Motors (off, quickstop, break wait),
+     Stop (marked destructive), Arm or Disarm. Inside a board's Machine the
+     device ring is the top ring, titled by the port. A printer's Flash is
+     shown **disabled**, not absent: apothecary never flashes a printer's
+     board, and removing the cell would move every cell after it, so a hand
+     that learned ⌗728 for Jog Y+ would reach something else. This is the
+     one exception to "absent, not greyed": a cell is kept disabled only
+     where its absence would move cells a person already uses.
 
    Making a piece from a shape, making them all, dropping a made piece and
    changing its word change the arrangement, and the server carries them
    through the intent route, as it carries reset; every other camera and
    picture verb is the viewer's. Every device and control verb is the viewer's to carry out
    (`CARRIED_BY`): the ring hands the choice to the handler the page already
-   has, the monitor's control chain checks the latch and the allowlist, and
+   has, a Machine's control chain checks the latch and the allowlist, and
    the intent route never opens a port. An option with nothing behind it is
    refused by name, not answered with a cheerful 200.
 
@@ -180,37 +184,42 @@ standard for every ring it draws.** The specifics:
 
 - **The ring is usable without looking.** Any leaf is reachable from idle in
   as many presses as its address has digits, plus the one that opens the
-  ring, from anywhere on the page. Accepted cost: the digit keys and `m` are
-  taken while nothing is being typed into, and the ring swallows every key
-  while it is open, so the viewer's Backspace-steps-out does not fire under
-  an open ring — the hub is Backspace there.
+  ring, from anywhere on the page. Accepted cost: the ring's keys (`m` and
+  Shift+M, unless Settings names others) are taken while nothing is being
+  typed into, and the ring swallows every key while it is open, so the
+  viewer's Backspace-steps-out does not fire under an open ring — the hub
+  is Backspace there.
 - **Repeatability is now a property, not a hope.** An address is stable
   across sessions for the same context because placement is a function of
   option order, and option order is the resolver's, tested. The cost is that
   reordering a ring's options moves every address beneath them. Accepted:
   that is what "stable" has to mean, and a reorder is a deliberate edit to
   `menu.py` that the address tests will name.
-- **The meter went up before it goes down.** Fifty-four on the viewer,
-  fifteen of them ring-backed; fifty-one on the monitor, twenty-eight
-  ring-backed. Nothing was reclassified to make the number smaller. The
-  obligation this creates: each release removes ring-backed controls, and
-  the census docstring says by how many; a release in which the meter rises
-  with no ring-backed controls deleted is a release that added a surface.
-- **Two pages, two numbers, never added.** The monitor is counted with
-  `census.take(census.MONITOR)`. Every button that acts on the machine or
-  its link has a cell: the link's own verbs (reconnect, reset, release) sit
-  under a Link cell that keeps the same number on a devkit and a printer,
-  and the motor verbs share one cell. What is not backed is the page's
-  plumbing — which port, how often, the log's tick-boxes — and it is said so
-  rather than quietly backed by the nearest thing.
+- **The meter is read, not quoted.** `apothecary census` gives the
+  viewer's controls of its own and how many of them are ring-backed;
+  `VIEWER_CEILING` in `tests/test_census.py` holds the count, and a change
+  that adds a control raises it in the same change, where a reviewer sees
+  it. Nothing is reclassified to make the number smaller. The obligation
+  this creates: ring-backed controls are deleted, and a change in which the
+  meter rises with no ring-backed control deleted is a change that added a
+  surface.
+- **One page, one number.** The viewer is the one page the census counts,
+  a Machine and the Bench with it. Every button that acts on a machine or
+  its link has a cell: the link's own verbs (Reconnect, Reboot, Release)
+  sit under a Link cell that keeps the same number on a devkit and a
+  printer, and the motor verbs (off, quickstop, break wait) share Motors.
+  What is not backed is a Machine's plumbing — which port, how often, the
+  jog's step, the log's own buttons and tick-boxes — and the census says
+  so rather than backing it quietly by the nearest thing.
 - **Conformance runs on both sides.** The Python `nearest`, `place`, `walk`
   and `address_of` and the browser's `nearest`, `withCells`, `addresses` and
   `cellAtAngle` are compared through one JSON file; a divergence is a failing
   unit test, not a screenshot.
 - **The ring's own listeners are the ring's.** The census counts one control
-  for the ring on each page, the button that opens it; the `m` key and
-  right-click live in the module and a test holds the module to exactly
-  those two on the window and document. A fourth way in would be one the
+  for the ring, the button that opens it (`#ring-open`); the ring's keys on
+  the window, and on the document a right-click held with its modifier and
+  a touch held still, live in the module, and `tests/test_census.py` holds
+  the module to exactly those listeners. Another way in would be one the
   census cannot see, and is refused there.
 - **rad gains its second host**, with both a pointer and a keyboard, nested
   rings four deep, and a browser suite (`tests/e2e/test_ring.py`) that opens
@@ -226,8 +235,8 @@ standard for every ring it draws.** The specifics:
    to be kept in agreement for ever. Coexistence is allowed for exactly one
    step, and the ring-backed count is how long that step has lasted.
 2. **A grid of buttons, numbered, and no ring.** — Lost because the pointer
-   is real on this host: right-click on a piece in the 3D view, or on its
-   row, is where the ring belongs, and a radial menu under a pointer is not
+   is real on this host: a right-click held with its modifier on a piece in
+   the 3D view, or on its row, is where the ring belongs, and a radial menu under a pointer is not
    improved by being a grid. The cells give the grid's addressability to the
    ring without giving up the gesture; rad's record says the same and this
    host confirms it.
@@ -264,20 +273,16 @@ standard for every ring it draws.** The specifics:
   pendant, a rotary encoder on the printer itself. Only the arrow half of §4
   survives there, and the census would then be counting a surface whose
   addresses cannot be typed.
-- **The meter stops falling.** Two consecutive releases in which the
-  ring-backed count does not fall, or the meter rises with no ring-backed
-  control deleted, mean the doctrine is being carried rather than obeyed and
-  §5 is the wrong enforcement.
+- **The meter stops falling.** `apothecary census`, run at two commits of
+  the default branch six months apart, shows the ring-backed count not
+  fallen while the meter rose — the doctrine is being carried rather than
+  obeyed, and §5 is the wrong enforcement.
 - **rad's record defines opening a ring at an address, or what an intent
   carries about where the ring stood** -- §4's two host behaviours follow
   rad's definition, and any difference is named in the census docstring.
 - **A ring needs a ninth option**, or a fifth level of nesting to hold
   what it offers. The ceiling is structural here; pressure on it is pressure
   on rad's record, not on a lint.
-- **The monitor's four unbacked buttons** (reconnect, reset, release,
-  quickstop) are still unbacked when the last backed one is deleted. Either
-  they get cells or the doctrine says why a printer's link is a different
-  kind of surface.
 
 ## Amendments
 
