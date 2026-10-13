@@ -49,9 +49,15 @@ jobs:
   slot:
     runs-on: ubuntu-latest
     steps:
+      # Only the governance submodule: `submodules: true` is all-or-nothing, and
+      # a project with a private submodule the runner has no credential for
+      # fails the checkout before the check runs.
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: false
+
+      - name: Check out the governance submodule only
+        run: git submodule update --init --depth 1 governance/qm
 
       - uses: actions/setup-python@v5
         with:
