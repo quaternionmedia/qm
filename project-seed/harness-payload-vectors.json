@@ -1,0 +1,322 @@
+{
+  "schema": 2,
+  "note": [
+    "Conformance vectors for the harness payload that crosses between a",
+    "harness and a control panel -- `qmcp dashboard --json` on one side,",
+    "`dossier harness ingest` on the other.",
+    "",
+    "SHARED, NOT OWNED, and neither side imports the other. What crosses is",
+    "a schema; this file is the cases that keep two implementations of it",
+    "honest, exactly as address-vectors.json does for the address grammar.",
+    "",
+    "EVERY PAYLOAD HERE CAME OUT OF A REAL EMITTER reading a database built",
+    "from the harness's own model metadata. None of it is hand-written, and",
+    "that is the point: this file replaced two independently invented",
+    "fixtures that had agreed with each other and with nothing else.",
+    "",
+    "`emitted` -- the harness must be able to produce this payload.",
+    "`accepted` -- the control panel must ingest it. False means it must be",
+    "refused with a reason, which is a different thing from ingesting zero",
+    "rows.",
+    "",
+    "`database` is replaced by a placeholder. The real field is an absolute",
+    "path on the machine that ran the harness, and a committed file may not",
+    "carry one. That the live payload does carry one is recorded in",
+    "plans/the-active-set-and-the-pair.md as an open question for the seam."
+  ],
+  "status_vocabulary": {
+    "values": [
+      "PENDING",
+      "SUCCESS",
+      "FAILED"
+    ],
+    "why": "The stored form is the enum's NAME, not its value -- the model declares SUCCESS = 'success' and what reaches the payload is 'SUCCESS'. Both sides had fixtures that guessed, one of them wrote a status the harness cannot produce, and both suites were green."
+  },
+  "cases": [
+    {
+      "name": "a harness that has run things",
+      "why": "the ordinary payload. Every status the enum can hold appears.",
+      "emitted": true,
+      "accepted": true,
+      "payload": {
+        "schema": 2,
+        "project": "quaternionmedia/qmcp",
+        "database": "<the harness's own database; a path on the machine that ran it>",
+        "totals": {
+          "invocations": 3,
+          "failures": 1,
+          "human_requests": 2,
+          "human_responses": 1,
+          "tables": 17
+        },
+        "missing_tables": [],
+        "waiting": [
+          {
+            "address": "quaternionmedia/qmcp/ask/hr-0002",
+            "id": "hr-0002",
+            "request_type": "decision",
+            "prompt": "planner failed: no route. Fix it, accept it, or defer it?",
+            "options": [
+              "fix",
+              "accept",
+              "defer"
+            ],
+            "status": "PENDING",
+            "created_at": "2026-02-15 18:05:00.000000",
+            "answered_with": null,
+            "answered_by": null,
+            "answered_at": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/ask/hr-0001",
+            "id": "hr-0001",
+            "request_type": "approval",
+            "prompt": "Ship the tag?",
+            "options": [],
+            "status": "PENDING",
+            "created_at": "2026-02-15 17:59:00.000000",
+            "answered_with": "approve",
+            "answered_by": null,
+            "answered_at": "2026-02-15 18:01:00.000000"
+          }
+        ],
+        "by_tool": {
+          "planner": 2,
+          "echo": 1
+        },
+        "by_status": {
+          "PENDING": 1,
+          "FAILED": 1,
+          "SUCCESS": 1
+        },
+        "recent": [
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000003",
+            "tool_name": "planner",
+            "status": "PENDING",
+            "duration_ms": null,
+            "created_at": "2026-02-15 17:58:40.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000002",
+            "tool_name": "planner",
+            "status": "FAILED",
+            "duration_ms": 812,
+            "created_at": "2026-02-15 17:58:02.000000",
+            "error": "tool 'planner' raised: no route"
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000001",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 3,
+            "created_at": "2026-02-15 17:57:10.000000",
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "a harness whose recent list is an excerpt",
+      "why": "more invocations than the recent bound, so `totals` and `recent` disagree in size on purpose. Recomputing the totals from the rows would report the size of the excerpt and call it the history, and no case where the two are equal can catch that.",
+      "emitted": true,
+      "accepted": true,
+      "payload": {
+        "schema": 2,
+        "project": "quaternionmedia/qmcp",
+        "database": "<the harness's own database; a path on the machine that ran it>",
+        "totals": {
+          "invocations": 14,
+          "failures": 0,
+          "human_requests": 0,
+          "human_responses": 0,
+          "tables": 17
+        },
+        "missing_tables": [],
+        "waiting": [],
+        "by_tool": {
+          "echo": 14
+        },
+        "by_status": {
+          "SUCCESS": 14
+        },
+        "recent": [
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000013",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 13,
+            "created_at": "2026-02-15 17:13:00.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000012",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 12,
+            "created_at": "2026-02-15 17:12:00.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000011",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 11,
+            "created_at": "2026-02-15 17:11:00.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000010",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 10,
+            "created_at": "2026-02-15 17:10:00.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000009",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 9,
+            "created_at": "2026-02-15 17:09:00.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000008",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 8,
+            "created_at": "2026-02-15 17:08:00.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000007",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 7,
+            "created_at": "2026-02-15 17:07:00.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000006",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 6,
+            "created_at": "2026-02-15 17:06:00.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000005",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 5,
+            "created_at": "2026-02-15 17:05:00.000000",
+            "error": null
+          },
+          {
+            "address": "quaternionmedia/qmcp/invocation/4ea1e830-1963-4578-9f2c-000000000004",
+            "tool_name": "echo",
+            "status": "SUCCESS",
+            "duration_ms": 4,
+            "created_at": "2026-02-15 17:04:00.000000",
+            "error": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "a harness that has run nothing",
+      "why": "tables present, no rows. An empty harness and a broken one must not render the same, so this case exists to be told apart from the next.",
+      "emitted": true,
+      "accepted": true,
+      "payload": {
+        "schema": 2,
+        "project": "quaternionmedia/qmcp",
+        "database": "<the harness's own database; a path on the machine that ran it>",
+        "totals": {
+          "invocations": 0,
+          "failures": 0,
+          "human_requests": 0,
+          "human_responses": 0,
+          "tables": 17
+        },
+        "missing_tables": [],
+        "waiting": [],
+        "by_tool": {},
+        "by_status": {},
+        "recent": []
+      }
+    },
+    {
+      "name": "a database of unrelated tables",
+      "why": "the case that showed a table count cannot tell an idle harness from an unreadable one: this reports a table count like any other database, and every total is unknown.",
+      "emitted": true,
+      "accepted": false,
+      "payload": {
+        "schema": 2,
+        "project": "quaternionmedia/qmcp",
+        "database": "<the harness's own database; a path on the machine that ran it>",
+        "totals": {
+          "invocations": {
+            "unknown": "no tool_invocations table in this database"
+          },
+          "failures": {
+            "unknown": "no tool_invocations table in this database"
+          },
+          "human_requests": {
+            "unknown": "no human_requests table in this database"
+          },
+          "human_responses": {
+            "unknown": "no human_responses table in this database"
+          },
+          "tables": 2
+        },
+        "missing_tables": [
+          "tool_invocations",
+          "human_requests",
+          "human_responses"
+        ],
+        "waiting": [],
+        "by_tool": {},
+        "by_status": {},
+        "recent": []
+      }
+    },
+    {
+      "name": "a database with none of the harness's tables",
+      "why": "the dashboard has met this. Every total is `{'unknown': reason}` rather than 0, because nobody could take the count and a zero would claim somebody had. The control panel must refuse this rather than record a harness with nothing wrong.",
+      "emitted": true,
+      "accepted": false,
+      "payload": {
+        "schema": 2,
+        "project": "quaternionmedia/qmcp",
+        "database": "<the harness's own database; a path on the machine that ran it>",
+        "totals": {
+          "invocations": {
+            "unknown": "no tool_invocations table in this database"
+          },
+          "failures": {
+            "unknown": "no tool_invocations table in this database"
+          },
+          "human_requests": {
+            "unknown": "no human_requests table in this database"
+          },
+          "human_responses": {
+            "unknown": "no human_responses table in this database"
+          },
+          "tables": 0
+        },
+        "missing_tables": [
+          "tool_invocations",
+          "human_requests",
+          "human_responses"
+        ],
+        "waiting": [],
+        "by_tool": {},
+        "by_status": {},
+        "recent": []
+      }
+    }
+  ]
+}

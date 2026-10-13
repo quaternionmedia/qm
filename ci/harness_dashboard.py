@@ -20,7 +20,7 @@ WHAT THIS MAY NOT DO, and why the list matters more than the features:
     nothing wrong. That is the single failure mode a governance dashboard has.
 
 Usage:
-    python ci/harness_dashboard.py harness-status.json --out harness.html
+    python ci/harness_dashboard.py status/harness.yaml --out harness.html
 """
 
 from __future__ import annotations
@@ -28,10 +28,18 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import yaml
 import sys
 from pathlib import Path
 
-from dashboard_style import STYLE
+# Run as a script, `ci/` is on the path and the bare import resolves. Imported
+# as `ci.harness_dashboard` -- which is what a `qm` route does -- it does not,
+# and the module fails at import with a name that says nothing about the cause.
+# `gate_dashboard.py` has carried this line since it was routed; this one had no
+# route, so nothing ever imported it and the gap sat unnoticed.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from dashboard_style import STYLE  # noqa: E402
 
 OK, WARN, UNKNOWN = "ok", "warn", "unknown"
 
@@ -40,6 +48,58 @@ LINE_BREAK = chr(10)
 
 def esc(value: object) -> str:
     return html.escape("" if value is None else str(value))
+
+
+UNSTATED = "unstated"
+
+
+def family_of(repo: dict) -> str:
+    """The family the roster claims for this repository, or `unstated`.
+
+    Never inferred: the generator carries the claim as it was stated, and a
+    null is a question nobody has answered, not a repository outside every
+    family. Printed as a word rather than left blank so a reader cannot take
+    an empty cell for a rendering fault.
+    """
+    return str(repo.get("family") or UNSTATED)
+
+
+def family_cell(repo: dict) -> str:
+    family = family_of(repo)
+    if family == UNSTATED:
+        return f'<td><span class="s-muted">{esc(family)}</span></td>'
+    return f'<td><span class="mono">{esc(family)}</span></td>'
+
+
+def by_family(document: dict) -> list[dict]:
+    """One row per family: what the repositories table says, added up.
+
+    Families in name order, `unstated` last. Every count is over what could be
+    read, as the document's own totals are: a repository whose slots are
+    unknown is in `repositories` and in `unreadable`, and in neither `over`
+    nor `within`, so no family reads as clean because nobody could measure it.
+    """
+    groups: dict[str, list[dict]] = {}
+    for repo in document.get("repositories", []):
+        groups.setdefault(family_of(repo), []).append(repo)
+    names = sorted(n for n in groups if n != UNSTATED)
+    if UNSTATED in groups:
+        names.append(UNSTATED)
+    rows = []
+    for name in names:
+        members = groups[name]
+        measured = [r for r in members if unknown_reason(r.get("slots", {})) is None]
+        threads = [t for r in members for t in threads_of(r)]
+        rows.append({
+            "family": name,
+            "repositories": len(members),
+            "within": sum(1 for r in measured if not r["slots"].get("violations")),
+            "over": sum(1 for r in measured if r["slots"].get("violations")),
+            "unreadable": len(members) - len(measured),
+            "threads": len(threads),
+            "stalled": sum(1 for t in threads if t.get("stalled")),
+        })
+    return rows
 
 
 def unknown_reason(value: object) -> str | None:
@@ -53,6 +113,13 @@ def pill(text: str, state: str) -> str:
     return f'<span class="pill p-{state}">{esc(text)}</span>'
 
 
+def stacked_ready(v: dict) -> str:
+    """One violation from check_one_pr.py, in words."""
+    listed = ", ".join(f"#{n}" for n in v["numbers"])
+    on = f" (#{v['parent']})" if v.get("parent") else ""
+    return f"{v['author']}'s {listed} is ready but stacked on {v.get('base', '')}{on}"
+
+
 def slot_cell(slots: dict) -> tuple[str, str]:
     """(cell HTML, row class) for one repository's slot state."""
     reason = unknown_reason(slots)
@@ -62,20 +129,16 @@ def slot_cell(slots: dict) -> tuple[str, str]:
             "unmeasured",
         )
     if slots.get("violations"):
-        numbers = []
-        for violation in slots["violations"]:
-            where = f" against {violation['base']}" if violation.get("base") else ""
-            listed = ", ".join(f"#{n}" for n in violation["numbers"])
-            numbers.append(f"{esc(violation['author'])} holds {listed}{esc(where)}")
+        numbers = [esc(stacked_ready(v)) for v in slots["violations"]]
         return (
             "<td>"
-            + pill("over limit", WARN)
+            + pill("ready while stacked", WARN)
             + '<div class="sub">'
             + "<br>".join(numbers)
             + "</div></td>",
             "over",
         )
-    return f"<td>{pill('one slot each', OK)}</td>", ""
+    return f"<td>{pill('no ready stack', OK)}</td>", ""
 
 
 def local_cell(local: object) -> str:
@@ -169,6 +232,7 @@ def render(document: dict, fragment: bool = False) -> str:
             f'<tr class="{row_class}">'
             f'<th scope="row">{esc(repo.get("name"))}'
             f'<div class="sub">{esc(repo.get("role"))}</div></th>'
+            + family_cell(repo)
             + phase_cell(
                 str(repo.get("phase", UNKNOWN)), str(repo.get("phase_source", UNKNOWN))
             )
@@ -217,16 +281,14 @@ def render(document: dict, fragment: bool = False) -> str:
         "".join(
             f'<div class="gap"><h3>{esc(r["name"])}</h3>'
             + "".join(
-                f"<p>{esc(v['author'])} holds "
-                + ", ".join(f"#{n}" for n in v["numbers"])
-                + (f" against <span class=\"mono\">{esc(v['base'])}</span>" if v.get("base") else "")
-                + ". One stays open; the rest are closed or folded into it.</p>"
+                f"<p>{esc(stacked_ready(v))}. Mark it draft until the pull "
+                "request beneath it merges.</p>"
                 for v in r["slots"]["violations"]
             )
             + "</div>"
             for r in over
         )
-        or "<p class=\"s-ok\">Every contributor holds at most one slot, in every "
+        or "<p class=\"s-ok\">No stacked pull request is marked ready, in every "
         "repository this document could read.</p>"
     )
 
@@ -270,7 +332,8 @@ def render(document: dict, fragment: bool = False) -> str:
         thread_html.append(
             f'<tr class="{"over" if thread.get("stalled") else ""}">'
             f'<th scope="row">{esc(thread.get("repository"))}</th>'
-            f'<td><span class="mono">{esc(thread.get("name"))}</span>'
+            + family_cell(thread)
+            + f'<td><span class="mono">{esc(thread.get("name"))}</span>'
             f'<div class="sub">onto {esc(thread.get("base") or "unknown")}'
             f' &middot; {esc(thread.get("scope"))}</div></td>'
             f"<td>{pill(esc(thread.get('stage')), state)}"
@@ -280,7 +343,7 @@ def render(document: dict, fragment: bool = False) -> str:
             f"<td>{where}</td></tr>"
         )
     threads_table = LINE_BREAK.join(thread_html) or (
-        '<tr><td colspan="6" class="s-muted">No threads in flight.</td></tr>'
+        '<tr><td colspan="7" class="s-muted">No threads in flight.</td></tr>'
     )
 
     threads_note = "".join(
@@ -299,13 +362,26 @@ def render(document: dict, fragment: bool = False) -> str:
         else '<p class="reason">The machine layer was not collected.</p>'
     )
 
+    family_html = LINE_BREAK.join(
+        f'<tr class="{"over" if f["over"] else ""}">'
+        f'<th scope="row">{family_cell(f)[4:-5]}</th>'
+        f'<td>{esc(f["repositories"])}</td>'
+        f'<td>{esc(f["within"])}</td>'
+        f'<td>{pill(esc(f["over"]), WARN) if f["over"] else esc(f["over"])}</td>'
+        f'<td>{pill(esc(f["unreadable"]), UNKNOWN) if f["unreadable"] else esc(f["unreadable"])}</td>'
+        f'<td>{esc(f["threads"])}</td>'
+        f'<td>{pill(esc(f["stalled"]), WARN) if f["stalled"] else esc(f["stalled"])}</td>'
+        "</tr>"
+        for f in by_family(document)
+    )
+
     return (FRAGMENT if fragment else TEMPLATE).format(
         style=STYLE,
+        families=family_html,
         org=esc(generator.get("org")),
         generated_at=esc(document.get("generated_at")),
         rule=esc(generator.get("rule")),
         rule_source=esc(generator.get("rule_source")),
-        exemption=esc(", ".join(generator.get("corpus_exemption") or []) or "none"),
         n_repos=esc(totals.get("repositories")),
         n_compliant=esc(totals.get("compliant")),
         n_over=esc(totals.get("over_limit")),
@@ -346,7 +422,6 @@ BODY = """<main>
   <span>generated <b>{generated_at}</b></span>
   <span>rule <b>{rule}</b></span>
   <span>defined in <b class="mono">{rule_source}</b></span>
-  <span>corpus exemption <b class="mono">{exemption}</b></span>
 </div>
 
 <div class="cards">
@@ -362,6 +437,7 @@ BODY = """<main>
 <table>
 <thead><tr>
   <th scope="col">Repository</th>
+  <th scope="col">Family <span class="s-muted">(claimed)</span></th>
   <th scope="col">Phase <span class="s-muted">(claimed)</span></th>
   <th scope="col">v0.0.1 governance <span class="s-muted">(evidence)</span></th>
   <th scope="col">Open PRs</th>
@@ -377,6 +453,29 @@ BODY = """<main>
   <span><span class="pill p-ok">ok</span> measured, within the rule</span>
   <span><span class="pill p-warn">warn</span> measured, needs a human</span>
   <span><span class="pill p-unknown">unknown</span> not measured — not the same as nothing wrong</span>
+</div>
+
+<h2>By family</h2>
+<p>The table above, added up per family. A family is a <b>claim</b> a person
+made in <span class="mono">ci/workspace.yaml</span>, bordered by the record the
+document names; <span class="s-muted">unstated</span> is a repository nobody has
+placed, not one outside every family. Counts are over what could be read:
+<b>unreadable</b> repositories are in neither <b>within</b> nor <b>over</b>.</p>
+<div class="scroll">
+<table>
+<thead><tr>
+  <th scope="col">Family</th>
+  <th scope="col">Repositories</th>
+  <th scope="col">Within the rule</th>
+  <th scope="col">Over</th>
+  <th scope="col">Unreadable</th>
+  <th scope="col">Threads in flight</th>
+  <th scope="col">Stalled</th>
+</tr></thead>
+<tbody>
+{families}
+</tbody>
+</table>
 </div>
 
 <h2>Threads in flight</h2>
@@ -399,6 +498,7 @@ about. Stalled means untouched for more than {stalled_after}h.</p>
 <table>
 <thead><tr>
   <th scope="col">Repository</th>
+  <th scope="col">Family</th>
   <th scope="col">Thread</th>
   <th scope="col">Stage</th>
   <th scope="col">Delta</th>
@@ -444,7 +544,7 @@ floor applied because nothing was stated, and it is answered by editing
 
 <footer>
 Generated by <span class="mono">ci/harness_dashboard.py</span> from
-<span class="mono">harness-status.json</span>, which is written by
+<span class="mono">status/harness.yaml</span>, which is written by
 <span class="mono">ci/harness_status.py</span>. This renderer runs no commands
 and reads no network: every fact above is in that document, and a fact that is
 not in it is not shown. Correct a number by fixing the generator, not this page.
@@ -534,7 +634,8 @@ def thread_rows(document: dict) -> list[dict]:
     rows = []
     for repo in document.get("repositories", []):
         for thread in threads_of(repo):
-            rows.append({**thread, "repository": repo.get("name")})
+            rows.append({**thread, "repository": repo.get("name"),
+                         "family": repo.get("family")})
     order = {"pushed": 0, "local": 1, "draft": 2, "ready": 3}
     return sorted(
         rows,
@@ -595,12 +696,7 @@ def md_slot(slots: dict) -> str:
         return f"unknown ({reason})"
     if not slots.get("violations"):
         return "ok"
-    return "OVER — " + "; ".join(
-        f"{v['author']} holds "
-        + ", ".join(f"#{n}" for n in v["numbers"])
-        + (f" against {v['base']}" if v.get("base") else "")
-        for v in slots["violations"]
-    )
+    return "OVER — " + "; ".join(stacked_ready(v) for v in slots["violations"])
 
 
 def render_markdown(document: dict) -> str:
@@ -621,7 +717,6 @@ def render_markdown(document: dict) -> str:
     add("")
     add(f"- generated: **{document.get('generated_at')}**")
     add(f"- rule: {generator.get('rule')} (`{generator.get('rule_source')}`)")
-    add(f"- corpus exemption: `{', '.join(generator.get('corpus_exemption') or []) or 'none'}`")
     add(f"- layers: {', '.join(generator.get('layers') or [])}")
     if reading.get("staleness_budget_hours"):
         add(
@@ -637,7 +732,7 @@ def render_markdown(document: dict) -> str:
     add("")
     add(
         f"**Totals** — {totals.get('repositories')} repositories, "
-        f"{totals.get('compliant')} within the slot rule, "
+        f"{totals.get('compliant')} within the stack rule, "
         f"{totals.get('over_limit')} over it, "
         f"{totals.get('slots_unknown')} unreadable; "
         f"{totals.get('governance_precondition_met')} of "
@@ -645,11 +740,11 @@ def render_markdown(document: dict) -> str:
         f"precondition; {totals.get('phase_scaffolded')} phases scaffolded."
     )
     add("")
-    add("| Repository | Phase (claimed) | Source | v0.0.1 governance (evidence) | Slot | Release |")
-    add("|---|---|---|---|---|---|")
+    add("| Repository | Family (claimed) | Phase (claimed) | Source | v0.0.1 governance (evidence) | Slot | Release |")
+    add("|---|---|---|---|---|---|---|")
     for repo in document.get("repositories", []):
         add(
-            f"| {repo.get('name')} | {repo.get('phase')} | "
+            f"| {repo.get('name')} | {family_of(repo)} | {repo.get('phase')} | "
             f"{repo.get('phase_source')} | {md_state(repo.get('governance'))} | "
             f"{md_slot(repo.get('slots', {}))} | {md_release(repo.get('release'))} |"
         )
@@ -664,6 +759,24 @@ def render_markdown(document: dict) -> str:
     )
     add("")
 
+    add("## By family")
+    add("")
+    add(
+        "The table above, added up per family. A family is a claim a person "
+        "made in `ci/workspace.yaml`; `unstated` is a repository nobody has "
+        "placed, not one outside every family. Unreadable repositories are in "
+        "neither *within* nor *over*."
+    )
+    add("")
+    add("| Family | Repositories | Within the rule | Over | Unreadable | Threads in flight | Stalled |")
+    add("|---|---|---|---|---|---|---|")
+    for f in by_family(document):
+        add(
+            f"| {f['family']} | {f['repositories']} | {f['within']} | "
+            f"{f['over']} | {f['unreadable']} | {f['threads']} | {f['stalled']} |"
+        )
+    add("")
+
     add("## Threads in flight")
     add("")
     add(
@@ -676,12 +789,12 @@ def render_markdown(document: dict) -> str:
         f"{generator.get('stalled_after_hours')}h."
     )
     add("")
-    add("| Repository | Thread | Stage | Delta | Idle | PR | Scope |")
-    add("|---|---|---|---|---|---|---|")
+    add("| Repository | Family | Thread | Stage | Delta | Idle | PR | Scope |")
+    add("|---|---|---|---|---|---|---|---|")
     for thread in thread_rows(document):
         flag = " STALLED" if thread.get("stalled") else ""
         add(
-            f"| {thread.get('repository')} | {thread.get('name')} "
+            f"| {thread.get('repository')} | {family_of(thread)} | {thread.get('name')} "
             f"| {thread.get('stage')}{flag} | {delta_text(thread.get('delta'))} "
             f"| {idle_text(thread.get('idle_hours'))} "
             f"| {('#' + str(thread['pr'])) if thread.get('pr') else '-'} "
@@ -696,9 +809,8 @@ def render_markdown(document: dict) -> str:
         slots = repo.get("slots", {})
         if unknown_reason(slots) is None and slots.get("violations"):
             actions.append(
-                f"- **{repo['name']}**: {md_slot(slots)}. One stays open; the "
-                "rest are closed or folded into it. Close the pull request "
-                "FIRST, then push — pushing first merges it."
+                f"- **{repo['name']}**: {md_slot(slots)}. Mark it draft until "
+                "the pull request beneath it merges."
             )
         for thread in threads_of(repo):
             if thread.get("stage") == "pushed":
@@ -752,7 +864,7 @@ def main(argv: list[str] | None = None) -> int:
             stream.reconfigure(encoding="utf-8", errors="replace")
 
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("document", type=Path, help="harness-status.json")
+    parser.add_argument("document", type=Path, help="status/harness.yaml")
     parser.add_argument("--out", type=Path, help="write here instead of stdout")
     parser.add_argument(
         "--fragment",
@@ -772,7 +884,7 @@ def main(argv: list[str] | None = None) -> int:
             f"harness_dashboard: no document at {args.document}. "
             "Refusing to render an empty page, which would read as a clean org."
         )
-    document = json.loads(args.document.read_text(encoding="utf-8"))
+    document = yaml.safe_load(args.document.read_text(encoding="utf-8"))
     if document.get("schema") != 1 or "repositories" not in document:
         sys.exit(
             f"harness_dashboard: {args.document} is not a harness status document "

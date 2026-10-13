@@ -1,0 +1,44 @@
+# Loose-end claims — what a person decided about an open question.
+#
+# ROUTING. A register, not a record: it carries decisions somebody made about
+# individual items, and creates no constraint a project could violate. The rule
+# it serves lives in `records/DRAFT-a-loose-end-is-carried-or-dismissed.md`.
+#
+# THIS FILE IS AN INPUT. `ci/loose_ends.py` reads it and joins it onto the
+# generated document; nothing ever writes it back. That is the whole point of
+# the split: `loose-ends.json` is regenerated on every run, and a decision
+# written into a regenerated file is a decision that survives until the next
+# person runs a command.
+#
+# `handbook/glossary.md`: a **claim** is something a human asserted, never
+# derived from artifacts. A **loose end** with no entry here is `open`, and
+# `open` deliberately has no spelling — writing it down would turn "nobody has
+# looked at this" into "somebody decided nothing", and those are different
+# facts about the same row.
+#
+# THE KEY IS `<kind>:<address>`, exactly as `loose-ends.json` reports it in each
+# item's `key` field. Copy it from there rather than composing it by hand: the
+# address is the corpus grammar's, and one that does not round-trip cannot link
+# a row to the thing it names.
+#
+# TWO DISPOSITIONS, AND NEITHER MEANS "DONE".
+#
+#   carried    somebody has picked this up and is following it. The item stays
+#              in the document — a carried loose end is still a loose end, and
+#              it disappears when the underlying thing changes, not when
+#              somebody says so.
+#   dismissed  somebody read it and deliberately let it go. `why` is required
+#              in practice and unenforced today: a dismissal with no reason is
+#              indistinguishable from one nobody thought about.
+#
+# An item whose subject goes away stops being generated, and its entry here
+# becomes inert rather than wrong. Pruning inert entries is housekeeping and
+# needs no ceremony.
+#
+# A WORKED EXAMPLE, commented out because it is not anybody's decision:
+#
+# stalled-thread:quaternionmedia/alfred/pr/113:
+#   disposition: dismissed
+#   by: someone
+#   at: 2026-09-06
+#   why: the branch predates the current architecture and the work landed elsewhere

@@ -1,0 +1,84 @@
+# Phased push-throughs across the estate, family by family.
+#
+# A person writes this file. `uv run qm rollout` reads it beside families.json
+# and the roster, measures every step that carries a detector, and prints the
+# claim next to the evidence -- see ci/rollout.py's docstring for the states.
+#
+# A rollout has:
+#   steps      ordered; the same for every member. `means` is what the step is;
+#              `evidence` is a detector, and a step without one is claim-only and
+#              is reported as `unverified` when claimed. `applies_when` is a
+#              detector that, failing, marks the step n/a for that member.
+#   phases     ordered; each names families (from the record, via families.json)
+#              and/or repositories outright, and may leave named ones out with
+#              `except`. A repository named twice is a problem, not a dedupe.
+#              The order is an intention, not a schedule.
+#   claims     appended by `uv run qm rollout --claim REPO STEP`, as
+#              `{repo, step, date, by, note?}`. A claim is a person's statement. Never write one to
+#              make a row green; write it because the work was done, and let
+#              the detector say whether it agrees.
+#
+# Evidence kinds: file-matches {path, pattern, ref?} · path-exists {path, ref?}
+# · ref-exists {branch} · submodule-at-or-past {path, commit, ref?}. On
+# `--source host` a missing ref means the default branch.
+#
+# Private repositories are named by their `ref` here, as everywhere committed.
+
+rollouts:
+  - name: stage-enactment
+    subject: the entry stage takes pull requests, and main receives releases
+    handoff: handbook/handoffs/enact-the-stages.md
+    steps:
+      - id: rekeyed
+        means: >
+          the copied seed workflows trigger on the entry stage rather than on
+          main. The pattern below is a placeholder until the corpus's own
+          re-keying lands and names the spelling; a detector for a spelling
+          nobody has written yet measures nothing.
+        applies_when: { kind: path-exists, path: .github/workflows/adr-lint.yml }
+        evidence:
+          kind: file-matches
+          path: .github/workflows/adr-lint.yml
+          pattern: 'branches:\s*\[\s*test\s*\]'
+      - id: pin-bumped
+        means: >
+          governance/qm is pinned at or past the enactment commit. `commit` is
+          filled in on the day; until then this step is unverifiable, which is
+          the honest state for a commit that does not exist.
+        applies_when: { kind: path-exists, path: governance/qm }
+        evidence:
+          kind: submodule-at-or-past
+          path: governance/qm
+          commit: 'set-at-enactment'   # quoted: bare digits would parse as a number
+      - id: agents-reworded
+        means: >
+          the project's AGENTS.md names the entry stage as where a pull request
+          lands and main as what receives a release. Pattern is a placeholder
+          for the same reason as `rekeyed`.
+        applies_when: { kind: path-exists, path: AGENTS.md }
+        evidence:
+          kind: file-matches
+          path: AGENTS.md
+          pattern: 'entry stage'
+      - id: handoff-noted
+        means: >
+          the project's own handoff page records the change, so the next
+          session there does not open a pull request against main. No
+          detector: where a project keeps its handoff is the project's.
+    phases:
+      - name: corpus
+        repos: [qm]
+      - name: core
+        families: [core]
+        except: [qm]        # the corpus went first, in its own phase
+      - name: games
+        families: [games]
+      - name: matter-and-infra
+        families: [irl, infra]
+      - name: performing
+        families: [instruments, show-control, performer-display]
+      - name: unstated
+        # families.json's `unstated` list at the time of writing; a repository
+        # that later claims a family belongs to that family's phase instead.
+        repos: [alfred, benchmark, factorio-sysops, private-32, private-33, private-34, rad]
+    claims: []

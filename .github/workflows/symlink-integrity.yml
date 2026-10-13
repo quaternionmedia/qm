@@ -52,6 +52,7 @@ jobs:
           .claude/commands/preflight.md
           .claude/commands/handoff.md
           .claude/commands/status.md
+          .claude/skills/design-review
           project-seed/ide/CLAUDE.md
           project-seed/ide/.github/copilot-instructions.md"
 

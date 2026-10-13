@@ -1,0 +1,74 @@
+# Shape registry — the governance loop's shape vocabulary.
+#
+# A "shape" is an abstract decision type that appears across sessions and
+# contexts. Two breaks with nothing else in common can share a shape; that
+# shared type is what makes a historical retrospective navigable as a
+# prospective warning.
+#
+# The vocabulary is closed and reviewed. A shape not listed here is written
+# {"unknown": "slug not in shape-registry.yaml"} in any artifact that names
+# it, and counterfactual_query.py will not surface it.
+#
+# Fields per entry:
+#   description  one sentence: what kind of decision or error this is
+#   sources      the perspectives that named and counted this shape first
+#   contexts     the valid shape.context values for this type
+#
+# The shapes below are extracted from the perspectives — they are not invented
+# here. Each was named and counted in prose before this registry existed.
+
+shapes:
+  proxy-for-the-thing:
+    description: >
+      Reading a proxy (working tree, branch, exit code, empty result,
+      filename) instead of the subject (origin/main, PR base, command
+      status, known-non-empty result, file contents).
+    sources:
+      - "2026-08-08-reading-the-proxy-instead-of-the-thing.md (12 of 13 errors)"
+      - "2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md (reversals 3,4,5,13,15)"
+    contexts:
+      - verifying-a-result
+      - asserting-repository-state
+      - reading-pr-state
+      - reading-test-output
+
+  scaffolding-measures-itself:
+    description: >
+      The measurement is produced by the act of measuring: the scaffolding
+      generates a clean number about itself rather than the subject.
+      Nothing errors; the result is confidently wrong.
+    sources:
+      - "2026-08-11-measuring-your-own-scaffolding.md (7 instances)"
+      - "2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md (reversals 3,6,12,17)"
+    contexts:
+      - diffing-files
+      - running-a-test
+      - reading-a-count
+      - verifying-a-merge
+
+  environment-mutation:
+    description: >
+      Modifying a shared environment (installing packages, binding ports,
+      deleting refs, running builds) without explicit authorisation from
+      the human who works in that environment.
+    sources:
+      - "2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md (breaks 9, 11, 12, 13)"
+      - "2026-08-09-the-reviewer-is-the-shared-resource.md (workstation section)"
+    contexts:
+      - adding-dependency
+      - starting-a-service
+      - cleaning-up
+      - building-an-image
+
+  inflation-deflation:
+    description: >
+      A finding is stated then retracted with a second claim that is also
+      wrong, in the opposite direction. The retraction reads as rigour
+      and receives less scrutiny than the original claim.
+    sources:
+      - "2026-08-11-inflation-deflation-and-what-discovery-looks-like.md"
+      - "2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md (reversal 2)"
+    contexts:
+      - correcting-a-claim
+      - describing-evidence
+      - interpreting-a-result

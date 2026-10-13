@@ -1,1 +1,1 @@
-../../project-seed/ide/.claude/commands/status.md
+../../adapters/claude-code/commands/status.md
