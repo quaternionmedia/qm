@@ -5,16 +5,22 @@
 | **Status** | Proposed |
 | **Date** | 2026-10-10 |
 | **Pends on** | Human ratification of *QM constitution adoption scope for Apothecary*, which fixes this project's disposition toward externally-invoked copyleft binaries; OrcaSlicer is AGPL-3.0, run as a binary and never linked. |
-| **Tools** | Drafted with Claude Code (Anthropic), against apothecary's `build/slicer` at `aa939b2`: the routes, the command line, the pins and the profile read from the code, and the install's hosts and a slice's reach from a real install and real slices traced with `strace`. The human who sponsored the work is the contributor of record. |
+| **Checked against** | apothecary `77f75c8` (`build/governance`); the releases OrcaSlicer and PrusaSlicer publish, read from their GitHub releases |
+| **Established by** | the routes, the command line, the pins and the profile read from the code; the install's hosts and a slice's reach from a real install and real slices traced with `strace -f -e trace=network` (§7) |
+| **Tools** | Drafted with Claude Code (Anthropic); the person who ratifies it is its contributor of record |
 
 ## Context
 
-Apothecary drives a printer over G-code (the *G-code printer seam* record)
-and makes pieces from pictures, but until now the G-code itself came from
-elsewhere: a person sliced a part in their own slicer and brought the file
-back through the Print card's file box. The owner chose, on 2026-10-10, to
-keep the loop from a picture to a print in the page, with a managed slicer:
-OrcaSlicer first, behind an interface so another slicer can be switched in.
+Apothecary drives a printer over G-code (the *G-code printer seam*
+record) and makes pieces from pictures. That seam streams a file and does
+not make one. A person who slices a part in a slicer of their own and
+brings the file back through the Print card's file box takes the loop from
+a picture to a print out of the page at its last step, and describes the
+printer twice: once here, measured, and once in their slicer.
+
+The G-code printer seam leaves slicing out, and asks of a slicer the
+question `build-the-seam-buy-the-engines` asks of every capability:
+which engine should own it upstream.
 
 OrcaSlicer (AGPL-3.0) publishes native builds for Linux, macOS and Windows on
 its GitHub releases, a command line that slices from profile files, and
@@ -32,7 +38,13 @@ declared print settings, which `apothecary problems` already checks for.
 1. **Slicing is in scope, as a seam, not an engine.** Apothecary owns the
    slicer's installation and status, the printer's profile, the settings it
    derives from a part, the task that runs a slice, and what is kept.
-   It does not slice anything itself.
+   It does not slice anything itself. The engine that owns slicing is a
+   slicer, bought and reached over its command line; a print host that
+   slices (OctoPrint with a slicing plugin) runs a slicer beneath it and
+   would make a print host a prerequisite for a slice, which the *G-code
+   printer seam* record's first alternative rejects for the monitor. The
+   file a slice makes is handed to that seam, which streams it and does not
+   know which slicer made it.
 
 2. **Slicers are modules behind one interface.** A module
    (`apothecary/slicer/modules/`) says what it slices (the technology, what
@@ -63,9 +75,9 @@ declared print settings, which `apothecary problems` already checks for.
    its source. What the bench measured but the slicer must not apply is held
    and marked so: the probe's offset, which the firmware applies when it
    homes, and the bed's unevenness. The start of a print is composed from
-   modules the profile names; today it homes and levels nothing, and using
-   the stored mesh, probing each print and a measured first-layer offset are
-   stubs.
+   modules the profile names (`start.modules`): it homes and levels
+   nothing, and using the stored mesh, probing each print and a measured
+   first-layer offset are stubs.
 
 5. **Print settings come from the part, the printer's fill the rest.** A
    part's declared print settings are mapped onto the slicer's, and every
@@ -95,8 +107,8 @@ declared print settings, which `apothecary problems` already checks for.
 
 ## Consequences
 
-- The loop from a picture to a print stays in the page; a person no longer
-  needs a slicer of their own for the printer apothecary knows.
+- The loop from a picture to a print stays in the page; a person needs no
+  slicer of their own for a printer apothecary knows.
 - A third external binary is run under the copyleft clause's
   invoked-not-linked disposition. Nothing of OrcaSlicer's is committed or
   conveyed: the person's own machine fetches it from its publisher, and the
@@ -112,19 +124,27 @@ declared print settings, which `apothecary problems` already checks for.
 
 ## Alternatives considered
 
-1. **The person slices elsewhere** (the state before this) -- it keeps
-   apothecary small, but the loop leaves the page at its last step, and the
-   printer apothecary has measured is described twice, once in the person's
-   slicer.
-2. **PrusaSlicer's command line** -- mature and documented, with an Ender-3
-   profile; the owner chose OrcaSlicer, and the module interface keeps
-   PrusaSlicer a module away.
+1. **The person slices elsewhere** -- it keeps apothecary small, but the
+   loop leaves the page at its last step, and the printer apothecary has
+   measured is described twice, once in the person's slicer.
+2. **PrusaSlicer's command line** -- mature and documented, AGPL-3.0 as
+   OrcaSlicer is, with Creality's Ender-3 among its vendor profiles. It lost
+   on how it is published: its GitHub release (2.9.6) carries a Windows
+   installer and archive and a macOS disk image and no Linux build, which
+   it publishes on Flathub instead. Installing it on Linux would mean
+   driving flatpak, a second package manager fetching from its own remote
+   outside the one tool fetch the *Personal data stays on the device, by
+   construction* record allows, where OrcaSlicer's one release (2.4.2)
+   carries AppImages for Linux x86_64 and arm64, a universal macOS disk
+   image and portable archives for Windows x64 and arm64, from one host. A
+   reader who weighs PrusaSlicer's command line above that would choose it,
+   and the module interface keeps it a module away.
 3. **CuraEngine** -- the engine alone, needing Cura's printer definitions
    assembled by hand and no single configuration file; the most work to
    drive well.
 4. **The slicer's own profiles as they ship** -- simplest, but nothing the
    bench measured would reach the G-code.
-5. **A person's own exported profiles** -- matches how they print today,
+5. **A person's own exported profiles** -- matches how a person already prints,
    but keeps the printer's description outside the repository and its
    review.
 
