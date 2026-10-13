@@ -38,9 +38,15 @@ parser's kind, and the thing both of them are.
    constructs. A kind that is a different construct under a stated condition is
    refined, not renamed: a Rust `enum` is `type.sum` unless its variants carry
    no data, when it is `type.enumeration`.
-3. **Every node of a listed language carries `construct`, on every parse.** The
-   stamp is additive and idempotent; a node keeps every attribute its parser
-   gave it. A node of an unlisted language is left exactly as it arrived.
+3. **Every node of a listed language carries `construct`, on every graph a
+   route serves.** The stamp is applied where every graph passes — the
+   serializer — and again to a cached graph as it is replayed, so a graph no
+   parser stamped (the crate graph, read as the `cargo` language, where a crate
+   is a package) and one cached before a construct existed both arrive saying
+   what their nodes are. The stamp is additive and idempotent; a node keeps
+   every attribute its parser gave it. A node of an unlisted language is left
+   exactly as it arrived. One function decides a node's construct, and the
+   client never decides one.
 4. **A construct's look is the code map's shared visual grammar, and a parser's
    own look wins.** C's adapter carries the c-visualizer reference design; the
    vocabulary carries the same looks for the same constructs, so a Rust struct is
@@ -50,14 +56,27 @@ parser's kind, and the thing both of them are.
    tokens each language spells it with — every one of them a token of that
    language's lexicon — and a note. Rust has no `volatile`; C has no method; the
    absence is the lesson, and is drawn rather than omitted.
-6. **Every join is a test.** Tokens to lexicons, parser kinds to the vocabulary
+6. **Any graph on the canvas can be read as a chrestomathy.** A census route
+   takes the nodes a canvas holds and answers the constructs they are, in which
+   languages, with the nodes that are each — and what the vocabulary could not
+   place: a kind it does not map, a language it does not list, a node with no
+   language. What is not placed is said, never dropped, because a reading of
+   only the placed nodes would claim a coverage the vocabulary does not have.
+   From the canvas the same reading is reached three ways: the Chrestomathy
+   panel reads whatever is drawn, the canvas can be coloured by construct, and
+   a node's own menu opens the chrestomathy at what that node is.
+7. **Every join is a test.** Tokens to lexicons, parser kinds to the vocabulary
    in both directions, C's looks to the vocabulary's, looks to the shapes the
-   canvas draws. Each guard was seen to fail before it was trusted.
+   canvas draws, the crate graph's kinds to the `cargo` mapping. Each guard was
+   seen to fail before it was trusted.
 
 ## Consequences
 
 - A new language joins the chrestomathy by a mapping and its spellings, not by
-  code: the tests name what is missing.
+  code: the tests name what is missing. A new panel's graph joins it by passing
+  through the serializer, which every route already does.
+- The radial menu's View submenu carries a fourth host verb, `compare`; the
+  record adopting rad names it.
 - The canvas gained the polygon shape C's records always asked for and never
   got; C structs and unions stop drawing as circles.
 - "Color By: Abstraction Layer" draws again, from one ramp the server carries on
