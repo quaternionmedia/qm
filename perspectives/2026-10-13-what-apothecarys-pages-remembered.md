@@ -60,21 +60,24 @@ and `todo.md` holds the installer's hardening as open work.
 ## A page that was half a proposal
 
 `docs/fitting-a-part.md` was written on 2026-08-20 against `datum`, the
-consumer the enclosure parts were drawn for. It was both the reference for
-the seam between a project that owns facts about a physical thing and
+consumer the enclosure parts were drawn for. It was both the reference for the
+seam between a project that owns facts about a physical thing and
 `apothecary`, which owns geometry, and a proposal that said so: "Status:
 proposed; a record candidate for governance/qm, not yet drafted there." Its
-*The line* -- the consumer owns requirements and interfaces, `apothecary`
-owns realization and manufacturability -- and five rules stood beside the
-built half from then until the sweep, and no record was drafted. A reader
-could not tell which sentences said what the code does and which said what
-somebody wanted it to do.
+*The line* -- the consumer owns requirements and interfaces, `apothecary` owns
+realization and manufacturability -- with a test for placing a single number
+and five rules, stood beside the built half from then until the sweep, and no
+record was drafted. A reader could not tell which sentences said what the code
+does and which said what somebody wanted it to do. Walkthrough page 02 quoted
+the line as the seam itself.
 
 The sweep kept the built half: the three objects and their ladder, the
 black-box seam, a gate for each pair of descriptions, the pin, and the owner
-of each open problem. Whether the proposal becomes a draft record is put to
-the owner, and the page's previous version in `apothecary`'s history holds
-its text.
+of each open problem. The owner dropped the proposal rather than have it
+drafted as a record, so the line, its test and its rules left the page, and
+page 02 now states the two kinds of number `datum_core` has instead of
+quoting the line. The page's previous version in `apothecary`'s history holds
+the proposal's text.
 
 ## What the dated plans already hold
 
