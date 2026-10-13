@@ -23,10 +23,10 @@ host does not:
   dirty       uncommitted changes in the working tree. Not a branch, and the
               cheapest thing here to lose.
 
-With the host reachable it also asks, per repository, how many pull requests
-the current user has open, because one open pull request per repository per
-contributor is the sequencing rule (`handbook/async-contract.md` 1) and a
-draft holds the slot like any other.
+With the host reachable it also asks, per repository, which pull requests
+the current user has open, and flags one that is ready while its base is
+another of them: a stacked pull request stays a draft until the one beneath it
+merges (`handbook/async-contract.md` 1).
 
 WHAT IT REFUSES TO DO.
 
@@ -193,8 +193,18 @@ class Repository:
         return bool(self.one_copy or self.ahead)
 
     @property
-    def over_slot(self) -> bool:
-        return self.open_prs is not None and len(self.open_prs) > 1
+    def stacked_ready(self) -> list[dict]:
+        """Open pull requests marked ready whose base is another one's branch.
+
+        The gate's rule (`check_one_pr.py`) over this user's own pull
+        requests only: a parent opened by somebody else is not listed here,
+        and the gate still sees it.
+        """
+        if self.open_prs is None:
+            return []
+        heads = {pr.get("headRefName") for pr in self.open_prs}
+        return [pr for pr in self.open_prs
+                if not pr.get("isDraft") and pr.get("baseRefName") in heads]
 
 
 def default_branch(repo: Path, remote: str, online: bool) -> tuple[str, str]:
@@ -323,7 +333,8 @@ def host_pull_requests(repo: Repository) -> None:
     report a free slot on a repository nobody asked.
     """
     done = run_gh(["pr", "list", "--author", "@me", "--state", "open",
-                   "--json", "number,headRefName,isDraft"], Path(repo.path))
+                   "--json", "number,headRefName,isDraft,baseRefName"],
+                  Path(repo.path))
     if done.returncode != 0:
         detail = (done.stderr or "").strip().splitlines()
         repo.notes.append("pull requests unknown: "
@@ -396,7 +407,7 @@ def table(rows: list[Repository], width: int, online: bool) -> list[str]:
         if r.open_prs is None:
             slot = "-" if not online else "?"
         else:
-            slot = str(len(r.open_prs)) + (" OVER" if r.over_slot else "")
+            slot = str(len(r.open_prs)) + (" STACKED" if r.stacked_ready else "")
         out.append(f"  {r.name:<{width}}  {r.branch[:28]:<28}  {r.dirty:>5}  "
                    f"{len(r.one_copy):>8}  {len(r.ahead):>5}  {slot}")
     return out
@@ -423,7 +434,7 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
         out.append("")
 
     for r in found:
-        if r.missing or not (r.holds_one_copy or r.dirty or r.over_slot):
+        if r.missing or not (r.holds_one_copy or r.dirty or r.stacked_ready):
             continue
         out.append(f"  {r.name}  ({r.path})")
         if r.dirty:
@@ -433,11 +444,9 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
         for b in r.ahead:
             out.append(f"      ahead     +{b.unpushed:<3} {b.name}  "
                        f"(not on its remote copy)")
-        if r.over_slot:
-            heads = ", ".join(f"#{p.get('number')} {p.get('headRefName')}"
-                              + (" draft" if p.get("isDraft") else "")
-                              for p in r.open_prs)
-            out.append(f"      over the one-PR slot: {heads}")
+        for p in r.stacked_ready:
+            out.append(f"      ready but stacked: #{p.get('number')} "
+                       f"{p.get('headRefName')} -> {p.get('baseRefName')}")
         out.append("")
 
     for r in found:
@@ -482,7 +491,7 @@ def as_document(found: list[Repository], roster: Path, search_roots: list[Path],
         "offline": not online,
         "repositories": [
             {**asdict(r), "missing": r.missing, "holds_one_copy": r.holds_one_copy,
-             "over_slot": r.over_slot}
+             "stacked_ready": r.stacked_ready}
             for r in found
         ],
         "totals": totals(found),

@@ -128,6 +128,57 @@ def test_a_commit_that_was_never_pushed_is_a_failure(world):
     assert rows[0]["sha"].startswith(local_only[:8])
 
 
+def _move(parent: Path, to: str) -> None:
+    """`git mv` the submodule. The path changes; its `.gitmodules` name stays
+    `child`, which is what git does and what one project here carries."""
+    (parent / to).parent.mkdir(parents=True, exist_ok=True)
+    git("mv", "child", to, cwd=parent)
+    git("-c", "commit.gpgsign=false", "commit", "-q", "-m", "move", cwd=parent)
+    assert "submodule.child.path" in git("config", "-f", ".gitmodules", "--list", cwd=parent)
+
+
+def test_a_moved_submodule_is_still_checked(world):
+    """A lookup of `submodule.<path>.url` finds nothing once the path and the
+    name differ, and the pin was reported `no-url` -- which passes -- without
+    being looked at.
+
+    Mutation: look up `submodule.<path>.url` again and this fails as `no-url`."""
+    parent, _, _ = world
+    _move(parent, "vendor/child")
+
+    assert verdicts(parent) == {"vendor/child": OK}
+
+
+def test_a_moved_submodule_with_an_unpushed_pin_fails(world):
+    """The pin is examined, not merely given a URL: the control above is
+    satisfiable by any lookup that returns something."""
+    parent, _, _ = world
+    _move(parent, "vendor/child")
+    moved = parent / "vendor" / "child"
+    commit(moved, "never-pushed.txt")
+    git("add", "vendor/child", cwd=parent)
+    git("-c", "commit.gpgsign=false", "commit", "-q", "-m", "bump", cwd=parent)
+
+    assert verdicts(parent) == {"vendor/child": UNPUSHED}
+    assert main(["--root", str(parent)]) == 1
+
+
+def test_a_submodule_whose_name_holds_a_space_is_still_checked(world):
+    """Found by trying to walk past the path lookup: the plain `--get-regexp`
+    form separates key from value with a space, so a name holding one split
+    in the wrong place and the pin went back to `no-url`.
+
+    Mutation: drop `-z` and split each line on its first space, and this fails
+    as `no-url` for "other"."""
+    parent, _, remote = world
+    git("-c", "protocol.file.allow=always", "submodule", "add", "-q",
+        "--name", "the other child", remote, "other", cwd=parent)
+    git("-c", "commit.gpgsign=false", "commit", "-q", "-m", "add other",
+        cwd=parent)
+
+    assert verdicts(parent) == {"child": OK, "other": OK}
+
+
 def test_a_remote_nobody_here_can_read_is_unknown_and_not_a_failure(world):
     """**THE FALSE RED THIS REMOVES.** A private submodule is unreadable to an
     unauthenticated runner, and so is a deleted one. Failing on that made a

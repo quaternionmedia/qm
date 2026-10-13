@@ -105,7 +105,7 @@ passes, not when its command exits zero.
    `project-seed/ci/leak-check.yml` sits beside them and is copied the same
    way; whether it joins the four the ladder requires is the `Pends on` of
    `records/DRAFT-what-is-not-the-organisation.md`.
-   `one-pr-check.yml` is the org-wide slot rule of `handbook/async-contract.md`
+   `one-pr-check.yml` is the org-wide stack rule of `handbook/async-contract.md`
    §1, and its own header says to copy it verbatim like the others; this step
    said "all three" and named it nowhere, so a fork done exactly to procedure
    came up one gate short. Start `reuse-lint` in

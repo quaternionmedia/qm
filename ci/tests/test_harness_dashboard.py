@@ -34,9 +34,8 @@ def document(**overrides) -> dict:
         "generator": {
             "tool": "ci/harness_status.py",
             "org": "example",
-            "rule": "one open pull request per repository, per contributor",
+            "rule": "no pull request is ready while stacked on another open one",
             "rule_source": "handbook/async-contract.md",
-            "corpus_exemption": ["project/*"],
             "layers": ["slots", "local"],
             "local_layer_scope": "one machine, one set of clones",
         },
@@ -85,11 +84,12 @@ def document(**overrides) -> dict:
                 "slots": {
                     "open_prs": [
                         {"number": 8, "author": "ada", "bot": False, "base": "main",
-                         "draft": False, "title": "One"},
-                        {"number": 9, "author": "ada", "bot": False, "base": "main",
-                         "draft": True, "title": "Two"},
+                         "head": "feat/a", "draft": False, "title": "One"},
+                        {"number": 9, "author": "ada", "bot": False, "base": "feat/a",
+                         "head": "feat/b", "draft": False, "title": "Two"},
                     ],
-                    "violations": [{"author": "ada", "base": "", "numbers": [8, 9]}],
+                    "violations": [{"author": "ada", "base": "feat/a", "numbers": [9],
+                                    "parent": 8}],
                     "compliant": False,
                 },
                 "local": {"branch": "wip", "dirty": 3, "upstream": None, "ahead": None},
@@ -176,7 +176,7 @@ def test_a_violation_is_distinguished_in_form_and_not_only_in_words() -> None:
     assert 'class="over"' not in row_for(page, "clean-repo")
 
 
-def test_the_pull_requests_that_hold_the_slots_are_named() -> None:
+def test_the_ready_stacked_pull_request_and_its_parent_are_named() -> None:
     """A count without numbers cannot be acted on."""
     page = hd.render(DOC)
     assert "#8" in page and "#9" in page
@@ -186,7 +186,7 @@ def test_the_pull_requests_that_hold_the_slots_are_named() -> None:
 def test_a_compliant_repository_is_not_described_as_over() -> None:
     row = row_for(hd.render(DOC), "clean-repo")
     assert "p-ok" in row
-    assert "over limit" not in row
+    assert "ready while stacked" not in row
 
 
 def test_an_unanswered_phase_is_carried_into_the_question_list() -> None:
@@ -243,7 +243,7 @@ def test_zero_violations_says_so_rather_than_showing_an_empty_section() -> None:
     doc = document()
     doc["repositories"] = [doc["repositories"][0]]
     page = hd.render(doc)
-    assert "Every contributor holds at most one slot" in page
+    assert "No stacked pull request is marked ready" in page
 
 
 @pytest.mark.parametrize(
@@ -330,7 +330,7 @@ def test_both_views_share_one_stylesheet() -> None:
 
 def test_the_collector_reports_an_unparseable_check_as_unknown(monkeypatch) -> None:
     monkeypatch.setattr(hs, "run", lambda *a, **k: (0, "not json at all", ""))
-    result = hs.slot_layer("example/thing", [])
+    result = hs.slot_layer("example/thing")
     assert "unknown" in result
     assert "not JSON" in result["unknown"]
 
@@ -338,7 +338,7 @@ def test_the_collector_reports_an_unparseable_check_as_unknown(monkeypatch) -> N
 def test_the_collector_reports_a_silent_check_as_unknown(monkeypatch) -> None:
     """Empty output must never become an empty, therefore clean, PR list."""
     monkeypatch.setattr(hs, "run", lambda *a, **k: (1, "", "gh: Not Found (HTTP 404)"))
-    result = hs.slot_layer("example/thing", [])
+    result = hs.slot_layer("example/thing")
     assert "unknown" in result
     assert "404" in result["unknown"]
 
@@ -346,10 +346,11 @@ def test_the_collector_reports_a_silent_check_as_unknown(monkeypatch) -> None:
 def test_the_collector_records_the_checks_exit_status(monkeypatch) -> None:
     payload = json.dumps(
         {"repository": "example/thing", "open_prs": [],
-         "violations": [{"author": "ada", "base": "", "numbers": [1, 2]}]}
+         "violations": [{"author": "ada", "base": "feat/a", "numbers": [2],
+                         "parent": 1}]}
     )
     monkeypatch.setattr(hs, "run", lambda *a, **k: (1, payload, ""))
-    result = hs.slot_layer("example/thing", [])
+    result = hs.slot_layer("example/thing")
     assert result["exit_status"] == 1
     assert result["compliant"] is False
 
@@ -363,7 +364,7 @@ def test_the_collector_marks_a_missing_clone_unknown(tmp_path: Path) -> None:
 def test_the_totals_never_count_an_unknown_as_compliant(monkeypatch) -> None:
     """The arithmetic behind the summary cards, which is where a lie compounds."""
     monkeypatch.setattr(
-        hs, "slot_layer", lambda slug, per_base: {"unknown": "could not read"}
+        hs, "slot_layer", lambda slug: {"unknown": "could not read"}
     )
     built = hs.build([{"name": "a", "paths": []}], "example", [], False)
     totals = built["totals"]
@@ -537,7 +538,7 @@ def test_a_missing_status_document_makes_evidence_unknown_not_absent(tmp_path: P
 
 def test_the_totals_count_governance_over_what_was_readable(monkeypatch) -> None:
     """A project with no evidence sits in neither numerator nor denominator."""
-    monkeypatch.setattr(hs, "slot_layer", lambda slug, per_base: {"open_prs": [], "violations": [], "compliant": True})
+    monkeypatch.setattr(hs, "slot_layer", lambda slug: {"open_prs": [], "violations": [], "compliant": True})
     built = hs.build(
         [
             {"name": "met", "paths": [], "phase": "v0.0.1", "phase_source": "scaffolded"},
@@ -634,7 +635,7 @@ def test_the_markdown_view_collects_what_needs_a_human() -> None:
     text = hd.render_markdown(DOC)
     section = text.split("## What needs a human")[1].split("## ")[0]
     assert "busy-repo" in section
-    assert "Close the pull request FIRST" in section
+    assert "Mark it draft until the pull request beneath it merges" in section
     assert "clean-repo" in section  # scaffolded phase
 
 
@@ -1104,7 +1105,7 @@ def test_the_generator_carries_the_family_claim_verbatim(monkeypatch, tmp_path: 
         {"name": "one", "role": "project", "family": "games", "paths": ["one"]},
         {"name": "two", "role": "project", "paths": ["two"]},
     ]
-    monkeypatch.setattr(hs, "slot_layer", lambda slug, per_base: {
+    monkeypatch.setattr(hs, "slot_layer", lambda slug: {
         "open_prs": [], "violations": [], "compliant": True})
     monkeypatch.setattr(hs, "release_layer", lambda slug: {"state": "none"})
     monkeypatch.setattr(hs, "org_threads", lambda slug, slots, detail: [])
