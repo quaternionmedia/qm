@@ -48,7 +48,7 @@ staleness budget in a `reading:` block inside the file.
 `governance/qm/handbook/generated-documents.md` is the only statement of its
 refresh command and its 168-hour budget. Check the age before quoting a figure.
 
-1. Read `governance/qm/PRINCIPLES.md` in full and the three invariants in `governance/qm/README.md`. For namespaces and precedence, see `governance/qm/docs/ref/namespaces.md` and `governance/qm/docs/ref/precedence.md`.
+1. Read `governance/qm/PRINCIPLES.md` in full and the opening points of `governance/qm/README.md`. For namespaces and precedence, see `governance/qm/docs/ref/namespaces.md` and `governance/qm/docs/ref/precedence.md`.
 2. This project's own decision records live in `governance/qm/adr/` — inside
    the submodule, on this project's own branch, not at this repo's root — as
    `ADR-NNNN` (numbered locally, at ratification) or `DRAFT-*.md` before
