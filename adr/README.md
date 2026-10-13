@@ -15,7 +15,7 @@ project; project records may tighten them, never relax them. A genuine
 exception is an amendment ratified at org level.
 
 This directory lives inside the `governance/qm` submodule, on this
-project's own dedicated branch (`project/<name>`, created from `main`) -
+project's own dedicated branch (`project/apothecary`, created from `main`) -
 not copied into this project's own git history. The branch's ancestry *is*
 the pin: there is no separate commit hash to hand-maintain here. `git log
 --first-parent` on this branch shows exactly which org state was adopted
@@ -241,10 +241,13 @@ together.
 |---|---|---|---|
 | | | | |
 
-Drafts in flight (numberless, by title): QM constitution adoption scope for
-Apothecary; Site/Structure/Substructure/Feature hierarchy for complex
-subassemblies; Firmware toolchain seam (toolchain modules: arduino-cli and esptool; Rust with espflash); Slicer seam (slicer modules, OrcaSlicer first); G-code
-printer seam (monitor printer controllers over the G-code line protocol);
-rad host integration for apothecary (the rings address nine cells); One
-screen: the world, and what stands in front of it; Personal data stays on
-the device, by construction.
+Drafts in flight (numberless, by title):
+
+- QM Constitution Adoption Scope for Apothecary
+- Site/Structure/Substructure/Feature Hierarchy for Complex Subassemblies
+- Firmware toolchain seam: program boards from Apothecary through toolchain modules
+- G-code printer seam: monitor printer controllers over the G-code line protocol
+- Slicer seam: slice parts for a printer through slicer modules, OrcaSlicer first
+- rad host integration for apothecary: the rings address nine cells
+- One screen: the world, and what stands in front of it
+- Personal data stays on the device, by construction
