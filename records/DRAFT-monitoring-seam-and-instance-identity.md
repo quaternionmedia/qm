@@ -92,8 +92,7 @@ governs the internal one, and does not relax that record.
    repository, carrying its port, its resolved database path, its start time,
    and the session declaration. The collector enumerates that directory. A
    session therefore becomes visible without editing a reviewed file, which
-   the one-PR-per-repository rule would otherwise price at a contributor's
-   whole slot.
+   would otherwise cost a pull request of its own for every session started.
 
 5. **Identity is asserted before a measurement is attributed.** The collector
    matches the run-file's port, database path and start time against the port

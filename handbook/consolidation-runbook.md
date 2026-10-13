@@ -184,16 +184,15 @@ this cycle wrote name no editor, process, tool or quotation, and the
 `qm branch` output names the merge-base you expected. Commits listed as shared
 with another branch are explained in the pull request, or the branch is re-cut.
 
-## Step 4 — push, and open one pull request per repository
+## Step 4 — push, and open one pull request per branch
 
-`handbook/async-contract.md` §1: one open pull request per repository, per
-contributor. It is a sequencing constraint — the puzzle of two pull requests
-that must merge in an order is what it prevents — so the leftover branches in a
-repository are landed one at a time, each cut from the `main` the previous one
-produced.
+`handbook/async-contract.md` §1: one change per pull request. Leftover branches
+that are independent of each other each open against `main`, ready, side by
+side. A branch that depends on another is based on that branch and opens as a
+draft, and moves down onto `main` when the one beneath it merges.
 
 ```sh
-uv run qm slot --repo <owner/name>        # the slot is free, or names what holds it
+uv run qm slot --repo <owner/name>        # what you hold open, and how it stacks
 git push -u origin <branch>
 gh pr create --base main --head <branch> --assignee <who-asked> \
   --title '<what it decides>' --body-file <body>
@@ -207,11 +206,13 @@ not settled rather than something you have not.
 
 In this repository, a branch based on `project/<name>` opens *into*
 `project/<name>` and never into `main`; `project-seed/ci/check_pr_base.py`
-refuses the wrong direction, and each such branch holds its own slot.
+refuses the wrong direction.
 
 *Verify:* `gh pr view <number> --json isDraft,reviewRequests,assignees` shows
-not a draft, no reviewers, and the assignee you set. Draft means unfinished;
-a green pull request left in draft is a change that never reached `main`.
+not a draft, no reviewers, and the assignee you set — for a pull request whose
+base is `main`. Draft means unfinished, or stacked on another open pull request;
+a green pull request left in draft against `main` is a change that never
+reached it.
 
 ## Step 5 — audit what a green pull request state cannot see
 
@@ -284,7 +285,10 @@ neither. Every record stays `DRAFT` for a person.
 
 *Verify:* `git log -1 --format=%P origin/main` shows two parents, and
 `gh pr view <number> --json state,mergeCommit` reports `MERGED` with that
-commit. The slot in that repository is free again: `uv run qm slot` says so.
+commit. `qm merge` has retargeted any pull request stacked on it onto `main`
+before deleting the branch: `uv run qm slot` shows it. Update its branch from
+`main`, and mark it ready once its gates pass there
+(`handbook/async-contract.md` §1).
 
 ## Step 7 — retire the handoff pages whose work landed
 

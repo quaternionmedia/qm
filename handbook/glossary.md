@@ -17,7 +17,7 @@ Each of these has bitten. The disambiguator is the column on the right.
 | Word | Sense | Told apart by |
 |---|---|---|
 | **draft** | a record before ratification (`DRAFT-*.md`) | it is a filename prefix |
-| | a pull request that is **unfinished** | GitHub's draft flag. Never a holding pen for finished work |
+| | a pull request that is **unfinished, or stacked** on another open one | GitHub's draft flag. Never a holding pen for finished work against the real target |
 | | anything untagged — `main`, a branch, a local build | `records/DRAFT-version-tags-are-claims.md` §4. Asserts nothing |
 | **review** | the gates running on a pull request | mechanical, and the PR is an audit record |
 | | a human reading a change set before a `v*` tag | the **only** human review of shipped work |
@@ -48,7 +48,7 @@ Each of these has bitten. The disambiguator is the column on the right.
 | **mechanical** | a rule a script can fail you on. Its opposite is **customary** — written down and unenforced |
 | **declared gap** | a rule named and deliberately not yet enforced, counted in `ci/pattern-registry.yaml` with `check_exists: false` |
 | **debt** | something the corpus has decided not to fix and does count. The nine unsigned commits are debt |
-| **slot** | one open pull request, per repository, per contributor. A sequencing constraint, not a bandwidth one |
+| **stack** | pull requests in series, each based on the branch of the one beneath it. Only the bottom is ready; the rest are drafts until it merges |
 | **propagate** | carry an org change from `main` into a `project/<name>` branch. One direction only |
 | **restatement** | an entry point summarizing a decision a record owns. Costs a declared `Restated in` row |
 | **citation** | naming a record's path without summarizing it. Free, and encouraged |

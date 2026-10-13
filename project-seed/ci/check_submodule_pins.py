@@ -96,9 +96,29 @@ def submodules(root: Path) -> list[tuple[str, str]]:
 
 
 def url_for(root: Path, path: str) -> str:
-    code, out = run(["git", "config", "-f", ".gitmodules", "--get",
-                     f"submodule.{path}.url"], cwd=str(root))
-    return out.strip() if code == 0 else ""
+    """The URL `.gitmodules` records for the submodule checked out at `path`.
+
+    **FOUND THROUGH THE ENTRY'S `path`, NOT BY ASSUMING ITS NAME.** git names a
+    submodule once, at `submodule add`; a later `git mv` changes the path and
+    keeps the name. Looking up `submodule.<path>.url` missed every moved
+    submodule, reported it `no-url`, and passed it without examining the pin --
+    a green row for a pin nobody had checked.
+    """
+    # `-z`: a name may hold spaces, and the plain form separates key from
+    # value with one, so splitting it would cut such a name in two.
+    code, out = run(["git", "config", "-z", "-f", ".gitmodules", "--get-regexp",
+                     r"^submodule\..*\.path$"], cwd=str(root))
+    if code != 0:
+        return ""
+    for entry in filter(None, out.split("\0")):
+        key, _, value = entry.partition("\n")
+        if value != path:
+            continue
+        name = key[len("submodule."):-len(".path")]
+        code, url = run(["git", "config", "-f", ".gitmodules", "--get",
+                         f"submodule.{name}.url"], cwd=str(root))
+        return url.strip() if code == 0 else ""
+    return ""
 
 
 def as_https(url: str) -> str:

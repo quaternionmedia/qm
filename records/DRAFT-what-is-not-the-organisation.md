@@ -56,7 +56,7 @@ machine, in another tool, in a session that never happened.
   commits, pull requests, what is blocked and on whom. That is state of the
   repositories.
 - **People, where the organisation needs them.** An author on a perspective,
-  an assignee on a pull request, a contributor holding a slot. A name is not
+  an assignee on a pull request, a contributor holding a pull request open. A name is not
   a conversation.
 - **A tool, once, in a `Tools:` note** — the disclosure
   `records/DRAFT-human-only-contributorship.md` permits and

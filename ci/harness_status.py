@@ -61,9 +61,6 @@ CI_DIR = Path(__file__).resolve().parent
 CORPUS = CI_DIR.parent
 CHECK_ONE_PR = CORPUS / "project-seed" / "ci" / "check_one_pr.py"
 
-# The corpus's own exemption, and the only one. See handbook/async-contract.md.
-CORPUS_PER_BASE = ["project/*"]
-
 # Where the committed copy lives. An agent that cannot guess this path reads
 # nothing, so it is fixed rather than passed, and named in AGENTS.md.
 COMMITTED = CORPUS / "status/harness.yaml"
@@ -139,7 +136,7 @@ def git(repo: Path, *args: str) -> tuple[int, str]:
     return status, out or err
 
 
-def slot_layer(slug: str, per_base: list[str]) -> dict:
+def slot_layer(slug: str) -> dict:
     """What check_one_pr.py says about this repository, as data.
 
     Invoked as a subprocess rather than imported so that this document records
@@ -147,8 +144,6 @@ def slot_layer(slug: str, per_base: list[str]) -> dict:
     let this file's own reading of the rule diverge from the file CI runs.
     """
     args = [sys.executable, str(CHECK_ONE_PR), "--repo", slug, "--json"]
-    for pattern in per_base:
-        args += ["--per-base", pattern]
     status, out, err = run(*args)
     if not out:
         return unknown(f"check_one_pr produced no output: {err.splitlines()[0] if err else 'silent'}")
@@ -515,9 +510,7 @@ def build(
             "phase": entry.get("phase", "unknown"),
             "phase_source": entry.get("phase_source", "unknown"),
             "note": entry.get("note"),
-            "slots": slot_layer(
-                slug, CORPUS_PER_BASE if entry.get("role") == "corpus" else []
-            ),
+            "slots": slot_layer(slug),
         }
         record["release"] = release_layer(slug)
         record["threads"] = org_threads(slug, record["slots"], want_pr_detail)
@@ -572,9 +565,8 @@ def build(
         "generator": {
             "tool": "ci/harness_status.py",
             "org": org,
-            "rule": "one open pull request per repository, per contributor",
+            "rule": "no pull request is ready while stacked on another open one",
             "rule_source": "handbook/async-contract.md",
-            "corpus_exemption": CORPUS_PER_BASE,
             "phase_ladder_source": "records/DRAFT-project-phase-ladder.md",
             "phase_layer_is_a_claim": (
                 "phase and phase_source come from ci/workspace.yaml and record "

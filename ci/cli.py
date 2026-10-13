@@ -156,7 +156,8 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
-        "slot", help="is this contributor's pull request slot free?", add_help=False
+        "slot", help="your open pull requests, and is any ready while stacked?",
+        add_help=False
     )
     sub.add_parser(
         "pins",

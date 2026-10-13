@@ -1,6 +1,6 @@
 # Handbook — The Gates
 
-**Generated `2026-09-20T20:22:55Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
+**Generated `2026-09-28T05:15:29Z`.** Quotable for 168h. **Do not edit by hand** — the list lives in `ci/gate-registry.yaml`, the document in `status/gates.yaml`, and this page is rendered from the document and nothing else.
 
 | | |
 |---|---|
@@ -23,7 +23,7 @@
 | | Gate | Stands before | Trigger | Seed | Refuses |
 |---|---|---|---|---|---|
 | [ok] | `adr-lint` | main, push | pull_request, push | yes | A record whose header table, status or index row is malformed; banned narration vocabulary in a pre-ratification draft; a vendor or model name in a record's prose or a commit subject; a seed copy still showing its template placeholder to a reader; a record whose declared restatement does not name it back; a principle that declares no relationship to the others and gives no reason, or declares one the other end does not declare back. |
-| [ok] | `one-pr-slot` | main | pull_request | yes | A pull request whose author already holds an open slot in this repository. It fails every one of them rather than picking a survivor. |
+| [ok] | `one-pr-slot` | main | pull_request | yes | A pull request marked ready whose base is the branch of another open pull request in the same repository. It fails every such pull request of the author, not only the one whose event ran it. |
 | [ok] | `one-pr-voice` | main | pull_request | yes | A pull request body that speaks to its contributor rather than as them: the second person, the handling phrases that have leaked ("assigned, no review requested", "merge when ready"), or the contributor's own login mentioned. Code spans, fenced blocks and quoted lines are left alone. |
 | [ok] | `namespace-guard` | main, push | pull_request, push | no | A pull request opened in the wrong direction between namespaces, and a project branch whose own commits touch anything outside `adr/`. |
 | [ok] | `ci-tooling-tests` | main, push | pull_request, push | no | A change to the CI tooling that breaks its own test suite. |
@@ -47,7 +47,7 @@
 Read this before quoting a green check. Every defect this corpus has found in its own tooling was a check that reported success while enforcing nothing.
 
 - **`adr-lint`** — Whether a record is correct, or whether a restatement and its record agree -- it pairs declarations and compares no text. Nor whether two principles actually conflict: the edge check reads a stated relationship from both ends and knows nothing about what either principle says, so a wrong edge declared consistently passes. It also cannot tell a real isolation from a lazy one -- it can only insist the `none` carries a reason somebody had to write. Three of its four sub-checks cannot fire on any ref CI runs against, which is a known finding and not yet fixed. One commit subject is exempt from the vendor-name rule by full SHA -- 35ebca6a, kept as the worked example the rule is taught from -- and check_attribution.py prints that exemption and its reason on every run.
-- **`one-pr-slot`** — Whether the two pull requests are actually related. It counts slots, not subject matter, and the `--per-base` exemption is a glob somebody passes.
+- **`one-pr-slot`** — Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.
 - **`one-pr-voice`** — The third person. "Peter merges once the gates are green" is a statement about a person and the tool cannot tell it from a sentence addressed to them without a pronoun, so it is allowed; and whether the body is honest, complete, or about the diff at all.
 - **`namespace-guard`** — A branch cut from the wrong parent whose direction is nonetheless legal. `check_pr_base.py` reports the inheritance; nothing fails on it.
 - **`ci-tooling-tests`** — Whether a passing test discriminates. A test that passes against the broken tool is inert, and this corpus has shipped two of those -- only a mutation pass finds them, and no gate runs one. For the walkthrough it also cannot see whether a page is worth reading: doctest asserts that an example's printed output is what the page claims, and asserts nothing about whether the example was the one worth showing.

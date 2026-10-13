@@ -440,29 +440,3 @@ mappings:
       push the stages and move the enforcement surface to the entry stage in
       one change, then record the first refused out-of-order merge -- the
       moment this moves to earned.
-
-  - layer: the per-base exemption to the one-slot rule
-    structure: >
-      injectivity of the pinning relation -- the exemption is sound exactly
-      when no two exempt bases share a downstream consumer
-    state: aspirational
-    decides: >
-      when `--per-base` may be granted, which is currently settled by a
-      paragraph. The prose reason is that each `project/<name>` is pinned by a
-      *different* consumer, so a change to one is not a change to another. That
-      is an injectivity claim about a relation the corpus can enumerate, and
-      stating it that way turns a judgement into a criterion: two bases sharing
-      a consumer would make the exemption unsound and nothing would currently
-      report it.
-    measured: none
-    unearned: >
-      the enumeration, and with it the claim. Injectivity has never been
-      checked against the pins that actually exist -- `uv run qm pins` reports
-      no submodules from this repository, because the corpus is the thing
-      pinned rather than the thing pinning. Establishing it means reading every
-      adopting repository's `.gitmodules`, a host-wide scan this corpus does
-      not do, and the answer changes whenever a project adopts.
-    next: >
-      collect the pinning relation across the roster and check it is injective
-      on `project/*`. It is a small scan and it would move this to earned or
-      show the exemption needs narrowing.

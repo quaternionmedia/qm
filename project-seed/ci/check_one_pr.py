@@ -1,54 +1,38 @@
 #!/usr/bin/env python3
-"""One open agent pull request per repository, per contributor.
+"""No pull request is marked ready while it is stacked on another open one.
 
-SEED FILE, run in place.
+SEED FILE, run in place. The filename predates the rule and is kept because
+every project's copied one-pr-check.yml runs it by this path.
 
-The rule: at any moment, a repository holds at most one open pull request per
-human contributor for agent-produced work. Not one per task, not one per
-branch -- one per person, per repository.
+The rule (handbook/async-contract.md 1): one change per pull request.
+Independent changes are parallel pull requests, each ready against its base,
+and there is no limit on how many a contributor holds. A change that needs
+another's work is *stacked*: its branch is cut from that branch, its pull
+request's base IS that branch, and it stays a draft until the one beneath it
+merges -- however finished it is. Ready means merge once green, and merging a
+stacked pull request lands it in its parent's branch rather than the target.
 
-It is a review-bandwidth rule, and bandwidth is the thing an asynchronous agent
-cannot see. An agent finishes a task in minutes and opens a PR; the human it is
-opened for reads at human speed. Six sessions running in parallel across six
-repositories will produce six PRs an hour without any of them doing anything
-wrong, and the reviewer's queue is where that arrives. Worse than the volume is
-the ordering: two open PRs that must merge in a particular order are a puzzle
-the agent solved and then discarded, handed to someone who has to solve it
-again from the diffs.
+WHAT THIS FAILS
 
-Authorship is the contributor's, not the model's -- the human-only
-contributorship record means an agent's commits carry the person's name, so the
-PR author *is* the contributor. That is what makes this checkable at all.
+  - A human's open pull request that is not a draft and whose base is the head
+    branch of another open pull request in the same repository.
 
-WHAT COUNTS
+WHAT IT CANNOT SEE
 
-  - Open pull requests only. A merged or closed PR occupies no bandwidth.
-  - Human authors only. Automation accounts (Dependabot and friends) are
-    excluded: they have their own queue and their own dismissal gesture, and a
-    contributor cannot close them to make room.
-  - Draft and ready alike. A draft PR is still a branch someone must eventually
-    read, and this repository's own practice is that drafts are the normal
-    state, so exempting them would exempt everything.
+  - Whether a pull request is one change. Size is not scope.
+  - A "stack" that skips the base chain: a branch cut from another pull
+    request's branch but opened against the target, carrying its parent's
+    commits. Seeing that needs a compare call per pair of open pull requests.
+  - A pull request closed in favour of one that contains it. Closed pull
+    requests are not read.
 
-THE ONE EXEMPTION, AND WHY IT IS NARROW
+Automation authors are not judged: Dependabot's queue is its own.
 
-`--per-base <glob>` gives each base branch matching the glob its own slot. It
-exists for one shape: a repository where several long-lived branches are each
-pinned by a different downstream consumer, so a change to one is not a change
-to another and they cannot be combined into a single PR without inventing a
-dependency between unrelated projects. The corpus repository's `project/*`
-branches are that shape.
-
-It is deliberately a glob you must pass, printed in the output whenever it
-applies. An exemption nobody can see in the result is an exemption that has
-stopped being one.
-
-Exit status is 1 when any contributor in scope holds more than one slot.
+Exit status is 1 when any pull request in scope is ready and stacked.
 
 Usage:
     python check_one_pr.py --repo quaternionmedia/qm
     python check_one_pr.py --repo owner/name --contributor subcontrabass
-    python check_one_pr.py --repo quaternionmedia/qm --per-base 'project/*'
     python check_one_pr.py --repo owner/name --json          # for a dashboard
     python check_one_pr.py --from-json prs.json --repo owner/name   # no network
 """
@@ -56,17 +40,16 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import fnmatch
 import json
 import subprocess
 import sys
 from collections import defaultdict
 
-# Accounts whose pull requests a contributor cannot close to make room. GitHub
+# Accounts whose pull requests this check does not judge. GitHub
 # reports these with user.type == "Bot", but the REST list endpoint has been
 # seen to return a plain "User" type for app-authored PRs, so the login suffix
-# is checked too. Both, because a missed bot inflates a human's count and this
-# check would then fail a PR for something nobody can act on.
+# is checked too. Both, because a missed bot would be judged by a rule written
+# for people.
 BOT_LOGIN_SUFFIXES = ("[bot]",)
 
 
@@ -97,9 +80,9 @@ def fetch_open_prs(repo: str) -> list[dict]:
     """Every open pull request in `repo`, via gh.
 
     `--paginate` is not optional. The unpaginated endpoint returns thirty, and a
-    repository with thirty-one open pull requests would report the thirty-first
-    contributor as holding no slot at all -- a check that goes quiet exactly as
-    the queue it measures gets long.
+    repository with thirty-one open pull requests would never see the
+    thirty-first -- a check that goes quiet exactly as the queue it measures
+    gets long.
     """
     result = subprocess.run(
         [
@@ -141,10 +124,11 @@ def fetch_open_prs(repo: str) -> list[dict]:
 
 
 def normalise(prs: list[dict]) -> list[dict]:
-    """The five fields this check reasons about, from the REST shape."""
+    """The fields this check reasons about, from the REST shape."""
     out = []
     for pr in prs:
         author = pr.get("user") or {}
+        head = pr.get("head") or {}
         out.append(
             {
                 "number": pr.get("number"),
@@ -152,91 +136,71 @@ def normalise(prs: list[dict]) -> list[dict]:
                 "author": str(author.get("login", "")),
                 "bot": is_bot(author),
                 "base": str((pr.get("base") or {}).get("ref", "")),
-                # The branch this pull request is made from. Not used by the
-                # slot rule, which counts authors rather than branches, but a
-                # reader matching a pull request to a local branch has no other
-                # way to do it -- and every such reader would otherwise guess
-                # from the title.
-                "head": str((pr.get("head") or {}).get("ref", "")),
+                "head": str(head.get("ref", "")),
+                # A fork's branch cannot be a base here, and one that shares a
+                # name with a branch of this repository must not read as a
+                # parent. None when the fork has been deleted.
+                "head_repo": (head.get("repo") or {}).get("full_name"),
                 "draft": bool(pr.get("draft")),
             }
         )
     return out
 
 
-def slot_key(base: str, per_base: list[str]) -> str:
-    """Which slot a PR against `base` occupies.
-
-    Everything shares one slot named "" unless its base matches an exempted
-    glob, in which case the base names its own.
-    """
-    for pattern in per_base:
-        if fnmatch.fnmatch(base, pattern):
-            return base
-    return ""
+def parents(prs: list[dict], repo: str) -> dict[str, dict]:
+    """Head branch -> the open pull request made from it, in this repository."""
+    return {pr["head"]: pr for pr in prs if pr["head_repo"] == repo and pr["head"]}
 
 
 def find_violations(
-    prs: list[dict], per_base: list[str], contributor: str | None
-) -> dict[tuple[str, str], list[dict]]:
-    """Slots holding more than one open PR, keyed by (author, slot)."""
-    slots: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    prs: list[dict], repo: str, contributor: str | None
+) -> list[tuple[dict, dict]]:
+    """(pull request, the one it is stacked on) for every ready stacked one."""
+    by_head = parents(prs, repo)
+    found = []
     for pr in prs:
-        if pr["bot"]:
+        if pr["bot"] or pr["draft"]:
             continue
         if contributor and pr["author"] != contributor:
             continue
-        slots[(pr["author"], slot_key(pr["base"], per_base))].append(pr)
-    return {key: held for key, held in slots.items() if len(held) > 1}
+        parent = by_head.get(pr["base"])
+        if parent is not None and parent["number"] != pr["number"]:
+            found.append((pr, parent))
+    return sorted(found, key=lambda pair: pair[0]["number"])
 
 
-def report(
-    repo: str, prs: list[dict], per_base: list[str], contributor: str | None
-) -> int:
+def report(repo: str, prs: list[dict], contributor: str | None) -> int:
     human = [pr for pr in prs if not pr["bot"]]
     bots = len(prs) - len(human)
+    by_head = parents(prs, repo)
+    violations = find_violations(prs, repo, contributor)
+    bad = {pr["number"] for pr, _ in violations}
 
     print(f"repository   {repo}")
     print(f"open PRs     {len(prs)}  ({len(human)} human, {bots} automation)")
     if contributor:
         print(f"contributor  {contributor}")
-    if per_base:
-        print(f"per-base     {', '.join(per_base)}  (each matching base gets a slot)")
-
-    slots: dict[tuple[str, str], list[dict]] = defaultdict(list)
-    for pr in human:
-        slots[(pr["author"], slot_key(pr["base"], per_base))].append(pr)
 
     print()
-    for (author, slot) in sorted(slots):
-        held = slots[(author, slot)]
-        where = f"  [{slot}]" if slot else ""
-        mark = "OVER" if len(held) > 1 else "ok  "
-        print(f"{mark} {author}{where}: {len(held)}")
-        for pr in sorted(held, key=lambda p: p["number"]):
-            kind = "draft" if pr["draft"] else "READY"
-            print(f"       #{pr['number']} [{kind}] -> {pr['base']}  {pr['title']}")
+    for pr in sorted(human, key=lambda p: (p["author"], p["number"])):
+        parent = by_head.get(pr["base"])
+        on = f" (on #{parent['number']})" if parent else ""
+        mark = "FAIL" if pr["number"] in bad else "ok  "
+        kind = "draft" if pr["draft"] else "READY"
+        print(f"{mark} #{pr['number']} [{kind}] {pr['author']}: "
+              f"{pr['head']} -> {pr['base']}{on}  {pr['title']}")
 
-    violations = find_violations(prs, per_base, contributor)
     if not violations:
-        print("\nEvery contributor holds at most one slot.")
+        print("\nNo stacked pull request is marked ready.")
         return 0
 
     print()
-    for (author, slot) in sorted(violations):
-        held = violations[(author, slot)]
-        where = f" against {slot}" if slot else ""
-        numbers = ", ".join(f"#{pr['number']}" for pr in sorted(
-            held, key=lambda p: p["number"]))
+    for pr, parent in violations:
         print(
-            f"{author} holds {len(held)} open pull requests{where}: {numbers}. "
-            "One stays open; the rest are closed or folded into it."
+            f"#{pr['number']} ({pr['author']}) is ready, but its base "
+            f"{pr['base']} is #{parent['number']}'s branch. Mark it draft "
+            f"(gh pr ready {pr['number']} --undo) until #{parent['number']} merges."
         )
-    print(
-        "\nFolding is a git operation with an order to it: close the pull "
-        "request FIRST, then push its commits onto the branch that survives. "
-        "Pushing first merges it, with no review and no way to undo the record."
-    )
     return 1
 
 
@@ -260,13 +224,6 @@ def main(argv: list[str] | None = None) -> int:
         help="Limit the exit status to this login. Others are still listed.",
     )
     parser.add_argument(
-        "--per-base",
-        action="append",
-        default=[],
-        metavar="GLOB",
-        help="Give each base branch matching GLOB its own slot. Repeatable.",
-    )
-    parser.add_argument(
         "--from-json",
         metavar="PATH",
         help="Read the pull request list from a file instead of calling gh.",
@@ -283,22 +240,25 @@ def main(argv: list[str] | None = None) -> int:
         raw = fetch_open_prs(args.repo)
     prs = normalise(raw)
 
-    violations = find_violations(prs, args.per_base, args.contributor)
+    violations = find_violations(prs, args.repo, args.contributor)
 
     if args.json:
         json.dump(
             {
                 "repository": args.repo,
-                "per_base": args.per_base,
                 "contributor": args.contributor,
                 "open_prs": prs,
+                # One entry per ready stacked pull request. `base` is the
+                # parent's branch and `numbers` the offender, the shape every
+                # reader of this document already consumes.
                 "violations": [
                     {
-                        "author": author,
-                        "base": slot,
-                        "numbers": sorted(p["number"] for p in held),
+                        "author": pr["author"],
+                        "base": pr["base"],
+                        "numbers": [pr["number"]],
+                        "parent": parent["number"],
                     }
-                    for (author, slot), held in sorted(violations.items())
+                    for pr, parent in violations
                 ],
             },
             sys.stdout,
@@ -307,7 +267,7 @@ def main(argv: list[str] | None = None) -> int:
         print()
         return 1 if violations else 0
 
-    return report(args.repo, prs, args.per_base, args.contributor)
+    return report(args.repo, prs, args.contributor)
 
 
 if __name__ == "__main__":
