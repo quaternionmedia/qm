@@ -124,11 +124,11 @@ assignment, index update — is a **human commit** naming the record.
 working against, and check it is the one that matters — a review of a stale
 branch is a confident claim about code nobody is running. Establish claims of
 fact by execution rather than from memory: run the command, read the output,
-record what was run. This applies hardest to the three cases that look least
-like they need it —
+record what was run. This applies hardest to the cases that look least like
+they need it —
 
-- *a tool's behavior* — flags, defaults and output formats are the single
-  most common source of confident error, and cost under a minute to check;
+- *a tool's behavior* — flags, defaults and output formats are a common
+  source of confident error, and cost under a minute to check;
 - *a documented step* — verify the artifact it produced, not that the step
   ran. Its instructions were written by someone for whom they worked;
 - *your own setup* — before reporting a defect in the project, rule out the
