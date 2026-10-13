@@ -20,9 +20,8 @@ no other briefing, read this file fully before your first commit or edit.
 
 ## Before you do anything
 
-**Establish four facts about this session before you write anything**, because
-each has been got wrong here by inheriting a previous session's belief instead of
-asking the repository:
+**Establish four facts about this session before you write anything**, by
+asking the repository rather than inheriting a previous session's belief:
 
 1. **The commit you are working against**, and the branch.
 2. **Which pull requests you already hold open, and how they stack** — small,
@@ -31,8 +30,8 @@ asking the repository:
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are likely running right
    now, in other repositories, for the same reviewer;
-   `governance/qm/handbook/async-contract.md` is the set of rules that exist only
-   because of that, and it is short.
+   `governance/qm/handbook/async-contract.md` is the short set of rules for
+   working alongside them.
 4. **Which gates exist**, and what each cannot see:
    `python governance/qm/project-seed/ci/run_workflows_locally.py`.
 
@@ -139,12 +138,11 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
 11. **The scaffolding you measure with is part of the measurement.** Item 9 is
     the tool answering a different question than you asked. This is the tool
     being fine and the setup not — nothing errors, and the result describes your
-    own scaffolding rather than the subject. Real instances: a diff run against
-    files a redirect never wrote, reported as a hundred lines of drift when the
-    truth was none; a working tree read after a merge that exited non-zero; file
-    copies written through a text API that converted every line ending, so the
-    diff was entirely encoding; a mutation test whose baseline was already
-    failing, so it proved nothing in either direction. **Prefer the artefact you
+    own scaffolding rather than the subject. Its shapes: a diff against files a
+    redirect never wrote; a working tree read after a merge that exited
+    non-zero; file copies written through a text API that converts every line
+    ending, so the diff is all encoding; a mutation test whose baseline is
+    already failing, so it proves nothing either way. **Prefer the artefact you
     did not create** — read a document's own answer instead of recomputing one —
     and assert the intermediate: non-empty, exit zero, baseline green.
 12. **A guard is not finished until someone has tried to route around it.**
