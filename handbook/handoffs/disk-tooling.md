@@ -29,7 +29,7 @@ dossier `main` carries `disk.py` and `disk_store.py`. Re-derive before acting.*
 Three properties worth not breaking, each already carrying a test:
 
 - **The measurement is machine-scoped in full**, and committed in neither
-  repository. Unlike `harness-status.json` there is no committable half, so
+  repository. Unlike `status/harness.yaml` there is no committable half, so
   there is no `--no-local` flag — there would be no document left.
 - **A delta against an unknown is unknown, not zero.** Composition recomputes
   from endpoints rather than summing, so a run nobody could measure cannot be

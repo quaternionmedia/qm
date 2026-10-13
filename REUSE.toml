@@ -102,7 +102,7 @@ SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
 SPDX-License-Identifier = "Apache-2.0"
 
 # --- A generated document ---------------------------------------------------
-# governance-status.yaml is machine-read data emitted by ci/governance_status.py,
+# status/governance.yaml is machine-read data emitted by ci/governance_status.py,
 # not corpus prose, so the `**` default's ShareAlike terms are the wrong
 # instrument: its intended consumers are renderers and, later, dossier -- whose
 # own licence class is itself unsettled. CC0 makes reading it free of any
@@ -111,7 +111,7 @@ SPDX-License-Identifier = "Apache-2.0"
 # the outbound record's §12; this states the current answer rather than
 # inheriting one by accident.
 [[annotations]]
-path = "governance-status.yaml"
+path = "status/governance.yaml"
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 Quaternion Media"
 SPDX-License-Identifier = "CC0-1.0"

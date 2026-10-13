@@ -47,13 +47,57 @@ import subprocess
 import sys
 from pathlib import Path
 
+# Narration a pre-ratification draft must not carry: the document describing
+# its own revision history rather than being rewritten.
+#
+# THESE ARE PROXIES FOR A MEANING, AND A PROXY MATCHES THINGS IT DID NOT MEAN.
+# `corrected` was a bare word here, and it fired on "neither is corrected" in a
+# sentence about two perspectives -- prose that was true, that narrated nothing,
+# and that got reworded to satisfy the check. Editing a correct record to keep a
+# tool quiet is the failure `records/DRAFT-deltas-compose.md` 7 names in another
+# register: the tool ends consistent and the record ends worse.
+#
+# So the words that have innocent uses are matched only in a narrating
+# construction, and every rule here is escapable with a stated reason. The ones
+# with no innocent use in a draft stay bare.
 BANNED = re.compile(
-    r"previously|originally|earlier draft|re-review|renumber|retroactive"
-    r"|supersedes the .* (?:stance|finding)|\bcorrected\b",
+    # No innocent use inside a pre-ratification draft.
+    r"earlier draft|re-review|renumber|retroactive"
+    r"|supersedes the .* (?:stance|finding)"
+    # Narrating constructions only. "previously X" narrates; "previously
+    # unknown" is a description of the world.
+    r"|\bpreviously\s+(?:said|stated|read|held|named|claimed|was|were)\b"
+    r"|\boriginally\s+(?:said|stated|read|held|named|claimed|was|were)\b"
+    r"|\b(?:this|that|these|those|it|which|the|a|an)\s+(?:\w+\s+){0,2}"
+    r"(?:was|were|has been|have been|has since been|is now|are now)"
+    r"\s+corrected\b"
+    r"|\bnow\s+corrected\b|\bcorrected\s+(?:from|to|in a later|in this)\b",
     re.IGNORECASE,
 )
 
+# An escape hatch with a price: the reason is required, and the count of
+# exemptions used is printed on every run, so silencing the check stays visible
+# rather than becoming the way it is used.
+EXEMPTION = re.compile(
+    r"<!--\s*adr-lint:\s*allow\s+(?P<quoted>\S.*?)\s*-->", re.IGNORECASE
+)
+
 NUMBERED_FILENAME = re.compile(r"^(?:ADR|QM)-(\d{4})-.+\.md$")
+# A markdown link target inside an index row. Matched on the row rather than on
+# the whole file so prose elsewhere in an index page cannot register a record
+# as listed -- the table is the index, and a mention in a paragraph is not one.
+INDEX_LINK = re.compile(r"\]\(([^)]+\.md)\)")
+# A counted allowance for records an index may not name: exactly N records may
+# be unlisted, with the reason stated. It exists for one case -- a record whose
+# title (and filename) names a private repository, on a public branch. Listing
+# the title republishes the name; listing the filename does too; and a blanket
+# allowance would turn the index check off. The count is what keeps the gate a
+# gate: one more unlisted record than the count fails until a person raises the
+# number and restates why.
+ALLOW_UNLISTED = re.compile(
+    r"adr-lint:\s*allow-unlisted\s+(?P<count>\d+)\s+\"(?P<reason>[^\"]+)\"",
+    re.IGNORECASE,
+)
 STATUS_ROW = re.compile(r"^\|\s*\*\*Status\*\*\s*\|\s*(.+?)\s*\|", re.MULTILINE)
 RATIFIED = ("accepted", "deprecated", "superseded")
 
@@ -87,16 +131,51 @@ def is_ratified(status: str | None) -> bool:
     return bool(status) and status.startswith(RATIFIED)
 
 
+def exemption_on(lines: list[str], index: int) -> str | None:
+    """The reason stated for allowing a hit, from this line or the one above.
+
+    Two places because a long line is wrapped in this corpus and an annotation
+    at the end of it would push past the margin every other rule respects.
+    """
+    for candidate in (lines[index], lines[index - 1] if index else ""):
+        found = EXEMPTION.search(candidate)
+        if found:
+            return found.group("quoted").strip()
+    return None
+
+
 def check_banned_vocabulary(records: Path) -> list[str]:
     failures = []
+    allowed = 0
     for path in sorted(records.glob("DRAFT-*.md")):
-        text = prose_only(path.read_text(encoding="utf-8"))
-        for lineno, line in enumerate(text.splitlines(), start=1):
+        raw = path.read_text(encoding="utf-8")
+        # Scanned against prose, but the exemption is read from the raw file:
+        # `prose_only` blanks HTML comments, which is right for the scan and
+        # would make the annotation invisible to the thing it annotates.
+        # `prose_only` preserves line numbering, so the two line up.
+        lines = prose_only(raw).splitlines()
+        raw_lines = raw.splitlines()
+        for index, line in enumerate(lines):
             for hit in BANNED.finditer(line):
-                failures.append(
-                    f"{path}:{lineno}: pre-ratification drafts are squashed, not "
-                    f"narrated -- found {hit.group(0)!r}"
-                )
+                reason = exemption_on(raw_lines, index)
+                if reason is None:
+                    failures.append(
+                        f"{path}:{index + 1}: pre-ratification drafts are "
+                        f"squashed, not narrated -- found {hit.group(0)!r}. If "
+                        f"this narrates nothing, annotate the line: "
+                        f"<!-- adr-lint: allow \"why this is not narration\" -->"
+                    )
+                elif not reason.strip('"\''):
+                    failures.append(
+                        f"{path}:{index + 1}: an adr-lint exemption states a "
+                        f"reason. An empty one is the check turned off."
+                    )
+                else:
+                    allowed += 1
+    if allowed:
+        print(f"ADR lint: {allowed} banned-vocabulary hit(s) allowed by a "
+              f"stated reason. Each is a place the proxy matched prose that "
+              f"narrates nothing.")
     return failures
 
 
@@ -224,9 +303,108 @@ def check_accepted_bodies_untouched(records: Path, base_ref: str) -> list[str]:
     return failures
 
 
+def check_ratified_are_numbered(records: Path) -> list[str]:
+    """A ratified record carries a number in its filename.
+
+    **THE CONVERSE OF `check_numbered_are_ratified`, AND IT WAS MISSING.** Both
+    of the other checks key on the *filename*: one asks whether a numbered file
+    is ratified, and the index check compares numbers taken from filenames
+    against numbers in the index. So a record whose Status was flipped to
+    `Accepted` and whose file was never renamed matched neither, and the lint
+    reported clean.
+
+    That state reads as ratified to a person and as nonexistent to every check
+    — the worst of the two. `docs/ref/ratification.md` documents the *other*
+    failure, where the index was updated too, and that one does fire. This is
+    the case where the ratifier stopped one step earlier.
+
+    Found by performing the ratification steps wrongly on purpose rather than by
+    reading the lint, which is the practice charter `a-check-is-evidence-after-it-fails` states.
+    """
+    failures = []
+    for path in sorted(records.glob("*.md")):
+        if NUMBERED_FILENAME.match(path.name):
+            continue
+        status = status_of(path.read_text(encoding="utf-8"))
+        if is_ratified(status):
+            failures.append(
+                f"{path}: Status {status!r} but the filename carries no number. "
+                "Ratification renames the file; see docs/ref/ratification.md. "
+                "Left unrenamed the record is invisible to the index check too."
+            )
+    return failures
+
+
+# The three H1 forms this estate writes, all meaning "unratified record":
+#   `# QM-XXXX --- Title`     the org corpus
+#   `# ADR-XXXX --- Title`    a project following the seed template
+#   `# DRAFT --- Title`       a project that marks the state instead of the slot
+# Only the title travels into an index, so all three prefixes come off. Handling
+# two of the three silently dropped a word from every title in the third, and
+# every one of that project's eleven records then read as unlisted while its
+# index listed all eleven correctly.
+TITLE_PREFIX = re.compile(r"^(?:DRAFT|(?:ADR|QM)-[0-9X]{4})\s*[-–—]\s*")
+
+
+def _title_of(path: Path) -> str:
+    """A record's H1, minus whichever prefix marks it. Empty when it has no H1."""
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        if line.startswith("# "):
+            return TITLE_PREFIX.sub("", line[2:]).strip()
+        if line.strip():
+            break
+    return ""
+
+
+def _flatten(text: str) -> str:
+    """Case- and punctuation-insensitive, so a title quoted in a sentence still
+    matches the heading it came from. Backticks, dashes and stray spacing are
+    exactly what differs between the two, and none of them carries meaning."""
+    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+
 def check_index_matches_directory(records: Path, index: Path) -> list[str]:
+    """The index lists every record, and every row names a file that exists.
+
+    TWO COMPARISONS, AND ONLY ONE OF THEM CAN FIRE BEFORE A RATIFICATION. The
+    numbered comparison below is the older half: it reads the number out of a
+    filename and out of a row's first cell. Numbers are assigned at
+    ratification, so in a corpus where nothing has been ratified yet *both*
+    sets are empty, and it compares nothing to nothing and reports clean --
+    every run, for the whole life of the check, while the index it guards can
+    be missing records. That is not a hypothetical: it was the state of this
+    corpus's own index when the filename comparison was added, and four records
+    were absent, two of them the records behind charter principles.
+
+    So the filename comparison is the half that works from day one. It matches
+    each record file against the link targets in the index's table rows, by
+    basename, so it is indifferent to whether an index links `DRAFT-x.md` from
+    inside the directory or `records/DRAFT-x.md` from the repository root.
+
+    A check that cannot fail is not evidence -- charter `a-check-is-evidence-after-it-fails`.
+
+    WHAT IT STILL CANNOT SEE, found by trying to walk past it rather than by
+    reading it: a record in a subdirectory of the records directory is invisible
+    to both halves, because the scan is `*.md` and a link pointing there lands
+    under a different parent, so neither set holds it and it passes.
+
+    **TWO CONVENTIONS ARE LISTED, BECAUSE THIS CORPUS HAS TWO.** A record counts
+    as listed if a table row links its file, *or* if its title appears in the
+    index prose -- which is the `Drafts in flight (numberless, by title): ...`
+    line this seed's own `adr/README.md` template ships. The org corpus lists
+    unratified drafts as linked table rows; the seed tells a project to list
+    them by title in that line, and numbers arrive in the table only at
+    ratification.
+
+    Reading only the table was wrong and would have failed every project that
+    followed the template it was given. It was caught on a project branch whose
+    author had listed all three records exactly as the seed prescribes, in a
+    commit whose message says "and put it in the index" -- because they had.
+    """
     if not index.exists():
         return [f"{index}: index file not found."]
+
+    index_text = index.read_text(encoding="utf-8")
 
     on_disk = {
         int(m.group(1))
@@ -234,8 +412,17 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
         if (m := NUMBERED_FILENAME.match(p.name))
     }
 
+    # The directory's own furniture is not a record. An index and a template
+    # are never listed in the index, and reading them as missing rows would
+    # make the check fire on every correctly-set-up project.
+    on_disk_files = {
+        p.name for p in records.glob("*.md")
+        if p.name not in ("README.md", "TEMPLATE.md") and p.resolve() != index.resolve()
+    }
+
     in_index = set()
-    for line in index.read_text(encoding="utf-8").splitlines():
+    in_index_files = set()
+    for line in index_text.splitlines():
         if not line.strip().startswith("|"):
             continue
         cells = [c.strip() for c in line.strip().strip("|").split("|")]
@@ -244,8 +431,79 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
         first = re.sub(r"^(?:ADR|QM)-", "", cells[0]).strip()
         if first.isdigit():
             in_index.add(int(first))
+        for target in INDEX_LINK.findall(line):
+            # Only links that land *in the records directory* are index rows.
+            # An index page carries other tables -- this corpus's own README
+            # links the handbook and the docs site from the same file -- and
+            # reading those as record rows reported fourteen handbook pages as
+            # missing records the first time this ran. Resolve the target
+            # against the index's own directory, because an index inside the
+            # records directory links `DRAFT-x.md` and one at the repository
+            # root links `records/DRAFT-x.md`, and both are correct.
+            landed = (index.parent / target).resolve()
+            if landed.parent == records.resolve():
+                in_index_files.add(landed.name)
 
+    # The second convention: a record listed by title in the index prose. The
+    # title is the H1 minus its `ADR-XXXX — ` / `QM-XXXX — ` prefix, compared
+    # with punctuation and case flattened, because the drafts line is written
+    # by a person and a title is quoted the way a sentence quotes it.
+    # A title counts as listed when a whole *segment* of the index equals it --
+    # a bullet item, or one semicolon-separated part of the drafts line. Bare
+    # substring containment was the first implementation, and an adversarial
+    # pass walked straight through it: a record titled "The" passed against an
+    # index whose prose merely contained the word. Equality over segments keeps
+    # both listing conventions working and closes the accidental third one,
+    # "mentioned somewhere".
+    segments = set()
+    for line in index_text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith(("- ", "* ")):
+            segments.add(_flatten(stripped[2:]))
+        elif "by title)" in stripped:
+            after = stripped.split(":", 1)[-1]
+            for part in after.replace(";", "\n").splitlines():
+                segments.add(_flatten(part.rstrip(".")))
+        elif ";" in stripped and not stripped.startswith("|"):
+            for part in stripped.replace(";", "\n").splitlines():
+                segments.add(_flatten(part.rstrip(".")))
+    segments.discard("")
+    listed_by_title = set()
+    for path in records.glob("*.md"):
+        if path.name in in_index_files or path.name in ("README.md", "TEMPLATE.md"):
+            continue
+        title = _flatten(_title_of(path))
+        if title and title in segments:
+            listed_by_title.add(path.name)
+
+    unlisted = sorted(on_disk_files - in_index_files - listed_by_title)
+    allowance = ALLOW_UNLISTED.search(index_text)
     failures = []
+    if allowance:
+        allowed = int(allowance.group("count"))
+        if len(unlisted) <= allowed:
+            if unlisted:
+                print(f"ADR lint: {len(unlisted)} record(s) unlisted under a "
+                      f"counted allowance of {allowed} -- "
+                      f"{allowance.group('reason')}")
+            unlisted = []
+        else:
+            failures.append(
+                f"{index}: {len(unlisted)} record(s) are unlisted and the "
+                f"allowance covers {allowed}. The count is the gate: raise it "
+                f"only with a restated reason."
+            )
+            unlisted = []
+    for name in unlisted:
+        failures.append(
+            f"{index}: {name} exists in {records}/ and the index neither links it "
+            f"nor names its title. List it as a table row, or in the "
+            f"`Drafts in flight (numberless, by title)` line."
+        )
+    for name in sorted(in_index_files - on_disk_files):
+        failures.append(
+            f"{index}: a row links {name}, which is not a file in {records}/."
+        )
     for number in sorted(on_disk - in_index):
         failures.append(
             f"{index}: record {number:04d} exists on disk but is absent from the index."
@@ -274,6 +532,7 @@ def main() -> int:
     failures: list[str] = []
     failures += check_banned_vocabulary(records)
     failures += check_numbered_are_ratified(records)
+    failures += check_ratified_are_numbered(records)
     failures += check_index_matches_directory(records, index)
 
     if args.base_ref:

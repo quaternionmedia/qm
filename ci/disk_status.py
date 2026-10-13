@@ -9,7 +9,7 @@ handbook/generated-documents.md for the convention itself.
 
 EVERY FACT HERE IS MACHINE-SCOPED, WHICH CHANGES ONE RULE
 
-harness-status.json is mostly an organisation fact with a `local` layer bolted
+status/harness.yaml is mostly an organisation fact with a `local` layer bolted
 on, so it has a `--no-local` flag and a committed copy. This document has no
 such half. Free space on C:, the size of somebody's Docker disk, the state of a
 browser cache -- none of it is true for anyone but the person who ran it, and a
@@ -546,7 +546,7 @@ def build(policy: dict, search_roots: list[Path], volumes: list[Path]) -> dict:
             ),
             "never_committed": (
                 "this document is machine-scoped in full, so unlike "
-                "harness-status.json it has no committable half and the tool "
+                "status/harness.yaml it has no committable half and the tool "
                 "refuses to write it inside the corpus"
             ),
             "thresholds": thresholds,
@@ -566,8 +566,8 @@ def build(policy: dict, search_roots: list[Path], volumes: list[Path]) -> dict:
         "reading": {
             "refresh": "python ci/disk_status.py --write <path outside the corpus>",
             "staleness_budget_hours": STALENESS_BUDGET_HOURS,
-            "human_view": "python ci/disk_dashboard.py disk-status.json --out disk.html",
-            "agent_view": "python ci/disk_dashboard.py disk-status.json --format md",
+            "human_view": "python ci/disk_dashboard.py status/disk.yaml --out disk.html",
+            "agent_view": "python ci/disk_dashboard.py status/disk.yaml --format md",
             "remediate": "python ci/disk_reclaim.py",
             "unknown_convention": (
                 '{"unknown": "<reason>"} is a value. It means the target could '
@@ -688,7 +688,7 @@ def main(argv: list[str] | None = None) -> int:
             "Every fact in this document is one machine at one moment -- free "
             "space, cache sizes, paths in a home directory -- and committing it "
             "would publish that as an organisation fact every later reader "
-            "inherits. Unlike harness-status.json there is no committable half "
+            "inherits. Unlike status/harness.yaml there is no committable half "
             "to fall back to; the reviewable artifact is ci/disk-policy.yaml.\n"
             "Write it somewhere outside the repository."
         )

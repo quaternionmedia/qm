@@ -1,0 +1,72 @@
+# The determinism half of the tag claim, which no seed file can provide.
+#
+# `records/DRAFT-version-tags-are-claims.md` §2: a `v*` tag asserts a human
+# reviewed the change set, a human manually tested it against its real runtime,
+# and *deterministic automated validation passed*. `tag-claims.yml` is the seed
+# workflow and it checks the first two by reading the annotation. Its own header
+# says it does not run the project's tests, because no seed file knows this
+# project's test command, and that the capture is the project's release job to
+# produce. This is that job, for this repository.
+#
+# THIS CORPUS IS A PROJECT TOO. The rule was written here and was unwired here,
+# which is the failure mode the read-document-governs record describes from the
+# other direction: a document that states a requirement its own repository does
+# not meet.
+#
+# WHY A SEPARATE FILE. `tag-claims.yml` is the file every fork copies verbatim.
+# Adding a project-specific test command to it would put this repository's
+# pytest invocation into every downstream project on its next pin bump.
+#
+# WHY THE OUTPUT IS REDIRECTED AND NOT PIPED. A pipe replaces the exit code with
+# the last command's, and this corpus has read a failing check as passing that
+# way twice.
+#
+# WHAT THIS CANNOT DO. Establish that the suite is deterministic. It refuses a
+# run that *announces* nondeterminism -- a skip, a rerun, a retry. A suite that
+# is nondeterministic and silent about it passes here.
+
+name: Tag determinism
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+          fetch-tags: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install what the suite needs
+        run: python -m pip install --quiet pytest pyyaml
+
+      # The same invocation `ci-tooling-tests.yml` runs, spelled out rather than
+      # referenced: pytest ignores `testpaths` the moment it is given a path, so
+      # a shortened version here would silently cover less than CI does.
+      - name: Validation passes, and says so without a skip
+        run: |
+          python -m pytest project-seed/ci/tests ci/tests walkthrough -q \
+            --doctest-glob=*.md > test-output.txt
+          python project-seed/ci/check_tag_claims.py --test-output test-output.txt
+
+      # Kept whatever the outcome: the run is the evidence behind the claim the
+      # tag makes, and a failed run is the more useful of the two to read.
+      - name: Keep the captured run
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tag-determinism-run
+          path: test-output.txt

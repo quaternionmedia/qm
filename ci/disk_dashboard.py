@@ -24,8 +24,8 @@ WHAT THIS MAY NOT DO, and why the list matters more than the features:
     first is an absence of evidence and the second reads as nothing to do.
 
 Usage:
-    python ci/disk_dashboard.py disk-status.json --out disk.html
-    python ci/disk_dashboard.py disk-status.json --format md
+    python ci/disk_dashboard.py status/disk.yaml --out disk.html
+    python ci/disk_dashboard.py status/disk.yaml --format md
 """
 
 from __future__ import annotations

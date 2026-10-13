@@ -1,7 +1,7 @@
 # Handbook — Forking a New Project
 
 **Routing.** Procedure, not a decision record. It carries out the
-branch-per-project model `README.md` describes; the decisions behind it live
+branch-per-project model described in `docs/about/architecture.md`; the decisions behind it live
 in `records/`. Its sibling is `handbook/propagation-runbook.md`, which covers
 keeping a project current once it exists — this page is only the first day.
 
@@ -19,11 +19,11 @@ counts is the adopting projects. `ci/` was generalized from the working lint in
 `project/qmetronome`
 and now runs both in this corpus's own CI and in eight adopting projects that
 copied it from here — 191 recorded runs across apothecary, datum, qmetronome,
-dossier, datafactorio, factorio-server, factorio-sysops and loopwall. That
+dossier, `private-32`, `private-33`, factorio-sysops and `private-34`. That
 sentence used to say it had never run in a copying project, and stayed there
 after it stopped being true. `ide/` is the least exercised of the three, and
 which projects carry it *can* now be established from here:
-`governance-status.yaml` records an `adoption.ide` list per project, read over
+`status/governance.yaml` records an `adoption.ide` list per project, read over
 the GitHub API rather than from the checkout. Expect the untested parts to need fixes, and
 send them back rather than fixing them locally: a copy does not track its
 origin.
@@ -54,11 +54,11 @@ passes, not when its command exits zero.
    and targeting `main` instead would merge the new project's `adr/` into the
    org namespace. The branch is permanent from this moment and never merges
    anywhere; every later change to it arrives as a pull request whose *base* is
-   this branch. See the README's "Branch namespaces".
+   this branch. See `docs/ref/namespaces.md`.
    *Verify:* `git diff --no-index project-seed/adr/TEMPLATE.md adr/TEMPLATE.md`
    is empty, and `adr/README.md` differs from the seed only by the seed
    comment the seed itself says to delete. And
-   `python project-seed/ci/check_pr_base.py --base main --head project/<name>`
+   `uv run qm branch --base main --head project/<name>`
    REFUSES — if it does not, the guard is not in the copy you are running.
 3. **Point the submodule at that branch's tip** (checkout the branch inside
    the submodule, commit the updated pointer in the new project); add
@@ -102,7 +102,10 @@ passes, not when its command exits zero.
 4. **Wire CI:** copy all four of `project-seed/ci/adr-lint.yml`,
    `submodule-check.yml`, `reuse-lint.yml` and `one-pr-check.yml` into
    `.github/workflows/` verbatim — no project-specific edits needed.
-   `one-pr-check.yml` is the org-wide slot rule of `handbook/async-contract.md`
+   `project-seed/ci/leak-check.yml` sits beside them and is copied the same
+   way; whether it joins the four the ladder requires is the `Pends on` of
+   `records/DRAFT-what-is-not-the-organisation.md`.
+   `one-pr-check.yml` is the org-wide stack rule of `handbook/async-contract.md`
    §1, and its own header says to copy it verbatim like the others; this step
    said "all three" and named it nowhere, so a fork done exactly to procedure
    came up one gate short. Start `reuse-lint` in

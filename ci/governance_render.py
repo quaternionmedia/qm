@@ -27,7 +27,7 @@ file changes nothing about what governance means -- that is the point of it
 being a separate file.
 
 Usage:
-    governance_render.py governance-status.yaml --out status.html
+    governance_render.py status/governance.yaml --out status.html
 """
 
 from __future__ import annotations
@@ -284,7 +284,7 @@ the corpus, not gaps in the measurement.</p>
 {undefined}
 
 <footer>
-Rendered from <code>governance-status.yaml</code> by
+Rendered from <code>status/governance.yaml</code> by
 <code>project-seed/ci/governance_render.py</code>. This page derives no governance
 fact of its own; every value above is read from that document. Figures in the
 github layer are observations at the moment stamped, not continuously verified.

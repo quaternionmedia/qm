@@ -1,0 +1,82 @@
+# The published documentation rebuilds, and matches the corpus it documents.
+#
+# WHY THIS EXISTS SEPARATELY FROM docs.yml. That workflow triggers on push and
+# deploys straight to Pages, so the build *is* the deploy: a pull request never
+# establishes that the site still rebuilds, and the first evidence of a broken
+# build is a broken published site. This runs the build on the pull request and
+# publishes nothing.
+#
+# TWO DIMENSIONS, AND THEY FAIL DIFFERENTLY
+#
+#   rebuild    the generator runs to completion and emits a site. Fails the
+#              pull request, because a site that cannot build must not merge.
+#   accuracy   links resolve, named repository paths exist, and no page
+#              silently shadows a corpus document. Reported and does NOT fail
+#              the run by default -- a link typo is worth seeing and is not
+#              worth blocking a merge, and a check that blocks on everything
+#              gets routed around.
+#
+# PATH-FILTERED ON PURPOSE. `docs/` and `zensical.toml` do not exist on every
+# branch. Without the filter this would fail the default branch for the absence
+# of a site nobody claimed was there.
+#
+# WHAT IT DOES NOT COVER
+#
+#   - Whether a page is *correct*. Every check here is structural: a link that
+#     resolves can still point at the wrong page, and a page that cites its
+#     corpus twin can still contradict it. That is reading.
+#   - The deployed artifact. This builds the same inputs; it does not fetch the
+#     live site and compare.
+
+name: Docs audit
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'zensical.toml'
+      - 'ci/docs_audit.py'
+      - '.github/workflows/docs-audit.yml'
+      - '.github/workflows/docs.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install the site generator
+        run: pip install --quiet zensical
+
+      # The rebuild dimension. `--clean` so a stale artifact cannot stand in
+      # for a build that no longer works.
+      - name: The site rebuilds
+        run: zensical build --clean
+
+      - name: The build emitted a site
+        run: |
+          out=$(ls -d site _site build 2>/dev/null | head -1)
+          if [ -z "$out" ] || [ -z "$(ls -A "$out" 2>/dev/null)" ]; then
+            echo "::error::the generator exited 0 and produced no output. An"
+            echo "::error::empty site deploys clean and says nothing, which is"
+            echo "::error::the worst pass available here."
+            exit 1
+          fi
+          echo "built $(find "$out" -type f | wc -l) file(s) into $out"
+
+      # The accuracy dimension. Reported, not blocking -- see the header.
+      - name: The pages match the corpus
+        run: python ci/docs_audit.py

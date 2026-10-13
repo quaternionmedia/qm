@@ -19,7 +19,7 @@
 #   irrelevant. It reads the file from the BASE branch, so a project/* branch
 #   has no code-owner review until main is propagated into it.
 #
-# Ratification is a human action (README.md, "Ratification"). This file names
+# Ratification is a human action (docs/ref/ratification.md). This file names
 # which humans, per path. Tool involvement is never a byline.
 
 # Default owners, applying only to paths that no rule below names.
