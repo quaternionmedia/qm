@@ -1,7 +1,7 @@
 <!-- SEED FILE: this whole project-seed/ide/ directory mirrors the target
      project's own root layout 1:1 -- copy it recursively onto the project
-     root (see README.md's "Forking a new project", step 5) rather than
-     copying files one at a time. CLAUDE.md and .github/copilot-
+     root (handbook/forking-a-project.md, step 5) rather than copying files
+     one at a time. CLAUDE.md and .github/copilot-
      instructions.md are real symlinks to this file in the seed; a
      symlink-preserving copy (git checkout, `cp -a`/`cp -P`, `rsync -a`)
      carries that forward so an edit to this file alone keeps both current.
@@ -191,4 +191,6 @@ instructions. The IDE-integrated governance discovery record in
 `governance/qm/records/` is the decision behind both files.
 
 <!-- Project-specific setup commands, test commands, and conventions belong
-     below this line; this seed only carries the governance-discovery part. -->
+     below this line. Above it, the governance section of
+     governance/qm/project-seed/ide/AGENTS.md stays verbatim apart from the
+     project's name. -->
