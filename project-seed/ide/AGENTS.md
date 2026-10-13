@@ -184,11 +184,12 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
 file, not copies — POSIX checkouts resolve them with no setup. On Windows,
 enable Developer Mode (Settings → For developers) and run `git config
 core.symlinks true` once per clone, then `git checkout -- .` if the files
-were already checked out before that. Skipping this doesn't break
-anything — the files degrade to one-line pointers containing just the
-target path — but it isn't the intended, tested experience; see the
-IDE-integrated governance discovery record in `governance/qm/records/` for
-what was actually verified.
+were already checked out before that; the checkout then resolves them as a
+POSIX one does. Without that setting, each of the two checks out as a
+one-line file holding the relative path to this file: a person can follow
+it, and a tool that reads only that file gets the path rather than these
+instructions. The IDE-integrated governance discovery record in
+`governance/qm/records/` is the decision behind both files.
 
 <!-- Project-specific setup commands, test commands, and conventions belong
      below this line; this seed only carries the governance-discovery part. -->
