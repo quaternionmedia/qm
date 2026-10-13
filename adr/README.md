@@ -256,5 +256,6 @@ together.
 | — | [One construct vocabulary for every language the window reads](DRAFT-one-construct-vocabulary-for-every-language.md) | Proposed | 2026-10-12 |
 | — | [Rust is read at the item level until an engine's index replaces it](DRAFT-rust-is-read-at-the-item-level.md) | Proposed | 2026-10-12 |
 | — | [Adopt the QM constitution, naming each obligation it creates and its state](DRAFT-adopt-the-constitution-and-name-its-obligations.md) | Proposed | 2026-10-13 |
+| — | [A human merges every change into codecartographer's main and its project branch](DRAFT-a-human-merges.md) | Proposed | 2026-10-13 |
 
 Drafts in flight (numberless, by title): —
