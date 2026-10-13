@@ -16,12 +16,13 @@ features are enabled, which platform-specific dependencies apply, which version
 of a crate was chosen and what `rustc` reported are answers only cargo and
 `rustc` compute, and they publish them in two documented JSON forms:
 `cargo metadata --format-version 1` and the message stream of
-`cargo check --message-format=json`.
+`cargo check --message-format=json`. How much memory a firmware's sections use
+is an answer only the linker computes, in the map it writes when asked.
 
-Producing either means running cargo in the workspace, and running cargo there
-runs that workspace's code. `cargo check` compiles and executes build scripts
-and procedural macros. Even `cargo metadata`, which builds nothing, asks the
-configured `rustc` for target information, and a repository's own
+Producing any of these means running cargo in the workspace, and running cargo
+there runs that workspace's code. `cargo check` compiles and executes build
+scripts and procedural macros. Even `cargo metadata`, which builds nothing,
+asks the configured `rustc` for target information, and a repository's own
 `.cargo/config.toml` can name that `rustc` or wrap it (`build.rustc`,
 `build.rustc-wrapper`). This window is an HTTP service: a route that ran cargo
 on a path would run whatever a cloned repository put there, for anyone who can
@@ -39,25 +40,55 @@ was written beside every figure; the window never runs dossier.
    manifest is executed, including a configured `runner`, which is shown as the
    text it is.
 2. **One command runs cargo, and a person runs it.** `codecarto cargo record
-   <path>` runs `cargo metadata --format-version 1` and
-   `cargo check --workspace --message-format=json` in the path, offline unless
-   asked otherwise, bounded by a timeout that is reported when it fires, and
-   writes their output to `<path>/target/codecarto/metadata.json` and
-   `check.jsonl`. A check that fails still writes its document, because the
-   diagnostics are what it is for.
+   <path>` runs, in the path, offline unless asked otherwise (`--online`), each
+   bounded by a timeout that is reported when it fires:
+   - `cargo metadata --format-version 1`, written to
+     `<path>/target/codecarto/metadata.json`;
+   - `cargo check --workspace --message-format=json`, written to
+     `check.jsonl` there;
+   - for each `--map BIN`, `cargo rustc --profile <profile> --package <PKG>
+     --bin BIN -- <map flag>`, where `PKG` is the workspace member that owns
+     `BIN` by the metadata just recorded, so that the linker writes its map to
+     `BIN.map` there. The profile defaults to `release`, the one that is
+     flashed.
+
+   A check that fails still writes its document, because the diagnostics are
+   what it is for.
 3. **A recorded resolution is used only while it is current, and only when it
    is cargo's.** `metadata.json` is used when it is newer than every manifest
    and carries `version: 1` and a `packages` list. Otherwise the manifests are
    read directly and the reading says why: a stale resolution delivered as
-   current is worse than a declared one labelled as declared.
+   current is worse than a declared one labelled as declared. Diagnostics and
+   link maps are different: they are drawn while stale, labelled stale, because
+   the last thing `rustc` or the linker said is still the best evidence there
+   is, and the label keeps it from reading as current.
 4. **Every reading names its engine and every document's state.** The graph's
    metadata and the `/cargo/data` document say whether cargo's resolution or the
    manifests answered, and, for each document, whether it was present, used,
    stale, and why not. An absent document is a sentence — no diagnostics drawn
    is not the same as a clean build — never an empty overlay.
-5. **The same holds for any toolchain document read later.** An index from a
-   language server, a linker map, a build-timing or unit-graph document, a probe
-   trace: recorded by a command a person runs, read by the window with its age.
+5. **The same holds for any other toolchain document.** A link map is read this
+   way: recorded by `cargo record --map`, read by `link_map_service` with its
+   age, measured against the regions it links into. An index from a language
+   server, a build-timing or unit-graph document, a probe trace: each is
+   recorded by a command a person runs and read by the window with its age.
+
+Not yet true at codecartographer 00ce9de, the commit this record was checked
+against:
+
+- `metadata.json` is compared only against `Cargo.toml`. `_walk` collects
+  `Cargo.toml` files as the manifests (`cargo_service.py:314-340`), and
+  `_read_metadata` takes the newest of those (`:536-538`), so a changed
+  `Cargo.lock` or `.cargo/config.toml` does not make the resolution stale.
+  `check.jsonl` and link maps are compared against the newest `Cargo.toml`,
+  `Cargo.lock` or `.rs` file, which leaves out `.cargo/config.toml` and the
+  linker scripts.
+- Diagnostics on the code map are never marked stale. The parse pipeline joins
+  `check.jsonl` onto Rust items through `recorded_diagnostics`
+  (`:1044-1054`), which reads the document without walking the workspace, so
+  the newest source time it compares against is `0.0`, and no document is
+  older than that. Each item carries `diagnostics_recorded_at`, and no stale
+  flag.
 
 ## Consequences
 
@@ -70,11 +101,21 @@ was written beside every figure; the window never runs dossier.
 - Staleness is decided by modification times. A checkout writes files in an
   order of its choosing, so a document committed beside its sources can read as
   stale after a clone; tests that depend on staleness set the times themselves.
-- `cargo record` is the project's first command that executes a workspace's
-  code. Its help text says so, and it writes only under the workspace's own
-  `target/`, which Cargo projects already treat as disposable.
-- The route modules join the estate modules under `tests/test_boundaries.py`:
-  they store nothing, start no process, and never raise to the browser.
+- `cargo record` is the project's command that executes a workspace's code. Its
+  help text says so, and it writes only under the workspace's own `target/`,
+  which Cargo projects already treat as disposable.
+- The cargo route and its services join the estate modules under
+  `tests/test_boundaries.py`: `cargo_router.py`, `cargo_service.py` and
+  `construct_service.py` store nothing, start no process, and the router never
+  raises to the browser. `link_map_service.py`, which `cargo_service` reads link
+  maps through, is not in those lists, and imports nothing that starts a
+  process.
+- This record decides only what reads a toolchain's output. Two other routes
+  start processes, and it does not cover them: `/system/compose`,
+  `/system/events` and `/system/ws/replay` run `git` in a clone beside the
+  checkout (*The system monitor derives its diagram from a repository's
+  contents*), and `/pam` runs `journalctl` on the host when `PAM_USE_JOURNALD`
+  is set.
 
 ## Alternatives considered
 
@@ -103,8 +144,9 @@ was written beside every figure; the window never runs dossier.
   JSON messages.
 - A reader asks for cargo's resolution of a repository nobody has recorded — a
   remote — often enough to justify Alternative 2.
-- A recorded document is found used while stale, or a route is found invoking a
-  process: either is this record failing, not a detail.
+- Beyond the gaps named in the Decision, a stale `metadata.json` is found used
+  as the resolution, or a module in `tests/test_boundaries.py`'s lists is found
+  starting a process: either is this record failing, not a detail.
 
 ## Amendments
 

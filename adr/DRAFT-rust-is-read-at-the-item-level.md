@@ -58,15 +58,19 @@ imported.
 
 - Rust nodes carry the attributes and facets the construct vocabulary reads, so
   firmware facts are visible on the code map today, without a toolchain.
-- The reader is a second batch-whole-tree parser, which is the revision trigger
-  of *Unify parser/cache architecture around `ParserRegistry` +
-  `batch_whole_tree`*; that record states the attribution by
-  file key this needed.
+- The reader is one of three batch-whole-tree parsers — C, linker scripts and
+  Rust — and needed the attribution by file key that *Unify parser/cache
+  architecture around `ParserRegistry` + `batch_whole_tree`* states.
 - A wrong `unique-name` edge is possible (a free function shadowed by a local
   closure of the same name) and is labelled as what it is. A missing edge is
   the common failure, and is the safe one.
 - `tree-sitter` stays declared and unused. Whether it joins the house stack is
-  the org's decision, not this project's.
+  the org's decision, not this project's. Not yet true at codecartographer
+  00ce9de: two comments read as a plan this record does not make —
+  `pyproject.toml`'s note on the `multilang` extra ("Phase 2: full AST quality
+  via tree-sitter (replaces regex parsers per language)") and
+  `regex_language_parser.py`'s docstring, which defers depth-3 extraction "to
+  the tree-sitter phase".
 
 ## Alternatives considered
 

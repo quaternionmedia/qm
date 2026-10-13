@@ -29,15 +29,20 @@ parser's kind, and the thing both of them are.
 
 1. **`codecarto/data/constructs.yaml` is the one place a parsed thing's
    language-neutral identity lives.** A *construct* is what a node is
-   (`type.product`, `type.sum`, `callable.method`, `layout.region`); a *facet*
-   is something it can also be (`memory.unsafe`, `memory.volatile`,
-   `firmware.interrupt`, `layout.section`). Constructs carry a look; facets do
-   not.
+   (`type.product`, `type.sum`, `callable.method`, `layout.region`,
+   `layout.section`, `firmware.entry`); a *facet* is something it can also be
+   (`memory.unsafe`, `memory.volatile`, `firmware.interrupt`). Constructs carry
+   a look; facets do not. A construct can also stand in a node's
+   `meta.facets`: Rust's `#[link_section]` puts `layout.section` on the item it
+   marks, which is what a linker script's output section is, and `#[entry]`
+   puts `firmware.entry` there, which is what a linker script's `ENTRY` is.
 2. **Parsers keep their kinds.** The vocabulary maps each language's kinds — and
    the qualifiers, attributes, macros and body facts that make a facet — onto
    constructs. A kind that is a different construct under a stated condition is
-   refined, not renamed: a Rust `enum` is `type.sum` unless its variants carry
-   no data, when it is `type.enumeration`.
+   refined, not renamed: a Rust `enum` is `type.sum` unless it has variants
+   and none of them carries data, when it is `type.enumeration`. An enum with
+   no variants at all is `type.sum`: it is the empty sum, with no variants to
+   make it C-like.
 3. **Every node of a listed language carries `construct`, on every graph a
    route serves.** The stamp is applied where every graph passes — the
    serializer — and again to a cached graph as it is replayed, so a graph no
@@ -47,6 +52,22 @@ parser's kind, and the thing both of them are.
    every attribute its parser gave it. A node of an unlisted language is left
    exactly as it arrived. One function decides a node's construct, and the
    client never decides one.
+
+   Not yet true at codecartographer 00ce9de, the commit this record was
+   checked against:
+
+   - A kind the mapping does not list gets no `construct`. The crate graph
+     draws `workspace`, `target`, `feature`, `native_lib`, `device_target` and
+     `memory_map` beside the `crate` and `external_crate` the `cargo` mapping
+     places. Python's parser emits `call`, `argument`, `name`, `constant`,
+     `string` and its fallback `symbol` beside the kinds its mapping places.
+   - C's dedicated routes under `/c-parser/` answer from the libclang pipeline
+     and never pass the serializer. `/c-parser/stream-github` emits nodes
+     labelled `language: c` with no `construct`, and `/c-parser/file`,
+     `/c-parser/github` and `/c-parser/directory` return nodes with no
+     `language` at all, which the vocabulary cannot place. The front end calls
+     none of them; the C graphs it draws come through `/parse`, which stamps
+     them.
 4. **A construct's look is the code map's shared visual grammar, and a parser's
    own look wins.** C's adapter carries the c-visualizer reference design; the
    vocabulary carries the same looks for the same constructs, so a Rust struct is
@@ -69,6 +90,13 @@ parser's kind, and the thing both of them are.
    in both directions, C's looks to the vocabulary's, looks to the shapes the
    canvas draws, the crate graph's kinds to the `cargo` mapping. Each guard was
    seen to fail before it was trusted.
+
+   Not yet true at 00ce9de: the both-direction test of parser kinds exists for
+   C, the linker-script reader and Rust (`tests/test_construct_service.py`).
+   The `cargo` test runs one way — every kind the mapping lists is one the
+   crate graph draws (`tests/test_every_graph_a_chrestomathy.py`) — and
+   Python's and assembly's kinds have no test against their mappings, which is
+   how the unmapped kinds in §3 pass.
 
 ## Consequences
 

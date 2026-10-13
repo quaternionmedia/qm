@@ -1,11 +1,11 @@
-# DRAFT — the system monitor derives its diagram from a repository's contents
+# ADR-XXXX — The system monitor derives its diagram from a repository's contents
 
 | | |
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-27 |
 | **Pends on** | Nothing — ready to be argued |
-| **Principle** | `seams-on-standard-protocols` seams on standard protocols; `decisions-are-documented` decisions documented; `a-check-is-evidence-after-it-fails` a check is evidence only after it has failed |
+| **Principle** | `seams-on-standard-protocols`; `decisions-are-documented`; `a-check-is-evidence-after-it-fails` |
 
 ## Context
 
@@ -43,8 +43,8 @@ its diagram from a repository's own declarations.**
    callback surface (`setNodeState`, `firePacket`, `log`, `resetAllNodes`).
 
 2. **PAM is one registration among others**, converted to a definition object
-   with identical nodes, edges, demo sequence and event mapping. Current
-   functionality is retained, selectable, and no longer privileged.
+   with identical nodes, edges, demo sequence and event mapping. It stays
+   selectable, and nothing privileges it.
 
 3. **`DerivedSystemDefinition` builds a diagram from what a repository
    declares**, over two backend endpoints (`/system/compose`, `/system/events`)
@@ -53,7 +53,7 @@ its diagram from a repository's own declarations.**
    - a directory holding `Chart.yaml` is a **chart** (Helm reads that file);
    - a `kind: Application` manifest names what it deploys via
      `spec.source.path` (ArgoCD acts on that field) — moat's `groot` yields
-     its six deploy edges this way;
+     its deploy edges this way;
    - `Chart.yaml dependencies` naming another local component is a
      **dependency edge**; an external dependency is an upstream annotation,
      never an invented node;
@@ -64,10 +64,18 @@ its diagram from a repository's own declarations.**
    components whose files they touched; branches ahead of the default branch
    are **in-flight changes** — the offline proxy for open pull requests,
    labelled as a proxy in the payload and in the log, because pull request
-   state lives on the host and this reads none of it. Every replayed frame
-   carries `replay: true` and the badge says DEMO or the log says REPLAY:
-   history dressed as a live tail would teach a reader the homelab is busier
+   state lives on the host and this reads none of it. Both come from `git` run
+   in the clone (`log`, `show`, `rev-list`, `symbolic-ref`), so these routes
+   start a process, on a clone the reader placed beside the checkout. Every
+   replayed frame carries `replay: true`, and the monitor never presents a
+   replay as live: the log says REPLAY on each change, and the header badge
+   says DEMO while the canned sequence runs and never says LIVE for a replay.
+   History dressed as a live tail would teach a reader the homelab is busier
    than it is.
+
+   Not yet true at codecartographer 00ce9de: when the replay websocket opens,
+   the header badge reads LIVE (`system_renderer.ts:574`), the badge a live
+   PAM feed gets, and only the log lines say REPLAY.
 
 5. **moat is the default `systemId`**; PAM remains in the selector. The
    repository a derived definition reads is resolved by name beside the
@@ -125,7 +133,11 @@ other than chart/terraform/container without a new rule, argued here first.
   name — the rule belongs here before it belongs in code.
 - A runtime feed (cluster events, webhooks) is wired in — §4's "declarations
   and changes only" boundary is then wrong and this record must say what the
-  monitor now claims.
+  monitor then claims.
 - The offline in-flight proxy misleads in practice — a branch read as
   in-flight whose pull request closed long ago — in which case the proxy
   needs host data or needs removing, not softening.
+
+## Amendments
+
+*None.*
