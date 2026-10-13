@@ -42,8 +42,10 @@ Two failure modes follow from that split, and both have bitten:
 
 Closing the wrong route does not open a right one, and for a long time the
 upward half of this model ran on somebody remembering. It turns out the
-projects have been writing it down all along: **every `Proposed` record names
-what it pends on**, the ADR lint enforces the row, and many of those rows name
+projects have been writing it down all along: **a `Proposed` record names
+what it pends on** in the row `project-seed/adr/TEMPLATE.md` asks for. No lint
+checks for the row, and a record without one is skipped by the reader below, so
+its question never reaches the list. Many of those rows name
 *the organisation* — an amendment nobody has ratified, a carve-out nobody has
 recognised, a licensing input nobody has settled.
 

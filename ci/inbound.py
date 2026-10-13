@@ -11,7 +11,8 @@ remembering.
 
 It turns out the projects have been writing it down the whole time. Every
 `Proposed` record names what it pends on -- `project-seed/adr/TEMPLATE.md`
-requires the row and the ADR lint enforces it -- and a good many of those rows
+asks for the row; no lint checks for it, and a record without one is skipped
+here, so its question never reaches this list -- and a good many of those rows
 name **the organisation** rather than the project: an amendment nobody has
 ratified, a carve-out nobody has recognised, a licensing input nobody has
 settled. Each is a question asked in this corpus's own disciplined format, on a
