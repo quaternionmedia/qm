@@ -4,9 +4,9 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-10-13 |
-| **Pends on** | Apothecary installing the guard at §1's install points and nowhere else. At apothecary `4426724` the guard is installed by `apothecary/__init__.py`, which is Alternative 8, and `tests/test_stays_local.py::test_importing_the_package_guards_every_name_for_a_socket` holds that; the record is ready for ratification when `import apothecary` installs nothing and §7's fresh-interpreter test of each install point passes. |
-| **Checked against** | apothecary `4426724` (`build/governance`) |
-| **Established by** | importing the geometry library in a fresh interpreter with an audit hook on `socket.*` events, and each install point weighed in §1 and Alternatives 8 to 10 the same way, on a copy of apothecary with the install moved there (§7); `strace -f -e trace=network` of a Rust install, an offline Rust build and an OrcaSlicer slice (§5); uvicorn 0.38.0's binding, in a network namespace of its own (§3) |
+| **Pends on** | Nothing — ready for ratification |
+| **Checked against** | apothecary `77f75c8` (`build/governance`), where §1's install points are built and §7's tests hold them |
+| **Established by** | importing the geometry library and each install point in a fresh interpreter, with an audit hook on `socket.*` events (`tests/test_stays_local.py`, §7), and Alternatives 8 to 10 on a copy of apothecary with the install moved there; `strace -f -e trace=network` of a Rust install, an offline Rust build and an OrcaSlicer slice (§5); uvicorn 0.38.0's binding, in a network namespace of its own (§3) |
 | **Tools** | Drafted with Claude Code (Anthropic); the person who ratifies it is its contributor of record |
 
 ## Context
@@ -146,8 +146,11 @@ human-only contributorship.
    network. `apothecary.vocabulary` reads nothing personal and is under the
    guard all the same, because it imports `apothecary.vision.models`. A
    module that reads personal data is written inside one of those
-   packages, or its own package installs the guard the same way; §7's scan
-   holds that line for the readers it names. There is no flag, environment
+   packages, reaches it only through one of them -- `apothecary/jobs.py`
+   and the slicer's service reach the state folder through
+   `apothecary.firmware`, whose import puts the guard on first -- or its own
+   package installs the guard the same way; §7's scan holds that line for
+   the readers it names. There is no flag, environment
    variable, configuration file or route that turns the guard off.
 2. **One allowance, a tool fetch, and two callers.** The firmware installer
    downloads arduino-cli -- and, for Rust on the ESP32, rustup-init,
@@ -320,10 +323,14 @@ human-only contributorship.
    installs the guard; that a test session is under the guard before its
    first test is collected (the root `conftest.py`); that no module
    outside those packages, the command line's package and the application
-   module imports `serial`, calls `state_dir()`, resolves the picture root
-   or opens an image, so a module that reads personal data by one of those
-   means where no install point covers it fails a test before it merges
-   (one that reaches the data another way is named in the risk register);
+   module imports `serial` or an image library, reads
+   `APOTHECARY_STATE_DIR` or `APOTHECARY_PICTURE_ROOT` itself, or calls
+   `state_dir()` or the picture root's resolver except as imported from the
+   install point's package that owns it (`apothecary.firmware`,
+   `apothecary.api`), whose import puts the guard on first -- so a module
+   that reads personal data by one of those means where no install point
+   covers it fails a test before it merges (one that reaches the data
+   another way is named in the risk register);
    that every way of connecting, the TLS socket and the resolver included,
    is refused past loopback; that a tool fetch reaches
    its sources and nothing else, takes no proxy, has the two installers as its callers and
@@ -414,7 +421,7 @@ What this record does not close, and what would show it:
 | An installed core's `platform.txt` hooks, or a process on this machine racing the managed config's rewrite | a core is a program the person installed, and its hooks run at compile as it says; a process rewriting a file under the person's account is code running as them | a hook line the core's release did not carry; a config file whose content is not `ARDUINO_CLI_CONFIG` when arduino-cli reads it |
 | `ARDUINO_CLI`, `ESPTOOL`, `CARGO`, `ESPFLASH`, `APOTHECARY_ORCASLICER` and `APOTHECARY_OPENSCAD` (or `PATH`) name the programs the seams run | naming a program to run is installing one; the tests and `serve --demo` use `ARDUINO_CLI`, `CARGO` and `ESPFLASH` to stand in scripted tools (`apothecary/firmware/scripted.py`) and set `ESPTOOL=none` so their servers never find the esptool a person's own Arduino install bundles; whatever is named runs as the tool it stands for would -- arduino-cli under the managed config, the firmware and slicer tools with the scrubbed environment | a binary at that path that is not the tool it is named for; a checksum of the managed binaries would close it and is not built |
 | Another user on the same machine | the state folder and the captures are files under the person's home, with the person's own permissions; loopback is shared by every account | a file mode wider than the person's; the OS's boundary, not this program's |
-| A module outside the guarded packages reads personal data | the guard goes on by package, a module can be written anywhere in the tree, and §7's scan looks for known readers (`serial`, `state_dir()`, the picture root, an image library); a module that reaches the data another way passes it | the scan failing; a `strace -e trace=openat` of a program that imports only the geometry library opening a file under the state folder, a picture or a serial device |
+| A module outside the guarded packages reads personal data | the guard goes on by package, a module can be written anywhere in the tree, and §7's scan looks for known readers (`serial`, an image library, the state folder's and the picture root's variables, `state_dir()` and the picture root's resolver other than through the install point that owns them); a module that reaches the data another way passes it | the scan failing; a `strace -e trace=openat` of a program that imports only the geometry library opening a file under the state folder, a picture or a serial device |
 | A socket, a pooled connection or a name lookup made before an install point -- by a program that imports apothecary, or by the geometry library and the libraries it imports, which `import apothecary` runs before every install point | the guard replaces classes, not the sockets that exist: a socket made before the install binds `0.0.0.0` after it (measured), so a program that connects first and imports a personal-data package after keeps that connection; and Python runs a package's `__init__` before any module inside it | a connection held open across the import of a guarded package; a `socket.*` audit event while `import apothecary` loads (§7), or a socket call under `strace -f -e trace=network` of `python -c 'import apothecary'` |
 | A `uvicorn` parent run with `--workers` or `--reload` binds a listener wherever it is told | uvicorn binds in the parent and loads the application in each child process; the parent never imports apothecary, so the guard is not in it, and `LocalOnly` refuses what arrives from past this machine | a listener on a non-loopback address held by a uvicorn parent (`ss -ltnp`) |
 
@@ -445,7 +452,7 @@ What this record does not close, and what would show it:
 - Cost accepted: an install point per package that reads personal data,
   not one for the whole library, each a line a reviewer keeps at the top
   of its module; a module that reads personal data is written inside one
-  of those packages or brings its own.
+  of those packages, reaches it through one of them, or brings its own.
 - Cost accepted: in every apothecary process the geometry library and the
   libraries it imports load before the guard. A socket one of them made at
   import would be outside it; §7's audit of `import apothecary` is what
