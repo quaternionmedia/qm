@@ -11,12 +11,9 @@ different thing: it is a template being used on its reader. Somebody opens
 (`project/<name>`)", and learns nothing about which branch that is. The document
 is answering a question it was supposed to have answered.
 
-`project-seed/ide/AGENTS.md`'s banner already states the rule -- "Replace every
-<name> placeholder with the project's own name", and "a live project file
-carrying a literal <name> sends its reader to a branch that does not exist". It
-was stated in one banner, enforced nowhere, and absent from
-`project-seed/adr/README.md`'s banner entirely. Ten of twelve project branches
-consequently carry it unsubstituted.
+The banners of `project-seed/ide/AGENTS.md` and `project-seed/adr/README.md`
+state the rule: replace every <name> placeholder with the project's own name.
+This check enforces it on the copies.
 
 How it decides, without an allowlist. A placeholder is a defect in a copy only
 if the *seed source of that copy* also has it. So the check pairs each copied
