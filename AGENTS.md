@@ -53,7 +53,7 @@ you do need the page. `handbook/generated-documents.md` indexes both, and
 as prose. Check the age before quoting a figure — a stale number delivered
 with a date looks checked.
 
-1. Read `PRINCIPLES.md` (the charter) in full and the three invariants in `README.md`. For depth, see `docs/ref/namespaces.md`, `docs/ref/precedence.md`, and `docs/ref/ratification.md` on the docs site.
+1. Read `PRINCIPLES.md` (the charter) in full and the opening points of `README.md`. For depth, see `docs/ref/namespaces.md`, `docs/ref/precedence.md`, and `docs/ref/ratification.md` on the docs site.
 2. This corpus governs its own drafting. Records live in `records/` as
    `DRAFT-*.md` until a human ratifies them (flips Status, assigns a QM
    number, updates the index) — you draft, you never ratify.
