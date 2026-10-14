@@ -88,11 +88,11 @@ GENERATED = {
 MANDATORY_READING = ("AGENTS.md", "PRINCIPLES.md", "handbook/async-contract.md",
                      "handbook/handoffs/README.md")
 # `README.md` is mandated in part rather than in full -- AGENTS.md item 1 asks
-# for its three invariants, not the whole page -- so counting the page would
+# for its opening points, not the whole page -- so counting the page would
 # overstate the load. The exclusion is named so it cannot be mistaken for an
 # oversight.
 MANDATORY_READING_EXCLUDED = {
-    "README.md": "mandated in part -- three invariants, not the whole page",
+    "README.md": "mandated in part -- its opening points, not the whole page",
 }
 # The ceiling sits above the measured mandate, because a breached ceiling is
 # one nobody can act on. records/DRAFT-governance-arrives-as-a-mechanism.md 4
