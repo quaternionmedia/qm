@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-28T21:21:16Z'
+generated_at: '2026-10-15T21:42:21Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 208
+  documents: 210
   by_state:
     draft: 3
     generated: 7
     proposed: 36
     standing: 75
     transient: 26
-    unreviewed: 61
+    unreviewed: 63
   disagreements: 0
   unknown: 0
 documents:
@@ -819,6 +819,14 @@ documents:
   state_from_filename: null
   indexed_status: Unreviewed
   state: unreviewed
+- path: perspectives/2026-08-09-integrating-rad-into-a-web-host.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
 - path: perspectives/2026-08-09-tests-that-enumerate-around-the-defect.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
@@ -1044,6 +1052,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-08-21-what-a-system-says-about-itself.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-08-22-found-while-putting-the-topology-on-the-canvas.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
