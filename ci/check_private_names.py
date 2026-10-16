@@ -189,7 +189,7 @@ def repository_context(name: str) -> re.Pattern[str]:
     """
     n = re.escape(name)
     return re.compile(
-        rf"(?:/{n}(?![A-Za-z0-9_-]))"                    # owner/name, project/name
+        rf"(?:/{n}(?![A-Za-z0-9_]|-(?!\d)))"             # owner/name, project/name, propagate/name-<date>
         rf"|(?<![A-Za-z0-9_-]){n}/"                      # name/something
         rf"|[\"'](?:{n})[\"']"                           # a quoted token
         rf"|(?:^|\s)(?:name|slug|repository|repo|branch)\s*[:=]\s*\"?{n}\b"
@@ -205,7 +205,12 @@ def pattern(name: str) -> re.Pattern[str]:
     guarantee appeared broken, by the check rather than by the file. Repository
     names are bounded by characters that cannot appear in one.
     """
-    return re.compile(rf"(?<![A-Za-z0-9_-]){re.escape(name)}(?![A-Za-z0-9_-])")
+    # A hyphen followed by a digit does not bound the name: `propagate/<name>-<date>`
+    # is how a project's propagation branch is named, and a generated document that
+    # copies a commit subject carries it. A hyphen followed by a letter still does,
+    # because the longer token may be another repository -- which also lets a file
+    # named `<name>-<word>` through.
+    return re.compile(rf"(?<![A-Za-z0-9_-]){re.escape(name)}(?![A-Za-z0-9_]|-(?!\d))")
 
 
 def scan(root: Path, names: set[str]) -> list[tuple[str, str]]:

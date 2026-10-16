@@ -38,7 +38,7 @@ refreshed.
 | dossier | ✅ | ✅ | no | Adopted late and completely; useful as the control case |
 | `private-33` | ✅ | ? | no | Private; resolve the reference with `uv run qm inventory --resolve private-33` |
 | factorio-sysops | ✅ | ? | no | — |
-| loopwall | ✅ | ? | no | Branch took `main` by a direct merge with no pull request |
+| private-34 | ✅ | ? | no | Branch took `main` by a direct merge with no pull request |
 | qmcp | ✅ | ✅ | no | Adopted 2026-08-11 with nine conflicts recorded rather than fixed; three are shared-workstation hazards |
 | streaming-infrastructure | ✅ | n/a | n/a | **Not an adopting project.** No `quaternionmedia/streaming-infrastructure` repository exists (`gh api` → 404). A design branch holding the plan and `ADR-0001` that `main` moved off itself; `LICENSE` and two records will not arrive by merging — see the session handoff |
 

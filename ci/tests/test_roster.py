@@ -228,3 +228,10 @@ def test_the_committed_roster_carries_no_path_outside_the_conventions():
             if candidate.startswith("../") or candidate.startswith("/") or ":" in candidate:
                 strays.append((entry["name"], candidate))
     assert strays == []
+
+
+def test_redact_reaches_a_name_in_a_dated_branch_and_spares_a_longer_one():
+    """Mutation: bound the name by any following hyphen, and the dated branch keeps it."""
+    subject = "Merge 'origin/main' into propagate/blorp-2026-08-11"
+    assert redact(subject, "blorp", "private-9") == "Merge 'origin/main' into propagate/private-9-2026-08-11"
+    assert redact("blorp-docs and blorp", "blorp", "private-9") == "blorp-docs and private-9"
