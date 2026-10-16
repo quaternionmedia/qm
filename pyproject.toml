@@ -60,11 +60,12 @@ docs = [
 
 # What `qm preflight` needs to reproduce CI faithfully.
 #
-# The workflows install their own tools with `python -m pip install ...`, and a
-# uv-managed environment has no pip -- so inside `uv run`, five steps fail with
-# "No module named pip" and report as gate failures when the gates are fine.
-# That is an environment difference, and this corpus's own rule is to say which
-# of the two a local failure is rather than let the exit code speak.
+# Most workflows install their own tools with `python -m pip install ...`, and
+# a uv-managed environment has no pip -- so inside `uv run`, every such step
+# fails with "No module named pip" and reports as a gate failure when the gate
+# is fine. That is an environment difference, and this corpus's own rule is to
+# say which of the two a local failure is rather than let the exit code speak.
+# A step that runs its tool through `uvx` needs nothing from this list.
 #
 #     uv run --extra preflight qm preflight
 #
@@ -74,10 +75,6 @@ preflight = [
   "pip",
   "pytest>=8.0",
   "pyyaml>=6.0",
-  # The extra, not bare `reuse`: without it the package needs libmagic (the
-  # `file` command) at import time and dies before it lints anything. The
-  # runner image has libmagic; a Windows box does not.
-  "reuse[charset-normalizer]>=3.0",
 ]
 
 [build-system]
