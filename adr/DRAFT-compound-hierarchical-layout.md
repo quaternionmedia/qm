@@ -4,6 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-06-30 |
+| **Pends on** | Nothing — ready to be argued |
 
 ## Context
 
@@ -27,7 +28,9 @@ registered in `position_service.py` as `'compound_layout'`):
    subdirectories via dir→dir `contains` edges) — a directory whose
    room-need comes from a deep or wide nested subtree is pushed
    proportionally further from the pack centroid than one with the same
-   direct file count but no depth beneath it.
+   direct file count but no depth beneath it. The result is stretched 1.6×
+   along x and 0.7× along y, so the directory layer spreads more along the
+   X axis than the Y axis.
 2. **Pass 2** — files orbit their parent directory at
    `max(1.8, sqrt(n_files) * 0.9) + max_child_sym_r` units, where
    `max_child_sym_r` is the largest symbol-orbit radius among the dir's
@@ -69,11 +72,13 @@ strip to remove) — a dedicated stem-to-file-id index built once from every
 file node's own label. True orphans that clear none of the three land on
 a fallback ring rather than failing.
 The frontend (`compound_layout.ts`'s `CompoundLayoutManager`) resolves
-the same dir→file→symbol→sub-symbol grouping from the identical
-`contains` edges the backend already sends — nearest-neighbor-by-position
-is used only as a fallback for orphan nodes
-with no matching edge, the same concept as the backend's own fallback
-ring.
+the dir→file→symbol→sub-symbol grouping from the same containment edges
+the backend sends — nearest-neighbor-by-position is used only as a fallback
+for nodes with no matching edge, the same concept as the backend's own
+fallback ring. It has no depth-1 tier for sub-symbols, so a sub-symbol
+whose edge comes from its file or from another sub-symbol is grouped with
+the nearest depth-2 symbol by position, where Pass 4 orbits it around its
+file or its traced depth-2 ancestor.
 
 ## Consequences
 
@@ -83,11 +88,12 @@ ring.
   deep or wide subtree gets proportionally more orbital room from Pass 1
   than a same-position directory with few descendants.
 - The frontend and backend both key their dir/file/symbol grouping off
-  the same `contains` edges rather than each computing it independently —
+  the same containment edges rather than each computing it independently —
   bounding-circle and drag-propagation grouping (`compound_layout.ts`)
-  stays structurally tied to the backend's own parent structure; only
-  orphan nodes with no matching edge fall back to nearest-neighbor,
-  mirroring the backend's own fallback-ring behavior.
+  stays tied to the backend's own parent structure; nodes with no matching
+  edge fall back to nearest-neighbor, mirroring the backend's own
+  fallback-ring behavior, and the sub-symbols the frontend has no depth-1
+  tier for are the one place the two groupings can differ.
 - Parent detection is only as good as the containment edges a given
   language parser actually emits, under whichever kind name it uses — a
   parser that produces a duplicate, disconnected depth-1 node for a file
@@ -95,17 +101,16 @@ ring.
   node the directory walker already created and connected) defeats every
   pass downstream of it for that file's entire contents, not just the
   file itself; a parser that emits a real containment edge under a kind
-  name Pass 4 doesn't recognize orphans just as completely. Verified at
+  name Pass 4 doesn't recognize orphans just as completely. Measured at
   scale against a large real C codebase (github.com/redis/redis, ~210
-  files): before `field_of` was added to the recognized containment
-  kinds, 100% of struct/enum fields and enum constants (3,194 of 3,194)
-  had no resolved parent; with `field_of` recognized but only the
-  label-exact and stripped-stem fallback tiers in place, 4.66% (149 of
-  3,194) remained unresolved — every one a deeply nested anonymous
+  files): without `field_of` among the recognized containment kinds,
+  100% of struct/enum fields and enum constants (3,194 of 3,194) have no
+  resolved parent; with `field_of` recognized but only the label-exact and
+  stripped-stem fallback tiers, 4.66% (149 of 3,194) remain unresolved — every one a deeply nested anonymous
   struct/union field with no containment edge at all and a bare-stem
   `file` attribute neither of those two tiers can match against an
-  extension-bearing file label; adding the dedicated stem-to-file-id
-  index as a third tier resolves all of them, confirmed at 0 of 3,194
+  extension-bearing file label; the dedicated stem-to-file-id index as a
+  third tier resolves all of them, measured at 0 of 3,194
   along with 0 of 35,424 sub-symbols on a large real Python codebase
   (site-packages/networkx) and 0 of this project's own ~5,800. A second,
   independent real Python codebase (github.com/pallets/flask, fetched
@@ -116,13 +121,11 @@ ring.
   intentionally parentless (they represent an import target outside the
   parsed repo, not a directory member), and their count scales with how
   many distinct top-level packages the repo imports — 67 for Flask alone.
-  Before this pass they shared the same small, near-origin ring used for
-  genuine orphans, sized only for that ring's own count with no regard
-  for how large the real directory cluster already was; on Flask the
-  ring (radius ~3.7) landed inside the directory cluster (directories up
-  to ~233 from origin), overlapping real content. Giving them a
-  dedicated ring anchored to the outside of the real cluster fixes this
-  without touching the genuine-orphan fallback path at all.
+  On the small near-origin ring used for genuine orphans, sized only for
+  that ring's own count, they land inside the directory cluster: on Flask
+  that ring has a radius of ~3.7 while directories sit up to ~233 from
+  origin. A dedicated ring anchored to the outside of the real cluster
+  keeps them clear without touching the genuine-orphan fallback path.
 
 ## Alternatives considered
 
