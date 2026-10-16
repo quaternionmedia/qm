@@ -13,8 +13,9 @@ work.
 [`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the companion:
 the whole open set reviewed as one, with the demo branches, the demonstration,
 the decisions waiting on a person and the order the set lands in.
-[`hil-review-2026-09-27.md`](hil-review-2026-09-27.md) holds the decisions
-from the round before it. Nothing in this page is a decision.
+[`voice-set-landing.md`](voice-set-landing.md) is how far that order has got,
+restamped after it, and holds the two decisions still open from the round
+before. Nothing in this page is a decision.
 
 The why of all of it is in three retrospectives, and not here:
 `perspectives/2026-09-27-the-voice-loop.md`,
