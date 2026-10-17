@@ -246,10 +246,9 @@ def test_the_sweep_kills_what_is_tested_and_reports_what_is_not(tmp_path):
     survivors, errored, total = sweep(module, tests, root=tmp_path, out=lambda *a: None)
     assert total == 4, "the docstring and the comment leaked into the count"
     assert errored == []
-    # `unread` has no test, so its comparison flip survives — and it is the
+    # `unread` has no test, so its comparison flip survives, and it is the
     # same substitution, on a line of the same length, as the one two lines
-    # above it that does not. Those two outcomes differing is what the stale
-    # bytecode used to hide.
+    # above it that does not: stale bytecode would hide the difference.
     assert [m.line for m in survivors] == [12]
 
 

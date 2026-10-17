@@ -4,15 +4,15 @@
 # adr-lint.yml. Only the workflow is copied -- it runs check_one_pr.py out of
 # the governance submodule, so a fix to the rule reaches every project on its
 # next pin bump instead of needing N copies updated. The file, script and job
-# names predate the rule and are kept so that pin bump needs no re-copy and a
-# required `slot` context keeps reporting.
+# names are kept as they are, so a pin bump needs no re-copy and a required
+# `slot` context keeps reporting.
 #
 # The rule and the reasoning are handbook/async-contract.md §1: one change per
 # pull request, parallel when independent, stacked when dependent. A stacked
 # pull request's base is its parent's branch, and it stays a draft until the
 # parent merges.
 #
-# WHAT THIS FAILS, AND WHO CAN FIX IT
+# What this fails, and who can fix it
 #
 # Every ready pull request of this author whose base is another open pull
 # request's branch. The remedy is `gh pr ready <n> --undo`, which re-runs this.
@@ -27,16 +27,13 @@ on:
     # names, so both must re-run it.
     types: [opened, reopened, synchronize, ready_for_review, converted_to_draft, edited]
 
-# One run per branch per workflow. A second push supersedes the first: nobody
-# reads the result of a run whose commit has already been replaced, and the
-# minutes are real -- 55 of this repository's 129 runs on 2026-08-11 came from
-# five iterative pushes to two pull request branches, where only the last
-# mattered.
+# One run per branch per workflow. A second push supersedes the first: the
+# result of a run whose commit has been replaced is not read, and its minutes
+# are billed.
 #
-# Cancellation is scoped to pull requests deliberately. On the default branch
-# and on a project branch the run IS the record of what that commit reported,
-# and cancelling it to start a newer one destroys the only evidence that the
-# earlier commit was ever checked.
+# Cancellation applies to pull requests only. On the default branch and on a
+# project branch the run is the record of what that commit reported, and
+# cancelling it would remove the only evidence that the commit was checked.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}

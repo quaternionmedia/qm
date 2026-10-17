@@ -6,14 +6,12 @@ and it invents no new channel: every `Proposed` record already names what it
 pends on, the ADR lint already enforces the row, and a good many of those rows
 name the organisation.
 
-**WHAT THIS SUITE IS REALLY ABOUT IS THE GROUPING.** A list of nineteen rows is
-something a per-project reading already gives. The only thing this view adds is
-that one org action unblocks many projects, and that is destroyed by two
-failures which look like nothing: a `Pends on` opening with "Nothing" counted as
-a dependency, and one shared ask split across the four ways this corpus spells a
-dash.
+The grouping is what this suite is about: the view adds that one org action
+unblocks many projects, and two failures destroy that while looking like
+nothing: a `Pends on` opening with "Nothing" counted as a dependency, and one
+shared ask split across the four ways this corpus spells a dash.
 
-THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
+The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
 
   cutting the shared ask on the em dash alone, as the first version did
 
@@ -36,18 +34,9 @@ THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
     assert 0 == 1
      +  where 0 = len([])
 
-**THE LAST ONE TOOK THREE ATTEMPTS AND THE FIRST TWO WERE INERT**, which is
-worth more than the mutation itself. Removing `^` alone changes nothing,
-because `.match()` anchors regardless; changing `.match` to `.search` alone
-changes nothing, because the pattern still carries `^`. Each was run, each came
-back green, and each would have been recorded here as a guard seen to fail. The
-defence is doubled, and a mutation that only halves it proves nothing.
-
-A fourth thing went wrong before that: the mutation script raised on a
-mis-escaped anchor string and its traceback was filtered out by the `grep` that
-was watching for assertion lines, so the run printed nothing and the nothing
-read as a pass. The mutations are applied by matching on shape now, and the
-script says out loud that it applied one.
+The anchor is doubled: `.match()` anchors and the pattern carries `^`, so a
+mutation that removes only one of the two changes nothing and proves nothing.
+The mutation recorded above removes both.
 """
 
 from __future__ import annotations
@@ -124,12 +113,8 @@ RATIFY = "Org-level ratification of the QM constitution records themselves"
 
 
 def test_one_ask_spelled_with_different_dashes_is_one_group(corpus):
-    """**THE ONE THIS VIEW EXISTS FOR.**
-
-    Six projects pend on the same ratification and each wrote its own trailing
-    detail after a dash. Cut on the em dash alone -- the first version of the
-    key -- it came out as one group of four and three singletons, which reads
-    as four problems and looks like nothing is wrong with the tool.
+    """One ask, written by several projects with their own trailing detail
+    after different dashes or an aside, is one group.
     """
     add_project(corpus, "alpha", {"a.md": f"{RATIFY} — detail for alpha."})
     add_project(corpus, "beta", {"b.md": f"{RATIFY} - detail for beta."})

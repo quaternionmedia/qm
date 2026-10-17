@@ -1,8 +1,7 @@
 name: ADR lint
 
-# This corpus runs the lint it requires of every project, against its own
-# records. A repository whose entire subject is decision-record discipline is
-# the last one that should rely on an unchecked convention.
+# This corpus runs, against its own records, the lint it requires of every
+# project.
 #
 # On main this lints records/ against the index in README.md. On a
 # project/<name> branch it also lints that project's adr/ directory, which
@@ -16,16 +15,13 @@ on:
     branches: [main, 'project/**']
   pull_request:
 
-# One run per branch per workflow. A second push supersedes the first: nobody
-# reads the result of a run whose commit has already been replaced, and the
-# minutes are real -- 55 of this repository's 129 runs on 2026-08-11 came from
-# five iterative pushes to two pull request branches, where only the last
-# mattered.
+# One run per branch per workflow. A second push supersedes the first: the
+# result of a run whose commit has been replaced is not read, and its minutes
+# are billed.
 #
-# Cancellation is scoped to pull requests deliberately. On the default branch
-# and on a project branch the run IS the record of what that commit reported,
-# and cancelling it to start a newer one destroys the only evidence that the
-# earlier commit was ever checked.
+# Cancellation applies to pull requests only. On the default branch and on a
+# project branch the run is the record of what that commit reported, and
+# cancelling it would remove the only evidence that the commit was checked.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -73,23 +69,14 @@ jobs:
             --index README.md \
             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
 
-      # There was a step here linting `streaming-infrastructure/adr/`. It is gone:
-      # no branch in this repository has that path -- those records are at `adr/`
-      # on `project/streaming-infrastructure`, which the generic step below
-      # already lints -- so the condition was unreachable on every ref CI runs
-      # against, and the step could only ever print its reassuring else-branch.
-      # A check that cannot fire is worse than none, because the log says it ran.
-
       # A top-level adr/ belongs to exactly one project and lives on that
-      # project's own branch. On the default branch it is a namespace violation,
-      # and the step below would not catch it -- it guards on the directory
-      # existing, so a stray adr/ would simply be linted and pass, and a clean
-      # lint is the most reassuring possible report about records that are in the
-      # wrong namespace entirely.
+      # project's own branch. On the default branch it is a namespace violation
+      # that the lint step cannot see: that step guards on the directory
+      # existing, so a stray adr/ would be linted and pass.
       #
-      # The way it gets there is a pull request from project/<name> into main.
-      # check_pr_base.py refuses that, and this is the second line: if one ever
-      # lands, the default branch goes red instead of green.
+      # It arrives by a pull request from project/<name> into main.
+      # check_pr_base.py refuses that pull request; this step is the second line,
+      # and turns the default branch red if one lands.
       - name: The default branch carries no project records
         run: |
           if [ "$GITHUB_REF_NAME" = "${DEFAULT_BRANCH}" ] && [ -d adr ]; then
@@ -103,19 +90,14 @@ jobs:
           echo "ok - no top-level adr/ on the default branch, or this is not it."
         env:
           # A literal, not ${{ github.event.repository.default_branch }}. That
-          # field is absent from a `push` payload and from every local run, so it
-          # resolved to the empty string, the comparison never matched, and the
-          # step reported ok with a stray adr/ sitting right there. A guard whose
-          # condition cannot be reached is worse than no guard: it reports the
-          # reassuring answer and nobody looks again.
+          # field is absent from a `push` payload and from every local run, where
+          # it resolves to the empty string and the comparison never matches.
           DEFAULT_BRANCH: main
 
-      # Tool involvement is disclosed in a `Tools:` note and nowhere else. The
-      # co-author trailer was already forbidden; a commit subject and a record's
-      # prose were not, so "Re-refactor docs with <model>" passed every gate this
-      # org had. A paragraph naming three or more competing vendors is exempt --
-      # that is an interoperability claim, not a byline, and this corpus needs to
-      # be able to make one.
+      # Tool involvement is disclosed in a `Tools:` note and nowhere else, so a
+      # vendor or model name is refused in a commit subject and in a record's
+      # prose as well as in a trailer. A paragraph naming three or more competing
+      # vendors is exempt: that is an interoperability claim, not a byline.
       - name: No vendor or model name outside a Tools note
         run: |
           python project-seed/ci/check_attribution.py             --records-dir records             ${{ steps.base.outputs.ref && format('--base-ref {0}', steps.base.outputs.ref) }}
@@ -123,18 +105,16 @@ jobs:
       # A record whose summary lives in an entry point declares where, and the
       # entry point names the record back. records/DRAFT-the-read-document-governs.md
       # §6. This pairs declarations; it cannot tell that a summary and its record
-      # disagree, and it cannot find a restatement nobody declared -- the tool
-      # prints both limits on every run so a green tick here is not read as more
-      # than it is.
+      # disagree, and it cannot find a restatement nobody declared. The tool
+      # prints both limits on every run.
       - name: Every declared restatement names its record, and the reverse
         run: python ci/check_restatements.py
 
-      # One layer up. `check_restatements.py` pairs a record with the documents
-      # that summarise it; nothing paired a principle with another principle,
-      # and a draft of P17 contradicted P10 in its central sentence with six of
-      # seventeen principles named by nobody at the time. This never requires an
-      # edge -- an unforced graph is the point -- it requires a declaration, and
-      # `none` with a reason is a first-class answer.
+      # One layer up from `check_restatements.py`, which pairs a record with the
+      # documents that summarise it: this pairs a principle with the principles
+      # it names. It never requires an edge, because an unforced graph is the
+      # point; it requires a declaration, and `none` with a reason is a
+      # first-class answer.
       - name: Every principle declares its edges, or declares it has none
         run: python ci/check_principle_edges.py
 
