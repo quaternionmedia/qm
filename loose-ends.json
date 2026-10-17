@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-17T00:37:17Z",
+  "generated_at": "2026-10-17T17:32:40Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-28T21:21:16Z"
+        "generated_at": "2026-10-17T17:31:59Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 135,
+    "loose_ends": 141,
     "by_kind": {
       "blind-spot": 20,
-      "document-proposed": 36,
-      "document-unreviewed": 61,
+      "document-proposed": 37,
+      "document-unreviewed": 66,
       "over-slot": 2,
       "stalled-thread": 16
     },
-    "open": 135,
+    "open": 141,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -351,6 +351,14 @@
       "title": "records/DRAFT-deltas-compose.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-deltas-compose",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-durable-text-states-what-is-true",
+      "title": "records/DRAFT-durable-text-states-what-is-true.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-durable-text-states-what-is-true",
       "address_parses": true
     },
     {
@@ -919,6 +927,46 @@
       "title": "perspectives/2026-09-28-the-voice-loop-meets-the-field.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-28-the-voice-loop-meets-the-field",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-joe-and-vox-remembered",
+      "title": "perspectives/2026-10-10-what-joe-and-vox-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-joe-and-vox-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-pages-remembered",
+      "title": "perspectives/2026-10-10-what-the-corpus-pages-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-pages-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-tooling-remembered",
+      "title": "perspectives/2026-10-10-what-the-corpus-tooling-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-tooling-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-rest-of-qmcp-remembered",
+      "title": "perspectives/2026-10-10-what-the-rest-of-qmcp-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-rest-of-qmcp-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-topology-docstrings-remembered",
+      "title": "perspectives/2026-10-10-what-the-topology-docstrings-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-topology-docstrings-remembered",
       "address_parses": true
     },
     {
