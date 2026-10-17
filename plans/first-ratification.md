@@ -29,8 +29,8 @@ warning found by reading the lint rather than by ratifying:
 
 **That warning is itself unratified evidence** — established against a fixture
 rather than a real ratification, which is precisely the state `a-check-is-evidence-after-it-fails` says is not
-evidence yet. So the steps were performed wrongly on purpose while drafting
-this, and **the warning turned out to describe only the safer of two failures.**
+evidence yet. The steps were performed wrongly on purpose to test it, and
+**the warning describes only the safer of two failures.**
 
 | What the ratifier did | What the lint said |
 |---|---|
@@ -122,9 +122,9 @@ three habits to remember and become one principle with a name.
 Four questions. None is answerable by a check, which is why they are here.
 
 1. **Is the knot/loop distinction the right one to bind the organisation to**,
-   or is it one session's convenient reading of one relation set?
+   or is it a convenient reading of one relation set?
 2. **Is `a-check-is-evidence-after-it-fails`'s obligation proportionate?** It costs a few minutes per guard,
-   forever, against six defects found in one session. Is that the right trade at
+   forever, against the defects mutation finds. Is that the right trade at
    this size?
 3. **Should `a-check-is-evidence-after-it-fails` have teeth beyond prose?** The record rejects a mutation-score
    gate and says why. That rejection is a judgement, not a finding.

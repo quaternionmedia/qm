@@ -12,7 +12,7 @@ Which repository is reviewed next is a handoff's business: the queue in
 `handbook/handoffs/README.md` names it.
 
 **Audience.** A person or a session asked to review one repository top down,
-with no memory of the run this method came from.
+with no memory of earlier runs.
 
 ---
 
@@ -26,9 +26,9 @@ finds the sum, fixes what gives wrong answers, removes what does not earn its
 place, and says which is which with evidence. It ends in one pull request.
 
 The review hangs on one sentence: **the objective restated as a test the code
-can fail.** The first run's was: everything the repository ships either
-produces exactly what its model or parameters say, or refuses loudly; code that
-serves the process rather than that path stays out of the package. Every cut
+can fail.** For example: everything the repository ships either produces
+exactly what its model or parameters say, or refuses loudly; code that serves
+the process rather than that path stays out of the package. Every cut
 and every fix is argued against it. Draft it before the audit; the triage
 sharpens it.
 
@@ -55,7 +55,7 @@ redo it.
   (`records/DRAFT-no-unattended-spending.md` §2). Restarts that a supervisor
   makes on its own, with no stated limit, cannot be counted: they are named
   beside the count, and the kill time bounds them. Budget the lead's day as
-  well as the workers'; the first run's scale is in apothecary #22's body.
+  well as the workers'.
 - **The four facts** from `AGENTS.md`: the commit and branch, the pull request
   slot, what else is in flight, which gates exist. Start from the tip of work
   already in flight and stack on it, rather than from a `main` it is about to

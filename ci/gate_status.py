@@ -6,7 +6,7 @@ Org-level tooling, copied nowhere. This is the *document* half of the shape
 to the filesystem and the host. `ci/gate_dashboard.py` renders it and does
 nothing else.
 
-THREE LAYERS, AND THEY ARE NOT INTERCHANGEABLE
+Three layers, and they are not interchangeable
 
   claim        ci/gate-registry.yaml. What a human asserts each gate does and,
                more importantly, what it cannot see. Never inferred from a

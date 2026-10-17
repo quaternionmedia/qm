@@ -190,7 +190,7 @@ def test_records_aimed_at_a_base_that_already_has_them_are_allowed(repo: Path):
 
 
 def test_base_and_head_are_required(repo: Path):
-    """**A GATE WITH OPTIONAL ARGUMENTS IS A GATE THAT CHECKS NOTHING.**
+    """A gate with optional arguments is a gate that checks nothing.
     `required=True` on both survived mutation: nothing established that
     omitting them fails rather than defaulting to something.
 
@@ -206,7 +206,7 @@ def test_base_and_head_are_required(repo: Path):
 
 
 def test_a_head_that_exists_locally_and_not_on_the_remote_says_to_push(repo: Path):
-    """THE HINT THAT IS THE POINT OF THE BRANCH.
+    """The hint that is the point of the branch.
 
     The ordinary cause off a runner is a branch that has never been pushed --
     exactly the state you are in when you run this *before* opening the pull

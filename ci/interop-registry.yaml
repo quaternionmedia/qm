@@ -7,7 +7,7 @@
 # compares, which is the state the whole estate was in when a publisher governed
 # `0.6.0` while a consumer replayed `0.4.0` and both reported green.
 #
-# WHY THIS IS LOCAL AND ADVISORY. It reads sibling clones, so it says different
+# Why this is local and advisory. It reads sibling clones, so it says different
 # things on two machines and belongs nowhere near CI -- a runner has no siblings
 # and a pull request would go red for a reason its author cannot fix. It is the
 # same constraint `ci/devloop.py` carries and for the same reason.

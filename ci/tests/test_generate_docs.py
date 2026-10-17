@@ -1,20 +1,11 @@
-"""The regeneration command, which is the `show-it-by-running-it` mechanism and was untested.
+"""The regeneration command, which is the `show-it-by-running-it` mechanism.
 
-**THE COMMAND CHARTER `show-it-by-running-it` RESTS ON.** "Regeneration rides the command people
-already run" — this is that command. Drift is supposed to arrive as an
-uncommitted diff nobody can miss, and the whole arrangement depends on this
-running the right steps in the right order.
-
-`uv run qm posture` found that no test executed it. Its *outputs* are checked by
-each document's own tests, so a wrong document is caught downstream — but
-nothing checked the ordering, the `--check` mode, or what it reports as moved,
-which are the three things only this module decides.
-
-THE TEST WORTH READING IS THE ORDERING ONE. "A renderer must run after the
-document it reads, and `status/documents.yaml` must run last because it reports on the
-files the others just wrote. Getting that backwards produces a state page
-describing the previous run" — that is written in the module and was checked by
-nothing.
+"Regeneration rides the command people already run": this is that command, so
+drift arrives as an uncommitted diff. Each document's own tests check its
+output; these check the three things only this module decides: the order of
+the steps, the `--check` mode, and what it reports as moved. A renderer runs
+after the document it reads, and `status/documents.yaml` runs last because it
+reports on the files the others just wrote.
 """
 
 from __future__ import annotations
@@ -75,11 +66,8 @@ def checked() -> subprocess.CompletedProcess:
 
 
 def test_the_state_document_is_written_last():
-    """THE ONE THAT MATTERS.
-
-    `status/documents.yaml` reports on the files the other steps just wrote. Run it
-    earlier and it describes the *previous* run — a state page that is
-    confidently wrong, which is the shape this corpus keeps finding.
+    """`status/documents.yaml` reports on the files the other steps just
+    wrote. Run earlier, it would describe the previous run.
 
     Mutation: move the `doc status` step earlier and this fails; move the
     loose-ends join above it and `test_a_renderer_runs_after_the_document_it_reads`'s
@@ -150,7 +138,7 @@ def test_every_step_declares_whether_it_reaches_the_network():
 
 
 def test_check_mode_writes_nothing():
-    """**THE PROPERTY CI DEPENDS ON.** `--check` runs on a runner against a
+    """`--check` runs on a runner against a
     checked-out tree; writing there would turn a verification into a change.
 
     Mutation: let `--check` fall through to the writing branch and this fails.

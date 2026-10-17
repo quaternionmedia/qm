@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Assert a branch is based on what its pull request targets, and say what it carries.
 
-SEED FILE, run in place. Run it *before* opening a PR, and paste its output into
+A seed file, run in place. Run it *before* opening a PR, and paste its output into
 the description.
 
 The failure it exists for: a branch cut from the wrong parent is internally

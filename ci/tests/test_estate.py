@@ -1,6 +1,6 @@
 """What an estate survey must tell apart before anybody consolidates.
 
-**REAL REPOSITORIES WITH A REAL REMOTE, NEVER A MOCK.** Every class this tool
+Real repositories with a real remote, never a mock. Every class this tool
 reports is a fact about refs -- on the remote or not, ahead of the base or
 not, an ancestor of HEAD or not -- and a mock would encode whichever belief
 its author held about git and then agree with it. The seed's branch census
@@ -11,7 +11,7 @@ The one thing stood in for is the host CLI: `gh` is reached through a single
 seam, and the tests replace the seam rather than the host, because a test
 that needed a signed-in host to pass would be a test nobody ran offline.
 
-THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they
+The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they
 printed.
 
   `relation_to_head` reading `--is-ancestor` inverted, so a folded branch
@@ -23,7 +23,7 @@ printed.
   the verb allowlist removed from `run_git`, so the helper spawns whatever it
   is handed
 
-    Failed: DID NOT RAISE Refused
+    `Failed: DID NOT RAISE Refused`
 
   a MISSING roster entry dropped instead of reported
 
@@ -39,15 +39,8 @@ printed.
     assert '## games  2 named, 1 on this disk, ...' in "## games  3 named, 1 on this disk, ..."
     AssertionError: assert 'secret' == 'private-99'
 
-AND ONE FAULT IN THE SCAFFOLDING THAT RAN THEM. The first pass applied the
-three mutations in sequence with a restore between each, and the restore
-copied from a backup that a shell fallback had never written -- so the second
-run carried two mutations and the third carried three, and every one of them
-read as red. The failures were still attributable, because each run added
-lines the one before did not have, but a mutation that goes red on top of a
-red baseline has shown nothing about itself. Each was rerun alone from a
-backup whose presence was checked first, and the lines above are from those
-runs.
+Each mutation above was run alone, against a backup whose presence was checked
+first.
 """
 
 from __future__ import annotations

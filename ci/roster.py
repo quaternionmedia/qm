@@ -125,15 +125,9 @@ def redact(node, name: str, ref: str):
     substring replace rewrites a longer repository that merely contains this
     one.
 
-    **IT WALKS TYPES, WHICH IS THE HOLE, AND THE HOLE HAS BEEN THROUGH ONCE.**
-    The docstring above says it walks the whole entry rather than naming the
-    fields, because a field list goes stale against a shape that changes. True,
-    and it enumerates *types* instead -- so a value that is not a dict, a list
-    or a string falls through the bottom unredacted. That happened: a generator
-    grew an `Unknown(reason)` wrapper for facts it could not establish, the
-    reason string interpolated a repository name, and two private names reached
-    a committed generated document while every field the redactor knew about
-    was clean. `uv run qm private-names` is what caught it.
+    It walks the whole entry rather than naming fields, because a field list
+    goes stale against a shape that changes. It enumerates types, so a value
+    that is not a dict, a list or a string would fall through unredacted.
 
     So anything carrying a redactable string attribute is redacted through that
     attribute, in place, by duck typing rather than by importing the class --

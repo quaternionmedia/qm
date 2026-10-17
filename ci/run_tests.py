@@ -6,33 +6,23 @@ is it:
 
     uv run qm test
 
-WHY THIS EXISTS. Before it, there were three ways and no canonical one: CI's
-`python -m pytest project-seed/ci/tests ci/tests -q`, `pyproject.toml`'s
-`testpaths`, and whatever an operator typed. One session used four different
-invocations in a single afternoon -- `python -m pytest`, `uv run --with pytest
-pytest`, `uv run --extra preflight --with pytest pytest`, and a bare `pytest` --
-each of which can collect a different set. `--with pytest` was redundant every
-time, since the `preflight` and `dev` extras already carry it.
+An improvised invocation can collect a different set of tests, and a run that
+collects one suite and not the other reports green over half the tooling
+(`pyproject.toml` says so beside `testpaths`). This is the one invocation.
 
-That is not a style problem. `pyproject.toml`'s own comment says a run that
-collected one suite and not the other "would report green over half the
-tooling", and an invocation improvised per-run is exactly how that happens.
+The paths are CI's: the argument list below is the one
+`.github/workflows/ci-tooling-tests.yml` passes, and
+`ci/tests/test_run_tests.py` asserts they match by reading the workflow, so a
+local pass predicts a remote one.
 
-THE PATHS ARE CI'S, LITERALLY. The argument list below is the one
-`.github/workflows/ci-tooling-tests.yml` passes. If the two drift, a local pass
-stops predicting a remote one, which is the failure this whole file is against.
-`ci/tests/test_run_tests.py` asserts they match by reading the workflow.
+What this cannot do: run CI's *environment*. It runs the same arguments under a
+different interpreter, platform and image, so a local pass is evidence, not
+proof; `uv run` installs this package and the runner does not.
 
-WHAT THIS CANNOT DO. It runs the same *arguments* as CI, not the same
-*environment*: a different interpreter, a different platform, and no runner
-image. A local pass is evidence, not proof -- one defect found on 2026-08-15 was
-invisible locally precisely because `uv run` installs this package and the
-runner does not.
-
-BOTH SUITES ALWAYS RUN, and extra arguments are added rather than substituted.
-`qm test -- ci/tests/test_x.py` runs everything *and* that file again; narrowing
-is `-k`. That is deliberate: a route that let you run a subset would let a
-subset be reported as a pass, which is the thing `testpaths` exists to prevent.
+Both suites always run, and extra arguments are added rather than substituted:
+`qm test -- ci/tests/test_x.py` runs everything *and* that file again, and
+narrowing is `-k`, so a subset is never reported as the suite's pass.
+`docs/ref/ci/measuring-the-suite.md` describes the test command.
 
 Usage:
     uv run qm test
@@ -58,16 +48,11 @@ SUITES = ("project-seed/ci/tests", "ci/tests", "walkthrough")
 # collected by nobody and stay green forever.
 # `-n auto` is a deliberate default and not a hidden one: `main` prints the
 # whole command before running it, so an operator sees the workers and can
-# override with `qm test -- -n 0`. Measured on this suite, on 16 cores:
-# 280s serial, 77s parallel, 1370 passed and 2 skipped either way, stable
-# across three runs. The reason it is a default rather than a flag is the cost
-# argument -- a four-minute gate is one people skip between runs, and a skipped
-# gate is worth nothing however correct it is.
+# override with `qm test -- -n 0`. It is a default because the parallel run is
+# several times faster, and a slow gate is one people skip between runs.
 #
-# IT MUST MATCH CI. This tuple and `.github/workflows/ci-tooling-tests.yml`'s
-# pytest line are asserted equal by `ci/tests/test_run_tests.py`, because a
-# local run that collects or schedules differently from CI is the divergence
-# this module exists to prevent.
+# This tuple and `.github/workflows/ci-tooling-tests.yml`'s pytest line are
+# asserted equal by `ci/tests/test_run_tests.py`.
 BASE_ARGS = ("-q", "--doctest-glob=*.md", "-n", "auto")
 
 
