@@ -95,9 +95,8 @@ PROJECT_NS = "project/"
 CORPUS_URL_MARK = "/qm"
 IDE_ARTIFACTS = ("AGENTS.md", "CLAUDE.md", ".github/copilot-instructions.md")
 # The four `handbook/forking-a-project.md` step 4 requires a fork to copy. Not
-# the six that sit in `project-seed/ci/`: `signature-check.yml` and
-# `tag-claims.yml` are this corpus's own and step 4 does not ask a project for
-# them, so counting them would report every adopting project as incomplete.
+# every workflow in `project-seed/ci/`: step 4 does not require the others, so
+# counting them would report every adopting project as incomplete.
 SEED_WORKFLOWS = (
     ".github/workflows/adr-lint.yml",
     ".github/workflows/submodule-check.yml",

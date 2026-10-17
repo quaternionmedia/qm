@@ -11,12 +11,9 @@ different thing: it is a template being used on its reader. Somebody opens
 (`project/<name>`)", and learns nothing about which branch that is. The document
 is answering a question it was supposed to have answered.
 
-`project-seed/ide/AGENTS.md`'s banner already states the rule -- "Replace every
-<name> placeholder with the project's own name", and "a live project file
-carrying a literal <name> sends its reader to a branch that does not exist". It
-was stated in one banner, enforced nowhere, and absent from
-`project-seed/adr/README.md`'s banner entirely. Ten of twelve project branches
-consequently carry it unsubstituted.
+The banners of `project-seed/ide/AGENTS.md` and `project-seed/adr/README.md`
+state the rule: replace every <name> placeholder with the project's own name.
+This check enforces it on the copies.
 
 How it decides, without an allowlist. A placeholder is a defect in a copy only
 if the *seed source of that copy* also has it. So the check pairs each copied
@@ -28,13 +25,12 @@ the copy kept. That means:
     project, and no seed file is its source.
   - a placeholder invented after the copy was made is not flagged either, because
     it is not in the seed.
-  - only `<name>` counts. A general pattern flagged `--base <base>` in a command
-    example and offered to substitute it with the project's name; those are
-    arguments a reader fills in, not identity. See the note above the pattern.
+  - only `<name>` counts. `--base <base>` in a command example is an argument a
+    reader fills in, not the project's identity. See the note above the pattern.
 
-There is deliberately **no code-span exemption**, unlike the vocabulary and
-attribution checks. A placeholder inside backticks is still on the page, still
-read, and `` `project/<name>` `` is the exact form that went wrong.
+There is **no code-span exemption**, unlike the vocabulary and attribution
+checks. A placeholder inside backticks is still on the page and still read, and
+the seed writes the project's branch as `` `project/<name>` ``.
 
 Exit status is 1 for any finding. Every finding is a refusal: the fix is always
 to substitute the placeholder or delete the sentence.
@@ -52,19 +48,17 @@ import re
 import subprocess
 from pathlib import Path
 
-# `<name>` and nothing else, on purpose.
+# `<name>` and nothing else.
 #
-# A general `<[a-z-]+>` pattern was written first and rejected after testing it
-# against `project/alfred`: it flagged `--base <base> --head <branch>` inside a
-# command example and suggested substituting them with "alfred", which is
-# nonsense. Those are arguments a reader supplies when running the command; they
-# are placeholders in a shell sense and not in the identity sense.
+# A general `<[a-z-]+>` pattern would also match `--base <base> --head <branch>`
+# in a command example. Those are arguments a reader supplies when running the
+# command: placeholders in a shell sense and not in the identity sense.
 #
 # `<name>` is the one token the corpus's own rule names -- "Replace every <name>
 # placeholder with the project's own name", in `project-seed/ide/AGENTS.md`'s
 # banner -- and it is the one that means *this project*. Extending the set is a
-# decision about the rule, so it belongs in the rule rather than in a regex that
-# grew.
+# decision about the rule, so it belongs in the rule before it reaches this
+# pattern.
 PLACEHOLDER = re.compile(r"<name>")
 
 # The seed's own banner is meant to be deleted in the copy, so a placeholder that
