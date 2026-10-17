@@ -41,7 +41,7 @@ shortest useful thing to read after this.
 
 | You want to | Go to |
 |---|---|
-| Know what QM believes and why | [PRINCIPLES.md](PRINCIPLES.md) — the charter, eleven principles |
+| Know what QM believes and why | [PRINCIPLES.md](PRINCIPLES.md) — the charter and its principles |
 | Understand how the corpus works | [Overview](docs/about/overview.md) and [Architecture](docs/about/architecture.md) |
 | Read a specific decision | the index at the end of this file; each row links to its record |
 | Work here as a coding agent | [AGENTS.md](AGENTS.md) — read it before your first commit; start with `/cowork` |
