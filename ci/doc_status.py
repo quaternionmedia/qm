@@ -4,28 +4,25 @@
 Org-level tooling, copied nowhere. The document half of the shape
 `handbook/generated-documents.md` describes; `ci/doc_dashboard.py` renders it.
 
-WHAT THIS IS FOR. This corpus has four state vocabularies and they do not
-overlap. A record is `Proposed` or `Accepted`, and its filename separately says
-`DRAFT-` or `QM-NNNN-`. A perspective is `Unreviewed`, `Acknowledged`,
-`Responded` or `Declined`. A generated page has no lifecycle at all, only an
-age. A handbook page has no state vocabulary whatsoever. So a reader opening a
-page in this repository cannot tell, from the page, which of those systems it
-belongs to or where in one it sits -- and every one of those states means
-something different about whether the page binds them.
+The corpus has four state vocabularies, and they do not overlap. A record is
+`Proposed` or `Accepted`, and its filename separately says `DRAFT-` or
+`QM-NNNN-`. A perspective is `Unreviewed`, `Acknowledged`, `Responded` or
+`Declined`. A generated page has no lifecycle, only an age. A handbook page has
+no state vocabulary. This gives every governed page one state from one closed
+list, with what that state means about whether the page binds its reader.
 
-TWO SIGNALS PER DOCUMENT, AND THEY CAN DISAGREE
+Two signals per document, which can disagree:
 
   declared   the document's own `| **Status** | ... |` row. What it says of
              itself.
   filename   what the name asserts: `DRAFT-` is pre-ratification,
              `QM-NNNN-` is ratified.
 
-A file named `DRAFT-` whose Status reads `Accepted` is a ratification somebody
-started and did not finish -- step 3 of five, per the ratification path, is the
-rename. Nothing else in this repository notices that, so the disagreement is a
-first-class output here rather than a footnote.
+A file named `DRAFT-` whose Status reads `Accepted` is a ratification started
+and not finished (the rename is a later step of the ratification path), and
+the disagreement is a first-class output.
 
-WHAT THIS CANNOT DO
+What this cannot do:
 
   - It cannot tell whether a state is *correct*. `Proposed` on a record nobody
     has read and `Proposed` on a record awaiting one signature are the same
@@ -59,10 +56,9 @@ STATUS_ROW = re.compile(r"^\|\s*\*\*Status\*\*\s*\|\s*(?P<value>[^|]+?)\s*\|", r
 
 # A row of the perspectives index:
 #   | 2026-08-13 | `file.md` | Author | Perspective | Unreviewed | Notes |
-# That index is the authority for a perspective's status -- `perspectives/README.md`
-# says so in as many words: "This index is the whole mechanism." Reading the
-# file's own header instead reported 21 of 26 perspectives as `unknown`, which
-# was a fact about where this tool looked and not about the corpus.
+# That index is the authority for a perspective's status: `perspectives/README.md`
+# says "This index is the whole mechanism." Most perspective files carry no
+# Status row of their own.
 INDEX_ROW = re.compile(
     r"^\|\s*[\d-]+\s*\|\s*`(?P<file>[^`]+\.md)`\s*\|[^|]*\|[^|]*\|\s*(?P<status>[^|]+?)\s*\|",
     re.M,
@@ -82,32 +78,25 @@ GENERATED = {
 }
 
 # What a session must read before its first edit, per AGENTS.md's opening.
-# Measured because it is a cost paid by every reader, and because it rose 58
-# lines in a session whose stated aim included cutting it -- an unmeasured
-# figure moves in whichever direction nobody is watching.
+# Measured because it is a cost paid by every reader, and an unmeasured figure
+# moves in whichever direction nobody is watching.
 # records/DRAFT-governance-arrives-as-a-mechanism.md 4 sets the budget.
 #
-# THIS LIST IS THE MEASUREMENT'S SCOPE, AND A SCOPE NOBODY CHECKS IS A RESULT
-# ABOUT THE SCAFFOLDING. It held three documents and reported 631 lines against
-# a 700-line budget, comfortably inside it, while `AGENTS.md` item 1 told every
-# reader to read `PRINCIPLES.md` *in full* -- 497 lines that no figure counted.
-# The charter is in the list now, and `scope_note` below states what is left
-# out and why, so the next reader can argue with the boundary instead of
-# discovering it in a tuple.
+# This list is the measurement's scope: a document a session is told to read
+# in full belongs in it, or the figure undercounts the load. `scope_note` below
+# states what is left out and why, so a reader can argue with the boundary.
 MANDATORY_READING = ("AGENTS.md", "PRINCIPLES.md", "handbook/async-contract.md",
                      "handbook/handoffs/README.md")
 # `README.md` is mandated in part rather than in full -- AGENTS.md item 1 asks
-# for its three invariants, not its 149 lines -- so counting the page would
-# overstate the load in the same direction as omitting the charter understated
-# it. Named here because an exclusion nobody can see is indistinguishable from
-# an oversight, which is what this whole block is about.
+# for its three invariants, not the whole page -- so counting the page would
+# overstate the load. The exclusion is named so it cannot be mistaken for an
+# oversight.
 MANDATORY_READING_EXCLUDED = {
     "README.md": "mandated in part -- three invariants, not the whole page",
 }
-# Re-derived when the charter joined the measured set: the mandate is 1,130
-# lines over four documents, and the ceiling sits above it for the same reason
-# the first one sat above 626 -- a breached ceiling is one nobody can act on.
-# records/DRAFT-governance-arrives-as-a-mechanism.md 4 carries the derivation.
+# The ceiling sits above the measured mandate, because a breached ceiling is
+# one nobody can act on. records/DRAFT-governance-arrives-as-a-mechanism.md 4
+# carries the derivation.
 READING_BUDGET_LINES = 1200
 
 
@@ -218,17 +207,15 @@ def normalise(declared: str | None) -> str | None:
 def classify(path: Path, root: Path) -> tuple[str, str]:
     """(class, why) for one path. Class decides which vocabulary applies.
 
-    PAIRED WITH `handbook/style-guide.md`'s "Every home" table, which names
+    Paired with `handbook/style-guide.md`'s "Every home" table, which names
     these classes and this function back. The two are one taxonomy written in
-    two places, and they are repaired together -- they were written separately
-    and disagreed for as long as both existed.
+    two places, and they are repaired together.
     """
     rel = path.relative_to(root).as_posix()
     if rel in GENERATED:
         return "generated", "a tool writes it"
-    # An index is not a member of the thing it indexes. Classifying
-    # perspectives/README.md as a perspective asked it for a status it does not
-    # have and reported the index itself as unknown.
+    # An index is not a member of the thing it indexes, and has no status of
+    # the kind its members carry.
     if path.name == "README.md" and rel != "README.md":
         return "index", "the index for its directory, not a member of it"
     if rel.startswith("records/"):
@@ -239,11 +226,9 @@ def classify(path: Path, root: Path) -> tuple[str, str]:
         return "handoff", "working instructions, deleted when the work lands"
     if rel.startswith("handbook/"):
         return "handbook", "policy binding on QM's own conduct"
-    # `docs/` is the reference tier named in handbook/style-guide.md, and it
-    # had no class here because the scan below never reached it -- so the tier
-    # the style guide privileges was the one the tooling could not see. The
-    # three below it are the same omission: each is a governed directory whose
-    # pages fell through to "not in a governed directory".
+    # `docs/` is the reference tier named in handbook/style-guide.md; it and the
+    # three governed directories below it each have a class, so none of their
+    # pages falls through to "not in a governed directory".
     if rel.startswith("docs/"):
         return "reference", "the reference: contracts, interfaces, procedures"
     if rel.startswith("protocols/"):
@@ -408,13 +393,9 @@ def build(root: Path) -> dict:
     # Collected as a set and sorted, so the output does not depend on which
     # generator ran first. An order-dependent document cannot be checked, and
     # this one lists a view that is written after it.
-    # THE SCAN IS THE SCOPE, AND THE SCOPE DECIDES WHAT `totals.unknown` MEANS.
-    # This list held five patterns and `totals.unknown` was 0, which read as
-    # "every governed document's state can be established" -- the wording of an
-    # alpha requirement. `docs/` was not in the list, so the tier
-    # handbook/style-guide.md calls the reference was never asked for a state
-    # at all, along with protocols/, curriculum/ and walkthrough/. A document
-    # nothing scans is not a document in a good state.
+    # The scan is the scope, and the scope decides what `totals.unknown` means:
+    # a document nothing scans is not a document in a good state, so every
+    # governed directory is in this list.
     found: set[str] = set()
     for pattern in ("records/*.md", "perspectives/*.md", "handbook/**/*.md",
                     "plans/*.md", "docs/**/*.md", "protocols/**/*.md",
@@ -431,10 +412,9 @@ def build(root: Path) -> dict:
 
     index = perspective_index(root)
 
-    # An index row naming a file that does not exist. The reverse -- a file with
-    # no row -- was already caught, and checking one direction only is how a
-    # perspective got indexed here before it was written. `check_restatements.py`
-    # got this right in the same session that got it wrong here.
+    # An index row naming a file that does not exist. The reverse, a file with
+    # no row, is checked too: both directions, as `check_restatements.py`
+    # checks both.
     for name in index:
         rel = f"perspectives/{name}"
         if rel not in found:

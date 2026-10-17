@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """A pull request speaks as its contributor, to the world -- never to them.
 
-SEED FILE, run in place.
+A seed file, run in place.
 
-THE RULE. A pull request body is posted under a human's account, so it is that
+A pull request body is posted under a human's account, so it is that
 human's statement of the change. It addresses nobody. A sentence written *to*
 the contributor -- "not to be merged without your click", "worth your eye",
 "assigned, no review requested", "merge when ready" -- is a tool speaking to its
@@ -13,14 +13,12 @@ who asked belongs in the session; the body states decisions and facts
 (`handbook/async-contract.md` §3, and clause 5 of
 `records/DRAFT-human-only-contributorship.md`).
 
-WHY A CHECK. The rule had been stated to the tool three times and leaked each
-time in the same shape: an instruction the contributor gave the session about
-how the work was to be handled came back out as a sentence in the body,
-addressed to them. Seven pull requests carried it on one day. A rule that has
-to be remembered under the operator's name is a rule the tool will forget; this
-is the one that does not.
+A rule that has to be remembered under the operator's name is one a tool
+forgets: an instruction about how the work is handled comes back out as a
+sentence in the body, addressed to the contributor. This check does not
+forget.
 
-WHAT IT REFUSES
+What it refuses
 
   - the second person anywhere in the body's prose: `you`, `your`, `yours`,
     `yourself`, case-insensitive, as whole words;
@@ -30,7 +28,7 @@ WHAT IT REFUSES
   - the contributor mentioned by their own login (`@login`), when the login is
     given -- a person does not @-mention themself.
 
-WHAT IT LEAVES ALONE
+What it leaves alone
 
   - fenced code blocks and inline code spans: a command may say `--yours`;
   - quoted lines (`> ...`): a body may quote what somebody said;
@@ -39,7 +37,7 @@ WHAT IT LEAVES ALONE
     a person from one addressed to them without the pronoun. That is the
     documented blind spot.
 
-WHAT THIS CANNOT SEE. Whether the body is honest, complete, or about the diff.
+What this cannot see: whether the body is honest, complete, or about the diff.
 It reads for one voice, and a body that addresses the contributor in the third
 person by name walks past it -- which is the shape the rule's own remedy takes
 ("Peter merges"), so the check does not try to forbid it.

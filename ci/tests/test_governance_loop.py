@@ -419,23 +419,11 @@ def stale() -> str:
 def _make_pattern_index(path, patterns, generated_at=None):
     """A pattern index that is fresh unless a test says otherwise.
 
-    THE DEFAULT WAS A LITERAL, and the literal was correct on the day it was
-    typed: `2026-08-13T12:00:00Z`, against a 168h budget, committed the next
-    morning. The fixture needed to mean "recent enough to trust" and the only
-    thing on offer was a date, so it said the thirteenth of August. Those two
-    sentences agreed for seven days.
-
-    What happened when they stopped disagreeing quietly is the part worth
-    keeping. `check_pattern_coverage` short-circuits a stale document to 0 --
-    correctly, because a stale document is an absent signal rather than a green
-    one -- so on 2026-08-20 the three tests expecting 1 went red and announced
-    themselves, and `test_exits_0_when_count_below_threshold` stayed green while
-    asserting nothing at all. It expected 0, it got 0, and it never reached the
-    coverage logic. The loud failures were the lucky half.
-
-    So the stamp is relative now, and staleness is something a test asks for by
-    name. `fresh()` and `stale()` say which property is under test where a date
-    said only when it was written.
+    The stamp is relative, and staleness is something a test asks for by
+    name: `fresh()` and `stale()` say which property is under test.
+    `check_pattern_coverage` short-circuits a stale document to 0, so a test
+    on a stale fixture that expects 0 would pass without reaching the
+    coverage logic.
     """
     doc = {
         "generated_at": generated_at or fresh(),
