@@ -80,7 +80,7 @@ client's own product is a licence the client declines.
    designs take a permissive licence where the target ecosystem's
    contribution path requires one**, named in that project's own record with
    the ecosystem stated; MIT for an ESPHome or Home Assistant integration is
-   the typical case. This is an org-level term, not a
+   one such case. This is an org-level term, not a
    project waiver: a project selecting it is applying this record rather
    than relaxing it.
    Licensing hardware is necessary and is not sufficient. A published design
