@@ -203,11 +203,12 @@ def added_lines(root: Path, base: str) -> dict[str, set[int] | None]:
     """Lines added since the merge base with `base`, by path.
 
     Compared with the working tree, so uncommitted edits are read, and an
-    untracked file counts as added in full. On a runner the working tree is
-    the commit under test.
+    untracked file counts as added in full. A renamed file is read on the
+    lines it adds, under its new path. On a runner the working tree is the
+    commit under test.
     """
     merge_base = git(root, "merge-base", base, "HEAD").strip()
-    diff = git(root, "diff", "-U0", "--no-color", "--diff-filter=AM", merge_base)
+    diff = git(root, "diff", "-U0", "--no-color", "--diff-filter=AMR", merge_base)
     added: dict[str, set[int]] = {
         path: None for path in git(root, "ls-files", "--others", "--exclude-standard").splitlines()
     }

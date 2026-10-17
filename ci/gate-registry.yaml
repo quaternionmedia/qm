@@ -183,7 +183,7 @@ gates:
       A file with no copyright or licence information, a bad or deprecated
       SPDX expression, or an unused licence file.
     runs:
-      - python -m reuse lint
+      - uvx 'reuse[charset-normalizer]' lint
     enforces:
       - records/DRAFT-outbound-licensing.md
       - records/DRAFT-open-license-exclusion-and-upstream-remediation.md
