@@ -36,8 +36,8 @@ units:
   - id: invariants
     teaches: README.md
     after_this_you_can: >
-      State the three invariants without looking, and say which one a given
-      branch name is about.
+      State the opening points of README.md without looking, and say which
+      one a given branch name is about.
     prerequisites: [charter]
 
   - id: the-read-document
