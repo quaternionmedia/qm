@@ -11,8 +11,8 @@
 
 Projects acquire phases the way they acquire version numbers: someone says one
 in a session, and it becomes the answer until somebody else says a different
-one. Five phases were named across two sessions on 2026-08-09 and written into
-no document that binds anything, while seven other projects had no phase at all.
+one, written into no document that binds anything, while other projects have no
+phase at all.
 
 *Version tags are claims* settles what a `vMAJOR.MINOR.PATCH` tag asserts at
 the moment it is cut. It leaves open the question this record answers: what a

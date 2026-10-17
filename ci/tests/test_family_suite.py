@@ -33,7 +33,7 @@ def by_tier(found):
 
 
 def test_nothing_reported_reaches_nothing():
-    """**THE EMPTY BATCH, WHICH IS WHERE A CHECK STOPS CHECKING.**
+    """The empty batch, which is where a check stops checking.
 
     Zero members ran. Every tier must say so; a `shape` tier that passed on an
     empty batch would make "all green" mean "nothing was tried".

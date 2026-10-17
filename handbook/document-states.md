@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-09-28T21:21:16Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-17T17:31:59Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,8 +9,8 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 39**; 36 proposed |
-| Mandatory reading | under budget | 1207 of 1200 lines — **over** |
+| Records ratified | every requirement below | **0 of 40**; 37 proposed |
+| Mandatory reading | under budget | 1190 of 1200 lines |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **208**, unfiltered.
+Every governed document in this corpus: **222**, unfiltered.
 
 | | |
 |---|---|
@@ -58,12 +58,12 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 36 |
+| [P] `proposed` | 37 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 61 |
+| [-] `unreviewed` | 66 |
 | [G] `generated` | 7 |
-| [S] `standing` | 75 |
-| [T] `transient` | 26 |
+| [S] `standing` | 82 |
+| [T] `transient` | 27 |
 
 ## Documents
 
@@ -86,6 +86,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-contribution-and-sponsorship-policy.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-decision-record-discipline.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-deltas-compose.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-durable-text-states-what-is-true.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-few-integers-in-durable-text.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-governance-arrives-as-a-mechanism.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-granularity-is-a-perspective.md` | record | Proposed |
@@ -160,6 +161,11 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-09-27-the-voice-loop.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-28-the-loop-lands-its-remains.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-28-the-voice-loop-meets-the-field.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-10-what-joe-and-vox-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-10-what-the-corpus-pages-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-10-what-the-corpus-tooling-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-10-what-the-rest-of-qmcp-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-10-what-the-topology-docstrings-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
@@ -192,6 +198,13 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/cookbook/run-ci-locally.md` | reference | — |
 | [S] | `standing` | `docs/index.md` | reference | — |
 | [S] | `standing` | `docs/ref/addresses.md` | reference | — |
+| [S] | `standing` | `docs/ref/ci/demos.md` | reference | — |
+| [S] | `standing` | `docs/ref/ci/docs-tooling.md` | reference | — |
+| [S] | `standing` | `docs/ref/ci/gates-and-checks.md` | reference | — |
+| [S] | `standing` | `docs/ref/ci/index.md` | reference | — |
+| [S] | `standing` | `docs/ref/ci/measuring-the-suite.md` | reference | — |
+| [S] | `standing` | `docs/ref/ci/registries.md` | reference | — |
+| [S] | `standing` | `docs/ref/ci/status-documents.md` | reference | — |
 | [S] | `standing` | `docs/ref/glossary.md` | reference | — |
 | [S] | `standing` | `docs/ref/handbook.md` | reference | — |
 | [S] | `standing` | `docs/ref/index.md` | reference | — |
@@ -262,7 +275,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/governance-status-generator.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/harness-next-test.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-08-25.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/hil-review-2026-09-27.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/hil-review-2026-10-04.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qmcp-flows-as-deltas.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-of-the-records.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-session.md` | handoff | — |
@@ -277,6 +290,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/two-gate-and-tag-teeth.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-views-one-dataset.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/views-declare-what-they-need.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/voice-set-landing.md` | handoff | — |
 
 ## Reading this document
 

@@ -1,29 +1,19 @@
 #!/usr/bin/env python3
 """Every branch in this repository, and what would be lost by deleting it.
 
-**A BRANCH CLEANUP NEEDS TO KNOW WHAT IS ON ONE DISK.** `git branch -r
---merged` answers the easy half: a branch whose commits are all on the default
-branch can go, and nothing is lost. It cannot see the dangerous half, which is
-a *local* branch holding commits its own remote does not have. Deleting the
-remote is harmless there; deleting the clone is not, and the two look identical
-in a list of branch names.
+A branch cleanup needs to know what is on one disk. `git branch -r --merged`
+answers the easy half: a branch whose commits are all on the default branch can
+go, and nothing is lost. It cannot see a *local* branch holding commits its own
+remote does not have: deleting the remote is harmless there, deleting the clone
+is not, and the two look identical in a list of branch names.
 
-That is not hypothetical here. `rad`'s `evolve/rad-v1` carried seven commits
-that existed on exactly one disk for seventeen days, while two other
-repositories cited a document and pinned a contract version that only those
-commits held. This module exists because the handoff that found it had to
-reconstruct that by hand.
+It reads refs, never the working tree, because the checked-out branch is an
+accident of who ran this last. It **never deletes anything and takes no
+`--delete` flag**: it prints what it found and what each finding would cost,
+and the deletion is a separate, deliberate act by a person.
 
-WHAT IT READS AND WHAT IT REFUSES TO DO. Refs, never the working tree -- the
-checked-out branch is an accident of who ran this last. It **never deletes
-anything and takes no `--delete` flag**, because a census that can also destroy
-is one somebody runs in a hurry. It prints what it found and what each finding
-would cost; the deletion is a separate, deliberate act by a person.
-
-THE CLASSES, AND WHY THEY ARE NOT ORDERED BY SAFETY. A reader scanning for
-"which can I delete" wants `merged` first; a reader asking "what am I about to
-lose" wants `stranded` first. The second question is the one that has actually
-gone wrong here, so it sorts first and the safe rows sort last.
+The classes sort by what it costs to be wrong about, so the question "what am
+I about to lose" is answered first and the safe rows sort last:
 
   stranded   the local ref is ahead of its own remote -- commits on one disk
   local      a local branch with no remote at all
@@ -31,10 +21,9 @@ gone wrong here, so it sorts first and the safe rows sort last.
   ahead      unmerged work that is pushed and reachable
   merged     every commit is on the default branch; deleting loses nothing
 
-WHAT THIS CANNOT TELL YOU. Whether an `ahead` branch is abandoned or paused.
-It reports the age of the tip and stops: a branch untouched for a month is a
-question for a person, and a script that answered it would be guessing with a
-threshold nobody agreed.
+What this cannot tell: whether an `ahead` branch is abandoned or paused. It
+reports the age of the tip and stops; a threshold would be a guess nobody
+agreed. `docs/ref/ci/gates-and-checks.md` describes the census.
 """
 
 from __future__ import annotations
@@ -113,22 +102,17 @@ def describe_unique(unique: int) -> str:
 def unique_commits(base: str, ref: str, repo: str) -> int:
     """How many of `ref`'s commits are not upstream **by content**.
 
-    **A COUNT OF COMMITS IS NOT A MEASURE OF LOSS.** `rev-list` counts by sha,
-    so a branch whose work landed on the default branch under a different sha
-    -- squashed through a pull request, cherry-picked, rebased -- still reports
-    commits ahead, and a census built on that alone shouts about branches that
-    hold nothing.
-
-    dossier is the worked example. `governance/adopt-corpus` and
-    `wip/delta-entity-type-local` both carried one commit this clone had not
-    pushed, seventeen days old, and looked identical in every count. By patch,
-    the first is already upstream and the second is 556 lines of real work on
-    one disk. Only this call tells them apart.
+    A count of commits is not a measure of loss: `rev-list` counts by sha, so a
+    branch whose work landed on the default branch under a different sha
+    (squashed through a pull request, cherry-picked, rebased) still reports
+    commits ahead. Two branches with one unpushed commit each can hold nothing
+    and real work respectively, and only the patch comparison tells them
+    apart.
 
     `git cherry` compares patch ids: `-` means the patch is upstream already,
     `+` means it is not.
 
-    **It errs toward reporting loss.** A commit whose content landed in a
+    It errs toward reporting loss. A commit whose content landed in a
     different shape -- reformatted, split, merged with another -- reads as `+`.
     So this can say work is at risk when it is not, and never the reverse,
     which is the safe direction for a tool a person reads before deleting.
@@ -255,16 +239,14 @@ def render(found: list[Branch], remote: str = "origin") -> str:
         out.append("")
 
     if bots:
-        # One line, not one per branch. Fourteen dependabot rows push the
-        # rows a person has to decide about off the top of a terminal, and
-        # nobody triages them here anyway.
+        # One line, not one per branch, so automation rows do not push the rows
+        # a person has to decide about off the top of a terminal.
         out.append(f"  {len(bots)} automation branch(es), not listed: "
                    f"dependabot opens and closes its own.")
         out.append("")
 
-    # **COUNTED BY LOSS, NOT BY BRANCH NAME.** A branch whose every patch is
-    # already upstream is not at risk however it is classified, and counting it
-    # as if it were is how a census becomes an alarm somebody learns to ignore.
+    # Counted by loss, not by branch name: a branch whose every patch is
+    # already upstream is not at risk however it is classified.
     at_risk = at_risk_in(found)
     safe = [b for b in people if b.kind in (STRANDED, LOCAL) and b.unique == 0]
 

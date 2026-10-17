@@ -7,12 +7,11 @@ commit or edit — it is short on purpose.
 
 ## Before you do anything
 
-**Establish four facts about this session before you write anything.** Not
-because a command says so — because every one of them has been got wrong here by
-inheriting a previous session's belief instead of asking the repository:
+**Establish four facts about this session before you write anything**, by
+asking the repository rather than inheriting a previous session's belief:
 
-1. **The commit you are working against**, and the branch. Every number in every
-   page here was true at some commit and nowhere else.
+1. **The commit you are working against**, and the branch. Every number in a
+   page here is true at some commit, and not necessarily at yours.
 2. **Which pull requests you already hold open, and how they stack.** Small,
    atomic pull requests; a dependent one is stacked on its parent as a draft.
    `uv run qm slot --repo <owner/name>` lists them.
@@ -20,8 +19,8 @@ inheriting a previous session's belief instead of asking the repository:
    sibling branch, an unpushed commit. Other sessions are very likely running
    right now, in other repositories, for the same reviewer.
    `uv run qm estate` reports it across every rostered repository;
-   `handbook/async-contract.md` is the set of rules that exist only because of
-   that, and it is short.
+   `handbook/async-contract.md` is the short set of rules for working
+   alongside them.
 4. **Which gates exist**, and what each one cannot see.
    `uv run qm gates` lists them with what each one misses;
    `uv run --extra preflight qm preflight` runs their real steps.
@@ -32,7 +31,7 @@ preflight, brief. It dispatches to the scripts in `ci/` and
 script's output and its exit status is that script's status. **In a project
 repository the CLI does not exist**: a fork runs the seed scripts in place, out
 of `governance/qm/project-seed/ci/`, and installs nothing. `project-seed/ide/AGENTS.md`
-is written that way on purpose.
+is written that way.
 
 Those are the invariants. **How** you gather them is yours to choose: read the
 repository, run the CLI or the scripts directly, or use an adapter if one exists
@@ -75,7 +74,7 @@ with a date looks checked.
    neither: *ratification* for what this corpus says, and the *version tag* for
    what a project ships. Keeping `main` clean is what makes cutting a tag cheap.
 
-   Six traps, each of which has caught somebody here:
+   The traps that recur:
 
    - **Never request a review**; assign the person who asked for the work.
      Reviewers are named at the tag. `handbook/async-contract.md` §2.
@@ -118,15 +117,13 @@ with a date looks checked.
    the commit and file counts, the authors, and any
    commits that also live on another branch. A branch cut from the wrong parent
    passes every other check — its tests are green and its lint is clean,
-   because those measure the branch and not where it came from. One PR in this
-   org sat open carrying 18 commits of unrelated work under a title describing
-   one CI check. Paste the output into the description.
+   because those measure the branch and not where it came from. Paste the
+   output into the description.
 5. **Run the CI locally before you call a pull request ready.**
    `uv run --extra preflight qm preflight` executes the workflows' actual
    steps. Reading a workflow and running the commands you think it
    contains is not the same thing, and the difference is where false "CI is
-   green" claims come from — the first local run of this repo's own workflows
-   failed a step that every hand-run check had passed. Report what you ran and
+   green" claims come from. Report what you ran and
    what it said, including which steps the runner cannot reproduce. A local
    failure may be a defect or an environment difference — say which you
    established, rather than reporting the exit code.
@@ -155,12 +152,8 @@ with a date looks checked.
     that something is broken or behaves a certain way carries the command and
     its output. Before reporting what a result means, name one other thing
     that would produce the same output: a tool version, a flag's semantics,
-    stale local state, the working directory, a substring matching prose. Four
-    false readings in one session came from skipping that — `merge-tree` on
-    git 2.37 read as eight branch conflicts, `check-ignore -v` inverting its
-    own verdict, a text scan matching the docstring that forbade it, and a
-    document generated from unfetched refs. An unexpected *uniform* result is
-    a tooling fault until shown otherwise.
+    stale local state, the working directory, a substring matching prose. An
+    unexpected *uniform* result is a tooling fault until shown otherwise.
 11. **A claim about what facts *mean* names what else could produce them** —
     the same record's §8, and a different failure: every fact true, the
     sentence wrong. Name the ordinary cause before the interesting one, state
@@ -171,26 +164,24 @@ with a date looks checked.
 12. **The scaffolding you measure with is part of the measurement** — the same
     record's §9. Where item 10 is the tool answering a different question, this
     is the tool being fine and the setup not: nothing errors, and the result
-    describes your own scaffolding. In one day here: a diff against files a
-    redirect never wrote, reported as 100+ lines of drift when the truth was 0,
-    0 and 2; a working tree read after a merge that exited non-zero; copies
-    written through a text API that converted every line ending; a mutation test
-    whose baseline was already red, so it proved nothing either way; and a
-    verdict recomputed from raw fields when the document carried its own.
+    describes your own scaffolding. Its shapes: a diff against files a redirect
+    never wrote; a working tree read after a merge that exited non-zero; copies
+    written through a text API that converts every line ending; a mutation test
+    whose baseline is already red, so it proves nothing either way; and a
+    verdict recomputed from raw fields when the document carries its own.
     **Prefer the artefact you did not create.** Read a document's own answer
     rather than rebuilding one, and assert the intermediate — non-empty, exit
-    zero, baseline green — because every one of those was one assertion from
+    zero, baseline green — because each of those shapes is one assertion from
     being caught.
 13. **A guard is not finished until someone has tried to route around it** — the
     same record's §10. Breaking it and watching it go red proves it fires on the
-    case you thought of; it cannot find the case you did not. Three holes were
-    found in one new guard the day it was written: it keyed on the default
-    branch, so an intermediate base walked past it; it matched a branch *name*,
-    so identical content renamed was clean; and CI ran it in a mode that would
-    have failed every legitimate propagation. Ask for a pass whose brief is to
-    satisfy the check while doing the thing it forbids. A guard with a hole is
-    worse than none — a green check standing where a reader believes something
-    is enforced.
+    case you thought of; it cannot find the case you did not. The holes are of
+    this kind: a guard keyed on the default branch, which an intermediate base
+    walks past; a guard matching a branch *name*, which identical content
+    renamed passes; a guard run in CI in a mode that fails every legitimate
+    case. Ask for a pass whose brief is to satisfy the check while doing the
+    thing it forbids. A guard with a hole is worse than none — a green check
+    standing where a reader believes something is enforced.
 
     **This item, item 10 and item 12 are one rule**, and charter `a-check-is-evidence-after-it-fails` states
     it once — record `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`.
@@ -219,9 +210,8 @@ with a date looks checked.
     `walkthrough/`, executed by the ordinary test command, and nothing describes
     a behaviour in a second place beside the code. What prose cannot hold is
     emitted by the test that asserts the behaviour, and **recorded rather than
-    compared**. Regeneration rides the command run before a pull request. The
-    evidence is one repository where the artifacts riding that command carry
-    zero drift and the two needing a remembered command are stale.
+    compared**. Regeneration rides the command run before a pull request,
+    because an artifact that needs a remembered command goes stale.
 
 16. **This page is read first, so it restates decisions it does not own** —
     record `records/DRAFT-the-read-document-governs.md`. Precedence says which
@@ -230,13 +220,10 @@ with a date looks checked.
     passage here summarizes a record, it names that record's path, and the
     record names this page back in its `Restated in` row.
     **When those two disagree, the record is what the organisation decided**
-    and the summary is repaired — never the other way round. This exists
-    because item 3 above said a pull request was opened "for human review"
-    while `records/DRAFT-version-tags-are-claims.md` §4 said `main` asserts
-    nothing and the human gate is the tag. Both were true of the tree at the
-    same commit, neither looked wrong alone, and a session read this page and
-    built a model of the organisation the record contradicted.
-    `python ci/check_restatements.py` verifies the declarations pair up. It
+    and the summary is repaired — never the other way round. A summary and its
+    record can disagree at the same commit while each looks right alone, and a
+    reader of this page then holds a model of the organisation the record
+    contradicts. `python ci/check_restatements.py` verifies the declarations pair up. It
     cannot tell that a summary and its record disagree, and it cannot find a
     restatement nobody declared — the declaration is yours to make.
 
@@ -251,6 +238,20 @@ with a date looks checked.
     — a home path, a personal folder, a scratch path, a shared link — and runs
     as the `leak-check.yml` gate; the rest is yours to read for before you
     push.
+
+18. **Durable text states what is true now, for a reader who was not there**
+    — record `records/DRAFT-durable-text-states-what-is-true.md`, with
+    `handbook/style-guide.md` as the procedure. A docstring, a page or a record
+    says what the thing is, what it does, what it cannot do and what to do with
+    it, in the present tense. It does not tell how it came to be: what it
+    replaced, what was found, when, or by whom — the commit, the pull request
+    and `perspectives/` hold that. No phrase set in capitals, no "the one that
+    matters", no check described by what it caught. `uv run qm timeless`
+    refuses the mechanical part on the lines a change adds and runs as the
+    `timeless-check.yml` gate; `--all --summary` measures what the sweep has
+    left. A sweep sorts every passage it touches: a short fact stays inline,
+    an explanation moves to `docs/`, a narrative to a dated retrospective in
+    `perspectives/`.
 
 ## If you're forking this corpus into a new project
 

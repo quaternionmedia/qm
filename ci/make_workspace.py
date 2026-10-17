@@ -4,7 +4,7 @@
 Org-level tooling, copied nowhere. It reads ci/workspace.yaml and writes one
 `.code-workspace` file plus a page next to it explaining what the file assumes.
 
-WHY THE OUTPUT IS NOT COMMITTED
+Why the output is not committed
 
 A workspace file is a list of folder paths. Committing one into the corpus
 would put one contributor's directory layout into a document every project
@@ -13,7 +13,7 @@ governance repository asserting something false about their machine. So the
 roster is committed, the resolution is done here, and the result lands outside
 this repository.
 
-WHAT IT REFUSES TO DO
+What it refuses to do:
 
   - It does not drop a repository it could not find. A roster silently missing
     three entries reads exactly like a roster of everything that exists. Absent
