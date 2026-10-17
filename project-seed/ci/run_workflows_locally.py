@@ -109,6 +109,67 @@ def resolve_bash() -> str:
     )
     return "bash"
 
+
+def gh_config_hint(env: dict[str, str]) -> str | None:
+    """Name the one reason `gh` reports a signed-in machine as signed out.
+
+    On Windows `gh` finds its config through %APPDATA%. A shell that launches
+    without that variable looks in the wrong place and prints "not logged in",
+    while `hosts.yml` sits untouched in the standard location. A fix names the
+    directory; a signed-out account is something else and gets no hint.
+    """
+    if env.get("GH_CONFIG_DIR") or env.get("APPDATA") or not env.get("USERPROFILE"):
+        return None
+    config = Path(env["USERPROFILE"]) / "AppData" / "Roaming" / "GitHub CLI"
+    if (config / "hosts.yml").is_file():
+        return f"APPDATA is unset but {config} holds a login; set GH_CONFIG_DIR to it"
+    return None
+
+
+def probe(argv: list[str], timeout: float = 20) -> tuple[int | None, str]:
+    """(exit status, output), or (None, reason) when the tool could not be run."""
+    try:
+        proc = subprocess.run(
+            argv, capture_output=True, text=True, encoding="utf-8",
+            errors="replace", timeout=timeout,
+        )
+    except FileNotFoundError:
+        return None, f"{argv[0]} not found on PATH"
+    except subprocess.TimeoutExpired:
+        return None, f"{argv[0]} did not answer within {timeout:g}s"
+    return proc.returncode, (proc.stdout + proc.stderr).strip()
+
+
+def environment_report(env: dict[str, str]) -> list[str]:
+    """What this machine can and cannot supply, before any step runs.
+
+    Information, never a gate: the exit status stays the steps' alone. A step
+    that needs `gh` fails with its own message; this says why before it does.
+    Docker is listed because a daemon that is down is the usual surprise, and
+    it is labelled as unused because no workflow step here calls it.
+    """
+    lines = [f"  - [env ] shell: {resolve_bash()}"]
+
+    code, out = probe(["gh", "auth", "status"])
+    if code == 0:
+        account = re.search(r"account (\S+)", out)
+        lines.append(f"  - [env ] gh: signed in as {account.group(1) if account else '?'}")
+    else:
+        first = out.splitlines()[0] if out else "no output"
+        lines.append(f"  - [env ] gh: NOT signed in ({first}); steps that read pull requests will fail")
+        hint = gh_config_hint(env)
+        if hint:
+            lines.append(f"      {hint}")
+
+    code, out = probe(["docker", "info", "--format", "{{.ServerVersion}}"])
+    if code == 0:
+        lines.append(f"  - [env ] docker: daemon up ({out}); no workflow step uses it")
+    else:
+        why = out.splitlines()[-1] if out else "no output"
+        lines.append(f"  - [env ] docker: daemon not reachable ({why}); no workflow step uses it")
+    return lines
+
+
 try:
     import yaml
 except ImportError:  # pragma: no cover
@@ -263,6 +324,10 @@ def main() -> int:
     _force_utf8_output()
     args.ref = bare_branch(args.ref)
     args.base_ref = bare_branch(args.base_ref)
+
+    print("environment")
+    for line in environment_report(dict(os.environ)):
+        print(line)
 
     head = subprocess.run(
         ["git", "rev-parse", "HEAD"], capture_output=True, text=True
