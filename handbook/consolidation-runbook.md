@@ -22,8 +22,8 @@ origin. Sessions run in parallel across the estate, each one correct by every
 rule it can see, and each one leaves behind a local branch, an unpushed commit,
 or a working tree it did not clean. A branch whose remote is fully merged and a
 branch holding commits that exist nowhere else are indistinguishable in a list
-of names — `project-seed/ci/branch_census.py` says why — and the second kind
-has been deleted with the first.
+of names — `project-seed/ci/branch_census.py` says why — so the second kind
+is deleted with the first unless something tells them apart.
 
 `handbook/propagation-runbook.md` moves a change *outward*, from `main` into an
 adopted project. This page is the step before it: getting what a disk holds onto
@@ -36,11 +36,11 @@ that the next run expects it rather than discovers it:
 - **A pull request that predates rules `main` has since added needs
   reconciliation when it is joined.** Every gate on `main` measures the branch
   as it is when the gate runs, and a branch cut before a gate existed has never
-  been measured by it. One join in this organisation met that repeatedly in a
-  single pull request: a generator reading documents at names that had moved, a
-  generated join ordered before the state page it reads, principles addressed
-  by ordinal where a new gate wanted names, and a record missing from the
-  index. None was a defect in the branch's own work. Read the gates as the list
+  been measured by it. A join meets it as a generator reading documents at
+  names that have moved, a generated join ordered before the state page it
+  reads, principles addressed by ordinal where a new gate wants names, or a
+  record missing from the index — none of them a defect in the branch's own
+  work. Read the gates as the list
   of what changed while the branch was away, and budget for the reconciliation
   as part of landing it rather than as a surprise.
 - **"Folded into `main`" and "independent" is the distinction that decides
@@ -86,9 +86,9 @@ until shown otherwise.
 ## Step 2 — put every scratch branch on a governed name
 
 Nothing reaches origin from a branch outside the namespaces
-`docs/ref/namespaces.md` lists. This organisation kept using a local branch
-literally named `test` as its working target; the stage record names `test` as
-the rewritable entry stage, and nothing may branch from it expecting the branch
+`docs/ref/namespaces.md` lists. A local branch literally named `test` is
+easy to use as a working target; the stage record names `test` as the
+rewritable entry stage, and nothing may branch from it expecting the branch
 to survive. The work that lives there travels under its own name:
 
 ```sh
@@ -104,7 +104,7 @@ Cut the governed branch at the tip you intend to ship, and leave `test` where
 it is — Step 9 says what happens to it. Where one scratch branch carries
 several independent pieces, cut one governed branch per piece, because a pull
 request that carries unrelated work under one title is the failure
-`AGENTS.md` item 4 was written for.
+`AGENTS.md` item 4 names.
 
 Before pushing, decide whether the branch is work at all. The survey's
 *folded* and *independent* marks are the first reading; take a second one from
@@ -166,8 +166,8 @@ gate will run it for you. The second reads tracked files only and does run as
 a gate (`leak-check.yml`); it runs here as well because a push is the moment
 after which nothing can be taken back. Both run before anything is pushed,
 because a page pushed without them can carry a private repository's name or
-one person's disk into a public artifact, and the first run of this runbook
-did exactly that and had to be repaired after the push. `--strict` turns "no
+one person's disk into a public artifact, where repairing it after the push
+does not remove it from history. `--strict` turns "no
 source of private names was available" from a pass into a failure; a machine
 without the host's list has not checked anything.
 
@@ -354,19 +354,16 @@ why, so the next `uv run qm estate` does not report it as stranded work.
 
 ---
 
-## What the first run of this found
+## What a cycle meets
 
-Exercised end to end across the estate on 2026-09-20. The findings that none
-of the pages then in force predicted:
-
-| Finding | Where |
+| What | Where |
 |---|---|
-| A local branch named `test` held the organisation's real work in more than one repository, indistinguishable from scratch | Step 2 |
-| The consolidation folded most leftover branches by content without making their commits ancestors of `main`, so an ancestry check called them independent | Step 2 |
-| The constitution's own pull request needed reconciling against gates added after it was cut, several times in one join | The shape of the problem |
-| A working tree moved a submodule gitlink to a commit on no origin ref, and only the pins check could tell | Step 5 |
-| A deploy job on `main` was red for a hosting setting, invisible to every pull request check | Step 5 |
-| Handoff pages described the landed work as pending until they were retired | Step 7 |
+| A local branch named `test` can hold an organisation's real work, indistinguishable from scratch | Step 2 |
+| A consolidation folds leftover branches by content without making their commits ancestors of `main`, so an ancestry check calls them independent | Step 2 |
+| A pull request cut before later gates needs reconciling against them, several times in one join | The shape of the problem |
+| A working tree can move a submodule gitlink to a commit on no origin ref, and only the pins check tells | Step 5 |
+| A deploy job on `main` can be red for a hosting setting, invisible to every pull request check | Step 5 |
+| Handoff pages describe landed work as pending until they are retired | Step 7 |
 
 ## What this page does not authorise
 

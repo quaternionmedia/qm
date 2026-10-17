@@ -4,10 +4,10 @@
 # way -- the runtime dependency list below is deliberately near-empty and the
 # package holds tooling, never doctrine. What packaging buys is `uv run qm`,
 # the same shape every other QM repository already has (`uv run dossier`,
-# `uv run qmcp`), so an operator learns one entry point rather than the paths of
-# thirteen scripts.
+# `uv run qmcp`), so an operator learns one entry point rather than the path of
+# every script.
 #
-# THE SCRIPTS REMAIN RUNNABLE WITHOUT IT, AND THAT IS NOT REDUNDANCY.
+# The scripts remain runnable without it, for two reasons.
 #
 #   `project-seed/ci/*.py` are run by *other* repositories, out of the
 #   governance submodule, with a plain interpreter. Those projects do not

@@ -10,13 +10,11 @@
 
 ## Context
 
-Contributor and author fields across the corpus currently mix two different
-kinds of party without saying so. `perspectives/README.md`'s Index table
-lists `Claude Fable 5` and `Claude Sonnet 5` in the same Author column a
-human name would occupy. Separately, default assistant tooling commonly
-appends a `Co-Authored-By: <model> <noreply@vendor.tld>` trailer to commits —
-an address nobody reads, standing in the same field a human's monitored
-address would.
+Contributor and author fields can mix two different kinds of party without
+saying so: a model name in the same Author column a human name would occupy,
+or a `Co-Authored-By: <model> <noreply@vendor.tld>` trailer that default
+assistant tooling commonly appends to commits — an address nobody reads,
+standing in the same field a human's monitored address would.
 
 A contributor is a party who can be asked why a change was made, held to a
 commitment made in review, and reached at a real address if something breaks.

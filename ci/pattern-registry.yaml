@@ -21,16 +21,14 @@ patterns:
     threshold: 3
     check_exists: false
     check_file: null
-    # Seen 4 times before this registry existed:
-    # 2× before 2026-08-12, 2× during the session counted in
+    # Counted in
     # perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md
 
   uv-pip-install-bypass:
     clause: "AGENTS.md §12"
     description: "Dependency installed with uv pip install, bypassing uv.lock"
     threshold: 1
-    # One instance already cost 3 corrective commits and a false finding on
-    # 3 surfaces (the most expensive of 13 breaks in the thirteen-breaks perspective).
+    # The thirteen-breaks perspective records the cost of one instance.
     check_exists: false
     check_file: null
 
@@ -54,8 +52,7 @@ patterns:
     threshold: 3
     check_exists: false
     check_file: null
-    # Named in 2026-08-08-reading-the-proxy-instead-of-the-thing.md as
-    # the error that reached main and was caught nine hours later.
+    # Named in perspectives/2026-08-08-reading-the-proxy-instead-of-the-thing.md.
 
   improvised-tool-invocation:
     clause: "records/DRAFT-governance-arrives-as-a-mechanism.md 1"
@@ -63,13 +60,8 @@ patterns:
     threshold: 1
     check_exists: true
     check_file: ci/run_tests.py
-    # Four different pytest invocations in one afternoon -- `python -m pytest`,
-    # `uv run --with pytest pytest`, `uv run --extra preflight --with pytest
-    # pytest`, and a bare `pytest` -- each able to collect a different set, in a
-    # session that had just built `qm` as the single entry point. The same
-    # correction had already been given that day about an org tag audit run as a
-    # shell loop, and was applied once without being generalised.
-    # `uv run qm test` is now the only way; the check is that it exists and runs
+    # Improvised pytest invocations can each collect a different set of tests.
+    # `uv run qm test` is the only way; the check is that it exists and runs
     # CI's own arguments.
 
   git-config-override-on-the-command-line:
@@ -78,8 +70,7 @@ patterns:
     threshold: 1
     check_exists: true
     check_file: project-seed/ci/check_signatures.py
-    # `-c commit.gpgsign=false` on 9 commits, then `-c commit.gpgsign=true` on 7
-    # more after the correction -- the second is redundant, because the
-    # repository configures it, and is the same act of overriding config from
-    # the command line rather than trusting the clone. The check does not read
-    # the flag; it reads the result, which is the only thing that survives.
+    # Overriding repository config from the command line, in either direction,
+    # is the act; the repository configures signing itself. The check does not
+    # read the flag; it reads the result, which is the only thing that
+    # survives.
