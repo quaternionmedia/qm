@@ -170,6 +170,11 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "timeless",
+        help="does added text shout or narrate its own history? --all for everything",
+        add_help=False,
+    )
+    sub.add_parser(
         "harness",
         help="the harness status document, rendered as prose",
         add_help=False,
@@ -337,6 +342,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "slot": ("check_one_pr", True, []),
     "pins": ("check_submodule_pins", True, []),
     "leaks": ("check_leaks", True, []),
+    "timeless": ("check_timeless", True, []),
     "harness": ("harness_dashboard", False,
                 ["status/harness.yaml", "--format", "md"]),
     "branch": ("check_pr_base", True, []),

@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-03T18:43:09Z'
+generated_at: '2026-10-17T00:37:16Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -41,15 +41,15 @@ enforcement:
   branch_protection_on_main: false
   blocks_a_merge: false
 totals:
-  gates: 19
-  built: 19
+  gates: 20
+  built: 20
   declared_not_built: 0
   by_state:
-    ok: 18
+    ok: 19
     warn: 0
     unknown: 1
-  gate_main: 12
-  seed: 7
+  gate_main: 13
+  seed: 8
   undeclared_workflows: 0
 gates:
 - id: adr-lint
@@ -568,6 +568,38 @@ gates:
     - push
     jobs:
     - leaks
+    job_declared: true
+  state: ok
+- id: timeless-check
+  gates:
+  - main
+  - push
+  seed: true
+  external: false
+  declared_built: true
+  workflow: timeless-check.yml
+  job: timeless
+  runs:
+  - project-seed/ci/check_timeless.py
+  enforces:
+  - records/DRAFT-durable-text-states-what-is-true.md
+  refuses: 'Prose added by a change that sets a phrase in capitals, or that narrates
+    how the text or the code came to be. It reads comments and docstrings in code,
+    markdown outside code blocks and spans, and comments in configuration, on the
+    lines the change adds. A deliberate exception is declared with `timeless: allow`
+    and a reason, and every allowance is counted on every run.'
+  cannot_see: A story told in neutral words, and a present-tense sentence that is
+    no longer true; those are the reviewer's. Text already on the base, which `--all`
+    reports and a sweep removes. Capitals in title case or spaced out, a phrase broken
+    so that no line holds three of its words, and file types it does not read.
+  evidence:
+    present: true
+    workflow_name: Timeless text
+    triggers:
+    - pull_request
+    - push
+    jobs:
+    - timeless
     job_declared: true
   state: ok
 - id: rulesets
