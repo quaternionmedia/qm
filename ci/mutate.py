@@ -5,19 +5,15 @@
     uv run qm mutate ci/rulesets.py --list          # the mutants, without running
     uv run qm mutate ci/rulesets.py --check         # exit non-zero on a survivor
 
-WHY A ROUTE AND NOT A SCRIPT. `ci/lane-registry.yaml` records it plainly under
-`development-loop`: every mutation result this corpus has quoted was produced by
-an ad-hoc script written into a scratchpad and thrown away, which is the same
-defect as a hand-run check reported as CI -- a number nobody else can reproduce.
-This is the reproduction. It is a route so that the claim "these tests
-discriminate" carries a command.
+It is a route, so the claim "these tests discriminate" carries a command
+anybody can reproduce, rather than a number from a script nobody else has.
 
-WHAT A SURVIVING MUTANT MEANS. The module was changed and every test still
+A surviving mutant means the module was changed and every test still
 passed. Either a test is missing, or the change makes no behavioural difference
 -- an *equivalent* mutant, which is a normal outcome and not a defect. This tool
 cannot tell the two apart, so it reports survivors and judges none of them.
 
-WHAT IT CANNOT SEE.
+What it cannot see:
 
   * Any defect no textual operator below expresses. The operators are a floor.
   * Whether the test that killed a mutant is the test that should have. A suite
@@ -26,12 +22,11 @@ WHAT IT CANNOT SEE.
     obvious filename and says so; a module with tests elsewhere reports as
     having none rather than silently running a smaller suite.
 
-WHY IT COPIES RATHER THAN EDITS IN PLACE. A tool that mutates a tracked file and
-restores it afterwards leaves the file broken if it is interrupted, and this
-corpus has already had one aside-and-back move that would have done real damage
-had the middle command failed. Every mutant is run against a copy of the working
-tree in a temporary directory, staged once per sweep. See `stage` for what is
-left out and why it is the whole tree rather than `ci/`.
+It copies rather than edits in place: a tool that mutates a tracked file and
+restores it afterwards leaves the file broken if it is interrupted. Every
+mutant runs against a copy of the working tree in a temporary directory,
+staged once per sweep; `stage` says what is left out.
+`docs/ref/ci/measuring-the-suite.md` describes mutation testing here.
 """
 
 from __future__ import annotations
@@ -47,10 +42,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 # One-for-one textual substitutions. Each is a change that a correct test suite
-# should notice. `return None` -> `return []` is first because it is the one
-# this harness was written for: an empty list is a real answer -- "nothing is
-# applied" -- and a failed call that returns one reports an unreachable host as
-# an unprotected repository.
+# should notice. `return None` -> `return []` is first: an empty list is a real
+# answer ("nothing is applied"), and a failed call that returns one reports an
+# unreachable host as an unprotected repository.
 OPERATORS: tuple[tuple[str, str], ...] = (
     ("return None", "return []"),
     ("return []", "return None"),
@@ -130,19 +124,14 @@ def apply_mutant(source: str, mutant: Mutant) -> str:
 
 
 def stage(workdir: Path, root: Path = ROOT) -> Path:
-    """A byte-for-byte copy of the working tree, minus history and caches.
+    """A byte-for-byte copy of the working tree, minus build outputs and caches.
 
-    THE WHOLE TREE, NOT JUST `ci/`. Staging only the tooling directory was the
-    first shape of this and it was wrong: a test that reads a registry, a
-    record, or a curriculum outside `ci/` fails in the staged copy, the baseline
-    goes red, and the sweep refuses to score a suite that is fine. It costs one
-    copy per sweep rather than one per mutant, because only the module under
-    test is rewritten inside the loop.
-
-    `.git` IS COPIED, and that was learned the same way. A test exercising a
-    real `git rev-parse` finds no repository in a tree staged without it, the
-    baseline goes red, and the sweep refuses to score a suite that is fine. It
-    is the largest thing copied and it is copied once per sweep.
+    The whole tree, not just `ci/`: a test that reads a registry, a record or a
+    curriculum outside `ci/` would fail in a partial copy, the baseline would
+    go red, and the sweep would refuse to score a suite that is fine. `.git` is
+    copied too, so a test exercising a real `git rev-parse` finds a
+    repository. It costs one copy per sweep rather than one per mutant,
+    because only the module under test is rewritten inside the loop.
 
     Binary copies. A text-mode copy on Windows rewrites every line ending, and
     the diff then measures the copier. Symlinks are followed rather than
@@ -163,7 +152,7 @@ def stage(workdir: Path, root: Path = ROOT) -> Path:
 def run_tests(tests: Path, workdir: Path) -> subprocess.CompletedProcess:
     """One pytest run, with no bytecode written and no cache read.
 
-    `-B` IS LOad-BEARING, and finding out why cost a session. CPython validates
+    `-B` is load-bearing. CPython validates
     a cached `.pyc` against the source's size and its mtime *truncated to whole
     seconds*. A mutant that swaps `==` for `!=` changes neither: mutants written
     within the same second are byte-identical to the cache's key, so the second
