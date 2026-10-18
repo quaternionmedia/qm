@@ -1,12 +1,12 @@
 """The address grammar, whose one property is that an address survives a round trip.
 
-WHY THE ROUND TRIP IS THE TEST. A parser checked only on its output can drop a
+Why the round trip is the test. A parser checked only on its output can drop a
 segment and still look right: `.../branch/evolve/protect-main` parsed to
 `evolve` reports a plausible branch, and nothing about the parse says otherwise.
 Formatting it back and comparing is what catches that, and it is the assertion
 every conformance vector carries.
 
-THE VECTORS ARE RUN HERE AND SHIPPED TO FORKS. `project-seed/address-vectors.json`
+The vectors are run here and shipped to forks. `project-seed/address-vectors.json`
 reaches every project through the governance submodule, so dossier's and qmcp's
 implementations can be held to the same cases without either importing this one.
 A vector that only this repository ran would not be a shared contract.

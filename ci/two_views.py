@@ -4,7 +4,7 @@
     uv run qm two-views              # git against the committed status document
     uv run qm two-views --deltas     # the disagreements, as delta payloads
 
-WHAT THE TWO VIEWS ARE. Both are already in this repository and neither was
+The two views are both already in this repository, and neither was
 built for this:
 
   git         `git rev-parse` over the `project/**` refs. What is true now.
@@ -16,14 +16,14 @@ moves, which is the honest end-to-end case: two systems observing one moving
 thing at different times. It is the same shape dossier and qmcp will have, with
 the advantage that both halves are local, offline and already committed.
 
-WHY THIS IS NOT A STALENESS CHECK. `uv run qm docs check` already asks whether
+This is not a staleness check. `uv run qm docs check` already asks whether
 the document is faithful to the refs it names, and answers pass or fail. This
 answers a different question -- *which* addresses disagree and about what -- and
 by `records/DRAFT-a-disagreement-is-a-delta.md` the answer is a set of deltas
 somebody schedules, not a red build. A repository can be perfectly well-run and
 carry open reconcile deltas.
 
-WHAT THIS CANNOT SEE. A branch neither view knows about. Both are keyed on the
+What this cannot see: a branch neither view knows about. Both are keyed on the
 document's project list, so a `project/**` ref created since generation is
 invisible to the comparison rather than reported as a divergence -- one view
 having never heard of a row is not the same fact as two views disagreeing about
@@ -132,13 +132,11 @@ def git_view(known: dict[str, dict], root: Path = ROOT,
 def unobservable(document: dict[str, dict], git: dict[str, dict]) -> list[str]:
     """Addresses whose ref this clone cannot resolve at all.
 
-    NOT DIVERGENCES, AND THE DISTINCTION COST A REAL BUG. Three of this
-    corpus's project branches are recorded under redacted names --
-    `origin/project/private-32` and two more -- which are placeholders rather
-    than refs, so `git rev-parse` fails on them permanently. Read as
-    disagreements they became three deltas that no work could ever close, which
-    is exactly the queue-fills-with-noise failure
-    `records/DRAFT-a-disagreement-is-a-delta.md` names as this rule's own.
+    Not divergences. A project branch recorded under a redacted name, such as
+    `origin/project/private-32`, is a placeholder rather than a ref, so
+    `git rev-parse` fails on it permanently; read as a disagreement it would be
+    a delta no work could close, the queue-fills-with-noise failure
+    `records/DRAFT-a-disagreement-is-a-delta.md` names.
 
     A ref one view cannot observe is not two views disagreeing about a value.
     Reported, counted, and never turned into work. An unfetched clone lands here

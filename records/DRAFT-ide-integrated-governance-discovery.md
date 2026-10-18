@@ -9,7 +9,7 @@
 
 ## Context
 
-This corpus's only existing discovery mechanism is a human-driven handoff:
+A human-driven handoff is one discovery mechanism:
 `project-seed/adr/README.md`'s "Drafting-session handoff" section lists the
 process contract as an input a human is expected to hand a drafting session.
 That mechanism depends entirely on a human already knowing to do it, and
@@ -17,17 +17,12 @@ doing it, every time — including sessions where the human is new, in a
 hurry, or running a different tool than the one that last worked in the
 repo.
 
-This repo's own recent history is the counter-evidence, not a hypothetical.
-Four of the nine commits before Human-only contributorship was drafted carried a
-`Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>` trailer — the
-exact pattern that record now forbids — not because the rule didn't exist in
-spirit, but because nothing put it in front of the assistant before it acted.
-That it was four rather than nine is the sharper version of the point: the
-behaviour was inconsistent, which is what an unstated rule produces.
-It took a human manually walking the assistant through `PRINCIPLES.md`,
-`records/`, and `perspectives/` across several conversation turns for the
-corpus to register as binding rather than as files that happened to be read
-on request.
+A rule that nothing puts in front of an assistant before it acts is applied
+inconsistently: a commit trailer the contributorship record forbids appears on
+some commits and not others, which is what an unstated rule produces. Without
+a discovery mechanism, the corpus registers as binding only after a human walks
+the assistant through `PRINCIPLES.md`, `records/` and `perspectives/` by hand,
+and until then it is files that happen to be read on request.
 
 Separately, the industry has converged on an answer to exactly this problem.
 By mid-2026, a plain `AGENTS.md` at repo root is read automatically, with no
@@ -38,8 +33,7 @@ Amazon Q among them. VS Code's own Copilot Chat additionally reads
 box, gated by settings (`chat.useAgentsMdFile`, `chat.useClaudeMdFile`,
 `chat.instructionsFilesLocations`) rather than by anyone remembering to
 paste anything into a prompt. The gap this record closes is not a missing
-mechanism industry-wide — it's that this corpus doesn't use the one that
-already exists.
+mechanism industry-wide; it is using the one that exists.
 
 ## Decision
 
@@ -63,8 +57,8 @@ already exists.
    support at clone time there. Windows checkouts resolve them exactly the
    same way given one one-time, per-clone step — Developer Mode enabled
    (Settings → For developers) and `git config core.symlinks true` — which
-   this record's own Consequences confirms actually works, tested on a real
-   Windows checkout, not assumed. That one-time step is named directly in
+   this record's own Consequences confirm works on a real Windows checkout.
+   That one-time step is named directly in
    `README.md`'s fork procedure and in `AGENTS.md` itself, not buried in a
    footnote, because a setup step nobody is told about is indistinguishable
    from a platform that doesn't work. A tool reading `CLAUDE.md` on a
@@ -127,11 +121,10 @@ already exists.
   used for those two, and inheriting that discipline's one real weakness:
   **a copy does not track its origin.** Fixing a defect in the seed does not
   fix the projects already carrying the defective copy, and nothing records
-  which seed version any project copied. Two seed defects found during
-  alfred's adoption — an `AGENTS.md` pointing at a root `adr/` that does not
-  exist under the branch-per-project model, and an unfilled `project/<name>`
-  placeholder — are live in an earlier adopter's copy today, because that
-  copy was taken before the fix existed. The copies are correct as of their
+  which seed version any project copied. A seed defect fixed after a project
+  copied the seed — an `AGENTS.md` pointing at a root `adr/` that does not
+  exist under the branch-per-project model, or an unfilled `project/<name>`
+  placeholder — stays live in that project's copy, which is correct as of its
   copy date and wrong as of now, and no mechanism says so. Where a seed
   artifact is executable, running it from the submodule rather than copying
   it removes the problem entirely, which is why the ADR lint is invoked in
@@ -143,8 +136,7 @@ already exists.
   reason to withhold today's working version.
 - A generic `.gitignore` template commonly blanket-excludes `.vscode/`,
   which silently defeats §4 by keeping the checked-in settings from ever
-  being committed — this corpus's own `.gitignore` did exactly that until
-  drafting this record surfaced it. The fix is `.vscode/*` plus
+  being committed. The fix is `.vscode/*` plus
   `!.vscode/settings.json` and `!.vscode/extensions.json`, not deleting the
   ignore rule outright; `README.md`'s fork-procedure step for this record
   names the same fix.
@@ -159,14 +151,14 @@ already exists.
   mechanism that is not "clone and open" alone; `README.md`'s fork-procedure
   step for this record and this corpus's own root `AGENTS.md` both name the
   single command.
-- The symlink objects themselves were created via `git hash-object` plus
+- The symlink objects themselves are created via `git hash-object` plus
   `git update-index --cacheinfo 120000,<sha>,<path>` rather than a
   filesystem `ln -s`, so that creating the *committed object* never depends
   on the authoring machine's own `core.symlinks` setting or OS privilege —
   only *checking one out as a live symlink* does, per the bullet above.
-  Verified on a Windows machine with Developer Mode on and
-  `core.symlinks true` set: `git checkout` materializes real, resolving
-  symlinks (`lrwxrwxrwx`), not a text placeholder.
+  On a Windows machine with Developer Mode on and `core.symlinks true` set,
+  `git checkout` materializes real, resolving symlinks (`lrwxrwxrwx`), not a
+  text placeholder.
 - Without that one-time config (an unconfigured clone, or a CI runner or
   corporate policy that blocks Developer Mode outright), the pointer files
   degrade to a one-line file containing just the relative target path (e.g.
@@ -180,14 +172,12 @@ already exists.
 ## Alternatives considered
 
 1. **Rely on the human-driven handoff already documented in
-   `adr/README.md`** — rejected: this repo's own commit history is the
-   counter-evidence. The handoff already existed as documentation, and it
-   did not stop an unbriefed assistant from violating Human-only
-   contributorship across several real commits, until a human personally
-   walked it through the corpus in conversation.
+   `adr/README.md`** — rejected: a handoff that exists as documentation does
+   not stop an unbriefed assistant from violating Human-only contributorship;
+   only a human walking it through the corpus does, every time.
 2. **A single tool-specific file (e.g., only `CLAUDE.md`)** — rejected:
-   shepherds one vendor's tool and nothing else. The premise here is a model
-   that showed up without knowing to look, and it may not be this one.
+   shepherds one vendor's tool and nothing else. The premise here is an agent
+   that arrives without knowing to look, and it may be any vendor's.
 3. **Editor-agnostic, no IDE-layer wiring at all** — rejected: agnosticism
    is indistinguishable from nobody's one-time setup being targeted. A
    specific, unifying default is what makes "one time" true rather than

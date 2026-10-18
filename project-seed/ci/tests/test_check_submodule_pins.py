@@ -1,14 +1,12 @@
 """Tests for the submodule-pin check.
 
-**EVERY CASE HERE IS BUILT, NOT MOCKED.** Real repositories, real remotes, real
-fetches over `file://` URLs. The defect this check exists for -- a pin that
-resolves on one machine and nowhere else -- is precisely a disagreement between
-what git does locally and what it does elsewhere, and a mocked fetch cannot
-disagree with anything.
+Every case is built, not mocked: real repositories, real remotes, real fetches
+over `file://` URLs. A pin that resolves on one machine and nowhere else is a
+disagreement between what git does locally and elsewhere, and a mocked fetch
+cannot disagree with anything.
 
 The two verdicts that must never collapse into each other are `unpushed` and
-`unreadable`. The check this replaced reported both as one failure, in an error
-whose own text admitted it could not tell them apart.
+`unreadable`.
 """
 
 from __future__ import annotations
@@ -73,12 +71,9 @@ def world(tmp_path: Path):
     git("-c", "commit.gpgsign=false", "commit", "-q", "-m", "add child",
         cwd=parent)
 
-    # **THE SUBMODULE THE PARENT PINS IS `parent/child`, NOT THE CLONE ABOVE.**
-    # `git submodule add` clones the remote afresh into the parent. Committing
-    # in the other directory moves a repository nothing points at, and the
-    # parent then has nothing to stage -- which is how this fixture was wrong
-    # the first time, and it failed as "nothing to commit" rather than as
-    # anything naming the cause.
+    # The submodule the parent pins is `parent/child`, not the clone above:
+    # `git submodule add` clones the remote afresh into the parent, so a
+    # commit made in the other directory leaves the parent nothing to stage.
     sub = parent / "child"
     git("config", "user.email", "t@example.com", cwd=sub)
     git("config", "user.name", "T", cwd=sub)
@@ -105,10 +100,9 @@ def test_a_pin_that_is_on_the_remote_is_ok(world):
 
 
 def test_a_commit_that_was_never_pushed_is_a_failure(world):
-    """**THE ONE THIS EXISTS FOR.** A commit made inside the submodule and not
-    pushed: the parent pins it, it resolves here, and it resolves nowhere else.
-    `codecartographer` shipped exactly this and a fresh clone could not have
-    checked itself out.
+    """A commit made inside the submodule and not pushed: the parent pins
+    it, it resolves here, and it resolves nowhere else, so a fresh clone could
+    not check itself out.
 
     The remote is readable, so there is no ambiguity to hide behind.
 
@@ -139,8 +133,8 @@ def _move(parent: Path, to: str) -> None:
 
 def test_a_moved_submodule_is_still_checked(world):
     """A lookup of `submodule.<path>.url` finds nothing once the path and the
-    name differ, and the pin was reported `no-url` -- which passes -- without
-    being looked at.
+    name differ, and a `no-url` verdict passes without the pin being looked
+    at.
 
     Mutation: look up `submodule.<path>.url` again and this fails as `no-url`."""
     parent, _, _ = world
@@ -164,9 +158,9 @@ def test_a_moved_submodule_with_an_unpushed_pin_fails(world):
 
 
 def test_a_submodule_whose_name_holds_a_space_is_still_checked(world):
-    """Found by trying to walk past the path lookup: the plain `--get-regexp`
-    form separates key from value with a space, so a name holding one split
-    in the wrong place and the pin went back to `no-url`.
+    """The plain `--get-regexp` form separates key from value with a space,
+    so a name holding one would split in the wrong place and the pin would
+    read `no-url`.
 
     Mutation: drop `-z` and split each line on its first space, and this fails
     as `no-url` for "other"."""
@@ -180,10 +174,9 @@ def test_a_submodule_whose_name_holds_a_space_is_still_checked(world):
 
 
 def test_a_remote_nobody_here_can_read_is_unknown_and_not_a_failure(world):
-    """**THE FALSE RED THIS REMOVES.** A private submodule is unreadable to an
-    unauthenticated runner, and so is a deleted one. Failing on that made a
-    project permanently red for a reason nothing was wrong with, and a check
-    that is always red is one people stop reading.
+    """A private submodule is unreadable to an unauthenticated runner, and so
+    is a deleted one. Neither is a failure: a check that is always red for a
+    reason nothing is wrong with is one people stop reading.
 
     Mutation: return `unpushed` when the remote cannot be read and this fails.
     """
@@ -287,18 +280,14 @@ def test_json_carries_the_verdict_for_each_pin(world):
 
 # --- work that exists in one place, with the pin perfectly fine --------------
 #
-# The pin check and this one answer different questions, and the near-miss that
-# produced this file needed both. `codecartographer/.git/modules/docs/qm` held
-# `adr/rad-integration` — the only copy of a project record — on no remote. The
-# pin pointed at that same commit, so pin and branch were wrong together;
-# repairing the pin alone would have left the record behind, and a working tree
-# was in fact deleted before anybody looked.
+# The pin check and this one answer different questions. A branch inside a
+# submodule's clone can hold the only copy of a record on no remote while the
+# pin points at that same commit; repairing the pin alone leaves the branch
+# behind.
 
 
 def test_a_branch_inside_a_submodule_that_is_on_no_remote_is_reported(world):
-    """THE ONE THAT MATTERS.
-
-    A submodule sits at a detached HEAD, so work committed onto a branch inside
+    """A submodule sits at a detached HEAD, so work committed onto a branch inside
     it is invisible from the parent: the gitlink does not move, `git status` in
     the parent says nothing, and no remote the parent knows about has it.
 
@@ -317,7 +306,7 @@ def test_a_branch_inside_a_submodule_that_is_on_no_remote_is_reported(world):
 
 
 def test_a_good_pin_does_not_hide_stranded_work(world):
-    """**THE COMBINATION THAT ACTUALLY HAPPENED.** The pin is fine and the clone
+    """The pin is fine and the clone
     still holds the only copy of something. A check reporting only the pin would
     call this clean.
 
