@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-18T17:21:29Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-18T23:31:02Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,7 +9,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 40**; 37 proposed |
+| Records ratified | every requirement below | **0 of 41**; 38 proposed |
 | Mandatory reading | under budget | 1199 of 1200 lines |
 | Documents whose state is unknown | none | 0 |
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **224**, unfiltered.
+Every governed document in this corpus: **226**, unfiltered.
 
 | | |
 |---|---|
@@ -58,9 +58,9 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 37 |
+| [P] `proposed` | 38 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 68 |
+| [-] `unreviewed` | 69 |
 | [G] `generated` | 7 |
 | [S] `standing` | 82 |
 | [T] `transient` | 27 |
@@ -76,6 +76,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-a-knot-is-a-cycle-of-obligation.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-principle-is-addressed-by-its-name.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-route-is-an-address.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-a-semantic-index-is-a-recorded-document.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-shared-tag-asserts-interoperability.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-a-stage-is-recorded-and-main-receives-releases.md` | record | Proposed |
@@ -154,6 +155,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-26-the-plan-was-still-running.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-27-the-precondition-nobody-declared.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-27-two-views-that-go-stale-together.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-30-a-guard-that-reads-prose.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-09-20-the-consolidation-cycle.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-20-the-families-delineated.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-20-the-web-window-first-slice.md` | perspective | — |
