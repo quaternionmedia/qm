@@ -6,25 +6,22 @@
     uv run qm merge --repo owner/name --pr 12        # re-verify one, and stop
     uv run qm merge --repo owner/name --pr 12 --yes  # the act
 
-**THE RULE IS ONE SENTENCE AND THE PRACTICE WAS SEVEN HAND-RUN CHECKS.**
 `AGENTS.md` item 3: the author merges once every gate is green.
 `handbook/propagation-runbook.md`: with a merge commit, never squash, never
 rebase, because a rewritten branch breaks every submodule pin pointing at it.
-The session that closed the estate's backlog merged one pull request at a time
-and, before each one, read the live state again by hand -- state, mergeability,
-the host's own verdict, every check -- because a pull request that was green an
-hour ago is a pull request that was green an hour ago. Seven times, the same
-four reads and the same one write, and nothing held the four to the one.
+Before each merge the live state is read again (state, mergeability, the
+host's own verdict, every check), because a pull request that was green an
+hour ago is a pull request that was green an hour ago.
 
-This holds them. The reading half is the default and mutates nothing; the act
-is one flag away and refuses unless the reading, taken at that moment, says
-READY.
+This holds those reads to the merge. The reading half is the default and
+mutates nothing; the act is one flag away and refuses unless the reading,
+taken at that moment, says READY.
 
-READY IS ONE DEFINITION, IN `blockers`, and both halves use it. A listing that
+Ready is one definition, in `blockers`, and both halves use it. A listing that
 said READY where the act would refuse -- or the reverse -- is two definitions
 of the same rule, and two definitions drift the first time one is fixed.
 
-WHAT IT REFUSES TO DO.
+What it refuses to do:
 
   * **It never squashes and never rebases.** Both flags exist so that passing
     one is answered with the reason rather than with argparse's usage line,
@@ -44,9 +41,9 @@ WHAT IT REFUSES TO DO.
     difference is what `uv run --extra preflight qm preflight` and a person
     establish.
 
-WHAT IT CANNOT SEE. Whether the pull request should merge -- only whether the
-host says it can. A green pull request carrying eighteen commits of unrelated
-work is READY here and wrong; `uv run qm branch` is the reader of that. And it
+What it cannot see: whether the pull request should merge, only whether the
+host says it can. A green pull request carrying unrelated work is READY here
+and wrong; `uv run qm branch` is the reader of that.
 reads the contributor's own pull requests only: another contributor's queue is
 not this contributor's to merge, and a bot's is not anybody's.
 """
@@ -159,7 +156,7 @@ class PullRequest:
 def blockers(pr: PullRequest) -> list[str]:
     """Why this pull request is not READY. Empty means it is.
 
-    **THE ONE DEFINITION.** The listing prints it and the act refuses on it,
+    The one definition: the listing prints it and the act refuses on it,
     and deliberately the same expression, so the two cannot disagree.
 
     Each condition is its own line rather than one boolean, because a refusal

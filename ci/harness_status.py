@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the harness status document: where every repository's PR slot stands.
+"""Emit the harness status document: where every repository's pull request stacks stand.
 
 Org-level tooling, copied nowhere. It is the collector half of a two-part
 split this repository already uses once: a generator that talks to git, gh and
@@ -10,7 +10,7 @@ The split is not tidiness. A renderer that can run a command is a second place
 a governance rule gets defined, and the two definitions drift. Everything the
 dashboard shows must be a fact in this document or it is not shown.
 
-TWO LAYERS, AND THEY ARE NOT THE SAME KIND OF FACT
+Two layers, and they are not the same kind of fact
 
   - `slots` is about the org, read over the network. It is true for everyone.
   - `local` is about one machine, read from one set of clones. It is true for
@@ -20,7 +20,7 @@ TWO LAYERS, AND THEY ARE NOT THE SAME KIND OF FACT
     -- exists nowhere else. A dashboard that showed it as an org fact would be
     lying about its scope.
 
-UNKNOWN IS A VALUE
+Unknown is a value
 
 Any fact this tool could not establish is written as `{"unknown": "<reason>"}`,
 never omitted and never defaulted. A repository whose pull requests could not
@@ -35,7 +35,7 @@ Usage:
 The committed copy needs --no-local, and the machine-scoped copy needs a path
 outside the repository. There is no third form: `--write status/harness.yaml`
 without --no-local always refuses, because that would commit one person's
-clones. This block used to lead with exactly that invocation.
+clones.
 """
 
 from __future__ import annotations
@@ -482,6 +482,24 @@ def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
     return None
 
 
+def redact_private(records: list[dict], roster: list[dict]) -> list[dict]:
+    """Every private repository's name replaced by its reference, in every record.
+
+    A private repository's own record is redacted where it is built; this pass
+    covers its name inside another repository's record -- a pull request in the
+    corpus whose base is that project's branch, for one. The names are the ones
+    the private companion supplies, so without it nothing can be redacted, and
+    the document is generated where the companion is present.
+    """
+    pairs = [(e["name"], e["ref"]) for e in roster if e.get("ref") and e.get("name") and e["name"] != e["ref"]]
+    out = []
+    for record in records:
+        for name, ref in pairs:
+            record = redact(record, name, ref)
+        out.append(record)
+    return out
+
+
 def build(
     roster: list[dict],
     org: str,
@@ -551,6 +569,7 @@ def build(
         if entry.get("ref") and entry["ref"] != name:
             record = redact(record, name, entry["ref"])
         repositories.append(record)
+    repositories = redact_private(repositories, roster)
 
     measured = [r for r in repositories if "unknown" not in r["slots"]]
     governed = [
@@ -707,10 +726,8 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    # **THE REFUSAL COMES BEFORE THE WORK.** This sat after `build`, so
-    # refusing to write cost what writing would have -- about half a minute
-    # of scanning every clone on the machine to produce a document that was
-    # then thrown away. A guard that runs last costs what it prevents.
+    # The refusal comes before the work, so refusing to write never costs the
+    # scan of every clone that writing would.
     if args.write and not args.no_local and inside_corpus(args.write):
         sys.exit(
             f"harness_status: refusing to write the machine layer to "
@@ -755,7 +772,7 @@ def main(argv: list[str] | None = None) -> int:
         totals = status["totals"]
         print(
             f"wrote {args.write}: {totals['repositories']} repositories, "
-            f"{totals['compliant']} compliant, {totals['over_limit']} over limit, "
+            f"{totals['compliant']} compliant, {totals['over_limit']} ready while stacked, "
             f"{totals['slots_unknown']} unknown"
         )
         if governance is not None:

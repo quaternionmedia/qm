@@ -1,18 +1,9 @@
-"""The posture reading, and the false hundred per cent it reported.
+"""The posture reading: the mutation score read off `qm mutate`, and the suite's cost.
 
-**THIS FILE EXISTS BECAUSE THE TOOL LIED AND WAS BELIEVED.** `qm posture`
-reported `44/44 (100%)` for every watched module. The truth was `28/44`. The
-cause was a loose pattern searching for a number near the word `killed`, which
-matched `44 killed` inside the string `28/44 killed` — so the denominator was
-read as the numerator and every score came out perfect.
-
-It was printed, read, and repeated to a person before anything checked it. In a
-tool built to measure whether checks catch things. That is charter `a-check-is-evidence-after-it-fails`'s whole
-claim in one artefact: reading the code told the author what they meant, and
-only comparing it against a known number told them what it did.
-
-THE TESTS WORTH READING ARE THE FIRST TWO: the exact string that produced the
-false reading, and the cross-check that now refuses to guess.
+The score is read from the `N/M killed` summary line and cross-checked against
+the per-mutant markers. `28/44 killed` contains the substring `44 killed`, so a
+loose pattern reads the denominator as the numerator; the first two tests hold
+that exact string and the cross-check that refuses to guess.
 """
 
 from __future__ import annotations
@@ -60,11 +51,9 @@ A killed mutant means some test noticed, not that the right one did.
 
 
 def test_the_score_is_read_from_the_summary_not_from_a_nearby_number(monkeypatch):
-    """THE ONE THAT MATTERS.
-
-    `28/44 killed` contains the substring `44 killed`. A pattern looking for
-    digits followed by the word produced 44 out of 44, and there is no reading
-    of that output in which the score is 100%.
+    """`28/44 killed` contains the substring `44 killed`. A pattern looking
+    for digits followed by the word produces 44 out of 44, and there is no
+    reading of that output in which the score is 100%.
 
     Mutation: match `(\\d+)\\s+killed` instead of the `N/M` form and this fails.
     """
@@ -78,18 +67,15 @@ def test_the_score_is_read_from_the_summary_not_from_a_nearby_number(monkeypatch
 
 
 def test_a_summary_that_disagrees_with_a_complete_marker_list_is_unreadable(monkeypatch):
-    """THE OTHER ONE.
-
-    Two independent reads of the same run, and a disagreement between them is
-    reported rather than resolved. Picking one would be this tool deciding
-    which of its own numbers to trust, which is how the first version got to
-    100% in the first place.
+    """Two independent reads of the same run, and a disagreement between them
+    is reported rather than resolved: picking one would be this tool deciding
+    which of its own numbers to trust.
 
     Mutation: drop the cross-check and this fails.
     """
     # Markers accounting for every mutant, and a summary that disagrees with
-    # them. A *partial* marker list is not a disagreement — it is less evidence
-    # — and treating it as one made a correct reading unreadable.
+    # them. A *partial* marker list is not a disagreement: it is less
+    # evidence.
     markers = "\n".join(f"  [killed ]   {n}/4" for n in range(1, 5))
     _answers(monkeypatch, markers + "\n2/4 killed, of 4 mutants.\n")
     found = posture.measure_yield("ci/x.py", "ci/tests/test_x.py")
@@ -110,8 +96,7 @@ def test_output_with_no_summary_is_named_rather_than_scored_zero(monkeypatch):
 
 def test_a_truncated_marker_list_does_not_make_a_reading_unreadable(monkeypatch):
     """Output gets truncated by pipes and capture limits. Fewer markers than
-    mutants is less evidence, not contradictory evidence, and calling it a
-    disagreement threw away a correct reading.
+    mutants is less evidence, not contradictory evidence.
 
     Mutation: cross-check without requiring a complete marker list and this
     fails.
@@ -135,8 +120,7 @@ NESTED = """
 
 def test_the_test_count_is_the_last_summary_not_the_first(monkeypatch):
     """Some tests here run pytest in a subprocess by design, and their
-    summaries land in this output. Taking the first read 277 where the suite
-    had 1058.
+    summaries land in this output; the suite's own summary is the last one.
 
     Mutation: use the first match and this fails.
     """
@@ -153,7 +137,7 @@ def test_setup_time_is_summed_and_slow_calls_are_listed(monkeypatch):
 
 
 def test_a_failing_suite_produces_no_reading_at_all(monkeypatch):
-    """**A READING FROM A FAILED RUN IS NOT A READING.** Reporting a wall clock
+    """A reading from a failed run is not a reading: reporting a wall clock
     for a red suite would make a broken suite look like a fast one.
 
     Mutation: ignore the return code and this fails.

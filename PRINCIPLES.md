@@ -14,9 +14,8 @@ principles-records is the motherhood statement — unfalsifiable, decorative.
 Every record below names its enforcement mechanism.
 
 **Each principle therefore ends in one of three states, and they are the same
-three `a-loop-is-not-a-knot` asks of a mathematical mapping.** That is not a coincidence worth
-leaving unstated: the charter is one of the layers `a-loop-is-not-a-knot` governs, and it has run
-that discipline under different words since it was written.
+three `a-loop-is-not-a-knot` asks of a mathematical mapping.** The charter is one of the
+layers `a-loop-is-not-a-knot` governs, and runs that discipline under different words.
 
 | here | `ci/mathematics-registry.yaml` | means |
 |---|---|---|
@@ -342,8 +341,8 @@ person chooses, or a relation somebody stated gets cut.
 
 A cycle whose edges impose no order is a **loop**. It looks identical in a
 picture and it constrains nothing, and reporting it as a problem buries the real
-ones. Measured here: 42 loops, 0 knots, in the organisation's 169 real
-relations — a ratio nobody filters and everybody learns to ignore.
+ones: in the organisation's real relations, loops far outnumber knots, and a
+report that does not filter them is one everybody learns to ignore.
 
 **A loop is still a fact.** Not reporting it as a knot is not refusing to record
 it. Two conversations that touched one repository are genuinely related; the
@@ -359,9 +358,9 @@ it.
 The discipline that keeps it honest has two halves, and the second is the one
 that decays first:
 
-- **A claimed mapping is measured before it is relied on.** The knot reading was
-  not adopted because it was elegant; it was adopted because walking the
-  symmetric relations produced forty-two rings and every one was noise.
+- **A claimed mapping is measured before it is relied on.** The knot reading
+  holds because walking the symmetric relations produces rings that are all
+  noise, not because it is elegant.
 - **A mapping that is decorative is recorded as decorative.** Naming a port after
   a constant is a mnemonic, and calling it structure would leave the practice
   indistinguishable from ornament. Each mapping states what it has earned and
@@ -405,12 +404,10 @@ once is the point of it being a principle:
 green. Where a test must skip, the reason is about the environment — a sibling
 repository absent, an optional dependency missing — and never about the subject.
 
-The evidence is a natural experiment nobody designed: across one session in four
-repositories, thirty defects were found, and the ones found by careful reading
-were defects of *shape* — a missing route, a docstring that said three where the
-answer was five. **Every defect of behaviour was found by making something
-fail.** Six of those were guards written in that same session, by the same
-author, to check those exact properties, and read after writing.
+Careful reading finds defects of *shape* — a missing route, a docstring that
+says three where the answer is five. **Defects of behaviour are found by making
+something fail**, including in guards written by the same author to check those
+exact properties, and read after writing.
 
 This is `show-it-by-running-it` turned on the tests themselves. A document describing behaviour is
 unproven until the behaviour produced it; a test is a document too, and drifts
@@ -418,8 +415,8 @@ the same way.
 
 → Org record: **A check is evidence only after it has been seen to fail**
 (`records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`). It carries
-the session's counts, what the rule unifies, and why a mutation-score gate was
-rejected in favour of a per-guard note.
+the evidence, what the rule unifies, and why a mutation-score gate is rejected
+in favour of a per-guard note.
 
 ↔ Edges: rests-on show-it-by-running-it, bears shrink-the-black-box
 
@@ -436,7 +433,7 @@ red, and is accountable for it — **`credit-tracks-accountability`**, whose tes
 did most of the visible work, but whether the named party can answer for it
 (`records/DRAFT-human-only-contributorship.md`).
 
-Two rules this organisation already had turn out to be one rule. Everything runs
+Two rules this organisation holds are one rule. Everything runs
 through `uv run qm <command>`; every paid model call passes through one gate.
 Both were argued from cost and from interruption, and both do the same thing:
 **take a decision away from something that cannot be decided and give it to
@@ -462,11 +459,10 @@ says where to put the wall.** No general procedure decides termination, and
 adding a bound decides it trivially. So the design question is never "can this be
 decided" — it is **where is the wall, and does anyone see it when it is hit.**
 
-Measured here: a facet asked for a page that contains it, and the recursion ran
-109 levels before Python's limit stopped it. The bound was real and did its job.
-The error was then caught by a guard written for a different purpose, every frame
-above returned a plausible answer, a function deliberately taken from 8.15s to
-0.07s went back to 1.478s, and nothing failed for four pull requests.
+A facet that asks for a page containing it recurses until Python's limit stops
+it — a real bound, doing its job. If a guard written for a different purpose
+then catches the error, every frame above returns a plausible answer, an
+optimised function is slow again, and nothing fails.
 
 **The obligations restrict the model far less than they sound.** The
 deterministic, time-bounded guards are drafted *with* the non-deterministic tool:

@@ -17,10 +17,9 @@ pipeline — less plainly. A single turn in a conversation — surely not.
 That framing is wrong, and it is wrong in a way that only shows up once work
 starts arriving from more than one kind of place.
 
-`qmcp/cookbook/delta.py` already half-knows it. Its docstring says a workflow
-step and a delta are *one unit of work seen from two ends*, and it maps between
-them without deciding which is the real one. That module was written for one
-correspondence and the property it noticed is general: **the same thing is a
+`qmcp/cookbook/delta.py` maps a workflow step and a delta as *one unit of work
+seen from two ends*, without deciding which is the real one. The property is
+general: **the same thing is a
 unit of work from one vantage and an internal detail from another, and both
 readings are correct.**
 
@@ -34,8 +33,7 @@ board with rows nobody reads — or hides it, so the board is quiet about work
 that is happening. Both are worse than saying nothing, because both look like
 answers.
 
-There is a second cost, and it is the one that would have bitten soonest.
-Threads. A conversation is mostly steps: a hundred turns producing three
+There is a second cost: threads. A conversation is mostly steps: a hundred turns producing three
 decisions. Mirroring every turn as a delta buries the three. Mirroring none
 loses them. The question "is a turn a delta" has no answer, and the reason is
 that the question is missing its subject.
