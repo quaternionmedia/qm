@@ -80,7 +80,7 @@ unmerged working branch is ordinary.
 ## 5. Licensing and dependencies
 
 ```sh
-python -m reuse lint
+uvx 'reuse[charset-normalizer]' lint
 ```
 
 Every file carries copyright and licence information, no deprecated SPDX

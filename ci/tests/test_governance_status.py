@@ -205,12 +205,7 @@ def test_a_ratified_record_is_counted_as_ratified(corpus):
 
 
 def test_a_directory_of_records_is_not_reported_as_empty(corpus):
-    """`ls-tree` without -r lists the directory entry and nothing in it.
-
-    The first run of this generator reported "no records" for a directory
-    holding ten of them, and it reported it as an unknown rather than as zero
-    -- which is the only reason it was caught at a glance.
-    """
+    """`ls-tree` without -r lists the directory entry and nothing in it."""
     doc = generate(corpus)
     assert doc["corpus"]["records"]["total"] == 2
 

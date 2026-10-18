@@ -143,6 +143,18 @@ def test_a_branch_is_checked_on_the_lines_it_adds(repo: Path):
     assert [(item.path, item.kind) for item in found] == [("other.py", "narrative")]
 
 
+def test_a_renamed_file_is_checked_on_the_lines_it_adds(repo: Path):
+    """A move is not an exemption. Mutation: drop `R` from the diff filter and
+    the renamed file's added line is not read."""
+    body = "".join(f"Line {n} says what the tool does.\n" for n in range(1, 21))
+    commit(repo, "guide.md", body)
+    git("switch", "-q", "-c", "work", cwd=repo)
+    git("mv", "guide.md", "moved.md", cwd=repo)
+    commit(repo, "moved.md", body + "THE ONE THAT MATTERS is this.\n")
+    found, _ = findings(repo, base="main")
+    assert [(item.path, item.line, item.kind) for item in found] == [("moved.md", 21, "shout")]
+
+
 def test_uncommitted_and_untracked_lines_count_as_added(repo: Path):
     """A local run before the commit reads what the commit will hold.
     Mutation: diff against `HEAD` instead of the working tree, or skip

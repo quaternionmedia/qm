@@ -5,37 +5,27 @@
     uv run qm divergence --left <a.json> --right <b.json> --deltas
 
 `records/DRAFT-a-disagreement-is-a-delta.md` is the decision. This is the
-mechanism, and the four properties it has to hold are that record's, restated
-here only as the reason each line of code is the way it is.
+mechanism, and it holds that record's properties:
 
-NEITHER VALUE IS DISCARDED. A comparison that returned a winner would throw away
-the losing value at exactly the moment somebody wants to see it. Every
-divergence carries both, and which view said which.
+- Neither value is discarded: every divergence carries both, and which view
+  said which.
+- Identity is the address plus the field, never the time: `delta_name` is
+  derived from those two alone, so re-running detection over an unresolved
+  disagreement produces the same name rather than one row per sync.
+- Detection never sets a phase past `brainstorm`: noticing that two values
+  differ is not deciding anything about them.
+- Convergence is reported, not concluded: when two values agree again this
+  says so and closes nothing, because it cannot tell whether a person acted or
+  one side re-synced, and `complete` is a claim that work was done.
+- Which fields are compared is a declaration: `fields` is given by the
+  caller, because diffing whole documents would open a delta on every field
+  the two systems legitimately hold differently, such as each one's own "when
+  I last looked" timestamp.
 
-IDENTITY IS THE ADDRESS PLUS THE FIELD, NEVER THE TIME. `delta_name` is derived
-from those two and nothing else, so re-running detection over an unresolved
-disagreement produces the same name. A detector that keyed on the run would open
-one row per sync, and a queue that grows on a timer is a queue nobody reads.
-
-DETECTION NEVER SETS A PHASE PAST `brainstorm`. Noticing that two values differ
-is not deciding anything about them.
-
-CONVERGENCE IS REPORTED, NOT CONCLUDED. When two values agree again this says so
-and closes nothing. It cannot tell whether a person acted or whether one side
-re-synced, and `complete` is a claim that work was done.
-
-WHICH FIELDS ARE COMPARED IS A DECLARATION. Passing two whole documents and
-diffing everything would open a delta on every field the two systems
-legitimately hold differently -- each one's own "when I last looked" timestamp
-first. `fields` is given by the caller, and getting that list wrong is the
-failure mode the record names.
-
-WHAT THIS CANNOT SEE. Which value is right. It has no opinion, by design, and
-adding one would be the rejected alternative arriving as an implementation
-detail. It also cannot see a disagreement about something only one side holds:
-a field absent from a view is reported as missing rather than as a difference,
-because "we disagree" and "one of us has never heard of this" are different
-facts and a queue that conflates them is one nobody can triage.
+What this cannot see: which value is right. It has no opinion, by design. It
+also cannot see a disagreement about something only one side holds: a field
+absent from a view is reported as missing rather than as a difference, because
+"we disagree" and "one of us has never heard of this" are different facts.
 """
 
 from __future__ import annotations

@@ -89,15 +89,15 @@ def test_a_planned_detector_is_accepted_as_an_honest_interim(tmp_path: Path):
 
 
 def test_a_detector_that_does_not_exist_is_refused(tmp_path: Path):
-    """The exception registry's --drift caught two of these on its first run."""
+    """A detector path that does not exist is refused."""
     root = root_with(tmp_path, detector=False)
     assert any("detector" in f and "does not exist" in f
                for f in problems([policy()], root))
 
 
 def test_a_source_that_does_not_exist_is_refused(tmp_path: Path):
-    """Three entries named a path a pending migration would create, not one the
-    tree had, and --check passed because it read only the detector column."""
+    """A source path that does not exist is refused, not only a missing
+    detector."""
     root = root_with(tmp_path)
     p = policy(source="status/ledger.yaml")
     assert any("source status/ledger.yaml does not exist" in f

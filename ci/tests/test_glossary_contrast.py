@@ -1,8 +1,5 @@
 """The glossary link is subtle, and subtle has a floor with a number in it.
 
-**THE BRIEF AND THE STANDARD PULLED AGAINST EACH OTHER ON ONE THEME**, and the
-conflict is arithmetic rather than taste, so it was measured.
-
 WCAG 1.4.1 allows a colour-only link in body text when the colour clears 3:1
 against the surrounding text and a non-colour cue appears on hover and focus.
 On the light theme that is reachable. On `slate` it is not, and
@@ -11,12 +8,11 @@ is already near white, so any colour far enough from it to be distinguishable is
 too dark to stay readable against the background. Searched over the sRGB cube;
 no shade satisfies both.
 
-**SO THE CUE IS PERSISTENT, AND THAT BUYS THE SUBTLETY BACK.** Once a dotted
-rule carries the "this is a link" information, colour is not doing accessibility
-work and only has to stay readable. The difference in colour can be *slighter*
-than the brief hoped for rather than louder.
+So the cue is persistent: a dotted rule carries the "this is a link"
+information, colour does no accessibility work and only has to stay readable,
+and the difference in colour can be slight.
 
-WHAT THIS CANNOT DO. Say the page is accessible. It checks two ratios and the
+What this cannot do: say the page is accessible. It checks two ratios and the
 presence of a cue. Whether a reader recognises the hint, and whether the word
 was used in the glossary's sense at all, are not numbers.
 """
@@ -83,9 +79,7 @@ def declared() -> dict[str, tuple[int, int, int]]:
 
 
 def test_colour_alone_cannot_work_on_the_dark_theme():
-    """THE MEASUREMENT THE WHOLE DESIGN RESTS ON.
-
-    The brief asked for colour without an underline. On `slate` that is not a
+    """On `slate`, colour without an underline is not a
     preference to weigh, it is unreachable: a link needs 3:1 against body text
     to be found by colour alone, and 4.5:1 against the background to be read.
     Body text is already near white, so nothing satisfies both.
@@ -126,7 +120,7 @@ def test_the_link_stays_readable_against_its_background(scheme):
 
 
 def test_the_cue_is_persistent_rather_than_only_on_hover():
-    """THE ONE THE DARK THEME FORCED.
+    """The cue is visible at rest.
 
     A cue that appears only on hover leaves a reader who never hovers -- and
     every reader on paper -- with colour alone, which slate cannot support.
@@ -144,8 +138,7 @@ def test_the_cue_is_persistent_rather_than_only_on_hover():
 
 
 def test_it_is_a_hint_and_not_a_full_underline():
-    """The half of the brief that survived: dotted, not a text-decoration
-    underline sitting on the baseline.
+    """Dotted, not a text-decoration underline sitting on the baseline.
 
     Mutation: use `text-decoration: underline` at rest and this fails.
     """
