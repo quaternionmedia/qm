@@ -324,7 +324,7 @@ def host_pull_requests(repo: Repository) -> None:
 
     A failure -- no host remote, not signed in, the host down -- leaves
     `open_prs` as None and says why, because a list that read as empty would
-    report a free slot on a repository nobody asked.
+    report a clear stack on a repository nobody asked.
     """
     done = run_gh(["pr", "list", "--author", "@me", "--state", "open",
                    "--json", "number,headRefName,isDraft,baseRefName"],

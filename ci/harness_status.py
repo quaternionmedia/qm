@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the harness status document: where every repository's PR slot stands.
+"""Emit the harness status document: where every repository's pull request stacks stand.
 
 Org-level tooling, copied nowhere. It is the collector half of a two-part
 split this repository already uses once: a generator that talks to git, gh and
@@ -482,6 +482,24 @@ def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
     return None
 
 
+def redact_private(records: list[dict], roster: list[dict]) -> list[dict]:
+    """Every private repository's name replaced by its reference, in every record.
+
+    A private repository's own record is redacted where it is built; this pass
+    covers its name inside another repository's record -- a pull request in the
+    corpus whose base is that project's branch, for one. The names are the ones
+    the private companion supplies, so without it nothing can be redacted, and
+    the document is generated where the companion is present.
+    """
+    pairs = [(e["name"], e["ref"]) for e in roster if e.get("ref") and e.get("name") and e["name"] != e["ref"]]
+    out = []
+    for record in records:
+        for name, ref in pairs:
+            record = redact(record, name, ref)
+        out.append(record)
+    return out
+
+
 def build(
     roster: list[dict],
     org: str,
@@ -551,6 +569,7 @@ def build(
         if entry.get("ref") and entry["ref"] != name:
             record = redact(record, name, entry["ref"])
         repositories.append(record)
+    repositories = redact_private(repositories, roster)
 
     measured = [r for r in repositories if "unknown" not in r["slots"]]
     governed = [
@@ -753,7 +772,7 @@ def main(argv: list[str] | None = None) -> int:
         totals = status["totals"]
         print(
             f"wrote {args.write}: {totals['repositories']} repositories, "
-            f"{totals['compliant']} compliant, {totals['over_limit']} over limit, "
+            f"{totals['compliant']} compliant, {totals['over_limit']} ready while stacked, "
             f"{totals['slots_unknown']} unknown"
         )
         if governance is not None:
