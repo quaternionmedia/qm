@@ -11,49 +11,37 @@
 ## Context
 
 Tests, reference docs, a demo and a cookbook are four names for one thing: a
-worked example of the system behaving. The org has built that thing at least
-seven times, in six repositories, and converged once.
+worked example of the system behaving. Repositories in this organisation build
+that thing many times over — reference suites, documentation indexes,
+screenshot suites, cookbook commands, demo flows, in-app walkthroughs, recorded
+videos, prose that is a test suite — often several in one repository, none
+aware of the others.
 
-The survey is unflattering and worth stating plainly. `dossier` has a
-January reference suite that stalled, two documentation indexes that disagree
-with each other, a screenshot suite that generates the README's images, and an
-executable `disk cookbook` — four attempts, none aware of the others. `qmcp` has
-sixteen reference documents totalling five thousand lines, a `cookbook` CLI
-group, nine Metaflow demo flows, a smoke suite that imports them, and a second,
-more abstract cookbook sitting uncommitted in a working tree since February.
-`codecartographer` has forty-eight documents in two tiers, twenty superseded
-ones in an archive, an in-app walkthrough, a Playwright suite that reads as one,
-and an abandoned mkdocs build. `alfred` generates documentation *from* its
-end-to-end suite and records five walkthroughs as video. `datum`'s prose *is*
-its test suite. This corpus writes test names as governance sentences and never
-built the documentation half.
+The word does not survive the trip: **"cookbook" means unrelated things across
+these repositories, and none of them is a document.**
 
-The word does not even survive the trip: **"cookbook" means three unrelated
-things across these repositories, and none of them is a document.**
+The failure is not authorship: such artifacts are written carefully, and many
+are good. The failure is that each needs a *second thing kept in step with a
+first* — a document beside the code, a screenshot beside the UI, a recipe beside
+the command it documents — and nothing makes the second thing cheaper to
+regenerate than to abandon. So they are abandoned, one at a time, by people with
+better things to do.
 
-The failure is not authorship. Every one of those artifacts was written
-carefully, and several are good. The failure is that each needed a *second
-thing kept in step with a first* — a document beside the code, a screenshot
-beside the UI, a recipe beside the command it documents — and nothing made the
-second thing cheaper to regenerate than to abandon. So they were abandoned, one
-at a time, by people with better things to do.
-
-**One instance converged, and it is the evidence this record rests on.**
-`qmetronome` regenerates twenty-four screenshots, twenty-three recordings and
-twenty-four user-guide pages from `./gradlew test` — the command a contributor
-runs before opening a pull request — and they carry zero drift. Its screenshot
+**The instance that converges is the evidence this record rests on.**
+`qmetronome` regenerates its screenshots, recordings and user-guide pages from
+`./gradlew test` — the command a contributor runs before opening a pull request
+— and they carry no drift. Its screenshot
 library runs permanently in *record* mode: it never compares, never gates. All
 the regression protection sits in behavioural assertions in the same test
 method, which drive the real production component through a real gesture and
 assert what the engine did. The picture is a byproduct of the render those
 assertions ran against.
 
-The same repository contains the control. Two of its generated artifacts need a
-*remembered* command: a changelog produced by a script, and a benchmark table
-pasted from a device log. The changelog documents `v0.1.3`; the newest tag is
-`v0.2.0`. Same author, same week, same standard — the artifacts riding the
-command people already run are byte-perfect, and the ones requiring memory are
-stale. That is the whole argument, and it needed no advocacy to produce.
+The same repository contains the control. Its artifacts that need a
+*remembered* command — a changelog produced by a script, a benchmark table
+pasted from a device log — go stale under the same author and the same
+standard, while the artifacts riding the command people already run stay
+exact.
 
 ## Decision
 
@@ -62,7 +50,7 @@ stale. That is the whole argument, and it needed no advocacy to produce.
    are `walkthrough/NN-<slug>.md`, ordinal first, ordered by filename. The
    convention is identical in this corpus and in every adopting project: a
    convention with a project-shaped hole in it is re-derived per project, which
-   is how the org arrived at three meanings of "cookbook".
+   is how one word acquires three meanings.
 
 2. **The pages are executed by the repository's ordinary test command, named
    as an explicit path.** In a Python repository that is pytest with

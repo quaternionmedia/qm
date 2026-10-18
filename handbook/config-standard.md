@@ -1,26 +1,10 @@
 # Handbook — Where configuration and generated documents live
 
 **Routing.** One format, two folders, and a rule for telling which a file is.
-Written because the corpus had drifted to nine data files at its root in two
-formats, with no rule that would have told anyone where a tenth belonged.
+Without one, each generator chooses its own format and name, and the same kind
+of document appears in two formats under two conventions.
 
 ---
-
-## The drift this replaces
-
-Measured 2026-08-16, before the sweep:
-
-| | |
-|---|---|
-| Data files at the repository root | 9 |
-| Formats among them | JSON and YAML, mixed |
-| Hand-authored config in `ci/` | 6, all YAML |
-| Rule saying which a new file should be | none |
-
-`governance-status.yaml` and `harness-status.json` are the same kind of thing —
-a generated status document — in two formats, in the same directory, named to
-two different conventions. Nothing was wrong with either; there was simply no
-standard, so each generator chose for itself.
 
 ## The standard
 
@@ -39,8 +23,8 @@ the load-bearing part.
 | `ci/` | claims: registries, rosters, policies | a human, by hand | yes |
 | `status/` | evidence: generated documents | a generator | yes, unless it carries private data |
 
-That split already existed as doctrine — `ci/workspace.yaml` says *"nothing here
-is evidence"* in its own header — and now it is visible in the layout.
+The split is the corpus's doctrine — `ci/workspace.yaml` says nothing in it is
+evidence, in its own header — made visible in the layout.
 
 ## Naming
 
@@ -60,17 +44,13 @@ handbook should find them in the handbook.
 `inventory-local.json` are gitignored and belong to one machine. They are not
 evidence about the org; they are facts about a disk.
 
-## The cost, stated
+## The cost
 
-Moving `governance-status.yaml` and `harness-status.json` changes paths that
-`project-seed/ide/AGENTS.md` names, and every adopting project reads that file
-through its submodule mount. A project whose pin does not move keeps the old
-layout and the old paths, and with propagation retired
-(`plans/data-collection-pathways.md`) that pin may never move.
-
-So this standard is true of `main` and of nothing else until somebody bumps a
-pin. That is a real cost of sweeping the drift, and the alternative — leaving
-two formats and no rule — was worse only because it would keep growing.
+The paths in `status/` are named by `project-seed/ide/AGENTS.md`, and every
+adopting project reads that file through its submodule mount. A project whose
+pin does not move keeps an older layout and older paths, and with propagation
+retired (`plans/data-collection-pathways.md`) that pin may never move. So this
+standard is true of `main`, and of a project once somebody bumps its pin.
 
 ## Adding a file
 
@@ -81,5 +61,5 @@ two formats and no rule — was worse only because it would keep growing.
 - It is a page for a reader → `handbook/`, markdown.
 
 If a file is two of those, it is two files. `inventory-public.yaml` and
-`inventory-private.json` were one document until the split, and the split is
-what makes the public half safe to commit.
+`inventory-private.json` are one document split in two, and the split is what
+makes the public half safe to commit.

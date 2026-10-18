@@ -120,8 +120,7 @@ cheapest build. Rejected as the *foundation* because it makes the operator a
 reader of every session, which turns a compromise of one machine in moat into
 a compromise of every conversation ever relayed through it.
 
-**Bake encryption into rad.** The request that prompted this record, taken
-literally. Rejected with its own measurement: rad has no channel, no second
+**Bake encryption into rad.** Rejected with its own measurement: rad has no channel, no second
 party, and a record declaring both facts load-bearing — a crypto layer there
 would be a security claim nothing can exercise, contradicting rad's
 zero-dependency clause without protecting anything.

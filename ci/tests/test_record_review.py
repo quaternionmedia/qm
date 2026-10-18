@@ -1,13 +1,9 @@
 """Tests for the whole-corpus record review.
 
-Every case builds a small corpus in a temp directory. The review's value is that
-it fires on the two defects this corpus actually shipped -- an enforcement clause
-naming a mechanism that does not exist, and a record nothing points at -- and
-that it does *not* fire on the prose that legitimately describes the world.
-
-The false-positive tests matter as much as the others. The first version of this
-tool reported 35 findings, of which most were Context sections doing their job,
-and a check that fires on everything trains a reader to skip it.
+Every case builds a small corpus in a temp directory. The review fires on an
+enforcement clause naming a mechanism that does not exist and on a record
+nothing points at, and does *not* fire on prose that legitimately describes the
+world: a check that fires on everything trains a reader to skip it.
 """
 
 from __future__ import annotations
@@ -203,12 +199,10 @@ def test_the_output_says_it_is_not_a_semantic_review(tmp_path: Path):
 
 # --- citing another repository in the org ----------------------------------
 #
-# This corpus governs every QM repository, so its records are written *about*
-# them and cite their files. Before this existed those citations were reported
-# as `dangling-citation` -- "which is not in the corpus" -- and three of them
-# were, all resolving perfectly well one directory over. The two facts are
-# different and a check that renders them identically is the unknown-as-zero
-# conflation this corpus names everywhere else.
+# This corpus governs every QM repository, so its records cite their files. A
+# citation that resolves in a sibling checkout is reported as
+# `cross-repository-citation`, not `dangling-citation`: the two facts are
+# different.
 
 
 def with_roster(tmp_path: Path, names: list[str]) -> None:
@@ -222,7 +216,7 @@ def with_roster(tmp_path: Path, names: list[str]) -> None:
 
 
 def test_a_citation_into_a_sibling_repository_is_not_called_dangling(tmp_path: Path):
-    """THE ONE THAT MATTERS.
+    """A citation that resolves in a sibling checkout is not dangling.
 
     Mutation: drop the sibling branch and this fails -- the finding reverts to
     `dangling-citation`, which tells a reader the file does not exist.
@@ -235,7 +229,7 @@ def test_a_citation_into_a_sibling_repository_is_not_called_dangling(tmp_path: P
 
 
 def test_a_sibling_citation_is_still_reported(tmp_path: Path):
-    """**REPORTED, NOT SILENCED.** A carve-out that emits nothing is
+    """Reported, not silenced: a carve-out that emits nothing is
     indistinguishable from a rule nobody wrote, and the reader still has to go
     to the other repository and look.
 
@@ -247,7 +241,7 @@ def test_a_sibling_citation_is_still_reported(tmp_path: Path):
 
 
 def test_a_repository_not_in_the_roster_is_still_dangling(tmp_path: Path):
-    """**THE ROUTE AROUND THE GUARD.** The carve-out keys on the first path
+    """The carve-out keys on the first path
     segment, so any invented directory name would walk through it if the roster
     were not what decides. `notarepo/` is exactly the typo this check exists to
     catch, and it must not be excused for looking like a repository.
@@ -299,8 +293,7 @@ def test_a_roster_entry_whose_name_is_not_a_string_is_ignored(tmp_path: Path):
     a reason having nothing to do with the records.
 
     Mutation: `and` to `or` on the isinstance guard and this raises
-    AttributeError instead of reporting. Found by `uv run qm mutate`, not by
-    reading the function.
+    AttributeError instead of reporting.
     """
     write(tmp_path / "ci" / "workspace.yaml",
           "repositories: [{name: [a, b]}, {name: dossier}]")
@@ -310,10 +303,8 @@ def test_a_roster_entry_whose_name_is_not_a_string_is_ignored(tmp_path: Path):
 
 # --- the holes a blind review drove through the first version ----------------
 #
-# The first version keyed on the repository *name* alone and waved the citation
-# through. Every case below is one an adversarial pass actually demonstrated
-# against it, which is the only reason any of them is here: reading the guard
-# had already convinced two people it was sound.
+# Each case below is a way to satisfy a name-keyed guard while citing a file
+# that is not there.
 
 
 def workspace(tmp_path: Path, entries: str) -> None:
@@ -334,9 +325,8 @@ def sibling_file(tmp_path: Path, repo: str, relative: str) -> Path:
 
 
 def test_a_milestone_name_is_not_a_repository(tmp_path: Path):
-    """**THE FIRST HOLE.** The loader walked the whole document for any key
-    called `name`, so `milestone.name` -- `alpha` -- joined the vocabulary and
-    would have excused every citation beginning `alpha/`.
+    """Only the roster's `repositories:` are names: `milestone.name`
+    (`alpha`) must not excuse every citation beginning `alpha/`.
 
     Mutation: walk the whole document again instead of `repositories:` and this
     fails.
@@ -347,9 +337,9 @@ def test_a_milestone_name_is_not_a_repository(tmp_path: Path):
 
 
 def test_a_roster_name_colliding_with_a_corpus_directory_is_a_corpus_path(tmp_path: Path):
-    """**THE SECOND HOLE.** One roster edit, no code change: a repository named
-    `handbook` turned every broken `handbook/...` citation in this corpus into a
-    benign cross-repository reference. `docs`, `protocols` and `curriculum` are
+    """A repository named `handbook` in the roster must not turn every broken
+    `handbook/...` citation in this corpus into a cross-repository reference.
+    `docs`, `protocols` and `curriculum` are
     all plausible repository names and all are directories here.
 
     Mutation: drop the `(root / first).is_dir()` test and this fails.
@@ -361,9 +351,8 @@ def test_a_roster_name_colliding_with_a_corpus_directory_is_a_corpus_path(tmp_pa
 
 
 def test_a_typo_into_a_checked_out_sibling_is_a_defect(tmp_path: Path):
-    """**THE THIRD HOLE, AND THE WORST.** `dossier/docs/rad-comands.md` -- one
-    character out -- read as clean, because the guard never looked. The sibling
-    is on the disk; the check can simply open it.
+    """`dossier/docs/rad-comands.md`, one character out, is a defect: the
+    sibling is on the disk, and the check opens it.
 
     Mutation: report `cross-repository-citation` without testing the path and
     this fails.
@@ -441,10 +430,9 @@ def test_a_roster_that_cannot_locate_this_corpus_resolves_nothing(tmp_path: Path
 
 
 def test_the_command_line_reads_the_roster(tmp_path: Path):
-    """**THE HOLE THAT MADE THE OTHERS INVISIBLE.** Every other test here calls
-    `review_record` directly and hands it siblings. `main()` builds them once and
-    passes them down -- and that wiring was uncovered, so the whole feature could
-    be disabled in the only code path anybody runs while every test stayed green.
+    """`main()` builds the siblings once and passes them down, so this covers
+    the only code path anybody runs; every other test here calls
+    `review_record` directly and hands it siblings.
 
     Mutation: `siblings = {}` in `main()` and this fails.
     """

@@ -1,22 +1,19 @@
 name: Governance status
 
 # The committed status/governance.yaml is a rendering of specific commits. This
-# job asks the only question CI can honestly answer about it: given the commits
-# the document names, are the numbers in it right?
+# job asks the question CI can answer about it: given the commits the document
+# names, are the numbers in it right?
 #
-# It deliberately does NOT regenerate and compare. The document's github layer
-# reads eight other repositories, so someone opening a pull request in
-# quaternionmedia/apothecary would make this repository's committed copy
-# "stale" with no commit here to explain it, and every unrelated PR would go
-# red for a reason its author cannot fix. Worse, main moves: `behind_corpus`
-# changes on every merge, so a byte-comparison against a fresh generation could
-# never be made green -- the remedy for a failure would be another merge, which
-# fails it again.
+# It does not regenerate and compare. The document's github layer reads other
+# repositories, so a pull request opened in one of them would make this
+# repository's committed copy differ with no commit here to explain it, and an
+# unrelated pull request here would go red for a reason its author cannot fix.
+# `behind_corpus` also changes on every merge to main, so a byte comparison
+# against a fresh generation could not be made to pass.
 #
-# So: no network, no credential, no `gh`. The check runs identically in a fork
-# pull request and in a scheduled run, which is the property that makes it
-# worth having. Refreshing the document is a human action -- see
-# handbook/handoffs/governance-status-generator.md.
+# No network, no credential, no `gh`: the check runs identically in a fork pull
+# request and in a scheduled run. Refreshing the document is a human action --
+# see handbook/handoffs/governance-status-generator.md.
 
 on:
   push:
@@ -31,16 +28,13 @@ on:
       - 'ci/**'
       - '.github/workflows/governance-status.yml'
 
-# One run per branch per workflow. A second push supersedes the first: nobody
-# reads the result of a run whose commit has already been replaced, and the
-# minutes are real -- 55 of this repository's 129 runs on 2026-08-11 came from
-# five iterative pushes to two pull request branches, where only the last
-# mattered.
+# One run per branch per workflow. A second push supersedes the first: the
+# result of a run whose commit has been replaced is not read, and its minutes
+# are billed.
 #
-# Cancellation is scoped to pull requests deliberately. On the default branch
-# and on a project branch the run IS the record of what that commit reported,
-# and cancelling it to start a newer one destroys the only evidence that the
-# earlier commit was ever checked.
+# Cancellation applies to pull requests only. On the default branch and on a
+# project branch the run is the record of what that commit reported, and
+# cancelling it would remove the only evidence that the commit was checked.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -66,11 +60,8 @@ jobs:
       - name: Fetch the refs the document describes
         # actions/checkout fetches the checked-out ref and nothing else, so
         # refs/remotes/origin/project/* does not exist in a runner by default.
-        # Without this the check finds no project branches, and a check that
-        # compares nothing is the failure this whole file guards against. It
-        # refuses to pass in that state rather than reporting clean, so the
-        # symptom would be a confusing red rather than a false green -- but
-        # fetching is the fix either way.
+        # Without this the check finds no project branches. It refuses to pass
+        # in that state rather than reporting clean, and fetching is the fix.
         run: |
           git fetch --no-tags --quiet origin \
             '+refs/heads/main:refs/remotes/origin/main' \
@@ -81,8 +72,7 @@ jobs:
         run: python ci/governance_status.py --check status/governance.yaml
 
       - name: It also renders
-        # A document that cannot be rendered is a document nobody will read.
-        # The renderer touches no network either, so this costs nothing.
+        # The document must also render. The renderer touches no network.
         run: |
           python ci/governance_render.py status/governance.yaml --out /tmp/governance-status.html
           test -s /tmp/governance-status.html
