@@ -89,7 +89,7 @@ Seven, named in `A-main.json` and nowhere else:
 | `check` | `governance-status.yml` | `check` | the status document still renders the commits it names |
 | `reuse` | `reuse-lint.yml` | `reuse` | outbound licensing |
 | `signatures` | `signature-check.yml` | `signatures` | every commit is attributable |
-| `slot` | `one-pr-check.yml` | `slot` | one open pull request per contributor |
+| `slot` | `one-pr-check.yml` | `slot` | no pull request is ready while stacked on another |
 | `symlinks` | `symlink-integrity.yml` | `symlinks` | a pointer file has not silently forked in two |
 
 **GitHub matches the `context` against the *job* name, not the workflow name.**

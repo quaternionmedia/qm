@@ -1,56 +1,44 @@
 #!/usr/bin/env python3
 """Emit the state of governance across the org as a document, not as a claim.
 
-ORG-LEVEL TOOL, NOT A SEED FILE -- the opposite of everything in
-project-seed/ci/, which exists to be copied into projects. This enumerates the
-project/* branches of *this* repository and queries the org's own API, so it is
-meaningful in exactly one clone. An adopting project vendors project-seed/
-through its submodule and must never find this in there: run from a pin sixty
-commits stale, it would produce an org-wide report attributed to that project's
-checkout. It does import from project-seed/ci/adr_lint.py, and that dependency
-points one way -- the org tool may use the seed's definitions, never the
-reverse.
+An org-level tool, not a seed file. It enumerates the `project/*` branches of
+this repository and queries the org's own API, so it is meaningful in this
+clone only, and it is kept out of the `project-seed/` that projects vendor. It
+imports from `project-seed/ci/adr_lint.py`; that dependency points one way, and
+the seed never imports from the org tool.
 
 Read-only: it never writes to a repository other than the document it emits,
 and never calls a mutating `gh` subcommand.
 
-WHY A DOCUMENT AND NOT A DASHBOARD. Governance semantics -- what "behind"
-means, when a branch counts as adopted, what makes a record ratified -- belong
-to the corpus that defines them. A renderer that re-implements them is a second
-definition of one rule, and drift between two definitions is the failure this
-corpus exists to prevent. So this emits a document and stops. governance_render
-turns it into HTML; dossier can turn it into rows; a threshold job can read it
-and fail a build. None of them re-derive a governance fact.
+It emits a document and stops. Governance semantics (what "behind" means,
+when a branch counts as adopted, what makes a record ratified) belong to the
+corpus that defines them, so `governance_render` turns the document into HTML,
+dossier turns it into rows, a threshold job can read it, and none of them
+re-derives a governance fact.
 
-TWO LAYERS, AND THE DIFFERENCE MATTERS.
+The document has two layers:
 
   git    -- a pure function of the commits named in the document. Given the
             same corpus commit and the same branch commits, it yields the same
-            answer forever. This layer is verifiable, and `--check` verifies it.
-  github -- observations of a remote at a moment. Someone opens a pull request
-            and yesterday's answer is wrong through nobody's fault. This layer
-            is stamped and never checked, because "check" would mean asserting
-            the world has not moved.
+            answer forever, and `--check` verifies it.
+  github -- observations of a remote at a moment, stamped and never checked,
+            because checking them would mean asserting the world has not moved.
 
-That split is why `--check` is trustworthy offline and in a fork PR with no
-token: it re-derives the git layer against the commits the document already
-names, and reports how much it could not verify rather than passing over it.
+`--check` therefore works offline and in a fork pull request with no token: it
+re-derives the git layer against the commits the document names, and reports
+how much it could not verify.
 
-WHAT THIS CANNOT ESTABLISH. Whether a project *should* be adopted. Whether a
-record is right. Whether an unpropagated branch is neglected or deliberately
-pinned. Whether a repository with no project branch is out of scope or merely
-unnoticed. It reports positions, and a position is not a judgement.
+What this cannot establish: whether a project *should* be adopted, whether a
+record is right, whether an unpropagated branch is neglected or deliberately
+pinned, or whether a repository with no project branch is out of scope or
+merely unnoticed. It reports positions, and a position is not a judgement.
 
-UNKNOWN IS A VALUE. Every field is a real answer or an explicit
-`{unknown: <reason>}`, and the count of unknowns is in the header. A monitor
-that renders "could not reach the API" the same as "nothing wrong" is worse
-than no monitor, because it discourages the manual check that would have caught
-the problem. Six defects in this seed's own tooling were that exact shape, and
-one of them was in the first draft of this file: `gh repo list --json
-licenseInfo --jq '.licenseInfo.spdxId'` returns null for every repository in the
-org, because that endpoint's licence object has no `spdxId` key. With a
-`// "NONE"` fallback it reported ninety-nine unlicensed repositories, confidently
-and in a nice table.
+Unknown is a value: every field is a real answer or an explicit
+`{unknown: <reason>}`, and the count of unknowns is in the header, so "could
+not reach the API" never renders as "nothing wrong".
+
+`docs/ref/ci/status-documents.md` describes the layers, the unknown value and
+the check.
 
 Usage:
     governance_status.py                      # emit to stdout
@@ -98,29 +86,17 @@ PROJECT_NS = "project/"
 # handbook/forking-a-project.md. Presence only: this says a repository has the
 # artifact, never that the artifact is correct or current.
 #
-# `adr/` is deliberately absent from this list. In the branch-per-project model
-# a project's records live on a branch of THIS repository and arrive in the
-# project through the submodule -- so looking for adr/ in the project repo
-# reports every correctly adopted project as incomplete. The first run of this
-# generator did exactly that to quaternionmedia/datum, which is adopted.
+# `adr/` is not in this list: in the branch-per-project model a project's
+# records live on a branch of this repository and arrive in the project through
+# the submodule, so a correctly adopted project has no `adr/` of its own.
 # The corpus submodule is found by its URL, not by its mount path. The fork
 # procedure says governance/qm and codecartographer mounts it at docs/qm, so a
 # path check reports a correctly vendored project as not tracking the corpus.
 CORPUS_URL_MARK = "/qm"
 IDE_ARTIFACTS = ("AGENTS.md", "CLAUDE.md", ".github/copilot-instructions.md")
 # The four `handbook/forking-a-project.md` step 4 requires a fork to copy. Not
-# the six that sit in `project-seed/ci/`: `signature-check.yml` and
-# `tag-claims.yml` are this corpus's own and step 4 does not ask a project for
-# them, so counting them would report every adopting project as incomplete.
-#
-# THIS LIST WAS SHORT BY ONE, AND THE OMISSION WAS THE SLOT GATE. It named
-# three, and `one-pr-check.yml` was the missing one -- the same defect step 4's
-# own text records having been corrected for ("this step said 'all three' and
-# named it nowhere, so a fork done exactly to procedure came up one gate
-# short"). The prose was repaired and this list was not, so the generated
-# status reported `seed_workflow_filenames_absent: []` for two adopting
-# projects that are both missing the slot gate on the host today. A scope list
-# that disagrees with the procedure it claims to measure reports on itself.
+# every workflow in `project-seed/ci/`: step 4 does not require the others, so
+# counting them would report every adopting project as incomplete.
 SEED_WORKFLOWS = (
     ".github/workflows/adr-lint.yml",
     ".github/workflows/submodule-check.yml",
@@ -305,8 +281,8 @@ class Git:
 
     `subprocess.run(...).stdout` on a failing command is `""`, and `""` reads
     as "no branches", "no records", "no merges" at every call site that
-    forgets to check. Every defect this seed has found was that shape, so this
-    raises and the caller decides whether the answer is Unknown.
+    forgets to check. So this raises, and the caller decides whether the
+    answer is Unknown.
     """
 
     def __init__(self, root: Path) -> None:
@@ -359,10 +335,9 @@ class Git:
     def tree(self, ref: str, path: str = "") -> list[str]:
         """Every blob under `path` at `ref`, recursively.
 
-        `-r` is load-bearing. Without it `ls-tree <ref> -- records` lists the
-        directory entry itself and nothing inside it, so a caller filtering for
-        *.md gets an empty list and reads it as "no records". That happened
-        here on the first run, against a directory holding ten of them.
+        `-r` is load-bearing: without it `ls-tree <ref> -- records` lists the
+        directory entry itself and nothing inside it, which a caller filtering
+        for *.md would read as "no records".
         """
         args = ["ls-tree", "-r", "--name-only", ref]
         if path:
@@ -404,27 +379,18 @@ def now() -> str:
 def last_propagation(git: Git, corpus: str, branch: str) -> dict | None:
     """The newest merge on `branch` that brought corpus history in, or None.
 
-    Two traps, both of which produced a wrong answer while this was being
-    written, and both of which are pinned by tests.
+    A merge commit is not a propagation: a project branch merging its own
+    feature branch produces one too. Walking every reachable merge is not the
+    test either, because once a branch has taken any corpus history the
+    corpus's own merges are reachable from it, each with a parent contained in
+    the corpus. So: merges in `corpus..branch` (work on the branch and not on
+    the corpus) with at least one parent contained in the corpus. Both traps
+    are pinned by tests.
 
-    A merge commit is not a propagation. A project branch merging its own
-    feature branch produces one too, and reading that as propagation reports a
-    branch as current when nothing has ever reached it. Real case: only merge
-    on project/qmetronome is its own pull request #1.
-
-    Walking every reachable merge is worse. Once a branch has taken any corpus
-    history, the corpus's own merge commits are reachable from it, and every
-    one of them has a parent contained in the corpus -- so the naive test
-    counted thirteen of main's merges as thirteen propagations of a branch
-    that had had one.
-
-    So: merges in `corpus..branch` -- work that is on the branch and not on the
-    corpus -- with at least one parent contained in the corpus.
-
-    A squash-merged propagation leaves no merge commit and is reported here as
-    None. That is not a false negative. Squashing a propagation breaks the
+    A squash-merged propagation leaves no merge commit and is reported as None.
+    That is not a false negative: squashing a propagation breaks the
     submodule-pin model the merge commit exists to carry, so "no propagation
-    recorded" is the correct thing to say about it.
+    recorded" is the correct answer.
     """
     for commit in git.lines("rev-list", "--merges", f"{corpus}..{branch}"):
         parents = git.run("rev-list", "--parents", "-n", "1", commit).split()[1:]
@@ -440,9 +406,8 @@ def last_propagation(git: Git, corpus: str, branch: str) -> dict | None:
 def record_census(git: Git, ref: str, directory: str) -> dict | Unknown:
     """Count records at a ref by the status their own header table declares.
 
-    Reads the ref, never the working tree. The tree on disk is whatever branch
-    happens to be checked out, and reporting it as a branch's content is the
-    error that put a false adoption finding into this repository's main.
+    Reads the ref, never the working tree: the tree on disk is whatever branch
+    happens to be checked out, not the branch being counted.
     """
     names = [n for n in git.tree(ref, directory) if n.endswith(".md")]
     if not names:
@@ -479,17 +444,14 @@ def seed_drift(git: Git, corpus: str, branch: str) -> dict:
     alone. Compared by content rather than blob id, so a line-ending difference
     between a Windows and a Linux checkout is not reported as an edit.
 
-    TWO COMPARISONS, BECAUSE ONLY ONE OF THEM IS A SIGNAL. Against the corpus
-    tip, every project branch here reports drift -- and that is just
-    behind_corpus said a second way, since the seed has moved and the copy has
-    not. Against the branch's own merge-base with the corpus, the question
-    becomes whether the copy still matches the seed *as it stood when the
-    branch last took it*, which is the independent fact: the project edited
-    something it was supposed to copy verbatim. Of the nine project branches
-    here, nine drift from the tip and one drifts from its merge-base. Which
-    comparison the corpus intends is not settled anywhere in it -- see the
-    `undefined` block of the emitted document -- so both are reported and
-    neither is called the answer.
+    Two comparisons, because only one of them is a signal. Against the corpus
+    tip, every project branch that is behind reports drift, which is
+    behind_corpus said a second way. Against the branch's own merge-base with
+    the corpus, the question is whether the copy still matches the seed as it
+    stood when the branch last took it: whether the project edited something
+    it was meant to copy verbatim. Which comparison the corpus intends is not
+    settled in it (see the `undefined` block of the emitted document), so both
+    are reported and neither is called the answer.
 
     The README is not compared at all: a project rewrites it. What is checked
     there is the seed comment the fork procedure's step 2 says to delete,
@@ -542,7 +504,7 @@ def git_layer(
         # The empty-query pass, in the one place it would otherwise reach the
         # committed artifact. A shallow checkout, or one where the remote
         # namespace was never fetched, has no project refs -- and `projects: []`
-        # renders as a clean table for an org with nine project branches.
+        # renders as a clean table for an org that has project branches.
         # --check catches it afterwards; generation must not produce it.
         return {
             "corpus": corpus_entry(git, corpus_ref, corpus),
@@ -579,10 +541,8 @@ def corpus_entry(git: Git, corpus_ref: str, corpus: str) -> dict:
         "commit": corpus,
         "committed_at": git.committed_at(corpus),
         # Scoped to this repository's own records/ and named accordingly. A
-        # project branch's adr/ is counted in that project's entry instead:
-        # project/streaming-infrastructure carries an Accepted ADR-0001 while
-        # the corpus has no ratified record, so one combined total would state
-        # something false about either scope depending on which you quoted.
+        # project branch's adr/ is counted in that project's entry instead, so
+        # neither total states something about the other scope.
         "records": record_census(git, corpus, "records"),
     }
 
@@ -634,12 +594,10 @@ class Hub:
         """Which token this run used, named but never printed.
 
         A 404 means "absent" or "you cannot see it", and the two are the same
-        bytes. Three of this org's project repositories are private and an
-        Actions GITHUB_TOKEN is scoped to one repository, so a CI run without a
-        wider credential sees a third of the fleet as missing everything --
-        which reads as the worst-adopted projects in the org and is entirely an
-        authentication artifact. Recording the credential is what lets a reader
-        tell that story from the document instead of guessing at it.
+        bytes. An Actions GITHUB_TOKEN is scoped to one repository, so a CI run
+        without a wider credential sees every private project repository as
+        missing everything. Recording the credential lets a reader tell an
+        authentication artifact from an unadopted project.
         """
         if not self.enabled:
             return "none: --offline"
@@ -658,12 +616,9 @@ class Hub:
         """One GET. `paginate` follows Link headers to the end of the collection.
 
         Paginate every list endpoint, without exception. GitHub caps a page at
-        100 and returns the first one silently -- no error, no marker in the
-        body, just a shorter list. This generator's first run against the real
-        org reported that quaternionmedia/datum, /qmetronome and
-        /factorio-sysops did not exist, because all three sort past the hundredth
-        repository. A truncated collection is indistinguishable from a complete
-        one at the call site, which is the whole problem.
+        100 and returns the first one silently, with no error and no marker in
+        the body, and a truncated collection is indistinguishable from a
+        complete one at the call site.
         """
         if not self.enabled:
             return Unknown(self.reason)
@@ -718,8 +673,7 @@ class Hub:
             # `license` is a nested object whose key is `spdx_id`. The list
             # endpoint spells it `key` and has no `spdx_id` at all; asking the
             # wrong one there returns null for every repository in the org and
-            # renders as "unlicensed" unless the caller notices. Named here so
-            # the next reader does not have to rediscover it.
+            # renders as "unlicensed".
             "licence": (licence or {}).get("spdx_id") or "NOASSERTION",
         }
 
@@ -822,12 +776,10 @@ def adoption(hub: Hub, name: str) -> dict | Unknown:
         "submodule": submodule,
         "ide": sorted(a for a in IDE_ARTIFACTS if a in tree),
         "ide_missing": sorted(a for a in IDE_ARTIFACTS if a not in tree),
-        # A FILENAME PROBE, AND NOTHING MORE. handbook/propagation-runbook.md
-        # warns against exactly this: qmetronome runs the ADR lint as an inline
-        # step inside ci.yml, so the filename is absent while the check is
-        # running. "missing" here means the seed's filename is not present, not
-        # that the project lacks the behaviour -- the field is named for the
-        # claim it can actually support.
+        # A filename probe, and nothing more: a project can run the ADR lint as
+        # an inline step inside ci.yml (handbook/propagation-runbook.md warns of
+        # this), so "absent" means the seed's filename is not present, not that
+        # the project lacks the behaviour. The field is named for that claim.
         "seed_workflow_filenames_present": sorted(
             w.rsplit("/", 1)[-1] for w in SEED_WORKFLOWS if w in tree
         ),
@@ -835,13 +787,11 @@ def adoption(hub: Hub, name: str) -> dict | Unknown:
             w.rsplit("/", 1)[-1] for w in SEED_WORKFLOWS if w not in tree
         ),
         "licensing": sorted(a for a in LICENCE_ARTIFACTS if a in tree),
-        # WHERE THIS PROJECT SAYS ITS RECORDS LIVE, so a zero in the census
-        # above can be read. `records.total: 0` on a project branch means one
-        # of two very different things -- nobody has written a record, or the
-        # records are in the project's own repository under the second model
-        # the seed workflow offers. rad is the live instance: eleven drafts in
-        # its own `adr/`, `RECORDS_DIR: adr` in its workflow, and a census that
-        # reports it as having decided nothing.
+        # Where this project says its records live, so a zero in the census
+        # above can be read. `records.total: 0` on a project branch means
+        # either that nobody has written a record, or that the records are in
+        # the project's own repository under the second model the seed
+        # workflow offers.
         #
         # `null` is the branch-per-project model and the documented default.
         # A string is the local path the project declared. `Unknown` is what a
@@ -927,11 +877,8 @@ def github_layer(hub: Hub, projects: list[dict], name_private: bool) -> dict:
     listed = org_repositories(hub)
     census = org_census(hub, [p["name"] for p in projects], name_private, listed)
 
-    # The governed-project list was not filtered at all, while the document
-    # carried `private_repository_names_listed: false`. That claim described the
-    # census of unmanaged repositories and nothing else, so the document was
-    # wrong about itself -- the loudest kind of wrong, because a reader checks
-    # the flag rather than the list.
+        # The governed-project list is filtered too, so the document's
+        # `private_repository_names_listed` flag describes every list in it.
     if not name_private and isinstance(listed, list):
         private = [r for r in listed if r.get("private")]
         refs = assign_references(private, hub.org)
@@ -1143,10 +1090,9 @@ def reference_map() -> dict[str, str]:
     """ref -> name, from whichever gitignored companion is on this machine.
 
     Both are read, because they cover different sets: the roster companion
-    holds the two private repositories in the roster, and the inventory holds
-    all thirty-four. A project branch can exist for a repository that is not in
-    the roster at all -- which is how a redacted project went unresolvable when
-    only the roster was consulted.
+    holds the private repositories in the roster, and the inventory holds
+    every private repository. A project branch can exist for a repository
+    that is not in the roster at all.
     """
     from check_private_names import references  # noqa: PLC0415 -- optional, local only
 
@@ -1156,20 +1102,14 @@ def reference_map() -> dict[str, str]:
 def check(document: dict, git: Git, corpus_ref: str, remote: str) -> int:
     """Re-derive the git layer against the commits the document names.
 
-    WHAT IS COMPARED IS DERIVED FROM THE LAYER, NOT FROM THE FIELD NAMES. An
-    earlier version filtered the github fields out with a regex over key paths,
-    which meant the rule "what is verifiable" lived in two places -- the layer
-    split and the regex -- and a field renamed or re-nested by a later schema
-    change would stop matching. Nothing would fail; the check would quietly
-    begin asserting that the world had not moved, which is the one claim its
-    own docstring says it must never make. Here the comparable key set is
-    whatever git_layer emits, so a renamed field is compared by construction
-    and a field moved into the github layer stops being compared by
-    construction.
+    What is compared is derived from the layer, not from field names: the
+    comparable key set is whatever `git_layer` emits, so a renamed field is
+    compared by construction, and a field moved into the github layer stops
+    being compared by construction.
 
     Reports the ratio it could verify. A run that verifies nothing exits
-    non-zero rather than printing a clean bill: "0 of 0 fields match" is the
-    empty-query pass this whole file is written against.
+    non-zero rather than printing a clean bill: "0 of 0 fields match" is an
+    empty-query pass.
     """
     document, unresolved = resolve_references(document)
     pins = pins_from(document)
@@ -1195,9 +1135,9 @@ def check(document: dict, git: Git, corpus_ref: str, remote: str) -> int:
 
     # A project the document carries only as `private-NN`, on a machine without
     # the companion that resolves it, cannot be matched to the ref it describes.
-    # Saying so in a printed line was not enough: its fields stayed in the
-    # comparison and were reported as differences, so a redacted document failed
-    # its own faithfulness check everywhere but the operator's machine.
+    # Its fields are left out of the comparison and reported as unverifiable,
+    # so a redacted document passes or fails its faithfulness check on the
+    # same terms on every machine.
     if unresolved:
         named = {p.get("name") for p in document.get("projects") or []
                  if isinstance(p, dict)}

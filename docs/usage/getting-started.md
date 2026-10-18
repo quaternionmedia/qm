@@ -61,7 +61,7 @@ Pick something small — a typo, a broken link, an unclear sentence. Then:
 4. Assign the person who asked for the work.
 5. A human reviews and merges.
 
-If several agent sessions run at the same time, the rules in [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) apply. The most important one: one open pull request per repository, per contributor.
+If several agent sessions run at the same time, the rules in [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) apply. The most important one: one change per pull request, parallel when independent, stacked as drafts when dependent.
 
 ## Next
 

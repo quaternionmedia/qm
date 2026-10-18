@@ -5,7 +5,7 @@
     uv run qm family-suite --family core    # one, repeatable
     uv run qm family-suite --check          # exit non-zero on a failed member
 
-**THE POINT IS THE DENOMINATOR.** Each member's suite proves something about
+The point is the denominator. Each member's suite proves something about
 that member. This adds the assertions that only exist across members, and it
 states which of them the batch was large enough to reach. A run covering one
 family cannot conclude what a run covering four can, and the difference is
@@ -13,7 +13,7 @@ reported rather than left for a reader to infer -- `qm demo` refuses to call
 one window agreeing with itself agreement, and this is that rule applied to a
 test batch.
 
-**TIERS, AND WHY THEY ARE ORDERED THIS WAY.** Each tier needs strictly more of
+Tiers, in order: each needs strictly more of
 the estate to have reported than the one above it:
 
   shape        1 family    every member that ran, ran something
@@ -25,7 +25,7 @@ A tier the batch cannot reach is printed as `not reached`, with what it would
 have taken. It is never printed as passing, because an assertion nobody could
 evaluate reporting green is the failure this corpus keeps finding.
 
-ADVISORY, AND LOCAL ONLY. It runs sibling clones' suites, so it says different
+Advisory, and local only. It runs sibling clones' suites, so it says different
 things on two machines and belongs nowhere near CI.
 """
 
@@ -88,11 +88,10 @@ def run_member(name: str) -> dict:
     out["ran"] = True
     out["passed"] = done.returncode == 0
     if not out["passed"]:
-        # NAME WHAT FAILED, NOT JUST THAT SOMETHING DID. The first run of this
-        # tool reported "1 failed, 1143 passed" and kept no name, so the failure
-        # could not be diagnosed from the log -- and the most likely cause,
-        # a module being edited while the batch ran it, could be argued for and
-        # not established. A summary line is a result nobody can act on.
+        # Name what failed, not just that something did: a summary line
+        # alone is a result nobody can act on, and a failure's likely cause (a
+        # module edited while the batch ran it) can then be established rather
+        # than argued for.
         text = (done.stdout or "") + (done.stderr or "")
         named = [line.strip() for line in text.splitlines()
                  if line.startswith(("FAILED ", "not ok ")) or " FAILED" in line[:40]]

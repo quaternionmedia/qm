@@ -8,24 +8,22 @@
 
 ## Context
 
-This corpus generates four status documents and each is correct. Each is also
+This corpus generates status documents, and each is correct. Each is also
 read for exactly one question, and the questions do not overlap:
 
 | Document | Answers |
 |---|---|
-| `status/harness.yaml` | where does each repository's pull-request slot stand |
+| `status/harness.yaml` | which pull requests are open in each repository, and how they stack |
 | `status/documents.yaml` | what state is each document in |
 | `status/gates.yaml` | what does each automated check refuse, and what can it not see |
 | `status/governance.yaml` | where does each project stand against the corpus |
 
 A question none of them answers is **what has this organisation started and not
-finished**, because the evidence for it is spread across three of them. Measured
-on 2026-09-06, from the committed documents and nothing else: three stalled
-threads, one of them idle 23,204 hours; one repository over its pull-request
-slot; twenty-seven records awaiting a human's ratification; forty-seven
-documents nobody has reviewed; and seventeen gates each declaring, in its own
-`cannot_see` field, something it knows it cannot check. Ninety-five items, every
-one already written down, and no reader who has seen them together.
+finished**, because the evidence for it is spread across three of them: stalled
+threads, a repository over its pull-request slot, records awaiting a human's
+ratification, documents nobody has reviewed, and gates each declaring, in its
+own `cannot_see` field, something it knows it cannot check. Every item is
+already written down, and no reader sees them together.
 
 `governance-finds-the-reader` is the principle at stake and it is about exactly this shape: *a
 constitution nobody encounters doesn't bind — it just exists.* A loose end
@@ -41,8 +39,8 @@ on every run, so anything a person writes into one lasts until the next
 
 ## Decision
 
-**A fifth generated document, `loose-ends.json`, joins the existing three. It
-measures nothing of its own, and it carries a claim layer it never writes.**
+**A further generated document, `loose-ends.json`, joins them. It measures
+nothing of its own, and it carries a claim layer it never writes.**
 
 1. **The document is a join.** Every fact in it is already a fact in a document
    this corpus generates. `ci/loose_ends.py` reads three committed files,
@@ -90,7 +88,7 @@ measures nothing of its own, and it carries a claim layer it never writes.**
 **A sixth field on each existing document.** Every generator marks its own
 unfinished items and each dashboard grows a section. Rejected because the
 question is precisely the one that spans documents: the total is the finding,
-and four partial totals is the state that exists today. It would also put the
+and four partial totals are not one. It would also put the
 claim layer in four places, and a person's decision would then be recorded
 wherever the fact happened to be measured.
 
@@ -109,17 +107,15 @@ gate, by a fork running seed scripts in place, and by anybody typing
 the command is one somebody is encouraged to run.
 
 **Do nothing, and read the three documents together when it matters.** This is
-the honest status quo and it is what `governance-finds-the-reader` refuses: the facts are available to a
+the status quo and it is what `governance-finds-the-reader` refuses: the facts are available to a
 reader who already knows to look for them, which is not the reader the principle
-is about. It also has a measurable cost — ninety-five items, and no evidence
-anybody has seen the number.
+is about. It also has a measurable cost: a total that no document holds.
 
 ## Consequences
 
-**A number exists that did not.** Ninety-five is uncomfortable and it is the
-point; a total nobody can see is not a smaller total.
+**The total is visible.** A total nobody can see is not a smaller total.
 
-**The total is not a backlog.** Seventeen of the items are gates declaring what
+**The total is not a backlog.** Some of the items are gates declaring what
 they cannot check — gaps somebody chose and wrote down. The document says so in
 its `reading.do_not` block, because a figure that reads as a burn-down invites
 somebody to burn it down.

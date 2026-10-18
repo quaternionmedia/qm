@@ -1,7 +1,7 @@
 # Plan — the active set, and the pair
 
-**What this is.** One cohesive picture across three questions that turned out to
-be one question: which repositories are being worked on, what every local
+**What this is.** One cohesive picture across three questions that are one
+question: which repositories are being worked on, what every local
 handoff still holds, and what `dossier` and `qmcp` need before they can carry
 units of work across projects.
 

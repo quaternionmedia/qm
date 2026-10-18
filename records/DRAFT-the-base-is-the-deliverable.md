@@ -20,14 +20,14 @@ iteration.**
 
 That sentence is the deliverable. Every mechanism in this repository is either
 serving it or is decoration, and the distinction is worth making out loud
-because the mechanisms arrived one at a time from things that broke, and a fix
+because mechanisms arrive one at a time from things that break, and a fix
 justifies itself locally without ever being asked what it is for.
 
 Read as a set of requirements it has four parts, and they are not equally built:
 
 | | | |
 |---|---|---|
-| **concurrent, overlapping, asynchronous** | more than one session, in more than one clone, at once | `handbook/async-contract.md`, the slot rule, `project/<name>` bases |
+| **concurrent, overlapping, asynchronous** | more than one session, in more than one clone, at once | `handbook/async-contract.md`, the stack rule, `project/<name>` bases |
 | **conflicting** | two contributors may disagree, and the corpus must hold both until something settles it | `Pends on`, `perspectives/` as opinion, precedence |
 | **approved and validated** | two human gates: ratification and the version tag | `records/DRAFT-version-tags-are-claims.md` |
 | **data-driven iteration** | the corpus measures itself and changes because of what it measured | `status/ledger.yaml`, the registries, the generated documents |
@@ -39,10 +39,10 @@ entry point, claims separated from evidence, detectors that read artifacts,
 attribution on every action, declared gaps, and predictions recorded before
 acting.
 
-Before it was named, the work was an open-ended sequence of justified fixes with
-no definition of done. That is the failure mode this record exists to close: not
-a wrong decision, an *unnamed deliverable*, which cannot be finished because
-nobody can say what finishing would look like.
+Unnamed, the work is an open-ended sequence of justified fixes with no
+definition of done. That is the failure mode this record closes: not a wrong
+decision, an *unnamed deliverable*, which cannot be finished because nobody can
+say what finishing would look like.
 
 ## 3. The acceptance criterion
 
@@ -88,13 +88,13 @@ entry rather than only the ones recording a fault.
 
 **A long streak does not mean the corpus is correct.** It means passes stopped
 finding things, and a pass only finds what its checks look for. Most of what
-this corpus asks for is judgement and has no detector at all — nine policies are
-registered and two of them state that they can never have one. A stable base is
+this corpus asks for is judgement and has no detector at all — some registered
+policies state that they can never have one. A stable base is
 a floor that stopped moving, not a ceiling that was reached.
 
 **Stability is not ratification.** Neither is it a tag. The two human gates are
 unaffected by any streak: a corpus can be perfectly stable and entirely
-unratified, which is what it is today.
+unratified.
 
 **The criterion can be gamed by narrowing the pass**, and nothing detects that.
 A pass that runs fewer checks finds fewer things. The defence is that a pass
@@ -121,8 +121,7 @@ readership, and the row above says so.
 
 ## 7. Alternatives considered
 
-**Leave the criterion as prose in a retrospective.** It was, for one day. A
-sentence in `perspectives/` binds nothing and is not read at the moment the
+**Leave the criterion as prose in a retrospective.** A sentence in `perspectives/` binds nothing and is not read at the moment the
 question arises, which is the failure `records/DRAFT-the-read-document-governs.md`
 was written about.
 

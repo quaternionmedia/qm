@@ -5,29 +5,17 @@
     uv run qm posture --baseline
     uv run qm posture --against .qm-posture.json
 
-**TWO NUMBERS THAT MUST BE READ TOGETHER, AND THAT IS THE WHOLE POINT.** A test
-suite has a cost (wall clock, and the share of it spent building fixtures) and a
-yield (whether it notices when the code is wrong). Optimising either alone makes
-the other worse in a way nobody sees:
+A suite has a cost (wall clock, and the share of it spent building fixtures)
+and a yield (whether it notices when the code is wrong). This reports the two
+side by side and never prints one without the other. The yield is measured by
+breaking things: `qm mutate` breaks each watched module on purpose and reports
+which mutants the tests noticed, per charter
+`a-check-is-evidence-after-it-fails`.
 
-- Tune only the cost and you get a fast suite that catches less. Deleting tests
-  is the fastest possible optimisation and the worst one.
-- Tune only the yield and the suite grows until people stop running it, which
-  makes it catch nothing at all.
-
-So this reports them side by side and refuses to print one without the other.
-
-**THE YIELD IS MEASURED BY BREAKING THINGS, NOT BY COUNTING TESTS.** Charter `a-check-is-evidence-after-it-fails`:
-a check is evidence only after it has been seen to fail. A count of tests, a
-line-coverage percentage and a green tick are all compatible with a suite that
-asserts nothing — this corpus has produced all three. `qm mutate` breaks a module
-on purpose and reports which mutants the tests noticed; that number is the yield.
-
-**WHAT THIS IS NOT.** A gate. It prints a comparison and exits zero whatever it
-finds, because the right response to a drop is a conversation and not a blocked
-pull request — `records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`
-rejects a mutation-score threshold and says why. A number that fails a build gets
-gamed; a number a person reads gets discussed.
+This is not a gate. It prints a comparison and exits zero whatever it finds;
+`records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md` rejects a
+mutation-score threshold. `docs/ref/ci/measuring-the-suite.md` explains the two
+numbers and how to read them.
 """
 
 from __future__ import annotations
@@ -43,24 +31,22 @@ from pathlib import Path
 
 CORPUS = Path(__file__).resolve().parent.parent
 
-# Where a baseline lives by default. Outside the repository would be lost
-# between machines; inside it is a committed record of what the suite cost on
-# the day somebody looked.
+# Where a baseline lives by default: inside the repository, so it travels
+# between machines as a committed reading.
 DEFAULT_BASELINE = CORPUS / ".qm-posture.json"
 
 SUITES = ("project-seed/ci/tests", "ci/tests")
 
 # Modules whose yield is worth measuring, with the tests that should notice.
-# **A LIST, NOT A SWEEP.** Mutating everything takes long enough that nobody
-# runs it, and this is meant to be run often. These are the modules where a
-# silent regression would be expensive.
+# A list, not a sweep: mutating everything takes too long to run often. These
+# are the modules where a silent regression would be expensive.
 WATCHED: tuple[tuple[str, str], ...] = (
     ("project-seed/ci/adr_lint.py", "project-seed/ci/tests/test_adr_lint.py"),
     ("project-seed/ci/check_pr_base.py", "project-seed/ci/tests/test_check_pr_base.py"),
     ("ci/check_restatements.py", "ci/tests/test_check_restatements.py"),
     ("ci/check_mathematics.py", "ci/tests/test_check_mathematics.py"),
-    # Added after the first reading: it runs in every fork, so a defect here is
-    # a defect in twelve repositories at once.
+    # It runs in every fork, so a defect here is a defect in every project at
+    # once.
     ("project-seed/ci/check_placeholders.py",
      "project-seed/ci/tests/test_check_placeholders.py"),
 )
@@ -78,9 +64,8 @@ class Suite:
     wall: float = 0.0
     tests: int = 0
     setup: float = 0.0
-    """Seconds spent in fixtures. **The most actionable single number here**:
-    setup is work repeated per test, and repeated work is the cheapest thing to
-    remove without removing an assertion."""
+    """Seconds spent in fixtures: work repeated per test, and the cheapest
+    thing to remove without removing an assertion."""
 
     slowest: list[tuple[str, float]] = field(default_factory=list)
 
@@ -117,19 +102,16 @@ def measure_suite(paths: tuple[str, ...] = SUITES) -> Suite:
 
     found = Suite(wall=wall)
     if done.returncode != 0:
-        # **A READING FROM A FAILED RUN IS NOT A READING.** This reported
-        # numbers without ever checking the exit status, which would have made
-        # a broken suite look like a fast one.
+        # A reading from a failed run is not a reading: a broken suite would
+        # look like a fast one.
         tail = "\n".join(done.stdout.strip().splitlines()[-15:])
         raise SystemExit(
             f"posture: the suite did not pass, so there is nothing to measure "
             f"(pytest exit {done.returncode}).\n{tail}")
 
-    # **THE LAST MATCH, NOT THE FIRST.** Some tests here run pytest inside a
-    # subprocess -- `ci/tests/test_mutate.py` does, by design -- and their
-    # summaries are captured into this output. Taking the first `N passed`
-    # read a nested run's total: 277 where the suite had 1058, and nothing said
-    # so. The real summary is the last one printed.
+    # The last match, not the first: some tests run pytest inside a subprocess
+    # (`ci/tests/test_mutate.py` does) and their summaries are captured into
+    # this output. The suite's own summary is the last one printed.
     counted = re.findall(r"(\d+) passed", done.stdout)
     found.tests = int(counted[-1]) if counted else 0
 
@@ -150,11 +132,9 @@ def measure_suite(paths: tuple[str, ...] = SUITES) -> Suite:
 def measure_yield(module: str, tests: str) -> Yield:
     """Break one module through the declared route and read the result.
 
-    **THROUGH `qm mutate`, NOT BY HAND.** Copying a file, editing it with a
-    regular expression and copying it back is what this was doing before, and
-    it has three failure modes the command does not: an edit that silently
-    matches nothing, a restore that does not happen when something raises, and
-    a mutation nobody else can reproduce because it lived in one shell.
+    Through `qm mutate`, not by editing a copy, so a mutation that matches
+    nothing is reported, the module is restored when something raises, and the
+    run can be reproduced.
     """
     found = Yield(module=module)
     done = subprocess.run(
@@ -165,16 +145,10 @@ def measure_yield(module: str, tests: str) -> Yield:
     )
     text = done.stdout + done.stderr
 
-    # **THE DECLARED SUMMARY LINE, CROSS-CHECKED AGAINST THE MARKERS.**
-    # The first version pattern-matched loosely for a number near the word
-    # "killed" and read `28/44 killed` as `44 killed` -- reporting 100% where
-    # the truth was 64%, for every module, in the tool built to measure exactly
-    # this. It was believed and repeated before anything checked it.
-    #
-    # So two independent reads, and a disagreement is reported as unreadable
-    # rather than resolved. `qm mutate` prints one `N/M killed` line, and one
-    # bracketed marker per mutant; if those do not agree, this cannot say what
-    # the score is.
+    # The declared summary line, cross-checked against the markers: two
+    # independent reads, and a disagreement is reported as unreadable rather
+    # than resolved. `qm mutate` prints one `N/M killed` line and one bracketed
+    # marker per mutant.
     summary = re.search(r"(\d+)\s*/\s*(\d+)\s+killed", text)
     marked_killed = len(re.findall(r"\[killed", text))
     marked_survived = len(re.findall(r"\[SURVIVED", text))
@@ -187,10 +161,9 @@ def measure_yield(module: str, tests: str) -> Yield:
     found.mutants = int(summary.group(2))
     found.survived = found.mutants - found.caught
 
-    # **THE MARKERS ONLY CONTRADICT WHEN THEY ACCOUNT FOR EVERY MUTANT.**
-    # Output can be truncated — by a pipe, by a capture limit, by a caller
-    # keeping the tail — and a partial marker list is not a disagreement, it is
-    # less evidence. Treating it as one made a correct reading unreadable.
+    # The markers contradict only when they account for every mutant. Output
+    # can be truncated (by a pipe, a capture limit, a caller keeping the tail),
+    # and a partial marker list is less evidence, not a disagreement.
     counted = marked_killed + marked_survived
     complete = counted == found.mutants
     if complete and marked_killed != found.caught:

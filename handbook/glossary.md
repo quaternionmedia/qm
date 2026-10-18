@@ -1,8 +1,8 @@
 # Handbook — Glossary
 
 **Routing.** Words this corpus uses in a narrower sense than ordinary English,
-and words it uses in **more than one** sense. Read the second table first: those
-are the ones that have actually cost time here.
+and words it uses in **more than one** sense. Read the first table first: those
+are the ones that cost time.
 
 **This page is written, not generated.** A definition is a decision about
 language and nothing can derive it from the tree. It is an entry point, so
@@ -12,12 +12,12 @@ language and nothing can derive it from the tree. It is an entry point, so
 
 ## Words with more than one meaning in this corpus
 
-Each of these has bitten. The disambiguator is the column on the right.
+The disambiguator is the column on the right.
 
 | Word | Sense | Told apart by |
 |---|---|---|
 | **draft** | a record before ratification (`DRAFT-*.md`) | it is a filename prefix |
-| | a pull request that is **unfinished** | GitHub's draft flag. Never a holding pen for finished work |
+| | a pull request that is **unfinished, or stacked** on another open one | GitHub's draft flag. Never a holding pen for finished work against the real target |
 | | anything untagged — `main`, a branch, a local build | `records/DRAFT-version-tags-are-claims.md` §4. Asserts nothing |
 | **review** | the gates running on a pull request | mechanical, and the PR is an audit record |
 | | a human reading a change set before a `v*` tag | the **only** human review of shipped work |
@@ -32,8 +32,8 @@ Each of these has bitten. The disambiguator is the column on the right.
 | | a perspective's `Unreviewed` … `Declined` | the index in `perspectives/README.md`, which is the authority |
 | | a generated document's freshness | `generated_at` plus a staleness budget |
 | **seed** | `project-seed/` — what a fork adopts | some files are **copied**, some are **run in place** |
-| **loose end** | something the org started and has not finished, joined from the documents that each hold part of it | `loose-ends.json`. **Deliberately not called a "review item"**: `review` above already carries three senses and a fourth would make the ambiguity worse, not the list clearer |
 | | not a synonym for "template": a copied file forks, a run-in-place file does not | `handbook/propagation-runbook.md` |
+| **loose end** | something the org started and has not finished, joined from the documents that each hold part of it | `loose-ends.json`. **Deliberately not called a "review item"**: `review` above already carries three senses and a fourth would make the ambiguity worse, not the list clearer |
 
 ## Words with a narrow meaning here
 
@@ -44,11 +44,11 @@ Each of these has bitten. The disambiguator is the column on the right.
 | **claim** | something a human asserted. Never derived from artifacts. `ci/workspace.yaml` is claims |
 | **evidence** | something a generator measured, with a timestamp. `status/governance.yaml` is evidence |
 | **unknown** | a fact that could not be established, spelled `{"unknown": "<reason>"}`. **Not** zero, not empty, not compliant |
-| **advisory** | a gate that reports and cannot block a merge. Every gate here is advisory today |
+| **advisory** | a gate that reports and cannot block a merge. `handbook/gates.md` says which gates are |
 | **mechanical** | a rule a script can fail you on. Its opposite is **customary** — written down and unenforced |
 | **declared gap** | a rule named and deliberately not yet enforced, counted in `ci/pattern-registry.yaml` with `check_exists: false` |
-| **debt** | something the corpus has decided not to fix and does count. The nine unsigned commits are debt |
-| **slot** | one open pull request, per repository, per contributor. A sequencing constraint, not a bandwidth one |
+| **debt** | something the corpus has decided not to fix and does count. Unsigned commits already in history are debt |
+| **stack** | pull requests in series, each based on the branch of the one beneath it. Only the bottom is ready; the rest are drafts until it merges |
 | **propagate** | carry an org change from `main` into a `project/<name>` branch. One direction only |
 | **restatement** | an entry point summarizing a decision a record owns. Costs a declared `Restated in` row |
 | **citation** | naming a record's path without summarizing it. Free, and encouraged |
@@ -80,5 +80,4 @@ validation passed.
 
 **A check being green is not a rule being enforced.** Green means the check
 ran and did not object. Whether it *could* have blocked the merge is the
-enforcement layer, and `handbook/gates.md` reports that separately because
-today the answer is no.
+enforcement layer, and `handbook/gates.md` reports that separately.

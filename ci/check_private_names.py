@@ -6,7 +6,7 @@
     uv run qm private-names --source host    # ask the forge, as CI does
     uv run qm private-names --strict         # fail when it cannot verify
 
-THREE STATES, AND ONLY ONE OF THEM IS A PASS.
+Three states, and only one of them is a pass:
 
     clean       a source of private names was read, and none of them appear
     found       a name is used as a repository in a tracked file -- exit 1
@@ -14,30 +14,32 @@ THREE STATES, AND ONLY ONE OF THEM IS A PASS.
 
 `unverified` exits 0 by default so a fresh clone is not blocked by the absence
 of a file it is never supposed to have, and prints that word first so nobody
-reads it as a pass. `--strict` turns it into a failure, and CI runs it that way.
+reads it as a pass. `--strict` turns it into a failure.
 
-TWO TIERS, BECAUSE SOME PRIVATE REPOSITORIES ARE NAMED AFTER ORDINARY WORDS.
-A `found` is a name used *as a repository*. A `possible` is prose containing a
+No workflow runs this check. It reads a machine (a gitignored companion or
+the forge), and `registries.yml` admits only checks that read committed files,
+because a check that reads a machine reds a pull request for a reason its
+author cannot fix. So this is a command somebody runs, and a name reaching a
+tracked file is caught by a person choosing to look.
+
+Two tiers, because some private repositories are named after ordinary words. A
+`found` is a name used *as a repository*. A `possible` is prose containing a
 word that a private repository happens to be called, reported and never gated
-on. Without that split this check produced 187 findings and no disclosures.
+on.
 
-WHY IT EXISTS. Two private repository names sat in the committed
-`ci/workspace.yaml` from 2b50bd6 while `status/inventory.yaml` redacted the same
-two repositories as `private-32` and `private-33`. Both files were committed,
-each looked right alone, and nothing read them together. This reads them
-together.
+It reads together files that each look right alone, such as the roster and the
+inventory, which name the same repositories in different forms.
 
-WHAT IT CANNOT DO. It cannot find a name in history -- only in the tree as it
-stands. The two names above remain in the public history of a public repository
-and no forward fix removes them; that is recorded as a declared exemption rather
-than quietly carried.
+What this cannot do: find a name in history, only in the tree as it stands. A
+name already in the public history stays there, and is recorded as a declared
+exemption rather than quietly carried.
 
-WHERE THE NAMES COME FROM. `--source local` reads the gitignored companions, so
-it works on the operator's machine and nowhere else. `--source host` asks the
-forge, which is the only source a runner has — a check that reported
-`unverified` on every pull request would be a gate that never fires, and a gate
-that never fires is worse than none, because a reader believes something is
-enforced.
+`--source local` reads the gitignored companions, so it works on the
+operator's machine only; `--source host` asks the forge. Neither makes it a
+gate: that would mean either a gate that reds a pull request for a reason its
+author cannot fix, or a runner holding a credential to enumerate an
+organisation's private repositories. `docs/ref/ci/gates-and-checks.md`
+describes the check.
 """
 
 from __future__ import annotations
@@ -79,10 +81,9 @@ def private_names(sources=None) -> set[str]:
 
     The two companions store the same fact in different shapes:
     `inventory-private.json` as a `references` mapping of ref -> name, and
-    `ci/workspace-private.yaml` as a `repositories` list of entries. Reading
-    only the second made this check aware of two names out of thirty-four, and
-    a `clean` result meant almost nothing -- it was the roster's two names and
-    no others. Both shapes are read here.
+    `ci/workspace-private.yaml` as a `repositories` list of entries. The
+    second holds only the roster's private repositories, so both shapes are
+    read.
     """
     sources = SOURCES if sources is None else sources
     names: set[str] = set()
@@ -101,9 +102,7 @@ def private_names(sources=None) -> set[str]:
 
     # A private repository named after the organisation cannot be concealed by
     # this check, because every `<org>/<repo>` reference in the tree contains
-    # the string and the organisation is public by construction. Matching it
-    # produced 187 findings, none of them a disclosure, which is the state in
-    # which a check stops being read. Registered as
+    # the string and the organisation is public by construction. Registered as
     # `private-name-equal-to-the-org` in ci/exception-registry.yaml.
     return {n for n in names if n.lower() != ORG.lower()}
 
@@ -111,10 +110,8 @@ def private_names(sources=None) -> set[str]:
 def host_names(org: str = ORG) -> set[str] | None:
     """Private repository names, asked of the host. None if it could not be asked.
 
-    The local companions are gitignored, so a runner has neither and this check
-    would report `unverified` on every pull request -- a gate that never fires
-    is worse than no gate, because a reader believes something is enforced. The
-    host knows, and a workflow token can ask it.
+    The local companions are gitignored, so a runner has neither and would
+    report `unverified`. The host knows, and a workflow token can ask it.
 
     `None` rather than an empty set on failure. An empty set would mean "no
     private repositories exist", which reads as clean and is the most
@@ -148,12 +145,11 @@ def tracked_files(root: Path) -> list[str]:
 def ambiguous(name: str) -> bool:
     """Could this name plausibly be an ordinary word in prose?
 
-    Tiering on context alone was wrong in the other direction: a handbook
-    sentence listing repositories by name has no slash, no quotes and no field,
-    so a genuine disclosure was demoted to `possible` while the noise stayed.
-    What actually differs is the *name*. A hyphenated or long name is a
-    repository wherever it appears; a short all-letter name is a word that a
-    repository also happens to be called.
+    Tiering on context alone would demote a sentence listing repositories by
+    name (no slash, no quotes, no field) to `possible`. What differs is the
+    *name*: a hyphenated or long name is a repository wherever it appears; a
+    short all-letter name is a word that a repository also happens to be
+    called.
 
     A heuristic, and stated as one: it will call a short distinctive name
     ambiguous, and those are reported as `possible` rather than dropped.
@@ -164,18 +160,12 @@ def ambiguous(name: str) -> bool:
 def repository_context(name: str) -> re.Pattern[str]:
     """The name used *as a repository*, rather than as a word.
 
-    Knowing all thirty-four private names rather than two turned this check
-    from under-reporting into unusable: one private repository is named the
-    same as the public organisation, so it matched every `<org>/qm` URL in the
-    tree -- 187 hits, none of them a disclosure, because an organisation's name
-    is public by construction. Others are three, five and nine letters long and
-    are ordinary English words, matching prose that has nothing to do with them.
-
-    A repository name is disclosed when it is used as one: after a slash, as a
-    quoted token, or as the value of a field that names a repository. Prose
-    that happens to contain the word is reported separately as `possible`, and
-    never as a finding, because a check that cries wolf 187 times is a check
-    nobody runs.
+    One private repository can share the public organisation's name, so it
+    would match every `<org>/qm` URL; others are short ordinary words. A
+    repository name is disclosed when it is used as one: after a slash, as a
+    quoted token, or as the value of a field that names a repository. Prose that
+    happens to contain the word is reported separately as `possible`, and never
+    as a finding.
     """
     n = re.escape(name)
     return re.compile(
@@ -189,11 +179,9 @@ def repository_context(name: str) -> re.Pattern[str]:
 def pattern(name: str) -> re.Pattern[str]:
     """A private name, not a longer name that happens to contain it.
 
-    A plain substring search reported `status/inventory.yaml` as carrying a
-    private name. It carries a *public* repository whose name is three
-    characters longer and contains the private one -- so the file's whole
-    guarantee appeared broken, by the check rather than by the file. Repository
-    names are bounded by characters that cannot appear in one.
+    A plain substring search would report a public repository whose name
+    contains a private one. Repository names are bounded by characters that
+    cannot appear in one.
     """
     return re.compile(rf"(?<![A-Za-z0-9_-]){re.escape(name)}(?![A-Za-z0-9_-])")
 
@@ -280,10 +268,9 @@ def occurrences(root: Path, names: set[str]) -> list[dict]:
 def printable(text: str) -> str:
     """Text this console can actually emit.
 
-    A handbook line carrying a checkmark crashed the report on a cp1252
-    console, so a tool whose purpose is to surface a leak fell over on the
-    leak it was surfacing. The console's encoding is a property of the
-    machine, not of the finding.
+    A line carrying a character the console cannot encode must not crash the
+    report. The console's encoding is a property of the machine, not of the
+    finding.
     """
     encoding = sys.stdout.encoding or "utf-8"
     return text.encode(encoding, errors="replace").decode(encoding, errors="replace")

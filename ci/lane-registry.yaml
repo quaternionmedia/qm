@@ -1,19 +1,16 @@
 # The lanes this work is separated into, so that one interaction is about one thing.
 #
-# WHY. Everything here has been one undifferentiated stream: a session that set
-# out to build a policy registry also redacted a roster, fixed a workflow runner
-# and rewrote a retrospective. Each step followed from the last and none of them
-# belonged to the same conversation. A lane is not a folder and not a label --
-# it is the unit an interaction can be scoped to, so that a question about how
-# reviews happen is not answered with a change to a project's submodule pin.
+# A lane is not a folder and not a label: it is the unit an interaction can be
+# scoped to, so that a question about how reviews happen is not answered with a
+# change to a project's submodule pin.
 #
 # A lane owns paths, states what it does NOT own, and names the gate that
 # settles its work. Two lanes never share a gate: that is what makes them
 # separable.
 #
 # NOT A WORKFLOW. Nothing here sequences the lanes or blocks one on another.
-# Work in any lane can start whenever, and the slot rule is unchanged -- one
-# open pull request per repository per contributor, whatever lane it is in.
+# Work in any lane can start whenever, and the stack rule is unchanged -- one
+# change per pull request, stacked as drafts when dependent, whatever lane.
 
 schema: 1
 

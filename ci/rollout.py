@@ -7,8 +7,8 @@
     rollout.py --check                  # refuse a claim the evidence contradicts, or a plan that names nothing
     rollout.py --write status/rollout.yaml --source host
 
-**THE PLAN IS A CLAIM AND THE REPORT IS A MEASUREMENT, AND THIS TOOL NEVER
-LETS ONE STAND IN FOR THE OTHER.** `ci/rollout.yaml` is written by a person: an
+The plan is a claim and the report is a measurement, and this tool never
+lets one stand in for the other. `ci/rollout.yaml` is written by a person: an
 ordered list of phases, each naming families (read from `families.json`, which
 reads them from the record) or repositories outright; the steps every member
 must pass; and dated claims that a member passed one. This tool measures each
@@ -31,7 +31,7 @@ is not done is `current`; the rest are `queued`. A claim on a member of a
 queued phase is reported as ahead of its phase and is not refused -- the order is
 the plan's intention, and reality is allowed to disagree with it out loud.
 
-WHAT THIS CANNOT DO. Tell whether a step *should* be in the plan, or whether the
+What this cannot do: tell whether a step *should* be in the plan, or whether the
 detector measures the thing the step means. A detector is a regular expression or
 a ref, and a step whose meaning it does not capture reports green on the wrong
 fact. Read the step's `means` and its `evidence` together before trusting a row.

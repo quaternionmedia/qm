@@ -5,24 +5,14 @@
     uv run qm addresses --parse <address>    # what an address denotes
     uv run qm addresses --check              # every conformance vector round-trips
 
-WHY THIS EXISTS. dossier and qmcp hold overlapping facts about the same
-repositories -- branches, pull requests, deltas, tool invocations -- and each
-names them its own way. dossier builds names by string interpolation in
-`parsers/autolinker.py` and reads them back by substring in `cli.py`
-(`elif "/branch/" in name`). qmcp names nothing at all: a step is a bare `name`
-and an invocation is a bare UUID. Two views of one dataset need one way of
-pointing at a row, and this is it.
+dossier and qmcp hold overlapping facts about the same repositories (branches,
+pull requests, deltas, tool invocations), and two views of one dataset need
+one way of pointing at a row. An address must be reversible: a slug such as
+`branch.name.replace("/", "-")` addresses `evolve/protect-main` and a branch
+named `evolve-protect-main` identically, and every org namespace (`evolve/`,
+`project/`, `perspective/`, `propagate/`) puts a slash in branch names.
 
-THE DEFECT THAT FORCED IT. dossier slugs a branch with
-`branch.name.replace("/", "-")`, so `evolve/protect-main` is addressed as
-`.../branch/evolve-protect-main`. That is not reversible -- a branch legitimately
-named `evolve-protect-main` produces the identical address -- and **30 of the 32
-branches in this corpus contain a slash**, because every org namespace is
-`evolve/`, `project/`, `perspective/` or `propagate/`. Listing active branches
-as deltas means linking a row back to a ref, and today that link is broken for
-almost every branch in the organisation.
-
-THE GRAMMAR, and the one rule that makes it reversible:
+The grammar, and the one rule that makes it reversible:
 
     <owner>/<repo>/<kind>/<id>
 
@@ -35,7 +25,7 @@ collision, nothing lost. A bare `<owner>/<repo>` denotes the repository.
 string is not a repo-scoped address, which is what stops `owner/repo/some/path`
 being read as one.
 
-WHAT THIS CANNOT DO. Tell you whether the thing addressed exists.
+What this cannot do: tell you whether the thing addressed exists.
 `quaternionmedia/qm/pr/99999` is a well-formed address for a pull request nobody
 opened. Resolution is each system's own job, and folding it in here would make
 rendering a dashboard depend on a network call.

@@ -6,30 +6,28 @@
     uv run qm merge --repo owner/name --pr 12        # re-verify one, and stop
     uv run qm merge --repo owner/name --pr 12 --yes  # the act
 
-**THE RULE IS ONE SENTENCE AND THE PRACTICE WAS SEVEN HAND-RUN CHECKS.**
 `AGENTS.md` item 3: the author merges once every gate is green.
 `handbook/propagation-runbook.md`: with a merge commit, never squash, never
 rebase, because a rewritten branch breaks every submodule pin pointing at it.
-The session that closed the estate's backlog merged one pull request at a time
-and, before each one, read the live state again by hand -- state, mergeability,
-the host's own verdict, every check -- because a pull request that was green an
-hour ago is a pull request that was green an hour ago. Seven times, the same
-four reads and the same one write, and nothing held the four to the one.
+Before each merge the live state is read again (state, mergeability, the
+host's own verdict, every check), because a pull request that was green an
+hour ago is a pull request that was green an hour ago.
 
-This holds them. The reading half is the default and mutates nothing; the act
-is one flag away and refuses unless the reading, taken at that moment, says
-READY.
+This holds those reads to the merge. The reading half is the default and
+mutates nothing; the act is one flag away and refuses unless the reading,
+taken at that moment, says READY.
 
-READY IS ONE DEFINITION, IN `blockers`, and both halves use it. A listing that
+Ready is one definition, in `blockers`, and both halves use it. A listing that
 said READY where the act would refuse -- or the reverse -- is two definitions
 of the same rule, and two definitions drift the first time one is fixed.
 
-WHAT IT REFUSES TO DO.
+What it refuses to do:
 
   * **It never squashes and never rebases.** Both flags exist so that passing
     one is answered with the reason rather than with argparse's usage line,
-    and neither reaches the host. The merge is `--merge --delete-branch` and
-    nothing else.
+    and neither reaches the host. The merge is `--merge` and nothing else;
+    the branch is deleted after every pull request stacked on it has been
+    retargeted onto the merged one's base (`retire_branch`).
   * **It never merges without `--yes`.** Merging is the author's act; the flag
     is the signature. Without it the act mode re-verifies, says what it found,
     and stops with a non-zero status, so a script that forgot the flag cannot
@@ -43,9 +41,9 @@ WHAT IT REFUSES TO DO.
     difference is what `uv run --extra preflight qm preflight` and a person
     establish.
 
-WHAT IT CANNOT SEE. Whether the pull request should merge -- only whether the
-host says it can. A green pull request carrying eighteen commits of unrelated
-work is READY here and wrong; `uv run qm branch` is the reader of that. And it
+What it cannot see: whether the pull request should merge, only whether the
+host says it can. A green pull request carrying unrelated work is READY here
+and wrong; `uv run qm branch` is the reader of that.
 reads the contributor's own pull requests only: another contributor's queue is
 not this contributor's to merge, and a bot's is not anybody's.
 """
@@ -127,6 +125,7 @@ class PullRequest:
     number: int
     title: str = ""
     head: str = ""
+    base: str = ""
     author: str = ""
     draft: bool = False
     state: str = ""
@@ -145,6 +144,7 @@ class PullRequest:
             number=int(raw.get("number", 0)),
             title=str(raw.get("title", "")),
             head=str(raw.get("headRefName", "")),
+            base=str(raw.get("baseRefName", "")),
             author=str((raw.get("author") or {}).get("login", "")),
             draft=bool(raw.get("isDraft", False)),
             state=str(raw.get("state", "")),
@@ -156,7 +156,7 @@ class PullRequest:
 def blockers(pr: PullRequest) -> list[str]:
     """Why this pull request is not READY. Empty means it is.
 
-    **THE ONE DEFINITION.** The listing prints it and the act refuses on it,
+    The one definition: the listing prints it and the act refuses on it,
     and deliberately the same expression, so the two cannot disagree.
 
     Each condition is its own line rather than one boolean, because a refusal
@@ -168,7 +168,7 @@ def blockers(pr: PullRequest) -> list[str]:
     if pr.state != OPEN:
         why.append(f"state is {pr.state or 'unknown'}, not {OPEN}")
     if pr.draft:
-        why.append("it is a draft, and draft means incomplete")
+        why.append("it is a draft: incomplete, or stacked on another pull request")
     if pr.mergeable != MERGEABLE:
         why.append(f"mergeable is {pr.mergeable or 'unknown'}, not {MERGEABLE}")
     if pr.merge_state != CLEAN:
@@ -204,7 +204,7 @@ def read_checks(pr: PullRequest) -> None:
             pr.pending.append(name)
 
 
-VIEW_FIELDS = "number,title,headRefName,author,isDraft,state,mergeable,mergeStateStatus"
+VIEW_FIELDS = "number,title,headRefName,baseRefName,author,isDraft,state,mergeable,mergeStateStatus"
 
 
 def open_pull_requests(repo: str) -> list[PullRequest] | None:
@@ -272,11 +272,10 @@ def render(pr: PullRequest) -> list[str]:
 def listing(repos: list[tuple[str, str | None]]) -> str:
     """What a person reads before choosing which pull request to merge.
 
-    Beside each repository: whether the contributor holds more than one open
-    pull request there. That is the slot rule (`handbook/async-contract.md`
-    section 1), and it is why the view is per repository rather than one flat
-    queue -- the second open pull request in a repository is the one that
-    should not have been opened yet, whatever its checks say.
+    Grouped per repository. A pull request stacked on another is a draft
+    until the one beneath it merges (`handbook/async-contract.md` section 1),
+    so the draft blocker keeps it out of READY; one marked ready anyway fails
+    the stack gate and is kept out by its failing check.
     """
     out: list[str] = []
     unreadable: list[str] = []
@@ -292,9 +291,9 @@ def listing(repos: list[tuple[str, str | None]]) -> str:
             continue
         if not found:
             continue
-        slots = ("one open pull request" if len(found) == 1
-                 else f"{len(found)} open pull requests -- more than the one slot")
-        out.append(f"  {slug}: {slots}")
+        count = ("one open pull request" if len(found) == 1
+                 else f"{len(found)} open pull requests")
+        out.append(f"  {slug}: {count}")
         for pr in sorted(found, key=lambda p: p.number):
             out.extend(render(pr))
             if not blockers(pr):
@@ -321,22 +320,57 @@ def listing(repos: list[tuple[str, str | None]]) -> str:
 
 
 def merge(pr: PullRequest) -> tuple[bool, str]:
-    """The act: a merge commit, and the branch deleted. Nothing else.
+    """The act: a merge commit, and the branch retired. Nothing else.
 
     (ok, text). The text is the merge commit and time when ok, and the host's
     own words when not -- the host can refuse a merge the reading said was
     READY, because the reading and the act are two moments.
     """
-    done = gh("pr", "merge", str(pr.number), "--repo", pr.repo,
-              "--merge", "--delete-branch")
+    done = gh("pr", "merge", str(pr.number), "--repo", pr.repo, "--merge")
     if done.returncode != 0:
         return False, (done.stderr or done.stdout).strip()
     after = gh_json("pr", "view", str(pr.number), "--repo", pr.repo,
                     "--json", "mergedAt,mergeCommit")
     if not isinstance(after, dict):
-        return True, "merged; the host did not say when or as what commit"
-    commit = (after.get("mergeCommit") or {}).get("oid", "?")
-    return True, f"merged as {commit} at {after.get('mergedAt', '?')}"
+        text = "merged; the host did not say when or as what commit"
+    else:
+        commit = (after.get("mergeCommit") or {}).get("oid", "?")
+        text = f"merged as {commit} at {after.get('mergedAt', '?')}"
+    return True, text + "\n" + retire_branch(pr)
+
+
+def retire_branch(pr: PullRequest) -> str:
+    """Move every pull request stacked on the merged branch down, then delete it.
+
+    **The order is the safeguard.** Deleting a branch through git or the API
+    closes every open pull request based on it, and a closed pull request
+    whose base is gone cannot be reopened until the branch is restored. Only
+    the host's own delete-on-merge setting retargets, and a repository need
+    not have it on. So each stacked pull request is retargeted onto the merged
+    one's base first, and the branch is deleted only if every retarget held.
+    This happened to this corpus's #129 when #128 merged with
+    `--delete-branch`.
+    """
+    stacked = gh_json("api", f"repos/{pr.repo}/pulls?state=open&base={pr.head}",
+                      "--jq", "[.[].number]")
+    if not isinstance(stacked, list):
+        return (f"  Branch {pr.head} left in place: the pull requests stacked "
+                "on it could not be read, and deleting it would close them.")
+    lines = []
+    for number in stacked:
+        moved = gh("api", "-X", "PATCH", f"repos/{pr.repo}/pulls/{number}",
+                   "-f", f"base={pr.base}")
+        if moved.returncode != 0:
+            return (f"  Branch {pr.head} left in place: #{number} could not be "
+                    f"retargeted onto {pr.base} ({(moved.stderr or '').strip()}).")
+        lines.append(
+            f"  #{number} moved down onto {pr.base}. Update its branch from "
+            f"{pr.base} (gh api -X PUT repos/{pr.repo}/pulls/{number}/update-branch) "
+            "so the checks filtered on the target run, then mark it ready.")
+    gone = gh("api", "-X", "DELETE", f"repos/{pr.repo}/git/refs/heads/{pr.head}")
+    lines.append(f"  Branch {pr.head} deleted." if gone.returncode == 0 else
+                 f"  Branch {pr.head} not deleted: {(gone.stderr or '').strip()}")
+    return "\n".join(lines)
 
 
 def act(repo: str, number: int, signed: bool, out) -> int:
