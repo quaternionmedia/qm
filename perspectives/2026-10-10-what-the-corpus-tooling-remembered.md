@@ -81,7 +81,7 @@ sensitive fields out of it. It wrote 34 private repository names and 28
 absolute paths carrying the operator's username into the working tree of a
 public repository, and was one command from being pushed when the reviewer
 stopped it -- having reintroduced a problem `ci/governance_status.py` already
-solved, because the session had not read that file first. The private-names
+solved: the tool was run without that file being read first. The private-names
 check once knew 2 names of 34, so `clean` meant almost nothing; knowing all 34,
 it produced 187 findings and no disclosures, because one private name equals the
 organisation's own and others are ordinary words. Two private names remain in
@@ -133,7 +133,7 @@ time in the same shape; seven pull requests carried it on one day.
 `AGENTS.md` said `uv run qm --help` was the whole surface, and a session then,
 in one day, ran `pytest` directly a dozen times, mutated by hand with `cp` and
 `sed`, typed an `ast.parse` one-liner after every edit, and documented a demo by
-its file path -- each against a rule its author had read. Each became a pattern
+its file path -- each against a rule `AGENTS.md` already stated. Each became a pattern
 in the declared-routes hook, which once failed closed on `[]` until a test
 written for that case found it. Another session used four pytest invocations in
 one afternoon, each able to collect a different set; `qm test` became the one.

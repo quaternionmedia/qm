@@ -18,20 +18,19 @@ one machine, by one tool, in one conversation, and each of those three is
 present and vivid at the moment of writing. Nothing in the writing tools
 distinguishes a fact about the organisation from a fact about the afternoon.
 
-The corpus already covers two edges of this. `records/DRAFT-human-only-contributorship.md`
+The corpus covers two edges of this. `records/DRAFT-human-only-contributorship.md`
 keeps a tool out of the byline; `records/DRAFT-going-private-is-an-act-with-obligations.md`
 keeps a private repository's name out of a public file, and
 `project-seed/ci/check_leaks.py` keeps out a home directory, a
 shared-conversation link and a conversation archive's path. Between those
-edges a wide class went uncovered and was found committed in one cycle: a
-path through a personal folder in the public roster, a handoff explaining
-that a clone could not be moved because an editor held the folder, a process
-seen running on one machine reported as a possible second session, a
-retrospective section on the tool's own mistakes with a shell, and a standing
-constraint written as *"the instruction was …"* — a person's words, reported
-into a page that anyone can read.
+edges lies a wide class: a path through a personal folder in a public roster,
+a handoff explaining that a clone cannot be moved because an editor holds the
+folder, a process seen running on one machine reported as a possible second
+session, a retrospective section on the tool's own mistakes with a shell, and a
+standing constraint written as *"the instruction was …"* — a person's words,
+reported into a page that anyone can read.
 
-Each of those was true. None of it was the organisation's, and once pushed to
+Each of those can be true. None of it is the organisation's, and once pushed to
 a public repository none of it is recoverable from history.
 
 ## Decision
@@ -127,8 +126,8 @@ legitimate pages is one people turn off, and then the mechanical part it did
 catch goes with it.
 
 **Leave it to the private-names rule.** Rejected: that rule covers a
-repository's name and nothing else, by its own docstring, and the cycle that
-produced this record was clean under it.
+repository's name and nothing else, by its own docstring, and the class this
+record names passes it.
 
 **Keep the workstation in the roster, since the roster is where paths are.**
 Rejected: the roster's paths are where a clone goes on any machine — a
@@ -136,7 +135,7 @@ convention — and one machine's exception published as a convention misleads
 every other machine. The local companion costs one gitignored file.
 
 **Say nothing, and rely on care.** Rejected: that is this decision without
-the sentence, and the cycle that produced it was run with care.
+the sentence, and careful work commits the class anyway.
 
 ## Revision triggers
 

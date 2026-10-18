@@ -25,10 +25,8 @@ What follows is worse than the staleness. A reader who spots one wrong number
 must now check every number, because the document has given no way to tell
 which were load-bearing and which were incidental. So a page whose argument is
 entirely sound gets audited line by line, and the author spends the session
-correcting arithmetic rather than advancing the work. This has happened here
-repeatedly, in a single afternoon: a pull request body opened with two counts
-that were both wrong before it was merged, and neither mattered to anything
-the change did.
+correcting arithmetic rather than advancing the work, on counts that matter to
+nothing the change does.
 
 The figures are not the problem. **Undated figures embedded in text that
 outlives them** are the problem, and the fix is not to check them more often.

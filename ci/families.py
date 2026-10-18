@@ -2,27 +2,22 @@
 """Which repositories the org has claimed are one working system, and whether
 every claim names a family the corpus actually declares.
 
-**THE SET OF FAMILIES IS READ FROM THE RECORD, NOT KEPT HERE.** A second list
-in this file would be a scope nobody checks, and this repository has now found
-four of those in its own generators in a single week -- a reading budget that
-omitted the charter, an index comparison whose two sets were both empty, a
-document scan that skipped the reference tier, and a seed-workflow list one
-short of the procedure it measured. Each was green and each described its own
-scaffolding. So the families come from
-`records/DRAFT-a-family-is-bordered-by-what-it-drives.md` §3, and a family
-renamed there is a roster claim that stops resolving here.
+The set of families is read from
+`records/DRAFT-a-family-is-bordered-by-what-it-drives.md` §3, not kept here, so
+a family renamed there is a roster claim that stops resolving here.
 
-A FAMILY IS A CLAIM. `records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md`
-governs: it is stated by a person in `ci/workspace.yaml`, never inferred from a
+A family is a claim (`records/DRAFT-nothing-is-both-a-claim-and-its-own-evidence.md`):
+it is stated by a person in `ci/workspace.yaml`, never inferred from a
 dependency graph, a shared word or a commit date. An absent `family` is
-*unstated*, which is not the same as "belongs to none" -- so a repository with
-no family is reported and never refused.
+*unstated*, which is not "belongs to none", so a repository with no family is
+reported and never refused.
 
-WHAT THIS CANNOT DO. Tell whether a repository really belongs to the family
-somebody put it in. That is the border test in §2 of the record -- what the
-thing drives -- and reading it needs a person who knows what the code does. It
-also cannot see a family member that is not in the roster at all: an estate
-with a missing member and a complete one are the same shape to this tool.
+What this cannot do: tell whether a repository really belongs to the family
+somebody put it in. That is the border test in §2 of the record (what the thing
+drives), and reading it needs a person who knows what the code does. It also
+cannot see a family member that is not in the roster at all: an estate with a
+missing member and a complete one are the same shape to this tool.
+`docs/ref/ci/registries.md` describes families and the seam file.
 
 Usage:
     families.py            # what is claimed, and what is unstated
@@ -53,13 +48,10 @@ FAMILY_ROW = re.compile(r"^\|\s*`(?P<name>[a-z][a-z0-9-]*)`\s*\|(?P<drives>[^|]*
 def declared(record: Path = RECORD) -> dict[str, str]:
     """`{name: what it drives}` for every family §3's table declares.
 
-    **§3'S TABLE, NOT THE WHOLE DOCUMENT.** The row pattern is a proxy — a
-    backticked first cell — and scanned over the full record it matched any
-    table anywhere: an adversarial pass appended an appendix table with a
-    backticked cell and this function declared a seventh family, silently,
-    which the roster check would then have *accepted* claims against. The
-    declaring section is named in this module's own docstring, so the scan is
-    bounded to it, and a family added anywhere else does not exist.
+    Section 3's table only, not the whole document: the row pattern is a proxy
+    (a backticked first cell) that would match any table anywhere in the
+    record, so the scan is bounded to the declaring section, and a family
+    added anywhere else does not exist.
     """
     if not record.is_file():
         return {}
@@ -98,15 +90,10 @@ def problems(entries: list[dict], families: dict[str, str]) -> list[str]:
 def publishable(entry: dict) -> str:
     """What a repository may be called in a committed file.
 
-    **NOT `roster.label`.** That prefers `name`, and `roster.load` merges the
-    uncommitted private companion -- so on a machine that has the companion a
-    private repository arrives carrying its real name, and a writer using
-    `label` serialises it. This one prefers the `ref`, which is the redacted
-    form and the only one a committed artifact may hold.
-
-    `uv run qm private-names` caught exactly this: three private names reached
-    `families.json` on the first write, from a helper that looked correct and
-    was correct for printing to a terminal.
+    Not `roster.label`: that prefers `name`, and `roster.load` merges the
+    uncommitted private companion, so on a machine that has the companion a
+    private repository arrives carrying its real name. This prefers the `ref`,
+    the redacted form, which is the only one a committed artifact may hold.
     """
     return entry.get("ref") or entry.get("name") or "<unnamed>"
 
@@ -114,11 +101,10 @@ def publishable(entry: dict) -> str:
 def document(entries: list[dict], families: dict[str, str]) -> dict:
     """The families as data, for a consumer that is not this CLI.
 
-    A SEAM, NOT AN IMPORT. `dossier` and `codecartographer` both need to reach
-    the families, and neither may import this corpus to do it --
-    `records/DRAFT-seams-on-standard-protocols.md` governs, and a Python import
-    would make one of them depend on a governance tool to draw a picture. So
-    the families are written as a file at a stable path and read as JSON.
+    A seam, not an import: `dossier` and `codecartographer` both read the
+    families, and neither may import this corpus to do it
+    (`records/DRAFT-seams-on-standard-protocols.md`). The families are written
+    as a file at a stable path and read as JSON.
 
     `unstated` is a member of the shape rather than an absence, for the reason
     the roster gives everywhere else: a consumer that had to infer it would
@@ -172,11 +158,9 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     if args.check:
-        # THE SEAM FILE IS CHECKED FOR STALENESS HERE, because this is the one
-        # entry registries.yml already runs and the file two repositories pin
-        # was otherwise regenerated and verified by nothing a runner executes
-        # -- the adversarial review's completeness finding 7. Tree-only by
-        # construction: the roster, the record, and the committed file.
+        # The seam file is checked for staleness here, because this is the
+        # entry registries.yml runs. Tree-only by construction: the roster,
+        # the record, and the committed file.
         committed_path = Path("families.json")
         if committed_path.is_file():
             fresh = document(entries, families)

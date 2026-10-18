@@ -1,14 +1,14 @@
 # The protocol registry: every named procedure this org runs deliberately,
 # what it produces, and when it was last actually run.
 #
-# A PROTOCOL IS NOT A GATE. A gate is automatic and refuses; nobody invokes it
+# A protocol is not a gate. A gate is automatic and refuses; nobody invokes it
 # and its answer is pass or fail. A protocol is invoked by a person or an agent,
 # takes judgement, and produces a dated artifact somebody signs. `ci/gate-registry.yaml`
 # holds the first kind. This holds the second, and the two must not be merged:
 # a protocol listed as a gate reads as always-on, and a gate listed as a
 # protocol reads as optional.
 #
-# WHY THIS FILE EXISTS. This corpus's recurring defect is a mechanism that
+# Why this file exists. This corpus's recurring defect is a mechanism that
 # exists and runs nowhere -- four registry checks wired into no workflow, six
 # rulesets drafted and never applied, a mutation harness with no caller. A
 # procedure written into a handbook page has the same failure mode and no
@@ -27,7 +27,7 @@
 # `cannot_see` IS LOAD-BEARING, as it is in the gate registry and for the same
 # reason. A protocol with an empty one is undescribed rather than thorough.
 #
-# ADDING A PROTOCOL IS AN EDIT TO THIS FILE AND A PAGE UNDER `protocols/`.
+# Adding a protocol is an edit to this file and a page under `protocols/`.
 # `uv run qm protocols --check` refuses an entry with no page, a page nobody
 # registered, and a step naming a `qm` route that does not exist.
 
