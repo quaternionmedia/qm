@@ -30,10 +30,10 @@ are holding will act on the wrong one.
 The cost of five derivations is not the words. It is that the rule is learned
 five times and generalised zero times — so the sixth subject arrives, nothing
 in the corpus says the rule applies to it, and it gets decided again from
-scratch. That has already happened five times. `ci/workspace.yaml`'s header
-carries the clearest statement of the rule anywhere in this repository —
-*NOTHING HERE IS EVIDENCE* — and it is in a comment in a data file, reachable
-only by someone already editing the roster.
+scratch. `ci/workspace.yaml`'s header carries the clearest statement of the
+rule in this repository — that nothing in the roster is evidence — and it is
+in a comment in a data file, reachable only by someone already editing the
+roster.
 
 There is a second cost, and it is the one that bites hardest. When the rule
 lives only inside its instances, a *generator* can quietly violate it and no
@@ -97,18 +97,17 @@ they stop being five conventions and become one rule with five faces.
 | few integers in durable text | a style rule | a number in prose is a claim whose expiry the prose omits |
 | a family is bordered by what it drives | a grouping of repositories | a claim about which repositories are one system, stated in the roster |
 
-The sixth arrived while this record was being drafted: a repository family is a claim about which repositories are one working system, and it was written against this rule rather than deriving it again.
+A repository family is a sixth: a claim about which repositories are one working system, written against this rule rather than deriving it again.
 
 ## Consequences
 
 **A new field carrying a stated fact needs a provenance companion**, and that
 is a real cost paid at design time rather than a free property. The corpus
-already pays it in three places and has not regretted it.
+pays it in three places.
 
 **A generator gains an obligation it did not have.** §3 asks a measuring tool
 to declare its scope and something to check that declaration. That is work,
-and it is the clause with the least mileage here: one instance, added the day
-this record was drafted.
+and it is the clause with the least mileage here: one instance.
 
 **Nothing in the five records changes.** A reader who consults only an
 instance is not misled by it — this record generalises them and contradicts
@@ -120,19 +119,16 @@ departing from a habit nobody wrote down.
 
 ## Alternatives considered
 
-**Merge the five into one record and delete them.** Rejected, and it was the
-first plan. Three of the five are restated in entry points or in a data file's
+**Merge the five into one record and delete them.** Rejected. Three of the five are restated in entry points or in a data file's
 header, so merging rewrites those declarations; one carries a live `Pends on`
 that the merged record would have to inherit and thereby weaken; and the
 worked instances are what make the rule legible. Unification keeps every
-instance readable on its own and adds the general statement once. The corpus
-has done this before and it held.
+instance readable on its own and adds the general statement once.
 
 **Leave the rule implicit and let the instances teach it.** This is the state
-this record ends. It survived four instances and failed on the fifth, and it
-failed silently: a generator measured its own scope and reported green against
-a milestone requirement, contradicting nothing because nothing had been
-written down to contradict.
+this record ends, and it fails silently: a generator can measure its own scope
+and report green against a milestone requirement, contradicting nothing because
+nothing is written down to contradict.
 
 **State it in `PRINCIPLES.md` as a new principle.** Rejected. The charter is
 the corpus's longest single document and the one every reader is told to read

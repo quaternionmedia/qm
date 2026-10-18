@@ -1,32 +1,20 @@
 """Link the first use of a glossary term on each page to its definition.
 
-**A GLOSSARY NOBODY ARRIVES AT IS A PAGE, NOT A GLOSSARY.** `governance-finds-the-reader` says governance
-finds the reader rather than the reverse, and the same argument applies one layer
-down: a reader meeting `knot` in a record does not stop, open the reference
-section, and search. They guess, and a corpus whose words carry precise meanings
-is exactly the kind where guessing is expensive.
+Only the first use per page is linked: that is where a reader decides whether
+they know the word, and linking every occurrence makes a page of underlines.
 
-**FIRST USE PER PAGE, AND NOTHING ELSE.** Linking every occurrence produces a
-page of underlines, which is a different way of being unreadable. The first is
-where a reader is deciding whether they know the word; the fourth is noise.
+The pass is a fixed point: running it twice changes nothing, because an
+already-linked term is done. It therefore rides the ordinary command
+(`show-it-by-running-it`), and drift arrives as an uncommitted diff.
 
-**IT IS A FIXED POINT, AND THAT IS THE PROPERTY WORTH HAVING.** Running this
-twice changes nothing, because an already-linked occurrence is not a bare one.
-That is what makes it safe to ride the ordinary command (`show-it-by-running-it`) rather than being a
-release step somebody remembers: drift arrives as an uncommitted diff nobody can
-miss, and a second run is never a second edit.
+Left alone: code spans and fenced or indented code, headings (a linked heading
+breaks its own anchor), existing link text and URLs, and the glossary pages
+themselves.
 
-WHAT IT WILL NOT TOUCH, AND WHY EACH IS EXCLUDED. Code spans and fenced blocks --
-`delta` inside a command is not the word. Headings -- a linked heading breaks its
-own anchor. Existing link text and URLs -- nesting a link inside a link produces
-markup no renderer agrees about. The glossary pages themselves, which would link
-to their own definitions.
-
-WHAT THIS CANNOT DO. Know whether the word is being used in the glossary's sense.
-`gate` in a record means a CI check; `gate` in a sentence about an airport does
-not, and this cannot tell. The mitigation is that the corpus's terms are
-technical and the first use per page is a low enough dose that a wrong link is
-cheap -- but it is a real limit and the check prints it.
+What this cannot do: know whether the word is used in the glossary's sense.
+`gate` in a record means a CI check, and `gate` in a sentence about an airport
+does not. The check prints this limit. `docs/ref/ci/docs-tooling.md` describes
+the pass.
 """
 
 from __future__ import annotations
@@ -61,13 +49,9 @@ MASKS = (
     re.compile(r"\{[^}\n]*\}"),
     re.compile(r"^\s{0,3}(?:>\s*)?(?:!!!|\?\?\?)\s.*$", re.MULTILINE),
     re.compile(r"<[^>\n]+>"),
-    # **INDENTED CODE, WHICH IS MARKDOWN'S OTHER CODE FORM.** Only fences were
-    # masked at first, and the executable cookbook pages write their doctests
-    # as four-space indented blocks -- so `project-seed/ci/...` inside a `>>>`
-    # line was rewritten into a markdown link and the page stopped running.
-    # `run-ci-locally.md` went red, which is `show-it-by-running-it` doing exactly its job: the
-    # example that ran is the example a reader reads, so breaking one is a
-    # failure rather than a stale page.
+    # Indented code, markdown's other code form: the executable cookbook pages
+    # write their doctests as four-space indented blocks, and a path inside a
+    # `>>>` line must stay a path for the page to run.
     re.compile(r"(?:^(?:\t| {4,}).*$\n?)+", re.MULTILINE),
 )
 
@@ -95,25 +79,16 @@ def link_first(text: str, found: dict[str, str], depth: str) -> str:
     """Link the first bare use of each term. Idempotent by construction."""
     spans = _masked(text)
     for term, anchor in found.items():
-        # **ALREADY LINKED ANYWHERE MEANS DONE, AND THIS IS WHAT MAKES IT
-        # A FIXED POINT.** The first version linked the first *bare* use,
-        # which is not the first use: after a run the first occurrence is a
-        # link and therefore masked, so the second becomes the new first
-        # bare one and the next run links that too. It rewrote seventeen
-        # pages on its second pass and would have gone on linking one more
-        # occurrence per run forever.
-        #
-        # The docstring claimed idempotence before the code had it, and
-        # running it twice is what found that -- `a-check-is-evidence-after-it-fails` applied to a
-        # generator.
+        # Already linked anywhere means done, which is what makes the pass a
+        # fixed point: after a run the first occurrence is a masked link, and
+        # linking the first bare use would link one more occurrence per run.
         if f"glossary.md#{anchor})" in text:
             continue
 
-        # **A WORD BOUNDARY IS NOT ENOUGH.** `\b` treats `-`, `/`, `_` and `.`
-        # as boundaries, so `seed` matched inside `project-seed/ci/...` and
-        # `record` would match inside `record_review.py`. A term joined to
-        # something by one of those is part of a compound or a path, and a
-        # path is never the word.
+        # A word boundary is not enough: `\b` treats `-`, `/`, `_` and `.` as
+        # boundaries, so `seed` would match inside `project-seed/ci/...`. A term
+        # joined to something by one of those is part of a compound or a path,
+        # and a path is never the word.
         #
         # The term's own capitalisation is preserved: replacing `Corpus` with
         # `corpus` would edit prose to suit a lookup.

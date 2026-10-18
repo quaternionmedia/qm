@@ -10,8 +10,8 @@
 
 ## Context
 
-This corpus has said "a human does this" in six places and never said what the
-six have in common.
+This corpus says "a human does this" in six places, and the six have something
+in common.
 
 Ratification is a human gate. The version tag is a human gate. Closing a delta
 is a person's. Applying the `main` ruleset is a command an agent must never run.
@@ -35,10 +35,9 @@ because the artifact looks the same.
 The same is true of the others. A ratification produced by CI is not the
 organisation deciding. A delta a detector closes is not work anybody finished. A
 data export requested by a script is not the account holder taking a copy of
-their own conversations — and this one arrived from outside, as a constraint the
-service imposes, which is the useful accident: **a service that will only
-respond to the account holder has encoded the same rule this corpus arrived at
-independently.**
+their own conversations — and this one is also a constraint the service
+imposes: **a service that will only respond to the account holder encodes the
+same rule.**
 
 The failure this prevents is specific. Not an agent doing something unsafe — an
 agent doing something *successfully*, producing the right artifact, and the
@@ -79,9 +78,8 @@ change what the act asserts. Such acts are named, and nothing automates one.**
 6. **An act nobody has performed is outstanding, and is never inferred from
    surrounding evidence.** Every gate green does not ratify a record. A clean
    `main` does not cut a tag. Work being finished does not close a delta. The
-   absence is a real state and the views say so — which is why nothing in this
-   corpus is ratified today and the documents report exactly that rather than
-   rounding it up.
+   absence is a real state and the views say so: an unratified record is
+   reported as unratified, not rounded up.
 
 ## Consequences
 

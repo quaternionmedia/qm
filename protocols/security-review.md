@@ -22,8 +22,8 @@ uv run qm private-names --context
 
 Runs on a machine holding the gitignored companion files; it cannot run on a
 runner and does not gate anything. Read the **denominator** in its output, not
-only the finding count — this check once knew 2 private names of 34 and every
-`clean` it reported meant "the roster's two names are absent."
+only the finding count: a check that knows only some of the private names
+reports `clean` when those few are absent.
 
 Record in the run: how many names it checked against, how many findings, and
 how many were disclosures rather than ordinary words.
@@ -34,10 +34,10 @@ how many were disclosures rather than ordinary words.
 uv run qm rulesets
 ```
 
-Drafted against applied. **Do not read the drafted column as protection.** Six
-rulesets sat drafted from 2026-08-10 with an apply script beside them while the
-host reported zero, and every check in the repository was a signal rather than a
-barrier for that whole period.
+Drafted against applied. **Do not read the drafted column as protection.** A
+ruleset drafted with an apply script beside it protects nothing until the host
+reports it applied, and every check in the repository is a signal rather than a
+barrier until then.
 
 Record: rulesets applied, enforcement level of each, and the required-status-check
 list actually on the host — which this route does not read, so it needs
@@ -69,8 +69,8 @@ every commit the host has never seen, which is every commit on an unpushed
 branch.
 
 The activity log is where a force push shows up. **Paginate it.** An unpaginated
-`gh api` returned 100 of 109 repositories once in this org and declared three
-existing projects nonexistent.
+`gh api` returns the first page only, and declares the repositories beyond it
+nonexistent.
 
 Record: every `force_push` event with its ref, and for each, whether the ref was
 `main`, a `project/**` branch, or a tag — those three are the ones that break a
@@ -80,7 +80,7 @@ unmerged working branch is ordinary.
 ## 5. Licensing and dependencies
 
 ```sh
-python -m reuse lint
+uvx 'reuse[charset-normalizer]' lint
 ```
 
 Every file carries copyright and licence information, no deprecated SPDX

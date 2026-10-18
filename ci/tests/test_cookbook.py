@@ -27,11 +27,8 @@ def state(name, adopted=False, on_disk=True, dirty=0, branch="main", last="2026-
 
 
 def test_a_family_with_no_governed_member_gets_no_entry_point():
-    """**THE FLATTERING PAGE THIS EXISTS AGAINST.**
-
-    Three of four families have no adopted member. A page that offered a
-    governed entry point anyway would send a newcomer to run a command that
-    does not exist there.
+    """A family with no adopted member gets no governed entry point: one would
+    send a newcomer to run a command that does not exist there.
 
     Mutation: make `page` emit the governed branch unconditionally and this
     fails.
@@ -58,14 +55,11 @@ def test_the_corpus_is_the_entry_point_for_its_own_family():
 
 
 def test_the_committed_page_carries_no_machine_scoped_state():
-    """**THE DESIGN FAULT THIS PAGE WAS BORN WITH.**
-
-    The first version put the branch, the uncommitted count and the last commit
-    date into a *committed* document. Those differ per machine and change on
-    every keystroke, so `qm docs check` reported drift the moment anybody edited
-    a file -- and a check that fails hourly is one people learn to rerun rather
-    than read. `status/inventory.yaml` and `inventory-local.json` already make
-    this split; the page had to make it too.
+    """The committed page carries no machine-scoped state: the branch, the
+    uncommitted count and the last commit date differ per machine and change on
+    every keystroke, so `qm docs check` would report drift whenever anybody
+    edited a file. `status/inventory.yaml` and `inventory-local.json` make the
+    same split.
 
     Mutation: put `state['branch']` or `state['dirty']` back into `page` and
     this fails.
@@ -122,9 +116,8 @@ def _repo(path: Path) -> Path:
 
 def test_a_member_is_found_where_the_roster_places_it_not_where_the_probe_looks(
         tmp_path: Path, monkeypatch) -> None:
-    """`qm cookbook` said a member was not on this disk while `qm estate`
-    found it at a path only the roster carries, because the cookbook probed
-    `<root>/<name>` and never read the roster's paths.
+    """A member is found at the path the roster carries, not only where a
+    `<root>/<name>` probe looks, so `qm cookbook` and `qm estate` agree.
 
     Mutation: make `clone_of` skip the roster entry and fall through to the
     probe, and this fails on the first assertion.
@@ -164,10 +157,8 @@ def test_a_member_the_roster_does_not_carry_still_gets_the_probe(tmp_path: Path,
 
 
 def test_build_reads_every_member_through_the_roster(tmp_path: Path, monkeypatch) -> None:
-    """The first version of the roster lookup was overwritten inside `build`
-    by a list that happened to share its name, and every direct test of the
-    resolver stayed green while `uv run qm cookbook` crashed. A test that
-    calls `build` is the one that would have gone red.
+    """`build` itself reads every member through the roster: direct tests of
+    the resolver cannot see a lookup overwritten inside `build`.
     """
     _repo(tmp_path / "elsewhere" / "thing")
     families = tmp_path / "families.json"

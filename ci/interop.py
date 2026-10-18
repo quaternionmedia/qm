@@ -9,19 +9,19 @@ The decision is `records/DRAFT-a-shared-tag-asserts-interoperability.md`: equal
 numbers assert that these artifacts were proven to work together, and a change
 on either side invalidates the claim for both.
 
-ADVISORY, AND LOCAL ONLY. This reads sibling clones, so it says different things
+Advisory, and local only. This reads sibling clones, so it says different things
 on two machines and belongs nowhere near CI -- a runner has no siblings, and a
 pull request that went red for a missing clone would be red for a reason its
 author cannot fix. `--check` is a local pre-flight, not a gate. `ci/devloop.py`
 carries the same constraint for the same reason.
 
-TWO MODES, AND THEY PROVE DIFFERENT THINGS. Without `--verify` this reads
+Two modes, and they prove different things. Without `--verify` this reads
 declared strings: it establishes that the repositories agree on a number, and
 nothing about whether any of them replayed it. With `--verify` it runs each
 implementation's own suite -- `npm` in one, `uv run pytest` in another -- and
 reads one printed sentence from each, so the counts come from runs.
 
-WHAT NEITHER MODE REACHES. A clean union is a sum compared against a total.
+What neither mode reaches. A clean union is a sum compared against a total.
 Two implementations could replay one case twice and miss another and still add
 up, so `covers all` is necessary for the contract being proven and not
 sufficient. `records/DRAFT-a-shared-tag-asserts-interoperability.md` 4 is the
