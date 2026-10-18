@@ -49,12 +49,27 @@ make it useless for real multi-file C code:
 - Run the batched, CPU-bound libclang parse via `asyncio.to_thread` inside
   the async streaming pipeline — without this, a single C-heavy repo freezes
   the *entire server* for every concurrent request, not just its own.
+- Attribute a batch's nodes to their files by the file's key — `File.url`, or
+  `File.name` when there is no url — and by its stem only when a parser wrote a
+  stem (the C adapter does). Give a file with no url its place in the tree as a
+  `tree://` url before batching, so two files with one name never share a key,
+  and an adapter that opens real files never opens one by it. Folder and file
+  node ids are the path from the root, for the same reason: every crate in a
+  Cargo workspace has a `src/lib.rs`.
+- Let a batch parser state what it knows *about files* on its graph's
+  attributes — `file_relations` (an edge between a node or a file key and a
+  file key: a `mod` declaration, a `use` reaching another file, a linker
+  script's `INCLUDE`) and `file_meta` (facts merged into a file node's `meta`) —
+  and have the pipeline resolve file keys to the file nodes it created, in the
+  in-memory and the streaming paths alike.
 
 ## Consequences
 
-- Adding a new `batch_whole_tree` language parser (e.g. a future
-  tree-sitter-based one) gets cross-file resolution "for free" by opting
-  into the same flag — no per-language batching logic to reinvent.
+- Adding a new `batch_whole_tree` language parser gets cross-file resolution
+  by opting into the same flag — no per-language batching logic to reinvent.
+  Three use it: C, Rust (*Rust is read at the item level until an engine's
+  index replaces it*) and linker
+  scripts, batched separately by parser identity.
 - Trade-off accepted: a batched extension's symbols arrive as one burst
   after every file in it is fetched + parsed, instead of trickling in
   file-by-file. There is currently no incremental progress signal during
@@ -80,8 +95,9 @@ the full technical walkthrough.
 
 ## Revision triggers
 
-- A second `batch_whole_tree` parser ships and the keyed-by-`id(parser)`
-  batching needs to handle more than one batched parser type at once.
+- A batch parser needs facts from another parser's batch — a Rust `extern`
+  block naming a function a C file in the same tree defines — which batching by
+  parser identity cannot join.
 - The "symbols arrive as one burst" limitation becomes a real UX complaint,
   forcing `fetch_and_parse_batch` to support partial/incremental progress.
 

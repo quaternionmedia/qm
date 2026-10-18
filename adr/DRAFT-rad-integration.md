@@ -123,11 +123,14 @@ host verb that fits the whole graph is not a focus.
 ### §5 Vocabulary — extended, not repurposed
 
 Omitted as having no honest meaning for a graph derived from parsing:
-`add-node`, `reverse`, `edit-label`. Extended with three declared host verbs:
-`view-source`, `node-info`, `focus-group`. The node ring sits at exactly the
-contract's 8-item ceiling, with `expand` at index 0 — the 12 o'clock wedge a
-straight-up flick reaches — because drill-down is the verb the large-repo
-story rests on.
+`add-node`, `reverse`, `edit-label`. Extended with four declared host verbs:
+`view-source`, `node-info`, `focus-group`, and `compare`, which opens the
+chrestomathy at what a node is — the construct the vocabulary placed it as,
+beside every language that writes it — and is offered disabled on a node the
+vocabulary did not place. All four sit under View, so the node ring sits at
+exactly the contract's 8-item ceiling, with `expand` at index 0 — the 12
+o'clock wedge a straight-up flick reaches — because drill-down is the verb the
+large-repo story rests on.
 
 ### §6 One divergence, offered upstream as a vector
 
