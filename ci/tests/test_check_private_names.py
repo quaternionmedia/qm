@@ -1,10 +1,8 @@
-"""The private-name check, and the false reading its first version produced.
+"""The private-name check. Most of these tests are about boundaries.
 
-A plain substring search reported `status/inventory.yaml` as carrying a private
-name. It carries a *public* repository three characters longer whose name
-contains the private one -- so the file whose entire guarantee is that it holds
-no private name appeared to break that guarantee, by the check rather than by
-the file. Most of these tests are about boundaries.
+A public repository whose name contains a private one is not a disclosure: a
+plain substring search would report the inventory, whose guarantee is that it
+holds no private name, as breaking that guarantee.
 """
 
 from __future__ import annotations

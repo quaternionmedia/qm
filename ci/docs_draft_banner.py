@@ -10,7 +10,7 @@ to the top of the viewport, full width, high contrast, and injected into every
 HTML file the generator produced rather than into one template the theme might
 override.
 
-WHAT IT CANNOT DO. It cannot stop someone deploying an unbannered build -- it is
+What it cannot do: it cannot stop someone deploying an unbannered build -- it is
 a post-processing step, and a build that skips it publishes clean. The workflow
 runs it between build and upload for that reason, and the check below fails if
 any page came out unbannered.

@@ -51,9 +51,8 @@ def registry(tmp_path: Path, *entries: str) -> Path:
 def entry(gate_id: str, workflow: str | None, job: str | None, exists: bool = True,
           external: bool = False, gates: list[str] | None = None) -> str:
     # The registry names a workflow by filename, which is how `discover` keys
-    # what it found. An entry naming `wf` where the file is `wf.yml` reports as
-    # missing -- three tests here failed that way before this line said `.yml`,
-    # and the failure looked like three defects rather than one fixture bug.
+    # what it found, so the fixture writes `wf.yml`: an entry naming `wf`
+    # would report as missing.
     return (
         f"  - id: {gate_id}\n"
         f"    workflow: {workflow + '.yml' if workflow else 'null'}\n"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run this repository's GitHub Actions workflows locally, before opening a PR.
 
-SEED FILE, run in place: a forking project runs it out of the governance
+A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it, and it is not a gate -- it is the thing you do
 before claiming a gate passes.
 

@@ -35,10 +35,10 @@ hosted object store, and loads a font from a third-party CDN. None of those
 three appear in any manifest. The scans are accurate and the conclusion drawn
 from them would be false.
 
-Two further facts about license metadata, from the same instance. Roughly six
-distinct licenses across 84 Python packages were declared in more than twenty
-spellings, and one npm dependency declared its license only in the deprecated
-`licenses` array, where a reader of the modern `license` field sees null. A
+License metadata has two further properties. A handful of distinct licenses
+appear in many spellings across one project's packages, and an npm dependency
+can declare its license only in the deprecated `licenses` array, where a reader
+of the modern `license` field sees null. A
 gate that compares raw strings fails honest packages and passes unreadable
 ones, so §4 requires normalization rather than leaving it to each project to
 discover.
@@ -90,8 +90,8 @@ discover.
    data as `osi_approved` and `fsf_libre`. A project's allowlist is that union
    with deprecated identifiers excluded, produced by a generator and committed
    with its provenance — the source, the criterion, and the date it was taken.
-   A hand-kept list is wrong in two directions at once, and both were found in
-   the same reading: it admits fewer licenses than §1 does, so every honest
+   A hand-kept list is wrong in two directions at once: it admits fewer
+   licenses than §1 does, so every honest
    dependency outside it fails and needs an individual adjudication; and it
    admits identifiers §1 does not, because nothing checks a typed list against
    the criterion it claims to encode.

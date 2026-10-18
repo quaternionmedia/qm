@@ -6,32 +6,28 @@ record's shape;
 this checks the *corpus* — the things no single record can be wrong about on its
 own.
 
-FOUR QUESTIONS, EACH FROM A DEFECT THIS CORPUS ACTUALLY SHIPPED:
+Four questions:
 
   enforcement   A record's Enforcement clause names a mechanism. Does it exist,
                 and does any gate declare it enforces this record?
-                `DRAFT-version-tags-are-claims.md` 7 said its 1 was "mechanical
-                rather than customary" and nothing read a tag for six days.
 
   universals    A universal in a Decision clause, surfaced for a human to read.
-                A record states a requirement; a generator reports compliance,
-                with a timestamp. `DRAFT-outbound-licensing.md` 12 says "Every
-                QM repository is REUSE-compliant" and two repositories have no
-                REUSE.toml -- but this corpus also writes requirements
-                declaratively, so "Every QM repository carries one walkthrough/"
-                is a rule in the same grammar. No pattern separates them. These
-                are candidates for reading, never defects.
+                A record states a requirement and a generator reports
+                compliance, but the corpus also writes requirements
+                declaratively ("Every QM repository carries one walkthrough/"),
+                and no pattern separates the two. These are candidates for
+                reading, never defects.
 
   citations     A record names a path. Does it exist? A ratified record citing
                 a file the corpus does not carry is a dangling reference in
                 doctrine.
 
   orphans       A record nothing points at, from any entry point or any gate.
-                Not a defect on its own -- most of this corpus is advisory --
-                but it is the set a reader will never reach, which is the
-                failure `DRAFT-the-read-document-governs.md` is about.
+                Not a defect on its own, but it is the set a reader will never
+                reach, which is what `DRAFT-the-read-document-governs.md` is
+                about.
 
-WHAT THIS CANNOT DO, and it is the larger half:
+What this cannot do:
 
     **It does not read a record for meaning.** It cannot tell that two records
     contradict each other, that a requirement is wrong, or that a universal
@@ -75,20 +71,14 @@ def sibling_repositories(root: Path) -> dict[str, Path | None]:
     "not in the corpus" is the unknown-as-zero conflation this corpus names
     everywhere else.
 
-    **ONLY THE `repositories:` COLLECTION IS READ.** An earlier version walked
-    the whole document for any key called `name`, `repo` or `slug`, which
-    harvested `milestone.name` -- so `alpha`, a milestone, became a repository
-    and would have excused every citation beginning `alpha/`. A guard whose
-    vocabulary grows whenever an unrelated key is added to a data file is a
-    guard nobody can reason about.
+    Only the `repositories:` collection is read, so a key elsewhere in the
+    roster (a milestone's `name`) never becomes a repository name.
 
-    **AND THE WORKSPACE ROOT IS DERIVED BY SELF-CHECK, NOT ASSUMED.** `paths:`
-    are relative to a workspace directory this file never names. The root is
-    whichever ancestor makes *this corpus's own* entry resolve to `root`; if no
-    ancestor does, the roster cannot locate the repository it is being read
-    from, so it cannot locate any other one either and every value is `None`.
-    Asserting the intermediate is the difference between resolving a path and
-    inventing one.
+    The workspace root is derived by self-check, not assumed. `paths:` are
+    relative to a workspace directory this file never names; the root is
+    whichever ancestor makes this corpus's own entry resolve to `root`. If no
+    ancestor does, the roster cannot locate the repository it is read from,
+    and every value is `None`.
 
     A value of `None` means "in the roster, not checked out here" -- which is a
     different fact from "not a QM repository", and the caller distinguishes
@@ -134,20 +124,14 @@ def _elsewhere(cited: str, root: Path,
                siblings: dict[str, Path | None]) -> tuple[str | None, str | None]:
     """Whether `cited` is a file in another QM repository, and whether it is there.
 
-    **THIS RESOLVES THE PATH RATHER THAN EXCUSING IT.** The first version keyed
-    on the name alone: any path starting with a roster repository was declared
-    unresolvable and waved through. Three things were wrong with that. A typo
-    one character into a real sibling path read as clean. A roster name that
-    collided with a directory of this corpus turned real dangling citations
-    benign, with no code change and no way to notice. And "cannot say whether it
-    resolves" was untrue -- the roster carries `paths:` and the sibling is
-    usually checked out one directory over, so the check can simply look.
+    This resolves the path rather than excusing it: the roster carries
+    `paths:` and the sibling is usually checked out one directory over, so a
+    typo in a real sibling path is still a dangling citation.
 
-    **TWO READINGS, BECAUSE THE CORPUS USES BOTH.** `dossier/docs/rad-commands.md`
-    is `<repo>/<path-in-repo>`. `qmcp/cookbook/delta.py` is a path *inside* the
-    qmcp repository whose package directory happens to share the repository's
-    name. Both spellings appear in ratified prose and neither is wrong, so both
-    are tried; only if neither locates a file is the citation a defect.
+    Two readings, because the corpus uses both. `dossier/docs/rad-commands.md`
+    is `<repo>/<path-in-repo>`; `qmcp/cookbook/delta.py` is a path inside the
+    qmcp repository whose package directory shares the repository's name. Both
+    are tried, and only if neither locates a file is the citation a defect.
 
     A first segment that is also a directory of this corpus is a corpus path and
     is never treated as a sibling -- otherwise adding a repository called
@@ -245,8 +229,8 @@ def entry_point_text(root: Path) -> str:
 
 def review_record(path: Path, root: Path, gates: list[dict], reachable: str,
                   siblings: set[str] | None = None) -> dict:
-    # A records directory outside the root is a caller error, and it used to
-    # arrive as a ValueError from `relative_to` rather than as a sentence.
+    # A records directory outside the root is a caller error, reported as a
+    # sentence rather than as a ValueError from `relative_to`.
     try:
         rel = path.relative_to(root).as_posix()
     except ValueError:
@@ -283,10 +267,8 @@ def review_record(path: Path, root: Path, gates: list[dict], reachable: str,
     # Only the Decision section. A Context section describing the problem
     # ("Every QM project acquires a version number, and nothing says what one
     # means") is stating the world in order to argue about it, and Alternatives
-    # quote options being rejected. Scanning the whole record produced 27
-    # findings of which most were prose doing its job -- a check that fires on
-    # everything trains a reader to skip it, which is worse than one that fires
-    # on nothing.
+    # quote options being rejected; both are prose doing its job, and a check
+    # that fires on everything trains a reader to skip it.
     for m in UNIVERSAL.finditer(decision_section(text)):
         sentence = " ".join(m.group(0).split())
         if REQUIREMENT_MODAL.search(m.group("rest") or ""):
@@ -347,8 +329,7 @@ def main(argv: list[str] | None = None) -> int:
 
     gates = load_gates(root / "ci" / "gate-registry.yaml")
     reachable = entry_point_text(root)
-    # Read once: the roster does not change between records, and re-reading it
-    # per record made the check's cost scale with the corpus for no reason.
+    # Read once: the roster does not change between records.
     siblings = sibling_repositories(root)
     results = [review_record(p, root, gates, reachable, siblings)
                for p in records]

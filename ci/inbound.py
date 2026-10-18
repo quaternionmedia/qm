@@ -1,33 +1,19 @@
 #!/usr/bin/env python3
 """What the projects are waiting on this organisation for.
 
-**PROPAGATION RUNS ONE WAY, AND THE RETURN PATH WAS ALREADY BEING WRITTEN.**
-`handbook/propagation-runbook.md` says it plainly -- `main` flows outward, and
-org-level content committed on a `project/*` branch is stranded there
-permanently, *"if you find any"*. `.github/workflows/namespace-guard.yml` closes
-the wrong route: org content pushed onto a project branch is refused. Nothing
-opened a right one, so the upward half of this estate ran on somebody
-remembering.
+Propagation runs one way: `main` flows outward (`handbook/propagation-runbook.md`),
+and `.github/workflows/namespace-guard.yml` refuses org content pushed onto a
+project branch. This reads the return path. Every `Proposed` record names what
+it pends on (`project-seed/adr/TEMPLATE.md` requires the row and the ADR lint
+enforces it), and many of those rows name the organisation rather than the
+project: an amendment nobody has ratified, a carve-out nobody has recognised, a
+licensing input nobody has settled. This invents no channel; it reads that one.
 
-It turns out the projects have been writing it down the whole time. Every
-`Proposed` record names what it pends on -- `project-seed/adr/TEMPLATE.md`
-requires the row and the ADR lint enforces it -- and a good many of those rows
-name **the organisation** rather than the project: an amendment nobody has
-ratified, a carve-out nobody has recognised, a licensing input nobody has
-settled. Each is a question asked in this corpus's own disciplined format, on a
-branch, with nothing aggregating it.
+Rows are grouped by what is being waited on, so one org action that unblocks
+many projects shows as one group rather than as many problems, and the group
+with the most projects is the cheapest thing the organisation can do.
 
-So this module invents no channel. It reads the one that exists.
-
-WHAT IT IS FOR, WHICH IS NOT A LIST. A per-project view already exists: open
-the branch and read the record. What that view cannot show is that **one org
-action unblocks many projects** -- the same ratification is pended on across
-much of the estate, and reading thirteen branches one at a time makes it look
-like thirteen problems. So rows are grouped by *what is being waited on*, and
-the group with the most projects in it is the cheapest thing this organisation
-can do.
-
-WHAT IT DELIBERATELY DOES NOT DO.
+What it does not do:
 
   * **It does not decide what is an org question.** A `Pends on` row is prose
     written by a person. This groups identical text and reports the rest
@@ -97,12 +83,10 @@ class Waiting:
         repeat becomes visible at all. Nothing fuzzier: two rows that differ in
         their first clause are two asks until a person says otherwise.
 
-        **THE DASH HAS FOUR SPELLINGS IN THIS CORPUS** -- em, en, ASCII hyphen
-        and a doubled hyphen -- and the first version of this cut on the em
-        dash alone. One ask pended on by seven projects came out as a group of
-        four and three singletons, which is precisely the estate-wide repeat
-        this view exists to surface, hidden by punctuation. A parenthesis opens
-        an aside for the same reason.
+        The dash has four spellings in this corpus (em, en, ASCII hyphen and a
+        doubled hyphen), and the cut honours all four, so one ask written with
+        different dashes stays one group. A parenthesis opens an aside for the
+        same reason.
         """
         head = SEPARATOR.split(self.pends_on, maxsplit=1)[0]
         return " ".join(head.lower().split())
@@ -205,11 +189,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--remote", default="origin")
     args = parser.parse_args(argv)
 
-    # The rows are this corpus's own prose and are full of em dashes. On a
-    # console whose codepage cannot encode them the text comes back peppered
-    # with replacement characters, and the first reading of this output blamed
-    # the project records for being badly encoded when every one of them is
-    # valid UTF-8. Same reconfiguration as `ci/disk_dashboard.py`.
+    # The rows are this corpus's own prose and are full of em dashes; on a
+    # console whose codepage cannot encode them they would come back as
+    # replacement characters, which reads as badly encoded records. Same
+    # reconfiguration as `ci/disk_dashboard.py`.
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8", errors="replace")

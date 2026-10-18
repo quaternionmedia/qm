@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-28T21:21:16Z'
+generated_at: '2026-10-18T17:21:29Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -39,22 +39,22 @@ states:
 reading_load:
   documents:
   - path: AGENTS.md
-    lines: 271
+    lines: 276
   - path: PRINCIPLES.md
-    lines: 497
+    lines: 493
   - path: handbook/async-contract.md
-    lines: 281
+    lines: 271
   - path: handbook/handoffs/README.md
-    lines: 158
-  total_lines: 1207
+    lines: 159
+  total_lines: 1199
   budget_lines: 1200
-  within_budget: false
-  headroom_lines: -7
+  within_budget: true
+  headroom_lines: 1
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
   excluded:
-    README.md: mandated in part -- three invariants, not the whole page
+    README.md: mandated in part -- its opening points, not the whole page
   scope_note: '`documents` is the scope of this measurement and not a derived fact.
     A figure inside its budget means the listed documents are inside it, and nothing
     more -- read `excluded` before quoting `within_budget`.'
@@ -104,12 +104,12 @@ readiness:
     in ci/workspace.yaml. Nothing here is derived from the repository.
   measured:
     records:
-      total: 39
+      total: 40
       ratified: 0
-      proposed: 36
+      proposed: 37
     documents_in_unknown_state: 0
-    reading_within_budget: false
-    reading_total_lines: 1207
+    reading_within_budget: true
+    reading_total_lines: 1199
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 208
+  documents: 224
   by_state:
     draft: 3
     generated: 7
-    proposed: 36
-    standing: 75
-    transient: 26
-    unreviewed: 61
+    proposed: 37
+    standing: 82
+    transient: 27
+    unreviewed: 68
   disagreements: 0
   unknown: 0
 documents:
@@ -268,6 +268,69 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: docs/ref/addresses.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/demos.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/docs-tooling.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/gates-and-checks.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/index.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/measuring-the-suite.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/registries.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/status-documents.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -578,7 +641,7 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/hil-review-2026-09-27.md
+- path: handbook/handoffs/hil-review-2026-10-04.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -677,6 +740,13 @@ documents:
   state_from_filename: null
   state: transient
 - path: handbook/handoffs/views-declare-what-they-need.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/voice-set-landing.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1163,6 +1233,62 @@ documents:
   state_from_filename: null
   indexed_status: Unreviewed
   state: unreviewed
+- path: perspectives/2026-10-10-what-joe-and-vox-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-10-what-the-corpus-pages-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-10-what-the-corpus-tooling-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-10-what-the-rest-of-qmcp-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-10-what-the-topology-docstrings-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-11-what-was-left-on-the-disk.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-15-the-voice-set-landing.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
 - path: perspectives/README.md
   class: index
   class_reason: the index for its directory, not a member of it
@@ -1607,6 +1733,13 @@ documents:
   state_from_filename: draft
   state: proposed
 - path: records/DRAFT-deltas-compose.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
+- path: records/DRAFT-durable-text-states-what-is-true.md
   class: record
   class_reason: an org decision record
   declared_status: Proposed

@@ -42,18 +42,13 @@ uv run qm docs audit
 The link dimension refuses a link that leaves the published site — a relative
 link to a file outside `docs/` resolves on disk and 404s once deployed — and a
 fragment naming no anchor, which lands the reader at the top of a page and reads
-as having worked.
-
-Both were live when this protocol was written: `docs/index.md` linked
-`../handbook/glossary.md`, which is not published, on the same page as a correct
-link to the same glossary.
+as having worked. A page can carry both kinds beside a correct link to the same
+target.
 
 ## 3. Check the glossary covers what the openings use
 
 For each narrow word an entry point uses, confirm the glossary defines it. Add
-the entry rather than removing the word when the word is the right one:
-`Proposed` and `gate` were both used on the landing page and defined nowhere in
-the site's own glossary.
+the entry rather than removing the word when the word is the right one.
 
 ## 4. Record the run
 

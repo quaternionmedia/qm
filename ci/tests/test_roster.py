@@ -140,13 +140,9 @@ class _Wrapper:
 
 
 def test_redact_reaches_a_string_inside_a_wrapper():
-    """**THE HOLE THAT WENT THROUGH ONCE.**
-
-    `redact` walks dicts, lists and strings, so a value of any other type fell
-    out of the bottom untouched. A generator grew a wrapper for facts it could
-    not establish, its reason interpolated a repository name, and two private
-    names reached a committed generated document while every field the redactor
-    knew about was clean.
+    """`redact` reaches a string inside a wrapper object, not only inside
+    dicts, lists and strings: a wrapper whose reason interpolates a repository
+    name must not carry it into a committed document.
 
     Mutation: delete the attribute loop from `redact` and this fails.
     """
