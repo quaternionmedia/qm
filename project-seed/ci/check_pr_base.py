@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Assert a branch is based on what its pull request targets, and say what it carries.
 
-SEED FILE, run in place. Run it *before* opening a PR, and paste its output into
+A seed file, run in place. Run it *before* opening a PR, and paste its output into
 the description.
 
 The failure it exists for: a branch cut from the wrong parent is internally
@@ -302,7 +302,10 @@ def main() -> int:
             "\nA branch cut from another branch carries that branch's work. Say so in\n"
             "the description, or rebuild on the base. This is the check that catches a\n"
             "misbranched PR; the merge-base test above does not, because a feature\n"
-            "branch cut from the base is still transitively based on it."
+            "branch cut from the base is still transitively based on it.\n"
+            "A branch stacked ON this one carries all of it by design "
+            "(handbook/async-contract.md 1):\nthat overlap is the stack, not a "
+            "misbranch."
         )
 
     if not aligned:

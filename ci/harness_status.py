@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the harness status document: where every repository's PR slot stands.
+"""Emit the harness status document: where every repository's pull request stacks stand.
 
 Org-level tooling, copied nowhere. It is the collector half of a two-part
 split this repository already uses once: a generator that talks to git, gh and
@@ -10,7 +10,7 @@ The split is not tidiness. A renderer that can run a command is a second place
 a governance rule gets defined, and the two definitions drift. Everything the
 dashboard shows must be a fact in this document or it is not shown.
 
-TWO LAYERS, AND THEY ARE NOT THE SAME KIND OF FACT
+Two layers, and they are not the same kind of fact
 
   - `slots` is about the org, read over the network. It is true for everyone.
   - `local` is about one machine, read from one set of clones. It is true for
@@ -20,7 +20,7 @@ TWO LAYERS, AND THEY ARE NOT THE SAME KIND OF FACT
     -- exists nowhere else. A dashboard that showed it as an org fact would be
     lying about its scope.
 
-UNKNOWN IS A VALUE
+Unknown is a value
 
 Any fact this tool could not establish is written as `{"unknown": "<reason>"}`,
 never omitted and never defaulted. A repository whose pull requests could not
@@ -35,7 +35,7 @@ Usage:
 The committed copy needs --no-local, and the machine-scoped copy needs a path
 outside the repository. There is no third form: `--write status/harness.yaml`
 without --no-local always refuses, because that would commit one person's
-clones. This block used to lead with exactly that invocation.
+clones.
 """
 
 from __future__ import annotations
@@ -60,9 +60,6 @@ from roster import merge_private, redact
 CI_DIR = Path(__file__).resolve().parent
 CORPUS = CI_DIR.parent
 CHECK_ONE_PR = CORPUS / "project-seed" / "ci" / "check_one_pr.py"
-
-# The corpus's own exemption, and the only one. See handbook/async-contract.md.
-CORPUS_PER_BASE = ["project/*"]
 
 # Where the committed copy lives. An agent that cannot guess this path reads
 # nothing, so it is fixed rather than passed, and named in AGENTS.md.
@@ -139,7 +136,7 @@ def git(repo: Path, *args: str) -> tuple[int, str]:
     return status, out or err
 
 
-def slot_layer(slug: str, per_base: list[str]) -> dict:
+def slot_layer(slug: str) -> dict:
     """What check_one_pr.py says about this repository, as data.
 
     Invoked as a subprocess rather than imported so that this document records
@@ -147,8 +144,6 @@ def slot_layer(slug: str, per_base: list[str]) -> dict:
     let this file's own reading of the rule diverge from the file CI runs.
     """
     args = [sys.executable, str(CHECK_ONE_PR), "--repo", slug, "--json"]
-    for pattern in per_base:
-        args += ["--per-base", pattern]
     status, out, err = run(*args)
     if not out:
         return unknown(f"check_one_pr produced no output: {err.splitlines()[0] if err else 'silent'}")
@@ -487,6 +482,24 @@ def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
     return None
 
 
+def redact_private(records: list[dict], roster: list[dict]) -> list[dict]:
+    """Every private repository's name replaced by its reference, in every record.
+
+    A private repository's own record is redacted where it is built; this pass
+    covers its name inside another repository's record -- a pull request in the
+    corpus whose base is that project's branch, for one. The names are the ones
+    the private companion supplies, so without it nothing can be redacted, and
+    the document is generated where the companion is present.
+    """
+    pairs = [(e["name"], e["ref"]) for e in roster if e.get("ref") and e.get("name") and e["name"] != e["ref"]]
+    out = []
+    for record in records:
+        for name, ref in pairs:
+            record = redact(record, name, ref)
+        out.append(record)
+    return out
+
+
 def build(
     roster: list[dict],
     org: str,
@@ -515,9 +528,7 @@ def build(
             "phase": entry.get("phase", "unknown"),
             "phase_source": entry.get("phase_source", "unknown"),
             "note": entry.get("note"),
-            "slots": slot_layer(
-                slug, CORPUS_PER_BASE if entry.get("role") == "corpus" else []
-            ),
+            "slots": slot_layer(slug),
         }
         record["release"] = release_layer(slug)
         record["threads"] = org_threads(slug, record["slots"], want_pr_detail)
@@ -558,6 +569,7 @@ def build(
         if entry.get("ref") and entry["ref"] != name:
             record = redact(record, name, entry["ref"])
         repositories.append(record)
+    repositories = redact_private(repositories, roster)
 
     measured = [r for r in repositories if "unknown" not in r["slots"]]
     governed = [
@@ -572,9 +584,8 @@ def build(
         "generator": {
             "tool": "ci/harness_status.py",
             "org": org,
-            "rule": "one open pull request per repository, per contributor",
+            "rule": "no pull request is ready while stacked on another open one",
             "rule_source": "handbook/async-contract.md",
-            "corpus_exemption": CORPUS_PER_BASE,
             "phase_ladder_source": "records/DRAFT-project-phase-ladder.md",
             "phase_layer_is_a_claim": (
                 "phase and phase_source come from ci/workspace.yaml and record "
@@ -715,10 +726,8 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    # **THE REFUSAL COMES BEFORE THE WORK.** This sat after `build`, so
-    # refusing to write cost what writing would have -- about half a minute
-    # of scanning every clone on the machine to produce a document that was
-    # then thrown away. A guard that runs last costs what it prevents.
+    # The refusal comes before the work, so refusing to write never costs the
+    # scan of every clone that writing would.
     if args.write and not args.no_local and inside_corpus(args.write):
         sys.exit(
             f"harness_status: refusing to write the machine layer to "
@@ -763,7 +772,7 @@ def main(argv: list[str] | None = None) -> int:
         totals = status["totals"]
         print(
             f"wrote {args.write}: {totals['repositories']} repositories, "
-            f"{totals['compliant']} compliant, {totals['over_limit']} over limit, "
+            f"{totals['compliant']} compliant, {totals['over_limit']} ready while stacked, "
             f"{totals['slots_unknown']} unknown"
         )
         if governance is not None:

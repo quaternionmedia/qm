@@ -1,18 +1,12 @@
 #!/usr/bin/env python3
 """Every repository the org rosters, and what of it exists on this disk alone.
 
-**A CONSOLIDATION STARTS WITH A QUESTION NOBODY COULD ANSWER FROM ONE PLACE.**
 `project-seed/ci/branch_census.py` says, for one repository, which branches
-hold commits that exist on one disk. Before the estate's branches were brought
-to the host, somebody ran that census by hand in every clone the roster names,
-kept the answers in a scratch file, and then did it again when a session
-elsewhere had moved a branch. It was the single most expensive step of the
-whole cycle, and every one of its answers was a fact git already held.
-
-This module asks the same question of every repository at once. It reads the
-roster `ci/make_workspace.py` reads, resolves each entry to a clone the same
-way, and asks each clone -- with read commands only -- what it holds that the
-host does not:
+hold commits that exist on one disk. This asks the same question of every
+repository the roster names at once: it reads the roster
+`ci/make_workspace.py` reads, resolves each entry to a clone the same way, and
+asks each clone, with read commands only, what it holds that the host does
+not:
 
   one-copy    a local branch ahead of the default branch and not on `origin`
               at all; deleting the clone deletes the work. Each is marked as
@@ -23,12 +17,12 @@ host does not:
   dirty       uncommitted changes in the working tree. Not a branch, and the
               cheapest thing here to lose.
 
-With the host reachable it also asks, per repository, how many pull requests
-the current user has open, because one open pull request per repository per
-contributor is the sequencing rule (`handbook/async-contract.md` 1) and a
-draft holds the slot like any other.
+With the host reachable it also asks, per repository, which pull requests
+the current user has open, and flags one that is ready while its base is
+another of them: a stacked pull request stays a draft until the one beneath it
+merges (`handbook/async-contract.md` 1).
 
-WHAT IT REFUSES TO DO.
+What it refuses to do:
 
   * **It never writes.** No push, fetch, prune, merge or delete, and no flag
     to ask for one. A survey that can also act is one somebody runs in a
@@ -49,7 +43,7 @@ unstated last. The family is a claim a person made in `ci/workspace.yaml`
 nothing here infers one, and a member with no claim is *unstated*, which is
 not "none" -- nobody has answered the question for it.
 
-WHAT IT CANNOT TELL YOU. Whether a one-copy branch is worth keeping. It says
+What it cannot tell: whether a one-copy branch is worth keeping. It says
 what would be lost and how much, and stops; the deletion is a person's act,
 as it is for the single-repository census. Nor can it see a clone the roster
 does not name: a repository is surveyed because somebody wrote it down.
@@ -193,8 +187,18 @@ class Repository:
         return bool(self.one_copy or self.ahead)
 
     @property
-    def over_slot(self) -> bool:
-        return self.open_prs is not None and len(self.open_prs) > 1
+    def stacked_ready(self) -> list[dict]:
+        """Open pull requests marked ready whose base is another one's branch.
+
+        The gate's rule (`check_one_pr.py`) over this user's own pull
+        requests only: a parent opened by somebody else is not listed here,
+        and the gate still sees it.
+        """
+        if self.open_prs is None:
+            return []
+        heads = {pr.get("headRefName") for pr in self.open_prs}
+        return [pr for pr in self.open_prs
+                if not pr.get("isDraft") and pr.get("baseRefName") in heads]
 
 
 def default_branch(repo: Path, remote: str, online: bool) -> tuple[str, str]:
@@ -320,10 +324,11 @@ def host_pull_requests(repo: Repository) -> None:
 
     A failure -- no host remote, not signed in, the host down -- leaves
     `open_prs` as None and says why, because a list that read as empty would
-    report a free slot on a repository nobody asked.
+    report a clear stack on a repository nobody asked.
     """
     done = run_gh(["pr", "list", "--author", "@me", "--state", "open",
-                   "--json", "number,headRefName,isDraft"], Path(repo.path))
+                   "--json", "number,headRefName,isDraft,baseRefName"],
+                  Path(repo.path))
     if done.returncode != 0:
         detail = (done.stderr or "").strip().splitlines()
         repo.notes.append("pull requests unknown: "
@@ -396,7 +401,7 @@ def table(rows: list[Repository], width: int, online: bool) -> list[str]:
         if r.open_prs is None:
             slot = "-" if not online else "?"
         else:
-            slot = str(len(r.open_prs)) + (" OVER" if r.over_slot else "")
+            slot = str(len(r.open_prs)) + (" STACKED" if r.stacked_ready else "")
         out.append(f"  {r.name:<{width}}  {r.branch[:28]:<28}  {r.dirty:>5}  "
                    f"{len(r.one_copy):>8}  {len(r.ahead):>5}  {slot}")
     return out
@@ -423,7 +428,7 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
         out.append("")
 
     for r in found:
-        if r.missing or not (r.holds_one_copy or r.dirty or r.over_slot):
+        if r.missing or not (r.holds_one_copy or r.dirty or r.stacked_ready):
             continue
         out.append(f"  {r.name}  ({r.path})")
         if r.dirty:
@@ -433,11 +438,9 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
         for b in r.ahead:
             out.append(f"      ahead     +{b.unpushed:<3} {b.name}  "
                        f"(not on its remote copy)")
-        if r.over_slot:
-            heads = ", ".join(f"#{p.get('number')} {p.get('headRefName')}"
-                              + (" draft" if p.get("isDraft") else "")
-                              for p in r.open_prs)
-            out.append(f"      over the one-PR slot: {heads}")
+        for p in r.stacked_ready:
+            out.append(f"      ready but stacked: #{p.get('number')} "
+                       f"{p.get('headRefName')} -> {p.get('baseRefName')}")
         out.append("")
 
     for r in found:
@@ -482,7 +485,7 @@ def as_document(found: list[Repository], roster: Path, search_roots: list[Path],
         "offline": not online,
         "repositories": [
             {**asdict(r), "missing": r.missing, "holds_one_copy": r.holds_one_copy,
-             "over_slot": r.over_slot}
+             "stacked_ready": r.stacked_ready}
             for r in found
         ],
         "totals": totals(found),

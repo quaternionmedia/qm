@@ -1,50 +1,39 @@
 #!/usr/bin/env python3
 """Emit the loose-ends document: what this org has left open, in one place.
 
-**FIVE DOCUMENTS EACH HOLD PART OF THE ANSWER AND NOBODY READS THEM TOGETHER.**
-A thread stalled for two years sits in `status/harness.yaml`. Twenty-seven
-records awaiting a human's ratification sit in `status/documents.yaml`. Seventeen
-declared blind spots sit in `status/gates.yaml`, one per gate, in the field that
-says what it *cannot* see. Each document is correct and each is read for its own
-question, so the standing total -- what has this organisation started and not
-finished -- is a number nobody has.
+Several generated documents each hold part of what the org has started and not
+finished: a stalled thread in `status/harness.yaml`, records awaiting a human's
+ratification in `status/documents.yaml`, and each gate's declared blind spot in
+`status/gates.yaml`. Each is read for its own question; this joins them into
+one standing list.
 
-This is a **join, not a measurement**. Every fact here is already a fact in a
-document this corpus generates; nothing is collected fresh and nothing reaches
-the network. That is the same split `ci/harness_status.py` states: a renderer
-that can run a command is a second place a rule gets defined. A collector that
-can take its own reading is the same error one layer up.
+This is a join, not a measurement: every fact here is already a fact in a
+document this corpus generates, and nothing is collected fresh or reaches the
+network.
 
-CLAIM AND EVIDENCE ARE SEPARATE, AND ONLY ONE OF THEM IS GENERATED.
+Claim and evidence are separate, and only evidence is generated:
 
   - **Evidence** is what a generator measured, with the document and timestamp
     it came from. This file writes it and rewrites it on every run.
-  - **A claim is what a person asserted**, and it is read from
-    `registers/loose-end-claims.yaml` -- an input, never an output. A claim
-    written into the generated document would be erased by the next run, which
-    is the one thing a record of somebody's judgement must never do.
+  - **A claim** is what a person asserted, read from
+    `registers/loose-end-claims.yaml`: an input, never an output, so the next
+    run never erases somebody's judgement.
 
-An item nobody has judged has **no claim block at all**. That is different from
-one somebody looked at and let go, and rendering them alike is what makes a list
-of open questions stop being read.
+An item nobody has judged has no claim block at all, which is different from
+one somebody looked at and let go.
 
-**AN ADDRESS NAMES THE THING, NOT THE FINDING.** `ci/addresses.py` closes its
-`KINDS` set on purpose, and a `loose-end` kind is not in it. Nor should it be: a
-loose end is always *about* something the grammar can already name -- a pull
-request, a document, a gate's page. So each item addresses its subject with an
-existing kind and carries its own `kind` beside it. A view that can resolve an
-address can therefore navigate from any loose end to the thing it concerns,
-which is the property `project-seed/address-vectors.json` says the round trip
-exists for.
+An address names the thing, not the finding: each item addresses its subject
+(a pull request, a document, a gate's page) with an existing kind from
+`ci/addresses.py` and carries its own `kind` beside it, so a view that can
+resolve an address can navigate from any loose end to what it concerns.
 
-UNKNOWN IS A VALUE. A source this tool could not read is written as
-`{"unknown": "<reason>"}` and its items are absent rather than empty, because an
-absent list reads as "nothing is open" and that is the opposite of what a
-missing input means. `handbook/glossary.md` gives the spelling.
+Unknown is a value: a source this tool could not read is written as
+`{"unknown": "<reason>"}` and its items are absent rather than empty, because
+an empty list reads as "nothing is open".
 
-WHAT THIS CANNOT DO. Decide whether a loose end matters. It reports what four
-documents say is unfinished; which of those is worth anybody's afternoon is a
-person's call, and the claims register is where that call is written down.
+What this cannot do: decide whether a loose end matters. That is a person's
+call, and the claims register is where it is written down.
+`docs/ref/ci/status-documents.md` describes the join.
 
 Usage:
     python ci/loose_ends.py --write loose-ends.json
@@ -153,10 +142,11 @@ def stalled_threads(harness: Any) -> list[dict]:
 
 
 def over_slot(harness: Any) -> list[dict]:
-    """A repository holding more open pull requests than the contract allows.
+    """A repository holding a pull request that is ready while stacked.
 
-    The rule and its exemptions are the harness document's; this reports the
-    violations it already recorded rather than recounting them.
+    The rule is the harness document's; this reports the violations it
+    already recorded rather than recounting them. The kind keeps the name
+    `over-slot` because dispositions are keyed on it.
     """
     found = []
     for repo in harness.get("repositories", []):
@@ -168,14 +158,14 @@ def over_slot(harness: Any) -> list[dict]:
             found.append({
                 "kind": "over-slot",
                 "address": str(slug),
-                "title": f"{slug} is over its pull-request slot",
+                "title": f"{slug} has a ready pull request stacked on another",
                 "detail": _violation(violation),
             })
     return found
 
 
 def _violation(violation: Any) -> str:
-    """One slot violation, in a sentence.
+    """One stack violation, in a sentence.
 
     The harness records these as a mapping, and pasting the mapping into a
     detail column puts JSON in front of a person for a fact that is one
@@ -189,12 +179,13 @@ def _violation(violation: Any) -> str:
         return str(violation)
     numbers = violation.get("numbers") or []
     author = violation.get("author") or "somebody"
-    base = violation.get("base") or ""
-    where = f" against {base}" if base else ""
+    base = violation.get("base") or "another pull request's branch"
+    parent = violation.get("parent")
+    on = f" (#{parent})" if parent else ""
     if numbers:
         listed = ", ".join(f"#{n}" for n in numbers)
-        return (f"{author} holds {len(numbers)} open pull requests{where} "
-                f"({listed}); the contract allows one")
+        return (f"{author}'s {listed} is ready but stacked on {base}{on}; "
+                "it stays a draft until that one merges")
     return json.dumps(violation, sort_keys=True)
 
 
@@ -205,7 +196,7 @@ def waiting_on_a_person(docs: Any) -> list[dict]:
     and nobody has looked. Both are things a person owes the corpus, which is
     what makes them loose ends rather than merely states. `draft`, `standing`,
     `transient` and `generated` are not: those are resting places, and listing
-    them would bury the seventy-four that are not.
+    them would bury the ones that are.
     """
     owed = {"proposed": "awaiting a human's ratification",
             "unreviewed": "written, and no maintainer has looked at it"}
@@ -228,7 +219,7 @@ def waiting_on_a_person(docs: Any) -> list[dict]:
 def blind_spots(gates: Any) -> list[dict]:
     """What each gate says it cannot see.
 
-    **DECLARED, NOT DISCOVERED.** Every entry here was written by whoever built
+    Declared, not discovered: every entry here was written by whoever built
     the gate, in the gate's own `cannot_see` field. That makes this the one
     collector whose items are already somebody's considered judgement -- and it
     is still a loose end, because a declared gap is a gap.
@@ -320,11 +311,9 @@ VECTORS = "project-seed/loose-end-vectors.json"
 def judge(item: dict, claims: dict) -> dict:
     """How one item reads, given what people have claimed about it.
 
-    **THE WHOLE CONTRACT IS THIS FUNCTION.** `build` uses it and so does the
-    vector runner, so a case that passes here is a statement about the document
-    a consumer receives and not about a test double. A second implementation of
-    the same rule -- one for the generator, one for the checker -- is exactly
-    the drift `project-seed/address-vectors.json` was written to stop.
+    The whole contract is this function: `build` uses it and so does the
+    vector runner, so a case that passes here is a statement about the
+    document a consumer receives, not about a test double.
     """
     key = f"{item.get('kind')}:{item.get('address')}"
     claim = claims.get(key) if isinstance(claims, dict) else None
@@ -392,7 +381,7 @@ def build(root: Path) -> dict:
         key = f"{item['kind']}:{item['address']}"
         item["key"] = key
         read = judge(item, {} if _is_unknown(claims) else claims)
-        # **REPORTED, NOT ENFORCED.** An address that does not parse is still a
+        # Reported, not enforced. An address that does not parse is still a
         # real finding and dropping it would hide one; what it cannot do is
         # link a row to its subject, and a view needs to know that before it
         # renders a dead link.

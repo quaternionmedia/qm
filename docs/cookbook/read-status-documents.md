@@ -9,7 +9,7 @@ Two generated files, committed on `main`:
 | Document | Holds | Refresh command | Stale after |
 |---|---|---|---|
 | `status/governance.yaml` | Where every project stands: branch state, records, adoption artifacts | `python ci/governance_status.py --write status/governance.yaml` | 168 hours |
-| `status/harness.yaml` | Pull request slots, phases claimed, work in flight | `python ci/harness_status.py --no-local --write status/harness.yaml` | 24 hours |
+| `status/harness.yaml` | Open pull requests, phases claimed, work in flight | `python ci/harness_status.py --no-local --write status/harness.yaml` | 24 hours |
 
 CI does not regenerate them. A person runs the refresh command and commits the result.
 

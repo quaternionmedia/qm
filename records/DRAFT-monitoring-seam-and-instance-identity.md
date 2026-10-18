@@ -9,14 +9,13 @@
 
 ## Context
 
-The harness now reports the org's state from two committed documents, and the
+The harness reports the org's state from two committed documents, and the
 generated-documents convention governs how they are made and read. Both are
 generated from a git tree and a `gh` call: facts that hold for the
 organisation, at a commit, wherever you stand.
 
-The next thing the reviewer needs to see is not like that. Running six
-concurrent sessions produces state that exists on *one workstation at one
-moment* — which sessions are live, and which human gates are waiting on an
+What the reviewer also needs to see is not like that. Concurrent sessions
+produce state that exists on *one workstation at one moment* — which sessions are live, and which human gates are waiting on an
 answer. `qmcp` is where that state lives: it holds a human-in-the-loop queue
 over HTTP, and `dossier` is the dashboard that should show it.
 
@@ -49,7 +48,7 @@ over HTTP distinguishes them.
 stamped, budgeted, or quoted. A view that looks live and is an hour old is
 worse than one that admits its age, because the first stops people checking.
 
-The consequence that decided this record: a monitor built on a *roster* of
+The consequence that decides this record: a monitor built on a *roster* of
 instances reports perfect health in the one case that matters. A stale entry —
 a previous session's server, or another session's, still listening on a listed
 port — answers `/health` 200 and returns zero gates, because its queue is a
@@ -92,8 +91,7 @@ governs the internal one, and does not relax that record.
    repository, carrying its port, its resolved database path, its start time,
    and the session declaration. The collector enumerates that directory. A
    session therefore becomes visible without editing a reviewed file, which
-   the one-PR-per-repository rule would otherwise price at a contributor's
-   whole slot.
+   would otherwise cost a pull request of its own for every session started.
 
 5. **Identity is asserted before a measurement is attributed.** The collector
    matches the run-file's port, database path and start time against the port

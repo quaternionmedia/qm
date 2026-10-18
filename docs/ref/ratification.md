@@ -15,7 +15,7 @@
 
 **Assistants draft; humans ratify.** An assistant never performs any of the five steps.
 
-!!! warning "Step 3 is mechanically enforced and was documented nowhere"
+!!! warning "Step 3 is mechanically enforced"
     The lint finds ratified records by filename — `NUMBERED_FILENAME` in
     `project-seed/ci/adr_lint.py` is `^(?:ADR|QM)-(\d{4})-.+\.md$` — and it
     compares that set against the numbers in the index. Do the other four steps
@@ -25,13 +25,10 @@
     index lists record 0001 with no matching file.
     ```
 
-    Reproduced against a fixture: an `Accepted` record still named `DRAFT-*.md`,
-    listed in the index as `0001`, gives exactly that. The message names the
-    index rather than the filename, so the cause is not obvious from the error.
-
-    This bites the first person ever to ratify, which is the one act the corpus
-    is waiting to perform. Nothing in the repository stated the convention
-    before this page did.
+    An `Accepted` record still named `DRAFT-*.md`, listed in the index as
+    `0001`, gives exactly that against a fixture. The message names the index
+    rather than the filename, so the cause is not obvious from the error, and it
+    meets whoever performs a first ratification.
 
 ## Ratification is the last gate, not the only one
 

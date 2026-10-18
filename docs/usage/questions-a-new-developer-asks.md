@@ -1,8 +1,8 @@
 # Questions a new developer asks
 
 If you have just been handed several repositories and a login, this page is the
-short version. Every question below is one somebody asked in their first week,
-written the way they asked it, with the command or file that settles it.
+short version. Every question below is one a newcomer asks in their first week,
+written the way they ask it, with the command or file that settles it.
 
 This page is a map rather than the rules themselves. Where it summarises a rule
 it names the document that owns it, and that document wins.
@@ -115,17 +115,18 @@ partly exercised locally, and that a local pass is evidence rather than proof.
 **"Do I open a pull request for this?"**
 
 Yes, and you merge it yourself once the gates are green. Never push `main`
-directly. Draft means incomplete — a finished pull request left in draft is a
-change that never arrives.
+directly. Draft means incomplete, or stacked on another open pull request — a
+finished pull request left in draft against `main` is a change that never
+arrives.
 
 **"How many pull requests can I have open?"**
 
-One per repository, for agent-produced work. Drafts count; automation accounts
-do not; and `project/<name>` branches are exempt, because each is pinned by a
-different downstream repository. `uv run qm slot --repo <owner>/<name>` answers
-it for one repository. The rule is a sequencing constraint rather than a limit on
-how much you can do — [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md)
-§1 has the reasoning and the exemptions.
+As many as you have independent changes. Each pull request carries one change;
+independent ones sit side by side, each ready against its base. One that needs
+another's work is cut from that branch, based on it, and stays a draft until the
+one beneath it merges. `uv run qm stacks --repo <owner>/<name>` lists yours and
+refuses a stacked one marked ready — [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md)
+§1 has the reasoning.
 
 **"Who has to approve it?"**
 

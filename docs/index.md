@@ -29,7 +29,7 @@ Every word above that is doing unusual work links to its definition. If a senten
     - [Architecture](about/architecture.md) — the branch-per-project model
     - [History](about/history.md) — how the corpus evolved
 
-    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): short, and every principle there was earned by a defect.
+    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): what QM believes, and the record each principle produces.
 
 === "Get started"
 
@@ -64,7 +64,7 @@ Every word above that is doing unusual work links to its definition. If a senten
 
 ## For coding agents
 
-If you are an AI agent working in this repository, start with [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md). It states four facts to establish before writing anything — the commit, your pull request slot, what else is in flight, and which gates exist — and names the plain scripts that establish them. How you gather them is your choice; `adapters/` holds optional glue for particular tools and nothing depends on it.
+If you are an AI agent working in this repository, start with [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md). It states four facts to establish before writing anything — the commit, your open pull requests, what else is in flight, and which gates exist — and names the plain scripts that establish them. How you gather them is your choice; `adapters/` holds optional glue for particular tools and nothing depends on it.
 
 ## See also
 

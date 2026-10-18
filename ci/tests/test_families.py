@@ -1,9 +1,7 @@
 """A family is a claim, and the set of families is read from the record.
 
-The check that matters here is not that a claim resolves. It is that the tool
-holds no list of its own: this corpus has found four generators in one week
-whose hardcoded scope made them report on their own scaffolding, and a second
-copy of the families would have been the fifth.
+The tool holds no list of its own: a second copy of the families would be a
+scope nothing checks.
 """
 
 from __future__ import annotations
@@ -60,11 +58,8 @@ def test_an_entry_with_no_family_is_unstated_not_a_problem(tmp_path: Path):
 
 
 def test_a_record_declaring_no_families_is_refused_rather_than_vacuously_clean(tmp_path: Path):
-    """**THE EMPTY-SET CASE, WHICH IS HOW A CHECK STOPS CHECKING.**
-
-    With no families declared, every roster claim would be compared against
-    nothing and pass. That is the exact shape of the index check this corpus
-    found inert after its whole life, and of three scope lists beside it.
+    """With no families declared, every roster claim would be compared
+    against nothing and pass, so an empty declaration is refused.
 
     Mutation: return `[]` instead of a problem when `families` is empty, and
     this fails.
@@ -84,13 +79,10 @@ def test_renaming_a_family_in_the_record_breaks_the_claim_visibly(tmp_path: Path
 
 
 def test_a_private_repository_is_written_by_reference_never_by_name():
-    """**THE LEAK THE FIRST WRITE PRODUCED.**
-
-    `roster.load` merges the uncommitted private companion, so on a machine
-    that has it a private entry arrives carrying its real name. A writer using
-    `roster.label` -- which prefers `name` -- serialises that into a committed
-    file. Three names reached `families.json` this way and
-    `uv run qm private-names` is what caught them.
+    """`roster.load` merges the uncommitted private companion, so on a
+    machine that has it a private entry arrives carrying its real name. A
+    writer using `roster.label`, which prefers `name`, would serialise that
+    into a committed file.
 
     Mutation: use `roster.label` in `document` instead of `publishable` and
     this fails.
@@ -108,10 +100,9 @@ def test_a_public_repository_is_written_by_name():
 
 
 def test_a_table_outside_section_three_declares_nothing(tmp_path):
-    """**THE ADVERSARIAL APPENDIX.** A backticked first cell is a proxy for a
-    family row, and scanned over the whole record it matched any table
-    anywhere -- an appended appendix declared a seventh family that the roster
-    check would then have accepted claims against.
+    """A backticked first cell is a proxy for a family row; scanned over the
+    whole record it would match any table anywhere, so a table outside §3
+    declares nothing.
 
     Mutation: scan the whole text instead of the section and this fails.
     """

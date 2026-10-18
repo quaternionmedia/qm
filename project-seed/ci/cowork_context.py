@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 """Build a session's opening brief from the repository, not from memory.
 
-SEED FILE, run in place. It answers the questions a session would otherwise
+A seed file, run in place. It answers the questions a session would otherwise
 assume the answer to, and writes them down where the answer can be checked.
 
-WHY A TOOL RATHER THAN A CHECKLIST
+A tool rather than a checklist: a checklist asks a session to remember to look
+at which branch is under review, what state the repository is in, which
+submodule pin it carries and how old a handbook page's numbers are. This looks,
+and prints what it saw with the commit it saw it at.
 
-Every question below has been answered wrongly, confidently, in a real session
-in this org: a review of a branch nobody was running; a working tree reported
-as the state of a repository; a submodule pin read off the wrong submodule; a
-propagation described from a handbook page whose numbers were four days old. A
-checklist asks a session to remember to look. This looks, and prints what it
-saw with the commit it saw it at.
-
-WHAT IT REFUSES TO DO
+What it refuses to do:
 
   - It does not report absence as compliance. A fact it could not establish is
     printed as `unknown` with the reason, never omitted and never defaulted to
@@ -45,18 +41,6 @@ UNKNOWN = "unknown"
 
 # How many sibling branches to list before saying how many were left off.
 SIBLING_LIMIT = 8
-
-# The base-branch glob the corpus repository's own slot check runs with. It is
-# DEFAULTED from the repository's role rather than required as a flag, because a
-# flag is something a session can add quietly to make a red check go green.
-# `--per-base` does exist on this module and overrides this constant when passed
-# (see the argument definition and its first use below), so this is a default and
-# not an enforcement -- the comment used to say "rather than passed as a flag",
-# which reads as though the flag were absent.
-# Every `project/<name>` branch here is pinned by a different downstream
-# submodule, so two propagation pull requests are two unrelated projects.
-CORPUS_PER_BASE = ["project/*"]
-
 
 def force_utf8_output() -> None:
     for stream in (sys.stdout, sys.stderr):
@@ -184,14 +168,12 @@ def sibling_branches(root: Path, current: str) -> tuple[list[str], int]:
     session did not create, holding work it cannot see. Newest first because
     that is the one a session running right now is on.
 
-    **Remote branches count, and this is the half that was missing.** A fresh
-    clone has exactly one local branch, so a `refs/heads` scan reports a clean
-    repository no matter how much pushed work is waiting. Work that has been
-    pushed and has no pull request is invisible to every other signal a session
-    has -- the slot check reads pull requests, and the handoff pages live on
-    whichever branch they were written on. Two such branches existed in this
-    corpus on 2026-08-14 and no opening brief on any other machine would have
-    named either.
+    Remote branches count. A fresh clone has exactly one local branch, so a
+    `refs/heads` scan reports a clean repository no matter how much pushed
+    work is waiting. Work that has been pushed and has no pull request is
+    invisible to every other signal a session has: the stack check reads pull
+    requests, and the handoff pages live on whichever branch they were written
+    on.
 
     A remote-tracking ref whose local branch is already listed is dropped, so
     the usual case prints one line rather than two.
@@ -240,7 +222,7 @@ def sibling_branches(root: Path, current: str) -> tuple[list[str], int]:
 # facts by whoever told it.
 GENERATED_DOCUMENTS = (
     ("status/governance.yaml", "where every project stands", 168),
-    ("status/harness.yaml", "pull request slots, phases, governance evidence", 24),
+    ("status/harness.yaml", "open pull requests, phases, governance evidence", 24),
 )
 
 
@@ -303,9 +285,8 @@ def exceptions(root: Path, mount: dict) -> tuple[list[str], str | None]:
     """Every rule this corpus deliberately does not enforce, and where.
 
     A session arriving with no history learns the rules from AGENTS.md and
-    learns nothing about their holes. Before this, that knowledge lived in six
-    constants inside five checks -- so a blind session either tripped over an
-    exemption or reimplemented a rule that had been deliberately suspended.
+    nothing about their holes, so it would either trip over an exemption or
+    reimplement a rule that was deliberately suspended.
 
     Read rather than derived: the registry is a human's list, and a tool that
     inferred exemptions from source would report the ones it recognised and
@@ -353,13 +334,10 @@ def viewer_login() -> tuple[str | None, str | None]:
     return out.splitlines()[0].strip(), None
 
 
-def pr_slots(slug: str, login: str, per_base: list[str]) -> tuple[str, int | None]:
-    """The slot check's own report, verbatim, plus its exit status."""
+def pr_report(slug: str, login: str) -> tuple[str, int | None]:
+    """The stack check's own report, verbatim, plus its exit status."""
     script = Path(__file__).with_name("check_one_pr.py")
-    args = [sys.executable, str(script), "--repo", slug, "--contributor", login]
-    for pattern in per_base:
-        args += ["--per-base", pattern]
-    status, out = run(*args)
+    status, out = run(sys.executable, str(script), "--repo", slug, "--contributor", login)
     return out, status
 
 
@@ -421,7 +399,7 @@ def emit(root: Path, args: argparse.Namespace) -> str:
         add("- this repository has not adopted the constitution, or has adopted it by hand")
     add("")
 
-    add("## Your pull request slot")
+    add("## Your open pull requests")
     add("")
     if args.offline:
         add(f"- {UNKNOWN} — `--offline` was passed, so no pull request was read")
@@ -431,42 +409,23 @@ def emit(root: Path, args: argparse.Namespace) -> str:
         login, why = viewer_login()
         if not login:
             add(f"- {UNKNOWN} — {why}")
-            add("- this is not the same as holding no slot; nothing was read")
+            add("- this is not the same as holding none; nothing was read")
         else:
-            per_base = args.per_base
-            if not per_base and mount.get("role") == "corpus":
-                per_base = CORPUS_PER_BASE
-                add(
-                    "Each `project/<name>` branch here is pinned by a different "
-                    "downstream submodule, so each holds its own slot. That is the "
-                    "only exemption, and it is applied because this repository is "
-                    "the corpus — not because a flag was passed."
-                )
-                add("")
-                add(
-                    "**The slot belongs to the *base*, not to the branch.** A pull "
-                    "request whose base is `project/<name>` gets the exemption; one "
-                    "whose *head* is a project branch does not, and never should — a "
-                    "`project/<name>` branch is permanent and is never merged into "
-                    "`main`. Reading this as \"my project branch has its own slot, so "
-                    "I may open a pull request from it\" is how the `main` slot gets "
-                    "spent twice; `project-seed/ci/check_pr_base.py` refuses that "
-                    "direction, and the corpus docs/ref/namespaces.md explains why."
-                )
-                add("")
-            report, status = pr_slots(state["slug"], login, per_base)
+            report, status = pr_report(state["slug"], login)
             add("```")
             lines.extend(report.splitlines())
             add("```")
+            add("")
             if status == 0:
-                add("")
-                add("Your slot is free, or holds the one pull request you will add to.")
-            else:
-                add("")
                 add(
-                    "**You are over the limit.** Fold or close before opening "
-                    "anything: close the pull request FIRST, then push onto the "
-                    "branch that survives — pushing first merges it."
+                    "None of yours is ready while stacked. A new change that "
+                    "needs one of these is cut from its branch and opened as a "
+                    "draft against it; anything else opens against its target."
+                )
+            else:
+                add(
+                    "**A pull request of yours is ready while stacked.** Mark it "
+                    "draft until the one beneath it merges."
                 )
     add("")
 
@@ -579,13 +538,6 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out", metavar="PATH", help="also write the brief here")
     parser.add_argument(
         "--offline", action="store_true", help="skip the pull request read"
-    )
-    parser.add_argument(
-        "--per-base",
-        action="append",
-        default=[],
-        metavar="GLOB",
-        help="passed through to check_one_pr.py",
     )
     args = parser.parse_args(argv)
 

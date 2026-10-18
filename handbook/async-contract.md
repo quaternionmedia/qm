@@ -19,55 +19,82 @@ sometimes the same repository.
 
 ## The shape of the problem
 
-QM ran six sessions in parallel across six repositories on 2026-08-09. The
-failures were not in any one session's work — each behaved correctly by every
-rule it could see. They were in what the sessions did to each other: a port
-already bound by another project's server, a branch neither session knew the
-other had cut, a working tree two of them wrote to.
+Sessions running in parallel fail in what they do to each other, not in any one
+session's work, where each behaves correctly by every rule it can see: a port
+already bound by another project's server, a branch neither session knows the
+other has cut, a working tree two of them write to.
 
 Nothing in a session makes another session visible to it. That is the whole
-source of the clauses below, and each one names the event that produced it.
+source of the clauses below.
 
 ---
 
-## 1. One open pull request per repository, per contributor
+## 1. Small pull requests, stacked when one depends on another
 
-At any moment, a repository holds **at most one open pull request per human
-contributor** for agent-produced work. Not one per task, not one per branch.
-One per person, per repository.
+**One pull request carries one change** — one feature, one fix, one record —
+scoped so its diff can be read in one sitting. Two changes that could each land
+alone are two pull requests.
 
-**This is a sequencing constraint, not a review-bandwidth one.** Two pull
-requests that must merge in an order are a puzzle, and the puzzle is what the
-limit prevents. Nobody is queued behind a green pull request: the author merges
-it once the gates pass, so the slot frees itself and the limit binds only on
-work that is genuinely unfinished. A slot held for days is a signal about the
-work, not about anyone's reading speed.
+**Independent changes go in parallel.** Each is its own branch, cut from the
+base it targets, with its own pull request against that base. Each is marked
+ready and merged by its author once its gates pass. There is no limit on how
+many a contributor holds open at once.
 
-Automation accounts are excluded — a contributor cannot close Dependabot's
-pull request to make room for their own. Drafts count, because a draft is
-unfinished work occupying the branch namespace, and unfinished work is exactly
-what this limit is about.
+**One active stack per developer is the habit to aim for.** A stack finished
+before the next one starts stays reviewable in one sitting and keeps the map
+of open work small. It is encouraged and never enforced: nothing refuses a
+second stack, and independent changes still go in parallel.
+
+**Dependent changes go in series, as a stack.** A branch that needs another
+branch's work is cut *from that branch*, and its pull request's base *is* that
+branch, so its diff shows only its own change. Only the bottom of a stack — the
+pull request whose base is the real target — is ready. Every pull request above
+it is a **draft, even when its work is finished**: ready means merge once green,
+and merging it now would land it in its parent's branch rather than the target.
+
+**When the bottom merges, the next one moves down, in this order.**
+
+1. Merge the bottom with a merge commit. A squash or rebase rewrites the
+   commits the next branch was cut from.
+2. Retarget the next pull request onto the real target **before** the merged
+   branch is deleted. Deleting a branch through git or the API closes every
+   pull request based on it, and one whose base is gone cannot be reopened
+   until the branch is restored. Only the host's own delete-on-merge setting
+   retargets, and a repository need not have it on. `qm merge` does this step
+   and the next.
+3. Delete the merged branch.
+4. Update the next branch from the target. Workflows filtered on the target
+   branch never ran while it was stacked, and a retarget does not start them;
+   the update is a push, and a push runs everything.
+5. Mark it ready once its gates pass.
+
+`gh pr merge --delete-branch` deletes the branch before anything retargets, so
+a pull request stacked on it is closed. The order lives in the base chain, where
+every reader and every tool can see it, instead of in the head of the session
+that cut the branches.
+
+**Never close a pull request in favour of one that contains it.** A pull
+request whose commits are all contained in a larger branch stays open and ready
+against its target, and the larger branch opens as a draft whose base is that
+pull request's branch. Folding several pull requests into one leaves one diff
+too large to read in place of several that each can be.
+
+Automation accounts are outside the rule: Dependabot's pull requests have their
+own queue.
 
 **Mechanical.** `project-seed/ci/check_one_pr.py`, wired as
-`one-pr-check.yml`. It fails the pull request whose author already holds a
-slot, and prints every slot in the repository so the reader can see which one
-to fold into.
+`one-pr-check.yml`. It fails a pull request that is marked ready while its base
+is the branch of another open pull request, and prints every open pull request
+and the stack it sits in.
 
-**The one exemption.** `--per-base <glob>` gives each base branch matching the
-glob its own slot. It exists for a single shape: several long-lived branches
-each pinned by a *different* downstream consumer, so a change to one is not a
-change to another and combining them would invent a dependency between
-unrelated projects. This corpus's `project/<name>` branches are that shape and
-are the only known instance. The exemption is a glob someone passes and the
-tool prints — an exemption nobody can see in the output has stopped being one.
-
-**Folding has an order, and the order is the whole safeguard.** Close the
-pull request **first**, then push its commits onto the branch that survives.
+**Closing a pull request has an order, and the order is the whole safeguard.**
+Where one must be closed and its commits carried elsewhere, close the pull
+request **first**, then push its commits onto the branch that survives.
 Pushing first *merges* it: the host sees the base now contains the head, marks
 it merged with the pushed commit as the merge commit and whoever pushed as the
 merger, and no review happened. The later `gh pr close` is a no-op against an
 already-merged pull request, so it reports success while `--delete-branch`
-silently does nothing. This has happened in this org.
+silently does nothing.
 
 ## 2. Assigned to the person who asked, reviewed by nobody
 
@@ -83,13 +110,13 @@ the human cutting it.
 
 Requesting a review pulls a second person in anyway, and against a branch
 carrying a live `CODEOWNERS` it fires automatically the moment a pull request
-opens: you name nobody and the notification cannot be recalled. This needed
-three corrections across two repositories before it was written down plainly.
-The third one was *"Your role is to tag me, not others."*
+opens: you name nobody and the notification cannot be recalled.
 
-**Draft means unfinished.** It is not a holding pen for finished work, and a
-green pull request left in draft is a change that never reached `main` — which
-is the opposite of the job.
+**Draft means unfinished, or stacked.** A draft is either work that is not
+done, or a pull request waiting on the one beneath it in a stack (§1). It is
+not a holding pen for anything else: a green pull request left in draft against
+the real target is a change that never reached `main` — which is the opposite
+of the job.
 
 ## 3. A pull request states decisions, not questions
 
@@ -110,19 +137,17 @@ Say them in the session; write the third person where a person must be named.
 `records/DRAFT-human-only-contributorship.md` clause 5 is the decision.
 
 **Mechanical.** `project-seed/ci/check_pr_voice.py`, a step in
-`one-pr-check.yml`: it refuses the second person and the handling phrases that
-have leaked, leaves code and quotations alone, and cannot see the third person.
+`one-pr-check.yml`: it refuses the second person and the handling phrases it
+lists, leaves code and quotations alone, and cannot see the third person.
 
 ## 4. Concurrent sessions share one workstation
 
 Two sessions in two repositories are two processes on one machine, and
 nothing tells either that the other exists.
 
-- **Never bind a default port.** On 2026-08-09 an Alfred session spent an
-  afternoon measuring test results against `localhost:8000`, which was being
-  served by Apothecary's API from another session. Every number it reported
-  was about the wrong program. Two failing tests were investigated as defects
-  in code that was never running.
+- **Never bind a default port.** Another session's server may already hold it,
+  and every measurement taken against it is then about the wrong program:
+  failing tests get investigated as defects in code that is not running.
 - **Assert the identity of what you are talking to**, not its reachability. A
   200 from a port proves something is listening. Ask the server what it is —
   `/openapi.json`, a version endpoint, a banner — and record the answer next
@@ -134,9 +159,7 @@ nothing tells either that the other exists.
 
 ## 5. Two sessions in one repository declare themselves
 
-Sessions on the same repository happened on 2026-08-09 in Apothecary
-(*"there is one other active session"*) and in RAD (*"Another agent has
-started the work parallel"*). Neither could see the other.
+Two sessions on the same repository cannot see each other.
 
 A session that finds evidence of another — an unexpected branch, a commit it
 did not write, a dirty tree it did not dirty — **stops and reconciles before
@@ -150,10 +173,12 @@ project.
 ## 6. Every session opens with a context build and closes with a handoff
 
 **Open** with `/cowork`. It re-derives the facts a session would otherwise
-assume: which commit, which branch, which pull request slot is free, what the
+assume: which commit, which branch, which pull requests are open and how they
+stack, what the
 governance pin points at, which gates exist, what the open handoffs are. The
 alternative is a session that inherits its predecessor's beliefs, and *drafts
-have no memory* — the numbers in any page were true when written.
+have no memory* — the numbers in any page are true at the commit they were
+written against.
 
 **Close** with `/handoff`. A session that ends without one has produced work
 only its own transcript explains, and the transcript is not in the repository.
@@ -174,14 +199,13 @@ or secrets — say so rather than letting a local pass stand for a remote one. A
 local *failure* is a question rather than a verdict; establish which it is
 before reporting it.
 
-Two traps that produced false green in this org, both cheap to avoid:
+Two traps produce a false green, both cheap to avoid:
 
-- **A pipe replaces the exit code.** `tool | tail` reports `tail`'s status. A
-  failing check read as passing, twice.
+- **A pipe replaces the exit code.** `tool | tail` reports `tail`'s status, so a
+  failing check reads as passing.
 - **A passing test is not evidence until it has been seen to fail.** After
   writing a check's test, break the tool in the way the test names and confirm
-  the test fails. Ten such mutations against one generator found two inert
-  tests; the same exercise against `check_one_pr.py` found two more.
+  the test fails.
 
 ## 9. Another agent's report is evidence, not a finding
 
@@ -209,7 +233,7 @@ part a session executes:
 |---|---|---|
 | The scripts a session runs | `project-seed/ci/` | run from the submodule, never copied |
 | The context builder behind `/cowork` | `project-seed/ci/cowork_context.py` | run from the submodule |
-| The slot check | `project-seed/ci/check_one_pr.py` + `one-pr-check.yml` | workflow copied, script run from the submodule |
+| The stack check | `project-seed/ci/check_one_pr.py` + `one-pr-check.yml` | workflow copied, script run from the submodule |
 | The branch check | `project-seed/ci/check_pr_base.py` | run from the submodule |
 | The gate runner | `project-seed/ci/run_workflows_locally.py` | run from the submodule |
 | This page | `handbook/async-contract.md` | read through the submodule mount |
@@ -217,22 +241,22 @@ part a session executes:
 **The sync is two-way, and each direction has a different gate.**
 
 *Down* — org to project. `project-seed/` is the canonical copy, and this
-corpus's own root points into it **for some IDE files but not the one that
-matters most**:
+corpus's own root points into it **for some IDE files but not for
+`AGENTS.md`**:
 
 | Root path | Mode | Resolves to |
 |---|---|---|
 | `.vscode/settings.json`, `.vscode/extensions.json` | `120000` | `project-seed/ide/.vscode/…` |
 | `.claude/commands/*.md` | `120000` | `adapters/claude-code/commands/…` — optional, outside the seed |
+| `.claude/skills/design-review` | `120000` | `adapters/claude-code/skills/design-review/` — a directory; optional, outside the seed |
 | `CLAUDE.md`, `.github/copilot-instructions.md` | `120000` | the **root** `AGENTS.md` — not the seed |
 | `AGENTS.md` | `100644` | **a second, genuinely different document** |
 
 So editing the seed edits this repository's own harness in the same commit for
 `.vscode/` and `.claude/`, and **not** for `AGENTS.md`: the root one is
 org-facing, the seed's is project-facing, and a rule that belongs in both has to
-be written twice. That is a real cost and the reason to know it is that
-forgetting the second edit leaves the two saying different things — which has
-happened. `symlink-integrity.yml` checks that the files which *are* symlinks
+be written twice. That is a real cost: forgetting the second edit leaves the
+two saying different things. `symlink-integrity.yml` checks that the files which *are* symlinks
 stay mode `120000`; it cannot notice a rule missing from one AGENTS.md.
 
 A project picks seed changes up when its governance pin is bumped and the seed

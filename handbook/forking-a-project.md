@@ -6,34 +6,25 @@ in `records/`. Its sibling is `handbook/propagation-runbook.md`, which covers
 keeping a project current once it exists — this page is only the first day.
 
 **Read this if** you are standing up a new QM project, or checking whether an
-existing one was set up completely. Three of nine adopting projects turned out
-to be missing at least one step, so the second use is not hypothetical.
+existing one was set up completely: an adopting project can be missing a step.
 
-**How proven each third of the seed is, stated honestly, because a forker
-inherits the untested parts too.** `adr/` has the most mileage: every adopting
-project runs it. Its *first* instance was `project/streaming-infrastructure`,
-which is worth discounting rather than citing — there is no
-`quaternionmedia/streaming-infrastructure` repository behind that branch, so it
-exercised the record format and none of the rest of a fork. The mileage that
-counts is the adopting projects. `ci/` was generalized from the working lint in
-`project/qmetronome`
-and now runs both in this corpus's own CI and in eight adopting projects that
-copied it from here — 191 recorded runs across apothecary, datum, qmetronome,
-dossier, `private-32`, `private-33`, factorio-sysops and `private-34`. That
-sentence used to say it had never run in a copying project, and stayed there
-after it stopped being true. `ide/` is the least exercised of the three, and
-which projects carry it *can* now be established from here:
-`status/governance.yaml` records an `adoption.ide` list per project, read over
-the GitHub API rather than from the checkout. Expect the untested parts to need fixes, and
+**How proven each third of the seed is, because a forker inherits the untested
+parts too.** `adr/` has the most mileage: every adopting project runs it.
+`project/streaming-infrastructure` has no
+`quaternionmedia/streaming-infrastructure` repository behind it, so it
+exercises the record format and none of the rest of a fork; the mileage that
+counts is the adopting projects. `ci/` runs both in this corpus's own CI and in
+the adopting projects that copied it from here. `ide/` is the least exercised
+of the three; `status/governance.yaml` records an `adoption.ide` list per
+project, read over the GitHub API rather than from the checkout. Expect the untested parts to need fixes, and
 send them back rather than fixing them locally: a copy does not track its
 origin.
 
 **Every step below states how to confirm it worked.** Run the check, do not
-infer it from the step having completed without error. Three of the defects
-found during alfred's adoption were "did the documented thing, got the wrong
-artifact" — a `cp -a` that silently dereferenced a symlink, an ignore rule
-that swallowed the files just copied, a step whose instructions were written
-by someone for whom they happened to work. A step is done when its check
+infer it from the step having completed without error. A documented step can
+produce the wrong artifact and exit cleanly: a `cp -a` that silently
+dereferences a symlink, an ignore rule that swallows the files just copied,
+instructions that work for the person who wrote them. A step is done when its check
 passes, not when its command exits zero.
 
 0. **Confirm which commit you are forking from**, in both repos. A fork or a
@@ -72,15 +63,15 @@ passes, not when its command exits zero.
    **`git submodule status`'s parentheses are not that.** They hold `git
    describe` output for the *pinned commit*, so a pin at the branch tip prints
    `(heads/project/<name>)` and looks like confirmation, while a pin one commit
-   behind prints a bare abbreviated sha — codecartographer's reads `(5e1eb04)`
-   today with `branch = project/codecartographer` correctly configured. Reading
+   behind prints a bare abbreviated sha, with the branch correctly configured.
+   Reading
    the parenthesis as the configured branch makes a stale pin look right and a
    correct one look broken.
    Also check the recorded URL is the canonical remote and not a local path used
    while setting it up.
 
    **Fixing the URL is half the job; the refs the local clone left behind are
-   the half that lies.** Cloning the submodule from a path on disk — the
+   the other half.** Cloning the submodule from a path on disk — the
    natural move when `project/<name>` is not pushed yet — creates
    remote-tracking refs from *that* clone, and re-pointing `origin` at the
    canonical remote does not remove them. What is left is an
@@ -105,10 +96,9 @@ passes, not when its command exits zero.
    `project-seed/ci/leak-check.yml` sits beside them and is copied the same
    way; whether it joins the four the ladder requires is the `Pends on` of
    `records/DRAFT-what-is-not-the-organisation.md`.
-   `one-pr-check.yml` is the org-wide slot rule of `handbook/async-contract.md`
-   §1, and its own header says to copy it verbatim like the others; this step
-   said "all three" and named it nowhere, so a fork done exactly to procedure
-   came up one gate short. Start `reuse-lint` in
+   `one-pr-check.yml` is the org-wide stack rule of `handbook/async-contract.md`
+   §1, and its own header says to copy it verbatim like the others. Start
+   `reuse-lint` in
    reporting mode; a project that has not had its licensing pass fails it
    immediately, which is useful rather than a reason to leave it out. The submodule check is
    self-contained by necessity: it checks out without submodules, because the
@@ -155,11 +145,10 @@ passes, not when its command exits zero.
    already applied the fix below reads as still broken — the flag that looks
    like it adds diagnostic detail is the one that inverts the answer.
 
-   This corpus's own `.gitignore` blanket-excluded `.vscode/`; alfred's
-   excluded `*.json` across the whole tree, which swallowed the same two files
-   by a completely different rule; dossier's excluded `.vscode/` again. Grepping
-   for `.vscode/` finds the first and misses the second, which is why the check
-   runs against the seed's actual paths.
+   An ignore file can swallow these paths directly (`.vscode/`) or through a
+   broader rule (`*.json` across the whole tree). Grepping for `.vscode/` finds
+   the first and misses the second, which is why the check runs against the
+   seed's actual paths.
 
    The fix is a negation per swallowed path — `!.vscode/settings.json`,
    `!.vscode/extensions.json` — rather than deleting the ignore rule outright.
@@ -186,10 +175,9 @@ passes, not when its command exits zero.
    rather than a third paragraph saying the same thing. Do it, and confirm
    the pointer files resolve, before treating step 5 as done: a project
    without it is not instantiated, it is improvised — the same standard
-   `adr/` and `ci/` are held to. Note that `cp -a` is not always sufficient
-   even with the config set — on at least one Windows toolchain it
-   dereferenced `CLAUDE.md` into a full copy and failed outright on the
-   `.github/` pointer. Verify with `git ls-files -s`, which should show mode
+   `adr/` and `ci/` are held to. `cp -a` is not always sufficient even with
+   the config set: a Windows toolchain can dereference `CLAUDE.md` into a full
+   copy and fail outright on the `.github/` pointer. Verify with `git ls-files -s`, which should show mode
    `120000` for both; if it does not, create them as symlink objects
    directly (`git hash-object -w`, then `git update-index --cacheinfo
    120000,<sha>,<path>`), the same method the record's Consequences
@@ -229,7 +217,7 @@ passes, not when its command exits zero.
    per the discipline record's evidence clause, and says how it is pinned. A
    row asserting a defect nobody reproduced is a claim, not a finding. Then
    walk `adr/README.md`'s "What the org records oblige this project to
-   produce" table — eight obligations the org records create that nothing
+   produce" table — the obligations the org records create that nothing
    generates for you, including the baseline component audit, the service
    inventory no scanner can build, and the control-plane record. A project is
    not compliant because it copied the seed.
@@ -238,17 +226,15 @@ passes, not when its command exits zero.
    commitment made by the org.
    *Verify:* search the project's dependency manifests for build-time sources
    that are not release artifacts — a `git+` URL, a vendored fork, a patch
-   applied during build. alfred's had been carried since 2021 and had never
-   been offered upstream; nothing surfaced it until someone looked.
+   applied during build. A carried patch can sit for years without being
+   offered upstream, and nothing surfaces it until someone looks.
 
 A fork onto a materially different project shape than the reference
 instance — non-server, non-container, a different language ecosystem —
 should expect step 6 to cost real translation effort, not just decision
 effort: naming what a "deployment," an "image," or a "control plane" even
 means for that shape, before a first record can be written. That cost is
-expected overhead, not a signal of poor fit. The org corpus's own origin is
-proof this runs both directions: this constitution was itself extracted and
-generalized from a single project's experience (the streaming project's,
-per `perspectives/session-transcript-2026-06-09.md`) — a first project of a
-new class discovering the constitution needs to generalize is exactly how
-this corpus is supposed to evolve.
+expected overhead, not a signal of poor fit: a first project of a new class
+discovering that the constitution needs to generalize is how this corpus is
+supposed to evolve. `perspectives/session-transcript-2026-06-09.md` records the
+constitution's own extraction from a single project.
