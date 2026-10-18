@@ -10,9 +10,7 @@ name: Stacked PRs are drafts
 #   2. `check_pr_base.py` runs here as a second step, refusing a pull request
 #      from `project/<name>` into `main`. That branch namespace exists only in
 #      this repository -- a project's own repo has no `project/*` branches -- so
-#      in the seed the same step would be a check that can never fail, which is
-#      the shape this corpus keeps finding in its own tooling and does not want
-#      to add deliberately.
+#      in the seed the same step would be a check that can never fail.
 #
 # See handbook/async-contract.md §1 and docs/ref/namespaces.md.
 
@@ -23,16 +21,13 @@ on:
     # names, so both must re-run it.
     types: [opened, reopened, synchronize, ready_for_review, converted_to_draft, edited]
 
-# One run per branch per workflow. A second push supersedes the first: nobody
-# reads the result of a run whose commit has already been replaced, and the
-# minutes are real -- 55 of this repository's 129 runs on 2026-08-11 came from
-# five iterative pushes to two pull request branches, where only the last
-# mattered.
+# One run per branch per workflow. A second push supersedes the first: the
+# result of a run whose commit has been replaced is not read, and its minutes
+# are billed.
 #
-# Cancellation is scoped to pull requests deliberately. On the default branch
-# and on a project branch the run IS the record of what that commit reported,
-# and cancelling it to start a newer one destroys the only evidence that the
-# earlier commit was ever checked.
+# Cancellation applies to pull requests only. On the default branch and on a
+# project branch the run is the record of what that commit reported, and
+# cancelling it would remove the only evidence that the commit was checked.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -74,13 +69,11 @@ jobs:
           PR_BODY: ${{ github.event.pull_request.body }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
 
-      # A step in this job rather than a workflow of its own, on purpose. The
-      # question is a different one, but the job already checks out the tree,
-      # already installs Python, and already fires on exactly the event this
-      # needs -- so a second workflow would double the billed runs per pull
-      # request to ask one more question. It also keeps the reported check name
-      # (`slot`) unchanged, which matters because a project that copies this seed
-      # may have made that name a required context.
+      # A step in this job rather than a workflow of its own. The job already
+      # checks out the tree, installs Python and fires on the event this needs,
+      # so a second workflow would double the billed runs per pull request. It
+      # also keeps the reported check name (`slot`) unchanged, which a project
+      # that copies this seed may have made a required context.
       #
       # fetch-depth 0 is needed here and not above: the base check computes a
       # merge-base, and the default shallow checkout has no history to compute

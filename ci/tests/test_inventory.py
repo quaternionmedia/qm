@@ -1,9 +1,8 @@
 """Tests for the org inventory, mostly about what it must not emit.
 
-An earlier version wrote 34 private repository names and 28 absolute paths
-containing an operator's username into the working tree of a public repository.
-It was one command from being pushed. These tests exist so that cannot recur
-quietly: every one of them fails if the redaction is weakened.
+Every test here fails if the redaction is weakened: private repository names
+and absolute paths containing an operator's username must never reach a file
+that can be committed.
 
 The host is never called. Every case feeds `build`-shaped data directly, so the
 suite answers the same way on a machine with no credential.
@@ -239,8 +238,7 @@ def test_an_unreadable_host_is_unknown_not_empty(monkeypatch, tmp_path):
 #
 # Each test below names the mutation that makes it fail, because a test written
 # against a signal only ever observed green has been watched rather than
-# tested. The mutations were run: every assertion here went red on the change
-# it names, and the two that did not were rewritten until they did.
+# tested.
 
 
 def at(stamp: str) -> datetime:

@@ -4,49 +4,30 @@
     python project-seed/ci/check_submodule_pins.py
     python project-seed/ci/check_submodule_pins.py --json
 
-**THE DEFECT THIS EXISTS FOR, WITH A DATE.** On 2026-08-22 `codecartographer`
-was found pinning its governance submodule at `fd9d756` -- a commit on no
-remote and in no clone but one machine. A fresh checkout could never have
-resolved that project's own submodule, and the only copy of a project record
-lived in the same unreachable place. It survived by luck: a working tree was
-deleted and the git objects happened to outlive it.
+A pin on a commit that no remote holds cannot be resolved by a fresh checkout.
+The pin is made locally, so this runs locally as well as in CI, where somebody
+can still fix it in a second.
 
-Nothing caught it. The workflow that would have was in a repository with GitHub
-Actions switched off, and there was no way to ask the question locally at all --
-which is the half that matters, because the pin is made locally, minutes before
-anybody would want to know.
-
-**UNPUSHED AND UNREADABLE ARE DIFFERENT FACTS.** The check this replaces
-reported both as one failure, in an error whose own text admitted it "cannot
-tell that apart from a private submodule remote that an unauthenticated runner
-cannot read". A check that fails on a question it has not answered teaches
-people to ignore it, and a project with one private submodule was permanently
-red for a reason nothing was wrong with.
-
-They are tellable apart. `git ls-remote <url>` with **no ref** answers "can this
-remote be read at all", which is a different question from "does this commit
-exist" and is decidable anywhere:
+Unpushed and unreadable are different facts. `git ls-remote <url>` with no ref
+answers whether the remote can be read at all, which is decidable anywhere:
 
     remote readable, commit fetchable      ok
     remote readable, commit NOT fetchable  UNPUSHED -- the defect, hard failure
     remote not readable at all             UNKNOWN -- private, or gone; not a
                                            failure, and never silently green
 
-Note which way that cuts. It is a *strengthening*: where the remote is readable
-a missing commit is now unambiguous rather than a maybe. Run locally, where
-credentials exist, every remote is readable -- so the unpushed pin is caught at
-full force in the one place somebody can still fix it in a second.
+Run locally, where credentials exist, every remote is readable, so an unpushed
+pin is a hard failure there. `docs/ref/ci/gates-and-checks.md` describes the
+verdicts.
 
-**WHAT THIS CANNOT DO.** Tell a private remote from a deleted one; both are
-unreadable and it says so rather than guessing. Tell you the pin is the commit
-you *meant*. And it reads `git submodule status`, so a submodule that is not
-initialised is reported as such rather than skipped -- an uninitialised
-submodule is how a pin goes unexamined for months.
+What this cannot do: tell a private remote from a deleted one (both are
+unreadable, and it says so rather than guessing), or tell that the pin is the
+commit somebody meant. It reads `git submodule status`, so a submodule that is
+not initialised is reported as such rather than skipped.
 
-**DO NOT "FIX" THIS WITH `git ls-remote <url> <sha>`.** `ls-remote` matches ref
-*names*. For a commit that is perfectly fine it prints nothing and exits 0,
-which reads as confirmation that the commit is missing. That misreading has
-already been made here once.
+Do not "fix" this with `git ls-remote <url> <sha>`: `ls-remote` matches ref
+*names*, and for a commit that is perfectly fine it prints nothing and exits 0,
+which reads as confirmation that the commit is missing.
 """
 
 from __future__ import annotations
@@ -98,11 +79,10 @@ def submodules(root: Path) -> list[tuple[str, str]]:
 def url_for(root: Path, path: str) -> str:
     """The URL `.gitmodules` records for the submodule checked out at `path`.
 
-    **FOUND THROUGH THE ENTRY'S `path`, NOT BY ASSUMING ITS NAME.** git names a
-    submodule once, at `submodule add`; a later `git mv` changes the path and
-    keeps the name. Looking up `submodule.<path>.url` missed every moved
-    submodule, reported it `no-url`, and passed it without examining the pin --
-    a green row for a pin nobody had checked.
+    Found through the entry's `path`, not by assuming its name: git names a
+    submodule once, at `submodule add`, and a later `git mv` changes the path
+    and keeps the name. A lookup by path-as-name would report a moved
+    submodule `no-url` and pass it unexamined.
     """
     # `-z`: a name may hold spaces, and the plain form separates key from
     # value with one, so splitting it would cut such a name in two.
@@ -173,26 +153,18 @@ def readable(url: str) -> bool:
 def stranded(root: Path, path: str) -> list[str]:
     """Commits in this submodule's clone that are on no remote of its own.
 
-    **THE PIN BEING FINE DOES NOT MEAN THE CLONE IS SAFE.** A submodule is
-    usually checked out at a detached HEAD, and work committed onto a branch
-    inside it is invisible to every check the parent runs: the parent sees a
-    gitlink, `git status` in the parent says nothing, and the branch is not on
-    any remote the parent knows about.
-
-    That is not hypothetical. `codecartographer/.git/modules/docs/qm` held
-    `adr/rad-integration`, carrying the only copy of a project record, on no
-    remote and in no other clone. The pin check would not have found it -- the
-    pin pointed at that same commit, so the pin and the branch were wrong
-    together, and fixing the pin alone would have left the record behind.
+    The pin being fine does not mean the clone is safe. A submodule is usually
+    checked out at a detached HEAD, and work committed onto a branch inside it
+    is invisible to every check the parent runs: the parent sees a gitlink,
+    `git status` in the parent says nothing, and the branch is on no remote the
+    parent knows about. The pin and the branch can be wrong together, and
+    fixing the pin alone leaves the branch behind.
 
     Returns branch names, never the commits: the branch is what somebody pushes.
 
-    **THIS IS A LOCAL SIGNAL AND IT IS EMPTY IN CI, WHICH IS NOT A PASS.** A
-    runner clones each submodule fresh, so it holds no local branches and this
-    reports nothing there — correctly, because there is nothing at risk on a
-    machine that is about to be discarded. The question only has an answer on
-    the machine where the work was done, which is the same machine that will
-    lose it. Run `uv run qm pins` there.
+    This is a local signal, and empty in CI is not a pass: a runner clones each
+    submodule fresh and holds no local branches. The question has an answer
+    only on the machine where the work was done. Run `uv run qm pins` there.
     """
     code, out = run(["git", "-C", str(root / path), "for-each-ref",
                      "--format=%(refname:short)", "refs/heads"])

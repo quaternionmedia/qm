@@ -3,11 +3,11 @@
 <!--
 DRAFTING RULES (delete this comment block before ratification):
 
-1. NUMBER AT RATIFICATION, NOT BEFORE. Drafts are ADR-XXXX. The number is
+1. Number at ratification, not before. Drafts are ADR-XXXX. The number is
    assigned by the index (README.md) at the moment Status becomes Accepted.
    Never reference other drafts by anticipated number.
 
-2. SQUASH BEFORE RATIFICATION. A draft has no memory. If the decision changes
+2. Squash before ratification. A draft has no memory. If the decision changes
    while drafting, rewrite the draft as if the final position were held from
    the beginning. Git history is the archaeology; prose is not. Words banned
    in any pre-ratification document: "previously", "originally", "earlier
@@ -18,13 +18,13 @@ DRAFTING RULES (delete this comment block before ratification):
    `.github/workflows/adr-lint.yml`; the checks themselves run from the
    governance submodule.
 
-3. ONE DECISION PER ADR. If Consequences starts describing a second decision,
+3. One decision per ADR. If Consequences starts describing a second decision,
    split it.
 
-4. WRITE THE ALTERNATIVES HONESTLY. Each rejected alternative gets the real
+4. Write the alternatives honestly. Each rejected alternative gets the real
    reason it lost, strong enough that a reader could disagree.
 
-5. DON'T DECIDE OPEN QUESTIONS BY STEALTH. If an input is genuinely
+5. Don't decide open questions by stealth. If an input is genuinely
    undecided, the ADR is Proposed and says what it pends on — it does not
    pick silently.
 -->

@@ -10,32 +10,27 @@
 
 ## Context
 
-This organisation built a human-in-the-loop pair — a harness that runs things
-and a control panel that shows them — and then wrote the onramp for testing it
-with a person. The loop it described was **eight commands, across two
-repositories, in two shells**, with two files copied by hand between them.
+A human-in-the-loop pair — a harness that runs things and a control panel that
+shows them — can be complete as code and still not be a workflow. An onramp
+that describes the loop as **commands across two repositories, in two
+shells**, with files copied by hand between them, describes a set of levers,
+and the page giving the order to pull them does the work an interface should
+do. Every command can work, the suites be green and the path exercised end to
+end, and none of it is a workflow.
 
-Every one of those commands worked. The suites were green, the payloads were
-contract-verified, and the whole path had been exercised end to end. What had
-not been noticed is that none of it was a workflow. It was a set of levers, and
-the page describing the order to pull them was doing the work an interface
-should have done.
-
-The evidence arrived immediately and in the worst way: the first person to
-follow the page could not complete it. Two of the eight commands had no step
-number, so the file the seventh command needed was never written. The same
-literal path meant two different directories in the two shells the page moved
-between. Neither failure was in the code. Both were in the space the design had
-left for a person to get right by reading carefully.
+Such a page fails a person in the space the design leaves for them to get right
+by reading carefully: a command with no step number, so a file a later command
+needs is never written; a literal path that means two different directories in
+the two shells the page moves between. Neither failure is in the code.
 
 **A page of ordered commands is a workflow specification that nobody
 implemented.** The moment it exists, its correctness depends on the reader, and
 readers do not run in CI.
 
-There is a second half, and it is the one that cost more. The queue of questions
-the harness put to a person crossed to the control panel **as a count**. The
-panel could say one thing was waiting and never which thing, so answering
-anything meant going back to the other application. A count is not something
+There is a second half. A queue of questions the harness puts to a person that
+crosses to the control panel **as a count** lets the panel say that one thing
+is waiting and never which thing, so answering anything means going back to the
+other application. A count is not something
 anybody can answer, and a notification that cannot be acted on where it is read
 is not a notification — it is a reminder to go and find the real one.
 
@@ -105,8 +100,8 @@ command line may not be the only way a person completes ordinary work.
 
 **Say "prefer a UI" and leave it there.** Rejected as a motherhood statement —
 the failure mode this charter names. It states a preference with no way to tell
-whether anybody followed it, and this organisation's own measured finding is
-that a clause without a mechanism does not change behaviour.
+whether anybody followed it, and a clause without a mechanism does not change
+behaviour (`records/DRAFT-governance-arrives-as-a-mechanism.md`).
 
 **Ban command lines for user-facing work.** Rejected as false. The CLI is how
 automation drives anything, how a walkthrough executes, and how somebody

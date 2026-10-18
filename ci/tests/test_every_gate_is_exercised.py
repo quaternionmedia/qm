@@ -1,34 +1,22 @@
 """Every runnable module is executed by some test, or says why not.
 
-**THE GAP THIS CLOSES IS NOT "UNTESTED MODULES" — IT IS THAT UNTESTED AND
-TESTED-ELSEWHERE LOOKED IDENTICAL.** Tests here are named for their subject
-rather than their module: `harness_status.py` is exercised by
-`test_harness_dashboard.py`, `gate_status.py` by `test_gate_tooling.py`. That is
-a good convention and it costs one thing — there is no way to look at a module
-and tell whether anything runs it. Seventeen modules had no same-named test
-file; thirteen were thoroughly covered under another name and four were covered
-by nothing, and no reading of the directory could separate them.
+Tests here are named for their subject rather than their module:
+`harness_status.py` is exercised by `test_harness_dashboard.py`, `gate_status.py`
+by `test_gate_tooling.py`. Under that convention an untested module and one
+tested elsewhere look identical in the directory, so this finds, for every
+module with a `main`, a test that runs it.
 
-`uv run qm posture` surfaced the first of them by trying to mutate a module
-whose tests it could not find, which is the shape of finding this corpus keeps
-recommending: the tool asked a question nobody had asked.
+Execution, not mention: the patterns below all mean *this test runs that code*
+(an import, a call to its `main`, or an invocation by filename). A test that
+names a module in a comment is not a test of it, and matching the bare name
+would inflate the count.
 
-**EXECUTION, NOT MENTION.** A test that names a module in a comment is not a
-test of it. The patterns below all mean *this test runs that code*: an import, a
-call to its `main`, or an invocation by filename. Matching on the bare name
-inflated the count by one here and would inflate it more as the corpus grows —
-and an inflated coverage figure is worse than none, because it hides exactly the
-module it claims.
+What this cannot do: tell whether the test that runs a module *checks*
+anything about it. `qm posture` answers that by mutation; this is the cheaper
+floor.
 
-**WHAT THIS CANNOT DO.** Tell whether the test that runs a module *checks*
-anything about it. `qm posture` answers that by mutation, and charter `a-check-is-evidence-after-it-fails` is why
-the two are different questions. This is the cheaper floor: is there anything at
-all.
-
-EXEMPTIONS CARRY A REASON. A module listed in `UNEXERCISED` is a known gap, not
-an excused one — an entry with no reason fails, because "unknown is a value,
-never zero" applies to the corpus's own tooling before it applies to anything
-else.
+Exemptions carry a reason. A module listed in `UNEXERCISED` is a known gap, not
+an excused one, and an entry with no reason fails.
 """
 
 from __future__ import annotations
@@ -41,18 +29,11 @@ import pytest
 CI = Path(__file__).resolve().parent.parent
 CORPUS = CI.parent
 
-# Modules nothing executes yet, each with why. **Shrink this list; do not grow
-# it.** A new module added here rather than tested is a decision somebody should
-# have to write down, which is the point of the reason being mandatory.
+# Modules nothing executes yet, each with why. Shrink this list rather than grow
+# it: a module added here rather than tested is a decision somebody writes down,
+# which is the point of the reason being mandatory. A module described as having
+# "no logic of its own" can still hold a defect only a test catches.
 UNEXERCISED: dict[str, str] = {}
-# `ci/devloop.py` was the only entry, exempted as "a developer convenience that
-# shells out to the other gates; it has no logic of its own". That reason was
-# wrong, and the way it was found is the argument for keeping this list short:
-# devloop had a `checkout` counter of its own that read the committed roster
-# directly, skipped every entry without a `name`, and reported one repository
-# on this disk that was not. `uv run qm workspace` answered the same question
-# correctly, and nothing compared them. A module with "no logic of its own" had
-# a defect only a test could hold still.
 
 
 def runnable() -> list[Path]:
@@ -100,10 +81,8 @@ def test_there_are_modules_to_check():
 
 
 def test_something_executes_every_runnable_module():
-    """**ONE CASE, EVERY GAP.** This was parameterised over each module -- 48
-    ids for a check whose whole value is the *list* it produces. A sweep should
-    name every uncovered module in one message; parameterised, five gaps are
-    five failures a reader collects one at a time.
+    """One case, every gap: the failure names every uncovered module in one
+    message.
 
     Mutation: delete a module's tests without listing it in `UNEXERCISED` and
     this fails, naming it.
@@ -134,7 +113,7 @@ def test_every_exemption_carries_a_reason():
 
 
 def test_no_exemption_names_a_module_that_is_now_tested():
-    """**THE ONE THAT KEEPS THE LIST SHRINKING.** An exemption left behind after
+    """An exemption left behind after
     somebody wrote the test turns into a permanent hole: the module is skipped
     forever and nobody notices it is covered.
 
