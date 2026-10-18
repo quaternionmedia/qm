@@ -43,9 +43,9 @@ it targets and none of them required. This file names no vendor, and neither
 should anything you add to it.
 
 **Read the corpus's committed status documents before re-deriving what they
-hold.** `governance/qm/harness-status.json` carries its own refresh command and
+hold.** `governance/qm/status/harness.yaml` carries its own refresh command and
 staleness budget in a `reading:` block inside the file.
-`governance/qm/governance-status.yaml` does **not** — for that one,
+`governance/qm/status/governance.yaml` does **not** — for that one,
 `governance/qm/handbook/generated-documents.md` is the only statement of its
 refresh command and its 168-hour budget. Check the age before quoting a figure.
 
