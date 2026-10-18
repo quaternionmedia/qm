@@ -467,7 +467,7 @@ placed, not one outside every family. Counts are over what could be read:
   <th scope="col">Family</th>
   <th scope="col">Repositories</th>
   <th scope="col">Within the stack rule</th>
-  <th scope="col">Over</th>
+  <th scope="col">Ready while stacked</th>
   <th scope="col">Unreadable</th>
   <th scope="col">Threads in flight</th>
   <th scope="col">Stalled</th>
