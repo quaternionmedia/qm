@@ -7,7 +7,7 @@
 | **Standing** | Perspective — attributed, dated, non-binding |
 | **Tools** | Claude Opus 5.5, driving the session under review |
 
-The session set out to finish what other sessions had left across the estate:
+The work was to finish what other sessions had left across the estate:
 pull requests, conflicts, worktrees, local branches and dirty trees, each
 carried to a pull request, a pushed branch, or a deletion that cost nothing.
 This is why that took the shape it did, and what it found that no check had
