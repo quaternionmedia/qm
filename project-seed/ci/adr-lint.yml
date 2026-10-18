@@ -56,9 +56,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          # Only the governance submodule, initialised below. `submodules: true`
+          # is all-or-nothing: a project with a private submodule the runner
+          # has no credential for fails the checkout before the lint runs.
+          submodules: false
           # Full history: the append-only check diffs against the base.
           fetch-depth: 0
+
+      # Not `--depth 1`: the append-only check diffs `adr/` between the base
+      # commit's pin and this one's, and a depth-1 clone holds only this pin.
+      # The first pull request that moves a pin would fail with `bad object`.
+      - name: Check out the governance submodule only
+        run: git submodule update --init "$QM_SUBMODULE"
 
       - uses: actions/setup-python@v5
         with:
