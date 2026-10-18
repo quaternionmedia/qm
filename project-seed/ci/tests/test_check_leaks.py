@@ -50,12 +50,12 @@ def kinds(repo: Path) -> list[str]:
     return [row["kind"] for row in found]
 
 
-# --- the three that were actually found --------------------------------------
+# --- home paths, share links and archive paths --------------------------------
 
 
 def test_a_home_path_names_the_account(repo: Path):
-    """THE ONE THIS EXISTS FOR. Found in three repositories on 2026-08-23: a
-    documented config, two screenshots, and a pasted traceback.
+    """An account name in a home directory, in a documented config, a
+    screenshot or a pasted traceback.
 
     Mutation: drop the home-path pattern and this fails.
     """
@@ -89,10 +89,9 @@ def test_a_placeholder_account_is_fine(repo: Path):
 
 
 def test_a_rest_route_is_not_a_home_directory(repo: Path):
-    """**THE FALSE POSITIVE THAT WOULD HAVE KILLED THIS CHECK.**
-    `api.github.com/users/octocat/repos` matched while the pattern was
-    case-insensitive. A check that fires on every GitHub URL is one people turn
-    off, and then it catches nothing at all.
+    """`api.github.com/users/octocat/repos` is not a home directory: the
+    pattern is case-sensitive, because a check that fires on every GitHub URL
+    is one people turn off.
 
     Mutation: make the pattern case-insensitive again and this fails.
     """
@@ -102,8 +101,8 @@ def test_a_rest_route_is_not_a_home_directory(repo: Path):
 
 def test_the_export_format_is_not_somebody_s_disk(repo: Path):
     """`conversations.json` names a format. `qmcp threads import
-    <conversations.json>` is a command somebody has to be able to write down,
-    and it appeared nine times in the repository whose job is importing it.
+    <conversations.json>` is a command somebody has to be able to write
+    down.
 
     Mutation: match the bare filename and this fails.
     """
@@ -139,8 +138,8 @@ def test_a_stated_reason_allows_a_deliberate_example(repo: Path):
 
 
 def test_an_exemption_is_reported_rather_than_silent(repo: Path, capsys):
-    """**A CARVE-OUT THAT PRINTS NOTHING IS INDISTINGUISHABLE FROM A RULE
-    NOBODY WROTE.** Silencing this check must stay visible.
+    """A carve-out that prints nothing is indistinguishable from a rule
+    nobody wrote, so the exemption count is printed.
 
     Mutation: stop printing the exemption count and this fails.
     """
@@ -164,8 +163,8 @@ def test_a_marker_with_no_reason_does_not_excuse_anything(repo: Path):
 
 
 def test_a_finding_is_never_printed_in_full(repo: Path, capsys):
-    """**A SWEEP THAT ECHOES WHAT IT FOUND HAS PUBLISHED IT A SECOND TIME**,
-    into a terminal and whatever reads that terminal.
+    """A sweep that echoes what it found publishes it a second time, into a
+    terminal and whatever reads that terminal.
 
     Mutation: print the match instead of `redact(match)` and this fails.
     """
@@ -183,9 +182,8 @@ def test_redaction_keeps_enough_to_recognise():
 
 
 def test_a_clean_run_states_its_denominator(repo: Path, capsys):
-    """`clean` against four files and `clean` against four hundred are the same
-    word and not the same claim. `check_private_names.py` once knew 2 names of
-    34 and reported `clean` throughout.
+    """`clean` against four files and `clean` against four hundred are the
+    same word and not the same claim, so the file count is printed.
 
     Mutation: drop the file count and this fails.
     """
@@ -243,7 +241,7 @@ def test_placeholders_are_lowercase_so_the_comparison_works():
 
 
 def test_a_personal_directory_used_as_a_path_is_a_finding(repo: Path):
-    """Found 2026-09-20 in a handoff naming where two clones sat on one disk.
+    """A handoff naming where two clones sit on one disk.
 
     Mutation: drop the workstation-layout pattern and this fails on the kind.
     """
@@ -261,7 +259,7 @@ def test_an_ide_projects_folder_used_as_a_path_is_a_finding(repo: Path):
 def test_the_word_documents_in_prose_or_a_route_is_not_a_path(repo: Path):
     """`the Documents folder` says where a thing is by name and not by path;
     `api/documents/` is a route; a heading followed by an escape in source is
-    neither. All three matched the first draft of the pattern."""
+    neither."""
     commit(repo, "docs/page.md",
            "keep it out of the Documents folder; GET api/documents/42 returns it")
     # leaks: allow this file is the check's own fixtures
@@ -270,7 +268,7 @@ def test_the_word_documents_in_prose_or_a_route_is_not_a_path(repo: Path):
 
 
 def test_a_session_scratch_path_is_a_finding(repo: Path):
-    """Found 2026-09-20 in a ledger entry naming a script in a scratch space.
+    """A ledger entry naming a script in a scratch space.
 
     Mutation: drop the session-scratch pattern and this fails on the kind.
     """

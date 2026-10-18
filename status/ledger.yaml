@@ -1,17 +1,15 @@
 # The ledger: every action, what it was predicted to do, and what it cost.
 #
 # Read by `ci/ledger.py`. Appended to as work happens, not reconstructed
-# afterwards -- though the first entries below were, because the protocol was
-# adopted mid-session and pretending otherwise would be the first thing it
-# exists to catch. Entries marked `reconstructed: true` are the assistant's
-# account of its own earlier actions and carry the reliability of a memory
-# rather than a record.
+# afterwards. Entries marked `reconstructed: true` were written after the
+# action, as the producing tool's account of its own earlier actions, and carry
+# the reliability of a memory rather than a record.
 #
-# `projected_impact` is written BEFORE acting. That is the whole mechanism: a
-# prediction made after the outcome is known is not a prediction.
+# `projected_impact` is written before acting: a prediction made after the
+# outcome is known is not a prediction.
 #
-# `outcome_matched_projection: false` is not a defect. An honest miss is worth
-# more than a vague hit. The defect is a closed entry with no outcome.
+# `outcome_matched_projection: false` is not a defect; a miss stated plainly is
+# worth more than a vague hit. The defect is a closed entry with no outcome.
 #
 # `tool` names who produced the entry, resolved against ci/tool-registry.yaml.
 # It is required on every entry, not only the ones recording a failure: tool

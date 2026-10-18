@@ -89,13 +89,9 @@ diff it leaves in this repository is theirs to review. Its refresh path is
 deliberately outside its renderer, so the no-commands-in-a-view rule holds
 there too.
 Its `docs/governance.md` carries the prep. **Both documents are on `main`**, and
-on nine of the twelve `project/*` branches — so for most projects the vendored
-path now resolves. The three that do not carry them are `project/dossier`,
-`project/private-34` and `project/streaming-infrastructure`, each of which is tens
-of commits behind; a reader pinned to one of those still needs pointing at a
-corpus checkout, and a propagation fixes it. This paragraph said *neither*
-document was on `main`, which was true only until the change adding them landed
-on 2026-08-10.
+on every `project/*` branch that has taken a propagation since; a reader pinned
+to a branch that is behind still needs pointing at a corpus checkout, and a
+propagation fixes it.
 
 In **every other project** — nothing. The documents describe all of them and
 are generated and stored only here. Looking for a dashboard in `alfred` or
@@ -103,7 +99,7 @@ are generated and stored only here. Looking for a dashboard in `alfred` or
 something is misconfigured.
 
 The budgets differ because the things differ. Pull request slots turn over in
-hours — six sessions produced eight in a day — so a figure from yesterday
+hours, so a figure from yesterday
 describes an organisation that no longer exists. Adoption artifacts move when
 somebody merges a propagation, which is weekly at best.
 
@@ -123,7 +119,7 @@ Three artifacts, and the separation is the whole design:
 
 `ci/harness_status.py` → `ci/harness_dashboard.py --format html|md` is the
 worked example; `ci/governance_status.py` → `ci/governance_render.py` is the
-one it copied. `ci/disk_status.py` → `ci/disk_dashboard.py` is the third, and
+second. `ci/disk_status.py` → `ci/disk_dashboard.py` is the third, and
 it carries a fourth artifact the other two do not — see below.
 
 **A renderer may not run a command.** A view that can shell out is a second
@@ -222,8 +218,8 @@ change.
 command a human runs), `destructive` (nothing comes back). An entry with no tier
 is a policy error and both tools refuse the file rather than assuming one. The
 tiers are a **ratchet**: `--allow rebuilt` permits refetched too, so there is no
-invocation that empties the recycle bin while sparing a download cache — which
-is the shape every cleanup script grows into, one urgent afternoon at a time.
+invocation that empties the recycle bin while sparing a download cache, which
+is the shape a cleanup script otherwise grows into.
 
 **A third tool acts, and it is the smallest.** `ci/disk_reclaim.py` is a dry run
 unless `--apply` is passed, and no policy key, environment variable or config
@@ -263,14 +259,13 @@ matches its schema, and renders. Refreshing is a human or agent action.
 ## The failure this convention is written against
 
 A governance dashboard does not report the wrong answer. It draws a reassuring
-picture of one, and the picture stops people checking. Every rule above is one
-of the four ways that has happened here: an absent document rendered as an empty
-page, an unknown rendered as a blank cell, a stale document rendered as a
-current one, and a repository with drift rendered identically to one without.
+picture of one, and the picture stops people checking. Each rule above answers
+one way it does so: an absent document rendered as an empty page, an unknown
+rendered as a blank cell, a stale document rendered as a current one, and a
+repository with drift rendered identically to one without.
 
 So: **every signal needs a fixture in which it reports bad**, and after writing
 that fixture, break the renderer in the way it names and confirm the test
-fails. Six inert tests were found that way while these two dashboards were
-built — including one that matched a phrase a *different section of the same
-page* also produces, and would have passed against a renderer with the check
-removed entirely.
+fails. A test that matches a phrase a *different section of the same page* also
+produces passes against a renderer with the check removed entirely, and only
+breaking the renderer shows it.

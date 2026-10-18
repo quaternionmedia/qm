@@ -1,31 +1,25 @@
-/* A glossary link is a hint, not a destination.
- *
- * THE BRIEF WAS "A VERY SLIGHT DIFFERENCE IN COLOUR WITHOUT AN UNDERLINE, BUT
- * I AM AFTER THE ACCESSIBILITY", AND THE TWO HALVES TURN OUT TO BE IN CONFLICT
- * ON ONE THEME. The conflict is arithmetic, so it was measured rather than
- * argued.
+/* A glossary link is a hint, not a destination: a slight difference in colour
+ * and a dotted rule, accessible on both themes.
  *
  * WCAG 1.4.1 allows a colour-only link in body text when the colour clears 3:1
  * against the surrounding text and a non-colour cue appears on hover and focus.
  * On the light theme that is reachable. On `slate` it is not:
  *
  *   body text vs background   light 16.10:1   dark 12.28:1
- *   a colour clearing BOTH >= 3:1 against body text
+ *   a colour clearing both >= 3:1 against body text
  *   and >= 4.5:1 against the background, on slate:   none exists
  *
- * Searched exhaustively over the sRGB cube. Body text there is already near
- * white, so a colour far enough from it to be distinguishable is too dark to
- * be readable against the background. No shade satisfies both.
+ * Body text there is near white, so a colour far enough from it to be
+ * distinguishable is too dark to be readable against the background; over the
+ * whole sRGB cube, no shade satisfies both.
  *
- * SO THE CUE IS PERSISTENT, AND THAT BUYS BACK THE SUBTLETY. Once a dotted
- * underline carries the "this is a link" information, colour is no longer
- * doing accessibility work -- it only has to stay readable (4.5:1 against the
- * background). The difference in colour can therefore be *slighter* than the
- * brief hoped for, not louder.
+ * So the cue is persistent. A dotted underline carries the "this is a link"
+ * information, and colour does no accessibility work: it only has to stay
+ * readable (4.5:1 against the background), so the difference in colour can be
+ * slight.
  *
- * A 1px dotted rule at 60% opacity is a long way from "a page full of blue
- * underlines": it is the treatment `<abbr>` has used for decades precisely
- * because it reads as a hint. It becomes solid on hover and focus.
+ * A 1px dotted rule at 60% opacity is the treatment `<abbr>` uses, and reads as
+ * a hint rather than a link. It becomes solid on hover and focus.
  *
  * ci/tests/test_glossary_contrast.py holds the numbers and fails if either
  * theme drifts under them.
@@ -33,7 +27,7 @@
 
 :root {
   /* Light: a slight shift from near-black body text toward the theme's ink.
-     It no longer has to clear 3:1 against the body -- the dotted rule does
+     It does not have to clear 3:1 against the body -- the dotted rule does
      that work -- so it can be quiet. */
   --qm-glossary-ink: #29527a;
   --qm-glossary-rule: rgba(41, 82, 122, 0.6);
@@ -48,8 +42,8 @@
   color: var(--qm-glossary-ink);
 
   /* No `text-decoration` at rest: a text-decoration underline sits on the
-     baseline and reads as a full link. A dotted border sits lower, is
-     lighter, and is what the brief was reaching for. */
+     baseline and reads as a full link. A dotted border sits lower and is
+     lighter. */
   text-decoration: none;
   border-bottom: 1px dotted var(--qm-glossary-rule);
 
@@ -65,7 +59,7 @@
 }
 
 .glossary-term:focus-visible {
-  /* Keyboard focus is the one that must never be subtle. */
+  /* Keyboard focus is never subtle. */
   outline: 2px solid var(--qm-glossary-ink);
   outline-offset: 2px;
 }

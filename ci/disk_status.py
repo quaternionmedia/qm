@@ -7,21 +7,20 @@ writes a document, and a renderer that reads only the document. See
 ci/harness_status.py and ci/harness_dashboard.py for the worked example, and
 handbook/generated-documents.md for the convention itself.
 
-EVERY FACT HERE IS MACHINE-SCOPED, WHICH CHANGES ONE RULE
+Every fact here is machine-scoped, which changes one rule.
 
 status/harness.yaml is mostly an organisation fact with a `local` layer bolted
 on, so it has a `--no-local` flag and a committed copy. This document has no
 such half. Free space on C:, the size of somebody's Docker disk, the state of a
 browser cache -- none of it is true for anyone but the person who ran it, and a
-committed copy would be one machine's Tuesday presented as an org fact that
-every reader afterwards inherits.
+committed copy would present one machine's moment as an org fact.
 
 So this tool refuses to write anywhere inside the corpus. Not by default, and
 not unless a flag is passed: always. What is committed is the policy the
 document is measured against, in ci/disk-policy.yaml, which is the same on
 every machine and is the thing worth reviewing.
 
-UNKNOWN IS A VALUE
+Unknown is a value.
 
 Any target this tool could not measure is written `{"unknown": "<reason>"}` --
 never omitted, never zero. A cache behind a permission error must not render
@@ -29,7 +28,7 @@ like a cache that is empty: the first is an absence of evidence and the second
 reads as nothing to reclaim. Same spelling as the other two documents here, so
 one parser shape reads all three.
 
-NOTHING HERE DELETES ANYTHING
+Nothing here deletes anything.
 
 Measuring and reclaiming are separate tools on purpose. A collector that could
 also delete would be one flag away from freeing 90GB because a walk returned

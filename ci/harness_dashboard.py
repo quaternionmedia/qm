@@ -4,7 +4,7 @@
 Org-level tooling, copied nowhere. It reads a document and writes a page. That
 is the whole contract, and it is the same contract ci/governance_render.py has.
 
-WHAT THIS MAY NOT DO, and why the list matters more than the features:
+What this may not do, and why the list matters more than the features:
 
   - It may not run git, gh, or anything else. If a fact is not in the document,
     this renderer does not have it, and the fix is a change to
@@ -121,7 +121,7 @@ def stacked_ready(v: dict) -> str:
 
 
 def slot_cell(slots: dict) -> tuple[str, str]:
-    """(cell HTML, row class) for one repository's slot state."""
+    """(cell HTML, row class) for one repository's stack state."""
     reason = unknown_reason(slots)
     if reason is not None:
         return (
@@ -426,8 +426,8 @@ BODY = """<main>
 
 <div class="cards">
   <div class="card"><div class="n">{n_repos}</div><div class="l">repositories</div></div>
-  <div class="card"><div class="n s-ok">{n_compliant}</div><div class="l">within the rule</div></div>
-  <div class="card"><div class="n s-warn">{n_over}</div><div class="l">over the limit</div></div>
+  <div class="card"><div class="n s-ok">{n_compliant}</div><div class="l">within the stack rule</div></div>
+  <div class="card"><div class="n s-warn">{n_over}</div><div class="l">ready while stacked</div></div>
   <div class="card"><div class="n s-unknown">{n_unknown}</div><div class="l">could not read</div></div>
   <div class="card"><div class="n">{n_met} <span class="s-muted">/ {n_readable}</span></div><div class="l">v0.0.1 precondition</div></div>
   <div class="card"><div class="n s-unknown">{n_scaffolded}</div><div class="l">phase scaffolded</div></div>
@@ -441,7 +441,7 @@ BODY = """<main>
   <th scope="col">Phase <span class="s-muted">(claimed)</span></th>
   <th scope="col">v0.0.1 governance <span class="s-muted">(evidence)</span></th>
   <th scope="col">Open PRs</th>
-  <th scope="col">Slot</th>
+  <th scope="col">Stacks</th>
   <th scope="col">This machine</th>
 </tr></thead>
 <tbody>
@@ -450,7 +450,7 @@ BODY = """<main>
 </table>
 </div>
 <div class="legend">
-  <span><span class="pill p-ok">ok</span> measured, within the rule</span>
+  <span><span class="pill p-ok">ok</span> measured, within the stack rule</span>
   <span><span class="pill p-warn">warn</span> measured, needs a human</span>
   <span><span class="pill p-unknown">unknown</span> not measured — not the same as nothing wrong</span>
 </div>
@@ -460,14 +460,14 @@ BODY = """<main>
 made in <span class="mono">ci/workspace.yaml</span>, bordered by the record the
 document names; <span class="s-muted">unstated</span> is a repository nobody has
 placed, not one outside every family. Counts are over what could be read:
-<b>unreadable</b> repositories are in neither <b>within</b> nor <b>over</b>.</p>
+<b>unreadable</b> repositories are counted in neither column.</p>
 <div class="scroll">
 <table>
 <thead><tr>
   <th scope="col">Family</th>
   <th scope="col">Repositories</th>
-  <th scope="col">Within the rule</th>
-  <th scope="col">Over</th>
+  <th scope="col">Within the stack rule</th>
+  <th scope="col">Ready while stacked</th>
   <th scope="col">Unreadable</th>
   <th scope="col">Threads in flight</th>
   <th scope="col">Stalled</th>
@@ -512,8 +512,9 @@ about. Stalled means untouched for more than {stalled_after}h.</p>
 </div>
 {threads_note}
 
-<h2>Over the limit</h2>
-<p>One open pull request per repository, per contributor. Folding has an order:
+<h2>Ready while stacked</h2>
+<p>A pull request whose base is another open pull request's branch stays a draft
+until the one beneath it merges. Closing one in favour of another has an order:
 close the pull request first, then push its commits onto the branch that
 survives — pushing first merges it, with no review and no way to undo the
 record.</p>
@@ -740,7 +741,7 @@ def render_markdown(document: dict) -> str:
         f"precondition; {totals.get('phase_scaffolded')} phases scaffolded."
     )
     add("")
-    add("| Repository | Family (claimed) | Phase (claimed) | Source | v0.0.1 governance (evidence) | Slot | Release |")
+    add("| Repository | Family (claimed) | Phase (claimed) | Source | v0.0.1 governance (evidence) | Stacks | Release |")
     add("|---|---|---|---|---|---|---|")
     for repo in document.get("repositories", []):
         add(
@@ -765,10 +766,10 @@ def render_markdown(document: dict) -> str:
         "The table above, added up per family. A family is a claim a person "
         "made in `ci/workspace.yaml`; `unstated` is a repository nobody has "
         "placed, not one outside every family. Unreadable repositories are in "
-        "neither *within* nor *over*."
+        "neither column."
     )
     add("")
-    add("| Family | Repositories | Within the rule | Over | Unreadable | Threads in flight | Stalled |")
+    add("| Family | Repositories | Within the stack rule | Ready while stacked | Unreadable | Threads in flight | Stalled |")
     add("|---|---|---|---|---|---|---|")
     for f in by_family(document):
         add(

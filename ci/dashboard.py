@@ -6,38 +6,18 @@
     uv run qm dashboard --start web
     uv run qm dashboard --stop harness
 
-**ONE HARNESS, TWO FRONT ENDS.** `qmcp` holds the work and answers over HTTP.
-`codecartographer` is its front end on the web and `dossier` is its front end in
-a terminal. Neither front end owns anything: both read the same harness, and a
-figure that differs between them is a defect rather than a point of view. That
-is the whole reason two exist -- one front end can be wrong for a long time
-without anybody finding out.
+`qmcp` holds the work and answers over HTTP. `codecartographer` is its front end
+on the web and `dossier` its front end in a terminal; neither owns anything,
+and a figure that differs between them is a defect. `looksatwords` reads the
+conversations the harness archived and reports their topics.
 
-**REPORTING IS THE DEFAULT AND STARTING IS ASKED FOR.** Running this changes
-nothing unless `--start` names something. A command that quietly spawned three
-servers because somebody wanted to look at a status table is the kind of thing
-this corpus keeps ruling out: an act with consequences happens because a person
-asked for it, in those words, every time.
+Reporting is the default: nothing starts unless `--start` names it. `--start`
+detaches a server into its own process and records its pid; the terminal front
+end draws where it is run, so for it this prints the command instead.
 
-**A SERVER CAN BE DETACHED AND A TERMINAL FRONT END CANNOT.** `--start` backs
-the two servers off into their own processes and records where they went.
-`dossier dashboard` draws in the terminal it is run from, so this prints the
-command instead of pretending it can launch it somewhere you would see it.
-Offering `--start terminal` would produce a process drawing to a pipe nobody is
-reading, and report success.
-
-**THE PORTS ARE CONSTANTS, WHICH IS A MEMORY AID AND NOT A CLAIM.** pi for the
-harness, e for the web front end, phi for the terminal one, and root two for the
-prose reader. Nothing depends on the number; each is overridable, and the value
-here is only the default this corpus's own tooling looks on.
-
-**A FOURTH SURFACE READS THE HARNESS'S ARCHIVE RATHER THAN ITS TOPOLOGY.**
-`looksatwords` is not a front end onto the work; it reads the conversations the
-harness archived, on loopback, and reports their topics. It is here because it is
-one more server on the same workstation, and the collision this table exists to
-prevent is a collision between any two of them -- the web front end and half the
-Python world once shared a default, and the panel spent a week reading the wrong
-program.
+The ports are defaults, each overridable: pi for the harness, e for the web
+front end, phi for the terminal one, and root two for the prose reader.
+`docs/ref/ci/demos.md` describes the surfaces.
 """
 
 from __future__ import annotations
@@ -143,12 +123,10 @@ def repo_of(surface: Surface) -> Path | None:
 def listening(port: int, host: str = "127.0.0.1") -> bool:
     """Whether anything holds the port.
 
-    **THIS IS NOT `IS THE RIGHT THING RUNNING`.** Any process may hold a port,
-    and this cannot tell the harness from something else that grabbed 3141. It
-    is reported as "something is listening" for that reason -- a status table
-    claiming the harness is up because a port is busy would be a confident
-    wrong answer, and the ordinary cause is a stale process from an earlier
-    session.
+    This is not "is the right thing running": any process may hold a port, and
+    this cannot tell the harness from something else on 3141, so it reports
+    "something is listening". The ordinary cause of a surprise is a stale
+    process from an earlier session.
     """
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
         probe.settimeout(0.4)
@@ -204,8 +182,8 @@ def start(surface: Surface, repo: Path) -> tuple[bool, str]:
 def stop(name: str) -> tuple[bool, str]:
     """Stop what this command started, by the pid it recorded.
 
-    **BY RECORDED PID, NEVER BY PORT.** Stopping whatever holds a port would let
-    this kill a process it did not start and knows nothing about.
+    By recorded pid, never by port, so this never stops a process it did not
+    start.
     """
     found = running()
     if name not in found:

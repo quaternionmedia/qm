@@ -73,17 +73,15 @@ def test_a_numbered_file_that_is_ratified_passes(repo: Path):
 
 
 def test_a_ratified_record_that_was_never_renamed_is_caught(repo: Path):
-    """**THE HOLE THE FIRST RATIFICATION WOULD HAVE FALLEN INTO.**
-
-    Every other check keys on the filename: one asks whether a *numbered* file
-    is ratified, and the index check compares numbers taken from filenames.
-    A record whose Status was flipped to `Accepted` and whose file was never
-    renamed matched neither, so the lint reported clean — while the record read
-    as ratified to any person opening it.
+    """Every other check keys on the filename: one asks whether a *numbered*
+    file is ratified, and the index check compares numbers taken from
+    filenames. A record whose Status was flipped to `Accepted` and whose file
+    was never renamed would match neither while reading as ratified to any
+    person opening it.
 
     `docs/ref/ratification.md` documents the neighbouring failure, where the
-    index *was* updated; that one fires. This is the case where the ratifier
-    stopped one step earlier, and it was silent.
+    index *was* updated; this is the case where the ratifier stopped one step
+    earlier.
 
     Mutation: drop `check_ratified_are_numbered` from `main` and this fails.
     """
@@ -221,14 +219,10 @@ def test_an_index_row_with_no_record_is_caught(repo: Path):
 
 
 def test_an_unnumbered_record_missing_from_the_index_is_caught(repo: Path):
-    """**THE CASE THE NUMBER COMPARISON COULD NOT REACH.**
-
-    Numbers are assigned at ratification. Before the first one, no filename
-    carries a number and no row carries a number, so both sides of the number
-    comparison are empty and it reports clean whatever the index says. A corpus
-    can sit in that state for its whole life, which this one did: four records
-    were absent from its index, two of them the records behind charter
-    principles, while the check reported clean on every run.
+    """Numbers are assigned at ratification. Before the first one, no
+    filename and no row carries a number, so both sides of the number
+    comparison are empty and it reports clean whatever the index says. The
+    filename comparison catches a record missing from the index.
 
     Mutation: delete the `on_disk_files - in_index_files` loop from
     `check_index_matches_directory` and this test fails.
@@ -372,14 +366,10 @@ def test_the_annotation_survives_comment_stripping(repo: Path):
 
 
 def test_a_record_listed_only_by_title_in_the_drafts_line_is_listed(repo: Path):
-    """**THE SEED'S OWN CONVENTION, WHICH THE TABLE-ONLY CHECK REJECTED.**
-
-    `project-seed/adr/README.md` ships a `Drafts in flight (numberless, by
+    """`project-seed/adr/README.md` ships a `Drafts in flight (numberless, by
     title): ---` line and tells a project to list unratified drafts there;
-    numbers reach the table at ratification. Reading only the table failed
-    every project that followed the template it was given, and it was caught on
-    a branch whose commit message said "and put it in the index" -- because
-    they had.
+    numbers reach the table at ratification. A record listed only there is
+    listed.
 
     Mutation: drop the `listed_by_title` set from
     `check_index_matches_directory` and this fails.
@@ -430,10 +420,9 @@ def test_every_h1_prefix_this_estate_writes_yields_the_same_title(repo: Path, h1
 
 
 def test_a_title_appearing_as_a_mere_substring_is_not_listed(repo: Path):
-    """**THE WALK-AROUND THE ADVERSARIAL PASS FOUND.** A record titled "The"
-    passed against an index whose prose merely contained the word. A title
-    counts only when a whole segment -- a bullet, or one semicolon-separated
-    part of the drafts line -- equals it.
+    """A record titled "The" is not listed by an index whose prose merely
+    contains the word: a title counts only when a whole segment (a bullet, or
+    one semicolon-separated part of the drafts line) equals it.
 
     Mutation: compare by containment instead of segment equality and this
     fails.

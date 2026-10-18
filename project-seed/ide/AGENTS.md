@@ -89,6 +89,7 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
    (`governance/qm/handbook/async-contract.md` §1).
    `.github/workflows/one-pr-check.yml` refuses a ready stacked PR; run
    `governance/qm/project-seed/ci/check_one_pr.py` before you open anything.
+   One active stack at a time is the habit to aim for, never a limit.
    **The pull request body speaks as the contributor, to the world.** It is
    posted under a human's account and addresses nobody — a question or a
    handling instruction for the person who asked belongs in the session,

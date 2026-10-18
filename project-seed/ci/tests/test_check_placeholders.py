@@ -1,14 +1,8 @@
-"""The placeholder gate, which runs in every fork and had never been run here.
+"""The placeholder gate, which runs in every fork.
 
-**A SEED FILE THAT NOTHING TESTS IS THE WORST KIND.** Every forking project
-executes this out of the governance submodule, so a defect here is a defect in
-twelve repositories at once — and `uv run qm posture` found it by asking which
-modules no test executes. It had a docstring, a `main`, a place in the workflows,
-and nothing had ever watched it refuse or pass.
-
-THE TEST WORTH READING IS THE LAST ONE: a check that examined nothing must not
-report clean. Everything above it is the rule; that one is the rule about the
-rule, and it is the failure this whole corpus keeps rediscovering.
+Every forking project executes this out of the governance submodule, so a
+defect here is a defect in every project at once. The last test holds the rule
+about the rule: a check that examined nothing must not report clean.
 """
 
 from __future__ import annotations
@@ -39,7 +33,7 @@ def run(tmp_path: Path, seed_dir: Path, copy_dir: Path, *extra: str):
 
 
 def test_a_copy_that_kept_the_placeholder_is_refused(tmp_path: Path):
-    """THE ONE THAT MATTERS.
+    """A copy that kept the placeholder is refused.
 
     Somebody opens `adr/README.md` on their project, reads "this project's own
     dedicated branch (`project/<name>`)", and learns nothing about which branch
@@ -74,7 +68,7 @@ def test_a_copy_that_substituted_the_placeholder_passes(tmp_path: Path):
 
 
 def test_generic_prose_is_never_flagged(tmp_path: Path):
-    """**THE REASON THERE IS NO ALLOWLIST.** `records/` saying "a
+    """There is no allowlist: `records/` saying "a
     `project/<name>` branch is never merged into `main`" is a statement about
     the namespace, not about one project — and no seed file is its source.
 
@@ -156,12 +150,9 @@ def test_without_an_instance_it_still_says_what_to_do(tmp_path: Path):
 
 
 def test_directories_that_pair_with_nothing_are_refused(tmp_path: Path):
-    """**THE RULE ABOUT THE RULE.**
-
-    Point this at the wrong directories and every file pairs with nothing, so
-    every file passes, so the gate reports clean — while checking zero files.
-    That is the exact shape this corpus keeps rediscovering: a green result
-    measuring less than the reader thinks.
+    """Point this at the wrong directories and every file pairs with
+    nothing, so every file passes, so the gate would report clean while
+    checking zero files. It refuses instead.
 
     Mutation: drop the `paired == 0` branch and this fails.
     """
