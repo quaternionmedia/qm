@@ -248,7 +248,7 @@ projects:
       last_propagation:
         commit: "b43bca91d250e2db3598840d642b2e18f2ca1e39"
         committed_at: "2026-08-11T23:03:54Z"
-        subject: "Merge remote-tracking branch 'origin/main' into propagate/datafactorio-2026-08-11"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/private-33-2026-08-11"
     records:
       total: 1
       ratified: 0
@@ -398,7 +398,7 @@ projects:
       last_propagation:
         commit: "f2402c48d3f8806efedaf440eae690be168b004f"
         committed_at: "2026-08-11T23:03:59Z"
-        subject: "Merge remote-tracking branch 'origin/main' into propagate/factorio-server-2026-08-11"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/private-32-2026-08-11"
     records:
       total: 1
       ratified: 0
@@ -592,7 +592,7 @@ projects:
       last_propagation:
         commit: "387c25f4e246629df1c1f268e6cf2e8809027556"
         committed_at: "2026-08-11T23:04:02Z"
-        subject: "Merge remote-tracking branch 'origin/main' into propagate/loopwall-2026-08-11"
+        subject: "Merge remote-tracking branch 'origin/main' into propagate/private-34-2026-08-11"
     records:
       total: 4
       ratified: 0
