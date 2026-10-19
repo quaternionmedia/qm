@@ -10,11 +10,10 @@
 
 The original frontend shell (`web/src/components/codecarto/codecarto.ts`,
 741 lines, plus `codecarto.css`, 268 lines) hand-rolls panel layout, tab
-switching, and panel sizing as a monolithic Mithril component tree. Adding
-any new dockable panel means threading new state and DOM through that one
-file. Two independent local branches converged on the same fix in roughly
-the same window — direct evidence the old shell is a known pain point, not
-a stylistic preference.
+switching, and panel sizing as one monolithic Mithril component tree. Any
+new dockable panel means threading new state and DOM through that file.
+Two independent local branches converged on the same fix at about the same
+time: the old shell is a known pain point, not a stylistic preference.
 
 ## Decision
 
@@ -44,20 +43,20 @@ built at.
   extracts the per-panel config into `panel_registry.ts`.
 - GL2 pop-out windows are a known limitation: `registerComponentFactoryFunction`
   callbacks are bound to the *original* window's Mithril instance and are
-  not replayed in a popped-out window, so popped-out panels render only
-  the GL frame chrome with an empty content area. No panel offers to pop
-  out (`header.popout: false`, `default_layout.ts`), rather than fixing
-  the underlying binding gap. *Pending:* on `main` every stack's header
-  offers the pop-out control, and `popInOnClose: true` returns a panel to
-  the dock only when its empty pop-out window closes.
+  not replayed in a pop-out, which renders only the GL frame chrome with
+  an empty content area. Rather than fix that binding gap, no panel offers
+  to pop out (`header.popout: false`, `default_layout.ts`). *Pending:* on
+  `main` every stack's header offers the pop-out control, and
+  `popInOnClose: true` returns a panel to the dock only when its empty
+  pop-out window closes.
 - The header's restore-closed-panel mechanism (`hiddenDockPanels` /
   `restoreDockPanel` in `layout_context.ts`) used the structurally correct
-  `beforeComponentRelease` event but imported `LayoutManager` as a
-  type-only import while using it as a runtime value
-  (`LayoutManager.defaultLocationSelectors`) — every restore click threw a
-  `ReferenceError`, silently, since the shell's adoption. See *Generalize
-  dock panels into a registry; add a window-add menu* for the fix and the
-  detection method (a live console error, not static review).
+  `beforeComponentRelease` event but imported `LayoutManager` type-only
+  while using it as a runtime value (`LayoutManager.defaultLocationSelectors`),
+  so every restore click since the shell's adoption threw a
+  `ReferenceError`, silently. *Generalize dock panels into a registry; add
+  a window-add menu* has the fix and the detection method (a live console
+  error, not static review).
 
 ## Alternatives considered
 
@@ -66,8 +65,8 @@ built at.
    DOM/Mithril coordination for dock/undock/resize), not a matter of file
    organization.
 2. **Roll a custom minimal docking layout** — rejected: GL2 already solves
-   drag-to-dock, resizable splits, and stack/tab grouping; reimplementing
-   that well is a large surface area for a project this size to own.
+   drag-to-dock, resizable splits, and stack/tab grouping; doing that well
+   is a large surface for a project this size to own.
 
 ## Revision triggers
 

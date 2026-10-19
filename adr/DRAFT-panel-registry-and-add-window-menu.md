@@ -10,22 +10,21 @@
 
 The fixed 5-panel `DOCK_PANEL_CONFIGS` map was duplicated across
 `layout_context.ts` (config) and `golden_layout_shell.ts` (five
-near-identical `registerComponentFactoryFunction` calls plus a manual
-label switch). There was no way to add a panel except via the header
-restore buttons, which only ever appear for a panel the user had already
-closed — no "+" control, no right-click, no saved/default layouts.
+near-identical `registerComponentFactoryFunction` calls and a manual
+label switch). The only way to add a panel was a header restore button,
+which appears only for a panel the user has closed: no "+" control, no
+right-click, no saved or default layouts.
 
 Separately, the header's closed-panel restore button threw
 `ReferenceError: LayoutManager is not defined` on every click.
 `layout_context.ts` imported `LayoutManager` via `import type { ...,
-LayoutManager } from 'golden-layout'`. `import type` is erased entirely
-at compile time, but `restoreDockPanel()` reads
-`LayoutManager.defaultLocationSelectors` as a runtime value — a static
-property access with no binding left in the emitted JS. The bug predates
-this work and is the actual reason restore had never functioned.
-`vite build` transpiles per file without cross-module type checking, so
-the misuse compiled cleanly and shipped silently every time; it surfaced
-via a live browser console, not a source read.
+LayoutManager } from 'golden-layout'`, which is erased at compile time,
+but `restoreDockPanel()` reads `LayoutManager.defaultLocationSelectors`
+as a runtime value: a static property access with no binding left in the
+emitted JS. The bug predates this work and is why restore had never
+worked. `vite build` transpiles per file without cross-module type
+checking, so the misuse compiled cleanly and shipped silently; a live
+browser console showed it, not a source read.
 
 ## Decision
 
@@ -61,32 +60,31 @@ via a live browser console, not a source read.
 - Adding a dock panel is one entry in `panel_registry.ts`, not edits
   across three files.
 - Restore, add-window, and layout persistence all route through the same
-  `restoreDockPanel()` / `LayoutManager` calls, so there is one place to
-  reason about dock-panel placement rather than three.
+  `restoreDockPanel()` / `LayoutManager` calls, so dock-panel placement
+  is reasoned about in one place, not three.
 - `saveLayoutAsDefault()` / `resetLayoutToBuiltinDefault()` persist panel
-  arrangement and sizing only; they do not version or migrate the saved
-  config if `panel_registry.ts`'s panel ids change later. GL throws on a
-  component type nobody registered, so `loadInitialLayoutConfig()` checks
-  a saved layout against the registry first (`saved_layout.ts`): a stale
-  one referencing a removed panel id is forgotten, the built-in default
-  opens, and a toast says why. *Pending:* on `main` such a layout throws
+  arrangement and sizing only, and do not version or migrate the saved
+  config when `panel_registry.ts`'s panel ids change. GL throws on a
+  component type nobody registered, so `loadInitialLayoutConfig()` first
+  checks a saved layout against the registry (`saved_layout.ts`): one
+  naming a removed panel id is forgotten, the built-in default opens, and
+  a toast says why. *Pending:* on `main` such a layout throws
   on load and the page opens with no panels.
 - `npm run build` runs `tsc --noEmit` before `vite build`, and `tsc`
-  refuses a name imported with `import type` and used as a value; no CI
-  workflow runs it, so a pull request can carry a bug of this exact shape
-  with every check green. Adding a `tsc --noEmit` CI step is a worthwhile
-  follow-up; the header of `.github/workflows/pytest.yml` records the gap.
+  refuses a name imported with `import type` and used as a value. No CI
+  workflow runs it, so a pull request can carry a bug of this shape with
+  every check green. A `tsc --noEmit` CI step is a worthwhile follow-up;
+  the header of `.github/workflows/pytest.yml` records the gap.
 
 ## Alternatives considered
 
 1. **Rewrite the restore mechanism from scratch** instead of fixing the
-   import and building alongside it — rejected: the actual defect is a
-   one-line import correction; a rewrite would not have been guaranteed
-   to touch it and would have discarded a working design (registry +
-   menu + persistence) for no benefit.
+   import and building alongside it — rejected: the defect is a one-line
+   import fix; a rewrite was not guaranteed to touch it, and would discard
+   a working design (registry + menu + persistence) for no benefit.
 2. **Add a `tsc --noEmit` CI gate as part of this change** — deferred:
-   real value, but a build-pipeline change is a separate decision from
-   the panel-registry work and deserves its own review.
+   valuable, but a build-pipeline change is a separate decision from the
+   panel registry and deserves its own review.
 
 ## Revision triggers
 
