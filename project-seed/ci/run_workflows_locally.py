@@ -366,9 +366,14 @@ def main() -> int:
     current = subprocess.run(
         ["git", "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True
     ).stdout.strip()
+    # A pull request runs on its merge ref, `<number>/merge` on the runner, never on
+    # the default branch -- a step comparing GITHUB_REF_NAME with it relies on that.
+    # A local run has no number, so the head branch stands in. A push runs on `--ref`.
+    ref_name = f"{args.head_ref or current}/merge" if args.event == "pull_request" else args.ref
+    ctx["github.ref_name"] = ref_name
     gh_env = {
         "GITHUB_REPOSITORY": slug,
-        "GITHUB_REF_NAME": args.ref,
+        "GITHUB_REF_NAME": ref_name,
         "GITHUB_BASE_REF": args.base_ref,
         "GITHUB_HEAD_REF": args.head_ref or current,
         "GITHUB_SHA": head,
@@ -431,7 +436,10 @@ def main() -> int:
                 out_file = Path(tempfile.mkdtemp()) / "gh_output"
                 out_file.touch()
                 env = {**os.environ, "GITHUB_OUTPUT": str(out_file), **gh_env}
-                for block in (wf.get("env") or {}, step.get("env") or {}):
+                # The workflow's env, then the job's, then the step's, as a runner
+                # exports them: jobs that share their steps and differ only in env
+                # (a shard number, say) run as themselves.
+                for block in (wf.get("env") or {}, job.get("env") or {}, step.get("env") or {}):
                     resolved, dropped = step_env(block, ctx, outputs)
                     env.update(resolved)
                     for key, expr in dropped:
