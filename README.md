@@ -41,7 +41,7 @@ shortest useful thing to read after this.
 
 | You want to | Go to |
 |---|---|
-| Know what QM believes and why | [PRINCIPLES.md](PRINCIPLES.md) — the charter, eleven principles |
+| Know what QM believes and why | [PRINCIPLES.md](PRINCIPLES.md) — the charter and its principles |
 | Understand how the corpus works | [Overview](docs/about/overview.md) and [Architecture](docs/about/architecture.md) |
 | Read a specific decision | the index at the end of this file; each row links to its record |
 | Work here as a coding agent | [AGENTS.md](AGENTS.md) — read it before your first commit; start with `/cowork` |
@@ -101,6 +101,7 @@ qm/
 | — | [Open-license exclusion and upstream-contribution remediation](records/DRAFT-open-license-exclusion-and-upstream-remediation.md) | Proposed | 2026-06-09 |
 | — | [A disagreement is a delta](records/DRAFT-a-disagreement-is-a-delta.md) | Proposed | 2026-08-17 |
 | — | [Few integers in durable text](records/DRAFT-few-integers-in-durable-text.md) | Proposed | 2026-08-18 |
+| — | [Durable text states what is true, not how it came to be](records/DRAFT-durable-text-states-what-is-true.md) | Proposed | 2026-10-10 |
 | — | [Seams on standard protocols](records/DRAFT-seams-on-standard-protocols.md) | Proposed | 2026-06-09 |
 | — | [Build the seam, buy the engines](records/DRAFT-build-the-seam-buy-the-engines.md) | Proposed | 2026-06-09 |
 | — | [House stack](records/DRAFT-house-stack.md) | Proposed | 2026-06-09 |
@@ -135,6 +136,7 @@ qm/
 | — | [A family is bordered by what it drives](records/DRAFT-a-family-is-bordered-by-what-it-drives.md) | Proposed | 2026-08-28 |
 | — | [A loose end is carried or dismissed, and open is the absence of both](records/DRAFT-a-loose-end-is-carried-or-dismissed.md) | Draft | 2026-09-06 |
 | — | [The workstation, the agent and the conversation are not the organisation](records/DRAFT-what-is-not-the-organisation.md) | Proposed | 2026-09-20 |
+| — | [A semantic index is a recorded document, and the seam decodes it](records/DRAFT-a-semantic-index-is-a-recorded-document.md) | Proposed | 2026-10-12 |
 
 Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 

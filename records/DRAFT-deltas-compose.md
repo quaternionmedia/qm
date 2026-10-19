@@ -10,9 +10,9 @@
 
 ## Context
 
-A delta is a unit of work with a name, a lifecycle and an audit trail. That was
-enough while a delta meant one branch or one pull request. It stopped being
-enough as soon as work started arriving from places that are not repositories:
+A delta is a unit of work with a name, a lifecycle and an audit trail. That is
+enough while a delta means one branch or one pull request, and not once work
+arrives from places that are not repositories:
 a conversation that produced three decisions and one of them spans two
 projects; a branch whose reason lives in a thread; a question waiting on a
 person that blocks two unrelated strands at once.
@@ -29,14 +29,14 @@ decoration. Strands, crossings and the fact that a tangle is a property of the
 arrangement rather than a mistake in it — those are the three ideas this record
 needs, and each has a consequence a project-management tool usually gets wrong.
 
-The one that matters most: **most tools refuse a cycle.** `a` blocks `b` blocks
+**Most tools refuse a cycle.** `a` blocks `b` blocks
 `a` is rejected as invalid input. Real work produces those constantly, and what
 actually happens is that somebody deletes whichever relation the tool complained
 about — so the tool is now consistent and the record is now false. The
 organisation has lost the fact that the work is genuinely knotted, which was
 the most useful thing anybody knew about it.
 
-This corpus has already taken the same position once, in a different register:
+This corpus takes the same position in a different register:
 `records/DRAFT-a-disagreement-is-a-delta.md` refuses to resolve two views by
 fiat, because the losing value is discarded exactly when somebody would want to
 see it. A refused cycle is that failure again.
@@ -104,9 +104,8 @@ reported and never broken.**
 ## Consequences
 
 **A board can show work that is not a tree**, which is most of it. It can also
-show a knot nobody had noticed, and that is the payoff — a cycle between three
-strands across two repositories is a real finding and nothing before this could
-express it.
+show a knot no one has noticed — a cycle between three strands across two
+repositories is a real finding, and a tree cannot express it.
 
 **Cycles will appear, and some will be mistakes.** Distinguishing a mistake from
 a genuine tangle is a person's job, and it is a better job than the one the
@@ -140,9 +139,9 @@ meaning has to be the same in two repositories.
 rejection. It trades a true record for a consistent one, and it does the trade
 at the moment somebody is least able to weigh it.
 
-**Resolve `same-as` by merging into one row.** Rejected as lossy in the way this
-corpus keeps refusing: every document already citing the losing address now
-cites nothing.
+**Resolve `same-as` by merging into one row.** Rejected as lossy in the way
+`records/DRAFT-a-disagreement-is-a-delta.md` refuses: every document already
+citing the losing address then cites nothing.
 
 **Compute the container's phase from its parts.** Rejected. It is the single
 most requested convenience in a tool like this and the first place it will lie:

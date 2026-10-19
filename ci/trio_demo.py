@@ -5,50 +5,26 @@
     uv run qm demo --fixture --window dossier
     uv run qm demo --subject dossier --json
 
-**REACHED THROUGH `qm`, LIKE EVERY OTHER OPERATION HERE.** `uv run qm --help` is
-the whole surface, and a demo documented as `python ci/trio_demo.py` is a second
-entry point nobody finds -- it was written that way first, and the correction is
-the general one: a thing worth running that has no route needs the route added,
-not its path written down somewhere. The script still runs directly under a
-plain interpreter, because a fork has no `qm` to run.
+The demo is reached through `qm`. The script also runs directly under a plain
+interpreter, because a fork has no `qm` to run.
 
-**WHAT THIS SHOWS.** `qmcp` decides what a topology is and emits it as a
-document. `dossier` draws that document as text in a terminal. `codecartographer`
-draws the same document as a graph. The three then agree about what they drew --
-same boxes, same arrows, same edges nobody measured -- and the agreement is
-checked rather than eyeballed.
+`qmcp` emits a topology as a document, `dossier` draws it as text in a
+terminal, and `codecartographer` draws it as a graph. The demo checks that the
+windows agree about what they drew: the same boxes, the same arrows, and the
+same edges classified as unmeasured.
 
-**TWO MODES, AND THE DIFFERENCE IS WHAT IS BEING CLAIMED.**
+The default mode runs each window under its own project's interpreter and
+passes JSON on a pipe, which shows that the renderers agree about a document.
+`--over-http` asks the running harness and the running web front end instead,
+which shows the same of the deployed processes. A second act hands one thread
+to three readers, and a third has each core member read `families.json`.
 
-*Subprocess* (the default) runs each window's code under its own project's
-interpreter and passes JSON on a pipe. The repositories do not depend on each
-other and must not; a demo that imported all three would need one environment
-holding all three and would pass in a way no machine reproduces. This proves the
-two renderers agree about a document.
+Agreement is not likeness and not correctness: both windows draw a wrong
+topology faithfully. With a thread archive on the machine the relations come
+from it; without one the demo runs on a stated fixture and says so.
 
-*`--over-http`* asks the running harness for the topology and the running web
-front end what it drew. This proves the same thing **as deployed** -- and the
-distinction is not academic: for a while the harness served no topology route at
-all and the web front end had a renderer nothing routed to, so the subprocess
-demo passed green while nothing at either port could produce a picture. A
-contract can be sound and unreachable, and only one of these modes can tell.
-
-**WHAT AGREEMENT MEANS, AND WHAT IT DOES NOT.** Agreement is: both windows found
-the same boxes and arrows, and both classified the same edges as unmeasured. It
-is *not* that they look alike -- they must not, they are a terminal and a graph.
-And it is not that the topology is correct: `qmcp` could emit a wrong picture and
-both windows would faithfully draw it. This checks the seam, not the truth on
-either side of it.
-
-**THE DATA IS REAL WHERE IT CAN BE.** With a thread archive on the machine, the
-relations come from it and carry the weights `qmcp.threads.consolidate` measured.
-Without one, the demo runs on a stated fixture and says so -- a demo that
-silently fell back to invented data would be showing its own scaffolding, which
-is the failure `records/DRAFT-decision-record-discipline.md` §9 is about.
-
-`protocols/local-demo.md` is the protocol this follows. Its four rules: a file in
-the repository, a test runs it, it prints what it established, and it says what
-it could not.
+`docs/ref/ci/demos.md` describes the modes, the acts and what agreement means.
+`protocols/local-demo.md` is the protocol this follows.
 """
 
 from __future__ import annotations
@@ -65,10 +41,8 @@ from typing import Any
 HERE = Path(__file__).resolve().parent.parent
 SIBLINGS = HERE.parent
 
-# The demo is honest about a missing sibling rather than skipping in silence.
-# A trio demo that ran with two sides present and printed a cheerful summary
-# would be the exact shape this corpus keeps finding: a green result measuring
-# less than the reader thinks.
+# A missing sibling is reported, never skipped in silence: a summary printed
+# with two sides present measures less than a reader assumes.
 NEEDED = ("qmcp", "dossier")
 OPTIONAL = ("codecartographer",)
 
@@ -90,13 +64,10 @@ def _sibling_roots() -> list[Path]:
     """Where the other repositories are looked for.
 
     Beside this clone and one level up, by convention. `QM_SIBLINGS`
-    (os.pathsep-separated directories) **replaces** that when set, because a
-    git worktree is beside nothing -- its parents are wherever the worktree was
-    made -- and a session working from one found every sibling "not beside this
-    clone" while all four sat in the usual place. Replaces rather than extends:
-    two sources of truth for which repositories a demo may read is how an
-    allowlist stops being one, and the same call was made in codecartographer's
-    `/system` router the same week.
+    (os.pathsep-separated directories) **replaces** that when set, so a git
+    worktree, which sits beside nothing, can name where its siblings are. It
+    replaces rather than extends, so the list of readable repositories has one
+    source.
     """
     import os
 
@@ -124,10 +95,9 @@ def clone(name: str) -> Path | None:
     """Any git repository beside this clone, or None.
 
     The derived system monitor reads a repository's *contents*, and the
-    repository it is best aimed at -- moat, a homelab of charts and terraform
-    -- has no `pyproject.toml`. Resolving the derive target with `sibling`
-    reported it "not beside this clone" while it sat in the usual place, which
-    was this demo describing its own resolver rather than the machine.
+    repository it is best aimed at (moat, a homelab of charts and terraform)
+    has no `pyproject.toml`, so the derive target is resolved here rather than
+    with `sibling`.
     """
     for base in _sibling_roots():
         found = base / name
@@ -165,13 +135,9 @@ def _run(project: Path, script: str, *, subject: str = "",
 def interpreter(project: Path) -> str:
     """The python that has `project`'s dependencies installed.
 
-    **NOT `sys.executable`.** The first version of this demo ran every window
-    with the interpreter running the demo, which is the corpus's own repeated
-    finding: the scaffolding became part of the measurement. `qmcp` failed to
-    import `sqlmodel` and the demo reported that the harness could not emit a
-    topology -- a true sentence about the wrong process. Each repository has its
-    own environment because each has its own dependencies, and using one for all
-    three tests nothing about the seam.
+    Not `sys.executable`: each repository has its own environment because each
+    has its own dependencies, and running all three under one interpreter
+    tests nothing about the seam.
     """
     for relative in (Path(".venv") / "Scripts" / "python.exe",
                      Path(".venv") / "bin" / "python"):
@@ -184,9 +150,8 @@ def interpreter(project: Path) -> str:
 def _env(project: Path) -> dict[str, str]:
     """`project`'s own environment, with its sources reachable.
 
-    `uv run` would be the ordinary way in. It is not used here because the demo
-    must not resolve or install anything -- a demo that changed the machine to
-    make itself pass is not showing what the machine does.
+    Not `uv run`: the demo resolves and installs nothing, so it shows the
+    machine as it is.
     """
     import os
 
@@ -202,13 +167,9 @@ def _env(project: Path) -> dict[str, str]:
 
 # --- the same windows, as deployed ---------------------------------------------
 #
-# **THE DIFFERENCE BETWEEN THIS AND THE SUBPROCESS MODE IS THE WHOLE POINT.**
-# Running each window's code in a subprocess proves the two renderers agree
-# about a document. It says nothing about whether either is *reachable* -- and
-# for a while neither was: the harness served no topology at all and the web
-# front end had a renderer with no route, so a demo could pass while nothing at
-# either port could produce a picture. Over HTTP, every answer comes from a
-# process somebody could have opened in a browser.
+# The subprocess mode shows that the renderers agree about a document; it
+# cannot show that either is reachable. Over HTTP, every answer comes from a
+# process somebody could open in a browser.
 
 HARNESS_URL = "http://127.0.0.1:3141"
 WEB_URL = "http://127.0.0.1:2718"
@@ -249,15 +210,12 @@ def _harness_document(subject: str) -> tuple[dict | None, str]:
 def _figure(weight: float | None) -> str:
     """One edge's measurement, in the units every window prints it in.
 
-    **THE TWO COLUMNS WERE SHOWING DIFFERENT KINDS OF NUMBER FOR ONE EDGE.**
-    The terminal window prints the measurement (`17%`); this side printed only
-    `w=1.42`, which is a line thickness derived from that measurement by
-    `MIN_WIDTH + (MAX_WIDTH - MIN_WIDTH) * weight`. Both were correct and
-    neither was comparable, so a reader set the demo's whole premise -- a figure
-    that differs between the windows is a defect -- against two figures that
-    could not be compared at all.
+    The measurement as a percentage (`17%`), the unit the terminal window
+    prints, rather than the line thickness derived from it by
+    `MIN_WIDTH + (MAX_WIDTH - MIN_WIDTH) * weight`, so the two columns carry
+    comparable figures.
 
-    An unmeasured edge has no figure and must not borrow one: it says so,
+    An unmeasured edge has no figure and does not borrow one: it says so,
     rather than rounding `None` into a percentage that looks measured.
     """
     if weight is None:
@@ -268,21 +226,17 @@ def _figure(weight: float | None) -> str:
 def _web_window(document: dict, subject: str, kind: str) -> Window:
     """What the deployed web front end says it drew.
 
-    **ASKS THE SERVER, NOT THE LIBRARY.** `/topology/data` returns the widths
-    and styles that front end resolved. Importing its renderer here would test
-    the same code the subprocess mode already tests and would leave the route
-    -- the part that was missing -- unexercised.
+    Asks the server, not the library: `/topology/data` returns the widths and
+    styles that front end resolved, so the route is exercised as well as the
+    renderer the subprocess mode already tests.
     """
     query = f"subject={subject}" if subject else f"kind={kind}"
     envelope, why = _get(f"{WEB_URL}/topology/data?{query}")
     if envelope is None:
         return Window("codecartographer", False, detail=why)
 
-    # **THE PROJECT'S ENVELOPE, NOT A SHAPE INVENTED FOR THIS DEMO.** That
-    # front end answers `{status, message, results}` like every other route it
-    # serves. This demo read the inner document directly until the route was
-    # moved onto the house style, and then reported "could not draw it: None"
-    # -- which was this side failing to read, not that side failing to draw.
+    # That front end answers in its house envelope, `{status, message,
+    # results}`, like every other route it serves.
     status = int(envelope.get("status") or 200)
     found = envelope.get("results") or envelope
     if status >= 400:
@@ -402,12 +356,10 @@ print(json.dumps({"payload": tv.as_payload(view),
 '''
 
 
-# **THE COUNT IS READ OFF THE RENDERING, NOT OFF THE PAYLOAD.** The first
-# version of this counted `weight is None` in the document it had just been
-# handed -- so did the other window, and the two "agreed" because both had read
-# the same field. Nothing about either renderer was being tested. What each
-# window must report is what *it drew*, which for a terminal means counting the
-# glyph that actually reached the screen.
+# The count is read off the rendering, not off the payload: each window reports
+# what it drew, which for a terminal means counting the glyph that reached the
+# screen. Counting `weight is None` in the document would test neither
+# renderer.
 DOSSIER = r'''
 import json, os, sys
 from dossier import topology
@@ -458,16 +410,15 @@ WINDOWS: dict[str, str] = {"dossier": DOSSIER, "codecartographer": CODECARTO}
 
 # --- the second act: one thread, three readers ---------------------------------
 #
-# **A FOURTH WINDOW WOULD HAVE BEEN A LIE.** looksatwords does not draw a
-# topology, and its own adoption record (`project/looksatwords`, §3) says what it
-# does instead: qmcp names the handful of decisions a thread settled; dossier
-# carries those through a lifecycle; looksatwords reads the *turns* underneath
-# -- the ninety-seven that were not decisions -- and says what they were about.
-# Asking it to agree about boxes and arrows would test nothing it does.
+# looksatwords is a reader, not a window: it does not draw a topology. Its
+# adoption record (`project/looksatwords`, §3) says what it does instead: qmcp
+# names the decisions a thread settled, dossier carries those through a
+# lifecycle, and looksatwords reads the turns underneath and says what they
+# were about.
 #
-# So the second act takes ONE THREAD from the harness and hands it to three
-# readers, each under its own interpreter with JSON on a pipe, exactly as the
-# first act does with a topology:
+# The second act takes one thread from the harness and hands it to three
+# readers, each under its own interpreter with JSON on a pipe, as the first act
+# does with a topology:
 #
 #   qmcp           what the thread settled, and which shapes it could run now
 #                  given what this demo supplies (`orchestration.runnable_now`)
@@ -476,13 +427,10 @@ WINDOWS: dict[str, str] = {"dossier": DOSSIER, "codecartographer": CODECARTO}
 #                  (`readiness.survey`) -- the same "what do I need" model, from
 #                  the panel's side
 #
-# **WHAT AGREEMENT MEANS HERE.** The readers do not draw one thing, so they
-# cannot agree about a picture. What they can agree about is the seam: every
-# reader must report the same thread length and the same count of turns that
-# carry prose, because those are the two figures looksatwords' seam code says
-# are different facts and are the ones a truncation would silently change. And
-# looksatwords must emit no decision and no delta -- it reads turns and owns
-# nothing in the other two, which is the border its record draws.
+# Agreement here is about the seam, not a picture: every reader reports the
+# same thread length and the same count of turns that carry prose, the two
+# figures a truncation would change separately. looksatwords emits no decision
+# and no delta, which is the border its record draws.
 
 # One thread from the archive when there is one, else this. Stated, not
 # silent, and carrying one empty turn and one tool-shaped turn on purpose so
@@ -675,10 +623,9 @@ print(json.dumps({
 
 
 # The derived system monitor, if this checkout of codecartographer carries it.
-# **PRESENCE IS CHECKED ON DISK, NEVER ASSUMED**: it landed on a local branch,
-# and the sibling's checked-out tree may be older. When the module is absent
-# the demo says so and moves on; a reader that imported it anyway would be the
-# demo importing its own scaffolding.
+# Presence is checked on disk, because the sibling's checked-out tree may be
+# older than the module. When the module is absent the demo says so and moves
+# on.
 CODECARTO_DERIVED = r'''
 import json, os, sys
 from pathlib import Path
@@ -819,17 +766,15 @@ def _estate(args, say, result) -> int:
 GUTTER = 4
 
 # Below this, splitting produces two columns too narrow for either window's own
-# layout, and the comparison is worse than the sequence it replaced.
+# layout, and the comparison is worse than the sequence it replaces.
 MIN_COLUMN = 34
 
 
 def columns(windows: list["Window"], total: int) -> list[str]:
     """Every window's drawing, side by side, as lines.
 
-    **PADDED, NEVER TRUNCATED.** A line longer than its column overflows into
-    the gutter and is left alone. Cutting it would make this side the author of
-    what the other side drew, and a comparison whose own layout edits the
-    evidence cannot be used to find a disagreement.
+    Padded, never truncated: a line longer than its column overflows into the
+    gutter and is left alone, so the layout never edits what a window drew.
 
     Columns are equal width and rows are aligned by index, so the same edge sits
     on the same line in both -- which is what makes a difference visible rather
@@ -1183,17 +1128,13 @@ def _readers(args, say, result: dict) -> int:
 def _seam_problems(served: dict, found: dict) -> list[str]:
     """What looksatwords is held to: the seam's two counts, and the border.
 
-    **A FUNCTION, SO IT CAN BE FED A WRONG ANSWER.** The first version of this
-    check lived inline and its test asserted that the border's *message*
-    appeared in the source -- a mutation that emptied the check and kept the
-    string passed it. This takes the harness's document and the reader's and
-    returns the disagreements, so a test hands it an over-count and an
-    authored decision and watches both come back named.
+    Takes the harness's document and the reader's and returns the
+    disagreements, so a test can hand it an over-count and an authored decision
+    and see both named.
     """
     problems: list[str] = []
-    # THE SEAM'S TWO COUNTS, BOTH SIDES. They are different facts -- how long
-    # the thread is, and how much of it is prose -- and a truncation would
-    # move exactly one of them.
+    # The seam's two counts, both sides: how long the thread is, and how much
+    # of it is prose. A truncation moves exactly one of them.
     if found["turns_total"] != served["turns_total"]:
         problems.append(
             f"looksatwords read {found['turns_total']} turns and the "
@@ -1203,7 +1144,7 @@ def _seam_problems(served: dict, found: dict) -> list[str]:
             f"looksatwords found prose in {found['turns_with_text']} turns "
             f"and the harness counted {served['turns_with_text']} -- the "
             f"seam's second count disagrees")
-    # THE BORDER: it reads turns and owns nothing in the other two.
+    # The border: it reads turns and owns nothing in the other two.
     authored = [k for k in found if k in ("deltas", "decisions", "settled",
                                           "delta")]
     if authored:
@@ -1337,12 +1278,9 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(result, indent=2))
         return 1
 
-    # **THE WIDTH IS DECIDED ONCE, BEFORE EITHER MODE.** One view means one
-    # measure: columns of different widths would lose the row alignment that
-    # carries the whole comparison. It sits here rather than beside the drawing
-    # because both modes need it, and the first version computed it after the
-    # call that uses it -- which only broke with `--side-by-side`, so every
-    # other run looked fine.
+    # The width is decided once, before either mode, because both modes need
+    # it and columns of different widths would lose the row alignment the
+    # comparison rests on.
     terminal = shutil.get_terminal_size((100, 24)).columns
     column_width = max(MIN_COLUMN,
                        (terminal - GUTTER * (len(chosen) - 1)) // max(1, len(chosen)))
@@ -1408,9 +1346,8 @@ def main(argv: list[str] | None = None) -> int:
             for line in window.rendering.splitlines()[:14]:
                 say(f"    | {line}")
 
-    # **ONE COMPARISON, SHARED WITH THE HTTP MODE.** Two copies drift, and the
-    # one that drifts lenient is the one nobody notices. This had two until a
-    # test counted them.
+    # One comparison, shared with the HTTP mode, so neither copy can drift
+    # lenient.
     verdict = _agree(args, say, result, [w for w in windows if w.ok], terminal)
     if verdict != 0:
         return verdict
@@ -1430,10 +1367,10 @@ def main(argv: list[str] | None = None) -> int:
         if not found["drew"]:
             say(f"  - Anything about {name}: {found['why']}")
 
-    # **THE SECOND ACT RUNS AFTER THE FIRST HAS AGREED**, so a disagreement
-    # about the topology is never buried under a page of thread analysis. It
-    # shares the exit status: a reader that disagrees with the harness about
-    # the seam's counts is as much a defect as a window that drew a different
+    # The second act runs after the first has agreed, so a disagreement about
+    # the topology is never buried under a page of thread analysis. It shares
+    # the exit status: a reader that disagrees with the harness about the
+    # seam's counts is as much a defect as a window that drew a different
     # picture.
     if args.skip_readers:
         say("\n  - The second act was skipped (--skip-readers): nothing about "
@@ -1441,11 +1378,9 @@ def main(argv: list[str] | None = None) -> int:
     else:
         verdict = _readers(args, say, result)
         if verdict != 0:
-            # **THE VERDICT IS ONE FIELD.** The first act had already set
-            # `agreed` true, and a failing second act left it standing -- a
-            # mutation that made looksatwords over-count by one produced a
-            # JSON document with the disagreement in `problems` and `agreed:
-            # true` above it. Two answers to one question in one document.
+            # The verdict is one field: a failing second act clears the
+            # `agreed` the first act set, so the document never carries a
+            # disagreement in `problems` under `agreed: true`.
             result["agreed"] = False
             if args.as_json:
                 print(json.dumps(result, indent=2))
@@ -1463,10 +1398,9 @@ def main(argv: list[str] | None = None) -> int:
             if not found.get("read"):
                 say(f"  - Anything about {name}: {found['why']}")
 
-    # **THE THIRD ACT RUNS AFTER BOTH HAVE AGREED**, for the same reason the
-    # second waits on the first: the estate is the widest claim in the room,
-    # and a disagreement about a topology or a thread must not be buried
-    # under it.
+    # The third act runs after both have agreed, for the same reason the
+    # second waits on the first: the estate is the widest claim, and a
+    # disagreement about a topology or a thread is not buried under it.
     if args.skip_estate:
         say("\n  - The third act was skipped (--skip-estate): nothing about "
             "the estate.")

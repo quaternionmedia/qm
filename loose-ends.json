@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-28T21:21:17Z",
+  "generated_at": "2026-10-18T23:31:42Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -21,15 +21,15 @@
     "sources": {
       "harness": {
         "document": "status/harness.yaml",
-        "generated_at": "2026-09-20T17:17:01Z"
+        "generated_at": "2026-10-11T18:10:22Z"
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-28T21:21:16Z"
+        "generated_at": "2026-10-18T23:31:02Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-09-28T05:15:29Z"
+        "generated_at": "2026-10-18T16:48:17Z"
       }
     }
   },
@@ -44,15 +44,15 @@
     ]
   },
   "totals": {
-    "loose_ends": 134,
+    "loose_ends": 190,
     "by_kind": {
-      "blind-spot": 19,
-      "document-proposed": 36,
-      "document-unreviewed": 61,
+      "blind-spot": 20,
+      "document-proposed": 38,
+      "document-unreviewed": 69,
       "over-slot": 2,
-      "stalled-thread": 16
+      "stalled-thread": 61
     },
-    "open": 134,
+    "open": 190,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -131,14 +131,6 @@
     },
     {
       "kind": "blind-spot",
-      "address": "quaternionmedia/qm/doc/gate-one-pr-slot",
-      "title": "one-pr-slot cannot see",
-      "detail": "Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.",
-      "key": "blind-spot:quaternionmedia/qm/doc/gate-one-pr-slot",
-      "address_parses": true
-    },
-    {
-      "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-one-pr-voice",
       "title": "one-pr-voice cannot see",
       "detail": "The third person. \"Peter merges once the gates are green\" is a statement about a person and the tool cannot tell it from a sentence addressed to them without a pronoun, so it is allowed; and whether the body is honest, complete, or about the diff at all.",
@@ -187,6 +179,14 @@
     },
     {
       "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-stacked-drafts",
+      "title": "stacked-drafts cannot see",
+      "detail": "Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-stacked-drafts",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-symlink-integrity",
       "title": "symlink-integrity cannot see",
       "detail": "A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.",
@@ -207,6 +207,14 @@
       "title": "tag-determinism cannot see",
       "detail": "Whether the suite is deterministic. It refuses a run that announces nondeterminism; one that is nondeterministic and silent about it passes. It also says nothing about coverage: a suite asserting little passes as readily as one asserting much.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-tag-determinism",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-timeless-check",
+      "title": "timeless-check cannot see",
+      "detail": "A story told in neutral words, and a present-tense sentence that is no longer true; those are the reviewer's. Text already on the base, which `--all` reports and a sweep removes. Capitals in title case or spaced out, a phrase broken so that no line holds three of its words, and file types it does not read.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-timeless-check",
       "address_parses": true
     },
     {
@@ -263,6 +271,14 @@
       "title": "records/DRAFT-a-route-is-an-address.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-route-is-an-address",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-semantic-index-is-a-recorded-document",
+      "title": "records/DRAFT-a-semantic-index-is-a-recorded-document.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-semantic-index-is-a-recorded-document",
       "address_parses": true
     },
     {
@@ -343,6 +359,14 @@
       "title": "records/DRAFT-deltas-compose.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-deltas-compose",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-durable-text-states-what-is-true",
+      "title": "records/DRAFT-durable-text-states-what-is-true.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-durable-text-states-what-is-true",
       "address_parses": true
     },
     {
@@ -859,6 +883,14 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-30-a-guard-that-reads-prose",
+      "title": "perspectives/2026-08-30-a-guard-that-reads-prose.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-30-a-guard-that-reads-prose",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-consolidation-cycle",
       "title": "perspectives/2026-09-20-the-consolidation-cycle.md",
       "detail": "written, and no maintainer has looked at it",
@@ -911,6 +943,62 @@
       "title": "perspectives/2026-09-28-the-voice-loop-meets-the-field.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-28-the-voice-loop-meets-the-field",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-joe-and-vox-remembered",
+      "title": "perspectives/2026-10-10-what-joe-and-vox-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-joe-and-vox-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-pages-remembered",
+      "title": "perspectives/2026-10-10-what-the-corpus-pages-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-pages-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-tooling-remembered",
+      "title": "perspectives/2026-10-10-what-the-corpus-tooling-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-tooling-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-rest-of-qmcp-remembered",
+      "title": "perspectives/2026-10-10-what-the-rest-of-qmcp-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-rest-of-qmcp-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-topology-docstrings-remembered",
+      "title": "perspectives/2026-10-10-what-the-topology-docstrings-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-topology-docstrings-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-11-what-was-left-on-the-disk",
+      "title": "perspectives/2026-10-11-what-was-left-on-the-disk.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-11-what-was-left-on-the-disk",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-15-the-voice-set-landing",
+      "title": "perspectives/2026-10-15-the-voice-set-landing.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-15-the-voice-set-landing",
       "address_parses": true
     },
     {
@@ -989,68 +1077,77 @@
       "kind": "over-slot",
       "address": "quaternionmedia/ShowRunner",
       "title": "quaternionmedia/ShowRunner has a ready pull request stacked on another",
-      "detail": "subcontrabass's #12, #16 is ready but stacked on another pull request's branch; it stays a draft until that one merges",
+      "detail": "mrharpo's #39 is ready but stacked on copilot/add-cue-type-midi-control-changes (#22); it stays a draft until that one merges",
       "key": "over-slot:quaternionmedia/ShowRunner",
       "address_parses": true
     },
     {
       "kind": "over-slot",
-      "address": "quaternionmedia/moat",
-      "title": "quaternionmedia/moat has a ready pull request stacked on another",
-      "detail": "mrharpo's #3, #4 is ready but stacked on another pull request's branch; it stays a draft until that one merges",
-      "key": "over-slot:quaternionmedia/moat",
+      "address": "quaternionmedia/apothecary",
+      "title": "quaternionmedia/apothecary has a ready pull request stacked on another",
+      "detail": "subcontrabass's #36 is ready but stacked on build/slicer (#35); it stays a draft until that one merges",
+      "key": "over-slot:quaternionmedia/apothecary",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/Cuelist-python/pr/1",
+      "title": "Make the package installable, and parse the upload in memory",
+      "detail": "open on main at stage ready, idle 499 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/Cuelist-python/pr/1",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
       "address": "quaternionmedia/QLab-python/pr/2",
       "title": "\ud83c\udfad Theatremix",
-      "detail": "open on main at stage draft, idle 3,897 hours",
+      "detail": "open on main at stage draft, idle 4,402 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/QLab-python/pr/2",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/ShowRunner/pr/12",
-      "title": "feat: ShowProgrammer \u2014 meta intro video pipeline, live clock, async dispatch",
-      "detail": "open on main at stage ready, idle 3,710 hours",
+      "address": "quaternionmedia/ShowRunner/pr/30",
+      "title": "Integrate the programmer page, the UI test layer and ShowMidi over ShowLogger",
+      "detail": "open on main at stage draft, idle 84 hours",
       "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/12",
+      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/30",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/ShowRunner/pr/15",
-      "title": "\ud83d\udec2 Migration",
-      "detail": "open on main at stage ready, idle 3,594 hours",
-      "author": "mrharpo",
-      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/15",
-      "address_parses": true
-    },
-    {
-      "kind": "stalled-thread",
-      "address": "quaternionmedia/ShowRunner/pr/16",
-      "title": "feat(tests): NiceGUI page-level UI tests + Playwright E2E scaffolding",
-      "detail": "open on feat/meta-intro-video at stage ready, idle 3,530 hours",
+      "address": "quaternionmedia/ShowStopper/pr/1",
+      "title": "\ud83e\uddea Tests",
+      "detail": "open on main at stage ready, idle 53 hours",
       "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/16",
+      "key": "stalled-thread:quaternionmedia/ShowStopper/pr/1",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
       "address": "quaternionmedia/alfred/pr/113",
       "title": "Config",
-      "detail": "open on main at stage ready, idle 23,874 hours",
+      "detail": "open on main at stage ready, idle 24,379 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/alfred/pr/113",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/21",
+      "title": "Consolidate every unmerged line: the printer seam on the bench, the ring, one screen, the camera, personal data on the device, the bench drawn as it is",
+      "detail": "open on main at stage ready, idle 378 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/21",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
       "address": "quaternionmedia/benchmark/pr/7",
       "title": "fix: handle missing regions/ directory in compile-yaml",
-      "detail": "open on main at stage ready, idle 4,009 hours",
+      "detail": "open on main at stage ready, idle 4,514 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/benchmark/pr/7",
       "address_parses": true
@@ -1059,61 +1156,142 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/carlos/pr/17",
       "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
-      "detail": "open on they at stage ready, idle 696 hours",
+      "detail": "open on they at stage ready, idle 1,201 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/carlos/pr/17",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
+      "address": "quaternionmedia/datum/pr/2",
+      "title": "WP-3: firmware, the pre-HIL run, and a pinned enclosure",
+      "detail": "open on main at stage ready, idle 524 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/datum/pr/2",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/golfvs/pr/1",
+      "title": "The first run opens on defence, the range never ends, and it builds for four platforms (ADR-020 to ADR-030)",
+      "detail": "open on main at stage draft, idle 508 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/golfvs/pr/1",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
       "address": "quaternionmedia/holophonor/pr/11",
       "title": "\ud83d\udeb0 Pipewire",
-      "detail": "open on main at stage draft, idle 10,915 hours",
+      "detail": "open on main at stage draft, idle 11,420 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/holophonor/pr/11",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/23",
+      "title": "An instruction is taken by voice from the page into qmcp's inbox, and the recorded row is shown",
+      "detail": "open on main at stage ready, idle 185 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/23",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/26",
+      "title": "A take is transcribed as English, as one utterance, and toward the words it is expected to be",
+      "detail": "open on main at stage ready, idle 167 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/26",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/27",
+      "title": "The conversation can be answered by key or button, held open with tilde, and followed by ear",
+      "detail": "open on feat/short-answer-recognition at stage draft, idle 167 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/27",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/28",
+      "title": "A take is shown as it is written, its words can be struck, and every segment is kept as a datapoint",
+      "detail": "open on feat/turn-controls at stage draft, idle 166 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/28",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/29",
+      "title": "A listen says how sure it is of its transcript",
+      "detail": "open on feat/live-transcript at stage draft, idle 165 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/29",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/30",
+      "title": "A take is opened while a question is asked, and a key or speech over the question interrupts it",
+      "detail": "open on feat/take-confidence at stage draft, idle 163 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/30",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/31",
+      "title": "joe's own spoken words are declared once: start over, marking a take for tuning, and the voice's level",
+      "detail": "open on feat/barge-in at stage draft, idle 161 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/31",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/32",
+      "title": "The whole transcript is readable in a pane docked beside the piano roll, live and kept across a reload",
+      "detail": "open on feat/voice-vocabulary at stage draft, idle 160 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/32",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/33",
+      "title": "A take is shown on the visualiser: its recording on the transport, its words on the piano roll's timeline",
+      "detail": "open on feat/transcript-pane at stage draft, idle 160 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/33",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
       "address": "quaternionmedia/joe/pr/4",
       "title": "\ud83d\udd90 p5.js",
-      "detail": "open on main at stage ready, idle 14,992 hours",
+      "detail": "open on main at stage ready, idle 15,497 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/joe/pr/4",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/joe/pr/8",
-      "title": "Docs/onboarding hardening",
-      "detail": "open on main at stage ready, idle 4,815 hours",
-      "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/joe/pr/8",
-      "address_parses": true
-    },
-    {
-      "kind": "stalled-thread",
       "address": "quaternionmedia/leo/pr/61",
       "title": "\ud83d\udcc7 Setlist",
-      "detail": "open on main at stage ready, idle 5,075 hours",
+      "detail": "open on main at stage ready, idle 499 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/leo/pr/61",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/leo/pr/67",
-      "title": "feat: uv-driven CLI with comprehensive test suite",
-      "detail": "open on main at stage ready, idle 5,910 hours",
-      "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/leo/pr/67",
-      "address_parses": true
-    },
-    {
-      "kind": "stalled-thread",
       "address": "quaternionmedia/ludwig/pr/9",
       "title": "\ud83c\udf0c Universal",
-      "detail": "open on main at stage draft, idle 6,538 hours",
+      "detail": "open on main at stage draft, idle 7,043 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/ludwig/pr/9",
       "address_parses": true
@@ -1122,7 +1300,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/moat/pr/3",
       "title": "\ud83d\udca1 QM plan",
-      "detail": "open on main at stage draft, idle 721 hours",
+      "detail": "open on main at stage draft, idle 1,226 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/moat/pr/3",
       "address_parses": true
@@ -1131,18 +1309,333 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/moat/pr/4",
       "title": "\ud83c\udfde MoatNet",
-      "detail": "open on qm at stage draft, idle 303 hours",
+      "detail": "open on qm at stage draft, idle 808 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/moat/pr/4",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
+      "address": "quaternionmedia/private-36/pr/1",
+      "title": "Mount governance/qm against project/private-36, and measure unpushed against the right ref",
+      "detail": "open on main at stage ready, idle 524 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/private-36/pr/1",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/54",
+      "title": "Phases 10 and 11 are added to the roadmap: the spoken instruction on the local model, and habits into auto-approvals",
+      "detail": "open on main at stage ready, idle 174 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/54",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/55",
+      "title": "The roadmap states what the tree holds",
+      "detail": "open on docs/the-spoken-instruction at stage draft, idle 174 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/55",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/56",
+      "title": "A preflight command is added to the CLI as a route to the seed workflow runner",
+      "detail": "open on main at stage ready, idle 191 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/56",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/60",
+      "title": "vendor/vox is moved to the pause parameter",
+      "detail": "open on main at stage ready, idle 191 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/60",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/61",
+      "title": "An instruction inbox is added: an instruction is recorded against a project and nothing runs",
+      "detail": "open on chore/vox-pause-pin at stage draft, idle 175 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/61",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/62",
+      "title": "Acting on an instruction is added: consent on the human queue, a brief from qmcp's record, and the local model as a runtime",
+      "detail": "open on feat/instruction-inbox at stage draft, idle 171 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/62",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/63",
+      "title": "The outcome of an instruction is said back, and the offline check runs the loop end to end",
+      "detail": "open on feat/act-on-instruction at stage draft, idle 171 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/63",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/64",
+      "title": "The continuity demonstration runs on any runtime from cookbook instruct, the local runtime says when it is not ready, and one page demonstrates the loop in three tiers",
+      "detail": "open on feat/result-spoken at stage draft, idle 171 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/64",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/65",
+      "title": "One standing spoken conversation takes instructions, asks waiting questions, acts with consent and says what happened, started with the server by serve --converse",
+      "detail": "open on feat/live-model-demo at stage draft, idle 170 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/65",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/66",
+      "title": "The voice loop's tests and documents are reviewed against its code",
+      "detail": "open on feat/spoken-conversation at stage draft, idle 168 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/66",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/67",
+      "title": "The voice dev loop's demo page becomes its onboarding and cookbook",
+      "detail": "open on fix/voice-loop-review at stage draft, idle 168 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/67",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/68",
+      "title": "A closed question hints and offers its options, and repeat asks it again",
+      "detail": "open on docs/voice-dev-loop-guide at stage draft, idle 166 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/68",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/69",
+      "title": "The voice is heard, the consent is short enough to listen to, and setup checks the output",
+      "detail": "open on feat/answer-controls at stage draft, idle 166 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/69",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/70",
+      "title": "A confident instruction is agreed to tacitly unless interrupted, and its read-back word is agree",
+      "detail": "open on fix/audible-voice at stage draft, idle 165 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/70",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/71",
+      "title": "An instruction's take is hinted with the project names it is likely to carry",
+      "detail": "open on feat/tacit-agreement at stage draft, idle 164 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/71",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/72",
+      "title": "Spoken sentences are shortened to plain words and said without their syntax",
+      "detail": "open on feat/instruction-vocabulary at stage draft, idle 164 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/72",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/73",
+      "title": "Approvals and read-backs are said so they can be answered before they end, by key or by voice",
+      "detail": "open on feat/plain-speech at stage draft, idle 163 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/73",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/74",
+      "title": "The words the spoken loop acts on are declared in one vocabulary, with a healthier starting set",
+      "detail": "open on feat/barge-in at stage draft, idle 162 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/74",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/75",
+      "title": "The conversation tries the last instruction again, drops one on never mind, and says how it stands",
+      "detail": "open on feat/spoken-vocabulary at stage draft, idle 161 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/75",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/76",
+      "title": "Each core project's declared checks run by voice behind consent",
+      "detail": "open on feat/spoken-iteration at stage draft, idle 161 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/76",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/77",
+      "title": "The voice loop's next phases are planned, cleanup before new capabilities",
+      "detail": "open on docs/roadmap-current-state at stage draft, idle 66 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/77",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/78",
+      "title": "The live model tests are deselected by default and run with -m live_anthropic",
+      "detail": "open on main at stage ready, idle 66 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/78",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/79",
+      "title": "An advisory council is declared beside the deciding one and selected by arbiter_can_override false",
+      "detail": "open on main at stage ready, idle 66 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/79",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/80",
+      "title": "Topology designs refer to reusable components and to other designs, and their names are scoped to a project",
+      "detail": "open on feat/declared-checks at stage draft, idle 65 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/80",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/81",
+      "title": "Phrases are added by voice to the conversation's commands behind approval and kept per user",
+      "detail": "open on feat/declared-checks at stage draft, idle 66 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/81",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmcp/pr/82",
+      "title": "Saved topology designs are created, composed and run by voice behind approval, and a deciding council is refused before consent",
+      "detail": "open on feat/topology-components at stage draft, idle 65 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmcp/pr/82",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmetronome/pr/15",
+      "title": "Bump the governance pin to the project branch tip",
+      "detail": "open on main at stage ready, idle 499 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmetronome/pr/15",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/rad/pr/7",
+      "title": "A session can open entered at an item, by walking its path",
+      "detail": "open on main at stage ready, idle 196 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/rad/pr/7",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
       "address": "quaternionmedia/uPhonor/pr/29",
       "title": "\ud83d\udc0d Python",
-      "detail": "open on main at stage draft, idle 10,426 hours",
+      "detail": "open on main at stage draft, idle 10,931 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/uPhonor/pr/29",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/vox/pr/10",
+      "title": "A pause parameter is added to the engine contract, and listen sends it when the contract names it",
+      "detail": "open on main at stage ready, idle 191 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/vox/pr/10",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/vox/pr/11",
+      "title": "A listen can carry the words an answer is expected to be, and an announcement the question's options",
+      "detail": "open on feat/pause-parameter at stage draft, idle 168 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/vox/pr/11",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/vox/pr/12",
+      "title": "On Windows the platform voice plays through SAPI to the end, on an output that can be named",
+      "detail": "open on feat/answer-hints at stage draft, idle 166 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/vox/pr/12",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/vox/pr/13",
+      "title": "A listen keeps how sure the engine was, when its contract names where that is said",
+      "detail": "open on fix/sapi-playback at stage draft, idle 165 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/vox/pr/13",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/vox/pr/14",
+      "title": "A question is watched while it is asked, and its voice is stopped when it is interrupted",
+      "detail": "open on feat/listen-confidence at stage draft, idle 163 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/vox/pr/14",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/vox/pr/9",
+      "title": "HANDOFF.md is restamped at the current tips, with the vendor/vox submodule path and the joe voice setup microphone command",
+      "detail": "open on main at stage ready, idle 196 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/vox/pr/9",
       "address_parses": true
     }
   ]

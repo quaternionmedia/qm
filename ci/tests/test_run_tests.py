@@ -85,7 +85,7 @@ def test_the_base_arguments_are_the_three_that_were_chosen_and_nothing_else():
 
 
 def test_the_command_is_printed_before_it_runs(capsys, monkeypatch):
-    """**WHAT MAKES A DEFAULT VISIBLE RATHER THAN HIDDEN.**
+    """What makes a default visible rather than hidden.
 
     Every argument above is chosen for the operator. Printing the whole command
     is the only thing that keeps that from being a decision made behind them.

@@ -4,7 +4,7 @@ Every test builds its own documents in a temporary tree. The three that read the
 committed `curriculum/org.yaml` say so, and they are the ones that would catch a
 document being renamed out from under a unit.
 
-THE RECONCILE IS THE PART UNDER TEST. Its three properties pull against each
+The reconcile is the part under test. Its three properties pull against each
 other and each is asserted separately: accepted by default (optimistic), writes
 nothing without being told (optional), and refuses exactly three things and no
 fourth (governance-aware). A test that only checked the happy path would pass

@@ -11,7 +11,7 @@
 
 ## Context
 
-This corpus already says three things that turn out to be one thing.
+This corpus says three things that are one thing.
 
 - **§7** — check a signal before reading it; name one other thing that would
   produce the same output.
@@ -19,32 +19,30 @@ This corpus already says three things that turn out to be one thing.
   errors and the result describes your own setup.
 - **§10** — a guard is not finished until someone has tried to route around it.
 
-Each was written after a different failure, and each was read as advice about
-care. They are not. They are three symptoms of one fact: **reading a check does
+Each reads as advice about care, and is not. They are three symptoms of one fact: **reading a check does
 not tell you what it checks.** Only running it against a world where it should
 fail does.
 
-The evidence is a natural experiment nobody designed. Over one long session
-across four repositories, thirty distinct defects were found. They divide
-cleanly by *what found them*:
+Defects divide cleanly by *what finds them*:
 
-**Found by reading — code, tests, or documents, carefully, by somebody looking
-for defects:** the count is not zero, but every one was a defect of *shape* —
-a route that did not exist, a docstring that said three where the answer was
-five. Not one was a defect of *behaviour*.
+**Reading** — code, tests or documents, carefully, by somebody looking for
+defects — finds defects of *shape*: a route that does not exist, a docstring
+that says three where the answer is five. It does not find defects of
+*behaviour*.
 
-**Found by making something fail on purpose:** a guard that keyed on a branch
-name and passed on identical content renamed; an agreement check that compared
-sets, so three parallel edges compared equal to one; a palette marker with no
-mapping, silently becoming the shape its author had chosen it to differ from; a
-"does not create the file" test whose path had a missing parent, so it passed
-with its own guard removed; two browser tests that **skipped** and reported
-green; two windows that "agreed" because both read the same field.
+**Making something fail on purpose** finds the rest: a guard that keys on a
+branch name and passes on identical content renamed; an agreement check that
+compares sets, so three parallel edges compare equal to one; a palette marker
+with no mapping, silently becoming the shape it was chosen to differ from; a
+"does not create the file" test whose path has a missing parent, so it passes
+with its own guard removed; a browser test that **skips** and reports green;
+two windows that "agree" because both read the same field.
 
-Six of those were tests written *in that session, by the same author, to check
-those exact properties*. They were read after writing. They were wrong anyway.
+A test written by its author to check exactly such a property, and read after
+writing, can be wrong in exactly these ways. The Verification section gives the
+figures for one session at one commit.
 
-**The asymmetry is the finding.** Reading is good at absence and bad at
+**The asymmetry:** reading is good at absence and bad at
 falsehood. A missing route is visible on the page; a check that passes for the
 wrong reason looks exactly like a check that passes.
 
@@ -103,9 +101,9 @@ fire on the intended one, and a number would be gamed the way coverage is. The
 obligation here is per-guard and stated in prose next to the guard, which is
 cheaper and points at the right thing.
 
-**Say nothing and rely on the existing three sections.** Rejected on evidence:
-they were in force, in writing, accurately describing all six failures, during
-the session in which all six happened. The corpus's own `AGENTS.md` item 16
+**Say nothing and rely on the existing three sections.** Rejected: they can be
+in force, in writing, accurately describing a failure, while it happens (see
+Verification). The corpus's own `AGENTS.md` item 16
 says a decision that wins on precedence and loses on readership does not
 govern. Three sections in a long record lost on readership; one principle with
 a name may not.
@@ -113,9 +111,8 @@ a name may not.
 ## Consequences
 
 **A guard costs more to add.** Writing it, breaking it, watching it fail,
-restoring it — call it a few minutes. Against that: six of thirty defects in
-one session were guards that did not guard, and each was found later and more
-expensively.
+restoring it — call it a few minutes. Against that: a guard that does not
+guard is found later and more expensively.
 
 **Some existing guards are unproven and will stay so.** Nothing here reaches
 back over work already done. A guard nobody has broken is not a defect; it is an
@@ -123,8 +120,8 @@ unknown, and
 `records/DRAFT-a-knot-is-a-cycle-of-obligation.md` §2 is the corpus's rule for
 those: unknown is a value, never zero.
 
-**"The suite is green" becomes a weaker sentence.** It should be. Four green
-suites are what let every one of those six defects live for at least a round.
+**"The suite is green" becomes a weaker sentence.** It should be: a green suite
+is what lets a guard that does not guard live for at least a round.
 
 ## Verification
 

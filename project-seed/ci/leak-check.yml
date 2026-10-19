@@ -14,7 +14,7 @@
 # An editor named in prose, a process somebody saw, or a quotation is found by
 # a reader, and the check's own output says so.
 #
-# WHAT THIS FAILS, AND WHO CAN FIX IT
+# What this fails, and who can fix it
 #
 # It fails on a tracked file carrying one of those shapes, and prints the
 # finding redacted -- enough to recognise, never enough to use, because a
@@ -45,9 +45,15 @@ jobs:
   leaks:
     runs-on: ubuntu-latest
     steps:
+      # Only the governance submodule: `submodules: true` is all-or-nothing, and
+      # a project with a private submodule the runner has no credential for
+      # fails the checkout before the check runs.
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: false
+
+      - name: Check out the governance submodule only
+        run: git submodule update --init --depth 1 governance/qm
 
       - uses: actions/setup-python@v5
         with:
