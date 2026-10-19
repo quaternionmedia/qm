@@ -4,6 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-06-30 |
+| **Pends on** | codecartographer's `fix/shell-backports` reaching `main`; each *Pending* note says what `main` does until then |
 
 ## Context
 
@@ -20,14 +21,21 @@ a stylistic preference.
 Adopt Golden Layout 2.x (`golden-layout` npm package) as the primary
 application shell. `web/src/layout/golden_layout_shell.ts` is the
 top-level component; `codecarto.ts` is deleted entirely. Each dockable
-area (graph, file tree, source panel, graph settings, actions/plotbar) is
-registered as a GL component factory function
+area (graph, file tree, graph settings, actions/plotbar and the rest of
+`panel_registry.ts`) is registered as a GL component factory function
 (`glInstance.registerComponentFactoryFunction(panelId, ...)`), mounting a
 small dedicated Mithril component into the container GL gives it. Panel
 lifecycle hooks use GL2's `beforeComponentRelease` event (not `close`,
 which GL2 does not emit on `ComponentContainer` — confirmed by trial, and
 called out in an inline comment so it isn't "fixed" back to `close` later
-by someone trusting the more intuitive name).
+by someone trusting the more intuitive name); on release the shell
+unmounts the panel's Mithril root (`m.mount(container.element, null)`), so
+a closed panel stops drawing. GL follows its container's size by itself
+only when that container is `<body>`, so the shell sets
+`resizeWithContainerAutomatically` with a zero debounce interval, and the
+dock follows the window at once. *Pending:* on `main` a closed panel's root goes on
+redrawing into a detached element, and the dock keeps the size it was
+built at.
 
 ## Consequences
 
@@ -37,10 +45,11 @@ by someone trusting the more intuitive name).
 - GL2 pop-out windows are a known limitation: `registerComponentFactoryFunction`
   callbacks are bound to the *original* window's Mithril instance and are
   not replayed in a popped-out window, so popped-out panels render only
-  the GL frame chrome with an empty content area.
-  `popInOnClose: true` (`default_layout.ts`) works around this by
-  auto-returning panels when their pop-out closes, rather than fixing the
-  underlying binding gap.
+  the GL frame chrome with an empty content area. No panel offers to pop
+  out (`header.popout: false`, `default_layout.ts`), rather than fixing
+  the underlying binding gap. *Pending:* on `main` every stack's header
+  offers the pop-out control, and `popInOnClose: true` returns a panel to
+  the dock only when its empty pop-out window closes.
 - The header's restore-closed-panel mechanism (`hiddenDockPanels` /
   `restoreDockPanel` in `layout_context.ts`) used the structurally correct
   `beforeComponentRelease` event but imported `LayoutManager` as a
@@ -63,7 +72,7 @@ by someone trusting the more intuitive name).
 ## Revision triggers
 
 - GL2 ships a fix for the pop-out Mithril-binding gap, making the
-  `popInOnClose` workaround unnecessary.
+  workaround unnecessary.
 - Panel count or layout complexity grows enough that GL2's API surface
   becomes a bottleneck rather than a convenience.
 
