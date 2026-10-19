@@ -4,6 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-06-30 |
+| **Pends on** | codecartographer's `fix/shell-backports` reaching `main`; each *Pending* note says what `main` does until then |
 
 ## Context
 
@@ -21,12 +22,10 @@ LayoutManager } from 'golden-layout'`. `import type` is erased entirely
 at compile time, but `restoreDockPanel()` reads
 `LayoutManager.defaultLocationSelectors` as a runtime value — a static
 property access with no binding left in the emitted JS. The bug predates
-this work and is the actual reason restore has never functioned. This
-project's build (`vite build`, esbuild) transpiles per file without
-cross-module type checking, so the misuse compiled cleanly and shipped
-silently every time; it surfaced via a live browser console, not a
-source read (the `import type` runtime footgun is now a documented
-pattern in this project's implementation-patterns notes).
+this work and is the actual reason restore had never functioned.
+`vite build` transpiles per file without cross-module type checking, so
+the misuse compiled cleanly and shipped silently every time; it surfaced
+via a live browser console, not a source read.
 
 ## Decision
 
@@ -37,39 +36,46 @@ pattern in this project's implementation-patterns notes).
   Same registration-table pattern as `ParserRegistry` (backend) and the
   renderer registry (`renderers.ts`, frontend).
 - Fix the restore bug at its source: import `LayoutManager` as a value
-  (`import { LayoutManager } from 'golden-layout'`), keep `LayoutConfig`
-  as `import type` since it is genuinely type-only. `hiddenDockPanels` /
+  (`import { LayoutManager } from 'golden-layout'`), and keep
+  `import type` for names used only as types. `hiddenDockPanels` /
   `hideDockPanel` / `showDockPanel` / `restoreDockPanel` keep their
   existing shape — the defect was the import, not the surrounding logic.
-- Add a header "+" button and a right-click handler on the dock area, both
-  opening `AddPanelMenu` (`web/src/layout/components/add_panel_menu.ts`)
+- Add a header "+" button and a Ctrl+right-click handler on the dock area,
+  both opening `AddPanelMenu` (`web/src/layout/components/add_panel_menu.ts`)
   — a dropdown listing registered panels not currently in the layout
   (`LayoutContext.addablePanels()`), reusing `restoreDockPanel()` (it
   already handles "add if missing, show if hidden" in one method).
 - Add layout persistence: `saveLayoutAsDefault()` serializes
-  `LayoutManager.toConfig()` to `localStorage['cc:gl-layout:default']`;
+  `LayoutConfig.fromResolved(LayoutManager.saveLayout())`, the form
+  `loadLayout` reads, to `localStorage['cc:gl-layout:default']`;
   `loadInitialLayoutConfig()` is consulted on boot instead of always
   loading `DEFAULT_LAYOUT_CONFIG`; `resetLayoutToBuiltinDefault()` clears
-  the saved entry. These three actions live in `AddPanelMenu` under a
+  the saved entry. Save and reset live in `AddPanelMenu` under a
   "Layout" section, to avoid adding more header chrome than one button.
+  *Pending:* on `main` the save serializes `LayoutManager.toConfig()`,
+  Golden Layout's resolved form, which `loadLayout` cannot read, so the
+  next visit opens with no panels.
 
 ## Consequences
 
-- Adding a sixth dock panel is one entry in `panel_registry.ts`, not edits
+- Adding a dock panel is one entry in `panel_registry.ts`, not edits
   across three files.
 - Restore, add-window, and layout persistence all route through the same
   `restoreDockPanel()` / `LayoutManager` calls, so there is one place to
   reason about dock-panel placement rather than three.
 - `saveLayoutAsDefault()` / `resetLayoutToBuiltinDefault()` persist panel
-  arrangement and sizing only (`LayoutManager.toConfig()`); they do not
-  version or migrate the saved config if `panel_registry.ts`'s panel ids
-  change later — a stale saved layout referencing a removed panel id
-  simply won't place that panel on load (GL skips unresolvable component
-  types), not error.
-- No `tsc`-based type-check step exists in this repo's build or CI, so
-  `import type`-misused-as-value bugs of this exact shape can recur and
-  will not be caught by `vite build` alone. Adding a `tsc --noEmit` step
-  is a worthwhile follow-up, tracked separately.
+  arrangement and sizing only; they do not version or migrate the saved
+  config if `panel_registry.ts`'s panel ids change later. GL throws on a
+  component type nobody registered, so `loadInitialLayoutConfig()` checks
+  a saved layout against the registry first (`saved_layout.ts`): a stale
+  one referencing a removed panel id is forgotten, the built-in default
+  opens, and a toast says why. *Pending:* on `main` such a layout throws
+  on load and the page opens with no panels.
+- `npm run build` runs `tsc --noEmit` before `vite build`, and `tsc`
+  refuses a name imported with `import type` and used as a value; no CI
+  workflow runs it, so a pull request can carry a bug of this exact shape
+  with every check green. Adding a `tsc --noEmit` CI step is a worthwhile
+  follow-up; the header of `.github/workflows/pytest.yml` records the gap.
 
 ## Alternatives considered
 
