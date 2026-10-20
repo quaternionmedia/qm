@@ -1,9 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="110" viewBox="0 0 560 110" role="img" aria-label="the performer-display family and its members">
-<rect width="560" height="110" fill="none"/>
-<text x="14" y="28" font-family="monospace" font-size="14" font-weight="bold" fill="currentColor">performer-display</text>
-<text x="14" y="48" font-family="monospace" font-size="12" fill="currentColor">. joe</text>
-<text x="244" y="48" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="74" font-family="monospace" font-size="12" fill="currentColor">. leo</text>
-<text x="244" y="74" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="106" font-family="monospace" font-size="10" fill="currentColor" opacity="0.6">* governed  . not adopted</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="158" viewBox="0 0 560 158" role="img" aria-label="the performer-display family and its members">
+<style>text{font-family:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;fill:#141922}.mono{font-family:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace}.muted{fill:#536075}.panel{fill:#f3f4f7;stroke:#d5d9e2}.card{fill:#ffffff;stroke:#d5d9e2}.track{fill:#e8eaf0}.c-performer-display{fill:#5a43b5}.s-performer-display{stroke:#5a43b5}@media (prefers-color-scheme: dark){text{fill:#e7eaf1}.muted{fill:#9ba5b7}.panel{fill:#0d1118;stroke:#283143}.card{fill:#151b25;stroke:#283143}.track{fill:#1c2331}.c-performer-display{fill:#a693f3}.s-performer-display{stroke:#a693f3}}</style>
+<rect class="panel" x="0.5" y="0.5" width="559" height="157" rx="10"/>
+<rect class="c-performer-display" x="0.5" y="0.5" width="559" height="5" rx="2"/>
+<text class="mono muted" x="16" y="30" font-size="12">performer-display · within performing</text>
+<text class="c-performer-display" x="16" y="56" font-size="20" font-weight="700">the performer</text>
+<circle class="s-performer-display" cx="22" cy="76" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="80" font-size="13">joe</text>
+<text class="mono muted" x="276" y="80" font-size="12">not adopted</text>
+<circle class="s-performer-display" cx="22" cy="102" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="106" font-size="13">leo</text>
+<text class="mono muted" x="276" y="106" font-size="12">not adopted</text>
+<text class="mono muted" x="16" y="146" font-size="11">● governed   ○ not adopted</text>
 </svg>

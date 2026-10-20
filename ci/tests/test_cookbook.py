@@ -179,8 +179,53 @@ def test_build_reads_every_member_through_the_roster(tmp_path: Path, monkeypatch
 
     files = cookbook.build(tmp_path / "out")
 
-    assert set(files) == {"f.md", "f.svg", "README.md"}
+    assert set(files) == {"f.md", "f.svg", "README.md", "families.svg"}
     assert "| `thing` | no |" in files["f.md"]
     assert "| `gone` | no |" in files["f.md"]
     # The roster index, not the README's line list, reached every lookup.
     assert seen and all(isinstance(i, dict) and "thing" in i for i in seen)
+
+
+# --- the desk: every family in one picture -----------------------------------
+
+
+def _desk_document():
+    return {"families": [
+        {"name": "performing", "drives": "**a show** — the whole", "within": None,
+         "subfamilies": ["instruments"], "members": ["video"]},
+        {"name": "instruments", "drives": "**the sound** — loops", "within": "performing",
+         "subfamilies": [], "members": ["synth"]},
+        {"name": "irl", "drives": "**matter** — boards", "within": None,
+         "subfamilies": [], "members": ["board"]},
+    ], "unstated": ["somebody"]}
+
+
+def test_the_desk_draws_every_family_from_the_counts_it_is_given():
+    """Drawn from the same counts as the index table, so the two cannot
+    disagree; an inner family is drawn inside its outer one's frame."""
+    picture = cookbook.desk(_desk_document(),
+                            {"performing": (2, 1), "instruments": (1, 1), "irl": (1, 0)})
+    assert "<svg" in picture
+    for name in ("performing", "instruments", "irl"):
+        assert name in picture
+    assert "2 in all · 1 governed" in picture
+    assert "its own: video" in picture
+    assert "1 rostered repository states no family yet" in picture
+
+
+def test_the_desk_sets_no_name_in_capitals():
+    """A name is set as it is written. Mutation: upper-case `label` and this
+    fails."""
+    picture = cookbook.desk(_desk_document(),
+                            {"performing": (2, 1), "instruments": (1, 1), "irl": (1, 0)})
+    assert "text-transform" not in picture
+    assert ">the sound<" in picture and ">THE SOUND<" not in picture
+
+
+def test_a_meter_is_lit_by_the_share_governed():
+    lit = cookbook._strip(0, 0, 120, 300, "irl", "**matter**", 4, 2)
+    dark = cookbook._strip(0, 0, 120, 300, "irl", "**matter**", 4, 0)
+    count = lambda parts: sum(1 for p in parts if 'class="c-irl"' in p and "<rect" in p)
+    # The cap is one lit rectangle; the rest are the meter's lit segments.
+    assert count(dark) == 1
+    assert count(lit) > 1

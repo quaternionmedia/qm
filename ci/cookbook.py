@@ -135,40 +135,217 @@ def adopted_names() -> set[str]:
     return names
 
 
-def svg(family: str, members: list[dict]) -> str:
+# One hue per family, for light and dark, so a family keeps its colour on
+# every picture. A family missing here draws in the neutral, which is a reason
+# to add it rather than a fault. Lowercase throughout: a name is set as it is
+# written, never in capitals.
+HUES = {
+    "performing": ("#a85a0c", "#f2aa4c"),
+    "show-control": ("#b3305a", "#f0708f"),
+    "instruments": ("#0c7a76", "#43c6bf"),
+    "performer-display": ("#5a43b5", "#a693f3"),
+    "irl": ("#94551f", "#dd9b63"),
+    "infra": ("#55647a", "#98a7bc"),
+    "core": ("#2a61bd", "#74a8f6"),
+    "games": ("#327c47", "#73c886"),
+    "civic": ("#8a3f9e", "#cf8ce0"),
+}
+NEUTRAL = ("#536075", "#9ba5b7")
+SANS = "'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif"
+MONO = "'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace"
+
+
+def _style(names: list[str]) -> str:
+    """The picture's own stylesheet: both themes, every hue it uses.
+
+    An SVG shown as an image cannot inherit the page's colours, so it carries
+    a light and a dark palette and picks with the reader's preference.
+    """
+    def hues(index: int) -> str:
+        return "".join(
+            f".c-{n}{{fill:{HUES.get(n, NEUTRAL)[index]}}}"
+            f".s-{n}{{stroke:{HUES.get(n, NEUTRAL)[index]}}}" for n in sorted(set(names)))
+    return (
+        "<style>"
+        f"text{{font-family:{SANS};fill:#141922}}"
+        f".mono{{font-family:{MONO}}}"
+        ".muted{fill:#536075}.panel{fill:#f3f4f7;stroke:#d5d9e2}"
+        ".card{fill:#ffffff;stroke:#d5d9e2}.track{fill:#e8eaf0}"
+        f"{hues(0)}"
+        "@media (prefers-color-scheme: dark){"
+        "text{fill:#e7eaf1}.muted{fill:#9ba5b7}.panel{fill:#0d1118;stroke:#283143}"
+        ".card{fill:#151b25;stroke:#283143}.track{fill:#1c2331}"
+        f"{hues(1)}}}"
+        "</style>"
+    )
+
+
+def _esc(text: str) -> str:
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def label(drives: str) -> str:
+    """What a family drives, short enough to head a column.
+
+    The phrase before the dash, cut at its first comma: `where a thing runs,
+    and how it is reached` heads its column as `where a thing runs`.
+    """
+    head = drives.split(" — ")[0].replace("**", "").strip()
+    return head.split(",")[0].strip()
+
+
+def wrap(text: str, width: int) -> list[str]:
+    """Words into lines of at most `width` characters, a long word alone."""
+    lines: list[str] = []
+    for word in text.split():
+        if lines and len(lines[-1]) + 1 + len(word) <= width:
+            lines[-1] += " " + word
+        else:
+            lines.append(word)
+    return lines
+
+
+def _strip(x: float, y: float, w: float, h: float, name: str, drives: str,
+           members: int, governed: int) -> list[str]:
+    """One family as a channel strip: its name, what it drives, and a meter
+    whose lit share is the share of its members governed."""
+    parts = [
+        f'<rect class="card" x="{x:.1f}" y="{y}" width="{w:.1f}" height="{h}" rx="6"/>',
+        f'<rect class="c-{name}" x="{x:.1f}" y="{y}" width="{w:.1f}" height="5" rx="2"/>',
+        f'<text class="mono muted" x="{x + 10:.1f}" y="{y + 24}" '
+        f'font-size="{min(11.0, (w - 18) / (0.62 * len(name))):.1f}">{_esc(name)}</text>',
+    ]
+    for index, line in enumerate(wrap(label(drives), max(6, int((w - 20) / 8.6)))[:3]):
+        parts.append(f'<text class="c-{name}" x="{x + 10:.1f}" y="{y + 46 + index * 18}" '
+                     f'font-size="15" font-weight="700">{_esc(line)}</text>')
+    top, bottom = y + 104, y + h - 50
+    segments = max(4, int((bottom - top) // 8))
+    lit = round(segments * governed / members) if members else 0
+    cx = x + w / 2 - 8
+    for index in range(segments):
+        sy = bottom - (index + 1) * 8 + 2
+        parts.append(f'<rect class="{f"c-{name}" if index < lit else "track"}" '
+                     f'x="{cx:.1f}" y="{sy}" width="16" height="6" rx="1"/>')
+    parts += [
+        f'<text x="{x + 10:.1f}" y="{y + h - 28}" font-size="13" font-weight="700">'
+        f'{members} {"member" if members == 1 else "members"}</text>',
+        f'<text class="mono muted" x="{x + 10:.1f}" y="{y + h - 12}" font-size="11">'
+        f'{governed} governed</text>',
+    ]
+    return parts
+
+
+def desk(document: dict, counts: dict[str, tuple[int, int]]) -> str:
+    """Every family at once, drawn as a desk of channel strips.
+
+    `counts` is `{family: (members, governed)}`, everyone in a family within
+    it included. A family that holds others is a frame around their strips,
+    headed by what it drives and who claims it directly.
+    """
+    by_name = {f["name"]: f for f in document["families"]}
+    tops = sorted((f for f in document["families"] if not f.get("within")),
+                  key=lambda f: (not f.get("subfamilies"), f["name"]))
+    slots = sum(max(1, len(f.get("subfamilies", []))) for f in tops)
+    width, pad, gap, frame_gap = 1000, 16, 10, 8
+    groups = sum(1 for f in tops if f.get("subfamilies"))
+    strip_w = (width - 2 * pad - gap * (slots - 1) - 2 * frame_gap * groups) / slots
+    top, full = 16, 300
+    inner_top = top + 62
+    height = top + full + 44
+    names = list(by_name)
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" role="img" '
+        f'aria-label="the QM families, each a column with a meter for the share governed">',
+        _style(names),
+        f'<rect class="panel" x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10"/>',
+    ]
+    x = pad
+    for family in tops:
+        name = family["name"]
+        inner = family.get("subfamilies", [])
+        if not inner:
+            n, g = counts[name]
+            parts += _strip(x, top, strip_w, full, name, family["drives"], n, g)
+            x += strip_w + gap
+            continue
+        span = len(inner) * strip_w + (len(inner) - 1) * gap + 2 * frame_gap
+        n, g = counts[name]
+        own = family.get("members", [])
+        parts += [
+            f'<rect class="s-{name}" x="{x:.1f}" y="{top}" width="{span:.1f}" height="{full}" '
+            f'rx="8" fill="none" stroke-width="1.5"/>',
+            f'<rect class="c-{name}" x="{x:.1f}" y="{top}" width="{span:.1f}" height="5" rx="2"/>',
+            f'<text class="mono muted" x="{x + 12:.1f}" y="{top + 24}" font-size="11">{_esc(name)}</text>',
+            f'<text class="c-{name}" x="{x + 12:.1f}" y="{top + 46}" font-size="17" '
+            f'font-weight="700">{_esc(label(family["drives"]))}</text>',
+            f'<text class="mono muted" x="{x + span - 12:.1f}" y="{top + 24}" font-size="11" '
+            f'text-anchor="end">{n} in all · {g} governed</text>',
+        ]
+        if own:
+            parts.append(
+                f'<text class="mono muted" x="{x + span - 12:.1f}" y="{top + 46}" font-size="11" '
+                f'text-anchor="end">its own: {_esc(", ".join(own))}</text>')
+        cx = x + frame_gap
+        for child in inner:
+            cn, cg = counts[child]
+            parts += _strip(cx, inner_top, strip_w, top + full - inner_top - frame_gap, child,
+                            by_name[child]["drives"], cn, cg)
+            cx += strip_w + gap
+        x += span + gap
+    unstated = len(document.get("unstated", []))
+    parts += [
+        f'<text class="mono muted" x="{pad}" y="{height - 16}" font-size="11">'
+        f'the lit share of a meter is the share governed · a repository in two families '
+        f'counts in each · {unstated} rostered '
+        f'{"repository states" if unstated == 1 else "repositories state"} no family yet</text>',
+        "</svg>",
+    ]
+    return "\n".join(parts) + "\n"
+
+
+def svg(family: str, members: list[dict], drives: str = "",
+        within: str | None = None) -> str:
     """The family as a picture, drawn from the same data as the prose.
 
-    Deliberately plain: no gradients, no font that has to be present, and a
-    palette that survives both themes. A diagram nobody can re-generate is the
-    thing this file exists to avoid, so it is small enough to read as text.
+    No font has to be present and no gradient is drawn, and the picture
+    carries its own light and dark palette. A diagram nobody can re-generate
+    is the thing this file exists to avoid, so it stays small enough to read
+    as text.
     """
-    row, pad = 26, 14
-    width, height = 560, pad * 2 + 30 + row * len(members)
+    row, pad = 26, 16
+    head = 72 if drives else 44
+    width, height = 560, head + row * len(members) + 34
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" role="img" '
         f'aria-label="the {family} family and its members">',
-        f'<rect width="{width}" height="{height}" fill="none"/>',
-        f'<text x="{pad}" y="{pad + 14}" font-family="monospace" font-size="14" '
-        f'font-weight="bold" fill="currentColor">{family}</text>',
+        _style([family]),
+        f'<rect class="panel" x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10"/>',
+        f'<rect class="c-{family}" x="0.5" y="0.5" width="{width - 1}" height="5" rx="2"/>',
+        f'<text class="mono muted" x="{pad}" y="{pad + 14}" font-size="12">{_esc(family)}'
+        f'{f" · within {_esc(within)}" if within else ""}</text>',
     ]
+    if drives:
+        parts.append(f'<text class="c-{family}" x="{pad}" y="{pad + 40}" font-size="20" '
+                     f'font-weight="700">{_esc(label(drives))}</text>')
     for index, member in enumerate(members):
-        y = pad + 34 + index * row
-        mark = "*" if member["adopted"] else "."
+        y = head + 8 + index * row
         state = "governed" if member["adopted"] else "not adopted"
-        parts.append(
-            f'<text x="{pad}" y="{y}" font-family="monospace" font-size="12" '
-            f'fill="currentColor">{mark} {member["name"]}</text>'
-        )
-        parts.append(
-            f'<text x="{pad + 230}" y="{y}" font-family="monospace" font-size="12" '
-            f'fill="currentColor" opacity="0.7">{state}</text>'
-        )
-    parts.append(
-        f'<text x="{pad}" y="{height - 4}" font-family="monospace" font-size="10" '
-        f'fill="currentColor" opacity="0.6">'
-        f'* governed  . not adopted</text>')
-    parts.append("</svg>")
+        dot = (f'<circle class="c-{family}" cx="{pad + 6}" cy="{y - 4}" r="5"/>'
+               if member["adopted"] else
+               f'<circle class="s-{family}" cx="{pad + 6}" cy="{y - 4}" r="4.5" '
+               f'fill="none" stroke-width="1.5"/>')
+        parts += [
+            dot,
+            f'<text class="mono" x="{pad + 20}" y="{y}" font-size="13">{_esc(member["name"])}</text>',
+            f'<text class="mono muted" x="{pad + 260}" y="{y}" font-size="12">{state}</text>',
+        ]
+    parts += [
+        f'<text class="mono muted" x="{pad}" y="{height - 12}" font-size="11">'
+        f'● governed   ○ not adopted</text>',
+        "</svg>",
+    ]
     return "\n".join(parts) + "\n"
 
 
@@ -337,6 +514,8 @@ def build(out: Path) -> dict[str, str]:
         "`records/DRAFT-a-family-is-bordered-by-what-it-drives.md`; this is the "
         "onboarding view of them.",
         "",
+        "![the families, each a column with a meter for the share governed](./families.svg)",
+        "",
         "A family within another is listed under it, and its members count "
         "toward both. A repository in two families counts in each.",
         "",
@@ -368,7 +547,8 @@ def build(out: Path) -> dict[str, str]:
                 for member in own}
         inner = [summary(child) for child in family.get("subfamilies", [])]
         files[f"{name}.md"] = page(family, states_of[name], stamp, inner, also)
-        files[f"{name}.svg"] = svg(name, states_of[name])
+        files[f"{name}.svg"] = svg(name, states_of[name], family["drives"],
+                                   family.get("within"))
 
     def rows(name: str) -> list[str]:
         s = summary(name)
@@ -382,6 +562,8 @@ def build(out: Path) -> dict[str, str]:
     for family in document["families"]:
         if not family.get("within"):
             index += rows(family["name"])
+    files["families.svg"] = desk(document, {
+        name: (summary(name)["members"], summary(name)["governed"]) for name in by_name})
     index += [
         "",
         f"`{len(document['unstated'])}` rostered repositories claim no family. That "

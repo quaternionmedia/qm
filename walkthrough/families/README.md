@@ -2,6 +2,8 @@
 
 One page per family, generated from `families.json` and the clones on this disk. The families themselves are decided in `records/DRAFT-a-family-is-bordered-by-what-it-drives.md`; this is the onboarding view of them.
 
+![the families, each a column with a meter for the share governed](./families.svg)
+
 A family within another is listed under it, and its members count toward both. A repository in two families counts in each.
 
 | family | within | drives | members | governed |
