@@ -135,47 +135,40 @@ def adopted_names() -> set[str]:
     return names
 
 
-# One hue per family, for light and dark, so a family keeps its colour on
-# every picture. A family missing here draws in the neutral, which is a reason
-# to add it rather than a fault. Lowercase throughout: a name is set as it is
-# written, never in capitals.
-HUES = {
-    "performing": ("#a85a0c", "#f2aa4c"),
-    "show-control": ("#b3305a", "#f0708f"),
-    "instruments": ("#0c7a76", "#43c6bf"),
-    "performer-display": ("#5a43b5", "#a693f3"),
-    "irl": ("#94551f", "#dd9b63"),
-    "infra": ("#55647a", "#98a7bc"),
-    "core": ("#2a61bd", "#74a8f6"),
-    "games": ("#327c47", "#73c886"),
-    "civic": ("#8a3f9e", "#cf8ce0"),
-}
-NEUTRAL = ("#536075", "#9ba5b7")
-SANS = "'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif"
-MONO = "'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import palette  # noqa: E402
+
+# A picture's fonts, from the palette, written without spaces so the SVG stays
+# small enough to read as text.
+SANS = palette.FONTS["body"].replace(", ", ",")
+MONO = palette.FONTS["mono"].replace(", ", ",")
 
 
 def _style(names: list[str]) -> str:
     """The picture's own stylesheet: both themes, every hue it uses.
 
     An SVG shown as an image cannot inherit the page's colours, so it carries
-    a light and a dark palette and picks with the reader's preference.
+    a light and a dark palette and picks with the reader's preference. Every
+    colour is `ci/palette.py`'s, so a picture matches the site it sits on.
     """
-    def hues(index: int) -> str:
+    def hues(scheme: int) -> str:
         return "".join(
-            f".c-{n}{{fill:{HUES.get(n, NEUTRAL)[index]}}}"
-            f".s-{n}{{stroke:{HUES.get(n, NEUTRAL)[index]}}}" for n in sorted(set(names)))
+            f".c-{n}{{fill:{palette.hue(n, scheme)}}}"
+            f".s-{n}{{stroke:{palette.hue(n, scheme)}}}" for n in sorted(set(names)))
+
+    def ground(scheme: int) -> str:
+        n = {name: pair[scheme] for name, pair in palette.NEUTRAL.items()}
+        return (f"text{{fill:{n['ink']}}}.muted{{fill:{n['muted']}}}"
+                f".panel{{fill:{n['ground']};stroke:{n['line']}}}"
+                f".card{{fill:{n['surface']};stroke:{n['line']}}}.track{{fill:{n['sunken']}}}")
+
     return (
         "<style>"
-        f"text{{font-family:{SANS};fill:#141922}}"
+        f"text{{font-family:{SANS}}}"
         f".mono{{font-family:{MONO}}}"
-        ".muted{fill:#536075}.panel{fill:#f3f4f7;stroke:#d5d9e2}"
-        ".card{fill:#ffffff;stroke:#d5d9e2}.track{fill:#e8eaf0}"
-        f"{hues(0)}"
+        f"{ground(palette.LIGHT)}{hues(palette.LIGHT)}"
         "@media (prefers-color-scheme: dark){"
-        "text{fill:#e7eaf1}.muted{fill:#9ba5b7}.panel{fill:#0d1118;stroke:#283143}"
-        ".card{fill:#151b25;stroke:#283143}.track{fill:#1c2331}"
-        f"{hues(1)}}}"
+        f"{ground(palette.DARK)}{hues(palette.DARK)}}}"
         "</style>"
     )
 
