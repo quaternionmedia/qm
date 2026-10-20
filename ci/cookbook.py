@@ -172,11 +172,44 @@ def svg(family: str, members: list[dict]) -> str:
     return "\n".join(parts) + "\n"
 
 
-def page(family: dict, states: list[dict], generated_at: str) -> str:
+def everyone_in(family: dict) -> list[str]:
+    """Everyone in a family, the families within it included.
+
+    `all_members` where the seam file carries it, else the family's own
+    members, so a family written by hand in a test reads the same way.
+    """
+    return list(family.get("all_members", family.get("members", [])))
+
+
+def ancestors_in(name: str, by_name: dict[str, dict]) -> list[str]:
+    """Every family `name` sits within, nearest first, as the seam file says."""
+    chain: list[str] = []
+    current = by_name.get(name, {}).get("within")
+    while current and current not in chain:
+        chain.append(current)
+        current = by_name.get(current, {}).get("within")
+    return chain
+
+
+def everyone_within(name: str, by_name: dict[str, dict]) -> list[str]:
+    """Every family inside `name`, at any depth."""
+    out: list[str] = []
+    pending = list(by_name.get(name, {}).get("subfamilies", []))
+    while pending:
+        child = pending.pop(0)
+        if child not in out:
+            out.append(child)
+            pending.extend(by_name.get(child, {}).get("subfamilies", []))
+    return out
+
+
+def page(family: dict, states: list[dict], generated_at: str,
+         inner: list[dict] = (), also: dict[str, list[str]] | None = None) -> str:
+    """One family's page. `states` is everyone in it, the families within it
+    included; `inner` describes those families, and `also` names the other
+    families a member claims."""
     name = family["name"]
     adopted = [s for s in states if s["adopted"]]
-    absent = [s for s in states if not s["on_disk"]]
-    dirty = [s for s in states if s["on_disk"] and s["dirty"]]
     lines = [
         f"# Cookbook — the `{name}` family",
         "",
@@ -187,6 +220,15 @@ def page(family: dict, states: list[dict], generated_at: str) -> str:
         "",
         f"**Drives** {family['drives']}",
         "",
+    ]
+    if family.get("within"):
+        outer = family["within"]
+        lines += [
+            f"**Within** [`{outer}`](./{outer}.md): a member of this family is a "
+            f"member of `{outer}` too, without claiming it.",
+            "",
+        ]
+    lines += [
         f"![the {name} family](./{name}.svg)",
         "",
         "## Who is in it",
@@ -197,6 +239,28 @@ def page(family: dict, states: list[dict], generated_at: str) -> str:
     for state in states:
         lines.append(
             f"| `{state['name']}` | {'yes' if state['adopted'] else 'no'} |")
+    shared = [(s["name"], (also or {}).get(s["name"], [])) for s in states]
+    shared = [(member, others) for member, others in shared if others]
+    if shared:
+        lines += [
+            "",
+            "Also in another family, because each drives more than one thing:",
+            "",
+        ]
+        lines += [f"- `{member}` — " + ", ".join(f"[`{o}`](./{o}.md)" for o in others)
+                  for member, others in shared]
+    if inner:
+        lines += [
+            "",
+            "## The families within it",
+            "",
+            "Everyone in these is in this family as well, and is in the table above.",
+            "",
+            "| family | drives | members | governed |",
+            "|---|---|---|---|",
+        ]
+        lines += [f"| [`{f['name']}`](./{f['name']}.md) | {f['drives']} | "
+                  f"{f['members']} | {f['governed']} |" for f in inner]
     lines += [
         "",
         "## Starting here",
@@ -273,17 +337,51 @@ def build(out: Path) -> dict[str, str]:
         "`records/DRAFT-a-family-is-bordered-by-what-it-drives.md`; this is the "
         "onboarding view of them.",
         "",
-        "| family | drives | members | governed |",
-        "|---|---|---|---|",
+        "A family within another is listed under it, and its members count "
+        "toward both. A repository in two families counts in each.",
+        "",
+        "| family | within | drives | members | governed |",
+        "|---|---|---|---|---|",
     ]
+    by_name = {family["name"]: family for family in document["families"]}
+    claimed: dict[str, list[str]] = {}
     for family in document["families"]:
-        states = [member_state(name, adopted, entries) for name in family["members"]]
-        files[f"{family['name']}.md"] = page(family, states, stamp)
-        files[f"{family['name']}.svg"] = svg(family["name"], states)
-        governed = sum(1 for s in states if s["adopted"])
-        index.append(
-            f"| [`{family['name']}`](./{family['name']}.md) | {family['drives']} | "
-            f"{len(states)} | {governed} |")
+        for member in family["members"]:
+            claimed.setdefault(member, []).append(family["name"])
+    states_of = {
+        family["name"]: [member_state(name, adopted, entries) for name in everyone_in(family)]
+        for family in document["families"]
+    }
+
+    def summary(name: str) -> dict:
+        states = states_of[name]
+        return {"name": name, "drives": by_name[name]["drives"], "members": len(states),
+                "governed": sum(1 for s in states if s["adopted"])}
+
+    for family in document["families"]:
+        name = family["name"]
+        own = set(everyone_in(family))
+        # Another family a member claims, unless it is this one or one this
+        # family is within or contains -- those are the same membership.
+        related = {name, *ancestors_in(name, by_name), *everyone_within(name, by_name)}
+        also = {member: [f for f in claimed.get(member, []) if f not in related]
+                for member in own}
+        inner = [summary(child) for child in family.get("subfamilies", [])]
+        files[f"{name}.md"] = page(family, states_of[name], stamp, inner, also)
+        files[f"{name}.svg"] = svg(name, states_of[name])
+
+    def rows(name: str) -> list[str]:
+        s = summary(name)
+        outer = by_name[name].get("within")
+        out = [f"| [`{name}`](./{name}.md) | {f'`{outer}`' if outer else '—'} | "
+               f"{s['drives']} | {s['members']} | {s['governed']} |"]
+        for child in by_name[name].get("subfamilies", []):
+            out += rows(child)
+        return out
+
+    for family in document["families"]:
+        if not family.get("within"):
+            index += rows(family["name"])
     index += [
         "",
         f"`{len(document['unstated'])}` rostered repositories claim no family. That "
@@ -342,7 +440,7 @@ def main(argv: list[str] | None = None) -> int:
     print("This disk, right now. None of it is committed anywhere.")
     print()
     for family in document["families"]:
-        states = [member_state(name, adopted, entries) for name in family["members"]]
+        states = [member_state(name, adopted, entries) for name in everyone_in(family)]
         absent = [s for s in states if not s["on_disk"]]
         dirty = [s for s in states if s["on_disk"] and s["dirty"]]
         print(f"## {family['name']}")

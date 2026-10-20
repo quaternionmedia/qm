@@ -1115,3 +1115,14 @@ def test_the_generator_carries_the_family_claim_verbatim(monkeypatch, tmp_path: 
     assert by_name["two"]["family"] is None
     assert "family_is_a_claim" in doc["generator"]
     assert any("family" in w for w in doc["reading"]["do_not"])
+
+
+def test_a_repository_in_two_families_counts_in_each_row() -> None:
+    """Mutation: group on `family_of`, the printed form, and the rollup gains
+    a row named `irl, core` instead of counting in both."""
+    doc = families()
+    doc["repositories"][1]["family"] = ["irl", "core"]
+    rows = {r["family"]: r for r in hd.by_family(doc)}
+    assert rows["core"]["repositories"] == 2
+    assert rows["irl"]["repositories"] == 1
+    assert hd.family_of(doc["repositories"][1]) == "irl, core"

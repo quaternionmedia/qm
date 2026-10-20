@@ -533,3 +533,13 @@ def test_a_private_entry_is_called_by_its_reference_not_its_name(tmp_path):
     text = estate.render([row], online=False)
     assert "  private-99  main" in text
     assert "secret" not in text
+
+
+def test_a_repository_in_two_families_is_a_row_under_each(tmp_path):
+    """Mutation: group on the claim's text rather than each family in it and
+    `pedal` lands under one group named for the whole list."""
+    rows = [estate.Repository(name="pedal", family=["irl", "instruments"]),
+            estate.Repository(name="board", family="irl")]
+    grouped = dict((family, [r.name for r in members])
+                   for family, members in estate.by_family(rows))
+    assert grouped == {"instruments": ["pedal"], "irl": ["pedal", "board"]}

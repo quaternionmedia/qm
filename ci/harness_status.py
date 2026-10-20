@@ -521,7 +521,8 @@ def build(
             # bordered by records/DRAFT-a-family-is-bordered-by-what-it-drives.md.
             # None is unstated -- nobody has answered -- and a view that turns
             # it into a family has inferred what the record says only a
-            # person may state.
+            # person may state. One name, or a list of names when the
+            # repository is in more than one family.
             "family": entry.get("family"),
             # The claim, carried verbatim with its provenance. A view that
             # loses `phase_source` has turned a default into a finding.

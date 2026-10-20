@@ -166,6 +166,7 @@ repositories:
 
   - name: rad
     role: project
+    family: core
     phase: v0.0.1
     phase_source: stated
     attention: active
@@ -174,6 +175,7 @@ repositories:
 
   - name: alfred
     role: project
+    family: performing
     phase: v0.0.1
     phase_source: scaffolded
     note: video editor; UI migration and Playwright coverage in flight
@@ -225,6 +227,7 @@ repositories:
 
   - name: factorio-sysops
     role: project
+    family: games
     phase: v0.0.1
     phase_source: scaffolded
     paths: [factorio-sysops, qm/factorio-sysops]
@@ -269,15 +272,15 @@ repositories:
 
   - name: streaming-infrastructure
     role: project
+    family: infra
     phase: v0.0.1
     phase_source: scaffolded
     note: >
       Governed via project/streaming-infrastructure here, whose one record
       calls the codebase the `qmstream` control plane. No repository by either
       name is on the host under this org, so there is nothing to clone and
-      status/governance.yaml reports its host layer as unknown. No family
-      claimed until governance has run for it. The paths are where a clone
-      would go.
+      status/governance.yaml reports its host layer as unknown. The paths are
+      where a clone would go.
     paths: [streaming-infrastructure, qm/streaming-infrastructure]
 
   - name: qmetronome
@@ -290,6 +293,7 @@ repositories:
 
   - name: benchmark
     role: unmanaged
+    family: civic
     phase: v0.0.2
     phase_source: stated
     note: named alongside apothecary as a v0.0.2 consumer
@@ -379,7 +383,7 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: irl
+    family: [irl, show-control]
     note: LED control for live theatre
     paths: [ira, qm/ira]
 
@@ -419,7 +423,7 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: irl
+    family: [irl, instruments]
     note: a micro-holophonor, by its own description
     paths: [uPhonor, qm/uPhonor]
 
@@ -427,7 +431,7 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: irl
+    family: [irl, instruments]
     note: a MIDI foot controller
     paths: [stomp, qm/stomp]
 
@@ -582,8 +586,19 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
+    family: games
     note: >
       rad, the radial menu, as a Godot addon: the contract's vectors replayed
-      in GDScript. No family claimed: rad's implementations are a seam, not a
-      roster family.
+      in GDScript. In games because that is where the Godot work is.
     paths: [qm/rad-godot, rad-godot]
+
+  - name: qmcli-godot
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: games
+    note: >
+      Named as a games member. No repository by this name is on the host or
+      under the org yet, so there is nothing to clone; the paths are where a
+      clone would go.
+    paths: [qmcli-godot, qm/qmcli-godot]

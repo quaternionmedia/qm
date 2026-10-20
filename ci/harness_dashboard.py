@@ -53,15 +53,27 @@ def esc(value: object) -> str:
 UNSTATED = "unstated"
 
 
+def families_of(repo: dict) -> list[str]:
+    """The families the roster claims for this repository, as a list.
+
+    A claim is one name or a list of names, carried verbatim by the
+    generator; absent is the empty list.
+    """
+    claim = repo.get("family")
+    if not claim:
+        return []
+    return [str(f) for f in claim] if isinstance(claim, list) else [str(claim)]
+
+
 def family_of(repo: dict) -> str:
-    """The family the roster claims for this repository, or `unstated`.
+    """The families the roster claims for this repository, or `unstated`.
 
     Never inferred: the generator carries the claim as it was stated, and a
     null is a question nobody has answered, not a repository outside every
     family. Printed as a word rather than left blank so a reader cannot take
-    an empty cell for a rendering fault.
+    an empty cell for a rendering fault. Two families print as both names.
     """
-    return str(repo.get("family") or UNSTATED)
+    return ", ".join(families_of(repo)) or UNSTATED
 
 
 def family_cell(repo: dict) -> str:
@@ -81,7 +93,9 @@ def by_family(document: dict) -> list[dict]:
     """
     groups: dict[str, list[dict]] = {}
     for repo in document.get("repositories", []):
-        groups.setdefault(family_of(repo), []).append(repo)
+        # A repository in two families counts in each family's row.
+        for family in families_of(repo) or [UNSTATED]:
+            groups.setdefault(family, []).append(repo)
     names = sorted(n for n in groups if n != UNSTATED)
     if UNSTATED in groups:
         names.append(UNSTATED)

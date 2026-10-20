@@ -93,7 +93,6 @@ tier needs more of the estate to have reported than the one above it:
 | Tier | Needs | Asserts |
 |---|---|---|
 | shape | one family | every member that ran, ran something |
-| disjoint | two families | no repository is in two families |
 | cover | all families | every declared family had a member run |
 | contract | all, plus the [seam](../../ref/glossary.md#seam){ .glossary-term } | every contract surface agrees across families |
 
