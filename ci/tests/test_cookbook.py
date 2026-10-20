@@ -229,3 +229,44 @@ def test_a_meter_is_lit_by_the_share_governed():
     # The cap is one lit rectangle; the rest are the meter's lit segments.
     assert count(dark) == 1
     assert count(lit) > 1
+
+
+# --- the docs site's family pages -------------------------------------------
+
+
+def test_a_site_page_names_its_family_and_where_it_sits():
+    page = cookbook.site_page(
+        {"name": "instruments", "drives": "the sound — loops", "within": "performing"},
+        [state("synth", adopted=True), state("pedal")],
+        also={"pedal": ["irl"]})
+    assert page.startswith("---\ntitle: instruments\n---")
+    assert "# the sound { .qm-family-title .qm-f-instruments }" in page
+    assert "Within [`performing`](performing.md)" in page
+    assert "| `pedal` | no | [`irl`](irl.md) |" in page
+    assert "Start in `synth`" in page
+
+
+def test_a_site_page_invents_no_entry_point():
+    page = cookbook.site_page({"name": "f", "drives": "x", "within": None}, [state("one")])
+    assert "no governed entry point" in page
+
+
+def test_a_site_page_links_nothing_outside_the_site():
+    """Only `docs/` is published, so a relative link to the corpus would 404.
+    The record is linked by its address on the host."""
+    page = cookbook.site_page({"name": "f", "drives": "x", "within": None}, [state("one")])
+    assert "](records/" not in page and "](../" not in page
+    assert cookbook.RECORD_URL in page
+
+
+def test_the_site_navigation_lists_every_family_page():
+    """A generated page the navigation does not list is a page nobody reaches.
+
+    Mutation: drop `families/civic.md` from zensical.toml's nav and this fails.
+    """
+    import json
+    root = CI_DIR.parent
+    names = [f["name"] for f in json.loads((root / "families.json").read_text(encoding="utf-8"))["families"]]
+    nav = (root / "zensical.toml").read_text(encoding="utf-8")
+    missing = [n for n in ["index", *names] if f'"families/{n}.md"' not in nav]
+    assert not missing, f"zensical.toml's nav lists no page for {missing}"

@@ -12,6 +12,18 @@ edit_uri = "edit/main/docs/"
 
 nav = [
     "index.md",
+    { "Families" = [
+        "families/index.md",
+        "families/performing.md",
+        "families/instruments.md",
+        "families/performer-display.md",
+        "families/show-control.md",
+        "families/civic.md",
+        "families/core.md",
+        "families/games.md",
+        "families/infra.md",
+        "families/irl.md",
+    ] },
     { "About" = [
         "about/index.md",
         "about/overview.md",

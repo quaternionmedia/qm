@@ -157,6 +157,11 @@ code, kbd, pre {
 
 /* --- Components --------------------------------------------------------- */
 
+/* A family page's title, in the family's hue. */
+.md-typeset h1.qm-family-title {
+  color: var(--c, var(--qm-ink));
+}
+
 /* A line of small print above a heading: where the page sits. */
 .md-typeset .qm-eyebrow {
   color: var(--qm-muted);
@@ -177,7 +182,8 @@ code, kbd, pre {
   display: block;
   margin: 1.4em 0 0.4em;
 }
-.md-typeset .qm-picture img {
+.md-typeset .qm-picture img,
+.md-typeset img.qm-picture {
   display: block;
   width: 100%;
   height: auto;
