@@ -13,13 +13,40 @@ between them are recorded here rather than inside each one.
 
 ## The queue
 
+**Ordered by expected delta**, highest first, against the current milestone:
+*managing qmcp's flows with dossier by planning deltas*, except the first row,
+which decides which of the others survive. The two after it are one chain —
+each is the next page's blocker — so taking them out of order buys nothing.
+
 | Handoff | Blocks on | Repo |
 |---|---|---|
-| [`dossier-delta-review.md`](dossier-delta-review.md) | nothing | dossier |
-| [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
+| [`voice-set-landing.md`](voice-set-landing.md) | **a person, for one manual test** — the voice set's landing in the review page's order, paused at `joe` #33 for a test by hand: `vox`, `qmcp` and `qm` landed whole and `joe` through #32; `joe` #33 and #34 and two documentation pull requests remain, with the `qm` pull requests that rode on the set. Carries the decisions in force, the steps after the set, the two decisions still open from the 2026-09-27 round, and how each step was done | vox + qmcp + joe + qm |
+| [`the-voice-loop.md`](the-voice-loop.md) | **nothing — read this for the loop**: what landed across `joe`, `vox`, `dossier`, `qmcp` and this corpus, the voice set included — Phase 10 of `qmcp`'s roadmap built on the local model, continuity from `qmcp`'s record — what remains, and the baseline Phase 0 of `qmcp`'s next phases established on `qmcp`'s `main`. Carries the three-process development environment, audio capture on the engine's machine, what no check covers, and the standing constraints | vox + joe + qmcp + dossier |
+| [`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) | **a human, and nothing else** — one review of the whole open set across `qmcp`, `vox`, `joe` and this corpus, spoken end to end once two servers start: the demo branches and the three-tier demonstration, what to look at in each, the decisions nobody has taken, what to distrust, and the order the set lands in. Delete it when its work lands | qmcp + vox + joe + qm |
+| [`design-review-of-the-estate.md`](design-review-of-the-estate.md) | **the owner's charge, asked for in the session**: the first of the estate's design reviews, a design review of this corpus by `handbook/design-review-runbook.md`, the method apothecary #22 ran — ten audit areas fitted to a governance corpus, the leads measured at `d6dc5cd` handed over as hypotheses with the command behind each, and the semantic review kept downstream rather than redone. Then the order for the rest of the estate, tiered by adoption and activity and re-derived from the host, because `qm estate` needs sibling clones | qm, then every repo |
+| [`the-web-window.md`](the-web-window.md) | **nothing — read this first for the window**: Phases 0 and 1 of `plans/the-web-window.md` landed on 2026-09-20 in five repositories, and this page is where Phases 2 to 6 are picked up — the live flow on a topology's shape, the designer on the routes the harness now serves, manipulation through the governed seam, cartography with chrestomathy and the prose reader's bridge, the triangle walkthrough — each with what to read first, where it goes, and what done looks like. Also the slice's residue: a propagation, an address kind, a `dossier.sources` row | qm + codecartographer + qmcp + looksatwords + rad + dossier |
+| [`families-delineated.md`](families-delineated.md) | **a person, for two family claims and four decisions** — every reader of the estate now delineates by family (`qm estate --by-family`, a family column and a **By family** section in both harness views, a cookbook that resolves clones through the roster), and `qm workspace --family` opens one family or several, checked against the seam file; the performing estate is cloned and its workspace written, and the record counts its performing families the same way everywhere. Landed as #114 and #115, which also drew the line `records/DRAFT-what-is-not-the-organisation.md` states. What remains: the two new entries want a family claim once governance has run, two checks are named and unbuilt, and two `feat/loose-ends` commits wait on a person | qm |
+| [`six-branches-reached-origin.md`](six-branches-reached-origin.md) | **a human, for two held pull requests and one submodule pin** — the one-copy body of work is merged to `main` in seven repositories, including qm #110; what remains is datum #2 and apothecary #21 held by decision, alfred's local-only `governance/qm` pin that must not be pushed, and a leftover queue per repository, each cut from the new `main` | every repo |
+| [`enact-the-stages.md`](enact-the-stages.md) | **a human, for two acts in order** — clear every slot, then push `test`, which the stage record says is the enactment. Carries the re-keying inventory (every line that decides on `main`, read at `test`), the two `AGENTS.md` sentences that become the trap on that day, and the cross-tool findings: every named tool now reads `AGENTS.md` natively, the `CLAUDE.md` symlink is nine bytes on a Windows clone without `core.symlinks`, and one policy page names an adapter's slash commands. The push-through is phased family by family in `ci/rollout.yaml` and tracked by `uv run qm rollout` | every repo |
+| [`views-declare-what-they-need.md`](views-declare-what-they-need.md) | nothing — **read this first**: where 2026-08-27 left four repositories, with a readiness model built in two of them. Its §2 is five independent things to review asynchronously and its §3 is triage, ordered. Its §3.1 is closed and left standing on purpose — a pull request read as having lost its checks, six minutes before they arrived, and written up as the session's headline. Also names what is blocked on a person and what could not be verified, including a local workflow runner that fails ten steps of ten on this machine for one environment reason | every repo |
+| [`hil-review-2026-08-25.md`](hil-review-2026-08-25.md) | **a human, and nothing else** — nothing in it is a task. It is the list of decisions waiting for one after the 2026-08-24/25 session, with what to look at per pull request, what to distrust, and the three claims made in that session that turned out to be wrong. Delete it when its work lands | every repo |
+| [`session-2026-08-23.md`](session-2026-08-23.md) | nothing — **read this first**: where 2026-08-22/23 left all four repositories, with every branch merged, every slot free and nothing held back. Names the standing constraints a cold session will not infer, the model-layer decision that is taken and unbuilt, eight open items with their commands, and what to distrust in the page itself | every repo |
+| [`the-active-four.md`](the-active-four.md) | nothing — **read this first**: which four repositories are active, what is unfinished in each, and the gate that had failed since its repository was created without anybody noticing | every repo |
+| [`the-pair-and-the-fresh-setup.md`](the-pair-and-the-fresh-setup.md) | nothing — **read this first**: where 2026-08-19 left all three repositories, with every branch merged and nothing held back. Names what is unfinished, what is blocked on a human, and the claims it could not verify | every repo |
+| [`two-views-one-dataset.md`](two-views-one-dataset.md) | nothing — the address grammar the dashboard milestone needs is built and pushed; four pieces remain, and one decision nobody has taken: when two views disagree about one address, which is the source | qm + dossier + qmcp |
+| [`apply-the-main-ruleset.md`](apply-the-main-ruleset.md) | **a human, and nothing else.** Everything mechanical is merged; `main` is still unprotected and one command applies it. An agent must never run that command. Also names the next slice: how corpora interact | qm |
+| [`session-2026-08-15.md`](session-2026-08-15.md) | nothing — **read this first**: where 2026-08-14/15 left things, the docs quickcheck, and what is yours in order | every repo |
+| [`semantic-review-session.md`](semantic-review-session.md) | the method for the review above: the same questions, in the same order, for all sixteen. Read the page below first for why and in what order | qm |
+| [`semantic-review-of-the-records.md`](semantic-review-of-the-records.md) | nothing — the one milestone requirement no check can measure. Fifteen records read as one body, in dependency order, before strangers read them. Unblocks the ratification rehearsal | qm |
+| [`two-gate-and-tag-teeth.md`](two-gate-and-tag-teeth.md) | nothing — **read this second**; the tag's determinism clause is now wired in all three repositories, and `qmcp` fails it on skipped tests: the pull request is an audit record and the human gate is the tag. Several pages below predate that and describe a draft PR as waiting for a person. Names both pushed branches, the four blocked items, and the one-schema decision | every repo |
+| [`for-a-stronger-model.md`](for-a-stronger-model.md) | nothing — **read this first**: what to distrust in the other pages, and why | every repo |
+| [`governance-loop-poc.md`](governance-loop-poc.md) | its branch is `evolve/governance-loop-poc`, pushed, no PR — `qm`'s slot holds #56 and #57. Phase 1 complete, 35/35 green; Phase 2's schema is consolidated into the delta entity, which moves it behind `dossier`'s delta branch | qm (Phase 1), then dossier + qmcp |
+| [`qmcp-flows-as-deltas.md`](qmcp-flows-as-deltas.md) | the milestone, and the four-step path to it. Step 1 is **done** — folded into qmcp #21, now the demo branch, fixing that repo's 19 red tests. Step 2 next | qmcp + dossier |
+| [`dossier-delta-review.md`](dossier-delta-review.md) | step 3 of that path. **Both stated blockers are gone**: the two alembic heads were reconciled and #12 is merged, so the slot is free. What the page still asks for has not been re-read against the tree | dossier |
+| [`disk-tooling.md`](disk-tooling.md) | **built**; its item 3 is now answered by the delta review — the orphan tables are in progress. Items 1, 2 and 4 want a decision | qm + dossier |
 | [`harness-next-test.md`](harness-next-test.md) | nothing — the harness is in place and untried by anyone who did not build it | qm + one project |
-| [`disk-tooling.md`](disk-tooling.md) | nothing — built; four items wanting a decision, one of which blocks the delta review | qm + dossier |
-| [`session-2026-08-11.md`](session-2026-08-11.md) | nothing — where the 2026-08-10/11 session left things, and the decisions waiting | every repo |
+| [`governance-status-generator.md`](governance-status-generator.md) | **built** — now the seam contract, and eleven questions for a human | qm |
+| [`session-2026-08-12.md`](session-2026-08-12.md) | nothing — where the 2026-08-11/12 session left things, and the decisions waiting | every repo |
 
 **Three pages are gone rather than marked done**, per the routing rule above.
 `workspace-unlanded.md` first: both decisions it opened with are settled —
@@ -35,7 +62,7 @@ worse than no page, because a session picks it up and re-derives a state that no
 longer exists.
 
 **The harness is on `main`.** `ci/` (17 files) and
-`project-seed/ide/.claude/commands/` both landed with #36 on 2026-08-11, so a
+the session scripts in `project-seed/ci/` both landed with #36 on 2026-08-11, so a
 project pinned to `main` now gets `/cowork`, the slot check and the two status
 documents at its next pin bump rather than waiting on anything. Every page here
 older than that date describes the harness in the present tense as unmerged;
@@ -45,22 +72,26 @@ one.
 `project/datum`'s propagation landed as **#39**, after #34
 was closed unmerged on 2026-08-09. It is not level with `main` now, and no
 project branch is: all twelve fell behind again when #38 and #41 landed. Read
-`governance-status.yaml`'s `behind_corpus` rather than a number on this page.
+`status/governance.yaml`'s `behind_corpus` rather than a number on this page.
 
 ## Rules that apply to every one of these
 
 **One open pull request per repository, per contributor.** Not one per task.
 If your slot already holds an open PR, add to it or wait — do not open a
-second. This is a review-bandwidth constraint, not a style preference. In this
-repo each `project/*` branch holds its own slot, because each is pinned by a
-different downstream submodule; in a project repo it means one, full stop.
+second. This is a sequencing constraint, not a bandwidth one: a green PR is
+merged by its author and frees its own slot, so the limit binds only on
+unfinished work. In this repo each `project/*` branch holds its own slot,
+because each is pinned by a different downstream submodule; in a project repo
+it means one, full stop.
 
 `handbook/async-contract.md` §1 is the rule and the reasoning;
 `project-seed/ci/check_one_pr.py` is the check, and `one-pr-check.yml` runs it
 on every pull request. Run it before you open anything.
 
-**Open it as a draft, and never request a review.** Add the person who asked
-for the work as assignee. Leaving draft is their decision.
+**Never request a review, and merge it yourself once the gates are green.**
+Add the person who asked for the work as assignee. The pull request is the
+audit record; the human gates are ratification and the version tag. Draft
+means unfinished.
 
 **Close a PR before pushing its commits onto its base branch.** Pushing a
 head's commits onto its base *merges* the PR, with no review and no way to
@@ -115,4 +146,14 @@ the test names and confirm the test fails. Ten such mutations were run against
 `ci/governance_status.py`; two tests were inert on the first pass and both were
 rewritten.
 
-*Stamped 2026-08-10. `qm` `main` at `b94d910`, `project/dossier` at `a9a6e33`, `dossier` `main` at `f055376`.*
+**Pages written before 2026-08-14 describe a draft pull request as work waiting
+for a person.** That is the model
+[`two-gate-and-tag-teeth.md`](two-gate-and-tag-teeth.md) corrects, and the
+correction is in `AGENTS.md` item 3 rather than in each page. Where one of them
+tells you to open a draft and wait, read it as: open it, run the gates, merge it.
+The rest of what those pages say about their own subject stands.
+
+*Stamped 2026-08-14. `qm` `main` at `104361a`, `dossier` `main` at `604efb8`,
+`qmcp` `main` at `85013c5`. Two branches are pushed with no pull request —
+`evolve/two-gate-reconciliation` and `evolve/governance-loop-poc` — because the
+slot holds #56 and #57.*

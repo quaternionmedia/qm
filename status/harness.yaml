@@ -1,0 +1,4451 @@
+schema: 1
+generated_at: '2026-10-11T18:10:22Z'
+generator:
+  tool: ci/harness_status.py
+  org: quaternionmedia
+  rule: no pull request is ready while stacked on another open one
+  rule_source: handbook/async-contract.md
+  phase_ladder_source: records/DRAFT-project-phase-ladder.md
+  phase_layer_is_a_claim: phase and phase_source come from ci/workspace.yaml and record
+    what a human stated. They are never derived from artifacts.
+  family_is_a_claim: family comes from ci/workspace.yaml, where a person stated it;
+    the families themselves are declared in records/DRAFT-a-family-is-bordered-by-what-it-drives.md.
+    null is unstated, which is not none.
+  thread_stages:
+  - local
+  - pushed
+  - draft
+  - ready
+  thread_stages_are_states_not_progress: 'observable states, not a percentage. Nothing
+    estimates completion: the corpus has no definition of done a tool could read,
+    and a number that looks like progress is the most confidently wrong thing a dashboard
+    can print.'
+  stalled_after_hours: 48
+  governance_layer_is_evidence: read from status/governance.yaml, on each project's
+    default branch. Work in an open pull request is work, not evidence.
+  layers:
+  - phase
+  - slots
+  - governance
+  local_layer_scope: null
+  search_roots: []
+reading:
+  refresh: uv run qm docs generate
+  refresh_without_the_cli: python ci/harness_status.py --no-local --write status/harness.yaml
+  staleness_budget_hours: 24
+  human_view: python ci/harness_dashboard.py status/harness.yaml --out status.html
+  agent_view: uv run qm harness
+  unknown_convention: '{"unknown": "<reason>"} is a value. It means the fact could
+    not be established and says why. It is not zero, not empty, and not compliant
+    -- a repository nobody could measure must never be read as a repository with nothing
+    wrong.'
+  do_not:
+  - quote a figure from this document without its generated_at
+  - 'treat a phase as evidence: phase is what a human claimed'
+  - 'treat the governance layer as a claim: it is what has landed'
+  - 'read a null family as a repository that belongs to none: it is one nobody has
+    placed'
+  - regenerate this in CI -- it reads other repositories, so every unrelated pull
+    request would go red for a reason its author cannot fix
+  committed_copy_omits:
+  - local
+totals:
+  repositories: 47
+  slots_measured: 41
+  slots_unknown: 6
+  compliant: 39
+  over_limit: 2
+  governance_readable: 11
+  governance_precondition_met: 2
+  phase_scaffolded: 13
+  phase_stated_above_governance: 4
+  threads_by_stage:
+    local: 0
+    pushed: 0
+    draft: 62
+    ready: 44
+  threads_stalled: 61
+  threads_unreadable: 6
+repositories:
+- name: qm
+  slug: quaternionmedia/qm
+  role: corpus
+  family: core
+  phase: n/a
+  phase_source: n/a
+  note: the constitution; every other entry adopts it by reference
+  slots:
+    repository: quaternionmedia/qm
+    contributor: null
+    open_prs:
+    - number: 157
+      title: A retrospective keeps what a guard pointed at prose cost one session
+      author: subcontrabass
+      bot: false
+      base: main
+      head: perspective/2026-08-30-a-guard-that-reads-prose
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 156
+      title: looksatwords adopts the corpus, and its border with codecartographer
+        is the corpus each reads
+      author: subcontrabass
+      bot: false
+      base: project/looksatwords
+      head: adr/looksatwords-adopt-and-scope
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 155
+      title: codecartographer's system monitor derives its diagram from a repository's
+        declarations
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/the-monitor-derives-the-system
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 154
+      title: apothecary's v0.0.2 is said to assert one path, evidenced by one demonstration
+      author: subcontrabass
+      bot: false
+      base: adr/firmware-toolchain-seam
+      head: adr/apothecary-what-v0-0-2-asserts
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 153
+      title: qmetronome's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/qmetronome
+      head: adr/qmetronome-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 152
+      title: qmcp's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/qmcp
+      head: adr/qmcp-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 151
+      title: The records of private-34 address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/private-34
+      head: adr/private-34-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 150
+      title: factorio-sysops's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/factorio-sysops
+      head: adr/factorio-sysops-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 149
+      title: The records of private-32 address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/private-32
+      head: adr/private-32-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 148
+      title: datum's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/datum
+      head: adr/datum-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 147
+      title: The records of private-33 address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/private-33
+      head: adr/private-33-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 146
+      title: codecartographer's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/codecartographer
+      head: adr/codecartographer-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 145
+      title: apothecary's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/apothecary
+      head: adr/apothecary-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 144
+      title: alfred's records address the charter by name
+      author: subcontrabass
+      bot: false
+      base: project/alfred
+      head: adr/alfred-charter-by-name
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 143
+      title: A private name inside a dated branch name is caught and redacted
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/private-names-in-dated-branches
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 142
+      title: Four retrospectives keep the stories the durable-text sweep takes out
+      author: subcontrabass
+      bot: false
+      base: perspective/2026-10-10-what-the-topology-docstrings-remembered
+      head: perspective/2026-10-10-what-the-sweep-remembered
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 141
+      title: The corpus's records, handbook and entry documents state what is true
+        now
+      author: subcontrabass
+      bot: false
+      base: evolve/durable-text-states-what-is-true
+      head: evolve/timeless-qm-prose
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 140
+      title: The corpus's tooling states what is true now, with its explanations in
+        a tooling reference
+      author: subcontrabass
+      bot: false
+      base: evolve/durable-text-states-what-is-true
+      head: evolve/timeless-qm-code
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 139
+      title: The core performing family comes up together, and each member answers
+        for itself
+      author: subcontrabass
+      bot: false
+      base: evolve/performing-estate-refresh
+      head: evolve/performing-family-demo
+      head_repo: quaternionmedia/qm
+      draft: true
+    - number: 138
+      title: 'The performing estate''s refresh lands: the simultaneous-run plan, its
+        participant handoffs, and a private instrument rostered by its reference'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/performing-estate-refresh
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 137
+      title: A retrospective keeps the stories the topology docstrings carried
+      author: subcontrabass
+      bot: false
+      base: main
+      head: perspective/2026-10-10-what-the-topology-docstrings-remembered
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 136
+      title: Durable text is held to what is true now, by a draft record and a gate
+        on added prose
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/durable-text-states-what-is-true
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 135
+      title: The voice-loop handoff states the whole open set and its demo branches,
+        and one review page takes the set for approval
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/voice-loop-handoff-2026-10-03
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 134
+      title: The REUSE lint is run through uv's tool runner instead of a pip install
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/reuse-lint-runs-locally
+      head_repo: quaternionmedia/qm
+      draft: false
+    - number: 121
+      title: 'Seven records for apothecary: the toolchain, printer and slicer seams,
+        the rings, one screen, and personal data staying on the device'
+      author: subcontrabass
+      bot: false
+      base: project/apothecary
+      head: adr/firmware-toolchain-seam
+      head_repo: quaternionmedia/qm
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: perspective/2026-08-30-a-guard-that-reads-prose
+    stage: ready
+    pr: 157
+    base: main
+    title: A retrospective keeps what a guard pointed at prose cost one session
+    author: subcontrabass
+    delta:
+      additions: 177
+      changed_files: 2
+      commits: 1
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-11T17:40:50Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: adr/looksatwords-adopt-and-scope
+    stage: ready
+    pr: 156
+    base: project/looksatwords
+    title: looksatwords adopts the corpus, and its border with codecartographer is
+      the corpus each reads
+    author: subcontrabass
+    delta:
+      additions: 175
+      changed_files: 2
+      commits: 1
+      deletions: 1
+      mergeable_state: unstable
+      updated_at: '2026-10-11T17:39:15Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: adr/the-monitor-derives-the-system
+    stage: ready
+    pr: 155
+    base: project/codecartographer
+    title: codecartographer's system monitor derives its diagram from a repository's
+      declarations
+    author: subcontrabass
+    delta:
+      additions: 132
+      changed_files: 2
+      commits: 1
+      deletions: 0
+      mergeable_state: unstable
+      updated_at: '2026-10-11T17:39:10Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: adr/apothecary-what-v0-0-2-asserts
+    stage: draft
+    pr: 154
+    base: adr/firmware-toolchain-seam
+    title: apothecary's v0.0.2 is said to assert one path, evidenced by one demonstration
+    author: subcontrabass
+    delta:
+      additions: 160
+      changed_files: 2
+      commits: 2
+      deletions: 1
+      mergeable_state: unstable
+      updated_at: '2026-10-11T17:37:04Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: adr/qmetronome-charter-by-name
+    stage: ready
+    pr: 153
+    base: project/qmetronome
+    title: qmetronome's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 12
+      changed_files: 5
+      commits: 2
+      deletions: 12
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:54Z'
+    idle_hours: 6.4
+    stalled: false
+  - name: adr/qmcp-charter-by-name
+    stage: ready
+    pr: 152
+    base: project/qmcp
+    title: qmcp's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 1
+      changed_files: 1
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-11T17:39:45Z'
+    idle_hours: 0.5
+    stalled: false
+  - name: adr/private-34-charter-by-name
+    stage: ready
+    pr: 151
+    base: project/private-34
+    title: The records of private-34 address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 7
+      changed_files: 2
+      commits: 2
+      deletions: 2
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:39Z'
+    idle_hours: 6.4
+    stalled: false
+  - name: adr/factorio-sysops-charter-by-name
+    stage: ready
+    pr: 150
+    base: project/factorio-sysops
+    title: factorio-sysops's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 3
+      changed_files: 2
+      commits: 2
+      deletions: 3
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:34Z'
+    idle_hours: 6.5
+    stalled: false
+  - name: adr/private-32-charter-by-name
+    stage: ready
+    pr: 149
+    base: project/private-32
+    title: The records of private-32 address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 5
+      changed_files: 2
+      commits: 2
+      deletions: 3
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:28Z'
+    idle_hours: 6.5
+    stalled: false
+  - name: adr/datum-charter-by-name
+    stage: ready
+    pr: 148
+    base: project/datum
+    title: datum's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 16
+      changed_files: 2
+      commits: 2
+      deletions: 6
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:22Z'
+    idle_hours: 6.5
+    stalled: false
+  - name: adr/private-33-charter-by-name
+    stage: ready
+    pr: 147
+    base: project/private-33
+    title: The records of private-33 address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 6
+      changed_files: 2
+      commits: 2
+      deletions: 4
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:15Z'
+    idle_hours: 6.5
+    stalled: false
+  - name: adr/codecartographer-charter-by-name
+    stage: ready
+    pr: 146
+    base: project/codecartographer
+    title: codecartographer's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 1
+      changed_files: 1
+      commits: 1
+      deletions: 1
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:09Z'
+    idle_hours: 6.5
+    stalled: false
+  - name: adr/apothecary-charter-by-name
+    stage: ready
+    pr: 145
+    base: project/apothecary
+    title: apothecary's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 4
+      changed_files: 2
+      commits: 1
+      deletions: 4
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:41:03Z'
+    idle_hours: 6.5
+    stalled: false
+  - name: adr/alfred-charter-by-name
+    stage: ready
+    pr: 144
+    base: project/alfred
+    title: alfred's records address the charter by name
+    author: subcontrabass
+    delta:
+      additions: 9
+      changed_files: 4
+      commits: 1
+      deletions: 9
+      mergeable_state: unstable
+      updated_at: '2026-10-11T11:40:57Z'
+    idle_hours: 6.5
+    stalled: false
+  - name: evolve/private-names-in-dated-branches
+    stage: ready
+    pr: 143
+    base: main
+    title: A private name inside a dated branch name is caught and redacted
+    author: subcontrabass
+    delta:
+      additions: 22
+      changed_files: 6
+      commits: 1
+      deletions: 8
+      mergeable_state: clean
+      updated_at: '2026-10-11T11:15:28Z'
+    idle_hours: 6.9
+    stalled: false
+  - name: perspective/2026-10-10-what-the-sweep-remembered
+    stage: draft
+    pr: 142
+    base: perspective/2026-10-10-what-the-topology-docstrings-remembered
+    title: Four retrospectives keep the stories the durable-text sweep takes out
+    author: subcontrabass
+    delta:
+      additions: 712
+      changed_files: 5
+      commits: 4
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-10T23:39:41Z'
+    idle_hours: 18.5
+    stalled: false
+  - name: evolve/timeless-qm-prose
+    stage: draft
+    pr: 141
+    base: evolve/durable-text-states-what-is-true
+    title: The corpus's records, handbook and entry documents state what is true now
+    author: subcontrabass
+    delta:
+      additions: 1003
+      changed_files: 80
+      commits: 19
+      deletions: 1415
+      mergeable_state: clean
+      updated_at: '2026-10-10T23:39:14Z'
+    idle_hours: 18.5
+    stalled: false
+  - name: evolve/timeless-qm-code
+    stage: draft
+    pr: 140
+    base: evolve/durable-text-states-what-is-true
+    title: The corpus's tooling states what is true now, with its explanations in
+      a tooling reference
+    author: subcontrabass
+    delta:
+      additions: 2517
+      changed_files: 146
+      commits: 19
+      deletions: 2697
+      mergeable_state: clean
+      updated_at: '2026-10-11T11:25:20Z'
+    idle_hours: 6.7
+    stalled: false
+  - name: evolve/performing-family-demo
+    stage: draft
+    pr: 139
+    base: evolve/performing-estate-refresh
+    title: The core performing family comes up together, and each member answers for
+      itself
+    author: subcontrabass
+    delta:
+      additions: 3220
+      changed_files: 6
+      commits: 8
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-11T11:25:26Z'
+    idle_hours: 6.7
+    stalled: false
+  - name: evolve/performing-estate-refresh
+    stage: ready
+    pr: 138
+    base: main
+    title: 'The performing estate''s refresh lands: the simultaneous-run plan, its
+      participant handoffs, and a private instrument rostered by its reference'
+    author: subcontrabass
+    delta:
+      additions: 1164
+      changed_files: 29
+      commits: 7
+      deletions: 61
+      mergeable_state: clean
+      updated_at: '2026-10-11T11:25:23Z'
+    idle_hours: 6.7
+    stalled: false
+  - name: perspective/2026-10-10-what-the-topology-docstrings-remembered
+    stage: ready
+    pr: 137
+    base: main
+    title: A retrospective keeps the stories the topology docstrings carried
+    author: subcontrabass
+    delta:
+      additions: 103
+      changed_files: 2
+      commits: 1
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-10T09:53:48Z'
+    idle_hours: 32.2
+    stalled: false
+  - name: evolve/durable-text-states-what-is-true
+    stage: ready
+    pr: 136
+    base: main
+    title: Durable text is held to what is true now, by a draft record and a gate
+      on added prose
+    author: subcontrabass
+    delta:
+      additions: 837
+      changed_files: 10
+      commits: 2
+      deletions: 50
+      mergeable_state: clean
+      updated_at: '2026-10-10T09:54:17Z'
+    idle_hours: 32.2
+    stalled: false
+  - name: evolve/voice-loop-handoff-2026-10-03
+    stage: ready
+    pr: 135
+    base: main
+    title: The voice-loop handoff states the whole open set and its demo branches,
+      and one review page takes the set for approval
+    author: subcontrabass
+    delta:
+      additions: 725
+      changed_files: 3
+      commits: 15
+      deletions: 77
+      mergeable_state: clean
+      updated_at: '2026-10-11T00:28:44Z'
+    idle_hours: 17.7
+    stalled: false
+  - name: evolve/reuse-lint-runs-locally
+    stage: ready
+    pr: 134
+    base: main
+    title: The REUSE lint is run through uv's tool runner instead of a pip install
+    author: subcontrabass
+    delta:
+      additions: 42
+      changed_files: 10
+      commits: 4
+      deletions: 263
+      mergeable_state: clean
+      updated_at: '2026-10-10T23:39:02Z'
+    idle_hours: 18.5
+    stalled: false
+  - name: adr/firmware-toolchain-seam
+    stage: ready
+    pr: 121
+    base: project/apothecary
+    title: 'Seven records for apothecary: the toolchain, printer and slicer seams,
+      the rings, one screen, and personal data staying on the device'
+    author: subcontrabass
+    delta:
+      additions: 1679
+      changed_files: 8
+      commits: 24
+      deletions: 2
+      mergeable_state: unstable
+      updated_at: '2026-10-11T17:36:38Z'
+    idle_hours: 0.5
+    stalled: false
+  governance:
+    precondition: n/a
+    missing: []
+    asserts: this repository is the corpus
+- name: dossier
+  slug: quaternionmedia/dossier
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: the intended durable surface for governance review
+  slots:
+    repository: quaternionmedia/dossier
+    contributor: null
+    open_prs:
+    - number: 9
+      title: 'build(deps): bump starlette from 0.50.0 to 1.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 7
+      title: 'build(deps): bump idna from 3.11 to 3.15'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 6
+      title: 'build(deps): bump mako from 1.3.10 to 1.3.12'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/mako-1.3.12
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 4
+      title: 'build(deps-dev): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      head_repo: quaternionmedia/dossier
+      draft: false
+    - number: 3
+      title: 'build(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      head_repo: quaternionmedia/dossier
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/dossier
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 74
+    observed_at: '2026-09-20T17:15:55Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: qmcp
+  slug: quaternionmedia/qmcp
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: null
+  slots:
+    repository: quaternionmedia/qmcp
+    contributor: null
+    open_prs:
+    - number: 84
+      title: qmcp's docstrings, comments and pages state what is true now, with two
+        new reference pages
+      author: subcontrabass
+      bot: false
+      base: docs/timeless-topology-text
+      head: docs/timeless-qmcp-text
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 83
+      title: The topology modules' docstrings state facts, their explanations move
+        to the topologies reference
+      author: subcontrabass
+      bot: false
+      base: feat/topology-voice
+      head: docs/timeless-topology-text
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 82
+      title: Saved topology designs are created, composed and run by voice behind
+        approval, and a deciding council is refused before consent
+      author: subcontrabass
+      bot: false
+      base: feat/topology-components
+      head: feat/topology-voice
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 81
+      title: Phrases are added by voice to the conversation's commands behind approval
+        and kept per user
+      author: subcontrabass
+      bot: false
+      base: feat/declared-checks
+      head: feat/vocabulary-authoring
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 80
+      title: Topology designs refer to reusable components and to other designs, and
+        their names are scoped to a project
+      author: subcontrabass
+      bot: false
+      base: feat/declared-checks
+      head: feat/topology-components
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 79
+      title: An advisory council is declared beside the deciding one and selected
+        by arbiter_can_override false
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/advisory-council
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 78
+      title: The live model tests are deselected by default and run with -m live_anthropic
+      author: subcontrabass
+      bot: false
+      base: main
+      head: chore/live-anthropic-marker
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 77
+      title: The voice loop's next phases are planned, cleanup before new capabilities
+      author: subcontrabass
+      bot: false
+      base: docs/roadmap-current-state
+      head: docs/voice-loop-next-phases
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 76
+      title: Each core project's declared checks run by voice behind consent
+      author: subcontrabass
+      bot: false
+      base: feat/spoken-iteration
+      head: feat/declared-checks
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 75
+      title: The conversation tries the last instruction again, drops one on never
+        mind, and says how it stands
+      author: subcontrabass
+      bot: false
+      base: feat/spoken-vocabulary
+      head: feat/spoken-iteration
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 74
+      title: The words the spoken loop acts on are declared in one vocabulary, with
+        a healthier starting set
+      author: subcontrabass
+      bot: false
+      base: feat/barge-in
+      head: feat/spoken-vocabulary
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 73
+      title: Approvals and read-backs are said so they can be answered before they
+        end, by key or by voice
+      author: subcontrabass
+      bot: false
+      base: feat/plain-speech
+      head: feat/barge-in
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 72
+      title: Spoken sentences are shortened to plain words and said without their
+        syntax
+      author: subcontrabass
+      bot: false
+      base: feat/instruction-vocabulary
+      head: feat/plain-speech
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 71
+      title: An instruction's take is hinted with the project names it is likely to
+        carry
+      author: subcontrabass
+      bot: false
+      base: feat/tacit-agreement
+      head: feat/instruction-vocabulary
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 70
+      title: A confident instruction is agreed to tacitly unless interrupted, and
+        its read-back word is agree
+      author: subcontrabass
+      bot: false
+      base: fix/audible-voice
+      head: feat/tacit-agreement
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 69
+      title: The voice is heard, the consent is short enough to listen to, and setup
+        checks the output
+      author: subcontrabass
+      bot: false
+      base: feat/answer-controls
+      head: fix/audible-voice
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 68
+      title: A closed question hints and offers its options, and repeat asks it again
+      author: subcontrabass
+      bot: false
+      base: docs/voice-dev-loop-guide
+      head: feat/answer-controls
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 67
+      title: The voice dev loop's demo page becomes its onboarding and cookbook
+      author: subcontrabass
+      bot: false
+      base: fix/voice-loop-review
+      head: docs/voice-dev-loop-guide
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 66
+      title: The voice loop's tests and documents are reviewed against its code
+      author: subcontrabass
+      bot: false
+      base: feat/spoken-conversation
+      head: fix/voice-loop-review
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 65
+      title: One standing spoken conversation takes instructions, asks waiting questions,
+        acts with consent and says what happened, started with the server by serve
+        --converse
+      author: subcontrabass
+      bot: false
+      base: feat/live-model-demo
+      head: feat/spoken-conversation
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 64
+      title: The continuity demonstration runs on any runtime from cookbook instruct,
+        the local runtime says when it is not ready, and one page demonstrates the
+        loop in three tiers
+      author: subcontrabass
+      bot: false
+      base: feat/result-spoken
+      head: feat/live-model-demo
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 63
+      title: The outcome of an instruction is said back, and the offline check runs
+        the loop end to end
+      author: subcontrabass
+      bot: false
+      base: feat/act-on-instruction
+      head: feat/result-spoken
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 62
+      title: 'Acting on an instruction is added: consent on the human queue, a brief
+        from qmcp''s record, and the local model as a runtime'
+      author: subcontrabass
+      bot: false
+      base: feat/instruction-inbox
+      head: feat/act-on-instruction
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 61
+      title: 'An instruction inbox is added: an instruction is recorded against a
+        project and nothing runs'
+      author: subcontrabass
+      bot: false
+      base: chore/vox-pause-pin
+      head: feat/instruction-inbox
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 60
+      title: vendor/vox is moved to the pause parameter
+      author: subcontrabass
+      bot: false
+      base: main
+      head: chore/vox-pause-pin
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 58
+      title: A request without options is asked as an open question and its transcript
+        is read back and recorded by voice
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/free-text-answers-by-voice
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 56
+      title: A preflight command is added to the CLI as a route to the seed workflow
+        runner
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/preflight-command
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 55
+      title: The roadmap states what the tree holds
+      author: subcontrabass
+      bot: false
+      base: docs/the-spoken-instruction
+      head: docs/roadmap-current-state
+      head_repo: quaternionmedia/qmcp
+      draft: true
+    - number: 54
+      title: 'Phases 10 and 11 are added to the roadmap: the spoken instruction on
+        the local model, and habits into auto-approvals'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: docs/the-spoken-instruction
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 20
+      title: 'chore(deps): bump python-dotenv from 1.2.1 to 1.2.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/python-dotenv-1.2.2
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 19
+      title: 'chore(deps): bump authlib from 1.6.6 to 1.6.11'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/authlib-1.6.11
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 18
+      title: 'chore(deps): bump python-multipart from 0.0.21 to 0.0.26'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/python-multipart-0.0.26
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 17
+      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 16
+      title: 'chore(deps): bump cryptography from 46.0.3 to 46.0.7'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/cryptography-46.0.7
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 15
+      title: 'chore(deps): bump aiohttp from 3.13.3 to 3.13.4'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/aiohttp-3.13.4
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 14
+      title: 'chore(deps): bump fastmcp from 2.14.3 to 3.2.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/fastmcp-3.2.0
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 13
+      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 11
+      title: 'chore(deps): bump requests from 2.32.5 to 2.33.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/requests-2.33.0
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 10
+      title: 'chore(deps): bump pyasn1 from 0.6.2 to 0.6.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pyasn1-0.6.3
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 8
+      title: 'chore(deps): bump pyjwt from 2.10.1 to 2.12.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pyjwt-2.12.0
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 5
+      title: 'chore(deps): bump pydantic-ai-slim from 1.44.0 to 1.56.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pydantic-ai-slim-1.56.0
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 4
+      title: 'chore(deps): bump pydantic-ai from 1.44.0 to 1.56.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pydantic-ai-1.56.0
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    - number: 3
+      title: 'build(deps): bump protobuf from 6.33.4 to 6.33.5'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/protobuf-6.33.5
+      head_repo: quaternionmedia/qmcp
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: docs/timeless-qmcp-text
+    stage: draft
+    pr: 84
+    base: docs/timeless-topology-text
+    title: qmcp's docstrings, comments and pages state what is true now, with two
+      new reference pages
+    author: subcontrabass
+    delta:
+      additions: 1588
+      changed_files: 101
+      commits: 18
+      deletions: 2264
+      mergeable_state: clean
+      updated_at: '2026-10-10T23:39:25Z'
+    idle_hours: 18.5
+    stalled: false
+  - name: docs/timeless-topology-text
+    stage: draft
+    pr: 83
+    base: feat/topology-voice
+    title: The topology modules' docstrings state facts, their explanations move to
+      the topologies reference
+    author: subcontrabass
+    delta:
+      additions: 266
+      changed_files: 11
+      commits: 3
+      deletions: 427
+      mergeable_state: clean
+      updated_at: '2026-10-10T23:39:19Z'
+    idle_hours: 18.5
+    stalled: false
+  - name: feat/topology-voice
+    stage: draft
+    pr: 82
+    base: feat/topology-components
+    title: Saved topology designs are created, composed and run by voice behind approval,
+      and a deciding council is refused before consent
+    author: subcontrabass
+    delta:
+      additions: 3346
+      changed_files: 32
+      commits: 6
+      deletions: 100
+      mergeable_state: clean
+      updated_at: '2026-10-09T00:55:50Z'
+    idle_hours: 65.2
+    stalled: true
+  - name: feat/vocabulary-authoring
+    stage: draft
+    pr: 81
+    base: feat/declared-checks
+    title: Phrases are added by voice to the conversation's commands behind approval
+      and kept per user
+    author: subcontrabass
+    delta:
+      additions: 732
+      changed_files: 8
+      commits: 1
+      deletions: 22
+      mergeable_state: clean
+      updated_at: '2026-10-09T00:34:44Z'
+    idle_hours: 65.6
+    stalled: true
+  - name: feat/topology-components
+    stage: draft
+    pr: 80
+    base: feat/declared-checks
+    title: Topology designs refer to reusable components and to other designs, and
+      their names are scoped to a project
+    author: subcontrabass
+    delta:
+      additions: 904
+      changed_files: 15
+      commits: 2
+      deletions: 59
+      mergeable_state: clean
+      updated_at: '2026-10-09T00:47:32Z'
+    idle_hours: 65.4
+    stalled: true
+  - name: feat/advisory-council
+    stage: ready
+    pr: 79
+    base: main
+    title: An advisory council is declared beside the deciding one and selected by
+      arbiter_can_override false
+    author: subcontrabass
+    delta:
+      additions: 336
+      changed_files: 13
+      commits: 1
+      deletions: 38
+      mergeable_state: clean
+      updated_at: '2026-10-09T00:02:56Z'
+    idle_hours: 66.1
+    stalled: true
+  - name: chore/live-anthropic-marker
+    stage: ready
+    pr: 78
+    base: main
+    title: The live model tests are deselected by default and run with -m live_anthropic
+    author: subcontrabass
+    delta:
+      additions: 4
+      changed_files: 2
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-08T23:46:54Z'
+    idle_hours: 66.4
+    stalled: true
+  - name: docs/voice-loop-next-phases
+    stage: draft
+    pr: 77
+    base: docs/roadmap-current-state
+    title: The voice loop's next phases are planned, cleanup before new capabilities
+    author: subcontrabass
+    delta:
+      additions: 241
+      changed_files: 2
+      commits: 1
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-09T00:05:33Z'
+    idle_hours: 66.1
+    stalled: true
+  - name: feat/declared-checks
+    stage: draft
+    pr: 76
+    base: feat/spoken-iteration
+    title: Each core project's declared checks run by voice behind consent
+    author: subcontrabass
+    delta:
+      additions: 469
+      changed_files: 10
+      commits: 5
+      deletions: 13
+      mergeable_state: clean
+      updated_at: '2026-10-05T01:05:36Z'
+    idle_hours: 161.1
+    stalled: true
+  - name: feat/spoken-iteration
+    stage: draft
+    pr: 75
+    base: feat/spoken-vocabulary
+    title: The conversation tries the last instruction again, drops one on never mind,
+      and says how it stands
+    author: subcontrabass
+    delta:
+      additions: 425
+      changed_files: 8
+      commits: 3
+      deletions: 2
+      mergeable_state: clean
+      updated_at: '2026-10-05T00:43:01Z'
+    idle_hours: 161.4
+    stalled: true
+  - name: feat/spoken-vocabulary
+    stage: draft
+    pr: 74
+    base: feat/barge-in
+    title: The words the spoken loop acts on are declared in one vocabulary, with
+      a healthier starting set
+    author: subcontrabass
+    delta:
+      additions: 388
+      changed_files: 11
+      commits: 5
+      deletions: 42
+      mergeable_state: clean
+      updated_at: '2026-10-05T00:29:37Z'
+    idle_hours: 161.7
+    stalled: true
+  - name: feat/barge-in
+    stage: draft
+    pr: 73
+    base: feat/plain-speech
+    title: Approvals and read-backs are said so they can be answered before they end,
+      by key or by voice
+    author: subcontrabass
+    delta:
+      additions: 341
+      changed_files: 8
+      commits: 1
+      deletions: 21
+      mergeable_state: clean
+      updated_at: '2026-10-04T23:33:43Z'
+    idle_hours: 162.6
+    stalled: true
+  - name: feat/plain-speech
+    stage: draft
+    pr: 72
+    base: feat/instruction-vocabulary
+    title: Spoken sentences are shortened to plain words and said without their syntax
+    author: subcontrabass
+    delta:
+      additions: 456
+      changed_files: 25
+      commits: 1
+      deletions: 173
+      mergeable_state: clean
+      updated_at: '2026-10-04T22:38:54Z'
+    idle_hours: 163.5
+    stalled: true
+  - name: feat/instruction-vocabulary
+    stage: draft
+    pr: 71
+    base: feat/tacit-agreement
+    title: An instruction's take is hinted with the project names it is likely to
+      carry
+    author: subcontrabass
+    delta:
+      additions: 122
+      changed_files: 8
+      commits: 1
+      deletions: 9
+      mergeable_state: clean
+      updated_at: '2026-10-04T21:49:49Z'
+    idle_hours: 164.3
+    stalled: true
+  - name: feat/tacit-agreement
+    stage: draft
+    pr: 70
+    base: fix/audible-voice
+    title: A confident instruction is agreed to tacitly unless interrupted, and its
+      read-back word is agree
+    author: subcontrabass
+    delta:
+      additions: 392
+      changed_files: 14
+      commits: 2
+      deletions: 109
+      mergeable_state: clean
+      updated_at: '2026-10-04T21:29:03Z'
+    idle_hours: 164.7
+    stalled: true
+  - name: fix/audible-voice
+    stage: draft
+    pr: 69
+    base: feat/answer-controls
+    title: The voice is heard, the consent is short enough to listen to, and setup
+      checks the output
+    author: subcontrabass
+    delta:
+      additions: 79
+      changed_files: 8
+      commits: 3
+      deletions: 10
+      mergeable_state: clean
+      updated_at: '2026-10-04T20:35:25Z'
+    idle_hours: 165.6
+    stalled: true
+  - name: feat/answer-controls
+    stage: draft
+    pr: 68
+    base: docs/voice-dev-loop-guide
+    title: A closed question hints and offers its options, and repeat asks it again
+    author: subcontrabass
+    delta:
+      additions: 533
+      changed_files: 10
+      commits: 2
+      deletions: 72
+      mergeable_state: clean
+      updated_at: '2026-10-04T19:38:17Z'
+    idle_hours: 166.5
+    stalled: true
+  - name: docs/voice-dev-loop-guide
+    stage: draft
+    pr: 67
+    base: fix/voice-loop-review
+    title: The voice dev loop's demo page becomes its onboarding and cookbook
+    author: subcontrabass
+    delta:
+      additions: 269
+      changed_files: 4
+      commits: 4
+      deletions: 48
+      mergeable_state: clean
+      updated_at: '2026-10-04T18:15:18Z'
+    idle_hours: 167.9
+    stalled: true
+  - name: fix/voice-loop-review
+    stage: draft
+    pr: 66
+    base: feat/spoken-conversation
+    title: The voice loop's tests and documents are reviewed against its code
+    author: subcontrabass
+    delta:
+      additions: 335
+      changed_files: 12
+      commits: 5
+      deletions: 38
+      mergeable_state: clean
+      updated_at: '2026-10-04T18:16:41Z'
+    idle_hours: 167.9
+    stalled: true
+  - name: feat/spoken-conversation
+    stage: draft
+    pr: 65
+    base: feat/live-model-demo
+    title: One standing spoken conversation takes instructions, asks waiting questions,
+      acts with consent and says what happened, started with the server by serve --converse
+    author: subcontrabass
+    delta:
+      additions: 1400
+      changed_files: 18
+      commits: 3
+      deletions: 56
+      mergeable_state: clean
+      updated_at: '2026-10-04T16:03:58Z'
+    idle_hours: 170.1
+    stalled: true
+  - name: feat/live-model-demo
+    stage: draft
+    pr: 64
+    base: feat/result-spoken
+    title: The continuity demonstration runs on any runtime from cookbook instruct,
+      the local runtime says when it is not ready, and one page demonstrates the loop
+      in three tiers
+    author: subcontrabass
+    delta:
+      additions: 484
+      changed_files: 9
+      commits: 2
+      deletions: 3
+      mergeable_state: clean
+      updated_at: '2026-10-04T14:48:26Z'
+    idle_hours: 171.3
+    stalled: true
+  - name: feat/result-spoken
+    stage: draft
+    pr: 63
+    base: feat/act-on-instruction
+    title: The outcome of an instruction is said back, and the offline check runs
+      the loop end to end
+    author: subcontrabass
+    delta:
+      additions: 849
+      changed_files: 8
+      commits: 3
+      deletions: 34
+      mergeable_state: clean
+      updated_at: '2026-10-04T14:48:23Z'
+    idle_hours: 171.3
+    stalled: true
+  - name: feat/act-on-instruction
+    stage: draft
+    pr: 62
+    base: feat/instruction-inbox
+    title: 'Acting on an instruction is added: consent on the human queue, a brief
+      from qmcp''s record, and the local model as a runtime'
+    author: subcontrabass
+    delta:
+      additions: 3163
+      changed_files: 21
+      commits: 9
+      deletions: 32
+      mergeable_state: clean
+      updated_at: '2026-10-04T14:48:21Z'
+    idle_hours: 171.3
+    stalled: true
+  - name: feat/instruction-inbox
+    stage: draft
+    pr: 61
+    base: chore/vox-pause-pin
+    title: 'An instruction inbox is added: an instruction is recorded against a project
+      and nothing runs'
+    author: subcontrabass
+    delta:
+      additions: 2337
+      changed_files: 22
+      commits: 3
+      deletions: 27
+      mergeable_state: clean
+      updated_at: '2026-10-04T11:17:43Z'
+    idle_hours: 174.9
+    stalled: true
+  - name: chore/vox-pause-pin
+    stage: ready
+    pr: 60
+    base: main
+    title: vendor/vox is moved to the pause parameter
+    author: subcontrabass
+    delta:
+      additions: 1
+      changed_files: 1
+      commits: 2
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-03T19:01:50Z'
+    idle_hours: 191.1
+    stalled: true
+  - name: feat/free-text-answers-by-voice
+    stage: ready
+    pr: 58
+    base: main
+    title: A request without options is asked as an open question and its transcript
+      is read back and recorded by voice
+    author: subcontrabass
+    delta:
+      additions: 460
+      changed_files: 7
+      commits: 10
+      deletions: 43
+      mergeable_state: clean
+      updated_at: '2026-10-10T23:39:17Z'
+    idle_hours: 18.5
+    stalled: false
+  - name: feat/preflight-command
+    stage: ready
+    pr: 56
+    base: main
+    title: A preflight command is added to the CLI as a route to the seed workflow
+      runner
+    author: subcontrabass
+    delta:
+      additions: 218
+      changed_files: 4
+      commits: 5
+      deletions: 4
+      mergeable_state: clean
+      updated_at: '2026-10-03T19:02:48Z'
+    idle_hours: 191.1
+    stalled: true
+  - name: docs/roadmap-current-state
+    stage: draft
+    pr: 55
+    base: docs/the-spoken-instruction
+    title: The roadmap states what the tree holds
+    author: subcontrabass
+    delta:
+      additions: 14
+      changed_files: 1
+      commits: 2
+      deletions: 13
+      mergeable_state: clean
+      updated_at: '2026-10-04T12:33:17Z'
+    idle_hours: 173.6
+    stalled: true
+  - name: docs/the-spoken-instruction
+    stage: ready
+    pr: 54
+    base: main
+    title: 'Phases 10 and 11 are added to the roadmap: the spoken instruction on the
+      local model, and habits into auto-approvals'
+    author: subcontrabass
+    delta:
+      additions: 74
+      changed_files: 1
+      commits: 2
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-04T12:33:15Z'
+    idle_hours: 173.6
+    stalled: true
+  governance:
+    precondition: incomplete
+    missing:
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/qmcp
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 1
+    behind_corpus: 114
+    observed_at: '2026-09-20T17:16:03Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: vox
+  slug: quaternionmedia/vox
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'the voice-interaction seam. States an EngineContract an HTTP speech engine
+    must answer and names no engine; qmcp vendors it as a submodule to answer its
+    human-in-the-loop queue by speaking. Placed in core by the border test in records/DRAFT-a-family-is-bordered-by-what-it-drives.md
+    2 -- what its output acts on is the corpus''s own tooling, not the sound it emits
+    and not the family of the engine it talks to.
+
+    '
+  slots:
+    repository: quaternionmedia/vox
+    contributor: null
+    open_prs:
+    - number: 15
+      title: vox's docstrings, comments and README state what is true now
+      author: subcontrabass
+      bot: false
+      base: feat/barge-in
+      head: docs/timeless-vox-text
+      head_repo: quaternionmedia/vox
+      draft: true
+    - number: 14
+      title: A question is watched while it is asked, and its voice is stopped when
+        it is interrupted
+      author: subcontrabass
+      bot: false
+      base: feat/listen-confidence
+      head: feat/barge-in
+      head_repo: quaternionmedia/vox
+      draft: true
+    - number: 13
+      title: A listen keeps how sure the engine was, when its contract names where
+        that is said
+      author: subcontrabass
+      bot: false
+      base: fix/sapi-playback
+      head: feat/listen-confidence
+      head_repo: quaternionmedia/vox
+      draft: true
+    - number: 12
+      title: On Windows the platform voice plays through SAPI to the end, on an output
+        that can be named
+      author: subcontrabass
+      bot: false
+      base: feat/answer-hints
+      head: fix/sapi-playback
+      head_repo: quaternionmedia/vox
+      draft: true
+    - number: 11
+      title: A listen can carry the words an answer is expected to be, and an announcement
+        the question's options
+      author: subcontrabass
+      bot: false
+      base: feat/pause-parameter
+      head: feat/answer-hints
+      head_repo: quaternionmedia/vox
+      draft: true
+    - number: 10
+      title: A pause parameter is added to the engine contract, and listen sends it
+        when the contract names it
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/pause-parameter
+      head_repo: quaternionmedia/vox
+      draft: false
+    - number: 9
+      title: HANDOFF.md is restamped at the current tips, with the vendor/vox submodule
+        path and the joe voice setup microphone command
+      author: subcontrabass
+      bot: false
+      base: main
+      head: docs/handoff-restamp
+      head_repo: quaternionmedia/vox
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: docs/timeless-vox-text
+    stage: draft
+    pr: 15
+    base: feat/barge-in
+    title: vox's docstrings, comments and README state what is true now
+    author: subcontrabass
+    delta:
+      additions: 225
+      changed_files: 23
+      commits: 2
+      deletions: 283
+      mergeable_state: clean
+      updated_at: '2026-10-10T23:39:36Z'
+    idle_hours: 18.5
+    stalled: false
+  - name: feat/barge-in
+    stage: draft
+    pr: 14
+    base: feat/listen-confidence
+    title: A question is watched while it is asked, and its voice is stopped when
+      it is interrupted
+    author: subcontrabass
+    delta:
+      additions: 410
+      changed_files: 11
+      commits: 1
+      deletions: 19
+      mergeable_state: clean
+      updated_at: '2026-10-04T22:55:13Z'
+    idle_hours: 163.2
+    stalled: true
+  - name: feat/listen-confidence
+    stage: draft
+    pr: 13
+    base: fix/sapi-playback
+    title: A listen keeps how sure the engine was, when its contract names where that
+      is said
+    author: subcontrabass
+    delta:
+      additions: 66
+      changed_files: 9
+      commits: 1
+      deletions: 12
+      mergeable_state: clean
+      updated_at: '2026-10-04T21:28:56Z'
+    idle_hours: 164.7
+    stalled: true
+  - name: fix/sapi-playback
+    stage: draft
+    pr: 12
+    base: feat/answer-hints
+    title: On Windows the platform voice plays through SAPI to the end, on an output
+      that can be named
+    author: subcontrabass
+    delta:
+      additions: 247
+      changed_files: 7
+      commits: 1
+      deletions: 3
+      mergeable_state: clean
+      updated_at: '2026-10-04T20:19:27Z'
+    idle_hours: 165.8
+    stalled: true
+  - name: feat/answer-hints
+    stage: draft
+    pr: 11
+    base: feat/pause-parameter
+    title: A listen can carry the words an answer is expected to be, and an announcement
+      the question's options
+    author: subcontrabass
+    delta:
+      additions: 128
+      changed_files: 10
+      commits: 1
+      deletions: 16
+      mergeable_state: clean
+      updated_at: '2026-10-04T18:39:01Z'
+    idle_hours: 167.5
+    stalled: true
+  - name: feat/pause-parameter
+    stage: ready
+    pr: 10
+    base: main
+    title: A pause parameter is added to the engine contract, and listen sends it
+      when the contract names it
+    author: subcontrabass
+    delta:
+      additions: 369
+      changed_files: 15
+      commits: 5
+      deletions: 25
+      mergeable_state: clean
+      updated_at: '2026-10-03T18:56:17Z'
+    idle_hours: 191.2
+    stalled: true
+  - name: docs/handoff-restamp
+    stage: ready
+    pr: 9
+    base: main
+    title: HANDOFF.md is restamped at the current tips, with the vendor/vox submodule
+      path and the joe voice setup microphone command
+    author: subcontrabass
+    delta:
+      additions: 15
+      changed_files: 1
+      commits: 1
+      deletions: 9
+      mergeable_state: clean
+      updated_at: '2026-10-03T14:08:17Z'
+    idle_hours: 196.0
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: rad
+  slug: quaternionmedia/rad
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: stated
+  note: radial menu; defined the phase ladder above
+  slots:
+    repository: quaternionmedia/rad
+    contributor: null
+    open_prs:
+    - number: 7
+      title: A session can open entered at an item, by walking its path
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/open-entered-at-an-item
+      head_repo: quaternionmedia/rad
+      draft: false
+    - number: 2
+      title: Bump playwright and @playwright/test
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/multi-6aef298a9b
+      head_repo: quaternionmedia/rad
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: evolve/open-entered-at-an-item
+    stage: ready
+    pr: 7
+    base: main
+    title: A session can open entered at an item, by walking its path
+    author: subcontrabass
+    delta:
+      additions: 41
+      changed_files: 1
+      commits: 1
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-03T13:55:52Z'
+    idle_hours: 196.2
+    stalled: true
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/rad
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 171
+    observed_at: '2026-09-20T17:16:06Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: alfred
+  slug: quaternionmedia/alfred
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: video editor; UI migration and Playwright coverage in flight
+  slots:
+    repository: quaternionmedia/alfred
+    contributor: null
+    open_prs:
+    - number: 116
+      title: Bump actions/download-artifact from 3 to 4.1.7 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/download-artifact-4.1.7
+      head_repo: quaternionmedia/alfred
+      draft: false
+    - number: 113
+      title: Config
+      author: mrharpo
+      bot: false
+      base: main
+      head: config
+      head_repo: quaternionmedia/alfred
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.2.0
+    annotated: false
+    unreleased_commits: 37
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: config
+    stage: ready
+    pr: 113
+    base: main
+    title: Config
+    author: mrharpo
+    delta:
+      additions: 58
+      changed_files: 10
+      commits: 9
+      deletions: 44
+      mergeable_state: clean
+      updated_at: '2023-12-30T22:55:40Z'
+    idle_hours: 24379.2
+    stalled: true
+  governance:
+    precondition: incomplete
+    missing:
+    - submodule
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: null
+      submodule_branch: null
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 0
+      workflows_absent: 4
+      licensing_present: 0
+    behind_corpus: 297
+    observed_at: '2026-09-20T17:15:45Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: apothecary
+  slug: quaternionmedia/apothecary
+  role: project
+  family: irl
+  phase: v0.0.2
+  phase_source: stated
+  note: parametric assembly; named as a v0.0.2 integration consumer
+  slots:
+    repository: quaternionmedia/apothecary
+    contributor: null
+    open_prs:
+    - number: 36
+      title: A part's SCAD is edited in the page, checked as typing stops, rendered
+        into the cache and saved as a variant in git without touching the checkout
+      author: subcontrabass
+      bot: false
+      base: build/slicer
+      head: build/scad-loop
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 35
+      title: OrcaSlicer slices a part or a made piece for printer_1 from the page,
+        its settings traced to the part and the bench, and Print follows Slice
+      author: subcontrabass
+      bot: false
+      base: build/picture-to-print
+      head: build/slicer
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 34
+      title: 'A picture becomes a print without leaving the page: Make names the next
+        step, a piece''s ring prints it, and the loop is held twice round'
+      author: subcontrabass
+      bot: false
+      base: build/part-loop
+      head: build/picture-to-print
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 33
+      title: 'A part is designed in the page: Apply renders variants into a cache,
+        OpenSCAD''s errors show by line, and the part''s ring holds the loop'
+      author: subcontrabass
+      bot: false
+      base: build/rust-firmware
+      head: build/part-loop
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 32
+      title: Firmware toolchains are modules, and the classic ESP32 can be programmed
+        in Rust from the Bench and its Machine
+      author: subcontrabass
+      bot: false
+      base: build/rust-research
+      head: build/rust-firmware
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 31
+      title: A spike chooses which Rust kernel to try first, a comparison by numbers
+        waits for one, and two Rust crates exist as stubs
+      author: subcontrabass
+      bot: false
+      base: review/2026-09-26
+      head: build/rust-research
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 30
+      title: Cameras are parts and the screen carries less, with the plans for Rust,
+        the loops through the page and the cleanup triage
+      author: subcontrabass
+      bot: false
+      base: stack/06-one-page
+      head: review/2026-09-26
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 29
+      title: One page holds the world, one rail and one Machine per board
+      author: subcontrabass
+      bot: false
+      base: stack/05-openscad-installers
+      head: stack/06-one-page
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 28
+      title: OpenSCAD snapshots install natively and renders prefer them, with the
+        gridfinity bin declared as the standard draws it
+      author: subcontrabass
+      bot: false
+      base: stack/04-pictures-in-the-world
+      head: stack/05-openscad-installers
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 27
+      title: A picture is pinned in the world, a made piece is a part, and the browser
+        suite runs in three shards
+      author: subcontrabass
+      bot: false
+      base: stack/03-review-ws-15-and-parts-seams
+      head: stack/04-pictures-in-the-world
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 26
+      title: A part declares its OpenSCAD, its parameter names and its geometry through
+        small seams, and the test workflow runs on every pull request
+      author: subcontrabass
+      bot: false
+      base: stack/02-review-ws-18
+      head: stack/03-review-ws-15-and-parts-seams
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 25
+      title: The viewer and the API serve nothing that nothing calls, and the page
+        escapes what it writes
+      author: subcontrabass
+      bot: false
+      base: stack/01-review-ws-12
+      head: stack/02-review-ws-18
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 24
+      title: Parts, the photo gatherer, the CLI and the test helpers each hold one
+        copy of what they do
+      author: subcontrabass
+      bot: false
+      base: consolidate/2026-09-19
+      head: stack/01-review-ws-12
+      head_repo: quaternionmedia/apothecary
+      draft: true
+    - number: 23
+      title: Bump urllib3 from 2.6.2 to 2.8.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/urllib3-2.8.0
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 21
+      title: 'Consolidate every unmerged line: the printer seam on the bench, the
+        ring, one screen, the camera, personal data on the device, the bench drawn
+        as it is'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: consolidate/2026-09-19
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 19
+      title: Bump anyio from 4.11.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 17
+      title: Bump idna from 3.11 to 3.15
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 16
+      title: Bump pytest from 9.0.0 to 9.0.3
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    - number: 15
+      title: Bump starlette from 0.49.3 to 1.3.1
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      head_repo: quaternionmedia/apothecary
+      draft: false
+    violations:
+    - author: subcontrabass
+      base: build/slicer
+      numbers:
+      - 36
+      parent: 35
+    exit_status: 1
+    compliant: false
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: build/scad-loop
+    stage: ready
+    pr: 36
+    base: build/slicer
+    title: A part's SCAD is edited in the page, checked as typing stops, rendered
+      into the cache and saved as a variant in git without touching the checkout
+    author: subcontrabass
+    delta:
+      additions: 30276
+      changed_files: 81
+      commits: 13
+      deletions: 113
+      mergeable_state: clean
+      updated_at: '2026-10-11T11:09:33Z'
+    idle_hours: 7.0
+    stalled: false
+  - name: build/slicer
+    stage: draft
+    pr: 35
+    base: build/picture-to-print
+    title: OrcaSlicer slices a part or a made piece for printer_1 from the page, its
+      settings traced to the part and the bench, and Print follows Slice
+    author: subcontrabass
+    delta:
+      additions: 5897
+      changed_files: 49
+      commits: 15
+      deletions: 128
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:46:45Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: build/picture-to-print
+    stage: draft
+    pr: 34
+    base: build/part-loop
+    title: 'A picture becomes a print without leaving the page: Make names the next
+      step, a piece''s ring prints it, and the loop is held twice round'
+    author: subcontrabass
+    delta:
+      additions: 1164
+      changed_files: 39
+      commits: 14
+      deletions: 78
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:46:44Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: build/part-loop
+    stage: draft
+    pr: 33
+    base: build/rust-firmware
+    title: 'A part is designed in the page: Apply renders variants into a cache, OpenSCAD''s
+      errors show by line, and the part''s ring holds the loop'
+    author: subcontrabass
+    delta:
+      additions: 3541
+      changed_files: 43
+      commits: 23
+      deletions: 135
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:46:43Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: build/rust-firmware
+    stage: draft
+    pr: 32
+    base: build/rust-research
+    title: Firmware toolchains are modules, and the classic ESP32 can be programmed
+      in Rust from the Bench and its Machine
+    author: subcontrabass
+    delta:
+      additions: 6814
+      changed_files: 59
+      commits: 14
+      deletions: 324
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:46:41Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: build/rust-research
+    stage: draft
+    pr: 31
+    base: review/2026-09-26
+    title: A spike chooses which Rust kernel to try first, a comparison by numbers
+      waits for one, and two Rust crates exist as stubs
+    author: subcontrabass
+    delta:
+      additions: 1781
+      changed_files: 16
+      commits: 5
+      deletions: 0
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:46:39Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: review/2026-09-26
+    stage: draft
+    pr: 30
+    base: stack/06-one-page
+    title: Cameras are parts and the screen carries less, with the plans for Rust,
+      the loops through the page and the cleanup triage
+    author: subcontrabass
+    delta:
+      additions: 8385
+      changed_files: 95
+      commits: 56
+      deletions: 2055
+      mergeable_state: clean
+      updated_at: '2026-10-11T11:10:05Z'
+    idle_hours: 7.0
+    stalled: false
+  - name: stack/06-one-page
+    stage: draft
+    pr: 29
+    base: stack/05-openscad-installers
+    title: One page holds the world, one rail and one Machine per board
+    author: subcontrabass
+    delta:
+      additions: 9938
+      changed_files: 110
+      commits: 56
+      deletions: 5476
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:55Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: stack/05-openscad-installers
+    stage: draft
+    pr: 28
+    base: stack/04-pictures-in-the-world
+    title: OpenSCAD snapshots install natively and renders prefer them, with the gridfinity
+      bin declared as the standard draws it
+    author: subcontrabass
+    delta:
+      additions: 3399
+      changed_files: 30
+      commits: 14
+      deletions: 98
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:54Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: stack/04-pictures-in-the-world
+    stage: draft
+    pr: 27
+    base: stack/03-review-ws-15-and-parts-seams
+    title: A picture is pinned in the world, a made piece is a part, and the browser
+      suite runs in three shards
+    author: subcontrabass
+    delta:
+      additions: 9717
+      changed_files: 72
+      commits: 38
+      deletions: 1027
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:52Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: stack/03-review-ws-15-and-parts-seams
+    stage: draft
+    pr: 26
+    base: stack/02-review-ws-18
+    title: A part declares its OpenSCAD, its parameter names and its geometry through
+      small seams, and the test workflow runs on every pull request
+    author: subcontrabass
+    delta:
+      additions: 2301
+      changed_files: 63
+      commits: 43
+      deletions: 2375
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:50Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: stack/02-review-ws-18
+    stage: draft
+    pr: 25
+    base: stack/01-review-ws-12
+    title: The viewer and the API serve nothing that nothing calls, and the page escapes
+      what it writes
+    author: subcontrabass
+    delta:
+      additions: 1952
+      changed_files: 139
+      commits: 40
+      deletions: 9223
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:48Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: stack/01-review-ws-12
+    stage: draft
+    pr: 24
+    base: consolidate/2026-09-19
+    title: Parts, the photo gatherer, the CLI and the test helpers each hold one copy
+      of what they do
+    author: subcontrabass
+    delta:
+      additions: 4297
+      changed_files: 148
+      commits: 91
+      deletions: 8214
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:46Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: consolidate/2026-09-19
+    stage: ready
+    pr: 21
+    base: main
+    title: 'Consolidate every unmerged line: the printer seam on the bench, the ring,
+      one screen, the camera, personal data on the device, the bench drawn as it is'
+    author: subcontrabass
+    delta:
+      additions: 110819
+      changed_files: 290
+      commits: 83
+      deletions: 693
+      mergeable_state: clean
+      updated_at: '2026-09-26T00:27:56Z'
+    idle_hours: 377.7
+    stalled: true
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/apothecary
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 297
+    observed_at: '2026-09-20T17:15:47Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: datum
+  slug: quaternionmedia/datum
+  role: project
+  family: irl
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: schema and wire contract; governance propagation open
+  slots:
+    repository: quaternionmedia/datum
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 'WP-3: firmware, the pre-HIL run, and a pinned enclosure'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: wp3-firmware
+      head_repo: quaternionmedia/datum
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.0.1
+    annotated: false
+    unreleased_commits: 5
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: wp3-firmware
+    stage: ready
+    pr: 2
+    base: main
+    title: 'WP-3: firmware, the pre-HIL run, and a pinned enclosure'
+    author: subcontrabass
+    delta:
+      additions: 4446
+      changed_files: 50
+      commits: 34
+      deletions: 97
+      mergeable_state: clean
+      updated_at: '2026-09-19T22:00:15Z'
+    idle_hours: 524.2
+    stalled: true
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/datum
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 175
+    observed_at: '2026-09-20T17:15:53Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: codecartographer
+  slug: quaternionmedia/codecartographer
+  role: project
+  family: core
+  phase: v0.0.2
+  phase_source: stated
+  note: code maps; named itself a v0.0.2 RAD consumer
+  slots:
+    repository: quaternionmedia/codecartographer
+    contributor: null
+    open_prs:
+    - number: 104
+      title: Bump virtualenv from 20.36.1 to 21.7.13
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/virtualenv-21.7.13
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 103
+      title: Bump urllib3 from 2.6.3 to 2.8.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/urllib3-2.8.0
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 97
+      title: 'build(deps): bump anyio from 4.12.1 to 4.14.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 96
+      title: 'build(deps): bump mkdocs-material from 9.7.1 to 9.7.7'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/mkdocs-material-9.7.7
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 90
+      title: 'build(deps): bump pymdown-extensions from 10.20 to 11.0.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pymdown-extensions-11.0.1
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 89
+      title: 'build(deps-dev): bump postcss from 8.5.19 to 8.5.25 in /web'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/web/postcss-8.5.25
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 88
+      title: 'build(deps): bump brace-expansion from 1.1.16 to 1.1.18 in /web'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/web/brace-expansion-1.1.18
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 87
+      title: 'build(deps): bump black from 25.12.0 to 26.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/black-26.3.1
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    - number: 85
+      title: 'build(deps): bump setuptools from 80.9.0 to 83.0.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/setuptools-83.0.0
+      head_repo: quaternionmedia/codecartographer
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/codecartographer
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 3
+      workflows_absent: 1
+      licensing_present: 2
+    behind_corpus: 74
+    observed_at: '2026-09-20T17:15:50Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: private-32
+  slug: quaternionmedia/private-32
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed.
+    This repository is private, and a public roster that named it would defeat the
+    inventory''s own redaction of the same repository as private-32.
+
+    '
+  slots:
+    repository: quaternionmedia/private-32
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-33
+  slug: quaternionmedia/private-33
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed.
+    This repository is private, and a public roster that named it would defeat the
+    inventory''s own redaction of the same repository as private-33.
+
+    '
+  slots:
+    repository: quaternionmedia/private-33
+    contributor: null
+    open_prs:
+    - number: 8
+      title: 'chore(deps): bump starlette from 0.50.0 to 1.3.1'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/starlette-1.3.1
+      head_repo: quaternionmedia/private-33
+      draft: false
+    - number: 6
+      title: 'chore(deps): bump idna from 3.11 to 3.15'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/idna-3.15
+      head_repo: quaternionmedia/private-33
+      draft: false
+    - number: 5
+      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      head_repo: quaternionmedia/private-33
+      draft: false
+    - number: 4
+      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      head_repo: quaternionmedia/private-33
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v1.4.1
+    annotated: true
+    unreleased_commits: 46
+    asserts: a human reviewed, manually tested and gated this commit
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: factorio-sysops
+  slug: quaternionmedia/factorio-sysops
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: null
+  slots:
+    repository: quaternionmedia/factorio-sysops
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: incomplete
+    missing:
+    - ide
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/factorio-sysops
+      ide_present: 0
+      ide_absent: 3
+      workflows_present: 1
+      workflows_absent: 3
+      licensing_present: 0
+    behind_corpus: 297
+    observed_at: '2026-09-20T17:15:57Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: carlos
+  slug: quaternionmedia/carlos
+  role: project
+  family: instruments
+  phase: v0.0.1
+  phase_source: stated
+  note: 'Browser workspace for sketching synth rigs, governed via project/carlos.
+    `stated`, not `scaffolded`: carlos names the rung in its own GOVERNANCE.md, so
+    the claim is the project''s rather than an inference drawn from what it happens
+    to contain. It is what the project works toward and not an attainment -- nothing
+    here is evidence, and the tag that would assert arrival has not been cut. Its
+    default branch is `they`, not `main`.
+
+    '
+  slots:
+    repository: quaternionmedia/carlos
+    contributor: null
+    open_prs:
+    - number: 19
+      title: Bump urllib3 from 2.7.0 to 2.8.0
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/urllib3-2.8.0
+      head_repo: quaternionmedia/carlos
+      draft: false
+    - number: 18
+      title: Bump anyio from 4.10.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/anyio-4.14.2
+      head_repo: quaternionmedia/carlos
+      draft: false
+    - number: 17
+      title: Turn every dial about its centre, give leads ends, and follow a scroll
+      author: subcontrabass
+      bot: false
+      base: they
+      head: fix/dials-cable-ends-and-scroll
+      head_repo: quaternionmedia/carlos
+      draft: false
+    - number: 3
+      title: Bump idna from 3.10 to 3.15
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/idna-3.15
+      head_repo: quaternionmedia/carlos
+      draft: false
+    - number: 2
+      title: Bump starlette from 0.47.2 to 1.3.1
+      author: dependabot[bot]
+      bot: true
+      base: they
+      head: dependabot/uv/starlette-1.3.1
+      head_repo: quaternionmedia/carlos
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: fix/dials-cable-ends-and-scroll
+    stage: ready
+    pr: 17
+    base: they
+    title: Turn every dial about its centre, give leads ends, and follow a scroll
+    author: subcontrabass
+    delta:
+      additions: 1689
+      changed_files: 45
+      commits: 8
+      deletions: 124
+      mergeable_state: unstable
+      updated_at: '2026-08-22T17:27:47Z'
+    idle_hours: 1200.7
+    stalled: true
+  governance:
+    precondition: met
+    missing: []
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/carlos
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 204
+    observed_at: '2026-09-20T17:15:48Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: private-34
+  slug: quaternionmedia/private-34
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
+    for the same reason as private-32 and private-33 above. Governed via a project/<name>
+    branch here.
+
+    '
+  slots:
+    repository: quaternionmedia/private-34
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 'Build(deps): bump httpcore2 from 2.7.0 to 2.10.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/httpcore2-2.10.0
+      head_repo: quaternionmedia/private-34
+      draft: false
+    - number: 1
+      title: 'Build(deps-dev): bump httpx2 from 2.7.0 to 2.12.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/httpx2-2.12.0
+      head_repo: quaternionmedia/private-34
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-36
+  slug: quaternionmedia/private-36
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Name and paths live in ci/workspace-private.yaml, which is not committed,
+    for the same reason as private-32 through private-34 above. Governed via a project/<name>
+    branch here, which carries its records as drafts; no family claimed until governance
+    has run for it.
+
+    '
+  slots:
+    repository: quaternionmedia/private-36
+    contributor: null
+    open_prs:
+    - number: 1
+      title: Mount governance/qm against project/private-36, and measure unpushed
+        against the right ref
+      author: subcontrabass
+      bot: false
+      base: main
+      head: evolve/mount-the-governance-submodule
+      head_repo: quaternionmedia/private-36
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: evolve/mount-the-governance-submodule
+    stage: ready
+    pr: 1
+    base: main
+    title: Mount governance/qm against project/private-36, and measure unpushed against
+      the right ref
+    author: subcontrabass
+    delta:
+      additions: 94
+      changed_files: 9
+      commits: 2
+      deletions: 93
+      mergeable_state: clean
+      updated_at: '2026-09-19T22:26:11Z'
+    idle_hours: 523.7
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: streaming-infrastructure
+  slug: quaternionmedia/streaming-infrastructure
+  role: project
+  family: null
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'Governed via project/streaming-infrastructure here, whose one record calls
+    the codebase the `qmstream` control plane. No repository by either name is on
+    the host under this org, so there is nothing to clone and status/governance.yaml
+    reports its host layer as unknown. No family claimed until governance has run
+    for it. The paths are where a clone would go.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/streaming-infrastructure/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/streaming-infrastructure: gh: Not Found (HTTP
+      404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: 'gh api repos/quaternionmedia/streaming-infrastructure: gh: Not Found
+      (HTTP 404)'
+- name: qmetronome
+  slug: quaternionmedia/qmetronome
+  role: project
+  family: instruments
+  phase: v0.0.3
+  phase_source: stated
+  note: named as the v0.0.3 Android target
+  slots:
+    repository: quaternionmedia/qmetronome
+    contributor: null
+    open_prs:
+    - number: 15
+      title: Bump the governance pin to the project branch tip
+      author: subcontrabass
+      bot: false
+      base: main
+      head: governance/pin-project-tip
+      head_repo: quaternionmedia/qmetronome
+      draft: false
+    - number: 13
+      title: Route hardware volume keys to media stream in MainActivity
+      author: Copilot
+      bot: true
+      base: main
+      head: copilot/fix-volume-button-issue
+      head_repo: quaternionmedia/qmetronome
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.2.0
+    annotated: true
+    unreleased_commits: 3
+    asserts: a human reviewed, manually tested and gated this commit
+  threads:
+  - name: governance/pin-project-tip
+    stage: ready
+    pr: 15
+    base: main
+    title: Bump the governance pin to the project branch tip
+    author: subcontrabass
+    delta:
+      additions: 1
+      changed_files: 1
+      commits: 1
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-09-20T23:14:49Z'
+    idle_hours: 498.9
+    stalled: true
+  governance:
+    precondition: incomplete
+    missing:
+    - workflows
+    - licensing
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/qmetronome
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 2
+      workflows_absent: 2
+      licensing_present: 1
+    behind_corpus: 297
+    observed_at: '2026-09-20T17:16:04Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: benchmark
+  slug: quaternionmedia/benchmark
+  role: unmanaged
+  family: null
+  phase: v0.0.2
+  phase_source: stated
+  note: named alongside apothecary as a v0.0.2 consumer
+  slots:
+    repository: quaternionmedia/benchmark
+    contributor: null
+    open_prs:
+    - number: 8
+      title: 'chore(deps-dev): bump vite from 7.3.1 to 7.3.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/vite-7.3.2
+      head_repo: quaternionmedia/benchmark
+      draft: false
+    - number: 7
+      title: 'fix: handle missing regions/ directory in compile-yaml'
+      author: subcontrabass
+      bot: false
+      base: main
+      head: fix/ci-empty-regions-dir
+      head_repo: quaternionmedia/benchmark
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: fix/ci-empty-regions-dir
+    stage: ready
+    pr: 7
+    base: main
+    title: 'fix: handle missing regions/ directory in compile-yaml'
+    author: subcontrabass
+    delta:
+      additions: 2
+      changed_files: 2
+      commits: 1
+      deletions: 1
+      mergeable_state: blocked
+      updated_at: '2026-04-06T16:02:26Z'
+    idle_hours: 4514.1
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: looksatwords
+  slug: quaternionmedia/looksatwords
+  role: project
+  family: core
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'language data -- make, gather, analyze, visualise. Named in plans/governance-prose-signals.md
+    as where prose analysis belongs, rather than in ci/.
+
+    '
+  slots:
+    repository: quaternionmedia/looksatwords
+    contributor: null
+    open_prs:
+    - number: 21
+      title: 'chore(deps): bump pytest from 9.0.2 to 9.0.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pytest-9.0.3
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 20
+      title: 'chore(deps): bump pillow from 12.1.0 to 12.2.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pillow-12.2.0
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 19
+      title: 'chore(deps): bump pygments from 2.19.2 to 2.20.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/pygments-2.20.0
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 18
+      title: 'chore(deps): bump requests from 2.32.5 to 2.33.0'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/requests-2.33.0
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 17
+      title: 'chore(deps): bump nltk from 3.9.2 to 3.9.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/nltk-3.9.3
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 16
+      title: 'chore(deps): bump tornado from 6.5.4 to 6.5.5'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/tornado-6.5.5
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 14
+      title: 'chore(deps): bump bokeh from 3.8.1 to 3.8.2'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/bokeh-3.8.2
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    - number: 13
+      title: 'chore(deps): bump urllib3 from 2.6.2 to 2.6.3'
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/urllib3-2.6.3
+      head_repo: quaternionmedia/looksatwords
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    precondition: met
+    missing: []
+    detail:
+      submodule: governance/qm
+      submodule_branch: project/looksatwords
+      ide_present: 3
+      ide_absent: 0
+      workflows_present: 4
+      workflows_absent: 0
+      licensing_present: 2
+    behind_corpus: 67
+    observed_at: '2026-09-20T17:16:00Z'
+    asserted_by: null
+    asserts: a complete artifact set means a human may assert v0.0.1, never that they
+      have
+- name: moat
+  slug: quaternionmedia/moat
+  role: unmanaged
+  family: infra
+  phase: v0.0.1
+  phase_source: scaffolded
+  note: 'homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT networking.
+    status/governance.yaml lists it under org.unmanaged_named; adoption is drafted
+    on an unmerged pull request and nothing binds yet.
+
+    '
+  slots:
+    repository: quaternionmedia/moat
+    contributor: null
+    open_prs:
+    - number: 4
+      title: 🏞 MoatNet
+      author: mrharpo
+      bot: false
+      base: qm
+      head: moatnet
+      head_repo: quaternionmedia/moat
+      draft: true
+    - number: 3
+      title: 💡 QM plan
+      author: mrharpo
+      bot: false
+      base: main
+      head: qm
+      head_repo: quaternionmedia/moat
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: moatnet
+    stage: draft
+    pr: 4
+    base: qm
+    title: 🏞 MoatNet
+    author: mrharpo
+    delta:
+      additions: 8741
+      changed_files: 36
+      commits: 11
+      deletions: 0
+      mergeable_state: unstable
+      updated_at: '2026-09-08T02:04:05Z'
+    idle_hours: 808.1
+    stalled: true
+  - name: qm
+    stage: draft
+    pr: 3
+    base: main
+    title: 💡 QM plan
+    author: mrharpo
+    delta:
+      additions: 4876
+      changed_files: 27
+      commits: 2
+      deletions: 10
+      mergeable_state: unstable
+      updated_at: '2026-08-21T16:20:56Z'
+    idle_hours: 1225.8
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ShowRunner
+  slug: quaternionmedia/ShowRunner
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: show control for live performances; the hub the periphery names itself after
+  slots:
+    repository: quaternionmedia/ShowRunner
+    contributor: null
+    open_prs:
+    - number: 39
+      title: 'ShowOSC plugin + generic Connection base (stacked on #22)'
+      author: mrharpo
+      bot: false
+      base: copilot/add-cue-type-midi-control-changes
+      head: mrharpo/osc
+      head_repo: quaternionmedia/ShowRunner
+      draft: false
+    - number: 30
+      title: Integrate the programmer page, the UI test layer and ShowMidi over ShowLogger
+      author: subcontrabass
+      bot: false
+      base: main
+      head: integrate/2026-09-20
+      head_repo: quaternionmedia/ShowRunner
+      draft: true
+    - number: 22
+      title: 🎹 ShowMidi
+      author: Copilot
+      bot: true
+      base: main
+      head: copilot/add-cue-type-midi-control-changes
+      head_repo: quaternionmedia/ShowRunner
+      draft: false
+    violations:
+    - author: mrharpo
+      base: copilot/add-cue-type-midi-control-changes
+      numbers:
+      - 39
+      parent: 22
+    exit_status: 1
+    compliant: false
+  release:
+    state: current
+    latest: v0.2.0
+    annotated: false
+    unreleased_commits: 0
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: mrharpo/osc
+    stage: ready
+    pr: 39
+    base: copilot/add-cue-type-midi-control-changes
+    title: 'ShowOSC plugin + generic Connection base (stacked on #22)'
+    author: mrharpo
+    delta:
+      additions: 2249
+      changed_files: 14
+      commits: 4
+      deletions: 683
+      mergeable_state: clean
+      updated_at: '2026-10-11T04:20:27Z'
+    idle_hours: 13.8
+    stalled: false
+  - name: integrate/2026-09-20
+    stage: draft
+    pr: 30
+    base: main
+    title: Integrate the programmer page, the UI test layer and ShowMidi over ShowLogger
+    author: subcontrabass
+    delta:
+      additions: 8752
+      changed_files: 34
+      commits: 22
+      deletions: 513
+      mergeable_state: dirty
+      updated_at: '2026-10-08T06:22:18Z'
+    idle_hours: 83.8
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: Cuelist-python
+  slug: quaternionmedia/Cuelist-python
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: helpers for Cuelist, and a ShowRunner plugin by its own description
+  slots:
+    repository: quaternionmedia/Cuelist-python
+    contributor: null
+    open_prs:
+    - number: 1
+      title: Make the package installable, and parse the upload in memory
+      author: subcontrabass
+      bot: false
+      base: main
+      head: fix/install-and-packaging
+      head_repo: quaternionmedia/Cuelist-python
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: fix/install-and-packaging
+    stage: ready
+    pr: 1
+    base: main
+    title: Make the package installable, and parse the upload in memory
+    author: subcontrabass
+    delta:
+      additions: 116
+      changed_files: 8
+      commits: 2
+      deletions: 96
+      mergeable_state: clean
+      updated_at: '2026-09-20T23:14:32Z'
+    idle_hours: 498.9
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: QLab-python
+  slug: quaternionmedia/QLab-python
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: interface to a third-party cue system
+  slots:
+    repository: quaternionmedia/QLab-python
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 🎭 Theatremix
+      author: mrharpo
+      bot: false
+      base: main
+      head: theatremix
+      head_repo: quaternionmedia/QLab-python
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: theatremix
+    stage: draft
+    pr: 2
+    base: main
+    title: 🎭 Theatremix
+    author: mrharpo
+    delta:
+      additions: 4020
+      changed_files: 24
+      commits: 22
+      deletions: 544
+      mergeable_state: clean
+      updated_at: '2026-04-11T08:00:47Z'
+    idle_hours: 4402.2
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: TheatreMix-python
+  slug: quaternionmedia/TheatreMix-python
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: interface to a third-party mixing system
+  slots:
+    repository: quaternionmedia/TheatreMix-python
+    contributor: null
+    open_prs:
+    - number: 5
+      title: Bump aiohttp from 3.13.5 to 3.14.3
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/aiohttp-3.14.3
+      head_repo: quaternionmedia/TheatreMix-python
+      draft: false
+    - number: 4
+      title: Bump multidict from 6.7.1 to 6.9.1
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/multidict-6.9.1
+      head_repo: quaternionmedia/TheatreMix-python
+      draft: false
+    - number: 3
+      title: Bump anyio from 4.13.0 to 4.14.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/anyio-4.14.2
+      head_repo: quaternionmedia/TheatreMix-python
+      draft: false
+    - number: 2
+      title: Bump tornado from 6.5.5 to 6.5.9
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/uv/tornado-6.5.9
+      head_repo: quaternionmedia/TheatreMix-python
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.1.0
+    annotated: false
+    unreleased_commits: 0
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: cesar
+  slug: quaternionmedia/cesar
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: a unified lighting, sound and video controller for theatre
+  slots:
+    repository: quaternionmedia/cesar
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ira
+  slug: quaternionmedia/ira
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: LED control for live theatre
+  slots:
+    repository: quaternionmedia/ira
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ShowStopper
+  slug: quaternionmedia/ShowStopper
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: timing for the performing arts
+  slots:
+    repository: quaternionmedia/ShowStopper
+    contributor: null
+    open_prs:
+    - number: 2
+      title: 🎭 Family demo contract
+      author: subcontrabass
+      bot: false
+      base: tests
+      head: feat/family-demo-contract
+      head_repo: quaternionmedia/ShowStopper
+      draft: true
+    - number: 1
+      title: 🧪 Tests
+      author: subcontrabass
+      bot: false
+      base: main
+      head: tests
+      head_repo: quaternionmedia/ShowStopper
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: feat/family-demo-contract
+    stage: draft
+    pr: 2
+    base: tests
+    title: 🎭 Family demo contract
+    author: subcontrabass
+    delta:
+      additions: 219
+      changed_files: 5
+      commits: 2
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-11T10:44:45Z'
+    idle_hours: 7.4
+    stalled: false
+  - name: tests
+    stage: ready
+    pr: 1
+    base: main
+    title: 🧪 Tests
+    author: subcontrabass
+    delta:
+      additions: 821
+      changed_files: 11
+      commits: 3
+      deletions: 4
+      mergeable_state: clean
+      updated_at: '2026-10-09T12:43:26Z'
+    idle_hours: 53.4
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: aes
+  slug: quaternionmedia/aes
+  role: unmanaged
+  family: show-control
+  phase: n/a
+  phase_source: n/a
+  note: audio-over-IP transport scripts
+  slots:
+    repository: quaternionmedia/aes
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: holophonor
+  slug: quaternionmedia/holophonor
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: live looping; the hub two others name themselves after
+  slots:
+    repository: quaternionmedia/holophonor
+    contributor: null
+    open_prs:
+    - number: 11
+      title: 🚰 Pipewire
+      author: mrharpo
+      bot: false
+      base: main
+      head: pipewire
+      head_repo: quaternionmedia/holophonor
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.1.0
+    annotated: false
+    unreleased_commits: 31
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: pipewire
+    stage: draft
+    pr: 11
+    base: main
+    title: 🚰 Pipewire
+    author: mrharpo
+    delta:
+      additions: 428
+      changed_files: 9
+      commits: 10
+      deletions: 52
+      mergeable_state: clean
+      updated_at: '2025-06-22T22:17:43Z'
+    idle_hours: 11419.9
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: midiphonor
+  slug: quaternionmedia/midiphonor
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: a holophonor implementation in the browser, by its own description
+  slots:
+    repository: quaternionmedia/midiphonor
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.2.0
+    annotated: false
+    unreleased_commits: 32
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: uPhonor
+  slug: quaternionmedia/uPhonor
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: a micro-holophonor, by its own description
+  slots:
+    repository: quaternionmedia/uPhonor
+    contributor: null
+    open_prs:
+    - number: 33
+      title: Bump vite from 6.1.0 to 6.4.2
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/vite-6.4.2
+      head_repo: quaternionmedia/uPhonor
+      draft: false
+    - number: 32
+      title: Bump rollup from 4.34.6 to 4.59.0
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/rollup-4.59.0
+      head_repo: quaternionmedia/uPhonor
+      draft: false
+    - number: 29
+      title: 🐍 Python
+      author: mrharpo
+      bot: false
+      base: main
+      head: cffi
+      head_repo: quaternionmedia/uPhonor
+      draft: true
+    - number: 7
+      title: Bump esbuild and vite
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/multi-a91bf2f4f6
+      head_repo: quaternionmedia/uPhonor
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.9.0
+    annotated: false
+    unreleased_commits: 0
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: cffi
+    stage: draft
+    pr: 29
+    base: main
+    title: 🐍 Python
+    author: mrharpo
+    delta:
+      additions: 6751
+      changed_files: 25
+      commits: 6
+      deletions: 42
+      mergeable_state: clean
+      updated_at: '2025-07-13T07:24:23Z'
+    idle_hours: 10930.8
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: stomp
+  slug: quaternionmedia/stomp
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: a MIDI foot controller
+  slots:
+    repository: quaternionmedia/stomp
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: wolf
+  slug: quaternionmedia/wolf
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: a remote MIDI controller
+  slots:
+    repository: quaternionmedia/wolf
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ludwig
+  slug: quaternionmedia/ludwig
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: remote mixing
+  slots:
+    repository: quaternionmedia/ludwig
+    contributor: null
+    open_prs:
+    - number: 9
+      title: 🌌 Universal
+      author: mrharpo
+      bot: false
+      base: main
+      head: api
+      head_repo: quaternionmedia/ludwig
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v0.1.0
+    annotated: false
+    unreleased_commits: 20
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads:
+  - name: api
+    stage: draft
+    pr: 9
+    base: main
+    title: 🌌 Universal
+    author: mrharpo
+    delta:
+      additions: 4593
+      changed_files: 27
+      commits: 4
+      deletions: 74
+      mergeable_state: clean
+      updated_at: '2025-12-22T07:01:05Z'
+    idle_hours: 7043.1
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: waveofhormuz
+  slug: quaternionmedia/waveofhormuz
+  role: unmanaged
+  family: instruments
+  phase: n/a
+  phase_source: n/a
+  note: an oscillator module
+  slots:
+    repository: quaternionmedia/waveofhormuz
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v2.2.0
+    annotated: false
+    unreleased_commits: 1
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: joe
+  slug: quaternionmedia/joe
+  role: unmanaged
+  family: performer-display
+  phase: n/a
+  phase_source: n/a
+  note: realtime sheet-music rendering
+  slots:
+    repository: quaternionmedia/joe
+    contributor: null
+    open_prs:
+    - number: 34
+      title: joe's docstrings, comments and docs state what is true now
+      author: subcontrabass
+      bot: false
+      base: feat/transcript-lane
+      head: docs/timeless-joe-text
+      head_repo: quaternionmedia/joe
+      draft: true
+    - number: 33
+      title: 'A take is shown on the visualiser: its recording on the transport, its
+        words on the piano roll''s timeline'
+      author: subcontrabass
+      bot: false
+      base: feat/transcript-pane
+      head: feat/transcript-lane
+      head_repo: quaternionmedia/joe
+      draft: true
+    - number: 32
+      title: The whole transcript is readable in a pane docked beside the piano roll,
+        live and kept across a reload
+      author: subcontrabass
+      bot: false
+      base: feat/voice-vocabulary
+      head: feat/transcript-pane
+      head_repo: quaternionmedia/joe
+      draft: true
+    - number: 31
+      title: 'joe''s own spoken words are declared once: start over, marking a take
+        for tuning, and the voice''s level'
+      author: subcontrabass
+      bot: false
+      base: feat/barge-in
+      head: feat/voice-vocabulary
+      head_repo: quaternionmedia/joe
+      draft: true
+    - number: 30
+      title: A take is opened while a question is asked, and a key or speech over
+        the question interrupts it
+      author: subcontrabass
+      bot: false
+      base: feat/take-confidence
+      head: feat/barge-in
+      head_repo: quaternionmedia/joe
+      draft: true
+    - number: 29
+      title: A listen says how sure it is of its transcript
+      author: subcontrabass
+      bot: false
+      base: feat/live-transcript
+      head: feat/take-confidence
+      head_repo: quaternionmedia/joe
+      draft: true
+    - number: 28
+      title: A take is shown as it is written, its words can be struck, and every
+        segment is kept as a datapoint
+      author: subcontrabass
+      bot: false
+      base: feat/turn-controls
+      head: feat/live-transcript
+      head_repo: quaternionmedia/joe
+      draft: true
+    - number: 27
+      title: The conversation can be answered by key or button, held open with tilde,
+        and followed by ear
+      author: subcontrabass
+      bot: false
+      base: feat/short-answer-recognition
+      head: feat/turn-controls
+      head_repo: quaternionmedia/joe
+      draft: true
+    - number: 26
+      title: A take is transcribed as English, as one utterance, and toward the words
+        it is expected to be
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/short-answer-recognition
+      head_repo: quaternionmedia/joe
+      draft: false
+    - number: 23
+      title: An instruction is taken by voice from the page into qmcp's inbox, and
+        the recorded row is shown
+      author: subcontrabass
+      bot: false
+      base: main
+      head: feat/instruct-by-voice
+      head_repo: quaternionmedia/joe
+      draft: false
+    - number: 7
+      title: ⬆ Bump actions/checkout from 4 to 6 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/checkout-6
+      head_repo: quaternionmedia/joe
+      draft: false
+    - number: 4
+      title: 🖐 p5.js
+      author: mrharpo
+      bot: false
+      base: main
+      head: p5
+      head_repo: quaternionmedia/joe
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: docs/timeless-joe-text
+    stage: draft
+    pr: 34
+    base: feat/transcript-lane
+    title: joe's docstrings, comments and docs state what is true now
+    author: subcontrabass
+    delta:
+      additions: 190
+      changed_files: 17
+      commits: 2
+      deletions: 184
+      mergeable_state: clean
+      updated_at: '2026-10-10T23:39:31Z'
+    idle_hours: 18.5
+    stalled: false
+  - name: feat/transcript-lane
+    stage: draft
+    pr: 33
+    base: feat/transcript-pane
+    title: 'A take is shown on the visualiser: its recording on the transport, its
+      words on the piano roll''s timeline'
+    author: subcontrabass
+    delta:
+      additions: 304
+      changed_files: 9
+      commits: 3
+      deletions: 1
+      mergeable_state: clean
+      updated_at: '2026-10-05T01:44:14Z'
+    idle_hours: 160.4
+    stalled: true
+  - name: feat/transcript-pane
+    stage: draft
+    pr: 32
+    base: feat/voice-vocabulary
+    title: The whole transcript is readable in a pane docked beside the piano roll,
+      live and kept across a reload
+    author: subcontrabass
+    delta:
+      additions: 769
+      changed_files: 13
+      commits: 4
+      deletions: 3
+      mergeable_state: clean
+      updated_at: '2026-10-05T01:40:23Z'
+    idle_hours: 160.5
+    stalled: true
+  - name: feat/voice-vocabulary
+    stage: draft
+    pr: 31
+    base: feat/barge-in
+    title: 'joe''s own spoken words are declared once: start over, marking a take
+      for tuning, and the voice''s level'
+    author: subcontrabass
+    delta:
+      additions: 306
+      changed_files: 9
+      commits: 3
+      deletions: 12
+      mergeable_state: clean
+      updated_at: '2026-10-05T01:14:38Z'
+    idle_hours: 160.9
+    stalled: true
+  - name: feat/barge-in
+    stage: draft
+    pr: 30
+    base: feat/take-confidence
+    title: A take is opened while a question is asked, and a key or speech over the
+      question interrupts it
+    author: subcontrabass
+    delta:
+      additions: 729
+      changed_files: 8
+      commits: 1
+      deletions: 23
+      mergeable_state: clean
+      updated_at: '2026-10-04T23:16:29Z'
+    idle_hours: 162.9
+    stalled: true
+  - name: feat/take-confidence
+    stage: draft
+    pr: 29
+    base: feat/live-transcript
+    title: A listen says how sure it is of its transcript
+    author: subcontrabass
+    delta:
+      additions: 94
+      changed_files: 5
+      commits: 1
+      deletions: 3
+      mergeable_state: clean
+      updated_at: '2026-10-04T21:29:00Z'
+    idle_hours: 164.7
+    stalled: true
+  - name: feat/live-transcript
+    stage: draft
+    pr: 28
+    base: feat/turn-controls
+    title: A take is shown as it is written, its words can be struck, and every segment
+      is kept as a datapoint
+    author: subcontrabass
+    delta:
+      additions: 937
+      changed_files: 16
+      commits: 1
+      deletions: 9
+      mergeable_state: clean
+      updated_at: '2026-10-04T20:34:48Z'
+    idle_hours: 165.6
+    stalled: true
+  - name: feat/turn-controls
+    stage: draft
+    pr: 27
+    base: feat/short-answer-recognition
+    title: The conversation can be answered by key or button, held open with tilde,
+      and followed by ear
+    author: subcontrabass
+    delta:
+      additions: 823
+      changed_files: 16
+      commits: 2
+      deletions: 12
+      mergeable_state: clean
+      updated_at: '2026-10-04T19:27:23Z'
+    idle_hours: 166.7
+    stalled: true
+  - name: feat/short-answer-recognition
+    stage: ready
+    pr: 26
+    base: main
+    title: A take is transcribed as English, as one utterance, and toward the words
+      it is expected to be
+    author: subcontrabass
+    delta:
+      additions: 158
+      changed_files: 7
+      commits: 2
+      deletions: 9
+      mergeable_state: clean
+      updated_at: '2026-10-04T19:27:58Z'
+    idle_hours: 166.7
+    stalled: true
+  - name: feat/instruct-by-voice
+    stage: ready
+    pr: 23
+    base: main
+    title: An instruction is taken by voice from the page into qmcp's inbox, and the
+      recorded row is shown
+    author: subcontrabass
+    delta:
+      additions: 392
+      changed_files: 7
+      commits: 2
+      deletions: 2
+      mergeable_state: clean
+      updated_at: '2026-10-04T01:28:31Z'
+    idle_hours: 184.7
+    stalled: true
+  - name: p5
+    stage: ready
+    pr: 4
+    base: main
+    title: 🖐 p5.js
+    author: mrharpo
+    delta:
+      additions: 3103
+      changed_files: 11
+      commits: 14
+      deletions: 7
+      mergeable_state: dirty
+      updated_at: '2025-01-04T01:07:48Z'
+    idle_hours: 15497.0
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: leo
+  slug: quaternionmedia/leo
+  role: unmanaged
+  family: performer-display
+  phase: n/a
+  phase_source: n/a
+  note: a web document viewer, annotator and collaborator
+  slots:
+    repository: quaternionmedia/leo
+    contributor: null
+    open_prs:
+    - number: 66
+      title: ⬆ Bump the production-dependencies group across 1 directory with 3 updates
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/production-dependencies-d064ebc736
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 65
+      title: ⬆ Bump actions/checkout from 4 to 6 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/checkout-6
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 64
+      title: ⬆ Bump vite from 7.1.3 to 7.1.11
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/vite-7.1.11
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 63
+      title: ⬆ Bump actions/setup-node from 4 to 6 in /.github/workflows
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/github_actions/dot-github/workflows/actions/setup-node-6
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 61
+      title: 📇 Setlist
+      author: mrharpo
+      bot: false
+      base: main
+      head: setlist
+      head_repo: quaternionmedia/leo
+      draft: false
+    - number: 59
+      title: ⬆ Bump vite from 7.1.3 to 7.1.4 in the development-dependencies group
+      author: dependabot[bot]
+      bot: true
+      base: main
+      head: dependabot/npm_and_yarn/development-dependencies-da77792d36
+      head_repo: quaternionmedia/leo
+      draft: false
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads:
+  - name: setlist
+    stage: ready
+    pr: 61
+    base: main
+    title: 📇 Setlist
+    author: mrharpo
+    delta:
+      additions: 11847
+      changed_files: 61
+      commits: 28
+      deletions: 1040
+      mergeable_state: clean
+      updated_at: '2026-09-20T22:50:26Z'
+    idle_hours: 499.3
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: scad-chess
+  slug: quaternionmedia/scad-chess
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: a chess set designed in OpenSCAD; the deliverable is the printed set
+  slots:
+    repository: quaternionmedia/scad-chess
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: ahead
+    latest: v1.0
+    annotated: false
+    unreleased_commits: 11
+    asserts: 'lightweight tag: carries no annotation, so it names no reviewer and
+      no manual test'
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-03
+  slug: quaternionmedia/private-03
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-03/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-03: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-05
+  slug: quaternionmedia/private-05
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-05/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-05: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-07
+  slug: quaternionmedia/private-07
+  role: unmanaged
+  family: irl
+  phase: n/a
+  phase_source: n/a
+  note: 'A parametric physical assembly. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-07/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-07: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: ztgui
+  slug: quaternionmedia/ztgui
+  role: unmanaged
+  family: infra
+  phase: n/a
+  phase_source: n/a
+  note: a interface onto the overlay network members are reached across
+  slots:
+    repository: quaternionmedia/ztgui
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-23
+  slug: quaternionmedia/private-23
+  role: unmanaged
+  family: infra
+  phase: n/a
+  phase_source: n/a
+  note: 'Cloud configuration. Name and paths live in ci/workspace-private.yaml, which
+    is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-23/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-23: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-26
+  slug: quaternionmedia/private-26
+  role: unmanaged
+  family: infra
+  phase: n/a
+  phase_source: n/a
+  note: 'Functions for systems and operating systems. Name and paths live in ci/workspace-private.yaml,
+    which is not committed.
+
+    '
+  slots:
+    unknown: 'check_one_pr produced no output: check_one_pr: gh api repos/quaternionmedia/private-26/pulls
+      failed:'
+  release:
+    unknown: 'tags for quaternionmedia/private-26: gh: Not Found (HTTP 404)'
+  threads:
+    unknown: open pull requests could not be read, so neither could threads
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: golfvs
+  slug: quaternionmedia/golfvs
+  role: unmanaged
+  family: games
+  phase: n/a
+  phase_source: n/a
+  note: arcade physics golf with asymmetric defence, built in Godot
+  slots:
+    repository: quaternionmedia/golfvs
+    contributor: null
+    open_prs:
+    - number: 1
+      title: The first run opens on defence, the range never ends, and it builds for
+        four platforms (ADR-020 to ADR-030)
+      author: subcontrabass
+      bot: false
+      base: main
+      head: camera-orbit-and-selector-corner
+      head_repo: quaternionmedia/golfvs
+      draft: true
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.0.3-prealpha
+    annotated: true
+    unreleased_commits: 0
+    asserts: a human reviewed, manually tested and gated this commit
+  threads:
+  - name: camera-orbit-and-selector-corner
+    stage: draft
+    pr: 1
+    base: main
+    title: The first run opens on defence, the range never ends, and it builds for
+      four platforms (ADR-020 to ADR-030)
+    author: subcontrabass
+    delta:
+      additions: 8492
+      changed_files: 89
+      commits: 28
+      deletions: 375
+      mergeable_state: blocked
+      updated_at: '2026-09-20T14:13:24Z'
+    idle_hours: 507.9
+    stalled: true
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: private-38
+  slug: quaternionmedia/private-38
+  role: unmanaged
+  family: games
+  phase: n/a
+  phase_source: n/a
+  note: 'A game built in Godot; a sibling of golfvs by shape. Private on the host,
+    so name and paths live in ci/workspace-private.yaml, which is not committed --
+    the same reason as every other ref: entry here.
+
+    '
+  slots:
+    repository: quaternionmedia/private-38
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: current
+    latest: v0.0.1-prealpha
+    annotated: true
+    unreleased_commits: 0
+    asserts: a human reviewed, manually tested and gated this commit
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+- name: rad-godot
+  slug: quaternionmedia/rad-godot
+  role: unmanaged
+  family: null
+  phase: n/a
+  phase_source: n/a
+  note: 'rad, the radial menu, as a Godot addon: the contract''s vectors replayed
+    in GDScript. No family claimed: rad''s implementations are a seam, not a roster
+    family.
+
+    '
+  slots:
+    repository: quaternionmedia/rad-godot
+    contributor: null
+    open_prs: []
+    violations: []
+    exit_status: 0
+    compliant: true
+  release:
+    state: unreleased
+    latest: null
+    unreleased_commits: null
+    asserts: no v tag has ever been cut, so nothing has been asserted
+  threads: []
+  governance:
+    unknown: no project/<name> branch in the corpus, so there is nothing to read
+

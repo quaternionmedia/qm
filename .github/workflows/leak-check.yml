@@ -1,0 +1,36 @@
+# Nothing committed names a person, a machine, or a private conversation.
+#
+# This corpus's own copy of project-seed/ci/leak-check.yml. It differs from
+# the seed in exactly one way, a consequence of this being the corpus rather
+# than a project: the script is at project-seed/ci/, not
+# governance/qm/project-seed/ci/, and there is no submodule to check out.
+# Everything else, including what the check sees and what it cannot, is the
+# seed file's header.
+
+name: Leak check
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  leaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Nothing committed names a person, a machine, or a private conversation
+        run: python project-seed/ci/check_leaks.py

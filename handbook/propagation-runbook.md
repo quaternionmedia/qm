@@ -34,12 +34,44 @@ Two failure modes follow from that split, and both have bitten:
   carries it back. If you find any, lift it to `main` on a
   `perspective/*` or `evolve/*` branch before continuing.
 
+  `.github/workflows/namespace-guard.yml` refuses that content on the way in,
+  on push as well as on a pull request, so the route is closed rather than
+  merely discouraged.
+
+### The return path, which is a queue rather than a merge
+
+Closing the wrong route does not open a right one, and for a long time the
+upward half of this model ran on somebody remembering. It turns out the
+projects have been writing it down all along: **every `Proposed` record names
+what it pends on**, the ADR lint enforces the row, and many of those rows name
+*the organisation* — an amendment nobody has ratified, a carve-out nobody has
+recognised, a licensing input nobody has settled.
+
+`uv run qm inbound` reads them. It merges nothing and closes nothing; a row
+leaves the list when the record's own author changes it, which is the only
+party that can know. What it adds to a per-project reading is the one thing no
+per-project reading can show: **the same ask pended on by many projects at
+once**, so the cheapest action this organisation can take is the group at the
+top rather than whichever branch somebody happened to open.
+
+Two boundaries, both stated in the tool's output rather than left to be
+inferred:
+
+- A project whose records are not on its branch is **unknown, not quiet**. It
+  keeps `adr/` in its own repository — the second model
+  `project-seed/ci/adr-lint.yml` offers — or nobody has written one yet, and
+  `status/governance.yaml`'s `records_dir` says which.
+- It does not judge which rows are the org's to answer. A `Pends on` row is
+  prose a person wrote; grouping identical text is mechanical, and reading
+  intent would be a guess printed as a finding.
+
 ---
 
 ## Part A — in this repo: bring `project/<name>` current
 
-Open a pull request. Do not merge to a shared branch directly, and do not
-merge your own work; see `AGENTS.md`.
+Open a pull request, and merge it yourself once every gate is green. Never push
+a shared branch directly — the pull request is the audit record, and a direct
+push destroys it. See `AGENTS.md` item 3.
 
 ```sh
 git fetch --all --prune
@@ -75,11 +107,9 @@ done
    commit *is* the pin bump — the branch's ancestry is the pin, and there is no
    hash to hand-maintain.
 
-   This page used to offer `head = main` as a shortcut for the clean case. Do
-   not: all eight propagations that have actually landed used the intermediate
-   branch, and the shortcut is a shape nothing here supports. It also fails the
-   moment it is not clean, and whether it is clean is not known until after the
-   pull request is open — GitHub commits a conflict resolution to the *head*
+   Do not use `head = main`, even for a clean case. It is a shape nothing here
+   supports, and it fails the moment the merge is not clean, which is not known
+   until after the pull request is open — GitHub commits a conflict resolution to the *head*
    branch, so resolving would push to `main`, which `AGENTS.md` forbids. One
    procedure that always works beats two where the cheaper one is a trap.
 
@@ -129,10 +159,27 @@ stop and lift it to `main` first.
 ## Part B — in the project's own repo: pick the change up
 
 ```sh
+git -C governance/qm ls-remote origin refs/heads/project/<name>   # the tip, from the host
 git submodule update --remote governance/qm     # tracks branch= in .gitmodules
-git -C governance/qm log --oneline -1           # confirm the tip you expect
+git -C governance/qm log --oneline -1           # confirm it is that tip
 git add governance/qm && git commit             # the parent records an exact commit
 ```
+
+**Take the expected tip from the host, not from the clone.** `--remote` moves
+the pin to the remote-tracking ref, and a submodule initialised with a `branch=`
+line is a single-branch clone whose fetch refspec covers `main` alone — so the
+tracking ref for the project branch is never updated by a plain fetch, and the
+command reports the old tip as the new one with no error. If `log` and
+`ls-remote` disagree, add `+refs/heads/project/<name>:refs/remotes/origin/project/<name>`
+to the submodule's `remote.origin.fetch` and fetch again.
+
+**Stage the pin before running anything that initialises the submodule.**
+`git submodule update --init` checks out the gitlink in the superproject's
+index; run before `git add governance/qm`, it puts the submodule back to the old
+commit and every check then measures that. `run_workflows_locally.py` begins
+every governance workflow with exactly that step. After it, `git -C
+governance/qm rev-parse HEAD` is the tip that was measured — compare it with the
+one that was meant.
 
 **Ask the remote, not the working tree.** Every check below is written against
 paths, and a path resolves to whatever branch is checked out — which during an
@@ -148,14 +195,14 @@ git rev-list --count origin/HEAD..HEAD    # unpushed work, which is not adoption
 ```
 
 An audit that reads the working tree reports your own unpushed branch as the
-project's state. That has happened, and the wrong answer reached `main`.
+project's state.
 
 **Look for the behaviour before looking for the filename.** A project that
 adopted before the seed existed may have implemented the same thing its own
 way, in which case the seed artifact is neither absent nor a stale copy — it
-is a third state the naive check misses. qmetronome, the project the seed's
-lint was generalized *from*, has no `.github/workflows/adr-lint.yml` at all:
-its lint is an inline step inside `ci.yml`. Checking for the filename reports
+is a third state the naive check misses. A project whose lint predates the seed
+can run it as an inline step inside `ci.yml`, with no
+`.github/workflows/adr-lint.yml` at all. Checking for the filename reports
 "absent" and hides a divergent implementation that is actively running.
 
 ```sh
@@ -215,8 +262,7 @@ pushing — invalidates **every submodule pin that referenced the old commits**.
 The trees are usually identical; only the identifiers change. That is enough:
 a pin names a commit, not a tree.
 
-The page tells you not to do it. This is what to do when it has already
-happened, because it has:
+The page tells you not to do it. This is what to do when it has happened:
 
 1. **Find the consuming repos.** There is no index of them. Search the disk
    for `.gitmodules` naming this corpus, and treat the list as incomplete —
@@ -246,32 +292,16 @@ happened, because it has:
    exactly this question, and a repo that has been rewritten under it is the
    case it exists for.
 
-**The first time this bit, the rewrite and the breakage had different
-authors.** A branch was re-signed in the corpus to satisfy a signing rule;
-`project/datum`'s consuming repository broke, silently, and stayed broken
-until someone ran the check. Nothing connected the two events. If you rewrite
-a pinned branch, walking the consumers is part of the same task, not a
-follow-up.
+**The rewrite and the breakage can have different authors**, and nothing
+connects the two events: a consuming repository breaks silently and stays
+broken until someone runs the check. If you rewrite a pinned branch, walking the
+consumers is part of the same task, not a follow-up.
 
-## What the first run of this found
+## Pinned is not adopted
 
-Exercised end to end against qmetronome on 2026-08-08 — the branch furthest
-behind, and the only one holding org content. Six findings, none of which this
-page predicted before it was run:
-
-| Finding | Where |
-|---|---|
-| Propagation had never run on any branch, and the naive "any merge" check said otherwise | Part A |
-| A conflicted propagation cannot use `main` as the PR head | Part A |
-| Resolving by keeping both sides made the *next* propagation conflict too | Part A |
-| The submodule was wired correctly, pinned to the right branch | Part B |
-| No `AGENTS.md`, `CLAUDE.md` or `.vscode/` existed in the project repo at all — fork step 5 had never been done | Part B |
-| The ADR lint existed, but inline in `ci.yml` running the old single-check version, so a filename check reported "absent" | Part B |
-
-The last two are the general lesson: **a project can be correctly pinned and
-still be missing most of what adoption means.** The submodule is the cheap
-part. The copied artifacts are where adoption actually lives, and nothing
-reports their absence.
+**A project can be correctly pinned and still be missing most of what adoption
+means.** The submodule is the cheap part. The copied artifacts are where
+adoption lives, and nothing reports their absence.
 
 ## Part C — what to do about what you find
 
@@ -285,6 +315,9 @@ reports their absence.
 | Seed artifacts absent from the project repo entirely | Fork steps 4 and 5 were never done. Do them now — the pin alone is not adoption |
 | A divergent in-project implementation of a seed mechanism | Replace it, do not add beside it, and flag the behaviour change in the PR |
 | A record's Status or number needs changing | **Not yours.** Draft it and hand it back; a human ratifies |
+| A project pends on something the org has not settled | `uv run qm inbound`. Answer the group at the top first — it is the one action that unblocks the most projects |
+| A branch you are about to delete | `uv run qm branches` **in that repository**, first. A branch whose remote is fully merged can still hold commits on one disk, and the two are indistinguishable in a list of names |
+| A consolidation across the estate, or any doubt about what this disk alone holds | `uv run qm estate` from the corpus, first. It runs the census's question over every rostered clone with read commands only: what is on a branch the host has never seen, what is ahead of its remote copy, what is uncommitted, and who is over the one-PR slot. `--offline` asks the host nothing and says so; `--json` is the same survey for a script. It writes nothing and drops nothing -- a roster entry with no clone is a MISSING row, not an absent one |
 
 ## What this page does not authorise
 

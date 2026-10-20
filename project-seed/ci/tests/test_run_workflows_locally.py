@@ -78,6 +78,59 @@ def test_a_branch_filter_that_does_not_match_skips_rather_than_passes(repo: Path
     assert "SKIP" in result.stdout
 
 
+def test_the_environment_is_reported_before_any_step_and_never_changes_the_exit(repo: Path):
+    """The report is information. A machine with no docker daemon or no gh login
+    must not turn a passing workflow red, and must not hide behind a green one."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow("      - name: fine\n        run: echo ok\n"),
+    )
+    commit_all(repo, "add a passing workflow")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 0, result.stdout
+    for label in ("shell:", "gh:", "docker:"):
+        assert f"[env ] {label}" in result.stdout, result.stdout
+    assert result.stdout.index("[env ] gh:") < result.stdout.index("[PASS] fine")
+
+
+def _module():
+    import importlib.util
+
+    from conftest import CI_DIR
+
+    spec = importlib.util.spec_from_file_location(
+        "run_workflows_locally", CI_DIR / "run_workflows_locally.py"
+    )
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_gh_hint_names_the_config_directory_only_when_appdata_is_what_is_missing(
+    tmp_path: Path,
+):
+    """gh reports a signed-in machine as signed out when APPDATA is unset. The
+    hint is for that cause alone; a genuinely signed-out account gets none."""
+    mod = _module()
+    config = tmp_path / "AppData" / "Roaming" / "GitHub CLI"
+    config.mkdir(parents=True)
+    env = {"USERPROFILE": str(tmp_path)}
+
+    assert mod.gh_config_hint(env) is None, "no hosts.yml means nothing to point at"
+
+    (config / "hosts.yml").write_text("github.com: {}\n", encoding="utf-8")
+    assert "GH_CONFIG_DIR" in mod.gh_config_hint(env)
+    assert mod.gh_config_hint({**env, "APPDATA": str(tmp_path)}) is None
+    assert mod.gh_config_hint({**env, "GH_CONFIG_DIR": str(config)}) is None
+    assert mod.gh_config_hint({}) is None
+
+
+def test_a_tool_that_is_missing_is_reported_rather_than_raised():
+    mod = _module()
+    code, why = mod.probe(["definitely-not-a-real-tool-xyz"])
+    assert code is None and "not found" in why
+
+
 def test_a_remote_qualified_base_ref_still_matches_the_branch_filter(repo: Path):
     """`--base-ref origin/main` is the documented example and must work.
 
@@ -195,3 +248,75 @@ def test_a_working_directory_that_does_not_exist_is_a_failure_not_a_pass(repo: P
     result = run_tool("run_workflows_locally.py", cwd=repo)
     assert result.returncode == 1, result.stdout
     assert "working-directory does not exist" in result.stdout
+
+
+# --- a job halts at its first failed step -----------------------------------
+#
+# Observed here: a site build failed for want of the generator, and the two
+# steps after it reported PASS -- one stamping a draft banner across 24 pages
+# of a leftover `site/`. Neither would have run on the real runner, so both
+# greens described a state CI never produces.
+#
+# Parametrized rather than written out per case: the three differ only in the
+# steps and what must appear, and five copies of one body is where a case gets
+# added to the list and silently not asserted.
+
+import pytest  # noqa: E402
+
+HALT = "      - name: the build\n        run: exit 1\n"
+
+
+@pytest.mark.parametrize(
+    "steps, must_appear, must_not_appear",
+    [
+        pytest.param(
+            HALT + "      - name: later\n        run: echo LATER\n",
+            "[skip] later",
+            "LATER",
+            id="a-step-after-a-failure-does-not-run",
+        ),
+        pytest.param(
+            HALT + "      - name: cleanup\n        if: always()\n"
+                   "        run: echo LATER\n",
+            "LATER",
+            None,
+            id="an-always-step-runs-anyway-as-on-the-runner",
+        ),
+        pytest.param(
+            "      - name: advisory\n        continue-on-error: true\n"
+            "        run: exit 1\n"
+            "      - name: later\n        run: echo LATER\n",
+            "LATER",
+            None,
+            id="continue-on-error-records-the-failure-without-halting",
+        ),
+    ],
+)
+def test_a_job_halts_at_its_first_failed_step(
+    repo: Path, steps: str, must_appear: str, must_not_appear: str | None
+):
+    write(repo / ".github" / "workflows" / "t.yml", workflow(steps))
+    commit_all(repo, "add a workflow whose later step depends on an earlier one")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+
+    assert must_appear in result.stdout, result.stdout
+    if must_not_appear:
+        assert must_not_appear not in result.stdout, (
+            f"a step after a failed one executed; Actions would have halted the "
+            f"job\n{result.stdout}"
+        )
+    # A skipped step is not a passing one, in the summary or the exit code.
+    assert result.returncode == 1, result.stdout
+    assert "1 step(s) failed" in result.stdout
+
+
+def test_halting_is_per_job_not_per_run(repo: Path):
+    """A whole run going quiet after one failure would hide every other check."""
+    write(repo / ".github" / "workflows" / "a.yml", workflow(HALT))
+    write(
+        repo / ".github" / "workflows" / "b.yml",
+        workflow("      - name: unrelated\n        run: echo STILL_RAN\n"),
+    )
+    commit_all(repo, "add two independent workflows")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert "STILL_RAN" in result.stdout, result.stdout
