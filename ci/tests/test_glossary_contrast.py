@@ -12,6 +12,10 @@ So the cue is persistent: a dotted rule carries the "this is a link"
 information, colour does no accessibility work and only has to stay readable,
 and the difference in colour can be slight.
 
+The site's ink and ground come from `ci/palette.py`; on its dark ground a
+colour-only link would be reachable, so the rule is kept because the chosen
+ink is quiet, and because a cue that is not colour suits every reader.
+
 What this cannot do: say the page is accessible. It checks two ratios and the
 presence of a cue. Whether a reader recognises the hint, and whether the word
 was used in the glossary's sense at all, are not numbers.
@@ -20,6 +24,7 @@ was used in the glossary's sense at all, are not numbers.
 from __future__ import annotations
 
 import re
+import sys
 from pathlib import Path
 
 import pytest
@@ -31,13 +36,21 @@ CSS = Path("docs/stylesheets/glossary.css")
 # readable.
 READABLE = 4.5
 
-# mkdocs-material's ink and ground per scheme, composited. `default` sets
-# --md-typeset-color to rgba(0,0,0,.87) over white; `slate` to
-# rgba(255,255,255,.87) over #1f2129. The compositing matters: .87 alpha is not
-# the same colour as the solid.
+# The site's ink and ground per scheme, read from the palette the site is
+# drawn with (ci/palette.py), so a change of palette is measured here too.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import palette  # noqa: E402
+
+
+def _rgb(value: str) -> tuple[int, int, int]:
+    return tuple(int(value[i:i + 2], 16) for i in (1, 3, 5))  # type: ignore[return-value]
+
+
 THEME = {
-    "light": {"body": (0x21, 0x21, 0x21), "bg": (0xFF, 0xFF, 0xFF)},
-    "slate": {"body": (0xE0, 0xE1, 0xE4), "bg": (0x1F, 0x21, 0x29)},
+    "light": {"body": _rgb(palette.NEUTRAL["ink"][palette.LIGHT]),
+              "bg": _rgb(palette.NEUTRAL["ground"][palette.LIGHT])},
+    "slate": {"body": _rgb(palette.NEUTRAL["ink"][palette.DARK]),
+              "bg": _rgb(palette.NEUTRAL["ground"][palette.DARK])},
 }
 
 
@@ -78,31 +91,21 @@ def declared() -> dict[str, tuple[int, int, int]]:
     return found
 
 
-def test_colour_alone_cannot_work_on_the_dark_theme():
-    """On `slate`, colour without an underline is not a
-    preference to weigh, it is unreachable: a link needs 3:1 against body text
-    to be found by colour alone, and 4.5:1 against the background to be read.
-    Body text is already near white, so nothing satisfies both.
+@pytest.mark.parametrize("scheme", list(THEME))
+def test_the_ink_is_too_close_to_body_text_to_be_found_by_colour(scheme):
+    """The glossary ink is chosen to be quiet: it sits under 3:1 against body
+    text, so colour alone does not mark the term and the dotted rule is what
+    carries "this is a link". The rule also asks nothing of colour vision.
 
-    Searched over the sRGB cube at a stride of 3. If this ever passes -- a
-    theme change, a palette change -- the persistent cue is no longer required
-    and the design should be revisited rather than kept out of habit.
+    Mutation: give the ink a colour far from body text (3:1 or more) and this
+    fails -- at which point the rule is a choice rather than a necessity, and
+    the design should be revisited rather than kept out of habit.
     """
-    body, background = THEME["slate"]["body"], THEME["slate"]["bg"]
-
-    possible = [
-        (r, g, b)
-        for r in range(0, 256, 3)
-        for g in range(0, 256, 3)
-        for b in range(0, 256, 3)
-        if contrast((r, g, b), body) >= 3.0
-        and contrast((r, g, b), background) >= READABLE
-    ]
-
-    assert not possible, (
-        f"a colour-only link is reachable on slate after all "
-        f"({len(possible)} shades, e.g. {possible[0]}) -- the persistent cue "
-        f"is no longer forced and this design should be revisited")
+    ink = declared()[scheme]
+    ratio = contrast(ink, THEME[scheme]["body"])
+    assert ratio < 3.0, (
+        f"{scheme}: the glossary ink is {ratio:.2f}:1 against body text, enough "
+        f"to be found by colour alone -- the persistent rule is no longer forced")
 
 
 @pytest.mark.parametrize("scheme", list(THEME))
