@@ -115,6 +115,13 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
         ["ci/cookbook.py", "walkthrough/families", "--check"],
     ),
     (
+        "family site pages",
+        ["ci/cookbook.py", "docs/families", "--site", "--write"],
+        "docs/families/index.md",
+        False,
+        ["ci/cookbook.py", "docs/families", "--site", "--check"],
+    ),
+    (
         "rollout",
         # A write reads the host by default. Offline it is skipped, not written from
         # this disk: the committed document describes the org, and a local one would

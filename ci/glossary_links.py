@@ -33,6 +33,11 @@ TERM = re.compile(r"^\*\*(?P<term>[^*]+)\*\*\s*\{\s*#(?P<anchor>[a-z0-9-]+)\s*\}
 # Pages that define the vocabulary, or point at it, rather than using it.
 SKIP = {Path("docs/ref/glossary.md")}
 
+# Pages another generator writes. `ci/cookbook.py --site` owns docs/families/,
+# and two generators writing one page would each report the other's output as
+# drift.
+GENERATED = (Path("docs/families"),)
+
 # The marker every generated link carries. It is what makes the pass a fixed
 # point -- a second run sees a link, not a bare word -- and it is what the
 # stylesheet hangs the colour on.
@@ -113,7 +118,8 @@ def _depth(page: Path) -> str:
 
 
 def pages() -> list[Path]:
-    return [p for p in sorted(DOCS.rglob("*.md")) if p not in SKIP]
+    return [p for p in sorted(DOCS.rglob("*.md"))
+            if p not in SKIP and not any(g in p.parents for g in GENERATED)]
 
 
 def main(argv: list[str] | None = None) -> int:

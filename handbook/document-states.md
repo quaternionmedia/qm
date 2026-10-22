@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-18T23:31:02Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-20T02:28:21Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **226**, unfiltered.
+Every governed document in this corpus: **236**, unfiltered.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 69 |
 | [G] `generated` | 7 |
-| [S] `standing` | 82 |
+| [S] `standing` | 92 |
 | [T] `transient` | 27 |
 
 ## Documents
@@ -200,6 +200,16 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/cookbook/propagate-a-change.md` | reference | — |
 | [S] | `standing` | `docs/cookbook/read-status-documents.md` | reference | — |
 | [S] | `standing` | `docs/cookbook/run-ci-locally.md` | reference | — |
+| [S] | `standing` | `docs/families/civic.md` | reference | — |
+| [S] | `standing` | `docs/families/core.md` | reference | — |
+| [S] | `standing` | `docs/families/games.md` | reference | — |
+| [S] | `standing` | `docs/families/index.md` | reference | — |
+| [S] | `standing` | `docs/families/infra.md` | reference | — |
+| [S] | `standing` | `docs/families/instruments.md` | reference | — |
+| [S] | `standing` | `docs/families/irl.md` | reference | — |
+| [S] | `standing` | `docs/families/performer-display.md` | reference | — |
+| [S] | `standing` | `docs/families/performing.md` | reference | — |
+| [S] | `standing` | `docs/families/show-control.md` | reference | — |
 | [S] | `standing` | `docs/index.md` | reference | — |
 | [S] | `standing` | `docs/ref/addresses.md` | reference | — |
 | [S] | `standing` | `docs/ref/ci/demos.md` | reference | — |

@@ -2,15 +2,20 @@
 icon: lucide/book-open
 ---
 
+<p class="qm-eyebrow">Quaternion Media · governance</p>
+
 # QM Governance
 
-Every team keeps answering the same questions. How does work get reviewed? When is something finished? What does a new project start from? Usually those answers live in people's heads, and they drift.
+<p class="qm-lede">Every team keeps answering the same questions. How does work get reviewed? When is something finished? What does a new project start from? This is where Quaternion Media writes the answers down. Every QM project follows what is written here, and a project can be stricter than these rules, never looser.</p>
 
-This is where Quaternion Media writes them down instead. Every QM project follows what is written here. A project can be stricter than these rules. It can never be looser.
+[![The QM families as a desk of channel strips: performing, holding instruments, performer-display and show-control, then civic, core, games, infra and irl, each with a meter lit by the share of its members that is governed.](families/families.svg){ .qm-picture }](families/index.md)
 
-If you read nothing else, read this next section. It is the part that catches people out.
+The estate, by what each repository drives. `performing` holds the three families that put on a show, a repository that drives two things is in both, and each meter is lit by the share governed. The families are decided in [the family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md); [every family has a page](families/index.md).
+{ .qm-caption }
 
 ## Read this first
+
+If you read nothing else, read this. It is the part that catches people out.
 
 1. **Decisions live in `records/`.** Nothing else here is binding. Everything else explains a [record](ref/glossary.md#record), points at one, or checks that we are keeping to it.
 2. **Nothing is marked final yet.** Every record says [`Proposed`](ref/glossary.md#proposed), on purpose. Making one final is [ratification](ref/glossary.md#ratification), and it needs a second person to agree. There is not a second person yet.
@@ -21,46 +26,65 @@ Every word above that is doing unusual work links to its definition. If a senten
 
 ## Where to go
 
-=== "Understand"
+<div class="grid" markdown>
 
-    **Learn what QM is and how it works**
+<div class="card" markdown>
 
-    - [Overview](about/overview.md) — the corpus, its principles, and the records
-    - [Architecture](about/architecture.md) — the branch-per-project model
-    - [History](about/history.md) — how the corpus evolved
+**understand**
 
-    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): what QM believes, and the record each principle produces.
+What QM is and how it works.
 
-=== "Get started"
+- [Overview](about/overview.md) — the [corpus](ref/glossary.md#corpus){ .glossary-term }, its principles, and the records
+- [Architecture](about/architecture.md) — the branch-per-project model
+- [History](about/history.md) — how the corpus evolved
+- [The charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) — what QM believes, and the record each principle produces
 
-    **Your first hour with the corpus**
+</div>
 
-    - [Getting started](usage/getting-started.md) — clone, read, and make your first change
-    - [Questions a new developer asks](usage/questions-a-new-developer-asks.md) — first-week questions, and the command that answers each
-    - [Forking a new project](usage/first-project.md) — adopt the corpus in a new project
-    - [Next steps](usage/next-steps.md) — propagation, audits, and project phases
+<div class="card" markdown>
 
-=== "Do a task"
+**get started**
 
-    **Practical recipes**
+Your first hour with the corpus.
 
-    - [Draft a record](cookbook/draft-a-record.md) — write a decision
-    - [Add a perspective](cookbook/add-a-perspective.md) — document an opinion or incident
-    - [Propagate a change](cookbook/propagate-a-change.md) — send org updates to a project
-    - [Run CI locally](cookbook/run-ci-locally.md) — test before you push
-    - [All recipes](cookbook/index.md)
+- [Getting started](usage/getting-started.md) — clone, read, and make your first change
+- [Questions a new developer asks](usage/questions-a-new-developer-asks.md) — first-week questions, and the command that answers each
+- [Forking a new project](usage/first-project.md) — adopt the corpus in a new project
+- [Next steps](usage/next-steps.md) — [propagation](ref/glossary.md#propagation){ .glossary-term }, audits, and project phases
 
-=== "Look it up"
+</div>
 
-    **Reference**
+<div class="card" markdown>
 
-    - [Branch namespaces](ref/namespaces.md) — the five branch conventions
-    - [Record precedence](ref/precedence.md) — how org and project records relate
-    - [Ratification](ref/ratification.md) — how records become binding
-    - [Repository layout](ref/repo-layout.md) — the directory tree
-    - [Handbook index](ref/handbook.md) — policy and procedure
-    - [Protocols index](ref/protocols.md) — the reviews somebody runs on purpose
-    - [Glossary](ref/glossary.md) — key terms
+**do a task**
+
+Practical recipes.
+
+- [Draft a record](cookbook/draft-a-record.md) — write a decision
+- [Add a perspective](cookbook/add-a-perspective.md) — document an opinion or incident
+- [Propagate a change](cookbook/propagate-a-change.md) — send org updates to a project
+- [Run CI locally](cookbook/run-ci-locally.md) — test before you push
+- [All recipes](cookbook/index.md)
+
+</div>
+
+<div class="card" markdown>
+
+**look it up**
+
+Reference.
+
+- [Branch namespaces](ref/namespaces.md) — the five branch conventions
+- [Record precedence](ref/precedence.md) — how org and project records relate
+- [Ratification](ref/ratification.md) — how records become binding
+- [Repository layout](ref/repo-layout.md) — the directory tree
+- [Handbook index](ref/handbook.md) — policy and procedure
+- [Protocols index](ref/protocols.md) — the reviews somebody runs on purpose
+- [Glossary](ref/glossary.md) — key terms
+
+</div>
+
+</div>
 
 ## For coding agents
 
