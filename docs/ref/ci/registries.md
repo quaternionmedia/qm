@@ -54,14 +54,20 @@ working system. The set of families is read from §3 of
 `records/DRAFT-a-family-is-bordered-by-what-it-drives.md`, bounded to that
 section's table, so a family renamed there is a claim that stops resolving and
 a table elsewhere in the [record](../../ref/glossary.md#record){ .glossary-term } declares nothing. A family is stated by a person
-in `ci/workspace.yaml`; a repository with no family is `unstated`, reported and
-never refused. `--check` refuses a claim naming a family the record does not
-declare.
+in `ci/workspace.yaml`, as one name or a list: a repository that drives two
+things is in both families. The table's `within` column nests one family inside
+another, and a member of the inner family is a member of the outer one. A
+repository with no family is `unstated`, reported and never refused. `--check`
+refuses a claim naming a family the record does not declare, naming a family
+twice, or naming a family beside one it sits within, and a `within` that names
+no declared family or circles back on itself.
 
 `families.json` is the [seam](../../ref/glossary.md#seam){ .glossary-term }: `dossier` and `codecartographer` read the families
 as JSON at a stable path rather than importing this corpus
-(`records/DRAFT-seams-on-standard-protocols.md`). `unstated` is a member of its
-shape, so a consumer never has to infer `none`. `--check` also refuses a stale
+(`records/DRAFT-seams-on-standard-protocols.md`). Each family carries
+`within`, its `subfamilies`, its own `members` and its `all_members`, which adds
+everyone in the families within it. `unstated` is a member of its shape, so a
+consumer never has to infer `none`. `--check` also refuses a stale
 `families.json`, which is how the registries workflow keeps it current.
 
 It cannot tell whether a repository really belongs to its family (the border

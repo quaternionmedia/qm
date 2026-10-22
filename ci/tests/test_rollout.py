@@ -356,3 +356,21 @@ def test_the_render_names_every_state_it_prints():
     text = rollout.render(doc)
     assert "CONTRADICTED" in text and "1 contradicted claim(s)" in text
     assert "decides nothing" in text
+
+
+def test_a_repo_in_two_families_joins_the_first_phase_quietly():
+    """A repository may be in more than one family, so reaching it through a
+    second family is the roster's claim, not a slip.
+
+    Mutation: drop the `through_family` skip in `members_of` and this fails.
+    """
+    plan = {"name": "r", "steps": [], "phases": [
+        {"name": "matter", "families": ["irl"]},
+        {"name": "sound", "families": ["instruments"]}], "claims": []}
+    doc = {"families": [{"name": "irl", "members": ["pedal"]},
+                        {"name": "instruments", "members": ["pedal", "synth"]}]}
+    phases, problems = rollout.members_of(
+        plan, doc, [{"name": "pedal"}, {"name": "synth"}])
+    assert problems == []
+    assert [e["name"] for e in phases[0]["members"]] == ["pedal"]
+    assert [e["name"] for e in phases[1]["members"]] == ["synth"]

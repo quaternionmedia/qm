@@ -55,6 +55,24 @@ def label(entry: dict) -> str:
     return entry.get("name") or entry.get("ref") or "<unnamed>"
 
 
+def families_of(entry: dict) -> list[str]:
+    """The families an entry claims, as a list, in the order it states them.
+
+    A claim is one family's name or a list of names: a repository that drives
+    two things is in both families
+    (`records/DRAFT-a-family-is-bordered-by-what-it-drives.md` §4). Absent is
+    the empty list, which is unstated rather than none. A value of any other
+    shape comes back as its text, so `families.py --check` can name it rather
+    than this dropping it.
+    """
+    claim = entry.get("family")
+    if claim is None:
+        return []
+    if isinstance(claim, (list, tuple)):
+        return [str(name) for name in claim]
+    return [str(claim)]
+
+
 def local_paths(local: Path) -> dict[str, list[str]]:
     """name -> extra candidate paths, from the machine-local companion.
 
