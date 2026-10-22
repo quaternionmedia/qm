@@ -6,7 +6,7 @@
 | **Date** | 2026-08-28 |
 | **Pends on** | The name of `civic`, which is a working name. Its border (§3) is decided; what to call it is a person's choice, and renaming it is a roster change `ci/families.py --check` announces. |
 | **Principle** | `seams-on-standard-protocols` — seams on standard protocols; `decisions-are-documented` — decisions are documented or they didn't happen |
-| **Restated in** | Nothing. |
+| **Restated in** | `README.md`'s opening picture and its caption |
 
 ## Context
 

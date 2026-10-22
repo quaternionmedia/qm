@@ -1,5 +1,19 @@
 # Quaternion Media Constitution
 
+<a href="walkthrough/families/README.md"><img src="walkthrough/families/families.svg" width="100%" alt="The QM families as a desk of channel strips: performing, holding instruments, performer-display and show-control, then civic, core, games, infra and irl, each with a meter lit by the share of its members that is governed."></a>
+
+*The estate, by what each repository drives. `performing` holds the three families that put on a show, a repository that drives two things is in both, and each meter is lit by the share governed. Drawn by `uv run qm cookbook --write` from the roster and [the family record](records/DRAFT-a-family-is-bordered-by-what-it-drives.md).*
+
+<table>
+<tr>
+<td width="33%"><a href="https://github.com/quaternionmedia/carlos"><img src="https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png" alt="carlos in the browser: two drum voices wired to a Launchpad X and a Squarp Hapax"></a><br><sub><b>carlos</b> · instruments, within performing</sub></td>
+<td width="33%"><a href="https://github.com/quaternionmedia/scad-chess"><img src="https://github.com/quaternionmedia/scad-chess/raw/HEAD/chess_set.png" alt="A chess set modelled in OpenSCAD, rendered in blue-grey"></a><br><sub><b>scad-chess</b> · irl</sub></td>
+<td width="33%"><a href="https://github.com/quaternionmedia/looksatwords"><img src="https://github.com/quaternionmedia/looksatwords/raw/HEAD/docs/pics/harness-analysed.png" alt="looksatwords drawing the threads of a conversation as coloured lanes over time"></a><br><sub><b>looksatwords</b> · core</sub></td>
+</tr>
+</table>
+
+*Each picture is shown from the member repository that keeps it.*
+
 ## In plain terms
 
 Every team keeps answering the same questions. How does work get reviewed? When

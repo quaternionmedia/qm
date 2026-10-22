@@ -1,15 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="188" viewBox="0 0 560 188" role="img" aria-label="the games family and its members">
-<rect width="560" height="188" fill="none"/>
-<text x="14" y="28" font-family="monospace" font-size="14" font-weight="bold" fill="currentColor">games</text>
-<text x="14" y="48" font-family="monospace" font-size="12" fill="currentColor">* factorio-sysops</text>
-<text x="244" y="48" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">governed</text>
-<text x="14" y="74" font-family="monospace" font-size="12" fill="currentColor">. golfvs</text>
-<text x="244" y="74" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="100" font-family="monospace" font-size="12" fill="currentColor">. private-38</text>
-<text x="244" y="100" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="126" font-family="monospace" font-size="12" fill="currentColor">. rad-godot</text>
-<text x="244" y="126" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="152" font-family="monospace" font-size="12" fill="currentColor">. qmcli-godot</text>
-<text x="244" y="152" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">not adopted</text>
-<text x="14" y="184" font-family="monospace" font-size="10" fill="currentColor" opacity="0.6">* governed  . not adopted</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="236" viewBox="0 0 560 236" role="img" aria-label="the games family and its members">
+<style>text{font-family:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;fill:#141922}.mono{font-family:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace}.muted{fill:#536075}.panel{fill:#f3f4f7;stroke:#d5d9e2}.card{fill:#ffffff;stroke:#d5d9e2}.track{fill:#e8eaf0}.c-games{fill:#327c47}.s-games{stroke:#327c47}@media (prefers-color-scheme: dark){text{fill:#e7eaf1}.muted{fill:#9ba5b7}.panel{fill:#0d1118;stroke:#283143}.card{fill:#151b25;stroke:#283143}.track{fill:#1c2331}.c-games{fill:#73c886}.s-games{stroke:#73c886}}</style>
+<rect class="panel" x="0.5" y="0.5" width="559" height="235" rx="10"/>
+<rect class="c-games" x="0.5" y="0.5" width="559" height="5" rx="2"/>
+<text class="mono muted" x="16" y="30" font-size="12">games</text>
+<text class="c-games" x="16" y="56" font-size="20" font-weight="700">play</text>
+<circle class="c-games" cx="22" cy="76" r="5"/>
+<text class="mono" x="36" y="80" font-size="13">factorio-sysops</text>
+<text class="mono muted" x="276" y="80" font-size="12">governed</text>
+<circle class="s-games" cx="22" cy="102" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="106" font-size="13">golfvs</text>
+<text class="mono muted" x="276" y="106" font-size="12">not adopted</text>
+<circle class="s-games" cx="22" cy="128" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="132" font-size="13">private-38</text>
+<text class="mono muted" x="276" y="132" font-size="12">not adopted</text>
+<circle class="s-games" cx="22" cy="154" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="158" font-size="13">rad-godot</text>
+<text class="mono muted" x="276" y="158" font-size="12">not adopted</text>
+<circle class="s-games" cx="22" cy="180" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="184" font-size="13">qmcli-godot</text>
+<text class="mono muted" x="276" y="184" font-size="12">not adopted</text>
+<text class="mono muted" x="16" y="224" font-size="11">● governed   ○ not adopted</text>
 </svg>
