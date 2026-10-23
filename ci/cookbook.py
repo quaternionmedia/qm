@@ -137,6 +137,7 @@ def adopted_names() -> set[str]:
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import palette  # noqa: E402
+from roster import intent_of, version_of  # noqa: E402
 
 # A picture's fonts, from the palette, written without spaces so the SVG stays
 # small enough to read as text.
@@ -655,18 +656,6 @@ VERSIONS = ("A version is a project's phase: `v0.0.0` has not adopted the corpus
             "rungs above in its own records.")
 
 
-def version_of(adopted: bool, phase: str | None) -> str:
-    """A project's place on the phase ladder: `v0.0.0` until it has a branch in
-    the corpus, then its stated phase, and `v0.0.1` when it states none.
-
-    A phase stated for a project with no branch is intent; the page shows it
-    beside the version, never as the version.
-    """
-    if not adopted:
-        return "v0.0.0"
-    return phase if phase and phase.startswith("v") else "v0.0.1"
-
-
 def claims(document: dict) -> dict[str, list[str]]:
     """`{member: [family, ...]}`, the families each member claims itself."""
     claimed: dict[str, list[str]] = {}
@@ -702,7 +691,8 @@ def site_projects(document: dict, adopted: set[str], entries: dict[str, dict],
             "description": row.get("description") or _sentence(entry.get("note")),
             "families": claimed[name],
             "governed": name in adopted,
-            "version": version_of(name in adopted, entry.get("phase")),
+            "version": version_of(name in adopted, entry.get("phase"),
+                                  entry.get("phase_source")),
             "phase": entry.get("phase"),
             "phase_source": entry.get("phase_source"),
             "language": row.get("language"),
@@ -821,9 +811,9 @@ def project_page(project: dict, by_name: dict[str, dict]) -> str:
     # The version links what it means; a phase stated without a branch is
     # intent, so it stands beside the version rather than in its place.
     facts = [f"[`{project['version']}`](../{LADDER})"]
-    phase = project["phase"]
-    if phase and phase.startswith("v") and phase != project["version"]:
-        facts.append(f"`{phase}` stated")
+    intent = intent_of(project["governed"], project["phase"], project["phase_source"])
+    if intent:
+        facts.append(f"`{intent}` stated")
     if project["language"]:
         facts.append(project["language"])
     if project["archived"]:
@@ -881,7 +871,8 @@ def projects_index(document: dict, projects: dict[str, dict], entries: dict[str,
         else:
             entry = entries.get(name, {})
             what = _cell(_sentence(entry.get("note")))
-            version = version_of(name in adopted, entry.get("phase"))
+            version = version_of(name in adopted, entry.get("phase"),
+                                 entry.get("phase_source"))
             lines.append(f'| <span id="{name}"></span>{name} | `{version}` | {what} | '
                          f"{families} | not on the host yet |")
     private = sum(1 for n in claimed if _private(n))

@@ -73,6 +73,45 @@ def families_of(entry: dict) -> list[str]:
     return [str(claim)]
 
 
+def rung(phase: object) -> tuple[int, ...] | None:
+    """A phase as a comparable rung, or None for anything that is not one.
+
+    `n/a`, `unknown` and a missing phase are not rungs, and compare as none
+    rather than as text: `"n/a" < "v0.0.1"` is true of the strings and says
+    nothing about the ladder.
+    """
+    match = re.fullmatch(r"v(\d+(?:\.\d+)*)", str(phase or ""))
+    return tuple(int(part) for part in match.group(1).split(".")) if match else None
+
+
+FIRST_RUNG = (0, 0, 1)
+
+
+def version_of(adopted: bool, phase: object, source: object) -> str:
+    """A project's place on the phase ladder (`records/DRAFT-project-phase-ladder.md`).
+
+    `v0.0.0` until the project has a `project/<name>` branch in the corpus,
+    and `v0.0.1` from then on, however much of the seed it carries. A rung
+    above `v0.0.1` is the project's own and counts only when a human stated
+    it. A scaffolded phase is the default and never moves the version.
+    """
+    if not adopted:
+        return "v0.0.0"
+    stated = rung(phase) if source == "stated" else None
+    return str(phase) if stated and stated > FIRST_RUNG else "v0.0.1"
+
+
+def intent_of(adopted: bool, phase: object, source: object) -> str | None:
+    """A stated phase that is not the version: intent, shown beside it.
+
+    For a project with no branch, any phase a human stated is intent; for one
+    with a branch, a stated rung is its version.
+    """
+    if source != "stated" or rung(phase) is None:
+        return None
+    return None if str(phase) == version_of(adopted, phase, source) else str(phase)
+
+
 def local_paths(local: Path) -> dict[str, list[str]]:
     """name -> extra candidate paths, from the machine-local companion.
 

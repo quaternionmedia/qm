@@ -467,22 +467,45 @@ def test_no_generated_site_page_hides_a_link_inside_raw_html():
 
 def test_the_version_says_whether_a_project_has_adopted():
     """`v0.0.0` until a project has its branch, then its stated phase, and
-    `v0.0.1` when it states none.
+    `v0.0.1` when it states none. The rule is `roster.version_of`, which the
+    harness status reads too.
 
     Mutation: return the stated phase for a project with no branch and this
     fails on the second case.
     """
-    assert cookbook.version_of(False, None) == "v0.0.0"
-    assert cookbook.version_of(False, "v0.0.2") == "v0.0.0"
-    assert cookbook.version_of(True, None) == "v0.0.1"
-    assert cookbook.version_of(True, "n/a") == "v0.0.1"
-    assert cookbook.version_of(True, "v0.0.3") == "v0.0.3"
+    assert cookbook.version_of(False, None, None) == "v0.0.0"
+    assert cookbook.version_of(False, "v0.0.2", "stated") == "v0.0.0"
+    assert cookbook.version_of(True, None, None) == "v0.0.1"
+    assert cookbook.version_of(True, "n/a", "n/a") == "v0.0.1"
+    assert cookbook.version_of(True, "v0.0.3", "stated") == "v0.0.3"
+
+
+def test_a_scaffolded_phase_never_moves_the_version():
+    """The default is read from the branch, never from the roster's copy of it.
+
+    Mutation: drop the `source == "stated"` test from `roster.version_of` and
+    this fails on the first case.
+    """
+    assert cookbook.version_of(True, "v0.0.0", "scaffolded") == "v0.0.1"
+    assert cookbook.version_of(False, "v0.0.1", "scaffolded") == "v0.0.0"
+    assert cookbook.version_of(True, "v0.0.2", "scaffolded") == "v0.0.1"
 
 
 def test_a_phase_stated_without_a_branch_stands_beside_the_version():
     project = {**_project("bench"), "phase": "v0.0.2"}
     page = cookbook.project_page(project, {"instruments": {}})
     assert "[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · `v0.0.2` stated" in page
+
+
+def test_a_scaffolded_phase_is_not_shown_as_stated():
+    """Nobody said it, so a page that printed it as stated would invent a claim.
+
+    Mutation: show any phase that differs from the version, whatever its source,
+    and this fails.
+    """
+    project = {**_project("vox"), "phase": "v0.0.1", "phase_source": "scaffolded"}
+    page = cookbook.project_page(project, {"instruments": {}})
+    assert "stated" not in page
 
 
 def test_no_generated_page_says_governed_where_a_version_says_it():
