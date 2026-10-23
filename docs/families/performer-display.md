@@ -2,15 +2,13 @@
 title: performer-display
 ---
 
-<p class="qm-eyebrow">performer-display · within performing</p>
+performer-display · within [performing](performing.md)
+{ .qm-eyebrow }
 
 # the performer { .qm-family-title .qm-f-performer-display }
 
-<p class="qm-lede">Drives the performer — what a player reads while playing.</p>
-
-![the performer-display family and its members](performer-display.svg){ .qm-picture }
-
-Within [`performing`](performing.md): everyone here is in `performing` as well, without claiming it.
+Drives the performer — what a player reads while playing.
+{ .qm-lede }
 
 ## Who is in it
 
@@ -37,8 +35,6 @@ Web pdf viewer, annotator, collaborator
 </div>
 
 </div>
-
-## Starting here
 
 No member of this family carries governance yet, so there is no governed entry point. Reading the code is the entry point.
 

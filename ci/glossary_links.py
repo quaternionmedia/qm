@@ -33,10 +33,10 @@ TERM = re.compile(r"^\*\*(?P<term>[^*]+)\*\*\s*\{\s*#(?P<anchor>[a-z0-9-]+)\s*\}
 # Pages that define the vocabulary, or point at it, rather than using it.
 SKIP = {Path("docs/ref/glossary.md")}
 
-# Pages another generator writes. `ci/cookbook.py --site` owns docs/families/,
-# and two generators writing one page would each report the other's output as
-# drift.
-GENERATED = (Path("docs/families"),)
+# Pages another generator writes. `ci/cookbook.py --site` owns docs/families/
+# and docs/repos.md, and two generators writing one page would each report the
+# other's output as drift.
+GENERATED = (Path("docs/families"), Path("docs/repos.md"))
 
 # The marker every generated link carries. It is what makes the pass a fixed
 # point -- a second run sees a link, not a bare word -- and it is what the
@@ -119,7 +119,7 @@ def _depth(page: Path) -> str:
 
 def pages() -> list[Path]:
     return [p for p in sorted(DOCS.rglob("*.md"))
-            if p not in SKIP and not any(g in p.parents for g in GENERATED)]
+            if p not in SKIP and not any(g == p or g in p.parents for g in GENERATED)]
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -143,7 +143,8 @@ def main(argv: list[str] | None = None) -> int:
         if after != before:
             changed.append(page)
             if not check_only:
-                page.write_text(after, encoding="utf-8")
+                # newline="\n": see families.py -- a Windows text write is CRLF.
+                page.write_text(after, encoding="utf-8", newline="\n")
 
     if check_only and changed:
         print("glossary links: these pages have unlinked first uses:")

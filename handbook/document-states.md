@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-23T00:09:17Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-23T00:59:03Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -226,7 +226,6 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/families/projects/factorio-sysops.md` | reference | — |
 | [S] | `standing` | `docs/families/projects/golfvs.md` | reference | — |
 | [S] | `standing` | `docs/families/projects/holophonor.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/index.md` | reference | — |
 | [S] | `standing` | `docs/families/projects/ira.md` | reference | — |
 | [S] | `standing` | `docs/families/projects/joe.md` | reference | — |
 | [S] | `standing` | `docs/families/projects/leo.md` | reference | — |
@@ -264,6 +263,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/ref/protocols.md` | reference | — |
 | [S] | `standing` | `docs/ref/ratification.md` | reference | — |
 | [S] | `standing` | `docs/ref/repo-layout.md` | reference | — |
+| [S] | `standing` | `docs/repos.md` | reference | — |
 | [S] | `standing` | `docs/usage/first-project.md` | reference | — |
 | [S] | `standing` | `docs/usage/getting-started.md` | reference | — |
 | [S] | `standing` | `docs/usage/index.md` | reference | — |

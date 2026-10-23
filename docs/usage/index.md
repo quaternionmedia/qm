@@ -49,5 +49,5 @@ The eight-step adoption procedure, in outline, with the [handbook](../ref/glossa
 
 </div>
 
-Every repository the corpus knows of sits in a family by what it drives, and every public one has a page with its own pictures: [the families](../families/index.md), and [the projects](../families/projects/index.md).
+Every repository the corpus knows of sits in a family by what it drives, and every public one has a page with its own pictures: [the families](../families/index.md), and [the repos](../repos.md).
 { .qm-caption }

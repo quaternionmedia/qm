@@ -2,15 +2,13 @@
 title: show-control
 ---
 
-<p class="qm-eyebrow">show-control · within performing</p>
+show-control · within [performing](performing.md)
+{ .qm-eyebrow }
 
 # the room { .qm-family-title .qm-f-show-control }
 
-<p class="qm-lede">Drives the room — cues, lighting, sound and video playback, audio transport.</p>
-
-![the show-control family and its members](show-control.svg){ .qm-picture }
-
-Within [`performing`](performing.md): everyone here is in `performing` as well, without claiming it.
+Drives the room — cues, lighting, sound and video playback, audio transport.
+{ .qm-lede }
 
 ## Who is in it
 
@@ -97,8 +95,6 @@ AES67 scripts
 </div>
 
 </div>
-
-## Starting here
 
 No member of this family carries governance yet, so there is no governed entry point. Reading the code is the entry point.
 

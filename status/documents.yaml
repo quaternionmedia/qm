@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-23T00:09:17Z'
+generated_at: '2026-10-23T00:59:03Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -492,15 +492,6 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/families/projects/index.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
 - path: docs/families/projects/ira.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
@@ -826,6 +817,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: docs/ref/repo-layout.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/repos.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
