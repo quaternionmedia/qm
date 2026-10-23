@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-29 |
-| **Pends on** | Nothing — §2 is settled: promotion moves commits. The push itself still waits on the standing local-only instruction, which is an operational hold rather than an open decision. |
+| **Pends on** | The push of `test`, `dev` and `prod` to origin, which enacts it and waits on the standing local-only instruction. §2 is settled: promotion moves commits. |
 | **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `public-by-default` — public by default |
 | **Restated in** | Nothing. |
 
