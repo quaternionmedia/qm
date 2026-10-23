@@ -1,6 +1,9 @@
+<p class="qm-eyebrow">usage · after adoption</p>
+
 # Next steps
 
 What happens after a project has adopted the corpus.
+{ .qm-lede }
 
 ## Propagation: staying in sync
 
@@ -45,6 +48,16 @@ Each project reports a phase as a version number. Only the first rung is defined
 - A project that states no phase defaults to `v0.0.1`.
 
 See [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-project-phase-ladder.md) for the full model.
+
+## The project's page
+
+Every project sits in a family by what its output drives, and a public one gets [a page of its own](../families/projects/index.md) on this site:
+
+- **Its family** is the `family:` of its entry in `ci/workspace.yaml`: one name, or a list when the project drives two things. [The family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md) decides which.
+- **Its page** appears once the repository is public on the host and a family claims it. It shows the repository's own description, its families, whether it is governed, its phase, and a button to the repository.
+- **Its pictures** are the ones listed under its name in `ci/showcase.yaml`: files committed in the project's own repository, each with a one-sentence caption. A person picks them; nothing infers a picture, and a page with none says so.
+
+`uv run qm inventory --write` refreshes what the host says is public, and `uv run qm cookbook docs/families --site --write` regenerates the family and project pages from it.
 
 ## Related
 

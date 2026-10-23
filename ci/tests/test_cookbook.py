@@ -192,7 +192,7 @@ def test_build_reads_every_member_through_the_roster(tmp_path: Path, monkeypatch
 def _desk_document():
     return {"families": [
         {"name": "performing", "drives": "**a show** — the whole", "within": None,
-         "subfamilies": ["instruments"], "members": ["video"]},
+         "subfamilies": ["instruments"], "members": ["editor"]},
         {"name": "instruments", "drives": "**the sound** — loops", "within": "performing",
          "subfamilies": [], "members": ["synth"]},
         {"name": "irl", "drives": "**matter** — boards", "within": None,
@@ -209,7 +209,7 @@ def test_the_desk_draws_every_family_from_the_counts_it_is_given():
     for name in ("performing", "instruments", "irl"):
         assert name in picture
     assert "2 in all · 1 governed" in picture
-    assert "its own: video" in picture
+    assert "its own: editor" in picture
     assert "1 rostered repository states no family yet" in picture
 
 
@@ -234,16 +234,112 @@ def test_a_meter_is_lit_by_the_share_governed():
 # --- the docs site's family pages -------------------------------------------
 
 
+def _project(name, governed=False, pictures=(), families=("instruments",)):
+    return {"name": name, "url": f"https://github.com/org/{name}", "description": f"{name} does a thing",
+            "families": list(families), "governed": governed, "phase": "v0.0.1",
+            "phase_source": "stated", "language": "Python", "archived": False,
+            "pictures": [{"url": f"https://github.com/org/{name}/raw/HEAD/{p}", "caption": p}
+                         for p in pictures]}
+
+
 def test_a_site_page_names_its_family_and_where_it_sits():
     page = cookbook.site_page(
         {"name": "instruments", "drives": "the sound — loops", "within": "performing"},
-        [state("synth", adopted=True), state("pedal")],
-        also={"pedal": ["irl"]})
+        [state("synth", adopted=True), state("pedal"), state("private-07"), state("planned")],
+        also={"pedal": ["irl"]},
+        projects={"synth": _project("synth", governed=True, pictures=["a.png"]),
+                  "pedal": _project("pedal")})
     assert page.startswith("---\ntitle: instruments\n---")
     assert "# the sound { .qm-family-title .qm-f-instruments }" in page
     assert "Within [`performing`](performing.md)" in page
-    assert "| `pedal` | no | [`irl`](irl.md) |" in page
-    assert "Start in `synth`" in page
+    assert "Start in [`synth`](projects/synth.md)" in page
+
+
+def test_a_member_with_a_page_is_a_card_that_opens_it():
+    """The card's title links the project's page and covers the card; its
+    first picture leads it; the other families it is in are links too.
+
+    Mutation: drop `{ .qm-card-link }` from the title link and this fails.
+    """
+    page = cookbook.site_page(
+        {"name": "instruments", "drives": "the sound", "within": None},
+        [state("synth", adopted=True), state("pedal")],
+        also={"pedal": ["irl"]},
+        projects={"synth": _project("synth", governed=True, pictures=["a.png"]),
+                  "pedal": _project("pedal")})
+    assert "[synth](projects/synth.md){ .qm-card-link }" in page
+    assert "![a.png](https://github.com/org/synth/raw/HEAD/a.png){ .qm-thumb loading=lazy }" in page
+    assert "also in [`irl`](irl.md)" in page
+    assert '<span class="qm-state">governed</span>' in page
+
+
+def test_a_member_without_a_page_is_named_or_counted_never_linked():
+    """A private repository is counted, a rostered name the host does not hold
+    is named, and neither becomes a link that would 404."""
+    page = cookbook.site_page(
+        {"name": "games", "drives": "play", "within": None},
+        [state("private-38"), state("planned")], projects={})
+    assert "projects/planned.md" not in page and "projects/private-38.md" not in page
+    assert "`planned` is in the roster with no repository on the host yet" in page
+    assert "1 private repository is counted here and not named." in page
+    assert "private-38" not in page
+
+
+def test_a_project_page_links_its_repository_and_shows_its_own_pictures():
+    page = cookbook.project_page(_project("synth", governed=True, pictures=["a.png", "b.gif"],
+                                          families=("instruments", "irl")),
+                                 {"instruments": {"within": "performing"}, "irl": {}})
+    assert "[synth on GitHub](https://github.com/org/synth){ .md-button .md-button--primary }" in page
+    assert page.count('<figure class="qm-shot" markdown>') == 2
+    assert "raw/HEAD/b.gif" in page
+    assert "[`instruments`](../instruments.md), [`irl`](../irl.md), within [`performing`](../performing.md)" in page
+    assert "its records are on `project/synth`" in page
+
+
+def test_a_project_with_no_pictures_says_so():
+    page = cookbook.project_page(_project("plain"), {"instruments": {}})
+    assert "No pictures are listed for plain yet." in page
+    assert "qm-shot" not in page
+
+
+def test_only_a_public_repository_on_the_host_gets_a_page(tmp_path):
+    """The inventory decides: a private row is a reference, and a name it does
+    not list has no repository to link to.
+
+    Mutation: build a page for every claimed member and this fails on `planned`.
+    """
+    import json
+    inventory = tmp_path / "inventory.yaml"
+    inventory.write_text(json.dumps({"generator": {"org": "org"}, "repositories": [
+        {"name": "synth", "private": False, "description": "a synth"},
+        {"ref": "private-07", "private": True},
+        {"name": "quiet", "private": False, "description": None},
+    ]}), encoding="utf-8")
+    shown = tmp_path / "showcase.yaml"
+    shown.write_text("projects:\n  synth:\n    - path: a.png\n      caption: A synth.\n",
+                     encoding="utf-8")
+    document = {"families": [{"name": "instruments", "members": ["synth", "private-07", "planned", "quiet"]}]}
+    entries = {"quiet": {"note": "a quiet thing; more notes"}}
+    projects = cookbook.site_projects(document, {"synth"}, entries, inventory, shown)
+    assert set(projects) == {"synth", "quiet"}
+    assert projects["synth"]["url"] == "https://github.com/org/synth"
+    assert projects["synth"]["pictures"][0]["url"] == "https://github.com/org/synth/raw/HEAD/a.png"
+    assert projects["quiet"]["description"] == "A quiet thing."
+    assert projects["synth"]["governed"] and not projects["quiet"]["governed"]
+
+
+def test_the_showcase_names_only_pages_that_exist_and_says_what_each_picture_shows():
+    """Every project the showcase lists has a page, and every picture has a
+    path and a caption."""
+    import yaml
+    root = CI_DIR.parent
+    shown = yaml.safe_load((root / "ci" / "showcase.yaml").read_text(encoding="utf-8"))["projects"]
+    pages = {p.stem for p in (root / "docs" / "families" / "projects").glob("*.md")}
+    assert set(shown) <= pages, f"showcase names projects with no page: {set(shown) - pages}"
+    for name, pictures in shown.items():
+        assert pictures, name
+        for picture in pictures:
+            assert picture.get("path") and picture.get("caption"), name
 
 
 def test_a_site_page_invents_no_entry_point():
@@ -268,5 +364,21 @@ def test_the_site_navigation_lists_every_family_page():
     root = CI_DIR.parent
     names = [f["name"] for f in json.loads((root / "families.json").read_text(encoding="utf-8"))["families"]]
     nav = (root / "zensical.toml").read_text(encoding="utf-8")
-    missing = [n for n in ["index", *names] if f'"families/{n}.md"' not in nav]
+    missing = [n for n in ["index", *names, "projects/index"] if f'"families/{n}.md"' not in nav]
     assert not missing, f"zensical.toml's nav lists no page for {missing}"
+
+
+def test_no_generated_site_page_hides_a_link_inside_raw_html():
+    """A link written inside a raw `<p>` is not parsed: the reader sees the
+    brackets. Every committed site page keeps its links in markdown.
+
+    Mutation: put the families page's lede back inside `<p class="qm-lede">`
+    and regenerate; this fails.
+    """
+    import re
+    pages = sorted((CI_DIR.parent / "docs" / "families").rglob("*.md"))
+    assert pages
+    hidden = [f"{p.name}: {line[:60]}" for p in pages
+              for line in p.read_text(encoding="utf-8").splitlines()
+              if re.match(r"\s*<p[ >]", line) and re.search(r"\]\([^)]+\)", line)]
+    assert not hidden, hidden

@@ -23,6 +23,7 @@ nav = [
         "families/games.md",
         "families/infra.md",
         "families/irl.md",
+        "families/projects/index.md",
     ] },
     { "About" = [
         "about/index.md",
@@ -33,6 +34,7 @@ nav = [
     { "Usage" = [
         "usage/index.md",
         "usage/getting-started.md",
+        "usage/questions-a-new-developer-asks.md",
         "usage/first-project.md",
         "usage/next-steps.md",
     ] },

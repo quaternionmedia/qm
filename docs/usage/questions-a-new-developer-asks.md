@@ -1,8 +1,11 @@
+<p class="qm-eyebrow">usage · your first week</p>
+
 # Questions a new developer asks
 
 If you have just been handed several repositories and a login, this page is the
 short version. Every question below is one a newcomer asks in their first week,
 written the way they ask it, with the command or file that settles it.
+{ .qm-lede }
 
 This page is a map rather than the rules themselves. Where it summarises a rule
 it names the document that owns it, and that document wins.
@@ -28,18 +31,21 @@ Some projects mount the corpus somewhere other than `governance/qm`; check
 
 | Repository | Calls itself | Its part in the demo |
 |---|---|---|
-| `qm` | the decisions, and the checks that keep them honest | governance, the gates, the CLI |
-| `qmcp` | a Model Context [Protocol](../ref/glossary.md#protocol){ .glossary-term } server | the harness: it measures work and answers over HTTP |
-| `dossier` | the control panel | draws the harness's answer in a terminal |
-| `codecartographer` | a tool for mapping source code as graphs | draws the same answer in a browser |
-| `looksatwords` | reads natural language and says what was in it | the second act: reads the turns of one thread the harness served, and names what they were about |
+| [`qm`](../families/projects/qm.md) | the decisions, and the checks that keep them honest | governance, the gates, the CLI |
+| [`qmcp`](../families/projects/qmcp.md) | a Model Context [Protocol](../ref/glossary.md#protocol){ .glossary-term } server | the harness: it measures work and answers over HTTP |
+| [`dossier`](../families/projects/dossier.md) | the control panel | draws the harness's answer in a terminal |
+| [`codecartographer`](../families/projects/codecartographer.md) | a tool for mapping source code as graphs | draws the same answer in a browser |
+| [`looksatwords`](../families/projects/looksatwords.md) | reads natural language and says what was in it | the second act: reads the turns of one thread the harness served, and names what they were about |
 
 The middle column matters, because each repository's README introduces it on its
-own terms and none of them opens by describing the demo. `dossier` and `qmcp` do
+own terms and none of them opens by describing the demo. Each name opens the
+project's page, with its pictures and a link to the repository. `dossier` and `qmcp` do
 not import each other; what crosses between them is a document.
 
 The roster in `ci/workspace.yaml` is the authority on which repositories are
-active, and it lists others — `rad` among them. `uv run qm inventory` prints it.
+active, and it lists others — [`rad`](../families/projects/rad.md) among them.
+`uv run qm inventory` prints it, and [the families](../families/index.md) place
+every one of them by what it drives.
 
 ## Getting started
 
@@ -54,8 +60,10 @@ and `uv run qm brief` builds the opening brief for a session. Then read
 which is what actually puts the repositories in front of you. `--family
 <name>`, repeatable, narrows it to one working system — `uv run qm families`
 lists them — so the members of a family open together without the rest of the
-estate; a family the record does not declare is refused rather than resolved
-to an empty window.
+estate. A family brings the families within it: `--family performing` opens
+`instruments`, `performer-display` and `show-control` too, and a repository in
+two of them opens once. A family the record does not declare is refused rather
+than resolved to an empty window.
 
 **"Will my commits be rejected for anything I have not set up?"**
 

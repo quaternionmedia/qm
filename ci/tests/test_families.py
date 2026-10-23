@@ -203,13 +203,13 @@ def test_a_family_within_itself_is_refused(tmp_path: Path):
 
 def test_everyone_in_an_inner_family_is_in_the_outer_one(tmp_path: Path):
     path = record(tmp_path, NESTED)
-    entries = [{"name": "video", "family": "performing"},
+    entries = [{"name": "editor", "family": "performing"},
                {"name": "synth", "family": "instruments"},
                {"name": "pedal", "family": ["irl", "instruments"]}]
     out = families.document(entries, families.declared(path), families.within(path))
     by_name = {f["name"]: f for f in out["families"]}
-    assert by_name["performing"]["members"] == ["video"]
-    assert by_name["performing"]["all_members"] == ["video", "synth", "pedal"]
+    assert by_name["performing"]["members"] == ["editor"]
+    assert by_name["performing"]["all_members"] == ["editor", "synth", "pedal"]
     assert by_name["performing"]["subfamilies"] == ["instruments", "show-control"]
     assert by_name["instruments"]["within"] == "performing"
     assert "pedal" in by_name["irl"]["members"]
