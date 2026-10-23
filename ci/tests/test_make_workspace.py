@@ -443,11 +443,11 @@ def test_a_family_selection_includes_the_families_within_it(tmp_path: Path) -> N
     """
     search = tmp_path / "src"
     search.mkdir()
-    for name in ("video", "synth", "pedal", "other"):
+    for name in ("editor", "synth", "pedal", "other"):
         clone(search, name)
     seam = tmp_path / "families.json"
     seam.write_text(json.dumps({"schema": 2, "families": [
-        {"name": "performing", "drives": "", "members": ["video"],
+        {"name": "performing", "drives": "", "members": ["editor"],
          "subfamilies": ["instruments"]},
         {"name": "instruments", "drives": "", "members": ["synth", "pedal"],
          "within": "performing", "subfamilies": []},
@@ -457,7 +457,7 @@ def test_a_family_selection_includes_the_families_within_it(tmp_path: Path) -> N
     result, out, _ = generate(
         tmp_path,
         [
-            {"name": "video", "family": "performing", "paths": ["video"]},
+            {"name": "editor", "family": "performing", "paths": ["editor"]},
             {"name": "synth", "family": "instruments", "paths": ["synth"]},
             {"name": "pedal", "family": ["irl", "instruments"], "paths": ["pedal"]},
             {"name": "other", "family": "games", "paths": ["other"]},
@@ -466,4 +466,4 @@ def test_a_family_selection_includes_the_families_within_it(tmp_path: Path) -> N
     )
     assert result.returncode == 0, result.stdout + result.stderr
     workspace = json.loads(out.read_text(encoding="utf-8"))
-    assert [f["name"] for f in workspace["folders"]] == ["video", "synth", "pedal"]
+    assert [f["name"] for f in workspace["folders"]] == ["editor", "synth", "pedal"]

@@ -76,7 +76,7 @@ def test_a_family_reports_through_the_families_within_it():
     outer family and this fails.
     """
     found = by_tier(family_suite.tiers(
-        document(("performing", ["video"]), ("instruments", ["synth"]),
+        document(("performing", ["editor"]), ("instruments", ["synth"]),
                  within={"instruments": "performing"}),
         {"instruments": [ok("synth")]}))
     assert found["cover"]["reached"]

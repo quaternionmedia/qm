@@ -192,7 +192,7 @@ def test_build_reads_every_member_through_the_roster(tmp_path: Path, monkeypatch
 def _desk_document():
     return {"families": [
         {"name": "performing", "drives": "**a show** — the whole", "within": None,
-         "subfamilies": ["instruments"], "members": ["video"]},
+         "subfamilies": ["instruments"], "members": ["editor"]},
         {"name": "instruments", "drives": "**the sound** — loops", "within": "performing",
          "subfamilies": [], "members": ["synth"]},
         {"name": "irl", "drives": "**matter** — boards", "within": None,
@@ -209,7 +209,7 @@ def test_the_desk_draws_every_family_from_the_counts_it_is_given():
     for name in ("performing", "instruments", "irl"):
         assert name in picture
     assert "2 in all · 1 governed" in picture
-    assert "its own: video" in picture
+    assert "its own: editor" in picture
     assert "1 rostered repository states no family yet" in picture
 
 
