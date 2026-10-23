@@ -48,7 +48,7 @@
 : Merging `main` into a `project/<name>` branch to carry org changes to a project, through a `propagate/<name>-<date>` pull request. See [Propagate a change](../cookbook/propagate-a-change.md).
 
 **Proposed** { #proposed }
-: The status every record in this corpus currently carries. It means the decision is written down and is not yet final. Making one final is [ratification](#ratification), which needs a second person to agree. See [Ratification](ratification.md).
+: The status of a record that is drafted and waits for a human to ratify it. The decision is written down and is not yet final. Making one final is [ratification](#ratification), which needs a second person to agree. See [Ratification](ratification.md).
 
 **Protocol** { #protocol }
 : A wire format or interface with multiple independent implementations, which is what makes a component swappable. `seams-on-standard-protocols`'s replaceability test is stated against protocols rather than licences, because a proprietary protocol outlasts an open licence. See [records/DRAFT-seams-on-standard-protocols.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-seams-on-standard-protocols.md).

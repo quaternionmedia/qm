@@ -28,7 +28,7 @@ A few things will carry you a long way:
 
 - **Decisions live in `records/`.** Nothing else here is binding. Everything
   else explains a record, points at one, or checks that we are keeping to it.
-- **Nothing is marked final yet.** Every record says `Proposed`, on purpose.
+- **Nothing is marked final yet.** No record is ratified, on purpose.
   Making one final needs a second person to agree, and there is not a second
   person yet.
 - **All work arrives as a pull request**, from a typo to a new rule. It is the
@@ -76,7 +76,7 @@ plain version leaves out:
 
 1. **Records in `records/` are the only binding documents.** Everything else
    points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified, and that is deliberate —
+2. **No record is ratified.** That is deliberate —
    ratification waits on a second active code owner, because an approval its
    own author can supply is not a gate.
 3. **Every change arrives as a pull request**, from a typo to a new record. The
@@ -152,7 +152,7 @@ qm/
 | — | [The workstation, the agent and the conversation are not the organisation](records/DRAFT-what-is-not-the-organisation.md) | Proposed | 2026-09-20 |
 | — | [A semantic index is a recorded document, and the seam decodes it](records/DRAFT-a-semantic-index-is-a-recorded-document.md) | Proposed | 2026-10-12 |
 
-Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
+No record is ratified, because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
 ## Contributing
 
