@@ -16,7 +16,7 @@ Drives where a thing runs, and how it is reached — ingress, identity, storage,
 
 <div class="card qm-f-infra" markdown>
 
-[streaming-infrastructure](../repos.md#streaming-infrastructure){ .qm-card-link }
+[streaming-infrastructure](../projects/index.md#streaming-infrastructure){ .qm-card-link }
 
 <span class="qm-state">not on the host yet</span>
 
@@ -24,7 +24,7 @@ Drives where a thing runs, and how it is reached — ingress, identity, storage,
 
 <div class="card qm-f-infra" markdown>
 
-[moat](projects/moat.md){ .qm-card-link }
+[moat](../projects/moat.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 
@@ -34,7 +34,7 @@ simple reverse proxy with Traefik
 
 <div class="card qm-f-infra" markdown>
 
-[ztgui](projects/ztgui.md){ .qm-card-link }
+[ztgui](../projects/ztgui.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 

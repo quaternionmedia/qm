@@ -1,10 +1,10 @@
-<p class="qm-eyebrow">usage · your first week</p>
+<p class="qm-eyebrow">usage · newcomer questions</p>
 
 # Questions a new developer asks
 
 If you have just been handed several repositories and a login, this page is the
-short version. Every question below is one a newcomer asks in their first week,
-written the way they ask it, with the command or file that settles it.
+short version. Every question below is one a newcomer asks, written the way
+they ask it, with the command or file that settles it.
 { .qm-lede }
 
 This page is a map rather than the rules themselves. Where it summarises a rule
@@ -31,11 +31,11 @@ Some projects mount the corpus somewhere other than `governance/qm`; check
 
 | Repository | Calls itself | Its part in the demo |
 |---|---|---|
-| [`qm`](../families/projects/qm.md) | the decisions, and the checks that keep them honest | governance, the gates, the CLI |
-| [`qmcp`](../families/projects/qmcp.md) | a Model Context [Protocol](../ref/glossary.md#protocol){ .glossary-term } server | the harness: it measures work and answers over HTTP |
-| [`dossier`](../families/projects/dossier.md) | the control panel | draws the harness's answer in a terminal |
-| [`codecartographer`](../families/projects/codecartographer.md) | a tool for mapping source code as graphs | draws the same answer in a browser |
-| [`looksatwords`](../families/projects/looksatwords.md) | reads natural language and says what was in it | the second act: reads the turns of one thread the harness served, and names what they were about |
+| [`qm`](../projects/qm.md) | the decisions, and the checks that keep them honest | governance, the gates, the CLI |
+| [`qmcp`](../projects/qmcp.md) | a Model Context [Protocol](../ref/glossary.md#protocol){ .glossary-term } server | the harness: it measures work and answers over HTTP |
+| [`dossier`](../projects/dossier.md) | the control panel | draws the harness's answer in a terminal |
+| [`codecartographer`](../projects/codecartographer.md) | a tool for mapping source code as graphs | draws the same answer in a browser |
+| [`looksatwords`](../projects/looksatwords.md) | reads natural language and says what was in it | the second act: reads the turns of one thread the harness served, and names what they were about |
 
 The middle column matters, because each repository's README introduces it on its
 own terms and none of them opens by describing the demo. Each name opens the
@@ -43,7 +43,7 @@ project's page, with its pictures and a link to the repository. `dossier` and `q
 not import each other; what crosses between them is a document.
 
 The roster in `ci/workspace.yaml` is the authority on which repositories are
-active, and it lists others — [`rad`](../families/projects/rad.md) among them.
+active, and it lists others — [`rad`](../projects/rad.md) among them.
 `uv run qm inventory` prints it, and [the families](../families/index.md) place
 every one of them by what it drives.
 

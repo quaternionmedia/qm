@@ -45,10 +45,10 @@ What QM is and how it works.
 
 **get started**
 
-Your first hour with the corpus.
+From a fresh clone to a first change.
 
 - [Getting started](usage/getting-started.md) — clone, read, and make your first change
-- [Questions a new developer asks](usage/questions-a-new-developer-asks.md) — first-week questions, and the command that answers each
+- [Questions a new developer asks](usage/questions-a-new-developer-asks.md) — the questions a newcomer asks, and the command that answers each
 - [Forking a new project](usage/first-project.md) — adopt the corpus in a new project
 - [Next steps](usage/next-steps.md) — [propagation](ref/glossary.md#propagation){ .glossary-term }, audits, and project phases
 
@@ -60,11 +60,11 @@ Your first hour with the corpus.
 
 Practical recipes.
 
-- [Draft a record](cookbook/draft-a-record.md) — write a decision
-- [Add a perspective](cookbook/add-a-perspective.md) — document an opinion or incident
-- [Propagate a change](cookbook/propagate-a-change.md) — send org updates to a project
-- [Run CI locally](cookbook/run-ci-locally.md) — test before you push
-- [All recipes](cookbook/index.md)
+- [Draft a record](usage/draft-a-record.md) — write a decision
+- [Add a perspective](usage/add-a-perspective.md) — document an opinion or incident
+- [Propagate a change](usage/propagate-a-change.md) — send org updates to a project
+- [Run CI locally](usage/run-ci-locally.md) — test before you push
+- [All recipes](usage/index.md#recipes)
 
 </div>
 

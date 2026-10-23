@@ -34,9 +34,9 @@ TERM = re.compile(r"^\*\*(?P<term>[^*]+)\*\*\s*\{\s*#(?P<anchor>[a-z0-9-]+)\s*\}
 SKIP = {Path("docs/ref/glossary.md")}
 
 # Pages another generator writes. `ci/cookbook.py --site` owns docs/families/
-# and docs/repos.md, and two generators writing one page would each report the
-# other's output as drift.
-GENERATED = (Path("docs/families"), Path("docs/repos.md"))
+# and docs/projects/, and two generators writing one page would each report
+# the other's output as drift.
+GENERATED = (Path("docs/families"), Path("docs/projects"))
 
 # The marker every generated link carries. It is what makes the pass a fixed
 # point -- a second run sees a link, not a bare word -- and it is what the
@@ -54,7 +54,7 @@ MASKS = (
     re.compile(r"\{[^}\n]*\}"),
     re.compile(r"^\s{0,3}(?:>\s*)?(?:!!!|\?\?\?)\s.*$", re.MULTILINE),
     re.compile(r"<[^>\n]+>"),
-    # Indented code, markdown's other code form: the executable cookbook pages
+    # Indented code, markdown's other code form: the executable usage pages
     # write their doctests as four-space indented blocks, and a path inside a
     # `>>>` line must stay a path for the page to run.
     re.compile(r"(?:^(?:\t| {4,}).*$\n?)+", re.MULTILINE),

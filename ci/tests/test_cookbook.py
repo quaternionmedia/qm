@@ -252,7 +252,7 @@ def test_a_site_page_names_its_family_and_where_it_sits():
     assert page.startswith("---\ntitle: instruments\n---")
     assert "# the sound { .qm-family-title .qm-f-instruments }" in page
     assert "instruments · within [performing](performing.md)\n{ .qm-eyebrow }" in page
-    assert "Start in [`synth`](projects/synth.md)" in page
+    assert "Start in [`synth`](../projects/synth.md)" in page
 
 
 def test_a_member_with_a_page_is_a_card_that_opens_it():
@@ -267,7 +267,7 @@ def test_a_member_with_a_page_is_a_card_that_opens_it():
         also={"pedal": ["irl"]},
         projects={"synth": _project("synth", governed=True, pictures=["a.png"]),
                   "pedal": _project("pedal")})
-    assert "[synth](projects/synth.md){ .qm-card-link }" in page
+    assert "[synth](../projects/synth.md){ .qm-card-link }" in page
     assert "![a.png](https://github.com/org/synth/raw/HEAD/a.png){ .qm-thumb loading=lazy }" in page
     assert "also in [`irl`](irl.md)" in page
     assert '<span class="qm-state">governed</span>' in page
@@ -275,13 +275,13 @@ def test_a_member_with_a_page_is_a_card_that_opens_it():
 
 def test_a_member_without_a_page_links_its_row_and_a_private_one_is_counted():
     """Every named member is a link: a rostered name the host does not hold
-    links its row on the repos page, never a project page that would 404. A
+    links its row on the projects page, never a project page that would 404. A
     private repository is counted and never named."""
     page = cookbook.site_page(
         {"name": "games", "drives": "play", "within": None},
         [state("private-38"), state("planned")], projects={})
     assert "projects/planned.md" not in page and "projects/private-38.md" not in page
-    assert "[planned](../repos.md#planned){ .qm-card-link }" in page
+    assert "[planned](../projects/index.md#planned){ .qm-card-link }" in page
     assert '<span class="qm-state">not on the host yet</span>' in page
     assert "1 private repository is counted here and not named." in page
     assert "private-38" not in page
@@ -302,10 +302,10 @@ def test_a_family_page_names_each_member_once():
                 "names": ["synth", "pedal", "private-09"]}],
         projects=projects)
     for name in ("editor", "synth", "pedal"):
-        assert page.count(f"[{name}](projects/{name}.md)") == 1, name
+        assert page.count(f"[{name}](../projects/{name}.md)") == 1, name
     assert page.count('<span class="qm-state">governed</span>') == 1
     assert "[the sound](instruments.md){ .qm-card-link }" in page
-    assert "[pedal](projects/pedal.md), and 1 private" in page
+    assert "[pedal](../projects/pedal.md), and 1 private" in page
     assert "## The families within it" not in page and ".svg" not in page
 
 
@@ -316,8 +316,8 @@ def test_a_project_page_links_its_repository_and_shows_its_own_pictures():
     assert "[synth on GitHub](https://github.com/org/synth){ .md-button .md-button--primary }" in page
     assert page.count('<figure class="qm-shot" markdown>') == 2
     assert "raw/HEAD/b.gif" in page
-    assert ("[instruments](../instruments.md) · [irl](../irl.md) · within "
-            "[performing](../performing.md)\n{ .qm-eyebrow }") in page
+    assert ("[instruments](../families/instruments.md) · [irl](../families/irl.md) · within "
+            "[performing](../families/performing.md)\n{ .qm-eyebrow }") in page
     assert "governed, its records on `project/synth`" in page
     assert "## In the estate" not in page
 
@@ -352,7 +352,7 @@ def test_a_listed_picture_the_default_branch_does_not_hold_waits(tmp_path):
     assert "not yet on its default branch" in page and "c.png" not in page
 
 
-def test_the_repos_page_is_one_row_per_named_repository(tmp_path):
+def test_the_projects_page_is_one_row_per_named_repository(tmp_path):
     """Each row links the project's page and its repository; a name the host
     does not hold carries the anchor family pages link to; a private one is
     counted; a table cell cannot be split by a description.
@@ -368,9 +368,9 @@ def test_the_repos_page_is_one_row_per_named_repository(tmp_path):
     document = {"families": [{"name": "instruments", "members": ["synth", "planned", "private-07"]},
                              {"name": "irl", "members": ["synth"]}]}
     projects = cookbook.site_projects(document, set(), {}, inventory, tmp_path / "none.yaml")
-    page = cookbook.repos_page(document, projects, {"planned": {"note": "coming soon; later"}}, inventory)
-    assert ("| [synth](families/projects/synth.md) | loops \\| layers | "
-            "[instruments](families/instruments.md), [irl](families/irl.md) | "
+    page = cookbook.projects_index(document, projects, {"planned": {"note": "coming soon; later"}}, inventory)
+    assert ("| [synth](synth.md) | loops \\| layers | "
+            "[instruments](../families/instruments.md), [irl](../families/irl.md) | "
             "[GitHub](https://github.com/org/synth) |") in page
     assert '| <span id="planned"></span>planned | Coming soon. |' in page
     assert "1 private repository is in the families too" in page
@@ -410,7 +410,7 @@ def test_the_showcase_names_only_pages_that_exist_and_says_what_each_picture_sho
     import yaml
     root = CI_DIR.parent
     shown = yaml.safe_load((root / "ci" / "showcase.yaml").read_text(encoding="utf-8"))["projects"]
-    pages = {p.stem for p in (root / "docs" / "families" / "projects").glob("*.md")}
+    pages = {p.stem for p in (root / "docs" / "projects").glob("*.md")}
     assert set(shown) <= pages, f"showcase names projects with no page: {set(shown) - pages}"
     for name, pictures in shown.items():
         assert pictures, name
@@ -442,7 +442,7 @@ def test_the_site_navigation_lists_every_family_page():
     nav = (root / "zensical.toml").read_text(encoding="utf-8")
     missing = [n for n in ["index", *names] if f'"families/{n}.md"' not in nav]
     assert not missing, f"zensical.toml's nav lists no page for {missing}"
-    assert '"repos.md"' in nav, "zensical.toml's nav lists no repos page"
+    assert '"projects/index.md"' in nav, "zensical.toml's nav lists no projects page"
 
 
 def test_no_generated_site_page_hides_a_link_inside_raw_html():
@@ -454,7 +454,7 @@ def test_no_generated_site_page_hides_a_link_inside_raw_html():
     """
     import re
     docs = CI_DIR.parent / "docs"
-    pages = sorted((docs / "families").rglob("*.md")) + [docs / "repos.md"]
+    pages = sorted((docs / "families").rglob("*.md")) + sorted((docs / "projects").rglob("*.md"))
     assert pages
     hidden = [f"{p.name}: {line[:60]}" for p in pages
               for line in p.read_text(encoding="utf-8").splitlines()

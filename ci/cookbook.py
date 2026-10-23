@@ -567,9 +567,10 @@ def build(out: Path, site: bool = False) -> dict[str, str]:
     if site:
         files["index.md"] = site_index(document, [summary(n) for n in by_name], by_name)
         for name, project in projects.items():
-            files[f"projects/{name}.md"] = project_page(project, by_name)
-        # The repos page sits at the top of the site, beside the families.
-        files["../repos.md"] = repos_page(document, projects, entries)
+            files[f"../projects/{name}.md"] = project_page(project, by_name)
+        # The projects sit at the top of the site, beside the families, so
+        # their pages are written into docs/projects/ from here.
+        files["../projects/index.md"] = projects_index(document, projects, entries)
         return files
     index += [
         "",
@@ -609,7 +610,7 @@ def entry_point(states: list[dict], projects: dict[str, dict] | None = None) -> 
         return ["No member of this family carries governance yet, so there is no "
                 "governed entry point. Reading the code is the entry point."]
     first = "qm" if "qm" in adopted else adopted[0]
-    named = f"[`{first}`](projects/{first}.md)" if first in (projects or {}) else f"`{first}`"
+    named = f"[`{first}`](../projects/{first}.md)" if first in (projects or {}) else f"`{first}`"
     return [f"Start in {named}: its records and its `AGENTS.md` say how work arrives there."]
 
 
@@ -725,11 +726,11 @@ def _cell(text: str | None) -> str:
 
 
 def _member_link(name: str, projects: dict[str, dict]) -> str:
-    """A member's name as a link: to its page, or to its row on the repos page
+    """A member's name as a link: to its page, or to its row on the projects page
     when the host holds no repository for it."""
     if name in projects:
-        return f"[{name}](projects/{name}.md)"
-    return f"[{name}](../repos.md#{name})"
+        return f"[{name}](../projects/{name}.md)"
+    return f"[{name}](../projects/index.md#{name})"
 
 
 def site_page(family: dict, states: list[dict], inner: list[dict] = (),
@@ -761,7 +762,7 @@ def site_page(family: dict, states: list[dict], inner: list[dict] = (),
         if _private(member):
             private += 1
         elif member in projects:
-            lines += project_card(projects[member], f"projects/{member}.md", name,
+            lines += project_card(projects[member], f"../projects/{member}.md", name,
                                   (also or {}).get(member, []))
         else:
             lines += [f'<div class="card qm-f-{name}" markdown>', "",
@@ -796,8 +797,8 @@ def project_page(project: dict, by_name: dict[str, dict]) -> str:
     name = project["name"]
     families = project["families"]
     outer = sorted({o for f in families for o in ancestors_in(f, by_name)})
-    eyebrow = " · ".join([f"[{f}](../{f}.md)" for f in families]
-                         + [f"within [{o}](../{o}.md)" for o in outer])
+    eyebrow = " · ".join([f"[{f}](../families/{f}.md)" for f in families]
+                         + [f"within [{o}](../families/{o}.md)" for o in outer])
     facts = [f"governed, its records on `project/{name}` in the corpus"
              if project["governed"] else "not adopted"]
     phase = project["phase"]
@@ -835,26 +836,26 @@ def project_page(project: dict, by_name: dict[str, dict]) -> str:
     return "\n".join(lines)
 
 
-def repos_page(document: dict, projects: dict[str, dict], entries: dict[str, dict],
+def projects_index(document: dict, projects: dict[str, dict], entries: dict[str, dict],
                inventory: Path = INVENTORY) -> str:
     """Every repository a family claims, one row each: what it is, its
     families, its page and its repository."""
     org, rows = public_repositories(inventory)
     claimed = claims(document)
     lines = [
-        "---", "title: Repos", "---", "",
-        "the estate, repository by repository", "{ .qm-eyebrow }", "",
-        "# Repos", "",
+        "---", "title: Projects", "---", "",
+        "the estate, project by project", "{ .qm-eyebrow }", "",
+        "# Projects", "",
         "Every repository a family claims. A name opens the project's page, with "
         "its pictures; the last column opens the repository.", "{ .qm-lede }", "",
         "| repository | what it is | families | on GitHub |", "|---|---|---|---|",
     ]
     for name in sorted((n for n in claimed if not _private(n)), key=str.lower):
-        families = ", ".join(f"[{f}](families/{f}.md)" for f in claimed[name])
+        families = ", ".join(f"[{f}](../families/{f}.md)" for f in claimed[name])
         project = projects.get(name)
         if project:
             what = _cell(project["description"]) + (" Archived." if project["archived"] else "")
-            lines.append(f"| [{name}](families/projects/{name}.md) | {what} | {families} | "
+            lines.append(f"| [{name}]({name}.md) | {what} | {families} | "
                          f"[GitHub]({project['url']}) |")
         else:
             what = _cell(_sentence(entries.get(name, {}).get("note")))
@@ -891,7 +892,7 @@ def site_index(document: dict, summaries: list[dict], by_name: dict[str, dict]) 
         # is left as literal markdown.
         "A repository belongs to each family whose world its output acts on. A "
         "family can hold others, and a repository that drives two things is in "
-        "both. Every project has a page of its own, and [the repos](../repos.md) "
+        "both. Every project has a page of its own, and [the projects](../projects/index.md) "
         "lists them all in one table.",
         "{ .qm-lede }", "",
         "![the families, each a column with a meter lit by the share governed]"

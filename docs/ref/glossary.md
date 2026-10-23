@@ -39,13 +39,13 @@
 : A cycle whose edges impose no order. Identical to a knot in a picture, and it constrains nothing — reporting it as a problem buries the real ones. Measured here: 42 loops, 0 knots, in 169 real relations. Still a fact, and not a scheduling problem.
 
 **Perspective** { #perspective }
-: Dated, attributed, non-binding opinion in `perspectives/`: incidents, retrospectives, argued positions. See [Add a perspective](../cookbook/add-a-perspective.md).
+: Dated, attributed, non-binding opinion in `perspectives/`: incidents, retrospectives, argued positions. See [Add a perspective](../usage/add-a-perspective.md).
 
 **Phase ladder** { #phase-ladder }
 : How a project reports its governance maturity, as a version number. Only `v0.0.1` (adoption of the constitution) is defined org-wide; higher rungs are defined by each project in its own records. See [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-project-phase-ladder.md).
 
 **Propagation** { #propagation }
-: Merging `main` into a `project/<name>` branch to carry org changes to a project, through a `propagate/<name>-<date>` pull request. See [Propagate a change](../cookbook/propagate-a-change.md).
+: Merging `main` into a `project/<name>` branch to carry org changes to a project, through a `propagate/<name>-<date>` pull request. See [Propagate a change](../usage/propagate-a-change.md).
 
 **Proposed** { #proposed }
 : The status every record in this corpus currently carries. It means the decision is written down and is not yet final. Making one final is [ratification](#ratification), which needs a second person to agree. See [Ratification](ratification.md).
@@ -60,7 +60,7 @@
 : The human act that makes a record binding: Status flips to `Accepted`, the number is assigned, the index is updated. See [Ratification](ratification.md).
 
 **Record** { #record }
-: A decision document: one decision, with context, alternatives, consequences, and revision triggers. The only kind of document that binds. See [Draft a record](../cookbook/draft-a-record.md).
+: A decision document: one decision, with context, alternatives, consequences, and revision triggers. The only kind of document that binds. See [Draft a record](../usage/draft-a-record.md).
 
 **Register** { #register }
 : A living data file created by a record, such as [registers/carried-patches.md](https://github.com/quaternionmedia/qm/blob/main/registers/carried-patches.md). Binding as the creating record says.

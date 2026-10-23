@@ -6,7 +6,7 @@ title: Families
 
 # The families
 
-A repository belongs to each family whose world its output acts on. A family can hold others, and a repository that drives two things is in both. Every project has a page of its own, and [the repos](../repos.md) lists them all in one table.
+A repository belongs to each family whose world its output acts on. A family can hold others, and a repository that drives two things is in both. Every project has a page of its own, and [the projects](../projects/index.md) lists them all in one table.
 { .qm-lede }
 
 ![the families, each a column with a meter lit by the share governed](families.svg){ .qm-picture }
