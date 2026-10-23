@@ -1,0 +1,42 @@
+# Pictures a project shows on its page in the docs site, from its own repository.
+#
+# A person picks them; nothing infers a picture. Each path is a file committed on
+# the project's default branch and is shown from there
+# (https://github.com/<org>/<project>/raw/HEAD/<path>), so the picture is the
+# project's own and changes when the project changes it. A caption says what the
+# picture shows, in one sentence. A project with no entry has a page with no
+# pictures, which says so rather than borrowing one.
+#
+# `uv run qm cookbook docs/families --site --write` reads this file;
+# ci/tests/test_cookbook.py holds its shape.
+projects:
+  carlos:
+    - path: walkthrough/media/05-in-the-browser-keybed-and-desk.png
+      caption: Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.
+    - path: walkthrough/media/05-in-the-browser-menu.png
+      caption: A whole rig from the back panels, with the radial menu open.
+    - path: walkthrough/media/05-in-the-browser-irl-drum-rig.png
+      caption: An imported rig, a grid playing a modular drum voice, with its cables drawn.
+  waveofhormuz:
+    - path: waveofhormuz.png
+      caption: The 16 HP panel, with knot speed, gulf and dry, and eight closure windows.
+    - path: woh_vcv.png
+      caption: Patched in VCV Rack beside a scope and the audio output.
+  looksatwords:
+    - path: docs/pics/harness-analysed.png
+      caption: A conversation's threads drawn as lanes over time, with the analysis below.
+    - path: docs/pics/analytics-panel.png
+      caption: The analytics panel, with counts, sentiment, top words and parts of speech.
+  scad-chess:
+    - path: chess_set.png
+      caption: The chess set, modelled in OpenSCAD.
+    - path: images/chess-set-hex.png
+      caption: The set on hexagonal bases.
+  rad:
+    - path: docs/media/overview.png
+      caption: The radial menu's demo, the estate drawn as a graph under its controls.
+    - path: docs/media/chord-input.png
+      caption: The demo after chord input, with its latency readouts filled in.
+  apothecary:
+    - path: docs/assets/fractal-viewer-walkthrough.gif
+      caption: The fractal viewer walking a garage layout and what it holds.

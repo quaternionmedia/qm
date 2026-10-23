@@ -245,3 +245,75 @@ code, kbd, pre {
     transition: none;
   }
 }
+
+/* A card whose title link covers it: the whole card opens the page it names,
+   and any other link in the card stays clickable above the cover. */
+.md-typeset .grid > .card {
+  position: relative;
+}
+.md-typeset .grid > .card a.qm-card-link::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+.md-typeset .grid > .card a:not(.qm-card-link) {
+  position: relative;
+  z-index: 1;
+}
+.md-typeset .grid > .card:focus-within {
+  outline: 2px solid var(--c, var(--qm-accent));
+  outline-offset: 2px;
+}
+.md-typeset .grid > .card a.qm-card-link {
+  color: var(--c, var(--qm-ink));
+  font-family: var(--qm-font-display);
+  font-size: 1.45em;
+  font-weight: 800;
+  letter-spacing: 0.005em;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+/* A project card's picture, cropped to one shape so a row of cards lines up. */
+.md-typeset img.qm-thumb {
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--qm-line);
+  border-radius: 4px;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+}
+
+/* Whether governance reaches a project, as a word with a dot. */
+.md-typeset .qm-state {
+  color: var(--qm-muted);
+  font: 500 0.85em/1.4 var(--qm-font-mono);
+}
+.md-typeset .qm-state::before {
+  background: var(--c, var(--qm-muted));
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: 0.55em;
+  margin-right: 0.4em;
+  vertical-align: 0.1em;
+  width: 0.55em;
+}
+
+/* A project's own pictures, each with its caption. */
+.md-typeset .qm-shot {
+  margin: 0;
+}
+.md-typeset .qm-shot img {
+  border: 1px solid var(--qm-line);
+  border-radius: 6px;
+  display: block;
+  width: 100%;
+}
+.md-typeset .qm-shot figcaption {
+  color: var(--qm-muted);
+  font-size: 0.85em;
+  margin-top: 0.4em;
+  max-width: none;
+}

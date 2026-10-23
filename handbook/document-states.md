@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-20T02:28:21Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-23T00:09:17Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **236**, unfiltered.
+Every governed document in this corpus: **273**, unfiltered.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 69 |
 | [G] `generated` | 7 |
-| [S] `standing` | 92 |
+| [S] `standing` | 129 |
 | [T] `transient` | 27 |
 
 ## Documents
@@ -209,6 +209,43 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/families/irl.md` | reference | — |
 | [S] | `standing` | `docs/families/performer-display.md` | reference | — |
 | [S] | `standing` | `docs/families/performing.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/Cuelist-python.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/QLab-python.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/ShowRunner.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/ShowStopper.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/TheatreMix-python.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/aes.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/alfred.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/apothecary.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/benchmark.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/carlos.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/cesar.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/codecartographer.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/datum.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/dossier.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/factorio-sysops.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/golfvs.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/holophonor.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/index.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/ira.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/joe.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/leo.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/looksatwords.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/ludwig.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/midiphonor.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/moat.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/qm.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/qmcp.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/qmetronome.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/rad-godot.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/rad.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/scad-chess.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/stomp.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/uPhonor.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/vox.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/waveofhormuz.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/wolf.md` | reference | — |
+| [S] | `standing` | `docs/families/projects/ztgui.md` | reference | — |
 | [S] | `standing` | `docs/families/show-control.md` | reference | — |
 | [S] | `standing` | `docs/index.md` | reference | — |
 | [S] | `standing` | `docs/ref/addresses.md` | reference | — |

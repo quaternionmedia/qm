@@ -23,6 +23,7 @@ nav = [
         "families/games.md",
         "families/infra.md",
         "families/irl.md",
+        "families/projects/index.md",
     ] },
     { "About" = [
         "about/index.md",

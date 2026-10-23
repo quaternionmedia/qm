@@ -78,7 +78,8 @@ def now() -> str:
 def host_repositories(org: str) -> list[dict] | dict:
     proc = subprocess.run(
         ["gh", "repo", "list", org, "--limit", "500", "--json",
-         "name,isPrivate,isArchived,isFork,updatedAt,createdAt,primaryLanguage,diskUsage"],
+         "name,isPrivate,isArchived,isFork,updatedAt,createdAt,primaryLanguage,diskUsage,"
+         "description"],
         capture_output=True, text=True, encoding="utf-8", errors="replace",
     )
     if proc.returncode != 0:
@@ -477,6 +478,9 @@ def build(org: str, roster_path: Path,
             key = references[name]["ref"]
         else:
             row["name"] = name
+            # The host's own one-line description, for a public repository
+            # only: a private one's would publish what its name is withheld for.
+            row["description"] = (r.get("description") or "").strip() or None
             key = name
         public_rows.append(row)
         if clone:

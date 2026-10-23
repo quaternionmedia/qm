@@ -498,3 +498,21 @@ def test_risk_and_unpushed_counts_stay_out_of_the_public_file(monkeypatch, tmp_p
     assert not contains(pub["repositories"], "pin-drift")
     assert not contains(pub["totals"], "unpushed")
     assert contains(loc["clones"], "unpushed:45"), "the local file is where it belongs"
+
+
+def test_a_public_repository_carries_its_host_description(monkeypatch, tmp_path):
+    pub, _, _ = build_with(monkeypatch, tmp_path, [repo("qm", description="  the corpus  ")])
+    row = next(r for r in pub["repositories"] if r.get("name") == "qm")
+    assert row["description"] == "the corpus"
+
+
+def test_a_private_repository_description_never_reaches_the_public_file(monkeypatch, tmp_path):
+    """A private repository's description can say what its withheld name would.
+
+    Mutation: record `description` for every row rather than the public ones
+    and this fails.
+    """
+    pub, _, _ = build_with(monkeypatch, tmp_path,
+                           [repo("client-x", private=True, description="Acme's billing portal")])
+    assert not contains(pub, "Acme's billing portal")
+    assert all("description" not in r for r in pub["repositories"] if r.get("private"))
