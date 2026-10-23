@@ -366,3 +366,19 @@ def test_the_site_navigation_lists_every_family_page():
     nav = (root / "zensical.toml").read_text(encoding="utf-8")
     missing = [n for n in ["index", *names, "projects/index"] if f'"families/{n}.md"' not in nav]
     assert not missing, f"zensical.toml's nav lists no page for {missing}"
+
+
+def test_no_generated_site_page_hides_a_link_inside_raw_html():
+    """A link written inside a raw `<p>` is not parsed: the reader sees the
+    brackets. Every committed site page keeps its links in markdown.
+
+    Mutation: put the families page's lede back inside `<p class="qm-lede">`
+    and regenerate; this fails.
+    """
+    import re
+    pages = sorted((CI_DIR.parent / "docs" / "families").rglob("*.md"))
+    assert pages
+    hidden = [f"{p.name}: {line[:60]}" for p in pages
+              for line in p.read_text(encoding="utf-8").splitlines()
+              if re.match(r"\s*<p[ >]", line) and re.search(r"\]\([^)]+\)", line)]
+    assert not hidden, hidden

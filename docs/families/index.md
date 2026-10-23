@@ -6,7 +6,8 @@ title: Families
 
 # The families
 
-<p class="qm-lede">A repository belongs to each family whose world its output acts on. A family can hold others, and a repository that drives two things is in both. Every project also has [a page of its own](projects/index.md).</p>
+A repository belongs to each family whose world its output acts on. A family can hold others, and a repository that drives two things is in both. Every project also has [a page of its own](projects/index.md).
+{ .qm-lede }
 
 ![the families, each a column with a meter lit by the share governed](families.svg){ .qm-picture }
 

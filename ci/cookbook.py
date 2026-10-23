@@ -825,10 +825,12 @@ def site_index(document: dict, summaries: list[dict], by_name: dict[str, dict]) 
         "---", "title: Families", "---", "",
         '<p class="qm-eyebrow">the estate, by what it drives</p>', "",
         "# The families", "",
-        '<p class="qm-lede">A repository belongs to each family whose world its '
-        "output acts on. A family can hold others, and a repository that drives "
-        "two things is in both. Every project also has [a page of its own]"
-        "(projects/index.md).</p>", "",
+        # A paragraph with an attribute list, not a <p>: a link inside raw HTML
+        # is left as literal markdown.
+        "A repository belongs to each family whose world its output acts on. A "
+        "family can hold others, and a repository that drives two things is in "
+        "both. Every project also has [a page of its own](projects/index.md).",
+        "{ .qm-lede }", "",
         "![the families, each a column with a meter lit by the share governed]"
         "(families.svg){ .qm-picture }", "",
         '<p class="qm-caption">Each meter is lit by the share of members governed: '
