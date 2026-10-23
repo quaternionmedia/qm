@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-23T00:01:34Z",
+  "generated_at": "2026-10-23T00:50:51Z",
   "generator": {
     "tool": "ci/inventory.py",
     "produced_by": "assistant-2026-08",
@@ -404,7 +404,8 @@
       "attention": "unstated",
       "recency": "cold",
       "name": "alfred",
-      "description": "serverless video editing"
+      "description": "serverless video editing",
+      "pictures_on_default_branch": []
     },
     {
       "private": false,
@@ -438,7 +439,10 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "apothecary",
-      "description": "miscellaneous parts"
+      "description": "miscellaneous parts",
+      "pictures_on_default_branch": [
+        "docs/assets/fractal-viewer-walkthrough.gif"
+      ]
     },
     {
       "private": false,
@@ -472,7 +476,12 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "carlos",
-      "description": null
+      "description": null,
+      "pictures_on_default_branch": [
+        "walkthrough/media/05-in-the-browser-keybed-and-desk.png",
+        "walkthrough/media/05-in-the-browser-menu.png",
+        "walkthrough/media/05-in-the-browser-irl-drum-rig.png"
+      ]
     },
     {
       "private": false,
@@ -625,7 +634,11 @@
       "attention": "active",
       "recency": "live",
       "name": "dossier",
-      "description": "Documentation standardization tool that auto-parses project documentation"
+      "description": "Documentation standardization tool that auto-parses project documentation",
+      "pictures_on_default_branch": [
+        "docs/screenshots/rad_ring_top_level.svg",
+        "docs/screenshots/content_viewer_readme.svg"
+      ]
     },
     {
       "private": false,
@@ -948,7 +961,11 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "looksatwords",
-      "description": "A python module to make, gather, analyze, and visualize language data."
+      "description": "A python module to make, gather, analyze, and visualize language data.",
+      "pictures_on_default_branch": [
+        "docs/pics/harness-analysed.png",
+        "docs/pics/analytics-panel.png"
+      ]
     },
     {
       "private": false,
@@ -1124,11 +1141,11 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-22T23:52:02Z",
+      "updated_at": "2026-10-23T00:33:47Z",
       "created_at": "2026-06-10T18:00:26Z",
-      "default_branch_commit_at": "2026-10-22T23:51:57Z",
+      "default_branch_commit_at": "2026-10-23T00:33:42Z",
       "language": "Python",
-      "disk_usage_kb": 4642,
+      "disk_usage_kb": 4736,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -1141,9 +1158,9 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-13T21:06:43Z",
+      "updated_at": "2026-10-23T00:33:54Z",
       "created_at": "2026-01-19T01:34:00Z",
-      "default_branch_commit_at": "2026-10-13T21:06:35Z",
+      "default_branch_commit_at": "2026-10-23T00:33:46Z",
       "language": "Python",
       "disk_usage_kb": 2678,
       "in_roster": true,
@@ -1169,7 +1186,12 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "qmetronome",
-      "description": "Nothing inspired Metronome"
+      "description": "Nothing inspired Metronome",
+      "pictures_on_default_branch": [
+        "docs/images/generated/videos/app-running.gif",
+        "docs/images/generated/screenshots/compact-landscape-layout.png",
+        "docs/images/generated/screenshots/beat-overrides.png"
+      ]
     },
     {
       "private": false,
@@ -1203,7 +1225,11 @@
       "attention": "active",
       "recency": "quiet",
       "name": "rad",
-      "description": null
+      "description": null,
+      "pictures_on_default_branch": [
+        "docs/media/overview.png",
+        "docs/media/chord-input.png"
+      ]
     },
     {
       "private": false,
@@ -1254,7 +1280,11 @@
       "attention": "unstated",
       "recency": "cold",
       "name": "scad-chess",
-      "description": "Chess set, designed in openSCAD"
+      "description": "Chess set, designed in openSCAD",
+      "pictures_on_default_branch": [
+        "chess_set.png",
+        "images/chess-set-hex.png"
+      ]
     },
     {
       "private": false,
@@ -1407,7 +1437,11 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "waveofhormuz",
-      "description": "VCV Rack 2 strait-shaping square wave oscillator \u2014 conflict timeline as a default waveform"
+      "description": "VCV Rack 2 strait-shaping square wave oscillator \u2014 conflict timeline as a default waveform",
+      "pictures_on_default_branch": [
+        "waveofhormuz.png",
+        "woh_vcv.png"
+      ]
     },
     {
       "private": false,

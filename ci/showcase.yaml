@@ -7,9 +7,18 @@
 # picture shows, in one sentence. A project with no entry has a page with no
 # pictures, which says so rather than borrowing one.
 #
+# A listed picture the default branch does not hold yet -- one still on a pull
+# request -- is not shown: `uv run qm inventory --write` records which listed
+# files each default branch holds, and the page shows only those.
+#
 # `uv run qm cookbook docs/families --site --write` reads this file;
 # ci/tests/test_cookbook.py holds its shape.
 projects:
+  alfred:
+    - path: docs/assets/screens/edit.png
+      caption: The editor, a title template selected, with the viewer, the timeline and its settings.
+    - path: docs/assets/screens/captions.png
+      caption: The captions panel beside a server-drawn frame, ready to transcribe the timeline.
   carlos:
     - path: walkthrough/media/05-in-the-browser-keybed-and-desk.png
       caption: Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.
@@ -22,6 +31,11 @@ projects:
       caption: The 16 HP panel, with knot speed, gulf and dry, and eight closure windows.
     - path: woh_vcv.png
       caption: Patched in VCV Rack beside a scope and the audio output.
+  dossier:
+    - path: docs/screenshots/rad_ring_top_level.svg
+      caption: The rad menu open over the dashboard, with Go, Reach, Close, Do and Show on its cells.
+    - path: docs/screenshots/content_viewer_readme.svg
+      caption: A repository's README read in the content viewer, over the dashboard.
   looksatwords:
     - path: docs/pics/harness-analysed.png
       caption: A conversation's threads drawn as lanes over time, with the analysis below.
@@ -32,6 +46,13 @@ projects:
       caption: The chess set, modelled in OpenSCAD.
     - path: images/chess-set-hex.png
       caption: The set on hexagonal bases.
+  qmetronome:
+    - path: docs/images/generated/videos/app-running.gif
+      caption: The default visualizer running at 120 BPM in 4/4, with tap, play and hold.
+    - path: docs/images/generated/screenshots/compact-landscape-layout.png
+      caption: The settings, from tempo and bars down through the timing offsets and the layout.
+    - path: docs/images/generated/screenshots/beat-overrides.png
+      caption: Beat overrides, giving one beat its own MIDI action in any phrase and bar.
   rad:
     - path: docs/media/overview.png
       caption: The radial menu's demo, the estate drawn as a graph under its controls.
