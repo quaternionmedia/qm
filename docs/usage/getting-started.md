@@ -1,7 +1,10 @@
+<p class="qm-eyebrow">usage · your first hour</p>
+
 # Getting started
 
 If you have just cloned this repository and want to know what to do first, this
 page is your first hour. It assumes nothing about how this organisation works.
+{ .qm-lede }
 
 This repository holds the decisions Quaternion Media has taken about how it
 builds software, and the checks that keep those decisions honest. Every project
@@ -46,6 +49,7 @@ Read [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.
 | Understand the records | [Overview](../about/overview.md), then [records/](https://github.com/quaternionmedia/qm/tree/main/records) |
 | Set up a new QM project | [Forking a new project](first-project.md) |
 | Understand how projects relate to the org | [Architecture](../about/architecture.md) |
+| See what each project drives, and what it looks like | [The families](../families/index.md), then [the projects](../families/projects/index.md): every card opens a page that links the repository |
 | Learn the branch rules | [Branch namespaces](../ref/namespaces.md) |
 | See where every project stands | [status/governance.yaml](https://github.com/quaternionmedia/qm/blob/main/status/governance.yaml); how to read it: [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) |
 | Learn policy and procedure | [Handbook index](../ref/handbook.md) |
@@ -65,5 +69,6 @@ If several agent sessions run at the same time, the rules in [handbook/async-con
 
 ## Next
 
+- [Questions a new developer asks](questions-a-new-developer-asks.md) — the first week, a command per question
 - [Forking a new project](first-project.md) — adopt the corpus in a new project
 - [Cookbook](../cookbook/index.md) — recipes for common tasks

@@ -34,6 +34,7 @@ nav = [
     { "Usage" = [
         "usage/index.md",
         "usage/getting-started.md",
+        "usage/questions-a-new-developer-asks.md",
         "usage/first-project.md",
         "usage/next-steps.md",
     ] },
