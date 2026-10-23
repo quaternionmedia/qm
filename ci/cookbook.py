@@ -201,7 +201,7 @@ def wrap(text: str, width: int) -> list[str]:
 def _strip(x: float, y: float, w: float, h: float, name: str, drives: str,
            members: int, governed: int) -> list[str]:
     """One family as a channel strip: its name, what it drives, and a meter
-    whose lit share is the share of its members governed."""
+    whose lit share is the share of its members past `v0.0.0`."""
     parts = [
         f'<rect class="card" x="{x:.1f}" y="{y}" width="{w:.1f}" height="{h}" rx="6"/>',
         f'<rect class="c-{name}" x="{x:.1f}" y="{y}" width="{w:.1f}" height="5" rx="2"/>',
@@ -223,7 +223,7 @@ def _strip(x: float, y: float, w: float, h: float, name: str, drives: str,
         f'<text x="{x + 10:.1f}" y="{y + h - 28}" font-size="13" font-weight="700">'
         f'{members} {"member" if members == 1 else "members"}</text>',
         f'<text class="mono muted" x="{x + 10:.1f}" y="{y + h - 12}" font-size="11">'
-        f'{governed} governed</text>',
+        f'{governed} past v0.0.0</text>',
     ]
     return parts
 
@@ -249,7 +249,7 @@ def desk(document: dict, counts: dict[str, tuple[int, int]]) -> str:
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" role="img" '
-        f'aria-label="the QM families, each a column with a meter for the share governed">',
+        f'aria-label="the QM families, each a column with a meter for the share past v0.0.0">',
         _style(names),
         f'<rect class="panel" x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10"/>',
     ]
@@ -273,7 +273,7 @@ def desk(document: dict, counts: dict[str, tuple[int, int]]) -> str:
             f'<text class="c-{name}" x="{x + 12:.1f}" y="{top + 46}" font-size="17" '
             f'font-weight="700">{_esc(label(family["drives"]))}</text>',
             f'<text class="mono muted" x="{x + span - 12:.1f}" y="{top + 24}" font-size="11" '
-            f'text-anchor="end">{n} in all · {g} governed</text>',
+            f'text-anchor="end">{n} in all · {g} past v0.0.0</text>',
         ]
         if own:
             parts.append(
@@ -289,7 +289,7 @@ def desk(document: dict, counts: dict[str, tuple[int, int]]) -> str:
     unstated = len(document.get("unstated", []))
     parts += [
         f'<text class="mono muted" x="{pad}" y="{height - 16}" font-size="11">'
-        f'the lit share of a meter is the share governed · a repository in two families '
+        f'the lit share of a meter is the share past v0.0.0 · a repository in two families '
         f'counts in each · {unstated} rostered '
         f'{"repository states" if unstated == 1 else "repositories state"} no family yet</text>',
         "</svg>",
@@ -570,7 +570,8 @@ def build(out: Path, site: bool = False) -> dict[str, str]:
             files[f"../projects/{name}.md"] = project_page(project, by_name)
         # The projects sit at the top of the site, beside the families, so
         # their pages are written into docs/projects/ from here.
-        files["../projects/index.md"] = projects_index(document, projects, entries)
+        files["../projects/index.md"] = projects_index(document, projects, entries,
+                                                       adopted=frozenset(adopted))
         return files
     index += [
         "",
@@ -603,12 +604,12 @@ def _detail(drives: str) -> str:
 
 
 def entry_point(states: list[dict], projects: dict[str, dict] | None = None) -> list[str]:
-    """Where a newcomer starts: the corpus if it is here, a governed member
-    otherwise, and no invented one when nothing here is governed."""
+    """Where a newcomer starts: the corpus if it is here, a member past
+    `v0.0.0` otherwise, and no invented one when every member is at `v0.0.0`."""
     adopted = [s["name"] for s in states if s["adopted"]]
     if not adopted:
-        return ["No member of this family carries governance yet, so there is no "
-                "governed entry point. Reading the code is the entry point."]
+        return ["Every member here is at `v0.0.0`, so no member has records to start "
+                "from. Reading the code is the entry point."]
     first = "qm" if "qm" in adopted else adopted[0]
     named = f"[`{first}`](../projects/{first}.md)" if first in (projects or {}) else f"`{first}`"
     return [f"Start in {named}: its records and its `AGENTS.md` say how work arrives there."]
@@ -648,6 +649,24 @@ def _sentence(note: str | None) -> str | None:
     return (head[:1].upper() + head[1:] + ".") if head else None
 
 
+LADDER = "usage/next-steps.md#the-project-phase-ladder"
+VERSIONS = ("A version is a project's phase: `v0.0.0` has not adopted the corpus, "
+            "`v0.0.1` has adopted it however far along, and each project defines the "
+            "rungs above in its own records.")
+
+
+def version_of(adopted: bool, phase: str | None) -> str:
+    """A project's place on the phase ladder: `v0.0.0` until it has a branch in
+    the corpus, then its stated phase, and `v0.0.1` when it states none.
+
+    A phase stated for a project with no branch is intent; the page shows it
+    beside the version, never as the version.
+    """
+    if not adopted:
+        return "v0.0.0"
+    return phase if phase and phase.startswith("v") else "v0.0.1"
+
+
 def claims(document: dict) -> dict[str, list[str]]:
     """`{member: [family, ...]}`, the families each member claims itself."""
     claimed: dict[str, list[str]] = {}
@@ -683,6 +702,7 @@ def site_projects(document: dict, adopted: set[str], entries: dict[str, dict],
             "description": row.get("description") or _sentence(entry.get("note")),
             "families": claimed[name],
             "governed": name in adopted,
+            "version": version_of(name in adopted, entry.get("phase")),
             "phase": entry.get("phase"),
             "phase_source": entry.get("phase_source"),
             "language": row.get("language"),
@@ -700,16 +720,16 @@ def _family_links(names: list[str], prefix: str = "") -> str:
 
 def project_card(project: dict, href: str, hue: str, also: list[str] = (),
                  family_prefix: str = "") -> list[str]:
-    """A project as a card: its first picture, its name linking its page, what
-    it is, and the other families it is in. The whole card opens the page."""
+    """A project as a card: its first picture, its name linking its page, its
+    version, what it is, and the other families it is in. The whole card opens
+    the page."""
     lines = [f'<div class="card qm-f-{hue}" markdown>', ""]
     if project["pictures"]:
         first = project["pictures"][0]
         lines += [f"![{first['caption']}]({first['url']}){{ .qm-thumb loading=lazy }}", ""]
     lines += [f"[{project['name']}]({href}){{ .qm-card-link }}", ""]
-    state = "governed" if project["governed"] else "not adopted"
     extra = f" · also in {_family_links(list(also), family_prefix)}" if also else ""
-    lines += [f'<span class="qm-state">{state}</span>{extra}', ""]
+    lines += [f'<span class="qm-meta">{project["version"]}</span>{extra}', ""]
     if project["description"]:
         lines += [_esc(project["description"]), ""]
     lines += ["</div>", ""]
@@ -767,7 +787,7 @@ def site_page(family: dict, states: list[dict], inner: list[dict] = (),
         else:
             lines += [f'<div class="card qm-f-{name}" markdown>', "",
                       f"{_member_link(member, projects)}{{ .qm-card-link }}", "",
-                      '<span class="qm-state">not on the host yet</span>', "",
+                      '<span class="qm-meta">not on the host yet</span>', "",
                       "</div>", ""]
     for child in inner:
         named = [n for n in child["names"] if not _private(n)]
@@ -778,8 +798,7 @@ def site_page(family: dict, states: list[dict], inner: list[dict] = (),
         noun = "member" if child["members"] == 1 else "members"
         lines += [f'<div class="card qm-f-{child["name"]}" markdown>', "",
                   f"[{label(child['drives'])}]({child['name']}.md){{ .qm-card-link }}", "",
-                  f"`{child['name']}` · {child['members']} {noun} · "
-                  f"{child['governed']} governed", "",
+                  f"`{child['name']}` · {child['members']} {noun}", "",
                   who, "",
                   "</div>", ""]
     lines += ["</div>", ""]
@@ -792,19 +811,19 @@ def site_page(family: dict, states: list[dict], inner: list[dict] = (),
 
 
 def project_page(project: dict, by_name: dict[str, dict]) -> str:
-    """One project's page: what it is, its pictures, where it sits, whether
-    governance reaches it, and the way to its repository."""
+    """One project's page: what it is, its pictures, where it sits, its version,
+    and the way to its repository."""
     name = project["name"]
     families = project["families"]
     outer = sorted({o for f in families for o in ancestors_in(f, by_name)})
     eyebrow = " · ".join([f"[{f}](../families/{f}.md)" for f in families]
                          + [f"within [{o}](../families/{o}.md)" for o in outer])
-    facts = [f"governed, its records on `project/{name}` in the corpus"
-             if project["governed"] else "not adopted"]
+    # The version links what it means; a phase stated without a branch is
+    # intent, so it stands beside the version rather than in its place.
+    facts = [f"[`{project['version']}`](../{LADDER})"]
     phase = project["phase"]
-    if phase and phase != "n/a":
-        facts.append(f"phase `{phase}`"
-                     + (f", {project['phase_source']}" if project["phase_source"] else ""))
+    if phase and phase.startswith("v") and phase != project["version"]:
+        facts.append(f"`{phase}` stated")
     if project["language"]:
         facts.append(project["language"])
     if project["archived"]:
@@ -837,7 +856,7 @@ def project_page(project: dict, by_name: dict[str, dict]) -> str:
 
 
 def projects_index(document: dict, projects: dict[str, dict], entries: dict[str, dict],
-               inventory: Path = INVENTORY) -> str:
+                   inventory: Path = INVENTORY, adopted: frozenset[str] = frozenset()) -> str:
     """Every repository a family claims, one row each: what it is, its
     families, its page and its repository."""
     org, rows = public_repositories(inventory)
@@ -848,19 +867,23 @@ def projects_index(document: dict, projects: dict[str, dict], entries: dict[str,
         "# Projects", "",
         "Every repository a family claims. A name opens the project's page, with "
         "its pictures; the last column opens the repository.", "{ .qm-lede }", "",
-        "| repository | what it is | families | on GitHub |", "|---|---|---|---|",
+        f"{VERSIONS} [The phase ladder](../{LADDER}) says more.", "{ .qm-caption }", "",
+        "| repository | version | what it is | families | on GitHub |",
+        "|---|---|---|---|---|",
     ]
     for name in sorted((n for n in claimed if not _private(n)), key=str.lower):
         families = ", ".join(f"[{f}](../families/{f}.md)" for f in claimed[name])
         project = projects.get(name)
         if project:
             what = _cell(project["description"]) + (" Archived." if project["archived"] else "")
-            lines.append(f"| [{name}]({name}.md) | {what} | {families} | "
-                         f"[GitHub]({project['url']}) |")
+            lines.append(f"| [{name}]({name}.md) | `{project['version']}` | {what} | "
+                         f"{families} | [GitHub]({project['url']}) |")
         else:
-            what = _cell(_sentence(entries.get(name, {}).get("note")))
-            lines.append(f'| <span id="{name}"></span>{name} | {what} | {families} | '
-                         "not on the host yet |")
+            entry = entries.get(name, {})
+            what = _cell(_sentence(entry.get("note")))
+            version = version_of(name in adopted, entry.get("phase"))
+            lines.append(f'| <span id="{name}"></span>{name} | `{version}` | {what} | '
+                         f"{families} | not on the host yet |")
     private = sum(1 for n in claimed if _private(n))
     outside = sum(1 for n in rows if n not in claimed)
     lines += [""]
@@ -895,10 +918,10 @@ def site_index(document: dict, summaries: list[dict], by_name: dict[str, dict]) 
         "both. Every project has a page of its own, and [the projects](../projects/index.md) "
         "lists them all in one table.",
         "{ .qm-lede }", "",
-        "![the families, each a column with a meter lit by the share governed]"
+        "![the families, each a column with a meter lit by the share past v0.0.0]"
         "(families.svg){ .qm-picture }", "",
-        '<p class="qm-caption">Each meter is lit by the share of members governed: '
-        "those with their own branch in the governance corpus.</p>", "",
+        f"Each meter is lit by the share of members past `v0.0.0`. {VERSIONS} "
+        f"[The phase ladder](../{LADDER}) says more.", "{ .qm-caption }", "",
         '<div class="grid" markdown>', "",
     ]
     for name in order:
@@ -910,7 +933,7 @@ def site_index(document: dict, summaries: list[dict], by_name: dict[str, dict]) 
         lines += [
             f'<div class="card qm-f-{name}" markdown>', "",
             f"**{label(family['drives'])}**", "",
-            f"`{name}`{place} · {s['members']} {noun} · {s['governed']} governed", "",
+            f"`{name}`{place} · {s['members']} {noun}", "",
             f"{_detail(family['drives']).capitalize()}.{holds}", "",
             f"[The {name} family →]({name}.md){{ .qm-card-link }}", "",
             "</div>", "",

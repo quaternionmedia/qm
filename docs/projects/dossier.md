@@ -9,7 +9,7 @@ title: dossier
 
 <p class="qm-lede">Documentation standardization tool that auto-parses project documentation</p>
 
-governed, its records on `project/dossier` in the corpus · phase `v0.0.1`, scaffolded · Python
+[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [dossier on GitHub](https://github.com/quaternionmedia/dossier){ .md-button .md-button--primary }

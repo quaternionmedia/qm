@@ -9,7 +9,7 @@ title: moat
 
 <p class="qm-lede">simple reverse proxy with Traefik</p>
 
-not adopted · phase `v0.0.1`, scaffolded · HCL
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · `v0.0.1` stated · HCL
 { .qm-caption }
 
 [moat on GitHub](https://github.com/quaternionmedia/moat){ .md-button .md-button--primary }

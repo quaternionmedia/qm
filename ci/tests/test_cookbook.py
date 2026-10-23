@@ -208,7 +208,7 @@ def test_the_desk_draws_every_family_from_the_counts_it_is_given():
     assert "<svg" in picture
     for name in ("performing", "instruments", "irl"):
         assert name in picture
-    assert "2 in all · 1 governed" in picture
+    assert "2 in all · 1 past v0.0.0" in picture
     assert "its own: editor" in picture
     assert "1 rostered repository states no family yet" in picture
 
@@ -222,7 +222,7 @@ def test_the_desk_sets_no_name_in_capitals():
     assert ">the sound<" in picture and ">THE SOUND<" not in picture
 
 
-def test_a_meter_is_lit_by_the_share_governed():
+def test_a_meter_is_lit_by_the_share_past_v0_0_0():
     lit = cookbook._strip(0, 0, 120, 300, "irl", "**matter**", 4, 2)
     dark = cookbook._strip(0, 0, 120, 300, "irl", "**matter**", 4, 0)
     count = lambda parts: sum(1 for p in parts if 'class="c-irl"' in p and "<rect" in p)
@@ -237,6 +237,7 @@ def test_a_meter_is_lit_by_the_share_governed():
 def _project(name, governed=False, pictures=(), families=("instruments",)):
     return {"name": name, "url": f"https://github.com/org/{name}", "description": f"{name} does a thing",
             "families": list(families), "governed": governed, "phase": "v0.0.1",
+            "version": "v0.0.1" if governed else "v0.0.0",
             "phase_source": "stated", "language": "Python", "archived": False,
             "pictures": [{"url": f"https://github.com/org/{name}/raw/HEAD/{p}", "caption": p}
                          for p in pictures]}
@@ -270,7 +271,8 @@ def test_a_member_with_a_page_is_a_card_that_opens_it():
     assert "[synth](../projects/synth.md){ .qm-card-link }" in page
     assert "![a.png](https://github.com/org/synth/raw/HEAD/a.png){ .qm-thumb loading=lazy }" in page
     assert "also in [`irl`](irl.md)" in page
-    assert '<span class="qm-state">governed</span>' in page
+    assert '<span class="qm-meta">v0.0.1</span>' in page
+    assert "governed" not in page and "not adopted" not in page
 
 
 def test_a_member_without_a_page_links_its_row_and_a_private_one_is_counted():
@@ -282,17 +284,17 @@ def test_a_member_without_a_page_links_its_row_and_a_private_one_is_counted():
         [state("private-38"), state("planned")], projects={})
     assert "projects/planned.md" not in page and "projects/private-38.md" not in page
     assert "[planned](../projects/index.md#planned){ .qm-card-link }" in page
-    assert '<span class="qm-state">not on the host yet</span>' in page
+    assert '<span class="qm-meta">not on the host yet</span>' in page
     assert "1 private repository is counted here and not named." in page
     assert "private-38" not in page
 
 
 def test_a_family_page_names_each_member_once():
     """An outer family shows its own members as cards and each family within
-    it as one card naming its members, so nobody's state is said twice.
+    it as one card naming its members, so nobody's version is said twice.
 
     Mutation: give every member of the outer family its own card and this
-    fails on the count of `governed`.
+    fails on the count of versions.
     """
     projects = {n: _project(n, governed=n in ("editor", "synth")) for n in ("editor", "synth", "pedal")}
     page = cookbook.site_page(
@@ -303,7 +305,7 @@ def test_a_family_page_names_each_member_once():
         projects=projects)
     for name in ("editor", "synth", "pedal"):
         assert page.count(f"[{name}](../projects/{name}.md)") == 1, name
-    assert page.count('<span class="qm-state">governed</span>') == 1
+    assert page.count('<span class="qm-meta">v0.0.1</span>') == 1
     assert "[the sound](instruments.md){ .qm-card-link }" in page
     assert "[pedal](../projects/pedal.md), and 1 private" in page
     assert "## The families within it" not in page and ".svg" not in page
@@ -318,7 +320,8 @@ def test_a_project_page_links_its_repository_and_shows_its_own_pictures():
     assert "raw/HEAD/b.gif" in page
     assert ("[instruments](../families/instruments.md) · [irl](../families/irl.md) · within "
             "[performing](../families/performing.md)\n{ .qm-eyebrow }") in page
-    assert "governed, its records on `project/synth`" in page
+    assert "[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python" in page
+    assert "governed" not in page
     assert "## In the estate" not in page
 
 
@@ -369,10 +372,10 @@ def test_the_projects_page_is_one_row_per_named_repository(tmp_path):
                              {"name": "irl", "members": ["synth"]}]}
     projects = cookbook.site_projects(document, set(), {}, inventory, tmp_path / "none.yaml")
     page = cookbook.projects_index(document, projects, {"planned": {"note": "coming soon; later"}}, inventory)
-    assert ("| [synth](synth.md) | loops \\| layers | "
+    assert ("| [synth](synth.md) | `v0.0.0` | loops \\| layers | "
             "[instruments](../families/instruments.md), [irl](../families/irl.md) | "
             "[GitHub](https://github.com/org/synth) |") in page
-    assert '| <span id="planned"></span>planned | Coming soon. |' in page
+    assert '| <span id="planned"></span>planned | `v0.0.0` | Coming soon. |' in page
     assert "1 private repository is in the families too" in page
     assert "private-07" not in page
     assert "The host holds 1 more public repositories no family claims" in page
@@ -420,7 +423,7 @@ def test_the_showcase_names_only_pages_that_exist_and_says_what_each_picture_sho
 
 def test_a_site_page_invents_no_entry_point():
     page = cookbook.site_page({"name": "f", "drives": "x", "within": None}, [state("one")])
-    assert "no governed entry point" in page
+    assert "Every member here is at `v0.0.0`" in page
 
 
 def test_a_site_page_links_nothing_outside_the_site():
@@ -460,3 +463,39 @@ def test_no_generated_site_page_hides_a_link_inside_raw_html():
               for line in p.read_text(encoding="utf-8").splitlines()
               if re.match(r"\s*<p[ >]", line) and re.search(r"\]\([^)]+\)", line)]
     assert not hidden, hidden
+
+
+def test_the_version_says_whether_a_project_has_adopted():
+    """`v0.0.0` until a project has its branch, then its stated phase, and
+    `v0.0.1` when it states none.
+
+    Mutation: return the stated phase for a project with no branch and this
+    fails on the second case.
+    """
+    assert cookbook.version_of(False, None) == "v0.0.0"
+    assert cookbook.version_of(False, "v0.0.2") == "v0.0.0"
+    assert cookbook.version_of(True, None) == "v0.0.1"
+    assert cookbook.version_of(True, "n/a") == "v0.0.1"
+    assert cookbook.version_of(True, "v0.0.3") == "v0.0.3"
+
+
+def test_a_phase_stated_without_a_branch_stands_beside_the_version():
+    project = {**_project("bench"), "phase": "v0.0.2"}
+    page = cookbook.project_page(project, {"instruments": {}})
+    assert "[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · `v0.0.2` stated" in page
+
+
+def test_no_generated_page_says_governed_where_a_version_says_it():
+    """The version is the one word a page uses for how far governance reaches:
+    no state label, no count of the governed. A repository's own description
+    is its own words, and may say what it likes.
+
+    Mutation: put the card's `governed` back and regenerate; this fails.
+    """
+    import re
+    docs = CI_DIR.parent / "docs"
+    pages = sorted((docs / "families").rglob("*.md")) + sorted((docs / "projects").rglob("*.md"))
+    said = [p.name for p in pages
+            if re.search(r">(governed|not adopted)<|\b\d+ governed\b|qm-state",
+                         p.read_text(encoding="utf-8"))]
+    assert not said, said

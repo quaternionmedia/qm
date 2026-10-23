@@ -9,7 +9,7 @@ title: carlos
 
 <p class="qm-lede">Browser workspace for sketching synth rigs, governed via project/carlos.</p>
 
-governed, its records on `project/carlos` in the corpus · phase `v0.0.1`, stated · Python
+[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [carlos on GitHub](https://github.com/quaternionmedia/carlos){ .md-button .md-button--primary }

@@ -9,7 +9,7 @@ title: benchmark
 
 <p class="qm-lede">A place to keep track of benches</p>
 
-not adopted · phase `v0.0.2`, stated · JavaScript
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · `v0.0.2` stated · JavaScript
 { .qm-caption }
 
 [benchmark on GitHub](https://github.com/quaternionmedia/benchmark){ .md-button .md-button--primary }

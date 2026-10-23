@@ -9,7 +9,7 @@ title: ludwig
 
 <p class="qm-lede">remote mixing</p>
 
-not adopted · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [ludwig on GitHub](https://github.com/quaternionmedia/ludwig){ .md-button .md-button--primary }

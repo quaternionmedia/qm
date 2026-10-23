@@ -9,7 +9,7 @@ title: ShowStopper
 
 <p class="qm-lede">Stopwatch geared towards tracking need for the performing arts</p>
 
-not adopted · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [ShowStopper on GitHub](https://github.com/quaternionmedia/ShowStopper){ .md-button .md-button--primary }

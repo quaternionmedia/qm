@@ -20,7 +20,7 @@ Drives the sound — looping, synthesis, tempo, remote control surfaces.
 
 [carlos](../projects/carlos.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 Browser workspace for sketching synth rigs, governed via project/carlos.
 
@@ -32,7 +32,7 @@ Browser workspace for sketching synth rigs, governed via project/carlos.
 
 [qmetronome](../projects/qmetronome.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.3</span>
 
 Nothing inspired Metronome
 
@@ -42,7 +42,7 @@ Nothing inspired Metronome
 
 [holophonor](../projects/holophonor.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 Live looping, unlimited!
 
@@ -52,7 +52,7 @@ Live looping, unlimited!
 
 [midiphonor](../projects/midiphonor.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 A Holophonor implementation, using Tone.js
 
@@ -62,7 +62,7 @@ A Holophonor implementation, using Tone.js
 
 [uPhonor](../projects/uPhonor.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span> · also in [`irl`](irl.md)
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
 
 Micro-Holophonor
 
@@ -72,7 +72,7 @@ Micro-Holophonor
 
 [stomp](../projects/stomp.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span> · also in [`irl`](irl.md)
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
 
 a midi foot controller for Arduino / Teensy
 
@@ -82,7 +82,7 @@ a midi foot controller for Arduino / Teensy
 
 [wolf](../projects/wolf.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 remote midi controller
 
@@ -92,7 +92,7 @@ remote midi controller
 
 [ludwig](../projects/ludwig.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 remote mixing
 
@@ -104,7 +104,7 @@ remote mixing
 
 [waveofhormuz](../projects/waveofhormuz.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 VCV Rack 2 strait-shaping square wave oscillator — conflict timeline as a default waveform
 

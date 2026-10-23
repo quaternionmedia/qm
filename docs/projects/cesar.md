@@ -9,7 +9,7 @@ title: cesar
 
 <p class="qm-lede">A unified lighting / sound / video controller for theatrical applications</p>
 
-not adopted · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [cesar on GitHub](https://github.com/quaternionmedia/cesar){ .md-button .md-button--primary }

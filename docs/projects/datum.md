@@ -9,7 +9,7 @@ title: datum
 
 <p class="qm-lede">Schema and wire contract.</p>
 
-governed, its records on `project/datum` in the corpus · phase `v0.0.1`, scaffolded · Python
+[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [datum on GitHub](https://github.com/quaternionmedia/datum){ .md-button .md-button--primary }

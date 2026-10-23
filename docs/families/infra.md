@@ -18,7 +18,7 @@ Drives where a thing runs, and how it is reached — ingress, identity, storage,
 
 [streaming-infrastructure](../projects/index.md#streaming-infrastructure){ .qm-card-link }
 
-<span class="qm-state">not on the host yet</span>
+<span class="qm-meta">not on the host yet</span>
 
 </div>
 
@@ -26,7 +26,7 @@ Drives where a thing runs, and how it is reached — ingress, identity, storage,
 
 [moat](../projects/moat.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 simple reverse proxy with Traefik
 
@@ -36,7 +36,7 @@ simple reverse proxy with Traefik
 
 [ztgui](../projects/ztgui.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 Zeroteir Gui
 

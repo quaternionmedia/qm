@@ -9,7 +9,7 @@ title: aes
 
 <p class="qm-lede">AES67 scripts</p>
 
-not adopted · Shell
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Shell
 { .qm-caption }
 
 [aes on GitHub](https://github.com/quaternionmedia/aes){ .md-button .md-button--primary }

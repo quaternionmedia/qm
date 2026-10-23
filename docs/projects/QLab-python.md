@@ -9,7 +9,7 @@ title: QLab-python
 
 <p class="qm-lede">QLab interface for Python</p>
 
-not adopted · Jupyter Notebook
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Jupyter Notebook
 { .qm-caption }
 
 [QLab-python on GitHub](https://github.com/quaternionmedia/QLab-python){ .md-button .md-button--primary }

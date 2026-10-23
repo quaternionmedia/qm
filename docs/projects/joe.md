@@ -9,7 +9,7 @@ title: joe
 
 <p class="qm-lede">Realtime sheet music visualization</p>
 
-not adopted · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [joe on GitHub](https://github.com/quaternionmedia/joe){ .md-button .md-button--primary }

@@ -9,7 +9,7 @@ title: qmetronome
 
 <p class="qm-lede">Nothing inspired Metronome</p>
 
-governed, its records on `project/qmetronome` in the corpus · phase `v0.0.3`, stated · Kotlin
+[`v0.0.3`](../usage/next-steps.md#the-project-phase-ladder) · Kotlin
 { .qm-caption }
 
 [qmetronome on GitHub](https://github.com/quaternionmedia/qmetronome){ .md-button .md-button--primary }

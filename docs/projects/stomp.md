@@ -9,7 +9,7 @@ title: stomp
 
 <p class="qm-lede">a midi foot controller for Arduino / Teensy</p>
 
-not adopted · C++
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · C++
 { .qm-caption }
 
 [stomp on GitHub](https://github.com/quaternionmedia/stomp){ .md-button .md-button--primary }

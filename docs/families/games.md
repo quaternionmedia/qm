@@ -18,7 +18,7 @@ Drives play — a game somebody plays: its rules, its world, its loop, and the s
 
 [factorio-sysops](../projects/factorio-sysops.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 Factorio mod: IT Infrastructure addon (sensors, servers, dashboards, incidents, technical debt) -- monitor and automate your factory's IT layer
 
@@ -28,7 +28,7 @@ Factorio mod: IT Infrastructure addon (sensors, servers, dashboards, incidents, 
 
 [golfvs](../projects/golfvs.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 Golf is the only sport where nobody is trying to stop you. golfVs fixes that. Arcade physics golf with asymmetric defence, built in Godot.
 
@@ -38,7 +38,7 @@ Golf is the only sport where nobody is trying to stop you. golfVs fixes that. Ar
 
 [rad-godot](../projects/rad-godot.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 rad, the radial menu, as a Godot addon: the contract's vectors replayed in GDScript.
 
@@ -48,7 +48,7 @@ rad, the radial menu, as a Godot addon: the contract's vectors replayed in GDScr
 
 [qmcli-godot](../projects/index.md#qmcli-godot){ .qm-card-link }
 
-<span class="qm-state">not on the host yet</span>
+<span class="qm-meta">not on the host yet</span>
 
 </div>
 

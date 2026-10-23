@@ -9,7 +9,7 @@ title: scad-chess
 
 <p class="qm-lede">Chess set, designed in openSCAD</p>
 
-not adopted · OpenSCAD
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · OpenSCAD
 { .qm-caption }
 
 [scad-chess on GitHub](https://github.com/quaternionmedia/scad-chess){ .md-button .md-button--primary }
