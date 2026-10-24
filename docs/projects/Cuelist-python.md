@@ -1,11 +1,14 @@
 ---
 title: Cuelist-python
+hide:
+  - navigation
+  - toc
 ---
 
 [show-control](../families/show-control.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# Cuelist-python { .qm-family-title .qm-f-show-control }
+# Cuelist-python<span class="qm-dot">.</span> { .qm-family-title .qm-f-show-control }
 
 <p class="qm-lede">Python helpers for Cuelist (thecuelist.com) and plugin for ShowRunner</p>
 

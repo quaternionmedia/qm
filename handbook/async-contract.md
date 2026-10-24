@@ -64,8 +64,8 @@ and merging it now would land it in its parent's branch rather than the target.
    and the next.
 3. Delete the merged branch.
 4. Update the next branch from the target. Workflows filtered on the target
-   branch never ran while it was stacked, and a retarget does not start them;
-   the update is a push, and a push runs everything.
+   branch never ran while it was stacked, and a retarget starts only those that
+   list `edited`; the update is a push, and a push runs everything.
 5. Mark it ready once its gates pass.
 
 `gh pr merge --delete-branch` deletes the branch before anything retargets, so

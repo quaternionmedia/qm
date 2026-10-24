@@ -1,11 +1,14 @@
 ---
 title: ludwig
+hide:
+  - navigation
+  - toc
 ---
 
 [instruments](../families/instruments.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# ludwig { .qm-family-title .qm-f-instruments }
+# ludwig<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 <p class="qm-lede">remote mixing</p>
 

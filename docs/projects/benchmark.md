@@ -1,11 +1,14 @@
 ---
 title: benchmark
+hide:
+  - navigation
+  - toc
 ---
 
 [commons](../families/commons.md)
 { .qm-eyebrow }
 
-# benchmark { .qm-family-title .qm-f-commons }
+# benchmark<span class="qm-dot">.</span> { .qm-family-title .qm-f-commons }
 
 <p class="qm-lede">A place to keep track of benches</p>
 

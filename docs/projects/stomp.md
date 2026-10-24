@@ -1,11 +1,14 @@
 ---
 title: stomp
+hide:
+  - navigation
+  - toc
 ---
 
 [instruments](../families/instruments.md) · [irl](../families/irl.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# stomp { .qm-family-title .qm-f-instruments }
+# stomp<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 <p class="qm-lede">a midi foot controller for Arduino / Teensy</p>
 

@@ -1,11 +1,14 @@
 ---
 title: alfred
+hide:
+  - navigation
+  - toc
 ---
 
 [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# alfred { .qm-family-title .qm-f-performing }
+# alfred<span class="qm-dot">.</span> { .qm-family-title .qm-f-performing }
 
 <p class="qm-lede">serverless video editing</p>
 

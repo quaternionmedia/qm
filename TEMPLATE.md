@@ -31,7 +31,7 @@ Drafting rules (delete this comment block before ratification):
 | **Status** | Draft \| Proposed \| Accepted \| Deprecated \| Superseded by QM-NNNN |
 | **Date** | YYYY-MM-DD (date of last status change) |
 | **Pends on** | *(Proposed only)* the open question this awaits, or `Nothing — ready for ratification` when the record is complete and only the human commit remains |
-| **Principle** | The `PRINCIPLES.md` heading this record is cut from, quoted verbatim (e.g. `P5 — One house stack, deeply known`) |
+| **Principle** | The `PRINCIPLES.md` principle this record is cut from, by its name and then its title, several separated by `;` (e.g. `one-house-stack` — one house stack, deeply known) |
 
 ## Context
 

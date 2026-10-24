@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-23T01:28:04Z'
+generated_at: '2026-10-24T14:06:27Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -39,17 +39,17 @@ states:
 reading_load:
   documents:
   - path: AGENTS.md
-    lines: 276
+    lines: 273
   - path: PRINCIPLES.md
     lines: 493
   - path: handbook/async-contract.md
     lines: 271
   - path: handbook/handoffs/README.md
-    lines: 159
-  total_lines: 1199
+    lines: 153
+  total_lines: 1190
   budget_lines: 1200
   within_budget: true
-  headroom_lines: 1
+  headroom_lines: 10
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
@@ -109,7 +109,7 @@ readiness:
       proposed: 38
     documents_in_unknown_state: 0
     reading_within_budget: true
-    reading_total_lines: 1199
+    reading_total_lines: 1190
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 272
+  documents: 268
   by_state:
     draft: 3
     generated: 7
     proposed: 38
     standing: 128
-    transient: 27
-    unreviewed: 69
+    transient: 22
+    unreviewed: 70
   disagreements: 0
   unknown: 0
 documents:
@@ -195,7 +195,7 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/families/civic.md
+- path: docs/families/commons.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -511,6 +511,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: docs/projects/moat.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/otto.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -951,15 +960,6 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: handbook/glossary.md
-  class: handbook
-  class_reason: policy binding on QM's own conduct
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
 - path: handbook/governance-rollout.md
   class: handbook
   class_reason: policy binding on QM's own conduct
@@ -1020,13 +1020,6 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/for-a-stronger-model.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
 - path: handbook/handoffs/governance-loop-poc.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
@@ -1062,6 +1055,13 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
+- path: handbook/handoffs/qm-queue.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
 - path: handbook/handoffs/qmcp-flows-as-deltas.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
@@ -1090,35 +1090,7 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/session-2026-08-15.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/session-2026-08-23.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
 - path: handbook/handoffs/six-branches-reached-origin.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/the-active-four.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/the-pair-and-the-fresh-setup.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1133,13 +1105,6 @@ documents:
   state_from_filename: null
   state: transient
 - path: handbook/handoffs/the-web-window.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/two-gate-and-tag-teeth.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1704,6 +1669,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-10-15-the-voice-set-landing.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-18-clearing-the-qm-queue.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
