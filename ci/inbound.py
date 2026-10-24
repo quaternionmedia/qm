@@ -4,8 +4,9 @@
 Propagation runs one way: `main` flows outward (`handbook/propagation-runbook.md`),
 and `.github/workflows/namespace-guard.yml` refuses org content pushed onto a
 project branch. This reads the return path. Every `Proposed` record names what
-it pends on (`project-seed/adr/TEMPLATE.md` requires the row and the ADR lint
-enforces it), and many of those rows name the organisation rather than the
+it pends on (`project-seed/adr/TEMPLATE.md` asks for the row; no lint checks
+for it, and a record without one is skipped here, so its question never
+reaches this list), and many of those rows name the organisation rather than the
 project: an amendment nobody has ratified, a carve-out nobody has recognised, a
 licensing input nobody has settled. This invents no channel; it reads that one.
 
