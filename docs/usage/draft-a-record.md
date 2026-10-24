@@ -52,7 +52,7 @@ git push
 gh pr create
 ```
 
-Mark it draft only if it is unfinished or stacked on another open one. Assign the person who asked for the work. Do not request a review. Merge it yourself once every gate is green.
+Mark it draft only if it is unfinished or stacked on another open one. Assign the person who asked for the work. Do not request a review. Merge it yourself once every [gate](../ref/glossary.md#gate){ .glossary-term } is green.
 
 ## What happens at ratification
 

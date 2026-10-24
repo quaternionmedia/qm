@@ -40,7 +40,7 @@ The full procedure, with the check for each step, is [handbook/forking-a-project
 
 1. A human ratifies a record on `main`.
 2. Someone cuts a `propagate/<name>-<date>` branch from the project's branch and merges `main` into it.
-3. That branch becomes a pull request whose base is `project/<name>`. Its author merges it once every gate is green.
+3. That branch becomes a pull request whose base is `project/<name>`. Its author merges it once every [gate](../ref/glossary.md#gate){ .glossary-term } is green.
 4. The merge is always a merge commit — never a rebase. The project's submodule pins the branch tip by ancestry, and a rebase would break every pin.
 
 See [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) for the full procedure.

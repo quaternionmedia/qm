@@ -33,7 +33,7 @@ gh pr create --base project/<name> \
   --title "propagate: <name> <YYYY-MM-DD>"
 ```
 
-Its author merges it once every gate is green — with a merge commit, not a squash and not a rebase. The merge commit is the new submodule pin: the branch's ancestry is the pin, so there is no hash to maintain by hand.
+Its author merges it once every [gate](../ref/glossary.md#gate){ .glossary-term } is green — with a merge commit, not a squash and not a rebase. The merge commit is the new submodule pin: the branch's ancestry is the pin, so there is no hash to maintain by hand.
 
 ## Rules
 
