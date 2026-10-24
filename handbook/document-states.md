@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-24T14:21:51Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-24T14:36:46Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **269**, unfiltered.
+Every governed document in this corpus: **272**, unfiltered.
 
 | | |
 |---|---|
@@ -60,7 +60,7 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 38 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 71 |
+| [-] `unreviewed` | 74 |
 | [G] `generated` | 7 |
 | [S] `standing` | 128 |
 | [T] `transient` | 22 |
@@ -119,6 +119,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-08-reading-the-proxy-instead-of-the-thing.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-09-adopting-a-corpus-whose-harness-is-unmerged.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-09-explanation-in-the-wrong-place.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-09-integrating-rad-into-a-web-host.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-09-tests-that-enumerate-around-the-defect.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-09-the-reviewer-is-the-shared-resource.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-11-inflation-deflation-and-what-discovery-looks-like.md` | perspective | — |
@@ -148,6 +149,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-20-the-demo-found-what-the-fix-did-not.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-21-a-green-suite-and-eight-holes.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-21-what-a-system-says-about-itself.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-08-22-found-while-putting-the-topology-on-the-canvas.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-22-what-it-cost-to-get-one-panel-right.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-23-the-rules-with-nothing-behind-them.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-25-defects-between-two-green-suites.md` | perspective | — |
@@ -169,6 +171,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-rest-of-qmcp-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-topology-docstrings-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-11-what-was-left-on-the-disk.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-12-what-the-push-found.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-15-the-voice-set-landing.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-18-clearing-the-qm-queue.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-19-a-rename-closed-a-pull-request.md` | perspective | — |
