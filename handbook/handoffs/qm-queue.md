@@ -69,6 +69,23 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   Node 24 actions. Every action version it pins exists upstream; nothing in
   that repository runs the workflows it changes, so its one green check says
   nothing about them. Its review is a person's.
+- **Applying the rulesets.** `.github/rulesets/README.md` sets out the staged
+  path and shows the host at stage 0, no ruleset applied. Stage 1 is a person
+  running `apply.sh`; an agent never does.
+- **A share link committed on `main`**, in
+  `views-declare-what-they-need.md`; `uv run qm leaks` allows it by a stated
+  reason. Redact it, or confirm the link is dead.
+- **rad's Pages.** GitHub Pages is disabled for rad, which its `deploy` job
+  needs; a repository setting.
+- **Held pull requests:** datum #2, apothecary #21, alfred #113 and benchmark
+  #7 — merge or close.
+- **Six questions about `status/governance.yaml`** that its `undefined:` block
+  does not carry: whether project records count in the corpus census; whether
+  CI gets a credential that can read private repositories; whether gap detail
+  about private projects is published, now that it names them by reference;
+  who refreshes the document; how a committed generated artifact squares with
+  refusing to commit what a gate generated; and the stale copy every project
+  vendors with the corpus.
 
 ## 4. Unfinished, and what done looks like
 
@@ -105,15 +122,6 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
 - **codecartographer's `adr/TEMPLATE.md`** keeps five drafting-rule headings
   in capitals that the seed's template sets in plain case. Done is the copy
   re-made in a pull request into `project/codecartographer`.
-- **The older handoff pages.** Step 7 of `handbook/consolidation-runbook.md`
-  is applied to the voice pages and to the six pages the index tagged "read
-  this first" or "read this second" on 2026-10-24, whose open items are carried
-  below. The index lists every page in the directory; the ten simultaneous-run
-  participant pages share one row under their plan. Of the rest, none names an open pull request but
-  `design-review-of-the-estate.md` (#121), and several are blocked on a person's decisions; each is read by what
-  it holds, not by its date, before it is retired or folded. Done is the
-  runbook's verification.
-
 ### Carried from retired pages
 
 Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
@@ -139,6 +147,33 @@ re-checked and is re-derived before anyone acts on it.
   host can run them only by curating a subset; that is a proposal to rad, not a
   local subset. The menu's cells (placement order, the empty centre,
   reachability by direction, the chord window) are not in the vectors.
+- **A project record relaxes a QM record.** qmetronome's glyph-matrix draft on
+  `project/qmetronome` still calls itself "a real, accepted departure" from
+  the QM record it relaxes. Done is the draft tightened, or the departure
+  taken to the org as an amendment.
+- **qmcp declares no licence**, so its outbound class is undeclared and its
+  adoption ships without `REUSE.toml`. Done is a licence chosen and declared in
+  its adoption record.
+- **Two lightweight tags**, `alfred@v0.2.0` and `datum@v0.0.1`, assert what
+  `records/DRAFT-version-tags-are-claims.md` §6 says a lightweight tag cannot.
+  Done is each replaced by an annotated tag or removed, by a person.
+- **The governance document's `undefined:` block is partly stale.** Its
+  `adopted` entry is answered by the phase-ladder record, and its
+  `propagate/*` half by the namespaces page; `fix/*` stays outside the
+  namespaces. Done is `UNDEFINED` in `ci/governance_status.py` saying so.
+- **`qm estate --trial-merge`** does not exist. Done is the survey trial-merging
+  each one-copy branch and reporting conflicts per file.
+- **`check_signatures` on a commit the host has not seen** says "could not be
+  checked", the words it uses for a keyring gap. Done is "not on the host".
+- **Two views of one dataset.** dossier's and qmcp's dashboards showing the same
+  rows by address: dossier runs the shared address vectors in its suite (its
+  autolinker still slugs); pre-grammar dossier rows are migrated, or declared
+  re-synced; qmcp's delta payload, which emits addresses through
+  `qmcp/addresses.py`, moves its `SCHEMA` to 2; then each dashboard renders the
+  other's rows.
+- **The governance loop's Phases 2–4** are unbuilt: dossier's storage, API and
+  Loop tab, and qmcp's coverage tools and human-in-the-loop gate. Their design
+  is in `perspectives/2026-08-13-the-mechanical-governance-loop.md`.
 - *Carried.* **dossier reaches every language model through qmcp** (decided
   2026-08-23), and nothing is built: dossier reads qmcp only through its schema
   seam. A conversation started from dossier needs a writable thread source in
@@ -157,6 +192,19 @@ re-checked and is re-derived before anyone acts on it.
 - *Carried.* **Two README structures**: the corpus README's routing table needs
   vocabulary a newcomer lacks, and dossier's opens with badges, screenshots and
   a quickstart before any prose. Each is a judgement about what matters most.
+- *Carried.* **qmcp's work planned as dossier deltas**, one per work item:
+  topology runtime execution, a CI pipeline, the human-in-the-loop API, an
+  async runner, authentication, webhooks, storage backends, Kubernetes
+  manifests, and the cookbook and runner.
+- *Carried.* **Branches across the estate**: each repository's leftover
+  one-copy branches landed or retired, and merged branches pruned, until
+  `uv run qm estate` reports none.
+- *Carried.* **A guard for dossier's threaded UI workers**: a test that fails
+  when a worker that can reach the network is missing from
+  `tests/ui/conftest.py`'s stub list.
+- *Carried.* **A check that every `project/<name>` branch has a roster entry**,
+  treating an unmatched private branch as unknown where the companion is
+  absent.
 
 ## 5. Not verified
 
