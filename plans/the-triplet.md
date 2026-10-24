@@ -7,11 +7,11 @@ subject: the pictures a person picked (**showcase**), the graphs codecarto draws
 name). The pages become, in effect, codecarto's and dossier's README: each tool
 is explained by showing it applied to the whole estate.
 
-**What it is not.** A decision, a schema, or a change to any repository. Its
-intended home is `qm`'s `plans/the-triplet.md`, with a pointer from
-codecartographer's and dossier's roadmaps, the way `plans/the-web-window.md`
-sits. It is a local draft until a person says otherwise. Nothing here has been
-committed, pushed or opened.
+**What it is not.** A decision, a schema, or a change to any repository. It
+sits in `plans/` the way `plans/the-web-window.md` does, with a pointer from
+codecartographer's and dossier's roadmaps once a person accepts it. Its first
+phase's local proof of concept is quaternionmedia/codecartographer#147, a draft
+stacked on that repository's open stack.
 
 **Stamped 2026-10-23** against `qm` `origin/main` at `bc38ab6`,
 `codecartographer` `main` at `c5ed009` (open stack tip `dcf1ca3`), and `dossier`
@@ -25,7 +25,7 @@ figure is named next to it.
 Peter Kagstrom answered these in session on 2026-10-23.
 
 - **The pair is a triplet, for now:** showcase for pictures, showgraph for
-  graphs, showtui for the terminal. All three readings put to him hold at once.
+  graphs, showtui for the terminal. All three readings offered hold at once.
   The committed picture is paired with the interactive window. A page carries
   more than one graph. codecarto's view of a subject sits beside dossier's.
   *Stack and consolidate where possible, but keep every feature described.*
@@ -38,8 +38,10 @@ Peter Kagstrom answered these in session on 2026-10-23.
 - **The pages are the READMEs' tour** of codecarto and dossier.
 - **The default showgraph is every family at once:** the whole estate, from
   which a family or a project is a step in.
-- **Everything stays local until there is a demo:** commits on local branches,
-  nothing pushed and no pull request opened.
+- **Local until there is a demo, then drafts:** the work stayed on local
+  branches until the proof of concept drew in a browser. On 2026-10-24 both
+  halves were opened as draft pull requests, assigned to their author, with no
+  review requested.
 
 ---
 
