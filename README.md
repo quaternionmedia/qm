@@ -45,7 +45,7 @@ decided and the page is wrong. Say so, and fix the page.
 **One warning about the words.** A few everyday words are used here in a narrow
 sense, and some of them mean more than one thing: *record*, *draft*, *gate*,
 *review*, *phase*, *delta*. When a sentence stops making sense, that is usually
-why. [handbook/glossary.md](handbook/glossary.md) sorts them out, and it is the
+why. [The glossary](docs/ref/glossary.md) sorts them out, and it is the
 shortest useful thing to read after this.
 
 **Full documentation:** [docs/](docs/index.md) — also rendered at
@@ -69,7 +69,7 @@ shortest useful thing to read after this.
 | See where every project stands | [status/governance.yaml](status/governance.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
 | Know which checks actually govern, and what each one misses | [handbook/gates.md](handbook/gates.md) — says plainly whether anything blocks a merge |
 | Know what state a document is in before trusting it | [handbook/document-states.md](handbook/document-states.md), or `uv run qm docs states --state proposed` |
-| Look up a word this corpus uses in its own way | [handbook/glossary.md](handbook/glossary.md) |
+| Look up a word this corpus uses in its own way | [The glossary](docs/ref/glossary.md) |
 
 The same four points again, in the corpus's own words, with the reasoning the
 plain version leaves out:
@@ -171,7 +171,6 @@ Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/
 | `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
 | `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |
 | `handbook/gates.md` | **Generated.** Every automated check, what it refuses, what it cannot see, and whether any of it blocks a merge |
-| `handbook/glossary.md` | Words this corpus uses narrowly, and the ones it uses in more than one sense |
 | `handbook/handoffs/` | Work an asynchronous agent can pick up cold, and the order between the pieces |
 
 ## Licence
