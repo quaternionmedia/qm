@@ -13,32 +13,32 @@
 <circle class="c-performing" cx="22" cy="128" r="5"/>
 <text class="mono" x="36" y="132" font-size="13">carlos</text>
 <text class="mono muted" x="276" y="132" font-size="12">governed</text>
-<circle class="c-performing" cx="22" cy="154" r="5"/>
-<text class="mono" x="36" y="158" font-size="13">qmetronome</text>
-<text class="mono muted" x="276" y="158" font-size="12">governed</text>
-<circle class="s-performing" cx="22" cy="180" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="184" font-size="13">holophonor</text>
-<text class="mono muted" x="276" y="184" font-size="12">not adopted</text>
+<circle class="s-performing" cx="22" cy="154" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="158" font-size="13">private-34</text>
+<text class="mono muted" x="276" y="158" font-size="12">not adopted</text>
+<circle class="c-performing" cx="22" cy="180" r="5"/>
+<text class="mono" x="36" y="184" font-size="13">qmetronome</text>
+<text class="mono muted" x="276" y="184" font-size="12">governed</text>
 <circle class="s-performing" cx="22" cy="206" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="210" font-size="13">midiphonor</text>
+<text class="mono" x="36" y="210" font-size="13">holophonor</text>
 <text class="mono muted" x="276" y="210" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="232" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="236" font-size="13">uPhonor</text>
+<text class="mono" x="36" y="236" font-size="13">midiphonor</text>
 <text class="mono muted" x="276" y="236" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="258" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="262" font-size="13">stomp</text>
+<text class="mono" x="36" y="262" font-size="13">uPhonor</text>
 <text class="mono muted" x="276" y="262" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="284" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="288" font-size="13">wolf</text>
+<text class="mono" x="36" y="288" font-size="13">stomp</text>
 <text class="mono muted" x="276" y="288" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="310" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="314" font-size="13">ludwig</text>
+<text class="mono" x="36" y="314" font-size="13">wolf</text>
 <text class="mono muted" x="276" y="314" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="336" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="340" font-size="13">waveofhormuz</text>
+<text class="mono" x="36" y="340" font-size="13">ludwig</text>
 <text class="mono muted" x="276" y="340" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="362" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="366" font-size="13">private-34</text>
+<text class="mono" x="36" y="366" font-size="13">waveofhormuz</text>
 <text class="mono muted" x="276" y="366" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="388" r="4.5" fill="none" stroke-width="1.5"/>
 <text class="mono" x="36" y="392" font-size="13">joe</text>

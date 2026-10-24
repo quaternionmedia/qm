@@ -63,7 +63,8 @@ lists them — so the members of a family open together without the rest of the
 estate. A family brings the families within it: `--family performing` opens
 `instruments`, `performer-display` and `show-control` too, and a repository in
 two of them opens once. A family the record does not declare is refused rather
-than resolved to an empty window.
+than resolved to an empty window. `--include qm` puts the corpus first beside a family, so
+the harness, the handoffs and the estate reader open with it.
 
 **"Will my commits be rejected for anything I have not set up?"**
 
@@ -95,6 +96,19 @@ the derived system monitor, derives the subject's system from its clone. The
 readers are held to the [seam](../ref/glossary.md#seam){ .glossary-term } rather than to a picture — every one must report
 the harness's own turn counts, and `looksatwords` must emit no decision, which
 is the border its adoption record draws.
+
+**"How do I see the performing family play a show together?"**
+
+`uv run qm family-demo --stage` checks out each core member of the performing
+family on the branch its roster entry names, starts them on reserved ports, and
+puts the roster's show on ShowRunner, the hub. It presses GO through the hub's
+programmer for each cue, and the hub delivers the cue's `family` block to the
+members itself; the demo only watches. It then asserts, per member, what the
+member says about itself and what the hub says it delivered, and records a
+picture of the stage after every cue. `--hold --open` keeps it up in your
+browser to play by hand. `uv run qm family-demo` without `--stage` runs each
+member's own check instead, alone and then together. `ci/family-demo.yaml` is
+the roster, and `protocols/local-demo.md` the protocol it follows.
 
 ## Making a change
 

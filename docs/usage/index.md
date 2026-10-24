@@ -58,6 +58,7 @@ Step by step, for the common case. Each recipe links the procedure that governs 
 - **[Propagate a change](propagate-a-change.md)** — carry an org change to a project branch
 - **[Read status documents](read-status-documents.md)** — use the generated status files correctly
 - **[Run CI locally](run-ci-locally.md)** — check your work before pushing
+- **[Develop a family member](develop-a-family-member.md)** — see an edit in the running family, then [gate](../ref/glossary.md#gate){ .glossary-term } it
 - **[Build these docs](build-these-docs.md)** — run this site locally
 
 Every repository the corpus knows of sits in a family by what it drives, and every public one has a page with its own pictures: [the families](../families/index.md), and [the projects](../projects/index.md).

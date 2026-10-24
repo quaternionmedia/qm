@@ -14,7 +14,7 @@ A family within another is listed under it, and its members count toward both. A
 | [`infra`](./infra.md) | — | where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path | 5 | 1 |
 | [`irl`](./irl.md) | — | matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | 9 | 2 |
 | [`performing`](./performing.md) | — | a show — what an audience sees and hears, and the video made before and after it | 22 | 3 |
-| [`instruments`](./instruments.md) | `performing` | the sound — looping, synthesis, tempo, remote control surfaces | 9 | 2 |
+| [`instruments`](./instruments.md) | `performing` | the sound — looping, synthesis, tempo, remote control surfaces | 10 | 2 |
 | [`performer-display`](./performer-display.md) | `performing` | the performer — what a player reads while playing | 3 | 0 |
 | [`show-control`](./show-control.md) | `performing` | the room — cues, lighting, sound and video playback, audio transport | 8 | 0 |
 

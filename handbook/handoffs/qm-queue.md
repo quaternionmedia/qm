@@ -1,7 +1,7 @@
 # Handoff — the rest of qm's pull-request queue
 
-**Stamped 2026-10-24.** `qm` `main` at `bc38ab6`; `qmcp` `main` at
-`bae518f`; `vox` `main` at `1721e6f`; `joe` `main` at `d72b65b`. Every figure
+**Stamped 2026-10-24.** `qm` `main` at `3b292c0`; `qmcp` `main` at
+`a41f9a3`; `vox` `main` at `1721e6f`; `joe` `main` at `d72b65b`. Every figure
 on this page was true at those commits and nowhere else. Re-derive each one
 with `gh` and the tree before acting on it: the queue moves under other
 sessions.
@@ -35,37 +35,37 @@ This page is everything else open in `qm`.
 
 ## 2. `qm`'s open pull requests, and what clears each
 
-`uv run qm stacks --repo quaternionmedia/qm` lists them. Two causes account for
-most of the red: a project branch that took `main` before the stack rule
-carries the old `slot` check, which refuses every pull request into it after
-the first; and commits made on 2026-10-13 that the host reads as unsigned.
+Every pull request into `main` that this page carried has landed; what is open
+is into project branches. `uv run qm stacks --repo quaternionmedia/qm` lists
+them. Two causes account for most of the red: a project branch that took `main`
+before the stack rule carries the old `slot` check, which refuses every pull
+request into it after the first; and commits made on 2026-10-13 that the host
+reads as unsigned.
 `git log --format=%G?` here reads `N` or `E` for commits the host verifies, so
 ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 .commit.verification`.
 
 | Pull requests | Into | State at the stamp | Done when |
 |---|---|---|---|
-| #138, then #139 stacked on it | `main` | #138 conflicts with `main` in the document states, `loose-ends.json`, `families.json` and the walkthrough family pages, which regenerate, and in `ci/rollout.yaml`, `ci/tests/test_make_workspace.py`, `docs/usage/questions-a-new-developer-asks.md` and `handbook/adoption-audit-queue.md`, which do not; #139 a draft, its checks green | `main` merged into #138, the generated files regenerated and the other four resolved by hand, merged; #139 then retargeted, brought level, ready, merged |
-| #168, #169 | `main` | conflicts in the document states and `loose-ends.json`; #168 also in the handoffs index | `main` merged in, generated files regenerated, both index rows kept, merged |
-| #188 | `main` | conflicts in `perspectives/README.md` and `status/documents.yaml` | the same |
-| #177 | `main` | conflicts in `ci/inbound.py` with #140's docstring sweep | resolved by hand, the code compared with both sides, merged |
-| #173 (draft), #178 | `main` | their own commits unsigned on the host: six and nine; #173 also conflicts with `main` in `perspectives/README.md` | rebuilt signed per decision 3 from current `main`, the originals closed |
 | #144, #147, #148, #149, #150, #151, #153, #156 | eight project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
-| #212 to #216, #218; #217 on #215, then #220 on #217 | `main` | each ready and level, but for the two drafts in their stack | each merged by its author once every gate is green; #217, then #220, moves down as the one beneath merges |
-| #196 | `main` | level with `main`, green | merged |
 
 A propagation's own `slot` check passes, because the merge brings the new
 script; a pull request into the branch passes only once brought level after
-it. The codecartographer propagation (#174) showed both. #219 is another
-session's and outside this page.
+it. The codecartographer propagation (#174) showed both. #222, a draft into
+`main`, is another session's and outside this page.
 
 ## 3. Blocked on a person
 
 - **`joe` #33's merge**, on a test by hand (`voice-set-landing.md` §4).
 - **The decisions in `hil-review-2026-10-04.md` §3** and the two carried in
   `voice-set-landing.md` §4.
+- **The reading budget.** `records/DRAFT-governance-arrives-as-a-mechanism.md`
+  §4 makes the entry documents' 1200-line budget a ratchet, lowered as prose is
+  deleted. Retiring handoff pages and shortening `AGENTS.md` on 2026-10-24
+  took the load below it; `status/documents.yaml` `reading_load` carries the
+  figure. Whether the budget comes down to meet it is the record owner's call.
 
 ## 4. Unfinished, and what done looks like
 
@@ -78,26 +78,25 @@ session's and outside this page.
   125 of the org's 312 open pull requests. Done is every repository's
   `dependabot.yml` carrying `groups:`, and no ungrouped Dependabot pull request
   open.
-- **The local workflow runner's ref name.** `run_workflows_locally.py` sets
-  `GITHUB_REF_NAME` to `--ref`, `main` by default, for a pull-request event,
-  where the host sets `<number>/merge`; on a project-branch pull request the
-  ADR lint's *default branch carries no project records* step then reads red
-  locally and green hosted. #198 is the change, with its test. Done is #198
-  merged, and a local run of a project-branch pull request agreeing with the
-  host.
+- **The signature gate reads an SSH signature as none.** `check_signatures`
+  runs `git` with no allowed-signers file, so a commit the host verifies by an
+  SSH key reads `N` and fails the gate; #198's and #202's did, and landed as
+  their rebuilds #229 and #230. Done is the gate reading the host's
+  verification, or an allowed-signers file it is given.
+- **The status generator names private repositories without the companion.**
+  `uv run qm docs generate` in a checkout without `ci/workspace-private.yaml`
+  writes a private project's branch name into `status/harness.yaml` and, from
+  it, `loose-ends.json`; `uv run qm private-names --source host --strict`
+  catches it before a commit. Done is the generator refusing to write, or
+  redacting from the host, when the companion is absent.
 - **codecartographer's `adr/TEMPLATE.md`** keeps five drafting-rule headings
   in capitals that the seed's template sets in plain case. Done is the copy
   re-made in a pull request into `project/codecartographer`.
-- **The entry documents' reading load** is at 1200 of its 1200 lines, this
-  page's row in the handoffs index included. The next line added to
-  `AGENTS.md`, the charter, the async contract or the handoffs index needs one
-  taken out, or the budget amended in its record.
 - **The older handoff pages.** Step 7 of `handbook/consolidation-runbook.md`
   is applied to the voice pages and to the six pages the index tagged "read
   this first" or "read this second" on 2026-10-24, whose open items are carried
   below. Of the rest, none names an open pull request but
-  `design-review-of-the-estate.md` (#121) and `hil-review-2026-10-04.md` (#138,
-  #139), and several are blocked on a person's decisions; each is read by what
+  `design-review-of-the-estate.md` (#121), and several are blocked on a person's decisions; each is read by what
   it holds, not by its date, before it is retired or folded. Done is the
   runbook's verification.
 
@@ -150,9 +149,9 @@ re-checked and is re-derived before anyone acts on it.
 - That a propagation clears `slot` on the eight branches in §2: established on
   `project/codecartographer` only.
 - Tier 3 of the voice demonstration, a person at the microphone.
-- #216's `edited` trigger on the three `main`-only gates. The local runner
-  does not model a retarget, so it is first observed on the next stacked pull
-  request retargeted onto `main`.
+- That a local run of a project-branch pull request now agrees with the host
+  on the ADR lint's *default branch carries no project records* step, which
+  #229 changes the runner for.
 
 ## 6. Standing constraints
 
@@ -166,5 +165,9 @@ re-checked and is re-derived before anyone acts on it.
   `qm merge` reports a branch it could not delete after the host has already
   deleted it; read the stacked pull request's base, not the message. It refuses
   a pull request whose `slot` run is pending, which a body edit starts.
+- The host's own retarget, when a merged branch is deleted, starts no
+  `pull_request` workflow: #217, #220 and #139 ran nothing at theirs. A body
+  edit fires `edited`. `qm merge` refuses a pull request whose `main`-only
+  gates never ran, and a push to its branch starts them.
 - `uv run qm docs check` runs in no workflow and no preflight step; run it
   before a pull request is ready.

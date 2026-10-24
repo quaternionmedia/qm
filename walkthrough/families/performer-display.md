@@ -16,6 +16,10 @@
 | `joe` | no |
 | `leo` | no |
 
+Also in another family, because each drives more than one thing:
+
+- `private-34` — [`instruments`](./instruments.md)
+
 ## Starting here
 
 **No member of this family carries governance yet**, so there is no governed entry point and this page will not invent one. Reading the code is the entry point.

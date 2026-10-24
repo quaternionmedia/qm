@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-24T14:38:24Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-24T17:05:48Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -10,7 +10,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
 | Records ratified | every requirement below | **0 of 41**; 38 proposed |
-| Mandatory reading | under budget | 1190 of 1200 lines |
+| Mandatory reading | under budget | 1193 of 1200 lines |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **273**, unfiltered.
+Every governed document in this corpus: **294**, unfiltered.
 
 | | |
 |---|---|
@@ -60,10 +60,10 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 38 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 74 |
+| [-] `unreviewed` | 80 |
 | [G] `generated` | 7 |
-| [S] `standing` | 129 |
-| [T] `transient` | 22 |
+| [S] `standing` | 131 |
+| [T] `transient` | 35 |
 
 ## Documents
 
@@ -159,6 +159,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-08-27-two-views-that-go-stale-together.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-08-30-a-guard-that-reads-prose.md` | perspective | Unreviewed |
 | [-] | `unreviewed` | `perspectives/2026-09-20-the-consolidation-cycle.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-09-20-the-estate-surveyed-by-many-hands.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-20-the-families-delineated.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-20-the-web-window-first-slice.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-21-landing-the-slice.md` | perspective | — |
@@ -172,6 +173,11 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-topology-docstrings-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-11-what-was-left-on-the-disk.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-12-what-the-push-found.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-13-what-apothecarys-package-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-13-what-apothecarys-page-and-tests-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-13-what-apothecarys-pages-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-13-what-apothecarys-pictures-packages-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-13-what-apothecarys-walkthrough-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-15-the-voice-set-landing.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-18-clearing-the-qm-queue.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-19-a-rename-closed-a-pull-request.md` | perspective | — |
@@ -265,6 +271,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/ref/repo-layout.md` | reference | — |
 | [S] | `standing` | `docs/usage/add-a-perspective.md` | reference | — |
 | [S] | `standing` | `docs/usage/build-these-docs.md` | reference | — |
+| [S] | `standing` | `docs/usage/develop-a-family-member.md` | reference | — |
 | [S] | `standing` | `docs/usage/draft-a-record.md` | reference | Starts at `Draft` or `Proposed` |
 | [S] | `standing` | `docs/usage/first-project.md` | reference | — |
 | [S] | `standing` | `docs/usage/getting-started.md` | reference | — |
@@ -307,6 +314,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `plans/thread-archive-access.md` | other | — |
 | [S] | `standing` | `plans/v0.0.1-blockers.md` | other | — |
 | [S] | `standing` | `plans/v0.0.1-review-packet.md` | other | — |
+| [S] | `standing` | `plans/workspace-review-2026-09-21.md` | other | — |
 | [S] | `standing` | `protocols/README.md` | index | — |
 | [S] | `standing` | `protocols/curriculum.md` | protocol | — |
 | [S] | `standing` | `protocols/history-archive.md` | protocol | — |
@@ -321,6 +329,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `walkthrough/01-two-views-one-dataset.md` | walkthrough | — |
 | [S] | `standing` | `walkthrough/02-rollout-by-family.md` | walkthrough | — |
 | [T] | `transient` | `handbook/handoffs/apply-the-main-ruleset.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/carlos-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/design-review-of-the-estate.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/disk-tooling.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/dossier-delta-review.md` | handoff | — |
@@ -331,17 +340,29 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/harness-next-test.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-08-25.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-10-04.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/holophonor-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/joe-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/leo-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/ludwig-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/midiphonor-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/performing-family-consolidation.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/private-34-simultaneous-run.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qm-queue.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qmcp-flows-as-deltas.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-of-the-records.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-session.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/session-2026-08-12.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/showrunner-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/showstopper-simultaneous-run.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/simultaneous-performing-family-plan-2026-09-21.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/six-branches-reached-origin.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/the-performing-estate-refreshed.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-voice-loop.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-web-window.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-views-one-dataset.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/views-declare-what-they-need.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/voice-set-landing.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/wolf-simultaneous-run.md` | handoff | — |
 
 ## Reading this document
 
