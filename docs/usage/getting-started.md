@@ -49,7 +49,7 @@ Read [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.
 | Understand the records | [Overview](../about/overview.md), then [records/](https://github.com/quaternionmedia/qm/tree/main/records) |
 | Set up a new QM project | [Forking a new project](first-project.md) |
 | Understand how projects relate to the org | [Architecture](../about/architecture.md) |
-| See what each project drives, and what it looks like | [The families](../families/index.md), then [the projects](../families/projects/index.md): every card opens a page that links the repository |
+| See what each project drives, and what it looks like | [The families](../families/index.md), then [the repos](../repos.md): every name opens a page with its pictures and its repository |
 | Learn the branch rules | [Branch namespaces](../ref/namespaces.md) |
 | See where every project stands | [status/governance.yaml](https://github.com/quaternionmedia/qm/blob/main/status/governance.yaml); how to read it: [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) |
 | Learn policy and procedure | [Handbook index](../ref/handbook.md) |

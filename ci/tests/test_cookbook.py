@@ -251,7 +251,7 @@ def test_a_site_page_names_its_family_and_where_it_sits():
                   "pedal": _project("pedal")})
     assert page.startswith("---\ntitle: instruments\n---")
     assert "# the sound { .qm-family-title .qm-f-instruments }" in page
-    assert "Within [`performing`](performing.md)" in page
+    assert "instruments · within [performing](performing.md)\n{ .qm-eyebrow }" in page
     assert "Start in [`synth`](projects/synth.md)" in page
 
 
@@ -273,16 +273,40 @@ def test_a_member_with_a_page_is_a_card_that_opens_it():
     assert '<span class="qm-state">governed</span>' in page
 
 
-def test_a_member_without_a_page_is_named_or_counted_never_linked():
-    """A private repository is counted, a rostered name the host does not hold
-    is named, and neither becomes a link that would 404."""
+def test_a_member_without_a_page_links_its_row_and_a_private_one_is_counted():
+    """Every named member is a link: a rostered name the host does not hold
+    links its row on the repos page, never a project page that would 404. A
+    private repository is counted and never named."""
     page = cookbook.site_page(
         {"name": "games", "drives": "play", "within": None},
         [state("private-38"), state("planned")], projects={})
     assert "projects/planned.md" not in page and "projects/private-38.md" not in page
-    assert "`planned` is in the roster with no repository on the host yet" in page
+    assert "[planned](../repos.md#planned){ .qm-card-link }" in page
+    assert '<span class="qm-state">not on the host yet</span>' in page
     assert "1 private repository is counted here and not named." in page
     assert "private-38" not in page
+
+
+def test_a_family_page_names_each_member_once():
+    """An outer family shows its own members as cards and each family within
+    it as one card naming its members, so nobody's state is said twice.
+
+    Mutation: give every member of the outer family its own card and this
+    fails on the count of `governed`.
+    """
+    projects = {n: _project(n, governed=n in ("editor", "synth")) for n in ("editor", "synth", "pedal")}
+    page = cookbook.site_page(
+        {"name": "performing", "drives": "a show", "within": None, "members": ["editor"]},
+        [state("editor", adopted=True), state("synth", adopted=True), state("pedal")],
+        inner=[{"name": "instruments", "drives": "the sound", "members": 2, "governed": 1,
+                "names": ["synth", "pedal", "private-09"]}],
+        projects=projects)
+    for name in ("editor", "synth", "pedal"):
+        assert page.count(f"[{name}](projects/{name}.md)") == 1, name
+    assert page.count('<span class="qm-state">governed</span>') == 1
+    assert "[the sound](instruments.md){ .qm-card-link }" in page
+    assert "[pedal](projects/pedal.md), and 1 private" in page
+    assert "## The families within it" not in page and ".svg" not in page
 
 
 def test_a_project_page_links_its_repository_and_shows_its_own_pictures():
@@ -292,14 +316,66 @@ def test_a_project_page_links_its_repository_and_shows_its_own_pictures():
     assert "[synth on GitHub](https://github.com/org/synth){ .md-button .md-button--primary }" in page
     assert page.count('<figure class="qm-shot" markdown>') == 2
     assert "raw/HEAD/b.gif" in page
-    assert "[`instruments`](../instruments.md), [`irl`](../irl.md), within [`performing`](../performing.md)" in page
-    assert "its records are on `project/synth`" in page
+    assert ("[instruments](../instruments.md) · [irl](../irl.md) · within "
+            "[performing](../performing.md)\n{ .qm-eyebrow }") in page
+    assert "governed, its records on `project/synth`" in page
+    assert "## In the estate" not in page
 
 
 def test_a_project_with_no_pictures_says_so():
     page = cookbook.project_page(_project("plain"), {"instruments": {}})
     assert "No pictures are listed for plain yet." in page
     assert "qm-shot" not in page
+
+
+def test_a_listed_picture_the_default_branch_does_not_hold_waits(tmp_path):
+    """A picture still on a pull request is not a broken image on the site.
+
+    Mutation: ignore `pictures_on_default_branch` in site_projects and this fails.
+    """
+    import json
+    inventory = tmp_path / "inventory.yaml"
+    inventory.write_text(json.dumps({"generator": {"org": "org"}, "repositories": [
+        {"name": "synth", "private": False, "pictures_on_default_branch": ["a.png"]},
+        {"name": "editor", "private": False, "pictures_on_default_branch": []},
+    ]}), encoding="utf-8")
+    shown = tmp_path / "showcase.yaml"
+    shown.write_text("projects:\n"
+                     "  synth:\n    - path: a.png\n      caption: A.\n    - path: b.png\n      caption: B.\n"
+                     "  editor:\n    - path: c.png\n      caption: C.\n", encoding="utf-8")
+    document = {"families": [{"name": "instruments", "members": ["synth", "editor"]}]}
+    projects = cookbook.site_projects(document, set(), {}, inventory, shown)
+    assert [p["caption"] for p in projects["synth"]["pictures"]] == ["A."]
+    assert projects["synth"]["waiting"] == 1
+    assert projects["editor"]["pictures"] == [] and projects["editor"]["waiting"] == 1
+    page = cookbook.project_page(projects["editor"], {"instruments": {}})
+    assert "not yet on its default branch" in page and "c.png" not in page
+
+
+def test_the_repos_page_is_one_row_per_named_repository(tmp_path):
+    """Each row links the project's page and its repository; a name the host
+    does not hold carries the anchor family pages link to; a private one is
+    counted; a table cell cannot be split by a description.
+
+    Mutation: drop the anchor on a row with no repository and this fails.
+    """
+    import json
+    inventory = tmp_path / "inventory.yaml"
+    inventory.write_text(json.dumps({"generator": {"org": "org"}, "repositories": [
+        {"name": "synth", "private": False, "description": "loops | layers"},
+        {"name": "stray", "private": False},
+    ]}), encoding="utf-8")
+    document = {"families": [{"name": "instruments", "members": ["synth", "planned", "private-07"]},
+                             {"name": "irl", "members": ["synth"]}]}
+    projects = cookbook.site_projects(document, set(), {}, inventory, tmp_path / "none.yaml")
+    page = cookbook.repos_page(document, projects, {"planned": {"note": "coming soon; later"}}, inventory)
+    assert ("| [synth](families/projects/synth.md) | loops \\| layers | "
+            "[instruments](families/instruments.md), [irl](families/irl.md) | "
+            "[GitHub](https://github.com/org/synth) |") in page
+    assert '| <span id="planned"></span>planned | Coming soon. |' in page
+    assert "1 private repository is in the families too" in page
+    assert "private-07" not in page
+    assert "The host holds 1 more public repositories no family claims" in page
 
 
 def test_only_a_public_repository_on_the_host_gets_a_page(tmp_path):
@@ -351,7 +427,7 @@ def test_a_site_page_links_nothing_outside_the_site():
     """Only `docs/` is published, so a relative link to the corpus would 404.
     The record is linked by its address on the host."""
     page = cookbook.site_page({"name": "f", "drives": "x", "within": None}, [state("one")])
-    assert "](records/" not in page and "](../" not in page
+    assert "](records/" not in page and "](../../" not in page
     assert cookbook.RECORD_URL in page
 
 
@@ -364,8 +440,9 @@ def test_the_site_navigation_lists_every_family_page():
     root = CI_DIR.parent
     names = [f["name"] for f in json.loads((root / "families.json").read_text(encoding="utf-8"))["families"]]
     nav = (root / "zensical.toml").read_text(encoding="utf-8")
-    missing = [n for n in ["index", *names, "projects/index"] if f'"families/{n}.md"' not in nav]
+    missing = [n for n in ["index", *names] if f'"families/{n}.md"' not in nav]
     assert not missing, f"zensical.toml's nav lists no page for {missing}"
+    assert '"repos.md"' in nav, "zensical.toml's nav lists no repos page"
 
 
 def test_no_generated_site_page_hides_a_link_inside_raw_html():
@@ -376,7 +453,8 @@ def test_no_generated_site_page_hides_a_link_inside_raw_html():
     and regenerate; this fails.
     """
     import re
-    pages = sorted((CI_DIR.parent / "docs" / "families").rglob("*.md"))
+    docs = CI_DIR.parent / "docs"
+    pages = sorted((docs / "families").rglob("*.md")) + [docs / "repos.md"]
     assert pages
     hidden = [f"{p.name}: {line[:60]}" for p in pages
               for line in p.read_text(encoding="utf-8").splitlines()

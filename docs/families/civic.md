@@ -2,13 +2,13 @@
 title: civic
 ---
 
-<p class="qm-eyebrow">civic</p>
+civic
+{ .qm-eyebrow }
 
 # the public { .qm-family-title .qm-f-civic }
 
-<p class="qm-lede">Drives the public — open information a community reads and adds to: maps, records, public data.</p>
-
-![the civic family and its members](civic.svg){ .qm-picture }
+Drives the public — open information a community reads and adds to: maps, records, public data.
+{ .qm-lede }
 
 ## Who is in it
 
@@ -25,8 +25,6 @@ A place to keep track of benches
 </div>
 
 </div>
-
-## Starting here
 
 No member of this family carries governance yet, so there is no governed entry point. Reading the code is the entry point.
 

@@ -122,6 +122,18 @@ def test_an_anchor_declared_with_attr_list_resolves(tmp_path: Path):
     assert audit(root)["accuracy: links"] == []
 
 
+def test_an_anchor_declared_as_an_html_id_resolves(tmp_path: Path):
+    """A table cell cannot carry `{ #id }`, so a generated row names its anchor
+    with an element's `id`.
+
+    Mutation: drop the `id="..."` form from `anchors_in` and this fails.
+    """
+    root = site(tmp_path, page="See [other](other.md#planned).\n")
+    write(root / "docs" / "other.md",
+          '# Other\n\n| a |\n|---|\n| <span id="planned"></span>planned |\n')
+    assert audit(root)["accuracy: links"] == []
+
+
 def test_an_anchor_naming_nothing_is_reported(tmp_path: Path):
     """It opens at the top of the page, which reads as the link having worked."""
     root = site(tmp_path, page="See [other](other.md#absent).\n")

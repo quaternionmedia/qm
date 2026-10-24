@@ -51,13 +51,13 @@ See [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/q
 
 ## The project's page
 
-Every project sits in a family by what its output drives, and a public one gets [a page of its own](../families/projects/index.md) on this site:
+Every project sits in a family by what its output drives, and a public one gets a page of its own on this site, listed on [the repos page](../repos.md):
 
 - **Its family** is the `family:` of its entry in `ci/workspace.yaml`: one name, or a list when the project drives two things. [The family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md) decides which.
 - **Its page** appears once the repository is public on the host and a family claims it. It shows the repository's own description, its families, whether it is governed, its phase, and a button to the repository.
-- **Its pictures** are the ones listed under its name in `ci/showcase.yaml`: files committed in the project's own repository, each with a one-sentence caption. A person picks them; nothing infers a picture, and a page with none says so.
+- **Its pictures** are the ones listed under its name in `ci/showcase.yaml`: files in the project's own repository, each with a one-sentence caption. A person picks them; nothing infers a picture. A listed picture shows once the project's default branch holds it, so one still on a pull request waits, and a page with none says so.
 
-`uv run qm inventory --write` refreshes what the host says is public, and `uv run qm cookbook docs/families --site --write` regenerates the family and project pages from it.
+`uv run qm inventory --write` refreshes what the host says is public and which listed pictures each default branch holds, and `uv run qm cookbook docs/families --site --write` regenerates the family, project and repos pages from it.
 
 ## Related
 

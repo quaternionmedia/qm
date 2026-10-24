@@ -194,9 +194,12 @@ def test_the_word_on_its_own_is_still_linked():
 
 
 def test_a_page_another_generator_writes_is_left_alone():
-    """docs/families/ is written by `ci/cookbook.py --site`; linking terms there
-    would make each generator report the other's output as drift.
+    """docs/families/ and docs/repos.md are written by `ci/cookbook.py --site`;
+    linking terms there would make each generator report the other's output as
+    drift.
 
-    Mutation: empty `GENERATED` and this fails.
+    Mutation: empty `GENERATED`, or drop docs/repos.md from it, and this fails.
     """
-    assert not any(Path("docs/families") in page.parents for page in links.pages())
+    found = links.pages()
+    assert not any(Path("docs/families") in page.parents for page in found)
+    assert Path("docs/repos.md") not in found
