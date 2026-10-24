@@ -19,6 +19,8 @@ projects:
       caption: The editor, a title template selected, with the viewer, the timeline and its settings.
     - path: docs/assets/screens/captions.png
       caption: The captions panel beside a server-drawn frame, ready to transcribe the timeline.
+    - path: docs/assets/screens/phone-edit.png
+      caption: The same editor on a phone, one column, with the captions above the viewer.
   carlos:
     - path: walkthrough/media/05-in-the-browser-keybed-and-desk.png
       caption: Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.

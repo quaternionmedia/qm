@@ -1,11 +1,14 @@
 ---
 title: holophonor
+hide:
+  - navigation
+  - toc
 ---
 
 [instruments](../families/instruments.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# holophonor { .qm-family-title .qm-f-instruments }
+# holophonor<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 <p class="qm-lede">Live looping, unlimited!</p>
 

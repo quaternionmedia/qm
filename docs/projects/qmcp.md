@@ -1,11 +1,14 @@
 ---
 title: qmcp
+hide:
+  - navigation
+  - toc
 ---
 
 [core](../families/core.md)
 { .qm-eyebrow }
 
-# qmcp { .qm-family-title .qm-f-core }
+# qmcp<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
 <p class="qm-lede">Quaternion MCP</p>
 

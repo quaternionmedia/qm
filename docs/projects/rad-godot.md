@@ -1,11 +1,14 @@
 ---
 title: rad-godot
+hide:
+  - navigation
+  - toc
 ---
 
 [games](../families/games.md)
 { .qm-eyebrow }
 
-# rad-godot { .qm-family-title .qm-f-games }
+# rad-godot<span class="qm-dot">.</span> { .qm-family-title .qm-f-games }
 
 <p class="qm-lede">rad, the radial menu, as a Godot addon: the contract's vectors replayed in GDScript.</p>
 

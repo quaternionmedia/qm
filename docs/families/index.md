@@ -20,7 +20,7 @@ Each meter is lit by the share of members past `v0.0.0`. A version is a project'
 
 **a show**
 
-`performing` · 20 members
+`performing` · 21 members
 
 What an audience sees and hears, and the video made before and after it. Holds `instruments`, `performer-display`, `show-control`.
 

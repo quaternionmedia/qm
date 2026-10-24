@@ -1,11 +1,14 @@
 ---
 title: joe
+hide:
+  - navigation
+  - toc
 ---
 
 [performer-display](../families/performer-display.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# joe { .qm-family-title .qm-f-performer-display }
+# joe<span class="qm-dot">.</span> { .qm-family-title .qm-f-performer-display }
 
 <p class="qm-lede">Realtime sheet music visualization</p>
 

@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-24T01:25:01Z'
+generated_at: '2026-10-24T02:12:00Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -45,11 +45,11 @@ reading_load:
   - path: handbook/async-contract.md
     lines: 271
   - path: handbook/handoffs/README.md
-    lines: 159
-  total_lines: 1199
+    lines: 160
+  total_lines: 1200
   budget_lines: 1200
   within_budget: true
-  headroom_lines: 1
+  headroom_lines: 0
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
@@ -109,7 +109,7 @@ readiness:
       proposed: 38
     documents_in_unknown_state: 0
     reading_within_budget: true
-    reading_total_lines: 1199
+    reading_total_lines: 1200
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -121,13 +121,13 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 273
+  documents: 275
   by_state:
     draft: 3
     generated: 7
     proposed: 38
-    standing: 128
-    transient: 27
+    standing: 129
+    transient: 28
     unreviewed: 70
   disagreements: 0
   unknown: 0
@@ -511,6 +511,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: docs/projects/moat.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/otto.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -1056,6 +1065,13 @@ documents:
   state_from_filename: null
   state: transient
 - path: handbook/handoffs/hil-review-2026-10-04.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/qm-queue.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null

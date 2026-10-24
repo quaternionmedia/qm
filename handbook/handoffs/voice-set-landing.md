@@ -1,7 +1,7 @@
 # Handoff — landing the voice set, paused at joe #33 for manual testing
 
-**Stamped 2026-10-17.** `vox` `main` at `1721e6f`; `qmcp` `main` at
-`df42315`; `joe` `main` at `d72b65b`; `qm` `main` at `a715693`. Every figure
+**Stamped 2026-10-18.** `vox` `main` at `1721e6f`; `qmcp` `main` at
+`df42315`; `joe` `main` at `d72b65b`; `qm` `main` at `03670b8`. Every figure
 on this page was true at those commits and nowhere else. Re-derive each one
 with `gh` before acting on it.
 
@@ -102,24 +102,12 @@ visualiser and #34's documentation. `qmcp`'s `docs/voice-loop-demo.md` is the
 onboarding and the three tiers -- nothing real, the local model, a person at
 the microphone.
 
-### `qm` — the set has landed; what rode on it
+### `qm` — landed
 
-Each of these was stacked on a pull request of the set and is based on `main`
-now that its parent has merged.
-
-| Pull request | State at the stamp | Done when |
-|---|---|---|
-| #189, this page | ready, base `main` | merged |
-| #190, the landing's retrospective | ready, base `main` | merged after this page, which it names |
-| #159, the local voice demo handoff | draft, base `main`, `main` merged in by hand at `b1d6bea` | body's stacking line rewritten, checks green, ready, merged |
-| #160, a retrospective | draft, base `main` | the same |
-| #158, #186, #187, the sweeps' residuals | drafts, base `main`; #158 conflicts with `main`; #186 and #187 fail `signatures`, their own seven commits unsigned | `main` merged in, #186's and #187's commits signed, checks green, ready, merged |
-
-#159 and this page each add a row at the top of the handoffs index, so
-whichever merges second takes `main` with both rows kept. #158 regenerates
-the gates documents that #136 also regenerated; its conflict there is resolved
-by running the generators again, not by editing the files. Signing #186's and
-#187's commits rewrites both branches, which is a person's to approve.
+The set and every pull request stacked on it are on `main` or closed: #189
+and #190 merged; #158 and #160 merged; #186 and #187 closed for #191 and #192,
+their commits signed, which merged; #159 closed unmerged, the set it ran
+together having landed. Nothing of the set is left in `qm`.
 
 ### After the set (review page §5)
 
@@ -235,6 +223,4 @@ Nothing is unpushed.
   `qmcp.worktrees/integration` detached at `72b6f82`; neither was made by the
   landing.
 - `joe`: the clone on `demo/voice-loop-2026-10-04`.
-- `qm`: the clone on `main`, clean; `qm.worktrees/demo` on the demo branch;
-  and a worktree each for this page, #190 and #159 until their pull requests
-  merge.
+- `qm`: the clone on `main`, clean; `qm.worktrees/demo` on the demo branch.
