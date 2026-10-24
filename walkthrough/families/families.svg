@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-label="the QM families, each a column with a meter for the share past v0.0.0">
+<style>text{font-family:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}.mono{font-family:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace}text{fill:#141922}.muted{fill:#536075}.panel{fill:#f3f4f7;stroke:#d5d9e2}.card{fill:#ffffff;stroke:#d5d9e2}.track{fill:#e8eaf0}.c-commons{fill:#8a3f9e}.s-commons{stroke:#8a3f9e}.c-core{fill:#2a61bd}.s-core{stroke:#2a61bd}.c-games{fill:#2d7241}.s-games{stroke:#2d7241}.c-infra{fill:#55647a}.s-infra{stroke:#55647a}.c-instruments{fill:#0a6f6b}.s-instruments{stroke:#0a6f6b}.c-irl{fill:#94551f}.s-irl{stroke:#94551f}.c-performer-display{fill:#5a43b5}.s-performer-display{stroke:#5a43b5}.c-performing{fill:#9a520b}.s-performing{stroke:#9a520b}.c-show-control{fill:#b3305a}.s-show-control{stroke:#b3305a}@media (prefers-color-scheme: dark){text{fill:#e7eaf1}.muted{fill:#9ba5b7}.panel{fill:#0d1118;stroke:#283143}.card{fill:#151b25;stroke:#283143}.track{fill:#1c2331}.c-commons{fill:#cf8ce0}.s-commons{stroke:#cf8ce0}.c-core{fill:#74a8f6}.s-core{stroke:#74a8f6}.c-games{fill:#73c886}.s-games{stroke:#73c886}.c-infra{fill:#98a7bc}.s-infra{stroke:#98a7bc}.c-instruments{fill:#43c6bf}.s-instruments{stroke:#43c6bf}.c-irl{fill:#dd9b63}.s-irl{stroke:#dd9b63}.c-performer-display{fill:#a693f3}.s-performer-display{stroke:#a693f3}.c-performing{fill:#f2aa4c}.s-performing{stroke:#f2aa4c}.c-show-control{fill:#f0708f}.s-show-control{stroke:#f0708f}}</style>
+<rect class="panel" x="0.5" y="0.5" width="999" height="359" rx="10"/>
+<rect class="s-performing" x="16.0" y="16" width="366.8" height="300" rx="8" fill="none" stroke-width="1.5"/>
+<rect class="c-performing" x="16.0" y="16" width="366.8" height="5" rx="2"/>
+<text class="mono muted" x="28.0" y="40" font-size="11">performing</text>
+<text class="c-performing" x="28.0" y="62" font-size="17" font-weight="700">a show</text>
+<text class="mono muted" x="370.8" y="40" font-size="11" text-anchor="end">22 in all · 3 past v0.0.0</text>
+<text class="mono muted" x="370.8" y="62" font-size="11" text-anchor="end">its own: alfred, otto</text>
+<rect class="card" x="24.0" y="78" width="110.2" height="230" rx="6"/>
+<rect class="c-instruments" x="24.0" y="78" width="110.2" height="5" rx="2"/>
+<text class="mono muted" x="34.0" y="102" font-size="11.0">instruments</text>
+<text class="c-instruments" x="34.0" y="124" font-size="15" font-weight="700">the sound</text>
+<rect class="c-instruments" x="71.1" y="252" width="16" height="6" rx="1"/>
+<rect class="c-instruments" x="71.1" y="244" width="16" height="6" rx="1"/>
+<rect class="track" x="71.1" y="236" width="16" height="6" rx="1"/>
+<rect class="track" x="71.1" y="228" width="16" height="6" rx="1"/>
+<rect class="track" x="71.1" y="220" width="16" height="6" rx="1"/>
+<rect class="track" x="71.1" y="212" width="16" height="6" rx="1"/>
+<rect class="track" x="71.1" y="204" width="16" height="6" rx="1"/>
+<rect class="track" x="71.1" y="196" width="16" height="6" rx="1"/>
+<rect class="track" x="71.1" y="188" width="16" height="6" rx="1"/>
+<text x="34.0" y="280" font-size="13" font-weight="700">9 members</text>
+<text class="mono muted" x="34.0" y="296" font-size="11">2 past v0.0.0</text>
+<rect class="card" x="144.2" y="78" width="110.2" height="230" rx="6"/>
+<rect class="c-performer-display" x="144.2" y="78" width="110.2" height="5" rx="2"/>
+<text class="mono muted" x="154.2" y="102" font-size="8.8">performer-display</text>
+<text class="c-performer-display" x="154.2" y="124" font-size="15" font-weight="700">the</text>
+<text class="c-performer-display" x="154.2" y="142" font-size="15" font-weight="700">performer</text>
+<rect class="track" x="191.4" y="252" width="16" height="6" rx="1"/>
+<rect class="track" x="191.4" y="244" width="16" height="6" rx="1"/>
+<rect class="track" x="191.4" y="236" width="16" height="6" rx="1"/>
+<rect class="track" x="191.4" y="228" width="16" height="6" rx="1"/>
+<rect class="track" x="191.4" y="220" width="16" height="6" rx="1"/>
+<rect class="track" x="191.4" y="212" width="16" height="6" rx="1"/>
+<rect class="track" x="191.4" y="204" width="16" height="6" rx="1"/>
+<rect class="track" x="191.4" y="196" width="16" height="6" rx="1"/>
+<rect class="track" x="191.4" y="188" width="16" height="6" rx="1"/>
+<text x="154.2" y="280" font-size="13" font-weight="700">3 members</text>
+<text class="mono muted" x="154.2" y="296" font-size="11">0 past v0.0.0</text>
+<rect class="card" x="264.5" y="78" width="110.2" height="230" rx="6"/>
+<rect class="c-show-control" x="264.5" y="78" width="110.2" height="5" rx="2"/>
+<text class="mono muted" x="274.5" y="102" font-size="11.0">show-control</text>
+<text class="c-show-control" x="274.5" y="124" font-size="15" font-weight="700">the room</text>
+<rect class="track" x="311.6" y="252" width="16" height="6" rx="1"/>
+<rect class="track" x="311.6" y="244" width="16" height="6" rx="1"/>
+<rect class="track" x="311.6" y="236" width="16" height="6" rx="1"/>
+<rect class="track" x="311.6" y="228" width="16" height="6" rx="1"/>
+<rect class="track" x="311.6" y="220" width="16" height="6" rx="1"/>
+<rect class="track" x="311.6" y="212" width="16" height="6" rx="1"/>
+<rect class="track" x="311.6" y="204" width="16" height="6" rx="1"/>
+<rect class="track" x="311.6" y="196" width="16" height="6" rx="1"/>
+<rect class="track" x="311.6" y="188" width="16" height="6" rx="1"/>
+<text x="274.5" y="280" font-size="13" font-weight="700">8 members</text>
+<text class="mono muted" x="274.5" y="296" font-size="11">0 past v0.0.0</text>
+<rect class="card" x="392.8" y="16" width="110.2" height="300" rx="6"/>
+<rect class="c-commons" x="392.8" y="16" width="110.2" height="5" rx="2"/>
+<text class="mono muted" x="402.8" y="40" font-size="11.0">commons</text>
+<text class="c-commons" x="402.8" y="62" font-size="15" font-weight="700">the public</text>
+<rect class="track" x="439.9" y="260" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="252" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="244" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="236" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="228" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="220" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="212" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="204" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="196" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="188" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="180" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="172" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="164" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="156" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="148" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="140" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="132" width="16" height="6" rx="1"/>
+<rect class="track" x="439.9" y="124" width="16" height="6" rx="1"/>
+<text x="402.8" y="288" font-size="13" font-weight="700">1 member</text>
+<text class="mono muted" x="402.8" y="304" font-size="11">0 past v0.0.0</text>
+<rect class="card" x="513.0" y="16" width="110.2" height="300" rx="6"/>
+<rect class="c-core" x="513.0" y="16" width="110.2" height="5" rx="2"/>
+<text class="mono muted" x="523.0" y="40" font-size="11.0">core</text>
+<text class="c-core" x="523.0" y="62" font-size="15" font-weight="700">the corpus</text>
+<text class="c-core" x="523.0" y="80" font-size="15" font-weight="700">and its</text>
+<text class="c-core" x="523.0" y="98" font-size="15" font-weight="700">tooling</text>
+<rect class="c-core" x="560.1" y="260" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="252" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="244" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="236" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="228" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="220" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="212" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="204" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="196" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="188" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="180" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="172" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="164" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="156" width="16" height="6" rx="1"/>
+<rect class="c-core" x="560.1" y="148" width="16" height="6" rx="1"/>
+<rect class="track" x="560.1" y="140" width="16" height="6" rx="1"/>
+<rect class="track" x="560.1" y="132" width="16" height="6" rx="1"/>
+<rect class="track" x="560.1" y="124" width="16" height="6" rx="1"/>
+<text x="523.0" y="288" font-size="13" font-weight="700">7 members</text>
+<text class="mono muted" x="523.0" y="304" font-size="11">6 past v0.0.0</text>
+<rect class="card" x="633.2" y="16" width="110.2" height="300" rx="6"/>
+<rect class="c-games" x="633.2" y="16" width="110.2" height="5" rx="2"/>
+<text class="mono muted" x="643.2" y="40" font-size="11.0">games</text>
+<text class="c-games" x="643.2" y="62" font-size="15" font-weight="700">play</text>
+<rect class="c-games" x="680.4" y="260" width="16" height="6" rx="1"/>
+<rect class="c-games" x="680.4" y="252" width="16" height="6" rx="1"/>
+<rect class="c-games" x="680.4" y="244" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="236" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="228" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="220" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="212" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="204" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="196" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="188" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="180" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="172" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="164" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="156" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="148" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="140" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="132" width="16" height="6" rx="1"/>
+<rect class="track" x="680.4" y="124" width="16" height="6" rx="1"/>
+<text x="643.2" y="288" font-size="13" font-weight="700">7 members</text>
+<text class="mono muted" x="643.2" y="304" font-size="11">1 past v0.0.0</text>
+<rect class="card" x="753.5" y="16" width="110.2" height="300" rx="6"/>
+<rect class="c-infra" x="753.5" y="16" width="110.2" height="5" rx="2"/>
+<text class="mono muted" x="763.5" y="40" font-size="11.0">infra</text>
+<text class="c-infra" x="763.5" y="62" font-size="15" font-weight="700">where a</text>
+<text class="c-infra" x="763.5" y="80" font-size="15" font-weight="700">thing runs</text>
+<rect class="c-infra" x="800.6" y="260" width="16" height="6" rx="1"/>
+<rect class="c-infra" x="800.6" y="252" width="16" height="6" rx="1"/>
+<rect class="c-infra" x="800.6" y="244" width="16" height="6" rx="1"/>
+<rect class="c-infra" x="800.6" y="236" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="228" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="220" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="212" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="204" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="196" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="188" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="180" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="172" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="164" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="156" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="148" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="140" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="132" width="16" height="6" rx="1"/>
+<rect class="track" x="800.6" y="124" width="16" height="6" rx="1"/>
+<text x="763.5" y="288" font-size="13" font-weight="700">5 members</text>
+<text class="mono muted" x="763.5" y="304" font-size="11">1 past v0.0.0</text>
+<rect class="card" x="873.8" y="16" width="110.2" height="300" rx="6"/>
+<rect class="c-irl" x="873.8" y="16" width="110.2" height="5" rx="2"/>
+<text class="mono muted" x="883.8" y="40" font-size="11.0">irl</text>
+<text class="c-irl" x="883.8" y="62" font-size="15" font-weight="700">matter</text>
+<rect class="c-irl" x="920.9" y="260" width="16" height="6" rx="1"/>
+<rect class="c-irl" x="920.9" y="252" width="16" height="6" rx="1"/>
+<rect class="c-irl" x="920.9" y="244" width="16" height="6" rx="1"/>
+<rect class="c-irl" x="920.9" y="236" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="228" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="220" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="212" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="204" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="196" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="188" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="180" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="172" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="164" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="156" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="148" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="140" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="132" width="16" height="6" rx="1"/>
+<rect class="track" x="920.9" y="124" width="16" height="6" rx="1"/>
+<text x="883.8" y="288" font-size="13" font-weight="700">9 members</text>
+<text class="mono muted" x="883.8" y="304" font-size="11">2 past v0.0.0</text>
+<text class="mono muted" x="16" y="344" font-size="11">the lit share of a meter is the share past v0.0.0 · a repository in two families counts in each · 1 rostered repository states no family yet</text>
+</svg>

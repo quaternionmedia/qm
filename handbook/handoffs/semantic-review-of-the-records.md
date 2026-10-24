@@ -12,8 +12,7 @@ as the one requirement that **cannot be measured**. Nothing will tell you it is
 finished except your own statement that it is.
 
 Read `handbook/handoffs/README.md` first for the rules that apply to all of
-these, and [`two-gate-and-tag-teeth.md`](two-gate-and-tag-teeth.md) second — it
-corrects the model several older pages still describe.
+these.
 
 *Stamped 2026-08-14, on `evolve/governance-loop-poc`. Every figure below was
 true at that commit. Re-derive with the commands in the next section rather

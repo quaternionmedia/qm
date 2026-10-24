@@ -1,72 +1,89 @@
 ---
+title: Quaternion Media
 icon: lucide/book-open
+hide:
+  - navigation
+  - toc
 ---
 
-# QM Governance
+<div class="qm-hero" markdown>
 
-Every team keeps answering the same questions. How does work get reviewed? When is something finished? What does a new project start from? Usually those answers live in people's heads, and they drift.
+<div markdown>
 
-This is where Quaternion Media writes them down instead. Every QM project follows what is written here. A project can be stricter than these rules. It can never be looser.
+quaternion media · the performing family and the estate around it
+{ .qm-eyebrow }
 
-If you read nothing else, read this next section. It is the part that catches people out.
+# Software for a show<span class="qm-dot">.</span>
 
-## Read this first
+The video made before a performance and after it, the sound played during it, the room it runs in, and what a player reads while playing. Each is a repository of its own, built in the open, and this site groups them by what each one drives.
+{ .qm-lede }
+
+[The performing family](families/performing.md){ .md-button .md-button--primary } [Every project](projects/index.md){ .md-button }
+
+</div>
+
+--8<-- "includes/showcase-hero.md"
+
+</div>
+
+<section class="qm-section" markdown>
+
+the performing family · four parts
+{ .qm-eyebrow }
+
+## What a show needs
+
+A repository belongs to the part of the show its output acts on. `performing` holds three families, the sound, the room and the performer, and claims the video itself.
+
+--8<-- "includes/showcase-parts.md"
+
+</section>
+
+<section class="qm-section" markdown>
+
+on screen · each picture from its project's own repository
+{ .qm-eyebrow }
+
+## What the show looks like
+
+Every card opens the project's page, with the rest of its pictures and a link to its repository.
+
+--8<-- "includes/showcase-performing.md"
+
+</section>
+
+<section class="qm-section" markdown>
+
+the rest of the estate
+{ .qm-eyebrow }
+
+## Beyond the show
+
+The tools the show is built with, and the things people build and hold.
+
+--8<-- "includes/showcase-estate.md"
+
+[![The QM families as a desk of channel strips: performing, holding instruments, performer-display and show-control, then the other families, each with a meter lit by the share of its members past v0.0.0.](families/families.svg){ .qm-picture }](families/index.md)
+
+Every repository, by what it drives. A repository that drives two things is in both families, and each meter is lit by the share past `v0.0.0`, the members that have adopted the corpus. The families are decided in [the family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md); [every family has a page](families/index.md).
+{ .qm-caption }
+
+</section>
+
+<section class="qm-section" markdown>
+
+how the work is kept
+{ .qm-eyebrow }
+
+## Decided once, written down
+
+Every project here follows one set of written decisions, and a project can be stricter than these rules, never looser.
 
 1. **Decisions live in `records/`.** Nothing else here is binding. Everything else explains a [record](ref/glossary.md#record), points at one, or checks that we are keeping to it.
-2. **Nothing is marked final yet.** Every record says [`Proposed`](ref/glossary.md#proposed), on purpose. Making one final is [ratification](ref/glossary.md#ratification), and it needs a second person to agree. There is not a second person yet.
+2. **Nothing is marked final yet.** No record is ratified, on purpose. Making one final is [ratification](ref/glossary.md#ratification), and it needs a second person to agree. There is not a second person yet.
 3. **All work arrives as a pull request**, from a typo to a new rule. It is the paper trail, not a request for someone's attention. You merge your own once the automated [checks](ref/glossary.md#gate) pass.
 4. **Two moments need a person, and the pull request is not one of them.** Making a record final, and putting a version tag on a project. A tag means somebody read the change, ran it against the real thing, and watched the checks pass. Reaching `main` claims none of that.
 
-Every word above that is doing unusual work links to its definition. If a sentence stops making sense, the word is usually why — [the glossary](ref/glossary.md) has the rest.
+[Getting started](usage/getting-started.md) · [The charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) · [How it works](about/overview.md) · [Reference](ref/index.md) · [The glossary](ref/glossary.md) · coding agents start with [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md)
 
-## Where to go
-
-=== "Understand"
-
-    **Learn what QM is and how it works**
-
-    - [Overview](about/overview.md) — the corpus, its principles, and the records
-    - [Architecture](about/architecture.md) — the branch-per-project model
-    - [History](about/history.md) — how the corpus evolved
-
-    Or start with the [charter](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md): short, and every principle there was earned by a defect.
-
-=== "Get started"
-
-    **Your first hour with the corpus**
-
-    - [Getting started](usage/getting-started.md) — clone, read, and make your first change
-    - [Questions a new developer asks](usage/questions-a-new-developer-asks.md) — first-week questions, and the command that answers each
-    - [Forking a new project](usage/first-project.md) — adopt the corpus in a new project
-    - [Next steps](usage/next-steps.md) — propagation, audits, and project phases
-
-=== "Do a task"
-
-    **Practical recipes**
-
-    - [Draft a record](cookbook/draft-a-record.md) — write a decision
-    - [Add a perspective](cookbook/add-a-perspective.md) — document an opinion or incident
-    - [Propagate a change](cookbook/propagate-a-change.md) — send org updates to a project
-    - [Run CI locally](cookbook/run-ci-locally.md) — test before you push
-    - [All recipes](cookbook/index.md)
-
-=== "Look it up"
-
-    **Reference**
-
-    - [Branch namespaces](ref/namespaces.md) — the five branch conventions
-    - [Record precedence](ref/precedence.md) — how org and project records relate
-    - [Ratification](ref/ratification.md) — how records become binding
-    - [Repository layout](ref/repo-layout.md) — the directory tree
-    - [Handbook index](ref/handbook.md) — policy and procedure
-    - [Protocols index](ref/protocols.md) — the reviews somebody runs on purpose
-    - [Glossary](ref/glossary.md) — key terms
-
-## For coding agents
-
-If you are an AI agent working in this repository, start with [AGENTS.md](https://github.com/quaternionmedia/qm/blob/main/AGENTS.md). It states four facts to establish before writing anything — the commit, your open pull requests, what else is in flight, and which gates exist — and names the plain scripts that establish them. How you gather them is your choice; `adapters/` holds optional glue for particular tools and nothing depends on it.
-
-## See also
-
-- [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) — the charter
-- [The repository on GitHub](https://github.com/quaternionmedia/qm)
+</section>

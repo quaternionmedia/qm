@@ -10,27 +10,26 @@
 
 ## Context
 
-A session states an intention, acts, and reports. Nothing in this corpus
-compares the first to the third. An overclaim is caught only if a reader happens
+A session states an intention, acts, and reports. Without an instrument,
+nothing compares the first to the third. An overclaim is caught only if a reader happens
 to remember what was promised, which is a property of the reader's attention
 rather than of the process.
 
-Two days of work here made that concrete. A session predicted that reviewing a
-workspace would surface parallel lanes and instead delivered an analysis
-contradicting a record it had already read. A gate index was predicted to take
-one file and took two, because the handbook already specified the shape and was
-not consulted. A CLI was predicted to unify thirteen script paths, did, and was
-simultaneously broken in a way no local run could reveal. Every one of those was
-established afterwards, by reconstruction, when somebody asked.
+Misses are ordinary: a review predicted to surface parallel work delivers an
+analysis contradicting a record its author has read; a change predicted to take
+one file takes two, because the handbook already specifies the shape; a
+command does what was predicted and is broken in a way no local run reveals.
+Without a projection written beforehand, each is established afterwards, by
+reconstruction, when somebody asks.
 
 The cost of reconstruction is not the reconstruction. It is that the record
 comes from the party with the strongest interest in it reading well, at the
 moment they are least able to remember accurately.
 
-There is a second failure the same instrument addresses. Corrections in this
-corpus have twice been applied to the instance they arrived on and not to the
-class — a shell-loop audit fixed without the twenty other improvised invocations
-being fixed, a signing flag reversed in direction rather than removed. A running
+There is a second failure the same instrument addresses: a correction applied
+to the instance it arrived on and not to its class — one improvised shell loop
+fixed while the others stay, a flag reversed in direction rather than removed.
+A running
 list of what has been attempted is the artifact a session can re-scan when a new
 rule arrives.
 
