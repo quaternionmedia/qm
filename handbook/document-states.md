@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-24T14:01:44Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-24T14:06:27Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -194,7 +194,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/about/history.md` | reference | — |
 | [S] | `standing` | `docs/about/index.md` | reference | — |
 | [S] | `standing` | `docs/about/overview.md` | reference | — |
-| [S] | `standing` | `docs/families/civic.md` | reference | — |
+| [S] | `standing` | `docs/families/commons.md` | reference | — |
 | [S] | `standing` | `docs/families/core.md` | reference | — |
 | [S] | `standing` | `docs/families/games.md` | reference | — |
 | [S] | `standing` | `docs/families/index.md` | reference | — |

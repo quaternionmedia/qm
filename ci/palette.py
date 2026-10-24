@@ -57,7 +57,7 @@ FAMILY = {
     "infra": ("#55647a", "#98a7bc"),
     "core": ("#2a61bd", "#74a8f6"),
     "games": ("#2d7241", "#73c886"),
-    "civic": ("#8a3f9e", "#cf8ce0"),
+    "commons": ("#8a3f9e", "#cf8ce0"),
 }
 NEUTRAL_HUE = NEUTRAL["muted"]
 

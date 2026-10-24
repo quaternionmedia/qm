@@ -77,8 +77,8 @@ rollouts:
         families: [irl, infra]
       - name: performing
         families: [performing]
-      - name: civic
-        families: [civic]
+      - name: commons
+        families: [commons]
       - name: unstated
         # families.json's `unstated` list at the time of writing; a repository
         # that later claims a family belongs to that family's phase instead.

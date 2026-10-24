@@ -74,7 +74,7 @@ def test_every_family_the_record_declares_has_a_hue():
     """A family drawn in the neutral is one nobody coloured. Renaming or adding
     a family in the record fails here until the palette names it.
 
-    Mutation: drop `civic` from FAMILY and this fails.
+    Mutation: drop `commons` from FAMILY and this fails.
     """
     missing = sorted(set(families.declared(ROOT / families.RECORD)) - set(palette.FAMILY))
     assert not missing, f"no hue for {missing}"

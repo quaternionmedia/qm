@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-24T14:01:44Z'
+generated_at: '2026-10-24T14:06:27Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -195,7 +195,7 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/families/civic.md
+- path: docs/families/commons.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null

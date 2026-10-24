@@ -1,10 +1,10 @@
-# Cookbook — the `civic` family
+# Cookbook — the `commons` family
 
 **This page is generated.** Every figure comes from `families.json` and from the clones on this disk, and `uv run qm cookbook --check` fails the build when it stops being true. Do not edit it; edit the roster or the record and regenerate.
 
 **Drives** the public — open information a community reads and adds to: maps, records, public data
 
-![the civic family](./civic.svg)
+![the commons family](./commons.svg)
 
 ## Who is in it
 
@@ -28,4 +28,4 @@ Adopting one is `handbook/forking-a-project.md` — nine steps, taken one reposi
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-10-20 from `families.json`.*
+*Generated 2026-10-24 from `families.json`.*

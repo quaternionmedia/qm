@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-28 |
-| **Pends on** | The name of `civic`, which is a working name. Its border (§3) is decided; what to call it is a person's choice, and renaming it is a roster change `ci/families.py --check` announces. |
+| **Pends on** | Nothing — ready for ratification |
 | **Principle** | `seams-on-standard-protocols` — seams on standard protocols; `decisions-are-documented` — decisions are documented or they didn't happen |
 | **Restated in** | `README.md`'s opening picture and its caption |
 
@@ -82,7 +82,7 @@ words would have placed one program in all of them.
 | `infra` | **where a thing runs, and how it is reached** — ingress, identity, storage, DNS, observability, the network path | — | moat; ztgui; streaming-infrastructure; and two private repositories, referenced rather than named |
 | `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | — | qm; qmcp; dossier; codecartographer; looksatwords; vox; rad |
 | `games` | **play** — a game somebody plays: its rules, its world, its loop, and the server it is played on | — | golfvs; rad-godot; qmcli-godot; factorio-sysops; and one private repository, referenced rather than named |
-| `civic` | **the public** — open information a community reads and adds to: maps, records, public data | — | benchmark |
+| `commons` | **the public** — open information a community reads and adds to: maps, records, public data | — | benchmark |
 
 `performing` is the show, and the three families within it are its parts: the
 room, the sound and the performer. A repository that drives one of those parts
@@ -142,9 +142,8 @@ repository that only ever reads and writes the org's own record of itself is
 `core` however interesting its output. `rad` is in `core` because the members
 that build with it are there — see §4.
 
-`civic` drives **the public**: open information a community reads and adds
-to, such as a map of the benches somebody can sit on. Its name is a working
-name, which is the `Pends on` above; its border is decided here.
+`commons` drives **the public**: open information a community reads and adds
+to, such as a map of the benches somebody can sit on.
 
 Three asymmetries, recorded rather than smoothed:
 
@@ -287,8 +286,6 @@ a set of unrelated repositories and be confidently wrong.
   substrate claimed by everything built on it.
 - A second video-production repository. An inner `video` family within
   `performing` then has a border to hold.
-- The name of `civic` being settled. That closes the `Pends on`; §3 and the
-  roster change in one pull request.
 - A second private member, or the existing one becoming public. Either changes
   where the estate's membership can be written down.
 - A family's hub going cold while its periphery keeps moving. That is the shape

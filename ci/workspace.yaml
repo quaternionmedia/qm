@@ -313,7 +313,7 @@ repositories:
 
   - name: benchmark
     role: unmanaged
-    family: civic
+    family: commons
     phase: v0.0.2
     phase_source: stated
     note: named alongside apothecary as a v0.0.2 consumer

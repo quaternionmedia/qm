@@ -1,13 +1,13 @@
 ---
-title: civic
+title: commons
 hide:
   - toc
 ---
 
-civic
+commons
 { .qm-eyebrow }
 
-# the public<span class="qm-dot">.</span> { .qm-family-title .qm-f-civic }
+# the public<span class="qm-dot">.</span> { .qm-family-title .qm-f-commons }
 
 Drives the public — open information a community reads and adds to: maps, records, public data.
 { .qm-lede }
@@ -16,7 +16,7 @@ Drives the public — open information a community reads and adds to: maps, reco
 
 <div class="grid" markdown>
 
-<div class="card qm-f-civic" markdown>
+<div class="card qm-f-commons" markdown>
 
 [benchmark](../projects/benchmark.md){ .qm-card-link }
 
