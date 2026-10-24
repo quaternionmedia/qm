@@ -32,6 +32,9 @@ This page is everything else open in `qm`.
    `dependabot.yml` carries `groups:`, so updates arrive as one pull request
    per ecosystem per interval, and an open ungrouped one is closed once its
    grouped replacement opens. (2026-10-24)
+6. **The entry documents' reading budget stays at 1200 lines**, though the
+   load is below it: `records/DRAFT-governance-arrives-as-a-mechanism.md` §4's
+   ratchet is not lowered to meet it. (2026-10-24)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
@@ -61,11 +64,6 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
 - **`joe` #33's merge**, on a test by hand (`voice-set-landing.md` §4).
 - **The decisions in `hil-review-2026-10-04.md` §3** and the two carried in
   `voice-set-landing.md` §4.
-- **The reading budget.** `records/DRAFT-governance-arrives-as-a-mechanism.md`
-  §4 makes the entry documents' 1200-line budget a ratchet, lowered as prose is
-  deleted. Retiring handoff pages and shortening `AGENTS.md` on 2026-10-24
-  took the load below it; `status/documents.yaml` `reading_load` carries the
-  figure. Whether the budget comes down to meet it is the record owner's call.
 
 ## 4. Unfinished, and what done looks like
 
