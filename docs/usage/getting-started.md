@@ -61,9 +61,9 @@ Pick something small — a typo, a broken link, an unclear sentence. Then:
 
 1. Create a branch: `git checkout -b evolve/<slug>`
 2. Make the change and commit it.
-3. Open a draft pull request: `gh pr create --draft`. Do not request a review.
+3. Open a pull request: `gh pr create`. Mark it draft only if it is unfinished or stacked on another open one. Do not request a review.
 4. Assign the person who asked for the work.
-5. A human reviews and merges.
+5. Merge it yourself once every gate is green.
 
 If several agent sessions run at the same time, the rules in [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) apply. The most important one: one change per pull request, parallel when independent, stacked as drafts when dependent.
 
