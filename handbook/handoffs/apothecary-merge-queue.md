@@ -13,22 +13,28 @@ those commits. Re-derive each with `gh` and the tree before acting on it.
 
 1. **A pull request's push runs the governance checks and lint, and nothing else.**
    The tests -- unit, walkthrough, browser, the Rust check, doc capture, the
-   step-through tests -- run on the contributor's machine (`apothecary test changed`
-   while working, `apothecary test all` before a pull request is marked ready, its
-   body saying what ran) and in CI at a `v*` tag or on demand. apothecary #99 makes
-   it so; its `tests/test_ci_workflows.py` fails if a test workflow goes back on pull
-   requests. (2026-10-24)
-2. **No limit is chosen by hand.** A CI job's cap is twice its median over the runs
+   step-through tests -- run on the contributor's machine and in CI at a `v*` tag or
+   on demand. apothecary #99 makes it so; its `tests/test_ci_workflows.py` fails if a
+   test workflow goes back on pull requests. (2026-10-24)
+2. **The whole suite runs on the machine before every merge.** `apothecary test all`
+   -- the unit tests, the walkthrough and every browser test -- runs on the tree `main`
+   will have after the merge (the pull request's head merged onto `main`'s tip): before
+   the pull request is marked ready, and again before it merges if that tree has
+   changed since. The merge commit's body names the commit it ran on, the command and
+   its counts; a red run is fixed in the pull request's own branch before it merges.
+   `apothecary test changed` is for while working and is never the gate. (2026-10-24)
+3. **No limit is chosen by hand.** A CI job's cap is twice its median over the runs
    GitHub records for it; a job with no record has GitHub's own. In CI each browser
    test's cap is twice the time `tests/e2e/durations.json` records for it; run on a
    machine, nothing is capped. #99 and #79. (2026-10-24)
-3. **A push is priced before it is made.** A stack-wide fix is merged up on the
+4. **A push is priced before it is made.** A stack-wide fix is merged up on the
    machine and pushed once, when it next needs to reach origin. Under decision 1 a
    pushed level costs about two runner-minutes (eight governance jobs and lint);
    read it again from the run's jobs. (2026-10-24)
-4. **The stack lands as the async contract's §1 says**: the bottom merged with a
+5. **The stack lands as the async contract's §1 says**: the bottom merged with a
    merge commit; the next pull request retargeted onto `main` before any branch is
-   deleted; marked ready; its gates read; merged. (async contract §1)
+   deleted; marked ready; its gates read, the suite run as decision 2 says among
+   them; merged. (async contract §1)
 
 ## 2. The queue, and what clears each step
 
@@ -39,11 +45,11 @@ maintainer's pull requests, #21 at the bottom.
 
 | Step | State at the stamp | Clears it |
 |---|---|---|
-| #21, `consolidate/2026-09-19`, the bottom | ready, clean, every check green; `main` is an ancestor of its head, so the merged tree is the tree its own checks ran on | **a person**: `qm-queue.md` §3 holds it -- merge or close. Its merge commit may carry `[skip ci]`, since the push would only re-run the checks the pull request ran on the same tree |
-| #24 to #61, the levels above it | green at their last push | each in turn as §1.4 says. A level whose base was not `main` never ran the checks a pull request into `main` runs (leaks, timeless text): run them on the machine on the merged tree before its merge (`project-seed/ci/check_leaks.py`, `check_timeless.py --base origin/main --head <branch>`) |
+| #21, `consolidate/2026-09-19`, the bottom | ready, clean, every check green; `main` is an ancestor of its head, so the merged tree is the tree its own checks ran on | `apothecary test all` on its head, the tree `main` will have (decision 2), then **a person**: `qm-queue.md` §3 holds it -- merge or close. Its merge commit may carry `[skip ci]`, since the push would only re-run the checks the pull request ran on the same tree |
+| #24 to #61, the levels above it | green at their last push | each in turn as §1.5 says, its suite run on its own head, which is the merged tree once the level below it has landed and `main` has not moved. A level whose base was not `main` never ran the checks a pull request into `main` runs (leaks, timeless text): run them on the machine on the merged tree before its merge (`project-seed/ci/check_leaks.py`, `check_timeless.py --base origin/main --head <branch>`) |
 | #62 to #65, `theatre` to `build/airgap` | `license-check` red: `pip-audit` finds advisories against the lock's `pillow` 12.3.0 and `certifi` 2025.10.5 | the lock the levels above them carry, merged down into #62's branch and up through #65 |
-| #92 | one browser shard red: cancelled at its job's twenty minutes while apt installed OpenSCAD and Chromium's libraries; no test failed | nothing under decision 1: its tests pass on the machine, and its next push runs governance and lint |
-| #80 to #98 | do not yet carry #99 and #79's change; their checks are the old full suite's | #99 and #79 merged up through each level -- conflicts in `CONTRIBUTING.md`'s CI table and its paragraph on the loop, `tests/e2e/conftest.py`'s collection hook and `tests/test_e2e_shards.py`, each resolved by keeping both sides -- and pushed once (decision 3) |
+| #92 | one browser shard red: cancelled at its job's twenty minutes while apt installed OpenSCAD and Chromium's libraries; no test failed | nothing in CI under decision 1: its next push runs governance and lint, and its suite runs on the machine before it merges (decision 2) |
+| #80 to #98 | do not yet carry #99 and #79's change; their checks are the old full suite's | #99 and #79 merged up through each level -- conflicts in `CONTRIBUTING.md`'s CI table and its paragraph on the loop, `tests/e2e/conftest.py`'s collection hook and `tests/test_e2e_shards.py`, each resolved by keeping both sides -- and pushed once (decision 4) |
 | apothecary's Dependabot pull requests | seven on `main`, ungrouped; apothecary has no `dependabot.yml` | a person, as `qm-queue.md` decision 5 says for every repository: one `dependabot.yml` with `groups:`, then the ungrouped ones closed |
 
 ## 3. Open, and paused until a person says
