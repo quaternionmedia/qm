@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-24T14:32:28Z'
+generated_at: '2026-10-24T14:36:46Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 271
+  documents: 272
   by_state:
     draft: 3
     generated: 7
     proposed: 38
     standing: 128
     transient: 22
-    unreviewed: 73
+    unreviewed: 74
   disagreements: 0
   unknown: 0
 documents:
@@ -1701,6 +1701,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-10-18-clearing-the-qm-queue.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-19-a-rename-closed-a-pull-request.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
