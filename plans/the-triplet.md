@@ -36,6 +36,10 @@ Peter Kagstrom answered these in session on 2026-10-23.
 - **The interactive half is a static viewer on GitHub Pages, after a local
   proof of concept.**
 - **The pages are the READMEs' tour** of codecarto and dossier.
+- **The default showgraph is every family at once:** the whole estate, from
+  which a family or a project is a step in.
+- **Everything stays local until there is a demo:** commits on local branches,
+  nothing pushed and no pull request opened.
 
 ---
 
@@ -354,11 +358,18 @@ of it is constraint 7 broken in a single file.
   - **URL routing**, which does not exist today:
     `?show=project:carlos&view=code` opens that view.
 
-  It reads the corpus through one resolver (`CODECARTO_CORPUS`, defaulting to
-  the sibling `qm` checkout, as the families test does). The pinned submodule
-  is behind on schema, so it is the explicit choice, not the default. The proof
-  of concept may overlay machine-scoped state (dirty, unpushed) because nothing
-  in it is committed, and it labels that state as this machine's.
+  **The default is every family at once.** A bare `?show`, and a Show panel
+  opened onto an empty canvas, draw the index. A family or a project is a step
+  into it.
+
+  It reads the corpus through one resolver. The governance pin is the default,
+  because it is the state the project adopted. `CODECARTO_CORPUS` replaces it
+  with another checkout, such as the sibling `qm` clone when the pin is behind
+  on schema. Every drawing says which commit it read, and whether it was the
+  pin. The reader accepts schemas 1 and 2, so a pin behind on schema still
+  draws, flat. The proof of concept may overlay machine-scoped state (dirty,
+  unpushed) because nothing in it is committed, and it labels that state as
+  this machine's.
 - **Then the static viewer on Pages.** A build of the web app with no backend:
   - It loads a show document through the snapshot-replay path, with positions
     already in the document.
