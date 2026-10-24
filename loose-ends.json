@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-24T18:58:27Z",
+  "generated_at": "2026-10-24T19:00:41Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-24T18:58:26Z"
+        "generated_at": "2026-10-24T19:00:40Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 276,
+    "loose_ends": 277,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 38,
-      "document-unreviewed": 80,
+      "document-unreviewed": 81,
       "stalled-thread": 138
     },
-    "open": 276,
+    "open": 277,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1086,6 +1086,14 @@
       "title": "perspectives/2026-10-19-a-rename-closed-a-pull-request.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-19-a-rename-closed-a-pull-request",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-24-the-corpus-read-whole-and-landed",
+      "title": "perspectives/2026-10-24-the-corpus-read-whole-and-landed.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-24-the-corpus-read-whole-and-landed",
       "address_parses": true
     },
     {
