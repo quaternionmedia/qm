@@ -11,6 +11,7 @@
 | member | governed |
 |---|---|
 | `alfred` | yes |
+| `otto` | no |
 | `carlos` | yes |
 | `qmetronome` | yes |
 | `holophonor` | no |
@@ -49,7 +50,7 @@ Everyone in these is in this family as well, and is in the table above.
 
 ## Starting here
 
-3 of 20 members carry governance, so this family has a governed entry point. Begin in `alfred`:
+3 of 21 members carry governance, so this family has a governed entry point. Begin in `alfred`:
 
 ```sh
 cd alfred
@@ -68,4 +69,4 @@ A governed member is one with a `project/<name>` branch in the corpus. Its recor
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-10-20 from `families.json`.*
+*Generated 2026-10-24 from `families.json`.*
