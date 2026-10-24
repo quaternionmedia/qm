@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-24T14:51:09Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-24T15:04:51Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **287**, unfiltered.
+Every governed document in this corpus: **288**, unfiltered.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 75 |
 | [G] `generated` | 7 |
-| [S] `standing` | 129 |
+| [S] `standing` | 130 |
 | [T] `transient` | 35 |
 
 ## Documents
@@ -266,6 +266,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/ref/repo-layout.md` | reference | — |
 | [S] | `standing` | `docs/usage/add-a-perspective.md` | reference | — |
 | [S] | `standing` | `docs/usage/build-these-docs.md` | reference | — |
+| [S] | `standing` | `docs/usage/develop-a-family-member.md` | reference | — |
 | [S] | `standing` | `docs/usage/draft-a-record.md` | reference | Starts at `Draft` or `Proposed` |
 | [S] | `standing` | `docs/usage/first-project.md` | reference | — |
 | [S] | `standing` | `docs/usage/getting-started.md` | reference | — |

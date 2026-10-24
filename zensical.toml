@@ -42,6 +42,7 @@ nav = [
         "usage/propagate-a-change.md",
         "usage/read-status-documents.md",
         "usage/run-ci-locally.md",
+        "usage/develop-a-family-member.md",
         "usage/build-these-docs.md",
     ] },
     { "Reference" = [

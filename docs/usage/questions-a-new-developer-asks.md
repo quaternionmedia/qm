@@ -97,6 +97,19 @@ readers are held to the [seam](../ref/glossary.md#seam){ .glossary-term } rather
 the harness's own turn counts, and `looksatwords` must emit no decision, which
 is the border its adoption record draws.
 
+**"How do I see the performing family play a show together?"**
+
+`uv run qm family-demo --stage` checks out each core member of the performing
+family on the branch its roster entry names, starts them on reserved ports, and
+puts the roster's show on ShowRunner, the hub. It presses GO through the hub's
+programmer for each cue, and the hub delivers the cue's `family` block to the
+members itself; the demo only watches. It then asserts, per member, what the
+member says about itself and what the hub says it delivered, and records a
+picture of the stage after every cue. `--hold --open` keeps it up in your
+browser to play by hand. `uv run qm family-demo` without `--stage` runs each
+member's own check instead, alone and then together. `ci/family-demo.yaml` is
+the roster, and `protocols/local-demo.md` the protocol it follows.
+
 ## Making a change
 
 **"What is going to stop me merging something bad?"**
