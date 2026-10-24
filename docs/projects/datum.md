@@ -7,7 +7,7 @@ title: datum
 
 # datum { .qm-family-title .qm-f-irl }
 
-<p class="qm-lede">Schema and wire contract.</p>
+<p class="qm-lede">A physical switch for devices that lost one: dry contacts in, versioned JSON events out over MQTT</p>
 
 [`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }

@@ -7,7 +7,7 @@ title: rad
 
 # rad { .qm-family-title .qm-f-core }
 
-<p class="qm-lede">Radial menu.</p>
+<p class="qm-lede">QM's default radial menu: an interaction contract, conformance vectors and a single-file web reference</p>
 
 [`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · JavaScript
 { .qm-caption }
