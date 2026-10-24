@@ -8,7 +8,7 @@ A family within another is listed under it, and its members count toward both. A
 
 | family | within | drives | members | governed |
 |---|---|---|---|---|
-| [`civic`](./civic.md) | — | the public — open information a community reads and adds to: maps, records, public data | 1 | 0 |
+| [`commons`](./commons.md) | — | the public — open information a community reads and adds to: maps, records, public data | 1 | 0 |
 | [`core`](./core.md) | — | the corpus and its tooling — governance, the archive, the deltas, the maps, the language data | 7 | 6 |
 | [`games`](./games.md) | — | play — a game somebody plays: its rules, its world, its loop, and the server it is played on | 5 | 1 |
 | [`infra`](./infra.md) | — | where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path | 5 | 1 |
@@ -20,4 +20,4 @@ A family within another is listed under it, and its members count toward both. A
 
 `4` rostered repositories claim no family. That is *unstated*, not *none* — nobody has answered the question for them, and a page that listed them as unfamilied would be inventing an answer.
 
-*Generated 2026-10-20.*
+*Generated 2026-10-24.*

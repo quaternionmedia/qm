@@ -2,10 +2,10 @@
 title: benchmark
 ---
 
-[civic](../families/civic.md)
+[commons](../families/commons.md)
 { .qm-eyebrow }
 
-# benchmark { .qm-family-title .qm-f-civic }
+# benchmark { .qm-family-title .qm-f-commons }
 
 <p class="qm-lede">A place to keep track of benches</p>
 

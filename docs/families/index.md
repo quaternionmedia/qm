@@ -64,15 +64,15 @@ Cues, lighting, sound and video playback, audio transport.
 
 </div>
 
-<div class="card qm-f-civic" markdown>
+<div class="card qm-f-commons" markdown>
 
 **the public**
 
-`civic` · 1 member
+`commons` · 1 member
 
 Open information a community reads and adds to: maps, records, public data.
 
-[The civic family →](civic.md){ .qm-card-link }
+[The commons family →](commons.md){ .qm-card-link }
 
 </div>
 

@@ -18,7 +18,7 @@ A version is a project's phase: `v0.0.0` has not adopted the corpus, `v0.0.1` ha
 | [aes](aes.md) | `v0.0.0` | AES67 scripts | [show-control](../families/show-control.md) | [GitHub](https://github.com/quaternionmedia/aes) |
 | [alfred](alfred.md) | `v0.0.1` | serverless video editing | [performing](../families/performing.md) | [GitHub](https://github.com/quaternionmedia/alfred) |
 | [apothecary](apothecary.md) | `v0.0.2` | miscellaneous parts | [irl](../families/irl.md) | [GitHub](https://github.com/quaternionmedia/apothecary) |
-| [benchmark](benchmark.md) | `v0.0.0` | A place to keep track of benches | [civic](../families/civic.md) | [GitHub](https://github.com/quaternionmedia/benchmark) |
+| [benchmark](benchmark.md) | `v0.0.0` | A place to keep track of benches | [commons](../families/commons.md) | [GitHub](https://github.com/quaternionmedia/benchmark) |
 | [carlos](carlos.md) | `v0.0.1` | Browser workspace for sketching synth rigs, governed via project/carlos. | [instruments](../families/instruments.md) | [GitHub](https://github.com/quaternionmedia/carlos) |
 | [cesar](cesar.md) | `v0.0.0` | A unified lighting / sound / video controller for theatrical applications | [show-control](../families/show-control.md) | [GitHub](https://github.com/quaternionmedia/cesar) |
 | [codecartographer](codecartographer.md) | `v0.0.2` | Project for mapping code | [core](../families/core.md) | [GitHub](https://github.com/quaternionmedia/codecartographer) |

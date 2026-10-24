@@ -437,7 +437,7 @@ def test_a_site_page_links_nothing_outside_the_site():
 def test_the_site_navigation_lists_every_family_page():
     """A generated page the navigation does not list is a page nobody reaches.
 
-    Mutation: drop `families/civic.md` from zensical.toml's nav and this fails.
+    Mutation: drop `families/commons.md` from zensical.toml's nav and this fails.
     """
     import json
     root = CI_DIR.parent

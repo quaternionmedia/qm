@@ -1,6 +1,6 @@
 # Quaternion Media Constitution
 
-<a href="walkthrough/families/README.md"><img src="walkthrough/families/families.svg" width="100%" alt="The QM families as a desk of channel strips: performing, holding instruments, performer-display and show-control, then civic, core, games, infra and irl, each with a meter lit by the share of its members past v0.0.0."></a>
+<a href="walkthrough/families/README.md"><img src="walkthrough/families/families.svg" width="100%" alt="The QM families as a desk of channel strips: performing, holding instruments, performer-display and show-control, then commons, core, games, infra and irl, each with a meter lit by the share of its members past v0.0.0."></a>
 
 *The estate, by what each repository drives. `performing` holds the three families that put on a show, a repository that drives two things is in both, and each meter is lit by the share past `v0.0.0`, the members that have adopted the corpus. Drawn by `uv run qm cookbook --write` from the roster and [the family record](records/DRAFT-a-family-is-bordered-by-what-it-drives.md).*
 
