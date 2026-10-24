@@ -24,6 +24,16 @@ serverless video editing
 
 </div>
 
+<div class="card qm-f-performing" markdown>
+
+[otto](../projects/otto.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span>
+
+automatic video generation
+
+</div>
+
 <div class="card qm-f-instruments" markdown>
 
 [the sound](instruments.md){ .qm-card-link }
