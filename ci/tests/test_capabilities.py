@@ -1,6 +1,6 @@
 """What the capability registry refuses, and what it deliberately does not.
 
-**THE CHECK IS NARROW ON PURPOSE AND THE TESTS SAY SO.** `ci/capabilities.py`
+The check is narrow on purpose and the tests say so. `ci/capabilities.py`
 verifies that a declaration is *readable* -- ordered rungs, a design pointer
 that resolves in this corpus, a stated limit. It verifies nothing about whether
 the evidence is true, and `test_a_command_that_does_not_exist_is_not_caught`
@@ -9,7 +9,7 @@ that only demonstrated the strengths would leave the gap for somebody to find at
 the worst moment, which is the shape
 `records/DRAFT-a-capability-has-four-phases.md` was written about.
 
-THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed:
+The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they printed:
 
 The ordered-rungs check removed, so a claim can stand above an empty rung:
 
@@ -85,7 +85,7 @@ def test_a_phase_that_is_not_a_rung_is_refused():
 
 
 def test_a_claim_standing_above_an_unevidenced_rung_is_refused():
-    """THE ONE THAT MATTERS.
+    """A claim standing above an unevidenced rung is refused.
 
     The rungs are ordered, so claiming `execution` while naming nothing for
     `deployment` is a ladder with a missing rung. It is not untidiness: the
@@ -144,7 +144,7 @@ def test_a_null_monitoring_rung_is_fine():
 
 
 def test_a_command_that_does_not_exist_is_not_caught():
-    """**THE LIMIT, PINNED RATHER THAN LEFT TO BE DISCOVERED.**
+    """The limit, pinned: a command that does not exist is not caught.
 
     A capability claiming `deployment` and naming a command nobody can run
     passes this file completely. That is precisely the defect the record is
@@ -210,10 +210,9 @@ def test_the_rendering_marks_a_rung_without_a_tick():
 
 
 def test_the_rendering_is_ascii_so_a_cp1252_console_can_print_it():
-    """It printed a replacement character the first time it ran.
-
-    The same failure `dossier.cli._make_output_encodable` documents, caught
-    here instead of in somebody's terminal.
+    """The rendering is ASCII: the same failure
+    `dossier.cli._make_output_encodable` documents, held here rather than in
+    somebody's terminal.
     """
     mod.render(mod.load()).encode("cp1252")
 

@@ -398,6 +398,20 @@ members:
       - an emulator or device harness; it is an Android build and this demo
         provisions browsers only
 
+  - name: stomp
+    phase: instruments
+    ports: {main: 18476}
+    needs:
+      - a host-side stand-in; it is MIDI foot-controller firmware for
+        Arduino and Teensy, and carries no contract branch
+
+  - name: uPhonor
+    phase: instruments
+    ports: {main: 18477}
+    needs:
+      - a host-side stand-in for its hardware, then the contract; it carries
+        no contract branch
+
   # --- show-control libraries: declared, not run ----------------------------
 
   - name: Cuelist-python
@@ -430,3 +444,10 @@ members:
     ports: {main: 18496}
     needs:
       - a loopback-only sender and receiver pair, measured for drops
+
+  - name: ira
+    phase: show-control-libraries
+    ports: {main: 18497}
+    needs:
+      - a fake fixture target; it drives theatre LEDs and must not reach a
+        rig, and its default branch is `master`

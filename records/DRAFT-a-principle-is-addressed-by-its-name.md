@@ -10,10 +10,10 @@
 
 ## Context
 
-The charter addressed its principles by position. A heading carried a letter
-and a number, edges between principles named that number, and the rest of the
-corpus followed: records, handbook pages, generated documents, docstrings and
-test fixtures all pointed at a position in one file.
+A charter can address its principles by position: a heading carries a letter
+and a number, edges between principles name that number, and the rest of the
+corpus follows, with records, handbook pages, generated documents, docstrings
+and test fixtures all pointing at a position in one file.
 
 A position is a claim about where a thing sits, and it is a claim that
 something other than the reference can change. Insert a principle anywhere but
@@ -30,14 +30,13 @@ resolve, and this one announces nothing.
 This is the same family as two rules the corpus already holds.
 `records/DRAFT-few-integers-in-durable-text.md` says a number in durable prose
 is a claim with an expiry date the prose does not carry, and a principle's
-number is exactly that. `ci/check_restatements.py` already warns about the
-neighbouring case in its own message — that a pointer at a numbered item goes
-wrong when an item is inserted above it — so the hazard was known one layer
-down and unaddressed one layer up.
+number is exactly that. `ci/check_restatements.py` warns about the
+neighbouring case in its own message: a pointer at a numbered item goes wrong
+when an item is inserted above it.
 
-Nothing had gone wrong yet. Principles had only ever been appended, so no
-reference had been reaimed. That is a property of the edit history rather than
-of the design, and it is not a property anybody had decided to preserve.
+While principles are only appended, no reference is reaimed. That is a
+property of an edit history rather than of the design, and nothing preserves
+it.
 
 ## Decision
 
@@ -54,8 +53,8 @@ have.
 ### §2 — Machine-read lines carry the name
 
 The charter's edge declarations name the principle at the other end. They read
-as sentences now — `rests-on show-it-by-running-it` says what it means, where
-the positional form needed a lookup to say anything at all. That readability is
+as sentences — `rests-on show-it-by-running-it` says what it means, where a
+positional form needs a lookup to say anything at all. That readability is
 a side effect and not the argument.
 
 ### §3 — Prose carries the name too, in backticks
@@ -83,12 +82,12 @@ document. A line that names the old form in order to forbid it annotates
 itself with a stated reason, and the count of exemptions is printed on every
 run — the same shape and the same price as the drafting lint's.
 
-The check was watched failing on the case it exists for, on a fixture and on
-this repository, before it was trusted.
+The check has been watched failing on the case it exists for, on a fixture and
+on this repository.
 
 ## Consequences
 
-**A rename now breaks references visibly instead of reaiming them quietly.**
+**A rename breaks references visibly instead of reaiming them quietly.**
 That is the whole trade: the positional form never dangled and was never right
 either. A name that changes leaves a reference that resolves to nothing, and
 nothing is a state a reader and a check can both see.
@@ -98,7 +97,7 @@ Their references are prose pointing into a document they vendor, so they do not
 break; they go stale in the way this record describes. Which repository fixes
 them, and when, is the `Pends on` above.
 
-**The charter's own text got shorter to read and longer on the page.** A name
+**The charter's own text is shorter to read and longer on the page.** A name
 is more characters than a number and fewer lookups. Anyone measuring the
 mandatory reading budget in lines should expect it to move the wrong way and be
 worth it.
@@ -124,10 +123,9 @@ opinion that has been edited to agree with a later decision is no longer
 evidence of what anybody thought, and the corpus keeps retrospectives for
 exactly that evidence.
 
-**Leave it, since nothing has gone wrong.** This is the argument the record
-answers. Nothing had gone wrong because principles had only been appended, and
-the first insertion in the middle would have produced a corpus that was
-confidently and undetectably wrong about what it stands on.
+**Leave it, since nothing has gone wrong.** Nothing goes wrong while principles
+are only appended, and the first insertion in the middle produces a corpus that
+is confidently and undetectably wrong about what it stands on.
 
 ## Revision triggers
 

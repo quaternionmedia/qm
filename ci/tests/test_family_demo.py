@@ -1005,7 +1005,7 @@ def test_the_dev_loop_page_names_flags_the_tool_has_and_what_restarts_each_membe
     Mutation: --port-offset renamed in the parser -- red here.
     Mutation: a glob added to joe's dev.restart_on and not to the page -- red here.
     """
-    page = (CI_DIR.parent / "docs" / "cookbook" / "develop-a-family-member.md").read_text(
+    page = (CI_DIR.parent / "docs" / "usage" / "develop-a-family-member.md").read_text(
         encoding="utf-8")
     with pytest.raises(SystemExit):
         family_demo.main(["--help"])

@@ -15,7 +15,7 @@
 
 **Assistants draft; humans ratify.** An assistant never performs any of the five steps.
 
-!!! warning "Step 3 is mechanically enforced and was documented nowhere"
+!!! warning "Step 3 is mechanically enforced"
     The lint finds ratified records by filename — `NUMBERED_FILENAME` in
     `project-seed/ci/adr_lint.py` is `^(?:ADR|QM)-(\d{4})-.+\.md$` — and it
     compares that set against the numbers in the index. Do the other four steps
@@ -25,13 +25,10 @@
     index lists record 0001 with no matching file.
     ```
 
-    Reproduced against a fixture: an `Accepted` record still named `DRAFT-*.md`,
-    listed in the index as `0001`, gives exactly that. The message names the
-    index rather than the filename, so the cause is not obvious from the error.
-
-    This bites the first person ever to ratify, which is the one act the corpus
-    is waiting to perform. Nothing in the repository stated the convention
-    before this page did.
+    An `Accepted` record still named `DRAFT-*.md`, listed in the index as
+    `0001`, gives exactly that against a fixture. The message names the index
+    rather than the filename, so the cause is not obvious from the error, and it
+    meets whoever performs a first ratification.
 
 ## Ratification is the last gate, not the only one
 
@@ -41,7 +38,7 @@ Branch protection makes this mechanical where it is enabled. The rule stands eit
 
 ## Why nothing is ratified yet
 
-Every org record is `Proposed`. This is a decision, not a backlog: ratification waits on a second active code owner. GitHub does not count a pull request author's own approval, so an approval its own author can supply would not be a real gate.
+No org record is ratified. This is a decision, not a backlog: ratification waits on a second active code owner. GitHub does not count a pull request author's own approval, so an approval its own author can supply would not be a real gate.
 
 The discipline is still enforced meanwhile — the lints and checks run in CI today. [handbook/governance-rollout.md](https://github.com/quaternionmedia/qm/blob/main/handbook/governance-rollout.md) tracks what is enforced, what is written but not yet mechanical, and what the wait costs.
 
@@ -56,4 +53,4 @@ Some records describe machinery that costs nothing to run early. That machinery 
 ## Related
 
 - [Record precedence](precedence.md) — what a ratified record binds
-- [Draft a record](../cookbook/draft-a-record.md) — how a record reaches `Proposed`
+- [Draft a record](../usage/draft-a-record.md) — how a record reaches `Proposed`

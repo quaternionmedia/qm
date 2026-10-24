@@ -1,9 +1,7 @@
 """A family is a claim, and the set of families is read from the record.
 
-The check that matters here is not that a claim resolves. It is that the tool
-holds no list of its own: this corpus has found four generators in one week
-whose hardcoded scope made them report on their own scaffolding, and a second
-copy of the families would have been the fifth.
+The tool holds no list of its own: a second copy of the families would be a
+scope nothing checks.
 """
 
 from __future__ import annotations
@@ -60,11 +58,8 @@ def test_an_entry_with_no_family_is_unstated_not_a_problem(tmp_path: Path):
 
 
 def test_a_record_declaring_no_families_is_refused_rather_than_vacuously_clean(tmp_path: Path):
-    """**THE EMPTY-SET CASE, WHICH IS HOW A CHECK STOPS CHECKING.**
-
-    With no families declared, every roster claim would be compared against
-    nothing and pass. That is the exact shape of the index check this corpus
-    found inert after its whole life, and of three scope lists beside it.
+    """With no families declared, every roster claim would be compared
+    against nothing and pass, so an empty declaration is refused.
 
     Mutation: return `[]` instead of a problem when `families` is empty, and
     this fails.
@@ -84,13 +79,10 @@ def test_renaming_a_family_in_the_record_breaks_the_claim_visibly(tmp_path: Path
 
 
 def test_a_private_repository_is_written_by_reference_never_by_name():
-    """**THE LEAK THE FIRST WRITE PRODUCED.**
-
-    `roster.load` merges the uncommitted private companion, so on a machine
-    that has it a private entry arrives carrying its real name. A writer using
-    `roster.label` -- which prefers `name` -- serialises that into a committed
-    file. Three names reached `families.json` this way and
-    `uv run qm private-names` is what caught them.
+    """`roster.load` merges the uncommitted private companion, so on a
+    machine that has it a private entry arrives carrying its real name. A
+    writer using `roster.label`, which prefers `name`, would serialise that
+    into a committed file.
 
     Mutation: use `roster.label` in `document` instead of `publishable` and
     this fails.
@@ -108,10 +100,9 @@ def test_a_public_repository_is_written_by_name():
 
 
 def test_a_table_outside_section_three_declares_nothing(tmp_path):
-    """**THE ADVERSARIAL APPENDIX.** A backticked first cell is a proxy for a
-    family row, and scanned over the whole record it matched any table
-    anywhere -- an appended appendix declared a seventh family that the roster
-    check would then have accepted claims against.
+    """A backticked first cell is a proxy for a family row; scanned over the
+    whole record it would match any table anywhere, so a table outside §3
+    declares nothing.
 
     Mutation: scan the whole text instead of the section and this fails.
     """
@@ -135,6 +126,92 @@ def test_the_committed_record_declares_exactly_the_known_set():
     the declared set, so a stray row would have shifted the vocabulary with
     no test noticing."""
     assert sorted(families.declared()) == [
-        "core", "games", "infra", "instruments", "irl", "performer-display",
-        "show-control"]
+        "commons", "core", "games", "infra", "instruments", "irl", "performer-display",
+        "performing", "show-control"]
+
+
+NESTED = """# A record
+
+### §3 — The families, and which sits within which
+
+| family | drives | within | named public members |
+|---|---|---|---|
+| `performing` | **a show** | — | v |
+| `show-control` | **the room** | `performing` | a; b |
+| `instruments` | **the sound** | `performing` | c; d |
+| `irl` | **matter** | — | e |
+"""
+
+
+def test_within_comes_from_the_column_the_header_names(tmp_path: Path):
+    parents = families.within(record(tmp_path, NESTED))
+    assert parents == {"performing": None, "show-control": "performing",
+                       "instruments": "performing", "irl": None}
+
+
+def test_a_table_with_no_within_column_nests_nothing(tmp_path: Path):
+    """The members column holds names too; read without the header, its first
+    name would be taken for the outer family."""
+    assert set(families.within(record(tmp_path)).values()) == {None}
+
+
+def test_a_repository_may_claim_two_families(tmp_path: Path):
+    path = record(tmp_path, NESTED)
+    found = families.problems([{"name": "pedal", "family": ["irl", "instruments"]}],
+                              families.declared(path), families.within(path))
+    assert found == []
+
+
+def test_one_undeclared_name_in_a_list_is_refused(tmp_path: Path):
+    path = record(tmp_path, NESTED)
+    found = families.problems([{"name": "x", "family": ["irl", "nowhere"]}],
+                              families.declared(path), families.within(path))
+    assert len(found) == 1 and "nowhere" in found[0]
+
+
+def test_a_family_named_twice_is_refused(tmp_path: Path):
+    path = record(tmp_path, NESTED)
+    found = families.problems([{"name": "x", "family": ["irl", "irl"]}],
+                              families.declared(path), families.within(path))
+    assert found and "more than once" in found[0]
+
+
+def test_a_family_beside_the_one_it_sits_within_is_refused(tmp_path: Path):
+    """The inner claim already places the repository in the outer family.
+
+    Mutation: drop the ancestor check in `problems` and this fails.
+    """
+    path = record(tmp_path, NESTED)
+    found = families.problems([{"name": "x", "family": ["instruments", "performing"]}],
+                              families.declared(path), families.within(path))
+    assert found and "sits within performing" in found[0]
+
+
+def test_a_within_naming_no_declared_family_is_refused(tmp_path: Path):
+    path = record(tmp_path, NESTED.replace("| `irl` | **matter** | — |",
+                                           "| `irl` | **matter** | `nowhere` |"))
+    found = families.problems([], families.declared(path), families.within(path))
+    assert found and "nowhere" in found[0]
+
+
+def test_a_family_within_itself_is_refused(tmp_path: Path):
+    path = record(tmp_path, NESTED.replace("| `performing` | **a show** | — |",
+                                           "| `performing` | **a show** | `instruments` |"))
+    found = families.problems([], families.declared(path), families.within(path))
+    assert any("within itself" in p for p in found)
+
+
+def test_everyone_in_an_inner_family_is_in_the_outer_one(tmp_path: Path):
+    path = record(tmp_path, NESTED)
+    entries = [{"name": "editor", "family": "performing"},
+               {"name": "synth", "family": "instruments"},
+               {"name": "pedal", "family": ["irl", "instruments"]}]
+    out = families.document(entries, families.declared(path), families.within(path))
+    by_name = {f["name"]: f for f in out["families"]}
+    assert by_name["performing"]["members"] == ["editor"]
+    assert by_name["performing"]["all_members"] == ["editor", "synth", "pedal"]
+    assert by_name["performing"]["subfamilies"] == ["instruments", "show-control"]
+    assert by_name["instruments"]["within"] == "performing"
+    assert "pedal" in by_name["irl"]["members"]
+    assert out["unstated"] == []
 

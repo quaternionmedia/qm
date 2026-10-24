@@ -3,8 +3,8 @@
 <!-- principle-name: allow "P1-P10 below are this plan's own work packages, numbered independently of the charter; its one charter reference is by name" -->
 
 **What this is.** Everything outstanding in `quaternionmedia/moat`, written as
-slices a session can pick up cold, ordered by dependency and by which slot each
-one consumes.
+slices a session can pick up cold, ordered by dependency and by the stack each
+one belongs to.
 
 **What it is not.** A schedule, and not a backlog anybody has committed to.
 Several items are decisions only a person may take, and those say so.
@@ -17,20 +17,20 @@ again — or retires the item, which is the cheaper outcome.
 
 ## The three lanes
 
-Ordering below is dependency and slot contention. Nothing here is calendar.
+Ordering below is dependency and stacking. Nothing here is calendar.
 
 | Lane | Where the work lands | What constrains order |
 |---|---|---|
 | **O — operational** | Live systems and credential stores. No branch, no pull request | Nothing. Independent of every other lane, and should not wait on one |
-| **C — corpus** | `quaternionmedia/qm` | Its own slot. One item, on which the whole of lane P's governance work blocks |
-| **P — project** | `quaternionmedia/moat` | One open pull request per repository per contributor. Strictly sequential — the binding constraint on this page |
+| **C — corpus** | `quaternionmedia/qm` | One item, on which the whole of lane P's governance work blocks |
+| **P — project** | `quaternionmedia/moat` | One active stack: each item is cut from the one above it and stays a draft until that one merges. Sequential by dependency — the binding constraint on this page |
 
-Both open pull requests in `moat` belong to the same contributor, so the slot is
-doubly occupied and the repository's own `one-pr-check` reports it. Freeing it is
-the precondition for every other item in lane P.
+Both open pull requests in `moat` belong to one contributor, the network one
+stacked on the adoption one. Under the stack rule the upper one stays a draft
+until the lower one merges, and lane P works the stack from the bottom.
 
-`uv run qm slot --repo quaternionmedia/moat` answers the slot question before
-any lane P session writes anything.
+`uv run qm stacks --repo quaternionmedia/moat` shows the stack before any lane P
+session writes anything.
 
 ---
 
@@ -149,9 +149,9 @@ Regenerating that document is what moves it, not editing it.
 
 ## Lane P — project (`quaternionmedia/moat`)
 
-One slot. Each item assumes the one above it has merged.
+One stack. Each item assumes the one above it has merged.
 
-### P0 — Free the slot
+### P0 — Read the stack
 
 **Blocks on** nothing. **Blocks** everything below.
 
@@ -167,15 +167,15 @@ gh pr list --repo quaternionmedia/moat --state open \
 gh pr checks 3; gh pr checks 4
 ```
 
-**Do.** Close the network pull request, or retarget its base to `main`. It is
-stacked on the adoption branch and inherits every finding below, which is the
-only reason it cannot land on its own.
+**Do.** Leave the network pull request a draft, stacked on the adoption
+branch: it inherits every finding below, which is why it lands after it. If it
+should land alone, retarget its base to `main` instead.
 
 **Watch the ordering.** Pushing a pull request's head onto its base *merges* it,
 and a later `gh pr close` is a silent no-op. Close first, then push. Retargeting
 is the safer of the two.
 
-**Done when.** One open pull request remains, and `one-pr-check` is green on it.
+**Done when.** No pull request in `moat` is ready while stacked, and `one-pr-check` is green on each.
 
 ### P1 — Reduce the adoption pull request to its record
 
@@ -295,7 +295,7 @@ fail for the reason it exists, and the mutation is written down beside it:
 |---|---|
 | `adr-lint` | Put a banned narrating word in a draft. Then rename a draft to a numbered filename with a non-Accepted status. Then edit an Accepted record's body outside its Amendments section |
 | `submodule-check` | Commit a submodule pointer bump without pushing the submodule commit |
-| `one-pr-check` | Open a second pull request as the same contributor, and — separately — as a different one. The first must fail and the second must pass. This is the hole in the reimplementation; a green here that does not distinguish them has not been tested |
+| `one-pr-check` | Mark ready a pull request whose base is another open pull request's branch; it must fail. Mark it a draft; it must pass. A green here that does not distinguish the two has not been tested |
 | `reuse-lint` | Add a tracked file no annotation covers |
 
 A check nobody has watched fail tells you what its author meant, not what it
@@ -363,7 +363,7 @@ describes can be run.
 
 ### P7 — Close the adoption record's remaining rows
 
-**Blocks on** P6. Each row is its own pull request and its own slot.
+**Blocks on** P6. Each row is its own pull request.
 
 **The finding.** The record's conflict table is the deliverable, and most rows
 are open by design — enumerating a gap is the adoption, not closing it. Two
@@ -424,7 +424,7 @@ resolve, and the publish workflow's trigger covers every chart in the tree.
 
 ### P9 — Retire the dead and the expired
 
-**Blocks on** nothing in this lane beyond the slot.
+**Blocks on** nothing in this lane beyond the stack beneath it.
 
 | | The finding | Establish it |
 |---|---|---|

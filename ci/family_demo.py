@@ -94,7 +94,7 @@ read per request -- it keeps doing. `POST /restart/<member>` on the stage, or
 its panel's button, restarts one member while the rest stay up. `--port-offset`
 moves every reserved port, so a dev family runs beside the integration family,
 and `--dev` is all of it: every core member from `<work>/dev/<member>`, reloaded,
-on the stage and held. `docs/cookbook/develop-a-family-member.md` is the loop.
+on the stage and held. `docs/usage/develop-a-family-member.md` is the loop.
 
 `protocols/local-demo.md` is the protocol this follows. It is the first runnable
 slice of a simultaneous run of the whole performing family: the core phase

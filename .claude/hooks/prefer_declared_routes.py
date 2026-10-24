@@ -1,28 +1,21 @@
 #!/usr/bin/env python3
 """Refuse a shell command that goes around a declared route.
 
-**THIS EXISTS BECAUSE THE RULE WAS ALREADY WRITTEN DOWN AND DID NOT HOLD.**
-`AGENTS.md` says `uv run qm --help` is the whole surface. A session then, in one
-day: ran `pytest` directly a dozen times instead of `qm test`, hand-rolled
-mutation testing with `cp` and `sed` instead of `qm mutate`, typed
-`python -c "import ast; ast.parse(...)"` after every edit instead of letting the
-suite check it, and documented a new demo by its file path rather than adding a
-route. Every one of those was against a rule the author had read.
+`AGENTS.md` says `uv run qm --help` is the whole surface. This hook fires when a
+shell command goes around a route that exists: running `pytest` directly
+instead of `qm test`, mutation testing by hand with `cp` and `sed` instead of
+`qm mutate`, parsing a file by hand instead of letting the suite check it.
+Reading a rule says what its author meant; only something that fires says
+whether it is followed
+(`records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md`).
 
-`records/DRAFT-a-check-is-evidence-only-after-it-has-failed.md` is the general
-finding: reading a rule tells you what its author meant. Only something that
-fires tells you whether it is being followed. This is the thing that fires.
-
-**IT WARNS AND ALLOWS BY DEFAULT.** A hook that blocked would eventually block
-something legitimate at the worst moment, and the first person to hit that turns
-the hook off -- which is worse than not having it. Set
+It warns and allows by default: a hook that blocked would eventually block
+something legitimate at the worst moment and be turned off. Set
 `QM_ROUTES_STRICT=1` to make it refuse instead.
 
-**IT IS DELIBERATELY SMALL.** It knows about the handful of commands that have a
-route and get bypassed anyway. A hook trying to police every command would fire
-on things it does not understand, and a guard that cries wolf gets switched off
--- which this corpus has already found once, in a checker that reported a false
-positive on its first run.
+It is deliberately small: it knows the commands that have a route and get
+bypassed, because a hook policing every command would fire on things it does
+not understand.
 
 Wire it in `.claude/settings.json`:
 
@@ -40,8 +33,8 @@ import sys
 
 # pattern -> (what to run instead, why it matters)
 #
-# Each of these was bypassed in the session that prompted the hook. A rule with
-# no instance behind it would be a guess about how somebody might go wrong.
+# Each pattern is a bypass that has happened, not a guess about how somebody
+# might go wrong.
 ROUTES: tuple[tuple[str, str, str], ...] = (
     (
         r"(?<!qm )(?<!run )\bpytest\b(?!.*--collect-only)",
@@ -105,15 +98,13 @@ def main() -> int:
     try:
         event = json.load(sys.stdin)
     except Exception:                              # noqa: BLE001
-        # **A HOOK THAT CANNOT READ ITS INPUT LETS THE WORK THROUGH.** Failing
+        # A hook that cannot read its input lets the work through. Failing
         # closed here would block every command on a parsing bug in the hook.
         return 0
 
-    # **VALID JSON IS NOT THE SAME AS THE RIGHT SHAPE.** `[]` and `null` parse
-    # fine and then raise on `.get`, so the guard above caught a decode error
-    # and let a type error through -- which fails *closed*, blocking every
-    # command, which is the one outcome this hook must never produce. Found by
-    # a test written for exactly this and not by reading the code.
+    # Valid JSON is not the same as the right shape: `[]` and `null` parse and
+    # then raise on `.get`, which would fail closed and block every command.
+    # A non-object input lets the work through too.
     if not isinstance(event, dict):
         return 0
 

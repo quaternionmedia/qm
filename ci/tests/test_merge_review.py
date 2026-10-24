@@ -6,7 +6,7 @@ test sees exactly the argument vector the host would have seen and none of
 them reaches the network. That is also what lets the listing be checked for
 the property that matters most: it issued read verbs only.
 
-THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
+The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
 Each was applied to `ci/merge_review.py`, the suite run, and the file restored
 and diffed against its original before the next; the suite was green before the
 first and after the last.
@@ -54,17 +54,41 @@ first and after the last.
     E       ('pr', 'merge')
     FAILED test_the_listing_issues_only_read_verbs
 
-**THE FIRST RED WAS THE SUITE'S OWN.** Before any mutation, the
-`unreadable-checks` row failed against the unmodified module: it passed
-`checks=None` to the fake host, and `None` is that fake's "use the green
-default". The row was asking about green checks and reporting a defect in
-`blockers` that was not there -- the setup describing itself. The rows now
-carry the fake's keyword arguments whole, and the unreadable-checks mutation
-above is the evidence that the repaired row reads the condition it names.
+  `blockers` with the never-ran branch disabled
+
+    FAILED test_a_main_only_gate_that_never_ran_blocks_ready
+    FAILED test_the_listing_keeps_a_pull_request_with_a_missing_gate_out_of_ready
+    2 failed, 34 passed
+
+  `runs_only_into` reading `doc.get("on")` without the True fallback
+
+    FAILED test_a_main_only_gate_that_never_ran_blocks_ready
+    FAILED test_the_listing_keeps_a_pull_request_with_a_missing_gate_out_of_ready
+    2 failed, 34 passed
+
+  `runs_only_into` without the `paths` exclusion
+
+    FAILED test_a_gate_with_a_path_filter_is_not_required
+    1 failed, 35 passed
+
+  `gated_workflows` taking an unreadable listing as no workflows
+
+    FAILED test_unreadable_workflows_are_unknown_rather_than_none
+    1 failed, 35 passed
+
+  `open_pull_requests` without `read_gates`
+
+    FAILED test_the_listing_keeps_a_pull_request_with_a_missing_gate_out_of_ready
+    1 failed, 35 passed
+
+The rows carry the fake host's keyword arguments whole, because `None` is that
+fake's "use the green default": a row passing `checks=None` would ask about
+green checks while claiming to test unreadable ones.
 """
 
 from __future__ import annotations
 
+import base64
 import json
 import subprocess
 import sys
@@ -81,6 +105,7 @@ REPO = "o/r"
 
 READY_VIEW = {
     "number": 7, "title": "One slice", "headRefName": "evolve/slice",
+    "baseRefName": "main",
     "author": {"login": "someone"}, "isDraft": False, "state": "OPEN",
     "mergeable": "MERGEABLE", "mergeStateStatus": "CLEAN",
 }
@@ -89,9 +114,31 @@ GREEN_CHECKS = [{"name": "tests", "bucket": "pass"},
 
 READ_VERBS = {("pr", "list"), ("pr", "view"), ("pr", "checks"), ("api", "user")}
 
+# A workflow that runs only on pull requests into `main`, as the three
+# main-only gates are written. `on` is left bare on purpose: YAML 1.1 reads it
+# as True, which is the case the reader has to handle.
+MAIN_ONLY = """name: Leak check
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+jobs:
+  leaks:
+    runs-on: ubuntu-latest
+"""
+LEAKS_RAN = {"name": "leaks", "bucket": "pass", "workflow": "Leak check"}
+
 
 def done(stdout="", stderr="", code=0) -> subprocess.CompletedProcess:
     return subprocess.CompletedProcess(("gh",), code, stdout, stderr)
+
+
+def is_read(call: tuple[str, ...]) -> bool:
+    """A read verb, or a GET against the REST API (no `-X`)."""
+    if call[:2] in READ_VERBS:
+        return True
+    return call[0] == "api" and "-X" not in call and call[1].startswith("repos/")
 
 
 class FakeHost:
@@ -99,11 +146,15 @@ class FakeHost:
 
     def __init__(self, *, view=None, checks=None, listing=None, login="someone",
                  merge=None, after=None, checks_reply=None, listing_reply=None,
-                 stacked=(), retarget=None):
+                 stacked=(), retarget=None, workflows=None, workflows_reply=None):
         self.view = READY_VIEW if view is None else view
         self.checks = GREEN_CHECKS if checks is None else checks
         self.listing = [self.view] if listing is None else listing
+        # The base's `.github/workflows/`, file name to text. None is a
+        # repository without the directory, which the host answers with 404.
+        self.workflows = workflows
         # Whole replies, for the cases where what the host says is not JSON.
+        self.workflows_reply = workflows_reply
         self.checks_reply = checks_reply
         self.listing_reply = listing_reply
         self.login = login
@@ -136,6 +187,21 @@ class FakeHost:
             return self.merge
         if args[0] == "api" and "pulls?state=open&base=" in args[1]:
             return done(json.dumps(self.stacked))
+        if args[0] == "api" and "/contents/.github/workflows?ref=" in args[1]:
+            if self.workflows_reply is not None:
+                return self.workflows_reply
+            if self.workflows is None:
+                return done(json.dumps({"message": "Not Found", "status": "404"}),
+                            "gh: Not Found (HTTP 404)", 1)
+            return done(json.dumps([
+                {"type": "file", "path": f".github/workflows/{name}",
+                 "sha": f"sha-{name}"} for name in self.workflows]))
+        if args[0] == "api" and "/git/blobs/sha-" in args[1]:
+            name = args[1].split("/git/blobs/sha-", 1)[1]
+            text = self.workflows[name]
+            return done(json.dumps({
+                "encoding": "base64",
+                "content": base64.b64encode(text.encode()).decode()}))
         if args[:3] == ("api", "-X", "PATCH"):
             return self.retarget
         if args[:3] == ("api", "-X", "DELETE"):
@@ -157,6 +223,9 @@ def host(monkeypatch):
     def install(**kw) -> FakeHost:
         fake = FakeHost(**kw)
         monkeypatch.setattr(merge_review, "gh", fake)
+        # The reads are cached per base and per blob; each test is its own host.
+        monkeypatch.setattr(merge_review, "_GATED", {})
+        monkeypatch.setattr(merge_review, "_BLOBS", {})
         return fake
     return install
 
@@ -191,11 +260,8 @@ def test_each_failing_condition_alone_blocks_ready(host, label, setup):
     so a predicate that dropped exactly one of them is caught by exactly one
     row here rather than hidden behind the others.
 
-    **THE LAST ROW WAS GREEN FOR THE WRONG REASON THE FIRST TIME.** It passed
-    `checks=None`, and `None` is the fake host's "use the default" -- so the
-    row asked about green checks and reported a module defect that was not
-    there. The setup described itself. Rows now carry the host's keyword
-    arguments whole, so what a row says is what the fake does.
+    Rows carry the host's keyword arguments whole, so what a row says is what
+    the fake does.
 
     Mutation: delete the `if pr.draft` branch of `blockers` and the `draft`
     row goes red alone; delete the pending branch and `pending` goes red.
@@ -222,18 +288,80 @@ def test_no_checks_at_all_is_a_state_and_not_a_read_failure(host):
     assert merge_review.blockers(pr) == []
 
 
+# --- a gate the host never started is a blocker, not a pass ---------------------
+
+
+def test_a_main_only_gate_that_never_ran_blocks_ready(host):
+    """The retarget case: every check that ran is green, and the workflow that
+    runs only on pull requests into `main` is absent from the list because
+    nothing started it. Absent is not green.
+
+    Mutation: delete the `if missing and pr.checks_read` branch of `blockers`
+    and this is red; read `doc.get("on")` without the True fallback and it is
+    red too, because the bare key `on` parses as True.
+    """
+    host(workflows={"leak-check.yml": MAIN_ONLY})
+    why = merge_review.blockers(merge_review.view(REPO, 7))
+    assert any("never ran: Leak check" in reason for reason in why), why
+
+
+def test_the_same_gate_having_reported_is_ready(host):
+    host(workflows={"leak-check.yml": MAIN_ONLY}, checks=GREEN_CHECKS + [LEAKS_RAN])
+    assert merge_review.blockers(merge_review.view(REPO, 7)) == []
+
+
+def test_a_gate_with_a_path_filter_is_not_required(host):
+    """Not running is a legitimate outcome for it.
+
+    Mutation: drop the `paths` exclusion from `runs_only_into` and this is red.
+    """
+    filtered = MAIN_ONLY.replace("    branches: [main]\n  push:",
+                                 "    branches: [main]\n    paths: ['ci/**']\n  push:")
+    host(workflows={"leak-check.yml": filtered})
+    assert merge_review.blockers(merge_review.view(REPO, 7)) == []
+
+
+def test_a_gate_filtered_on_another_base_is_not_required(host):
+    """A pull request stacked on `evolve/x` owes nothing to `main`'s gates."""
+    host(view={**READY_VIEW, "baseRefName": "evolve/x"},
+         workflows={"leak-check.yml": MAIN_ONLY})
+    assert merge_review.blockers(merge_review.view(REPO, 7)) == []
+
+
+def test_the_listing_keeps_a_pull_request_with_a_missing_gate_out_of_ready(host):
+    """One definition for both halves: the listing reads the base's gates too.
+
+    Mutation: drop `read_gates(pr)` from `open_pull_requests` and this is red.
+    """
+    host(workflows={"leak-check.yml": MAIN_ONLY})
+    text = merge_review.listing([("r", REPO)])
+    assert "never ran: Leak check" in text
+    assert not [line for line in text.splitlines() if "READY:" in line]
+
+
+def test_unreadable_workflows_are_unknown_rather_than_none(host):
+    """A failed read is not a base with no gates.
+
+    Mutation: return `[]` where `gated_workflows` returns None and this is red.
+    """
+    host(workflows_reply=done("", "boom", 1))
+    why = merge_review.blockers(merge_review.view(REPO, 7))
+    assert any("could not be read" in reason for reason in why), why
+
+
 # --- the listing reads and nothing else ---------------------------------------
 
 
 def test_the_listing_issues_only_read_verbs(host):
-    """**THE PROPERTY THE DEFAULT MODE EXISTS FOR.** Whatever the state of the
+    """The property the default mode exists for. Whatever the state of the
     queue -- here one READY pull request, which is the tempting case -- a
     listing never merges, closes or pushes."""
-    fake = host()
+    fake = host(workflows={"leak-check.yml": MAIN_ONLY},
+                checks=GREEN_CHECKS + [LEAKS_RAN])
     text = merge_review.listing([("r", REPO)])
     assert "READY" in text
-    verbs = {c[:2] for c in fake.calls}
-    assert verbs <= READ_VERBS, verbs - READ_VERBS
+    writes = [c for c in fake.calls if not is_read(c)]
+    assert writes == [], writes
     assert fake.merges == []
 
 
