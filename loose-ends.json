@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-24T14:26:31Z",
+  "generated_at": "2026-10-24T14:32:30Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-24T14:26:27Z"
+        "generated_at": "2026-10-24T14:32:28Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 285,
+    "loose_ends": 286,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 38,
-      "document-unreviewed": 72,
+      "document-unreviewed": 73,
       "stalled-thread": 155
     },
-    "open": 285,
+    "open": 286,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1006,6 +1006,14 @@
       "title": "perspectives/2026-10-11-what-was-left-on-the-disk.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-11-what-was-left-on-the-disk",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-12-what-the-push-found",
+      "title": "perspectives/2026-10-12-what-the-push-found.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-12-what-the-push-found",
       "address_parses": true
     },
     {
