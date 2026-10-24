@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-24T01:25:48Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-24T01:58:21Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -326,7 +326,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/harness-next-test.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-08-25.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-10-04.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/qm-queue-and-qmcp-cleanup.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/qm-queue.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qmcp-flows-as-deltas.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-of-the-records.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-session.md` | handoff | — |

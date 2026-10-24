@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-24T01:25:48Z'
+generated_at: '2026-10-24T01:58:21Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -1062,7 +1062,7 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/qm-queue-and-qmcp-cleanup.md
+- path: handbook/handoffs/qm-queue.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
