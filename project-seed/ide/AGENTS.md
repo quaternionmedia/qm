@@ -42,11 +42,10 @@ it targets and none of them required. This file names no vendor, and neither
 should anything you add to it.
 
 **Read the corpus's committed status documents before re-deriving what they
-hold.** `governance/qm/status/harness.yaml` carries its own refresh command and
-staleness budget in a `reading:` block inside the file.
-`governance/qm/status/governance.yaml` does **not** — for that one,
-`governance/qm/handbook/generated-documents.md` is the only statement of its
-refresh command and its 168-hour budget. Check the age before quoting a figure.
+hold.** `governance/qm/status/harness.yaml` and
+`governance/qm/status/governance.yaml` each carry their own refresh command and
+staleness budget in a `reading:` block inside the file. Check the age before
+quoting a figure.
 
 1. Read `governance/qm/PRINCIPLES.md` in full and the opening points of `governance/qm/README.md`. For namespaces and precedence, see `governance/qm/docs/ref/namespaces.md` and `governance/qm/docs/ref/precedence.md`.
 2. This project's own decision records live in `governance/qm/adr/` — inside
