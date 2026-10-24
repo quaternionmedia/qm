@@ -205,12 +205,7 @@ def test_a_ratified_record_is_counted_as_ratified(corpus):
 
 
 def test_a_directory_of_records_is_not_reported_as_empty(corpus):
-    """`ls-tree` without -r lists the directory entry and nothing in it.
-
-    The first run of this generator reported "no records" for a directory
-    holding ten of them, and it reported it as an unknown rather than as zero
-    -- which is the only reason it was caught at a glance.
-    """
+    """`ls-tree` without -r lists the directory entry and nothing in it."""
     doc = generate(corpus)
     assert doc["corpus"]["records"]["total"] == 2
 
@@ -248,6 +243,17 @@ def test_offline_reports_github_fields_as_unknown_rather_than_absent(corpus):
     for field in ("repository", "adoption", "open_prs"):
         assert "unknown" in entry[field], f"{field} must say why, not vanish"
     assert entry["repository"]["unknown"].endswith("--offline")
+
+
+def test_the_document_carries_how_to_read_it(corpus):
+    """A reader opens the file, not the handbook page about it.
+
+    Mutation: drop the `reading` block from `generate` and this fails.
+    """
+    reading = generate(corpus)["reading"]
+    assert reading["refresh"] == "uv run qm docs generate"
+    assert reading["staleness_budget_hours"] == 168
+    assert any("generated_at" in rule for rule in reading["do_not"])
 
 
 def test_the_credential_a_run_used_is_recorded(corpus):

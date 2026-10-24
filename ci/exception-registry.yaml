@@ -1,25 +1,21 @@
 # Every place a rule in this corpus deliberately does not apply.
 #
-# WHY ONE FILE. Before this, each exemption lived as a constant inside the tool
-# that honoured it: EXEMPT_SUBJECTS, ENFORCED_FROM, CORPUS_PER_BASE, EXEMPT,
-# ROOT_ALLOWED -- six of them, in five files, in four vocabularies, and
-# CORPUS_PER_BASE existed twice with no mechanism keeping the copies equal. A
-# reader asking "what is this corpus not enforcing, and why" had to read the
-# source of every check to find out, so the honest answer was that nobody knew.
+# One file, so "what is this corpus not enforcing, and why" is answered in one
+# place rather than by reading the source of every check.
 #
-# WHAT BELONGS HERE. An exemption: a rule that applies, and a named case where
+# What belongs here: an exemption, a rule that applies and a named case where
 # it does not. Configuration does not belong -- a list of directories a walker
 # skips, or of documents a generator writes, is how a tool works rather than
 # somewhere a rule stops.
 #
-# WHAT AN ENTRY COSTS. A reason somebody would defend out loud, the rule it
+# What an entry costs: a reason somebody would defend out loud, the rule it
 # suspends, and what it would take to remove it. An exemption without a stated
 # removal condition is permanent by default, and permanent-by-default is how a
 # corpus ends up not enforcing things nobody chose to stop enforcing.
 #
-# THIS FILE IS THE CLAIM, NOT THE ENFORCEMENT. Each tool still holds its own
+# This file is the claim, not the enforcement. Each tool still holds its own
 # constant; this registry records them so they can be read in one place and
-# counted. Making the tools read from here is the next step and is not done --
+# counted. The tools do not read from here --
 # `governance/exceptions.md` says so, and `ci/exceptions.py --drift` reports
 # where the two disagree.
 

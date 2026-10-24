@@ -1,9 +1,8 @@
 name: CI tooling tests
 
 # The checks in project-seed/ci/ are copied, by reference, into every adopting
-# project. Until now nothing tested them, and six defects reached the seed --
-# each one a check that reported success while enforcing nothing, which is the
-# only failure mode that matters for a check.
+# project, and these tests exercise them here first. The failure they look for
+# is a check that reports success while enforcing nothing.
 #
 # These tests build real git repositories rather than mocking git. The tools
 # are almost entirely about git, and a mock would encode the same
@@ -22,16 +21,13 @@ on:
       - 'ci/**'
       - '.github/workflows/ci-tooling-tests.yml'
 
-# One run per branch per workflow. A second push supersedes the first: nobody
-# reads the result of a run whose commit has already been replaced, and the
-# minutes are real -- 55 of this repository's 129 runs on 2026-08-11 came from
-# five iterative pushes to two pull request branches, where only the last
-# mattered.
+# One run per branch per workflow. A second push supersedes the first: the
+# result of a run whose commit has been replaced is not read, and its minutes
+# are billed.
 #
-# Cancellation is scoped to pull requests deliberately. On the default branch
-# and on a project branch the run IS the record of what that commit reported,
-# and cancelling it to start a newer one destroys the only evidence that the
-# earlier commit was ever checked.
+# Cancellation applies to pull requests only. On the default branch and on a
+# project branch the run is the record of what that commit reported, and
+# cancelling it would remove the only evidence that the commit was checked.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
@@ -61,21 +57,20 @@ jobs:
         #
         # The fixtures create submodules from local paths, which git refuses by
         # default since CVE-2022-39253. The repositories are built in the
-        # runner's own temp directory moments earlier, so the protection is not
-        # doing anything here except preventing the test from running.
+        # runner's own temp directory by the test itself, so the protection
+        # guards nothing here and is turned off for this step.
         run: python -m pytest project-seed/ci/tests ci/tests walkthrough -q --doctest-glob=*.md -n auto
 
       # The cookbook pages are executable, and this names their directory
-      # explicitly. It must: pytest ignores `testpaths` the moment it is given a
-      # path argument, and the step above gives it two -- so a `testpaths`-wired
-      # walkthrough would be collected by nobody and stay green forever.
-      # Verified: with `testpaths = ["walkthrough"]` set, a bare `pytest
-      # --collect-only` collects the pages and `pytest tests --collect-only`
-      # collects zero of them.
+      # explicitly. pytest ignores `testpaths` once it is given a path argument,
+      # and the step above gives it two, so a walkthrough wired only through
+      # `testpaths` would not be collected: with `testpaths = ["walkthrough"]`
+      # set, a bare `pytest --collect-only` collects the pages and
+      # `pytest tests --collect-only` collects none of them.
       #
       # Separate step rather than more paths on the line above, so a failure
       # names which half broke.
-      - name: Run the executable cookbook pages
-        run: python -m pytest --doctest-glob='*.md' docs/cookbook -q
+      - name: Run the executable usage pages
+        run: python -m pytest --doctest-glob='*.md' docs/usage -q
         env:
           GIT_ALLOW_PROTOCOL: file:https:ssh

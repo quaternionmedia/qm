@@ -11,7 +11,7 @@
 ## Context
 
 `DRAFT-project-phase-ladder.md` settles what a *project* is working toward. It
-leaves untouched a smaller subject that turns out to fail in its own way: a
+leaves untouched a smaller subject that fails in its own way: a
 **capability** — one named thing a system can do, which persists after the
 change that introduced it is closed.
 
@@ -21,25 +21,18 @@ is not. `DeltaPhase` cannot hold that, and should not be stretched to: its
 ladder runs `brainstorm → complete`, and a capability is at its most dangerous
 *after* the delta that built it closed.
 
-**The failure this record exists for was measured rather than imagined.** On
-2026-08-25 a local round ran three repositories against each other for the first
-time — `perspectives/2026-08-25-defects-between-two-green-suites.md`. Four
-defects were found. The shape they shared is not "untested"; every one of them
-was tested. It is that **something was designed, and its being reachable was
-assumed**:
+**The failure this record exists for is measured, not imagined**
+(`perspectives/2026-08-25-defects-between-two-green-suites.md`). Its shape is
+not "untested": the code is tested. It is that **something is designed, and
+its being reachable is assumed**:
 
-- `qmcp.topology_view` and `qmcp.orchestration` opened with `uv run qmcp
-  topology gallery` and `uv run qmcp orchestration plane`. Six of the ten
-  command groups those modules named did not exist. The modules imported, their
-  functions worked, their tests passed.
-- `MCPClient()` defaulted to a port the server had stopped serving. Both sides
-  were tested, each against itself.
-- `qmcp.topology_service`'s own opening paragraph records the same shape from
-  earlier: *"The contract was tested and the seam was not deployed, and those
-  look identical from inside the demo."*
+- A module's docstring opens with commands whose groups do not exist, while the
+  module imports, its functions work and its tests pass.
+- A client defaults to a port the server no longer serves, with both sides
+  tested, each against itself.
 
 A vocabulary that cannot distinguish *designed* from *reachable* cannot report
-any of that, and every view in this organisation lacked one.
+either.
 
 ## Decision
 
@@ -111,9 +104,8 @@ closed at `complete` while its capability was never reachable is exactly the
 state this record exists to name, and merging the vocabularies would make that
 state unsayable.
 
-**Three phases — design, execution, monitoring.** Rejected on the evidence in
-the Context: `deployment` is where four of four measured defects sat, and
-folding it into either neighbour returns the vocabulary to the one that could
+**Three phases — design, execution, monitoring.** Rejected: `deployment` is
+where the measured defects sit (Verification), and folding it into either neighbour returns the vocabulary to the one that could
 not report them.
 
 **Infer the phase from the evidence and drop the claim.** Rejected, and it is

@@ -1,36 +1,35 @@
 # The capability registry: what each named thing this estate can do has reached,
 # and what nobody has established about it.
 #
-# A CAPABILITY IS NOT A DELTA. A delta is a unit of work and it ends. A
+# A capability is not a delta. A delta is a unit of work and it ends. A
 # capability persists after the change that introduced it closed, and it is at
 # its most dangerous exactly then -- designed, merged, and reachable by nobody.
 # `records/DRAFT-a-capability-has-four-phases.md` is the decision; the four
 # rungs and what each declines to claim are stated there and not restated here.
 #
-# `phase` IS A CLAIM A HUMAN MADE, AND NOTHING DERIVES IT. That is clause 3 of
+# `phase` is a claim a human made, and nothing derives it. That is clause 3 of
 # the record, inherited from the project phase ladder: the claim and the
 # evidence are separate documents and neither may be rewritten to match the
 # other. A generator that read the evidence and set the phase would delete the
 # only signal worth having -- the gap between them.
 #
-# THE EVIDENCE FIELDS NAME WHERE TO LOOK, NOT WHAT WAS FOUND. Each is a pointer
+# The evidence fields name where to look, not what was found. Each is a pointer
 # a reader or a window can follow: a path for `design`, a command for
 # `deployment`, an address pattern for `execution`, a document for `monitoring`.
 # `null` means nobody has established it, and `null` is not `false` -- a rung
 # with no evidence is unknown, never failed. Clause 5.
 #
-# WHY DEPLOYMENT HAS ITS OWN RUNG. It is the one that fails without a symptom.
-# Six of ten `uv run qmcp ...` commands named in that package's own docstrings
-# did not exist on 2026-08-25; the modules imported, their functions worked and
-# their tests passed. Nothing was red.
-# `perspectives/2026-08-25-defects-between-two-green-suites.md` has the four
+# Deployment has its own rung because it is the one that fails without a
+# symptom: a command named in a package's own docstrings can be missing while
+# its modules import, its functions work and its tests pass.
+# `perspectives/2026-08-25-defects-between-two-green-suites.md` records the
 # defects and their commands.
 #
-# A WINDOW RENDERS THIS AND ADDS NOTHING. `dossier` and `codecarto` are two
+# A window renders this and adds nothing. `dossier` and `codecarto` are two
 # views of one estate. A phase named in one must mean the same thing in the
 # other, so the words live here.
 #
-# ADDING A CAPABILITY IS AN EDIT TO THIS FILE. `python ci/capabilities.py
+# Adding a capability is an edit to this file. `python ci/capabilities.py
 # --check` refuses a declaration nobody could act on.
 
 schema: 1

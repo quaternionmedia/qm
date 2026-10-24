@@ -1,19 +1,17 @@
 """What a branch census must tell apart before anybody deletes anything.
 
-**REAL REPOSITORIES WITH A REAL REMOTE, NEVER A MOCK.** Everything this tool
-reports is a fact about refs, and the two errors it exists to avoid are both
-beliefs about git rather than about code: that a branch ahead by zero commits
-holds nothing, and that a branch ahead by one holds something. A mock encodes
-whichever belief its author had and then agrees with it.
+Real repositories with a real remote, never a mock. Everything this tool
+reports is a fact about refs, and the two errors it exists to avoid are beliefs
+about git: that a branch ahead by zero commits holds nothing, and that a branch
+ahead by one holds something. A mock encodes whichever belief its author had.
 
-THE CASE THAT MOTIVATES THE WHOLE FILE. Two branches in `dossier`, both a
-single unpushed commit, both seventeen days old, identical in every count a
-`rev-list` can produce. `governance/adopt-corpus` had already landed by another
-route and holds nothing; `wip/delta-entity-type-local` is 556 lines that exist
-on one disk. `test_a_cherry_picked_branch_is_not_counted_as_loss` and
+Two branches can each carry a single unpushed commit of the same age and be
+identical in every count `rev-list` produces, while one has already landed by
+another route and the other is work on one disk.
+`test_a_cherry_picked_branch_is_not_counted_as_loss` and
 `test_a_branch_with_its_own_work_is_counted_as_loss` are those two.
 
-THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
+The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they printed:
 
   `unique_commits` counting every cherry line instead of only the `+` ones
 
@@ -35,13 +33,11 @@ THE MUTATIONS, per `a-check-is-evidence-after-it-fails`, quoted as they printed.
 
     AssertionError: assert 'ahead' == 'stranded'
 
-AND ONE FLAKE THIS SUITE CAUGHT IN ITSELF. The two cherry-pick tests first
-passed by luck. With author and committer dates pinned by the fixture
-environment, `git cherry-pick` of a tip onto its own parent reproduces the
-*original sha*, so the branch became an ancestor of `main` and the assertions
-held vacuously. It surfaced only because a mutation run printed
-`assert 0 == 1` on a line no mutation touched. Both tests now amend the message
-after picking: same patch, different commit, which is the state being tested.
+With author and committer dates pinned by the fixture environment,
+`git cherry-pick` of a tip onto its own parent reproduces the original sha, so
+the branch would become an ancestor of `main` and the assertions would hold
+vacuously. Both cherry-pick tests amend the message after picking: same patch,
+different commit, which is the state being tested.
 """
 
 from __future__ import annotations
@@ -97,22 +93,18 @@ def census(repo: Path) -> dict[str, bc.Branch]:
 
 
 def test_a_cherry_picked_branch_is_not_counted_as_loss(pair):
-    """**THE ONE THE WHOLE TOOL TURNS ON.**
-
-    A branch whose commit was applied to `main` under a different sha is ahead
-    by one and holds nothing. Reported as loss, it teaches a reader that the
-    census cries wolf, and the next real one is ignored.
+    """A branch whose commit was applied to `main` under a different sha is
+    ahead by one and holds nothing. Reported as loss, it teaches a reader that
+    the census cries wolf.
     """
     git(pair, "checkout", "-q", "-b", "picked")
     tip = commit(pair, "feature.txt", "work\n")
     git(pair, "checkout", "-q", "main")
     git(pair, "cherry-pick", tip)
-    # **THE SHA MUST DIFFER AND THE PATCH MUST NOT.** With author and
-    # committer dates pinned by the fixture environment, a cherry-pick of
-    # the tip onto its own parent reproduces the ORIGINAL SHA, the branch
-    # is then an ancestor of main, and this test asserts nothing while
-    # passing. Amending the message changes the commit and leaves the
-    # patch identical, which is the situation being tested.
+    # The sha must differ and the patch must not: with the fixture's pinned
+    # dates, a cherry-pick of the tip onto its own parent reproduces the
+    # original sha and the test would assert nothing. Amending the message
+    # changes the commit and leaves the patch identical.
     git(pair, "commit", "-q", "--amend", "-m", "landed by another route")
     git(pair, "push", "-q", "origin", "main")
 
@@ -141,11 +133,9 @@ def test_a_branch_with_its_own_work_is_counted_as_loss(pair):
 
 
 def test_a_pushed_branch_with_newer_local_commits_is_stranded(pair):
-    """rad's `evolve/rad-v1`, in miniature.
-
-    Its remote ref was fully merged into `main`, so `git branch -r --merged`
-    listed it as safe to delete, while the clone held seven commits nobody
-    else could fetch.
+    """A remote ref fully merged into `main`, which `git branch -r --merged`
+    lists as safe to delete, while the clone holds commits nobody else can
+    fetch.
     """
     git(pair, "checkout", "-q", "-b", "shared")
     commit(pair, "shared.txt", "pushed\n")
@@ -211,12 +201,8 @@ def test_the_gate_fires_only_on_work_that_would_be_lost(pair):
     tip = commit(pair, "feature.txt", "work\n")
     git(pair, "checkout", "-q", "main")
     git(pair, "cherry-pick", tip)
-    # **THE SHA MUST DIFFER AND THE PATCH MUST NOT.** With author and
-    # committer dates pinned by the fixture environment, a cherry-pick of
-    # the tip onto its own parent reproduces the ORIGINAL SHA, the branch
-    # is then an ancestor of main, and this test asserts nothing while
-    # passing. Amending the message changes the commit and leaves the
-    # patch identical, which is the situation being tested.
+    # The sha must differ and the patch must not: see the cherry-pick test
+    # above.
     git(pair, "commit", "-q", "--amend", "-m", "landed by another route")
     git(pair, "push", "-q", "origin", "main")
 
@@ -246,8 +232,8 @@ def test_the_census_never_takes_a_delete_flag():
 
 
 def test_automation_branches_are_summarised_rather_than_listed(pair):
-    """Fourteen dependabot rows push the branches a person must decide about
-    off the top of a terminal."""
+    """Dependabot rows, one per branch, would push the branches a person must
+    decide about off the top of a terminal."""
     for n in range(3):
         git(pair, "checkout", "-q", "-b", f"dependabot/uv/thing-{n}")
         commit(pair, f"bot{n}.txt", "bump\n")
