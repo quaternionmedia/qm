@@ -48,7 +48,7 @@ git checkout -b perspective/<YYYY-MM-DD>-<slug>
 git add perspectives/<YYYY-MM-DD>-<slug>.md
 git commit -m 'perspective: <title>'
 git push origin perspective/<YYYY-MM-DD>-<slug>
-gh pr create --draft
+gh pr create
 ```
 
 ## Update the index

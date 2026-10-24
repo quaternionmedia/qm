@@ -42,7 +42,7 @@ Each principle names its enforcement mechanism. Read the full charter for the re
 
 ## The records
 
-The org records are drafted and awaiting ratification. Every one is marked `Proposed`, because [ratification](../ref/glossary.md#ratification){ .glossary-term } requires a second active code owner. The [records index](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records) links to each record.
+The org records are drafted and awaiting ratification. None is ratified yet, because [ratification](../ref/glossary.md#ratification){ .glossary-term } requires a second active code owner. The [records index](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records) links to each record.
 
 ## Related
 

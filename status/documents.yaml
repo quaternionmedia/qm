@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-24T13:38:18Z'
+generated_at: '2026-10-24T13:54:55Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -121,12 +121,12 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 275
+  documents: 274
   by_state:
     draft: 3
     generated: 7
     proposed: 38
-    standing: 129
+    standing: 128
     transient: 28
     unreviewed: 70
   disagreements: 0
@@ -952,15 +952,6 @@ documents:
   refresh: python ci/gate_dashboard.py status/gates.yaml --format md --out handbook/gates.md
   present: true
 - path: handbook/generated-documents.md
-  class: handbook
-  class_reason: policy binding on QM's own conduct
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: handbook/glossary.md
   class: handbook
   class_reason: policy binding on QM's own conduct
   declared_status: null

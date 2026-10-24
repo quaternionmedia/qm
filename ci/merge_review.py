@@ -43,7 +43,11 @@ What it refuses to do:
 
 What it cannot see: whether the pull request should merge, only whether the
 host says it can. A green pull request carrying unrelated work is READY here
-and wrong; `uv run qm branch` is the reader of that.
+and wrong; `uv run qm branch` is the reader of that. A gate the host never
+started does not appear among the checks, so the base's own workflows are read
+for the ones that run only on pull requests into it, and each must have
+reported; a workflow with a path filter may legitimately not run and is not
+required. It
 reads the contributor's own pull requests only: another contributor's queue is
 not this contributor's to merge, and a bot's is not anybody's.
 """
@@ -51,11 +55,15 @@ not this contributor's to merge, and a bot's is not anybody's.
 from __future__ import annotations
 
 import argparse
+import base64
+import fnmatch
 import json
 import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
+
+import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -136,6 +144,12 @@ class PullRequest:
     # False when `gh pr checks` could not be read. Distinct from "no checks",
     # which is an empty pair of lists with this True.
     checks_read: bool = True
+    # The workflow names that reported any check, whatever its state.
+    reported: set[str] = field(default_factory=set)
+    # The workflows on the base that run only on pull requests into it.
+    # `gates_read` is False when the base's workflows could not be read.
+    gated: list[str] = field(default_factory=list)
+    gates_read: bool = True
 
     @classmethod
     def from_host(cls, repo: str, raw: dict) -> "PullRequest":
@@ -179,13 +193,102 @@ def blockers(pr: PullRequest) -> list[str]:
         why.append("failing: " + ", ".join(pr.failing))
     if pr.pending:
         why.append("pending: " + ", ".join(pr.pending))
+    if not pr.gates_read:
+        why.append(f"the workflows on {pr.base} could not be read, so which "
+                   "gates must run is unknown")
+    missing = [name for name in pr.gated if name not in pr.reported]
+    if missing and pr.checks_read:
+        why.append(f"never ran: {', '.join(missing)}, which run only on pull "
+                   f"requests into {pr.base}; a push to the branch starts them")
     return why
+
+
+# A workflow whose `pull_request` trigger is filtered to the base branch does
+# not run while a pull request is stacked on another branch, and a retarget
+# starts it only if it lists `edited`. `gh pr checks` lists what ran, so a gate
+# that never started is invisible there; it is found by reading the base's
+# workflows. One with a path filter is excused, because not running is then a
+# legitimate outcome. Cached per base and per blob, since every pull request
+# into one base asks the same question.
+_GATED: dict[tuple[str, str], list[str] | None] = {}
+_BLOBS: dict[tuple[str, str], str | None] = {}
+
+
+def runs_only_into(doc, base: str) -> bool:
+    """Whether a parsed workflow runs on pull requests into `base` and no other."""
+    if not isinstance(doc, dict):
+        return False
+    # YAML 1.1 reads the bare key `on` as the boolean True.
+    block = doc.get("on", doc.get(True))
+    trigger = block.get("pull_request") if isinstance(block, dict) else None
+    if not isinstance(trigger, dict):
+        return False
+    if "paths" in trigger or "paths-ignore" in trigger:
+        return False
+    branches = trigger.get("branches")
+    if not isinstance(branches, list):
+        return False
+    return any(fnmatch.fnmatchcase(base, str(pattern)) for pattern in branches)
+
+
+def _blob(repo: str, sha: str) -> str | None:
+    key = (repo, sha)
+    if key not in _BLOBS:
+        raw = gh_json("api", f"repos/{repo}/git/blobs/{sha}")
+        text = None
+        if isinstance(raw, dict) and raw.get("encoding") == "base64":
+            try:
+                text = base64.b64decode(str(raw.get("content", ""))).decode("utf-8")
+            except (ValueError, UnicodeDecodeError):
+                text = None
+        _BLOBS[key] = text
+    return _BLOBS[key]
+
+
+def gated_workflows(repo: str, base: str) -> list[str] | None:
+    """The names of the workflows on `base` that run only on pull requests into
+    it. An empty list when it has none; None when they could not be read.
+
+    A workflow without a `name:` is named by its path, as the host names it.
+    """
+    key = (repo, base)
+    if key in _GATED:
+        return _GATED[key]
+    entries = gh_json("api", f"repos/{repo}/contents/.github/workflows?ref={base}")
+    if isinstance(entries, dict) and str(entries.get("status")) == "404":
+        entries = []
+    names: list[str] | None = [] if isinstance(entries, list) else None
+    for entry in entries if names is not None else []:
+        path = str(entry.get("path", ""))
+        if entry.get("type") != "file" or not path.endswith((".yml", ".yaml")):
+            continue
+        text = _blob(repo, str(entry.get("sha", "")))
+        try:
+            doc = yaml.safe_load(text) if text is not None else None
+        except yaml.YAMLError:
+            doc = None
+        if doc is None:
+            names = None
+            break
+        if runs_only_into(doc, base):
+            names.append(str(doc.get("name") or path))
+    _GATED[key] = names
+    return names
+
+
+def read_gates(pr: PullRequest) -> None:
+    """Fill in the gates the base requires, or mark them unreadable."""
+    gated = gated_workflows(pr.repo, pr.base) if pr.base else []
+    if gated is None:
+        pr.gates_read = False
+    else:
+        pr.gated = gated
 
 
 def read_checks(pr: PullRequest) -> None:
     """Fill in the failing and pending check names, or mark them unreadable."""
     done = gh("pr", "checks", str(pr.number), "--repo", pr.repo,
-              "--json", "name,bucket")
+              "--json", "name,bucket,workflow")
     if NO_CHECKS in (done.stderr or ""):
         return
     try:
@@ -198,6 +301,8 @@ def read_checks(pr: PullRequest) -> None:
     for row in rows:
         name = str(row.get("name", "?"))
         bucket = str(row.get("bucket", ""))
+        if row.get("workflow"):
+            pr.reported.add(str(row["workflow"]))
         if bucket in FAILING_BUCKETS:
             pr.failing.append(name)
         elif bucket == PENDING_BUCKET:
@@ -222,6 +327,7 @@ def open_pull_requests(repo: str) -> list[PullRequest] | None:
     found = [PullRequest.from_host(repo, row) for row in rows]
     for pr in found:
         read_checks(pr)
+        read_gates(pr)
     return found
 
 
@@ -232,6 +338,7 @@ def view(repo: str, number: int) -> PullRequest | None:
         return None
     pr = PullRequest.from_host(repo, raw)
     read_checks(pr)
+    read_gates(pr)
     return pr
 
 

@@ -56,11 +56,11 @@ with a date looks checked.
    number, updates the index) — you draft, you never ratify.
 3. **Everything you produce arrives as a pull request, and the pull request is
    an audit record rather than a request for anyone's attention.** Work on a
-   branch — `evolve/<slug>` for org-level work, `perspective/<date>-<slug>` for
-   a perspective, `project/<name>` for one project's records — open a PR, and
-   **merge it yourself once every gate is green.** Your output is a `main` that
-   is clean and working, entered through a pull request so the gates ran and the
-   diff stays readable.
+   branch — `evolve/<slug>` for org-level work and, cut from `project/<name>`,
+   for one project's records; `perspective/<date>-<slug>` for a perspective —
+   open a PR, and **merge it yourself once every gate is green.** Your output
+   is a `main` that is clean and working, entered through a pull request so the
+   gates ran and the diff stays readable.
 
    **Never push `main` directly**, however small or obviously correct the change
    looks. That is the one act that destroys the audit record.
