@@ -176,13 +176,24 @@ def local_cell(local: object) -> str:
     return "<td>" + "".join(bits) + "</td>"
 
 
+def version_cell(version: object) -> str:
+    """The project's rung, as the document read it from the branch and the
+    stated phase. One the document could not establish is unknown, with why."""
+    reason = unknown_reason(version)
+    if reason is not None:
+        return f'<td class="s-unknown" title="{esc(reason)}">unknown</td>'
+    if not isinstance(version, str):
+        return '<td class="s-muted">not collected</td>'
+    return f'<td><span class="mono">{esc(version)}</span></td>'
+
+
 def phase_cell(phase: str, source: str) -> str:
     """The claim, with its provenance attached.
 
     The provenance is not decoration. `scaffolded` means nobody decided this --
-    the ladder's floor applied because nothing was stated -- and a table that
-    renders it identically to a phase somebody chose has turned a default into
-    a finding.
+    the ladder's default applied because nothing was stated, `v0.0.0` without
+    a branch and `v0.0.1` with one -- and a table that renders it identically
+    to a phase somebody chose has turned a default into a finding.
     """
     if phase == UNKNOWN:
         return '<td class="s-unknown">unknown</td>'
@@ -198,26 +209,55 @@ def phase_cell(phase: str, source: str) -> str:
 def governance_cell(governance: object) -> str:
     """What has landed, never what was claimed.
 
-    A complete artifact set renders as `precondition met`, which is the whole
-    claim this column is entitled to make: it means a human may now assert
-    v0.0.1, not that anybody has.
+    A complete seed renders as `seed complete`, which is the whole claim this
+    column is entitled to make: the seed measures how far a `v0.0.1` project's
+    adoption has got, and a complete one means a human may now say adoption is
+    complete, not that anybody has. It never decides a rung -- the version does
+    that, from the branch.
     """
     reason = unknown_reason(governance)
     if reason is not None:
         return f'<td class="s-unknown" title="{esc(reason)}">unknown</td>'
     if not isinstance(governance, dict):
         return '<td class="s-muted">not collected</td>'
-    state = governance.get("precondition")
+    state = governance.get("seed")
     if state == "n/a":
-        return '<td class="s-muted">—</td>'
-    if state == "met":
-        return f"<td>{pill('precondition met', OK)}</td>"
+        return f'<td class="s-muted" title="{esc(governance.get("asserts"))}">—</td>'
+    if state == "complete":
+        return f"<td>{pill('seed complete', OK)}</td>"
+    if state != "incomplete":
+        return f'<td class="s-unknown">{esc(state)}</td>'
     missing = ", ".join(governance.get("missing") or [])
     return (
         "<td>"
         + pill("incomplete", WARN)
         + f'<div class="sub">missing: {esc(missing)}</div></td>'
     )
+
+
+def stated_as_intent(repositories: list[dict]) -> list[tuple[dict, str, str]]:
+    """(repository, stated phase, why) for every phase that is not the version.
+
+    The document marks these as `intent`: a phase stated for a project with no
+    `project/<name>` branch stands beside its `v0.0.0` and never in its place.
+    A stated phase whose version could not be established is listed with the
+    reason, so it never reads as standing when nobody could check.
+    """
+    out = []
+    for repo in repositories:
+        version = repo.get("version")
+        if repo.get("intent"):
+            why = (
+                "no project/<name> branch in the corpus, so the project stands at "
+                f"{version} and the stated phase is intent; it reaches v0.0.1 "
+                "when a human gives it its branch"
+                if version == "v0.0.0"
+                else f"the project stands at {version}, and the stated phase is not its version"
+            )
+            out.append((repo, str(repo["intent"]), why))
+        elif str(repo.get("phase_source")) == "stated" and unknown_reason(version) is not None:
+            out.append((repo, str(repo.get("phase")), "version unknown: " + unknown_reason(version)))
+    return out
 
 
 def pr_counts(slots: dict) -> str:
@@ -247,6 +287,7 @@ def render(document: dict, fragment: bool = False) -> str:
             f'<th scope="row">{esc(repo.get("name"))}'
             f'<div class="sub">{esc(repo.get("role"))}</div></th>'
             + family_cell(repo)
+            + version_cell(repo.get("version"))
             + phase_cell(
                 str(repo.get("phase", UNKNOWN)), str(repo.get("phase_source", UNKNOWN))
             )
@@ -265,24 +306,7 @@ def render(document: dict, fragment: bool = False) -> str:
     unmeasured = [
         r for r in repositories if unknown_reason(r.get("slots", {})) is not None
     ]
-    # A claim above governance, where governance itself is not evidenced. This
-    # is the gap the ladder exists to keep visible: the rung was named in a
-    # session, its definition lives in no record, and the rung below it has not
-    # landed. None of those three facts is a failure on its own.
-    ahead_of_evidence = []
-    for repo in repositories:
-        if str(repo.get("phase_source")) != "stated":
-            continue
-        if str(repo.get("phase", "")) <= "v0.0.1":
-            continue
-        governance = repo.get("governance")
-        reason = unknown_reason(governance)
-        if reason is not None:
-            ahead_of_evidence.append((repo, reason))
-        elif isinstance(governance, dict) and governance.get("precondition") != "met":
-            ahead_of_evidence.append(
-                (repo, "v0.0.1 missing: " + ", ".join(governance.get("missing") or []))
-            )
+    intents = stated_as_intent(repositories)
 
     unplaced = [
         r
@@ -316,17 +340,17 @@ def render(document: dict, fragment: bool = False) -> str:
         or "<p class=\"s-ok\">Every repository present carries a phase.</p>"
     )
 
-    ahead_html = (
+    intent_html = (
         "".join(
-            f'<div class="gap"><h3>{esc(repo["name"])} — {esc(repo["phase"])} stated</h3>'
-            f"<p>{esc(why)}</p>"
-            "<p>What this rung asserts belongs in this project's own records. "
-            "Until it is written there, the phase is a statement of intent.</p>"
+            f'<div class="gap"><h3>{esc(repo["name"])} — {esc(phase)} stated</h3>'
+            f"<p>{esc(why)}.</p>"
+            "<p>A rung above v0.0.1 also needs what it asserts written in the "
+            "project's own records.</p>"
             "</div>"
-            for repo, why in ahead_of_evidence
+            for repo, phase, why in intents
         )
-        or '<p class="s-ok">No project claims a rung above governance without '
-        "governance evidence behind it.</p>"
+        or '<p class="s-ok">Every stated phase is its project\'s version: no '
+        "project states a phase without the branch behind it.</p>"
     )
 
     unmeasured_html = (
@@ -401,8 +425,9 @@ def render(document: dict, fragment: bool = False) -> str:
         n_over=esc(totals.get("over_limit")),
         n_unknown=esc(totals.get("slots_unknown")),
         n_unplaced=len(unplaced),
-        n_met=esc(totals.get("governance_precondition_met")),
+        n_seed=esc(totals.get("seed_complete")),
         n_readable=esc(totals.get("governance_readable")),
+        n_past=esc(totals.get("past_v0.0.0")),
         n_scaffolded=esc(totals.get("phase_scaffolded")),
         ladder_source=esc(generator.get("phase_ladder_source") or "unstated"),
         rows="\n".join(rows),
@@ -416,7 +441,7 @@ def render(document: dict, fragment: bool = False) -> str:
         stalled_after=esc(generator.get("stalled_after_hours")),
         over=over_html,
         unplaced=unplaced_html,
-        ahead=ahead_html,
+        intent=intent_html,
         unmeasured=unmeasured_html,
         scope=scope_html,
     )
@@ -443,7 +468,8 @@ BODY = """<main>
   <div class="card"><div class="n s-ok">{n_compliant}</div><div class="l">within the stack rule</div></div>
   <div class="card"><div class="n s-warn">{n_over}</div><div class="l">ready while stacked</div></div>
   <div class="card"><div class="n s-unknown">{n_unknown}</div><div class="l">could not read</div></div>
-  <div class="card"><div class="n">{n_met} <span class="s-muted">/ {n_readable}</span></div><div class="l">v0.0.1 precondition</div></div>
+  <div class="card"><div class="n">{n_past}</div><div class="l">past v0.0.0</div></div>
+  <div class="card"><div class="n">{n_seed} <span class="s-muted">/ {n_readable}</span></div><div class="l">seed complete</div></div>
   <div class="card"><div class="n s-unknown">{n_scaffolded}</div><div class="l">phase scaffolded</div></div>
 </div>
 
@@ -452,8 +478,9 @@ BODY = """<main>
 <thead><tr>
   <th scope="col">Repository</th>
   <th scope="col">Family <span class="s-muted">(claimed)</span></th>
+  <th scope="col">Version</th>
   <th scope="col">Phase <span class="s-muted">(claimed)</span></th>
-  <th scope="col">v0.0.1 governance <span class="s-muted">(evidence)</span></th>
+  <th scope="col">Seed <span class="s-muted">(evidence)</span></th>
   <th scope="col">Open PRs</th>
   <th scope="col">Stacks</th>
   <th scope="col">This machine</th>
@@ -534,20 +561,25 @@ survives — pushing first merges it, with no review and no way to undo the
 record.</p>
 {over}
 
-<h2>Claimed above the evidence</h2>
-<p>The ladder is <span class="mono">{ladder_source}</span>.
-<b>v0.0.1 is governance</b> and means the same thing in every project; every
-rung above it is defined by the project, in the project's own records. The
-Phase column is a claim somebody made. The governance column is what has landed
+<h2>Stated as intent</h2>
+<p>The ladder is <span class="mono">{ladder_source}</span>. A project is at
+<b>v0.0.0</b> until a human gives it a
+<span class="mono">project/&lt;name&gt;</span> branch in the corpus, and at
+<b>v0.0.1</b> from then on, however far along. Every rung above it is defined
+by the project, in the project's own records. The Version column reads the branch and the phase a human
+stated; the Phase column is the claim itself. The Seed column is what has landed
 on the default branch — work sitting in an open pull request is work, and it is
-not evidence.</p>
-{ahead}
+not evidence — and it measures how far adoption has got without deciding a
+rung. A phase stated for a project with no branch is intent, listed here beside
+its version.</p>
+{intent}
 
 <h2>Phases nobody has answered</h2>
 <p><span class="s-unknown">unknown</span> is the honest value for a repository
 nobody could place, and is not a synonym for the bottom rung. A phase marked
 <span class="s-unknown">scaffolded</span> is different again: it is the ladder's
-floor applied because nothing was stated, and it is answered by editing
+default applied because nothing was stated — v0.0.0 for a project with no
+branch, v0.0.1 for one with it — and it is answered by editing
 <span class="mono">ci/workspace.yaml</span>.</p>
 <div class="q">
 {unplaced}
@@ -698,11 +730,21 @@ def md_state(governance: object) -> str:
         return f"unknown ({reason})"
     if not isinstance(governance, dict):
         return "not collected"
-    if governance.get("precondition") == "n/a":
+    state = governance.get("seed")
+    if state == "n/a":
         return "n/a"
-    if governance.get("precondition") == "met":
-        return "precondition met"
+    if state == "complete":
+        return "seed complete"
+    if state != "incomplete":
+        return f"unrecognised ({state})"
     return "incomplete — missing " + ", ".join(governance.get("missing") or [])
+
+
+def md_version(version: object) -> str:
+    reason = unknown_reason(version)
+    if reason is not None:
+        return f"unknown ({reason})"
+    return version if isinstance(version, str) else "not collected"
 
 
 def md_slot(slots: dict) -> str:
@@ -750,16 +792,25 @@ def render_markdown(document: dict) -> str:
         f"{totals.get('compliant')} within the stack rule, "
         f"{totals.get('over_limit')} over it, "
         f"{totals.get('slots_unknown')} unreadable; "
-        f"{totals.get('governance_precondition_met')} of "
-        f"{totals.get('governance_readable')} readable meet the v0.0.1 "
-        f"precondition; {totals.get('phase_scaffolded')} phases scaffolded."
+        f"{totals.get('past_v0.0.0')} past v0.0.0, {totals.get('at_v0.0.0')} at it, "
+        f"{totals.get('version_unknown')} unknown; seed complete in "
+        f"{totals.get('seed_complete')} of {totals.get('governance_readable')} "
+        f"readable; {totals.get('phase_scaffolded')} phases scaffolded, "
+        f"{totals.get('phase_stated_as_intent')} stated as intent."
     )
     add("")
-    add("| Repository | Family (claimed) | Phase (claimed) | Source | v0.0.1 governance (evidence) | Stacks | Release |")
-    add("|---|---|---|---|---|---|---|")
+    add(
+        "A project is at `v0.0.0` until it has a `project/<name>` branch in the "
+        "corpus and at `v0.0.1` from then on; the seed measures how far its "
+        "adoption has got and never decides a rung."
+    )
+    add("")
+    add("| Repository | Family (claimed) | Version | Phase (claimed) | Source | Seed (evidence) | Stacks | Release |")
+    add("|---|---|---|---|---|---|---|---|")
     for repo in document.get("repositories", []):
         add(
-            f"| {repo.get('name')} | {family_of(repo)} | {repo.get('phase')} | "
+            f"| {repo.get('name')} | {family_of(repo)} | {md_version(repo.get('version'))} | "
+            f"{repo.get('phase')} | "
             f"{repo.get('phase_source')} | {md_state(repo.get('governance'))} | "
             f"{md_slot(repo.get('slots', {}))} | {md_release(repo.get('release'))} |"
         )
@@ -839,9 +890,12 @@ def render_markdown(document: dict) -> str:
         if str(repo.get("phase_source")) == "scaffolded":
             actions.append(
                 f"- **{repo['name']}**: phase `{repo.get('phase')}` is the "
-                "ladder's floor applied because nothing was stated. Confirm or "
-                "replace it in `ci/workspace.yaml`."
+                "ladder's default applied because nothing was stated — `v0.0.0` "
+                "without a `project/<name>` branch, `v0.0.1` with one. Confirm "
+                "or replace it in `ci/workspace.yaml`."
             )
+    for repo, phase, why in stated_as_intent(document.get("repositories", [])):
+        actions.append(f"- **{repo['name']}**: `{phase}` stated as intent — {why}.")
     if actions:
         lines.extend(actions)
     else:
@@ -853,7 +907,7 @@ def render_markdown(document: dict) -> str:
     gaps = [
         f"- **{r['name']}** {layer}: {unknown_reason(r.get(layer))}"
         for r in document.get("repositories", [])
-        for layer in ("slots", "governance", "local")
+        for layer in ("slots", "governance", "version", "local")
         if unknown_reason(r.get(layer)) is not None
     ]
     lines.extend(gaps or ["- nothing; every layer was read for every repository"])
