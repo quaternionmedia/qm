@@ -49,10 +49,10 @@ The template's own comment blocks state the full rules. The lint that enforces t
 git add records/DRAFT-<slug>.md
 git commit -m 'draft: <title>'
 git push
-gh pr create --draft
+gh pr create
 ```
 
-Assign the person who asked for the work. Do not request a review.
+Mark it draft only if it is unfinished or stacked on another open one. Assign the person who asked for the work. Do not request a review. Merge it yourself once every gate is green.
 
 ## What happens at ratification
 

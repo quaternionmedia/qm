@@ -11,7 +11,7 @@ When the org changes `main` — a ratified [record](../ref/glossary.md#record){ 
 
 1. Someone cuts a `propagate/<name>-<date>` branch from your `project/<name>` branch.
 2. They merge `main` into it and open a pull request whose base is `project/<name>`.
-3. A human reviews and merges. The merge commit is the new submodule pin.
+3. Its author merges it once every gate is green. The merge commit is the new submodule pin.
 
 The merge is never a rebase: your submodule pins the branch tip by ancestry, and a rebase would break the pin.
 
