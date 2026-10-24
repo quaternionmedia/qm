@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-24T14:13:43Z",
+  "generated_at": "2026-10-24T14:21:52Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-24T14:13:41Z"
+        "generated_at": "2026-10-24T14:21:51Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 283,
+    "loose_ends": 284,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 38,
-      "document-unreviewed": 70,
+      "document-unreviewed": 71,
       "stalled-thread": 155
     },
-    "open": 283,
+    "open": 284,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1006,6 +1006,14 @@
       "title": "perspectives/2026-10-18-clearing-the-qm-queue.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-18-clearing-the-qm-queue",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-19-a-rename-closed-a-pull-request",
+      "title": "perspectives/2026-10-19-a-rename-closed-a-pull-request.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-19-a-rename-closed-a-pull-request",
       "address_parses": true
     },
     {
