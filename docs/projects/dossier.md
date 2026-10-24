@@ -1,11 +1,18 @@
 ---
 title: dossier
+hide:
+  - navigation
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 [core](../families/core.md)
 { .qm-eyebrow }
 
-# dossier { .qm-family-title .qm-f-core }
+# dossier<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
 <p class="qm-lede">Documentation standardization tool that auto-parses project documentation</p>
 
@@ -14,15 +21,19 @@ title: dossier
 
 [dossier on GitHub](https://github.com/quaternionmedia/dossier){ .md-button .md-button--primary }
 
-<div class="grid" markdown>
+</div>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-hero-shot" markdown>
 
-![The rad menu open over the dashboard, with Go, Reach, Close, Do and Show on its cells.](https://github.com/quaternionmedia/dossier/raw/HEAD/docs/screenshots/rad_ring_top_level.svg)
+[![The rad menu open over the dashboard, with Go, Reach, Close, Do and Show on its cells.](https://github.com/quaternionmedia/dossier/raw/HEAD/docs/screenshots/rad_ring_top_level.svg)](https://github.com/quaternionmedia/dossier/raw/HEAD/docs/screenshots/rad_ring_top_level.svg)
 
-<figcaption>The rad menu open over the dashboard, with Go, Reach, Close, Do and Show on its cells.</figcaption>
+<figcaption><strong>dossier.</strong> The rad menu open over the dashboard, with Go, Reach, Close, Do and Show on its cells.</figcaption>
 
 </figure>
+
+</div>
+
+<div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
 

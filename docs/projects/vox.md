@@ -1,11 +1,14 @@
 ---
 title: vox
+hide:
+  - navigation
+  - toc
 ---
 
 [core](../families/core.md)
 { .qm-eyebrow }
 
-# vox { .qm-family-title .qm-f-core }
+# vox<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
 <p class="qm-lede">The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter</p>
 

@@ -1,14 +1,32 @@
 ---
 title: performing
+hide:
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 performing
 { .qm-eyebrow }
 
-# a show { .qm-family-title .qm-f-performing }
+# a show<span class="qm-dot">.</span> { .qm-family-title .qm-f-performing }
 
 Drives a show — what an audience sees and hears, and the video made before and after it.
 { .qm-lede }
+
+</div>
+
+<figure class="qm-hero-shot" markdown>
+
+[![Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.](https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png)](../projects/carlos.md)
+
+<figcaption><strong>carlos.</strong> Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.</figcaption>
+
+</figure>
+
+</div>
 
 ## Who is in it
 
@@ -21,6 +39,16 @@ Drives a show — what an audience sees and hears, and the video made before and
 <span class="qm-meta">v0.0.1</span>
 
 serverless video editing
+
+</div>
+
+<div class="card qm-f-performing" markdown>
+
+[otto](../projects/otto.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.0</span>
+
+automatic video generation
 
 </div>
 

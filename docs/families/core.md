@@ -1,14 +1,32 @@
 ---
 title: core
+hide:
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 core
 { .qm-eyebrow }
 
-# the corpus and its tooling { .qm-family-title .qm-f-core }
+# the corpus and its tooling<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
 Drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data.
 { .qm-lede }
+
+</div>
+
+<figure class="qm-hero-shot" markdown>
+
+[![The rad menu open over the dashboard, with Go, Reach, Close, Do and Show on its cells.](https://github.com/quaternionmedia/dossier/raw/HEAD/docs/screenshots/rad_ring_top_level.svg)](../projects/dossier.md)
+
+<figcaption><strong>dossier.</strong> The rad menu open over the dashboard, with Go, Reach, Close, Do and Show on its cells.</figcaption>
+
+</figure>
+
+</div>
 
 ## Who is in it
 

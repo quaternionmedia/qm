@@ -1,11 +1,14 @@
 ---
 title: QLab-python
+hide:
+  - navigation
+  - toc
 ---
 
 [show-control](../families/show-control.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# QLab-python { .qm-family-title .qm-f-show-control }
+# QLab-python<span class="qm-dot">.</span> { .qm-family-title .qm-f-show-control }
 
 <p class="qm-lede">QLab interface for Python</p>
 

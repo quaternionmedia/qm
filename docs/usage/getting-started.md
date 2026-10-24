@@ -37,7 +37,7 @@ Read [PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.
 ## 3. Learn the rules that bind
 
 1. **Only `records/` binds.** Records are the only binding documents. Everything else points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified yet, and that is deliberate: [ratification](../ref/glossary.md#ratification){ .glossary-term } requires approval from a second active code owner.
+2. **No record is ratified yet.** That is deliberate: [ratification](../ref/glossary.md#ratification){ .glossary-term } requires approval from a second active code owner.
 3. **Every change arrives as a pull request** — from a typo fix to a new record. It is the audit record rather than a request for attention, and its author merges it once every [gate](../ref/glossary.md#gate){ .glossary-term } is green. Nothing reaches `main` by direct push.
 4. **Two moments need a human, and the pull request is neither**: ratifying a record, and putting a version tag on a project. A tag says a person read the change set, ran it against the real thing, and saw the checks pass. `main` is not a claim, so merging into it is not a release.
 
@@ -61,9 +61,9 @@ Pick something small — a typo, a broken link, an unclear sentence. Then:
 
 1. Create a branch: `git checkout -b evolve/<slug>`
 2. Make the change and commit it.
-3. Open a draft pull request: `gh pr create --draft`. Do not request a review.
+3. Open a pull request: `gh pr create`. Mark it draft only if it is unfinished or stacked on another open one. Do not request a review.
 4. Assign the person who asked for the work.
-5. A human reviews and merges.
+5. Merge it yourself once every gate is green.
 
 If several agent sessions run at the same time, the rules in [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) apply. The most important one: one change per pull request, parallel when independent, stacked as drafts when dependent.
 

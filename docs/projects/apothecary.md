@@ -1,11 +1,18 @@
 ---
 title: apothecary
+hide:
+  - navigation
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 [irl](../families/irl.md)
 { .qm-eyebrow }
 
-# apothecary { .qm-family-title .qm-f-irl }
+# apothecary<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }
 
 <p class="qm-lede">OpenSCAD generation toolkit and curated printable parts, composed from Python</p>
 
@@ -14,13 +21,13 @@ title: apothecary
 
 [apothecary on GitHub](https://github.com/quaternionmedia/apothecary){ .md-button .md-button--primary }
 
-<div class="grid" markdown>
+</div>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-hero-shot" markdown>
 
-![The fractal viewer walking a garage layout and what it holds.](https://github.com/quaternionmedia/apothecary/raw/HEAD/docs/assets/fractal-viewer-walkthrough.gif)
+[![The fractal viewer walking a garage layout and what it holds.](https://github.com/quaternionmedia/apothecary/raw/HEAD/docs/assets/fractal-viewer-walkthrough.gif)](https://github.com/quaternionmedia/apothecary/raw/HEAD/docs/assets/fractal-viewer-walkthrough.gif)
 
-<figcaption>The fractal viewer walking a garage layout and what it holds.</figcaption>
+<figcaption><strong>apothecary.</strong> The fractal viewer walking a garage layout and what it holds.</figcaption>
 
 </figure>
 

@@ -1,11 +1,13 @@
 ---
 title: commons
+hide:
+  - toc
 ---
 
 commons
 { .qm-eyebrow }
 
-# the public { .qm-family-title .qm-f-commons }
+# the public<span class="qm-dot">.</span> { .qm-family-title .qm-f-commons }
 
 Drives the public — open information a community reads and adds to: maps, records, public data.
 { .qm-lede }

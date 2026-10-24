@@ -1,11 +1,14 @@
 ---
 title: datum
+hide:
+  - navigation
+  - toc
 ---
 
 [irl](../families/irl.md)
 { .qm-eyebrow }
 
-# datum { .qm-family-title .qm-f-irl }
+# datum<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }
 
 <p class="qm-lede">A physical switch for devices that lost one: dry contacts in, versioned JSON events out over MQTT</p>
 

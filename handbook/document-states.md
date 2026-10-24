@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-23T01:28:04Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-24T14:13:41Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -10,7 +10,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
 | Records ratified | every requirement below | **0 of 41**; 38 proposed |
-| Mandatory reading | under budget | 1199 of 1200 lines |
+| Mandatory reading | under budget | 1190 of 1200 lines |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **272**, unfiltered.
+Every governed document in this corpus: **268**, unfiltered.
 
 | | |
 |---|---|
@@ -60,10 +60,10 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 38 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 69 |
+| [-] `unreviewed` | 70 |
 | [G] `generated` | 7 |
 | [S] `standing` | 128 |
-| [T] `transient` | 27 |
+| [T] `transient` | 22 |
 
 ## Documents
 
@@ -170,6 +170,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-topology-docstrings-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-11-what-was-left-on-the-disk.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-15-the-voice-set-landing.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-18-clearing-the-qm-queue.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |
@@ -193,7 +194,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/about/history.md` | reference | — |
 | [S] | `standing` | `docs/about/index.md` | reference | — |
 | [S] | `standing` | `docs/about/overview.md` | reference | — |
-| [S] | `standing` | `docs/families/civic.md` | reference | — |
+| [S] | `standing` | `docs/families/commons.md` | reference | — |
 | [S] | `standing` | `docs/families/core.md` | reference | — |
 | [S] | `standing` | `docs/families/games.md` | reference | — |
 | [S] | `standing` | `docs/families/index.md` | reference | — |
@@ -229,6 +230,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/projects/ludwig.md` | reference | — |
 | [S] | `standing` | `docs/projects/midiphonor.md` | reference | — |
 | [S] | `standing` | `docs/projects/moat.md` | reference | — |
+| [S] | `standing` | `docs/projects/otto.md` | reference | — |
 | [S] | `standing` | `docs/projects/qm.md` | reference | — |
 | [S] | `standing` | `docs/projects/qmcp.md` | reference | — |
 | [S] | `standing` | `docs/projects/qmetronome.md` | reference | — |
@@ -275,7 +277,6 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `handbook/design-review-runbook.md` | handbook | — |
 | [S] | `standing` | `handbook/forking-a-project.md` | handbook | — |
 | [S] | `standing` | `handbook/generated-documents.md` | handbook | — |
-| [S] | `standing` | `handbook/glossary.md` | handbook | — |
 | [S] | `standing` | `handbook/governance-rollout.md` | handbook | — |
 | [S] | `standing` | `handbook/handoffs/README.md` | index | — |
 | [S] | `standing` | `handbook/merge-review.md` | handbook | — |
@@ -320,24 +321,19 @@ A state says whether a page binds you. It never says the content is right — St
 | [T] | `transient` | `handbook/handoffs/dossier-delta-review.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/enact-the-stages.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/families-delineated.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/for-a-stronger-model.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/governance-loop-poc.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/governance-status-generator.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/harness-next-test.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-08-25.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/hil-review-2026-10-04.md` | handoff | — |
+| [T] | `transient` | `handbook/handoffs/qm-queue.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/qmcp-flows-as-deltas.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-of-the-records.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/semantic-review-session.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/session-2026-08-12.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/session-2026-08-15.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/session-2026-08-23.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/six-branches-reached-origin.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/the-active-four.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/the-pair-and-the-fresh-setup.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-voice-loop.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/the-web-window.md` | handoff | — |
-| [T] | `transient` | `handbook/handoffs/two-gate-and-tag-teeth.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/two-views-one-dataset.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/views-declare-what-they-need.md` | handoff | — |
 | [T] | `transient` | `handbook/handoffs/voice-set-landing.md` | handoff | — |

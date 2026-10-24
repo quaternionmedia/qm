@@ -38,15 +38,10 @@ anything. One definition, two entry points; see `pyproject.toml`'s header.
 | `status/inventory.yaml` | every repository the org has, against the roster and this disk, with each one's **activity on three axes** — attention claimed, recency measured, risk machine-scoped and in the gitignored companion | 168h | `uv run qm inventory --write` |
 | `loose-ends.json` | what the org started and has not finished, **joined from three of the documents above** — stalled threads, records waiting on a person, and each gate's declared blind spot | 24h | `uv run qm docs generate` |
 
-`status/harness.yaml` carries its own refresh command, staleness budget and
-`do_not` list in a `reading:` block **inside the file**, so you do not need this
-page to read that one correctly. **`status/governance.yaml` has no `reading:`
-block** — its top-level keys are `schema`, `generated_at`, `generator`, `corpus`,
-`projects`, `org` — so the refresh command and the 168h budget in the table above
-are the only statement of them anywhere, and this page is load-bearing for it.
-Giving that document a `reading:` block of its own is the fix; until then, do not
-read the sentence above as covering both. `/cowork` prints both with their
-current age.
+`status/harness.yaml` and `status/governance.yaml` each carry their own refresh
+command, staleness budget and `do_not` list in a `reading:` block **inside the
+file**, so you do not need this page to read either correctly. `/cowork` prints
+both with their current age.
 
 `loose-ends.json` is the only one here that **measures nothing**. It is a join
 over documents this corpus already generates, so it reaches no network, runs in

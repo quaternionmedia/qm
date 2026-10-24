@@ -1,11 +1,14 @@
 ---
 title: ShowRunner
+hide:
+  - navigation
+  - toc
 ---
 
 [show-control](../families/show-control.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# ShowRunner { .qm-family-title .qm-f-show-control }
+# ShowRunner<span class="qm-dot">.</span> { .qm-family-title .qm-f-show-control }
 
 <p class="qm-lede">Show control for live performances</p>
 

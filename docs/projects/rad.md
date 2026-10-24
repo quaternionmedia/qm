@@ -1,11 +1,18 @@
 ---
 title: rad
+hide:
+  - navigation
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 [core](../families/core.md)
 { .qm-eyebrow }
 
-# rad { .qm-family-title .qm-f-core }
+# rad<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
 <p class="qm-lede">QM's default radial menu: an interaction contract, conformance vectors and a single-file web reference</p>
 
@@ -14,15 +21,19 @@ title: rad
 
 [rad on GitHub](https://github.com/quaternionmedia/rad){ .md-button .md-button--primary }
 
-<div class="grid" markdown>
+</div>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-hero-shot" markdown>
 
-![The radial menu's demo, the estate drawn as a graph under its controls.](https://github.com/quaternionmedia/rad/raw/HEAD/docs/media/overview.png)
+[![The radial menu's demo, the estate drawn as a graph under its controls.](https://github.com/quaternionmedia/rad/raw/HEAD/docs/media/overview.png)](https://github.com/quaternionmedia/rad/raw/HEAD/docs/media/overview.png)
 
-<figcaption>The radial menu's demo, the estate drawn as a graph under its controls.</figcaption>
+<figcaption><strong>rad.</strong> The radial menu's demo, the estate drawn as a graph under its controls.</figcaption>
 
 </figure>
+
+</div>
+
+<div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
 

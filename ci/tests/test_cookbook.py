@@ -250,8 +250,8 @@ def test_a_site_page_names_its_family_and_where_it_sits():
         also={"pedal": ["irl"]},
         projects={"synth": _project("synth", governed=True, pictures=["a.png"]),
                   "pedal": _project("pedal")})
-    assert page.startswith("---\ntitle: instruments\n---")
-    assert "# the sound { .qm-family-title .qm-f-instruments }" in page
+    assert page.startswith("---\ntitle: instruments\nhide:\n  - toc\n---")
+    assert '# the sound<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }' in page
     assert "instruments · within [performing](performing.md)\n{ .qm-eyebrow }" in page
     assert "Start in [`synth`](../projects/synth.md)" in page
 
@@ -316,7 +316,9 @@ def test_a_project_page_links_its_repository_and_shows_its_own_pictures():
                                           families=("instruments", "irl")),
                                  {"instruments": {"within": "performing"}, "irl": {}})
     assert "[synth on GitHub](https://github.com/org/synth){ .md-button .md-button--primary }" in page
-    assert page.count('<figure class="qm-shot" markdown>') == 2
+    # The first picture opens the page; the rest follow it.
+    assert page.count('<figure class="qm-hero-shot" markdown>') == 1
+    assert page.count('<figure class="qm-shot" markdown>') == 1
     assert "raw/HEAD/b.gif" in page
     assert ("[instruments](../families/instruments.md) · [irl](../families/irl.md) · within "
             "[performing](../families/performing.md)\n{ .qm-eyebrow }") in page
@@ -522,3 +524,69 @@ def test_no_generated_page_says_governed_where_a_version_says_it():
             if re.search(r">(governed|not adopted)<|\b\d+ governed\b|qm-state",
                          p.read_text(encoding="utf-8"))]
     assert not said, said
+
+
+def test_a_family_page_opens_with_the_first_picture_its_members_have():
+    """The roster's order decides: the family's own members, then those of the
+    families within it. A family none of whose members has a picture opens
+    with its words alone.
+
+    Mutation: return the copy without the figure in `hero` and this fails.
+    """
+    projects = {"editor": _project("editor"), "synth": _project("synth", pictures=["a.png"])}
+    page = cookbook.site_page(
+        {"name": "performing", "drives": "a show", "within": None, "members": ["editor"]},
+        [state("editor"), state("synth")], projects=projects)
+    assert '<div class="qm-hero" markdown>' in page
+    assert "[![a.png](https://github.com/org/synth/raw/HEAD/a.png)](../projects/synth.md)" in page
+    assert "<figcaption><strong>synth.</strong> a.png</figcaption>" in page
+    plain = cookbook.site_page({"name": "f", "drives": "x", "within": None},
+                               [state("one")], projects={"one": _project("one")})
+    assert "qm-hero" not in plain
+
+
+def test_the_front_page_showcase_follows_the_performing_family(tmp_path):
+    """The front page opens with the first picture in `performing`, shows the
+    parts of a show, then the pictures in the show and those outside it. Every
+    link is relative to docs/, where the front page sits.
+
+    Mutation: build the performing grid from every pictured project and this
+    fails on `rad`.
+    """
+    document = {"families": [
+        {"name": "performing", "drives": "a show", "within": None, "members": ["editor"],
+         "subfamilies": ["instruments"], "all_members": ["editor", "synth", "pedal"]},
+        {"name": "instruments", "drives": "the sound — loops", "within": "performing",
+         "members": ["synth", "pedal"]},
+        {"name": "core", "drives": "the corpus", "within": None, "members": ["rad"]},
+    ]}
+    by_name = {f["name"]: f for f in document["families"]}
+    projects = {
+        "editor": _project("editor", families=("performing",)),
+        "synth": _project("synth", pictures=["s.png"]),
+        "pedal": _project("pedal", pictures=["p.png"]),
+        "rad": _project("rad", pictures=["r.png"], families=("core",)),
+    }
+    snippets = cookbook.showcase_snippets(document, projects, by_name)
+    assert set(snippets) == {"showcase-hero.md", "showcase-parts.md",
+                             "showcase-performing.md", "showcase-estate.md"}
+    assert "](projects/synth.md)" in snippets["showcase-hero.md"]
+    assert "[The instruments family →](families/instruments.md){ .qm-card-link }" in snippets["showcase-parts.md"]
+    assert "**a show**" in snippets["showcase-parts.md"]
+    performing = snippets["showcase-performing.md"]
+    assert "[synth](projects/synth.md)" in performing and "[pedal](projects/pedal.md)" in performing
+    assert "rad" not in performing and "editor" not in performing
+    assert "[rad](projects/rad.md)" in snippets["showcase-estate.md"]
+    assert all("](../" not in body for body in snippets.values())
+    assert cookbook.showcase_snippets({"families": []}, projects, {}) == {}
+
+
+def test_the_front_page_includes_every_showcase_snippet_and_each_is_committed():
+    """A snippet the front page names but nobody wrote fails the build; one
+    written and never included is a section nobody sees."""
+    import re
+    root = CI_DIR.parent
+    front = (root / "docs" / "index.md").read_text(encoding="utf-8")
+    included = set(re.findall(r'--8<-- "includes/([^"]+)"', front))
+    written = {p.name for p in (root / "includes").glob("showcase-*.md")}
+    assert included and included == written, (included, written)
