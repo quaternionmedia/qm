@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-23T00:59:03Z'
+generated_at: '2026-10-23T01:28:04Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -121,12 +121,12 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 273
+  documents: 272
   by_state:
     draft: 3
     generated: 7
     proposed: 38
-    standing: 129
+    standing: 128
     transient: 27
     unreviewed: 69
   disagreements: 0
@@ -187,69 +187,6 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: docs/about/overview.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/cookbook/add-a-perspective.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/cookbook/build-these-docs.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/cookbook/draft-a-record.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: Starts at `Draft` or `Proposed`
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/cookbook/index.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/cookbook/propagate-a-change.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/cookbook/read-status-documents.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/cookbook/run-ci-locally.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -339,330 +276,6 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/families/projects/Cuelist-python.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/QLab-python.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/ShowRunner.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/ShowStopper.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/TheatreMix-python.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/aes.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/alfred.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/apothecary.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/benchmark.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/carlos.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/cesar.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/codecartographer.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/datum.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/dossier.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/factorio-sysops.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/golfvs.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/holophonor.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/ira.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/joe.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/leo.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/looksatwords.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/ludwig.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/midiphonor.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/moat.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/qm.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/qmcp.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/qmetronome.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/rad-godot.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/rad.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/scad-chess.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/stomp.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/uPhonor.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/vox.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/waveofhormuz.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/wolf.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/families/projects/ztgui.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
 - path: docs/families/show-control.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
@@ -673,6 +286,339 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: docs/index.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/Cuelist-python.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/QLab-python.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ShowRunner.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ShowStopper.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/TheatreMix-python.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/aes.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/alfred.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/apothecary.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/benchmark.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/carlos.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/cesar.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/codecartographer.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/datum.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/dossier.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/factorio-sysops.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/golfvs.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/holophonor.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/index.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ira.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/joe.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/leo.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/looksatwords.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ludwig.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/midiphonor.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/moat.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/qm.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/qmcp.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/qmetronome.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/rad-godot.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/rad.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/scad-chess.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/stomp.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/uPhonor.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/vox.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/waveofhormuz.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/wolf.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ztgui.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -825,10 +771,28 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/repos.md
+- path: docs/usage/add-a-perspective.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/usage/build-these-docs.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/usage/draft-a-record.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: Starts at `Draft` or `Proposed`
   state_from_status_row: null
   state_from_filename: null
   state: standing
@@ -870,7 +834,34 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
+- path: docs/usage/propagate-a-change.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: docs/usage/questions-a-new-developer-asks.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/usage/read-status-documents.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/usage/run-ci-locally.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null

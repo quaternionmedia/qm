@@ -16,7 +16,7 @@ Drives the room — cues, lighting, sound and video playback, audio transport.
 
 <div class="card qm-f-show-control" markdown>
 
-[ShowRunner](projects/ShowRunner.md){ .qm-card-link }
+[ShowRunner](../projects/ShowRunner.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 
@@ -26,7 +26,7 @@ Show control for live performances
 
 <div class="card qm-f-show-control" markdown>
 
-[Cuelist-python](projects/Cuelist-python.md){ .qm-card-link }
+[Cuelist-python](../projects/Cuelist-python.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 
@@ -36,7 +36,7 @@ Python helpers for Cuelist (thecuelist.com) and plugin for ShowRunner
 
 <div class="card qm-f-show-control" markdown>
 
-[QLab-python](projects/QLab-python.md){ .qm-card-link }
+[QLab-python](../projects/QLab-python.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 
@@ -46,7 +46,7 @@ QLab interface for Python
 
 <div class="card qm-f-show-control" markdown>
 
-[TheatreMix-python](projects/TheatreMix-python.md){ .qm-card-link }
+[TheatreMix-python](../projects/TheatreMix-python.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 
@@ -56,7 +56,7 @@ Python components for interacting with TheatreMix
 
 <div class="card qm-f-show-control" markdown>
 
-[cesar](projects/cesar.md){ .qm-card-link }
+[cesar](../projects/cesar.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 
@@ -66,7 +66,7 @@ A unified lighting / sound / video controller for theatrical applications
 
 <div class="card qm-f-show-control" markdown>
 
-[ira](projects/ira.md){ .qm-card-link }
+[ira](../projects/ira.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span> · also in [`irl`](irl.md)
 
@@ -76,7 +76,7 @@ LED controller, designed for live theater
 
 <div class="card qm-f-show-control" markdown>
 
-[ShowStopper](projects/ShowStopper.md){ .qm-card-link }
+[ShowStopper](../projects/ShowStopper.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 
@@ -86,7 +86,7 @@ Stopwatch geared towards tracking need for the performing arts
 
 <div class="card qm-f-show-control" markdown>
 
-[aes](projects/aes.md){ .qm-card-link }
+[aes](../projects/aes.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 

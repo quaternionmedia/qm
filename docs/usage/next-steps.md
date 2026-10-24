@@ -15,7 +15,7 @@ When the org changes `main` — a ratified [record](../ref/glossary.md#record){ 
 
 The merge is never a rebase: your submodule pins the branch tip by ancestry, and a rebase would break the pin.
 
-See [Propagate a change](../cookbook/propagate-a-change.md) for the commands, and [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) for the full procedure.
+See [Propagate a change](propagate-a-change.md) for the commands, and [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) for the full procedure.
 
 ## Adoption audits
 
@@ -37,7 +37,7 @@ Two generated files on `main` track the state of the [corpus](../ref/glossary.md
 | `status/governance.yaml` | Where every project stands: branches, records, adoption artifacts | 168 hours |
 | `status/harness.yaml` | Open pull requests, phases claimed, work in flight | 24 hours |
 
-Both are refreshed by a person running a command, not by CI. Check the `generated_at` timestamp before quoting a number from either. See [Read status documents](../cookbook/read-status-documents.md).
+Both are refreshed by a person running a command, not by CI. Check the `generated_at` timestamp before quoting a number from either. See [Read status documents](read-status-documents.md).
 
 ## The project phase ladder
 
@@ -51,13 +51,13 @@ See [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/q
 
 ## The project's page
 
-Every project sits in a family by what its output drives, and a public one gets a page of its own on this site, listed on [the repos page](../repos.md):
+Every project sits in a family by what its output drives, and a public one gets a page of its own on this site, listed on [the projects page](../projects/index.md):
 
 - **Its family** is the `family:` of its entry in `ci/workspace.yaml`: one name, or a list when the project drives two things. [The family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md) decides which.
 - **Its page** appears once the repository is public on the host and a family claims it. It shows the repository's own description, its families, whether it is governed, its phase, and a button to the repository.
 - **Its pictures** are the ones listed under its name in `ci/showcase.yaml`: files in the project's own repository, each with a one-sentence caption. A person picks them; nothing infers a picture. A listed picture shows once the project's default branch holds it, so one still on a pull request waits, and a page with none says so.
 
-`uv run qm inventory --write` refreshes what the host says is public and which listed pictures each default branch holds, and `uv run qm cookbook docs/families --site --write` regenerates the family, project and repos pages from it.
+`uv run qm inventory --write` refreshes what the host says is public and which listed pictures each default branch holds, and `uv run qm cookbook docs/families --site --write` regenerates the family and project pages from it.
 
 ## Related
 

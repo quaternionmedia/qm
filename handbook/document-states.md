@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-23T00:59:03Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-23T01:28:04Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **273**, unfiltered.
+Every governed document in this corpus: **272**, unfiltered.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 69 |
 | [G] `generated` | 7 |
-| [S] `standing` | 129 |
+| [S] `standing` | 128 |
 | [T] `transient` | 27 |
 
 ## Documents
@@ -193,13 +193,6 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/about/history.md` | reference | — |
 | [S] | `standing` | `docs/about/index.md` | reference | — |
 | [S] | `standing` | `docs/about/overview.md` | reference | — |
-| [S] | `standing` | `docs/cookbook/add-a-perspective.md` | reference | — |
-| [S] | `standing` | `docs/cookbook/build-these-docs.md` | reference | — |
-| [S] | `standing` | `docs/cookbook/draft-a-record.md` | reference | Starts at `Draft` or `Proposed` |
-| [S] | `standing` | `docs/cookbook/index.md` | reference | — |
-| [S] | `standing` | `docs/cookbook/propagate-a-change.md` | reference | — |
-| [S] | `standing` | `docs/cookbook/read-status-documents.md` | reference | — |
-| [S] | `standing` | `docs/cookbook/run-ci-locally.md` | reference | — |
 | [S] | `standing` | `docs/families/civic.md` | reference | — |
 | [S] | `standing` | `docs/families/core.md` | reference | — |
 | [S] | `standing` | `docs/families/games.md` | reference | — |
@@ -209,44 +202,45 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/families/irl.md` | reference | — |
 | [S] | `standing` | `docs/families/performer-display.md` | reference | — |
 | [S] | `standing` | `docs/families/performing.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/Cuelist-python.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/QLab-python.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/ShowRunner.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/ShowStopper.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/TheatreMix-python.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/aes.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/alfred.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/apothecary.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/benchmark.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/carlos.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/cesar.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/codecartographer.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/datum.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/dossier.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/factorio-sysops.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/golfvs.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/holophonor.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/ira.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/joe.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/leo.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/looksatwords.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/ludwig.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/midiphonor.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/moat.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/qm.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/qmcp.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/qmetronome.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/rad-godot.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/rad.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/scad-chess.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/stomp.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/uPhonor.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/vox.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/waveofhormuz.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/wolf.md` | reference | — |
-| [S] | `standing` | `docs/families/projects/ztgui.md` | reference | — |
 | [S] | `standing` | `docs/families/show-control.md` | reference | — |
 | [S] | `standing` | `docs/index.md` | reference | — |
+| [S] | `standing` | `docs/projects/Cuelist-python.md` | reference | — |
+| [S] | `standing` | `docs/projects/QLab-python.md` | reference | — |
+| [S] | `standing` | `docs/projects/ShowRunner.md` | reference | — |
+| [S] | `standing` | `docs/projects/ShowStopper.md` | reference | — |
+| [S] | `standing` | `docs/projects/TheatreMix-python.md` | reference | — |
+| [S] | `standing` | `docs/projects/aes.md` | reference | — |
+| [S] | `standing` | `docs/projects/alfred.md` | reference | — |
+| [S] | `standing` | `docs/projects/apothecary.md` | reference | — |
+| [S] | `standing` | `docs/projects/benchmark.md` | reference | — |
+| [S] | `standing` | `docs/projects/carlos.md` | reference | — |
+| [S] | `standing` | `docs/projects/cesar.md` | reference | — |
+| [S] | `standing` | `docs/projects/codecartographer.md` | reference | — |
+| [S] | `standing` | `docs/projects/datum.md` | reference | — |
+| [S] | `standing` | `docs/projects/dossier.md` | reference | — |
+| [S] | `standing` | `docs/projects/factorio-sysops.md` | reference | — |
+| [S] | `standing` | `docs/projects/golfvs.md` | reference | — |
+| [S] | `standing` | `docs/projects/holophonor.md` | reference | — |
+| [S] | `standing` | `docs/projects/index.md` | reference | — |
+| [S] | `standing` | `docs/projects/ira.md` | reference | — |
+| [S] | `standing` | `docs/projects/joe.md` | reference | — |
+| [S] | `standing` | `docs/projects/leo.md` | reference | — |
+| [S] | `standing` | `docs/projects/looksatwords.md` | reference | — |
+| [S] | `standing` | `docs/projects/ludwig.md` | reference | — |
+| [S] | `standing` | `docs/projects/midiphonor.md` | reference | — |
+| [S] | `standing` | `docs/projects/moat.md` | reference | — |
+| [S] | `standing` | `docs/projects/qm.md` | reference | — |
+| [S] | `standing` | `docs/projects/qmcp.md` | reference | — |
+| [S] | `standing` | `docs/projects/qmetronome.md` | reference | — |
+| [S] | `standing` | `docs/projects/rad-godot.md` | reference | — |
+| [S] | `standing` | `docs/projects/rad.md` | reference | — |
+| [S] | `standing` | `docs/projects/scad-chess.md` | reference | — |
+| [S] | `standing` | `docs/projects/stomp.md` | reference | — |
+| [S] | `standing` | `docs/projects/uPhonor.md` | reference | — |
+| [S] | `standing` | `docs/projects/vox.md` | reference | — |
+| [S] | `standing` | `docs/projects/waveofhormuz.md` | reference | — |
+| [S] | `standing` | `docs/projects/wolf.md` | reference | — |
+| [S] | `standing` | `docs/projects/ztgui.md` | reference | — |
 | [S] | `standing` | `docs/ref/addresses.md` | reference | — |
 | [S] | `standing` | `docs/ref/ci/demos.md` | reference | — |
 | [S] | `standing` | `docs/ref/ci/docs-tooling.md` | reference | — |
@@ -263,12 +257,17 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/ref/protocols.md` | reference | — |
 | [S] | `standing` | `docs/ref/ratification.md` | reference | — |
 | [S] | `standing` | `docs/ref/repo-layout.md` | reference | — |
-| [S] | `standing` | `docs/repos.md` | reference | — |
+| [S] | `standing` | `docs/usage/add-a-perspective.md` | reference | — |
+| [S] | `standing` | `docs/usage/build-these-docs.md` | reference | — |
+| [S] | `standing` | `docs/usage/draft-a-record.md` | reference | Starts at `Draft` or `Proposed` |
 | [S] | `standing` | `docs/usage/first-project.md` | reference | — |
 | [S] | `standing` | `docs/usage/getting-started.md` | reference | — |
 | [S] | `standing` | `docs/usage/index.md` | reference | — |
 | [S] | `standing` | `docs/usage/next-steps.md` | reference | — |
+| [S] | `standing` | `docs/usage/propagate-a-change.md` | reference | — |
 | [S] | `standing` | `docs/usage/questions-a-new-developer-asks.md` | reference | — |
+| [S] | `standing` | `docs/usage/read-status-documents.md` | reference | — |
+| [S] | `standing` | `docs/usage/run-ci-locally.md` | reference | — |
 | [S] | `standing` | `handbook/adoption-audit-queue.md` | handbook | — |
 | [S] | `standing` | `handbook/async-contract.md` | handbook | — |
 | [S] | `standing` | `handbook/config-standard.md` | handbook | — |

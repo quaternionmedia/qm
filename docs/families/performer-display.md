@@ -16,7 +16,7 @@ Drives the performer — what a player reads while playing.
 
 <div class="card qm-f-performer-display" markdown>
 
-[joe](projects/joe.md){ .qm-card-link }
+[joe](../projects/joe.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 
@@ -26,7 +26,7 @@ Realtime sheet music visualization
 
 <div class="card qm-f-performer-display" markdown>
 
-[leo](projects/leo.md){ .qm-card-link }
+[leo](../projects/leo.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 

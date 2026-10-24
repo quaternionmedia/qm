@@ -43,7 +43,7 @@ Do not edit these by hand:
 | `status/governance.yaml` | `python ci/governance_status.py --write status/governance.yaml` |
 | `status/harness.yaml` | `python ci/harness_status.py --no-local --write status/harness.yaml` |
 
-Both are committed; CI does not regenerate them. See [Read status documents](../cookbook/read-status-documents.md) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
+Both are committed; CI does not regenerate them. See [Read status documents](../usage/read-status-documents.md) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 
 The `site/` directory (the built documentation) and `.cache/` (the build cache) are generated and not committed.
 

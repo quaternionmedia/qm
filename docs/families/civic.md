@@ -16,7 +16,7 @@ Drives the public — open information a community reads and adds to: maps, reco
 
 <div class="card qm-f-civic" markdown>
 
-[benchmark](projects/benchmark.md){ .qm-card-link }
+[benchmark](../projects/benchmark.md){ .qm-card-link }
 
 <span class="qm-state">not adopted</span>
 
