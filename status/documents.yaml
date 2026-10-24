@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-24T14:41:59Z'
+generated_at: '2026-10-24T14:51:09Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -45,11 +45,11 @@ reading_load:
   - path: handbook/async-contract.md
     lines: 271
   - path: handbook/handoffs/README.md
-    lines: 154
-  total_lines: 1191
+    lines: 156
+  total_lines: 1193
   budget_lines: 1200
   within_budget: true
-  headroom_lines: 9
+  headroom_lines: 7
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
@@ -109,7 +109,7 @@ readiness:
       proposed: 38
     documents_in_unknown_state: 0
     reading_within_budget: true
-    reading_total_lines: 1191
+    reading_total_lines: 1193
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 273
+  documents: 287
   by_state:
     draft: 3
     generated: 7
     proposed: 38
-    standing: 128
-    transient: 23
-    unreviewed: 74
+    standing: 129
+    transient: 35
+    unreviewed: 75
   disagreements: 0
   unknown: 0
 documents:
@@ -985,6 +985,13 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
+- path: handbook/handoffs/carlos-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
 - path: handbook/handoffs/design-review-of-the-estate.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
@@ -1055,7 +1062,49 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
+- path: handbook/handoffs/holophonor-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/joe-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/leo-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/ludwig-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/midiphonor-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
 - path: handbook/handoffs/performing-family-consolidation.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/private-34-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1097,7 +1146,35 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
+- path: handbook/handoffs/showrunner-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/showstopper-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/simultaneous-performing-family-plan-2026-09-21.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
 - path: handbook/handoffs/six-branches-reached-origin.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/the-performing-estate-refreshed.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1133,6 +1210,13 @@ documents:
   state_from_filename: null
   state: transient
 - path: handbook/handoffs/voice-set-landing.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/wolf-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -1595,6 +1679,14 @@ documents:
   state_from_filename: null
   indexed_status: Unreviewed
   state: unreviewed
+- path: perspectives/2026-09-20-the-estate-surveyed-by-many-hands.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
 - path: perspectives/2026-09-20-the-families-delineated.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
@@ -1940,6 +2032,15 @@ documents:
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
 - path: plans/v0.0.1-review-packet.md
+  class: other
+  class_reason: not in a governed directory
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: plans/workspace-review-2026-09-21.md
   class: other
   class_reason: not in a governed directory
   declared_status: null

@@ -18,7 +18,7 @@ alfred, otto
 
 **the sound**
 
-`instruments` · 9 members
+`instruments` · 10 members
 
 carlos, qmetronome, holophonor, midiphonor, uPhonor, and 4 more
 

@@ -32,7 +32,7 @@ What an audience sees and hears, and the video made before and after it. Holds `
 
 **the sound**
 
-`instruments` · within `performing` · 9 members
+`instruments` · within `performing` · 10 members
 
 Looping, synthesis, tempo, remote control surfaces.
 

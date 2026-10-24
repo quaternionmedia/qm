@@ -56,9 +56,9 @@ automatic video generation
 
 [the sound](instruments.md){ .qm-card-link }
 
-`instruments` · 9 members
+`instruments` · 10 members
 
-[carlos](../projects/carlos.md), [qmetronome](../projects/qmetronome.md), [holophonor](../projects/holophonor.md), [midiphonor](../projects/midiphonor.md), [uPhonor](../projects/uPhonor.md), [stomp](../projects/stomp.md), [wolf](../projects/wolf.md), [ludwig](../projects/ludwig.md), [waveofhormuz](../projects/waveofhormuz.md)
+[carlos](../projects/carlos.md), [qmetronome](../projects/qmetronome.md), [holophonor](../projects/holophonor.md), [midiphonor](../projects/midiphonor.md), [uPhonor](../projects/uPhonor.md), [stomp](../projects/stomp.md), [wolf](../projects/wolf.md), [ludwig](../projects/ludwig.md), [waveofhormuz](../projects/waveofhormuz.md), and 1 private
 
 </div>
 

@@ -63,7 +63,8 @@ lists them — so the members of a family open together without the rest of the
 estate. A family brings the families within it: `--family performing` opens
 `instruments`, `performer-display` and `show-control` too, and a repository in
 two of them opens once. A family the record does not declare is refused rather
-than resolved to an empty window.
+than resolved to an empty window. `--include qm` puts the corpus first beside a family, so
+the harness, the handoffs and the estate reader open with it.
 
 **"Will my commits be rejected for anything I have not set up?"**
 

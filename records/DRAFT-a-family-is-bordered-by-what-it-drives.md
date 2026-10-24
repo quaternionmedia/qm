@@ -76,7 +76,7 @@ words would have placed one program in all of them.
 |---|---|---|---|
 | `performing` | **a show** — what an audience sees and hears, and the video made before and after it | — | alfred; otto; and every member of the families within it |
 | `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | `performing` | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ShowStopper; aes; ira |
-| `instruments` | **the sound** — looping, synthesis, tempo, remote control surfaces | `performing` | holophonor; midiphonor; carlos; qmetronome; wolf; ludwig; waveofhormuz; stomp; uPhonor |
+| `instruments` | **the sound** — looping, synthesis, tempo, remote control surfaces | `performing` | holophonor; midiphonor; carlos; qmetronome; wolf; ludwig; waveofhormuz; stomp; uPhonor; and one private repository, referenced rather than named |
 | `performer-display` | **the performer** — what a player reads while playing | `performing` | joe; leo; and one private repository, referenced rather than named |
 | `irl` | **matter** — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | — | apothecary; datum; scad-chess; stomp; ira; uPhonor; and three private repositories, referenced rather than named |
 | `infra` | **where a thing runs, and how it is reached** — ingress, identity, storage, DNS, observability, the network path | — | moat; ztgui; streaming-infrastructure; and two private repositories, referenced rather than named |
