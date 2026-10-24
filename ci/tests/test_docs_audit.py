@@ -160,7 +160,7 @@ def test_a_named_repo_path_that_exists_is_clean(tmp_path: Path):
 
 
 def test_a_docs_page_shadowing_a_corpus_document_is_reported(tmp_path: Path):
-    """The real instance: docs/ref/glossary.md against handbook/glossary.md."""
+    """Two pages called `glossary.md`, one under `docs/` and one in the corpus."""
     root = site(tmp_path)
     write(root / "handbook" / "glossary.md", "# Glossary\n")
     write(root / "docs" / "ref" / "glossary.md", "# Glossary\n")
