@@ -56,7 +56,7 @@ rad, the radial menu, as a Godot addon: the contract's vectors replayed in GDScr
 
 </div>
 
-1 private repository is counted here and not named.
+3 private repositories are counted here and not named.
 
 Start in [`factorio-sysops`](../projects/factorio-sysops.md): its records and its `AGENTS.md` say how work arrives there.
 

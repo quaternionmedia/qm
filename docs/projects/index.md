@@ -55,7 +55,7 @@ A version is a project's phase: `v0.0.0` has not adopted the corpus, `v0.0.1` ha
 | [wolf](wolf.md) | `v0.0.0` | remote midi controller | [instruments](../families/instruments.md) | [GitHub](https://github.com/quaternionmedia/wolf) |
 | [ztgui](ztgui.md) | `v0.0.0` | Zeroteir Gui | [infra](../families/infra.md) | [GitHub](https://github.com/quaternionmedia/ztgui) |
 
-6 private repositories are in the families too, counted and not named.
+9 private repositories are in the families too, counted and not named.
 
 The host holds 45 more public repositories no family claims; [the organisation's page](https://github.com/orgs/quaternionmedia/repositories) lists every one.
 
