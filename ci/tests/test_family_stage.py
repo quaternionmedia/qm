@@ -62,7 +62,10 @@ def resolved() -> dict:
 
 
 def plan_problems(document: dict) -> list[str]:
-    return family_demo.check_plan(document, {e["name"] for e in roster.load()})
+    # The index the harness itself checks against: each entry under its name
+    # and, for a private one, its reference, so the result does not depend on
+    # whether the private companion is present on this machine.
+    return family_demo.check_plan(document, set(family_demo.index_roster(roster.load())))
 
 
 def action(name: str, value: dict) -> fs.Action:
