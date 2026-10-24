@@ -83,19 +83,20 @@ The maintainer decided the shape; the reasoning that makes it right is this docu
    and is asked before it is made. A red check is not a reason to buy more time.
 2. **Measure the distribution before acting on a CI failure.** Step timings across
    recent runs, not the one run that failed, with the ordinary cause ruled out first.
-3. **A stacked draft runs the cheap layer and the areas it touches.** Lint, the unit
-   tests and the walkthrough on every push; of the browser suite, only the areas the
-   change reaches, read from a map of each area to its sources and its test files
-   (the window manager's page among the windows area's), every area when shared
-   ground changes. The whole
-   browser suite runs on the pull request that is ready to merge and on `main`.
-4. **A fix that spans the stack is merged up locally and pushed once,** at the end of
-   a piece of work, so a stack of N pull requests pays for it once rather than once
-   a level.
-5. **Caps follow each layer.** No hand-picked limit -- not twenty minutes a job, not
-   four a test. A layer's backstop is derived from that layer's own measured time,
-   so a small draft layer has a small cap and a stalled job gives its runner back in
-   proportion to what it was running. The cause of a slow setup (apt, on a busy
-   runner) is removed with cached artifacts rather than paid for with a longer cap.
+3. **A pull request's push runs the governance checks and lint, and nothing else.**
+   The tests -- the unit suite, the walkthrough, the browser suite -- run here: by
+   area while a change is made, the browser files of the areas it reaches read from a
+   map of each area to its sources and its files, and whole before a pull request is
+   marked ready, its body saying what ran. In CI they run at a version tag, the claim
+   a release makes, and on demand. A layered draft CI that still ran the whole browser
+   suite on any change to shared ground was measured before it was pushed, at tens of
+   runner-minutes a push and hours for one push of a stack, and was not.
+4. **A fix that spans the stack is merged up locally and pushed once,** when it next
+   needs to reach origin, so a stack pays for it once rather than once a level.
+5. **Caps follow each layer.** No hand-picked limit: a job's cap is twice its median
+   over the runs GitHub records for it, a job with no record has none of ours, and in
+   CI each browser test's is twice the time recorded for it; run here, nothing is
+   capped. The cause of a slow setup (apt, on a busy runner) is removed with cached
+   artifacts rather than paid for with a longer cap.
 6. **Correct what was pushed.** #79's body says a hung test caused the cancellations;
    the jobs' step times say setup did.
