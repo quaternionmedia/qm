@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-24T01:58:21Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-24T02:10:13Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **273**, unfiltered.
+Every governed document in this corpus: **274**, unfiltered.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 69 |
 | [G] `generated` | 7 |
-| [S] `standing` | 128 |
+| [S] `standing` | 129 |
 | [T] `transient` | 28 |
 
 ## Documents
@@ -229,6 +229,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `docs/projects/ludwig.md` | reference | — |
 | [S] | `standing` | `docs/projects/midiphonor.md` | reference | — |
 | [S] | `standing` | `docs/projects/moat.md` | reference | — |
+| [S] | `standing` | `docs/projects/otto.md` | reference | — |
 | [S] | `standing` | `docs/projects/qm.md` | reference | — |
 | [S] | `standing` | `docs/projects/qmcp.md` | reference | — |
 | [S] | `standing` | `docs/projects/qmetronome.md` | reference | — |

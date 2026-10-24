@@ -1,11 +1,14 @@
 ---
 title: benchmark
+hide:
+  - navigation
+  - toc
 ---
 
 [civic](../families/civic.md)
 { .qm-eyebrow }
 
-# benchmark { .qm-family-title .qm-f-civic }
+# benchmark<span class="qm-dot">.</span> { .qm-family-title .qm-f-civic }
 
 <p class="qm-lede">A place to keep track of benches</p>
 

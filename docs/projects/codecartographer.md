@@ -1,11 +1,14 @@
 ---
 title: codecartographer
+hide:
+  - navigation
+  - toc
 ---
 
 [core](../families/core.md)
 { .qm-eyebrow }
 
-# codecartographer { .qm-family-title .qm-f-core }
+# codecartographer<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
 <p class="qm-lede">Project for mapping code</p>
 

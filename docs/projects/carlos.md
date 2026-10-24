@@ -1,11 +1,18 @@
 ---
 title: carlos
+hide:
+  - navigation
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 [instruments](../families/instruments.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# carlos { .qm-family-title .qm-f-instruments }
+# carlos<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 <p class="qm-lede">Browser workspace for sketching synth rigs, governed via project/carlos.</p>
 
@@ -14,15 +21,19 @@ title: carlos
 
 [carlos on GitHub](https://github.com/quaternionmedia/carlos){ .md-button .md-button--primary }
 
-<div class="grid" markdown>
+</div>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-hero-shot" markdown>
 
-![Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.](https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png)
+[![Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.](https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png)](https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png)
 
-<figcaption>Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.</figcaption>
+<figcaption><strong>carlos.</strong> Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.</figcaption>
 
 </figure>
+
+</div>
+
+<div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
 

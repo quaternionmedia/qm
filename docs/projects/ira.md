@@ -1,11 +1,14 @@
 ---
 title: ira
+hide:
+  - navigation
+  - toc
 ---
 
 [irl](../families/irl.md) · [show-control](../families/show-control.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# ira { .qm-family-title .qm-f-irl }
+# ira<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }
 
 <p class="qm-lede">LED controller, designed for live theater</p>
 

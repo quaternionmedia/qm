@@ -1,11 +1,13 @@
 ---
 title: show-control
+hide:
+  - toc
 ---
 
 show-control · within [performing](performing.md)
 { .qm-eyebrow }
 
-# the room { .qm-family-title .qm-f-show-control }
+# the room<span class="qm-dot">.</span> { .qm-family-title .qm-f-show-control }
 
 Drives the room — cues, lighting, sound and video playback, audio transport.
 { .qm-lede }

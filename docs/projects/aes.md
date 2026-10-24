@@ -1,11 +1,14 @@
 ---
 title: aes
+hide:
+  - navigation
+  - toc
 ---
 
 [show-control](../families/show-control.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# aes { .qm-family-title .qm-f-show-control }
+# aes<span class="qm-dot">.</span> { .qm-family-title .qm-f-show-control }
 
 <p class="qm-lede">AES67 scripts</p>
 

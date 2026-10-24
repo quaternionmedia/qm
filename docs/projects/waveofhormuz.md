@@ -1,11 +1,18 @@
 ---
 title: waveofhormuz
+hide:
+  - navigation
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 [instruments](../families/instruments.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# waveofhormuz { .qm-family-title .qm-f-instruments }
+# waveofhormuz<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 <p class="qm-lede">VCV Rack 2 strait-shaping square wave oscillator — conflict timeline as a default waveform</p>
 
@@ -14,15 +21,19 @@ title: waveofhormuz
 
 [waveofhormuz on GitHub](https://github.com/quaternionmedia/waveofhormuz){ .md-button .md-button--primary }
 
-<div class="grid" markdown>
+</div>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-hero-shot" markdown>
 
-![The 16 HP panel, with knot speed, gulf and dry, and eight closure windows.](https://github.com/quaternionmedia/waveofhormuz/raw/HEAD/waveofhormuz.png)
+[![The 16 HP panel, with knot speed, gulf and dry, and eight closure windows.](https://github.com/quaternionmedia/waveofhormuz/raw/HEAD/waveofhormuz.png)](https://github.com/quaternionmedia/waveofhormuz/raw/HEAD/waveofhormuz.png)
 
-<figcaption>The 16 HP panel, with knot speed, gulf and dry, and eight closure windows.</figcaption>
+<figcaption><strong>waveofhormuz.</strong> The 16 HP panel, with knot speed, gulf and dry, and eight closure windows.</figcaption>
 
 </figure>
+
+</div>
+
+<div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
 

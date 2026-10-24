@@ -19,6 +19,7 @@ qm/
 ├── project-seed/          what a new project copies: adr/, ci/, ide/
 ├── ci/                    org-level tooling: the status generators
 ├── docs/                  this documentation site
+├── includes/              the front page's showcase, generated and included by docs/index.md
 ├── status/governance.yaml generated: where every project stands
 ├── status/harness.yaml    generated: open PRs and work in flight
 ├── .github/               CI workflows, CODEOWNERS, ruleset config
