@@ -221,6 +221,21 @@ def test_an_ordinal_principle_reference_in_a_binding_document_is_refused(tmp_pat
     assert any("addresses a principle as" in p for p in problems), problems
 
 
+def test_the_root_template_and_charter_are_scanned(tmp_path: Path):
+    """The record template is what every new record copies its rows from, and
+    the charter is what every row names; an ordinal in either is copied or
+    cited onward.
+
+    Mutation: drop `"TEMPLATE.md"` from `BINDING` and this fails on the
+    template; drop `"PRINCIPLES.md"` and it fails on the charter.
+    """
+    for name in ("TEMPLATE.md", "PRINCIPLES.md"):
+        (tmp_path / name).write_text("e.g. " + ORDINAL_FORM + "\n", encoding="utf-8")
+        problems = edges.ordinal_references(tmp_path)
+        assert any(p.startswith(name + ":") for p in problems), (name, problems)
+        (tmp_path / name).unlink()
+
+
 def test_an_annotated_ordinal_is_allowed(tmp_path: Path):
     """A document naming the form in order to forbid it is not breaking it."""
     write_record(tmp_path, 'Never write ' + ORDINAL_FORM + '  principle-name: allow "names the form in order to refuse it"\n')

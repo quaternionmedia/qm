@@ -161,8 +161,9 @@ ORDINAL_ALLOWED = re.compile(
 # Where a principle reference has to be a name. Everything else in the
 # repository is outside this scan, and two directories are outside it on
 # purpose rather than by omission -- see `ordinal_references`.
-BINDING = ("AGENTS.md", "README.md", "records", "handbook", "docs", "ci",
-           "project-seed", "plans", "protocols", "curriculum", "walkthrough")
+BINDING = ("AGENTS.md", "README.md", "PRINCIPLES.md", "TEMPLATE.md", "records",
+           "handbook", "docs", "ci", "project-seed", "plans", "protocols",
+           "curriculum", "walkthrough")
 NOT_BINDING = ("perspectives/", "handbook/handoffs/", "__pycache__", ".venv/")
 READABLE = (".md", ".py", ".yaml", ".yml", ".json")
 
@@ -183,7 +184,8 @@ def ordinal_references(root: Path) -> list[str]:
     collides.
 
     Mutation: write a bare ordinal principle reference anywhere under
-    `records/` and this fails.
+    `records/` and this fails. Drop `TEMPLATE.md` or `PRINCIPLES.md` from
+    `BINDING` and `test_the_root_template_and_charter_are_scanned` fails.
     """
     problems = []
     allowed = 0
