@@ -58,6 +58,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_ORG = "quaternionmedia"
 
 PUBLIC = "status/inventory.yaml"
+SHOWCASE = ROOT / "ci" / "showcase.yaml"
 PRIVATE = "inventory-private.json"
 LOCAL = "inventory-local.json"
 
@@ -78,7 +79,8 @@ def now() -> str:
 def host_repositories(org: str) -> list[dict] | dict:
     proc = subprocess.run(
         ["gh", "repo", "list", org, "--limit", "500", "--json",
-         "name,isPrivate,isArchived,isFork,updatedAt,createdAt,primaryLanguage,diskUsage"],
+         "name,isPrivate,isArchived,isFork,updatedAt,createdAt,primaryLanguage,diskUsage,"
+         "description"],
         capture_output=True, text=True, encoding="utf-8", errors="replace",
     )
     if proc.returncode != 0:
@@ -174,6 +176,41 @@ def default_branch_commits(org: str) -> dict:
             target = ((node.get("defaultBranchRef") or {}).get("target") or {})
             dates[node["name"]] = target.get("committedDate")
     return dates
+
+
+def showcase_paths(path: Path = SHOWCASE) -> dict[str, list[str]]:
+    """`{project: [path, ...]}`, the pictures a person listed in ci/showcase.yaml."""
+    if not path.is_file():
+        return {}
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return {name: [p["path"] for p in (pictures or []) if isinstance(p, dict) and p.get("path")]
+            for name, pictures in (document.get("projects") or {}).items()}
+
+
+def pictures_on_host(org: str, wanted: dict[str, list[str]]) -> dict[str, list[str] | None]:
+    """name -> the listed pictures its default branch holds, or None when the
+    branch could not be read.
+
+    A picture is listed by a person and shown from the project's default
+    branch. A listed file the branch does not hold yet -- one still on a pull
+    request -- would be a broken image, so the site shows only what this found.
+    """
+    found: dict[str, list[str] | None] = {}
+    for name, paths in wanted.items():
+        proc = subprocess.run(
+            ["gh", "api", f"repos/{org}/{name}/git/trees/HEAD?recursive=1"],
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+        )
+        try:
+            tree = json.loads(proc.stdout or "") if proc.returncode == 0 else None
+        except ValueError:
+            tree = None
+        if not isinstance(tree, dict) or tree.get("truncated"):
+            found[name] = None
+            continue
+        blobs = {t.get("path") for t in tree.get("tree") or [] if t.get("type") == "blob"}
+        found[name] = [p for p in paths if p in blobs]
+    return found
 
 
 def git(clone: Path, *args: str) -> str | None:
@@ -444,6 +481,11 @@ def build(org: str, roster_path: Path,
     dates = {} if isinstance(commits, dict) and "unknown" in commits else commits
     commits_problem = commits if dates is not commits else None
 
+    # Only a public repository is asked about its pictures: a private one has
+    # no page to show them on.
+    listed = showcase_paths()
+    pictures = pictures_on_host(org, {r["name"]: listed[r["name"]] for r in host
+                                      if not r.get("isPrivate") and r["name"] in listed})
     public_rows, private_names, local_rows, matched = [], {}, {}, set()
     for r in sorted(host, key=lambda x: x["name"]):
         name = r["name"]
@@ -477,6 +519,11 @@ def build(org: str, roster_path: Path,
             key = references[name]["ref"]
         else:
             row["name"] = name
+            # The host's own one-line description, for a public repository
+            # only: a private one's would publish what its name is withheld for.
+            row["description"] = (r.get("description") or "").strip() or None
+            if name in pictures:
+                row["pictures_on_default_branch"] = pictures[name]
             key = name
         public_rows.append(row)
         if clone:

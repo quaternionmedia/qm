@@ -76,9 +76,11 @@ rollouts:
       - name: matter-and-infra
         families: [irl, infra]
       - name: performing
-        families: [instruments, show-control, performer-display]
+        families: [performing]
+      - name: civic
+        families: [civic]
       - name: unstated
         # families.json's `unstated` list at the time of writing; a repository
         # that later claims a family belongs to that family's phase instead.
-        repos: [alfred, benchmark, factorio-sysops, private-32, private-33, private-34, rad]
+        repos: [private-32, private-33, private-34]
     claims: []

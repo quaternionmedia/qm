@@ -54,6 +54,7 @@ import yaml
 # only in the second. Putting this file's own directory first makes
 # `roster` resolvable under both, which is what ci/cli.py does for the seed.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from roster import families_of
 from roster import label as label_of
 from roster import merge_private
 
@@ -102,6 +103,31 @@ def declared_families(path: Path = FAMILIES) -> list[str]:
     return [f["name"] for f in document.get("families", []) if f.get("name")]
 
 
+def families_within(family: str, path: Path = FAMILIES) -> set[str]:
+    """`family` and every family the seam file says sits within it.
+
+    A workspace for `performing` holds the members of the families within it
+    as well, because they are in `performing` too.
+    """
+    found = {family}
+    if not path.is_file():
+        return found
+    document = json.loads(path.read_text(encoding="utf-8"))
+    nested = {f["name"]: f.get("subfamilies", []) for f in document.get("families", [])}
+    pending = list(nested.get(family, []))
+    while pending:
+        child = pending.pop()
+        if child not in found:
+            found.add(child)
+            pending.extend(nested.get(child, []))
+    return found
+
+
+def in_family(entry: dict, family: str, path: Path = FAMILIES) -> bool:
+    """Whether the entry claims `family` or a family within it."""
+    return bool(families_within(family, path) & set(families_of(entry)))
+
+
 def select_families(
     roster: list[dict], wanted: list[str], declared: list[str], source: Path = FAMILIES
 ) -> list[dict]:
@@ -137,7 +163,11 @@ def select_families(
             f"make_workspace: no family named {', '.join(repr(n) for n in unknown)}. "
             f"Declared: {', '.join(declared)}"
         )
-    return [e for family in wanted for e in roster if e.get("family") == family]
+    selected: list[dict] = []
+    for family in wanted:
+        # A repository in two wanted families is one folder, not two.
+        selected += [e for e in roster if in_family(e, family, source) and e not in selected]
+    return selected
 
 
 def resolve(entry: dict, search_roots: list[Path]) -> Path | None:
@@ -189,12 +219,13 @@ def build(roster: list[dict], search_roots: list[Path], out: Path) -> tuple[dict
 
 
 def companion_page(
-    resolved: list[dict], out: Path, search_roots: list[Path], families: list[str] = ()
+    resolved: list[dict], out: Path, search_roots: list[Path], families: list[str] = (),
+    source: Path = FAMILIES,
 ) -> str:
     found = [e for e in resolved if e["resolved"] is not None]
     missing = [e for e in resolved if e["resolved"] is None]
-    # Scaffolded, not unknown: since the phase-ladder record every project
-    # has a phase, and the open question is whether the ladder's floor is
+    # Scaffolded, not unknown: under the phase-ladder record every project
+    # has a phase, and the open question is whether the ladder's default is
     # the right answer rather than whether there is one at all.
     unplaced = [e for e in found if str(e.get("phase_source", UNKNOWN)) == "scaffolded"]
 
@@ -237,7 +268,7 @@ def companion_page(
             "|---|---|---|",
         ]
         for family in families:
-            members = [e for e in resolved if e.get("family") == family]
+            members = [e for e in resolved if in_family(e, family, source)]
             here = [e for e in members if e["resolved"] is not None]
             lines.append(f"| `{family}` | {len(members)} | {len(here)} |")
         lines.append("")
@@ -277,29 +308,38 @@ def companion_page(
     lines += ["", "## Phases nobody has stated", ""]
     if unplaced:
         lines.append(
-            "The ladder is `records/DRAFT-project-phase-ladder.md`: **v0.0.1 is"
+            "The ladder is `records/DRAFT-project-phase-ladder.md`: **v0.0.0 is not"
         )
         lines.append(
-            "governance**, the same claim in every project, and every rung above it"
+            "adopted and v0.0.1 is adopted, however far along** — a project is at"
         )
         lines.append(
-            "is defined by the project in its own records. These carry v0.0.1 because"
+            "v0.0.0 until it has a `project/<name>` branch in the corpus and at v0.0.1"
         )
         lines.append(
-            "nothing was stated — the floor applied, rather than anybody deciding:"
+            "from then on, and every rung above is defined by the project in its own"
+        )
+        lines.append(
+            "records. These carry the ladder's default because nothing was stated —"
+        )
+        lines.append(
+            "v0.0.0 without the branch, v0.0.1 with it — rather than anybody deciding:"
         )
         lines.append("")
         for entry in unplaced:
             note = f" — {entry['note']}" if entry.get("note") else ""
-            lines.append(f"- **{label_of(entry)}**{note}")
+            lines.append(f"- **{label_of(entry)}** (`{entry.get('phase', UNKNOWN)}`){note}")
         lines.append("")
         lines.append(
             "Answer one by setting its `phase` and `phase_source: stated` in"
         )
         lines.append(
-            "`ci/workspace.yaml` and re-running. A rung above v0.0.1 also needs its"
+            "`ci/workspace.yaml` and re-running. A phase stated for a project with no"
         )
-        lines.append("definition written in that project's own records.")
+        lines.append(
+            "branch is intent, shown beside its v0.0.0, and a rung above v0.0.1 also"
+        )
+        lines.append("needs its definition written in that project's own records.")
     else:
         lines.append("None — every resolved repository has a phase somebody stated.")
 
@@ -369,7 +409,7 @@ def main(argv: list[str] | None = None) -> int:
             "whose members is cloned here."
         )
     workspace, resolved = build(roster, search_roots, out)
-    page = companion_page(resolved, out, search_roots, args.family)
+    page = companion_page(resolved, out, search_roots, args.family, args.families)
 
     missing = [label_of(e) for e in resolved if e["resolved"] is None]
     unplaced = [

@@ -25,6 +25,8 @@ import inventory  # noqa: E402
 from inventory import LOCAL, PRIVATE, PUBLIC, assign_references, local_clone  # noqa: E402
 
 ORG = "testorg"
+# The real read, kept before the fixture below replaces it for every other case.
+pictures_on_host = inventory.pictures_on_host
 
 
 def strings(obj) -> list[str]:
@@ -53,6 +55,14 @@ def repo(name, private=False, created="2020-01-01T00:00:00Z", **kw):
     return {"name": name, "isPrivate": private, "isFork": False, "isArchived": False,
             "createdAt": created, "updatedAt": "2026-01-01T00:00:00Z",
             "primaryLanguage": None, "diskUsage": 1, **kw}
+
+
+@pytest.fixture(autouse=True)
+def no_picture_reads(monkeypatch):
+    """`build` asks the host which listed pictures each default branch holds.
+    No case here reaches the host, so that read is replaced too."""
+    monkeypatch.setattr(inventory, "showcase_paths", lambda: {})
+    monkeypatch.setattr(inventory, "pictures_on_host", lambda org, wanted: {})
 
 
 def build_with(monkeypatch, tmp_path, repos, roster_names=(), commits=None):
@@ -498,3 +508,54 @@ def test_risk_and_unpushed_counts_stay_out_of_the_public_file(monkeypatch, tmp_p
     assert not contains(pub["repositories"], "pin-drift")
     assert not contains(pub["totals"], "unpushed")
     assert contains(loc["clones"], "unpushed:45"), "the local file is where it belongs"
+
+
+def test_a_public_repository_carries_its_host_description(monkeypatch, tmp_path):
+    pub, _, _ = build_with(monkeypatch, tmp_path, [repo("qm", description="  the corpus  ")])
+    row = next(r for r in pub["repositories"] if r.get("name") == "qm")
+    assert row["description"] == "the corpus"
+
+
+def test_a_private_repository_description_never_reaches_the_public_file(monkeypatch, tmp_path):
+    """A private repository's description can say what its withheld name would.
+
+    Mutation: record `description` for every row rather than the public ones
+    and this fails.
+    """
+    pub, _, _ = build_with(monkeypatch, tmp_path,
+                           [repo("client-x", private=True, description="Acme's billing portal")])
+    assert not contains(pub, "Acme's billing portal")
+    assert all("description" not in r for r in pub["repositories"] if r.get("private"))
+
+
+def test_a_listed_picture_counts_only_when_the_default_branch_holds_it(monkeypatch):
+    """A picture still on a pull request is listed and not yet shown.
+
+    Mutation: return every listed path without reading the tree and this fails.
+    """
+    tree = {"truncated": False, "tree": [{"path": "docs/a.png", "type": "blob"},
+                                         {"path": "docs", "type": "tree"}]}
+    monkeypatch.setattr(inventory.subprocess, "run", lambda cmd, **kw:
+                        subprocess.CompletedProcess(cmd, 0, json.dumps(tree), ""))
+    found = pictures_on_host(ORG, {"synth": ["docs/a.png", "docs/b.png"]})
+    assert found == {"synth": ["docs/a.png"]}
+
+
+def test_a_branch_that_cannot_be_read_is_unknown_not_empty(monkeypatch):
+    monkeypatch.setattr(inventory.subprocess, "run", lambda cmd, **kw:
+                        subprocess.CompletedProcess(cmd, 1, "", "HTTP 404"))
+    assert pictures_on_host(ORG, {"synth": ["a.png"]}) == {"synth": None}
+
+
+def test_only_a_public_repository_is_asked_about_its_pictures(monkeypatch, tmp_path):
+    asked = {}
+    monkeypatch.setattr(inventory, "showcase_paths",
+                        lambda: {"synth": ["a.png"], "client-x": ["b.png"]})
+    monkeypatch.setattr(inventory, "pictures_on_host",
+                        lambda org, wanted: asked.update(wanted) or {n: ["a.png"] for n in wanted})
+    pub, _, _ = build_with(monkeypatch, tmp_path,
+                           [repo("synth"), repo("client-x", private=True)])
+    assert set(asked) == {"synth"}
+    row = next(r for r in pub["repositories"] if r.get("name") == "synth")
+    assert row["pictures_on_default_branch"] == ["a.png"]
+    assert all("pictures_on_default_branch" not in r for r in pub["repositories"] if r.get("private"))

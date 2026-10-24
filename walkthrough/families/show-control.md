@@ -4,6 +4,8 @@
 
 **Drives** the room — cues, lighting, sound and video playback, audio transport
 
+**Within** [`performing`](./performing.md): a member of this family is a member of `performing` too, without claiming it.
+
 ![the show-control family](./show-control.svg)
 
 ## Who is in it
@@ -15,8 +17,13 @@
 | `QLab-python` | no |
 | `TheatreMix-python` | no |
 | `cesar` | no |
+| `ira` | no |
 | `ShowStopper` | no |
 | `aes` | no |
+
+Also in another family, because each drives more than one thing:
+
+- `ira` — [`irl`](./irl.md)
 
 ## Starting here
 
@@ -34,4 +41,4 @@ Adopting one is `handbook/forking-a-project.md` — nine steps, taken one reposi
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-09-27 from `families.json`.*
+*Generated 2026-10-20 from `families.json`.*

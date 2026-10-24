@@ -1,0 +1,119 @@
+/* Generated from ci/palette.py -- do not edit. Regenerate with
+ * `python ci/palette.py --write docs/stylesheets/palette.css`.
+ * Light is the theme's `default` scheme and dark is `slate`. */
+
+:root, [data-md-color-scheme="default"] {
+  --qm-ground: #f3f4f7;
+  --qm-surface: #ffffff;
+  --qm-sunken: #e8eaf0;
+  --qm-ink: #141922;
+  --qm-muted: #536075;
+  --qm-line: #d5d9e2;
+  --qm-accent: #9a520b;
+  --qm-ok: #2f6b4f;
+  --qm-ok-bg: #e6f0e9;
+  --qm-warn: #8a5a12;
+  --qm-warn-bg: #f6ecd9;
+  --qm-unknown: #4a4a8a;
+  --qm-unknown-bg: #eae9f5;
+  --qm-family-performing: #9a520b;
+  --qm-family-show-control: #b3305a;
+  --qm-family-instruments: #0a6f6b;
+  --qm-family-performer-display: #5a43b5;
+  --qm-family-irl: #94551f;
+  --qm-family-infra: #55647a;
+  --qm-family-core: #2a61bd;
+  --qm-family-games: #2d7241;
+  --qm-family-civic: #8a3f9e;
+  --qm-font-display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --qm-font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --qm-font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --md-default-bg-color: #f3f4f7;
+  --md-default-bg-color--light: rgba(243, 244, 247, 0.85);
+  --md-default-bg-color--lighter: rgba(243, 244, 247, 0.6);
+  --md-default-bg-color--lightest: rgba(243, 244, 247, 0.3);
+  --md-default-fg-color: #141922;
+  --md-default-fg-color--light: #536075;
+  --md-default-fg-color--lighter: rgba(83, 96, 117, 0.55);
+  --md-default-fg-color--lightest: rgba(83, 96, 117, 0.14);
+  --md-typeset-color: #141922;
+  --md-typeset-a-color: #9a520b;
+  --md-primary-fg-color: #141922;
+  --md-primary-fg-color--light: #536075;
+  --md-primary-fg-color--dark: #141922;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+  --md-accent-fg-color: #9a520b;
+  --md-accent-fg-color--transparent: rgba(154, 82, 11, 0.1);
+  --md-accent-bg-color: #ffffff;
+  --md-accent-bg-color--light: rgba(255, 255, 255, 0.7);
+  --md-code-bg-color: #e8eaf0;
+  --md-code-fg-color: #141922;
+  --md-typeset-table-color: #d5d9e2;
+  --md-text-font: 'IBM Plex Sans';
+  --md-code-font: 'IBM Plex Mono';
+}
+
+[data-md-color-scheme="slate"] {
+  --qm-ground: #0d1118;
+  --qm-surface: #151b25;
+  --qm-sunken: #1c2331;
+  --qm-ink: #e7eaf1;
+  --qm-muted: #9ba5b7;
+  --qm-line: #283143;
+  --qm-accent: #f2aa4c;
+  --qm-ok: #7fbaa6;
+  --qm-ok-bg: #1a2622;
+  --qm-warn: #d6a45a;
+  --qm-warn-bg: #2a2217;
+  --qm-unknown: #9d9ad6;
+  --qm-unknown-bg: #21223a;
+  --qm-family-performing: #f2aa4c;
+  --qm-family-show-control: #f0708f;
+  --qm-family-instruments: #43c6bf;
+  --qm-family-performer-display: #a693f3;
+  --qm-family-irl: #dd9b63;
+  --qm-family-infra: #98a7bc;
+  --qm-family-core: #74a8f6;
+  --qm-family-games: #73c886;
+  --qm-family-civic: #cf8ce0;
+  --qm-font-display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --qm-font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --qm-font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --md-default-bg-color: #0d1118;
+  --md-default-bg-color--light: rgba(13, 17, 24, 0.85);
+  --md-default-bg-color--lighter: rgba(13, 17, 24, 0.6);
+  --md-default-bg-color--lightest: rgba(13, 17, 24, 0.3);
+  --md-default-fg-color: #e7eaf1;
+  --md-default-fg-color--light: #9ba5b7;
+  --md-default-fg-color--lighter: rgba(155, 165, 183, 0.55);
+  --md-default-fg-color--lightest: rgba(155, 165, 183, 0.14);
+  --md-typeset-color: #e7eaf1;
+  --md-typeset-a-color: #f2aa4c;
+  --md-primary-fg-color: #e7eaf1;
+  --md-primary-fg-color--light: #9ba5b7;
+  --md-primary-fg-color--dark: #e7eaf1;
+  --md-primary-bg-color: #151b25;
+  --md-primary-bg-color--light: rgba(21, 27, 37, 0.7);
+  --md-accent-fg-color: #f2aa4c;
+  --md-accent-fg-color--transparent: rgba(242, 170, 76, 0.1);
+  --md-accent-bg-color: #151b25;
+  --md-accent-bg-color--light: rgba(21, 27, 37, 0.7);
+  --md-code-bg-color: #1c2331;
+  --md-code-fg-color: #e7eaf1;
+  --md-typeset-table-color: #283143;
+  --md-text-font: 'IBM Plex Sans';
+  --md-code-font: 'IBM Plex Mono';
+  color-scheme: dark;
+}
+
+/* A family's hue on anything that carries its class. */
+.qm-f-performing { --c: var(--qm-family-performing); }
+.qm-f-show-control { --c: var(--qm-family-show-control); }
+.qm-f-instruments { --c: var(--qm-family-instruments); }
+.qm-f-performer-display { --c: var(--qm-family-performer-display); }
+.qm-f-irl { --c: var(--qm-family-irl); }
+.qm-f-infra { --c: var(--qm-family-infra); }
+.qm-f-core { --c: var(--qm-family-core); }
+.qm-f-games { --c: var(--qm-family-games); }
+.qm-f-civic { --c: var(--qm-family-civic); }

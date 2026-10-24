@@ -3,20 +3,17 @@
  *
  * WCAG 1.4.1 allows a colour-only link in body text when the colour clears 3:1
  * against the surrounding text and a non-colour cue appears on hover and focus.
- * On the light theme that is reachable. On `slate` it is not:
+ * The ink here is chosen to sit under that line on both themes, against the
+ * palette's ink and ground (ci/palette.py):
  *
- *   body text vs background   light 16.10:1   dark 12.28:1
- *   a colour clearing both >= 3:1 against body text
- *   and >= 4.5:1 against the background, on slate:   none exists
- *
- * Body text there is near white, so a colour far enough from it to be
- * distinguishable is too dark to be readable against the background; over the
- * whole sRGB cube, no shade satisfies both.
+ *   body text vs background   light 16.02:1   dark 15.70:1
+ *   glossary ink vs body      light  2.17:1   dark  1.45:1
+ *   glossary ink vs ground    light  7.39:1   dark 10.81:1
  *
  * So the cue is persistent. A dotted underline carries the "this is a link"
  * information, and colour does no accessibility work: it only has to stay
  * readable (4.5:1 against the background), so the difference in colour can be
- * slight.
+ * slight, and the cue asks nothing of colour vision.
  *
  * A 1px dotted rule at 60% opacity is the treatment `<abbr>` uses, and reads as
  * a hint rather than a link. It becomes solid on hover and focus.

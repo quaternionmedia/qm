@@ -1,6 +1,9 @@
+<p class="qm-eyebrow">usage · a new project</p>
+
 # Forking a new project
 
 How a new project adopts the QM corpus.
+{ .qm-lede }
 
 !!! warning "Follow the handbook, not this page"
     This page is an outline. The authoritative procedure — with the exact commands and the check that proves each step worked — is [handbook/forking-a-project.md](https://github.com/quaternionmedia/qm/blob/main/handbook/forking-a-project.md). Do not improvise a lighter version: most adoption defects come from skipped or partial steps.
@@ -27,7 +30,7 @@ The [handbook](../ref/glossary.md#handbook){ .glossary-term } numbers the steps 
 
 ## After adoption
 
-- [Next steps](next-steps.md) — [propagation](../ref/glossary.md#propagation){ .glossary-term }, audits, and project phases
+- [Next steps](next-steps.md) — [propagation](../ref/glossary.md#propagation){ .glossary-term }, audits, project phases, and the project's page
 - [Architecture](../about/architecture.md) — why the structure is this way
 
 ## Related
