@@ -1,11 +1,13 @@
 ---
 title: civic
+hide:
+  - toc
 ---
 
 civic
 { .qm-eyebrow }
 
-# the public { .qm-family-title .qm-f-civic }
+# the public<span class="qm-dot">.</span> { .qm-family-title .qm-f-civic }
 
 Drives the public — open information a community reads and adds to: maps, records, public data.
 { .qm-lede }

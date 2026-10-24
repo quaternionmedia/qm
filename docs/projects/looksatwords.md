@@ -1,11 +1,18 @@
 ---
 title: looksatwords
+hide:
+  - navigation
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 [core](../families/core.md)
 { .qm-eyebrow }
 
-# looksatwords { .qm-family-title .qm-f-core }
+# looksatwords<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
 <p class="qm-lede">A python module to make, gather, analyze, and visualize language data.</p>
 
@@ -14,15 +21,19 @@ title: looksatwords
 
 [looksatwords on GitHub](https://github.com/quaternionmedia/looksatwords){ .md-button .md-button--primary }
 
-<div class="grid" markdown>
+</div>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-hero-shot" markdown>
 
-![A conversation's threads drawn as lanes over time, with the analysis below.](https://github.com/quaternionmedia/looksatwords/raw/HEAD/docs/pics/harness-analysed.png)
+[![A conversation's threads drawn as lanes over time, with the analysis below.](https://github.com/quaternionmedia/looksatwords/raw/HEAD/docs/pics/harness-analysed.png)](https://github.com/quaternionmedia/looksatwords/raw/HEAD/docs/pics/harness-analysed.png)
 
-<figcaption>A conversation's threads drawn as lanes over time, with the analysis below.</figcaption>
+<figcaption><strong>looksatwords.</strong> A conversation's threads drawn as lanes over time, with the analysis below.</figcaption>
 
 </figure>
+
+</div>
+
+<div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
 

@@ -1,11 +1,18 @@
 ---
 title: scad-chess
+hide:
+  - navigation
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 [irl](../families/irl.md)
 { .qm-eyebrow }
 
-# scad-chess { .qm-family-title .qm-f-irl }
+# scad-chess<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }
 
 <p class="qm-lede">Chess set, designed in openSCAD</p>
 
@@ -14,15 +21,19 @@ title: scad-chess
 
 [scad-chess on GitHub](https://github.com/quaternionmedia/scad-chess){ .md-button .md-button--primary }
 
-<div class="grid" markdown>
+</div>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-hero-shot" markdown>
 
-![The chess set, modelled in OpenSCAD.](https://github.com/quaternionmedia/scad-chess/raw/HEAD/chess_set.png)
+[![The chess set, modelled in OpenSCAD.](https://github.com/quaternionmedia/scad-chess/raw/HEAD/chess_set.png)](https://github.com/quaternionmedia/scad-chess/raw/HEAD/chess_set.png)
 
-<figcaption>The chess set, modelled in OpenSCAD.</figcaption>
+<figcaption><strong>scad-chess.</strong> The chess set, modelled in OpenSCAD.</figcaption>
 
 </figure>
+
+</div>
+
+<div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
 

@@ -1,11 +1,14 @@
 ---
 title: midiphonor
+hide:
+  - navigation
+  - toc
 ---
 
 [instruments](../families/instruments.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# midiphonor { .qm-family-title .qm-f-instruments }
+# midiphonor<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 <p class="qm-lede">A Holophonor implementation, using Tone.js</p>
 

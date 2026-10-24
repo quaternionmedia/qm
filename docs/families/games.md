@@ -1,11 +1,13 @@
 ---
 title: games
+hide:
+  - toc
 ---
 
 games
 { .qm-eyebrow }
 
-# play { .qm-family-title .qm-f-games }
+# play<span class="qm-dot">.</span> { .qm-family-title .qm-f-games }
 
 Drives play — a game somebody plays: its rules, its world, its loop, and the server it is played on.
 { .qm-lede }

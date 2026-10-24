@@ -28,7 +28,7 @@ This writes the site to `site/`, which is not committed. On a push to `main`, th
 
 ## Where things are
 
-- Source pages: `docs/` (`about/`, `usage/`, `ref/`), and the generated `families/` and `projects/`
+- Source pages: `docs/` (`about/`, `usage/`, `ref/`), and the generated `families/` and `projects/`; the front page includes its showcase from the generated `includes/`
 - Configuration: `zensical.toml` — site metadata, navigation, theme, and Markdown extensions
 
 ## Add a page

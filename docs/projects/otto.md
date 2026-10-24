@@ -1,11 +1,14 @@
 ---
 title: otto
+hide:
+  - navigation
+  - toc
 ---
 
 [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# otto { .qm-family-title .qm-f-performing }
+# otto<span class="qm-dot">.</span> { .qm-family-title .qm-f-performing }
 
 <p class="qm-lede">automatic video generation</p>
 

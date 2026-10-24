@@ -1,11 +1,13 @@
 ---
 title: performer-display
+hide:
+  - toc
 ---
 
 performer-display · within [performing](performing.md)
 { .qm-eyebrow }
 
-# the performer { .qm-family-title .qm-f-performer-display }
+# the performer<span class="qm-dot">.</span> { .qm-family-title .qm-f-performer-display }
 
 Drives the performer — what a player reads while playing.
 { .qm-lede }

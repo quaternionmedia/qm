@@ -1,11 +1,14 @@
 ---
 title: ShowStopper
+hide:
+  - navigation
+  - toc
 ---
 
 [show-control](../families/show-control.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# ShowStopper { .qm-family-title .qm-f-show-control }
+# ShowStopper<span class="qm-dot">.</span> { .qm-family-title .qm-f-show-control }
 
 <p class="qm-lede">Stopwatch geared towards tracking need for the performing arts</p>
 

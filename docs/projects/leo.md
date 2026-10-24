@@ -1,11 +1,14 @@
 ---
 title: leo
+hide:
+  - navigation
+  - toc
 ---
 
 [performer-display](../families/performer-display.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# leo { .qm-family-title .qm-f-performer-display }
+# leo<span class="qm-dot">.</span> { .qm-family-title .qm-f-performer-display }
 
 <p class="qm-lede">Web pdf viewer, annotator, collaborator</p>
 

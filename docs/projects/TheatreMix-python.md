@@ -1,11 +1,14 @@
 ---
 title: TheatreMix-python
+hide:
+  - navigation
+  - toc
 ---
 
 [show-control](../families/show-control.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# TheatreMix-python { .qm-family-title .qm-f-show-control }
+# TheatreMix-python<span class="qm-dot">.</span> { .qm-family-title .qm-f-show-control }
 
 <p class="qm-lede">Python components for interacting with TheatreMix</p>
 
