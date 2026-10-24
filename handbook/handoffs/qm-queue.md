@@ -93,11 +93,57 @@ session's and outside this page.
   `AGENTS.md`, the charter, the async contract or the handoffs index needs one
   taken out, or the budget amended in its record.
 - **The older handoff pages.** Step 7 of `handbook/consolidation-runbook.md`
-  was applied to the voice pages only. Of the other pages, none names an open
-  pull request but `design-review-of-the-estate.md` (#121) and
-  `hil-review-2026-10-04.md` (#138, #139), and several are blocked on a
-  person's decisions; each needs reading before it is retired or folded. Done
-  is the runbook's verification.
+  is applied to the voice pages and to the six pages the index tagged "read
+  this first" or "read this second" on 2026-10-24, whose open items are carried
+  below. Of the rest, none names an open pull request but
+  `design-review-of-the-estate.md` (#121) and `hil-review-2026-10-04.md` (#138,
+  #139), and several are blocked on a person's decisions; each is read by what
+  it holds, not by its date, before it is retired or folded. Done is the
+  runbook's verification.
+
+### Carried from retired pages
+
+Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
+re-checked and is re-derived before anyone acts on it.
+
+- **`one-pr-check.yml` in every project.** On four projects' default
+  branches; absent on alfred, apothecary, datum, dossier, factorio-sysops,
+  qmetronome and rad, and not read for the private projects. Done is the
+  workflow on every project's default branch, which follows the propagations
+  in §2 and a copy in each project.
+- **Unsubstituted placeholders.** Seven project branches' `adr/README.md`
+  still reads `project/<name>`: alfred, apothecary, factorio-sysops,
+  qmetronome, `private-32`, `private-33` and `private-34`.
+  `project-seed/ci/check_placeholders.py` refuses it at each branch's next
+  propagation. Done is that check clean on every project branch.
+- **`handbook/async-contract.md` names an adapter's command** (`/cowork`), where
+  a governance page names no tool. Done is the page stating the rule and
+  pointing at `adapters/` for any mechanism.
+- **rad.** Its numpad record (`adr/DRAFT-the-menu-addresses-nine-cells.md` in
+  rad) is `Proposed`. Its records live in its own tree (`RECORDS_DIR: adr`)
+  while `project/rad`'s `adr/` holds the template, and whether they move is
+  undecided. Its conformance vectors carry no modality tag, so a keyboard-only
+  host can run them only by curating a subset; that is a proposal to rad, not a
+  local subset. The menu's cells (placement order, the empty centre,
+  reachability by direction, the chord window) are not in the vectors.
+- *Carried.* **dossier reaches every language model through qmcp** (decided
+  2026-08-23), and nothing is built: dossier reads qmcp only through its schema
+  seam. A conversation started from dossier needs a writable thread source in
+  qmcp, and every send passes the budget gate in `qmcp/spend.py`.
+- *Carried.* **The qmcp–dossier pair reconciles rather than connects**: a
+  payload crosses as a file a person names. Done is one side reading the
+  other's state with no filename on a command line, every figure keeping its
+  age.
+- *Carried.* **qmcp cannot cut a tag** while its suite skips tests on missing
+  optional dependencies. Done is `check_tag_claims.py --test-output` accepting a
+  captured run.
+- *Carried.* **The public demo corpus**: the warm-up on demand, and the
+  narrowing to public non-fork repositories at fetch rather than after.
+- *Carried.* **dossier's `tests/ui` fixtures**: two duplicate `test_session`
+  in the parent `conftest`, and three different fixtures sharing a name.
+- *Carried.* **Two README structures**: the corpus README's routing table needs
+  vocabulary a newcomer lacks, and dossier's opens with badges, screenshots and
+  a quickstart before any prose. Each is a judgement about what matters most.
 
 ## 5. Not verified
 
