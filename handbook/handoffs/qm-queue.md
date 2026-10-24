@@ -10,6 +10,30 @@ sessions.
 for `joe` #33 and #34; [`the-voice-loop.md`](the-voice-loop.md) is the loop.
 This page is everything else open in `qm`.
 
+## How this page is kept
+
+This is the standing queue. A session keeps it current rather than writing a
+handoff page of its own, unless its work needs a brief another session can
+pick up alone; that page is then listed in the index and named here.
+
+- **At open**, run `uv run qm queue`. It asks the host about every pull request
+  and issue this page names and lists each one that merged or closed after the
+  stamp. Every one it lists is a sentence here the host contradicts; read the
+  page with that list beside it.
+- **At close**, before the handoff's pull request is opened:
+  - every pull request the session opened and left open is named here, with
+    what clears it;
+  - every one it merged or closed comes off, and an item it finished is deleted
+    rather than marked done;
+  - a decision that binds later sessions goes into §1, dated; a blocker into
+    §3, unfinished work into §4, anything it could not verify into §5;
+  - every figure the session relied on is re-derived, and only then is the
+    stamp moved to the commits it was re-derived against;
+  - `uv run qm queue` exits 0.
+- **The check cannot see** a pull request this page never names, or whether a
+  sentence claims a pull request is open, and a stamp moved without a re-read
+  silences it. Those are read by the session.
+
 ---
 
 ## 1. Decisions in force

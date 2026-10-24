@@ -311,7 +311,7 @@ with the commit each repository is at.
 
 *Verify:* every page the table links exists, every page in the directory is in
 the table, and no row describes as pending a pull request that
-`gh pr view` reports `MERGED`.
+`gh pr view` reports `MERGED`. For `qm-queue.md`, `uv run qm queue` exits 0.
 
 ## Step 8 — regenerate the generated documents
 

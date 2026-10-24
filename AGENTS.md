@@ -50,6 +50,11 @@ both, and `uv run qm harness` renders the second as prose. Check the age
 before quoting a figure — a stale number delivered
 with a date looks checked.
 
+**Read the standing queue at open, and leave it true at close.**
+`handbook/handoffs/qm-queue.md` holds what is open, blocked and unfinished
+across sessions; `uv run qm queue` lists what the host says merged or closed
+since its stamp. Its first section says how a session keeps it.
+
 1. Read `PRINCIPLES.md` (the charter) in full and the opening points of `README.md`. For depth, see `docs/ref/namespaces.md`, `docs/ref/precedence.md`, and `docs/ref/ratification.md` on the docs site.
 2. This corpus governs its own drafting. Records live in `records/` as
    `DRAFT-*.md` until a human ratifies them (flips Status, assigns a QM
