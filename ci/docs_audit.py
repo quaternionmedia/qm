@@ -3,12 +3,12 @@
 
     uv run qm docs audit
 
-WHY. `docs.yml` triggers on push and deploys straight to Pages, so the build
-*is* the deploy: a pull request never establishes that the site still rebuilds,
-and the first evidence of a broken build is a broken published site. Separately,
-nothing checks that what the docs say matches the corpus they document.
+`docs.yml` triggers on push and deploys straight to Pages, so the build *is*
+the deploy: a pull request never establishes that the site still rebuilds.
+This checks the inputs the build reads, and that what the docs say matches the
+corpus they document.
 
-TWO DIMENSIONS, AND THEY FAIL DIFFERENTLY.
+Two dimensions, and they fail differently.
 
   rebuild    the site config parses and the build inputs are all present. A
              config only one parser accepts is a rebuild that works until the
@@ -16,7 +16,7 @@ TWO DIMENSIONS, AND THEY FAIL DIFFERENTLY.
   accuracy   every link resolves, every corpus path named exists, and no docs
              page silently duplicates a corpus document.
 
-WHAT THIS CANNOT DO. It does not run the site generator -- that needs the
+What this cannot do: it does not run the site generator -- that needs the
 generator installed, and it belongs in the workflow where the real build
 happens. This checks the inputs the build reads and the claims the pages make.
 A green result here means the build has what it needs and the pages point at
@@ -42,11 +42,14 @@ LINK = re.compile(r"\[[^\]]*\]\(\s*(?!https?://|mailto:|#)([^)\s#]+)(?:#([^)\s]*
 # says so when it complains.
 HEADING = re.compile(r"^#{1,6}\s+(.+?)\s*$", re.M)
 EXPLICIT_ANCHOR = re.compile(r"\{\s*#([A-Za-z0-9_-]+)\s*\}")
+# An element's own id, which a table cell uses because it cannot carry `{ #id }`.
+HTML_ID = re.compile(r"""\bid=["']([A-Za-z0-9_-]+)["']""")
 
 
 def anchors_in(text: str) -> set[str]:
-    """Every fragment a page offers: explicit `{ #id }` and heading slugs."""
-    found = set(EXPLICIT_ANCHOR.findall(text))
+    """Every fragment a page offers: explicit `{ #id }`, an element's `id`, and
+    heading slugs."""
+    found = set(EXPLICIT_ANCHOR.findall(text)) | set(HTML_ID.findall(text))
     for heading in HEADING.findall(text):
         cleaned = EXPLICIT_ANCHOR.sub("", heading)
         cleaned = re.sub(r"[`*_\[\]()]", "", cleaned)
@@ -88,13 +91,8 @@ def check_links(root: Path, docs: Path) -> list[str]:
             resolved = (page.parent / target).resolve()
 
             # A relative link is published, so it has to land inside the site.
-            # This check used to accept any target that existed anywhere in the
-            # repository, on the reasoning that a docs page legitimately points
-            # at the corpus. On disk that is true; on the built site it is a
-            # 404, because only `docs/` is published. `docs/index.md` linked
-            # `../handbook/glossary.md`, the file existed, the check passed and
-            # the published link was dead -- while the same page linked the
-            # same glossary correctly a few lines further down.
+            # A target that exists anywhere in the repository resolves on disk
+            # and 404s on the built site, because only `docs/` is published.
             if resolved.is_file() or resolved.is_dir():
                 try:
                     resolved.relative_to(docs.resolve())
@@ -108,8 +106,7 @@ def check_links(root: Path, docs: Path) -> list[str]:
 
                 # A fragment naming nothing lands the reader at the top of the
                 # page instead of at the thing they clicked, which reads as the
-                # link having worked. The regex used to discard the fragment
-                # entirely, so this was never checked.
+                # link having worked.
                 if fragment and resolved.is_file():
                     available = anchors_in(
                         resolved.read_text(encoding="utf-8", errors="replace"))

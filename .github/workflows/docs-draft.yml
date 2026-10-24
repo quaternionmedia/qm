@@ -1,22 +1,21 @@
 # A draft documentation build, published on demand when a pull request leaves
 # draft and becomes ready for review.
 #
-# THE TWO ROLES ARE SPLIT ON PURPOSE. An agent takes a pull request out of draft
-# and that publishes this artifact; a human reviews it and cuts the tag. Never
-# the same actor for both -- the whole value of the second step is that somebody
-# who did not write the pages looked at them.
+# Two roles, held by different actors: an agent takes a pull request out of
+# draft, which publishes this artifact; a human reviews it and cuts the tag.
+# The second step is worth having because somebody who did not write the pages
+# looks at them.
 #
-# WHY AN ARTIFACT AND NOT A PAGES DEPLOYMENT. GitHub Pages serves one site per
-# repository, and `deploy-pages` replaces it wholesale. Publishing a draft there
-# would take down the real documentation to show a preview of an unmerged
-# branch -- the exact confusion the banner exists to prevent, with the live site
-# as collateral. So the draft uploads as a downloadable artifact on the run.
-# A genuine preview URL needs a second Pages site or an external host, and that
-# is a decision this workflow does not make on anyone's behalf.
+# An artifact rather than a Pages deployment: GitHub Pages serves one site per
+# repository, and `deploy-pages` replaces it wholesale, so a draft published
+# there would replace the real documentation with a preview of an unmerged
+# branch. The draft uploads as a downloadable artifact on the run. A preview URL
+# needs a second Pages site or an external host, which this workflow does not
+# choose.
 #
-# WHAT IT DOES NOT COVER. It does not review anything. It builds the site the
-# pull request would publish, marks every page as a draft, and hands it to a
-# human. Whether the pages are right is the review, and the review is the point.
+# What it does not cover: review. It builds the site the pull request would
+# publish, marks every page as a draft, and hands it to a human, who judges
+# whether the pages are right.
 
 name: Docs draft
 
@@ -45,11 +44,11 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: true
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.x'
 
@@ -63,10 +62,9 @@ jobs:
       # produce a draft indistinguishable from the published documentation.
       # The context values go through `env:` rather than into the `run:` script.
       # An expression inside a run block is opaque to the local workflow runner,
-      # which refuses it rather than guessing -- so the step becomes
-      # unreproducible on the machine where a contributor would first notice it
-      # was wrong. As env, the runner drops it with a note and the fallbacks
-      # below keep the step working.
+      # which refuses it, so the step could not be reproduced locally. As env,
+      # the runner drops it with a note and the fallbacks below keep the step
+      # working.
       - name: Mark every page as a draft
         env:
           DRAFT_LABEL: ${{ github.event.pull_request.title || github.ref_name }}
@@ -79,7 +77,7 @@ jobs:
       - name: The pages match the corpus
         run: python ci/docs_audit.py
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: docs-draft-${{ github.event.pull_request.number || github.run_id }}
           path: site

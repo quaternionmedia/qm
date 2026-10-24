@@ -1,26 +1,24 @@
 # The published documentation rebuilds, and matches the corpus it documents.
 #
-# WHY THIS EXISTS SEPARATELY FROM docs.yml. That workflow triggers on push and
-# deploys straight to Pages, so the build *is* the deploy: a pull request never
-# establishes that the site still rebuilds, and the first evidence of a broken
-# build is a broken published site. This runs the build on the pull request and
+# Separate from docs.yml, which triggers on push and deploys straight to
+# Pages, so that its build is the deploy and a pull request never shows whether
+# the site still rebuilds. This runs the build on the pull request and
 # publishes nothing.
 #
-# TWO DIMENSIONS, AND THEY FAIL DIFFERENTLY
+# Two dimensions, which fail differently:
 #
 #   rebuild    the generator runs to completion and emits a site. Fails the
 #              pull request, because a site that cannot build must not merge.
 #   accuracy   links resolve, named repository paths exist, and no page
-#              silently shadows a corpus document. Reported and does NOT fail
-#              the run by default -- a link typo is worth seeing and is not
-#              worth blocking a merge, and a check that blocks on everything
-#              gets routed around.
+#              silently shadows a corpus document. Reported, and does not fail
+#              the run by default: a link typo is worth seeing and not worth
+#              blocking a merge.
 #
-# PATH-FILTERED ON PURPOSE. `docs/` and `zensical.toml` do not exist on every
-# branch. Without the filter this would fail the default branch for the absence
-# of a site nobody claimed was there.
+# Path-filtered, because `docs/` and `zensical.toml` do not exist on every
+# branch, and without the filter this would fail a branch for the absence of a
+# site it does not claim to have.
 #
-# WHAT IT DOES NOT COVER
+# What it does not cover:
 #
 #   - Whether a page is *correct*. Every check here is structural: a link that
 #     resolves can still point at the wrong page, and a page that cites its
@@ -50,11 +48,11 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: true
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.x'
 

@@ -2,7 +2,7 @@
 
 **This page is generated.** Every figure comes from `families.json` and from the clones on this disk, and `uv run qm cookbook --check` fails the build when it stops being true. Do not edit it; edit the roster or the record and regenerate.
 
-**Drives** play — a game somebody plays: its rules, its world and its loop
+**Drives** play — a game somebody plays: its rules, its world, its loop, and the server it is played on
 
 ![the games family](./games.svg)
 
@@ -10,14 +10,24 @@
 
 | member | governed |
 |---|---|
+| `private-32` | no |
+| `private-33` | no |
+| `factorio-sysops` | yes |
 | `golfvs` | no |
 | `private-38` | no |
+| `rad-godot` | no |
+| `qmcli-godot` | no |
 
 ## Starting here
 
-**No member of this family carries governance yet**, so there is no governed entry point and this page will not invent one. Reading the code is the entry point.
+1 of 7 members carry governance, so this family has a governed entry point. Begin in `factorio-sysops`:
 
-Adopting one is `handbook/forking-a-project.md` — nine steps, taken one repository at a time, and a decision per repository rather than per family. Nothing here recommends which; that is the border test in `records/DRAFT-a-family-is-bordered-by-what-it-drives.md` §2 applied by somebody who knows what the code does.
+```sh
+cd factorio-sysops
+uv run qm cowork          # or read AGENTS.md, if this repo has no CLI
+```
+
+A governed member is one with a `project/<name>` branch in the corpus. Its records live there, not in the repository itself.
 
 ## What this page deliberately does not carry
 
@@ -29,4 +39,4 @@ Adopting one is `handbook/forking-a-project.md` — nine steps, taken one reposi
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-10-10 from `families.json`.*
+*Generated 2026-10-24 from `families.json`.*

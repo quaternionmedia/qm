@@ -7,7 +7,7 @@ does not have it, and the fix belongs in ci/doc_status.py where the rule is
 defined once. `ci/tests/test_doc_tooling.py` asserts no process-spawning import
 appears anywhere in this file, this sentence included.
 
-THE TOGGLE. `--state <name>` narrows the page to one state. The count of what
+The toggle: `--state <name>` narrows the page to one state. The count of what
 was hidden is always printed, because a filtered page that does not say it is
 filtered reads as the whole corpus -- and this is a governance view, where a
 short clean list is the most dangerous thing on offer.

@@ -40,7 +40,7 @@ def test_one_coordinate_across_the_surface_is_clean():
 
 
 def test_a_surface_that_disagrees_is_refused():
-    """**THE DEFECT, AT THE SMALLEST SCALE THAT SHOWS IT.**
+    """The defect, at the smallest scale that shows it.
 
     Mutation: make `problems` return `[]` when the known versions differ and
     this fails.
@@ -89,7 +89,7 @@ def test_the_registry_registers_the_surface_this_estate_has():
 
 
 def test_a_host_that_cannot_be_launched_is_reported_not_counted(tmp_path):
-    """**THE FAILURE THAT READ AS A MISSING REPOSITORY.**
+    """The failure that read as a missing repository.
 
     On Windows `npm` is `npm.cmd`, and `subprocess` without a shell finds
     neither -- it reports "the system cannot find the file specified", which

@@ -20,6 +20,12 @@
 | `private-05` | no |
 | `private-07` | no |
 
+Also in another family, because each drives more than one thing:
+
+- `ira` — [`show-control`](./show-control.md)
+- `uPhonor` — [`instruments`](./instruments.md)
+- `stomp` — [`instruments`](./instruments.md)
+
 ## Starting here
 
 2 of 9 members carry governance, so this family has a governed entry point. Begin in `apothecary`:
@@ -41,4 +47,4 @@ A governed member is one with a `project/<name>` branch in the corpus. Its recor
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-10-10 from `families.json`.*
+*Generated 2026-10-20 from `families.json`.*

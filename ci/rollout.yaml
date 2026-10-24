@@ -76,9 +76,7 @@ rollouts:
       - name: matter-and-infra
         families: [irl, infra]
       - name: performing
-        families: [instruments, show-control, performer-display]
-      - name: unstated
-        # Repositories with no stated family; a repository that claims a family
-        # belongs to that family's phase instead.
-        repos: [alfred, benchmark, factorio-sysops, private-32, private-33, rad]
+        families: [performing]
+      - name: commons
+        families: [commons]
     claims: []

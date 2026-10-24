@@ -24,7 +24,7 @@ Projects adopt the [corpus](../ref/glossary.md#corpus){ .glossary-term } **by re
 
 ## The charter
 
-[PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) states eleven principles. In brief:
+[PRINCIPLES.md](https://github.com/quaternionmedia/qm/blob/main/PRINCIPLES.md) states the principles. Some of them, in brief:
 
 1. **Ownership is the deliverable** — systems must keep working if every vendor and upstream disappears.
 2. **Commons-first economics** — capability gaps are closed upstream; sponsorship is a first-class budget line.
@@ -38,11 +38,11 @@ Projects adopt the [corpus](../ref/glossary.md#corpus){ .glossary-term } **by re
 10. **Credit tracks accountability, not output** — authorship names people who can answer for a change, never tools.
 11. **Governance finds the reader, not the reverse** — governance is placed in the files a reader already opens.
 
-Each principle names its enforcement mechanism. Read the full charter for the reasoning.
+Each principle names its enforcement mechanism. Read the full charter for the rest of them and for the reasoning.
 
 ## The records
 
-Twelve org records are drafted and awaiting ratification. Every one is marked `Proposed`, because [ratification](../ref/glossary.md#ratification){ .glossary-term } requires a second active code owner. The [records index](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records) links to each record.
+The org records are drafted and awaiting ratification. None is ratified yet, because [ratification](../ref/glossary.md#ratification){ .glossary-term } requires a second active code owner. The [records index](https://github.com/quaternionmedia/qm/blob/main/README.md#index--org-records) links to each record.
 
 ## Related
 
