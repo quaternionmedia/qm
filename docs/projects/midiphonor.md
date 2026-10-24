@@ -9,7 +9,7 @@ title: midiphonor
 
 <p class="qm-lede">A Holophonor implementation, using Tone.js</p>
 
-not adopted · TypeScript
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · TypeScript
 { .qm-caption }
 
 [midiphonor on GitHub](https://github.com/quaternionmedia/midiphonor){ .md-button .md-button--primary }

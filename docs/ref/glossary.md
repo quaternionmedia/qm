@@ -42,7 +42,7 @@
 : Dated, attributed, non-binding opinion in `perspectives/`: incidents, retrospectives, argued positions. See [Add a perspective](../usage/add-a-perspective.md).
 
 **Phase ladder** { #phase-ladder }
-: How a project reports its governance maturity, as a version number. Only `v0.0.1` (adoption of the constitution) is defined org-wide; higher rungs are defined by each project in its own records. See [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-project-phase-ladder.md).
+: How a project reports its governance maturity, as a version number. `v0.0.0` (not adopted) and `v0.0.1` (adopted, however far along) are defined org-wide; higher rungs are defined by each project in its own records. See [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-project-phase-ladder.md).
 
 **Propagation** { #propagation }
 : Merging `main` into a `project/<name>` branch to carry org changes to a project, through a `propagate/<name>-<date>` pull request. See [Propagate a change](../usage/propagate-a-change.md).

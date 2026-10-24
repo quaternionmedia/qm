@@ -285,20 +285,10 @@ code, kbd, pre {
   width: 100%;
 }
 
-/* Whether governance reaches a project, as a word with a dot. */
-.md-typeset .qm-state {
+/* A card's one line of fact: a project's version, or where it is not yet. */
+.md-typeset .qm-meta {
   color: var(--qm-muted);
   font: 500 0.85em/1.4 var(--qm-font-mono);
-}
-.md-typeset .qm-state::before {
-  background: var(--c, var(--qm-muted));
-  border-radius: 50%;
-  content: "";
-  display: inline-block;
-  height: 0.55em;
-  margin-right: 0.4em;
-  vertical-align: 0.1em;
-  width: 0.55em;
 }
 
 /* A project's own pictures, each with its caption. */

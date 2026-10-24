@@ -9,7 +9,7 @@ title: leo
 
 <p class="qm-lede">Web pdf viewer, annotator, collaborator</p>
 
-not adopted · TypeScript
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · TypeScript
 { .qm-caption }
 
 [leo on GitHub](https://github.com/quaternionmedia/leo){ .md-button .md-button--primary }

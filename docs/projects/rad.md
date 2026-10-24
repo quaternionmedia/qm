@@ -9,7 +9,7 @@ title: rad
 
 <p class="qm-lede">Radial menu.</p>
 
-governed, its records on `project/rad` in the corpus · phase `v0.0.1`, stated · JavaScript
+[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · JavaScript
 { .qm-caption }
 
 [rad on GitHub](https://github.com/quaternionmedia/rad){ .md-button .md-button--primary }

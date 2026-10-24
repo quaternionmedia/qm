@@ -9,7 +9,7 @@ title: uPhonor
 
 <p class="qm-lede">Micro-Holophonor</p>
 
-not adopted · C
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · C
 { .qm-caption }
 
 [uPhonor on GitHub](https://github.com/quaternionmedia/uPhonor){ .md-button .md-button--primary }

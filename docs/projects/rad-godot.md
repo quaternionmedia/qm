@@ -9,7 +9,7 @@ title: rad-godot
 
 <p class="qm-lede">rad, the radial menu, as a Godot addon: the contract's vectors replayed in GDScript.</p>
 
-not adopted · GDScript
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · GDScript
 { .qm-caption }
 
 [rad-godot on GitHub](https://github.com/quaternionmedia/rad-godot){ .md-button .md-button--primary }

@@ -18,7 +18,7 @@ Drives the corpus and its tooling — governance, the archive, the deltas, the m
 
 [qm](../projects/qm.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 The Quaternion Media constitution: the org-level decision records every QM project adopts by reference, the process that keeps them coherent, and the template each new project forks from.
 
@@ -30,7 +30,7 @@ The Quaternion Media constitution: the org-level decision records every QM proje
 
 [dossier](../projects/dossier.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 Documentation standardization tool that auto-parses project documentation
 
@@ -40,7 +40,7 @@ Documentation standardization tool that auto-parses project documentation
 
 [qmcp](../projects/qmcp.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 Quaternion MCP
 
@@ -50,7 +50,7 @@ Quaternion MCP
 
 [vox](../projects/vox.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 The voice-interaction seam.
 
@@ -62,7 +62,7 @@ The voice-interaction seam.
 
 [rad](../projects/rad.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 Radial menu.
 
@@ -72,7 +72,7 @@ Radial menu.
 
 [codecartographer](../projects/codecartographer.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.2</span>
 
 Project for mapping code
 
@@ -84,7 +84,7 @@ Project for mapping code
 
 [looksatwords](../projects/looksatwords.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 A python module to make, gather, analyze, and visualize language data.
 

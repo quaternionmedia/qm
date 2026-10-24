@@ -9,7 +9,7 @@ title: codecartographer
 
 <p class="qm-lede">Project for mapping code</p>
 
-governed, its records on `project/codecartographer` in the corpus · phase `v0.0.2`, stated · Python
+[`v0.0.2`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [codecartographer on GitHub](https://github.com/quaternionmedia/codecartographer){ .md-button .md-button--primary }

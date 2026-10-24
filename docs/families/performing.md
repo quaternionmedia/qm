@@ -18,7 +18,7 @@ Drives a show — what an audience sees and hears, and the video made before and
 
 [alfred](../projects/alfred.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 serverless video editing
 
@@ -28,7 +28,7 @@ serverless video editing
 
 [the sound](instruments.md){ .qm-card-link }
 
-`instruments` · 9 members · 2 governed
+`instruments` · 9 members
 
 [carlos](../projects/carlos.md), [qmetronome](../projects/qmetronome.md), [holophonor](../projects/holophonor.md), [midiphonor](../projects/midiphonor.md), [uPhonor](../projects/uPhonor.md), [stomp](../projects/stomp.md), [wolf](../projects/wolf.md), [ludwig](../projects/ludwig.md), [waveofhormuz](../projects/waveofhormuz.md)
 
@@ -38,7 +38,7 @@ serverless video editing
 
 [the performer](performer-display.md){ .qm-card-link }
 
-`performer-display` · 2 members · 0 governed
+`performer-display` · 2 members
 
 [joe](../projects/joe.md), [leo](../projects/leo.md)
 
@@ -48,7 +48,7 @@ serverless video editing
 
 [the room](show-control.md){ .qm-card-link }
 
-`show-control` · 8 members · 0 governed
+`show-control` · 8 members
 
 [ShowRunner](../projects/ShowRunner.md), [Cuelist-python](../projects/Cuelist-python.md), [QLab-python](../projects/QLab-python.md), [TheatreMix-python](../projects/TheatreMix-python.md), [cesar](../projects/cesar.md), [ira](../projects/ira.md), [ShowStopper](../projects/ShowStopper.md), [aes](../projects/aes.md)
 

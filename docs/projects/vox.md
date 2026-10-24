@@ -9,7 +9,7 @@ title: vox
 
 <p class="qm-lede">The voice-interaction seam.</p>
 
-not adopted · phase `v0.0.1`, scaffolded · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · `v0.0.1` stated · Python
 { .qm-caption }
 
 [vox on GitHub](https://github.com/quaternionmedia/vox){ .md-button .md-button--primary }

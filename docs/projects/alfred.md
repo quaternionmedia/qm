@@ -9,7 +9,7 @@ title: alfred
 
 <p class="qm-lede">serverless video editing</p>
 
-governed, its records on `project/alfred` in the corpus · phase `v0.0.1`, scaffolded · JavaScript
+[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · JavaScript
 { .qm-caption }
 
 [alfred on GitHub](https://github.com/quaternionmedia/alfred){ .md-button .md-button--primary }

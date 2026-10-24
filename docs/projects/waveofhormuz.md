@@ -9,7 +9,7 @@ title: waveofhormuz
 
 <p class="qm-lede">VCV Rack 2 strait-shaping square wave oscillator — conflict timeline as a default waveform</p>
 
-not adopted · C++
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · C++
 { .qm-caption }
 
 [waveofhormuz on GitHub](https://github.com/quaternionmedia/waveofhormuz){ .md-button .md-button--primary }

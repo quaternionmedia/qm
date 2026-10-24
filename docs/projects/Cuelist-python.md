@@ -9,7 +9,7 @@ title: Cuelist-python
 
 <p class="qm-lede">Python helpers for Cuelist (thecuelist.com) and plugin for ShowRunner</p>
 
-not adopted · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [Cuelist-python on GitHub](https://github.com/quaternionmedia/Cuelist-python){ .md-button .md-button--primary }

@@ -9,7 +9,7 @@ title: golfvs
 
 <p class="qm-lede">Golf is the only sport where nobody is trying to stop you. golfVs fixes that. Arcade physics golf with asymmetric defence, built in Godot.</p>
 
-not adopted · GDScript
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · GDScript
 { .qm-caption }
 
 [golfvs on GitHub](https://github.com/quaternionmedia/golfvs){ .md-button .md-button--primary }

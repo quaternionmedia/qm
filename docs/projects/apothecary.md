@@ -9,7 +9,7 @@ title: apothecary
 
 <p class="qm-lede">miscellaneous parts</p>
 
-governed, its records on `project/apothecary` in the corpus · phase `v0.0.2`, stated · Python
+[`v0.0.2`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [apothecary on GitHub](https://github.com/quaternionmedia/apothecary){ .md-button .md-button--primary }

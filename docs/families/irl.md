@@ -20,7 +20,7 @@ Drives matter — a thing somebody builds, holds or installs: parts, boards, enc
 
 [apothecary](../projects/apothecary.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.2</span>
 
 miscellaneous parts
 
@@ -30,7 +30,7 @@ miscellaneous parts
 
 [datum](../projects/datum.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 Schema and wire contract.
 
@@ -40,7 +40,7 @@ Schema and wire contract.
 
 [ira](../projects/ira.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span> · also in [`show-control`](show-control.md)
+<span class="qm-meta">v0.0.0</span> · also in [`show-control`](show-control.md)
 
 LED controller, designed for live theater
 
@@ -50,7 +50,7 @@ LED controller, designed for live theater
 
 [uPhonor](../projects/uPhonor.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span> · also in [`instruments`](instruments.md)
+<span class="qm-meta">v0.0.0</span> · also in [`instruments`](instruments.md)
 
 Micro-Holophonor
 
@@ -60,7 +60,7 @@ Micro-Holophonor
 
 [stomp](../projects/stomp.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span> · also in [`instruments`](instruments.md)
+<span class="qm-meta">v0.0.0</span> · also in [`instruments`](instruments.md)
 
 a midi foot controller for Arduino / Teensy
 
@@ -72,7 +72,7 @@ a midi foot controller for Arduino / Teensy
 
 [scad-chess](../projects/scad-chess.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 Chess set, designed in openSCAD
 

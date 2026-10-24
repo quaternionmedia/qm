@@ -9,7 +9,7 @@ title: wolf
 
 <p class="qm-lede">remote midi controller</p>
 
-not adopted · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [wolf on GitHub](https://github.com/quaternionmedia/wolf){ .md-button .md-button--primary }

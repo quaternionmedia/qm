@@ -9,7 +9,7 @@ title: ShowRunner
 
 <p class="qm-lede">Show control for live performances</p>
 
-not adopted · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [ShowRunner on GitHub](https://github.com/quaternionmedia/ShowRunner){ .md-button .md-button--primary }

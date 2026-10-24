@@ -9,7 +9,7 @@ title: TheatreMix-python
 
 <p class="qm-lede">Python components for interacting with TheatreMix</p>
 
-not adopted · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [TheatreMix-python on GitHub](https://github.com/quaternionmedia/TheatreMix-python){ .md-button .md-button--primary }

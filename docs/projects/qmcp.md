@@ -9,7 +9,7 @@ title: qmcp
 
 <p class="qm-lede">Quaternion MCP</p>
 
-governed, its records on `project/qmcp` in the corpus · phase `v0.0.1`, scaffolded · Python
+[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [qmcp on GitHub](https://github.com/quaternionmedia/qmcp){ .md-button .md-button--primary }

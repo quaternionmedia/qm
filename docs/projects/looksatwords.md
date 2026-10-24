@@ -9,7 +9,7 @@ title: looksatwords
 
 <p class="qm-lede">A python module to make, gather, analyze, and visualize language data.</p>
 
-governed, its records on `project/looksatwords` in the corpus · phase `v0.0.1`, scaffolded · Python
+[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [looksatwords on GitHub](https://github.com/quaternionmedia/looksatwords){ .md-button .md-button--primary }

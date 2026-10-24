@@ -9,7 +9,7 @@ title: ira
 
 <p class="qm-lede">LED controller, designed for live theater</p>
 
-not adopted · C++
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · C++
 { .qm-caption }
 
 [ira on GitHub](https://github.com/quaternionmedia/ira){ .md-button .md-button--primary }

@@ -9,7 +9,7 @@ title: ztgui
 
 <p class="qm-lede">Zeroteir Gui</p>
 
-not adopted · JavaScript
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · JavaScript
 { .qm-caption }
 
 [ztgui on GitHub](https://github.com/quaternionmedia/ztgui){ .md-button .md-button--primary }

@@ -9,7 +9,7 @@ title: factorio-sysops
 
 <p class="qm-lede">Factorio mod: IT Infrastructure addon (sensors, servers, dashboards, incidents, technical debt) -- monitor and automate your factory's IT layer</p>
 
-governed, its records on `project/factorio-sysops` in the corpus · phase `v0.0.1`, scaffolded · Lua
+[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Lua
 { .qm-caption }
 
 [factorio-sysops on GitHub](https://github.com/quaternionmedia/factorio-sysops){ .md-button .md-button--primary }

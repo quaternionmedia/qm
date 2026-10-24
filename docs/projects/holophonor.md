@@ -9,7 +9,7 @@ title: holophonor
 
 <p class="qm-lede">Live looping, unlimited!</p>
 
-not adopted · Python
+[`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [holophonor on GitHub](https://github.com/quaternionmedia/holophonor){ .md-button .md-button--primary }

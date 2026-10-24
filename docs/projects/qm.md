@@ -9,7 +9,7 @@ title: qm
 
 <p class="qm-lede">The Quaternion Media constitution: the org-level decision records every QM project adopts by reference, the process that keeps them coherent, and the template each new project forks from.</p>
 
-governed, its records on `project/qm` in the corpus · Python
+[`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
 
 [qm on GitHub](https://github.com/quaternionmedia/qm){ .md-button .md-button--primary }

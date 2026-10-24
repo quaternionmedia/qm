@@ -8,9 +8,9 @@ icon: lucide/book-open
 
 <p class="qm-lede">Every team keeps answering the same questions. How does work get reviewed? When is something finished? What does a new project start from? This is where Quaternion Media writes the answers down. Every QM project follows what is written here, and a project can be stricter than these rules, never looser.</p>
 
-[![The QM families as a desk of channel strips: performing, holding instruments, performer-display and show-control, then civic, core, games, infra and irl, each with a meter lit by the share of its members that is governed.](families/families.svg){ .qm-picture }](families/index.md)
+[![The QM families as a desk of channel strips: performing, holding instruments, performer-display and show-control, then civic, core, games, infra and irl, each with a meter lit by the share of its members past v0.0.0.](families/families.svg){ .qm-picture }](families/index.md)
 
-The estate, by what each repository drives. `performing` holds the three families that put on a show, a repository that drives two things is in both, and each meter is lit by the share governed. The families are decided in [the family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md); [every family has a page](families/index.md).
+The estate, by what each repository drives. `performing` holds the three families that put on a show, a repository that drives two things is in both, and each meter is lit by the share past `v0.0.0`, the members that have adopted the corpus. The families are decided in [the family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md); [every family has a page](families/index.md).
 { .qm-caption }
 
 ## Read this first
