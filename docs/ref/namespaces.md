@@ -46,5 +46,5 @@ A `project/<name>` branch is therefore never the **head** of a pull request, wha
 ## Related
 
 - [Record precedence](precedence.md) — how records in the two namespaces relate
-- [Propagate a change](../cookbook/propagate-a-change.md) — the merge procedure
+- [Propagate a change](../usage/propagate-a-change.md) — the merge procedure
 - [handbook/async-contract.md](https://github.com/quaternionmedia/qm/blob/main/handbook/async-contract.md) — the stacked-PR rule and the rest of the multi-session contract

@@ -4,9 +4,9 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-28 |
-| **Pends on** | §4 — whether the video-production repositories are a fourth performing family of this estate or sit outside it. That is a scope decision a person makes, and nothing here settles it. |
+| **Pends on** | The name of `civic`, which is a working name. Its border (§3) is decided; what to call it is a person's choice, and renaming it is a roster change `ci/families.py --check` announces. |
 | **Principle** | `seams-on-standard-protocols` — seams on standard protocols; `decisions-are-documented` — decisions are documented or they didn't happen |
-| **Restated in** | Nothing. |
+| **Restated in** | `README.md`'s opening picture and its caption |
 
 ## Context
 
@@ -48,7 +48,8 @@ harder: two of the families below both emit MIDI.
 ## Decision
 
 **A family is a stated claim that several repositories are one working system,
-and its border is what its members drive.**
+and its border is what its members drive.** A repository may be in more than
+one family, and a family may sit within another.
 
 ### §1 — A family is a claim, made by a person
 
@@ -63,41 +64,48 @@ a finding that a repository has no family.
 A repository belongs to a family by what its output acts on.
 
 Not by what it is written in: this estate spans Python, TypeScript, JavaScript,
-C, C++ and Kotlin, and the border cuts across all of them. Not by what it
-emits: two of the three performing families below emit MIDI, and one emits
-pixels that another also emits. Not by shared vocabulary: *cue*, *loop* and
-*track* each mean different things in two of them, and a border drawn on words
-would have placed one program in all of them.
+C, C++, Kotlin and GDScript, and the border cuts across all of them. Not by
+what it emits: two of the families within `performing` emit MIDI, and one
+emits pixels that another also emits. Not by shared vocabulary: *cue*, *loop*
+and *track* each mean different things in two of them, and a border drawn on
+words would have placed one program in all of them.
 
-### §3 — The estate is seven families, three of them performing
+### §3 — The families, and which sits within which
 
-| family | drives | named public members |
-|---|---|---|
-| `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ShowStopper; aes |
-| `instruments` | **the sound** — looping, synthesis, tempo, remote control surfaces | holophonor; midiphonor; carlos; qmetronome; wolf; ludwig; waveofhormuz |
-| `performer-display` | **the performer** — what a player reads while playing | joe; leo |
-| `irl` | **matter** — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | apothecary; datum; scad-chess; stomp; ira; uPhonor; and three private repositories, referenced rather than named |
-| `infra` | **where a thing runs, and how it is reached** — ingress, identity, storage, DNS, observability, the network path | moat; ztgui; and two private repositories, referenced rather than named |
-| `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | qm; qmcp; dossier; codecartographer; looksatwords |
-| `games` | **play** — a game somebody plays: its rules, its world and its loop | golfvs; and one private repository, referenced rather than named |
+| family | drives | within | named public members |
+|---|---|---|---|
+| `performing` | **a show** — what an audience sees and hears, and the video made before and after it | — | alfred, and every member of the families within it |
+| `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | `performing` | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ShowStopper; aes; ira |
+| `instruments` | **the sound** — looping, synthesis, tempo, remote control surfaces | `performing` | holophonor; midiphonor; carlos; qmetronome; wolf; ludwig; waveofhormuz; stomp; uPhonor |
+| `performer-display` | **the performer** — what a player reads while playing | `performing` | joe; leo |
+| `irl` | **matter** — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | — | apothecary; datum; scad-chess; stomp; ira; uPhonor; and three private repositories, referenced rather than named |
+| `infra` | **where a thing runs, and how it is reached** — ingress, identity, storage, DNS, observability, the network path | — | moat; ztgui; streaming-infrastructure; and two private repositories, referenced rather than named |
+| `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | — | qm; qmcp; dossier; codecartographer; looksatwords; vox; rad |
+| `games` | **play** — a game somebody plays: its rules, its world, its loop, and the server it is played on | — | golfvs; rad-godot; qmcli-godot; factorio-sysops; and one private repository, referenced rather than named |
+| `civic` | **the public** — open information a community reads and adds to: maps, records, public data | — | benchmark |
+
+`performing` is the show, and the three families within it are its parts: the
+room, the sound and the performer. A repository that drives one of those parts
+claims that family and is in `performing` by being there. A repository that
+drives the show but none of its parts claims `performing` itself, and alfred is
+that case: it makes the video of a show, before the performance and after it,
+not during it.
 
 `games` is the family the border test admits most easily and the one the
 estate never named, because a game is the activity rather than a thing that
 serves one. `performer-display` also emits pixels a player reads, and the two
 part exactly there: a score display is read *while* the performer does
-something else, and a game *is* what the player is doing. Both members are
-built on one engine and neither is built on the other — the same shape as
-`performer-display`, siblings by what they drive and not by descent. A game
-server is not a member: it runs a game and decides nothing about play, which
-is the refusal `infra` below makes from the other side.
+something else, and a game *is* what the player is doing. A game server is a
+member: what its operations act on is a world people play in, and
+`factorio-sysops` is in `games` on that test. It is still not infrastructure,
+for the reason `infra` below gives: it decides where one game runs, not where
+other things run.
 
 `infra` is what everything else runs on, and it is a family rather than
-substrate — a distinction §4 now has to carry twice, because the two cases look
-alike and part in one place. **Substrate is built *with*; infrastructure is run
-*on*.** A radial menu is compiled into a host and ships inside it, so it has no
-independent existence and belongs to no family. A platform is never imported by
-anything: it holds identity, ingress, storage, DNS and the network path, and a
-repository that stops using it does not lose a dependency, it loses a home.
+substrate. **Substrate is built *with*; infrastructure is run *on*.** A
+platform is never imported by anything: it holds identity, ingress, storage,
+DNS and the network path, and a repository that stops using it does not lose a
+dependency, it loses a home.
 
 The border refuses more than it admits here, which is how it earns its keep.
 A deployment *of a service* — an etherpad, a video recorder, a game server —
@@ -107,70 +115,74 @@ repository decides where other things run, not whether it is deployed.
 
 `infra` extends `core` in the sense that the corpus and its tooling are among
 the things it hosts. That relation is a **seam** under §5 and not a family
-relation: the two are peers in this table, and neither contains the other.
-Reading `infra` as a subdivision of `core` would make every family a
-subdivision of it eventually, since everything runs somewhere.
+relation: neither sits within the other. Reading `infra` as a family within
+`core` would make every family one eventually, since everything runs somewhere.
 
 `irl` is where §2's border is tested hardest, on three repositories. A foot
-controller, an LED controller and a micro-looper each
-*drive* sound or light — which put them in a performing family — and each is
-also a board somebody solders into an enclosure. Both readings are true, and
-the map is a function, so one had to win.
+controller, an LED controller and a micro-looper each *drive* sound or light,
+and each is also a board somebody solders into an enclosure. Both readings are
+true, so both are claimed: `ira` is in `irl` and `show-control`, and `stomp`
+and `uPhonor` are in `irl` and `instruments`. A reader looking for the pedal
+finds it beside the boards and beside the loopers. `cesar` is in
+`show-control` alone: it emits a program that drives lights, and nothing you
+can hold.
 
-Matter wins for these three, and the reason is the test rather than the taste:
-what the repository *emits* is a physical thing, and the sound or light is what
-that thing does once it exists. A reader looking for the pedal will look for the
-pedal. `cesar` stays in `show-control` by the same test — it emits a program
-that drives lights, and nothing you can hold.
-
-This is the revision trigger in this record applied rather than written
-around: *a repository that drives two of the families means either the border
-is drawn wrong or the thing is a seam wearing a single repository*. The estate
-has two axes, what a repository drives and what it emits, and these three are
-placed on the second. The cost is visible: a search for `ira` in
-`show-control`, or for `stomp` and `uPhonor` in `instruments`, finds nothing.
-
-`core` is the family that drives none of the three above, and that is the
-point of naming it rather than leaving it unstated. It drives **the work
-itself**: the constitution, the archive of what was decided, the deltas those
-decisions become, the maps drawn over the code, and the language data read out
-of the prose. A change there reaches every other family by changing what
-governs them, which is a different relation from the seams §5 describes and is
-why it is a family rather than substrate.
+`core` is the family that drives none of the others, and that is the point of
+naming it rather than leaving it unstated. It drives **the work itself**: the
+constitution, the archive of what was decided, the deltas those decisions
+become, the maps drawn over the code, and the language data read out of the
+prose. A change there reaches every other family by changing what governs
+them, which is a different relation from the seams §5 describes and is why it
+is a family rather than substrate.
 
 The border test in §2 still applies to it and still decides. A repository that
 renders a performance is not `core` however much governance it carries, and a
 repository that only ever reads and writes the org's own record of itself is
-`core` however interesting its output. `rad` is the case that shows the test
-working: it is consumed by two `core` members and is substrate to both, so it
-belongs to no family — see §4.
+`core` however interesting its output. `rad` is in `core` because the members
+that build with it are there — see §4.
+
+`civic` drives **the public**: open information a community reads and adds
+to, such as a map of the benches somebody can sit on. Its name is a working
+name, which is the `Pends on` above; its border is decided here.
 
 Three asymmetries, recorded rather than smoothed:
 
 - Show control and instruments each have a hub that the periphery names itself
   after. Performer display has none. joe and leo are siblings by what they
   drive, and neither is built on the other.
-- `core` is the only family every member of which is adopted. Of the three
-  performing families only `instruments` has an adopted member, and most of
-  the estate has none, so a family name says what a repository is part of and
-  nothing about whether governance reaches it. `walkthrough/families/` carries
-  the per-member reading, regenerated from the corpus's own branches.
+- Most of `core` is adopted, and most of the estate is not. Within
+  `performing`, adopted members are in `instruments` and in the outer family
+  itself, so a family name says what a repository is part of and nothing about
+  whether governance reaches it. `walkthrough/families/` carries the
+  per-member reading, regenerated from the corpus's own branches.
 - At least one member of this estate is a private repository, which the roster
   references rather than names. This record cannot place it without defeating
   that redaction, so the placement is made where the name is legible: in the
   uncommitted private roster, beside the entry that already holds it.
 
-### §4 — What is outside the performing three, and what is unsettled
+### §4 — A repository may be in more than one family, and a family may sit within another
 
-Video editing and video generation drive none of the three performing
-families: they produce media before or after a performance rather than during
-one. They are outside those families. Whether they constitute a fourth
-performing family is the `Pends on` above, and the three stand either way.
+A claim names every family whose border the repository is inside. A repository
+that drives two things is in both, and the roster says so with a list:
+`family: [irl, instruments]`. Neither reading has to lose, and a reader looking
+for the repository by either finds it.
 
-A radial menu is substrate, not a member. A family member may be built with it,
-and it belongs to no family — the same holds for the front-end component
-repositories. Substrate is what more than one family can be built on, which is
-exactly why placing it in one would be wrong.
+A family may sit within another, as the three parts of a show sit within
+`performing`. A member of an inner family is a member of the outer one without
+saying so twice: a claim naming both is refused, because the second name adds
+nothing and reads as if it did. A repository may claim the outer family itself
+when it drives the whole and none of the parts.
+
+Overlap has a limit, and it is the border test rather than a count. Each claim
+passes §2 on its own. A repository in many families is more likely a seam
+wearing a single repository, or a component claimed by everything built on it,
+and both have a better home than a longer list.
+
+Substrate belongs to the family that builds with it. A radial menu is compiled
+into its host and ships inside it; `rad` is in `core` because the members that
+build with it are there, and `rad-godot`, the same contract for the Godot
+engine, is in `games` because that is where the Godot work is. A component that
+several families build with may claim each of them.
 
 ### §5 — What crosses between two families crosses as a protocol
 
@@ -179,7 +191,9 @@ unusual case of it: the standard protocols are already in place and predate
 this corpus. A change that needs two families is a seam, and it crosses as
 MIDI, OSC, timecode, an audio-over-IP transport, or HTTP with a schema. It does
 not cross as an import, and it does not cross by merging two repositories into
-one.
+one. A repository in two families is not a seam between them: it is one thing
+read two ways, and what it exchanges with either family's other members still
+crosses as a protocol.
 
 The clause is stated because old wiring is invisible: a seam that predates the
 corpus is easy not to recognise as a seam.
@@ -196,12 +210,20 @@ repository at a time.
 ## Consequences
 
 **The roster carries the claim and `uv run qm families` reads it.** A
-repository names its family in `ci/workspace.yaml`, and the set of families is
-read out of §3 of this record rather than copied into the tool -- so renaming a
-family here is a roster claim that stops resolving, which is the failure that
-announces itself. `ci/families.py --check` refuses a claim naming a family this
-record does not declare, and reports a repository that claims none as
-*unstated*, never as *none*.
+repository names its families in `ci/workspace.yaml`, as one name or a list,
+and the set of families and which sits within which are read out of §3 of this
+record rather than copied into the tool -- so renaming a family here is a
+roster claim that stops resolving, which is the failure that announces itself.
+`ci/families.py --check` refuses a claim naming a family this record does not
+declare, naming one family twice, or naming a family beside one it sits
+within, and it refuses a `within` that names no declared family or circles
+back on itself. It reports a repository that claims none as *unstated*, never
+as *none*.
+
+**A count of a family includes the families within it.** `families.json` lists
+each family's own members and, beside them, everyone in the families within
+it. A total over the estate counts a repository once, however many families it
+is in.
 
 What no check reaches is §2, and it is the half that matters: whether a
 repository really belongs where somebody put it. The border is what the thing
@@ -225,15 +247,27 @@ it is paid.
 
 ## Alternatives considered
 
-**One performing family.** Cheapest, and it has no test. A single family
-spanning an LED controller and a PDF annotator cannot answer the only question a
-family exists to answer — does this change belong here — because everything
-qualifies.
+**One performing family with nothing within it.** Cheapest, and it has no
+test. A single family spanning an LED controller and a PDF annotator cannot
+answer the only question a family exists to answer — does this change belong
+here — because everything qualifies. `performing` is kept as the outer family
+for what drives a show without driving one of its parts; the families within it
+keep the question answerable.
 
-**Group by stack, following `one-house-stack`.** The border would cut through all three
-families and join parts of each, since the estate is polyglot. `one-house-stack` also governs
-what QM writes rather than what belongs with what, so this would be reusing a
-principle to answer a question it does not address.
+**A repository in exactly one family.** Simpler to count and to draw, and it
+forces a choice where both readings are true: the three boards in `irl` would
+lose their sound and lighting readings, and a search for them there would find
+nothing.
+
+**A `video` family within `performing`, for alfred alone.** A family of one has
+nothing to border against. alfred claims `performing` until a second
+video-production repository gives an inner family something to hold.
+
+**Group by stack, following `one-house-stack`.** The border would cut through
+every family and join parts of each, since the estate is polyglot.
+`one-house-stack` also governs what QM writes rather than what belongs with
+what, so this would be reusing a principle to answer a question it does not
+address.
 
 **Make it a lane.** The lanes in `ci/lane-registry.yaml` are kinds of
 *governance work* — meta governance, the development loop, documentation. A
@@ -245,23 +279,19 @@ not work anyway: where two members connect over MIDI or OSC at run time, a
 dependency graph cannot see the connection at all. It would report the estate as
 a set of unrelated repositories and be confidently wrong.
 
-**Add the roster field in this same change.** Rejected on sequencing. A schema
-landed beside the argument for it gets read as the argument, and the field's
-shape is easier to get right once the border has survived a reading.
-
 ## Revision triggers
 
-- A repository that drives two of the performing three — one that cues the
-  room and renders the score — means either the border is drawn wrong or the
-  thing is a seam wearing a single repository.
-- The video-production repositories being placed, either way. That closes the
-  `Pends on`, and §4 is rewritten to match.
+- A repository whose claims keep growing. Each claim passes §2 on its own, but
+  the pattern is the shape of a seam wearing a single repository, or of
+  substrate claimed by everything built on it.
+- A second video-production repository. An inner `video` family within
+  `performing` then has a border to hold.
+- The name of `civic` being settled. That closes the `Pends on`; §3 and the
+  roster change in one pull request.
 - A second private member, or the existing one becoming public. Either changes
   where the estate's membership can be written down.
 - A family's hub going cold while its periphery keeps moving. That is the shape
   of a fork the organisation has not decided to take.
-- The roster gaining a family field. At that point the table in §3 stops being
-  the only copy and becomes an input, and §3 says which it is.
 
 ## Amendments
 

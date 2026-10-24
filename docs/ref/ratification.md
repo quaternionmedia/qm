@@ -53,4 +53,4 @@ Some records describe machinery that costs nothing to run early. That machinery 
 ## Related
 
 - [Record precedence](precedence.md) — what a ratified record binds
-- [Draft a record](../cookbook/draft-a-record.md) — how a record reaches `Proposed`
+- [Draft a record](../usage/draft-a-record.md) — how a record reaches `Proposed`

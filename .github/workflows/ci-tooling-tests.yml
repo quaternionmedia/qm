@@ -70,7 +70,7 @@ jobs:
       #
       # Separate step rather than more paths on the line above, so a failure
       # names which half broke.
-      - name: Run the executable cookbook pages
-        run: python -m pytest --doctest-glob='*.md' docs/cookbook -q
+      - name: Run the executable usage pages
+        run: python -m pytest --doctest-glob='*.md' docs/usage -q
         env:
           GIT_ALLOW_PROTOCOL: file:https:ssh

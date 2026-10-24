@@ -17,7 +17,7 @@ page under `docs/` to its definition in `docs/ref/glossary.md`. The source is
   `ci/tests/test_glossary_links.py` fails while a committed page is not
   current.
 - **Longest term first**, so `phase ladder` wins over `phase`.
-- **Left alone:** fenced and indented code (the executable cookbook pages write
+- **Left alone:** fenced and indented code (the executable usage pages write
   their doctests as indented blocks), inline code, headings (a linked heading
   breaks its own anchor), existing link text and URLs, attribute lists,
   admonition titles, and the glossary page itself.

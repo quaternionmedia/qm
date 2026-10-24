@@ -135,48 +135,252 @@ def adopted_names() -> set[str]:
     return names
 
 
-def svg(family: str, members: list[dict]) -> str:
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import palette  # noqa: E402
+from roster import intent_of, version_of  # noqa: E402
+
+# A picture's fonts, from the palette, written without spaces so the SVG stays
+# small enough to read as text.
+SANS = palette.FONTS["body"].replace(", ", ",")
+MONO = palette.FONTS["mono"].replace(", ", ",")
+
+
+def _style(names: list[str]) -> str:
+    """The picture's own stylesheet: both themes, every hue it uses.
+
+    An SVG shown as an image cannot inherit the page's colours, so it carries
+    a light and a dark palette and picks with the reader's preference. Every
+    colour is `ci/palette.py`'s, so a picture matches the site it sits on.
+    """
+    def hues(scheme: int) -> str:
+        return "".join(
+            f".c-{n}{{fill:{palette.hue(n, scheme)}}}"
+            f".s-{n}{{stroke:{palette.hue(n, scheme)}}}" for n in sorted(set(names)))
+
+    def ground(scheme: int) -> str:
+        n = {name: pair[scheme] for name, pair in palette.NEUTRAL.items()}
+        return (f"text{{fill:{n['ink']}}}.muted{{fill:{n['muted']}}}"
+                f".panel{{fill:{n['ground']};stroke:{n['line']}}}"
+                f".card{{fill:{n['surface']};stroke:{n['line']}}}.track{{fill:{n['sunken']}}}")
+
+    return (
+        "<style>"
+        f"text{{font-family:{SANS}}}"
+        f".mono{{font-family:{MONO}}}"
+        f"{ground(palette.LIGHT)}{hues(palette.LIGHT)}"
+        "@media (prefers-color-scheme: dark){"
+        f"{ground(palette.DARK)}{hues(palette.DARK)}}}"
+        "</style>"
+    )
+
+
+def _esc(text: str) -> str:
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def label(drives: str) -> str:
+    """What a family drives, short enough to head a column.
+
+    The phrase before the dash, cut at its first comma: `where a thing runs,
+    and how it is reached` heads its column as `where a thing runs`.
+    """
+    head = drives.split(" — ")[0].replace("**", "").strip()
+    return head.split(",")[0].strip()
+
+
+def wrap(text: str, width: int) -> list[str]:
+    """Words into lines of at most `width` characters, a long word alone."""
+    lines: list[str] = []
+    for word in text.split():
+        if lines and len(lines[-1]) + 1 + len(word) <= width:
+            lines[-1] += " " + word
+        else:
+            lines.append(word)
+    return lines
+
+
+def _strip(x: float, y: float, w: float, h: float, name: str, drives: str,
+           members: int, governed: int) -> list[str]:
+    """One family as a channel strip: its name, what it drives, and a meter
+    whose lit share is the share of its members past `v0.0.0`."""
+    parts = [
+        f'<rect class="card" x="{x:.1f}" y="{y}" width="{w:.1f}" height="{h}" rx="6"/>',
+        f'<rect class="c-{name}" x="{x:.1f}" y="{y}" width="{w:.1f}" height="5" rx="2"/>',
+        f'<text class="mono muted" x="{x + 10:.1f}" y="{y + 24}" '
+        f'font-size="{min(11.0, (w - 18) / (0.62 * len(name))):.1f}">{_esc(name)}</text>',
+    ]
+    for index, line in enumerate(wrap(label(drives), max(6, int((w - 20) / 8.6)))[:3]):
+        parts.append(f'<text class="c-{name}" x="{x + 10:.1f}" y="{y + 46 + index * 18}" '
+                     f'font-size="15" font-weight="700">{_esc(line)}</text>')
+    top, bottom = y + 104, y + h - 50
+    segments = max(4, int((bottom - top) // 8))
+    lit = round(segments * governed / members) if members else 0
+    cx = x + w / 2 - 8
+    for index in range(segments):
+        sy = bottom - (index + 1) * 8 + 2
+        parts.append(f'<rect class="{f"c-{name}" if index < lit else "track"}" '
+                     f'x="{cx:.1f}" y="{sy}" width="16" height="6" rx="1"/>')
+    parts += [
+        f'<text x="{x + 10:.1f}" y="{y + h - 28}" font-size="13" font-weight="700">'
+        f'{members} {"member" if members == 1 else "members"}</text>',
+        f'<text class="mono muted" x="{x + 10:.1f}" y="{y + h - 12}" font-size="11">'
+        f'{governed} past v0.0.0</text>',
+    ]
+    return parts
+
+
+def desk(document: dict, counts: dict[str, tuple[int, int]]) -> str:
+    """Every family at once, drawn as a desk of channel strips.
+
+    `counts` is `{family: (members, governed)}`, everyone in a family within
+    it included. A family that holds others is a frame around their strips,
+    headed by what it drives and who claims it directly.
+    """
+    by_name = {f["name"]: f for f in document["families"]}
+    tops = sorted((f for f in document["families"] if not f.get("within")),
+                  key=lambda f: (not f.get("subfamilies"), f["name"]))
+    slots = sum(max(1, len(f.get("subfamilies", []))) for f in tops)
+    width, pad, gap, frame_gap = 1000, 16, 10, 8
+    groups = sum(1 for f in tops if f.get("subfamilies"))
+    strip_w = (width - 2 * pad - gap * (slots - 1) - 2 * frame_gap * groups) / slots
+    top, full = 16, 300
+    inner_top = top + 62
+    height = top + full + 44
+    names = list(by_name)
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'viewBox="0 0 {width} {height}" role="img" '
+        f'aria-label="the QM families, each a column with a meter for the share past v0.0.0">',
+        _style(names),
+        f'<rect class="panel" x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10"/>',
+    ]
+    x = pad
+    for family in tops:
+        name = family["name"]
+        inner = family.get("subfamilies", [])
+        if not inner:
+            n, g = counts[name]
+            parts += _strip(x, top, strip_w, full, name, family["drives"], n, g)
+            x += strip_w + gap
+            continue
+        span = len(inner) * strip_w + (len(inner) - 1) * gap + 2 * frame_gap
+        n, g = counts[name]
+        own = family.get("members", [])
+        parts += [
+            f'<rect class="s-{name}" x="{x:.1f}" y="{top}" width="{span:.1f}" height="{full}" '
+            f'rx="8" fill="none" stroke-width="1.5"/>',
+            f'<rect class="c-{name}" x="{x:.1f}" y="{top}" width="{span:.1f}" height="5" rx="2"/>',
+            f'<text class="mono muted" x="{x + 12:.1f}" y="{top + 24}" font-size="11">{_esc(name)}</text>',
+            f'<text class="c-{name}" x="{x + 12:.1f}" y="{top + 46}" font-size="17" '
+            f'font-weight="700">{_esc(label(family["drives"]))}</text>',
+            f'<text class="mono muted" x="{x + span - 12:.1f}" y="{top + 24}" font-size="11" '
+            f'text-anchor="end">{n} in all · {g} past v0.0.0</text>',
+        ]
+        if own:
+            parts.append(
+                f'<text class="mono muted" x="{x + span - 12:.1f}" y="{top + 46}" font-size="11" '
+                f'text-anchor="end">its own: {_esc(", ".join(own))}</text>')
+        cx = x + frame_gap
+        for child in inner:
+            cn, cg = counts[child]
+            parts += _strip(cx, inner_top, strip_w, top + full - inner_top - frame_gap, child,
+                            by_name[child]["drives"], cn, cg)
+            cx += strip_w + gap
+        x += span + gap
+    unstated = len(document.get("unstated", []))
+    parts += [
+        f'<text class="mono muted" x="{pad}" y="{height - 16}" font-size="11">'
+        f'the lit share of a meter is the share past v0.0.0 · a repository in two families '
+        f'counts in each · {unstated} rostered '
+        f'{"repository states" if unstated == 1 else "repositories state"} no family yet</text>',
+        "</svg>",
+    ]
+    return "\n".join(parts) + "\n"
+
+
+def svg(family: str, members: list[dict], drives: str = "",
+        within: str | None = None) -> str:
     """The family as a picture, drawn from the same data as the prose.
 
-    Deliberately plain: no gradients, no font that has to be present, and a
-    palette that survives both themes. A diagram nobody can re-generate is the
-    thing this file exists to avoid, so it is small enough to read as text.
+    No font has to be present and no gradient is drawn, and the picture
+    carries its own light and dark palette. A diagram nobody can re-generate
+    is the thing this file exists to avoid, so it stays small enough to read
+    as text.
     """
-    row, pad = 26, 14
-    width, height = 560, pad * 2 + 30 + row * len(members)
+    row, pad = 26, 16
+    head = 72 if drives else 44
+    width, height = 560, head + row * len(members) + 34
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" role="img" '
         f'aria-label="the {family} family and its members">',
-        f'<rect width="{width}" height="{height}" fill="none"/>',
-        f'<text x="{pad}" y="{pad + 14}" font-family="monospace" font-size="14" '
-        f'font-weight="bold" fill="currentColor">{family}</text>',
+        _style([family]),
+        f'<rect class="panel" x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10"/>',
+        f'<rect class="c-{family}" x="0.5" y="0.5" width="{width - 1}" height="5" rx="2"/>',
+        f'<text class="mono muted" x="{pad}" y="{pad + 14}" font-size="12">{_esc(family)}'
+        f'{f" · within {_esc(within)}" if within else ""}</text>',
     ]
+    if drives:
+        parts.append(f'<text class="c-{family}" x="{pad}" y="{pad + 40}" font-size="20" '
+                     f'font-weight="700">{_esc(label(drives))}</text>')
     for index, member in enumerate(members):
-        y = pad + 34 + index * row
-        mark = "*" if member["adopted"] else "."
+        y = head + 8 + index * row
         state = "governed" if member["adopted"] else "not adopted"
-        parts.append(
-            f'<text x="{pad}" y="{y}" font-family="monospace" font-size="12" '
-            f'fill="currentColor">{mark} {member["name"]}</text>'
-        )
-        parts.append(
-            f'<text x="{pad + 230}" y="{y}" font-family="monospace" font-size="12" '
-            f'fill="currentColor" opacity="0.7">{state}</text>'
-        )
-    parts.append(
-        f'<text x="{pad}" y="{height - 4}" font-family="monospace" font-size="10" '
-        f'fill="currentColor" opacity="0.6">'
-        f'* governed  . not adopted</text>')
-    parts.append("</svg>")
+        dot = (f'<circle class="c-{family}" cx="{pad + 6}" cy="{y - 4}" r="5"/>'
+               if member["adopted"] else
+               f'<circle class="s-{family}" cx="{pad + 6}" cy="{y - 4}" r="4.5" '
+               f'fill="none" stroke-width="1.5"/>')
+        parts += [
+            dot,
+            f'<text class="mono" x="{pad + 20}" y="{y}" font-size="13">{_esc(member["name"])}</text>',
+            f'<text class="mono muted" x="{pad + 260}" y="{y}" font-size="12">{state}</text>',
+        ]
+    parts += [
+        f'<text class="mono muted" x="{pad}" y="{height - 12}" font-size="11">'
+        f'● governed   ○ not adopted</text>',
+        "</svg>",
+    ]
     return "\n".join(parts) + "\n"
 
 
-def page(family: dict, states: list[dict], generated_at: str) -> str:
+def everyone_in(family: dict) -> list[str]:
+    """Everyone in a family, the families within it included.
+
+    `all_members` where the seam file carries it, else the family's own
+    members, so a family written by hand in a test reads the same way.
+    """
+    return list(family.get("all_members", family.get("members", [])))
+
+
+def ancestors_in(name: str, by_name: dict[str, dict]) -> list[str]:
+    """Every family `name` sits within, nearest first, as the seam file says."""
+    chain: list[str] = []
+    current = by_name.get(name, {}).get("within")
+    while current and current not in chain:
+        chain.append(current)
+        current = by_name.get(current, {}).get("within")
+    return chain
+
+
+def everyone_within(name: str, by_name: dict[str, dict]) -> list[str]:
+    """Every family inside `name`, at any depth."""
+    out: list[str] = []
+    pending = list(by_name.get(name, {}).get("subfamilies", []))
+    while pending:
+        child = pending.pop(0)
+        if child not in out:
+            out.append(child)
+            pending.extend(by_name.get(child, {}).get("subfamilies", []))
+    return out
+
+
+def page(family: dict, states: list[dict], generated_at: str,
+         inner: list[dict] = (), also: dict[str, list[str]] | None = None) -> str:
+    """One family's page. `states` is everyone in it, the families within it
+    included; `inner` describes those families, and `also` names the other
+    families a member claims."""
     name = family["name"]
     adopted = [s for s in states if s["adopted"]]
-    absent = [s for s in states if not s["on_disk"]]
-    dirty = [s for s in states if s["on_disk"] and s["dirty"]]
     lines = [
         f"# Cookbook — the `{name}` family",
         "",
@@ -187,6 +391,15 @@ def page(family: dict, states: list[dict], generated_at: str) -> str:
         "",
         f"**Drives** {family['drives']}",
         "",
+    ]
+    if family.get("within"):
+        outer = family["within"]
+        lines += [
+            f"**Within** [`{outer}`](./{outer}.md): a member of this family is a "
+            f"member of `{outer}` too, without claiming it.",
+            "",
+        ]
+    lines += [
         f"![the {name} family](./{name}.svg)",
         "",
         "## Who is in it",
@@ -197,6 +410,28 @@ def page(family: dict, states: list[dict], generated_at: str) -> str:
     for state in states:
         lines.append(
             f"| `{state['name']}` | {'yes' if state['adopted'] else 'no'} |")
+    shared = [(s["name"], (also or {}).get(s["name"], [])) for s in states]
+    shared = [(member, others) for member, others in shared if others]
+    if shared:
+        lines += [
+            "",
+            "Also in another family, because each drives more than one thing:",
+            "",
+        ]
+        lines += [f"- `{member}` — " + ", ".join(f"[`{o}`](./{o}.md)" for o in others)
+                  for member, others in shared]
+    if inner:
+        lines += [
+            "",
+            "## The families within it",
+            "",
+            "Everyone in these is in this family as well, and is in the table above.",
+            "",
+            "| family | drives | members | governed |",
+            "|---|---|---|---|",
+        ]
+        lines += [f"| [`{f['name']}`](./{f['name']}.md) | {f['drives']} | "
+                  f"{f['members']} | {f['governed']} |" for f in inner]
     lines += [
         "",
         "## Starting here",
@@ -259,7 +494,8 @@ def page(family: dict, states: list[dict], generated_at: str) -> str:
     return "\n".join(lines)
 
 
-def build(out: Path) -> dict[str, str]:
+def build(out: Path, site: bool = False) -> dict[str, str]:
+    """The family pages: the walkthrough's, or with `site` the docs site's."""
     document = json.loads(FAMILIES.read_text(encoding="utf-8"))
     adopted = adopted_names()
     entries = roster_index()
@@ -273,17 +509,71 @@ def build(out: Path) -> dict[str, str]:
         "`records/DRAFT-a-family-is-bordered-by-what-it-drives.md`; this is the "
         "onboarding view of them.",
         "",
-        "| family | drives | members | governed |",
-        "|---|---|---|---|",
+        "![the families, each a column with a meter for the share governed](./families.svg)",
+        "",
+        "A family within another is listed under it, and its members count "
+        "toward both. A repository in two families counts in each.",
+        "",
+        "| family | within | drives | members | governed |",
+        "|---|---|---|---|---|",
     ]
+    by_name = {family["name"]: family for family in document["families"]}
+    claimed: dict[str, list[str]] = {}
     for family in document["families"]:
-        states = [member_state(name, adopted, entries) for name in family["members"]]
-        files[f"{family['name']}.md"] = page(family, states, stamp)
-        files[f"{family['name']}.svg"] = svg(family["name"], states)
-        governed = sum(1 for s in states if s["adopted"])
-        index.append(
-            f"| [`{family['name']}`](./{family['name']}.md) | {family['drives']} | "
-            f"{len(states)} | {governed} |")
+        for member in family["members"]:
+            claimed.setdefault(member, []).append(family["name"])
+    states_of = {
+        family["name"]: [member_state(name, adopted, entries) for name in everyone_in(family)]
+        for family in document["families"]
+    }
+
+    projects = site_projects(document, adopted, entries) if site else {}
+
+    def summary(name: str) -> dict:
+        states = states_of[name]
+        return {"name": name, "drives": by_name[name]["drives"], "members": len(states),
+                "governed": sum(1 for s in states if s["adopted"])}
+
+    for family in document["families"]:
+        name = family["name"]
+        own = set(everyone_in(family))
+        # Another family a member claims, unless it is this one or one this
+        # family is within or contains -- those are the same membership.
+        related = {name, *ancestors_in(name, by_name), *everyone_within(name, by_name)}
+        also = {member: [f for f in claimed.get(member, []) if f not in related]
+                for member in own}
+        inner = [summary(child) for child in family.get("subfamilies", [])]
+        if site:
+            inner = [{**f, "names": everyone_in(by_name[f["name"]])} for f in inner]
+            files[f"{name}.md"] = site_page(family, states_of[name], inner, also, projects)
+            continue
+        files[f"{name}.md"] = page(family, states_of[name], stamp, inner, also)
+        files[f"{name}.svg"] = svg(name, states_of[name], family["drives"],
+                                   family.get("within"))
+
+    def rows(name: str) -> list[str]:
+        s = summary(name)
+        outer = by_name[name].get("within")
+        out = [f"| [`{name}`](./{name}.md) | {f'`{outer}`' if outer else '—'} | "
+               f"{s['drives']} | {s['members']} | {s['governed']} |"]
+        for child in by_name[name].get("subfamilies", []):
+            out += rows(child)
+        return out
+
+    for family in document["families"]:
+        if not family.get("within"):
+            index += rows(family["name"])
+    files["families.svg"] = desk(document, {
+        name: (summary(name)["members"], summary(name)["governed"]) for name in by_name})
+    if site:
+        files["index.md"] = site_index(document, [summary(n) for n in by_name], by_name)
+        for name, project in projects.items():
+            files[f"../projects/{name}.md"] = project_page(project, by_name)
+        # The projects sit at the top of the site, beside the families, so
+        # their pages are written into docs/projects/ from here.
+        files["../projects/index.md"] = projects_index(document, projects, entries,
+                                                       adopted=frozenset(adopted))
+        return files
     index += [
         "",
         f"`{len(document['unstated'])}` rostered repositories claim no family. That "
@@ -297,15 +587,370 @@ def build(out: Path) -> dict[str, str]:
     return files
 
 
+RECORD_URL = ("https://github.com/quaternionmedia/qm/blob/main/records/"
+              "DRAFT-a-family-is-bordered-by-what-it-drives.md")
+SITE_NOTE = ("Generated by `uv run qm cookbook docs/families --site --write` from "
+             "`families.json`, the inventory and `ci/showcase.yaml`. The families are "
+             f"decided in the [family record]({RECORD_URL}); edit the roster, the record "
+             "or the showcase, not this page.")
+INVENTORY = ROOT / "status" / "inventory.yaml"
+SHOWCASE = ROOT / "ci" / "showcase.yaml"
+
+
+def _detail(drives: str) -> str:
+    """What a family drives after its head phrase: `the sound — looping, ...`
+    gives `looping, ...`, and a phrase with no dash gives itself."""
+    parts = drives.replace("**", "").split(" — ", 1)
+    return parts[1].strip() if len(parts) > 1 else parts[0].strip()
+
+
+def entry_point(states: list[dict], projects: dict[str, dict] | None = None) -> list[str]:
+    """Where a newcomer starts: the corpus if it is here, a member past
+    `v0.0.0` otherwise, and no invented one when every member is at `v0.0.0`."""
+    adopted = [s["name"] for s in states if s["adopted"]]
+    if not adopted:
+        return ["Every member here is at `v0.0.0`, so no member has records to start "
+                "from. Reading the code is the entry point."]
+    first = "qm" if "qm" in adopted else adopted[0]
+    named = f"[`{first}`](../projects/{first}.md)" if first in (projects or {}) else f"`{first}`"
+    return [f"Start in {named}: its records and its `AGENTS.md` say how work arrives there."]
+
+
+def public_repositories(path: Path = INVENTORY) -> tuple[str, dict[str, dict]]:
+    """The org and `{name: row}` for every public repository the inventory lists.
+
+    Only these get a page and a link: a private one is a reference, and a
+    rostered name the host does not hold has no repository to link to.
+    """
+    if not path.is_file():
+        return "quaternionmedia", {}
+    document = json.loads(path.read_text(encoding="utf-8"))
+    org = (document.get("generator") or {}).get("org") or "quaternionmedia"
+    rows = {r["name"]: r for r in document.get("repositories", [])
+            if not r.get("private") and r.get("name")}
+    return org, rows
+
+
+def showcase(path: Path = SHOWCASE) -> dict[str, list[dict]]:
+    """`{project: [{path, caption}]}`, the pictures a person picked."""
+    if not path.is_file():
+        return {}
+    import yaml
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return {name: [p for p in (pictures or []) if p.get("path") and p.get("caption")]
+            for name, pictures in (document.get("projects") or {}).items()}
+
+
+def _sentence(note: str | None) -> str | None:
+    """A roster note's first clause, as a sentence, for a project the host
+    gives no description."""
+    if not note:
+        return None
+    head = note.strip().split(";")[0].split(". ")[0].strip().rstrip(".")
+    return (head[:1].upper() + head[1:] + ".") if head else None
+
+
+LADDER = "usage/next-steps.md#the-project-phase-ladder"
+VERSIONS = ("A version is a project's phase: `v0.0.0` has not adopted the corpus, "
+            "`v0.0.1` has adopted it however far along, and each project defines the "
+            "rungs above in its own records.")
+
+
+def claims(document: dict) -> dict[str, list[str]]:
+    """`{member: [family, ...]}`, the families each member claims itself."""
+    claimed: dict[str, list[str]] = {}
+    for family in document["families"]:
+        for member in family["members"]:
+            claimed.setdefault(member, []).append(family["name"])
+    return claimed
+
+
+def site_projects(document: dict, adopted: set[str], entries: dict[str, dict],
+                  inventory: Path = INVENTORY, pictures: Path = SHOWCASE) -> dict[str, dict]:
+    """Every public member of a family, as the facts its page shows.
+
+    A listed picture shows only when the inventory found it on the default
+    branch; one still on a pull request is counted as waiting. An inventory
+    that could not read the branch shows what is listed.
+    """
+    org, rows = public_repositories(inventory)
+    shown = showcase(pictures)
+    claimed = claims(document)
+    projects: dict[str, dict] = {}
+    for name in sorted(claimed, key=str.lower):
+        row = rows.get(name)
+        if row is None:
+            continue
+        entry = entries.get(name, {})
+        present = row.get("pictures_on_default_branch")
+        listed = shown.get(name, [])
+        here = [p for p in listed if present is None or p["path"] in present]
+        projects[name] = {
+            "name": name,
+            "url": f"https://github.com/{org}/{name}",
+            "description": row.get("description") or _sentence(entry.get("note")),
+            "families": claimed[name],
+            "governed": name in adopted,
+            "version": version_of(name in adopted, entry.get("phase"),
+                                  entry.get("phase_source")),
+            "phase": entry.get("phase"),
+            "phase_source": entry.get("phase_source"),
+            "language": row.get("language"),
+            "archived": bool(row.get("archived")),
+            "pictures": [{"url": f"https://github.com/{org}/{name}/raw/HEAD/{p['path']}",
+                          "caption": p["caption"]} for p in here],
+            "waiting": len(listed) - len(here),
+        }
+    return projects
+
+
+def _family_links(names: list[str], prefix: str = "") -> str:
+    return ", ".join(f"[`{n}`]({prefix}{n}.md)" for n in names)
+
+
+def project_card(project: dict, href: str, hue: str, also: list[str] = (),
+                 family_prefix: str = "") -> list[str]:
+    """A project as a card: its first picture, its name linking its page, its
+    version, what it is, and the other families it is in. The whole card opens
+    the page."""
+    lines = [f'<div class="card qm-f-{hue}" markdown>', ""]
+    if project["pictures"]:
+        first = project["pictures"][0]
+        lines += [f"![{first['caption']}]({first['url']}){{ .qm-thumb loading=lazy }}", ""]
+    lines += [f"[{project['name']}]({href}){{ .qm-card-link }}", ""]
+    extra = f" · also in {_family_links(list(also), family_prefix)}" if also else ""
+    lines += [f'<span class="qm-meta">{project["version"]}</span>{extra}', ""]
+    if project["description"]:
+        lines += [_esc(project["description"]), ""]
+    lines += ["</div>", ""]
+    return lines
+
+
+def _private(name: str) -> bool:
+    return name.startswith("private-")
+
+
+def _cell(text: str | None) -> str:
+    """Text safe inside a markdown table cell."""
+    return _esc(text or "").replace("|", "\\|")
+
+
+def _member_link(name: str, projects: dict[str, dict]) -> str:
+    """A member's name as a link: to its page, or to its row on the projects page
+    when the host holds no repository for it."""
+    if name in projects:
+        return f"[{name}](../projects/{name}.md)"
+    return f"[{name}](../projects/index.md#{name})"
+
+
+def site_page(family: dict, states: list[dict], inner: list[dict] = (),
+              also: dict[str, list[str]] | None = None,
+              projects: dict[str, dict] | None = None) -> str:
+    """One family's page on the docs site: what it drives, a card per member it
+    claims itself, a card per family within it, and where to start.
+
+    Each member is named once. A member of a family within this one is named
+    on that family's card, and its own card is on that family's page.
+    """
+    name = family["name"]
+    within = family.get("within")
+    projects = projects or {}
+    own = set(family.get("members") or [s["name"] for s in states])
+    eyebrow = f"{name} · within [{within}]({within}.md)" if within else name
+    lines = [
+        "---", f"title: {name}", "---", "",
+        eyebrow, "{ .qm-eyebrow }", "",
+        f"# {label(family['drives'])} {{ .qm-family-title .qm-f-{name} }}", "",
+        f"Drives {_esc(family['drives'].replace('**', ''))}.", "{ .qm-lede }", "",
+        "## Who is in it", "", '<div class="grid" markdown>', "",
+    ]
+    private = 0
+    for state in states:
+        member = state["name"]
+        if member not in own:
+            continue
+        if _private(member):
+            private += 1
+        elif member in projects:
+            lines += project_card(projects[member], f"../projects/{member}.md", name,
+                                  (also or {}).get(member, []))
+        else:
+            lines += [f'<div class="card qm-f-{name}" markdown>', "",
+                      f"{_member_link(member, projects)}{{ .qm-card-link }}", "",
+                      '<span class="qm-meta">not on the host yet</span>', "",
+                      "</div>", ""]
+    for child in inner:
+        named = [n for n in child["names"] if not _private(n)]
+        hidden = len(child["names"]) - len(named)
+        who = ", ".join(_member_link(n, projects) for n in named)
+        if hidden:
+            who += f"{', and ' if named else ''}{hidden} private"
+        noun = "member" if child["members"] == 1 else "members"
+        lines += [f'<div class="card qm-f-{child["name"]}" markdown>', "",
+                  f"[{label(child['drives'])}]({child['name']}.md){{ .qm-card-link }}", "",
+                  f"`{child['name']}` · {child['members']} {noun}", "",
+                  who, "",
+                  "</div>", ""]
+    lines += ["</div>", ""]
+    if private:
+        lines += [f"{private} private "
+                  f"{'repository is' if private == 1 else 'repositories are'} "
+                  "counted here and not named.", ""]
+    lines += [*entry_point(states, projects), "", SITE_NOTE, "{ .qm-caption }", ""]
+    return "\n".join(lines)
+
+
+def project_page(project: dict, by_name: dict[str, dict]) -> str:
+    """One project's page: what it is, its pictures, where it sits, its version,
+    and the way to its repository."""
+    name = project["name"]
+    families = project["families"]
+    outer = sorted({o for f in families for o in ancestors_in(f, by_name)})
+    eyebrow = " · ".join([f"[{f}](../families/{f}.md)" for f in families]
+                         + [f"within [{o}](../families/{o}.md)" for o in outer])
+    # The version links what it means; a phase stated without a branch is
+    # intent, so it stands beside the version rather than in its place.
+    facts = [f"[`{project['version']}`](../{LADDER})"]
+    intent = intent_of(project["governed"], project["phase"], project["phase_source"])
+    if intent:
+        facts.append(f"`{intent}` stated")
+    if project["language"]:
+        facts.append(project["language"])
+    if project["archived"]:
+        facts.append("archived on the host")
+    lines = [
+        "---", f"title: {name}", "---", "",
+        eyebrow, "{ .qm-eyebrow }", "",
+        f"# {name} {{ .qm-family-title .qm-f-{families[0]} }}", "",
+    ]
+    if project["description"]:
+        lines += [f'<p class="qm-lede">{_esc(project["description"])}</p>', ""]
+    lines += [" · ".join(facts), "{ .qm-caption }", "",
+              f"[{name} on GitHub]({project['url']}){{ .md-button .md-button--primary }}", ""]
+    if project["pictures"]:
+        lines += ['<div class="grid" markdown>', ""]
+        for picture in project["pictures"]:
+            lines += ['<figure class="qm-shot" markdown>', "",
+                      f"![{picture['caption']}]({picture['url']})", "",
+                      f"<figcaption>{_esc(picture['caption'])}</figcaption>", "",
+                      "</figure>", ""]
+        lines += ["</div>", ""]
+    elif project.get("waiting"):
+        lines += [f"Pictures are listed for {name} and not yet on its default branch. "
+                  "They show here once it holds them.", "{ .qm-caption }", ""]
+    else:
+        lines += [f"No pictures are listed for {name} yet. A project's own screenshots "
+                  "are picked in the corpus's `ci/showcase.yaml`.", "{ .qm-caption }", ""]
+    lines += [SITE_NOTE, "{ .qm-caption }", ""]
+    return "\n".join(lines)
+
+
+def projects_index(document: dict, projects: dict[str, dict], entries: dict[str, dict],
+                   inventory: Path = INVENTORY, adopted: frozenset[str] = frozenset()) -> str:
+    """Every repository a family claims, one row each: what it is, its
+    families, its page and its repository."""
+    org, rows = public_repositories(inventory)
+    claimed = claims(document)
+    lines = [
+        "---", "title: Projects", "---", "",
+        "the estate, project by project", "{ .qm-eyebrow }", "",
+        "# Projects", "",
+        "Every repository a family claims. A name opens the project's page, with "
+        "its pictures; the last column opens the repository.", "{ .qm-lede }", "",
+        f"{VERSIONS} [The phase ladder](../{LADDER}) says more.", "{ .qm-caption }", "",
+        "| repository | version | what it is | families | on GitHub |",
+        "|---|---|---|---|---|",
+    ]
+    for name in sorted((n for n in claimed if not _private(n)), key=str.lower):
+        families = ", ".join(f"[{f}](../families/{f}.md)" for f in claimed[name])
+        project = projects.get(name)
+        if project:
+            what = _cell(project["description"]) + (" Archived." if project["archived"] else "")
+            lines.append(f"| [{name}]({name}.md) | `{project['version']}` | {what} | "
+                         f"{families} | [GitHub]({project['url']}) |")
+        else:
+            entry = entries.get(name, {})
+            what = _cell(_sentence(entry.get("note")))
+            version = version_of(name in adopted, entry.get("phase"),
+                                 entry.get("phase_source"))
+            lines.append(f'| <span id="{name}"></span>{name} | `{version}` | {what} | '
+                         f"{families} | not on the host yet |")
+    private = sum(1 for n in claimed if _private(n))
+    outside = sum(1 for n in rows if n not in claimed)
+    lines += [""]
+    if private:
+        lines += [f"{private} private {'repository is' if private == 1 else 'repositories are'} "
+                  "in the families too, counted and not named.", ""]
+    lines += [f"The host holds {outside} more public repositories no family claims; "
+              f"[the organisation's page](https://github.com/orgs/{org}/repositories) "
+              "lists every one.", "",
+              SITE_NOTE, "{ .qm-caption }", ""]
+    return "\n".join(lines)
+
+
+def site_index(document: dict, summaries: list[dict], by_name: dict[str, dict]) -> str:
+    """The site's families page: the desk, then a card per family, an outer
+    family followed by the families within it. The whole card opens the page."""
+    counts = {s["name"]: s for s in summaries}
+    tops = sorted((f for f in document["families"] if not f.get("within")),
+                  key=lambda f: (not f.get("subfamilies"), f["name"]))
+    order: list[str] = []
+    for family in tops:
+        order.append(family["name"])
+        order += everyone_within(family["name"], by_name)
+    lines = [
+        "---", "title: Families", "---", "",
+        '<p class="qm-eyebrow">the estate, by what it drives</p>', "",
+        "# The families", "",
+        # A paragraph with an attribute list, not a <p>: a link inside raw HTML
+        # is left as literal markdown.
+        "A repository belongs to each family whose world its output acts on. A "
+        "family can hold others, and a repository that drives two things is in "
+        "both. Every project has a page of its own, and [the projects](../projects/index.md) "
+        "lists them all in one table.",
+        "{ .qm-lede }", "",
+        "![the families, each a column with a meter lit by the share past v0.0.0]"
+        "(families.svg){ .qm-picture }", "",
+        f"Each meter is lit by the share of members past `v0.0.0`. {VERSIONS} "
+        f"[The phase ladder](../{LADDER}) says more.", "{ .qm-caption }", "",
+        '<div class="grid" markdown>', "",
+    ]
+    for name in order:
+        family, s = by_name[name], counts[name]
+        place = f" · within `{family['within']}`" if family.get("within") else ""
+        held = family.get("subfamilies", [])
+        holds = (" Holds " + ", ".join(f"`{h}`" for h in held) + ".") if held else ""
+        noun = "member" if s["members"] == 1 else "members"
+        lines += [
+            f'<div class="card qm-f-{name}" markdown>', "",
+            f"**{label(family['drives'])}**", "",
+            f"`{name}`{place} · {s['members']} {noun}", "",
+            f"{_detail(family['drives']).capitalize()}.{holds}", "",
+            f"[The {name} family →]({name}.md){{ .qm-card-link }}", "",
+            "</div>", "",
+        ]
+    unstated = len(document.get("unstated", []))
+    verb = "repository states" if unstated == 1 else "repositories state"
+    lines += [
+        "</div>", "",
+        f"{unstated} rostered {verb} no family yet. That is *unstated*, not *none*: "
+        "nobody has answered the question.", "",
+        SITE_NOTE, "{ .qm-caption }", "",
+    ]
+    return "\n".join(lines)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("out", nargs="?", default="walkthrough/families")
     parser.add_argument("--write", action="store_true")
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--site", action="store_true",
+                        help="the docs site's family pages rather than the walkthrough's")
     args = parser.parse_args(argv)
 
     out = Path(args.out)
-    files = build(out)
+    files = build(out, site=args.site)
 
     if args.check:
         stale = []
@@ -328,6 +973,7 @@ def main(argv: list[str] | None = None) -> int:
         out.mkdir(parents=True, exist_ok=True)
         for name, body in files.items():
             # newline="\n": see families.py -- a Windows text write is CRLF.
+            (out / name).parent.mkdir(parents=True, exist_ok=True)
             (out / name).write_text(body, encoding="utf-8", newline="\n")
         print(f"wrote {len(files)} file(s) to {out}")
         return 0
@@ -342,7 +988,7 @@ def main(argv: list[str] | None = None) -> int:
     print("This disk, right now. None of it is committed anywhere.")
     print()
     for family in document["families"]:
-        states = [member_state(name, adopted, entries) for name in family["members"]]
+        states = [member_state(name, adopted, entries) for name in everyone_in(family)]
         absent = [s for s in states if not s["on_disk"]]
         dirty = [s for s in states if s["on_disk"] and s["dirty"]]
         print(f"## {family['name']}")

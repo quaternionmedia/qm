@@ -94,6 +94,13 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
          "--check", "handbook/gates.md"],
     ),
     (
+        "site palette",
+        ["ci/palette.py", "--write", "docs/stylesheets/palette.css"],
+        "docs/stylesheets/palette.css",
+        False,
+        ["ci/palette.py", "--check", "docs/stylesheets/palette.css"],
+    ),
+    (
         "families",
         ["ci/families.py", "--write", "families.json"],
         "families.json",
@@ -106,6 +113,13 @@ STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
         "walkthrough/families/README.md",
         False,
         ["ci/cookbook.py", "walkthrough/families", "--check"],
+    ),
+    (
+        "family site pages",
+        ["ci/cookbook.py", "docs/families", "--site", "--write"],
+        "docs/families/index.md",
+        False,
+        ["ci/cookbook.py", "docs/families", "--site", "--check"],
     ),
     (
         "rollout",

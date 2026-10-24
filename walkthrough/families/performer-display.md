@@ -4,6 +4,8 @@
 
 **Drives** the performer — what a player reads while playing
 
+**Within** [`performing`](./performing.md): a member of this family is a member of `performing` too, without claiming it.
+
 ![the performer-display family](./performer-display.svg)
 
 ## Who is in it
@@ -29,4 +31,4 @@ Adopting one is `handbook/forking-a-project.md` — nine steps, taken one reposi
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-09-27 from `families.json`.*
+*Generated 2026-10-20 from `families.json`.*
