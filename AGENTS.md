@@ -43,14 +43,11 @@ reasoning, and the seams doctrine in `records/` for why a governance document
 that mandated a particular product would be violating its own charter.
 
 **Read the committed status documents before re-deriving what they hold.**
-`status/governance.yaml` and `status/harness.yaml` sit at the root.
-`status/harness.yaml` carries its own refresh command, staleness budget and
-`do_not` list in a `reading:` block inside the file. **`status/governance.yaml`
-does not** — it has no `reading:` block at all, so its refresh command and its
-168-hour budget are only in `handbook/generated-documents.md`, and for that one
-you do need the page. `handbook/generated-documents.md` indexes both, and
-`uv run qm harness` renders the second
-as prose. Check the age before quoting a figure — a stale number delivered
+`status/governance.yaml` and `status/harness.yaml` sit at the root, and each
+carries its own refresh command, staleness budget and `do_not` list in a
+`reading:` block inside the file. `handbook/generated-documents.md` indexes
+both, and `uv run qm harness` renders the second as prose. Check the age
+before quoting a figure — a stale number delivered
 with a date looks checked.
 
 1. Read `PRINCIPLES.md` (the charter) in full and the opening points of `README.md`. For depth, see `docs/ref/namespaces.md`, `docs/ref/precedence.md`, and `docs/ref/ratification.md` on the docs site.
