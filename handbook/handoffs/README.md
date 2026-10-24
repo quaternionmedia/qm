@@ -5,9 +5,12 @@ records. Each page is a task somebody can pick up cold. Delete a page when its
 work lands; the method that outlives it belongs in the runbook or the audit
 queue, not here.
 
-**Read this page first, then exactly one of the others.** They are written to
-be worked in parallel by different sessions, and the ordering constraints
-between them are recorded here rather than inside each one.
+**Read this page first, then [`qm-queue.md`](qm-queue.md), then at most one
+other.** The queue page is the standing one, kept current by every session by
+its own first section; `uv run qm queue` says what has moved since its stamp.
+The others are written to be worked in parallel by different sessions, and the
+ordering constraints between them are recorded here rather than inside each
+one.
 
 ---
 
@@ -21,7 +24,7 @@ each is the next page's blocker — so taking them out of order buys nothing.
 | Handoff | Blocks on | Repo |
 |---|---|---|
 | [`performing-family-consolidation.md`](performing-family-consolidation.md) | **Peter, for every merge** — the core performing family's stacks, every branch on origin with its pull requests; ShowRunner #39 reviewed, fixed on its branch and checked against the stack; the family demo's manual integration loop and its gate; what is blocked on Peter and on mrharpo, and what done looks like for each remaining piece | qm + ShowRunner + ShowStopper + carlos + joe + leo |
-| [`qm-queue.md`](qm-queue.md) | **nothing** — what is open into `qm`'s project branches, grouped by what clears each: eight branches waiting on a propagation of `main`, apothecary's set, codecartographer's record chain. Carries the decisions in force, Dependabot's grouping across the estate, two gaps in the gates, and what still waits on a person | qm |
+| [`qm-queue.md`](qm-queue.md) | **nothing; every session keeps it** — the standing queue: what is open into `qm`'s project branches, grouped by what clears each: eight branches waiting on a propagation of `main`, apothecary's set, codecartographer's record chain. Carries the decisions in force, Dependabot's grouping across the estate, two gaps in the gates, and what still waits on a person | qm |
 | [`voice-set-landing.md`](voice-set-landing.md) | **a person, for one manual test** — the voice set's landing in the review page's order, paused at `joe` #33 for a test by hand: `vox`, `qmcp` and `qm` landed whole and `joe` through #32; `joe` #33 and #34 and two documentation pull requests remain. Carries the decisions in force, the steps after the set, the two decisions still open from the 2026-09-27 round, and how each step was done | vox + qmcp + joe + qm |
 | [`the-voice-loop.md`](the-voice-loop.md) | **nothing — read this for the loop**: what landed across `joe`, `vox`, `dossier`, `qmcp` and this corpus, the voice set included — Phase 10 of `qmcp`'s roadmap built on the local model, continuity from `qmcp`'s record — what remains, and the baseline Phase 0 of `qmcp`'s next phases established on `qmcp`'s `main`. Carries the three-process development environment, audio capture on the engine's machine, what no check covers, and the standing constraints | vox + joe + qmcp + dossier |
 | [`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) | **a human, and nothing else** — one review of the whole open set across `qmcp`, `vox`, `joe` and this corpus, spoken end to end once two servers start: the demo branches and the three-tier demonstration, what to look at in each, the decisions nobody has taken, what to distrust, and the order the set lands in. Delete it when its work lands | qmcp + vox + joe + qm |
@@ -61,17 +64,13 @@ project branch is: all twelve fell behind again when #38 and #41 landed. Read
 
 ## Rules that apply to every one of these
 
-**One open pull request per repository, per contributor.** Not one per task.
-If your slot already holds an open PR, add to it or wait — do not open a
-second. This is a sequencing constraint, not a bandwidth one: a green PR is
-merged by its author and frees its own slot, so the limit binds only on
-unfinished work. In this repo each `project/*` branch holds its own slot,
-because each is pinned by a different downstream submodule; in a project repo
-it means one, full stop.
-
-`handbook/async-contract.md` §1 is the rule and the reasoning;
-`project-seed/ci/check_one_pr.py` is the check, and `one-pr-check.yml` runs it
-on every pull request. Run it before you open anything.
+**One pull request carries one change: parallel when independent, stacked
+when dependent.** Nothing limits how many a contributor holds open, and one
+active stack at a time is a habit, never a rule. A pull request above the
+bottom of a stack stays a draft. `handbook/async-contract.md` §1 is the rule
+and the reasoning; `uv run qm stacks` lists your open pull requests and refuses
+one marked ready while stacked, and `one-pr-check.yml` runs it on every pull
+request.
 
 **Never request a review, and merge it yourself once the gates are green.**
 Add the person who asked for the work as assignee. The pull request is the

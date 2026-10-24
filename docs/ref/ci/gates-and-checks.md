@@ -213,6 +213,20 @@ branch before deleting it, and never pushes, closes a pull request or touches
 cannot see whether a pull request should merge, only whether the host says it
 can; `uv run qm branch` reads what a branch carries.
 
+## The queue page
+
+`uv run qm queue` (`ci/queue_page.py`) reads every pull request and issue that
+`handbook/handoffs/qm-queue.md` names, in one query to the host, and lists each
+one that merged or closed after the page's stamp, with how far each stamped
+`main` has moved since. `--page` reads another handoff page. A bare `#N` is
+`qm`'s; `name #N` belongs to the roster repository `name`, and so does a number
+joined to it by a comma, "and", "or" or a slash. It exits 1 when anything the
+page names changed after the stamp or resolves to nothing, and 2 when the page,
+its stamp or the host cannot be read. No workflow runs it, because it reads the
+host; a session runs it at open and close. It cannot see a pull request the
+page never names, or whether a sentence claims one is open, and a stamp moved
+without a re-read silences it.
+
 ## The declared-routes hook
 
 `.claude/hooks/prefer_declared_routes.py` is an optional pre-command hook that
