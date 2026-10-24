@@ -1,11 +1,14 @@
 ---
 title: ztgui
+hide:
+  - navigation
+  - toc
 ---
 
 [infra](../families/infra.md)
 { .qm-eyebrow }
 
-# ztgui { .qm-family-title .qm-f-infra }
+# ztgui<span class="qm-dot">.</span> { .qm-family-title .qm-f-infra }
 
 <p class="qm-lede">Zeroteir Gui</p>
 

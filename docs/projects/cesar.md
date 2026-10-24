@@ -1,11 +1,14 @@
 ---
 title: cesar
+hide:
+  - navigation
+  - toc
 ---
 
 [show-control](../families/show-control.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# cesar { .qm-family-title .qm-f-show-control }
+# cesar<span class="qm-dot">.</span> { .qm-family-title .qm-f-show-control }
 
 <p class="qm-lede">A unified lighting / sound / video controller for theatrical applications</p>
 

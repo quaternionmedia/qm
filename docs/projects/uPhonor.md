@@ -1,11 +1,14 @@
 ---
 title: uPhonor
+hide:
+  - navigation
+  - toc
 ---
 
 [instruments](../families/instruments.md) · [irl](../families/irl.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# uPhonor { .qm-family-title .qm-f-instruments }
+# uPhonor<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 <p class="qm-lede">Micro-Holophonor</p>
 

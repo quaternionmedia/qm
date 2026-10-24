@@ -1,14 +1,32 @@
 ---
 title: irl
+hide:
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 irl
 { .qm-eyebrow }
 
-# matter { .qm-family-title .qm-f-irl }
+# matter<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }
 
 Drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.
 { .qm-lede }
+
+</div>
+
+<figure class="qm-hero-shot" markdown>
+
+[![The fractal viewer walking a garage layout and what it holds.](https://github.com/quaternionmedia/apothecary/raw/HEAD/docs/assets/fractal-viewer-walkthrough.gif)](../projects/apothecary.md)
+
+<figcaption><strong>apothecary.</strong> The fractal viewer walking a garage layout and what it holds.</figcaption>
+
+</figure>
+
+</div>
 
 ## Who is in it
 

@@ -1,11 +1,13 @@
 ---
 title: infra
+hide:
+  - toc
 ---
 
 infra
 { .qm-eyebrow }
 
-# where a thing runs { .qm-family-title .qm-f-infra }
+# where a thing runs<span class="qm-dot">.</span> { .qm-family-title .qm-f-infra }
 
 Drives where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path.
 { .qm-lede }
