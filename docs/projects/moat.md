@@ -1,11 +1,14 @@
 ---
 title: moat
+hide:
+  - navigation
+  - toc
 ---
 
 [infra](../families/infra.md)
 { .qm-eyebrow }
 
-# moat { .qm-family-title .qm-f-infra }
+# moat<span class="qm-dot">.</span> { .qm-family-title .qm-f-infra }
 
 <p class="qm-lede">simple reverse proxy with Traefik</p>
 

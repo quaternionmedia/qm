@@ -1,71 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="652" viewBox="0 0 560 652" role="img" aria-label="the performing family and its members">
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="678" viewBox="0 0 560 678" role="img" aria-label="the performing family and its members">
 <style>text{font-family:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}.mono{font-family:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace}text{fill:#141922}.muted{fill:#536075}.panel{fill:#f3f4f7;stroke:#d5d9e2}.card{fill:#ffffff;stroke:#d5d9e2}.track{fill:#e8eaf0}.c-performing{fill:#9a520b}.s-performing{stroke:#9a520b}@media (prefers-color-scheme: dark){text{fill:#e7eaf1}.muted{fill:#9ba5b7}.panel{fill:#0d1118;stroke:#283143}.card{fill:#151b25;stroke:#283143}.track{fill:#1c2331}.c-performing{fill:#f2aa4c}.s-performing{stroke:#f2aa4c}}</style>
-<rect class="panel" x="0.5" y="0.5" width="559" height="651" rx="10"/>
+<rect class="panel" x="0.5" y="0.5" width="559" height="677" rx="10"/>
 <rect class="c-performing" x="0.5" y="0.5" width="559" height="5" rx="2"/>
 <text class="mono muted" x="16" y="30" font-size="12">performing</text>
 <text class="c-performing" x="16" y="56" font-size="20" font-weight="700">a show</text>
 <circle class="c-performing" cx="22" cy="76" r="5"/>
 <text class="mono" x="36" y="80" font-size="13">alfred</text>
 <text class="mono muted" x="276" y="80" font-size="12">governed</text>
-<circle class="c-performing" cx="22" cy="102" r="5"/>
-<text class="mono" x="36" y="106" font-size="13">carlos</text>
-<text class="mono muted" x="276" y="106" font-size="12">governed</text>
+<circle class="s-performing" cx="22" cy="102" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="106" font-size="13">otto</text>
+<text class="mono muted" x="276" y="106" font-size="12">not adopted</text>
 <circle class="c-performing" cx="22" cy="128" r="5"/>
-<text class="mono" x="36" y="132" font-size="13">qmetronome</text>
+<text class="mono" x="36" y="132" font-size="13">carlos</text>
 <text class="mono muted" x="276" y="132" font-size="12">governed</text>
-<circle class="s-performing" cx="22" cy="154" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="158" font-size="13">holophonor</text>
-<text class="mono muted" x="276" y="158" font-size="12">not adopted</text>
+<circle class="c-performing" cx="22" cy="154" r="5"/>
+<text class="mono" x="36" y="158" font-size="13">qmetronome</text>
+<text class="mono muted" x="276" y="158" font-size="12">governed</text>
 <circle class="s-performing" cx="22" cy="180" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="184" font-size="13">midiphonor</text>
+<text class="mono" x="36" y="184" font-size="13">holophonor</text>
 <text class="mono muted" x="276" y="184" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="206" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="210" font-size="13">uPhonor</text>
+<text class="mono" x="36" y="210" font-size="13">midiphonor</text>
 <text class="mono muted" x="276" y="210" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="232" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="236" font-size="13">stomp</text>
+<text class="mono" x="36" y="236" font-size="13">uPhonor</text>
 <text class="mono muted" x="276" y="236" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="258" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="262" font-size="13">wolf</text>
+<text class="mono" x="36" y="262" font-size="13">stomp</text>
 <text class="mono muted" x="276" y="262" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="284" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="288" font-size="13">ludwig</text>
+<text class="mono" x="36" y="288" font-size="13">wolf</text>
 <text class="mono muted" x="276" y="288" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="310" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="314" font-size="13">waveofhormuz</text>
+<text class="mono" x="36" y="314" font-size="13">ludwig</text>
 <text class="mono muted" x="276" y="314" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="336" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="340" font-size="13">private-34</text>
+<text class="mono" x="36" y="340" font-size="13">waveofhormuz</text>
 <text class="mono muted" x="276" y="340" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="362" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="366" font-size="13">joe</text>
+<text class="mono" x="36" y="366" font-size="13">private-34</text>
 <text class="mono muted" x="276" y="366" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="388" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="392" font-size="13">leo</text>
+<text class="mono" x="36" y="392" font-size="13">joe</text>
 <text class="mono muted" x="276" y="392" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="414" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="418" font-size="13">ShowRunner</text>
+<text class="mono" x="36" y="418" font-size="13">leo</text>
 <text class="mono muted" x="276" y="418" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="440" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="444" font-size="13">Cuelist-python</text>
+<text class="mono" x="36" y="444" font-size="13">ShowRunner</text>
 <text class="mono muted" x="276" y="444" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="466" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="470" font-size="13">QLab-python</text>
+<text class="mono" x="36" y="470" font-size="13">Cuelist-python</text>
 <text class="mono muted" x="276" y="470" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="492" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="496" font-size="13">TheatreMix-python</text>
+<text class="mono" x="36" y="496" font-size="13">QLab-python</text>
 <text class="mono muted" x="276" y="496" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="518" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="522" font-size="13">cesar</text>
+<text class="mono" x="36" y="522" font-size="13">TheatreMix-python</text>
 <text class="mono muted" x="276" y="522" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="544" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="548" font-size="13">ira</text>
+<text class="mono" x="36" y="548" font-size="13">cesar</text>
 <text class="mono muted" x="276" y="548" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="570" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="574" font-size="13">ShowStopper</text>
+<text class="mono" x="36" y="574" font-size="13">ira</text>
 <text class="mono muted" x="276" y="574" font-size="12">not adopted</text>
 <circle class="s-performing" cx="22" cy="596" r="4.5" fill="none" stroke-width="1.5"/>
-<text class="mono" x="36" y="600" font-size="13">aes</text>
+<text class="mono" x="36" y="600" font-size="13">ShowStopper</text>
 <text class="mono muted" x="276" y="600" font-size="12">not adopted</text>
-<text class="mono muted" x="16" y="640" font-size="11">● governed   ○ not adopted</text>
+<circle class="s-performing" cx="22" cy="622" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="626" font-size="13">aes</text>
+<text class="mono muted" x="276" y="626" font-size="12">not adopted</text>
+<text class="mono muted" x="16" y="666" font-size="11">● governed   ○ not adopted</text>
 </svg>

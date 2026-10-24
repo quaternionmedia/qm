@@ -38,10 +38,11 @@ DRAFTING RULES (delete this comment block before ratification):
 ## Context
 
 What forces are in play: the requirement, the constraints (always including
-ADR-0001 where licensing is relevant), and any external facts a future reader
-needs to evaluate whether the context still holds. External history (industry
-events, upstream project status) belongs here; internal drafting history does
-not.
+the open-license record where inbound licensing is relevant, and the
+outbound-licensing record where the artifact is something QM publishes), and
+any external facts a future reader needs to evaluate whether the context still
+holds. External history (industry events, upstream project status) belongs
+here; internal drafting history does not.
 
 ## Decision
 

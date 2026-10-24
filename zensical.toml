@@ -1,6 +1,6 @@
 [project]
 site_url = "https://quaternionmedia.github.io/qm/"
-site_name = "QM Governance"
+site_name = "Quaternion Media"
 site_description = "Governance documentation for Quaternion Media"
 site_author = "Quaternion Media, LLC"
 
@@ -156,8 +156,9 @@ keys = {}
 magiclink = {}
 mark = {}
 smartsymbols = {}
-# snippets takes base_path = "includes" when there is an includes/ directory.
-snippets = {}
+# The front page includes its generated showcase from includes/, paths taken
+# from the repository root; a missing snippet fails the build.
+snippets = { check_paths = true }
 superfences = { custom_fences = [ { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" } ] }
 tabbed = { alternate_style = true, combine_header_slug = true }
 tasklist = { custom_checkbox = true }

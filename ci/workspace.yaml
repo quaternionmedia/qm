@@ -186,6 +186,21 @@ repositories:
     note: video editor; UI migration and Playwright coverage in flight
     paths: [qm/alfred]
 
+  - name: otto
+    role: project
+    family: performing
+    phase: v0.0.0
+    phase_source: scaffolded
+    attention: active
+    note: >
+      the picture engine: renders alfred's previews, frames, sound and
+      presets, published as the `al-otto` package and vendored in alfred at
+      `alfred/otto`. Placed in performing by the border test in
+      records/DRAFT-a-family-is-bordered-by-what-it-drives.md 2 -- what its
+      output acts on is the video of a show, before it and after it, as
+      alfred's does.
+    paths: [qm/otto, otto, qm/alfred/alfred/otto]
+
   - name: apothecary
     role: project
     family: irl
@@ -472,7 +487,9 @@ repositories:
     phase: n/a
     phase_source: n/a
     family: performer-display
-    note: realtime sheet-music rendering
+    note: >
+      an audio workbench: chroma visualisations and MIDI from audio files,
+      and the media API that alfred's captions reach through vox
     paths: [joe, qm/joe]
 
   - name: leo

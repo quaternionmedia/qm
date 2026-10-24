@@ -1,11 +1,14 @@
 ---
 title: golfvs
+hide:
+  - navigation
+  - toc
 ---
 
 [games](../families/games.md)
 { .qm-eyebrow }
 
-# golfvs { .qm-family-title .qm-f-games }
+# golfvs<span class="qm-dot">.</span> { .qm-family-title .qm-f-games }
 
 <p class="qm-lede">Golf is the only sport where nobody is trying to stop you. golfVs fixes that. Arcade physics golf with asymmetric defence, built in Godot.</p>
 

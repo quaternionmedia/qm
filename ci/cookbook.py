@@ -571,6 +571,9 @@ def build(out: Path, site: bool = False) -> dict[str, str]:
             files[f"../projects/{name}.md"] = project_page(project, by_name)
         # The projects sit at the top of the site, beside the families, so
         # their pages are written into docs/projects/ from here.
+        # The front page's showcase, as snippets it includes from includes/.
+        for snippet, body in showcase_snippets(document, projects, by_name).items():
+            files[f"../../includes/{snippet}"] = body
         files["../projects/index.md"] = projects_index(document, projects, entries,
                                                        adopted=frozenset(adopted))
         return files
@@ -743,6 +746,35 @@ def _member_link(name: str, projects: dict[str, dict]) -> str:
     return f"[{name}](../projects/index.md#{name})"
 
 
+def first_pictured(names: list[str], projects: dict[str, dict]) -> dict | None:
+    """The first of `names`, in order, whose page has a picture to show."""
+    for name in names:
+        project = projects.get(name)
+        if project and project["pictures"]:
+            return project
+    return None
+
+
+def hero_figure(project: dict, href: str) -> list[str]:
+    """A project's first picture as the figure a page opens with: linked to
+    `href`, its caption led by the project's name."""
+    picture = project["pictures"][0]
+    return ['<figure class="qm-hero-shot" markdown>', "",
+            f"[![{picture['caption']}]({picture['url']})]({href})", "",
+            f"<figcaption><strong>{_esc(project['name'])}.</strong> "
+            f"{_esc(picture['caption'])}</figcaption>", "",
+            "</figure>", ""]
+
+
+def hero(copy: list[str], figure: list[str]) -> list[str]:
+    """Copy beside a picture, stacking where the page is narrow; the copy alone
+    when there is no picture to put beside it."""
+    if not figure:
+        return copy
+    return ['<div class="qm-hero" markdown>', "", '<div markdown>', "", *copy,
+            "</div>", "", *figure, "</div>", ""]
+
+
 def site_page(family: dict, states: list[dict], inner: list[dict] = (),
               also: dict[str, list[str]] | None = None,
               projects: dict[str, dict] | None = None) -> str:
@@ -757,11 +789,17 @@ def site_page(family: dict, states: list[dict], inner: list[dict] = (),
     projects = projects or {}
     own = set(family.get("members") or [s["name"] for s in states])
     eyebrow = f"{name} · within [{within}]({within}.md)" if within else name
+    # The family opens with the first picture any member has, in the roster's
+    # order: the family's own members first, then those of the families within.
+    pictured = first_pictured([s["name"] for s in states], projects)
+    figure = hero_figure(pictured, f"../projects/{pictured['name']}.md") if pictured else []
     lines = [
-        "---", f"title: {name}", "---", "",
-        eyebrow, "{ .qm-eyebrow }", "",
-        f"# {label(family['drives'])} {{ .qm-family-title .qm-f-{name} }}", "",
-        f"Drives {_esc(family['drives'].replace('**', ''))}.", "{ .qm-lede }", "",
+        "---", f"title: {name}", "hide:", "  - toc", "---", "",
+        *hero([eyebrow, "{ .qm-eyebrow }", "",
+               f'# {label(family["drives"])}<span class="qm-dot">.</span> '
+               f"{{ .qm-family-title .qm-f-{name} }}", "",
+               f"Drives {_esc(family['drives'].replace('**', ''))}.", "{ .qm-lede }", ""],
+              figure),
         "## Who is in it", "", '<div class="grid" markdown>', "",
     ]
     private = 0
@@ -818,31 +856,99 @@ def project_page(project: dict, by_name: dict[str, dict]) -> str:
         facts.append(project["language"])
     if project["archived"]:
         facts.append("archived on the host")
-    lines = [
-        "---", f"title: {name}", "---", "",
-        eyebrow, "{ .qm-eyebrow }", "",
-        f"# {name} {{ .qm-family-title .qm-f-{families[0]} }}", "",
-    ]
+    copy = [eyebrow, "{ .qm-eyebrow }", "",
+            f'# {name}<span class="qm-dot">.</span> {{ .qm-family-title .qm-f-{families[0]} }}', ""]
     if project["description"]:
-        lines += [f'<p class="qm-lede">{_esc(project["description"])}</p>', ""]
-    lines += [" · ".join(facts), "{ .qm-caption }", "",
-              f"[{name} on GitHub]({project['url']}){{ .md-button .md-button--primary }}", ""]
-    if project["pictures"]:
+        copy += [f'<p class="qm-lede">{_esc(project["description"])}</p>', ""]
+    copy += [" · ".join(facts), "{ .qm-caption }", "",
+             f"[{name} on GitHub]({project['url']}){{ .md-button .md-button--primary }}", ""]
+    # The first picture opens the page beside what the project is; the rest
+    # follow it, each with its caption.
+    figure = hero_figure(project, project["pictures"][0]["url"]) if project["pictures"] else []
+    # Wide, with no side menus: a project's page is its picture and a few facts.
+    lines = ["---", f"title: {name}", "hide:", "  - navigation", "  - toc", "---", "",
+             *hero(copy, figure)]
+    if project.get("waiting") and not project["pictures"]:
+        lines += [f"Pictures are listed for {name} and not yet on its default branch. "
+                  "They show here once it holds them.", "{ .qm-caption }", ""]
+    elif not project["pictures"]:
+        lines += [f"No pictures are listed for {name} yet. A project's own screenshots "
+                  "are picked in the corpus's `ci/showcase.yaml`.", "{ .qm-caption }", ""]
+    if len(project["pictures"]) > 1:
         lines += ['<div class="grid" markdown>', ""]
-        for picture in project["pictures"]:
+        for picture in project["pictures"][1:]:
             lines += ['<figure class="qm-shot" markdown>', "",
                       f"![{picture['caption']}]({picture['url']})", "",
                       f"<figcaption>{_esc(picture['caption'])}</figcaption>", "",
                       "</figure>", ""]
         lines += ["</div>", ""]
-    elif project.get("waiting"):
-        lines += [f"Pictures are listed for {name} and not yet on its default branch. "
-                  "They show here once it holds them.", "{ .qm-caption }", ""]
-    else:
-        lines += [f"No pictures are listed for {name} yet. A project's own screenshots "
-                  "are picked in the corpus's `ci/showcase.yaml`.", "{ .qm-caption }", ""]
     lines += [SITE_NOTE, "{ .qm-caption }", ""]
     return "\n".join(lines)
+
+
+SNIPPET_NOTE = ("<!-- Generated by `uv run qm cookbook docs/families --site --write` "
+                "from families.json, the inventory and ci/showcase.yaml; docs/index.md "
+                "includes it. Edit those, not this. -->")
+
+
+def showcase_card(project: dict, prefix: str) -> list[str]:
+    """A project as its first picture, its name, its family and version, and
+    what the picture shows. The whole card opens the project's page."""
+    picture = project["pictures"][0]
+    family = project["families"][0]
+    return [f'<div class="card qm-f-{family}" markdown>', "",
+            f"![{picture['caption']}]({picture['url']}){{ .qm-thumb loading=lazy }}", "",
+            f"[{project['name']}]({prefix}projects/{project['name']}.md){{ .qm-card-link }}", "",
+            f'<span class="qm-meta">{family} · {project["version"]}</span>', "",
+            _esc(picture["caption"]), "",
+            "</div>", ""]
+
+
+def showcase_snippets(document: dict, projects: dict[str, dict],
+                      by_name: dict[str, dict]) -> dict[str, str]:
+    """The front page's showcase, as the snippets docs/index.md includes from
+    includes/: the picture it opens with, the parts of a show, and the pictures
+    of the performing family and of the rest of the estate.
+
+    The front page sits at the root of docs/, so every link here is relative
+    to it. With no `performing` family declared there is no showcase to make.
+    """
+    show = by_name.get("performing")
+    if show is None:
+        return {}
+    order = [n for n in everyone_in(show) if not _private(n)]
+    opening = first_pictured(order, projects)
+    parts = ['<div class="grid qm-parts" markdown>', ""]
+    for family in [show, *(by_name[c] for c in show.get("subfamilies", []))]:
+        names = family["members"] if family is show else everyone_in(family)
+        named = [n for n in names if not _private(n)]
+        noun = "member" if len(names) == 1 else "members"
+        who = ", ".join(named[:5]) + (f", and {len(named) - 5} more" if len(named) > 5 else "")
+        parts += [f'<div class="card qm-f-{family["name"]}" markdown>', "",
+                  f"**{label(family['drives'])}**", "",
+                  f"`{family['name']}` · {len(names)} {noun}", "",
+                  who, "",
+                  f"[The {family['name']} family →](families/{family['name']}.md){{ .qm-card-link }}", "",
+                  "</div>", ""]
+    parts += ["</div>", ""]
+
+    def grid(members: list[dict]) -> list[str]:
+        cards = ['<div class="grid qm-showcase" markdown>', ""]
+        for project in members:
+            cards += showcase_card(project, "")
+        return cards + ["</div>", ""]
+
+    in_show = [projects[n] for n in order if n in projects and projects[n]["pictures"]]
+    shown = {p["name"] for p in in_show}
+    elsewhere = [p for p in projects.values() if p["pictures"] and p["name"] not in shown]
+    return {
+        "showcase-hero.md": "\n".join(
+            [SNIPPET_NOTE, "", *(hero_figure(opening, f"projects/{opening['name']}.md")
+                                 if opening else [])]),
+        "showcase-parts.md": "\n".join([SNIPPET_NOTE, "", *parts]),
+        "showcase-performing.md": "\n".join([SNIPPET_NOTE, "", *grid(in_show)]),
+        "showcase-estate.md": "\n".join([SNIPPET_NOTE, "", *grid(elsewhere)]),
+    }
 
 
 def projects_index(document: dict, projects: dict[str, dict], entries: dict[str, dict],

@@ -1,14 +1,32 @@
 ---
 title: instruments
+hide:
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 instruments · within [performing](performing.md)
 { .qm-eyebrow }
 
-# the sound { .qm-family-title .qm-f-instruments }
+# the sound<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 Drives the sound — looping, synthesis, tempo, remote control surfaces.
 { .qm-lede }
+
+</div>
+
+<figure class="qm-hero-shot" markdown>
+
+[![Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.](https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png)](../projects/carlos.md)
+
+<figcaption><strong>carlos.</strong> Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.</figcaption>
+
+</figure>
+
+</div>
 
 ## Who is in it
 

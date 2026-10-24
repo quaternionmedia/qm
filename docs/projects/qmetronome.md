@@ -1,11 +1,18 @@
 ---
 title: qmetronome
+hide:
+  - navigation
+  - toc
 ---
+
+<div class="qm-hero" markdown>
+
+<div markdown>
 
 [instruments](../families/instruments.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# qmetronome { .qm-family-title .qm-f-instruments }
+# qmetronome<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 <p class="qm-lede">Nothing inspired Metronome</p>
 
@@ -14,15 +21,19 @@ title: qmetronome
 
 [qmetronome on GitHub](https://github.com/quaternionmedia/qmetronome){ .md-button .md-button--primary }
 
-<div class="grid" markdown>
+</div>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-hero-shot" markdown>
 
-![The default visualizer running at 120 BPM in 4/4, with tap, play and hold.](https://github.com/quaternionmedia/qmetronome/raw/HEAD/docs/images/generated/videos/app-running.gif)
+[![The default visualizer running at 120 BPM in 4/4, with tap, play and hold.](https://github.com/quaternionmedia/qmetronome/raw/HEAD/docs/images/generated/videos/app-running.gif)](https://github.com/quaternionmedia/qmetronome/raw/HEAD/docs/images/generated/videos/app-running.gif)
 
-<figcaption>The default visualizer running at 120 BPM in 4/4, with tap, play and hold.</figcaption>
+<figcaption><strong>qmetronome.</strong> The default visualizer running at 120 BPM in 4/4, with tap, play and hold.</figcaption>
 
 </figure>
+
+</div>
+
+<div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
 

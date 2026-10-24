@@ -1,11 +1,14 @@
 ---
 title: wolf
+hide:
+  - navigation
+  - toc
 ---
 
 [instruments](../families/instruments.md) · within [performing](../families/performing.md)
 { .qm-eyebrow }
 
-# wolf { .qm-family-title .qm-f-instruments }
+# wolf<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
 <p class="qm-lede">remote midi controller</p>
 

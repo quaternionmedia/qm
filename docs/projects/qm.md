@@ -1,11 +1,14 @@
 ---
 title: qm
+hide:
+  - navigation
+  - toc
 ---
 
 [core](../families/core.md)
 { .qm-eyebrow }
 
-# qm { .qm-family-title .qm-f-core }
+# qm<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
 <p class="qm-lede">The Quaternion Media constitution: the org-level decision records every QM project adopts by reference, the process that keeps them coherent, and the template each new project forks from.</p>
 

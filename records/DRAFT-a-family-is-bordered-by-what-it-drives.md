@@ -74,7 +74,7 @@ words would have placed one program in all of them.
 
 | family | drives | within | named public members |
 |---|---|---|---|
-| `performing` | **a show** — what an audience sees and hears, and the video made before and after it | — | alfred, and every member of the families within it |
+| `performing` | **a show** — what an audience sees and hears, and the video made before and after it | — | alfred; otto; and every member of the families within it |
 | `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | `performing` | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ShowStopper; aes; ira |
 | `instruments` | **the sound** — looping, synthesis, tempo, remote control surfaces | `performing` | holophonor; midiphonor; carlos; qmetronome; wolf; ludwig; waveofhormuz; stomp; uPhonor |
 | `performer-display` | **the performer** — what a player reads while playing | `performing` | joe; leo; and one private repository, referenced rather than named |
@@ -89,7 +89,8 @@ room, the sound and the performer. A repository that drives one of those parts
 claims that family and is in `performing` by being there. A repository that
 drives the show but none of its parts claims `performing` itself, and alfred is
 that case: it makes the video of a show, before the performance and after it,
-not during it.
+not during it. otto, the engine that renders alfred's picture, is the same
+case for the same reason.
 
 `games` is the family the border test admits most easily and the one the
 estate never named, because a game is the activity rather than a thing that

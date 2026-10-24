@@ -1,11 +1,14 @@
 ---
 title: factorio-sysops
+hide:
+  - navigation
+  - toc
 ---
 
 [games](../families/games.md)
 { .qm-eyebrow }
 
-# factorio-sysops { .qm-family-title .qm-f-games }
+# factorio-sysops<span class="qm-dot">.</span> { .qm-family-title .qm-f-games }
 
 <p class="qm-lede">Factorio mod: IT Infrastructure addon (sensors, servers, dashboards, incidents, technical debt) -- monitor and automate your factory's IT layer</p>
 

@@ -11,6 +11,7 @@
 | member | governed |
 |---|---|
 | `alfred` | yes |
+| `otto` | no |
 | `carlos` | yes |
 | `qmetronome` | yes |
 | `holophonor` | no |
@@ -50,7 +51,7 @@ Everyone in these is in this family as well, and is in the table above.
 
 ## Starting here
 
-3 of 21 members carry governance, so this family has a governed entry point. Begin in `alfred`:
+3 of 22 members carry governance, so this family has a governed entry point. Begin in `alfred`:
 
 ```sh
 cd alfred
