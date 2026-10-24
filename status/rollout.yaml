@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-11T10:57:18Z'
+generated_at: '2026-10-24T15:40:03Z'
 generator:
   tool: ci/rollout.py
   source: host
@@ -115,6 +115,21 @@ phases:
         state: '-'
         detail: ''
     next: handoff-noted
+  - repo: rad
+    steps:
+      rekeyed:
+        state: '-'
+        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
+      pin-bumped:
+        state: '-'
+        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
+      agents-reworded:
+        state: '-'
+        detail: AGENTS.md does not match /entry stage/ on the host
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: rekeyed
   - repo: codecartographer
     steps:
       rekeyed:
@@ -151,6 +166,51 @@ phases:
   status: queued
   on_a_persons_word: 0
   members:
+  - repo: private-32
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
+  - repo: private-33
+    steps:
+      rekeyed:
+        state: '-'
+        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
+      pin-bumped:
+        state: '-'
+        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: rekeyed
+  - repo: factorio-sysops
+    steps:
+      rekeyed:
+        state: '-'
+        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
+      pin-bumped:
+        state: '-'
+        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: rekeyed
   - repo: golfvs
     steps:
       rekeyed:
@@ -167,6 +227,36 @@ phases:
         detail: ''
     next: handoff-noted
   - repo: private-38
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
+  - repo: rad-godot
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
+  - repo: qmcli-godot
     steps:
       rekeyed:
         state: n/a
@@ -323,6 +413,21 @@ phases:
         state: '-'
         detail: ''
     next: handoff-noted
+  - repo: streaming-infrastructure
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
   - repo: moat
     steps:
       rekeyed:
@@ -385,12 +490,40 @@ phases:
     next: handoff-noted
 - name: performing
   families:
-  - instruments
-  - show-control
-  - performer-display
+  - performing
   status: queued
   on_a_persons_word: 0
   members:
+  - repo: alfred
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
+  - repo: otto
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
   - repo: carlos
     steps:
       rekeyed:
@@ -511,6 +644,36 @@ phases:
         state: '-'
         detail: ''
     next: handoff-noted
+  - repo: joe
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
+  - repo: leo
+    steps:
+      rekeyed:
+        state: n/a
+        detail: .github/workflows/adr-lint.yml is not on the host's default branch
+      pin-bumped:
+        state: n/a
+        detail: governance/qm is not on the host's default branch
+      agents-reworded:
+        state: n/a
+        detail: AGENTS.md is not on the host's default branch
+      handoff-noted:
+        state: '-'
+        detail: ''
+    next: handoff-noted
   - repo: ShowRunner
     steps:
       rekeyed:
@@ -616,56 +779,12 @@ phases:
         state: '-'
         detail: ''
     next: handoff-noted
-  - repo: joe
-    steps:
-      rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
-      pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
-      agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: handoff-noted
-  - repo: leo
-    steps:
-      rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
-      pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
-      agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: handoff-noted
-- name: unstated
-  families: []
+- name: commons
+  families:
+  - commons
   status: queued
   on_a_persons_word: 0
   members:
-  - repo: alfred
-    steps:
-      rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
-      pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
-      agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: handoff-noted
   - repo: benchmark
     steps:
       rekeyed:
@@ -681,71 +800,11 @@ phases:
         state: '-'
         detail: ''
     next: handoff-noted
-  - repo: factorio-sysops
-    steps:
-      rekeyed:
-        state: '-'
-        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
-      pin-bumped:
-        state: '-'
-        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
-      agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: rekeyed
-  - repo: private-32
-    steps:
-      rekeyed:
-        state: n/a
-        detail: .github/workflows/adr-lint.yml is not on the host's default branch
-      pin-bumped:
-        state: n/a
-        detail: governance/qm is not on the host's default branch
-      agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: handoff-noted
-  - repo: private-33
-    steps:
-      rekeyed:
-        state: '-'
-        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
-      pin-bumped:
-        state: '-'
-        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
-      agents-reworded:
-        state: n/a
-        detail: AGENTS.md is not on the host's default branch
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: rekeyed
-  - repo: rad
-    steps:
-      rekeyed:
-        state: '-'
-        detail: .github/workflows/adr-lint.yml does not match /branches:\s*\[\s*test\s*\]/ on the host
-      pin-bumped:
-        state: '-'
-        detail: '''set-at-enactment'' is not a commit; the plan''s placeholder is not filled in'
-      agents-reworded:
-        state: '-'
-        detail: AGENTS.md does not match /entry stage/ on the host
-      handoff-noted:
-        state: '-'
-        detail: ''
-    next: rekeyed
 ahead_of_phase: []
 problems: []
 summary:
   phases: 6
   done: 0
   current: corpus
-  members: 44
+  members: 48
   contradicted: 0
