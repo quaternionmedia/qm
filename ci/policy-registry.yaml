@@ -1,19 +1,18 @@
 # Every policy this corpus holds, and what would survive the tool that enforces it.
 #
-# THE RULE THIS FILE EXISTS FOR. Prevention is disposable; detection is not. A
+# The rule this file exists for. Prevention is disposable; detection is not. A
 # policy enforced only by one vendor's hook dies when that vendor changes, and
 # dies silently, because nothing reports the absence of a hook that used to run.
 # So a policy may not have a `preventers` list and nothing else: it needs a
 # `detector` that reads an artifact, or a stated reason it cannot have one.
 #
-# `detectable: false` IS A FIRST-CLASS ANSWER. Of thirty-two lessons recorded in
-# status/ledger.yaml, six to eight can be read from an artifact and the rest are
-# judgement. A registry that left those blank would read as unfinished, and the
-# pressure would be to write a weak detector to fill the column. A weak detector
-# is worse than an honest none, because the column then reads as coverage and
-# nobody looks again.
+# `detectable: false` is a first-class answer. Most lessons recorded in
+# status/ledger.yaml are judgement and leave no artifact. A registry that left
+# those blank would read as unfinished and invite a weak detector to fill the
+# column, and a weak detector is worse than an honest none, because the column
+# then reads as coverage and nobody looks again.
 #
-# THE THREE TIERS
+# The three tiers
 #
 #   invariant  stated here and in the corpus. Vendor-neutral. Survives anything.
 #   detector   a check reading the artifact, not the actor. Survives a tool swap.

@@ -1,19 +1,12 @@
 """The first use of a term on a page reaches its definition, and only the first.
 
-**A GLOSSARY NOBODY ARRIVES AT IS A PAGE, NOT A GLOSSARY.** `governance-finds-the-reader`'s argument one
-layer down: a reader meeting `knot` in a record does not stop, open the reference
-section and search. They guess, and a corpus whose words carry precise meanings
-is exactly where guessing is expensive.
+A reader meeting `knot` in a record guesses rather than searching, and a corpus
+whose words carry precise meanings is where guessing is expensive
+(`governance-finds-the-reader`, one layer down).
 
-**THE PROPERTY THAT MAKES IT SAFE IS THE FIXED POINT.** Running the pass twice
-must change nothing, or it cannot ride the ordinary command (`show-it-by-running-it`) and becomes a
-release step somebody remembers. The first version did not have it: it linked the
-first *bare* use, so after a run the first occurrence was a link and the second
-became the new first bare one. It rewrote seventeen pages on its second pass and
-would have linked one more occurrence per run forever.
-
-The docstring claimed idempotence before the code had it, and running it twice is
-what found that — `a-check-is-evidence-after-it-fails` applied to a generator.
+The pass is a fixed point: running it twice changes nothing, so it can ride the
+ordinary command (`show-it-by-running-it`) rather than being a release step
+somebody remembers.
 """
 
 from __future__ import annotations
@@ -36,7 +29,7 @@ def linked(text: str) -> str:
 
 
 def test_running_it_twice_changes_nothing():
-    """THE ONE THIS EXISTS FOR, AND THE ONE IT FAILED.
+    """The second pass changes nothing.
 
     Mutation: link the first *bare* use instead of skipping a term already
     linked anywhere, and this fails — each pass links one more occurrence.
@@ -156,24 +149,17 @@ def test_the_committed_pages_are_current():
 
 def test_main_runs():
     """`test_every_gate_is_exercised` requires something to execute every
-    module with a `main()`, and it is what caught this file being absent —
-    twice in one branch."""
+    module with a `main()`."""
     assert links.main(["--check"]) == 0
 
 
-# --- what the executable pages caught ------------------------------------------
+# --- markdown's other code form, and compounds ----------------------------------
 
 
 def test_a_term_inside_an_indented_code_block_is_left_alone():
-    """THE ONE THE COOKBOOK CAUGHT.
-
-    Only fenced blocks were masked at first, and the executable cookbook pages
-    write their doctests as four-space indented blocks. `project-seed/ci/...`
-    inside a `>>>` line was rewritten into a markdown link and
-    `run-ci-locally.md` stopped running.
-
-    `show-it-by-running-it` doing its job: the example that ran is the example a reader reads, so
-    breaking one is a failure rather than a stale page.
+    """The executable cookbook pages write their doctests as four-space
+    indented blocks, and a path inside a `>>>` line must stay a path for the
+    page to run.
 
     Mutation: drop the indented-block mask and this fails.
     """
@@ -188,8 +174,8 @@ def test_a_term_inside_an_indented_code_block_is_left_alone():
 
 
 def test_a_term_joined_by_a_hyphen_or_slash_is_part_of_a_compound():
-    """`\b` treats `-`, `/`, `_` and `.` as word boundaries, so `seed` matched
-    inside `project-seed/ci/...` and `record` would match inside
+    """`\b` treats `-`, `/`, `_` and `.` as word boundaries, so `seed`
+    would match inside `project-seed/ci/...` and `record` inside
     `record_review.py`. A path is never the word.
 
     Mutation: go back to `\b...\b` and this fails.
@@ -205,3 +191,15 @@ def test_the_word_on_its_own_is_still_linked():
     works -- otherwise the fix would have deleted the feature."""
     page = "The seed is what a fork adopts.\n"
     assert "glossary.md#seed" in links.link_first(page, {"seed": "seed"}, "")
+
+
+def test_a_page_another_generator_writes_is_left_alone():
+    """docs/families/ and docs/projects/ are written by `ci/cookbook.py --site`;
+    linking terms there would make each generator report the other's output as
+    drift.
+
+    Mutation: empty `GENERATED`, or drop docs/projects from it, and this fails.
+    """
+    found = links.pages()
+    assert not any(Path("docs/families") in page.parents for page in found)
+    assert not any(Path("docs/projects") in page.parents for page in found)

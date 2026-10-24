@@ -1,6 +1,6 @@
 """The loose-ends document: one join of three committed sources, and a claim layer it reads and never writes.
 
-WHAT IS TESTED IS THE CONTRACT. `judge()` is the whole of it -- `build()` and
+What is tested is the contract. `judge()` is the whole of it -- `build()` and
 the vector runner share it -- so the committed vectors are run here, the way
 `test_addresses.py` runs the address vectors: a case that passes here is a
 statement about the document a consumer receives. Then each thing the module's

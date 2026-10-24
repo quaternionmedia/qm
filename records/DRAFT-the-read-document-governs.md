@@ -10,30 +10,24 @@
 
 ## Context
 
-This corpus already answers *which document wins when two disagree*.
-`README.md`'s "Namespaces and precedence" says org records bind every project
-and a project record may tighten one, never relax it. That rule is sound and it
-was not enough, because it answers a question a reader only asks once they have
-noticed the disagreement.
+This corpus answers *which document wins when two disagree*. `README.md`'s
+"Namespaces and precedence" says org records bind every project and a project
+record may tighten one, never relax it. That rule is sound and not enough,
+because it answers a question a reader only asks once they have noticed the
+disagreement.
 
 The question it does not answer is *which document a reader reads*. Those have
 different answers, and the gap between them is where a corpus can be entirely
 correct and still govern wrongly.
 
-The event that produced this record. `records/DRAFT-version-tags-are-claims.md`
-§4 states that `main`, a pull request, a working branch and a local build are
-all drafts, asserting nothing, and §2 states that the human gate is the version
-tag. At the same commit, `AGENTS.md` item 3 stated that a pull request is opened
-"for human review", that an agent must never merge into `main`, and that leaving
-draft was the assignee's decision "after their own testing" — which is the
-manual-testing clause the tag record owns, relocated to a gate the tag record
-says asserts nothing.
-
-A session read the entry point, built its model of the organisation from it, and
-delivered an analysis whose central claim was that throughput is limited by a
-human review queue at the pull request. The record saying otherwise was in the
-same tree, had been read by that session, and could be quoted by it on request.
-Nothing was hidden and nothing was ambiguous in isolation.
+An entry point and a record can disagree at the same commit with neither wrong
+in isolation. A record can state that `main` and a pull request assert nothing
+and that the human gate is the version tag, while the entry point describes the
+pull request as opened "for human review" and places the manual-testing clause
+the record owns at a gate the record says asserts nothing. A reader who builds
+a model of the organisation from the entry point then reasons from the summary,
+with the record in the same tree, read, and quotable on request. Nothing is
+hidden and nothing is ambiguous in isolation.
 
 The asymmetry that makes this the default rather than an accident: an entry
 point is read first, read fully, and read by every session, while a record is
@@ -95,11 +89,11 @@ reader; what it handed them was a second copy.
 - Cost accepted: a record acquires a maintenance obligation — it has to know who
   quotes it. That obligation is the deliverable. A decision whose copies are
   untracked has an unknown number of versions in circulation, which is the
-  condition this record was written from.
+  condition this record addresses.
 - Cost accepted: the check is link integrity and will read as stronger than it
   is. Two declared documents can contradict each other and pass. The tool's
-  output says so on every run, because a check that overstates its coverage is
-  the failure this corpus keeps finding in its own tooling.
+  output says so on every run, because a check that overstates its coverage
+  misleads the reader who trusts it.
 - The failure this addresses is silent by construction. Neither document looks
   wrong on its own, no gate goes red, and the reader who acts on the entry point
   has behaved correctly by everything visible to them. Nothing but the pairing
@@ -110,20 +104,19 @@ reader; what it handed them was a second copy.
 1. **Ban restatement outright** — rejected. `AGENTS.md` has to brief a session
    with no other briefing, which is its stated purpose, and a file of bare
    citations fails that reader on their first minute.
-2. **Rely on the precedence rule already in `README.md`** — rejected. It existed
-   throughout, is clearly written, and did not prevent this. Precedence resolves
+2. **Rely on the precedence rule already in `README.md`** — rejected. It is
+   clearly written and does not prevent this. Precedence resolves
    a conflict a reader has already noticed; this failure consists of not
    noticing.
 3. **Generate entry points from records** — rejected. It inverts the audience:
    entry points are ordered by what a session needs first, records by decision,
    and a generated ordering serves neither. It would also make the entry point
    unable to say anything a record does not.
-4. **Write it as a session-discipline clause** — rejected, on this corpus's own
-   evidence. `perspectives/2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md`
+4. **Write it as a session-discipline clause** — rejected. Clauses without a
+   mechanism do not change session behaviour, and a clause read in full is
+   still broken; `perspectives/2026-08-12-nineteen-reversals-and-what-a-clause-cannot-fix.md`
    and `perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md`
-   both establish that clauses without a mechanism do not change session
-   behaviour, and every clause broken in the second was read in full by the
-   session that broke it. This failure is also not one a careful reader catches,
+   hold the evidence. This failure is also not one a careful reader catches,
    since being careful about the document in front of you is exactly what
    produces it.
 

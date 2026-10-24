@@ -1,20 +1,15 @@
 """The hook that fires when a command goes around a declared route.
 
-**THE HOOK IS A GUARD, SO IT IS SUBJECT TO ITS OWN SUBJECT MATTER.** Charter
-`a-check-is-evidence-after-it-fails`: a check is evidence only after it has been seen to fail. A hook nobody has
-watched fire is a file that makes everyone feel better, and this one is worse
-than most if it is wrong — a guard that cries wolf on legitimate work gets
-switched off, and a switched-off guard is worse than none.
+The hook is a guard, so it is held to charter
+`a-check-is-evidence-after-it-fails`: it is seen to fire. A guard that cries
+wolf on legitimate work gets switched off, so the cases here are the ones that
+decide whether it survives contact:
 
-So the cases here are the ones that decide whether it survives contact:
-
-1. it fires on the commands that were actually typed in the session that
-   prompted it — not on invented ones;
-2. it does **not** fire on its own remedy, which is the fastest way a guard
-   gets disabled;
-3. it fails open. A hook that cannot read its input, or that raises, must let
-   the work through: blocking every command on a bug in the hook is a worse
-   outcome than any bypass it prevents.
+1. it fires on bypasses that have happened, not on invented ones;
+2. it does **not** fire on its own remedy;
+3. it fails open: a hook that cannot read its input, or that raises, lets the
+   work through, because blocking every command on a bug in the hook is worse
+   than any bypass it prevents.
 """
 
 from __future__ import annotations
@@ -57,11 +52,8 @@ def run(command: str, tool: str = "Bash", strict: bool = False,
     ("git push origin main", "preflight"),
 ])
 def test_it_fires_on_what_was_actually_typed(command, expected):
-    """THE ONE THAT MATTERS.
-
-    Every one of these was run in the session that prompted the hook, against a
-    rule its author had read. A hook built from imagined misuse would fire on
-    things nobody does and miss the things everybody does.
+    """Each of these is a bypass that has happened, against a rule its
+    author had read.
 
     Mutation: remove a pattern from `ROUTES` and the matching case fails.
     """
@@ -93,9 +85,9 @@ def test_it_says_what_to_run_and_why():
     "git commit --dry-run",
 ])
 def test_it_leaves_the_right_thing_alone(command):
-    """**THE FASTEST WAY A GUARD GETS DISABLED** is firing on the very command
-    it recommends. `uv run qm test` runs pytest underneath; a pattern matching
-    the word would fire on the remedy.
+    """The hook does not fire on the command it recommends: `uv run qm test`
+    runs pytest underneath, and a pattern matching the word would fire on the
+    remedy.
 
     Mutation: remove the allow-list and this fails.
     """
@@ -116,9 +108,9 @@ def test_it_ignores_tools_that_are_not_bash():
 
 @pytest.mark.parametrize("payload", ["", "not json at all", "[]", "null"])
 def test_unreadable_input_lets_the_work_through(payload):
-    """**FAILING CLOSED HERE WOULD BLOCK EVERY COMMAND ON A BUG IN THE HOOK.**
-    The worst outcome a bypass can produce is a wrong result somebody then
-    finds; the worst outcome a jammed hook produces is nobody able to work.
+    """Failing closed here would block every command on a bug in the hook.
+    A bypass produces a wrong result somebody finds; a jammed hook leaves
+    nobody able to work.
 
     Mutation: raise on bad input and this fails.
     """

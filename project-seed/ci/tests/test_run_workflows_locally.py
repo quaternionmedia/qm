@@ -78,6 +78,59 @@ def test_a_branch_filter_that_does_not_match_skips_rather_than_passes(repo: Path
     assert "SKIP" in result.stdout
 
 
+def test_the_environment_is_reported_before_any_step_and_never_changes_the_exit(repo: Path):
+    """The report is information. A machine with no docker daemon or no gh login
+    must not turn a passing workflow red, and must not hide behind a green one."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow("      - name: fine\n        run: echo ok\n"),
+    )
+    commit_all(repo, "add a passing workflow")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 0, result.stdout
+    for label in ("shell:", "gh:", "docker:"):
+        assert f"[env ] {label}" in result.stdout, result.stdout
+    assert result.stdout.index("[env ] gh:") < result.stdout.index("[PASS] fine")
+
+
+def _module():
+    import importlib.util
+
+    from conftest import CI_DIR
+
+    spec = importlib.util.spec_from_file_location(
+        "run_workflows_locally", CI_DIR / "run_workflows_locally.py"
+    )
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_gh_hint_names_the_config_directory_only_when_appdata_is_what_is_missing(
+    tmp_path: Path,
+):
+    """gh reports a signed-in machine as signed out when APPDATA is unset. The
+    hint is for that cause alone; a genuinely signed-out account gets none."""
+    mod = _module()
+    config = tmp_path / "AppData" / "Roaming" / "GitHub CLI"
+    config.mkdir(parents=True)
+    env = {"USERPROFILE": str(tmp_path)}
+
+    assert mod.gh_config_hint(env) is None, "no hosts.yml means nothing to point at"
+
+    (config / "hosts.yml").write_text("github.com: {}\n", encoding="utf-8")
+    assert "GH_CONFIG_DIR" in mod.gh_config_hint(env)
+    assert mod.gh_config_hint({**env, "APPDATA": str(tmp_path)}) is None
+    assert mod.gh_config_hint({**env, "GH_CONFIG_DIR": str(config)}) is None
+    assert mod.gh_config_hint({}) is None
+
+
+def test_a_tool_that_is_missing_is_reported_rather_than_raised():
+    mod = _module()
+    code, why = mod.probe(["definitely-not-a-real-tool-xyz"])
+    assert code is None and "not found" in why
+
+
 def test_a_remote_qualified_base_ref_still_matches_the_branch_filter(repo: Path):
     """`--base-ref origin/main` is the documented example and must work.
 
@@ -267,3 +320,32 @@ def test_halting_is_per_job_not_per_run(repo: Path):
     commit_all(repo, "add two independent workflows")
     result = run_tool("run_workflows_locally.py", cwd=repo)
     assert "STILL_RAN" in result.stdout, result.stdout
+
+
+def test_a_jobs_env_reaches_its_steps_and_shared_steps_run_as_each_job(repo: Path):
+    """A runner exports a job's env to its steps. Two jobs sharing one list of steps (a
+    YAML anchor) and differing only in env each see their own value."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        "name: T\non:\n  pull_request:\n\njobs:\n"
+        "  one:\n    runs-on: ubuntu-latest\n    env:\n      SHARD: 1\n    steps: &steps\n"
+        '      - name: has its shard\n        run: test -n "$SHARD" && echo "shard $SHARD"\n'
+        "  two:\n    runs-on: ubuntu-latest\n    env:\n      SHARD: 2\n    steps: *steps\n",
+    )
+    commit_all(repo, "two jobs, one list of steps")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 0, result.stdout
+    assert "shard 1" in result.stdout and "shard 2" in result.stdout, result.stdout
+
+
+def test_a_pull_request_is_not_run_on_the_default_branch(repo: Path):
+    """On the runner a pull request's GITHUB_REF_NAME is `<number>/merge`; a step that
+    guards the default branch by its ref name must not fire for one."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow('      - name: not main\n        run: test "$GITHUB_REF_NAME" != main\n'),
+    )
+    commit_all(repo, "a step that guards the default branch")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 0, result.stdout
+

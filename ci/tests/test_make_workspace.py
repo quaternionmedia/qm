@@ -138,7 +138,26 @@ def test_an_unanswered_phase_is_collected_as_a_question(tmp_path: Path) -> None:
     assert "phase scaffolded" in result.stdout
     page = out.with_suffix(".md").read_text(encoding="utf-8")
     assert "Phases nobody has stated" in page
-    assert "**alfred**" in page
+    assert "**alfred** (`v0.0.1`)" in page
+
+
+def test_the_page_says_the_default_is_read_from_the_branch(tmp_path: Path) -> None:
+    """The default is `v0.0.0` without a branch, not `v0.0.1` for everyone.
+
+    Mutation: say "These carry v0.0.1 because nothing was stated" and this
+    fails.
+    """
+    search = tmp_path / "src"
+    search.mkdir()
+    clone(search, "vox")
+    _, out, _ = generate(
+        tmp_path, [{"name": "vox", "phase": "v0.0.0", "phase_source": "scaffolded", "paths": ["vox"]}]
+    )
+    page = " ".join(out.with_suffix(".md").read_text(encoding="utf-8").split())
+    assert "v0.0.0 until it has a `project/<name>` branch in the corpus" in page
+    assert "v0.0.0 without the branch, v0.0.1 with it" in page
+    assert "**vox** (`v0.0.0`)" in page
+    assert "These carry v0.0.1" not in page
 
 
 def test_an_answered_phase_is_not_collected_as_a_question(tmp_path: Path) -> None:
@@ -432,3 +451,38 @@ def test_folders_are_grouped_by_the_families_as_asked_for(tmp_path: Path) -> Non
     assert result.returncode == 0, result.stdout + result.stderr
     workspace = json.loads(out.read_text(encoding="utf-8"))
     assert [f["name"] for f in workspace["folders"]] == ["hub", "second-hub", "other"]
+
+
+def test_a_family_selection_includes_the_families_within_it(tmp_path: Path) -> None:
+    """`--family performing` holds whoever is in a family within it, and a
+    repository claiming two families is one folder.
+
+    Mutation: make `families_within` return only the family asked for and
+    this fails on `synth`.
+    """
+    search = tmp_path / "src"
+    search.mkdir()
+    for name in ("editor", "synth", "pedal", "other"):
+        clone(search, name)
+    seam = tmp_path / "families.json"
+    seam.write_text(json.dumps({"schema": 2, "families": [
+        {"name": "performing", "drives": "", "members": ["editor"],
+         "subfamilies": ["instruments"]},
+        {"name": "instruments", "drives": "", "members": ["synth", "pedal"],
+         "within": "performing", "subfamilies": []},
+        {"name": "irl", "drives": "", "members": ["pedal"], "subfamilies": []},
+        {"name": "games", "drives": "", "members": ["other"], "subfamilies": []},
+    ]}), encoding="utf-8")
+    result, out, _ = generate(
+        tmp_path,
+        [
+            {"name": "editor", "family": "performing", "paths": ["editor"]},
+            {"name": "synth", "family": "instruments", "paths": ["synth"]},
+            {"name": "pedal", "family": ["irl", "instruments"], "paths": ["pedal"]},
+            {"name": "other", "family": "games", "paths": ["other"]},
+        ],
+        "--family", "performing", "--family", "irl", "--families", str(seam),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    workspace = json.loads(out.read_text(encoding="utf-8"))
+    assert [f["name"] for f in workspace["folders"]] == ["editor", "synth", "pedal"]

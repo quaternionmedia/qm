@@ -5,19 +5,19 @@
     uv run qm capabilities --id qmcp/governed
     uv run qm capabilities --check          # refuse a declaration nobody could act on
 
-A CAPABILITY IS NOT A DELTA AND NOT A PROJECT. A delta ends; a project has a
+A capability is not a delta and not a project. A delta ends; a project has a
 release phase. A capability is one named thing this estate can do, and it
 persists after the change that introduced it closed --
 `records/DRAFT-a-capability-has-four-phases.md` is the decision, and the four
 rungs are stated there rather than restated here.
 
-**THE PHASE IS A CLAIM AND THIS COMPUTES NOTHING FROM THE EVIDENCE.** That is
+The phase is a claim, and this computes nothing from the evidence. That is
 clause 3, inherited from the project phase ladder. A generator that read the
 evidence and set the phase would delete the only signal worth having, which is
 the gap between what somebody asserted and what can be checked. So this prints
 both columns and never reconciles them.
 
-WHAT `--check` REFUSES:
+What `--check` refuses:
 
   * a capability whose `phase` is not one of the four rungs, or whose rungs
     below the claimed one carry no evidence pointer at all -- claiming
@@ -31,21 +31,18 @@ WHAT `--check` REFUSES:
   * a capability with no `cannot_see`, which is undescribed rather than
     thorough. The same rule the gate and protocol registries carry.
 
-WHAT IT DOES NOT REFUSE. A capability that has reached only `design`, or one
-whose `monitoring` is `null`. Most of this list should never reach the top rung
--- watching everything costs attention, which is the scarcest thing here, and
-clause 7 says a capability may sit at a rung indefinitely. A check that failed
-on that would be a check somebody deletes.
+What it does not refuse: a capability that has reached only `design`, or one
+whose `monitoring` is `null`. Most capabilities should never reach the top
+rung, since watching everything costs attention, and clause 7 says a
+capability may sit at a rung indefinitely.
 
-**WHAT THIS CANNOT SEE, AND IT IS MOST OF THE POINT.** Whether any of the
-evidence is true. It reads that a pointer was written down; it does not run the
-command, resolve the address, or open the workflow. A capability claiming
-`deployment` and naming a command that does not exist passes this file
-completely -- which is precisely the defect the record was written about, so
-the limit is stated here rather than discovered later. Establishing the
-deployment rung is each project's own gate, published in a document a window
-reads; `qmcp`'s `tests/test_declared_commands.py` is the one implementation
-that exists.
+What this cannot see: whether any of the evidence is true. It reads that a
+pointer was written down; it does not run the command, resolve the address, or
+open the workflow. A capability claiming `deployment` and naming a command that
+does not exist passes this file completely. Establishing the deployment rung is
+each project's own gate, published in a document a window reads; `qmcp`'s
+`tests/test_declared_commands.py` is one implementation.
+`docs/ref/ci/registries.md` describes capabilities.
 """
 
 from __future__ import annotations
@@ -154,10 +151,9 @@ def render(entries: list[dict], only: str | None = None) -> str:
         below = reached(entry)
         for rung in RUNGS:
             pointer = evidence_for(entry, rung)
-            # Labelled rather than marked with a glyph. A tick would read as
-            # "checked", and nothing here checks anything -- and a non-ASCII
-            # mark mangles on a cp1252 console, which is how this printed the
-            # first time it ran.
+            # Labelled rather than marked with a glyph: a tick would read as
+            # "checked", and nothing here checks anything; a non-ASCII mark
+            # also mangles on a cp1252 console.
             mark = "claimed" if rung in below else "--"
             lines.append(f"    {rung:<11} {mark:<8} {pointer}")
         lines.append(f"  cannot see: {entry.get('cannot_see', '').strip()}")

@@ -26,8 +26,8 @@ that cannot be decided and gives it to something that can.**
 
 That is a statement about computability, and this corpus has a principle (`a-loop-is-not-a-knot`)
 that says a layer's mathematics is looked for on purpose. This record does that
-for the layer nobody had named — the boundary between an agent's judgement and
-the code it produces.
+for an unnamed layer — the boundary between an agent's judgement and the code
+it produces.
 
 ## Decision
 
@@ -79,8 +79,8 @@ Said plainly, and this wording is the one to keep:
 > **Work yourself out of the jobs you are not good at, playing to your
 > strengths.**
 
-The concrete instance this record was written from: an agent that waits for a
-fourteen-minute test suite is doing a scheduler's job badly. Threading the run
+A concrete instance: an agent that waits for a long test suite is doing a
+scheduler's job badly. Threading the run
 and spending the interval drafting checks is the same time spent on the half it
 is good at — and the drift between "what I expected while it ran" and "what it
 reported" is itself material for the next guard.
@@ -96,18 +96,16 @@ arbitrary computation terminates. Adding a bound makes the question decidable �
 trivially, and at a stated cost. So the design question is never "can this be
 decided" but **"where is the wall, and does anyone see it when it is hit".**
 
-That is why obligation 2 exists, and this session produced its worked example:
-`waiting_org` asked `overview.build` for its attention rows, and
-`overview.build` builds every facet including that one. The recursion ran
-**109 levels** and was stopped by Python's recursion limit — a real bound, doing
-its job. The `RecursionError` was then caught by a per-source guard written to
-keep an unreachable harness from emptying a queue, and every frame above it
-returned a plausible answer.
+That is why obligation 2 exists. A worked example of what it prevents: a facet
+asks a builder for its rows, and the builder builds every facet, including that
+one. The recursion is stopped by Python's recursion limit — a real bound, doing
+its job. If the `RecursionError` is then caught by a per-source guard written to
+keep an unreachable harness from emptying a queue, every frame above it returns
+a plausible answer.
 
-Nothing raised. The reading was correct. It was computed a hundred times, a
-function deliberately optimised from 8.15s to 0.07s went back to 1.478s, and no
-test noticed for four pull requests. **The bound fired and the report was
-swallowed**, which is precisely the failure obligation 2 names.
+Nothing raises and the reading is correct. The cost — the facet computed many
+times over, and an optimised function slow again — reaches no test. **The bound
+fires and the report is swallowed**, which is the failure obligation 2 names.
 
 ## Alternatives
 
@@ -121,8 +119,8 @@ bounding it, and this corpus has an explicit position against that shape —
 `records/DRAFT-build-the-seam-buy-the-engines.md`. The engines are bought; the
 seam is built. A model is an engine.
 
-**Bound everything with timeouts and stop there.** This is where the
-organisation already was.
+**Bound everything with timeouts and stop there.** This is the practice the
+organisation starts from.
 `perspectives/claude-sonnet-5-2026-07-18-test-timeout-halting-problem-retrospective.md`
 produced a project-default test timeout, which is obligation 1 for one kind of
 computation. Five weeks later the same practitioner class recurred in a form no

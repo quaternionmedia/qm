@@ -16,15 +16,14 @@ credentials and no shared state, and prints what it established.
 **It is not a test, and it does not replace one.** A test asserts; a demo shows.
 The distinction that matters here is the audience: a test tells a suite whether
 to go red, and a demo tells a person what the software does. A project needs
-both, and this corpus keeps producing neither — a feature landed, described in a
-handoff, and demonstrated once in a session nobody can replay.
+both, and without this protocol a feature lands, is described in a handoff, and
+is demonstrated once in a session nobody can replay.
 
 ## The four rules
 
-**1. It is a file in the repository, not a session transcript.** The failure
-this protocol exists against: qmcp's harness demo was typed into a session and
-pasted into a handoff page. Nobody else could run it, which is the same defect
-as a hand-run check reported as CI.
+**1. It is a file in the repository, not a session transcript.** A demo typed
+into a session and pasted into a handoff page is one nobody else can run, which
+is the same defect as a hand-run check reported as CI.
 
 **2. A test runs it.** Not a test *of* the same behaviour — a test that imports
 and executes the demo module. A demo the suite does not touch rots quietly, and
@@ -49,12 +48,12 @@ uv run pytest -q              # the baseline, asserted before anything is measur
 ```
 
 **Assert the baseline first.** A demo built against a red suite proves nothing
-either way, and this corpus has published one measurement taken that way.
+either way.
 
 Then write the demo so its central claim is a number the broken version would
-get wrong. qmcp's is the audit-log count, because recording an invocation is
-precisely what was broken on `main`; a demo that printed a planner's reply would
-have passed against the bug.
+get wrong. qmcp's is the audit-log count, because recording an invocation is the
+behaviour under test; a demo that printed a planner's reply would pass against a
+broken recorder.
 
 **Drive the real interface.** Textual's `run_test` gives a `Pilot` over the same
 widgets and bindings a person gets. An HTTP demo uses the app's own client. A
@@ -64,20 +63,19 @@ demo that calls internal functions is a test with worse output.
 rather than recounting the list; read a document's Status row rather than
 assuming it.
 
-## Two traps, both hit while writing the first two
+## Two traps
 
 **A key that does not exist reads as a failure.** `ToolInvokeResponse` carries
 `result`, `error` and `invocation_id` — and no `status`. Printing
-`status={r.get('status')}` gave `status=None` three times, which reads as three
-failed calls against three that succeeded. Status lives on the audit record.
+`status={r.get('status')}` gives `status=None` for every call, which reads as a
+failed call against one that succeeded. Status lives on the audit record.
 
 **A widget scrape cannot see a Tree.** dossier's projects are nodes of
-`#project-tree`, and nodes are not widgets, so walking the widget tree returned
-nothing — indistinguishable from a database that failed to seed. It reported
-zero projects against three committed rows.
+`#project-tree`, and nodes are not widgets, so walking the widget tree returns
+nothing — indistinguishable from a database that failed to seed.
 
-Both are the same shape: the tool was fine, the reading was wrong, and the wrong
-reading looked exactly like a real failure. Before reporting a demo as broken,
+Both are the same shape: the tool is fine, the reading is wrong, and the wrong
+reading looks exactly like a real failure. Before reporting a demo as broken,
 name one other thing that would produce the same output.
 
 ## Recording the run
