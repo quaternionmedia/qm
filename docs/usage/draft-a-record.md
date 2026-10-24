@@ -8,7 +8,7 @@ Write a decision [record](../ref/glossary.md#record){ .glossary-term }, at the o
 # Org record (on an evolve/<slug> branch)
 cp TEMPLATE.md records/DRAFT-<slug>.md
 
-# Project record (on the project's own branch)
+# Project record (on an evolve/<slug> branch cut from project/<name>)
 cp adr/TEMPLATE.md adr/DRAFT-<slug>.md
 ```
 
@@ -49,10 +49,10 @@ The template's own comment blocks state the full rules. The lint that enforces t
 git add records/DRAFT-<slug>.md
 git commit -m 'draft: <title>'
 git push
-gh pr create --draft
+gh pr create
 ```
 
-Assign the person who asked for the work. Do not request a review.
+Mark it draft only if it is unfinished or stacked on another open one. Assign the person who asked for the work. Do not request a review. Merge it yourself once every [gate](../ref/glossary.md#gate){ .glossary-term } is green.
 
 ## What happens at ratification
 

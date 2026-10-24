@@ -11,7 +11,7 @@ wired, what is written but not yet binding, and what is deliberately waiting.
 
 ## The short version
 
-Every org record is **`Proposed`**. None is ratified, and that is a decision
+No org record is **ratified**, and that is a decision
 rather than a backlog: **ratification waits on a second active code owner.**
 
 The mechanisms are not waiting. Where a record describes machinery that costs
@@ -91,7 +91,7 @@ own approval. A ratification gate an author can satisfy by approving their own
 change is a gate in name only, so the Status field waits for the thing that
 makes it mean something.
 
-The cost is real and worth naming: while every record is `Proposed`, the
+The cost is real and worth naming: while no record is ratified, the
 corpus contains **no worked example** of a ratified record, of an
 `## Amendments` region, or of the append-only discipline `TEMPLATE.md`
 describes. New projects therefore learn the drafting half of the discipline

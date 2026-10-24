@@ -10,6 +10,8 @@
 
 | member | governed |
 |---|---|
+| `private-32` | no |
+| `private-33` | no |
 | `factorio-sysops` | yes |
 | `golfvs` | no |
 | `private-38` | no |
@@ -18,7 +20,7 @@
 
 ## Starting here
 
-1 of 5 members carry governance, so this family has a governed entry point. Begin in `factorio-sysops`:
+1 of 7 members carry governance, so this family has a governed entry point. Begin in `factorio-sysops`:
 
 ```sh
 cd factorio-sysops
@@ -37,4 +39,4 @@ A governed member is one with a `project/<name>` branch in the corpus. Its recor
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-10-20 from `families.json`.*
+*Generated 2026-10-24 from `families.json`.*

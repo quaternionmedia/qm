@@ -18,7 +18,7 @@ nav = [
         "families/instruments.md",
         "families/performer-display.md",
         "families/show-control.md",
-        "families/civic.md",
+        "families/commons.md",
         "families/core.md",
         "families/games.md",
         "families/infra.md",

@@ -40,7 +40,7 @@ Drives matter — a thing somebody builds, holds or installs: parts, boards, enc
 
 <span class="qm-meta">v0.0.2</span>
 
-miscellaneous parts
+OpenSCAD generation toolkit and curated printable parts, composed from Python
 
 </div>
 
@@ -50,7 +50,7 @@ miscellaneous parts
 
 <span class="qm-meta">v0.0.1</span>
 
-Schema and wire contract.
+A physical switch for devices that lost one: dry contacts in, versioned JSON events out over MQTT
 
 </div>
 

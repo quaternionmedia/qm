@@ -24,7 +24,7 @@
   --qm-family-infra: #55647a;
   --qm-family-core: #2a61bd;
   --qm-family-games: #2d7241;
-  --qm-family-civic: #8a3f9e;
+  --qm-family-commons: #8a3f9e;
   --qm-font-display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
   --qm-font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --qm-font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
@@ -76,7 +76,7 @@
   --qm-family-infra: #98a7bc;
   --qm-family-core: #74a8f6;
   --qm-family-games: #73c886;
-  --qm-family-civic: #cf8ce0;
+  --qm-family-commons: #cf8ce0;
   --qm-font-display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
   --qm-font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --qm-font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
@@ -116,4 +116,4 @@
 .qm-f-infra { --c: var(--qm-family-infra); }
 .qm-f-core { --c: var(--qm-family-core); }
 .qm-f-games { --c: var(--qm-family-games); }
-.qm-f-civic { --c: var(--qm-family-civic); }
+.qm-f-commons { --c: var(--qm-family-commons); }

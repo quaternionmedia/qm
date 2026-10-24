@@ -9,7 +9,7 @@
 # on every run, so a decision written there would last only until the next
 # person runs a command.
 #
-# `handbook/glossary.md`: a **claim** is something a human asserted, never
+# `docs/ref/glossary.md`: a **claim** is something a human asserted, never
 # derived from artifacts. A **loose end** with no entry here is `open`, and
 # `open` deliberately has no spelling — writing it down would turn "nobody has
 # looked at this" into "somebody decided nothing", and those are different

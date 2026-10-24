@@ -30,7 +30,7 @@ carlos, qmetronome, holophonor, midiphonor, uPhonor, and 4 more
 
 **the performer**
 
-`performer-display` · 2 members
+`performer-display` · 3 members
 
 joe, leo
 

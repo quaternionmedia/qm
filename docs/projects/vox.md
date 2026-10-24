@@ -10,7 +10,7 @@ hide:
 
 # vox<span class="qm-dot">.</span> { .qm-family-title .qm-f-core }
 
-<p class="qm-lede">The voice-interaction seam.</p>
+<p class="qm-lede">The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter</p>
 
 [`v0.0.0`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }

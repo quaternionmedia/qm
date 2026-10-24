@@ -229,6 +229,7 @@ repositories:
     role: project
     phase: v0.0.1
     phase_source: scaffolded
+    family: games
     note: >
       Name and paths live in ci/workspace-private.yaml, which is not
       committed. This repository is private, and a public roster that
@@ -239,6 +240,7 @@ repositories:
     role: project
     phase: v0.0.1
     phase_source: scaffolded
+    family: games
     note: >
       Name and paths live in ci/workspace-private.yaml, which is not
       committed. This repository is private, and a public roster that
@@ -273,6 +275,7 @@ repositories:
     role: project
     phase: v0.0.1
     phase_source: scaffolded
+    family: performer-display
     note: >
       Name and paths live in ci/workspace-private.yaml, which is not
       committed, for the same reason as private-32 and private-33 above.
@@ -313,7 +316,7 @@ repositories:
 
   - name: benchmark
     role: unmanaged
-    family: civic
+    family: commons
     phase: v0.0.2
     phase_source: stated
     note: named alongside apothecary as a v0.0.2 consumer

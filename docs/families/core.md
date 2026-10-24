@@ -70,7 +70,7 @@ Quaternion MCP
 
 <span class="qm-meta">v0.0.0</span>
 
-The voice-interaction seam.
+The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter
 
 </div>
 
@@ -82,7 +82,7 @@ The voice-interaction seam.
 
 <span class="qm-meta">v0.0.1</span>
 
-Radial menu.
+QM's default radial menu: an interaction contract, conformance vectors and a single-file web reference
 
 </div>
 
