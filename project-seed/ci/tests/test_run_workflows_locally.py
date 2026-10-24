@@ -320,3 +320,32 @@ def test_halting_is_per_job_not_per_run(repo: Path):
     commit_all(repo, "add two independent workflows")
     result = run_tool("run_workflows_locally.py", cwd=repo)
     assert "STILL_RAN" in result.stdout, result.stdout
+
+
+def test_a_jobs_env_reaches_its_steps_and_shared_steps_run_as_each_job(repo: Path):
+    """A runner exports a job's env to its steps. Two jobs sharing one list of steps (a
+    YAML anchor) and differing only in env each see their own value."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        "name: T\non:\n  pull_request:\n\njobs:\n"
+        "  one:\n    runs-on: ubuntu-latest\n    env:\n      SHARD: 1\n    steps: &steps\n"
+        '      - name: has its shard\n        run: test -n "$SHARD" && echo "shard $SHARD"\n'
+        "  two:\n    runs-on: ubuntu-latest\n    env:\n      SHARD: 2\n    steps: *steps\n",
+    )
+    commit_all(repo, "two jobs, one list of steps")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 0, result.stdout
+    assert "shard 1" in result.stdout and "shard 2" in result.stdout, result.stdout
+
+
+def test_a_pull_request_is_not_run_on_the_default_branch(repo: Path):
+    """On the runner a pull request's GITHUB_REF_NAME is `<number>/merge`; a step that
+    guards the default branch by its ref name must not fire for one."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow('      - name: not main\n        run: test "$GITHUB_REF_NAME" != main\n'),
+    )
+    commit_all(repo, "a step that guards the default branch")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 0, result.stdout
+
