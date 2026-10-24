@@ -21,7 +21,7 @@ what its family block asks of whom, what the hub says it delivered, and what
 each member says now. A GO pressed in the hub's own programmer page is watched
 the same way, because the log is what is watched, not this page's button.
 
-**THE STAGE SENDS NO MEMBER ANYTHING.** The hub delivers every action. The one
+**The stage sends no member anything.** The hub delivers every action. The one
 thing the stage does in a member's page is joe's: joe's page shows a take only
 once asked to fetch it, so when joe's own state names a new take, the stage
 presses Fetch Latest in its own session of the page and pictures it. That is a
@@ -38,7 +38,7 @@ stage after each cue. The pictures are recorded and never compared. Exit 0:
 every assertion held. Exit 1: one did not. Any other status: the check could
 not say, and its last line says why.
 
-**THE ONE PLACE IN THIS CORPUS THAT NAMES A MEMBER'S PAGE.** A single member's
+**The one place in this corpus that names a member's page.** A single member's
 check lives in that member. The stage is a coordinated check of the links
 between the hub and the members, so it reads two members' pages -- leo's chart
 title and follow badge, joe's Fetch Latest button and what it shows -- and every

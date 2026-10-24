@@ -644,8 +644,8 @@ def test_a_private_member_is_found_by_its_reference_where_the_companion_names_it
 
 # --- the dev loop: a working checkout, a second family, a restart while held -----
 #
-# Each guard here was broken once and seen to go red; the mutation is named in
-# the test that caught it.
+# Each guard here has a mutation that turns it red, named in the test that
+# fails on it.
 
 def git_in(repo: Path, *args: str) -> str:
     return subprocess.run(["git", "-C", str(repo), "-c", "user.name=t", "-c", "user.email=t@t",

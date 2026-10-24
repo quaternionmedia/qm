@@ -4,14 +4,14 @@
     uv run qm family-demo --stage                  # run the show headless and record it
     uv run qm family-demo --stage --hold --open    # then keep it up and play it by hand
 
-**WHAT IT SHOWS.** `ci/family-demo.yaml` declares a show under `stage:` -- a
+**What it shows.** `ci/family-demo.yaml` declares a show under `stage:` -- a
 name, a cue list and a handful of cues, each with a `family` block -- and the
 links that join the hub to each member. Once every core member is up, the stage
 creates the show in ShowRunner through ShowRunner's own REST routes, never by
 writing its database, and serves one page: the show's cues, a GO button that
 calls ShowRunner's cue programmer, and a panel per member.
 
-**THE HUB DELIVERS; THE STAGE WATCHES.** A cue's `notes` is JSON, and its
+**The hub delivers; the stage watches.** A cue's `notes` is JSON, and its
 `family` block names each member by its name in the hub's `[plugins.family]`
 table, with the action the shared spec gives it:
 
@@ -28,12 +28,12 @@ member action. It presses GO, then asserts what each member says about itself
 the action asks for, leo's followed chart shows the song -- and that the hub's
 `GET /family/` shows a 2xx delivery to every member the cue named.
 
-**LINKS ARE CLAIMED NARROWLY.** A link is `app to app` when the hub reaches the
+**Links are claimed narrowly.** A link is `app to app` when the hub reaches the
 member with nothing in between, and the stage's check is what establishes it on
 each run. A member the roster gives no link is `not linked`, and a linked one no
 cue asks for anything is `not on any cue`.
 
-**ONE MEMBER RESTARTED WHILE HELD.** The harness started every member, so the
+**One member restarted while held.** The harness started every member, so the
 harness restarts one: the stage's `POST /restart/<member>` leaves a request in
 the run's control directory and waits for the harness's answer, and each panel
 has a button that does the same. The harness also records what it did --
@@ -334,7 +334,7 @@ APP_TO_APP = ("ShowRunner delivers each cue's family block itself: a push member
 
 
 # ===================================================================
-# WHAT A MEMBER MUST SAY -- read from its own GET /family/state
+# What a member must say -- read from its own GET /family/state
 # ===================================================================
 
 def judge(action: Action, fired: dict, answer) -> tuple[str, str]:

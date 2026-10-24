@@ -82,7 +82,7 @@ isolation's. `ci/family_stage.py` decides, `ci/family_stage_run.py` runs, and
 every link it shows is labelled with what it is: app to app where the hub
 reaches the member with nothing in between.
 
-**THE DEV LOOP.** `--src MEMBER=PATH` runs a member from a working checkout as
+**The dev loop.** `--src MEMBER=PATH` runs a member from a working checkout as
 it stands: no clone and no reset, an install in place only when its lock files
 changed, and the manifest records the path, its HEAD and whether it was dirty.
 Its checkout is reported as `dev source` rather than compared, because the

@@ -47,7 +47,7 @@
 # usually up on one, so measuring it would test whatever happened to be running.
 # `--port-offset N` moves all of them, the stage's included, for a second family.
 #
-# THE DEV LOOP. A running member's `dev` block is read only for a member run
+# The dev loop. A running member's `dev` block is read only for a member run
 # from a working checkout (`--src`, or `--dev`) under `--reload`, while the
 # family is held. `restart_on` lists the files whose change makes the harness
 # restart the member; `refresh_on`, the files the member reads afresh, whose
