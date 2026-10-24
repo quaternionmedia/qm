@@ -1,6 +1,6 @@
 # Handoff — the rest of qm's pull-request queue
 
-**Stamped 2026-10-24.** `qm` `main` at `3b292c0`; `qmcp` `main` at
+**Stamped 2026-10-24.** `qm` `main` at `8a6002b`; `qmcp` `main` at
 `a41f9a3`; `vox` `main` at `1721e6f`; `joe` `main` at `d72b65b`. Every figure
 on this page was true at those commits and nowhere else. Re-derive each one
 with `gh` and the tree before acting on it: the queue moves under other
@@ -64,6 +64,11 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
 - **`joe` #33's merge**, on a test by hand (`voice-set-landing.md` §4).
 - **The decisions in `hil-review-2026-10-04.md` §3** and the two carried in
   `voice-set-landing.md` §4.
+- **quaternionmedia/.github#9**, a draft on that repository's `main`: a Python
+  version, submodules and pip arguments for the shared Python workflows, on
+  Node 24 actions. Every action version it pins exists upstream; nothing in
+  that repository runs the workflows it changes, so its one green check says
+  nothing about them. Its review is a person's.
 
 ## 4. Unfinished, and what done looks like
 
@@ -85,15 +90,26 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   `uv run qm docs generate` in a checkout without `ci/workspace-private.yaml`
   writes a private project's branch name into `status/harness.yaml` and, from
   it, `loose-ends.json`; `uv run qm private-names --source host --strict`
-  catches it before a commit. Done is the generator refusing to write, or
-  redacting from the host, when the companion is absent.
+  catches it before a commit, and runs in no workflow, so only a local run
+  does. Done is the generator refusing to write, or redacting from the host,
+  when the companion is absent.
+- **The merge guard fails closed on a host hiccup.** `qm merge` reads the
+  base's workflows from the host before it will merge; one read failing reports
+  the gates as unknown and refuses, which happened once on #188 and merged on
+  the retry. Done is a bounded retry inside the read, with the refusal kept for
+  a read that keeps failing.
+- **No gate refuses a conflict marker.** A cherry-pick continued past an
+  unresolved index conflict committed `<<<<<<<` lines on a local branch; a
+  count before pushing caught it. Done is a check, run on the lines a change
+  adds, that refuses a conflict marker.
 - **codecartographer's `adr/TEMPLATE.md`** keeps five drafting-rule headings
   in capitals that the seed's template sets in plain case. Done is the copy
   re-made in a pull request into `project/codecartographer`.
 - **The older handoff pages.** Step 7 of `handbook/consolidation-runbook.md`
   is applied to the voice pages and to the six pages the index tagged "read
   this first" or "read this second" on 2026-10-24, whose open items are carried
-  below. Of the rest, none names an open pull request but
+  below. The index lists every page in the directory; the ten simultaneous-run
+  participant pages share one row under their plan. Of the rest, none names an open pull request but
   `design-review-of-the-estate.md` (#121), and several are blocked on a person's decisions; each is read by what
   it holds, not by its date, before it is retired or folded. Done is the
   runbook's verification.
