@@ -14,7 +14,7 @@ hide:
 
 # qmetronome<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
-<p class="qm-lede">Nothing inspired Metronome</p>
+<p class="qm-lede">Metronome and tempo visualizer for Android 13+: tap tempo, set queues, MIDI clock sync, and the Nothing Phone Glyph Matrix</p>
 
 [`v0.0.3`](../usage/next-steps.md#the-project-phase-ladder) · Kotlin
 { .qm-caption }

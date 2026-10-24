@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-24T01:13:12Z",
+  "generated_at": "2026-10-24T14:13:26Z",
   "generator": {
     "tool": "ci/inventory.py",
     "produced_by": "assistant-2026-08",
@@ -74,7 +74,7 @@
       "created_at": "2023-01-15T06:26:00Z",
       "default_branch_commit_at": "2026-10-24T01:10:12Z",
       "language": null,
-      "disk_usage_kb": 90,
+      "disk_usage_kb": 89,
       "in_roster": false,
       "roster_phase": null,
       "cloned_here": false,
@@ -210,7 +210,7 @@
       "created_at": "2024-02-24T20:48:47Z",
       "default_branch_commit_at": "2025-04-26T19:40:11Z",
       "language": "Jupyter Notebook",
-      "disk_usage_kb": 640,
+      "disk_usage_kb": 657,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -397,7 +397,7 @@
       "created_at": "2019-09-14T06:59:16Z",
       "default_branch_commit_at": "2024-01-12T01:09:56Z",
       "language": "JavaScript",
-      "disk_usage_kb": 8453,
+      "disk_usage_kb": 8540,
       "in_roster": true,
       "roster_phase": "v0.0.1",
       "cloned_here": true,
@@ -428,18 +428,18 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-08-12T00:58:58Z",
+      "updated_at": "2026-10-24T01:13:34Z",
       "created_at": "2018-07-13T07:35:22Z",
       "default_branch_commit_at": "2026-08-12T00:58:55Z",
       "language": "Python",
-      "disk_usage_kb": 89794,
+      "disk_usage_kb": 109143,
       "in_roster": true,
       "roster_phase": "v0.0.2",
       "cloned_here": true,
       "attention": "unstated",
       "recency": "quiet",
       "name": "apothecary",
-      "description": "miscellaneous parts",
+      "description": "OpenSCAD generation toolkit and curated printable parts, composed from Python",
       "pictures_on_default_branch": [
         "docs/assets/fractal-viewer-walkthrough.gif"
       ]
@@ -465,7 +465,7 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-08-22T02:39:11Z",
+      "updated_at": "2026-10-24T01:13:35Z",
       "created_at": "2025-08-18T23:34:07Z",
       "default_branch_commit_at": "2026-08-22T02:39:00Z",
       "language": "Python",
@@ -476,7 +476,7 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "carlos",
-      "description": null,
+      "description": "Browser workspace for sketching hardware rigs from real gear, patched on the face its sockets are on",
       "pictures_on_default_branch": [
         "walkthrough/media/05-in-the-browser-keybed-and-desk.png",
         "walkthrough/media/05-in-the-browser-menu.png",
@@ -508,7 +508,7 @@
       "created_at": "2023-04-26T23:04:28Z",
       "default_branch_commit_at": "2026-09-21T11:46:09Z",
       "language": "Python",
-      "disk_usage_kb": 8967,
+      "disk_usage_kb": 9069,
       "in_roster": true,
       "roster_phase": "v0.0.2",
       "cloned_here": true,
@@ -589,7 +589,7 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-08-11T12:12:17Z",
+      "updated_at": "2026-10-24T01:13:36Z",
       "created_at": "2026-08-08T16:26:08Z",
       "default_branch_commit_at": "2026-08-11T11:53:46Z",
       "language": "Python",
@@ -600,7 +600,7 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "datum",
-      "description": null
+      "description": "A physical switch for devices that lost one: dry contacts in, versioned JSON events out over MQTT"
     },
     {
       "private": false,
@@ -814,7 +814,7 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-05T07:32:29Z",
+      "updated_at": "2026-10-24T01:13:37Z",
       "created_at": "2026-08-15T06:29:22Z",
       "default_branch_commit_at": "2026-09-05T07:32:24Z",
       "language": "C#",
@@ -825,7 +825,7 @@
       "attention": "unrostered",
       "recency": "quiet",
       "name": "janus",
-      "description": null
+      "description": "Air-gapped KVM: one keyboard and mouse shared between two PCs with no network or USB path between them"
     },
     {
       "private": false,
@@ -1141,11 +1141,11 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-24T00:10:54Z",
+      "updated_at": "2026-10-24T14:12:12Z",
       "created_at": "2026-06-10T18:00:26Z",
-      "default_branch_commit_at": "2026-10-24T00:10:49Z",
+      "default_branch_commit_at": "2026-10-24T14:12:07Z",
       "language": "Python",
-      "disk_usage_kb": 4998,
+      "disk_usage_kb": 5231,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -1158,11 +1158,11 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-24T01:01:36Z",
+      "updated_at": "2026-10-24T13:48:14Z",
       "created_at": "2026-01-19T01:34:00Z",
-      "default_branch_commit_at": "2026-10-24T01:01:31Z",
+      "default_branch_commit_at": "2026-10-24T13:48:08Z",
       "language": "Python",
-      "disk_usage_kb": 2788,
+      "disk_usage_kb": 2356,
       "in_roster": true,
       "roster_phase": "v0.0.1",
       "cloned_here": true,
@@ -1175,7 +1175,7 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-04T03:21:51Z",
+      "updated_at": "2026-10-24T01:13:34Z",
       "created_at": "2026-06-29T00:25:07Z",
       "default_branch_commit_at": "2026-08-11T12:02:38Z",
       "language": "Kotlin",
@@ -1186,7 +1186,7 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "qmetronome",
-      "description": "Nothing inspired Metronome",
+      "description": "Metronome and tempo visualizer for Android 13+: tap tempo, set queues, MIDI clock sync, and the Nothing Phone Glyph Matrix",
       "pictures_on_default_branch": [
         "docs/images/generated/videos/app-running.gif",
         "docs/images/generated/screenshots/compact-landscape-layout.png",
@@ -1214,7 +1214,7 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-21T01:27:21Z",
+      "updated_at": "2026-10-24T01:13:37Z",
       "created_at": "2026-08-09T09:50:15Z",
       "default_branch_commit_at": "2026-09-21T01:27:16Z",
       "language": "JavaScript",
@@ -1225,7 +1225,7 @@
       "attention": "active",
       "recency": "quiet",
       "name": "rad",
-      "description": null,
+      "description": "QM's default radial menu: an interaction contract, conformance vectors and a single-file web reference",
       "pictures_on_default_branch": [
         "docs/media/overview.png",
         "docs/media/chord-input.png"
@@ -1252,7 +1252,7 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2019-09-01T23:24:45Z",
+      "updated_at": "2026-10-24T01:13:38Z",
       "created_at": "2019-09-01T23:22:38Z",
       "default_branch_commit_at": "2019-09-01T23:02:07Z",
       "language": "JavaScript",
@@ -1263,7 +1263,7 @@
       "attention": "unrostered",
       "recency": "cold",
       "name": "readysetjazz",
-      "description": null
+      "description": "Full-stack Python website for readysetjazz.com, keeping its media in step with the files it serves"
     },
     {
       "private": false,
@@ -1290,7 +1290,7 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-04-02T12:51:09Z",
+      "updated_at": "2026-10-24T01:13:39Z",
       "created_at": "2026-02-21T00:49:36Z",
       "default_branch_commit_at": "2026-02-21T01:21:15Z",
       "language": "Python",
@@ -1301,7 +1301,7 @@
       "attention": "unrostered",
       "recency": "quiet",
       "name": "sqlmodel-ui",
-      "description": null
+      "description": "Panel dashboards, forms and data views generated from SQLModel classes, mounted on an existing FastAPI app"
     },
     {
       "private": false,
@@ -1409,7 +1409,7 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-12T18:35:41Z",
+      "updated_at": "2026-10-24T01:13:40Z",
       "created_at": "2026-09-21T23:45:58Z",
       "default_branch_commit_at": "2026-10-12T18:35:35Z",
       "language": "Python",
@@ -1420,7 +1420,7 @@
       "attention": "active",
       "recency": "live",
       "name": "vox",
-      "description": null
+      "description": "The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter"
     },
     {
       "private": false,
@@ -1447,7 +1447,7 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2025-01-27T00:18:51Z",
+      "updated_at": "2026-10-24T01:13:41Z",
       "created_at": "2025-01-27T00:14:33Z",
       "default_branch_commit_at": "2025-01-27T00:16:58Z",
       "language": null,
@@ -1458,7 +1458,7 @@
       "attention": "unrostered",
       "recency": "cold",
       "name": "william-penn-convocation-slides",
-      "description": null
+      "description": "Convocation slides in Obsidian markdown, for the Advanced Slides plugin"
     },
     {
       "private": false,

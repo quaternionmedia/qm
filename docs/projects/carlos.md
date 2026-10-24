@@ -14,7 +14,7 @@ hide:
 
 # carlos<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
-<p class="qm-lede">Browser workspace for sketching synth rigs, governed via project/carlos.</p>
+<p class="qm-lede">Browser workspace for sketching hardware rigs from real gear, patched on the face its sockets are on</p>
 
 [`v0.0.1`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }

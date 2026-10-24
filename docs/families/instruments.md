@@ -40,7 +40,7 @@ Drives the sound — looping, synthesis, tempo, remote control surfaces.
 
 <span class="qm-meta">v0.0.1</span>
 
-Browser workspace for sketching synth rigs, governed via project/carlos.
+Browser workspace for sketching hardware rigs from real gear, patched on the face its sockets are on
 
 </div>
 
@@ -52,7 +52,7 @@ Browser workspace for sketching synth rigs, governed via project/carlos.
 
 <span class="qm-meta">v0.0.3</span>
 
-Nothing inspired Metronome
+Metronome and tempo visualizer for Android 13+: tap tempo, set queues, MIDI clock sync, and the Nothing Phone Glyph Matrix
 
 </div>
 

@@ -14,7 +14,7 @@ hide:
 
 # apothecary<span class="qm-dot">.</span> { .qm-family-title .qm-f-irl }
 
-<p class="qm-lede">miscellaneous parts</p>
+<p class="qm-lede">OpenSCAD generation toolkit and curated printable parts, composed from Python</p>
 
 [`v0.0.2`](../usage/next-steps.md#the-project-phase-ladder) · Python
 { .qm-caption }
