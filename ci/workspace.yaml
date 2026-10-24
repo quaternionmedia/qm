@@ -14,21 +14,26 @@
 # `phase` is what this project is working toward, per the phase-ladder record
 # in `records/`. Two halves, and they behave differently:
 #
-#   v0.0.1  governance. The same claim in every project: records on its own
-#           project/<name> branch, pin current, seed files present on the
-#           default branch, and a human who reviewed and tested that it is so.
+#   v0.0.0  not adopted: no project/<name> branch in the corpus yet.
+#   v0.0.1  adopted, however far along. The same claim in every project: a
+#           human gave it its project/<name> branch, and its records live
+#           there. How much of the seed it carries -- a current pin, the seed
+#           files on its default branch -- is a share within v0.0.1, measured
+#           in status/governance.yaml, and never a rung of its own.
 #   v0.0.2+ defined by the project, in the project's own records. A project
 #           that has not written that definition has a word, not a rung.
 #
-# A project with nothing stated is `v0.0.1`. That is a default and not a
-# discovery: governance binds every project whether or not anybody has thought
-# about its roadmap, and it is a claim any project can be measured against on
-# day one.
+# A project with nothing stated is `v0.0.0` until it has its branch and
+# `v0.0.1` after. That is a default and not a discovery: it reads the one fact
+# a human has already established, whether the project has adopted, and claims
+# nothing beyond it. A phase stated for a project with no branch is intent,
+# shown beside its `v0.0.0` and never in its place. Where this summary and the
+# record disagree, the record is what the organisation decided.
 #
 # `phase_source` keeps the claim readable as a claim:
 #
 #   stated      a human said it, in a session or a record
-#   scaffolded  nothing was said, so the ladder's floor applies
+#   scaffolded  nothing was said, so the ladder's default applies
 #
 # `attention` is the other claim, and it answers a different question from
 # `phase`. `phase` is what a project is working toward; `attention` is whether
@@ -151,7 +156,7 @@ repositories:
   - name: vox
     role: project
     family: core
-    phase: v0.0.1
+    phase: v0.0.0
     phase_source: scaffolded
     attention: active
     note: >
@@ -180,6 +185,21 @@ repositories:
     phase_source: scaffolded
     note: video editor; UI migration and Playwright coverage in flight
     paths: [qm/alfred]
+
+  - name: otto
+    role: project
+    family: performing
+    phase: v0.0.0
+    phase_source: scaffolded
+    attention: active
+    note: >
+      the picture engine: renders alfred's previews, frames, sound and
+      presets, published as the `al-otto` package and vendored in alfred at
+      `alfred/otto`. Placed in performing by the border test in
+      records/DRAFT-a-family-is-bordered-by-what-it-drives.md 2 -- what its
+      output acts on is the video of a show, before it and after it, as
+      alfred's does.
+    paths: [qm/otto, otto, qm/alfred/alfred/otto]
 
   - name: apothecary
     role: project
@@ -313,7 +333,7 @@ repositories:
   - name: moat
     role: unmanaged
     family: infra
-    phase: v0.0.1
+    phase: v0.0.0
     phase_source: scaffolded
     note: >
       homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT
@@ -464,7 +484,9 @@ repositories:
     phase: n/a
     phase_source: n/a
     family: performer-display
-    note: realtime sheet-music rendering
+    note: >
+      an audio workbench: chroma visualisations and MIDI from audio files,
+      and the media API that alfred's captions reach through vox
     paths: [joe, qm/joe]
 
   - name: leo

@@ -138,7 +138,26 @@ def test_an_unanswered_phase_is_collected_as_a_question(tmp_path: Path) -> None:
     assert "phase scaffolded" in result.stdout
     page = out.with_suffix(".md").read_text(encoding="utf-8")
     assert "Phases nobody has stated" in page
-    assert "**alfred**" in page
+    assert "**alfred** (`v0.0.1`)" in page
+
+
+def test_the_page_says_the_default_is_read_from_the_branch(tmp_path: Path) -> None:
+    """The default is `v0.0.0` without a branch, not `v0.0.1` for everyone.
+
+    Mutation: say "These carry v0.0.1 because nothing was stated" and this
+    fails.
+    """
+    search = tmp_path / "src"
+    search.mkdir()
+    clone(search, "vox")
+    _, out, _ = generate(
+        tmp_path, [{"name": "vox", "phase": "v0.0.0", "phase_source": "scaffolded", "paths": ["vox"]}]
+    )
+    page = " ".join(out.with_suffix(".md").read_text(encoding="utf-8").split())
+    assert "v0.0.0 until it has a `project/<name>` branch in the corpus" in page
+    assert "v0.0.0 without the branch, v0.0.1 with it" in page
+    assert "**vox** (`v0.0.0`)" in page
+    assert "These carry v0.0.1" not in page
 
 
 def test_an_answered_phase_is_not_collected_as_a_question(tmp_path: Path) -> None:

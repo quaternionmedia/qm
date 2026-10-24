@@ -19,6 +19,7 @@ qm/
 ├── project-seed/          what a new project copies: adr/, ci/, ide/
 ├── ci/                    org-level tooling: the status generators
 ├── docs/                  this documentation site
+├── includes/              the front page's showcase, generated and included by docs/index.md
 ├── status/governance.yaml generated: where every project stands
 ├── status/harness.yaml    generated: open PRs and work in flight
 ├── .github/               CI workflows, CODEOWNERS, ruleset config
@@ -43,7 +44,7 @@ Do not edit these by hand:
 | `status/governance.yaml` | `python ci/governance_status.py --write status/governance.yaml` |
 | `status/harness.yaml` | `python ci/harness_status.py --no-local --write status/harness.yaml` |
 
-Both are committed; CI does not regenerate them. See [Read status documents](../cookbook/read-status-documents.md) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
+Both are committed; CI does not regenerate them. See [Read status documents](../usage/read-status-documents.md) and [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md).
 
 The `site/` directory (the built documentation) and `.cache/` (the build cache) are generated and not committed.
 

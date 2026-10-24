@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-23T00:01:34Z",
+  "generated_at": "2026-10-24T01:13:12Z",
   "generator": {
     "tool": "ci/inventory.py",
     "produced_by": "assistant-2026-08",
@@ -37,28 +37,28 @@
   "roster_problem": null,
   "totals": {
     "on_host": 120,
-    "in_roster": 48,
-    "on_host_not_in_roster": 74,
+    "in_roster": 49,
+    "on_host_not_in_roster": 73,
     "in_roster_not_on_host": 2,
     "cloned_here": 32,
     "private": 38,
     "forks": 10,
     "archived": 2,
     "by_recency": {
-      "live": 10,
-      "quiet": 29,
+      "live": 11,
+      "quiet": 28,
       "cold": 75,
       "archived": 2,
       "unknown": 4
     },
     "by_attention": {
-      "active": 5,
+      "active": 6,
       "queued": 0,
       "dormant": 0,
       "retired": 0,
       "external": 0,
       "unstated": 41,
-      "unrostered": 74
+      "unrostered": 73
     }
   },
   "in_roster_not_on_host": [
@@ -70,16 +70,16 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2025-12-08T00:34:32Z",
+      "updated_at": "2026-10-24T01:10:18Z",
       "created_at": "2023-01-15T06:26:00Z",
-      "default_branch_commit_at": "2025-12-08T00:34:26Z",
+      "default_branch_commit_at": "2026-10-24T01:10:12Z",
       "language": null,
       "disk_usage_kb": 90,
       "in_roster": false,
       "roster_phase": null,
       "cloned_here": false,
       "attention": "unrostered",
-      "recency": "quiet",
+      "recency": "live",
       "name": ".github",
       "description": "Quaternion defaults"
     },
@@ -210,7 +210,7 @@
       "created_at": "2024-02-24T20:48:47Z",
       "default_branch_commit_at": "2025-04-26T19:40:11Z",
       "language": "Jupyter Notebook",
-      "disk_usage_kb": 461,
+      "disk_usage_kb": 640,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -274,11 +274,11 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-22T21:14:38Z",
+      "updated_at": "2026-10-23T19:54:30Z",
       "created_at": "2022-12-31T23:50:36Z",
-      "default_branch_commit_at": "2026-10-22T21:14:33Z",
+      "default_branch_commit_at": "2026-10-23T19:54:25Z",
       "language": "Python",
-      "disk_usage_kb": 2738,
+      "disk_usage_kb": 2757,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -308,11 +308,11 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-11T06:37:48Z",
+      "updated_at": "2026-10-23T20:33:07Z",
       "created_at": "2025-11-19T00:26:37Z",
-      "default_branch_commit_at": "2026-10-11T06:37:39Z",
+      "default_branch_commit_at": "2026-10-23T20:32:59Z",
       "language": "Python",
-      "disk_usage_kb": 1411,
+      "disk_usage_kb": 1626,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -404,7 +404,8 @@
       "attention": "unstated",
       "recency": "cold",
       "name": "alfred",
-      "description": "serverless video editing"
+      "description": "serverless video editing",
+      "pictures_on_default_branch": []
     },
     {
       "private": false,
@@ -431,14 +432,17 @@
       "created_at": "2018-07-13T07:35:22Z",
       "default_branch_commit_at": "2026-08-12T00:58:55Z",
       "language": "Python",
-      "disk_usage_kb": 89641,
+      "disk_usage_kb": 89794,
       "in_roster": true,
       "roster_phase": "v0.0.2",
       "cloned_here": true,
       "attention": "unstated",
       "recency": "quiet",
       "name": "apothecary",
-      "description": "miscellaneous parts"
+      "description": "miscellaneous parts",
+      "pictures_on_default_branch": [
+        "docs/assets/fractal-viewer-walkthrough.gif"
+      ]
     },
     {
       "private": false,
@@ -472,7 +476,12 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "carlos",
-      "description": null
+      "description": null,
+      "pictures_on_default_branch": [
+        "walkthrough/media/05-in-the-browser-keybed-and-desk.png",
+        "walkthrough/media/05-in-the-browser-menu.png",
+        "walkthrough/media/05-in-the-browser-irl-drum-rig.png"
+      ]
     },
     {
       "private": false,
@@ -625,7 +634,11 @@
       "attention": "active",
       "recency": "live",
       "name": "dossier",
-      "description": "Documentation standardization tool that auto-parses project documentation"
+      "description": "Documentation standardization tool that auto-parses project documentation",
+      "pictures_on_default_branch": [
+        "docs/screenshots/rad_ring_top_level.svg",
+        "docs/screenshots/content_viewer_readme.svg"
+      ]
     },
     {
       "private": false,
@@ -948,7 +961,11 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "looksatwords",
-      "description": "A python module to make, gather, analyze, and visualize language data."
+      "description": "A python module to make, gather, analyze, and visualize language data.",
+      "pictures_on_default_branch": [
+        "docs/pics/harness-analysed.png",
+        "docs/pics/analytics-panel.png"
+      ]
     },
     {
       "private": false,
@@ -1045,7 +1062,7 @@
       "language": "HCL",
       "disk_usage_kb": 363,
       "in_roster": true,
-      "roster_phase": "v0.0.1",
+      "roster_phase": "v0.0.0",
       "cloned_here": true,
       "attention": "unstated",
       "recency": "quiet",
@@ -1112,10 +1129,10 @@
       "default_branch_commit_at": "2023-04-15T17:58:53Z",
       "language": "Python",
       "disk_usage_kb": 6043,
-      "in_roster": false,
-      "roster_phase": null,
+      "in_roster": true,
+      "roster_phase": "v0.0.0",
       "cloned_here": false,
-      "attention": "unrostered",
+      "attention": "active",
       "recency": "cold",
       "name": "otto",
       "description": "automatic video generation"
@@ -1124,11 +1141,11 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-22T23:52:02Z",
+      "updated_at": "2026-10-24T00:10:54Z",
       "created_at": "2026-06-10T18:00:26Z",
-      "default_branch_commit_at": "2026-10-22T23:51:57Z",
+      "default_branch_commit_at": "2026-10-24T00:10:49Z",
       "language": "Python",
-      "disk_usage_kb": 4642,
+      "disk_usage_kb": 4998,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": true,
@@ -1141,11 +1158,11 @@
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-10-13T21:06:43Z",
+      "updated_at": "2026-10-24T01:01:36Z",
       "created_at": "2026-01-19T01:34:00Z",
-      "default_branch_commit_at": "2026-10-13T21:06:35Z",
+      "default_branch_commit_at": "2026-10-24T01:01:31Z",
       "language": "Python",
-      "disk_usage_kb": 2678,
+      "disk_usage_kb": 2788,
       "in_roster": true,
       "roster_phase": "v0.0.1",
       "cloned_here": true,
@@ -1169,7 +1186,12 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "qmetronome",
-      "description": "Nothing inspired Metronome"
+      "description": "Nothing inspired Metronome",
+      "pictures_on_default_branch": [
+        "docs/images/generated/videos/app-running.gif",
+        "docs/images/generated/screenshots/compact-landscape-layout.png",
+        "docs/images/generated/screenshots/beat-overrides.png"
+      ]
     },
     {
       "private": false,
@@ -1203,7 +1225,11 @@
       "attention": "active",
       "recency": "quiet",
       "name": "rad",
-      "description": null
+      "description": null,
+      "pictures_on_default_branch": [
+        "docs/media/overview.png",
+        "docs/media/chord-input.png"
+      ]
     },
     {
       "private": false,
@@ -1254,7 +1280,11 @@
       "attention": "unstated",
       "recency": "cold",
       "name": "scad-chess",
-      "description": "Chess set, designed in openSCAD"
+      "description": "Chess set, designed in openSCAD",
+      "pictures_on_default_branch": [
+        "chess_set.png",
+        "images/chess-set-hex.png"
+      ]
     },
     {
       "private": false,
@@ -1385,7 +1415,7 @@
       "language": "Python",
       "disk_usage_kb": 415,
       "in_roster": true,
-      "roster_phase": "v0.0.1",
+      "roster_phase": "v0.0.0",
       "cloned_here": true,
       "attention": "active",
       "recency": "live",
@@ -1407,7 +1437,11 @@
       "attention": "unstated",
       "recency": "quiet",
       "name": "waveofhormuz",
-      "description": "VCV Rack 2 strait-shaping square wave oscillator \u2014 conflict timeline as a default waveform"
+      "description": "VCV Rack 2 strait-shaping square wave oscillator \u2014 conflict timeline as a default waveform",
+      "pictures_on_default_branch": [
+        "waveofhormuz.png",
+        "woh_vcv.png"
+      ]
     },
     {
       "private": false,

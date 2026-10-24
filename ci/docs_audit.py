@@ -42,11 +42,14 @@ LINK = re.compile(r"\[[^\]]*\]\(\s*(?!https?://|mailto:|#)([^)\s#]+)(?:#([^)\s]*
 # says so when it complains.
 HEADING = re.compile(r"^#{1,6}\s+(.+?)\s*$", re.M)
 EXPLICIT_ANCHOR = re.compile(r"\{\s*#([A-Za-z0-9_-]+)\s*\}")
+# An element's own id, which a table cell uses because it cannot carry `{ #id }`.
+HTML_ID = re.compile(r"""\bid=["']([A-Za-z0-9_-]+)["']""")
 
 
 def anchors_in(text: str) -> set[str]:
-    """Every fragment a page offers: explicit `{ #id }` and heading slugs."""
-    found = set(EXPLICIT_ANCHOR.findall(text))
+    """Every fragment a page offers: explicit `{ #id }`, an element's `id`, and
+    heading slugs."""
+    found = set(EXPLICIT_ANCHOR.findall(text)) | set(HTML_ID.findall(text))
     for heading in HEADING.findall(text):
         cleaned = EXPLICIT_ANCHOR.sub("", heading)
         cleaned = re.sub(r"[`*_\[\]()]", "", cleaned)

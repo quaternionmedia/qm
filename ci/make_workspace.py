@@ -224,8 +224,8 @@ def companion_page(
 ) -> str:
     found = [e for e in resolved if e["resolved"] is not None]
     missing = [e for e in resolved if e["resolved"] is None]
-    # Scaffolded, not unknown: since the phase-ladder record every project
-    # has a phase, and the open question is whether the ladder's floor is
+    # Scaffolded, not unknown: under the phase-ladder record every project
+    # has a phase, and the open question is whether the ladder's default is
     # the right answer rather than whether there is one at all.
     unplaced = [e for e in found if str(e.get("phase_source", UNKNOWN)) == "scaffolded"]
 
@@ -308,29 +308,38 @@ def companion_page(
     lines += ["", "## Phases nobody has stated", ""]
     if unplaced:
         lines.append(
-            "The ladder is `records/DRAFT-project-phase-ladder.md`: **v0.0.1 is"
+            "The ladder is `records/DRAFT-project-phase-ladder.md`: **v0.0.0 is not"
         )
         lines.append(
-            "governance**, the same claim in every project, and every rung above it"
+            "adopted and v0.0.1 is adopted, however far along** — a project is at"
         )
         lines.append(
-            "is defined by the project in its own records. These carry v0.0.1 because"
+            "v0.0.0 until it has a `project/<name>` branch in the corpus and at v0.0.1"
         )
         lines.append(
-            "nothing was stated — the floor applied, rather than anybody deciding:"
+            "from then on, and every rung above is defined by the project in its own"
+        )
+        lines.append(
+            "records. These carry the ladder's default because nothing was stated —"
+        )
+        lines.append(
+            "v0.0.0 without the branch, v0.0.1 with it — rather than anybody deciding:"
         )
         lines.append("")
         for entry in unplaced:
             note = f" — {entry['note']}" if entry.get("note") else ""
-            lines.append(f"- **{label_of(entry)}**{note}")
+            lines.append(f"- **{label_of(entry)}** (`{entry.get('phase', UNKNOWN)}`){note}")
         lines.append("")
         lines.append(
             "Answer one by setting its `phase` and `phase_source: stated` in"
         )
         lines.append(
-            "`ci/workspace.yaml` and re-running. A rung above v0.0.1 also needs its"
+            "`ci/workspace.yaml` and re-running. A phase stated for a project with no"
         )
-        lines.append("definition written in that project's own records.")
+        lines.append(
+            "branch is intent, shown beside its v0.0.0, and a rung above v0.0.1 also"
+        )
+        lines.append("needs its definition written in that project's own records.")
     else:
         lines.append("None — every resolved repository has a phase somebody stated.")
 

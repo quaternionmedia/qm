@@ -40,4 +40,4 @@ The same discipline applies at both levels: one decision per record, squash befo
 
 - [Ratification](ratification.md) — how a record becomes binding
 - [Branch namespaces](namespaces.md) — where each kind of record lives
-- [Draft a record](../cookbook/draft-a-record.md) — the recipe
+- [Draft a record](../usage/draft-a-record.md) — the recipe

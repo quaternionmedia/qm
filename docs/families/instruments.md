@@ -1,16 +1,32 @@
 ---
 title: instruments
+hide:
+  - toc
 ---
 
-<p class="qm-eyebrow">instruments · within performing</p>
+<div class="qm-hero" markdown>
 
-# the sound { .qm-family-title .qm-f-instruments }
+<div markdown>
 
-<p class="qm-lede">Drives the sound — looping, synthesis, tempo, remote control surfaces.</p>
+instruments · within [performing](performing.md)
+{ .qm-eyebrow }
 
-![the instruments family and its members](instruments.svg){ .qm-picture }
+# the sound<span class="qm-dot">.</span> { .qm-family-title .qm-f-instruments }
 
-Within [`performing`](performing.md): everyone here is in `performing` as well, without claiming it.
+Drives the sound — looping, synthesis, tempo, remote control surfaces.
+{ .qm-lede }
+
+</div>
+
+<figure class="qm-hero-shot" markdown>
+
+[![Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.](https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png)](../projects/carlos.md)
+
+<figcaption><strong>carlos.</strong> Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.</figcaption>
+
+</figure>
+
+</div>
 
 ## Who is in it
 
@@ -20,9 +36,9 @@ Within [`performing`](performing.md): everyone here is in `performing` as well, 
 
 ![Two drum voices wired to a Novation Launchpad X and a Squarp Hapax.](https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png){ .qm-thumb loading=lazy }
 
-[carlos](projects/carlos.md){ .qm-card-link }
+[carlos](../projects/carlos.md){ .qm-card-link }
 
-<span class="qm-state">governed</span>
+<span class="qm-meta">v0.0.1</span>
 
 Browser workspace for sketching synth rigs, governed via project/carlos.
 
@@ -30,9 +46,11 @@ Browser workspace for sketching synth rigs, governed via project/carlos.
 
 <div class="card qm-f-instruments" markdown>
 
-[qmetronome](projects/qmetronome.md){ .qm-card-link }
+![The default visualizer running at 120 BPM in 4/4, with tap, play and hold.](https://github.com/quaternionmedia/qmetronome/raw/HEAD/docs/images/generated/videos/app-running.gif){ .qm-thumb loading=lazy }
 
-<span class="qm-state">governed</span>
+[qmetronome](../projects/qmetronome.md){ .qm-card-link }
+
+<span class="qm-meta">v0.0.3</span>
 
 Nothing inspired Metronome
 
@@ -40,9 +58,9 @@ Nothing inspired Metronome
 
 <div class="card qm-f-instruments" markdown>
 
-[holophonor](projects/holophonor.md){ .qm-card-link }
+[holophonor](../projects/holophonor.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 Live looping, unlimited!
 
@@ -50,9 +68,9 @@ Live looping, unlimited!
 
 <div class="card qm-f-instruments" markdown>
 
-[midiphonor](projects/midiphonor.md){ .qm-card-link }
+[midiphonor](../projects/midiphonor.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 A Holophonor implementation, using Tone.js
 
@@ -60,9 +78,9 @@ A Holophonor implementation, using Tone.js
 
 <div class="card qm-f-instruments" markdown>
 
-[uPhonor](projects/uPhonor.md){ .qm-card-link }
+[uPhonor](../projects/uPhonor.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span> · also in [`irl`](irl.md)
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
 
 Micro-Holophonor
 
@@ -70,9 +88,9 @@ Micro-Holophonor
 
 <div class="card qm-f-instruments" markdown>
 
-[stomp](projects/stomp.md){ .qm-card-link }
+[stomp](../projects/stomp.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span> · also in [`irl`](irl.md)
+<span class="qm-meta">v0.0.0</span> · also in [`irl`](irl.md)
 
 a midi foot controller for Arduino / Teensy
 
@@ -80,9 +98,9 @@ a midi foot controller for Arduino / Teensy
 
 <div class="card qm-f-instruments" markdown>
 
-[wolf](projects/wolf.md){ .qm-card-link }
+[wolf](../projects/wolf.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 remote midi controller
 
@@ -90,9 +108,9 @@ remote midi controller
 
 <div class="card qm-f-instruments" markdown>
 
-[ludwig](projects/ludwig.md){ .qm-card-link }
+[ludwig](../projects/ludwig.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 remote mixing
 
@@ -102,9 +120,9 @@ remote mixing
 
 ![The 16 HP panel, with knot speed, gulf and dry, and eight closure windows.](https://github.com/quaternionmedia/waveofhormuz/raw/HEAD/waveofhormuz.png){ .qm-thumb loading=lazy }
 
-[waveofhormuz](projects/waveofhormuz.md){ .qm-card-link }
+[waveofhormuz](../projects/waveofhormuz.md){ .qm-card-link }
 
-<span class="qm-state">not adopted</span>
+<span class="qm-meta">v0.0.0</span>
 
 VCV Rack 2 strait-shaping square wave oscillator — conflict timeline as a default waveform
 
@@ -112,9 +130,7 @@ VCV Rack 2 strait-shaping square wave oscillator — conflict timeline as a defa
 
 </div>
 
-## Starting here
-
-Start in [`carlos`](projects/carlos.md): it is governed, so its records and its `AGENTS.md` say how work arrives there.
+Start in [`carlos`](../projects/carlos.md): its records and its `AGENTS.md` say how work arrives there.
 
 Generated by `uv run qm cookbook docs/families --site --write` from `families.json`, the inventory and `ci/showcase.yaml`. The families are decided in the [family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md); edit the roster, the record or the showcase, not this page.
 { .qm-caption }

@@ -6,12 +6,13 @@ title: Families
 
 # The families
 
-A repository belongs to each family whose world its output acts on. A family can hold others, and a repository that drives two things is in both. Every project also has [a page of its own](projects/index.md).
+A repository belongs to each family whose world its output acts on. A family can hold others, and a repository that drives two things is in both. Every project has a page of its own, and [the projects](../projects/index.md) lists them all in one table.
 { .qm-lede }
 
-![the families, each a column with a meter lit by the share governed](families.svg){ .qm-picture }
+![the families, each a column with a meter lit by the share past v0.0.0](families.svg){ .qm-picture }
 
-<p class="qm-caption">Each meter is lit by the share of members governed: those with their own branch in the governance corpus.</p>
+Each meter is lit by the share of members past `v0.0.0`. A version is a project's phase: `v0.0.0` has not adopted the corpus, `v0.0.1` has adopted it however far along, and each project defines the rungs above in its own records. [The phase ladder](../usage/next-steps.md#the-project-phase-ladder) says more.
+{ .qm-caption }
 
 <div class="grid" markdown>
 
@@ -19,7 +20,7 @@ A repository belongs to each family whose world its output acts on. A family can
 
 **a show**
 
-`performing` · 20 members · 3 governed
+`performing` · 21 members
 
 What an audience sees and hears, and the video made before and after it. Holds `instruments`, `performer-display`, `show-control`.
 
@@ -31,7 +32,7 @@ What an audience sees and hears, and the video made before and after it. Holds `
 
 **the sound**
 
-`instruments` · within `performing` · 9 members · 2 governed
+`instruments` · within `performing` · 9 members
 
 Looping, synthesis, tempo, remote control surfaces.
 
@@ -43,7 +44,7 @@ Looping, synthesis, tempo, remote control surfaces.
 
 **the performer**
 
-`performer-display` · within `performing` · 2 members · 0 governed
+`performer-display` · within `performing` · 2 members
 
 What a player reads while playing.
 
@@ -55,7 +56,7 @@ What a player reads while playing.
 
 **the room**
 
-`show-control` · within `performing` · 8 members · 0 governed
+`show-control` · within `performing` · 8 members
 
 Cues, lighting, sound and video playback, audio transport.
 
@@ -67,7 +68,7 @@ Cues, lighting, sound and video playback, audio transport.
 
 **the public**
 
-`civic` · 1 member · 0 governed
+`civic` · 1 member
 
 Open information a community reads and adds to: maps, records, public data.
 
@@ -79,7 +80,7 @@ Open information a community reads and adds to: maps, records, public data.
 
 **the corpus and its tooling**
 
-`core` · 7 members · 6 governed
+`core` · 7 members
 
 Governance, the archive, the deltas, the maps, the language data.
 
@@ -91,7 +92,7 @@ Governance, the archive, the deltas, the maps, the language data.
 
 **play**
 
-`games` · 5 members · 1 governed
+`games` · 5 members
 
 A game somebody plays: its rules, its world, its loop, and the server it is played on.
 
@@ -103,7 +104,7 @@ A game somebody plays: its rules, its world, its loop, and the server it is play
 
 **where a thing runs**
 
-`infra` · 5 members · 1 governed
+`infra` · 5 members
 
 Ingress, identity, storage, dns, observability, the network path.
 
@@ -115,7 +116,7 @@ Ingress, identity, storage, dns, observability, the network path.
 
 **matter**
 
-`irl` · 9 members · 2 governed
+`irl` · 9 members
 
 A thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.
 

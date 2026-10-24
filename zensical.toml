@@ -1,6 +1,6 @@
 [project]
 site_url = "https://quaternionmedia.github.io/qm/"
-site_name = "QM Governance"
+site_name = "Quaternion Media"
 site_description = "Governance documentation for Quaternion Media"
 site_author = "Quaternion Media, LLC"
 
@@ -23,8 +23,8 @@ nav = [
         "families/games.md",
         "families/infra.md",
         "families/irl.md",
-        "families/projects/index.md",
     ] },
+    { "Projects" = "projects/index.md" },
     { "About" = [
         "about/index.md",
         "about/overview.md",
@@ -37,15 +37,12 @@ nav = [
         "usage/questions-a-new-developer-asks.md",
         "usage/first-project.md",
         "usage/next-steps.md",
-    ] },
-    { "Cookbook" = [
-        "cookbook/index.md",
-        "cookbook/draft-a-record.md",
-        "cookbook/add-a-perspective.md",
-        "cookbook/propagate-a-change.md",
-        "cookbook/read-status-documents.md",
-        "cookbook/run-ci-locally.md",
-        "cookbook/build-these-docs.md",
+        "usage/draft-a-record.md",
+        "usage/add-a-perspective.md",
+        "usage/propagate-a-change.md",
+        "usage/read-status-documents.md",
+        "usage/run-ci-locally.md",
+        "usage/build-these-docs.md",
     ] },
     { "Reference" = [
         "ref/index.md",
@@ -159,8 +156,9 @@ keys = {}
 magiclink = {}
 mark = {}
 smartsymbols = {}
-# snippets takes base_path = "includes" when there is an includes/ directory.
-snippets = {}
+# The front page includes its generated showcase from includes/, paths taken
+# from the repository root; a missing snippet fails the build.
+snippets = { check_paths = true }
 superfences = { custom_fences = [ { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" } ] }
 tabbed = { alternate_style = true, combine_header_slug = true }
 tasklist = { custom_checkbox = true }

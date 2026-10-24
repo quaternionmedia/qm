@@ -285,20 +285,10 @@ code, kbd, pre {
   width: 100%;
 }
 
-/* Whether governance reaches a project, as a word with a dot. */
-.md-typeset .qm-state {
+/* A card's one line of fact: a project's version, or where it is not yet. */
+.md-typeset .qm-meta {
   color: var(--qm-muted);
   font: 500 0.85em/1.4 var(--qm-font-mono);
-}
-.md-typeset .qm-state::before {
-  background: var(--c, var(--qm-muted));
-  border-radius: 50%;
-  content: "";
-  display: inline-block;
-  height: 0.55em;
-  margin-right: 0.4em;
-  vertical-align: 0.1em;
-  width: 0.55em;
 }
 
 /* A project's own pictures, each with its caption. */
@@ -309,11 +299,105 @@ code, kbd, pre {
   border: 1px solid var(--qm-line);
   border-radius: 6px;
   display: block;
-  width: 100%;
+  /* A phone screenshot is tall: held to a screen's height, centred. */
+  margin-inline: auto;
+  max-height: 36rem;
+  max-width: 100%;
+  width: auto;
 }
 .md-typeset .qm-shot figcaption {
   color: var(--qm-muted);
   font-size: 0.85em;
   margin-top: 0.4em;
   max-width: none;
+}
+
+/* --- The showcase ------------------------------------------------------- */
+
+/* A page that opens with what it shows: its copy beside its first picture,
+   stacked once the column is too narrow for both. */
+.md-typeset .qm-hero {
+  align-items: center;
+  display: grid;
+  gap: 1.4rem 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  margin: 0 0 1.6rem;
+}
+.md-typeset .qm-hero > * {
+  min-width: 0;
+}
+.md-typeset .qm-hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  line-height: 0.95;
+  margin: 0 0 0.35em;
+}
+
+/* The full stop after a page's name, in its family's hue. */
+.md-typeset .qm-dot {
+  color: var(--c, var(--qm-accent));
+}
+
+/* The picture a page opens with, and its caption led by a name. */
+.md-typeset .qm-hero-shot {
+  display: grid;
+  gap: 0.5em;
+  margin: 0;
+}
+.md-typeset .qm-hero-shot img {
+  background: var(--qm-sunken);
+  border: 1px solid var(--qm-line);
+  border-radius: 6px;
+  display: block;
+  height: auto;
+  max-height: 32rem;
+  object-fit: contain;
+  width: 100%;
+}
+.md-typeset .qm-hero-shot figcaption {
+  color: var(--qm-muted);
+  font-size: 0.85em;
+  font-style: normal;
+  margin: 0;
+  max-width: 70ch;
+  text-align: left;
+}
+.md-typeset .qm-hero-shot figcaption strong {
+  color: var(--qm-ink);
+}
+
+/* A section of a landing page: a hairline, then its own small print and
+   heading. */
+.md-typeset .qm-section {
+  border-top: 1px solid var(--qm-line);
+  margin-top: 2.6rem;
+  padding-top: 1.4rem;
+}
+.md-typeset .qm-section > h2:first-of-type {
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  margin-top: 0;
+}
+
+/* The parts of a show: four across, two by two, or one column, so no part
+   is left alone on a row. */
+.md-typeset .grid.qm-parts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 76em) {
+  .md-typeset .grid.qm-parts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 30em) {
+  .md-typeset .grid.qm-parts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Pictures first: three across where they fit. A thumbnail shows the middle
+   of its picture, since a phone's recording is mostly dark at the top. */
+.md-typeset .grid.qm-showcase {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+}
+.md-typeset .grid.qm-showcase img.qm-thumb {
+  object-position: center;
 }
