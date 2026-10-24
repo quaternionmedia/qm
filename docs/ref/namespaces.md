@@ -12,7 +12,7 @@
 | `project/<name>` | one adopting project's `adr/` | permanent — a downstream submodule pins its tip |
 | `propagate/<name>-<date>` | `main` merged toward one `project/<name>` | deleted after merge |
 | `perspective/<date>-<slug>` | one [perspective](../ref/glossary.md#perspective){ .glossary-term }, staged for `main` | deleted after merge |
-| `evolve/<slug>` | org-level work in progress | deleted after merge |
+| `evolve/<slug>` | org-level work in progress, or one project's records, cut from its `project/<name>` and opened against it | deleted after merge |
 | `workspace/<slug>` | a research [workspace](../ref/glossary.md#workspace){ .glossary-term } that never merges back | permanent, terminal |
 
 ## The stage refs, which are not work namespaces
