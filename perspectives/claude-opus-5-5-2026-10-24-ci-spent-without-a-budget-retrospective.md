@@ -84,9 +84,10 @@ The maintainer decided the shape; the reasoning that makes it right is this docu
 2. **Measure the distribution before acting on a CI failure.** Step timings across
    recent runs, not the one run that failed, with the ordinary cause ruled out first.
 3. **A stacked draft runs the cheap layer and the areas it touches.** Lint, the unit
-   tests, the walkthrough and the window manager's page on every push; of the browser
-   suite, only the areas the change reaches, read from a map of each area to its
-   sources and its test files, every area when shared ground changes. The whole
+   tests and the walkthrough on every push; of the browser suite, only the areas the
+   change reaches, read from a map of each area to its sources and its test files
+   (the window manager's page among the windows area's), every area when shared
+   ground changes. The whole
    browser suite runs on the pull request that is ready to merge and on `main`.
 4. **A fix that spans the stack is merged up locally and pushed once,** at the end of
    a piece of work, so a stack of N pull requests pays for it once rather than once
