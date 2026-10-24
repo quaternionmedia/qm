@@ -19,8 +19,10 @@ sys.path.insert(0, str(CI_DIR))
 import family_suite  # noqa: E402
 
 
-def document(*families):
-    return {"families": [{"name": n, "drives": "x", "members": list(m)}
+def document(*families, within=None):
+    within = within or {}
+    return {"families": [{"name": n, "drives": "x", "members": list(m),
+                          "within": within.get(n)}
                          for n, m in families]}
 
 
@@ -33,7 +35,7 @@ def by_tier(found):
 
 
 def test_nothing_reported_reaches_nothing():
-    """**THE EMPTY BATCH, WHICH IS WHERE A CHECK STOPS CHECKING.**
+    """The empty batch, which is where a check stops checking.
 
     Zero members ran. Every tier must say so; a `shape` tier that passed on an
     empty batch would make "all green" mean "nothing was tried".
@@ -43,7 +45,6 @@ def test_nothing_reported_reaches_nothing():
     """
     found = by_tier(family_suite.tiers(document(("core", ["a"])), {"core": []}))
     assert not found["shape"]["reached"]
-    assert not found["disjoint"]["reached"]
     assert not found["cover"]["reached"]
     assert not found["contract"]["reached"]
 
@@ -53,26 +54,32 @@ def test_one_family_reaches_shape_and_no_further():
     found = by_tier(family_suite.tiers(
         document(("core", ["a"]), ("other", ["b"])), {"core": [ok()]}))
     assert found["shape"]["reached"]
-    assert not found["disjoint"]["reached"]
-    assert "1 family" in found["disjoint"]["verdict"]
+    assert not found["cover"]["reached"]
 
 
-def test_two_families_reach_disjointness():
-    found = by_tier(family_suite.tiers(
-        document(("core", ["a"]), ("other", ["b"])),
-        {"core": [ok("a")], "other": [ok("b")]}))
-    assert found["disjoint"]["reached"]
-    assert not found["disjoint"].get("failed")
-
-
-def test_a_repository_in_two_families_fails_disjointness():
-    """The assertion the tier exists for, rather than the tier merely running."""
+def test_a_repository_in_two_families_is_not_a_failure():
+    """A repository may be in more than one family (the family record, §4), so
+    a member shared by two reporting families is a tier like any other."""
     found = by_tier(family_suite.tiers(
         document(("core", ["a", "shared"]), ("other", ["shared"])),
-        {"core": [ok()], "other": [ok()]}))
-    assert found["disjoint"]["reached"]
-    assert found["disjoint"]["failed"]
-    assert "shared" in found["disjoint"]["verdict"]
+        {"core": [ok()], "other": [ok("shared")]}))
+    assert found["cover"]["reached"]
+    assert "disjoint" not in found
+    assert not found["shape"].get("failed")
+
+
+def test_a_family_reports_through_the_families_within_it():
+    """`performing` is covered when `instruments` reported: everyone in an
+    inner family is in the outer one.
+
+    Mutation: drop the loop that carries an inner family's results to its
+    outer family and this fails.
+    """
+    found = by_tier(family_suite.tiers(
+        document(("performing", ["editor"]), ("instruments", ["synth"]),
+                 within={"instruments": "performing"}),
+        {"instruments": [ok("synth")]}))
+    assert found["cover"]["reached"]
 
 
 def test_cover_needs_every_declared_family_not_merely_many():
@@ -107,7 +114,6 @@ def test_a_family_that_reported_nothing_does_not_count_toward_a_tier():
     found = by_tier(family_suite.tiers(
         document(("a", ["1"]), ("b", ["2"])),
         {"a": [ok()], "b": []}))
-    assert not found["disjoint"]["reached"]
     assert not found["cover"]["reached"]
 
 

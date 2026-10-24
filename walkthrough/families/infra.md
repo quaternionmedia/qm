@@ -10,6 +10,7 @@
 
 | member | governed |
 |---|---|
+| `streaming-infrastructure` | yes |
 | `moat` | no |
 | `ztgui` | no |
 | `private-23` | no |
@@ -17,9 +18,14 @@
 
 ## Starting here
 
-**No member of this family carries governance yet**, so there is no governed entry point and this page will not invent one. Reading the code is the entry point.
+1 of 5 members carry governance, so this family has a governed entry point. Begin in `streaming-infrastructure`:
 
-Adopting one is `handbook/forking-a-project.md` — nine steps, taken one repository at a time, and a decision per repository rather than per family. Nothing here recommends which; that is the border test in `records/DRAFT-a-family-is-bordered-by-what-it-drives.md` §2 applied by somebody who knows what the code does.
+```sh
+cd streaming-infrastructure
+uv run qm cowork          # or read AGENTS.md, if this repo has no CLI
+```
+
+A governed member is one with a `project/<name>` branch in the corpus. Its records live there, not in the repository itself.
 
 ## What this page deliberately does not carry
 
@@ -31,4 +37,4 @@ Adopting one is `handbook/forking-a-project.md` — nine steps, taken one reposi
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-09-27 from `families.json`.*
+*Generated 2026-10-20 from `families.json`.*

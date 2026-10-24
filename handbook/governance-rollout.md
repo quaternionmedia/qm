@@ -1,9 +1,8 @@
 # Handbook — Where This Corpus Is In Its Own Adoption
 
 **Routing.** Operational status, not a decision record: it weighs no
-alternatives and constrains nobody. It exists because a corpus that governs
-projects should be able to answer, in one place, how far along it is in
-governing itself. The decisions it reports live in `records/`.
+alternatives and constrains nobody. A corpus that governs projects answers
+here, in one place, how far along it is in governing itself. The decisions it reports live in `records/`.
 
 **Read this if** you are picking the work up cold and need to know what is
 wired, what is written but not yet binding, and what is deliberately waiting.
@@ -12,7 +11,7 @@ wired, what is written but not yet binding, and what is deliberately waiting.
 
 ## The short version
 
-Every org record is **`Proposed`**. None is ratified, and that is a decision
+No org record is **ratified**, and that is a decision
 rather than a backlog: **ratification waits on a second active code owner.**
 
 The mechanisms are not waiting. Where a record describes machinery that costs
@@ -49,16 +48,15 @@ list without tripping on it.
   `co-authored-by:.*noreply` pattern that closes it.
 - **The carried-patch register.** No gate can detect a patch applied during a
   build, so registration is an obligation on whoever adds it and a reviewer
-  following fork step 7, not a check. The records now say that rather than
-  claiming a lint.
+  following fork step 7, not a check. The records say so rather than claiming
+  a lint.
 - **`reuse lint` beyond this repository.** It blocks here. No other QM
   repository has been inventoried, so each runs it in reporting mode until
   its own licensing pass is done.
 
 ## What a project owes, and who checks
 
-Eight obligations follow from the org records and are produced by nothing
-automatic — the baseline component audit, cumulative licence gates, the
+Obligations follow from the org records that nothing automatic produces — the baseline component audit, cumulative licence gates, the
 service inventory no scanner can build, the quarterly upstream scan, naming a
 seam protocol, the control-plane instance record, a risk register, and
 registering carried patches.
@@ -69,78 +67,19 @@ project copies. Fork step 6 routes a new project there. **A project is not
 compliant because it copied the seed**; a project that cannot satisfy one yet
 names the gap in its adoption record.
 
-**Audited so far: qmetronome only** (2026-08-08, the first exercise of the
-propagation runbook). It was correctly pinned to its branch and had none of
-the IDE governance-discovery artifacts, plus a pre-seed inline lint running one
-of the four checks. Being pinned is not being adopted, and nothing reports the
-difference — which is why the audit has to be walked per project rather than
-inferred.
+The current state of every project is `status/governance.yaml` and
+`status/harness.yaml`, both at the root and both regenerable. Three rules the
+audits rest on:
 
-**apothecary** was audited next (2026-08-08), and the audit was wrong. It was
-recorded here as the healthiest instance, with every seed artifact present.
-That described the local working tree, which was sitting on an unpushed
-governance branch. At the time, `origin/main` had none of it: no `.gitmodules`,
-no `AGENTS.md`, no ADR lint, no `LICENSE`, and `pytest.yml` as its only
-workflow. The adoption commit existed and had never been pushed.
-
-The reading then was: **apothecary is the least adopted of the three, not the
-most** — its governance work real and stranded on one disk, which is the same
-failure this corpus keeps finding and had not thought to look for in itself.
-
-**Resolved 2026-08-11.** That work is pushed. apothecary's `main` now carries
-`.gitmodules`, `AGENTS.md`, `CLAUDE.md`, `LICENSE`, `LICENSES/`, `REUSE.toml`
-and five workflows including `adr-lint.yml`, `reuse-lint.yml` and
-`submodule-check.yml`; the harness reports it `precondition met`. The lesson
-outlives the incident and is the reason this paragraph is kept rather than
-deleted: **an audit that reads a working tree has audited a machine, not a
-repository.** Every row of `handbook/adoption-audit-queue.md` says to re-derive
-against `origin` for that reason.
-
-What survives from that audit is a genuine incident on the branch that does
-carry governance: CI failed on `upload-pack: not our ref`, a submodule pinned
-to a commit that was not pushed. qmetronome had hit the same failure, written a
-check for it, and nothing carried that check across. It is now
-`project-seed/ci/submodule-check.yml`, which is what the seed is for.
-
-**datum** was audited third (2026-08-08) and was the only one carrying a
-defect this corpus itself caused. Its governance pin named a commit on no
-remote: the org branch was renamed and re-signed before its first push, which
-rewrote every SHA, and nothing connected that act to the repository consuming
-it. Its submodule also fetched from a filesystem path rather than the
-canonical remote, which is what let an unreachable commit be pinned at all.
-Both are repaired, and `handbook/propagation-runbook.md` gained the recovery
-path it lacked.
-
-At the time datum had **no remote**: six commits, including its whole `adr/`
-adoption work, existed on one disk, and creating the repository was a human
-decision rather than this page's to make.
-
-**Resolved 2026-08-11.** `quaternionmedia/datum` exists, is public, is
-MIT-licensed, and its `main` carries the full adoption set. The harness reports
-it `precondition met`.
-
-**A sweep of every consuming repository followed**, because one broken pin
-implies a class rather than an incident. Five repositories vendor this corpus:
-
-| Repo | Pin | Submodule remote |
-|---|---|---|
-| alfred | reachable | was a filesystem path — repaired |
-| datum | was unreachable — repaired | was a filesystem path — repaired |
-| apothecary | reachable | canonical |
-| qmetronome | reachable | canonical |
-| codecartographer | reachable | canonical, mounted at `docs/qm` |
-
-Two of five fetched from a filesystem path. That is the enabling mechanism
-rather than a cosmetic detail: a submodule fetching from a local path can pin
-a commit that exists on one machine and nowhere else, and everything resolves
-for the person who set it up. `submodule-check.yml` now fails on a filesystem
-URL in `.gitmodules` as well as on an unreachable pin.
-
-**Do not read the per-project state above as current.** It is an audit history,
-dated, and two of its three subjects have since been resolved as noted. The
-current state of every project is `status/governance.yaml` and
-`status/harness.yaml`, both at the root and both regenerable; this page is the
-story of how the checks came to exist, not a second copy of their output.
+- **Being pinned is not being adopted, and nothing reports the difference**,
+  which is why the audit is walked per project rather than inferred.
+- **An audit that reads a working tree has audited a machine, not a
+  repository.** Every row of `handbook/adoption-audit-queue.md` says to
+  re-derive against `origin` for that reason.
+- **A submodule fetching from a local path can pin a commit that exists on one
+  machine and nowhere else**, and everything resolves for the person who set it
+  up. `project-seed/ci/submodule-check.yml` fails on a filesystem URL in
+  `.gitmodules` as well as on an unreachable pin.
 
 `handbook/adoption-audit-queue.md` is the queue and the method for the projects
 that have not been audited.
@@ -152,7 +91,7 @@ own approval. A ratification gate an author can satisfy by approving their own
 change is a gate in name only, so the Status field waits for the thing that
 makes it mean something.
 
-The cost is real and worth naming: while every record is `Proposed`, the
+The cost is real and worth naming: while no record is ratified, the
 corpus contains **no worked example** of a ratified record, of an
 `## Amendments` region, or of the append-only discipline `TEMPLATE.md`
 describes. New projects therefore learn the drafting half of the discipline
@@ -186,7 +125,7 @@ mechanical rather than a matter of care:
 
 `handbook/propagation-runbook.md` is the procedure for both.
 
-## What now reports this mechanically, and what still cannot
+## What reports this mechanically, and what cannot
 
 `status/governance.yaml` — generated by `ci/governance_status.py` — carries the
 positions this page describes in prose: how far each branch is behind, whether
@@ -200,9 +139,9 @@ It does not replace this page, and deliberately reports less. **It emits no
 adopted, and nothing reports the difference* — is the corpus's whole statement
 on the matter, and a generator that turned it into a boolean would be
 legislating rather than reporting. The same holds for "current": a commit count
-with no threshold attached. Both, and nine other questions the build surfaced,
-are in `handbook/handoffs/governance-status-generator.md`; the document itself
-carries the first five in an `undefined:` block, so a reader wondering where the
+with no threshold attached. Both, and the other open questions, are in
+`handbook/handoffs/governance-status-generator.md`; the document itself
+carries several in an `undefined:` block, so a reader wondering where the
 green column went finds the answer in the artifact.
 
 ## Revisiting this page

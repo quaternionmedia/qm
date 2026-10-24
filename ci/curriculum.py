@@ -6,28 +6,27 @@
     uv run qm curriculum --merge <other.yaml>     # report what integrating costs
     uv run qm curriculum --merge <other.yaml> --write <out.yaml>
 
-WHAT A CURRICULUM IS. An ordered list of units. Each names one document, what a
+A curriculum is an ordered list of units. Each names one document, what a
 reader can do after reading it, and what must come first. It is not a summary
 of the corpus and must never become one -- a unit that restates its document is
 a second copy of a decision, which is the failure
 `records/DRAFT-the-read-document-governs.md` is about.
 
-WHY THE MERGE IS THE INTERESTING HALF. A project fork will teach its own
-`adr/` and will want the org's path underneath it. Two curriculums therefore
-have to combine, and the combination has to be:
+A project fork teaches its own `adr/` and wants the org's path underneath it,
+so two curriculums combine, and the merge is:
 
-  OPTIMISTIC   An incoming unit is accepted by default. Integration is the
+  optimistic   An incoming unit is accepted by default. Integration is the
                normal outcome and needs no approval per unit -- a reconciler
                that asked about every one would not be used, and an unused
                reconciler means two divergent paths and nobody reading either.
 
-  OPTIONAL     Nothing adopts anything. Without `--write` this prints and
+  optional     Nothing adopts anything. Without `--write` this prints and
                writes no file, no gate requires a curriculum, and the org
                curriculum binds no project. `optional: true` in
                `ci/protocol-registry.yaml` is that, declared.
 
-  GOVERNANCE   Optimism stops at three things, and only these three. They are
-   -AWARE      refusals rather than warnings because each one produces a
+  governance-  Optimism stops at three things, and only these three. They are
+  aware        refusals rather than warnings because each one produces a
                curriculum that teaches something false:
 
                  1. a unit citing a document that does not exist;
@@ -38,11 +37,11 @@ have to combine, and the combination has to be:
                     it. Precedence runs one way (`docs/ref/precedence.md`), and
                     a project curriculum that owns an org record inverts it.
 
-               A CONFLICT IS NOT A REFUSAL. Two units sharing an id and
+               A conflict is not a refusal. Two units sharing an id and
                disagreeing are reported and the base is kept, never merged
                field-by-field and never silently dropped. Someone decides.
 
-WHAT THIS CANNOT SEE. Whether anyone learned anything. Whether the order is a
+What this cannot see: whether anyone learned anything. Whether the order is a
 good order. Whether a unit's prose is true of the document it cites -- it reads
 the document's Status and its existence, not its meaning. And a document that
 should be taught and is in no unit: an incomplete curriculum and a complete one
@@ -179,13 +178,11 @@ def reconcile(base: dict, other: dict, root: Path = ROOT,
     integrating *would* cost, which is what makes the operation safe to run
     before deciding to do it.
 
-    `other_root` IS SEPARATE FROM `root` AND USUALLY HAS TO BE SET. A project
-    curriculum's `teaches: adr/DRAFT-x.md` names a file in *that* project's
-    checkout. Resolved against this repository it is not there, and every
-    incoming unit is refused -- for the wrong reason, in a report that looks
-    like a governance verdict. It defaults to `root` because a curriculum being
-    merged from a sibling file in the same tree is the simpler case, not the
-    common one.
+    `other_root` is separate from `root` and usually has to be set: a project
+    curriculum's `teaches: adr/DRAFT-x.md` names a file in that project's
+    checkout, and resolved against this repository every incoming unit would
+    be refused for the wrong reason. It defaults to `root` for a curriculum
+    merged from a sibling file in the same tree.
     """
     other_root = other_root or root
     by_id = {u.get("id"): u for u in base.get("units") or []}

@@ -15,24 +15,22 @@ broken: refusing to store `a blocks b blocks a` makes the tool consistent and
 the record false, and the deletion gets made by whoever was least equipped to
 judge it.
 
-That left a question nobody had needed to answer: **which cycles are worth
-reporting?** The answer looked like "all of them" until it was measured.
+That leaves a question: **which cycles are worth reporting?** "All of them"
+does not survive measurement.
 
-The organisation's relation set was computed from real work — a dependency
-sweep across twenty-four repositories, and two hundred and thirty-seven
-archived conversations placed against the projects they discuss. 169 relations:
-49 `part-of`, 120 `crosses`.
+The organisation's relation set is computed from real work: a dependency sweep
+across the rostered repositories, and archived conversations placed against
+the projects they discuss, as `part-of` and `crosses` relations.
 
-Searching the directed relations found **zero** cycles. The obvious refinement
-was to walk the symmetric ones too — `crosses` is symmetric, and `a crosses b
-crosses c crosses a` looks like a finding. Doing that found **42 cycles, and
-every one had the same shape**:
+The directed relations hold no cycle. Walking the symmetric ones too —
+`crosses` is symmetric, and `a crosses b crosses c crosses a` looks like a
+finding — yields cycles that **all have the same shape**:
 
     thread -> project -> thread -> project -> ...
 
-Two conversations that touched the same repository. Forty-two of those, and not
-one of them is anything a person would act on. The refinement produced noise at
-length four exactly as the original decision predicted it would at length two.
+Two conversations that touched the same repository, and nothing a person would
+act on. Walking symmetric relations produces noise at length four exactly as
+the original decision predicts it does at length two.
 
 ## The mathematics, and how far it actually carries
 

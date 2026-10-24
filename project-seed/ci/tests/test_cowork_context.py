@@ -96,9 +96,9 @@ def test_an_uninitialised_submodule_is_named_as_such(repo: Path, tmp_path: Path)
     git(repo, "submodule", "deinit", "-f", "governance/qm")
     text = brief(repo)
     # The remediation command, not the phrase: the handoffs section says "the
-    # submodule is not initialised" too, when it cannot find the directory. An
-    # assertion on the phrase alone passes against a tool that dropped this
-    # check entirely, which is what it did before this line named the remedy.
+    # submodule is not initialised" too, when it cannot find the directory, so
+    # an assertion on the phrase alone would pass against a tool that dropped
+    # this check.
     assert "git submodule update --init --recursive" in text
     assert "**the submodule is not initialised**" in text
 
@@ -293,11 +293,7 @@ REGISTRY = (
 
 def test_the_brief_names_the_rules_that_do_not_apply(repo: Path) -> None:
     """A blind session learns the rules from AGENTS.md and nothing about their
-    holes.
-
-    Before this, that knowledge lived in six constants inside five checks, so a
-    session either tripped over an exemption or reimplemented a rule that had
-    been deliberately suspended.
+    holes, so the brief names the exemptions.
     """
     write(repo / "PRINCIPLES.md", "# Charter\n")
     write(repo / "ci" / "exception-registry.yaml", REGISTRY)

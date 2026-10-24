@@ -7,8 +7,8 @@
     rollout.py --check                  # refuse a claim the evidence contradicts, or a plan that names nothing
     rollout.py --write status/rollout.yaml --source host
 
-**THE PLAN IS A CLAIM AND THE REPORT IS A MEASUREMENT, AND THIS TOOL NEVER
-LETS ONE STAND IN FOR THE OTHER.** `ci/rollout.yaml` is written by a person: an
+The plan is a claim and the report is a measurement, and this tool never
+lets one stand in for the other. `ci/rollout.yaml` is written by a person: an
 ordered list of phases, each naming families (read from `families.json`, which
 reads them from the record) or repositories outright; the steps every member
 must pass; and dated claims that a member passed one. This tool measures each
@@ -31,7 +31,7 @@ is not done is `current`; the rest are `queued`. A claim on a member of a
 queued phase is reported as ahead of its phase and is not refused -- the order is
 the plan's intention, and reality is allowed to disagree with it out loud.
 
-WHAT THIS CANNOT DO. Tell whether a step *should* be in the plan, or whether the
+What this cannot do: tell whether a step *should* be in the plan, or whether the
 detector measures the thing the step means. A detector is a regular expression or
 a ref, and a step whose meaning it does not capture reports green on the wrong
 fact. Read the step's `means` and its `evidence` together before trusting a row.
@@ -107,21 +107,28 @@ def members_of(rollout: dict, families: dict, entries: list[dict]) -> tuple[list
 
     A repository named by two phases belongs to the first that names it; the
     second is reported, not silently deduplicated -- a phase that means to
-    leave one out says so with `except:`. A family the record does not
-    declare, or a repository the roster does not list, is a problem and not a
-    member -- an empty phase that reads as done is the failure this refuses.
+    leave one out says so with `except:`. A repository reached through
+    families twice is the exception: one in two families, or in a family and
+    the family it sits within, joins the first phase whose families reach it
+    and is not reported, because the overlap is the roster's claim rather than
+    a slip. Named by a phase and then reached through a family is still
+    reported. A family the record does not declare, or a repository the roster
+    does not list, is a problem and not a member -- an empty phase that reads as done is the failure this refuses.
     """
     by_name: dict[str, dict] = {}
     for e in entries:
         for key in (e.get("name"), e.get("ref")):
             if key:
                 by_name[key] = e
-    declared = {f["name"]: f["members"] for f in families.get("families", [])}
+    declared = {f["name"]: f.get("all_members", f["members"])
+                for f in families.get("families", [])}
     problems: list[str] = []
     seen: set[str] = set()
+    through_family: set[str] = set()
     phases: list[dict] = []
     for phase in rollout.get("phases", []):
         wanted: list[str] = []
+        named = set(phase.get("repos", []) or [])
         for fam in phase.get("families", []) or []:
             if fam not in declared:
                 problems.append(f"phase {phase.get('name')!r} names family {fam!r}, which "
@@ -140,11 +147,15 @@ def members_of(rollout: dict, families: dict, entries: list[dict]) -> tuple[list
                                 f"does not list")
                 continue
             key = publishable(entry)
+            if key in seen and name not in named and key in through_family:
+                continue
             if key in seen:
                 problems.append(f"{key} is named by phase {phase.get('name')!r} and by an earlier "
                                 f"phase; it belongs to the earlier one")
                 continue
             seen.add(key)
+            if name not in named:
+                through_family.add(key)
             members.append(entry)
         if not members:
             problems.append(f"phase {phase.get('name')!r} resolves to no members")

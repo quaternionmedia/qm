@@ -78,6 +78,59 @@ def test_a_branch_filter_that_does_not_match_skips_rather_than_passes(repo: Path
     assert "SKIP" in result.stdout
 
 
+def test_the_environment_is_reported_before_any_step_and_never_changes_the_exit(repo: Path):
+    """The report is information. A machine with no docker daemon or no gh login
+    must not turn a passing workflow red, and must not hide behind a green one."""
+    write(
+        repo / ".github" / "workflows" / "t.yml",
+        workflow("      - name: fine\n        run: echo ok\n"),
+    )
+    commit_all(repo, "add a passing workflow")
+    result = run_tool("run_workflows_locally.py", cwd=repo)
+    assert result.returncode == 0, result.stdout
+    for label in ("shell:", "gh:", "docker:"):
+        assert f"[env ] {label}" in result.stdout, result.stdout
+    assert result.stdout.index("[env ] gh:") < result.stdout.index("[PASS] fine")
+
+
+def _module():
+    import importlib.util
+
+    from conftest import CI_DIR
+
+    spec = importlib.util.spec_from_file_location(
+        "run_workflows_locally", CI_DIR / "run_workflows_locally.py"
+    )
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def test_gh_hint_names_the_config_directory_only_when_appdata_is_what_is_missing(
+    tmp_path: Path,
+):
+    """gh reports a signed-in machine as signed out when APPDATA is unset. The
+    hint is for that cause alone; a genuinely signed-out account gets none."""
+    mod = _module()
+    config = tmp_path / "AppData" / "Roaming" / "GitHub CLI"
+    config.mkdir(parents=True)
+    env = {"USERPROFILE": str(tmp_path)}
+
+    assert mod.gh_config_hint(env) is None, "no hosts.yml means nothing to point at"
+
+    (config / "hosts.yml").write_text("github.com: {}\n", encoding="utf-8")
+    assert "GH_CONFIG_DIR" in mod.gh_config_hint(env)
+    assert mod.gh_config_hint({**env, "APPDATA": str(tmp_path)}) is None
+    assert mod.gh_config_hint({**env, "GH_CONFIG_DIR": str(config)}) is None
+    assert mod.gh_config_hint({}) is None
+
+
+def test_a_tool_that_is_missing_is_reported_rather_than_raised():
+    mod = _module()
+    code, why = mod.probe(["definitely-not-a-real-tool-xyz"])
+    assert code is None and "not found" in why
+
+
 def test_a_remote_qualified_base_ref_still_matches_the_branch_filter(repo: Path):
     """`--base-ref origin/main` is the documented example and must work.
 

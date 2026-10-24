@@ -50,7 +50,7 @@ be re-decided in a third place at a third speed.
 
 **Three: the slow tests are the ones that must not be the only ones.** A
 three-minute suite is run less often than a twenty-second one, and a suite run
-less often catches less. The pair's answer this week was to make the cheap
+less often catches less. The pair's answer is to make the cheap
 checks structural — reading source and configuration rather than running the
 application. That transfers directly.
 
@@ -90,7 +90,7 @@ reading **not established** — that rad works in a browser, that expand hits a
 live backend, and that the gesture grammar is usable. The third is marked *"and
 it is the actual deliverable"*.
 
-This is the same gap the pair spent this week closing from the other side: a
+This is the same gap the pair closes from the other side: a
 green suite that cannot see whether the thing is reachable. codecarto has the
 gap written down and not yet closed.
 
