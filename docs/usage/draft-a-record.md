@@ -8,7 +8,7 @@ Write a decision [record](../ref/glossary.md#record){ .glossary-term }, at the o
 # Org record (on an evolve/<slug> branch)
 cp TEMPLATE.md records/DRAFT-<slug>.md
 
-# Project record (on the project's own branch)
+# Project record (on an evolve/<slug> branch cut from project/<name>)
 cp adr/TEMPLATE.md adr/DRAFT-<slug>.md
 ```
 
