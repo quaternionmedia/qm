@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-24T14:21:41Z",
+  "generated_at": "2026-10-24T14:32:10Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-24T14:21:39Z"
+        "generated_at": "2026-10-24T14:32:08Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 283,
+    "loose_ends": 285,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 38,
-      "document-unreviewed": 70,
+      "document-unreviewed": 72,
       "stalled-thread": 155
     },
-    "open": 283,
+    "open": 285,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -594,6 +594,14 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-09-integrating-rad-into-a-web-host",
+      "title": "perspectives/2026-08-09-integrating-rad-into-a-web-host.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-09-integrating-rad-into-a-web-host",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-2026-08-09-tests-that-enumerate-around-the-defect",
       "title": "perspectives/2026-08-09-tests-that-enumerate-around-the-defect.md",
       "detail": "written, and no maintainer has looked at it",
@@ -822,6 +830,14 @@
       "title": "perspectives/2026-08-21-what-a-system-says-about-itself.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-21-what-a-system-says-about-itself",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-22-found-while-putting-the-topology-on-the-canvas",
+      "title": "perspectives/2026-08-22-found-while-putting-the-topology-on-the-canvas.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-22-found-while-putting-the-topology-on-the-canvas",
       "address_parses": true
     },
     {
