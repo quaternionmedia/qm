@@ -6,7 +6,7 @@
 | **Date** | 2026-08-17 |
 | **Pends on** | Nothing — ready for ratification |
 | **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `systems-over-heroics` — systems over heroics |
-| **Restated in** | `handbook/handoffs/two-views-one-dataset.md` |
+| **Restated in** | Nothing. |
 
 ## Context
 

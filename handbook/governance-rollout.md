@@ -139,10 +139,10 @@ It does not replace this page, and deliberately reports less. **It emits no
 adopted, and nothing reports the difference* — is the corpus's whole statement
 on the matter, and a generator that turned it into a boolean would be
 legislating rather than reporting. The same holds for "current": a commit count
-with no threshold attached. Both, and the other open questions, are in
-`handbook/handoffs/governance-status-generator.md`; the document itself
-carries several in an `undefined:` block, so a reader wondering where the
-green column went finds the answer in the artifact.
+with no threshold attached. The document itself carries both, and the other
+terms it does not compute, in an `undefined:` block, so a reader wondering where
+the green column went finds the answer in the artifact; the questions it leaves
+open wait on a person in `handbook/handoffs/qm-queue.md` §3.
 
 ## Revisiting this page
 

@@ -129,9 +129,6 @@ ShowMixer for Ardour), and ShowOSC. Which one cues go through is undecided.
   new `main` as their own pull request. Done when `qm docs check` is clean and
   `status/harness.yaml` is inside its budget. A stash in the corpus clone holds
   the stopped session's regeneration; it is superseded by that pull request.
-- **`the-performing-estate-refreshed.md`** arrives with #138, stamped
-  2026-09-20, and this page replaces it. Done when it is deleted after #138
-  merges. Its open residue is folded below.
 - **carlos:** draft pull requests for the three layers above #17, each based
   on the one beneath it.
 - **joe:** a base for `docs/walkthrough` once #23's stack lands. Then its
@@ -149,7 +146,13 @@ From the 2026-09-20 estate page, still open: Cuelist-python #1, qmetronome
 #15, carlos #17, leo #61, ShowRunner #30. ShowStopper's
 `fix/textual-containers` is on origin, waiting to be deleted (D6). dossier and
 looksatwords each keep a `feat/loose-ends` branch with no pull request, by
-decision. The eighteen synthesis questions still gate the first stubs.
+decision. The estate synthesis that page drew on was never filed in `plans/`,
+and its questions still gate the first stubs; these six gate the next round:
+cue numbering as `int` or `str | None`;
+which ShowStopper is canonical; the path-dependency policy for the three plugin
+repositories; whether the performer-display hub is a ShowRunner plugin over
+WebSocket, which needs CORS; where the estate's tempo master lives; and whether
+wolf, cesar and aes are archived.
 
 ## Blocked, and on whom
 
