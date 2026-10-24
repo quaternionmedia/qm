@@ -200,6 +200,11 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "queue",
+        help="every pull request the queue page names: what changed since its stamp",
+        add_help=False,
+    )
+    sub.add_parser(
         "estate",
         help="every rostered repository, and what of it exists on this disk alone",
         add_help=False,
@@ -357,6 +362,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "branches": ("branch_census", True, []),
     "inbound": ("inbound", False, []),
     "merge": ("merge_review", False, []),
+    "queue": ("queue_page", False, []),
     "estate": ("estate", False, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
