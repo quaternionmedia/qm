@@ -19,11 +19,11 @@ definition selector was dead code guarded by a length check that could not
 become true.
 
 The second monitor wanted was moat: the homelab whose cluster, charts and
-provisioning that repository describes. The decisive constraint, set by the
-operator when asked: **the monitoring is about the contents of the repository,
-never about the repository itself.** A monitor of moat-the-repo (pull request
-counts, branch names as subjects) was explicitly not the ask; a monitor of the
-homelab moat *declares* was.
+provisioning that repository describes. The decisive constraint: **the
+monitoring is about the contents of the repository, never about the repository
+itself.** A monitor of moat-the-repo (pull request counts, branch names as
+subjects) is out of scope; a monitor of the homelab moat *declares* is the
+subject.
 
 That constraint forced the question this record answers: where does the second
 diagram come from? PAM's is hand-placed, and hand-placing moat's would create a
@@ -95,13 +95,14 @@ its diagram from a repository's own declarations.**
 ## Alternatives considered
 
 **Curated moat layout, like PAM's.** Best-looking result and rejected as a
-second copy of the repository's structure that nothing keeps true. The
-operator chose full derivation when asked directly.
+second copy of the repository's structure that nothing keeps true; full
+derivation is chosen instead.
 
 **Monitor the repository (pull requests, checks, branches) rather than the
-system it describes.** Rejected by the operator in exactly those words; also
-already half-built elsewhere in the estate (`dossier deltas drift`), where the
-subject really is the repository.
+system it describes.** Rejected: the monitoring is about what the repository
+describes, not the repository. That monitor is also already half-built
+elsewhere in the estate (`dossier deltas drift`), where the subject really is
+the repository.
 
 **Read the cluster instead of the repo.** The truest possible monitor and a
 different feed with different credentials; nothing local can know whether a
