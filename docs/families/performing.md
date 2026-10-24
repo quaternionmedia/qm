@@ -38,9 +38,9 @@ serverless video editing
 
 [the performer](performer-display.md){ .qm-card-link }
 
-`performer-display` · 2 members
+`performer-display` · 3 members
 
-[joe](../projects/joe.md), [leo](../projects/leo.md)
+[joe](../projects/joe.md), [leo](../projects/leo.md), and 1 private
 
 </div>
 

@@ -77,11 +77,11 @@ words would have placed one program in all of them.
 | `performing` | **a show** — what an audience sees and hears, and the video made before and after it | — | alfred, and every member of the families within it |
 | `show-control` | **the room** — cues, lighting, sound and video playback, audio transport | `performing` | ShowRunner; the Cuelist, QLab and TheatreMix helpers; cesar; ShowStopper; aes; ira |
 | `instruments` | **the sound** — looping, synthesis, tempo, remote control surfaces | `performing` | holophonor; midiphonor; carlos; qmetronome; wolf; ludwig; waveofhormuz; stomp; uPhonor |
-| `performer-display` | **the performer** — what a player reads while playing | `performing` | joe; leo |
+| `performer-display` | **the performer** — what a player reads while playing | `performing` | joe; leo; and one private repository, referenced rather than named |
 | `irl` | **matter** — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work | — | apothecary; datum; scad-chess; stomp; ira; uPhonor; and three private repositories, referenced rather than named |
 | `infra` | **where a thing runs, and how it is reached** — ingress, identity, storage, DNS, observability, the network path | — | moat; ztgui; streaming-infrastructure; and two private repositories, referenced rather than named |
 | `core` | **the corpus and its tooling** — governance, the archive, the deltas, the maps, the language data | — | qm; qmcp; dossier; codecartographer; looksatwords; vox; rad |
-| `games` | **play** — a game somebody plays: its rules, its world, its loop, and the server it is played on | — | golfvs; rad-godot; qmcli-godot; factorio-sysops; and one private repository, referenced rather than named |
+| `games` | **play** — a game somebody plays: its rules, its world, its loop, and the server it is played on | — | golfvs; rad-godot; qmcli-godot; factorio-sysops; and three private repositories, referenced rather than named |
 | `commons` | **the public** — open information a community reads and adds to: maps, records, public data | — | benchmark |
 
 `performing` is the show, and the three families within it are its parts: the
