@@ -227,6 +227,23 @@ host; a session runs it at open and close. It cannot see a pull request the
 page never names, or whether a sentence claims one is open, and a stamp moved
 without a re-read silences it.
 
+## Assigned work
+
+`uv run qm assigned` (`ci/assigned.py`) asks the host, as whoever `gh` is
+signed in as, for every open pull request in the organisation that requests
+their review and every open pull request and issue that names them as
+assignee, and lists them in four groups by repository: review requested, pull
+requests assigned by somebody else, issues, and their own pull requests, which
+carry them as assignee because every pull request a session opens does
+(`handbook/async-contract.md` §2). `--org` reads another owner. A private
+repository is marked as one. It prints the host's draft flag and base and reads
+no checks, because whether a pull request can merge is `uv run qm merge`'s
+reading. It never writes, and exits 0 on any completed reading and 2 when the
+host cannot be read. No workflow runs it, because it reads the host. It cannot
+see an ask made in a comment or a mention, a review already given, a repository
+outside `--org` or an archived one, and it reports a search the host counted
+past what it lists.
+
 ## The declared-routes hook
 
 `.claude/hooks/prefer_declared_routes.py` is an optional pre-command hook that
