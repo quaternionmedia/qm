@@ -4,7 +4,9 @@
 `a41f9a3`; `vox` `main` at `1721e6f`; `joe` `main` at `d72b65b`. Every figure
 on this page was true at those commits and nowhere else. Re-derive each one
 with `gh` and the tree before acting on it: the queue moves under other
-sessions.
+sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
+`e225109` and `qmcp` `82b2d58`. The rest of the page holds at the stamp,
+which those entries do not move.
 
 [`voice-set-landing.md`](voice-set-landing.md) is the voice set, landed but
 for `joe` #33 and #34; [`the-voice-loop.md`](the-voice-loop.md) is the loop.
@@ -59,6 +61,9 @@ pick up alone; that page is then listed in the index and named here.
 6. **The entry documents' reading budget stays at 1200 lines**, though the
    load is below it: `records/DRAFT-governance-arrives-as-a-mechanism.md` §4's
    ratchet is not lowered to meet it. (2026-10-24)
+7. **qmcp's adoption record is restated in two steps.** C2, C3 and C7 are
+   restated on #235. C1, C5, C6 and C8 are restated only after #235 merges, in
+   a pull request of their own based on `project/qmcp`. (2026-10-24)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
@@ -77,15 +82,30 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 | #144, #147, #148, #149, #150, #151, #153, #156 | eight project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
+| #235 | `project/qmcp` | at 2026-10-25: 7 checks green, no review, head `7f2ff37`; it restates C2, C3 and C7 as read at `qmcp` `a41f9a3` | merged by a person (§3); then decision 7's second step, using the readings of C1, C5, C6 and C8 under "Outside this pull request" in #235's description; then `qmcp`'s governance pin bump (`the-voice-loop.md` §1) |
 
 A propagation's own `slot` check passes, because the merge brings the new
 script; a pull request into the branch passes only once brought level after
 it. The codecartographer propagation (#174) showed both. #222, a draft into
 `main`, is another session's and outside this page.
 
+#251, into `main`, is a perspective that keeps the results of a voice
+benchmark from a `qmcp` branch that has since been deleted. At 2026-10-25 its
+9 checks are green, it has no review, and its head is `1ee9155`. It is done
+when a person merges it (§3).
+
 ## 3. Blocked on a person
 
 - **`joe` #33's merge**, on a test by hand (`voice-set-landing.md` §4).
+- **#235's and #251's merges.** #235 changes a record and #251 adds a page,
+  so each is asked (decision 1).
+- **qmcp's open adoption decisions**, as #235 states them:
+  - C3: two sessions started in one checkout share one queue, through the
+    default port 3141 and a database path relative to the working directory.
+  - C7: `POST /v1/human/responses` authenticates nobody.
+  - C4: a `GET` writes `EXPIRED`.
+  - Phase 11 of `qmcp`'s roadmap, auto-approvals from habits, is built only
+    after the corpus has read it.
 - **The decisions in `hil-review-2026-10-04.md` §3** and the two carried in
   `voice-set-landing.md` §4.
 - **quaternionmedia/.github#9**, a draft on that repository's `main`: a Python
@@ -101,8 +121,8 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   reason. Redact it, or confirm the link is dead.
 - **rad's Pages.** GitHub Pages is disabled for rad, which its `deploy` job
   needs; a repository setting.
-- **Held pull requests:** datum #2, apothecary #21, alfred #113 and benchmark
-  #7 — merge or close.
+- **Held pull requests:** datum #2, alfred #113 and benchmark #7 — merge or
+  close. (apothecary's, which this list also held, merged on 2026-10-24.)
 - **Six questions about `status/governance.yaml`** that its `undefined:` block
   does not carry: whether project records count in the corpus census; whether
   CI gets a credential that can read private repositories; whether gap detail
@@ -121,7 +141,10 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
 - **Dependabot's updates, grouped** (decision 5). At the stamp Dependabot holds
   125 of the org's 312 open pull requests. Done is every repository's
   `dependabot.yml` carrying `groups:`, and no ungrouped Dependabot pull request
-  open.
+  open. At `qmcp` `82b2d58`, `qmcp` has no `dependabot.yml`, no open
+  Dependabot pull request and no open alert. Its one Dependabot branch,
+  `dependabot/uv/protobuf-6.33.5`, outlived its pull request. That pull request
+  was closed on 2026-10-25 because `main` already locks the version it set.
 - **The signature gate reads an SSH signature as none.** `check_signatures`
   runs `git` with no allowed-signers file, so a commit the host verifies by an
   SSH key reads `N` and fails the gate; #198's and #202's did, and landed as
@@ -175,9 +198,26 @@ re-checked and is re-derived before anyone acts on it.
   `project/qmetronome` still calls itself "a real, accepted departure" from
   the QM record it relaxes. Done is the draft tightened, or the departure
   taken to the org as an amendment.
-- **qmcp declares no licence**, so its outbound class is undeclared and its
-  adoption ships without `REUSE.toml`. Done is a licence chosen and declared in
-  its adoption record.
+- **qmcp declares no licence where a packager reads one.** At `qmcp`
+  `82b2d58` it carries `REUSE.toml` (MIT for `**`), `LICENSES/` and a REUSE
+  lint workflow, but no root `LICENSE` and no `license` key in
+  `pyproject.toml`. Done is a licence declared in both places, and C1
+  restated in its adoption record (decision 7).
+- **qmcp's roadmap still calls project names unmeasured.** Phase 10's
+  constraints in `qmcp`'s `docs/ROADMAP.md` say "Whether project names
+  transcribe reliably is unmeasured"; #251 measures it on synthesized speech.
+  Done is that line citing #251's perspective once #251 merges. Making that
+  change was asked on 2026-10-25 and not yet answered.
+- **qmcp's `flows` extra asks for `pydantic-ai[openai]`**, an extra that no
+  pydantic-ai release from 2.31 to 2.61 provides, so uv warns on every lock.
+  Done is the extra naming what it needs.
+- **No check reads qmcp's lock against open advisories before a pull
+  request.** On the change that took `qmcp`'s lock past its 36 alerts (merged
+  2026-10-25 as `82b2d58`), `uv lock --upgrade-package` stopped pydantic-ai at
+  2.32.2, below the 2.53.0 that fixes one of its alerts, and reported it as
+  updated. A one-off script that compared each alert's range with the lock
+  caught it. Done is that comparison as a preflight step, or the reason it
+  cannot be one.
 - **Two lightweight tags**, `alfred@v0.2.0` and `datum@v0.0.1`, assert what
   `records/DRAFT-version-tags-are-claims.md` §6 says a lightweight tag cannot.
   Done is each replaced by an annotated tag or removed, by a person.
@@ -222,7 +262,9 @@ re-checked and is re-derived before anyone acts on it.
   manifests, and the cookbook and runner.
 - *Carried.* **Branches across the estate**: each repository's leftover
   one-copy branches landed or retired, and merged branches pruned, until
-  `uv run qm estate` reports none.
+  `uv run qm estate` reports none. `qmcp`'s were pruned on 2026-10-25 at the
+  person's word. Its remote holds `main` and the one Dependabot branch above,
+  and its clone holds `main` and no stash.
 - *Carried.* **A guard for dossier's threaded UI workers**: a test that fails
   when a worker that can reach the network is missing from
   `tests/ui/conftest.py`'s stub list.
@@ -237,7 +279,15 @@ re-checked and is re-derived before anyone acts on it.
 - Tier 3 of the voice demonstration, a person at the microphone.
 - That a local run of a project-branch pull request now agrees with the host
   on the ADR lint's *default branch carries no project records* step, which
-  #229 changes the runner for.
+  #229 changes the runner for. A project branch carries its own copy of the
+  runner. At `b5775fa`, `project/qmcp` does not have #229, and neither does
+  `qmcp`'s governance pin, `235708c`. #235's local run therefore needed
+  `--ref` for that step to pass.
+- `qmcp`'s provider SDKs as locked at `82b2d58` (anthropic 2.3.0, google-genai
+  2.33.0, logfire 5.3.0) against their services. `-m live_anthropic` and the
+  `--live` cookbook checks were not run. The offline suite, the local-model
+  tests and the preflight passed.
+- #251's figures on a person's voice: they come from synthesized speech only.
 
 ## 6. Standing constraints
 
