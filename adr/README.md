@@ -254,6 +254,6 @@ together.
 | — | [The system monitor derives its diagram from a repository's contents](DRAFT-the-system-monitor-derives-its-diagram.md) | Proposed | 2026-08-27 |
 | — | [The window reads what cargo wrote, and never runs cargo](DRAFT-the-window-reads-what-cargo-wrote.md) | Proposed | 2026-10-12 |
 | — | [One construct vocabulary for every language the window reads](DRAFT-one-construct-vocabulary-for-every-language.md) | Proposed | 2026-10-12 |
-| — | [Rust is read at the item level until an engine's index replaces it](DRAFT-rust-is-read-at-the-item-level.md) | Proposed | 2026-10-12 |
+| — | [Rust is read at the item level until an engine's index replaces it](DRAFT-rust-is-read-at-the-item-level.md) | Proposed | 2026-10-24 |
 
 Drafts in flight (numberless, by title): —

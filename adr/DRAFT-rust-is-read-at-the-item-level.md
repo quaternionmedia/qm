@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Status** | Proposed |
-| **Date** | 2026-10-12 |
+| **Date** | 2026-10-24 |
 | **Pends on** | Nothing — ready to be argued |
 | **Principle** | `build-the-seam-buy-the-engines`; `one-house-stack` |
 
@@ -37,9 +37,15 @@ imported.
    paths walked through it, and the calls in a body. It replaces the regex
    patterns for `.rs` and adds nothing to the dependency set.
 2. **Every relation it draws says how it was resolved.** `module-tree`,
-   `crate-by-directory`, `unique-name`, or `external`, on the edge. A call, impl
-   or field type is resolved only when exactly one local item has the name; an
-   ambiguous name draws nothing, and a method call on anything but `self` is
+   `crate-by-directory`, `unique-name`, or `external`, on the edge, and the
+   linker reader of §4 writes `same-file`, `include`, `same-directory` or
+   `unique-name`. A `contains` edge carries none: it records nesting the source
+   shows, not a name resolved. A call, impl or field type is resolved only when
+   exactly one local item has the name, and an ambiguous name draws nothing;
+   so do a crate name two crates' directories share, an `INCLUDE` two files
+   could answer when none sits beside the script, and a region name two
+   regions answer where it is first found — its own file, then the files it
+   includes, then the whole batch. A method call on anything but `self` is
    counted as unresolved rather than guessed.
 3. **It stops where name resolution begins.** Macro expansion, type inference,
    trait resolution and re-exports are the compiler's. The reader does not
