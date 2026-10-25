@@ -23,6 +23,11 @@ those commits. Re-derive each with `gh` and the tree before acting on it.
    changed since. The merge commit's body names the commit it ran on, the command and
    its counts; a red run is fixed in the pull request's own branch before it merges.
    `apothecary test changed` is for while working and is never the gate. (2026-10-24)
+   A stack that lands as one run is tested once, on the tree `main` has after its last
+   merge -- `main`'s tip with each level merged in order, simulated with `git merge-tree`
+   -- and each level's merge commit names that run; each landed tree is checked against
+   the simulated one. The levels' own trees in between are not tested alone: the version
+   tag is the claim, and a red run is found by testing the middle level. (2026-10-25)
 3. **No limit is chosen by hand.** A CI job's cap is twice its median over the runs
    GitHub records for it; a job with no record has GitHub's own. In CI each browser
    test's cap is twice the time `tests/e2e/durations.json` records for it; run on a
