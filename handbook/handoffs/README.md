@@ -98,9 +98,10 @@ check.
 
 ## What none of these authorise
 
-Ratifying anything. Merging to `main` or to a `project/*` branch. Deleting a
-branch. Force-pushing. Rewriting a branch a submodule pins — and if you find
-one that was rewritten, `handbook/propagation-runbook.md` has the recovery.
+Ratifying anything. Merging a pull request before every gate is green.
+Deleting a branch another pull request is based on. Force-pushing. Rewriting a
+branch a submodule pins — and if you find one that was rewritten,
+`handbook/propagation-runbook.md` has the recovery.
 
 ## The failure mode these are written against
 
