@@ -7,7 +7,8 @@
 A secret scanner looks for credentials: a token, a key, something with a shape
 a service can revoke. This looks for the other kind of leak, which no secret
 scanner flags: an account name in a home directory, a link to a private
-conversation or a path to a thread archive, a personal directory (the
+conversation or a path to a thread archive, a link to a page an assistant's
+host keeps outside every repository, a personal directory (the
 Documents or Desktop folder, an IDE's projects folder) used as a path, and a
 session's scratch space used as a path. `check_private_names.py` covers private
 repository names.
@@ -59,6 +60,13 @@ KINDS: list[tuple[str, str, re.Pattern]] = [
     ("shared-conversation", "a link anybody holding it can read",
      re.compile(r"(?i)\b(?:claude\.ai|chatgpt\.com|chat\.openai\.com)/share/"
                 r"(?P<who>[A-Za-z0-9-]+)")),
+    # A page an assistant's host keeps outside every repository: work
+    # delivered there is not versioned with the code and is reviewed as no diff
+    # (records/DRAFT-work-is-delivered-into-a-repository.md). The hosts listed
+    # are the ones known; a host not listed passes.
+    ("hosted-page", "work kept on an assistant's host rather than in a repository",
+     re.compile(r"(?i)\b(?:claude\.ai/(?:code/|public/)?artifacts?/|claude\.site/artifacts/|"
+                r"chatgpt\.com/canvas/shared/)(?P<who>[A-Za-z0-9-]+)")),
     # A *path* to an archive, not the archive's filename. `conversations.json`
     # names an export format, and `qmcp threads import <conversations.json>` is
     # a command somebody has to be able to write down. Requiring a directory in
@@ -173,8 +181,8 @@ def main(argv: list[str] | None = None) -> int:
         # The denominator, always. `clean` against four files and `clean`
         # against four hundred are the same word and not the same claim.
         print(f"clean   {len(files)} tracked file(s) carry no account name, "
-              f"home-layout or scratch path, shared-conversation link or "
-              f"archive path.")
+              f"home-layout or scratch path, shared-conversation or hosted-page "
+              f"link, or archive path.")
         print("        History is not read. What is committed stays committed.")
     else:
         by_kind: dict[str, list[dict]] = {}

@@ -399,14 +399,17 @@ gates:
     refuses: >
       A tracked file that carries a person's home directory, a path through a
       personal or IDE-made folder, a path into a session's scratch space, a
-      shared-conversation link, or a conversation archive's path. Findings are
+      shared-conversation link, a link to a page an assistant's host keeps, or
+      a conversation archive's path. Findings are
       printed redacted; a deliberate example is declared with `leaks: allow`
       and a reason, and every allowance is counted on every run.
     runs:
       - project-seed/ci/check_leaks.py
     enforces:
       - records/DRAFT-what-is-not-the-organisation.md
+      - records/DRAFT-work-is-delivered-into-a-repository.md
       - ci/policy-registry.yaml nothing-committed-describes-the-workstation-the-agent-or-the-conversation
+      - ci/policy-registry.yaml work-is-delivered-into-a-repository
     cannot_see: >
       Everything on that line that is not a path or a link: an editor named in
       prose, a process somebody saw running, a tool narrating its own session,
@@ -414,7 +417,9 @@ gates:
       fire on every page that legitimately discusses editors or quotes a
       record, so the reader is the check, at the runbook's Step 3. Nor can it
       read history -- a path already pushed stays pushed -- or tell a
-      placeholder from a real account beyond the ones it lists.
+      placeholder from a real account beyond the ones it lists. Of a hosted
+      page it sees only a link a file carries: a page never linked, a link in
+      a pull request body, and a host its pattern does not list all pass.
 
   - id: timeless-check
     workflow: timeless-check.yml
