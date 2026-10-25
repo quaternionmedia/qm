@@ -20,9 +20,9 @@ Drives matter — a thing somebody builds, holds or installs: parts, boards, enc
 
 <figure class="qm-hero-shot" markdown>
 
-[![The fractal viewer walking a garage layout and what it holds.](https://github.com/quaternionmedia/apothecary/raw/HEAD/docs/assets/fractal-viewer-walkthrough.gif)](../projects/apothecary.md)
+[![The chess set, modelled in OpenSCAD.](https://github.com/quaternionmedia/scad-chess/raw/HEAD/chess_set.png)](../projects/scad-chess.md)
 
-<figcaption><strong>apothecary.</strong> The fractal viewer walking a garage layout and what it holds.</figcaption>
+<figcaption><strong>scad-chess.</strong> The chess set, modelled in OpenSCAD.</figcaption>
 
 </figure>
 
@@ -33,8 +33,6 @@ Drives matter — a thing somebody builds, holds or installs: parts, boards, enc
 <div class="grid" markdown>
 
 <div class="card qm-f-irl" markdown>
-
-![The fractal viewer walking a garage layout and what it holds.](https://github.com/quaternionmedia/apothecary/raw/HEAD/docs/assets/fractal-viewer-walkthrough.gif){ .qm-thumb loading=lazy }
 
 [apothecary](../projects/apothecary.md){ .qm-card-link }
 
