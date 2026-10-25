@@ -54,6 +54,11 @@ local suite has passed at its head.**
   `--extra dev --extra c-parsing`, after the branch is updated from `main`. A
   suite that does not run on the machine is not a pass, and a test that skips
   is reported as a skip, with its reason.
+- **The tests are bolstered first.** Every defect a review of the pull
+  request finds, and every claim its body makes that no test holds, is pinned
+  by a test that was seen to fail, then fixed on its branch. A finding is not
+  deferred as a follow-up, because a suite that passes without it is evidence
+  about less than the change.
 - **The merge is at the head that was tested**:
   `gh pr merge <n> --merge --match-head-commit <sha>`, so a commit pushed after
   the run cannot land with it. The pull request's body names that head and what
@@ -83,6 +88,8 @@ this record adds one.
 
 - Green work lands without waiting on a person, and the evidence for what the
   checks do not run sits in the pull request's body, at the head that merged.
+- A review's findings are fixed before the merge, each with the test that
+  would have caught it, so the suite grows with every pull request it lands.
 - A failure the base shares is still a failure. It is fixed in a pull request
   of its own that lands first, and the work above it waits; a red suite is not
   read as green because `main` is red too.
