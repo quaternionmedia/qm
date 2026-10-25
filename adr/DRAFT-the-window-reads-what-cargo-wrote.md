@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Status** | Proposed |
-| **Date** | 2026-10-12 |
+| **Date** | 2026-10-24 |
 | **Pends on** | Nothing — ready to be argued |
 | **Principle** | `build-the-seam-buy-the-engines`; `seams-on-standard-protocols`; `shrink-the-black-box` |
 
@@ -34,27 +34,37 @@ was written beside every figure; the window never runs dossier.
 ## Decision
 
 1. **No route runs cargo, `rustc`, or any toolchain command, on any path.** A
-   route reads manifests (`Cargo.toml`, `Cargo.lock`, `.cargo/config.toml`,
-   linker scripts) as data and reads documents a toolchain wrote. Nothing in a
-   manifest is executed, including a configured `runner`, which is shown as the
-   text it is.
+   route reads manifests (`Cargo.toml`, `Cargo.lock`, `.cargo/config.toml`)
+   and linker scripts as data, and reads documents a toolchain wrote. Nothing
+   in a manifest is executed, including a configured `runner`, which is shown
+   as the text it is.
 2. **One command runs cargo, and a person runs it.** `codecarto cargo record
-   <path>` runs `cargo metadata --format-version 1` and
-   `cargo check --workspace --message-format=json` in the path, offline unless
-   asked otherwise, bounded by a timeout that is reported when it fires, and
-   writes their output to `<path>/target/codecarto/metadata.json` and
-   `check.jsonl`. A check that fails still writes its document, because the
+   <path>` runs `cargo metadata --format-version 1 --locked` and
+   `cargo check --workspace --message-format=json --locked` in the path,
+   offline unless asked otherwise, bounded by a timeout that is reported when
+   it fires. It writes their output to `metadata.json` and `check.jsonl` in the
+   `target/codecarto/` of the workspace root cargo names — the path's own, or
+   the workspace above it when the path is a member crate — which is where
+   reading the workspace looks. `--locked` keeps cargo from rewriting
+   `Cargo.lock`: a lockfile that is missing or out of date is reported, not
+   regenerated. A check that fails still writes its document, because the
    diagnostics are what it is for.
 3. **A recorded resolution is used only while it is current, and only when it
    is cargo's.** `metadata.json` is used when it is newer than every manifest
-   and carries `version: 1` and a `packages` list. Otherwise the manifests are
-   read directly and the reading says why: a stale resolution delivered as
-   current is worse than a declared one labelled as declared.
+   — each `Cargo.toml`, `Cargo.lock` and `.cargo/config.toml` under the path,
+   the files cargo resolves from; a linker script, `memory.x` among them, is
+   not one, because nothing in it can change cargo's resolution — and carries
+   `version: 1` and a `packages` list. Otherwise the manifests are read
+   directly and the reading says why: a stale resolution delivered as current
+   is worse than a declared one labelled as declared.
 4. **Every reading names its engine and every document's state.** The graph's
    metadata and the `/cargo/data` document say whether cargo's resolution or the
    manifests answered, and, for each document, whether it was present, used,
    stale, and why not. An absent document is a sentence — no diagnostics drawn
-   is not the same as a clean build — never an empty overlay.
+   is not the same as a clean build — never an empty overlay. So is a check
+   that never finished: a `check.jsonl` with no `build-finished` message says
+   cargo stopped first, and the reading says a crate with no diagnostic in it
+   is not a clean one.
 5. **The same holds for any toolchain document read later.** An index from a
    language server, a linker map, a build-timing or unit-graph document, a probe
    trace: recorded by a command a person runs, read by the window with its age.
@@ -71,8 +81,9 @@ was written beside every figure; the window never runs dossier.
   order of its choosing, so a document committed beside its sources can read as
   stale after a clone; tests that depend on staleness set the times themselves.
 - `cargo record` is the project's first command that executes a workspace's
-  code. Its help text says so, and it writes only under the workspace's own
-  `target/`, which Cargo projects already treat as disposable.
+  code. Its help text says so. What it writes itself is the two documents,
+  under the workspace's own `target/`, which Cargo projects already treat as
+  disposable, and `--locked` keeps cargo from rewriting `Cargo.lock`.
 - The route modules join the estate modules under `tests/test_boundaries.py`:
   they store nothing, start no process, and never raise to the browser.
 

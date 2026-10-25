@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Status** | Proposed |
-| **Date** | 2026-10-12 |
+| **Date** | 2026-10-24 |
 | **Pends on** | Nothing — ready to be argued |
 | **Principle** | `a-loop-is-not-a-knot` (the layer's mathematics is sought on purpose); `decisions-are-documented` |
 
@@ -11,9 +11,10 @@
 
 Each parser here names what it finds in its own language's words: C's adapter
 emits `struct`, `enum_constant`, `typedef`; Python's emits `class`, `loop`;
-Rust's emits `impl`, `trait`, `macro_invocation`; the linker-script reader emits
-`region` and `section`. Those names are right — they are what the source says —
-and they make the languages incomparable. A graph of a C firmware and one of a
+Rust's emits `impl` and `trait`, and the item-level Rust reader and the
+linker-script reader of codecartographer #109 add `macro_invocation`, `region`
+and `section`. Those names are right — they are what the source says — and
+they make the languages incomparable. A graph of a C firmware and one of a
 Rust firmware drew a struct two ways, and nothing could say that a Rust `enum`
 whose variants carry data is a different thing from C's `enum`, or that a Rust
 `#[link_section]` and a linker script's output section are the same idea seen
@@ -31,16 +32,26 @@ parser's kind, and the thing both of them are.
    language-neutral identity lives.** A *construct* is what a node is
    (`type.product`, `type.sum`, `callable.method`, `layout.region`); a *facet*
    is something it can also be (`memory.unsafe`, `memory.volatile`,
-   `firmware.interrupt`, `layout.section`). Constructs carry a look; facets do
-   not.
+   `firmware.interrupt`). Constructs carry a look; facets do not. A construct
+   can be carried as a facet too: Rust's `#[link_section]` maps to
+   `layout.section`, the construct an assembler's section is.
 2. **Parsers keep their kinds.** The vocabulary maps each language's kinds — and
    the qualifiers, attributes, macros and body facts that make a facet — onto
    constructs. A kind that is a different construct under a stated condition is
    refined, not renamed: a Rust `enum` is `type.sum` unless its variants carry
    no data, when it is `type.enumeration`.
-3. **Every node of a listed language carries `construct`, on every parse.** The
-   stamp is additive and idempotent; a node keeps every attribute its parser
-   gave it. A node of an unlisted language is left exactly as it arrived.
+3. **Every node a listed language's parsers emit carries `construct`, on every
+   unified parse, unless the vocabulary says why it is not one.** Each kind is
+   mapped to a construct or listed under `not_constructs` with its reason —
+   Python's calls, names and literals are what a body does, not what it
+   declares — and a node of a kind listed there carries none; nor do the walk's
+   own `directory` and `file` nodes, which are the tree's structure rather than
+   anything a language declares. The stamp is additive and idempotent; a node
+   keeps every attribute its parser gave it. A graph cached before parses
+   stamped `construct` is not served: the cache keys a graph by the shape a
+   parse gives it (`GRAPH_SCHEMA_VERSION`), so an older one is a miss and the
+   tree is parsed again. A node of an unlisted language is left exactly as it
+   arrived.
 4. **A construct's look is the code map's shared visual grammar, and a parser's
    own look wins.** C's adapter carries the c-visualizer reference design; the
    vocabulary carries the same looks for the same constructs, so a Rust struct is
@@ -48,20 +59,29 @@ parser's kind, and the thing both of them are.
 5. **The chrestomathy is a reading of the vocabulary and the lexicons, and a
    language with no spelling is a row saying so.** Each construct names the
    tokens each language spells it with — every one of them a token of that
-   language's lexicon — and a note. Rust has no `volatile`; C has no method; the
-   absence is the lesson, and is drawn rather than omitted.
-6. **Every join is a test.** Tokens to lexicons, parser kinds to the vocabulary
-   in both directions, C's looks to the vocabulary's, looks to the shapes the
-   canvas draws. Each guard was seen to fail before it was trusted.
+   language's lexicon, and, where the lexicon files a token in more than one
+   group, the group of the sense that spells this construct — and a note.
+   Every language the vocabulary lists is a row of every construct. Rust has no
+   `volatile`; C has no method; the absence is the lesson, and is drawn rather
+   than omitted.
+6. **Every join is a test.** Tokens to lexicons and to the sense each spells,
+   parser kinds to the vocabulary in both directions, C's looks to the
+   vocabulary's, looks to the shapes the canvas draws. Each guard was seen to
+   fail before it was trusted.
 
 ## Consequences
 
 - A new language joins the chrestomathy by a mapping and its spellings, not by
   code: the tests name what is missing.
-- The canvas gained the polygon shape C's records always asked for and never
-  got; C structs and unions stop drawing as circles.
-- "Color By: Abstraction Layer" draws again, from one ramp the server carries on
-  each node, and the legend names the layers. Colour is never the only carrier
+- With codecartographer #111, the canvas draws the polygon shape C's records
+  always asked for and never got; C structs and unions stop drawing as
+  circles.
+- With codecartographer #111, "Color By: Abstraction Layer" draws again, from
+  one ramp the server carries on each node a lexicon places, and the legend
+  names the layers. A layer's ordinal is its rank within its own language's
+  lexicon, not a scale the languages share: one colour in two languages is one
+  rank in each, not one distance from the machine, so a node names its layer
+  beside the number (`meta.lexicon_layers`). Colour is never the only carrier
   of a layer.
 - The vocabulary is a second hand-authored file beside the lexicons, and it can
   be wrong in ways no test catches: a construct can be mis-glossed, a mapping
