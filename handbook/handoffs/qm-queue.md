@@ -8,8 +8,8 @@ sessions.
 
 [`voice-set-landing.md`](voice-set-landing.md) is the voice set, landed but
 for `joe` #33 and #34; [`the-voice-loop.md`](the-voice-loop.md) is the loop;
-[`apothecary-merge-queue.md`](apothecary-merge-queue.md) is apothecary's stack
-landing on its `main`. This page is everything else open in `qm`.
+[`apothecary-merge-queue.md`](apothecary-merge-queue.md) is apothecary's stack,
+landed on its `main`, and how it keeps landing. This page is everything else open in `qm`.
 
 ## How this page is kept
 
@@ -103,8 +103,8 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   reason. Redact it, or confirm the link is dead.
 - **rad's Pages.** GitHub Pages is disabled for rad, which its `deploy` job
   needs; a repository setting.
-- **Held pull requests:** datum #2, apothecary #21, alfred #113 and benchmark
-  #7 — merge or close.
+- **Held pull requests:** datum #2, alfred #113 and benchmark #7 — merge or
+  close.
 - **Six questions about `status/governance.yaml`** that its `undefined:` block
   does not carry: whether project records count in the corpus census; whether
   CI gets a credential that can read private repositories; whether gap detail
