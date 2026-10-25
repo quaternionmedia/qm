@@ -11,8 +11,34 @@
 # request -- is not shown: `uv run qm inventory --write` records which listed
 # files each default branch holds, and the page shows only those.
 #
+# A project may also have a detail page, written here under `details:` by a
+# person, the way captions are. Every section of a block is optional; within
+# one, a `title`, a `name` and a `text` are required where they appear, and an
+# unknown key is refused rather than dropped:
+#
+#   lede      what the project is, a sentence or two, in place of the host's
+#             one-line description
+#   try       `run`: the command, or commands, to try it; `then`: what to do next
+#   picture   the one the page opens with: a path and a caption
+#   steps     `eyebrow`, `title`, and `items`, each a `name` and one line of
+#             `text`, with an optional `picture`: the steps a user goes through
+#   features  each an `eyebrow`, a `title`, a paragraph of `text`, and `pictures`
+#   built     `eyebrow`, `title`, `text`, and `parts` and `beside`, each a `name`,
+#             how it connects (`via`) and a line of `text`: how it is built. A
+#             part named as a project with a page links to that page.
+#
+# Text is markdown, set as written, and states what is true of the project at
+# any commit: no dates, pull request numbers or measured counts, which belong in
+# the project's own changelog. Its pictures are the project's own, held back
+# like the ones above until its default branch holds them, and the inventory
+# asks about every path a block names. A project with no block keeps the page
+# its pictures above make. The detail page shows the block's pictures; the
+# pictures above stay the project's cards on the family pages and the front page.
+#
 # `uv run qm cookbook docs/families --site --write` reads this file;
-# ci/tests/test_cookbook.py holds its shape.
+# ci/tests/test_cookbook.py holds its shape. `uv run qm cookbook --preview <dir>
+# --ref <project>=<ref>` builds the site outside the committed one, with a
+# project's pictures from a branch it names: docs/usage/build-these-docs.md.
 projects:
   alfred:
     - path: docs/assets/screens/edit.png
@@ -63,3 +89,97 @@ projects:
   apothecary:
     - path: docs/assets/fractal-viewer-walkthrough.gif
       caption: The fractal viewer walking a garage layout and what it holds.
+details:
+  alfred:
+    lede: >-
+      A video editor in the browser. Every preview frame and every render is
+      drawn on the server, by a stack its user runs.
+    try:
+      run: ./al dev
+      then: Then open `127.0.0.1:8000`.
+    picture:
+      path: docs/assets/screens/edit.png
+      caption: The editor at Edit, projects and media on the left, the viewer over the timeline, and the selected title's settings on the right.
+    steps:
+      eyebrow: four stages, left to right
+      title: How a video gets made
+      items:
+        - name: Source
+          text: Choose a project and the media and templates for its timeline, or generate the demo clips.
+        - name: Edit
+          text: Arrange, trim and cut the clips on the timeline, and set a title's text, length and colours.
+        - name: Render
+          text: Choose the output's size and queue a render, which the server makes.
+          picture:
+            path: docs/assets/screens/render.png
+            caption: The output's size and Queue render, beside a frame the server drew.
+        - name: Deliver
+          text: Follow the render until it is finished, then download it or send it to a destination.
+          picture:
+            path: docs/assets/screens/deliver.png
+            caption: The rendered demo reel, ready to download or to deliver to a destination.
+    features:
+      - eyebrow: captions · heard by joe
+        title: Captions heard by joe, through vox
+        text: >-
+          **Transcribe timeline** sends the project's saved sound to the audio
+          engine, and the captions come back as text to correct; they can also
+          be typed, or imported from a subtitle file. Once **Draw into renders**
+          is ticked, every render carries them. alfred never handles the sound
+          itself: it reaches joe over HTTP through vox, the contract between
+          them, and without an engine the panel says so and Transcribe stays off.
+        pictures:
+          - path: docs/assets/screens/captions.png
+            caption: The Captions tab with Transcribe timeline, and a caption drawn over the colour bars in the viewer.
+      - eyebrow: on a phone
+        title: The same editor, one stage at a time
+        text: >-
+          On a phone the editor shows one stage at a time, above the viewer and
+          the timeline, with the four stages on the rail along its top.
+        pictures:
+          - path: docs/assets/screens/phone-edit.png
+            caption: Edit on a phone, the captions above the viewer and the timeline.
+          - path: docs/assets/screens/phone-render.png
+            caption: Render on a phone, the output's size and Queue render above the viewer.
+      - eyebrow: the workspace
+        title: The Panels menu
+        text: >-
+          On a wider screen the editor is a workspace of panels docked with
+          Golden Layout, the shell codecartographer uses. A tab drags to move
+          its panel, the gaps drag to resize, and the arrangement is kept in
+          that browser. The Panels menu brings a closed panel back in its place,
+          and Reset layout restores the default.
+        pictures:
+          - path: docs/assets/screens/panels-menu.png
+            caption: The Panels menu, every panel listed with Template settings closed, and Reset layout.
+    built:
+      title: A control plane, two engines
+      text: >-
+        alfred owns accounts, projects, renders and captions, and decides what
+        happens when. The media work belongs to two engines it vendors side by
+        side: otto draws the picture, and vox carries the sound to an audio
+        engine such as joe. alfred imports no media library; what an engine
+        lacks is a change to that engine, which alfred then pins.
+      parts:
+        - name: the browser
+          via: over HTTP, to alfred
+          text: A Mithril app in Golden Layout panels. It edits the timeline and shows the frames the server draws.
+        - name: alfred
+          via: the control plane
+          text: FastAPI, MongoDB and a Celery render worker, holding the state and the orchestration.
+        - name: otto
+          via: vendored by alfred, for the picture
+          text: Every preview frame and render, and the timeline's sound mixed for it.
+        - name: vox
+          via: vendored by alfred, for the sound
+          text: The contract and the client for an audio engine.
+        - name: joe
+          via: over HTTP from vox, with a schema
+          text: The audio engine. It hears the timeline's sound and transcribes it into captions.
+      beside:
+        - name: qmcp
+          text: QM's tool server, which calls alfred's API as tools.
+        - name: codecartographer
+          text: The Golden Layout panel shell alfred's editor shares.
+        - name: the org's .github workflows
+          text: The reusable CI workflows alfred's own CI calls.
