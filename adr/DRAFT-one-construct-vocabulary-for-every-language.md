@@ -73,10 +73,10 @@ parser's kind, and the thing both of them are.
 
 - A new language joins the chrestomathy by a mapping and its spellings, not by
   code: the tests name what is missing.
-- With codecartographer #112, the canvas draws the polygon shape C's records
+- With codecartographer #111, the canvas draws the polygon shape C's records
   always asked for and never got; C structs and unions stop drawing as
   circles.
-- With codecartographer #112, "Color By: Abstraction Layer" draws again, from
+- With codecartographer #111, "Color By: Abstraction Layer" draws again, from
   one ramp the server carries on each node a lexicon places, and the legend
   names the layers. A layer's ordinal is its rank within its own language's
   lexicon, not a scale the languages share: one colour in two languages is one
