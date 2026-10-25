@@ -6,7 +6,7 @@
 | **Date** | 2026-10-24 |
 | **Pends on** | Nothing — ready for ratification |
 | **Principle** | `a-check-is-evidence-after-it-fails` — a check is evidence only after it has been seen to fail; `shrink-the-black-box` — shrink the black box |
-| **Restated in** | cathy's `walkthrough/02-cathy-reads-and-never-posts.md` |
+| **Restated in** | cathy's `walkthrough/02-cathy-reads-and-never-posts.md`; cathy's `AGENTS.md`, its *Working on cathy* section |
 
 ## Context
 
