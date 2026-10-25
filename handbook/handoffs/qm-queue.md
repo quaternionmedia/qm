@@ -59,15 +59,20 @@ pick up alone; that page is then listed in the index and named here.
 6. **The entry documents' reading budget stays at 1200 lines**, though the
    load is below it: `records/DRAFT-governance-arrives-as-a-mechanism.md` §4's
    ratchet is not lowered to meet it. (2026-10-24)
+7. **Work is delivered into a repository, never to a hosted page**: a
+   report, a demo, a preview or a handoff is a committed file, and reaches
+   a reviewer as a pull request or as a page built and served locally
+   (#244, `records/DRAFT-work-is-delivered-into-a-repository.md`).
+   (2026-10-24)
 
 ## 2. `qm`'s open pull requests, and what clears each
 
-Every pull request into `main` that this page carried has landed; what is open
-is into project branches. `uv run qm stacks --repo quaternionmedia/qm` lists
-them. Two causes account for most of the red: a project branch that took `main`
-before the stack rule carries the old `slot` check, which refuses every pull
-request into it after the first; and commits made on 2026-10-13 that the host
-reads as unsigned.
+Two pull requests into `main` are this page's, #244 and #245 stacked on it;
+the rest open is into project branches. `uv run qm stacks --repo
+quaternionmedia/qm` lists them. Two causes account for most of the red: a
+project branch that took `main` before the stack rule carries the old `slot`
+check, which refuses every pull request into it after the first; and commits
+made on 2026-10-13 that the host reads as unsigned.
 `git log --format=%G?` here reads `N` or `E` for commits the host verifies, so
 ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 .commit.verification`.
@@ -76,6 +81,7 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 |---|---|---|---|
 | #144, #147, #148, #149, #150, #151, #153, #156 | eight project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
+| #244, then #245 on #244 | `main` | #244, the hosted-page rule and its check, green on every check; #245, project detail pages and alfred's, a draft on it | #244 merged by a person; #245 retargeted onto `main`, brought level, its inventory and site pages re-run, marked ready and merged |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
 
 A propagation's own `slot` check passes, because the merge brings the new
@@ -101,8 +107,12 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   reason. Redact it, or confirm the link is dead.
 - **rad's Pages.** GitHub Pages is disabled for rad, which its `deploy` job
   needs; a repository setting.
-- **Held pull requests:** datum #2, apothecary #21, alfred #113 and benchmark
-  #7 — merge or close.
+- **Held pull requests:** datum #2, alfred #113 and benchmark #7 — merge or
+  close.
+- **apothecary's picture on the site.** `ci/showcase.yaml` lists
+  `docs/assets/fractal-viewer-walkthrough.gif` for apothecary, which its
+  default branch no longer holds, so its page holds it back (#245). A
+  person picks another picture, or drops the entry.
 - **Six questions about `status/governance.yaml`** that its `undefined:` block
   does not carry: whether project records count in the corpus census; whether
   CI gets a credential that can read private repositories; whether gap detail
@@ -146,6 +156,12 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
 - **codecartographer's `adr/TEMPLATE.md`** keeps five drafting-rule headings
   in capitals that the seed's template sets in plain case. Done is the copy
   re-made in a pull request into `project/codecartographer`.
+- **alfred's detail page shows its pictures.** Its seven screenshots are on
+  alfred's `feat/journeys-and-onboarding` and not on its `main`, so the page
+  #245 commits shows each as waiting. Done is alfred's stack merged, then
+  `uv run qm inventory --write` and `uv run qm cookbook docs/families --site
+  --write` in a pull request here.
+
 ### Carried from retired pages
 
 Re-derived on 2026-10-24 unless marked *carried*; a carried item was not
