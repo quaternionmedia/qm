@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-26T02:59:06Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-26T10:57:02Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **283**, unfiltered.
+Every governed document in this corpus: **285**, unfiltered.
 
 | | |
 |---|---|
@@ -60,7 +60,7 @@ A state says whether a page binds you. It never says the content is right — St
 |---|---|
 | [P] `proposed` | 39 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 83 |
+| [-] `unreviewed` | 85 |
 | [G] `generated` | 7 |
 | [S] `standing` | 130 |
 | [T] `transient` | 21 |
@@ -167,11 +167,13 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-09-27-the-voice-loop.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-28-the-loop-lands-its-remains.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-09-28-the-voice-loop-meets-the-field.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-09-a-comment-in-someone-elses-voice.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-joe-and-vox-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-corpus-pages-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-corpus-tooling-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-rest-of-qmcp-remembered.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-10-what-the-topology-docstrings-remembered.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-11-what-the-harness-was-reading.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-11-what-was-left-on-the-disk.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-12-what-the-push-found.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-13-what-apothecarys-package-remembered.md` | perspective | — |
