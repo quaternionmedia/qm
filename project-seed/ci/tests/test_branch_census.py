@@ -1,6 +1,6 @@
 """What a branch census must tell apart before anybody deletes anything.
 
-Real repositories with a real remote, never a mock. Everything this tool
+Real repositories, never a mock. Everything this tool
 reports is a fact about refs, and the two errors it exists to avoid are beliefs
 about git: that a branch ahead by zero commits holds nothing, and that a branch
 ahead by one holds something. A mock encodes whichever belief its author had.
@@ -16,7 +16,49 @@ tracking refs declared as a last fetch left them, and the census runs once
 against each. The exit status is read from the script run as a subprocess,
 because an entry point's exit status is its contract.
 
-MUTATIONS
+The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they
+printed.
+
+`uv run qm mutate project-seed/ci/branch_census.py` killed 27 of 37 operator
+mutants against a green baseline. The two that were gaps, a row filed under
+another heading and the newest-first order within one, each have a test now.
+Every other survivor is text inside a message, a comment or a help string.
+
+By hand, each run alone against a backup whose presence was checked first:
+
+  `unique_commits` counting every cherry line instead of only the `+` ones
+
+    FAILED test_each_branch_is_read_into_its_class[picked]
+    FAILED test_the_gate_fires_only_on_work_that_would_be_lost
+
+  `origin/HEAD` not skipped
+
+    FAILED test_the_default_branch_and_the_remote_head_pointer_are_not_branches
+
+  the gate counting branches rather than branches with unique work
+
+    FAILED test_the_gate_fires_only_on_work_that_would_be_lost
+
+  the unpushed count ignored, so a stranded branch reads as ordinary
+
+    FAILED test_each_branch_is_read_into_its_class[shared]
+
+  a branch's tip, date and author read from the local ref when a remote one
+  exists
+
+    FAILED test_a_branch_carries_its_tip_its_date_and_its_author
+
+  ahead and behind read the wrong way round
+
+    FAILED test_each_branch_is_read_into_its_class[landed]
+
+  each heading listing the rows of every other class
+
+    FAILED test_each_row_is_filed_under_its_own_class
+
+  the rows within a class sorted oldest first
+
+    FAILED test_within_a_class_the_newest_tip_comes_first
 """
 
 from __future__ import annotations
@@ -165,6 +207,35 @@ def test_the_report_sorts_by_what_it_costs_to_be_wrong(found):
     assert f"    {WHEN}  {found['mine'].tip}  +1/-0  mine  (1 carrying" in text
     assert "2 branch(es) hold work this clone alone has: mine, shared" in text
     assert "1 unpushed branch(es) carry nothing upstream does not already have: picked" in text
+
+
+def sections(text: str) -> dict[str, list[str]]:
+    """Heading -> the branch names listed under it, in order."""
+    found: dict[str, list[str]] = {}
+    heading = None
+    for line in text.splitlines():
+        if line.startswith("  ") and not line.startswith("    ") and " -- " in line:
+            heading = line.split(" -- ")[0].strip()
+            found[heading] = []
+        elif line.startswith("    ") and heading:
+            found[heading].append(line.split()[3])
+        else:
+            heading = None
+    return found
+
+
+def test_each_row_is_filed_under_its_own_class(found):
+    by_kind: dict[str, list[str]] = {}
+    for b in found.values():
+        by_kind.setdefault(b.kind.upper(), []).append(b.name)
+    assert {k: sorted(v) for k, v in sections(bc.render(list(found.values()))).items()} \
+        == {k: sorted(v) for k, v in by_kind.items()}
+
+
+def test_within_a_class_the_newest_tip_comes_first():
+    rows = [bc.Branch(name=n, kind=bc.LOCAL, unique=1, when=w, tip="abc1234")
+            for n, w in (("older", "2024-01-01"), ("newer", "2025-06-01"))]
+    assert sections(bc.render(rows)) == {"LOCAL": ["newer", "older"]}
 
 
 def test_automation_branches_are_summarised_rather_than_listed():
