@@ -1,0 +1,868 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "ira"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:2610d0a3d65db0051fb29e671d61b2178235af7d22e12adb9d42951c6b9c6a95"
+  },
+  "source": {
+   "repo": "quaternionmedia/ira",
+   "commit": "a04467f835d3399d0f450a9a9abc2ccd9d5f7bb5"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::ira": {
+      "label": "ira",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [
+        "show-control"
+       ],
+       "hover": "ira — n/a · not adopted · also in show-control",
+       "click": "<p><b>ira</b> — LED controller, designed for live theater</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in show-control.</p>",
+       "show": "project:ira",
+       "shape": "circle",
+       "color": "#dd9b63",
+       "x": 0,
+       "y": 0,
+       "size": 51,
+       "label_at": "below"
+      }
+     },
+     "family::irl": {
+      "label": "irl",
+      "metadata": {
+       "kind": "family",
+       "family": "irl",
+       "drives": "matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "irl — drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "click": "<p>The <b>irl</b> family drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.</p><p>9 member(s) in all.</p>",
+       "show": "family:irl",
+       "color": "#dd9b63",
+       "x": 36,
+       "y": -49.54974913696225,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "family::show-control": {
+      "label": "show-control",
+      "metadata": {
+       "kind": "family",
+       "family": "show-control",
+       "drives": "the room — cues, lighting, sound and video playback, audio transport",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
+       "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
+       "show": "family:show-control",
+       "color": "#f0708f",
+       "x": 58.24922359499621,
+       "y": 18.926320036288807,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 3.750288442705563e-15,
+       "y": 61.246858201346875,
+       "size": 11,
+       "label_at": "below"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -58.24922359499621,
+       "y": 18.926320036288814,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -36.00000000000001,
+       "y": -49.54974913696224,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::ira",
+      "target": "family::irl",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ira",
+      "target": "family::show-control",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ira",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ira",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ira",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:ira",
+     "measured": 0,
+     "unread": [],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:ira",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/ira": {
+      "id": "dir::quaternionmedia/ira",
+      "label": "quaternionmedia/ira",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -751.4964858162616,
+      "y": -461.6065574278756,
+      "size": 200
+     },
+     "dir::quaternionmedia/ira/assets": {
+      "id": "dir::quaternionmedia/ira/assets",
+      "label": "assets",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1604.2996772877118,
+      "y": -420.58020384892296,
+      "size": 60
+     },
+     "dir::quaternionmedia/ira/dmx": {
+      "id": "dir::quaternionmedia/ira/dmx",
+      "label": "dmx",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1331.8465295874826,
+      "y": -222.86739206754507,
+      "size": 60
+     },
+     "dir::quaternionmedia/ira/examples": {
+      "id": "dir::quaternionmedia/ira/examples",
+      "label": "examples",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 711.8536108901117,
+      "y": 360.04688254228137,
+      "size": 70
+     },
+     "dir::quaternionmedia/ira/examples/basic": {
+      "id": "dir::quaternionmedia/ira/examples/basic",
+      "label": "basic",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 358.46327874970825,
+      "y": 687.6567983995519,
+      "size": 50
+     },
+     "dir::quaternionmedia/ira/examples/cobs_demo": {
+      "id": "dir::quaternionmedia/ira/examples/cobs_demo",
+      "label": "cobs_demo",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1489.5044047030844,
+      "y": 232.46247876053886,
+      "size": 50
+     },
+     "dir::quaternionmedia/ira/generator": {
+      "id": "dir::quaternionmedia/ira/generator",
+      "label": "generator",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1587.3759441635152,
+      "y": -1390.6476860412279,
+      "size": 90
+     },
+     "dir::quaternionmedia/ira/ira-teensy": {
+      "id": "dir::quaternionmedia/ira/ira-teensy",
+      "label": "ira-teensy",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1269.6917558823693,
+      "y": 891.8232586275351,
+      "size": 70
+     },
+     "dir::quaternionmedia/ira/kicad_ira": {
+      "id": "dir::quaternionmedia/ira/kicad_ira",
+      "label": "kicad_ira",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 566.5879824511364,
+      "y": -693.2638999808246,
+      "size": 50
+     },
+     "dir::quaternionmedia/ira/templates": {
+      "id": "dir::quaternionmedia/ira/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2170.7636312595314,
+      "y": 321.2452752478585,
+      "size": 70
+     },
+     "file::quaternionmedia/ira/README.md": {
+      "id": "file::quaternionmedia/ira/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -478.69848362416326,
+      "y": -304.1065574278756,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/assets/dashstyle.css": {
+      "id": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "label": "dashstyle.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 0,
+      "meta": {},
+      "x": 1799.1553931392104,
+      "y": -308.08020384892296,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/controller.py": {
+      "id": "file::quaternionmedia/ira/controller.py",
+      "label": "controller.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/controller.py",
+      "line": 0,
+      "meta": {},
+      "x": -643.7601406686758,
+      "y": -165.60338188031443,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/dmx/README.md": {
+      "id": "file::quaternionmedia/ira/dmx/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/dmx/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -1136.9908137359837,
+      "y": -110.36739206754508,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/generator/API.h": {
+      "id": "file::quaternionmedia/ira/generator/API.h",
+      "label": "API.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/API.h",
+      "line": 0,
+      "meta": {},
+      "x": -1392.5202283120166,
+      "y": -1278.1476860412279,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/generator/README.md": {
+      "id": "file::quaternionmedia/ira/generator/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -1782.231660015014,
+      "y": -1503.1476860412279,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/generator/generator.h": {
+      "id": "file::quaternionmedia/ira/generator/generator.h",
+      "label": "generator.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/generator.h",
+      "line": 0,
+      "meta": {},
+      "x": -1699.8759441635152,
+      "y": -1195.7919701897292,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/generator/reupload.sh": {
+      "id": "file::quaternionmedia/ira/generator/reupload.sh",
+      "label": "reupload.sh",
+      "depth": 1,
+      "language": "shell",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/reupload.sh",
+      "line": 0,
+      "meta": {},
+      "x": -1474.8759441635152,
+      "y": -1585.5034018927267,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/idash.py": {
+      "id": "file::quaternionmedia/ira/idash.py",
+      "label": "idash.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/idash.py",
+      "line": 0,
+      "meta": {},
+      "x": -859.2328309638472,
+      "y": -165.60338188031443,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/ira-teensy/fx.h": {
+      "id": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "label": "fx.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/ira-teensy/fx.h",
+      "line": 0,
+      "meta": {},
+      "x": -1074.8360400308707,
+      "y": 1004.3232586275351,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/ira-teensy/ira.h": {
+      "id": "file::quaternionmedia/ira/ira-teensy/ira.h",
+      "label": "ira.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/ira-teensy/ira.h",
+      "line": 0,
+      "meta": {},
+      "x": -1464.5474717338682,
+      "y": 779.3232586275352,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/ira.py": {
+      "id": "file::quaternionmedia/ira/ira.py",
+      "label": "ira.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/ira.py",
+      "line": 0,
+      "meta": {},
+      "x": -1024.2944880083596,
+      "y": -304.1065574278755,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/iras.py": {
+      "id": "file::quaternionmedia/ira/iras.py",
+      "label": "iras.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/iras.py",
+      "line": 0,
+      "meta": {},
+      "x": -1061.7109280151071,
+      "y": -516.3057333929586,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/itest.py": {
+      "id": "file::quaternionmedia/ira/itest.py",
+      "label": "itest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/itest.py",
+      "line": 0,
+      "meta": {},
+      "x": -953.9745828675216,
+      "y": -702.9105570103537,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/osc.py": {
+      "id": "file::quaternionmedia/ira/osc.py",
+      "label": "osc.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/osc.py",
+      "line": 0,
+      "meta": {},
+      "x": -751.4964858162616,
+      "y": -776.6065574278756,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/packet.py": {
+      "id": "file::quaternionmedia/ira/packet.py",
+      "label": "packet.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/packet.py",
+      "line": 0,
+      "meta": {},
+      "x": -549.0183887650016,
+      "y": -702.9105570103537,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/serialports.py": {
+      "id": "file::quaternionmedia/ira/serialports.py",
+      "label": "serialports.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/serialports.py",
+      "line": 0,
+      "meta": {},
+      "x": -441.282043617416,
+      "y": -516.3057333929587,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/templates/home.html": {
+      "id": "file::quaternionmedia/ira/templates/home.html",
+      "label": "home.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/templates/home.html",
+      "line": 0,
+      "meta": {},
+      "x": -1975.9079154080325,
+      "y": 433.7452752478585,
+      "size": 30
+     },
+     "file::quaternionmedia/ira/templates/paper.html": {
+      "id": "file::quaternionmedia/ira/templates/paper.html",
+      "label": "paper.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/templates/paper.html",
+      "line": 0,
+      "meta": {},
+      "x": -2365.61934711103,
+      "y": 208.7452752478586,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "file::quaternionmedia/ira/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "file::quaternionmedia/ira/controller.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "file::quaternionmedia/ira/idash.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "file::quaternionmedia/ira/ira.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "file::quaternionmedia/ira/iras.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "file::quaternionmedia/ira/itest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "file::quaternionmedia/ira/osc.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "file::quaternionmedia/ira/packet.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "file::quaternionmedia/ira/serialports.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "dir::quaternionmedia/ira/assets",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "dir::quaternionmedia/ira/dmx",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "dir::quaternionmedia/ira/examples",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "dir::quaternionmedia/ira/generator",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "dir::quaternionmedia/ira/ira-teensy",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "dir::quaternionmedia/ira/kicad_ira",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira",
+      "target": "dir::quaternionmedia/ira/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/assets",
+      "target": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/dmx",
+      "target": "file::quaternionmedia/ira/dmx/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/examples",
+      "target": "dir::quaternionmedia/ira/examples/basic",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/examples",
+      "target": "dir::quaternionmedia/ira/examples/cobs_demo",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/generator",
+      "target": "file::quaternionmedia/ira/generator/API.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/generator",
+      "target": "file::quaternionmedia/ira/generator/generator.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/generator",
+      "target": "file::quaternionmedia/ira/generator/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/generator",
+      "target": "file::quaternionmedia/ira/generator/reupload.sh",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/ira-teensy",
+      "target": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/ira-teensy",
+      "target": "file::quaternionmedia/ira/ira-teensy/ira.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/templates",
+      "target": "file::quaternionmedia/ira/templates/home.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ira/templates",
+      "target": "file::quaternionmedia/ira/templates/paper.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/ira",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "ira declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile",
+   "remedy": "",
+   "where": "/show/project/ira/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}
