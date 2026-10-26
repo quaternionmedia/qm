@@ -71,11 +71,20 @@ made. Two consequences followed.
   only at a detached HEAD. Nothing here moved that HEAD. The checkout then
   moved anyway: at 21:24 the `qmcp` clone went back to `main`, and the
   submodule followed to `235708c`. From then on the merge (`c1fd0a4`,
-  `7ae8035`) was on no ref. It was reachable from the reflog, which git
-  expires after 30 days by default. The other session's `qmcp` commit still
-  pinned it, but a gitlink keeps nothing alive. The other session was told
-  directly. This session created no ref for it, because the work was not this
-  session's to name.
+  `7ae8035`) was on no ref **in the submodule's repository**. The other
+  session's `qmcp` commit still pinned it, but a gitlink keeps nothing alive.
+  This session created no ref for it, because the work was not this
+  session's to name, and told the other session directly.
+- **A defect this session caused, in reporting that.** The message, the
+  queue entry and the first version of this page all said the merge was
+  reachable "only from that machine's reflog". The other session answered
+  that a separate `qm` clone on the same machine held both commits on
+  branches all along. This session had searched one repository and stated
+  the result for the whole machine. The other session then named the second
+  commit in the submodule too, so its pin checks out.
+
+  **The check:** none. `for-each-ref --contains` answers for one
+  repository, and nothing lists every clone that shares a remote.
 
 **The check:** none detects a second session in a working tree. `qmcp`'s
 run-file identifies a serving process, not a checkout. A session in a

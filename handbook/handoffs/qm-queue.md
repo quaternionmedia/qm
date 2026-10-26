@@ -218,17 +218,19 @@ re-checked and is re-derived before anyone acts on it.
   description of the pull request merged into `project/qmcp` as `6a4819a`.
   Done is a pull request based on `project/qmcp` that restates the four
   rows, then `qmcp`'s governance pin bump (`the-voice-loop.md` §1).
-- **qmcp's governance pin bump, in flight and unpushed.** At 2026-10-25
+- **qmcp's governance pin bump, in flight and kept local.** At 2026-10-25
   21:04 a session working in a `qmcp` checkout holds the bump on its own
-  machine, unpushed:
+  machine. It is unpushed because the person asked for that work to stay
+  local (§6):
   - `c1fd0a4` merges `main` at `685d086` into `project/qmcp` at `6a4819a`;
   - `7ae8035` takes the seed's ADR README and template;
   - `c4e19c7`, on `qmcp`'s `chore/governance-current-2026-10-25`, pins
     `7ae8035` and copies the seed files again.
 
-  At 21:24 that clone went back to `main`, and from then on `c1fd0a4` and
-  `7ae8035` were on no ref, reachable only from that machine's reflog. The
-  session holding them was told.
+  On that machine a `qm` clone holds `c1fd0a4` on
+  `propagate/qmcp-2026-10-25` and `7ae8035` on
+  `fix/qmcp-seed-refresh-2026-10-25`. `qmcp`'s submodule holds the second
+  branch too, so the pin checks out there.
   Done is the merge pushed as `propagate/qmcp-<date>` and merged into
   `project/qmcp`, then a `qmcp` pull request pinning that branch's tip;
   `check-submodule-refs` refuses a pin nobody pushed. The four rows above can
@@ -328,7 +330,9 @@ re-checked and is re-derived before anyone acts on it.
 
 ## 6. Standing constraints
 
-- *Keep everything local* is **not** in force.
+- *Keep everything local* is **not** in force, except for `qmcp`'s
+  governance pin bump in §4, which the person asked to keep local on
+  2026-10-25. Its unpushed commits are deliberate.
 - Nothing of this page's work is unpushed.
 - `main` is never pushed directly; everything arrives by a pull request.
 - Project branches take changes in and never out: records reach them on a pull
