@@ -226,6 +226,9 @@ re-checked and is re-derived before anyone acts on it.
   - `c4e19c7`, on `qmcp`'s `chore/governance-current-2026-10-25`, pins
     `7ae8035` and copies the seed files again.
 
+  At 21:24 that clone went back to `main`, and from then on `c1fd0a4` and
+  `7ae8035` were on no ref, reachable only from that machine's reflog. The
+  session holding them was told.
   Done is the merge pushed as `propagate/qmcp-<date>` and merged into
   `project/qmcp`, then a `qmcp` pull request pinning that branch's tip;
   `check-submodule-refs` refuses a pin nobody pushed. The four rows above can
