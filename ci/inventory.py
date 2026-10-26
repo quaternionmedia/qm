@@ -5,38 +5,26 @@
     uv run qm inventory --write
     uv run qm inventory --resolve private-03
 
-WHY. The org has many times as many repositories as `ci/workspace.yaml` lists.
-Every plan this corpus has written -- adoption, propagation, the phase ladder,
-the harness status -- was scoped to the roster, and nothing said the rest
-existed. A roster that omits a repository does not merely miss it: it makes the
-org invisible to its own planning, and the omission looks exactly like a
-decision. The current figures are in the document this writes; do not restate
-them here, where nothing would update them.
+The org has many more repositories than `ci/workspace.yaml` lists, and a
+roster that omits a repository makes it invisible to planning in a way that
+looks like a decision. This lists every repository the credential can read,
+against what the corpus knows. The current figures are in the document this
+writes and are not restated here.
 
-THREE FILES, SPLIT BY WHAT MAY LEAVE THE MACHINE
+Three files, split by what may leave the machine:
 
     status/inventory.yaml    public repositories by name, plus counts and
                              references standing in for the rest. Committable.
     inventory-private.json   reference -> private repository name. Never.
     inventory-local.json     what is cloned on this disk, and where. Never.
 
-**The split is the control, not the redaction.** An earlier version of this file
-produced one document and filtered the sensitive fields out of it. That works
-until a filter has a bug, and then a single logic error publishes the names of a
-private organisation irreversibly. A public file that never receives private
-names cannot leak them however broken this code is, so the boundary is a file
-boundary and the two gitignored files are the second layer rather than the first.
+**The split is the control, not the redaction.** A public file that never
+receives private names cannot leak them however broken this code is, so the
+boundary is a file boundary, and the two gitignored files are the second layer
+rather than the first.
 
-That earlier version wrote 34 private repository names and 28 absolute paths
-carrying the operator's username into the working tree of a public repository,
-and was one command from being pushed when the reviewer stopped it. It had
-reintroduced a problem `ci/governance_status.py` already solved -- that file
-records `private_repository_names_listed: false` -- because assistant-2026-08
-was run at the problem without reading that file first.
-
-PRIVATE REPOSITORIES ARE COUNTED AND REFERENCED, NEVER DROPPED. Omitting them
-would be the easy fix and the wrong one: a census that silently loses a third of
-its subject is a census nobody can act on. So the public file carries
+Private repositories are counted and referenced, never dropped. The public file
+carries
 
     private-01   ->  "quaternionmedia private repo 1"
 
@@ -45,10 +33,10 @@ order, which is append-only, so `private-03` means the same repository next
 month and in every document that cites it. `--resolve` reads the mapping back on
 a machine that has it.
 
-WHAT IT CANNOT DO. It cannot see a repository the credential cannot read, a
-clone outside the search roots, or anything on a machine that is not this one --
-which is most of what `plans/data-collection-pathways.md` cares about. Those are
-unknown, never absent.
+What this cannot do: see a repository the credential cannot read, a clone
+outside the search roots, or anything on a machine that is not this one. Those
+are unknown, never absent. `docs/ref/ci/registries.md` describes the roster and
+the inventory.
 """
 
 from __future__ import annotations
@@ -70,6 +58,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_ORG = "quaternionmedia"
 
 PUBLIC = "status/inventory.yaml"
+SHOWCASE = ROOT / "ci" / "showcase.yaml"
 PRIVATE = "inventory-private.json"
 LOCAL = "inventory-local.json"
 
@@ -90,7 +79,8 @@ def now() -> str:
 def host_repositories(org: str) -> list[dict] | dict:
     proc = subprocess.run(
         ["gh", "repo", "list", org, "--limit", "500", "--json",
-         "name,isPrivate,isArchived,isFork,updatedAt,createdAt,primaryLanguage,diskUsage"],
+         "name,isPrivate,isArchived,isFork,updatedAt,createdAt,primaryLanguage,diskUsage,"
+         "description"],
         capture_output=True, text=True, encoding="utf-8", errors="replace",
     )
     if proc.returncode != 0:
@@ -128,8 +118,7 @@ def decode_stream(text: str) -> list:
     `gh api graphql --paginate` emits one document per page rather than one
     array, and `--slurp` is not on every installed version. Reading only the
     first document returns one page of an organisation that has more than one,
-    and reports every repository after it as absent -- the defect this corpus
-    already recorded against a `gh api` call made without `--paginate` at all.
+    and reports every repository after it as absent.
     """
     decoder = json.JSONDecoder()
     docs, index = [], 0
@@ -146,24 +135,24 @@ def decode_stream(text: str) -> list:
 def default_branch_commits(org: str) -> dict:
     """name -> the default branch's last commit date, or an unknown.
 
-    THIS IS THE ACTIVITY FIELD, AND THE OTHER TWO CANDIDATES ARE NOT.
+    This is the activity field, and the other two candidates are not.
 
     `updatedAt` moves when anybody edits a description or a topic, and lags a
     real push -- repositories in this org carry one weeks or years behind their
     own last commit.
 
-    `pushedAt` moves on a push to ANY ref: a tag, a bot branch, a Pages deploy,
-    a sweep. Repositories here have reported it on a day their default branch
-    had not moved in years, so a classification built on it calls a dormant
-    repository active, confidently and every time.
+    `pushedAt` moves on a push to any ref: a tag, a bot branch, a Pages deploy,
+    a sweep. A repository can report it on a day its default branch has not
+    moved in years, so a classification built on it calls a dormant repository
+    active.
 
     A commit date on the branch that matters is the closest cheap answer to
     "did anyone do work here". It is still not the whole answer: it cannot see
     work on another branch, and it cannot see work that never left a disk.
     Those are the local half, below.
 
-    The measurements behind all three sentences, with the query and the date,
-    are in perspectives/2026-08-19-three-fields-and-none-of-them-is-activity.md.
+    The measurements behind these sentences, with the query and the date, are
+    in perspectives/2026-08-19-three-fields-and-none-of-them-is-activity.md.
     """
     proc = subprocess.run(
         ["gh", "api", "graphql", "--paginate",
@@ -189,6 +178,63 @@ def default_branch_commits(org: str) -> dict:
     return dates
 
 
+def _paths_in(node) -> list[str]:
+    """Every `path` a mapping anywhere under `node` names, in document order.
+
+    Read by shape rather than by section, so a detail block's picture is asked
+    about wherever in the block a person puts it.
+    """
+    if isinstance(node, dict):
+        found = [node["path"]] if isinstance(node.get("path"), str) and node["path"] else []
+        return found + [p for value in node.values() for p in _paths_in(value)]
+    if isinstance(node, list):
+        return [p for item in node for p in _paths_in(item)]
+    return []
+
+
+def showcase_paths(path: Path = SHOWCASE) -> dict[str, list[str]]:
+    """`{project: [path, ...]}`, every picture a person listed in
+    ci/showcase.yaml: a project's pictures under `projects:`, then each one its
+    detail block under `details:` names, each path once."""
+    if not path.is_file():
+        return {}
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    listed = {name: [p["path"] for p in (pictures or []) if isinstance(p, dict) and p.get("path")]
+              for name, pictures in (document.get("projects") or {}).items()}
+    for name, block in (document.get("details") or {}).items():
+        paths = listed.setdefault(name, [])
+        paths += [p for p in dict.fromkeys(_paths_in(block)) if p not in paths]
+    return listed
+
+
+def pictures_on_host(org: str, wanted: dict[str, list[str]],
+                     ref: str = "HEAD") -> dict[str, list[str] | None]:
+    """name -> the listed pictures its default branch holds, or None when the
+    branch could not be read. `ref` reads another branch or commit instead,
+    for a preview.
+
+    A picture is listed by a person and shown from the project's default
+    branch. A listed file the branch does not hold yet -- one still on a pull
+    request -- would be a broken image, so the site shows only what this found.
+    """
+    found: dict[str, list[str] | None] = {}
+    for name, paths in wanted.items():
+        proc = subprocess.run(
+            ["gh", "api", f"repos/{org}/{name}/git/trees/{ref}?recursive=1"],
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+        )
+        try:
+            tree = json.loads(proc.stdout or "") if proc.returncode == 0 else None
+        except ValueError:
+            tree = None
+        if not isinstance(tree, dict) or tree.get("truncated"):
+            found[name] = None
+            continue
+        blobs = {t.get("path") for t in tree.get("tree") or [] if t.get("type") == "blob"}
+        found[name] = [p for p in paths if p in blobs]
+    return found
+
+
 def git(clone: Path, *args: str) -> str | None:
     proc = subprocess.run(["git", "-C", str(clone), *args],
                           capture_output=True, text=True,
@@ -199,11 +245,10 @@ def git(clone: Path, *args: str) -> str | None:
 def local_signals(clone: str | None) -> dict:
     """What only a clone can answer, and an unreadable wherever it cannot.
 
-    `local_only_commits` is the signal nothing else in this corpus has: work
-    that exists on one disk and on no remote. What it found on its first run --
-    a governance standard another repository defers to, a release tag nobody
-    can fetch, and a repository every host field calls dead -- is in
-    perspectives/2026-08-19-three-fields-and-none-of-them-is-activity.md.
+    `local_only_commits` is work that exists on one disk and on no remote,
+    which no other signal in this corpus sees.
+    perspectives/2026-08-19-three-fields-and-none-of-them-is-activity.md
+    records what it finds in practice.
 
     It is `--all --not --remotes`, which is meaningless in a clone that has
     never fetched -- there every commit is "on no remote". So the
@@ -262,18 +307,14 @@ def local_only_by_ref(path: Path, total: int) -> list[dict]:
                           corpus the version tag is a human gate, so a tag
                           nobody else can fetch is a claim nobody can check.
 
-    TAGS ARE WALKED BECAUSE LEAVING THEM OUT MADE THIS FUNCTION DISAGREE WITH
-    ITS OWN TOTAL. The total is `--all --not --remotes`, and `--all` includes
-    tags; the breakdown read `refs/heads` alone. A repository reported unpushed
-    commits and listed no branch holding any of them -- they hung off a version
-    tag that was on no branch and no remote. The `unaccounted` row closes the
-    gap rather than leaving the two figures to differ quietly.
+    Tags are walked so the breakdown agrees with its own total: the total is
+    `--all --not --remotes`, and `--all` includes tags. Commits held by no
+    branch and no tag are the `unaccounted` row, so the two figures never
+    differ quietly.
 
-    Patch-id was tried as a way to tell merged work from unmerged and rejected:
-    the seed-refresh commits in this corpus are byte-identical to each other by
-    construction, so matching on patch-id reported one branch's work as already
-    landed on another's. A check that answers confidently and wrongly is worse
-    than the ambiguity it replaced.
+    Patch-id is not used to tell merged work from unmerged: commits that are
+    byte-identical by construction, such as seed refreshes, would report one
+    branch's work as already landed on another's.
     """
     rows, accounted = [], set()
 
@@ -398,19 +439,10 @@ def attention_of(entry: dict | None) -> str:
 def roster_names(path: Path) -> tuple[dict[str, dict], dict[str, dict], dict | None]:
     """(by name, by private reference, problem) -- loaded through ci/roster.py.
 
-    THIS MODULE USED TO PARSE THE ROSTER ITSELF, and `ci/roster.py` exists
-    because of what that costs. A private repository is rostered as
-    `ref: private-NN` with no `name`, so that a public file never carries the
-    name; the loader here keyed on `name` alone and therefore dropped every one
-    of them. The corpus listed repositories in its roster and then reported the
-    same repositories under "the corpus cannot see these", while propagating
-    into them.
-
-    `roster.py`'s docstring records the same breakage happening to four other
-    generators at once, which is why loading was moved there and why `name` is
-    guaranteed: the real name when the gitignored companion is present, and the
-    reference itself when it is not. A second parser in this file was the
-    defect, so it is gone rather than repaired.
+    Loading goes through `ci/roster.py`, which guarantees `name`: the real name
+    when the gitignored companion is present, and the reference itself when it
+    is not. A private repository is rostered as `ref: private-NN` with no
+    `name`, so a loader keyed on `name` alone would drop every one of them.
 
     Both indexes are returned because the two machines differ. Where the
     companion is present a private entry carries its real name and matches the
@@ -471,6 +503,11 @@ def build(org: str, roster_path: Path,
     dates = {} if isinstance(commits, dict) and "unknown" in commits else commits
     commits_problem = commits if dates is not commits else None
 
+    # Only a public repository is asked about its pictures: a private one has
+    # no page to show them on.
+    listed = showcase_paths()
+    pictures = pictures_on_host(org, {r["name"]: listed[r["name"]] for r in host
+                                      if not r.get("isPrivate") and r["name"] in listed})
     public_rows, private_names, local_rows, matched = [], {}, {}, set()
     for r in sorted(host, key=lambda x: x["name"]):
         name = r["name"]
@@ -504,6 +541,11 @@ def build(org: str, roster_path: Path,
             key = references[name]["ref"]
         else:
             row["name"] = name
+            # The host's own one-line description, for a public repository
+            # only: a private one's would publish what its name is withheld for.
+            row["description"] = (r.get("description") or "").strip() or None
+            if name in pictures:
+                row["pictures_on_default_branch"] = pictures[name]
             key = name
         public_rows.append(row)
         if clone:

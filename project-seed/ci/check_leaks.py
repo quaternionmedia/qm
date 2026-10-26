@@ -4,44 +4,31 @@
     python project-seed/ci/check_leaks.py
     python project-seed/ci/check_leaks.py --json
 
-**THE SECRET SCANNER IS NOT THIS.** An installed scanner looks for credentials
-— a token, a key, something with a shape a service can revoke. Everything below
-is the other kind of leak: an account name, a home directory, a link to a
-private conversation. None of it is a credential, none of it would be flagged,
-and all of it was found committed in this organisation's repositories on
-2026-08-23:
+A secret scanner looks for credentials: a token, a key, something with a shape
+a service can revoke. This looks for the other kind of leak, which no secret
+scanner flags: an account name in a home directory, a link to a private
+conversation or a path to a thread archive, a link to a page an assistant's
+host keeps outside every repository, a personal directory (the
+Documents or Desktop folder, an IDE's projects folder) used as a path, and a
+session's scratch space used as a path. `check_private_names.py` covers private
+repository names.
 
-  qmcp        `C:/Users/<name>/repos/qm/qmcp` in a documented MCP client config
-  dossier     `C:\\Users\\<name>\\.dossier\\dossier.db` in a committed screenshot
-  qm          a `claude.ai/share/` link, two conversation identifiers and the
-              absolute path of an archive, in a committed transcript's header
+`handbook/what-is-not-the-organisation.md` draws the line: the workstation, the
+agent driving a session and the conversation are not the organisation, and a
+committed file describes none of them. A path is the mechanical part of that
+line; the rest (an editor by name, a process seen running, what somebody said)
+is prose, and the reader is the check.
 
-**THIS IS THE ONE RULE WITH NO CHECK BEHIND IT.** The organisation states
-nowhere more firmly than about the thread archive — conversation titles, session
-identifiers and archive paths must never be published — and until this file
-nothing enforced it. `check_private_names.py` covers private *repository* names
-and nothing else.
+Findings are reported redacted, because a sweep that echoes what it found
+publishes it a second time.
 
-**TWO MORE KINDS, FOR THE SAME LINE.** `handbook/what-is-not-the-organisation.md`
-draws it: the workstation, the agent driving a session, and the conversation
-are not the organisation, and a committed file describes none of them. The
-mechanical part of that is a path. A personal directory (the Documents or
-Desktop folder, an IDE's projects folder) used as a path is one person's disk
-layout; a session's scratch space used as a path is the tool's, not the
-corpus's. Both were found committed here on 2026-09-20 — a handoff naming
-where two clones sat on one disk, a ledger entry naming a scratch script. The
-rest of that line — an editor by name, a process seen running, what somebody
-said — is prose, and the reader is the check.
-
-**FINDINGS ARE REPORTED REDACTED.** A sweep that echoes what it found has
-published it a second time, into a terminal and whatever reads that terminal.
-
-WHAT THIS CANNOT DO. Read history: a name already committed stays committed, and
-this reads the working tree. Tell a placeholder from a real name beyond the ones
-listed in `PLACEHOLDERS` — `C:\\Users\\you` is fine and `C:\\Users\\<account>` is a
-finding, and the difference is a convention rather than anything decidable. Or
-find the leak nobody thought of, which is why `--json` exists: a person reading
-the whole list is still the check.
+What this cannot do: read history (a name already committed stays committed,
+and this reads the working tree); tell a placeholder from a real name beyond
+the ones listed in `PLACEHOLDERS` (`C:\\Users\\you` is fine and
+`C:\\Users\\<account>` is a finding, by convention rather than anything
+decidable); or find the leak nobody thought of, which is why `--json` exists: a
+person reading the whole list is still the check.
+`docs/ref/ci/gates-and-checks.md` describes the patterns.
 """
 
 from __future__ import annotations
@@ -64,22 +51,26 @@ PLACEHOLDERS = {"you", "user", "username", "your-user", "someone", "me",
                 "alice", "bob", "carol", "dave", "testuser", "example"}
 
 KINDS: list[tuple[str, str, re.Pattern]] = [
-    # **NOT CASE-INSENSITIVE, AND THAT IS THE WHOLE POINT.** `/Users/` is a
-    # macOS home; `/users/` is a REST route, and `api.github.com/users/x/repos`
-    # matched until this was pinned down. A check that fires on every GitHub
-    # URL is one people turn off. The Windows form keeps a little insensitivity
-    # because the drive letter genuinely varies there.
+    # Case-sensitive: `/Users/` is a macOS home and `/users/` is a REST route,
+    # such as `api.github.com/users/x/repos`. The Windows form keeps a little
+    # insensitivity because the drive letter varies there.
     ("home-path", "a home directory names the account it belongs to",
      re.compile(r"(?:[A-Za-z]:[\\/]{1,2}[Uu]sers[\\/]{1,2}|/home/|/Users/)"
                 r"(?P<who>[A-Za-z0-9._-]+)")),
     ("shared-conversation", "a link anybody holding it can read",
      re.compile(r"(?i)\b(?:claude\.ai|chatgpt\.com|chat\.openai\.com)/share/"
                 r"(?P<who>[A-Za-z0-9-]+)")),
+    # A page an assistant's host keeps outside every repository: work
+    # delivered there is not versioned with the code and is reviewed as no diff
+    # (records/DRAFT-work-is-delivered-into-a-repository.md). The hosts listed
+    # are the ones known; a host not listed passes.
+    ("hosted-page", "work kept on an assistant's host rather than in a repository",
+     re.compile(r"(?i)\b(?:claude\.ai/(?:code/|public/)?artifacts?/|claude\.site/artifacts/|"
+                r"chatgpt\.com/canvas/shared/)(?P<who>[A-Za-z0-9-]+)")),
     # A *path* to an archive, not the archive's filename. `conversations.json`
     # names an export format, and `qmcp threads import <conversations.json>` is
-    # a command somebody has to be able to write down — it appeared nine times
-    # in the repository whose job is importing that file. Requiring a directory
-    # in front of it is what separates a format from somebody's disk.
+    # a command somebody has to be able to write down. Requiring a directory in
+    # front of it is what separates a format from somebody's disk.
     ("conversation-archive", "the path of somebody's exported conversations",
      re.compile(r"(?i)(?P<who>(?:[A-Za-z]:[\\/]|~[\\/]|\.{1,2}[\\/])"
                 r"[\w.\\/-]*(?:claude_history|chatgpt_history|"
@@ -102,8 +93,8 @@ KINDS: list[tuple[str, str, re.Pattern]] = [
                 r"\.codex[\\/]sessions)[\\/][^\s\"'`)\]]+)")),
 ]
 
-# Extensions worth reading. Binaries are skipped; an SVG is text and is exactly
-# where one of the three findings above lived.
+# Extensions worth reading. Binaries are skipped; an SVG is text, and a
+# screenshot exported as one can carry a path.
 SKIP_SUFFIX = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".zip", ".gz",
                ".whl", ".exe", ".dll", ".so", ".dylib", ".woff", ".woff2",
                ".ttf", ".mp4", ".mov", ".webm", ".wasm", ".bin", ".db",
@@ -112,13 +103,9 @@ SKIP_SUFFIX = {".png", ".jpg", ".jpeg", ".gif", ".ico", ".pdf", ".zip", ".gz",
 
 # An escape hatch with a price: the reason is required, and the count of
 # exemptions used is printed on every run, so silencing this stays visible
-# rather than becoming the way it is used. Copied in shape from `adr_lint.py`,
-# which already solved the same problem in this corpus.
-#
-# It exists because the first run flagged eight lines in the tests that prove
-# this check works — a scan firing on the fixture that demonstrates it, which is
-# the false reading `records/DRAFT-decision-record-discipline.md` names. Those
-# lines are the check working, and they still need a way to say so.
+# rather than becoming the way it is used. The same shape as `adr_lint.py`'s.
+# The tests that prove this check works carry fixtures it would flag, and those
+# lines declare themselves this way.
 ALLOW = re.compile(r"leaks:\s*allow\s+(?P<why>\S.*?)\s*(?:-->|\*/|$)")
 
 
@@ -194,8 +181,8 @@ def main(argv: list[str] | None = None) -> int:
         # The denominator, always. `clean` against four files and `clean`
         # against four hundred are the same word and not the same claim.
         print(f"clean   {len(files)} tracked file(s) carry no account name, "
-              f"home-layout or scratch path, shared-conversation link or "
-              f"archive path.")
+              f"home-layout or scratch path, shared-conversation or hosted-page "
+              f"link, or archive path.")
         print("        History is not read. What is committed stays committed.")
     else:
         by_kind: dict[str, list[dict]] = {}

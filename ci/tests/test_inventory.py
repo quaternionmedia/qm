@@ -1,9 +1,8 @@
 """Tests for the org inventory, mostly about what it must not emit.
 
-An earlier version wrote 34 private repository names and 28 absolute paths
-containing an operator's username into the working tree of a public repository.
-It was one command from being pushed. These tests exist so that cannot recur
-quietly: every one of them fails if the redaction is weakened.
+Every test here fails if the redaction is weakened: private repository names
+and absolute paths containing an operator's username must never reach a file
+that can be committed.
 
 The host is never called. Every case feeds `build`-shaped data directly, so the
 suite answers the same way on a machine with no credential.
@@ -26,6 +25,9 @@ import inventory  # noqa: E402
 from inventory import LOCAL, PRIVATE, PUBLIC, assign_references, local_clone  # noqa: E402
 
 ORG = "testorg"
+# The real reads, kept before the fixture below replaces them for every other case.
+pictures_on_host = inventory.pictures_on_host
+showcase_paths = inventory.showcase_paths
 
 
 def strings(obj) -> list[str]:
@@ -54,6 +56,14 @@ def repo(name, private=False, created="2020-01-01T00:00:00Z", **kw):
     return {"name": name, "isPrivate": private, "isFork": False, "isArchived": False,
             "createdAt": created, "updatedAt": "2026-01-01T00:00:00Z",
             "primaryLanguage": None, "diskUsage": 1, **kw}
+
+
+@pytest.fixture(autouse=True)
+def no_picture_reads(monkeypatch):
+    """`build` asks the host which listed pictures each default branch holds.
+    No case here reaches the host, so that read is replaced too."""
+    monkeypatch.setattr(inventory, "showcase_paths", lambda: {})
+    monkeypatch.setattr(inventory, "pictures_on_host", lambda org, wanted: {})
 
 
 def build_with(monkeypatch, tmp_path, repos, roster_names=(), commits=None):
@@ -239,8 +249,7 @@ def test_an_unreadable_host_is_unknown_not_empty(monkeypatch, tmp_path):
 #
 # Each test below names the mutation that makes it fail, because a test written
 # against a signal only ever observed green has been watched rather than
-# tested. The mutations were run: every assertion here went red on the change
-# it names, and the two that did not were rewritten until they did.
+# tested.
 
 
 def at(stamp: str) -> datetime:
@@ -500,3 +509,85 @@ def test_risk_and_unpushed_counts_stay_out_of_the_public_file(monkeypatch, tmp_p
     assert not contains(pub["repositories"], "pin-drift")
     assert not contains(pub["totals"], "unpushed")
     assert contains(loc["clones"], "unpushed:45"), "the local file is where it belongs"
+
+
+def test_a_public_repository_carries_its_host_description(monkeypatch, tmp_path):
+    pub, _, _ = build_with(monkeypatch, tmp_path, [repo("qm", description="  the corpus  ")])
+    row = next(r for r in pub["repositories"] if r.get("name") == "qm")
+    assert row["description"] == "the corpus"
+
+
+def test_a_private_repository_description_never_reaches_the_public_file(monkeypatch, tmp_path):
+    """A private repository's description can say what its withheld name would.
+
+    Mutation: record `description` for every row rather than the public ones
+    and this fails.
+    """
+    pub, _, _ = build_with(monkeypatch, tmp_path,
+                           [repo("client-x", private=True, description="Acme's billing portal")])
+    assert not contains(pub, "Acme's billing portal")
+    assert all("description" not in r for r in pub["repositories"] if r.get("private"))
+
+
+def test_a_listed_picture_counts_only_when_the_default_branch_holds_it(monkeypatch):
+    """A picture still on a pull request is listed and not yet shown.
+
+    Mutation: return every listed path without reading the tree and this fails.
+    """
+    tree = {"truncated": False, "tree": [{"path": "docs/a.png", "type": "blob"},
+                                         {"path": "docs", "type": "tree"}]}
+    monkeypatch.setattr(inventory.subprocess, "run", lambda cmd, **kw:
+                        subprocess.CompletedProcess(cmd, 0, json.dumps(tree), ""))
+    found = pictures_on_host(ORG, {"synth": ["docs/a.png", "docs/b.png"]})
+    assert found == {"synth": ["docs/a.png"]}
+
+
+def test_a_branch_that_cannot_be_read_is_unknown_not_empty(monkeypatch):
+    monkeypatch.setattr(inventory.subprocess, "run", lambda cmd, **kw:
+                        subprocess.CompletedProcess(cmd, 1, "", "HTTP 404"))
+    assert pictures_on_host(ORG, {"synth": ["a.png"]}) == {"synth": None}
+
+
+def test_only_a_public_repository_is_asked_about_its_pictures(monkeypatch, tmp_path):
+    asked = {}
+    monkeypatch.setattr(inventory, "showcase_paths",
+                        lambda: {"synth": ["a.png"], "client-x": ["b.png"]})
+    monkeypatch.setattr(inventory, "pictures_on_host",
+                        lambda org, wanted: asked.update(wanted) or {n: ["a.png"] for n in wanted})
+    pub, _, _ = build_with(monkeypatch, tmp_path,
+                           [repo("synth"), repo("client-x", private=True)])
+    assert set(asked) == {"synth"}
+    row = next(r for r in pub["repositories"] if r.get("name") == "synth")
+    assert row["pictures_on_default_branch"] == ["a.png"]
+    assert all("pictures_on_default_branch" not in r for r in pub["repositories"] if r.get("private"))
+
+
+def test_every_picture_a_detail_block_names_is_asked_about(tmp_path):
+    """A detail block's pictures are held back like the project's own, so the
+    inventory asks the host about each, wherever in the block it sits, and
+    about a path named twice once.
+
+    Mutation: read only `projects:` in `showcase_paths` and this fails.
+    """
+    shown = tmp_path / "showcase.yaml"
+    shown.write_text(
+        "projects:\n  synth:\n    - {path: a.png, caption: A.}\n"
+        "details:\n"
+        "  synth:\n    picture: {path: a.png, caption: A.}\n"
+        "    steps: {title: t, items: [{name: n, text: x, picture: {path: b.png, caption: B.}}]}\n"
+        "    features: [{title: t, text: x, pictures: [{path: c.png, caption: C.}]}]\n"
+        "  pedal:\n    picture: {path: d.png, caption: D.}\n", encoding="utf-8")
+    assert showcase_paths(shown) == {"synth": ["a.png", "b.png", "c.png"],
+                                              "pedal": ["d.png"]}
+
+
+def test_a_preview_reads_the_tree_at_the_ref_it_names(monkeypatch):
+    """The default branch unless a ref is named; a preview names one."""
+    asked = []
+    tree = {"truncated": False, "tree": [{"path": "a.png", "type": "blob"}]}
+    monkeypatch.setattr(inventory.subprocess, "run", lambda cmd, **kw: asked.append(cmd[2])
+                        or subprocess.CompletedProcess(cmd, 0, json.dumps(tree), ""))
+    assert pictures_on_host(ORG, {"synth": ["a.png"]}, ref="c0ffee") == {"synth": ["a.png"]}
+    assert pictures_on_host(ORG, {"synth": ["a.png"]}) == {"synth": ["a.png"]}
+    assert asked == [f"repos/{ORG}/synth/git/trees/c0ffee?recursive=1",
+                     f"repos/{ORG}/synth/git/trees/HEAD?recursive=1"]

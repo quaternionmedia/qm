@@ -6,14 +6,14 @@
 | **Date** | 2026-08-17 |
 | **Pends on** | Nothing — ready for ratification |
 | **Principle** | `decisions-are-documented` — decisions are documented or they didn't happen; `systems-over-heroics` — systems over heroics |
-| **Restated in** | `handbook/handoffs/two-views-one-dataset.md` |
+| **Restated in** | Nothing. |
 
 ## Context
 
-Two systems now hold facts about the same things. dossier tracks repositories,
+Two systems hold facts about the same things. dossier tracks repositories,
 branches, pull requests and units of work; qmcp runs those units and records
-what it ran. `docs/ref/addresses.md` gives both one way to name a row, so for
-the first time they can be asked the same question and give different answers.
+what it ran. `docs/ref/addresses.md` gives both one way to name a row, so they
+can be asked the same question and give different answers.
 
 They will. A branch row synced an hour ago against a ref that moved since; a
 delta dossier calls `review` that qmcp has no invocation for; a pull request
@@ -68,10 +68,8 @@ point: it is scheduled, prioritised and closed like anything else, instead of
 being handled inside whichever renderer noticed it first.
 
 **Two dashboards can be built before anyone decides who is right**, because the
-question is no longer blocking. `handbook/handoffs/two-views-one-dataset.md`
-named it as the decision that had to precede the milestone; this record is that
-decision, and it removes the precedence rather than answering the question in
-the form it was asked.
+question is no longer blocking: this record removes the precedence rather than
+answering the question in the form it is asked.
 
 **The queue can fill with noise if detection is careless.** A field that
 legitimately differs between two systems — a timestamp of when each observed

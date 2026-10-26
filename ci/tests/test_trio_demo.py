@@ -1,21 +1,13 @@
 """The trio demo, executed.
 
-`protocols/local-demo.md` rule 2: a test runs the demo. **Not a test of the same
-behaviour -- a test that executes the demo itself.** A demo the suite does not
-touch rots quietly, and the failure that rule exists against is a demo described
-in a handoff that nobody could replay.
+`protocols/local-demo.md` rule 2: a test runs the demo. These tests execute the
+demo itself, not a second implementation of its behaviour, and run it through
+`qm demo`, the documented route, rather than by file path.
 
-**AND IT IS RUN THE WAY IT IS DOCUMENTED**, through `qm demo` rather than by
-file path. A test that invoked the path would prove the path works and say
-nothing about the route everybody is told to use -- which is the half that
-breaks, because the route is the part with a table entry to forget.
-
-**MOST OF THIS SUITE CANNOT RUN IN CI, AND SAYS SO.** The demo needs `qmcp` and
-`dossier` beside this clone with their environments built. A hosted runner has
-this repository and nothing else, so the tests that need siblings skip there with
-a reason, and the ones that can always run -- that the module imports, that its
-pieces are honest about a missing sibling -- run everywhere. A skip carrying a
-reason is a different artefact from a test that quietly passed.
+The demo needs `qmcp` and `dossier` beside this clone with their environments
+built. A hosted runner has this repository alone, so the tests that need
+siblings skip there with a reason; the ones that need nothing else (the module
+imports, its pieces report a missing sibling) run everywhere.
 """
 
 from __future__ import annotations
@@ -34,7 +26,7 @@ DEMO = ROOT / "ci" / "trio_demo.py"
 def _module():
     """The demo, loaded from its path.
 
-    **REGISTERED IN `sys.modules` BEFORE EXECUTION.** `@dataclass` resolves
+    Registered in `sys.modules` before execution: `@dataclass` resolves
     annotations through `sys.modules[cls.__module__]`, so a module built by
     `module_from_spec` and never registered raises on its first dataclass --
     an error about `NoneType` that says nothing about the cause.
@@ -60,8 +52,7 @@ needs_siblings = pytest.mark.skipif(
 
 
 def test_the_demo_is_a_file_in_the_repository():
-    """Rule 1. The failure this exists against: a demo typed into a session and
-    pasted into a handoff, which nobody else could run."""
+    """Rule 1: the demo is a file in the repository that anybody can run."""
     assert DEMO.is_file()
 
 
@@ -71,8 +62,8 @@ def test_the_demo_imports():
 
 
 def test_a_missing_sibling_is_reported_rather_than_skipped_silently():
-    """A trio demo that ran with one side missing and printed a summary would
-    be a green result measuring less than the reader thinks.
+    """With a needed sibling missing, the demo exits 1 rather than printing a
+    summary of fewer sides.
 
     Mutation: return 0 when a needed sibling is absent and this fails.
 
@@ -83,9 +74,8 @@ def test_a_missing_sibling_is_reported_rather_than_skipped_silently():
     module = _module()
     module.SIBLINGS = Path("/nowhere-that-exists")
     # `QM_SIBLINGS` in the operator's shell would replace SIBLINGS and make
-    # this test find the real repositories -- which is what happened the day
-    # the override was added, from a session that had exported it to run the
-    # demo out of a worktree. The test is about the resolver, not the shell.
+    # this test find the real repositories. The test is about the resolver,
+    # not the shell.
     import os
     saved = os.environ.pop("QM_SIBLINGS", None)
     try:
@@ -96,11 +86,8 @@ def test_a_missing_sibling_is_reported_rather_than_skipped_silently():
 
 
 def test_the_windows_read_the_rendering_rather_than_the_payload():
-    """**THE GUARD ON THE DEMO'S OWN HONESTY.**
-
-    Both window scripts once counted `weight is None` in the document they had
-    just been handed. They agreed perfectly and tested nothing -- two readers of
-    one field always agree. Each window must report what *it drew*.
+    """Each window reports what it drew, not what the document says: two
+    readers of one field always agree.
 
     Mutation: count the payload's arrows in either window script and this fails.
     """
@@ -115,24 +102,17 @@ def test_the_windows_read_the_rendering_rather_than_the_payload():
 
 
 def test_each_window_runs_under_its_own_interpreter():
-    """`sys.executable` ran every window in the demo's own environment, and the
-    harness reported that it could not emit a topology -- a true sentence about
-    the wrong process.
+    """No window runs under the demo's own interpreter.
 
-    **ASSERTS THE CALL, NOT THE WORD.** The first version counted occurrences of
-    `sys.executable` in the file and failed on the docstring that forbids it --
-    a text scan matching the prose that bans the thing, which is one of the
-    false readings `records/DRAFT-decision-record-discipline.md` §7 lists by
-    name.
+    Asserts the call, not the word, so the prose that names `sys.executable`
+    does not match: a text scan matching its own prohibition is one of the
+    false readings `records/DRAFT-decision-record-discipline.md` §7 names.
     """
     source = DEMO.read_text(encoding="utf-8")
     assert "subprocess.run([sys.executable" not in source, (
         "a window is being run with the demo's own interpreter")
-    # **EVERY subprocess, not a fixed count of them.** The first version
-    # asserted exactly two call sites, which failed the day a third kind of
-    # process -- a reader -- was added, while saying nothing about whether
-    # that third one used the right interpreter. The invariant is that no
-    # subprocess is started with anything but its own project's interpreter.
+    # Every subprocess, not a fixed count of them: no subprocess is started
+    # with anything but its own project's interpreter.
     started = source.count("subprocess.run(")
     with_own = (source.count("subprocess.run(\n        [interpreter(project)")
                 + source.count("subprocess.run([interpreter(project)"))
@@ -147,11 +127,9 @@ def test_each_window_runs_under_its_own_interpreter():
 
 # One run per distinct argument set, for the whole module.
 #
-# **MEMOISED, NOT MERGED.** Ten invocations here spawn the demo, and several ask
-# for exactly the same thing: three tests run `qm demo` with no options and
-# assert three different properties of the same output. Merging them into one
-# test would buy the same seconds and cost the failure message -- "the demo is
-# wrong" instead of "the demo stopped saying what it did not establish".
+# Memoised, not merged: several tests run the demo with the same arguments and
+# assert different properties of one output, and keeping them apart keeps each
+# failure message specific.
 #
 # The demo reads and never writes, and its answer is a function of its arguments
 # and the harness's state, so a second identical run can only produce a second
@@ -170,7 +148,7 @@ def _via_cli(*options: str):
 
 @needs_siblings
 def test_the_demo_runs_and_the_windows_agree():
-    """THE ONE THAT MATTERS. The demo exits 0 only when every window that drew
+    """The demo exits 0 only when every window that drew
     the topology agrees about every box, every arrow, and which edges nobody
     measured."""
     done = _via_cli()
@@ -232,11 +210,8 @@ def test_an_unknown_window_is_refused_rather_than_ignored():
 
 @needs_siblings
 def test_one_window_refuses_to_call_itself_agreement():
-    """**THE OPTION THAT COULD HAVE WEAKENED THE CHECK.**
-
-    `--window` narrows what draws, and the obvious implementation lets a single
-    window run and report success -- one window agreeing with itself. The demo
-    exits 1 instead, and says why.
+    """`--window` narrows what draws, and one window drawing alone is one
+    window agreeing with itself: the demo exits 1 and says why.
 
     Mutation: return 0 when fewer than two windows drew and this fails.
     """
@@ -299,12 +274,8 @@ def _reachable(url: str) -> bool:
 
 
 def test_both_modes_share_one_comparison():
-    """**THE STRUCTURAL ONE.**
-
-    The subprocess mode and the HTTP mode must not each own a copy of the
-    agreement check. Two copies drift, and the one that drifts lenient is the
-    one nobody notices -- a demo that passes because its second implementation
-    forgot the unmeasured comparison is worse than no demo.
+    """The subprocess mode and the HTTP mode share one agreement check, so
+    neither copy can drift lenient.
 
     Mutation: give the HTTP mode its own comparison and this fails.
     """
@@ -331,11 +302,9 @@ def test_over_http_refuses_when_the_harness_is_not_answering(monkeypatch):
 
 
 def test_the_http_window_asks_the_server_rather_than_importing_the_renderer():
-    """**THE POINT OF THE MODE.**
-
-    Importing codecarto's renderer here would test the same code the subprocess
-    mode already covers and leave the route -- the part that was missing for
-    days -- unexercised. The answer must come off the wire.
+    """The HTTP window's answer comes off the wire, so the route is exercised;
+    importing codecarto's renderer would test only what the subprocess mode
+    already covers.
 
     Mutation: import the renderer in `_web_window` and this fails.
     """
@@ -351,8 +320,7 @@ def test_the_http_window_asks_the_server_rather_than_importing_the_renderer():
 @pytest.mark.skipif(not _reachable("http://127.0.0.1:3141/health"),
                     reason="the harness is not running on 3141")
 def test_the_harness_serves_a_topology_over_http():
-    """The gap this closed: the harness had no topology route at all, so
-    neither front end could fetch one and only a subprocess could draw."""
+    """The harness serves a topology route that a front end can fetch."""
     module = _module()
     document, why = module._harness_document("codecartographer")
     assert document is not None, why
@@ -364,8 +332,8 @@ def test_the_harness_serves_a_topology_over_http():
          and _reachable("http://127.0.0.1:2718/topology/data")),
     reason="the trio is not up; `uv run qm dashboard --start harness --start web`")
 def test_the_deployed_front_ends_agree():
-    """THE DEMO, AS DEPLOYED. Every answer here comes from a process somebody
-    could have opened in a browser."""
+    """The demo as deployed: every answer comes from a process somebody could
+    open in a browser."""
     done = _via_cli("--over-http")
     assert done.returncode == 0, done.stdout[-2500:]
     assert "windows agree about every box" in done.stdout
@@ -373,21 +341,14 @@ def test_the_deployed_front_ends_agree():
 
 # --- the figure both windows print ------------------------------------------
 #
-# The side-by-side put `17%` in one column and `w=1.42` in the other for the
-# same edge. Both were right: the second is a line thickness derived from the
-# first. Neither was comparable, and the demo exists to invite exactly that
-# comparison -- its premise is that a figure differing between windows is a
-# defect rather than a point of view.
+# Both windows print an edge's measurement in one unit, so a figure that
+# differs between them is a defect rather than a point of view.
 #
-# **`uv run qm mutate ci/trio_demo.py` CANNOT MEASURE THIS FILE, AND THE REASON
-# IS NOT THAT IT IS UNTESTED.** The mutator copies the module to a temporary
-# directory and runs the suite against the copy; `sibling()` resolves the other
-# repositories relative to the module's own path, so from a temp directory the
-# demo reports that qmcp and dossier are not beside this clone and the baseline
-# is red before a single operator is applied. A mutation run against a red
-# baseline establishes nothing in either direction. The mutations named below
-# were therefore applied by hand, watched go red, and restored -- which is what
-# charter `a-check-is-evidence-after-it-fails` asks for; the tool is the convenience, not the rule.
+# `uv run qm mutate ci/trio_demo.py` cannot measure this file: the mutator runs
+# the suite against a copy in a temporary directory, `sibling()` resolves the
+# other repositories relative to the module's own path, and from there the
+# baseline is red before any operator is applied. The mutations named below
+# are applied by hand, per charter `a-check-is-evidence-after-it-fails`.
 
 
 def test_a_measured_edge_prints_the_same_figure_the_other_window_prints():
@@ -397,9 +358,7 @@ def test_a_measured_edge_prints_the_same_figure_the_other_window_prints():
 
 
 def test_an_unmeasured_edge_says_so_rather_than_borrowing_a_figure():
-    """THE ONE THAT MATTERS.
-
-    `None` is not zero. Rounding it into `0%` would render the one distinction
+    """`None` is not zero. Rounding it into `0%` would render the one distinction
     the harness takes care to send as though somebody had looked and found
     nothing.
 
@@ -417,10 +376,9 @@ def test_a_measured_zero_is_a_figure_and_not_unmeasured():
 
 
 def test_both_window_scripts_print_the_figure():
-    """**THE TWO PATHS MUST NOT DRIFT.** One window is rendered over HTTP and
-    one in the sibling's own interpreter; the demo shares its comparison
-    between the modes so neither can drift lenient, and the rendering has to be
-    held to the same rule.
+    """One window is rendered over HTTP and one in the sibling's own
+    interpreter, and both print the same figure, as the two modes share one
+    comparison.
 
     Mutation: add the figure to one script and not the other and this fails.
     """
@@ -438,8 +396,8 @@ def test_both_window_scripts_print_the_figure():
 
 
 def test_readers_are_a_separate_registry_from_windows():
-    """A reader reads a thread; a window draws a topology. Putting looksatwords
-    in WINDOWS would have made the demo ask it to agree about boxes."""
+    """A reader reads a thread; a window draws a topology. looksatwords is a
+    reader, so the demo never asks it to agree about boxes."""
     module = _module()
     assert set(module.READERS) == {"looksatwords", "dossier", "codecartographer"}
     assert "looksatwords" not in module.WINDOWS
@@ -458,8 +416,7 @@ def test_the_stated_thread_fixture_exercises_the_prose_distinction():
 def test_looksatwords_is_held_to_the_border_not_to_a_picture():
     """The reader script reports the seam's counts from the project's own
     conversion. The border and count checks themselves are tested as
-    behaviour below, in `test_the_seam_comparison_catches_...` -- a string
-    assertion here passed a mutation that emptied the check."""
+    behaviour below, in `test_the_seam_comparison_catches_...`."""
     module = _module()
     assert "turns_with_text" in module.LOOKSATWORDS, (
         "the looksatwords reader must report the seam's second count")
@@ -470,9 +427,8 @@ def test_looksatwords_is_held_to_the_border_not_to_a_picture():
 
 def test_the_sibling_roots_override_replaces_rather_than_extends(
         tmp_path, monkeypatch):
-    """A worktree is beside nothing. `QM_SIBLINGS` replaces the convention --
-    two sources of truth for which repositories a demo may read is how an
-    allowlist stops being one."""
+    """A worktree is beside nothing. `QM_SIBLINGS` replaces the convention, so
+    the repositories a demo may read have one source."""
     module = _module()
     (tmp_path / "only" / "pyproject.toml").parent.mkdir()
     (tmp_path / "only" / "pyproject.toml").write_text("[project]\n",
@@ -487,7 +443,7 @@ def test_the_sibling_roots_override_replaces_rather_than_extends(
 
 @needs_siblings
 def test_the_second_act_runs_and_the_readers_report_the_seams_counts():
-    """THE ONE THAT MATTERS for the second act. looksatwords must report the
+    """In the second act, looksatwords must report the
     harness's own turn counts and emit no decision."""
     done = _via_cli("--fixture")
     assert done.returncode == 0, done.stdout[-3000:]
@@ -528,11 +484,9 @@ def test_the_json_carries_the_readers_and_the_same_verdict():
 
 
 def test_the_seam_comparison_catches_an_overcount_and_an_authored_decision():
-    """**BEHAVIOUR, NOT A STRING.** The first version of the border test
-    asserted that the phrase "never authors a decision" appeared in the
-    source, and a mutation that emptied the check while keeping the message
-    passed it. This feeds the comparison a reader that over-counts by one and
-    a reader that emitted a `settled` key, and expects both named.
+    """Behaviour, not a string: this feeds the comparison a reader that
+    over-counts by one and a reader that emitted a `settled` key, and expects
+    both named.
 
     Mutations: drop the count comparison, or the `authored` check, and this
     fails.
@@ -573,8 +527,8 @@ def test_a_derive_target_need_not_be_a_python_project(tmp_path, monkeypatch):
 
 @needs_siblings
 def test_a_failing_second_act_clears_the_verdict_in_the_json():
-    """One document, one answer. `agreed` was left true by the first act when
-    the second failed, until a mutation showed the JSON carrying both."""
+    """One document, one answer: a failing second act clears the `agreed` the
+    first act set."""
     module = _module()
     import inspect
 
@@ -587,7 +541,7 @@ def test_a_failing_second_act_clears_the_verdict_in_the_json():
 
 @needs_siblings
 def test_the_estate_act_runs_and_two_hosts_agree():
-    """The finale: the corpus's own statement of the estate, read from the
+    """The corpus's own statement of the estate, read from the
     seam by two core members in their own runtimes, held to the window
     standard -- one host agreeing with itself establishes nothing.
 
@@ -617,7 +571,7 @@ def test_the_estate_act_reports_in_json_with_the_same_verdict():
 @needs_siblings
 def test_skipping_the_estate_is_stated_in_the_output():
     """A skip that left no trace would read as a demo that covered less than
-    it claimed -- the same rule the reader act already follows."""
+    it claims; the reader act follows the same rule."""
     done = _via_cli("--fixture", "--skip-readers", "--skip-estate")
     assert done.returncode == 0, done.stdout[-2000:]
     assert "third act was skipped" in done.stdout

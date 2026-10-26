@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-28T21:21:17Z",
+  "generated_at": "2026-10-26T00:32:54Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -21,15 +21,15 @@
     "sources": {
       "harness": {
         "document": "status/harness.yaml",
-        "generated_at": "2026-09-20T17:17:01Z"
+        "generated_at": "2026-10-24T15:38:50Z"
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-09-28T21:21:16Z"
+        "generated_at": "2026-10-26T00:32:52Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-09-28T05:15:29Z"
+        "generated_at": "2026-10-25T01:05:55Z"
       }
     }
   },
@@ -44,15 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 134,
+    "loose_ends": 280,
     "by_kind": {
-      "blind-spot": 19,
-      "document-proposed": 36,
-      "document-unreviewed": 61,
-      "over-slot": 2,
-      "stalled-thread": 16
+      "blind-spot": 20,
+      "document-proposed": 39,
+      "document-unreviewed": 83,
+      "stalled-thread": 138
     },
-    "open": 134,
+    "open": 280,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -117,7 +116,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-leak-check",
       "title": "leak-check cannot see",
-      "detail": "Everything on that line that is not a path or a link: an editor named in prose, a process somebody saw running, a tool narrating its own session, a person's words quoted into a constraint. A pattern for those would fire on every page that legitimately discusses editors or quotes a record, so the reader is the check, at the runbook's Step 3. Nor can it read history -- a path already pushed stays pushed -- or tell a placeholder from a real account beyond the ones it lists.",
+      "detail": "Everything on that line that is not a path or a link: an editor named in prose, a process somebody saw running, a tool narrating its own session, a person's words quoted into a constraint. A pattern for those would fire on every page that legitimately discusses editors or quotes a record, so the reader is the check, at the runbook's Step 3. Nor can it read history -- a path already pushed stays pushed -- or tell a placeholder from a real account beyond the ones it lists. Of a hosted page it sees only a link a file carries: a page never linked, a link in a pull request body, and a host its pattern does not list all pass.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-leak-check",
       "address_parses": true
     },
@@ -127,14 +126,6 @@
       "title": "namespace-guard cannot see",
       "detail": "A branch cut from the wrong parent whose direction is nonetheless legal. `check_pr_base.py` reports the inheritance; nothing fails on it.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-namespace-guard",
-      "address_parses": true
-    },
-    {
-      "kind": "blind-spot",
-      "address": "quaternionmedia/qm/doc/gate-one-pr-slot",
-      "title": "one-pr-slot cannot see",
-      "detail": "Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.",
-      "key": "blind-spot:quaternionmedia/qm/doc/gate-one-pr-slot",
       "address_parses": true
     },
     {
@@ -187,6 +178,14 @@
     },
     {
       "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-stacked-drafts",
+      "title": "stacked-drafts cannot see",
+      "detail": "Whether a pull request is one change. A branch cut from another pull request's branch but opened against the target, carrying its parent's commits. A pull request closed in favour of one that contains it -- closed pull requests are not read.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-stacked-drafts",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-symlink-integrity",
       "title": "symlink-integrity cannot see",
       "detail": "A rule missing from one of the two genuinely different AGENTS.md files. They are not symlinked to each other, so this check cannot notice them disagreeing.",
@@ -207,6 +206,14 @@
       "title": "tag-determinism cannot see",
       "detail": "Whether the suite is deterministic. It refuses a run that announces nondeterminism; one that is nondeterministic and silent about it passes. It also says nothing about coverage: a suite asserting little passes as readily as one asserting much.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-tag-determinism",
+      "address_parses": true
+    },
+    {
+      "kind": "blind-spot",
+      "address": "quaternionmedia/qm/doc/gate-timeless-check",
+      "title": "timeless-check cannot see",
+      "detail": "A story told in neutral words, and a present-tense sentence that is no longer true; those are the reviewer's. Text already on the base, which `--all` reports and a sweep removes. Capitals in title case or spaced out, a phrase broken so that no line holds three of its words, and file types it does not read.",
+      "key": "blind-spot:quaternionmedia/qm/doc/gate-timeless-check",
       "address_parses": true
     },
     {
@@ -263,6 +270,14 @@
       "title": "records/DRAFT-a-route-is-an-address.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-route-is-an-address",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-semantic-index-is-a-recorded-document",
+      "title": "records/DRAFT-a-semantic-index-is-a-recorded-document.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-semantic-index-is-a-recorded-document",
       "address_parses": true
     },
     {
@@ -343,6 +358,14 @@
       "title": "records/DRAFT-deltas-compose.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-deltas-compose",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-durable-text-states-what-is-true",
+      "title": "records/DRAFT-durable-text-states-what-is-true.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-durable-text-states-what-is-true",
       "address_parses": true
     },
     {
@@ -498,6 +521,14 @@
       "address_parses": true
     },
     {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-work-is-delivered-into-a-repository",
+      "title": "records/DRAFT-work-is-delivered-into-a-repository.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-work-is-delivered-into-a-repository",
+      "address_parses": true
+    },
+    {
       "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-2026-07-05-on-human-only-contributorship",
       "title": "perspectives/2026-07-05-on-human-only-contributorship.md",
@@ -567,6 +598,14 @@
       "title": "perspectives/2026-08-09-explanation-in-the-wrong-place.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-09-explanation-in-the-wrong-place",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-09-integrating-rad-into-a-web-host",
+      "title": "perspectives/2026-08-09-integrating-rad-into-a-web-host.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-09-integrating-rad-into-a-web-host",
       "address_parses": true
     },
     {
@@ -803,6 +842,14 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-22-found-while-putting-the-topology-on-the-canvas",
+      "title": "perspectives/2026-08-22-found-while-putting-the-topology-on-the-canvas.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-22-found-while-putting-the-topology-on-the-canvas",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-2026-08-22-what-it-cost-to-get-one-panel-right",
       "title": "perspectives/2026-08-22-what-it-cost-to-get-one-panel-right.md",
       "detail": "written, and no maintainer has looked at it",
@@ -859,10 +906,26 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-08-30-a-guard-that-reads-prose",
+      "title": "perspectives/2026-08-30-a-guard-that-reads-prose.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-08-30-a-guard-that-reads-prose",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-consolidation-cycle",
       "title": "perspectives/2026-09-20-the-consolidation-cycle.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-consolidation-cycle",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-09-20-the-estate-surveyed-by-many-hands",
+      "title": "perspectives/2026-09-20-the-estate-surveyed-by-many-hands.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-20-the-estate-surveyed-by-many-hands",
       "address_parses": true
     },
     {
@@ -911,6 +974,150 @@
       "title": "perspectives/2026-09-28-the-voice-loop-meets-the-field.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-28-the-voice-loop-meets-the-field",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-joe-and-vox-remembered",
+      "title": "perspectives/2026-10-10-what-joe-and-vox-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-joe-and-vox-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-pages-remembered",
+      "title": "perspectives/2026-10-10-what-the-corpus-pages-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-pages-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-tooling-remembered",
+      "title": "perspectives/2026-10-10-what-the-corpus-tooling-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-corpus-tooling-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-rest-of-qmcp-remembered",
+      "title": "perspectives/2026-10-10-what-the-rest-of-qmcp-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-rest-of-qmcp-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-topology-docstrings-remembered",
+      "title": "perspectives/2026-10-10-what-the-topology-docstrings-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-topology-docstrings-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-11-what-was-left-on-the-disk",
+      "title": "perspectives/2026-10-11-what-was-left-on-the-disk.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-11-what-was-left-on-the-disk",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-12-what-the-push-found",
+      "title": "perspectives/2026-10-12-what-the-push-found.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-12-what-the-push-found",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-package-remembered",
+      "title": "perspectives/2026-10-13-what-apothecarys-package-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-package-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-page-and-tests-remembered",
+      "title": "perspectives/2026-10-13-what-apothecarys-page-and-tests-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-page-and-tests-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-pages-remembered",
+      "title": "perspectives/2026-10-13-what-apothecarys-pages-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-pages-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-pictures-packages-remembered",
+      "title": "perspectives/2026-10-13-what-apothecarys-pictures-packages-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-pictures-packages-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-walkthrough-remembered",
+      "title": "perspectives/2026-10-13-what-apothecarys-walkthrough-remembered.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-13-what-apothecarys-walkthrough-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-15-the-voice-set-landing",
+      "title": "perspectives/2026-10-15-the-voice-set-landing.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-15-the-voice-set-landing",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-18-clearing-the-qm-queue",
+      "title": "perspectives/2026-10-18-clearing-the-qm-queue.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-18-clearing-the-qm-queue",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-19-a-rename-closed-a-pull-request",
+      "title": "perspectives/2026-10-19-a-rename-closed-a-pull-request.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-19-a-rename-closed-a-pull-request",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-24-the-corpus-read-whole-and-landed",
+      "title": "perspectives/2026-10-24-the-corpus-read-whole-and-landed.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-24-the-corpus-read-whole-and-landed",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-the-label-was-not-the-content",
+      "title": "perspectives/2026-10-25-the-label-was-not-the-content.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-the-label-was-not-the-content",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-what-whisper-heard",
+      "title": "perspectives/2026-10-25-what-whisper-heard.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-what-whisper-heard",
       "address_parses": true
     },
     {
@@ -986,71 +1193,469 @@
       "address_parses": true
     },
     {
-      "kind": "over-slot",
-      "address": "quaternionmedia/ShowRunner",
-      "title": "quaternionmedia/ShowRunner has a ready pull request stacked on another",
-      "detail": "subcontrabass's #12, #16 is ready but stacked on another pull request's branch; it stays a draft until that one merges",
-      "key": "over-slot:quaternionmedia/ShowRunner",
-      "address_parses": true
-    },
-    {
-      "kind": "over-slot",
-      "address": "quaternionmedia/moat",
-      "title": "quaternionmedia/moat has a ready pull request stacked on another",
-      "detail": "mrharpo's #3, #4 is ready but stacked on another pull request's branch; it stays a draft until that one merges",
-      "key": "over-slot:quaternionmedia/moat",
-      "address_parses": true
-    },
-    {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/QLab-python/pr/2",
-      "title": "\ud83c\udfad Theatremix",
-      "detail": "open on main at stage draft, idle 3,897 hours",
-      "author": "mrharpo",
-      "key": "stalled-thread:quaternionmedia/QLab-python/pr/2",
-      "address_parses": true
-    },
-    {
-      "kind": "stalled-thread",
-      "address": "quaternionmedia/ShowRunner/pr/12",
-      "title": "feat: ShowProgrammer \u2014 meta intro video pipeline, live clock, async dispatch",
-      "detail": "open on main at stage ready, idle 3,710 hours",
+      "address": "quaternionmedia/Cuelist-python/pr/1",
+      "title": "Make the package installable, and parse the upload in memory",
+      "detail": "open on main at stage ready, idle 808 hours",
       "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/12",
+      "key": "stalled-thread:quaternionmedia/Cuelist-python/pr/1",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/ShowRunner/pr/15",
-      "title": "\ud83d\udec2 Migration",
-      "detail": "open on main at stage ready, idle 3,594 hours",
-      "author": "mrharpo",
-      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/15",
-      "address_parses": true
-    },
-    {
-      "kind": "stalled-thread",
-      "address": "quaternionmedia/ShowRunner/pr/16",
-      "title": "feat(tests): NiceGUI page-level UI tests + Playwright E2E scaffolding",
-      "detail": "open on feat/meta-intro-video at stage ready, idle 3,530 hours",
+      "address": "quaternionmedia/ShowRunner/pr/30",
+      "title": "Integrate the programmer page, the UI test layer and ShowMidi over ShowLogger",
+      "detail": "open on main at stage draft, idle 274 hours",
       "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/16",
+      "key": "stalled-thread:quaternionmedia/ShowRunner/pr/30",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ShowStopper/pr/1",
+      "title": "\ud83e\uddea Tests",
+      "detail": "open on main at stage ready, idle 363 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/ShowStopper/pr/1",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ShowStopper/pr/2",
+      "title": "\ud83c\udfad Family demo contract",
+      "detail": "open on tests at stage draft, idle 317 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/ShowStopper/pr/2",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/ShowStopper/pr/3",
+      "title": "\ud83d\udd70\ufe0f Family control: one show clock the hub drives",
+      "detail": "open on feat/family-demo-contract at stage draft, idle 287 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/ShowStopper/pr/3",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
       "address": "quaternionmedia/alfred/pr/113",
       "title": "Config",
-      "detail": "open on main at stage ready, idle 23,874 hours",
+      "detail": "open on main at stage ready, idle 24,689 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/alfred/pr/113",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/117",
+      "title": "Alfred adopts the QM constitution, with a report-only license report",
+      "detail": "open on main at stage ready, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/117",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/118",
+      "title": "The Cypress suite is replaced by a Playwright suite whose tests can fail",
+      "detail": "open on stack/01-adopt-governance at stage draft, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/118",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/119",
+      "title": "The Python suite runs, and covers config validity, input, output and the render pipeline",
+      "detail": "open on stack/02-playwright at stage draft, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/119",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/120",
+      "title": "The dev loop builds, the DB layer reuses its clients and seeds, and the version is 0.3.0",
+      "detail": "open on stack/03-core-tests at stage draft, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/120",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/121",
+      "title": "The website container has its own dependencies, review findings are closed, and a development auth bypass exists",
+      "detail": "open on stack/04-dev-loop-and-release at stage draft, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/121",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/122",
+      "title": "The timeline editor has its data, fonts and endpoints, and the API image installs from the lockfile",
+      "detail": "open on stack/05-review-and-auth at stage draft, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/122",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/123",
+      "title": "The timeline is the way in, the flow has four stages, a render produces a video, and governance is current",
+      "detail": "open on stack/06-timeline-editor at stage draft, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/123",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/124",
+      "title": "One stage flow replaces the duplicate UIs, the quality gates check again, and the editor's controls work",
+      "detail": "open on stack/07-flow-and-render at stage draft, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/124",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/alfred/pr/125",
+      "title": "A thin dev stack runs everything but the renderer",
+      "detail": "open on stack/08-stage-flow at stage draft, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/alfred/pr/125",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/21",
+      "title": "Consolidate every unmerged line: the printer seam on the bench, the ring, one screen, the camera, personal data on the device, the bench drawn as it is",
+      "detail": "open on main at stage ready, idle 687 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/21",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/24",
+      "title": "Parts, the photo gatherer, the CLI and the test helpers each hold one copy of what they do",
+      "detail": "open on consolidate/2026-09-19 at stage draft, idle 317 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/24",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/25",
+      "title": "The viewer and the API serve nothing that nothing calls, and the page escapes what it writes",
+      "detail": "open on stack/01-review-ws-12 at stage draft, idle 317 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/25",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/26",
+      "title": "A part declares its OpenSCAD, its parameter names and its geometry through small seams, and the test workflow runs on every pull request",
+      "detail": "open on stack/02-review-ws-18 at stage draft, idle 317 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/26",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/27",
+      "title": "A picture is pinned in the world, a made piece is a part, and the browser suite runs in three shards",
+      "detail": "open on stack/03-review-ws-15-and-parts-seams at stage draft, idle 317 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/27",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/28",
+      "title": "OpenSCAD snapshots install natively and renders prefer them, with the gridfinity bin declared as the standard draws it",
+      "detail": "open on stack/04-pictures-in-the-world at stage draft, idle 317 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/28",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/29",
+      "title": "One page holds the world, one rail and one Machine per board",
+      "detail": "open on stack/05-openscad-installers at stage draft, idle 317 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/29",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/30",
+      "title": "Cameras are parts and the screen carries less, with the plans for Rust, the loops through the page and the cleanup triage",
+      "detail": "open on stack/06-one-page at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/30",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/31",
+      "title": "A spike chooses which Rust kernel to try first, a comparison by numbers waits for one, and two Rust crates exist as stubs",
+      "detail": "open on review/2026-09-26 at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/31",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/32",
+      "title": "Firmware toolchains are modules, and the classic ESP32 can be programmed in Rust from the Bench and its Machine",
+      "detail": "open on build/rust-research at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/32",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/33",
+      "title": "A part is designed in the page: Apply renders variants into a cache, OpenSCAD's errors show by line, and the part's ring holds the loop",
+      "detail": "open on build/rust-firmware at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/33",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/34",
+      "title": "A picture becomes a print without leaving the page: Make names the next step, a piece's ring prints it, and the loop is held twice round",
+      "detail": "open on build/part-loop at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/34",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/35",
+      "title": "OrcaSlicer slices a part or a made piece for printer_1 from the page, its settings traced to the part and the bench, and Print follows Slice",
+      "detail": "open on build/picture-to-print at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/35",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/36",
+      "title": "A part's SCAD is edited in the page, checked as typing stops, rendered into the cache and saved as a variant in git without touching the checkout",
+      "detail": "open on build/slicer at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/36",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/37",
+      "title": "A newcomer starts at Getting started and tries every loop with serve --demo, the docs say what the code does, and the pictures hold still",
+      "detail": "open on build/scad-loop at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/37",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/38",
+      "title": "A part's parameters and its SCAD text are one draft, with real controls, kept work, variants managed and compared, and errors drawn as failures",
+      "detail": "open on build/onboarding at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/38",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/39",
+      "title": "The right button is the camera's, Ctrl + right-click opens the ring, fractal zoom has keys and settings, and the page's inputs hold together",
+      "detail": "open on build/part-iteration at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/39",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/40",
+      "title": "The top-level and reference pages say what the code does",
+      "detail": "open on build/timeless-docs at stage draft, idle 245 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/40",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/41",
+      "title": "The network guard goes on where the personal-data record says, no file names the board's serial, CI checks leaks and stacked drafts, and the bench checklist is current",
+      "detail": "open on build/input at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/41",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/42",
+      "title": "The front door is one path, and the reference pages state what is true without their history",
+      "detail": "open on timeless/docs-1-contradictions at stage draft, idle 245 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/42",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/43",
+      "title": "Finished plans retire to a dated History, and what is still true of them is stated where it lives",
+      "detail": "open on timeless/docs-2-front-door at stage draft, idle 245 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/43",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/44",
+      "title": "The package's docstrings, --help texts and API descriptions say what the code does",
+      "detail": "open on build/timeless-docs at stage draft, idle 244 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/44",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/45",
+      "title": "OpenSCAD, pictures, configuration and the census each have one reference page, and the pages that repeated them point there",
+      "detail": "open on timeless/docs-3-plans-retire at stage draft, idle 245 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/45",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/46",
+      "title": "The package's docstrings and comments state what is true, without the history (all but the pictures packages)",
+      "detail": "open on timeless/package-1-contradictions at stage draft, idle 244 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/46",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/47",
+      "title": "The pictures packages state their rules as constraints, without the failures that found them",
+      "detail": "open on timeless/package-2-narration at stage draft, idle 244 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/47",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/48",
+      "title": "The page's comments, the tests' docstrings and the configuration's comments say what the code does",
+      "detail": "open on build/timeless-docs at stage draft, idle 245 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/48",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/49",
+      "title": "The page's comments, the tests' docstrings and the configuration's comments state what is true, without the history",
+      "detail": "open on timeless/page-tests-1-contradictions at stage draft, idle 244 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/49",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/50",
+      "title": "Durable text states what is true: the documentation sweep's plan, and the base its steps merge into",
+      "detail": "open on build/governance at stage draft, idle 241 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/50",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/51",
+      "title": "Walkthrough pages 00 to 10 state their constraints as facts, held by doctests where a story held them",
+      "detail": "open on timeless/docs-4-reference at stage draft, idle 245 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/51",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/52",
+      "title": "Walkthrough pages 11 to 16 say which test writes them, and their tests' words say what the runs hold",
+      "detail": "open on timeless/page-tests-6-page-tests-config at stage draft, idle 111 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/52",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/53",
+      "title": "The walkthrough's loops come first, the pages the browser tests write numbered 01 to 06 and the others 07 to 16",
+      "detail": "open on build/timeless-docs at stage draft, idle 111 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/53",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/55",
+      "title": "Every open pull request merged into one tree, its README mapping what the tree does, and a check that each pull request integrates",
+      "detail": "open on build/timeless-docs at stage draft, idle 109 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/55",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/56",
+      "title": "A part stepped into stands on the floor grid and fills the view, wherever the site puts it",
+      "detail": "open on build/integration at stage draft, idle 109 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/56",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/57",
+      "title": "The viewer draws a site as OpenSCAD does, turned into three.js's frame rather than mirrored",
+      "detail": "open on build/grid-and-fit at stage draft, idle 109 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/57",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/58",
+      "title": "A picture pinned at a structure lies clear of what rests on it, is drawn seen through, and a shape over what rests there is flagged",
+      "detail": "open on build/scene-not-mirrored at stage draft, idle 109 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/58",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/apothecary/pr/59",
+      "title": "An armed printer's control pad pops out loudly, and what the review's walk of rows 5 to 16 found is fixed",
+      "detail": "open on build/picture-fits-the-host at stage draft, idle 109 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/apothecary/pr/59",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
       "address": "quaternionmedia/benchmark/pr/7",
       "title": "fix: handle missing regions/ directory in compile-yaml",
-      "detail": "open on main at stage ready, idle 4,009 hours",
+      "detail": "open on main at stage ready, idle 4,824 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/benchmark/pr/7",
       "address_parses": true
@@ -1059,61 +1664,430 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/carlos/pr/17",
       "title": "Turn every dial about its centre, give leads ends, and follow a scroll",
-      "detail": "open on they at stage ready, idle 696 hours",
+      "detail": "open on they at stage ready, idle 1,510 hours",
       "author": "subcontrabass",
       "key": "stalled-thread:quaternionmedia/carlos/pr/17",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/105",
+      "title": "The system monitor derives its diagram from a repository's contents, and PAM is one definition among others",
+      "detail": "open on main at stage ready, idle 309 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/105",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/107",
+      "title": "Name folders and files by their path from the root, and let a batch parser say what it knows about files",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/107",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/108",
+      "title": "Say what each parsed node is, once for every language, and read one construct across them",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/108",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/109",
+      "title": "Read Rust at the item level and linker scripts as memory maps",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/109",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/110",
+      "title": "Read a Cargo workspace from its manifests and what cargo recorded, and record it from the CLI",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/110",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/111",
+      "title": "Draw records as polygons, and abstraction layers in colour and in the key",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/111",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/112",
+      "title": "Open a Cargo workspace and the chrestomathy beside the estate panels",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/112",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/113",
+      "title": "The API reference shows the envelope the routes answer in",
+      "detail": "open on main at stage ready, idle 282 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/113",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/114",
+      "title": "Measure the memory map from the linker's own map: each region's use, each section's size, each function's bytes",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/114",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/115",
+      "title": "Read the maps the linkers wrote: the package cargo rustc needs, LLD's sizes and names, GNU ld's reserved stack and unlisted statics",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/115",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/116",
+      "title": "Say what a parse could not read, keep C's namespaces apart, and end the errors that were always there",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/116",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/117",
+      "title": "Read any graph on the canvas as a chrestomathy",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/117",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/118",
+      "title": "Lead the project selector with Rust, and bundle a recorded firmware that needs nothing",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/118",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/119",
+      "title": "Run the frontend's suites on pull requests that can change them",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/119",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/120",
+      "title": "Set up a Copilot session from the lockfile, with C parsing and the corpus",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/120",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/121",
+      "title": "Delete the documents nobody reads, and state in the code the facts they were cited for",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/121",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/122",
+      "title": "Read every document against the tree, and repair what it found wrong",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/122",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/123",
+      "title": "Give setup one page, and make the README an onramp that links to it",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/123",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/124",
+      "title": "Fold the architecture pages into one, and move the reference and roadmap out of docs/llm/",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/124",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/125",
+      "title": "Take the retrospectives and the stories out of the reference, and keep only what is next in the roadmap",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/125",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/126",
+      "title": "Fix the UI's boot, folder and expand bugs and its stale text before consolidating its paths",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/126",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/127",
+      "title": "Add windows from the + menu alone, and keep the canvas in view when one opens",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/127",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/128",
+      "title": "Open a node's source from View > Source as a double-click does, on one rule",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/128",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/129",
+      "title": "Drop the controls nothing can use, and reach Deselect from the canvas ring",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/129",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/130",
+      "title": "Start every graph from one Open panel",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/130",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/131",
+      "title": "Rewrite the UI reference from the code, and read its rings and keys against it",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/131",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/132",
+      "title": "Wait on other servers off the event loop, so a slow seam holds up nothing else",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/132",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/133",
+      "title": "Give every dock tab's close button its own room, so no title runs under it",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/133",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/134",
+      "title": "Put the Open panel's quick starts above its examples, so Load Demo is in view",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/134",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/135",
+      "title": "Grey a disabled ring item's label, set the census's show in its row, and spell Neighbors",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/135",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/136",
+      "title": "List each file in the Files panel on one line, with a raw link only where a browser can open it",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/136",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/137",
+      "title": "Fit the view to the bounding box of what is drawn, group outlines included",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/137",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/138",
+      "title": "Add a screenshot tour of the window to the browser suite, and keep its report from every run",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/138",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/139",
+      "title": "Open the + menu on the first click after a window is added",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/139",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/140",
+      "title": "Keep every button's label readable under the pointer",
+      "detail": "open on main at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/140",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/codecartographer/pr/146",
+      "title": "The shell's dependencies are current, and its panels behave as the records say",
+      "detail": "open on main at stage ready, idle 110 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/codecartographer/pr/146",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/datum/pr/2",
+      "title": "WP-3: firmware, the pre-HIL run, and a pinned enclosure",
+      "detail": "open on main at stage ready, idle 834 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/datum/pr/2",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/dossier/pr/60",
+      "title": "This host replays rad's governed cell vectors, and reaches the families as data",
+      "detail": "open on main at stage ready, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/dossier/pr/60",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/dossier/pr/61",
+      "title": "dossier deltas drift compares the delta board against the clones it describes",
+      "detail": "open on main at stage ready, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/dossier/pr/61",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/golfvs/pr/1",
+      "title": "The first run opens on defence, the range never ends, and it builds for four platforms (ADR-020 to ADR-030)",
+      "detail": "open on main at stage draft, idle 817 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/golfvs/pr/1",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
       "address": "quaternionmedia/holophonor/pr/11",
       "title": "\ud83d\udeb0 Pipewire",
-      "detail": "open on main at stage draft, idle 10,915 hours",
+      "detail": "open on main at stage draft, idle 11,729 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/holophonor/pr/11",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/33",
+      "title": "A take is shown on the visualiser: its recording on the transport, its words on the piano roll's timeline",
+      "detail": "open on main at stage ready, idle 208 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/33",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/34",
+      "title": "joe's docstrings, comments and docs state what is true now",
+      "detail": "open on feat/transcript-lane at stage draft, idle 328 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/34",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/joe/pr/35",
+      "title": "joe serves a media API, and a fresh joe exposes that alone",
+      "detail": "open on main at stage ready, idle 110 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/joe/pr/35",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
       "address": "quaternionmedia/joe/pr/4",
       "title": "\ud83d\udd90 p5.js",
-      "detail": "open on main at stage ready, idle 14,992 hours",
+      "detail": "open on main at stage ready, idle 15,806 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/joe/pr/4",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/joe/pr/8",
-      "title": "Docs/onboarding hardening",
-      "detail": "open on main at stage ready, idle 4,815 hours",
-      "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/joe/pr/8",
-      "address_parses": true
-    },
-    {
-      "kind": "stalled-thread",
       "address": "quaternionmedia/leo/pr/61",
       "title": "\ud83d\udcc7 Setlist",
-      "detail": "open on main at stage ready, idle 5,075 hours",
+      "detail": "open on main at stage ready, idle 809 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/leo/pr/61",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
-      "address": "quaternionmedia/leo/pr/67",
-      "title": "feat: uv-driven CLI with comprehensive test suite",
-      "detail": "open on main at stage ready, idle 5,910 hours",
-      "author": "subcontrabass",
-      "key": "stalled-thread:quaternionmedia/leo/pr/67",
-      "address_parses": true
-    },
-    {
-      "kind": "stalled-thread",
       "address": "quaternionmedia/ludwig/pr/9",
       "title": "\ud83c\udf0c Universal",
-      "detail": "open on main at stage draft, idle 6,538 hours",
+      "detail": "open on main at stage draft, idle 7,353 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/ludwig/pr/9",
       "address_parses": true
@@ -1122,7 +2096,7 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/moat/pr/3",
       "title": "\ud83d\udca1 QM plan",
-      "detail": "open on main at stage draft, idle 721 hours",
+      "detail": "open on main at stage draft, idle 1,535 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/moat/pr/3",
       "address_parses": true
@@ -1131,18 +2105,333 @@
       "kind": "stalled-thread",
       "address": "quaternionmedia/moat/pr/4",
       "title": "\ud83c\udfde MoatNet",
-      "detail": "open on qm at stage draft, idle 303 hours",
+      "detail": "open on qm at stage draft, idle 1,118 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/moat/pr/4",
       "address_parses": true
     },
     {
       "kind": "stalled-thread",
+      "address": "quaternionmedia/otto/pr/32",
+      "title": "\u2b07\ufe0f Download",
+      "detail": "open on main at stage ready, idle 24,376 hours",
+      "author": "mrharpo",
+      "key": "stalled-thread:quaternionmedia/otto/pr/32",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/otto/pr/33",
+      "title": "makeColor accepts every colour spelling its callers pass",
+      "detail": "open on main at stage ready, idle 304 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/otto/pr/33",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/otto/pr/34",
+      "title": "otto renders frames, sound and presets for alfred, and its docs say each thing once",
+      "detail": "open on main at stage ready, idle 110 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/otto/pr/34",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/private-36/pr/1",
+      "title": "Mount governance/qm against project/private-36, and measure unpushed against the right ref",
+      "detail": "open on main at stage ready, idle 833 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/private-36/pr/1",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/121",
+      "title": "Seven records for apothecary: the toolchain, printer and slicer seams, the rings, one screen, and personal data staying on the device",
+      "detail": "open on project/apothecary at stage ready, idle 256 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/121",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/144",
+      "title": "alfred's records address the charter by name",
+      "detail": "open on project/alfred at stage ready, idle 316 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/144",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/145",
+      "title": "apothecary's records address the charter by name",
+      "detail": "open on project/apothecary at stage ready, idle 316 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/145",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/146",
+      "title": "codecartographer's records address the charter by name",
+      "detail": "open on project/codecartographer at stage ready, idle 316 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/146",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/147",
+      "title": "The records of private-33 address the charter by name",
+      "detail": "open on project/private-33 at stage ready, idle 316 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/147",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/148",
+      "title": "datum's records address the charter by name",
+      "detail": "open on project/datum at stage ready, idle 316 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/148",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/149",
+      "title": "The records of private-32 address the charter by name",
+      "detail": "open on project/private-32 at stage ready, idle 316 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/149",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/150",
+      "title": "factorio-sysops's records address the charter by name",
+      "detail": "open on project/factorio-sysops at stage ready, idle 316 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/150",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/151",
+      "title": "The records of private-34 address the charter by name",
+      "detail": "open on project/private-34 at stage ready, idle 316 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/151",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/153",
+      "title": "qmetronome's records address the charter by name",
+      "detail": "open on project/qmetronome at stage ready, idle 316 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/153",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/154",
+      "title": "apothecary's v0.0.2 is said to assert one path, evidenced by one demonstration",
+      "detail": "open on adr/firmware-toolchain-seam at stage draft, idle 310 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/154",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/156",
+      "title": "looksatwords adopts the corpus, and its border with codecartographer is the corpus each reads",
+      "detail": "open on project/looksatwords at stage ready, idle 310 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/156",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/163",
+      "title": "Record that codecartographer reads what cargo wrote and never runs cargo",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/163",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/164",
+      "title": "Record that one construct vocabulary says what a parsed node is in every language codecartographer reads",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/164",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/165",
+      "title": "Record that codecartographer reads Rust at the item level until an engine's index replaces it",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/165",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/166",
+      "title": "State the parser/cache record as it stands now that a second batch parser fired its trigger",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/166",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/170",
+      "title": "Record that any graph on codecartographer's canvas can be read as a chrestomathy, and name compare among its host verbs",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/170",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/171",
+      "title": "apothecary's project index names its branch and lists each draft by its whole title",
+      "detail": "open on project/apothecary at stage ready, idle 260 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/171",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/172",
+      "title": "project/apothecary carries main at 03670b8",
+      "detail": "open on fix/apothecary-seed-refresh at stage draft, idle 111 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/172",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/179",
+      "title": "Propose the rad record, now that its inputs have landed, and state the menu as it is",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/179",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/180",
+      "title": "State the shell and layout records as the code is, with the owner's panel decisions",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/180",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/181",
+      "title": "State the three graphbase records as the code is, and what they pend on",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/181",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/182",
+      "title": "State the parser, token and consumption records as the code is, and what each pends on",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/182",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/183",
+      "title": "State the Rust-stack records as the code is, keeping each decision and naming its gaps",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/183",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/184",
+      "title": "Record codecartographer's adoption, naming each obligation it owes and its state",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/184",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/185",
+      "title": "Record that a human merges every change into codecartographer's main and its project branch",
+      "detail": "open on project/codecartographer at stage ready, idle 184 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/185",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/197",
+      "title": "A draft record has apothecary reviewed as one integrated whole, walked as a demo from its README",
+      "detail": "open on propagate/apothecary-2026-10-13 at stage draft, idle 111 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/197",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qm/pr/201",
+      "title": "codecartographer's shell drafts say what the shell does, in fewer words",
+      "detail": "open on project/codecartographer at stage ready, idle 110 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qm/pr/201",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/qmetronome/pr/15",
+      "title": "Bump the governance pin to the project branch tip",
+      "detail": "open on main at stage ready, idle 808 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/qmetronome/pr/15",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/rad/pr/7",
+      "title": "A session can open entered at an item, by walking its path",
+      "detail": "open on main at stage ready, idle 506 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/rad/pr/7",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
       "address": "quaternionmedia/uPhonor/pr/29",
       "title": "\ud83d\udc0d Python",
-      "detail": "open on main at stage draft, idle 10,426 hours",
+      "detail": "open on main at stage draft, idle 11,240 hours",
       "author": "mrharpo",
       "key": "stalled-thread:quaternionmedia/uPhonor/pr/29",
+      "address_parses": true
+    },
+    {
+      "kind": "stalled-thread",
+      "address": "quaternionmedia/vox/pr/16",
+      "title": "vox states a media surface, and its offline engine answers it as joe does",
+      "detail": "open on main at stage ready, idle 110 hours",
+      "author": "subcontrabass",
+      "key": "stalled-thread:quaternionmedia/vox/pr/16",
       "address_parses": true
     }
   ]

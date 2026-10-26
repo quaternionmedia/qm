@@ -1,10 +1,7 @@
 """The charter declares its own shape, and `none` is a first-class answer.
 
-**THE HARD PART IS NOT REQUIRING EDGES — IT IS NOT MANUFACTURING THEM.** A graph
-made connected by effort is worse than an honest sparse one, because it looks
-checked. So the tests that matter here are the two in tension: a stated edge must
-be stated from both ends, and an unstated one must cost a reason rather than a
-shrug.
+A stated edge must be stated from both ends, and an unstated one costs a reason.
+An edge is never required, so the charter is never made connected by effort.
 """
 
 from __future__ import annotations
@@ -35,10 +32,8 @@ ENOUGH = ("none — nothing else in this charter turns on the answer, and an "
 
 
 def test_a_stated_edge_must_be_stated_from_both_ends():
-    """THE ONE THIS EXISTS FOR.
-
-    delta has said it orders beta since it was written, and beta says nothing — so a
-    reader arriving at beta never learns it is ordered.
+    """A one-sided edge is refused: delta says it orders beta and beta says
+    nothing, so a reader arriving at beta never learns it is ordered.
 
     Mutation: drop the inverse and this fails.
     """
@@ -84,12 +79,10 @@ def test_a_symmetric_kind_is_its_own_inverse():
 
 
 def test_none_without_a_reason_is_refused():
-    """THE OTHER ONE THIS EXISTS FOR.
-
-    If `none` were free it would be the cheapest declaration, and every
-    principle would drift to it. If an edge were required, the cheapest
-    declaration would be an invented edge. Charging `none` a reason makes the
-    honest answer the lazy one.
+    """`none` costs a reason. If it were free, every principle would drift to
+    it; if an edge were required, the cheapest declaration would be an
+    invented one. Charging `none` a reason makes the honest answer the lazy
+    one.
 
     Mutation: drop the length bar and this fails.
     """
@@ -140,7 +133,7 @@ def test_an_edge_to_itself_is_refused():
 
 
 def test_a_principle_that_declares_nothing_is_refused():
-    """Silence is the state this whole check exists to end.
+    """A principle with no declaration at all is refused.
 
     Mutation: treat a missing line as `none` and this fails.
     """
@@ -176,9 +169,8 @@ def test_the_real_charter_declares_for_every_principle():
 
 
 def test_the_charter_is_allowed_to_be_sparse():
-    """The measurement this check was built from: six of seventeen principles
-    were isolated. Several still are, deliberately, and that is a passing state
-    — a check that forced them to connect would be the ornament omicron refuses.
+    """Isolated principles are a passing state when they declare `none`: a
+    check that forced them to connect would manufacture edges.
     """
     text = Path("PRINCIPLES.md").read_text(encoding="utf-8")
     reasoned = [name for name, _t, body in edges.principles(text)
@@ -199,7 +191,7 @@ def test_a_declaration_parses_to_its_kinds(value, kind):
 
 def test_main_runs_against_the_charter():
     """`test_every_gate_is_exercised` requires something to execute every
-    module with a `main()`, and it is what caught this file being absent."""
+    module with a `main()`."""
     assert edges.main() == 0
 
 
@@ -218,18 +210,30 @@ def write_record(root: Path, body: str) -> None:
 
 
 def test_an_ordinal_principle_reference_in_a_binding_document_is_refused(tmp_path: Path):
-    """**THE FORM THIS RENAMING EXISTS TO KEEP OUT.**
-
-    An ordinal addresses a position. Insert a principle above it and every
-    reference below reaims itself, silently, while staying well-formed -- so
-    the failure is a reference that resolves to the wrong principle rather than
-    to none, which is the one kind nothing downstream can detect.
+    """An ordinal addresses a position: insert a principle above it and every
+    reference below resolves, silently and well-formed, to the wrong
+    principle.
 
     Mutation: drop the `ordinal_references` call from `main` and this fails.
     """
     write_record(tmp_path, 'This rests on ' + ORDINAL_FORM + '\n')
     problems = edges.ordinal_references(tmp_path)
     assert any("addresses a principle as" in p for p in problems), problems
+
+
+def test_the_root_template_and_charter_are_scanned(tmp_path: Path):
+    """The record template is what every new record copies its rows from, and
+    the charter is what every row names; an ordinal in either is copied or
+    cited onward.
+
+    Mutation: drop `"TEMPLATE.md"` from `BINDING` and this fails on the
+    template; drop `"PRINCIPLES.md"` and it fails on the charter.
+    """
+    for name in ("TEMPLATE.md", "PRINCIPLES.md"):
+        (tmp_path / name).write_text("e.g. " + ORDINAL_FORM + "\n", encoding="utf-8")
+        problems = edges.ordinal_references(tmp_path)
+        assert any(p.startswith(name + ":") for p in problems), (name, problems)
+        (tmp_path / name).unlink()
 
 
 def test_an_annotated_ordinal_is_allowed(tmp_path: Path):
@@ -254,12 +258,9 @@ def test_a_perspective_is_left_as_its_author_wrote_it(tmp_path: Path):
 
 
 def test_a_file_scope_annotation_covers_a_colliding_vocabulary(tmp_path: Path):
-    """**THE FALSE POSITIVE THIS GUARD MET ON ITS FIRST REAL INTEGRATION.**
-
-    The letter-and-number form is not reserved to the charter. A remediation
-    plan numbered its own work packages the same way -- headings, and blocking
-    rows pointing at them -- and every one matched. Annotating each line would
-    have edited a correct document to keep a tool quiet.
+    """The letter-and-number form is not reserved to the charter: a plan
+    that numbers its own work packages the same way is annotated once, at
+    file scope, rather than line by line.
 
     Mutation: delete the file-scope branch from `ordinal_references` and this
     fails.

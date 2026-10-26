@@ -34,8 +34,9 @@ In this order, in full:
 1. `AGENTS.md` at this repository's root (or `governance/qm/AGENTS.md`).
 2. `handbook/async-contract.md` in the corpus — the rules that exist only
    because other sessions are running right now.
-3. `handbook/handoffs/README.md`, then **exactly one** handoff if you are
-   picking one up.
+3. `handbook/handoffs/README.md`, then, in the corpus,
+   `handbook/handoffs/qm-queue.md` with `uv run qm queue`'s report beside it,
+   then **at most one** other handoff if you are picking one up.
 
 ## 3. Re-derive anything you are about to rely on
 

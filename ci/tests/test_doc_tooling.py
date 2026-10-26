@@ -113,7 +113,7 @@ def test_a_perspective_takes_its_state_from_the_index(tmp_path: Path):
 
 
 def test_a_perspective_missing_from_the_index_is_unknown(tmp_path: Path):
-    """A real finding on this tool's first run: one perspective had no row."""
+    """A perspective with no index row is unknown."""
     corpus(tmp_path)
     write(tmp_path / "perspectives" / "a.md", "# T\n\n*byline*\n")
     write(tmp_path / "perspectives" / "README.md", "| Date | File |\n")
@@ -132,8 +132,8 @@ def test_the_index_disagreeing_with_the_file_is_reported(tmp_path: Path):
 
 
 def test_an_index_row_naming_a_missing_file_is_reported(tmp_path: Path):
-    """Checking one direction only is how a perspective got indexed here before
-    it was written, and nothing said so."""
+    """Both directions are checked: an index row naming a missing file is
+    reported, as is a file with no row."""
     corpus(tmp_path)
     write(tmp_path / "perspectives" / "README.md",
           "| 2026-01-01 | `ghost.md` | Someone | Perspective | Unreviewed | note |\n")

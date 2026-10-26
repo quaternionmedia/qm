@@ -1,13 +1,13 @@
 # QM-XXXX — <Decision title: an imperative or noun phrase, one decision only>
 
 <!--
-DRAFTING RULES (delete this comment block before ratification):
+Drafting rules (delete this comment block before ratification):
 
-1. NUMBER AT RATIFICATION, NOT BEFORE. Drafts are QM-XXXX. The number is
+1. Number at ratification, not before. Drafts are QM-XXXX. The number is
    assigned by the index (README.md) at the moment Status becomes Accepted.
    Never reference other drafts by anticipated number.
 
-2. SQUASH BEFORE RATIFICATION. A draft has no memory. If the decision changes
+2. Squash before ratification. A draft has no memory. If the decision changes
    while drafting, rewrite the draft as if the final position were held from
    the beginning. Git history is the archaeology; prose is not. Words banned
    in any pre-ratification document: "previously", "originally", "earlier
@@ -15,13 +15,13 @@ DRAFTING RULES (delete this comment block before ratification):
    "retroactive", "corrected" - the exact set the CI lint enforces
    (`project-seed/ci/adr-lint.yml`).
 
-3. ONE DECISION PER RECORD. If Consequences starts describing a second
+3. One decision per record. If Consequences starts describing a second
    decision, split it.
 
-4. WRITE THE ALTERNATIVES HONESTLY. Each rejected alternative gets the real
+4. Write the alternatives honestly. Each rejected alternative gets the real
    reason it lost, strong enough that a reader could disagree.
 
-5. DON'T DECIDE OPEN QUESTIONS BY STEALTH. If an input is genuinely
+5. Don't decide open questions by stealth. If an input is genuinely
    undecided, the record is Proposed and says what it pends on — it does not
    pick silently.
 -->
@@ -31,7 +31,7 @@ DRAFTING RULES (delete this comment block before ratification):
 | **Status** | Draft \| Proposed \| Accepted \| Deprecated \| Superseded by QM-NNNN |
 | **Date** | YYYY-MM-DD (date of last status change) |
 | **Pends on** | *(Proposed only)* the open question this awaits, or `Nothing — ready for ratification` when the record is complete and only the human commit remains |
-| **Principle** | The `PRINCIPLES.md` heading this record is cut from, quoted verbatim (e.g. `P5 — One house stack, deeply known`) |
+| **Principle** | The `PRINCIPLES.md` principle this record is cut from, by its name and then its title, several separated by `;` (e.g. `one-house-stack` — one house stack, deeply known) |
 
 ## Context
 
@@ -71,11 +71,11 @@ question resolving.)
 *None.*
 
 <!--
-POST-RATIFICATION RULES:
+Post-ratification rules:
 
 - Accepted records are append-only. Clarifications and §2-style events are dated
   entries under Amendments. The body above is never silently edited.
-- A material reversal is a NEW record that supersedes this one; this
+- A material reversal is a new record that supersedes this one; this
   record's Status becomes "Superseded by QM-NNNN" and its body is left
   intact.
 - Renumbering never happens. Numbers are permanent once assigned, gaps are

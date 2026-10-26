@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-28T05:15:29Z'
+generated_at: '2026-10-25T01:05:55Z'
 generator:
   tool: ci/gate_status.py
   registry: ci/gate-registry.yaml
@@ -41,15 +41,15 @@ enforcement:
   branch_protection_on_main: false
   blocks_a_merge: false
 totals:
-  gates: 19
-  built: 19
+  gates: 20
+  built: 20
   declared_not_built: 0
   by_state:
-    ok: 18
+    ok: 19
     warn: 0
     unknown: 1
-  gate_main: 12
-  seed: 7
+  gate_main: 13
+  seed: 8
   undeclared_workflows: 0
 gates:
 - id: adr-lint
@@ -98,7 +98,7 @@ gates:
     - adr-lint
     job_declared: true
   state: ok
-- id: one-pr-slot
+- id: stacked-drafts
   gates:
   - main
   seed: true
@@ -249,7 +249,7 @@ gates:
   workflow: reuse-lint.yml
   job: reuse
   runs:
-  - python -m reuse lint
+  - uvx 'reuse[charset-normalizer]' lint
   enforces:
   - records/DRAFT-outbound-licensing.md
   - records/DRAFT-open-license-exclusion-and-upstream-remediation.md
@@ -547,19 +547,22 @@ gates:
   - project-seed/ci/check_leaks.py
   enforces:
   - records/DRAFT-what-is-not-the-organisation.md
+  - records/DRAFT-work-is-delivered-into-a-repository.md
   - ci/policy-registry.yaml nothing-committed-describes-the-workstation-the-agent-or-the-conversation
+  - ci/policy-registry.yaml work-is-delivered-into-a-repository
   refuses: 'A tracked file that carries a person''s home directory, a path through
     a personal or IDE-made folder, a path into a session''s scratch space, a shared-conversation
-    link, or a conversation archive''s path. Findings are printed redacted; a deliberate
-    example is declared with `leaks: allow` and a reason, and every allowance is counted
-    on every run.'
+    link, a link to a page an assistant''s host keeps, or a conversation archive''s
+    path. Findings are printed redacted; a deliberate example is declared with `leaks:
+    allow` and a reason, and every allowance is counted on every run.'
   cannot_see: 'Everything on that line that is not a path or a link: an editor named
     in prose, a process somebody saw running, a tool narrating its own session, a
     person''s words quoted into a constraint. A pattern for those would fire on every
     page that legitimately discusses editors or quotes a record, so the reader is
     the check, at the runbook''s Step 3. Nor can it read history -- a path already
     pushed stays pushed -- or tell a placeholder from a real account beyond the ones
-    it lists.'
+    it lists. Of a hosted page it sees only a link a file carries: a page never linked,
+    a link in a pull request body, and a host its pattern does not list all pass.'
   evidence:
     present: true
     workflow_name: Leak check
@@ -568,6 +571,38 @@ gates:
     - push
     jobs:
     - leaks
+    job_declared: true
+  state: ok
+- id: timeless-check
+  gates:
+  - main
+  - push
+  seed: true
+  external: false
+  declared_built: true
+  workflow: timeless-check.yml
+  job: timeless
+  runs:
+  - project-seed/ci/check_timeless.py
+  enforces:
+  - records/DRAFT-durable-text-states-what-is-true.md
+  refuses: 'Prose added by a change that sets a phrase in capitals, or that narrates
+    how the text or the code came to be. It reads comments and docstrings in code,
+    markdown outside code blocks and spans, and comments in configuration, on the
+    lines the change adds. A deliberate exception is declared with `timeless: allow`
+    and a reason, and every allowance is counted on every run.'
+  cannot_see: A story told in neutral words, and a present-tense sentence that is
+    no longer true; those are the reviewer's. Text already on the base, which `--all`
+    reports and a sweep removes. Capitals in title case or spaced out, a phrase broken
+    so that no line holds three of its words, and file types it does not read.
+  evidence:
+    present: true
+    workflow_name: Timeless text
+    triggers:
+    - pull_request
+    - push
+    jobs:
+    - timeless
     job_declared: true
   state: ok
 - id: rulesets
