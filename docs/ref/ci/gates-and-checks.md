@@ -158,13 +158,18 @@ tree, and never deletes anything.
 | Class | Meaning |
 |---|---|
 | stranded | The local ref is ahead of its own remote: commits on one disk |
-| local | A local branch with no remote at all |
-| gone | A remote branch whose local ref is gone; nothing to lose |
+| local | A local branch with no remote of its name, contained in no remote branch |
 | ahead | Unmerged work that is pushed and reachable |
+| held | A local branch with no remote of its name, whose tip another remote branch contains; deleting it loses the name |
+| gone | A remote branch whose local ref is gone; nothing to lose |
 | merged | Every commit is on the default branch; deleting loses nothing |
 
 The classes sort by what it costs to be wrong, so what would be lost comes
-first. Loss is counted by patch, not by sha: `git cherry` reports a commit whose
+first. A branch is read as held only once the host confirms its holder: one
+`git ls-remote --heads` says which branches the host holds now, and a holder
+the host has deleted, or moved to a commit the clone never fetched, does not
+count. `--offline` asks the host nothing and reads holders from the tracking
+refs, as of the last fetch. Loss is counted by patch, not by sha: `git cherry` reports a commit whose
 patch is already upstream (squashed, cherry-picked, rebased) as landed, so a
 branch ahead by one can hold nothing. It errs toward reporting loss, since a
 commit that landed in a different shape still reads as unique. The default
