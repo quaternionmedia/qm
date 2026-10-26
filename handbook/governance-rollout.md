@@ -11,7 +11,7 @@ wired, what is written but not yet binding, and what is deliberately waiting.
 
 ## The short version
 
-Every org record is **`Proposed`**. None is ratified, and that is a decision
+No org record is **ratified**, and that is a decision
 rather than a backlog: **ratification waits on a second active code owner.**
 
 The mechanisms are not waiting. Where a record describes machinery that costs
@@ -91,7 +91,7 @@ own approval. A ratification gate an author can satisfy by approving their own
 change is a gate in name only, so the Status field waits for the thing that
 makes it mean something.
 
-The cost is real and worth naming: while every record is `Proposed`, the
+The cost is real and worth naming: while no record is ratified, the
 corpus contains **no worked example** of a ratified record, of an
 `## Amendments` region, or of the append-only discipline `TEMPLATE.md`
 describes. New projects therefore learn the drafting half of the discipline
@@ -104,15 +104,10 @@ above; the drafting discipline is enforced today.
 
 ## The branch model, in one place
 
-`main` carries the constitution and nothing else. Four namespaces hang off
-it, and a branch outside them is a mistake rather than a variation.
-
-| Namespace | Holds | Lifetime |
-|---|---|---|
-| `project/<name>` | one adopting project's `adr/` | permanent — a downstream submodule pins its tip |
-| `perspective/<date>-<slug>` | one perspective, staged for `main` | deleted after merge |
-| `evolve/<slug>` | org-level work in progress | deleted after merge |
-| `workspace/<slug>` | a research workspace that never merges back | permanent, terminal |
+`main` carries the constitution and nothing else. The namespaces that hang
+off it, what each holds and how long it lives are on
+[`docs/ref/namespaces.md`](../docs/ref/namespaces.md), the canonical page; a
+branch outside them is a mistake rather than a variation.
 
 Two properties of this model cause most of the confusion, and both are
 mechanical rather than a matter of care:
@@ -139,10 +134,10 @@ It does not replace this page, and deliberately reports less. **It emits no
 adopted, and nothing reports the difference* — is the corpus's whole statement
 on the matter, and a generator that turned it into a boolean would be
 legislating rather than reporting. The same holds for "current": a commit count
-with no threshold attached. Both, and the other open questions, are in
-`handbook/handoffs/governance-status-generator.md`; the document itself
-carries several in an `undefined:` block, so a reader wondering where the
-green column went finds the answer in the artifact.
+with no threshold attached. The document itself carries both, and the other
+terms it does not compute, in an `undefined:` block, so a reader wondering where
+the green column went finds the answer in the artifact; the questions it leaves
+open wait on a person in `handbook/handoffs/qm-queue.md` §3.
 
 ## Revisiting this page
 

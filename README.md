@@ -1,5 +1,19 @@
 # Quaternion Media Constitution
 
+<a href="walkthrough/families/README.md"><img src="walkthrough/families/families.svg" width="100%" alt="The QM families as a desk of channel strips: performing, holding instruments, performer-display and show-control, then commons, core, games, infra and irl, each with a meter lit by the share of its members past v0.0.0."></a>
+
+*The estate, by what each repository drives. `performing` holds the three families that put on a show, a repository that drives two things is in both, and each meter is lit by the share past `v0.0.0`, the members that have adopted the corpus. Drawn by `uv run qm cookbook --write` from the roster and [the family record](records/DRAFT-a-family-is-bordered-by-what-it-drives.md).*
+
+<table>
+<tr>
+<td width="33%"><a href="https://github.com/quaternionmedia/carlos"><img src="https://github.com/quaternionmedia/carlos/raw/HEAD/walkthrough/media/05-in-the-browser-keybed-and-desk.png" alt="carlos in the browser: two drum voices wired to a Launchpad X and a Squarp Hapax"></a><br><sub><b>carlos</b> · instruments, within performing</sub></td>
+<td width="33%"><a href="https://github.com/quaternionmedia/scad-chess"><img src="https://github.com/quaternionmedia/scad-chess/raw/HEAD/chess_set.png" alt="A chess set modelled in OpenSCAD, rendered in blue-grey"></a><br><sub><b>scad-chess</b> · irl</sub></td>
+<td width="33%"><a href="https://github.com/quaternionmedia/looksatwords"><img src="https://github.com/quaternionmedia/looksatwords/raw/HEAD/docs/pics/harness-analysed.png" alt="looksatwords drawing the threads of a conversation as coloured lanes over time"></a><br><sub><b>looksatwords</b> · core</sub></td>
+</tr>
+</table>
+
+*Each picture is shown from the member repository that keeps it.*
+
 ## In plain terms
 
 Every team keeps answering the same questions. How does work get reviewed? When
@@ -14,7 +28,7 @@ A few things will carry you a long way:
 
 - **Decisions live in `records/`.** Nothing else here is binding. Everything
   else explains a record, points at one, or checks that we are keeping to it.
-- **Nothing is marked final yet.** Every record says `Proposed`, on purpose.
+- **Nothing is marked final yet.** No record is ratified, on purpose.
   Making one final needs a second person to agree, and there is not a second
   person yet.
 - **All work arrives as a pull request**, from a typo to a new rule. It is the
@@ -31,7 +45,7 @@ decided and the page is wrong. Say so, and fix the page.
 **One warning about the words.** A few everyday words are used here in a narrow
 sense, and some of them mean more than one thing: *record*, *draft*, *gate*,
 *review*, *phase*, *delta*. When a sentence stops making sense, that is usually
-why. [handbook/glossary.md](handbook/glossary.md) sorts them out, and it is the
+why. [The glossary](docs/ref/glossary.md) sorts them out, and it is the
 shortest useful thing to read after this.
 
 **Full documentation:** [docs/](docs/index.md) — also rendered at
@@ -51,18 +65,19 @@ shortest useful thing to read after this.
 | Bring an existing project up to date | [handbook/propagation-runbook.md](handbook/propagation-runbook.md) |
 | Land what exists only on this disk | [handbook/consolidation-runbook.md](handbook/consolidation-runbook.md) |
 | Learn the branch and record rules | [Branch namespaces](docs/ref/namespaces.md) and [Record precedence](docs/ref/precedence.md) |
+| Contribute to a research workspace | [handbook/research-workspaces.md](handbook/research-workspaces.md) — explorations on `math/<slug>`, and both ways a workspace takes changes in |
 | Know how far this corpus has got in governing itself | [handbook/governance-rollout.md](handbook/governance-rollout.md) |
 | See where every project stands | [status/governance.yaml](status/governance.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
 | Know which checks actually govern, and what each one misses | [handbook/gates.md](handbook/gates.md) — says plainly whether anything blocks a merge |
 | Know what state a document is in before trusting it | [handbook/document-states.md](handbook/document-states.md), or `uv run qm docs states --state proposed` |
-| Look up a word this corpus uses in its own way | [handbook/glossary.md](handbook/glossary.md) |
+| Look up a word this corpus uses in its own way | [The glossary](docs/ref/glossary.md) |
 
 The same four points again, in the corpus's own words, with the reasoning the
 plain version leaves out:
 
 1. **Records in `records/` are the only binding documents.** Everything else
    points at them. `perspectives/` is opinion and binds nothing.
-2. **Every record is `Proposed`.** None is ratified, and that is deliberate —
+2. **No record is ratified.** That is deliberate —
    ratification waits on a second active code owner, because an approval its
    own author can supply is not a gate.
 3. **Every change arrives as a pull request**, from a typo to a new record. The
@@ -136,12 +151,14 @@ qm/
 | — | [A family is bordered by what it drives](records/DRAFT-a-family-is-bordered-by-what-it-drives.md) | Proposed | 2026-08-28 |
 | — | [A loose end is carried or dismissed, and open is the absence of both](records/DRAFT-a-loose-end-is-carried-or-dismissed.md) | Draft | 2026-09-06 |
 | — | [The workstation, the agent and the conversation are not the organisation](records/DRAFT-what-is-not-the-organisation.md) | Proposed | 2026-09-20 |
+| — | [A semantic index is a recorded document, and the seam decodes it](records/DRAFT-a-semantic-index-is-a-recorded-document.md) | Proposed | 2026-10-12 |
+| — | [Work is delivered into a repository, never to a hosted page](records/DRAFT-work-is-delivered-into-a-repository.md) | Proposed | 2026-10-24 |
 
-Every record is `Proposed` because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
+No record is ratified, because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
 ## Contributing
 
-Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/namespaces.md) lists them, and a branch outside them is a mistake rather than a variation. Open a pull request, assign the person who asked for the work, request no reviewer, and merge it yourself once every gate is green. See [handbook/async-contract.md](handbook/async-contract.md).
+Work on a branch in one of the namespaces [Branch namespaces](docs/ref/namespaces.md) lists, and a branch outside them is a mistake rather than a variation. Open a pull request, assign the person who asked for the work, request no reviewer, and merge it yourself once every gate is green. See [handbook/async-contract.md](handbook/async-contract.md).
 
 | Page | What it answers |
 |---|---|
@@ -156,7 +173,6 @@ Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/
 | `handbook/async-contract.md` | The rules that exist only because several agent sessions run at once |
 | `handbook/generated-documents.md` | The committed status documents, how stale each may be, and how a dashboard is built |
 | `handbook/gates.md` | **Generated.** Every automated check, what it refuses, what it cannot see, and whether any of it blocks a merge |
-| `handbook/glossary.md` | Words this corpus uses narrowly, and the ones it uses in more than one sense |
 | `handbook/handoffs/` | Work an asynchronous agent can pick up cold, and the order between the pieces |
 
 ## Licence

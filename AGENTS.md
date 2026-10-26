@@ -43,15 +43,17 @@ reasoning, and the seams doctrine in `records/` for why a governance document
 that mandated a particular product would be violating its own charter.
 
 **Read the committed status documents before re-deriving what they hold.**
-`status/governance.yaml` and `status/harness.yaml` sit at the root.
-`status/harness.yaml` carries its own refresh command, staleness budget and
-`do_not` list in a `reading:` block inside the file. **`status/governance.yaml`
-does not** — it has no `reading:` block at all, so its refresh command and its
-168-hour budget are only in `handbook/generated-documents.md`, and for that one
-you do need the page. `handbook/generated-documents.md` indexes both, and
-`uv run qm harness` renders the second
-as prose. Check the age before quoting a figure — a stale number delivered
+`status/governance.yaml` and `status/harness.yaml` sit at the root, and each
+carries its own refresh command, staleness budget and `do_not` list in a
+`reading:` block inside the file. `handbook/generated-documents.md` indexes
+both, and `uv run qm harness` renders the second as prose. Check the age
+before quoting a figure — a stale number delivered
 with a date looks checked.
+
+**Read the standing queue at open, and leave it true at close.**
+`handbook/handoffs/qm-queue.md` holds what is open, blocked and unfinished
+across sessions; `uv run qm queue` lists what the host says merged or closed
+since its stamp. Its first section says how a session keeps it.
 
 1. Read `PRINCIPLES.md` (the charter) in full and the opening points of `README.md`. For depth, see `docs/ref/namespaces.md`, `docs/ref/precedence.md`, and `docs/ref/ratification.md` on the docs site.
 2. This corpus governs its own drafting. Records live in `records/` as
@@ -59,11 +61,12 @@ with a date looks checked.
    number, updates the index) — you draft, you never ratify.
 3. **Everything you produce arrives as a pull request, and the pull request is
    an audit record rather than a request for anyone's attention.** Work on a
-   branch — `evolve/<slug>` for org-level work, `perspective/<date>-<slug>` for
-   a perspective, `project/<name>` for one project's records — open a PR, and
-   **merge it yourself once every gate is green.** Your output is a `main` that
-   is clean and working, entered through a pull request so the gates ran and the
-   diff stays readable.
+   branch — `evolve/<slug>` for org-level work and, cut from `project/<name>`,
+   for one project's records; `perspective/<date>-<slug>` for a perspective;
+   `math/<slug>`, cut from `workspace/<slug>` and opened against it, for an
+   exploration — open a PR, and **merge it yourself once every gate is
+   green.** Your output is a `main` that is clean and working, entered through
+   a pull request so the gates ran and the diff stays readable.
 
    **Never push `main` directly**, however small or obviously correct the change
    looks. That is the one act that destroys the audit record.
@@ -253,6 +256,14 @@ with a date looks checked.
     left. A sweep sorts every passage it touches: a short fact stays inline,
     an explanation moves to `docs/`, a narrative to a dated retrospective in
     `perspectives/`.
+
+19. **Work is delivered into a repository, never to a hosted page** — record
+    `records/DRAFT-work-is-delivered-into-a-repository.md`. A report, a demo, a
+    preview or a handoff is a committed file, and reaches a reviewer as a pull
+    request or as a page the reviewer builds and serves locally. Nothing goes to
+    a page an assistant's host keeps outside the org's repositories, such as a
+    chat product's shareable artifact or canvas: it is not versioned with the
+    code, cannot be reviewed as a diff, and goes stale unseen.
 
 ## If you're forking this corpus into a new project
 

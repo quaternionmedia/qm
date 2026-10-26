@@ -1,7 +1,7 @@
 <!-- SEED FILE: this whole project-seed/ide/ directory mirrors the target
      project's own root layout 1:1 -- copy it recursively onto the project
-     root (see README.md's "Forking a new project", step 5) rather than
-     copying files one at a time. CLAUDE.md and .github/copilot-
+     root (handbook/forking-a-project.md, step 5) rather than copying files
+     one at a time. CLAUDE.md and .github/copilot-
      instructions.md are real symlinks to this file in the seed; a
      symlink-preserving copy (git checkout, `cp -a`/`cp -P`, `rsync -a`)
      carries that forward so an edit to this file alone keeps both current.
@@ -20,9 +20,8 @@ no other briefing, read this file fully before your first commit or edit.
 
 ## Before you do anything
 
-**Establish four facts about this session before you write anything**, because
-each has been got wrong here by inheriting a previous session's belief instead of
-asking the repository:
+**Establish four facts about this session before you write anything**, by
+asking the repository rather than inheriting a previous session's belief:
 
 1. **The commit you are working against**, and the branch.
 2. **Which pull requests you already hold open, and how they stack** — small,
@@ -31,8 +30,8 @@ asking the repository:
 3. **What else is in flight in this clone** — a dirty tree you did not dirty, a
    sibling branch, an unpushed commit. Other sessions are likely running right
    now, in other repositories, for the same reviewer;
-   `governance/qm/handbook/async-contract.md` is the set of rules that exist only
-   because of that, and it is short.
+   `governance/qm/handbook/async-contract.md` is the short set of rules for
+   working alongside them.
 4. **Which gates exist**, and what each cannot see:
    `python governance/qm/project-seed/ci/run_workflows_locally.py`.
 
@@ -43,13 +42,12 @@ it targets and none of them required. This file names no vendor, and neither
 should anything you add to it.
 
 **Read the corpus's committed status documents before re-deriving what they
-hold.** `governance/qm/harness-status.json` carries its own refresh command and
-staleness budget in a `reading:` block inside the file.
-`governance/qm/governance-status.yaml` does **not** — for that one,
-`governance/qm/handbook/generated-documents.md` is the only statement of its
-refresh command and its 168-hour budget. Check the age before quoting a figure.
+hold.** `governance/qm/status/harness.yaml` and
+`governance/qm/status/governance.yaml` each carry their own refresh command and
+staleness budget in a `reading:` block inside the file. Check the age before
+quoting a figure.
 
-1. Read `governance/qm/PRINCIPLES.md` in full and the three invariants in `governance/qm/README.md`. For namespaces and precedence, see `governance/qm/docs/ref/namespaces.md` and `governance/qm/docs/ref/precedence.md`.
+1. Read `governance/qm/PRINCIPLES.md` in full and the opening points of `governance/qm/README.md`. For namespaces and precedence, see `governance/qm/docs/ref/namespaces.md` and `governance/qm/docs/ref/precedence.md`.
 2. This project's own decision records live in `governance/qm/adr/` — inside
    the submodule, on this project's own branch, not at this repo's root — as
    `ADR-NNNN` (numbered locally, at ratification) or `DRAFT-*.md` before
@@ -139,12 +137,11 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
 11. **The scaffolding you measure with is part of the measurement.** Item 9 is
     the tool answering a different question than you asked. This is the tool
     being fine and the setup not — nothing errors, and the result describes your
-    own scaffolding rather than the subject. Real instances: a diff run against
-    files a redirect never wrote, reported as a hundred lines of drift when the
-    truth was none; a working tree read after a merge that exited non-zero; file
-    copies written through a text API that converted every line ending, so the
-    diff was entirely encoding; a mutation test whose baseline was already
-    failing, so it proved nothing in either direction. **Prefer the artefact you
+    own scaffolding rather than the subject. Its shapes: a diff against files a
+    redirect never wrote; a working tree read after a merge that exited
+    non-zero; file copies written through a text API that converts every line
+    ending, so the diff is all encoding; a mutation test whose baseline is
+    already failing, so it proves nothing either way. **Prefer the artefact you
     did not create** — read a document's own answer instead of recomputing one —
     and assert the intermediate: non-empty, exit zero, baseline green.
 12. **A guard is not finished until someone has tried to route around it.**
@@ -179,6 +176,14 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
     `check_leaks.py` on the mechanical part — a home path, a personal folder,
     a scratch path, a shared link; the rest is yours to read for before you
     push.
+15. **Work is delivered into a repository, never to a hosted page** — record
+    `governance/qm/records/DRAFT-work-is-delivered-into-a-repository.md`. A
+    report, a demo, a preview or a handoff is a committed file, and reaches a
+    reviewer as a pull request or as a page the reviewer builds and serves
+    locally. Nothing goes to a page an assistant's host keeps outside the
+    org's repositories, such as a chat product's shareable artifact or canvas:
+    it is not versioned with the code, cannot be reviewed as a diff, and goes
+    stale unseen. `check_leaks.py` refuses a committed link to one.
 
 ## One-time setup on a fresh clone (Windows)
 
@@ -186,11 +191,14 @@ refresh command and its 168-hour budget. Check the age before quoting a figure.
 file, not copies — POSIX checkouts resolve them with no setup. On Windows,
 enable Developer Mode (Settings → For developers) and run `git config
 core.symlinks true` once per clone, then `git checkout -- .` if the files
-were already checked out before that. Skipping this doesn't break
-anything — the files degrade to one-line pointers containing just the
-target path — but it isn't the intended, tested experience; see the
-IDE-integrated governance discovery record in `governance/qm/records/` for
-what was actually verified.
+were already checked out before that; the checkout then resolves them as a
+POSIX one does. Without that setting, each of the two checks out as a
+one-line file holding the relative path to this file: a person can follow
+it, and a tool that reads only that file gets the path rather than these
+instructions. The IDE-integrated governance discovery record in
+`governance/qm/records/` is the decision behind both files.
 
 <!-- Project-specific setup commands, test commands, and conventions belong
-     below this line; this seed only carries the governance-discovery part. -->
+     below this line. Above it, the governance section of
+     governance/qm/project-seed/ide/AGENTS.md stays verbatim apart from the
+     project's name. -->

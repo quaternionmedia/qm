@@ -2,6 +2,10 @@
 
 Slash-command and skill files for one vendor's CLI. Optional; see `../README.md`.
 
+The product can publish a session's output to pages its host keeps, which it
+calls Artifacts; `AGENTS.md` item 19 is why work here is never delivered there,
+and this directory adds nothing to that rule.
+
 ## Using them
 
 The CLI reads command files from `.claude/commands/` at the repository root.

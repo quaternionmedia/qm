@@ -3,7 +3,7 @@
 **Routing.** Procedure, not a decision record. It carries out the
 branch-per-project model described in `docs/about/architecture.md`; the decisions behind it live
 in `records/`. Its sibling is `handbook/propagation-runbook.md`, which covers
-keeping a project current once it exists — this page is only the first day.
+keeping a project current once it exists — this page covers only standing it up.
 
 **Read this if** you are standing up a new QM project, or checking whether an
 existing one was set up completely: an adopting project can be missing a step.

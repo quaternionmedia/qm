@@ -13,7 +13,7 @@ name: Governance status
 #
 # No network, no credential, no `gh`: the check runs identically in a fork pull
 # request and in a scheduled run. Refreshing the document is a human action --
-# see handbook/handoffs/governance-status-generator.md.
+# see handbook/generated-documents.md.
 
 on:
   push:

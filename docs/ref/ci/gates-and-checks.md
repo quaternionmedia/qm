@@ -130,6 +130,10 @@ scanner does not look for, because none of them is a credential.
   Placeholder accounts are listed in `PLACEHOLDERS`, and a new one is added
   there rather than by widening a pattern.
 - **A shared-conversation link**, which anybody holding it can read.
+- **A link to a hosted page**, one an assistant's host keeps outside every
+  repository, such as a chat product's shareable artifact or canvas.
+  [Work is delivered into a repository](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-work-is-delivered-into-a-repository.md),
+  and a link to such a page points its reader at the copy that record rules out.
 - **A path to a thread archive.** The archive's filename alone names an export
   format and is allowed; a directory in front of it is somebody's disk.
 - **A personal directory used as a path** (the Documents or Desktop folder, an
@@ -168,6 +172,30 @@ branch is asked of the remote rather than assumed, `origin/HEAD` is not a
 branch, and automation branches are summarised in one line. The summary and
 the exit status share one definition of "at risk". It cannot tell whether an
 `ahead` branch is abandoned or paused.
+
+## Branch references
+
+`uv run qm references <branch>` (`ci/branch_references.py`) lists what still
+refers to a branch, asked before it is retired. The census says what deleting
+a branch loses; this says what deleting it leaves pointing at nothing. It
+reads four kinds of reference:
+
+| Kind | What matches |
+|---|---|
+| name | The branch's name as written when it holds a slash, in backticks when it does not |
+| commit | A commit no other branch holds, by its first seven characters |
+| file | A file the branch adds that its base lacks, by path, or by a basename the base does not share |
+| named | The branch's name in backticks on `docs/ref/namespaces.md`, where the stage refs are named, or a line there calling its namespace permanent |
+
+It searches `main`, `--base` when that is another branch, and the head of every
+open pull request but the branch's own, and skips the generated documents. A
+pull request into a branch other than `main` is searched only in the files it
+changes, since the rest of its tree is an older copy of `main`. A line a head
+carries unchanged from `main` is reported once, as `main`'s.
+Exit 0 is nothing found and 1 is a list of references. Exit 2 is a search that
+could not run, an open pull request whose head is not fetched among them. It
+cannot see another repository, a submodule pin there included, or a pull
+request body, comment or issue.
 
 ## Record review
 
@@ -212,6 +240,20 @@ branch before deleting it, and never pushes, closes a pull request or touches
 `main` by another route. Without `--yes` it stops with a non-zero status. It
 cannot see whether a pull request should merge, only whether the host says it
 can; `uv run qm branch` reads what a branch carries.
+
+## The queue page
+
+`uv run qm queue` (`ci/queue_page.py`) reads every pull request and issue that
+`handbook/handoffs/qm-queue.md` names, in one query to the host, and lists each
+one that merged or closed after the page's stamp, with how far each stamped
+`main` has moved since. `--page` reads another handoff page. A bare `#N` is
+`qm`'s; `name #N` belongs to the roster repository `name`, and so does a number
+joined to it by a comma, "and", "or" or a slash. It exits 1 when anything the
+page names changed after the stamp or resolves to nothing, and 2 when the page,
+its stamp or the host cannot be read. No workflow runs it, because it reads the
+host; a session runs it at open and close. It cannot see a pull request the
+page never names, or whether a sentence claims one is open, and a stamp moved
+without a re-read silences it.
 
 ## The declared-routes hook
 

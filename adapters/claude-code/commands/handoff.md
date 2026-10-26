@@ -10,10 +10,14 @@ Two artifacts, and they are different documents. Do not merge them.
 
 ## The handoff — what is left, and how to pick it up
 
-Write it to `handbook/handoffs/<slug>.md` in the corpus (org-level work) or to
-this project's own handoff location. Slug: **${ARGUMENTS:-name it after the work}**.
+In the corpus, the handoff is `handbook/handoffs/qm-queue.md`, kept by that
+page's own "How this page is kept" section: `uv run qm queue` exits 0 before
+the pull request is opened. Write a page of its own at
+`handbook/handoffs/<slug>.md` only when the work needs a brief another session
+can pick up alone, and name it in the queue page. In a project, write it to the
+project's own handoff location. Slug: **${ARGUMENTS:-name it after the work}**.
 
-It carries:
+Either way, it carries:
 
 - **A stamp.** The commit each repository was at, and the date. Every number
   you write is true at that commit and nowhere else, and the next session must
@@ -35,7 +39,7 @@ in a runbook, not here.
 
 Before writing yours, apply that rule to the pages already there: retire every
 page whose work is on `main`, fold the unfinished residue of a partly landed
-page into the page that stays, then refill the queue table in
+page into the page that stays, then refill the table in
 `handbook/handoffs/README.md` so that it lists every page in the directory and
 nothing that is gone. `handbook/consolidation-runbook.md` Step 7 is the
 procedure.

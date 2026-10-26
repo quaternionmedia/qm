@@ -245,6 +245,17 @@ def test_offline_reports_github_fields_as_unknown_rather_than_absent(corpus):
     assert entry["repository"]["unknown"].endswith("--offline")
 
 
+def test_the_document_carries_how_to_read_it(corpus):
+    """A reader opens the file, not the handbook page about it.
+
+    Mutation: drop the `reading` block from `generate` and this fails.
+    """
+    reading = generate(corpus)["reading"]
+    assert reading["refresh"] == "uv run qm docs generate"
+    assert reading["staleness_budget_hours"] == 168
+    assert any("generated_at" in rule for rule in reading["do_not"])
+
+
 def test_the_credential_a_run_used_is_recorded(corpus):
     add_project(corpus, "alpha")
     assert generate(corpus)["generator"]["credential"] == "none: --offline"

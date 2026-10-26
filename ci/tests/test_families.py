@@ -126,6 +126,92 @@ def test_the_committed_record_declares_exactly_the_known_set():
     the declared set, so a stray row would have shifted the vocabulary with
     no test noticing."""
     assert sorted(families.declared()) == [
-        "core", "games", "infra", "instruments", "irl", "performer-display",
-        "show-control"]
+        "commons", "core", "games", "infra", "instruments", "irl", "performer-display",
+        "performing", "show-control"]
+
+
+NESTED = """# A record
+
+### §3 — The families, and which sits within which
+
+| family | drives | within | named public members |
+|---|---|---|---|
+| `performing` | **a show** | — | v |
+| `show-control` | **the room** | `performing` | a; b |
+| `instruments` | **the sound** | `performing` | c; d |
+| `irl` | **matter** | — | e |
+"""
+
+
+def test_within_comes_from_the_column_the_header_names(tmp_path: Path):
+    parents = families.within(record(tmp_path, NESTED))
+    assert parents == {"performing": None, "show-control": "performing",
+                       "instruments": "performing", "irl": None}
+
+
+def test_a_table_with_no_within_column_nests_nothing(tmp_path: Path):
+    """The members column holds names too; read without the header, its first
+    name would be taken for the outer family."""
+    assert set(families.within(record(tmp_path)).values()) == {None}
+
+
+def test_a_repository_may_claim_two_families(tmp_path: Path):
+    path = record(tmp_path, NESTED)
+    found = families.problems([{"name": "pedal", "family": ["irl", "instruments"]}],
+                              families.declared(path), families.within(path))
+    assert found == []
+
+
+def test_one_undeclared_name_in_a_list_is_refused(tmp_path: Path):
+    path = record(tmp_path, NESTED)
+    found = families.problems([{"name": "x", "family": ["irl", "nowhere"]}],
+                              families.declared(path), families.within(path))
+    assert len(found) == 1 and "nowhere" in found[0]
+
+
+def test_a_family_named_twice_is_refused(tmp_path: Path):
+    path = record(tmp_path, NESTED)
+    found = families.problems([{"name": "x", "family": ["irl", "irl"]}],
+                              families.declared(path), families.within(path))
+    assert found and "more than once" in found[0]
+
+
+def test_a_family_beside_the_one_it_sits_within_is_refused(tmp_path: Path):
+    """The inner claim already places the repository in the outer family.
+
+    Mutation: drop the ancestor check in `problems` and this fails.
+    """
+    path = record(tmp_path, NESTED)
+    found = families.problems([{"name": "x", "family": ["instruments", "performing"]}],
+                              families.declared(path), families.within(path))
+    assert found and "sits within performing" in found[0]
+
+
+def test_a_within_naming_no_declared_family_is_refused(tmp_path: Path):
+    path = record(tmp_path, NESTED.replace("| `irl` | **matter** | — |",
+                                           "| `irl` | **matter** | `nowhere` |"))
+    found = families.problems([], families.declared(path), families.within(path))
+    assert found and "nowhere" in found[0]
+
+
+def test_a_family_within_itself_is_refused(tmp_path: Path):
+    path = record(tmp_path, NESTED.replace("| `performing` | **a show** | — |",
+                                           "| `performing` | **a show** | `instruments` |"))
+    found = families.problems([], families.declared(path), families.within(path))
+    assert any("within itself" in p for p in found)
+
+
+def test_everyone_in_an_inner_family_is_in_the_outer_one(tmp_path: Path):
+    path = record(tmp_path, NESTED)
+    entries = [{"name": "editor", "family": "performing"},
+               {"name": "synth", "family": "instruments"},
+               {"name": "pedal", "family": ["irl", "instruments"]}]
+    out = families.document(entries, families.declared(path), families.within(path))
+    by_name = {f["name"]: f for f in out["families"]}
+    assert by_name["performing"]["members"] == ["editor"]
+    assert by_name["performing"]["all_members"] == ["editor", "synth", "pedal"]
+    assert by_name["performing"]["subfamilies"] == ["instruments", "show-control"]
+    assert by_name["instruments"]["within"] == "performing"
+    assert "pedal" in by_name["irl"]["members"]
+    assert out["unstated"] == []
 
