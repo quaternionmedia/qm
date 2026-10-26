@@ -40,6 +40,10 @@ its reviewed head):
   moat has its system view. alfred's and codecartographer's clones were not at
   their default branch's head, and their documents say so.
 
+The published site, deployed from `b8cc439`, was read after the merge: each of
+the 47 subject pages carries its Showgraph section, and each of the 85
+pictures they show loads.
+
 `project/codecartographer` carries `main` at `2c4cb11` since merge `4084965`.
 
 **To draw the documents again**, when `families.json` or a project moves:
@@ -97,8 +101,6 @@ Ordered by what each unblocks.
   without Consolas the names draw in its monospace, and may sit closer than
   they did when drawn. Inferred from the runner's header failure, not seen on
   a page.
-- The published site was not seen after the merge. Built locally, it served
-  all 47 pages with their sections and no broken image.
 - Two browser tests flake in codecartographer:
   - `open-panel.spec.ts`'s Enter on the file box, 2 of 10 on the base as well;
   - `fit.spec.ts`'s labels after a Collapse, 1 of 6 full runs, never alone.
