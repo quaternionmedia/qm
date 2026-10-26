@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-26T11:38:02Z",
+  "generated_at": "2026-10-26T11:39:26Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-26T11:38:01Z"
+        "generated_at": "2026-10-26T11:39:24Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 283,
+    "loose_ends": 284,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 39,
-      "document-unreviewed": 86,
+      "document-unreviewed": 87,
       "stalled-thread": 138
     },
-    "open": 283,
+    "open": 284,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1134,6 +1134,14 @@
       "title": "perspectives/2026-10-25-two-sessions-one-checkout.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-two-sessions-one-checkout",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-what-qmcp-said-it-was",
+      "title": "perspectives/2026-10-25-what-qmcp-said-it-was.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-what-qmcp-said-it-was",
       "address_parses": true
     },
     {

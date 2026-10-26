@@ -82,13 +82,11 @@ onboarding.
   onboarding and architecture pages; Phase 2 bounds the transcript's storage
   and rendering cost; Phase 3 makes the declared checks' boundaries explicit.
   New capabilities come after.
-- **The governance pin bump in `qmcp`.** `governance/qm` is at `235708c`. The
-  bump copies again the six seed workflows `qmcp` carries and adds
-  `timeless-check.yml`, takes the REUSE step through `uvx` (§4), and retires
-  the `AGENTS.md` paragraph about that step. `voice-set-landing.md` §3 lists
-  it with the other steps after the set: Phase 10's boxes on the roadmap, the
-  two read-back helpers made one, `vendor/vox` moved to `vox`'s `main`, and the
-  demo branches deleted.
+- **The steps after the set**, as `voice-set-landing.md` §3 lists them:
+  Phase 10's boxes on the roadmap, the two read-back helpers made one,
+  `vendor/vox` moved to `vox`'s `main`, and the demo branches deleted.
+  `qmcp`'s governance pin bump, which took the REUSE step through `uvx` (§4),
+  landed as `qmcp` #117 on 2026-10-25, pinning `f4786fe`.
 - **`joe` records on one host API, and the other three are a reading of one
   run.** `joe` #20 moved capture to a callback stream, because WDM-KS
   implements no blocking read, and on the hardware that run used the WDM-KS

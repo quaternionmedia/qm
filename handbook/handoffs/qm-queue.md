@@ -5,8 +5,9 @@
 on this page was true at those commits and nowhere else. Re-derive each one
 with `gh` and the tree before acting on it: the queue moves under other
 sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
-`7072174` and `qmcp` `82b2d58`. The rest of the page holds at the stamp,
-which those entries do not move.
+`7072174` and `qmcp` `82b2d58`, and every `qmcp` entry was read again at `qm`
+`222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. The rest of the
+page holds at the stamp, which those entries do not move.
 
 [`voice-set-landing.md`](voice-set-landing.md) is the voice set, landed but
 for `joe` #33 and #34; [`the-voice-loop.md`](the-voice-loop.md) is the loop.
@@ -111,6 +112,12 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   - C4: a `GET` writes `EXPIRED`.
   - Phase 11 of `qmcp`'s roadmap, auto-approvals from habits, is built only
     after the corpus has read it.
+- **qmcp's control-plane record**, `adr/DRAFT-control-plane-and-engine-boundary.md`
+  on `project/qmcp` (2026-10-25), is `Proposed` and pends on two inputs: (a)
+  whether the clients `qmcp` ships beside its seam, the cookbook's flows and
+  the agent library, stay in its repository; (b) whether `vox` gains a
+  release line, which decides whether it is an engine `qmcp` consumes or seam
+  code.
 - **The decisions in `hil-review-2026-10-04.md` §3** and the two carried in
   `voice-set-landing.md` §4.
 - **quaternionmedia/.github#9**, a draft on that repository's `main`: a Python
@@ -217,24 +224,28 @@ re-checked and is re-derived before anyone acts on it.
   at `qmcp` `a41f9a3` are under "Outside this pull request" in the
   description of the pull request merged into `project/qmcp` as `6a4819a`.
   Done is a pull request based on `project/qmcp` that restates the four
-  rows, then `qmcp`'s governance pin bump (`the-voice-loop.md` §1).
-- **qmcp's governance pin bump, in flight and kept local.** At 2026-10-25
-  21:04 a session working in a `qmcp` checkout holds the bump on its own
-  machine. It is unpushed because the person asked for that work to stay
-  local (§6):
-  - `c1fd0a4` merges `main` at `685d086` into `project/qmcp` at `6a4819a`;
-  - `7ae8035` takes the seed's ADR README and template;
-  - `c4e19c7`, on `qmcp`'s `chore/governance-current-2026-10-25`, pins
-    `7ae8035` and copies the seed files again.
-
-  On that machine a `qm` clone holds `c1fd0a4` on
-  `propagate/qmcp-2026-10-25` and `7ae8035` on
-  `fix/qmcp-seed-refresh-2026-10-25`. `qmcp`'s submodule holds the second
-  branch too, so the pin checks out there.
-  Done is the merge pushed as `propagate/qmcp-<date>` and merged into
-  `project/qmcp`, then a `qmcp` pull request pinning that branch's tip;
-  `check-submodule-refs` refuses a pin nobody pushed. The four rows above can
-  land before or after it, and a second bump then takes them.
+  rows, then a `qmcp` pin bump that takes it. `qmcp`'s pin has been `f4786fe`
+  since 2026-10-25, and that commit does not carry the four rows.
+- **Three of qmcp's tests name the project after the checkout's directory.**
+  `qmcp/instructions/check.py:403` resolves `project or clone.name`, so three
+  tests in `tests/test_cookbook_instruct.py` fail in any checkout not named
+  `qmcp`, a worktree among them. Done is those tests passing the project's
+  name. (2026-10-25)
+- **No gate measures how far a project's pin lags `main`.** On 2026-10-25,
+  until the propagation merged into `project/qmcp` as `777a275`, `qmcp`'s pin
+  was two commits behind that branch and the branch 343 behind `main`. Most
+  of the drift a `qmcp` session read at its open was that lag. `status/governance.yaml` carries
+  `behind_corpus`, and nothing gates on it. Done is a check that goes red past
+  a stated lag, seen to fail.
+- **A host-sourced check meets an unpushed commit.** Run locally,
+  `signature-check.yml` reports a signed commit the host has not seen as
+  unverifiable, where `check_signatures.py --source git` reports it good.
+  Done is the runner saying which source answered. (2026-10-25)
+- **qmcp's pages that predate its roles.** `docs/architecture.md` draws three
+  planes, and the instruction loop appears in it only as a departure it names;
+  the archive and speech do not appear. `qmcp tools list` lists the built-in
+  tools only, where `GET /v1/tools` lists the `alfred_*` tools too. Done is
+  each describing what the code does. (2026-10-25)
 - **qmcp declares no licence where a packager reads one.** At `qmcp`
   `82b2d58` it carries `REUSE.toml` (MIT for `**`), `LICENSES/` and a REUSE
   lint workflow, but no root `LICENSE` and no `license` key in
@@ -318,9 +329,10 @@ re-checked and is re-derived before anyone acts on it.
 - That a local run of a project-branch pull request now agrees with the host
   on the ADR lint's *default branch carries no project records* step, which
   #229 changes the runner for. A project branch carries its own copy of the
-  runner. At `6a4819a`, `project/qmcp` does not have #229, and neither does
-  `qmcp`'s governance pin, `235708c`. The local run of the pull request
-  merged there as `6a4819a` therefore needed `--ref` for that step to pass.
+  runner. The local run of the pull request merged into `project/qmcp` as
+  `6a4819a` needed `--ref` for that step to pass, because neither that branch
+  nor `qmcp`'s pin had #229. Both have it at `f4786fe`, and no local run of a
+  pull request into `project/qmcp` has been made since.
 - `qmcp`'s provider SDKs as locked at `82b2d58` (anthropic 2.3.0, google-genai
   2.33.0, logfire 5.3.0) against their services. `-m live_anthropic` and the
   `--live` cookbook checks were not run. The offline suite, the local-model
@@ -330,9 +342,7 @@ re-checked and is re-derived before anyone acts on it.
 
 ## 6. Standing constraints
 
-- *Keep everything local* is **not** in force, except for `qmcp`'s
-  governance pin bump in §4, which the person asked to keep local on
-  2026-10-25. Its unpushed commits are deliberate.
+- *Keep everything local* is **not** in force.
 - Nothing of this page's work is unpushed.
 - `main` is never pushed directly; everything arrives by a pull request.
 - Project branches take changes in and never out: records reach them on a pull
