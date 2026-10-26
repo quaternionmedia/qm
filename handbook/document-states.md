@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-25T23:41:36Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-26T00:32:52Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -9,8 +9,8 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 | | Claimed | Measured |
 |---|---|---|
 | Corpus version | `v0.1.0` is the target | **none.** No `v*` tag, so no release claim — records/DRAFT-version-tags-are-claims.md 4 |
-| Records ratified | every requirement below | **0 of 41**; 38 proposed |
-| Mandatory reading | under budget | 1185 of 1200 lines |
+| Records ratified | every requirement below | **0 of 42**; 39 proposed |
+| Mandatory reading | under budget | 1193 of 1200 lines |
 | Documents whose state is unknown | none | 0 |
 
 **What the milestone requires**, and where each is measured:
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **281**, unfiltered.
+Every governed document in this corpus: **283**, unfiltered.
 
 | | |
 |---|---|
@@ -58,9 +58,9 @@ A state says whether a page binds you. It never says the content is right — St
 
 | State | Documents |
 |---|---|
-| [P] `proposed` | 38 |
+| [P] `proposed` | 39 |
 | [D] `draft` | 3 |
-| [-] `unreviewed` | 82 |
+| [-] `unreviewed` | 83 |
 | [G] `generated` | 7 |
 | [S] `standing` | 130 |
 | [T] `transient` | 21 |
@@ -107,6 +107,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [P] | `proposed` | `records/DRAFT-the-read-document-governs.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-version-tags-are-claims.md` | record | Proposed |
 | [P] | `proposed` | `records/DRAFT-what-is-not-the-organisation.md` | record | Proposed |
+| [P] | `proposed` | `records/DRAFT-work-is-delivered-into-a-repository.md` | record | Proposed |
 | [D] | `draft` | `records/DRAFT-a-loose-end-is-carried-or-dismissed.md` | record | Draft |
 | [D] | `draft` | `records/DRAFT-going-private-is-an-act-with-obligations.md` | record | Draft |
 | [D] | `draft` | `records/DRAFT-the-base-is-the-deliverable.md` | record | Draft |
@@ -183,6 +184,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [-] | `unreviewed` | `perspectives/2026-10-19-a-rename-closed-a-pull-request.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-24-the-corpus-read-whole-and-landed.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/2026-10-25-the-label-was-not-the-content.md` | perspective | — |
+| [-] | `unreviewed` | `perspectives/2026-10-25-what-whisper-heard.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09-mathematical-limits.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09.md` | perspective | — |
 | [-] | `unreviewed` | `perspectives/claude-fable-5-2026-06-09_philosophy.md` | perspective | — |

@@ -256,6 +256,14 @@ since its stamp. Its first section says how a session keeps it.
     an explanation moves to `docs/`, a narrative to a dated retrospective in
     `perspectives/`.
 
+19. **Work is delivered into a repository, never to a hosted page** — record
+    `records/DRAFT-work-is-delivered-into-a-repository.md`. A report, a demo, a
+    preview or a handoff is a committed file, and reaches a reviewer as a pull
+    request or as a page the reviewer builds and serves locally. Nothing goes to
+    a page an assistant's host keeps outside the org's repositories, such as a
+    chat product's shareable artifact or canvas: it is not versioned with the
+    code, cannot be reviewed as a diff, and goes stale unseen.
+
 ## If you're forking this corpus into a new project
 
 See `docs/usage/first-project.md` and `handbook/forking-a-project.md` — do not improvise a lighter

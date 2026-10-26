@@ -202,7 +202,8 @@ overrides it. `joe voice level --every` still exists and only measures.
   speech only, and what a sentence-length utterance costs in latency is
   unmeasured.** Phase 10's constraints name both as unmeasured, and
   resolution confirms rather than trusts, so the first does not have to be.
-  #251 keeps a benchmark of two synthesized voices, run on 2026-10-11:
+  `perspectives/2026-10-25-what-whisper-heard.md` keeps a benchmark of two
+  synthesized voices, run on 2026-10-11:
   - `qmcp`, `joe` and `qm` were heard as said.
   - `vox` was lost to noise.
   - "pi" was never written as said.

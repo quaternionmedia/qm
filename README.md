@@ -151,6 +151,7 @@ qm/
 | — | [A loose end is carried or dismissed, and open is the absence of both](records/DRAFT-a-loose-end-is-carried-or-dismissed.md) | Draft | 2026-09-06 |
 | — | [The workstation, the agent and the conversation are not the organisation](records/DRAFT-what-is-not-the-organisation.md) | Proposed | 2026-09-20 |
 | — | [A semantic index is a recorded document, and the seam decodes it](records/DRAFT-a-semantic-index-is-a-recorded-document.md) | Proposed | 2026-10-12 |
+| — | [Work is delivered into a repository, never to a hosted page](records/DRAFT-work-is-delivered-into-a-repository.md) | Proposed | 2026-10-24 |
 
 No record is ratified, because ratification requires a second active code owner. GitHub does not count a PR author's own approval, so an approval its own author can supply would not be a real gate. See [handbook/governance-rollout.md](handbook/governance-rollout.md) for what is enforced today and what waits.
 
