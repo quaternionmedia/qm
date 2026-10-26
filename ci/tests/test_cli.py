@@ -100,9 +100,7 @@ def test_it_runs_without_the_package_installed():
     """CI invokes `python ci/cli.py` and installs nothing.
 
     `uv run qm` installs the package first, so an `import ci.foo` that only
-    resolves when installed works locally and fails on the runner -- which is
-    exactly how this was found, on the first pull request that let a workflow
-    near it.
+    resolves when installed works locally and fails on the runner.
 
     `-S` skips `site`, so site-packages is not on the path and the installed
     distribution is invisible. Without the path insertion in cli.py the import
@@ -146,9 +144,17 @@ def test_a_directory_with_only_one_marker_is_not_the_corpus(tmp_path: Path):
 def test_help_lists_every_command():
     result = run("--help", cwd=CORPUS)
     assert result.returncode == 0
-    for command in ("docs", "gates", "tags", "restatements", "slot", "branch",
+    for command in ("docs", "gates", "tags", "restatements", "stacks", "branch",
                     "preflight", "brief"):
         assert command in result.stdout
+
+
+def test_the_earlier_name_for_stacks_still_runs_and_is_not_listed():
+    """Mutation: drop the `slot` parser or its dispatch entry, and the second
+    assertion fails; give it a help string, and the first does."""
+    listed = run("--help", cwd=CORPUS).stdout
+    assert "stacks" in listed and "slot" not in listed.split()
+    assert run("slot", "--help", cwd=CORPUS).returncode == 0
 
 
 def test_no_arguments_prints_help_rather_than_doing_something():
@@ -184,21 +190,16 @@ def test_flags_reach_the_underlying_module():
 
 
 def test_every_runnable_module_is_reachable_through_the_cli():
-    """THE CONVERSE OF THE TEST ABOVE, AND THE ONE THAT WAS MISSING.
+    """The converse of the test above: a module with no route works for
+    whoever knows its path and does not exist for anybody reading
+    `uv run qm --help`, which is the second entry point `ci/cli.py`'s own
+    header says must not exist.
 
-    A route naming a module that does not exist fails loudly at the prompt. A
-    module with no route fails silently: it works perfectly for whoever knows
-    its path, and does not exist for anybody reading `uv run qm --help`. Four
-    were found that way at once -- among them a gate and a demo written in this
-    corpus, both documented by their file path, which is exactly the second
-    entry point `ci/cli.py`'s own header says must not exist.
-
-    **A LIBRARY WITH A DEBUG `main` IS EXEMPT, AND THE EXEMPTION IS EARNED BY
-    BEING CALLED.** Most of the generators here are invoked by `generate_docs`
-    or by another dashboard and are not operations anybody performs. The test
-    for that is whether something else in the repository names them -- not a
-    list somebody maintains, because a list would go stale in the same silence
-    this is about.
+    A library with a debug `main` is exempt, and the exemption is earned by
+    being called: a generator invoked by `generate_docs` or by another
+    dashboard is not an operation anybody performs. The test is whether
+    something else in the repository names it, not a list somebody
+    maintains.
     """
     routed = {module for module, _, _ in cli.ROUTES.values()}
     routed |= {module for module, _ in cli.DOCS_ROUTES.values()}
@@ -230,9 +231,8 @@ def test_the_dashboard_route_exists_and_reports_without_starting_anything():
     """`qm dashboard` is the from-scratch route: it says what of the trio is up
     and prints the command for the rest.
 
-    **REPORTING MUST NOT START ANYTHING.** Somebody looking at a status table
-    has not asked for three servers, and a command that spawned them would be
-    an act with consequences taken on nobody's instruction.
+    Reporting must not start anything: somebody looking at a status table has
+    not asked for servers to start.
 
     Mutation: start a surface when no `--start` is given and this fails.
     """

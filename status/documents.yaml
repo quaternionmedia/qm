@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-09-28T21:21:16Z'
+generated_at: '2026-10-26T00:32:52Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -39,22 +39,22 @@ states:
 reading_load:
   documents:
   - path: AGENTS.md
-    lines: 271
+    lines: 286
   - path: PRINCIPLES.md
-    lines: 497
+    lines: 493
   - path: handbook/async-contract.md
-    lines: 281
+    lines: 271
   - path: handbook/handoffs/README.md
-    lines: 158
-  total_lines: 1207
+    lines: 143
+  total_lines: 1193
   budget_lines: 1200
-  within_budget: false
-  headroom_lines: -7
+  within_budget: true
+  headroom_lines: 7
   budget_source: records/DRAFT-governance-arrives-as-a-mechanism.md 4
   the_budget_is_a_ratchet: It is lowered as prose is deleted, never raised on contact.
     Raising it is an amendment to that record, argued in the open.
   excluded:
-    README.md: mandated in part -- three invariants, not the whole page
+    README.md: mandated in part -- its opening points, not the whole page
   scope_note: '`documents` is the scope of this measurement and not a derived fact.
     A figure inside its budget means the listed documents are inside it, and nothing
     more -- read `excluded` before quoting `within_budget`.'
@@ -104,12 +104,12 @@ readiness:
     in ci/workspace.yaml. Nothing here is derived from the repository.
   measured:
     records:
-      total: 39
+      total: 42
       ratified: 0
-      proposed: 36
+      proposed: 39
     documents_in_unknown_state: 0
-    reading_within_budget: false
-    reading_total_lines: 1207
+    reading_within_budget: true
+    reading_total_lines: 1193
     reading_budget_lines: 1200
     gates:
       unknown: held in status/gates.yaml, which this generator does not read -- one
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 208
+  documents: 283
   by_state:
     draft: 3
     generated: 7
-    proposed: 36
-    standing: 75
-    transient: 26
-    unreviewed: 61
+    proposed: 39
+    standing: 130
+    transient: 21
+    unreviewed: 83
   disagreements: 0
   unknown: 0
 documents:
@@ -195,7 +195,7 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/cookbook/add-a-perspective.md
+- path: docs/families/commons.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -204,7 +204,7 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/cookbook/build-these-docs.md
+- path: docs/families/core.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -213,16 +213,7 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/cookbook/draft-a-record.md
-  class: reference
-  class_reason: 'the reference: contracts, interfaces, procedures'
-  declared_status: Starts at `Draft` or `Proposed`
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
-- path: docs/cookbook/index.md
+- path: docs/families/games.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -231,7 +222,7 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/cookbook/propagate-a-change.md
+- path: docs/families/index.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -240,7 +231,7 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/cookbook/read-status-documents.md
+- path: docs/families/infra.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -249,7 +240,43 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: docs/cookbook/run-ci-locally.md
+- path: docs/families/instruments.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/families/irl.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/families/performer-display.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/families/performing.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/families/show-control.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -267,7 +294,412 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
+- path: docs/projects/Cuelist-python.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/QLab-python.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ShowRunner.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ShowStopper.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/TheatreMix-python.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/aes.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/alfred.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/apothecary.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/benchmark.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/carlos.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/cesar.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/codecartographer.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/datum.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/dossier.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/factorio-sysops.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/golfvs.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/holophonor.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/index.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ira.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/joe.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/leo.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/looksatwords.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ludwig.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/midiphonor.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/moat.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/otto.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/qm.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/qmcp.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/qmetronome.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/rad-godot.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/rad.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/scad-chess.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/stomp.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/uPhonor.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/vox.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/waveofhormuz.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/wolf.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/projects/ztgui.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: docs/ref/addresses.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/demos.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/docs-tooling.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/gates-and-checks.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/index.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/measuring-the-suite.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/registries.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/ref/ci/status-documents.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -348,6 +780,42 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
+- path: docs/usage/add-a-perspective.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/usage/build-these-docs.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/usage/develop-a-family-member.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/usage/draft-a-record.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: Starts at `Draft` or `Proposed`
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: docs/usage/first-project.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
@@ -384,7 +852,34 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
+- path: docs/usage/propagate-a-change.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: docs/usage/questions-a-new-developer-asks.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/usage/read-status-documents.md
+  class: reference
+  class_reason: 'the reference: contracts, interfaces, procedures'
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
+- path: docs/usage/run-ci-locally.md
   class: reference
   class_reason: 'the reference: contracts, interfaces, procedures'
   declared_status: null
@@ -474,15 +969,6 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: handbook/glossary.md
-  class: handbook
-  class_reason: policy binding on QM's own conduct
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: standing
-  note: the corpus defines no lifecycle for this class, so this is the absence of
-    a state rather than a state
 - path: handbook/governance-rollout.md
   class: handbook
   class_reason: policy binding on QM's own conduct
@@ -501,7 +987,7 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
-- path: handbook/handoffs/apply-the-main-ruleset.md
+- path: handbook/handoffs/carlos-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -515,20 +1001,6 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/disk-tooling.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/dossier-delta-review.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
 - path: handbook/handoffs/enact-the-stages.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
@@ -536,56 +1008,63 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/families-delineated.md
+- path: handbook/handoffs/hil-review-2026-10-04.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/for-a-stronger-model.md
+- path: handbook/handoffs/holophonor-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/governance-loop-poc.md
+- path: handbook/handoffs/joe-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/governance-status-generator.md
+- path: handbook/handoffs/leo-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/harness-next-test.md
+- path: handbook/handoffs/ludwig-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/hil-review-2026-08-25.md
+- path: handbook/handoffs/midiphonor-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/hil-review-2026-09-27.md
+- path: handbook/handoffs/performing-family-consolidation.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/qmcp-flows-as-deltas.md
+- path: handbook/handoffs/private-34-simultaneous-run.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/qm-queue.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -599,49 +1078,21 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/semantic-review-session.md
+- path: handbook/handoffs/showrunner-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/session-2026-08-12.md
+- path: handbook/handoffs/showstopper-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/session-2026-08-15.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/session-2026-08-23.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/six-branches-reached-origin.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/the-active-four.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/the-pair-and-the-fresh-setup.md
+- path: handbook/handoffs/simultaneous-performing-family-plan-2026-09-21.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -662,21 +1113,21 @@ documents:
   state_from_status_row: null
   state_from_filename: null
   state: transient
-- path: handbook/handoffs/two-gate-and-tag-teeth.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
-- path: handbook/handoffs/two-views-one-dataset.md
-  class: handoff
-  class_reason: working instructions, deleted when the work lands
-  declared_status: null
-  state_from_status_row: null
-  state_from_filename: null
-  state: transient
 - path: handbook/handoffs/views-declare-what-they-need.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/voice-set-landing.md
+  class: handoff
+  class_reason: working instructions, deleted when the work lands
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: transient
+- path: handbook/handoffs/wolf-simultaneous-run.md
   class: handoff
   class_reason: working instructions, deleted when the work lands
   declared_status: null
@@ -812,6 +1263,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-08-09-explanation-in-the-wrong-place.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-08-09-integrating-rad-into-a-web-host.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
@@ -1051,6 +1510,14 @@ documents:
   state_from_filename: null
   indexed_status: Unreviewed
   state: unreviewed
+- path: perspectives/2026-08-22-found-while-putting-the-topology-on-the-canvas.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
 - path: perspectives/2026-08-22-what-it-cost-to-get-one-panel-right.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
@@ -1107,7 +1574,23 @@ documents:
   state_from_filename: null
   indexed_status: Unreviewed
   state: unreviewed
+- path: perspectives/2026-08-30-a-guard-that-reads-prose.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: Unreviewed
+  state_from_status_row: unreviewed
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
 - path: perspectives/2026-09-20-the-consolidation-cycle.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-09-20-the-estate-surveyed-by-many-hands.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
@@ -1156,6 +1639,150 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-09-28-the-voice-loop-meets-the-field.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-10-what-joe-and-vox-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-10-what-the-corpus-pages-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-10-what-the-corpus-tooling-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-10-what-the-rest-of-qmcp-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-10-what-the-topology-docstrings-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-11-what-was-left-on-the-disk.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-12-what-the-push-found.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-13-what-apothecarys-package-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-13-what-apothecarys-page-and-tests-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-13-what-apothecarys-pages-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-13-what-apothecarys-pictures-packages-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-13-what-apothecarys-walkthrough-remembered.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-15-the-voice-set-landing.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-18-clearing-the-qm-queue.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-19-a-rename-closed-a-pull-request.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-24-the-corpus-read-whole-and-landed.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-25-the-label-was-not-the-content.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-25-what-whisper-heard.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null
@@ -1388,6 +2015,15 @@ documents:
   state: standing
   note: the corpus defines no lifecycle for this class, so this is the absence of
     a state rather than a state
+- path: plans/workspace-review-2026-09-21.md
+  class: other
+  class_reason: not in a governed directory
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  state: standing
+  note: the corpus defines no lifecycle for this class, so this is the absence of
+    a state rather than a state
 - path: protocols/README.md
   class: index
   class_reason: the index for its directory, not a member of it
@@ -1543,6 +2179,13 @@ documents:
   state_from_status_row: proposed
   state_from_filename: draft
   state: proposed
+- path: records/DRAFT-a-semantic-index-is-a-recorded-document.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
 - path: records/DRAFT-a-session-between-people-is-encrypted-end-to-end.md
   class: record
   class_reason: an org decision record
@@ -1607,6 +2250,13 @@ documents:
   state_from_filename: draft
   state: proposed
 - path: records/DRAFT-deltas-compose.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
+- path: records/DRAFT-durable-text-states-what-is-true.md
   class: record
   class_reason: an org decision record
   declared_status: Proposed
@@ -1754,6 +2404,13 @@ documents:
   state_from_filename: draft
   state: proposed
 - path: records/DRAFT-what-is-not-the-organisation.md
+  class: record
+  class_reason: an org decision record
+  declared_status: Proposed
+  state_from_status_row: proposed
+  state_from_filename: draft
+  state: proposed
+- path: records/DRAFT-work-is-delivered-into-a-repository.md
   class: record
   class_reason: an org decision record
   declared_status: Proposed

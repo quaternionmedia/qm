@@ -3,27 +3,26 @@
 
     uv run qm --help
 
-WHAT THIS IS, AND WHAT IT REFUSES TO BE.
+It dispatches, and refuses to be anything else.
 
-This dispatches. Every subcommand calls the `main(argv)` of the module that
-owns the rule and implements nothing itself. A subcommand that recomputed a
-verdict, prettied up an exit code, or defaulted a flag would be a second
-definition of a governance rule, and two definitions drift the first time one
-is fixed -- which is the failure the renderers here are already tested against.
+Every subcommand calls the `main(argv)` of the module that owns the rule and
+implements nothing itself. A subcommand that recomputed a verdict, prettied up
+an exit code, or defaulted a flag would be a second definition of a governance
+rule, and two definitions drift the first time one is fixed.
 
 So: no verdicts are formed in this file, and `qm <anything>` exits with exactly
 the status its module returned. If a command's output reads wrongly, the fix is
 in that module.
 
-WHY THE SCRIPTS STILL RUN WITHOUT IT. Forks execute `project-seed/ci/*.py` out
+The scripts still run without it. Forks execute `project-seed/ci/*.py` out
 of the governance submodule with a plain interpreter and never install this
 package; the workflows invoke scripts directly so a gate cannot fail for want
 of a venv. See the header of `pyproject.toml`. One definition, two entry points.
 
-WHERE IT RUNS. Relative paths in the generators are corpus-relative, so this
-locates the corpus root -- by marker, walking up from the working directory --
-and refuses to run anywhere else rather than writing `status/gates.yaml` into
-whatever directory you happened to be in.
+It runs at the corpus root. Relative paths in the generators are
+corpus-relative, so this locates the corpus root (by marker, walking up from
+the working directory) and refuses to run anywhere else rather than writing
+`status/gates.yaml` into whatever directory it was started in.
 """
 
 from __future__ import annotations
@@ -37,10 +36,8 @@ from pathlib import Path
 
 # Run as a script -- `python ci/cli.py`, which is how CI and anyone without the
 # package installed invokes it -- `ci` is not importable, because the directory
-# holding it is not on the path. `uv run qm` hides that entirely: it installs
-# the package first, so every `import ci.foo` below resolves and the defect is
-# invisible until a runner that installs nothing tries it. Remote CI is where
-# this was caught, on the first pull request that let a workflow near it.
+# holding it is not on the path. `uv run qm` installs the package first and
+# hides that, so the path is set here for the runner that installs nothing.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # A directory is the corpus if it holds the charter and the records. Checking
@@ -62,7 +59,7 @@ def call_main(module, argv: list[str]) -> int:
 
     Most entry points here take `main(argv=None)`. Two seed scripts take
     `main()` and read `sys.argv` themselves. Adapting is the wrapper's job:
-    changing those signatures would edit files that twelve projects run out of
+    changing those signatures would edit files that every project runs out of
     the submodule, to fix a problem none of them has.
     """
     if inspect.signature(module.main).parameters:
@@ -156,7 +153,12 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
-        "slot", help="your open pull requests, and is any ready while stacked?",
+        "stacks", help="your open pull requests, and is any ready while stacked?",
+        add_help=False,
+    )
+    # The earlier name, still accepted and left out of the listing.
+    sub.add_parser(
+        "slot",
         add_help=False
     )
     sub.add_parser(
@@ -167,6 +169,11 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser(
         "leaks",
         help="does anything committed name a person, a machine or a conversation?",
+        add_help=False,
+    )
+    sub.add_parser(
+        "timeless",
+        help="does added text shout or narrate its own history? --all for everything",
         add_help=False,
     )
     sub.add_parser(
@@ -190,6 +197,11 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser(
         "merge",
         help="your open pull requests, live; merge one when every gate is green",
+        add_help=False,
+    )
+    sub.add_parser(
+        "queue",
+        help="every pull request the queue page names: what changed since its stamp",
         add_help=False,
     )
     sub.add_parser(
@@ -223,6 +235,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     sub.add_parser(
         "rollout", help="a phased push-through, family by family: claims beside evidence",
+        add_help=False,
+    )
+    sub.add_parser(
+        "family-demo",
+        help="the performing family up on reserved ports, alone and together",
         add_help=False,
     )
     sub.add_parser(
@@ -334,15 +351,18 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "edges": ("check_principle_edges", False, []),
     "glossary-links": ("glossary_links", False, []),
     "review": ("record_review", False, []),
+    "stacks": ("check_one_pr", True, []),
     "slot": ("check_one_pr", True, []),
     "pins": ("check_submodule_pins", True, []),
     "leaks": ("check_leaks", True, []),
+    "timeless": ("check_timeless", True, []),
     "harness": ("harness_dashboard", False,
                 ["status/harness.yaml", "--format", "md"]),
     "branch": ("check_pr_base", True, []),
     "branches": ("branch_census", True, []),
     "inbound": ("inbound", False, []),
     "merge": ("merge_review", False, []),
+    "queue": ("queue_page", False, []),
     "estate": ("estate", False, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),
@@ -351,6 +371,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "cookbook": ("cookbook", False, []),
     "family-suite": ("family_suite", False, []),
     "rollout": ("rollout", False, []),
+    "family-demo": ("family_demo", False, []),
     "protocols": ("protocols", False, []),
     "capabilities": ("capabilities", False, []),
     "prose": ("prose", False, []),
@@ -371,10 +392,8 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "posture": ("test_posture", False, []),
     "preflight": ("run_workflows_locally", True, []),
     "brief": ("cowork_context", True, []),
-    # Four routes added together, because the omission was one shape rather
-    # than four mistakes: a module with a `main` and no route is reachable only
-    # by a path somebody has to have been told, which is the thing `qm` exists
-    # to make unnecessary. `ci/tests/test_cli.py` now refuses a new one.
+    # A module with a `main` and no route is reachable only by a path somebody
+    # has to have been told; `ci/tests/test_cli.py` refuses one.
     "dashboard": ("dashboard", False, []),
     "demo": ("trio_demo", False, []),
     "mathematics": ("check_mathematics", False, []),
@@ -418,9 +437,8 @@ def main(argv: list[str] | None = None) -> int:
     if command == "docs":
         if not rest or rest[0] not in DOCS_ROUTES:
             # Printed rather than routed through argparse's own help, which
-            # exits 0 on its way out -- so an unknown subcommand reported
-            # success while doing nothing, which is the one result a governance
-            # tool must never produce.
+            # exits 0 on its way out, so an unknown subcommand would report
+            # success while doing nothing.
             known = ", ".join(DOCS_ROUTES)
             stream = sys.stdout if not rest else sys.stderr
             print(f"usage: qm docs <{known}>", file=stream)
@@ -434,9 +452,9 @@ def main(argv: list[str] | None = None) -> int:
     if command == "preflight" and importlib.util.find_spec("pip") is None:
         # Said before the run, not diagnosed after it. The workflows install
         # their tools with `python -m pip install`, and a uv environment has no
-        # pip -- so five steps fail with "No module named pip" and read as gate
-        # failures when the gates are fine. A local failure is a question, not a
-        # verdict, and this is the answer to that question stated up front.
+        # pip, so the steps that use it fail with "No module named pip" and
+        # read as gate failures when the gates are fine. A local failure is a
+        # question, not a verdict, and this answers it up front.
         print(
             "qm: this environment has no pip, so every workflow step that installs\n"
             "    its own tools will fail for a reason that is not a gate failure.\n"

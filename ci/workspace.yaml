@@ -14,21 +14,26 @@
 # `phase` is what this project is working toward, per the phase-ladder record
 # in `records/`. Two halves, and they behave differently:
 #
-#   v0.0.1  governance. The same claim in every project: records on its own
-#           project/<name> branch, pin current, seed files present on the
-#           default branch, and a human who reviewed and tested that it is so.
+#   v0.0.0  not adopted: no project/<name> branch in the corpus yet.
+#   v0.0.1  adopted, however far along. The same claim in every project: a
+#           human gave it its project/<name> branch, and its records live
+#           there. How much of the seed it carries -- a current pin, the seed
+#           files on its default branch -- is a share within v0.0.1, measured
+#           in status/governance.yaml, and never a rung of its own.
 #   v0.0.2+ defined by the project, in the project's own records. A project
 #           that has not written that definition has a word, not a rung.
 #
-# A project with nothing stated is `v0.0.1`. That is a default and not a
-# discovery: governance binds every project whether or not anybody has thought
-# about its roadmap, and it is a claim any project can be measured against on
-# day one.
+# A project with nothing stated is `v0.0.0` until it has its branch and
+# `v0.0.1` after. That is a default and not a discovery: it reads the one fact
+# a human has already established, whether the project has adopted, and claims
+# nothing beyond it. A phase stated for a project with no branch is intent,
+# shown beside its `v0.0.0` and never in its place. Where this summary and the
+# record disagree, the record is what the organisation decided.
 #
 # `phase_source` keeps the claim readable as a claim:
 #
 #   stated      a human said it, in a session or a record
-#   scaffolded  nothing was said, so the ladder's floor applies
+#   scaffolded  nothing was said, so the ladder's default applies
 #
 # `attention` is the other claim, and it answers a different question from
 # `phase`. `phase` is what a project is working toward; `attention` is whether
@@ -58,7 +63,7 @@
 # pair and corrects neither -- per records/DRAFT-a-disagreement-is-a-delta.md
 # and records/DRAFT-attention-is-a-claim-activity-is-measured.md 7.
 #
-# NOTHING HERE IS EVIDENCE. This file holds what people have asserted. What is
+# Nothing here is evidence. This file holds what people have asserted. What is
 # actually true of a repository is computed from `status/governance.yaml`,
 # which is generated from git and the host rather than from anybody's account
 # of them, and the two are shown side by side so the gap survives. A claim is
@@ -70,7 +75,7 @@ schema: 1
 
 # --- Org-level parameters: what this corpus is working toward ---------------
 #
-# THIS IS A CLAIM, like every `phase` below it. A human states the milestone and
+# This is a claim, like every `phase` below it. A human states the milestone and
 # what it requires; nothing here is derived from the repository, and nothing in
 # the repository is edited to match it. `ci/doc_status.py` reads this block into
 # `status/documents.yaml`'s `readiness` layer and reports the *measured* figures beside
@@ -128,14 +133,9 @@ repositories:
     note: the constitution; every other entry adopts it by reference
     paths: [qm/qm]
 
-  # This section used to be four comment headers, and the headers were the only
-  # place the categories lived. Nothing could read them, nothing could check
-  # them, and three of the four were dated observations written as prose rather
-  # than claims anybody had made -- so they went stale silently, which is what
-  # a claim in a comment does. The one header that really was an attention
-  # claim said so in its own text; it is `attention: active` below. The others
-  # are gone rather than converted, because turning a measurement into a claim
-  # is the substitution the paragraph above refuses.
+  # The categories live in fields a tool can read and check, not in comment
+  # headers: an attention claim is `attention: active`, and a measurement is
+  # never written here as a claim.
   - name: dossier
     role: project
     family: core
@@ -156,7 +156,7 @@ repositories:
   - name: vox
     role: project
     family: core
-    phase: v0.0.1
+    phase: v0.0.0
     phase_source: scaffolded
     attention: active
     note: >
@@ -171,6 +171,7 @@ repositories:
 
   - name: rad
     role: project
+    family: core
     phase: v0.0.1
     phase_source: stated
     attention: active
@@ -179,10 +180,26 @@ repositories:
 
   - name: alfred
     role: project
+    family: performing
     phase: v0.0.1
     phase_source: scaffolded
     note: video editor; UI migration and Playwright coverage in flight
     paths: [qm/alfred]
+
+  - name: otto
+    role: project
+    family: performing
+    phase: v0.0.0
+    phase_source: scaffolded
+    attention: active
+    note: >
+      the picture engine: renders alfred's previews, frames, sound and
+      presets, published as the `al-otto` package and vendored in alfred at
+      `alfred/otto`. Placed in performing by the border test in
+      records/DRAFT-a-family-is-bordered-by-what-it-drives.md 2 -- what its
+      output acts on is the video of a show, before it and after it, as
+      alfred's does.
+    paths: [qm/otto, otto, qm/alfred/alfred/otto]
 
   - name: apothecary
     role: project
@@ -212,6 +229,7 @@ repositories:
     role: project
     phase: v0.0.1
     phase_source: scaffolded
+    family: games
     note: >
       Name and paths live in ci/workspace-private.yaml, which is not
       committed. This repository is private, and a public roster that
@@ -222,6 +240,7 @@ repositories:
     role: project
     phase: v0.0.1
     phase_source: scaffolded
+    family: games
     note: >
       Name and paths live in ci/workspace-private.yaml, which is not
       committed. This repository is private, and a public roster that
@@ -230,6 +249,7 @@ repositories:
 
   - name: factorio-sysops
     role: project
+    family: games
     phase: v0.0.1
     phase_source: scaffolded
     paths: [factorio-sysops, qm/factorio-sysops]
@@ -255,6 +275,7 @@ repositories:
     role: project
     phase: v0.0.1
     phase_source: scaffolded
+    family: [instruments, performer-display]
     note: >
       Name and paths live in ci/workspace-private.yaml, which is not
       committed, for the same reason as private-32 and private-33 above.
@@ -274,15 +295,15 @@ repositories:
 
   - name: streaming-infrastructure
     role: project
+    family: infra
     phase: v0.0.1
     phase_source: scaffolded
     note: >
       Governed via project/streaming-infrastructure here, whose one record
       calls the codebase the `qmstream` control plane. No repository by either
       name is on the host under this org, so there is nothing to clone and
-      status/governance.yaml reports its host layer as unknown. No family
-      claimed until governance has run for it. The paths are where a clone
-      would go.
+      status/governance.yaml reports its host layer as unknown. The paths are
+      where a clone would go.
     paths: [streaming-infrastructure, qm/streaming-infrastructure]
 
   - name: qmetronome
@@ -295,6 +316,7 @@ repositories:
 
   - name: benchmark
     role: unmanaged
+    family: commons
     phase: v0.0.2
     phase_source: stated
     note: named alongside apothecary as a v0.0.2 consumer
@@ -314,7 +336,7 @@ repositories:
   - name: moat
     role: unmanaged
     family: infra
-    phase: v0.0.1
+    phase: v0.0.0
     phase_source: scaffolded
     note: >
       homelab infrastructure -- Helm charts, OpenTofu/Proxmox/Talos, OpenWRT
@@ -384,7 +406,7 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: irl
+    family: [irl, show-control]
     note: LED control for live theatre
     paths: [ira, qm/ira]
 
@@ -424,7 +446,7 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: irl
+    family: [irl, instruments]
     note: a micro-holophonor, by its own description
     paths: [uPhonor, qm/uPhonor]
 
@@ -432,7 +454,7 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
-    family: irl
+    family: [irl, instruments]
     note: a MIDI foot controller
     paths: [stomp, qm/stomp]
 
@@ -465,7 +487,9 @@ repositories:
     phase: n/a
     phase_source: n/a
     family: performer-display
-    note: realtime sheet-music rendering
+    note: >
+      an audio workbench: chroma visualisations and MIDI from audio files,
+      and the media API that alfred's captions reach through vox
     paths: [joe, qm/joe]
 
   - name: leo
@@ -587,8 +611,19 @@ repositories:
     role: unmanaged
     phase: n/a
     phase_source: n/a
+    family: games
     note: >
       rad, the radial menu, as a Godot addon: the contract's vectors replayed
-      in GDScript. No family claimed: rad's implementations are a seam, not a
-      roster family.
+      in GDScript. In games because that is where the Godot work is.
     paths: [qm/rad-godot, rad-godot]
+
+  - name: qmcli-godot
+    role: unmanaged
+    phase: n/a
+    phase_source: n/a
+    family: games
+    note: >
+      Named as a games member. No repository by this name is on the host or
+      under the org yet, so there is nothing to clone; the paths are where a
+      clone would go.
+    paths: [qmcli-godot, qm/qmcli-godot]

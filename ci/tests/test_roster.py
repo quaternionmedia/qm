@@ -140,13 +140,9 @@ class _Wrapper:
 
 
 def test_redact_reaches_a_string_inside_a_wrapper():
-    """**THE HOLE THAT WENT THROUGH ONCE.**
-
-    `redact` walks dicts, lists and strings, so a value of any other type fell
-    out of the bottom untouched. A generator grew a wrapper for facts it could
-    not establish, its reason interpolated a repository name, and two private
-    names reached a committed generated document while every field the redactor
-    knew about was clean.
+    """`redact` reaches a string inside a wrapper object, not only inside
+    dicts, lists and strings: a wrapper whose reason interpolates a repository
+    name must not carry it into a committed document.
 
     Mutation: delete the attribute loop from `redact` and this fails.
     """
@@ -228,3 +224,64 @@ def test_the_committed_roster_carries_no_path_outside_the_conventions():
             if candidate.startswith("../") or candidate.startswith("/") or ":" in candidate:
                 strays.append((entry["name"], candidate))
     assert strays == []
+
+
+def test_redact_reaches_a_name_in_a_dated_branch_and_spares_a_longer_one():
+    """Mutation: bound the name by any following hyphen, and the dated branch keeps it."""
+    subject = "Merge 'origin/main' into propagate/blorp-2026-08-11"
+    assert redact(subject, "blorp", "private-9") == "Merge 'origin/main' into propagate/private-9-2026-08-11"
+    assert redact("blorp-docs and blorp", "blorp", "private-9") == "blorp-docs and private-9"
+
+
+# --- the phase ladder: the version, and intent beside it -------------------
+
+
+from roster import intent_of, rung, version_of  # noqa: E402
+
+
+def test_a_rung_is_compared_as_numbers_and_not_as_text():
+    """`"v0.0.10" < "v0.0.2"` as text; on the ladder it is the higher rung."""
+    assert rung("v0.0.10") > rung("v0.0.2")
+    assert rung("n/a") is None and rung("unknown") is None and rung(None) is None
+    assert version_of(True, "v0.0.10", "stated") == "v0.0.10"
+
+
+def test_a_phase_stated_without_a_branch_is_intent():
+    """Mutation: return None for every phase when the project has no branch,
+    and the first two cases fail."""
+    assert intent_of(False, "v0.0.2", "stated") == "v0.0.2"
+    assert intent_of(False, "v0.0.1", "stated") == "v0.0.1"
+    assert intent_of(True, "v0.0.2", "stated") is None
+    assert intent_of(True, "v0.0.1", "stated") is None
+    assert intent_of(False, "v0.0.1", "scaffolded") is None
+    assert intent_of(False, "n/a", "n/a") is None
+
+
+def test_a_scaffolded_phase_is_the_default_its_branch_gives():
+    """The roster's scaffolded phase is `v0.0.0` for a project with no
+    `project/<name>` branch and `v0.0.1` for one with it, read from
+    status/governance.yaml, which lists one project per branch.
+
+    The tools read the version from the branch and never from this copy, so a
+    stale one misleads only the Phase column and the workspace page; this keeps
+    it true. Read without the private companion, so a private entry's name is
+    its reference, as the governance document names it.
+
+    Mutation: set vox's scaffolded phase back to `v0.0.1` and this fails
+    naming it.
+    """
+    governance = yaml.safe_load(
+        (CI_DIR.parent / "status" / "governance.yaml").read_text(encoding="utf-8"))
+    branches = {p["name"] for p in governance.get("projects") or []}
+    assert branches, "status/governance.yaml lists no projects"
+    roster = load(companion=CI_DIR / "no-such-companion.yaml",
+                  local=CI_DIR / "no-such-local.yaml")
+    wrong = [
+        f"{e['name']}: scaffolded {e.get('phase')}, default "
+        f"{'v0.0.1' if e['name'] in branches else 'v0.0.0'}"
+        for e in roster
+        if e.get("phase_source") == "scaffolded"
+        and e.get("phase") != ("v0.0.1" if e["name"] in branches else "v0.0.0")
+    ]
+    assert not wrong, ("set each in ci/workspace.yaml to the default its branch gives: "
+                       + "; ".join(wrong))

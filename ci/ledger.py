@@ -5,17 +5,16 @@
     uv run qm ledger --check      # every closed entry is complete and scored
     uv run qm ledger --open       # what is predicted and not yet settled
 
-WHY. A session states an intention, acts, and reports. Nothing compares the
-first to the third, so an overclaim is only caught if a human happens to
-remember what was promised. This file makes the prediction durable and the
-comparison mechanical.
+A session states an intention, acts, and reports. This makes the prediction
+durable and its comparison with the outcome mechanical, so an overclaim does
+not depend on somebody remembering what was promised.
 
 The scoring field is the point. `outcome_matched_projection` is `true`, `false`,
 or `unknown`, and a `false` is not a defect -- an honest wrong prediction is
 worth more than a vague right one. What is a defect is a closed entry with no
 outcome, which is a prediction quietly dropped.
 
-WHAT IT CANNOT DO. It cannot tell that a projection was vague enough to be
+What it cannot do: it cannot tell that a projection was vague enough to be
 unfalsifiable, or that an outcome was written to match. Both are readings. It
 checks that the fields exist, that closed entries are scored, and that nothing
 open has been abandoned.

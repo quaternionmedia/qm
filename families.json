@@ -1,38 +1,90 @@
 {
-  "schema": 1,
-  "generated_at": "2026-09-27T23:06:23Z",
+  "schema": 2,
+  "generated_at": "2026-10-24T14:49:28Z",
   "source": "records/DRAFT-a-family-is-bordered-by-what-it-drives.md",
   "reading": {
     "families_come_from": "the record, not this file -- renaming one there makes a roster claim stop resolving",
     "membership_is_a_claim": "stated in ci/workspace.yaml by a person, never inferred from a dependency graph or a commit date",
+    "a_repository_may_be_in_several": "a repository that drives two things claims both families and is listed in each",
+    "within": "a family may sit within another; `all_members` of the outer family includes everyone in the inner one",
     "unstated_is_not_none": "a repository with no family has not been placed; nobody answered the question",
     "do_not": "read a family as a statement that anybody is working on it -- that is `attention`, and it is a different claim"
   },
   "families": [
     {
+      "name": "commons",
+      "drives": "the public \u2014 open information a community reads and adds to: maps, records, public data",
+      "within": null,
+      "subfamilies": [],
+      "members": [
+        "benchmark"
+      ],
+      "all_members": [
+        "benchmark"
+      ]
+    },
+    {
       "name": "core",
       "drives": "the corpus and its tooling \u2014 governance, the archive, the deltas, the maps, the language data",
+      "within": null,
+      "subfamilies": [],
       "members": [
         "qm",
         "dossier",
         "qmcp",
         "vox",
+        "rad",
+        "codecartographer",
+        "looksatwords"
+      ],
+      "all_members": [
+        "qm",
+        "dossier",
+        "qmcp",
+        "vox",
+        "rad",
         "codecartographer",
         "looksatwords"
       ]
     },
     {
       "name": "games",
-      "drives": "play \u2014 a game somebody plays: its rules, its world and its loop",
+      "drives": "play \u2014 a game somebody plays: its rules, its world, its loop, and the server it is played on",
+      "within": null,
+      "subfamilies": [],
       "members": [
+        "private-32",
+        "private-33",
+        "factorio-sysops",
         "golfvs",
-        "private-38"
+        "private-38",
+        "rad-godot",
+        "qmcli-godot"
+      ],
+      "all_members": [
+        "private-32",
+        "private-33",
+        "factorio-sysops",
+        "golfvs",
+        "private-38",
+        "rad-godot",
+        "qmcli-godot"
       ]
     },
     {
       "name": "infra",
       "drives": "where a thing runs, and how it is reached \u2014 ingress, identity, storage, DNS, observability, the network path",
+      "within": null,
+      "subfamilies": [],
       "members": [
+        "streaming-infrastructure",
+        "moat",
+        "ztgui",
+        "private-23",
+        "private-26"
+      ],
+      "all_members": [
+        "streaming-infrastructure",
         "moat",
         "ztgui",
         "private-23",
@@ -42,11 +94,28 @@
     {
       "name": "instruments",
       "drives": "the sound \u2014 looping, synthesis, tempo, remote control surfaces",
+      "within": "performing",
+      "subfamilies": [],
       "members": [
         "carlos",
+        "private-34",
         "qmetronome",
         "holophonor",
         "midiphonor",
+        "uPhonor",
+        "stomp",
+        "wolf",
+        "ludwig",
+        "waveofhormuz"
+      ],
+      "all_members": [
+        "carlos",
+        "private-34",
+        "qmetronome",
+        "holophonor",
+        "midiphonor",
+        "uPhonor",
+        "stomp",
         "wolf",
         "ludwig",
         "waveofhormuz"
@@ -55,7 +124,20 @@
     {
       "name": "irl",
       "drives": "matter \u2014 a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+      "within": null,
+      "subfamilies": [],
       "members": [
+        "apothecary",
+        "datum",
+        "ira",
+        "uPhonor",
+        "stomp",
+        "scad-chess",
+        "private-03",
+        "private-05",
+        "private-07"
+      ],
+      "all_members": [
         "apothecary",
         "datum",
         "ira",
@@ -70,35 +152,85 @@
     {
       "name": "performer-display",
       "drives": "the performer \u2014 what a player reads while playing",
+      "within": "performing",
+      "subfamilies": [],
       "members": [
+        "private-34",
+        "joe",
+        "leo"
+      ],
+      "all_members": [
+        "private-34",
         "joe",
         "leo"
       ]
     },
     {
+      "name": "performing",
+      "drives": "a show \u2014 what an audience sees and hears, and the video made before and after it",
+      "within": null,
+      "subfamilies": [
+        "instruments",
+        "performer-display",
+        "show-control"
+      ],
+      "members": [
+        "alfred",
+        "otto"
+      ],
+      "all_members": [
+        "alfred",
+        "otto",
+        "carlos",
+        "private-34",
+        "qmetronome",
+        "holophonor",
+        "midiphonor",
+        "uPhonor",
+        "stomp",
+        "wolf",
+        "ludwig",
+        "waveofhormuz",
+        "joe",
+        "leo",
+        "ShowRunner",
+        "Cuelist-python",
+        "QLab-python",
+        "TheatreMix-python",
+        "cesar",
+        "ira",
+        "ShowStopper",
+        "aes"
+      ]
+    },
+    {
       "name": "show-control",
       "drives": "the room \u2014 cues, lighting, sound and video playback, audio transport",
+      "within": "performing",
+      "subfamilies": [],
       "members": [
         "ShowRunner",
         "Cuelist-python",
         "QLab-python",
         "TheatreMix-python",
         "cesar",
+        "ira",
+        "ShowStopper",
+        "aes"
+      ],
+      "all_members": [
+        "ShowRunner",
+        "Cuelist-python",
+        "QLab-python",
+        "TheatreMix-python",
+        "cesar",
+        "ira",
         "ShowStopper",
         "aes"
       ]
     }
   ],
   "unstated": [
-    "alfred",
-    "benchmark",
-    "factorio-sysops",
-    "private-32",
-    "private-33",
-    "private-34",
-    "private-36",
-    "rad",
-    "rad-godot",
-    "streaming-infrastructure"
+    "private-36"
   ]
 }

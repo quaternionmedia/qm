@@ -5,7 +5,7 @@
     uv run qm family-suite --family core    # one, repeatable
     uv run qm family-suite --check          # exit non-zero on a failed member
 
-**THE POINT IS THE DENOMINATOR.** Each member's suite proves something about
+The point is the denominator. Each member's suite proves something about
 that member. This adds the assertions that only exist across members, and it
 states which of them the batch was large enough to reach. A run covering one
 family cannot conclude what a run covering four can, and the difference is
@@ -13,19 +13,22 @@ reported rather than left for a reader to infer -- `qm demo` refuses to call
 one window agreeing with itself agreement, and this is that rule applied to a
 test batch.
 
-**TIERS, AND WHY THEY ARE ORDERED THIS WAY.** Each tier needs strictly more of
+Tiers, in order: each needs strictly more of
 the estate to have reported than the one above it:
 
   shape        1 family    every member that ran, ran something
-  disjoint     2 families  no repository is in two families
   cover        all         every family the record declares had a member run
   contract     all + seam  every contract surface agrees across the families
+
+A repository in two families runs once and its result counts for both, and a
+family counts as reporting when anyone in it reported, the families within it
+included.
 
 A tier the batch cannot reach is printed as `not reached`, with what it would
 have taken. It is never printed as passing, because an assertion nobody could
 evaluate reporting green is the failure this corpus keeps finding.
 
-ADVISORY, AND LOCAL ONLY. It runs sibling clones' suites, so it says different
+Advisory, and local only. It runs sibling clones' suites, so it says different
 things on two machines and belongs nowhere near CI.
 """
 
@@ -88,11 +91,10 @@ def run_member(name: str) -> dict:
     out["ran"] = True
     out["passed"] = done.returncode == 0
     if not out["passed"]:
-        # NAME WHAT FAILED, NOT JUST THAT SOMETHING DID. The first run of this
-        # tool reported "1 failed, 1143 passed" and kept no name, so the failure
-        # could not be diagnosed from the log -- and the most likely cause,
-        # a module being edited while the batch ran it, could be argued for and
-        # not established. A summary line is a result nobody can act on.
+        # Name what failed, not just that something did: a summary line
+        # alone is a result nobody can act on, and a failure's likely cause (a
+        # module edited while the batch ran it) can then be established rather
+        # than argued for.
         text = (done.stdout or "") + (done.stderr or "")
         named = [line.strip() for line in text.splitlines()
                  if line.startswith(("FAILED ", "not ok ")) or " FAILED" in line[:40]]
@@ -111,6 +113,14 @@ def tiers(document: dict, reported: dict[str, list[dict]]) -> list[dict]:
     """
     declared = [f["name"] for f in document["families"]]
     ran = {name: results for name, results in reported.items() if results}
+    # A family within another reports through it: whoever ran in
+    # `instruments` ran in `performing`.
+    within = {f["name"]: f.get("within") for f in document["families"]}
+    for name in list(ran):
+        outer = within.get(name)
+        while outer and outer not in ran:
+            ran[outer] = ran[name]
+            outer = within.get(outer)
     found: list[dict] = []
 
     found.append({
@@ -120,23 +130,6 @@ def tiers(document: dict, reported: dict[str, list[dict]]) -> list[dict]:
         "verdict": (f"{sum(len(r) for r in ran.values())} member suite(s) ran across "
                     f"{len(ran)} family(ies)") if ran else "no member reported",
     })
-
-    if len(ran) >= 2:
-        seen: dict[str, str] = {}
-        clash = []
-        for family in document["families"]:
-            for member in family["members"]:
-                if member in seen and seen[member] != family["name"]:
-                    clash.append(f"{member} in {seen[member]} and {family['name']}")
-                seen[member] = family["name"]
-        found.append({"tier": "disjoint", "needs": "two families reporting",
-                      "reached": True,
-                      "verdict": "no repository is in two families" if not clash
-                                 else "; ".join(clash), "failed": bool(clash)})
-    else:
-        found.append({"tier": "disjoint", "needs": "two families reporting",
-                      "reached": False,
-                      "verdict": f"{len(ran)} family(ies) reported"})
 
     if set(ran) == set(declared):
         found.append({"tier": "cover", "needs": "every declared family reporting",
@@ -186,14 +179,18 @@ def main(argv: list[str] | None = None) -> int:
     wanted = set(args.family) or {f["name"] for f in document["families"]}
     reported: dict[str, list[dict]] = {}
     failures: list[str] = []
+    # One run per repository, however many families claim it.
+    results_of: dict[str, dict] = {}
 
     for family in document["families"]:
         if family["name"] not in wanted:
             continue
         print(f"\n## {family['name']}")
         results = []
-        for member in family["members"]:
-            result = run_member(member)
+        for member in family.get("all_members", family["members"]):
+            if member not in results_of:
+                results_of[member] = run_member(member)
+            result = results_of[member]
             if not result["ran"]:
                 print(f"   -- {member:20} did not report -- {result['why']}")
                 continue
@@ -201,7 +198,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"   {mark} {member:20} {'passed' if result['passed'] else 'FAILED'}"
                   f"{'' if result['passed'] else '  ' + result['why']}")
             results.append(result)
-            if not result["passed"]:
+            if not result["passed"] and member not in {f.split("/")[-1] for f in failures}:
                 failures.append(f"{family['name']}/{member}")
         reported[family["name"]] = results
 

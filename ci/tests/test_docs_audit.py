@@ -95,9 +95,8 @@ def test_a_link_to_a_sibling_page_resolves(tmp_path: Path):
 def test_a_link_to_a_corpus_file_is_reported(tmp_path: Path):
     """It resolves on disk and 404s once published: only `docs/` is deployed.
 
-    This used to pass. `docs/index.md` linked `../handbook/glossary.md`, the
-    file existed, the check was satisfied, and the published link was dead --
-    on the same page as a correct link to the same glossary.
+    A target that exists in the repository outside `docs/` is reported, however
+    the link is spelled.
     """
     root = site(tmp_path, page="See [agents](AGENTS.md).\n")
     write(root / "AGENTS.md", "# Agents\n")
@@ -120,6 +119,18 @@ def test_an_anchor_declared_with_attr_list_resolves(tmp_path: Path):
     root = site(tmp_path, page="See [other](other.md#thing).\n")
     write(root / "docs" / "other.md",
           "# Other\n\n**Thing** { #thing }\n: a definition\n")
+    assert audit(root)["accuracy: links"] == []
+
+
+def test_an_anchor_declared_as_an_html_id_resolves(tmp_path: Path):
+    """A table cell cannot carry `{ #id }`, so a generated row names its anchor
+    with an element's `id`.
+
+    Mutation: drop the `id="..."` form from `anchors_in` and this fails.
+    """
+    root = site(tmp_path, page="See [other](other.md#planned).\n")
+    write(root / "docs" / "other.md",
+          '# Other\n\n| a |\n|---|\n| <span id="planned"></span>planned |\n')
     assert audit(root)["accuracy: links"] == []
 
 
@@ -149,7 +160,7 @@ def test_a_named_repo_path_that_exists_is_clean(tmp_path: Path):
 
 
 def test_a_docs_page_shadowing_a_corpus_document_is_reported(tmp_path: Path):
-    """The real instance: docs/ref/glossary.md against handbook/glossary.md."""
+    """Two pages called `glossary.md`, one under `docs/` and one in the corpus."""
     root = site(tmp_path)
     write(root / "handbook" / "glossary.md", "# Glossary\n")
     write(root / "docs" / "ref" / "glossary.md", "# Glossary\n")

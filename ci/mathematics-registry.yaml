@@ -24,7 +24,7 @@
 #               practice evolving instead of congratulating itself.
 #   next        what would move the state, or `nothing stated`
 #
-# THE THREE STATES, AND WHY `decorative` IS NOT AN INSULT.
+# The three states, and why `decorative` is not an insult.
 #
 #   earned       a measurement decided something. It may be relied on.
 #   decorative   a mnemonic, an aesthetic, a name. Useful and load-bearing for
@@ -33,7 +33,7 @@
 #   aspirational a mapping somebody believes is there and nobody has shown.
 #                Held openly so it can be tested rather than assumed.
 #
-# A STATE MOVES IN BOTH DIRECTIONS. An `earned` mapping whose measurement stops
+# A state moves in both directions. An `earned` mapping whose measurement stops
 # holding is not still earned because it once was. Re-integration is the point:
 # what a layer is found to be should change how the layer is built, and a
 # structure that stops fitting should be demoted rather than defended.
@@ -307,38 +307,43 @@ mappings:
       mechanisable at all, which is worth saying rather than leaving as an
       implied gap.
 
-  - layer: a repository and the family it belongs to
-    structure: a partial function, not a relation and not a partition
+  - layer: a repository and the families it belongs to
+    structure: a partial relation into a forest, not a function and not a partition
     state: earned
     decides: >
-      three things that were otherwise taste. That a repository in two families
-      is refused, which is what makes a change needing two families a *seam*
-      rather than a merge -- the single most expensive mistake available in
-      this estate, and it is now foreclosed by the shape of the map instead of
-      by a paragraph. That an absent family is *unstated* and never *none*,
-      because the function is partial by construction rather than by
-      forgetfulness. And that substrate belongs to no family, which a partition
-      would have forbidden by requiring cover.
+      three things that were otherwise taste. That a repository may be in more
+      than one family, because a board that plays sound is matter and an
+      instrument at once, and a function would make one true reading lose.
+      That the families form a forest under `within`: a member of an inner
+      family is in the outer one, so a claim naming both says nothing twice
+      and is refused, and a `within` that circles back is refused because a
+      cycle has no outermost family to count in. And that an absent family is
+      *unstated* and never *none*, because the relation is partial by
+      construction rather than by forgetfulness. A change needing two families
+      is still a *seam* rather than a merge (§5 of the record): a repository in
+      both is one thing read two ways, not a join between them.
     measured: >
-      `uv run qm families --check`. Nineteen members mapped across three
-      families, fifteen rostered repositories unstated, none in two. Both
-      branches of the check mutated and seen to fail; the empty-declared-set
-      case is tested, because an empty codomain would let every claim pass.
+      `uv run qm families --check`, with `ci/tests/test_families.py`: an
+      undeclared name in a list, a family named twice, a family beside one it
+      sits within, a `within` naming nothing declared and a family within
+      itself are each refused, and each refusal mutated and seen to fail. The
+      empty-declared-set case is tested, because an empty codomain would let
+      every claim pass.
     unearned: >
-      disjointness is enforced by the file format rather than by a check --
-      `family` is a scalar in `ci/workspace.yaml`, so two families cannot be
-      expressed, and nothing would notice if the key became a list. The
-      codomain is read from the record, so it moves correctly; the *domain* is
-      the roster, and a family member that is in no roster entry at all is
-      invisible. An estate with a missing member and a complete one are the
-      same shape here.
+      what a shared member means. Two families sharing a member say it drives
+      both; nothing checks that it does, and a list grown by habit reads the
+      same as one grown by reading the code. The codomain is read from the
+      record, so it moves correctly; the *domain* is the roster, and a family
+      member that is in no roster entry at all is invisible. An estate with a
+      missing member and a complete one are the same shape here.
 
       And the border itself is unearned entirely. §2 of the record says a
       repository belongs by what it drives, and no check reads a repository.
     next: >
-      the first repository that genuinely drives two of the three. The scalar
-      is what has to change to express it, and that is the signal to re-read §2
-      rather than to widen the type.
+      a repository whose claims keep growing, the record's revision trigger.
+      The shape cannot tell a thing that drives several things from a seam
+      wearing one repository, and that is the signal to re-read §2
+      rather than to lengthen the list.
 
   - layer: propagation, and the pin that reads a project branch
     structure: >
