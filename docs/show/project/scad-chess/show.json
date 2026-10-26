@@ -1,0 +1,334 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "scad-chess"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:2c9369d4f0ebacdfe01362f2ebde2cee36ec4dfc99fca46aa3b1068e5be032f9"
+  },
+  "source": {
+   "repo": "quaternionmedia/scad-chess",
+   "commit": "ff6c62667eeac390546839dc1c5c92d0f5788b0a"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::scad-chess": {
+      "label": "scad-chess",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "scad-chess — n/a · not adopted",
+       "click": "<p><b>scad-chess</b> — Chess set, designed in openSCAD</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:scad-chess",
+       "shape": "circle",
+       "color": "#dd9b63",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::irl": {
+      "label": "irl",
+      "metadata": {
+       "kind": "family",
+       "family": "irl",
+       "drives": "matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "irl — drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "click": "<p>The <b>irl</b> family drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.</p><p>9 member(s) in all.</p>",
+       "show": "family:irl",
+       "color": "#dd9b63",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::scad-chess",
+      "target": "family::irl",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::scad-chess",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::scad-chess",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::scad-chess",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:scad-chess",
+     "measured": 0,
+     "unread": [
+      "scad-chess"
+     ],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:scad-chess",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [
+     "scad-chess"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: scad-chess."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/scad-chess": {
+      "id": "dir::quaternionmedia/scad-chess",
+      "label": "quaternionmedia/scad-chess",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 7.2306631151948215,
+      "y": 5.543330861934348,
+      "size": 80
+     },
+     "dir::quaternionmedia/scad-chess/.github": {
+      "id": "dir::quaternionmedia/scad-chess/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1382.4,
+      "y": 75.28041334963571,
+      "size": 50
+     },
+     "dir::quaternionmedia/scad-chess/images": {
+      "id": "dir::quaternionmedia/scad-chess/images",
+      "label": "images",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -474.2080463909465,
+      "y": -532.8735618410631,
+      "size": 50
+     },
+     "dir::quaternionmedia/scad-chess/profiles": {
+      "id": "dir::quaternionmedia/scad-chess/profiles",
+      "label": "profiles",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -915.422616724249,
+      "y": 452.04981762949296,
+      "size": 50
+     },
+     "file::quaternionmedia/scad-chess/README.md": {
+      "id": "file::quaternionmedia/scad-chess/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/scad-chess/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": 202.08637896669353,
+      "y": 118.04333086193432,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/scad-chess",
+      "target": "file::quaternionmedia/scad-chess/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/scad-chess",
+      "target": "dir::quaternionmedia/scad-chess/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/scad-chess",
+      "target": "dir::quaternionmedia/scad-chess/images",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/scad-chess",
+      "target": "dir::quaternionmedia/scad-chess/profiles",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/scad-chess",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "scad-chess's system view is composed from a clone of it, and this export read none",
+   "remedy": "export from a clone of scad-chess at its default branch's head",
+   "where": "/show/project/scad-chess/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

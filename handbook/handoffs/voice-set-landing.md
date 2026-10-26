@@ -111,14 +111,15 @@ together having landed. Nothing of the set is left in `qm`.
 
 ### After the set (review page §5)
 
-- `qm` #134 reaches `qmcp` through a governance pin bump (`qmcp`'s
-  `governance/qm` is at `235708c`, on `project/qmcp`); the bump retires the
-  `AGENTS.md` paragraph `qmcp` #56 added, copies again the six seed workflows
-  `qmcp` carries (`adr-lint`, `leak-check`, `one-pr-check`, `reuse-lint`,
-  `submodule-check`, `tag-claims`), each equal to the seed at the pin and each
-  changed since by `qm` #134 or #140, and adds `qm` #136's
-  `timeless-check.yml`, a seed file.
-- Phase 10's boxes are ticked on `qmcp`'s `docs/ROADMAP.md`.
+- `qm` #134 has reached `qmcp`. `qmcp` #117 (2026-10-25) pins `project/qmcp`
+  at `f4786fe` and copies again the six seed workflows `qmcp` carries
+  (`adr-lint`, `leak-check`, `one-pr-check`, `reuse-lint`, `submodule-check`,
+  `tag-claims`). It adds `timeless-check.yml` and `signature-check.yml`, and
+  retires the sentences of the `AGENTS.md` paragraph `qmcp` #56 added that
+  warned of a `pip` step.
+- Phase 10's boxes are ticked on `qmcp`'s `docs/ROADMAP.md`. At `qmcp`
+  `82b2d58` (2026-10-25) every box is ticked but one: an instruction spoken
+  at joe's page appearing in `/v1/instructions`, which needs work in `joe`.
 - #58's and #61's read-back helpers become one. Decision 4 has already given
   the open question the instruction read-back's hint, options, repeat,
   `ask_over` and vocabulary. Left: its wording ("I heard: ...", "I didn't
@@ -131,7 +132,8 @@ together having landed. Nothing of the set is left in `qm`.
 - The demo branches are deleted by a person: `demo/voice-loop-2026-10-04` in
   `vox`, `qmcp`, `joe` and `qm`, and `joe`'s branches that share commits with
   the set and carry no open pull request (`check_pr_base.py --base main
-  --head <branch>` lists them).
+  --head <branch>` lists them). `qmcp`'s was deleted on 2026-10-25; at that
+  date the branch remains in `vox`, `joe` and `qm`.
 - `qmcp`'s `vendor/vox` can move to `vox`'s `main` to take #15 and #9.
 
 ## 4. Blocked on a person

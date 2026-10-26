@@ -8,10 +8,15 @@ repository the roster names at once: it reads the roster
 asks each clone, with read commands only, what it holds that the host does
 not:
 
-  one-copy    a local branch ahead of the default branch and not on `origin`
-              at all; deleting the clone deletes the work. Each is marked as
-              *folded* when the current HEAD already contains it, so it can
-              go once HEAD reaches the host, or *independent* when it cannot.
+  one-copy    a local branch ahead of the default branch, not on `origin` by
+              name, and contained in no branch there; deleting the clone
+              deletes the work. Each is marked as *folded* when the current
+              HEAD already contains it, so it can go once HEAD reaches the
+              host, or *independent* when it cannot.
+  held        a local branch not on `origin` by name whose tip another branch
+              there contains, so every commit it carries is on the host.
+              Deleting it loses the name and nothing else. Online, the holder
+              is confirmed against the host's own tip.
   ahead       a local branch that is on `origin` but carries commits its
               remote copy does not. Pushing it is the whole remedy.
   dirty       uncommitted changes in the working tree. Not a branch, and the
@@ -46,7 +51,9 @@ not "none" -- nobody has answered the question for it.
 What it cannot tell: whether a one-copy branch is worth keeping. It says
 what would be lost and how much, and stops; the deletion is a person's act,
 as it is for the single-repository census. Nor can it see a clone the roster
-does not name: a repository is surveyed because somebody wrote it down.
+does not name: a repository is surveyed because somebody wrote it down. A
+branch that other remote branches hold only in part is one-copy, and its count
+includes the commits they hold.
 """
 
 from __future__ import annotations
@@ -149,6 +156,15 @@ class OneCopy:
 
 
 @dataclass
+class Held:
+    """A local branch not on `origin` by name, whose tip a branch there contains."""
+
+    name: str
+    ahead: int          # commits not on origin/<default>
+    by: list[str]       # the remote branches that contain it, in ref order
+
+
+@dataclass
 class Ahead:
     """A local branch that is on `origin` and ahead of its copy there."""
 
@@ -168,6 +184,7 @@ class Repository:
     dirty: int = 0
     default: str = ""
     one_copy: list[OneCopy] = field(default_factory=list)
+    held: list[Held] = field(default_factory=list)
     ahead: list[Ahead] = field(default_factory=list)
     open_prs: list[dict] | None = None  # None: not asked, or the host said no
     notes: list[str] = field(default_factory=list)
@@ -266,6 +283,37 @@ def relation_to_head(repo: Path, branch: str, current: str) -> str:
     return FOLDED if done.returncode == 0 else INDEPENDENT
 
 
+def holders(repo: Path, branch: str, remote: str, heads: dict[str, str],
+            online: bool) -> list[str]:
+    """The remote branches whose tip contains `branch`, so hold all of it.
+
+    Read from the tracking refs, which are the remote as of the last fetch.
+    Online each is kept only while the host still has it at a tip that
+    contains the branch: a holder deleted since, or moved to a commit this
+    clone never fetched, is dropped. A branch read as held is one a person
+    deletes, so a holder that cannot be confirmed does not count.
+    """
+    found = []
+    # Full refnames, because a short name turns ambiguous when a local branch
+    # is called `origin/<x>`. `<remote>/HEAD` needs no skip: it names the
+    # default branch, and a branch ahead of that is contained in no copy of it.
+    prefix = f"refs/remotes/{remote}/"
+    for line in lines(repo, "for-each-ref", "--contains", branch,
+                      "--format=%(objectname) %(refname)",
+                      f"refs/remotes/{remote}") or []:
+        sha, _, ref = line.partition(" ")
+        name = ref.removeprefix(prefix)
+        if online:
+            tip = heads.get(name)
+            if tip is None:
+                continue
+            if tip != sha and run_git(repo, "merge-base", "--is-ancestor",
+                                      branch, tip).returncode != 0:
+                continue
+        found.append(name)
+    return found
+
+
 def survey_repository(entry: dict, path: Path, remote: str, online: bool) -> Repository:
     repo_path = path
     repo = Repository(name=label(entry), path=str(path),
@@ -313,7 +361,12 @@ def survey_repository(entry: dict, path: Path, remote: str, online: bool) -> Rep
                 repo.ahead.append(Ahead(name, unpushed))
             continue
         ahead = count(repo_path, f"{base}..{name}")
-        if ahead:
+        if not ahead:
+            continue
+        held_by = holders(repo_path, name, remote, heads, online)
+        if held_by:
+            repo.held.append(Held(name, ahead, held_by))
+        else:
             repo.one_copy.append(
                 OneCopy(name, ahead, relation_to_head(repo_path, name, current)))
     return repo
@@ -395,7 +448,7 @@ def by_family(found: list[Repository]) -> list[tuple[str, list[Repository]]]:
 def table(rows: list[Repository], width: int, online: bool) -> list[str]:
     """The header and one line per repository, MISSING rows included."""
     prs = "prs" if online else "prs (offline)"
-    out = [f"  {'repository':<{width}}  {'branch':<28}  dirty  one-copy  ahead  {prs}"]
+    out = [f"  {'repository':<{width}}  {'branch':<28}  dirty  one-copy  held  ahead  {prs}"]
     for r in rows:
         if r.missing:
             out.append(f"  {r.name:<{width}}  MISSING")
@@ -405,7 +458,7 @@ def table(rows: list[Repository], width: int, online: bool) -> list[str]:
         else:
             slot = str(len(r.open_prs)) + (" STACKED" if r.stacked_ready else "")
         out.append(f"  {r.name:<{width}}  {r.branch[:28]:<28}  {r.dirty:>5}  "
-                   f"{len(r.one_copy):>8}  {len(r.ahead):>5}  {slot}")
+                   f"{len(r.one_copy):>8}  {len(r.held):>4}  {len(r.ahead):>5}  {slot}")
     return out
 
 
@@ -430,13 +483,18 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
         out.append("")
 
     for r in found:
-        if r.missing or not (r.holds_one_copy or r.dirty or r.stacked_ready):
+        if r.missing or not (r.holds_one_copy or r.held or r.dirty
+                             or r.stacked_ready):
             continue
         out.append(f"  {r.name}  ({r.path})")
         if r.dirty:
             out.append(f"      {r.dirty} uncommitted change(s) on {r.branch}")
         for b in r.one_copy:
             out.append(f"      one-copy  +{b.ahead:<3} {b.name}  [{b.relation}]")
+        for b in r.held:
+            more = f" and {len(b.by) - 1} more" if len(b.by) > 1 else ""
+            out.append(f"      held      +{b.ahead:<3} {b.name}  "
+                       f"(all on {b.by[0]}{more})")
         for b in r.ahead:
             out.append(f"      ahead     +{b.unpushed:<3} {b.name}  "
                        f"(not on its remote copy)")
@@ -471,6 +529,8 @@ def render(found: list[Repository], online: bool, grouped: bool = False) -> str:
                + ".")
     out.append("  [folded] is contained in that clone's HEAD; [independent] "
                "is not. Either exists on this disk alone.")
+    out.append("  A held branch is all on the remote branch named beside it; "
+               "deleting it loses only its name.")
     if not online:
         out.append("  --offline: the remote is as of the last fetch, and no "
                    "pull request was asked about.")

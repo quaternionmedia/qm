@@ -33,8 +33,9 @@ gets wired in as a gate it was never meant to be.
 
 **A REFUSAL is a verdict.** The pull request is malformed and no description
 fixes it: the head is a `project/<name>` branch (permanent, and never a merge
-source), or the head carries a top-level `adr/` at the default branch. Both
-print `REFUSED` and exit 1 in every mode.
+source); the head is a `math/<slug>` exploration aimed at anything but a
+`workspace/*` branch; or the head carries a top-level `adr/` at the default
+branch. All three print `REFUSED` and exit 1 in every mode.
 
 **An ADVISORY is not.** The merge-base is not the base tip, or commits are
 shared with another branch. **Neither means broken; both mean "explain this".**
@@ -124,7 +125,8 @@ def main() -> int:
     ap.add_argument(
         "--refuse-only",
         action="store_true",
-        help="Exit non-zero ONLY for a refusal -- a project/<name> head, or a "
+        help="Exit non-zero ONLY for a refusal -- a project/<name> head, a "
+        "math/<slug> head aimed at anything but a workspace/* branch, or a "
         "top-level adr/ aimed at the default branch. The behind-the-base and "
         "shared-commits findings are still printed but do not fail. This is the "
         "mode CI runs: those two are advisories that mean 'explain this', and "
@@ -239,7 +241,26 @@ def main() -> int:
             f"<date> branch,\n    --base {bare_head}",
         )
 
-    # And a content test, because the one above matches a name. A branch called
+    # A math/<slug> exploration is research against one workspace, and a
+    # workspace is terminal: nothing in it binds, and nothing in it reaches the
+    # default branch. The base is what keeps an exploration there, so the base
+    # is checked. Allow-listed rather than deny-listed, for the reason recorded
+    # above: refusing only `base == the default branch` leaves an intermediate
+    # base as a clean route to it.
+    if bare_head.startswith("math/") and not bare_base.startswith("workspace/"):
+        return refuse(
+            f"{bare_head} targets {bare_base}, which is not a workspace branch."
+            f"\n\nAn exploration's only legal base is the workspace/<slug> branch"
+            f" it was cut\nfrom. A workspace is terminal and binds nothing; aimed"
+            f" at any other base,\nresearch reaches {args.default} by the ordinary"
+            f" route.",
+            "What you probably meant:\n"
+            "  - an exploration: open the PR with --base workspace/<slug>\n"
+            "  - work that should bind: rewrite it on an evolve/<slug> or\n"
+            "    perspective/<date>-<slug> branch, on its own merits",
+        )
+
+    # And a content test, because the two above match names. A branch called
     # anything at all can carry a top-level adr/, and the innocuous name is the
     # likelier accident: `git commit-tree <project-branch-tree> -p origin/main`
     # on a branch named evolve/* passed the namespace check and put a whole

@@ -1,0 +1,1531 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "leo"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:203ffd71c8e51170120ecb6bb9df7dd7529f8522c6ff2736d1c5431aa394d58d"
+  },
+  "source": {
+   "repo": "quaternionmedia/leo",
+   "commit": "9305c59e7287eaccc5a3ced59a58d053ec66d30e"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::leo": {
+      "label": "leo",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "leo — n/a · not adopted",
+       "click": "<p><b>leo</b> — Web pdf viewer, annotator, collaborator</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:leo",
+       "shape": "circle",
+       "color": "#a693f3",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::performer-display": {
+      "label": "performer-display",
+      "metadata": {
+       "kind": "family",
+       "family": "performer-display",
+       "drives": "the performer — what a player reads while playing",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "performer-display — drives the performer — what a player reads while playing",
+       "click": "<p>The <b>performer-display</b> family drives the performer — what a player reads while playing.</p><p>Within <b>performing</b>.</p><p>3 member(s) in all.</p>",
+       "show": "family:performer-display",
+       "color": "#a693f3",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::leo",
+      "target": "family::performer-display",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::leo",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::leo",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::leo",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:leo",
+     "measured": 0,
+     "unread": [
+      "leo"
+     ],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:leo",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [
+     "leo"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: leo."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/leo": {
+      "id": "dir::quaternionmedia/leo",
+      "label": "quaternionmedia/leo",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -3390.3919680135373,
+      "y": 402.7119073799608,
+      "size": 140
+     },
+     "dir::quaternionmedia/leo/.github": {
+      "id": "dir::quaternionmedia/leo/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 771.1203256763898,
+      "y": 120.51653050560994,
+      "size": 60
+     },
+     "dir::quaternionmedia/leo/.github/workflows": {
+      "id": "dir::quaternionmedia/leo/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1098.4073551090369,
+      "y": 216.02961451905193,
+      "size": 50
+     },
+     "dir::quaternionmedia/leo/docs": {
+      "id": "dir::quaternionmedia/leo/docs",
+      "label": "docs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2550.0607051597813,
+      "y": 185.29749656609576,
+      "size": 80
+     },
+     "dir::quaternionmedia/leo/leo": {
+      "id": "dir::quaternionmedia/leo/leo",
+      "label": "leo",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1544.5327596778643,
+      "y": 1126.478795460132,
+      "size": 120
+     },
+     "dir::quaternionmedia/leo/pdf": {
+      "id": "dir::quaternionmedia/leo/pdf",
+      "label": "pdf",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1269.4101397786926,
+      "y": -271.44236887506923,
+      "size": 50
+     },
+     "dir::quaternionmedia/leo/src": {
+      "id": "dir::quaternionmedia/leo/src",
+      "label": "src",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 187.23303105786806,
+      "y": -408.2231054477984,
+      "size": 250
+     },
+     "dir::quaternionmedia/leo/src/components": {
+      "id": "dir::quaternionmedia/leo/src/components",
+      "label": "components",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1422.5944934378479,
+      "y": 480.74878173802523,
+      "size": 70
+     },
+     "dir::quaternionmedia/leo/src/components/debug": {
+      "id": "dir::quaternionmedia/leo/src/components/debug",
+      "label": "debug",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 2180.3071974869868,
+      "y": -250.62242147617977,
+      "size": 80
+     },
+     "dir::quaternionmedia/leo/src/components/navigation": {
+      "id": "dir::quaternionmedia/leo/src/components/navigation",
+      "label": "navigation",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 17.983734520903777,
+      "y": 806.4824940720898,
+      "size": 70
+     },
+     "dir::quaternionmedia/leo/src/fonts": {
+      "id": "dir::quaternionmedia/leo/src/fonts",
+      "label": "fonts",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1105.2022325559078,
+      "y": 442.9151888928568,
+      "size": 50
+     },
+     "dir::quaternionmedia/leo/src/static": {
+      "id": "dir::quaternionmedia/leo/src/static",
+      "label": "static",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1009.0277167375654,
+      "y": -494.7847095893265,
+      "size": 50
+     },
+     "dir::quaternionmedia/leo/src/styles": {
+      "id": "dir::quaternionmedia/leo/src/styles",
+      "label": "styles",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 51.618740193943836,
+      "y": -1880.4332018145267,
+      "size": 160
+     },
+     "dir::quaternionmedia/leo/src/styles/root": {
+      "id": "dir::quaternionmedia/leo/src/styles/root",
+      "label": "root",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 121.9894233565731,
+      "y": -892.0634525302193,
+      "size": 70
+     },
+     "file::quaternionmedia/leo/METRONOME_INTEGRATION.md": {
+      "id": "file::quaternionmedia/leo/METRONOME_INTEGRATION.md",
+      "label": "METRONOME_INTEGRATION.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/METRONOME_INTEGRATION.md",
+      "line": 0,
+      "meta": {},
+      "x": -3177.1365742639036,
+      "y": 525.8349663674513,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/README.md": {
+      "id": "file::quaternionmedia/leo/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -3441.589414759025,
+      "y": 643.5769568672022,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/docs/Requirements.md": {
+      "id": "file::quaternionmedia/leo/docs/Requirements.md",
+      "label": "Requirements.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/docs/Requirements.md",
+      "line": 0,
+      "meta": {},
+      "x": -2355.204989308282,
+      "y": 297.79749656609573,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/docs/Technical.md": {
+      "id": "file::quaternionmedia/leo/docs/Technical.md",
+      "label": "Technical.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/docs/Technical.md",
+      "line": 0,
+      "meta": {},
+      "x": -2744.91642101128,
+      "y": 297.7974965660958,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/docs/User Stories.md": {
+      "id": "file::quaternionmedia/leo/docs/User Stories.md",
+      "label": "User Stories.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/docs/User Stories.md",
+      "line": 0,
+      "meta": {},
+      "x": -2550.0607051597813,
+      "y": -39.70250343390425,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/leo.sh": {
+      "id": "file::quaternionmedia/leo/leo.sh",
+      "label": "leo.sh",
+      "depth": 1,
+      "language": "shell",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo.sh",
+      "line": 0,
+      "meta": {},
+      "x": -3635.289123989095,
+      "y": 428.451635677511,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/leo/__init__.py": {
+      "id": "file::quaternionmedia/leo/leo/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": -1299.3457102345517,
+      "y": 1268.0376044580385,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/leo/api.py": {
+      "id": "file::quaternionmedia/leo/leo/api.py",
+      "label": "api.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/api.py",
+      "line": 0,
+      "meta": {},
+      "x": -1502.3362682973677,
+      "y": 1406.4342235818222,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/leo/config.py": {
+      "id": "file::quaternionmedia/leo/leo/config.py",
+      "label": "config.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/config.py",
+      "line": 0,
+      "meta": {},
+      "x": -1737.1016450212578,
+      "y": 1334.0186952799645,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/leo/db.py": {
+      "id": "file::quaternionmedia/leo/leo/db.py",
+      "label": "db.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/db.py",
+      "line": 0,
+      "meta": {},
+      "x": -1826.8587233921799,
+      "y": 1105.3213893713394,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/leo/ireal.py": {
+      "id": "file::quaternionmedia/leo/leo/ireal.py",
+      "label": "ireal.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/ireal.py",
+      "line": 0,
+      "meta": {},
+      "x": -1704.0185926861004,
+      "y": 892.556041780007,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/leo/main.py": {
+      "id": "file::quaternionmedia/leo/leo/main.py",
+      "label": "main.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/main.py",
+      "line": 0,
+      "meta": {},
+      "x": -1461.0823768067085,
+      "y": 855.939298864384,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/leo/setlist.py": {
+      "id": "file::quaternionmedia/leo/leo/setlist.py",
+      "label": "setlist.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/setlist.py",
+      "line": 0,
+      "meta": {},
+      "x": -1280.986001306884,
+      "y": 1023.0443148853678,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/pyproject.toml": {
+      "id": "file::quaternionmedia/leo/pyproject.toml",
+      "label": "pyproject.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/pyproject.toml",
+      "line": 0,
+      "meta": {},
+      "x": -3490.5492874091287,
+      "y": 177.75488484179277,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/Actions.js": {
+      "id": "file::quaternionmedia/leo/src/Actions.js",
+      "label": "Actions.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Actions.js",
+      "line": 0,
+      "meta": {},
+      "x": 537.9733195905657,
+      "y": -205.72310544779845,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/Annotation.js": {
+      "id": "file::quaternionmedia/leo/src/Annotation.js",
+      "label": "Annotation.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Annotation.js",
+      "line": 0,
+      "meta": {},
+      "x": 433.78140980639995,
+      "y": -86.91500262984819,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/Control.js": {
+      "id": "file::quaternionmedia/leo/src/Control.js",
+      "label": "Control.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Control.js",
+      "line": 0,
+      "meta": {},
+      "x": 292.05474432438905,
+      "y": -17.023145800725814,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/MetronomeService.ts": {
+      "id": "file::quaternionmedia/leo/src/MetronomeService.ts",
+      "label": "MetronomeService.ts",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/MetronomeService.ts",
+      "line": 0,
+      "meta": {},
+      "x": -214.3021377985251,
+      "y": -461.0862132969192,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/MetronomeView.ts": {
+      "id": "file::quaternionmedia/leo/src/MetronomeView.ts",
+      "label": "MetronomeView.ts",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/MetronomeView.ts",
+      "line": 0,
+      "meta": {},
+      "x": -163.50725747482963,
+      "y": -610.7231054477983,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/Nav.js": {
+      "id": "file::quaternionmedia/leo/src/Nav.js",
+      "label": "Nav.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Nav.js",
+      "line": 0,
+      "meta": {},
+      "x": 134.36992320874725,
+      "y": -6.687936591405208,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/Search.ts": {
+      "id": "file::quaternionmedia/leo/src/Search.ts",
+      "label": "Search.ts",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Search.ts",
+      "line": 0,
+      "meta": {},
+      "x": -59.31534769066389,
+      "y": -729.5312082657485,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/Setlist.js": {
+      "id": "file::quaternionmedia/leo/src/Setlist.js",
+      "label": "Setlist.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Setlist.js",
+      "line": 0,
+      "meta": {},
+      "x": -15.266968942131843,
+      "y": -57.482816915100756,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/State.ts": {
+      "id": "file::quaternionmedia/leo/src/State.ts",
+      "label": "State.ts",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/State.ts",
+      "line": 0,
+      "meta": {},
+      "x": 82.4113177913472,
+      "y": -799.423065094871,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/Viewer.js": {
+      "id": "file::quaternionmedia/leo/src/Viewer.js",
+      "label": "Viewer.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Viewer.js",
+      "line": 0,
+      "meta": {},
+      "x": -134.0750717600821,
+      "y": -161.67472669926644,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/books.ts": {
+      "id": "file::quaternionmedia/leo/src/books.ts",
+      "label": "books.ts",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/books.ts",
+      "line": 0,
+      "meta": {},
+      "x": 240.0961389069888,
+      "y": -809.7582743041916,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/components/debug/Debug.js": {
+      "id": "file::quaternionmedia/leo/src/components/debug/Debug.js",
+      "label": "Debug.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/debug/Debug.js",
+      "line": 0,
+      "meta": {},
+      "x": 2375.162913338486,
+      "y": -138.1224214761798,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/components/debug/debug.css": {
+      "id": "file::quaternionmedia/leo/src/components/debug/debug.css",
+      "label": "debug.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/debug/debug.css",
+      "line": 0,
+      "meta": {},
+      "x": 1985.4514816354883,
+      "y": -138.1224214761797,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/components/debug/tracer.css": {
+      "id": "file::quaternionmedia/leo/src/components/debug/tracer.css",
+      "label": "tracer.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/debug/tracer.css",
+      "line": 0,
+      "meta": {},
+      "x": 2180.3071974869868,
+      "y": -475.62242147617974,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/components/navigation/nav.css": {
+      "id": "file::quaternionmedia/leo/src/components/navigation/nav.css",
+      "label": "nav.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/navigation/nav.css",
+      "line": 0,
+      "meta": {},
+      "x": 212.8394503724025,
+      "y": 918.9824940720898,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/components/navigation/nav.js": {
+      "id": "file::quaternionmedia/leo/src/components/navigation/nav.js",
+      "label": "nav.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/navigation/nav.js",
+      "line": 0,
+      "meta": {},
+      "x": -176.87198133059496,
+      "y": 693.9824940720899,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/index.html": {
+      "id": "file::quaternionmedia/leo/src/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/index.html",
+      "line": 0,
+      "meta": {},
+      "x": 588.7681999142612,
+      "y": -355.3599975986777,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/index.ts": {
+      "id": "file::quaternionmedia/leo/src/index.ts",
+      "label": "index.ts",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/index.ts",
+      "line": 0,
+      "meta": {},
+      "x": 389.7330310578681,
+      "y": -758.963393980496,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/ireal.ts": {
+      "id": "file::quaternionmedia/leo/src/ireal.ts",
+      "label": "ireal.ts",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/ireal.ts",
+      "line": 0,
+      "meta": {},
+      "x": 508.5411338758184,
+      "y": -654.7714841963301,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/pdf.worker.min.js": {
+      "id": "file::quaternionmedia/leo/src/pdf.worker.min.js",
+      "label": "pdf.worker.min.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/pdf.worker.min.js",
+      "line": 0,
+      "meta": {},
+      "x": -203.9669285892045,
+      "y": -303.4013921812774,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/.pending.css": {
+      "id": "file::quaternionmedia/leo/src/styles/.pending.css",
+      "label": ".pending.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/.pending.css",
+      "line": 0,
+      "meta": {},
+      "x": 337.06503424156836,
+      "y": -1715.6307071069496,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/control.css": {
+      "id": "file::quaternionmedia/leo/src/styles/control.css",
+      "label": "control.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/control.css",
+      "line": 0,
+      "meta": {},
+      "x": 185.68116712969837,
+      "y": -1579.3240609179752,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/ireal.css": {
+      "id": "file::quaternionmedia/leo/src/styles/ireal.css",
+      "label": "ireal.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/ireal.css",
+      "line": 0,
+      "meta": {},
+      "x": -16.90999045733047,
+      "y": -1558.0308722282023,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/metronome-popup.css": {
+      "id": "file::quaternionmedia/leo/src/styles/metronome-popup.css",
+      "label": "metronome-popup.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/metronome-popup.css",
+      "line": 0,
+      "meta": {},
+      "x": -193.32550214145925,
+      "y": -1659.8844153882596,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/metronome.css": {
+      "id": "file::quaternionmedia/leo/src/styles/metronome.css",
+      "label": "metronome.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/metronome.css",
+      "line": 0,
+      "meta": {},
+      "x": -276.18063860205496,
+      "y": -1845.9800987856095,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/page.css": {
+      "id": "file::quaternionmedia/leo/src/styles/page.css",
+      "label": "page.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/page.css",
+      "line": 0,
+      "meta": {},
+      "x": -233.82755385368074,
+      "y": -2045.2356965221036,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/root/accessibility.css": {
+      "id": "file::quaternionmedia/leo/src/styles/root/accessibility.css",
+      "label": "accessibility.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/root/accessibility.css",
+      "line": 0,
+      "meta": {},
+      "x": 316.8451392080718,
+      "y": -779.5634525302193,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/root/root.css": {
+      "id": "file::quaternionmedia/leo/src/styles/root/root.css",
+      "label": "root.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/root/root.css",
+      "line": 0,
+      "meta": {},
+      "x": -72.86629249492564,
+      "y": -1004.5634525302193,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/screens.css": {
+      "id": "file::quaternionmedia/leo/src/styles/screens.css",
+      "label": "screens.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/screens.css",
+      "line": 0,
+      "meta": {},
+      "x": -82.4436867418106,
+      "y": -2181.542342711078,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/search.css": {
+      "id": "file::quaternionmedia/leo/src/styles/search.css",
+      "label": "search.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/search.css",
+      "line": 0,
+      "meta": {},
+      "x": 120.14747084521824,
+      "y": -2202.8355314008513,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/setlist.css": {
+      "id": "file::quaternionmedia/leo/src/styles/setlist.css",
+      "label": "setlist.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/setlist.css",
+      "line": 0,
+      "meta": {},
+      "x": 296.562982529347,
+      "y": -2100.9819882407937,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/styles/test.css": {
+      "id": "file::quaternionmedia/leo/src/styles/test.css",
+      "label": "test.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/test.css",
+      "line": 0,
+      "meta": {},
+      "x": 379.4181189899426,
+      "y": -1914.886304843444,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/src/test.ts": {
+      "id": "file::quaternionmedia/leo/src/test.ts",
+      "label": "test.ts",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/test.ts",
+      "line": 0,
+      "meta": {},
+      "x": 578.4329907049407,
+      "y": -513.0448187143193,
+      "size": 30
+     },
+     "file::quaternionmedia/leo/vite.config.js": {
+      "id": "file::quaternionmedia/leo/vite.config.js",
+      "label": "vite.config.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/vite.config.js",
+      "line": 0,
+      "meta": {},
+      "x": -3207.3954396465338,
+      "y": 237.94109314584676,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "file::quaternionmedia/leo/METRONOME_INTEGRATION.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "file::quaternionmedia/leo/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "file::quaternionmedia/leo/leo.sh",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "file::quaternionmedia/leo/pyproject.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "file::quaternionmedia/leo/vite.config.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "dir::quaternionmedia/leo/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "dir::quaternionmedia/leo/docs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "dir::quaternionmedia/leo/leo",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "dir::quaternionmedia/leo/pdf",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo",
+      "target": "dir::quaternionmedia/leo/src",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/.github",
+      "target": "dir::quaternionmedia/leo/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/docs",
+      "target": "file::quaternionmedia/leo/docs/Requirements.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/docs",
+      "target": "file::quaternionmedia/leo/docs/Technical.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/docs",
+      "target": "file::quaternionmedia/leo/docs/User Stories.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/leo",
+      "target": "file::quaternionmedia/leo/leo/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/leo",
+      "target": "file::quaternionmedia/leo/leo/api.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/leo",
+      "target": "file::quaternionmedia/leo/leo/config.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/leo",
+      "target": "file::quaternionmedia/leo/leo/db.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/leo",
+      "target": "file::quaternionmedia/leo/leo/ireal.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/leo",
+      "target": "file::quaternionmedia/leo/leo/main.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/leo",
+      "target": "file::quaternionmedia/leo/leo/setlist.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/Actions.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/Annotation.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/Control.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/Nav.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/Setlist.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/Viewer.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/pdf.worker.min.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/MetronomeService.ts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/MetronomeView.ts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/Search.ts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/State.ts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/books.ts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/index.ts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/ireal.ts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/test.ts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "file::quaternionmedia/leo/src/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "dir::quaternionmedia/leo/src/components",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "dir::quaternionmedia/leo/src/fonts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "dir::quaternionmedia/leo/src/static",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src",
+      "target": "dir::quaternionmedia/leo/src/styles",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/components",
+      "target": "dir::quaternionmedia/leo/src/components/debug",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/components",
+      "target": "dir::quaternionmedia/leo/src/components/navigation",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/components/debug",
+      "target": "file::quaternionmedia/leo/src/components/debug/Debug.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/components/debug",
+      "target": "file::quaternionmedia/leo/src/components/debug/debug.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/components/debug",
+      "target": "file::quaternionmedia/leo/src/components/debug/tracer.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/components/navigation",
+      "target": "file::quaternionmedia/leo/src/components/navigation/nav.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/components/navigation",
+      "target": "file::quaternionmedia/leo/src/components/navigation/nav.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/.pending.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/control.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/ireal.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/metronome-popup.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/metronome.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/page.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/screens.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/search.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/setlist.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "file::quaternionmedia/leo/src/styles/test.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles",
+      "target": "dir::quaternionmedia/leo/src/styles/root",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles/root",
+      "target": "file::quaternionmedia/leo/src/styles/root/accessibility.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/leo/src/styles/root",
+      "target": "file::quaternionmedia/leo/src/styles/root/root.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/leo",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "leo's system view is composed from a clone of it, and this export read none",
+   "remedy": "export from a clone of leo at its default branch's head",
+   "where": "/show/project/leo/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

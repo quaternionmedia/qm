@@ -205,6 +205,11 @@ def build_parser() -> argparse.ArgumentParser:
         add_help=False,
     )
     sub.add_parser(
+        "references",
+        help="what still refers to a branch, before it is retired",
+        add_help=False,
+    )
+    sub.add_parser(
         "estate",
         help="every rostered repository, and what of it exists on this disk alone",
         add_help=False,
@@ -363,6 +368,7 @@ ROUTES: dict[str, tuple[str, bool, list[str]]] = {
     "inbound": ("inbound", False, []),
     "merge": ("merge_review", False, []),
     "queue": ("queue_page", False, []),
+    "references": ("branch_references", False, []),
     "estate": ("estate", False, []),
     "rulesets": ("rulesets", False, []),
     "lanes": ("lanes", False, []),

@@ -70,3 +70,7 @@ ci/workspace-private.yaml
 # name. The committed roster carries conventions; where a clone actually lives
 # on somebody's disk is that person's fact. See ci/roster.py.
 ci/workspace-local.yaml
+
+# A site preview `uv run qm cookbook --preview` writes: a copy of the site with
+# its pages regenerated, outside the committed one.
+.preview/

@@ -1,0 +1,1275 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "moat"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:43b6dedb852a191e700b8294c4cf320cb47927f1e2bd2c2cf7254d16a77e5665"
+  },
+  "source": {
+   "repo": "quaternionmedia/moat",
+   "commit": "16a595a3598c02ba521fc42617fc130030f9b57f"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::moat": {
+      "label": "moat",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "v0.0.0",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "moat — v0.0.0 · not adopted",
+       "click": "<p><b>moat</b> — simple reverse proxy with Traefik</p><p>not adopted. Phase <b>v0.0.0</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:moat",
+       "shape": "circle",
+       "color": "#98a7bc",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::infra": {
+      "label": "infra",
+      "metadata": {
+       "kind": "family",
+       "family": "infra",
+       "drives": "where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "infra — drives where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path",
+       "click": "<p>The <b>infra</b> family drives where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path.</p><p>5 member(s) in all.</p>",
+       "show": "family:infra",
+       "color": "#98a7bc",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::v0.0.0": {
+      "label": "phase: v0.0.0",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase v0.0.0, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::quiet": {
+      "label": "recency: quiet",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency quiet, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::moat",
+      "target": "family::infra",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::moat",
+      "target": "phase::v0.0.0",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::moat",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::moat",
+      "target": "recency::quiet",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:moat",
+     "measured": 0,
+     "unread": [],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:moat",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/moat": {
+      "id": "dir::quaternionmedia/moat",
+      "label": "quaternionmedia/moat",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -139.3046612888967,
+      "y": 431.3214562392555,
+      "size": 160
+     },
+     "dir::quaternionmedia/moat/.github": {
+      "id": "dir::quaternionmedia/moat/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1424.6623740221185,
+      "y": -1001.2764134757457,
+      "size": 60
+     },
+     "dir::quaternionmedia/moat/.github/workflows": {
+      "id": "dir::quaternionmedia/moat/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1935.1384533923892,
+      "y": -1334.7530422870025,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/authentik": {
+      "id": "dir::quaternionmedia/moat/authentik",
+      "label": "authentik",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -3423.6895307807936,
+      "y": 630.4279688347442,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts": {
+      "id": "dir::quaternionmedia/moat/charts",
+      "label": "charts",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 287.8925781088826,
+      "y": 203.47749336613697,
+      "size": 200
+     },
+     "dir::quaternionmedia/moat/charts/akri": {
+      "id": "dir::quaternionmedia/moat/charts/akri",
+      "label": "akri",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2008.9883540604064,
+      "y": 1533.3623955798894,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/argo-cd": {
+      "id": "dir::quaternionmedia/moat/charts/argo-cd",
+      "label": "argo-cd",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 3680.9563363102493,
+      "y": -635.0659250706276,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/cert-manager": {
+      "id": "dir::quaternionmedia/moat/charts/cert-manager",
+      "label": "cert-manager",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2384.6786820871885,
+      "y": 650.0525647152701,
+      "size": 60
+     },
+     "dir::quaternionmedia/moat/charts/cert-manager/templates": {
+      "id": "dir::quaternionmedia/moat/charts/cert-manager/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2595.9150770744272,
+      "y": 735.0577370630683,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/cilium": {
+      "id": "dir::quaternionmedia/moat/charts/cilium",
+      "label": "cilium",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 3087.465889532588,
+      "y": 378.08105756662957,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/cook": {
+      "id": "dir::quaternionmedia/moat/charts/cook",
+      "label": "cook",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 2484.653239900861,
+      "y": -1228.1749468047553,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/csi": {
+      "id": "dir::quaternionmedia/moat/charts/csi",
+      "label": "csi",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2922.0766403298258,
+      "y": -569.2736563198375,
+      "size": 60
+     },
+     "dir::quaternionmedia/moat/charts/frigate": {
+      "id": "dir::quaternionmedia/moat/charts/frigate",
+      "label": "frigate",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1671.3823216988085,
+      "y": 1463.2073298743785,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/groot": {
+      "id": "dir::quaternionmedia/moat/charts/groot",
+      "label": "groot",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 979.3570520596891,
+      "y": -1224.216372744033,
+      "size": 60
+     },
+     "dir::quaternionmedia/moat/charts/groot/templates": {
+      "id": "dir::quaternionmedia/moat/charts/groot/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1581.2610480351366,
+      "y": -1510.6046385705636,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/home-assistant": {
+      "id": "dir::quaternionmedia/moat/charts/home-assistant",
+      "label": "home-assistant",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 3068.350206137608,
+      "y": -909.8563138734683,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/jellyfin": {
+      "id": "dir::quaternionmedia/moat/charts/jellyfin",
+      "label": "jellyfin",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -141.79474164808116,
+      "y": 1713.6,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/metallb": {
+      "id": "dir::quaternionmedia/moat/charts/metallb",
+      "label": "metallb",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -485.4800213461936,
+      "y": -1046.2697305847003,
+      "size": 60
+     },
+     "dir::quaternionmedia/moat/charts/metallb/templates": {
+      "id": "dir::quaternionmedia/moat/charts/metallb/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -851.8728364588779,
+      "y": -1540.2935980677855,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/metrics-server": {
+      "id": "dir::quaternionmedia/moat/charts/metrics-server",
+      "label": "metrics-server",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 3367.996801867352,
+      "y": 617.8624879091889,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/monitoring": {
+      "id": "dir::quaternionmedia/moat/charts/monitoring",
+      "label": "monitoring",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -3461.1855529400136,
+      "y": 100.69937217413826,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/traefik": {
+      "id": "dir::quaternionmedia/moat/charts/traefik",
+      "label": "traefik",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2890.071771815574,
+      "y": 1150.457071659481,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/charts/whoami": {
+      "id": "dir::quaternionmedia/moat/charts/whoami",
+      "label": "whoami",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 684.2281278339333,
+      "y": 1478.6929741510914,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/influxdb": {
+      "id": "dir::quaternionmedia/moat/influxdb",
+      "label": "influxdb",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 617.9976004818822,
+      "y": -1262.3807933693415,
+      "size": 60
+     },
+     "dir::quaternionmedia/moat/influxdb/templates": {
+      "id": "dir::quaternionmedia/moat/influxdb/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 232.72941024675652,
+      "y": -1540.1799701635643,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/loki": {
+      "id": "dir::quaternionmedia/moat/loki",
+      "label": "loki",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 3656.2637469250567,
+      "y": 863.0462551965207,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/openebs": {
+      "id": "dir::quaternionmedia/moat/openebs",
+      "label": "openebs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 2894.1716135909937,
+      "y": 1359.3964487088779,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/technitium": {
+      "id": "dir::quaternionmedia/moat/technitium",
+      "label": "technitium",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1948.8894105040674,
+      "y": -669.5669960011062,
+      "size": 60
+     },
+     "dir::quaternionmedia/moat/technitium/templates": {
+      "id": "dir::quaternionmedia/moat/technitium/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2819.603425934379,
+      "y": -993.2041965547734,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/tempo": {
+      "id": "dir::quaternionmedia/moat/tempo",
+      "label": "tempo",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -3488.6070884371447,
+      "y": -345.9041262211637,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/tofu": {
+      "id": "dir::quaternionmedia/moat/tofu",
+      "label": "tofu",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 3283.724898973072,
+      "y": -76.4192949711735,
+      "size": 60
+     },
+     "dir::quaternionmedia/moat/tofu/moat": {
+      "id": "dir::quaternionmedia/moat/tofu/moat",
+      "label": "moat",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 3906.045193999076,
+      "y": -77.13032231861652,
+      "size": 50
+     },
+     "dir::quaternionmedia/moat/tower": {
+      "id": "dir::quaternionmedia/moat/tower",
+      "label": "tower",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1663.3723956447607,
+      "y": 1259.636817278097,
+      "size": 60
+     },
+     "dir::quaternionmedia/moat/victoria-logs": {
+      "id": "dir::quaternionmedia/moat/victoria-logs",
+      "label": "victoria-logs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -958.02212553119,
+      "y": 1578.4888044537518,
+      "size": 50
+     },
+     "file::quaternionmedia/moat/README.md": {
+      "id": "file::quaternionmedia/moat/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/moat/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": 55.55105456260199,
+      "y": 543.8214562392556,
+      "size": 30
+     },
+     "file::quaternionmedia/moat/charts/csi/README.md": {
+      "id": "file::quaternionmedia/moat/charts/csi/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/moat/main/charts/csi/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -2727.220924478327,
+      "y": -456.7736563198375,
+      "size": 30
+     },
+     "file::quaternionmedia/moat/tower/main.py": {
+      "id": "file::quaternionmedia/moat/tower/main.py",
+      "label": "main.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/moat/main/tower/main.py",
+      "line": 0,
+      "meta": {},
+      "x": -1468.516679793262,
+      "y": 1372.136817278097,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "file::quaternionmedia/moat/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/authentik",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/charts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/influxdb",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/loki",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/openebs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/technitium",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/tempo",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/tofu",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/tower",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat",
+      "target": "dir::quaternionmedia/moat/victoria-logs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/.github",
+      "target": "dir::quaternionmedia/moat/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/akri",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/argo-cd",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/cert-manager",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/cilium",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/cook",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/csi",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/frigate",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/groot",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/home-assistant",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/jellyfin",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/metallb",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/metrics-server",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/monitoring",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/traefik",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts",
+      "target": "dir::quaternionmedia/moat/charts/whoami",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts/cert-manager",
+      "target": "dir::quaternionmedia/moat/charts/cert-manager/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts/csi",
+      "target": "file::quaternionmedia/moat/charts/csi/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts/groot",
+      "target": "dir::quaternionmedia/moat/charts/groot/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/charts/metallb",
+      "target": "dir::quaternionmedia/moat/charts/metallb/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/influxdb",
+      "target": "dir::quaternionmedia/moat/influxdb/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/technitium",
+      "target": "dir::quaternionmedia/moat/technitium/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/tofu",
+      "target": "dir::quaternionmedia/moat/tofu/moat",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/moat/tower",
+      "target": "file::quaternionmedia/moat/tower/main.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/moat",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "composed": {
+    "system": "moat",
+    "commit": "16a595a",
+    "derived_from": "the repository's own declarations; see the module docstring of system_composer.py for each rule",
+    "components": [
+     {
+      "id": "authentik",
+      "name": "authentik",
+      "role": "chart",
+      "group": ".",
+      "version": "0.0.2",
+      "upstreams": [
+       "authentik"
+      ]
+     },
+     {
+      "id": "charts/akri",
+      "name": "akri",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.0.2",
+      "upstreams": [
+       "akri"
+      ]
+     },
+     {
+      "id": "charts/argo-cd",
+      "name": "argo-cd",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.7",
+      "upstreams": [
+       "argo-cd"
+      ]
+     },
+     {
+      "id": "charts/cert-manager",
+      "name": "cert-manager",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.1",
+      "upstreams": [
+       "cert-manager"
+      ]
+     },
+     {
+      "id": "charts/cilium",
+      "name": "cilium",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.0.2",
+      "upstreams": [
+       "cilium"
+      ]
+     },
+     {
+      "id": "charts/cook",
+      "name": "cook",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.2",
+      "upstreams": [
+       "app-template"
+      ]
+     },
+     {
+      "id": "charts/csi",
+      "name": "csi",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.5",
+      "upstreams": [
+       "proxmox-csi-plugin"
+      ]
+     },
+     {
+      "id": "charts/frigate",
+      "name": "frigate",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.4.1",
+      "upstreams": [
+       "frigate",
+       "app-template"
+      ]
+     },
+     {
+      "id": "charts/groot",
+      "name": "groot",
+      "role": "deployer",
+      "group": "charts",
+      "version": "0.1.6",
+      "upstreams": []
+     },
+     {
+      "id": "charts/home-assistant",
+      "name": "home-assistant",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.3",
+      "upstreams": [
+       "home-assistant"
+      ]
+     },
+     {
+      "id": "charts/jellyfin",
+      "name": "jellyfin",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.2",
+      "upstreams": [
+       "jellyfin"
+      ]
+     },
+     {
+      "id": "charts/metallb",
+      "name": "metallb",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.1",
+      "upstreams": [
+       "metallb"
+      ]
+     },
+     {
+      "id": "charts/metrics-server",
+      "name": "metrics-server",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.0",
+      "upstreams": [
+       "metrics-server"
+      ]
+     },
+     {
+      "id": "charts/monitoring",
+      "name": "monitoring",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.2.0",
+      "upstreams": [
+       "grafana",
+       "prometheus"
+      ]
+     },
+     {
+      "id": "charts/traefik",
+      "name": "traefik",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.4",
+      "upstreams": [
+       "traefik"
+      ]
+     },
+     {
+      "id": "charts/whoami",
+      "name": "whoami",
+      "role": "chart",
+      "group": "charts",
+      "version": "0.1.2",
+      "upstreams": [
+       "app-template"
+      ]
+     },
+     {
+      "id": "influxdb",
+      "name": "influxdb",
+      "role": "chart",
+      "group": ".",
+      "version": "0.0.1",
+      "upstreams": [
+       "influxdb2"
+      ]
+     },
+     {
+      "id": "loki",
+      "name": "loki",
+      "role": "chart",
+      "group": ".",
+      "version": "0.0.1",
+      "upstreams": [
+       "loki"
+      ]
+     },
+     {
+      "id": "openebs",
+      "name": "openebs",
+      "role": "chart",
+      "group": ".",
+      "version": "0.0.1",
+      "upstreams": [
+       "openebs"
+      ]
+     },
+     {
+      "id": "technitium",
+      "name": "technitium",
+      "role": "chart",
+      "group": ".",
+      "version": "0.0.2",
+      "upstreams": []
+     },
+     {
+      "id": "tempo",
+      "name": "tempo",
+      "role": "chart",
+      "group": ".",
+      "version": "0.0.2",
+      "upstreams": [
+       "tempo"
+      ]
+     },
+     {
+      "id": "tofu",
+      "name": "tofu",
+      "role": "infrastructure",
+      "group": ".",
+      "version": "",
+      "upstreams": []
+     },
+     {
+      "id": "tower",
+      "name": "tower",
+      "role": "application",
+      "group": ".",
+      "version": "",
+      "upstreams": []
+     },
+     {
+      "id": "victoria-logs",
+      "name": "victoria-logs",
+      "role": "chart",
+      "group": ".",
+      "version": "0.0.1",
+      "upstreams": [
+       "victoria-logs-single"
+      ]
+     }
+    ],
+    "edges": [
+     {
+      "source": "charts/groot",
+      "target": "charts/argo-cd",
+      "kind": "deploys"
+     },
+     {
+      "source": "charts/groot",
+      "target": "charts/home-assistant",
+      "kind": "deploys"
+     },
+     {
+      "source": "charts/groot",
+      "target": "charts/metrics-server",
+      "kind": "deploys"
+     },
+     {
+      "source": "charts/groot",
+      "target": "charts/monitoring",
+      "kind": "deploys"
+     },
+     {
+      "source": "charts/groot",
+      "target": "charts/traefik",
+      "kind": "deploys"
+     },
+     {
+      "source": "charts/groot",
+      "target": "charts/whoami",
+      "kind": "deploys"
+     }
+    ]
+   },
+   "metadata": {
+    "components": 24
+   }
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg",
+  "system": "system.png"
+ }
+}

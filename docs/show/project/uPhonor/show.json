@@ -1,0 +1,1481 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "uPhonor"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:9cf48b78cdbba79e6363cb043b19a202ff5268ab9cd5cea7ad8142e27e69235d"
+  },
+  "source": {
+   "repo": "quaternionmedia/uPhonor",
+   "commit": "150f7a770cade664896c403ff27ccc5cf408f08d"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::uPhonor": {
+      "label": "uPhonor",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [
+        "irl"
+       ],
+       "hover": "uPhonor — n/a · not adopted · also in irl",
+       "click": "<p><b>uPhonor</b> — Micro-Holophonor</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in irl.</p>",
+       "show": "project:uPhonor",
+       "shape": "circle",
+       "color": "#43c6bf",
+       "x": 0,
+       "y": 0,
+       "size": 51,
+       "label_at": "below"
+      }
+     },
+     "family::instruments": {
+      "label": "instruments",
+      "metadata": {
+       "kind": "family",
+       "family": "instruments",
+       "drives": "the sound — looping, synthesis, tempo, remote control surfaces",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "instruments — drives the sound — looping, synthesis, tempo, remote control surfaces",
+       "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
+       "show": "family:instruments",
+       "color": "#43c6bf",
+       "x": 36,
+       "y": -49.54974913696225,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "family::irl": {
+      "label": "irl",
+      "metadata": {
+       "kind": "family",
+       "family": "irl",
+       "drives": "matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "irl — drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "click": "<p>The <b>irl</b> family drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.</p><p>9 member(s) in all.</p>",
+       "show": "family:irl",
+       "color": "#dd9b63",
+       "x": 58.24922359499621,
+       "y": 18.926320036288807,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 3.750288442705563e-15,
+       "y": 61.246858201346875,
+       "size": 11,
+       "label_at": "below"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -58.24922359499621,
+       "y": 18.926320036288814,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -36.00000000000001,
+       "y": -49.54974913696224,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::uPhonor",
+      "target": "family::instruments",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::uPhonor",
+      "target": "family::irl",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::uPhonor",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::uPhonor",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::uPhonor",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:uPhonor",
+     "measured": 0,
+     "unread": [
+      "uPhonor"
+     ],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:uPhonor",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [
+     "uPhonor"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: uPhonor."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/uPhonor": {
+      "id": "dir::quaternionmedia/uPhonor",
+      "label": "quaternionmedia/uPhonor",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1142.115569617807,
+      "y": 625.7347465407927,
+      "size": 480
+     },
+     "dir::quaternionmedia/uPhonor/.github": {
+      "id": "dir::quaternionmedia/uPhonor/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 566.685421260925,
+      "y": -262.0656616324477,
+      "size": 60
+     },
+     "dir::quaternionmedia/uPhonor/.github/workflows": {
+      "id": "dir::quaternionmedia/uPhonor/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 753.1219109635354,
+      "y": -403.5369804529425,
+      "size": 50
+     },
+     "dir::quaternionmedia/uPhonor/app": {
+      "id": "dir::quaternionmedia/uPhonor/app",
+      "label": "app",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1604.69616830604,
+      "y": 816.2430706563151,
+      "size": 80
+     },
+     "dir::quaternionmedia/uPhonor/configs": {
+      "id": "dir::quaternionmedia/uPhonor/configs",
+      "label": "configs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1237.0224664754767,
+      "y": -147.2120901504794,
+      "size": 50
+     },
+     "dir::quaternionmedia/uPhonor/examples": {
+      "id": "dir::quaternionmedia/uPhonor/examples",
+      "label": "examples",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 3006.2094949043717,
+      "y": 764.3483369864966,
+      "size": 140
+     },
+     "file::quaternionmedia/uPhonor/CONFIG_SYSTEM.md": {
+      "id": "file::quaternionmedia/uPhonor/CONFIG_SYSTEM.md",
+      "label": "CONFIG_SYSTEM.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/CONFIG_SYSTEM.md",
+      "line": 0,
+      "meta": {},
+      "x": -610.1941246928577,
+      "y": 932.8397359559467,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/MODULAR_STRUCTURE.md": {
+      "id": "file::quaternionmedia/uPhonor/MODULAR_STRUCTURE.md",
+      "label": "MODULAR_STRUCTURE.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/MODULAR_STRUCTURE.md",
+      "line": 0,
+      "meta": {},
+      "x": -664.7847650832613,
+      "y": 1012.2696106049947,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/README.md": {
+      "id": "file::quaternionmedia/uPhonor/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -731.1288740514213,
+      "y": 1082.181714065116,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/RT_OPTIMIZATION_REPORT.md": {
+      "id": "file::quaternionmedia/uPhonor/RT_OPTIMIZATION_REPORT.md",
+      "label": "RT_OPTIMIZATION_REPORT.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/RT_OPTIMIZATION_REPORT.md",
+      "line": 0,
+      "meta": {},
+      "x": -807.5928394510676,
+      "y": 1140.8545783241543,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/SAVE_FUNCTION_DOCS.md": {
+      "id": "file::quaternionmedia/uPhonor/SAVE_FUNCTION_DOCS.md",
+      "label": "SAVE_FUNCTION_DOCS.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/SAVE_FUNCTION_DOCS.md",
+      "line": 0,
+      "meta": {},
+      "x": -892.293864684709,
+      "y": 1186.8434827399788,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/STATE_PRESERVATION_FIX.md": {
+      "id": "file::quaternionmedia/uPhonor/STATE_PRESERVATION_FIX.md",
+      "label": "STATE_PRESERVATION_FIX.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/STATE_PRESERVATION_FIX.md",
+      "line": 0,
+      "meta": {},
+      "x": -983.146329404507,
+      "y": 1219.0160278574492,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/SYNC_CUTOFF_IMPLEMENTATION.md": {
+      "id": "file::quaternionmedia/uPhonor/SYNC_CUTOFF_IMPLEMENTATION.md",
+      "label": "SYNC_CUTOFF_IMPLEMENTATION.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/SYNC_CUTOFF_IMPLEMENTATION.md",
+      "line": 0,
+      "meta": {},
+      "x": -1077.913144407017,
+      "y": 1236.5800188412181,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/app/index.html": {
+      "id": "file::quaternionmedia/uPhonor/app/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/app/index.html",
+      "line": 0,
+      "meta": {},
+      "x": -1409.8404524545413,
+      "y": 928.7430706563151,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/app/index.ts": {
+      "id": "file::quaternionmedia/uPhonor/app/index.ts",
+      "label": "index.ts",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/app/index.ts",
+      "line": 0,
+      "meta": {},
+      "x": -1799.5518841575386,
+      "y": 928.7430706563151,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/app/uphonor.tsx": {
+      "id": "file::quaternionmedia/uPhonor/app/uphonor.tsx",
+      "label": "uphonor.tsx",
+      "depth": 1,
+      "language": "typescript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/app/uphonor.tsx",
+      "line": 0,
+      "meta": {},
+      "x": -1604.69616830604,
+      "y": 591.2430706563151,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/audio_buffer_rt.c": {
+      "id": "file::quaternionmedia/uPhonor/audio_buffer_rt.c",
+      "label": "audio_buffer_rt.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_buffer_rt.c",
+      "line": 0,
+      "meta": {},
+      "x": -1174.2608361938494,
+      "y": 1239.1029719417202,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/audio_buffer_rt.h": {
+      "id": "file::quaternionmedia/uPhonor/audio_buffer_rt.h",
+      "label": "audio_buffer_rt.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_buffer_rt.h",
+      "line": 0,
+      "meta": {},
+      "x": -922.0023989141272,
+      "y": 52.32033254555617,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/audio_processing.c": {
+      "id": "file::quaternionmedia/uPhonor/audio_processing.c",
+      "label": "audio_processing.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_processing.c",
+      "line": 0,
+      "meta": {},
+      "x": -1269.8170048335564,
+      "y": 1226.5227636804204,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/audio_processing.h": {
+      "id": "file::quaternionmedia/uPhonor/audio_processing.h",
+      "label": "audio_processing.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_processing.h",
+      "line": 0,
+      "meta": {},
+      "x": -835.0105802026528,
+      "y": 93.81330161584343,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/audio_processing_rt.c": {
+      "id": "file::quaternionmedia/uPhonor/audio_processing_rt.c",
+      "label": "audio_processing_rt.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_processing_rt.c",
+      "line": 0,
+      "meta": {},
+      "x": -1362.2287403214868,
+      "y": 1199.149160536029,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/audio_processing_rt.h": {
+      "id": "file::quaternionmedia/uPhonor/audio_processing_rt.h",
+      "label": "audio_processing_rt.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/audio_processing_rt.h",
+      "line": 0,
+      "meta": {},
+      "x": -755.580705553605,
+      "y": 148.40394200624704,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/buffer_manager.c": {
+      "id": "file::quaternionmedia/uPhonor/buffer_manager.c",
+      "label": "buffer_manager.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/buffer_manager.c",
+      "line": 0,
+      "meta": {},
+      "x": -1449.220559032961,
+      "y": 1157.656191465742,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/buffer_manager.h": {
+      "id": "file::quaternionmedia/uPhonor/buffer_manager.h",
+      "label": "buffer_manager.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/buffer_manager.h",
+      "line": 0,
+      "meta": {},
+      "x": -685.6686020934836,
+      "y": 214.74805097440708,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/cli.c": {
+      "id": "file::quaternionmedia/uPhonor/cli.c",
+      "label": "cli.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/cli.c",
+      "line": 0,
+      "meta": {},
+      "x": -1528.650433682009,
+      "y": 1103.0655510753384,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/cli_rubberband.c": {
+      "id": "file::quaternionmedia/uPhonor/cli_rubberband.c",
+      "label": "cli_rubberband.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/cli_rubberband.c",
+      "line": 0,
+      "meta": {},
+      "x": -1598.5625371421304,
+      "y": 1036.7214421071785,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/config.c": {
+      "id": "file::quaternionmedia/uPhonor/config.c",
+      "label": "config.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config.c",
+      "line": 0,
+      "meta": {},
+      "x": -1657.2354014011687,
+      "y": 960.2574767075321,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/config.h": {
+      "id": "file::quaternionmedia/uPhonor/config.h",
+      "label": "config.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config.h",
+      "line": 0,
+      "meta": {},
+      "x": -626.9957378344455,
+      "y": 291.2120163740534,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/config_file_loader.c": {
+      "id": "file::quaternionmedia/uPhonor/config_file_loader.c",
+      "label": "config_file_loader.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config_file_loader.c",
+      "line": 0,
+      "meta": {},
+      "x": -1703.2243058169931,
+      "y": 875.5564514738908,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/config_utils.c": {
+      "id": "file::quaternionmedia/uPhonor/config_utils.c",
+      "label": "config_utils.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config_utils.c",
+      "line": 0,
+      "meta": {},
+      "x": -1735.3968509344636,
+      "y": 784.7039867540926,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/config_utils.h": {
+      "id": "file::quaternionmedia/uPhonor/config_utils.h",
+      "label": "config_utils.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/config_utils.h",
+      "line": 0,
+      "meta": {},
+      "x": -581.0068334186208,
+      "y": 375.91304160769477,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/examples/dsp.c": {
+      "id": "file::quaternionmedia/uPhonor/examples/dsp.c",
+      "label": "dsp.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/dsp.c",
+      "line": 0,
+      "meta": {},
+      "x": 3279.00749709647,
+      "y": 921.8483369864966,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/examples/filter.c": {
+      "id": "file::quaternionmedia/uPhonor/examples/filter.c",
+      "label": "filter.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/filter.c",
+      "line": 0,
+      "meta": {},
+      "x": 3113.9458400519575,
+      "y": 1060.3515125340577,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/examples/midi.c": {
+      "id": "file::quaternionmedia/uPhonor/examples/midi.c",
+      "label": "midi.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/midi.c",
+      "line": 0,
+      "meta": {},
+      "x": 2898.473149756786,
+      "y": 1060.3515125340577,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/examples/play-file.c": {
+      "id": "file::quaternionmedia/uPhonor/examples/play-file.c",
+      "label": "play-file.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/play-file.c",
+      "line": 0,
+      "meta": {},
+      "x": 2733.4114927122737,
+      "y": 921.8483369864967,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/examples/ring1.c": {
+      "id": "file::quaternionmedia/uPhonor/examples/ring1.c",
+      "label": "ring1.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/ring1.c",
+      "line": 0,
+      "meta": {},
+      "x": 2695.995052705526,
+      "y": 709.6491610214136,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/examples/ring2.c": {
+      "id": "file::quaternionmedia/uPhonor/examples/ring2.c",
+      "label": "ring2.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/ring2.c",
+      "line": 0,
+      "meta": {},
+      "x": 2803.731397853112,
+      "y": 523.0443374040185,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/examples/stream.c": {
+      "id": "file::quaternionmedia/uPhonor/examples/stream.c",
+      "label": "stream.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/stream.c",
+      "line": 0,
+      "meta": {},
+      "x": 3006.2094949043717,
+      "y": 449.3483369864966,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/examples/tone1.c": {
+      "id": "file::quaternionmedia/uPhonor/examples/tone1.c",
+      "label": "tone1.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/tone1.c",
+      "line": 0,
+      "meta": {},
+      "x": 3208.687591955632,
+      "y": 523.0443374040185,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/examples/tone2.c": {
+      "id": "file::quaternionmedia/uPhonor/examples/tone2.c",
+      "label": "tone2.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/examples/tone2.c",
+      "line": 0,
+      "meta": {},
+      "x": 3316.423937103217,
+      "y": 709.6491610214135,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/holo.c": {
+      "id": "file::quaternionmedia/uPhonor/holo.c",
+      "label": "holo.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/holo.c",
+      "line": 0,
+      "meta": {},
+      "x": -1752.9608419182323,
+      "y": 689.9371717515829,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/main.c": {
+      "id": "file::quaternionmedia/uPhonor/main.c",
+      "label": "main.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/main.c",
+      "line": 0,
+      "meta": {},
+      "x": -1755.4837950187346,
+      "y": 593.5894799647504,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/midi_processing.c": {
+      "id": "file::quaternionmedia/uPhonor/midi_processing.c",
+      "label": "midi_processing.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/midi_processing.c",
+      "line": 0,
+      "meta": {},
+      "x": -1742.9035867574348,
+      "y": 498.0333113250433,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/midi_processing.h": {
+      "id": "file::quaternionmedia/uPhonor/midi_processing.h",
+      "label": "midi_processing.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/midi_processing.h",
+      "line": 0,
+      "meta": {},
+      "x": -548.8342883011503,
+      "y": 466.76550632749286,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/multi_loop_functions.c": {
+      "id": "file::quaternionmedia/uPhonor/multi_loop_functions.c",
+      "label": "multi_loop_functions.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/multi_loop_functions.c",
+      "line": 0,
+      "meta": {},
+      "x": -1715.5299836130434,
+      "y": 405.6215758371129,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/pipe.c": {
+      "id": "file::quaternionmedia/uPhonor/pipe.c",
+      "label": "pipe.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/pipe.c",
+      "line": 0,
+      "meta": {},
+      "x": -1674.0370145427567,
+      "y": 318.62975712563866,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/play.c": {
+      "id": "file::quaternionmedia/uPhonor/play.c",
+      "label": "play.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/play.c",
+      "line": 0,
+      "meta": {},
+      "x": -1619.4463741523527,
+      "y": 239.19988247659077,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/process.c": {
+      "id": "file::quaternionmedia/uPhonor/process.c",
+      "label": "process.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/process.c",
+      "line": 0,
+      "meta": {},
+      "x": -1553.102265184193,
+      "y": 169.28777901646947,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/quick_functions.c": {
+      "id": "file::quaternionmedia/uPhonor/quick_functions.c",
+      "label": "quick_functions.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/quick_functions.c",
+      "line": 0,
+      "meta": {},
+      "x": -1476.6382997845462,
+      "y": 110.61491475743104,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/record.c": {
+      "id": "file::quaternionmedia/uPhonor/record.c",
+      "label": "record.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/record.c",
+      "line": 0,
+      "meta": {},
+      "x": -1391.937274550905,
+      "y": 64.6260103416064,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/rt_nonrt_bridge.c": {
+      "id": "file::quaternionmedia/uPhonor/rt_nonrt_bridge.c",
+      "label": "rt_nonrt_bridge.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/rt_nonrt_bridge.c",
+      "line": 0,
+      "meta": {},
+      "x": -1301.084809831107,
+      "y": 32.45346522413595,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/rt_nonrt_bridge.h": {
+      "id": "file::quaternionmedia/uPhonor/rt_nonrt_bridge.h",
+      "label": "rt_nonrt_bridge.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/rt_nonrt_bridge.h",
+      "line": 0,
+      "meta": {},
+      "x": -531.2702973173817,
+      "y": 561.5323213300026,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/rubberband_processing.c": {
+      "id": "file::quaternionmedia/uPhonor/rubberband_processing.c",
+      "label": "rubberband_processing.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/rubberband_processing.c",
+      "line": 0,
+      "meta": {},
+      "x": -1206.317994828597,
+      "y": 14.889474240367306,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/test_config.sh": {
+      "id": "file::quaternionmedia/uPhonor/test_config.sh",
+      "label": "test_config.sh",
+      "depth": 1,
+      "language": "shell",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/test_config.sh",
+      "line": 0,
+      "meta": {},
+      "x": -541.3275524781794,
+      "y": 753.4361817565422,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/tone.c": {
+      "id": "file::quaternionmedia/uPhonor/tone.c",
+      "label": "tone.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/tone.c",
+      "line": 0,
+      "meta": {},
+      "x": -1109.9703030417645,
+      "y": 12.366521139865227,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/uphonor.h": {
+      "id": "file::quaternionmedia/uPhonor/uphonor.h",
+      "label": "uphonor.h",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/uphonor.h",
+      "line": 0,
+      "meta": {},
+      "x": -528.7473442168796,
+      "y": 657.8800131168352,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/utils.c": {
+      "id": "file::quaternionmedia/uPhonor/utils.c",
+      "label": "utils.c",
+      "depth": 1,
+      "language": "c",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/utils.c",
+      "line": 0,
+      "meta": {},
+      "x": -1014.4141344020575,
+      "y": 24.94672940116507,
+      "size": 30
+     },
+     "file::quaternionmedia/uPhonor/vite.config.js": {
+      "id": "file::quaternionmedia/uPhonor/vite.config.js",
+      "label": "vite.config.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/uPhonor/main/vite.config.js",
+      "line": 0,
+      "meta": {},
+      "x": -568.7011556225706,
+      "y": 845.8479172444726,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/CONFIG_SYSTEM.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/MODULAR_STRUCTURE.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/RT_OPTIMIZATION_REPORT.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/SAVE_FUNCTION_DOCS.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/STATE_PRESERVATION_FIX.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/SYNC_CUTOFF_IMPLEMENTATION.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/audio_buffer_rt.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/audio_processing.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/audio_processing_rt.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/buffer_manager.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/cli.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/cli_rubberband.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/config.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/config_file_loader.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/config_utils.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/holo.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/main.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/midi_processing.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/multi_loop_functions.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/pipe.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/play.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/process.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/quick_functions.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/record.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/rt_nonrt_bridge.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/rubberband_processing.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/tone.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/utils.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/audio_buffer_rt.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/audio_processing.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/audio_processing_rt.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/buffer_manager.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/config.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/config_utils.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/midi_processing.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/rt_nonrt_bridge.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/uphonor.h",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/test_config.sh",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "file::quaternionmedia/uPhonor/vite.config.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "dir::quaternionmedia/uPhonor/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "dir::quaternionmedia/uPhonor/app",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "dir::quaternionmedia/uPhonor/configs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor",
+      "target": "dir::quaternionmedia/uPhonor/examples",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/.github",
+      "target": "dir::quaternionmedia/uPhonor/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/app",
+      "target": "file::quaternionmedia/uPhonor/app/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/app",
+      "target": "file::quaternionmedia/uPhonor/app/index.ts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/app",
+      "target": "file::quaternionmedia/uPhonor/app/uphonor.tsx",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/examples",
+      "target": "file::quaternionmedia/uPhonor/examples/dsp.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/examples",
+      "target": "file::quaternionmedia/uPhonor/examples/filter.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/examples",
+      "target": "file::quaternionmedia/uPhonor/examples/midi.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/examples",
+      "target": "file::quaternionmedia/uPhonor/examples/play-file.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/examples",
+      "target": "file::quaternionmedia/uPhonor/examples/ring1.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/examples",
+      "target": "file::quaternionmedia/uPhonor/examples/ring2.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/examples",
+      "target": "file::quaternionmedia/uPhonor/examples/stream.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/examples",
+      "target": "file::quaternionmedia/uPhonor/examples/tone1.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/uPhonor/examples",
+      "target": "file::quaternionmedia/uPhonor/examples/tone2.c",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/uPhonor",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "uPhonor's system view is composed from a clone of it, and this export read none",
+   "remedy": "export from a clone of uPhonor at its default branch's head",
+   "where": "/show/project/uPhonor/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

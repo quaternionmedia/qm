@@ -82,13 +82,11 @@ onboarding.
   onboarding and architecture pages; Phase 2 bounds the transcript's storage
   and rendering cost; Phase 3 makes the declared checks' boundaries explicit.
   New capabilities come after.
-- **The governance pin bump in `qmcp`.** `governance/qm` is at `235708c`. The
-  bump copies again the six seed workflows `qmcp` carries and adds
-  `timeless-check.yml`, takes the REUSE step through `uvx` (§4), and retires
-  the `AGENTS.md` paragraph about that step. `voice-set-landing.md` §3 lists
-  it with the other steps after the set: Phase 10's boxes on the roadmap, the
-  two read-back helpers made one, `vendor/vox` moved to `vox`'s `main`, and the
-  demo branches deleted.
+- **The steps after the set**, as `voice-set-landing.md` §3 lists them:
+  Phase 10's boxes on the roadmap, the two read-back helpers made one,
+  `vendor/vox` moved to `vox`'s `main`, and the demo branches deleted.
+  `qmcp`'s governance pin bump, which took the REUSE step through `uvx` (§4),
+  landed as `qmcp` #117 on 2026-10-25, pinning `f4786fe`.
 - **`joe` records on one host API, and the other three are a reading of one
   run.** `joe` #20 moved capture to a callback stream, because WDM-KS
   implements no blocking read, and on the hardware that run used the WDM-KS
@@ -109,9 +107,12 @@ onboarding.
   not on the workstation the set was built on.
 - **Two bounds nobody has set.** `run_forever` has no bound on an idle queue,
   and a standing worker needs one.
-- **Merged branches in every repository above.** Some remain and some are gone;
-  `handbook/handoffs/README.md` places deletion outside what a handoff
-  authorises, and `uv run qm branches` says what deleting one would cost.
+- **Merged branches in every repository above.** Some remain and some are
+  gone, and `uv run qm branches` says what deleting one would cost. `qmcp`'s
+  were deleted on 2026-10-25 at the person's word. Its remote holds `main` and
+  one Dependabot branch whose pull request is closed. `handbook/handoffs/README.md`
+  now forbids deleting a branch only when another pull request is based on
+  it.
 
 `joe`'s Playwright specs have been seen red: on 2026-10-05 a run on #32's
 branch failed an assertion on the transcript pane's entry count, and the
@@ -195,13 +196,29 @@ overrides it. `joe voice level --every` still exists and only measures.
   tool with pip, and `uv`'s environment ships none. `qm` #134 runs the step
   through `uvx` on `qm`'s `main`; `qmcp` takes it with the governance pin
   bump (§1), and until then the hosted gate is the one to read.
-- **Whether project names transcribe reliably, and what a sentence-length
-  utterance costs in latency, are unmeasured** — named as such in Phase 10's
-  constraints, and resolution confirms rather than trusts so the first does
-  not have to be.
-- **Nothing checks what the local model says.** The tests assert what is sent
-  to it and how its replies are read, over a stand-in transport; its answers
-  are judged by the person who approved the run (§6 has one reading). On the
+- **Whether project names transcribe reliably is measured on synthesized
+  speech only, and what a sentence-length utterance costs in latency is
+  unmeasured.** Phase 10's constraints name both as unmeasured, and
+  resolution confirms rather than trusts, so the first does not have to be.
+  `perspectives/2026-10-25-what-whisper-heard.md` keeps a benchmark of two
+  synthesized voices, run on 2026-10-11:
+  - `qmcp`, `joe` and `qm` were heard as said.
+  - `vox` was lost to noise.
+  - "pi" was never written as said.
+
+  A person's voice has not been measured.
+- **No workflow checks what the local model says.** In CI, the tests assert
+  what is sent to the model and how its replies are read, over a stand-in
+  transport. At `qmcp` `82b2d58`, `tests/test_local_model.py` runs twelve
+  tests on the model itself with `-m local_model`, deselected by default:
+  - structured output;
+  - follow-ups that must not repeat the earlier answer;
+  - a retrieval floor of 6 of 10 questions;
+  - a second instruction told what the first found after every `qmcp` process
+    restarts.
+
+  Its answers are otherwise judged by the person who approved the run (§6 has
+  one reading). On the
   workstation the set was built on, the model service's runner was seen to
   stall partway through a reply after reusing a cached prompt, with later
   calls queued behind it; every call is capped, so a stall is a failed run

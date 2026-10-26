@@ -1,0 +1,960 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "vox"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:5957a80ed7dbcd46df7b6bce01f7b205dc36380988795c5e8c6693ececcf5a95"
+  },
+  "source": {
+   "repo": "quaternionmedia/vox",
+   "commit": "1721e6f27d9310fea928bd477005c34d1bcfe732"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::vox": {
+      "label": "vox",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "v0.0.0",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "vox — v0.0.0 · not adopted",
+       "click": "<p><b>vox</b> — The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter</p><p>not adopted. Phase <b>v0.0.0</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:vox",
+       "shape": "circle",
+       "color": "#74a8f6",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::core": {
+      "label": "core",
+      "metadata": {
+       "kind": "family",
+       "family": "core",
+       "drives": "the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "core — drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "click": "<p>The <b>core</b> family drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data.</p><p>7 member(s) in all.</p>",
+       "show": "family:core",
+       "color": "#74a8f6",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::v0.0.0": {
+      "label": "phase: v0.0.0",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase v0.0.0, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::active": {
+      "label": "attention: active",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention active, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::live": {
+      "label": "recency: live",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency live, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::vox",
+      "target": "family::core",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::vox",
+      "target": "phase::v0.0.0",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::vox",
+      "target": "attention::active",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::vox",
+      "target": "recency::live",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:vox",
+     "measured": 0,
+     "unread": [],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:vox",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/vox": {
+      "id": "dir::quaternionmedia/vox",
+      "label": "quaternionmedia/vox",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1144.5466512272008,
+      "y": -340.3610606791265,
+      "size": 110
+     },
+     "dir::quaternionmedia/vox/.github": {
+      "id": "dir::quaternionmedia/vox/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -563.5805502062226,
+      "y": -81.32022403514144,
+      "size": 60
+     },
+     "dir::quaternionmedia/vox/.github/workflows": {
+      "id": "dir::quaternionmedia/vox/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -586.4731536049931,
+      "y": -13.047784687697417,
+      "size": 50
+     },
+     "dir::quaternionmedia/vox/tests": {
+      "id": "dir::quaternionmedia/vox/tests",
+      "label": "tests",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 2499.6014346512175,
+      "y": -1111.797828309843,
+      "size": 140
+     },
+     "dir::quaternionmedia/vox/vox": {
+      "id": "dir::quaternionmedia/vox/vox",
+      "label": "vox",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -721.3789011437945,
+      "y": 498.2433924365357,
+      "size": 140
+     },
+     "dir::quaternionmedia/vox/vox/adapters": {
+      "id": "dir::quaternionmedia/vox/vox/adapters",
+      "label": "adapters",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -603.6639807345707,
+      "y": 366.842416018569,
+      "size": 80
+     },
+     "dir::quaternionmedia/vox/walkthrough": {
+      "id": "dir::quaternionmedia/vox/walkthrough",
+      "label": "walkthrough",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1490.5265192737281,
+      "y": 374.02010617841273,
+      "size": 100
+     },
+     "file::quaternionmedia/vox/HANDOFF.md": {
+      "id": "file::quaternionmedia/vox/HANDOFF.md",
+      "label": "HANDOFF.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/HANDOFF.md",
+      "line": 0,
+      "meta": {},
+      "x": 1339.4023670786994,
+      "y": -227.86106067912658,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/README.md": {
+      "id": "file::quaternionmedia/vox/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": 949.6909353757021,
+      "y": -227.86106067912647,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/pyproject.toml": {
+      "id": "file::quaternionmedia/vox/pyproject.toml",
+      "label": "pyproject.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/pyproject.toml",
+      "line": 0,
+      "meta": {},
+      "x": 1144.5466512272008,
+      "y": -565.3610606791265,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/tests/conftest.py": {
+      "id": "file::quaternionmedia/vox/tests/conftest.py",
+      "label": "conftest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/conftest.py",
+      "line": 0,
+      "meta": {},
+      "x": 2772.3994368433155,
+      "y": -954.297828309843,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/tests/test_adapters.py": {
+      "id": "file::quaternionmedia/vox/tests/test_adapters.py",
+      "label": "test_adapters.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_adapters.py",
+      "line": 0,
+      "meta": {},
+      "x": 2607.3377797988032,
+      "y": -815.7946527622818,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/tests/test_cli.py": {
+      "id": "file::quaternionmedia/vox/tests/test_cli.py",
+      "label": "test_cli.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_cli.py",
+      "line": 0,
+      "meta": {},
+      "x": 2391.8650895036317,
+      "y": -815.7946527622818,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/tests/test_contract.py": {
+      "id": "file::quaternionmedia/vox/tests/test_contract.py",
+      "label": "test_contract.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_contract.py",
+      "line": 0,
+      "meta": {},
+      "x": 2226.803432459119,
+      "y": -954.2978283098428,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/tests/test_engine.py": {
+      "id": "file::quaternionmedia/vox/tests/test_engine.py",
+      "label": "test_engine.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_engine.py",
+      "line": 0,
+      "meta": {},
+      "x": 2189.3869924523715,
+      "y": -1166.4970042749258,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/tests/test_engine_contract.py": {
+      "id": "file::quaternionmedia/vox/tests/test_engine_contract.py",
+      "label": "test_engine_contract.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_engine_contract.py",
+      "line": 0,
+      "meta": {},
+      "x": 2297.1233375999573,
+      "y": -1353.101827892321,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/tests/test_session.py": {
+      "id": "file::quaternionmedia/vox/tests/test_session.py",
+      "label": "test_session.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_session.py",
+      "line": 0,
+      "meta": {},
+      "x": 2499.6014346512175,
+      "y": -1426.797828309843,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/tests/test_stt.py": {
+      "id": "file::quaternionmedia/vox/tests/test_stt.py",
+      "label": "test_stt.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_stt.py",
+      "line": 0,
+      "meta": {},
+      "x": 2702.079531702477,
+      "y": -1353.101827892321,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/tests/test_synth.py": {
+      "id": "file::quaternionmedia/vox/tests/test_synth.py",
+      "label": "test_synth.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_synth.py",
+      "line": 0,
+      "meta": {},
+      "x": 2809.815876850063,
+      "y": -1166.497004274926,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/__init__.py": {
+      "id": "file::quaternionmedia/vox/vox/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": -461.95368112300866,
+      "y": 648.0226130501143,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/adapters/__init__.py": {
+      "id": "file::quaternionmedia/vox/vox/adapters/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/adapters/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": -408.80826488307207,
+      "y": 479.34241601856894,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/adapters/joe.py": {
+      "id": "file::quaternionmedia/vox/vox/adapters/joe.py",
+      "label": "joe.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/adapters/joe.py",
+      "line": 0,
+      "meta": {},
+      "x": -798.5196965860695,
+      "y": 479.34241601856905,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/adapters/pyttsx3.py": {
+      "id": "file::quaternionmedia/vox/vox/adapters/pyttsx3.py",
+      "label": "pyttsx3.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/adapters/pyttsx3.py",
+      "line": 0,
+      "meta": {},
+      "x": -603.6639807345707,
+      "y": 141.842416018569,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/cli.py": {
+      "id": "file::quaternionmedia/vox/vox/cli.py",
+      "label": "cli.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/cli.py",
+      "line": 0,
+      "meta": {},
+      "x": -643.847471432982,
+      "y": 787.5946273007427,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/contract.py": {
+      "id": "file::quaternionmedia/vox/vox/contract.py",
+      "label": "contract.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/contract.py",
+      "line": 0,
+      "meta": {},
+      "x": -871.158121757373,
+      "y": 757.6686124573215,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/engine.py": {
+      "id": "file::quaternionmedia/vox/vox/engine.py",
+      "label": "engine.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/engine.py",
+      "line": 0,
+      "meta": {},
+      "x": -1010.7301360080015,
+      "y": 575.7748221473481,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/session.py": {
+      "id": "file::quaternionmedia/vox/vox/session.py",
+      "label": "session.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/session.py",
+      "line": 0,
+      "meta": {},
+      "x": -980.8041211645805,
+      "y": 348.4641718229572,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/stt.py": {
+      "id": "file::quaternionmedia/vox/vox/stt.py",
+      "label": "stt.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/stt.py",
+      "line": 0,
+      "meta": {},
+      "x": -798.9103308546069,
+      "y": 208.89215757232864,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/synth.py": {
+      "id": "file::quaternionmedia/vox/vox/synth.py",
+      "label": "synth.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/synth.py",
+      "line": 0,
+      "meta": {},
+      "x": -571.5996805302159,
+      "y": 238.81817241574993,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/vox/tts.py": {
+      "id": "file::quaternionmedia/vox/vox/tts.py",
+      "label": "tts.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/tts.py",
+      "line": 0,
+      "meta": {},
+      "x": -432.0276662795875,
+      "y": 420.7119627257233,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/walkthrough/check_wheel.py": {
+      "id": "file::quaternionmedia/vox/walkthrough/check_wheel.py",
+      "label": "check_wheel.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/check_wheel.py",
+      "line": 0,
+      "meta": {},
+      "x": 1703.7819130233618,
+      "y": 497.1431651659033,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/walkthrough/closed-loop.md": {
+      "id": "file::quaternionmedia/vox/walkthrough/closed-loop.md",
+      "label": "closed-loop.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/closed-loop.md",
+      "line": 0,
+      "meta": {},
+      "x": 1390.369199878137,
+      "y": 149.0630836402447,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/walkthrough/mutate.py": {
+      "id": "file::quaternionmedia/vox/walkthrough/mutate.py",
+      "label": "mutate.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/mutate.py",
+      "line": 0,
+      "meta": {},
+      "x": 1439.3290725282404,
+      "y": 614.8851556656542,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/walkthrough/mutations.md": {
+      "id": "file::quaternionmedia/vox/walkthrough/mutations.md",
+      "label": "mutations.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/mutations.md",
+      "line": 0,
+      "meta": {},
+      "x": 1673.5230476407314,
+      "y": 209.2492919442987,
+      "size": 30
+     },
+     "file::quaternionmedia/vox/walkthrough/test_closed_loop.py": {
+      "id": "file::quaternionmedia/vox/walkthrough/test_closed_loop.py",
+      "label": "test_closed_loop.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/test_closed_loop.py",
+      "line": 0,
+      "meta": {},
+      "x": 1245.6293632981706,
+      "y": 399.75983447596286,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/vox",
+      "target": "file::quaternionmedia/vox/HANDOFF.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox",
+      "target": "file::quaternionmedia/vox/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox",
+      "target": "file::quaternionmedia/vox/pyproject.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox",
+      "target": "dir::quaternionmedia/vox/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox",
+      "target": "dir::quaternionmedia/vox/tests",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox",
+      "target": "dir::quaternionmedia/vox/vox",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox",
+      "target": "dir::quaternionmedia/vox/walkthrough",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/.github",
+      "target": "dir::quaternionmedia/vox/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/tests",
+      "target": "file::quaternionmedia/vox/tests/conftest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/tests",
+      "target": "file::quaternionmedia/vox/tests/test_adapters.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/tests",
+      "target": "file::quaternionmedia/vox/tests/test_cli.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/tests",
+      "target": "file::quaternionmedia/vox/tests/test_contract.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/tests",
+      "target": "file::quaternionmedia/vox/tests/test_engine.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/tests",
+      "target": "file::quaternionmedia/vox/tests/test_engine_contract.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/tests",
+      "target": "file::quaternionmedia/vox/tests/test_session.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/tests",
+      "target": "file::quaternionmedia/vox/tests/test_stt.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/tests",
+      "target": "file::quaternionmedia/vox/tests/test_synth.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox",
+      "target": "file::quaternionmedia/vox/vox/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox",
+      "target": "file::quaternionmedia/vox/vox/cli.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox",
+      "target": "file::quaternionmedia/vox/vox/contract.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox",
+      "target": "file::quaternionmedia/vox/vox/engine.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox",
+      "target": "file::quaternionmedia/vox/vox/session.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox",
+      "target": "file::quaternionmedia/vox/vox/stt.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox",
+      "target": "file::quaternionmedia/vox/vox/synth.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox",
+      "target": "file::quaternionmedia/vox/vox/tts.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox",
+      "target": "dir::quaternionmedia/vox/vox/adapters",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox/adapters",
+      "target": "file::quaternionmedia/vox/vox/adapters/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox/adapters",
+      "target": "file::quaternionmedia/vox/vox/adapters/joe.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/vox/adapters",
+      "target": "file::quaternionmedia/vox/vox/adapters/pyttsx3.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/walkthrough",
+      "target": "file::quaternionmedia/vox/walkthrough/check_wheel.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/walkthrough",
+      "target": "file::quaternionmedia/vox/walkthrough/mutate.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/walkthrough",
+      "target": "file::quaternionmedia/vox/walkthrough/test_closed_loop.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/walkthrough",
+      "target": "file::quaternionmedia/vox/walkthrough/closed-loop.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/vox/walkthrough",
+      "target": "file::quaternionmedia/vox/walkthrough/mutations.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/vox",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "vox declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile",
+   "remedy": "",
+   "where": "/show/project/vox/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

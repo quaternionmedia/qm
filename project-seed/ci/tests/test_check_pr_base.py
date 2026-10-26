@@ -10,6 +10,15 @@ qualifier was inverted -- it asked whether `base.split('/')[0]` contains a
 slash, which the first segment of a split on slash never does, so every ref was
 prefixed and `--base origin/main` resolved `origin/origin/main`. It went
 unnoticed because every invocation happened to pass a bare name.
+
+The exploration guard's mutations, per `a-check-is-evidence-after-it-fails`,
+each run alone against a green baseline and restored:
+
+  the guard removed
+    FAILED test_an_exploration_aimed_at_the_default_branch_is_refused
+    FAILED test_an_exploration_aimed_at_an_intermediate_base_is_also_refused
+  the guard deny-listed on the default branch
+    FAILED test_an_exploration_aimed_at_an_intermediate_base_is_also_refused
 """
 
 from __future__ import annotations
@@ -132,6 +141,38 @@ def test_authors_are_reported_so_foreign_commits_are_visible(repo: Path):
 
 
 # --- a project's records, and where they belong ------------------------------
+
+
+def test_an_exploration_into_its_workspace_is_allowed(repo: Path):
+    _branch_with_commit(repo, "workspace/math-experiments", "w.txt")
+    _branch_with_commit(
+        repo, "math/goodhart", "e.txt", from_ref="workspace/math-experiments"
+    )
+    _publish(repo)
+    result = check(repo, "workspace/math-experiments", "math/goodhart")
+    assert result.returncode == 0, result.stdout
+
+
+def test_an_exploration_aimed_at_the_default_branch_is_refused(repo: Path):
+    """A workspace is terminal and binds nothing, and the base is what keeps an
+    exploration inside it."""
+    _branch_with_commit(repo, "math/goodhart", "e.txt")
+    _publish(repo)
+    result = check(repo, "main", "math/goodhart")
+    assert result.returncode == 1, result.stdout
+    assert "REFUSED: math/goodhart targets main" in result.stdout
+
+
+def test_an_exploration_aimed_at_an_intermediate_base_is_also_refused(repo: Path):
+    """Allow-listed, not deny-listed: refusing only the default branch leaves a
+    staging branch as a clean route to it, the same hole the project/* rule
+    records."""
+    _branch_with_commit(repo, "evolve/staging", "s.txt")
+    _branch_with_commit(repo, "math/goodhart", "e.txt")
+    _publish(repo)
+    result = check(repo, "evolve/staging", "math/goodhart", "--refuse-only")
+    assert result.returncode == 1, result.stdout
+    assert "REFUSED: math/goodhart targets evolve/staging" in result.stdout
 
 
 def test_records_aimed_at_a_base_that_has_none_are_refused(repo: Path):

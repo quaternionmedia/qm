@@ -11,7 +11,8 @@
         "refs/heads/perspective/**",
         "refs/heads/propagate/**",
         "refs/heads/evolve/**",
-        "refs/heads/workspace/**"
+        "refs/heads/workspace/**",
+        "refs/heads/math/**"
       ]
     }
   },

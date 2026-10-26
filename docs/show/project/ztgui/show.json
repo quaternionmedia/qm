@@ -1,0 +1,397 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "ztgui"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:22e64d98a378a7ec39ef5da63b8b725109a15b6a9c3bc87edcf2c009267baa02"
+  },
+  "source": {
+   "repo": "quaternionmedia/ztgui",
+   "commit": "c698ae0dbfaedef15797ab44e5f5afedb5fdba24"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::ztgui": {
+      "label": "ztgui",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "ztgui — n/a · not adopted",
+       "click": "<p><b>ztgui</b> — Zeroteir Gui</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:ztgui",
+       "shape": "circle",
+       "color": "#98a7bc",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::infra": {
+      "label": "infra",
+      "metadata": {
+       "kind": "family",
+       "family": "infra",
+       "drives": "where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "infra — drives where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path",
+       "click": "<p>The <b>infra</b> family drives where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path.</p><p>5 member(s) in all.</p>",
+       "show": "family:infra",
+       "color": "#98a7bc",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::ztgui",
+      "target": "family::infra",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ztgui",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ztgui",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ztgui",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:ztgui",
+     "measured": 0,
+     "unread": [
+      "ztgui"
+     ],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:ztgui",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [
+     "ztgui"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: ztgui."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/ztgui": {
+      "id": "dir::quaternionmedia/ztgui",
+      "label": "quaternionmedia/ztgui",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1128.7248734744878,
+      "y": 486.35987451065444,
+      "size": 80
+     },
+     "dir::quaternionmedia/ztgui/website": {
+      "id": "dir::quaternionmedia/ztgui/website",
+      "label": "website",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 798.1290121277389,
+      "y": -343.90836536352197,
+      "size": 80
+     },
+     "file::quaternionmedia/ztgui/README.md": {
+      "id": "file::quaternionmedia/ztgui/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -933.8691576229892,
+      "y": 598.8598745106544,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/config.py": {
+      "id": "file::quaternionmedia/ztgui/config.py",
+      "label": "config.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/config.py",
+      "line": 0,
+      "meta": {},
+      "x": -1323.5805893259865,
+      "y": 598.8598745106545,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/website/index.html": {
+      "id": "file::quaternionmedia/ztgui/website/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/index.html",
+      "line": 0,
+      "meta": {},
+      "x": 992.9847279792376,
+      "y": -231.408365363522,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/website/script.js": {
+      "id": "file::quaternionmedia/ztgui/website/script.js",
+      "label": "script.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
+      "line": 0,
+      "meta": {},
+      "x": 603.2732962762402,
+      "y": -231.4083653635219,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/website/style.css": {
+      "id": "file::quaternionmedia/ztgui/website/style.css",
+      "label": "style.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/style.css",
+      "line": 0,
+      "meta": {},
+      "x": 798.1290121277389,
+      "y": -568.9083653635219,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/zt.py": {
+      "id": "file::quaternionmedia/ztgui/zt.py",
+      "label": "zt.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/zt.py",
+      "line": 0,
+      "meta": {},
+      "x": -1128.7248734744878,
+      "y": 261.35987451065444,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/ztgui",
+      "target": "file::quaternionmedia/ztgui/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui",
+      "target": "file::quaternionmedia/ztgui/config.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui",
+      "target": "file::quaternionmedia/ztgui/zt.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui",
+      "target": "dir::quaternionmedia/ztgui/website",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui/website",
+      "target": "file::quaternionmedia/ztgui/website/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui/website",
+      "target": "file::quaternionmedia/ztgui/website/script.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui/website",
+      "target": "file::quaternionmedia/ztgui/website/style.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/ztgui",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "ztgui's system view is composed from a clone of it, and this export read none",
+   "remedy": "export from a clone of ztgui at its default branch's head",
+   "where": "/show/project/ztgui/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

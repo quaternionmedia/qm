@@ -1,0 +1,586 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "holophonor"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:173afb001a222f7b1b0745447b9c65d7262540dd70ec137f9befec1ad86af988"
+  },
+  "source": {
+   "repo": "quaternionmedia/holophonor",
+   "commit": "dd8d9dbf1c7e9571adc99616330ba56de05f5029"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::holophonor": {
+      "label": "holophonor",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "holophonor — n/a · not adopted",
+       "click": "<p><b>holophonor</b> — Live looping, unlimited!</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:holophonor",
+       "shape": "circle",
+       "color": "#43c6bf",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::instruments": {
+      "label": "instruments",
+      "metadata": {
+       "kind": "family",
+       "family": "instruments",
+       "drives": "the sound — looping, synthesis, tempo, remote control surfaces",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "instruments — drives the sound — looping, synthesis, tempo, remote control surfaces",
+       "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
+       "show": "family:instruments",
+       "color": "#43c6bf",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::holophonor",
+      "target": "family::instruments",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::holophonor",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::holophonor",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::holophonor",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:holophonor",
+     "measured": 0,
+     "unread": [
+      "holophonor"
+     ],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:holophonor",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [
+     "holophonor"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: holophonor."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/holophonor": {
+      "id": "dir::quaternionmedia/holophonor",
+      "label": "quaternionmedia/holophonor",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 383.1136747254698,
+      "y": 290.45197387445,
+      "size": 80
+     },
+     "dir::quaternionmedia/holophonor/.github": {
+      "id": "dir::quaternionmedia/holophonor/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -109.42011703058812,
+      "y": -181.36004084361375,
+      "size": 60
+     },
+     "dir::quaternionmedia/holophonor/.github/workflows": {
+      "id": "dir::quaternionmedia/holophonor/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -315.67472310688413,
+      "y": -240.52974216426134,
+      "size": 50
+     },
+     "dir::quaternionmedia/holophonor/holophonor": {
+      "id": "dir::quaternionmedia/holophonor/holophonor",
+      "label": "holophonor",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1057.4667606971134,
+      "y": 1132.073156433952,
+      "size": 160
+     },
+     "file::quaternionmedia/holophonor/README.md": {
+      "id": "file::quaternionmedia/holophonor/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": 577.9693905769685,
+      "y": 402.95197387445,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/__init__.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": 1354.9432229616243,
+      "y": 1303.821271999945,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/_version.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/_version.py",
+      "label": "_version.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/_version.py",
+      "line": 0,
+      "meta": {},
+      "x": 1214.8658439151977,
+      "y": 1437.384783143426,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/constants.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/constants.py",
+      "label": "constants.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/constants.py",
+      "line": 0,
+      "meta": {},
+      "x": 1024.8153680758076,
+      "y": 1474.0140100355188,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/daw.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "label": "daw.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/daw.py",
+      "line": 0,
+      "meta": {},
+      "x": 845.1314786899662,
+      "y": 1402.0794319477334,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/freewheeling.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "label": "freewheeling.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/freewheeling.py",
+      "line": 0,
+      "meta": {},
+      "x": 732.8625410519836,
+      "y": 1244.419769157501,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/holospecs.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "label": "holospecs.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/holospecs.py",
+      "line": 0,
+      "meta": {},
+      "x": 723.6531496075122,
+      "y": 1051.0908506307749,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "label": "launchpadMK2.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadMK2.py",
+      "line": 0,
+      "meta": {},
+      "x": 820.4272210697212,
+      "y": 883.4732420029272,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/launchpadS.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "label": "launchpadS.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadS.py",
+      "line": 0,
+      "meta": {},
+      "x": 992.4596715222738,
+      "y": 794.7843496838713,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/launchpadX.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "label": "launchpadX.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadX.py",
+      "line": 0,
+      "meta": {},
+      "x": 1185.1314134696947,
+      "y": 813.1822703391389,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/main.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "label": "main.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/main.py",
+      "line": 0,
+      "meta": {},
+      "x": 1337.2705301971528,
+      "y": 932.8257941541781,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/holophonor/qsynth.py": {
+      "id": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "label": "qsynth.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/qsynth.py",
+      "line": 0,
+      "meta": {},
+      "x": 1400.5739271073116,
+      "y": 1115.7289476784572,
+      "size": 30
+     },
+     "file::quaternionmedia/holophonor/pyproject.toml": {
+      "id": "file::quaternionmedia/holophonor/pyproject.toml",
+      "label": "pyproject.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 0,
+      "meta": {},
+      "x": 188.2579588739711,
+      "y": 177.9519738744501,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/holophonor",
+      "target": "file::quaternionmedia/holophonor/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor",
+      "target": "file::quaternionmedia/holophonor/pyproject.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor",
+      "target": "dir::quaternionmedia/holophonor/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor",
+      "target": "dir::quaternionmedia/holophonor/holophonor",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/.github",
+      "target": "dir::quaternionmedia/holophonor/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/_version.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/constants.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/holophonor/holophonor",
+      "target": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/holophonor",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "holophonor's system view is composed from a clone of it, and this export read none",
+   "remedy": "export from a clone of holophonor at its default branch's head",
+   "where": "/show/project/holophonor/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

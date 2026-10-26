@@ -1,0 +1,624 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "wolf"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:63cbdaf5a1d78de279a80f3b9c604a608e0431ac44810641e5bcd997636e3349"
+  },
+  "source": {
+   "repo": "quaternionmedia/wolf",
+   "commit": "d960d108d8915b195c5de3b74fc10ac2144e7670"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::wolf": {
+      "label": "wolf",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "wolf — n/a · not adopted",
+       "click": "<p><b>wolf</b> — remote midi controller</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:wolf",
+       "shape": "circle",
+       "color": "#43c6bf",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::instruments": {
+      "label": "instruments",
+      "metadata": {
+       "kind": "family",
+       "family": "instruments",
+       "drives": "the sound — looping, synthesis, tempo, remote control surfaces",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "instruments — drives the sound — looping, synthesis, tempo, remote control surfaces",
+       "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
+       "show": "family:instruments",
+       "color": "#43c6bf",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::wolf",
+      "target": "family::instruments",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::wolf",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::wolf",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::wolf",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:wolf",
+     "measured": 0,
+     "unread": [],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:wolf",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/wolf": {
+      "id": "dir::quaternionmedia/wolf",
+      "label": "quaternionmedia/wolf",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1756.6780764365571,
+      "y": 299.1630288246473,
+      "size": 130
+     },
+     "dir::quaternionmedia/wolf/website": {
+      "id": "dir::quaternionmedia/wolf/website",
+      "label": "website",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 80.9454341022536,
+      "y": -9.104413512257354,
+      "size": 60
+     },
+     "dir::quaternionmedia/wolf/website/src": {
+      "id": "dir::quaternionmedia/wolf/website/src",
+      "label": "src",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1323.1044143122833,
+      "y": -202.43579284995712,
+      "size": 130
+     },
+     "file::quaternionmedia/wolf/README.md": {
+      "id": "file::quaternionmedia/wolf/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": 2016.103296457343,
+      "y": 448.9422494382259,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/cyto.py": {
+      "id": "file::quaternionmedia/wolf/cyto.py",
+      "label": "cyto.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/cyto.py",
+      "line": 0,
+      "meta": {},
+      "x": 1834.2095061473697,
+      "y": 588.5142636888544,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/midihub.py": {
+      "id": "file::quaternionmedia/wolf/midihub.py",
+      "label": "midihub.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/midihub.py",
+      "line": 0,
+      "meta": {},
+      "x": 1606.8988558229787,
+      "y": 558.5882488454331,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/midistream.py": {
+      "id": "file::quaternionmedia/wolf/midistream.py",
+      "label": "midistream.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/midistream.py",
+      "line": 0,
+      "meta": {},
+      "x": 1467.32684157235,
+      "y": 376.69445853545983,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/obsws.py": {
+      "id": "file::quaternionmedia/wolf/obsws.py",
+      "label": "obsws.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/obsws.py",
+      "line": 0,
+      "meta": {},
+      "x": 1497.2528564157712,
+      "y": 149.3838082110688,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/realbook.py": {
+      "id": "file::quaternionmedia/wolf/realbook.py",
+      "label": "realbook.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/realbook.py",
+      "line": 0,
+      "meta": {},
+      "x": 1679.1466467257446,
+      "y": 9.811793960440252,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/soup.py": {
+      "id": "file::quaternionmedia/wolf/soup.py",
+      "label": "soup.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/soup.py",
+      "line": 0,
+      "meta": {},
+      "x": 1906.4572970501356,
+      "y": 39.737808803861526,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Control.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Control.js",
+      "label": "Control.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Control.js",
+      "line": 0,
+      "meta": {},
+      "x": -1063.6791942914974,
+      "y": -52.656572236378565,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Lyrics.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Lyrics.js",
+      "label": "Lyrics.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Lyrics.js",
+      "line": 0,
+      "meta": {},
+      "x": -1245.5729846014708,
+      "y": 86.91544201424995,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Menu.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Menu.js",
+      "label": "Menu.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Menu.js",
+      "line": 0,
+      "meta": {},
+      "x": -1472.8836349258618,
+      "y": 56.98942717082871,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Mixer.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Mixer.js",
+      "label": "Mixer.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Mixer.js",
+      "line": 0,
+      "meta": {},
+      "x": -1612.4556491764902,
+      "y": -124.90436313914464,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/Patchbay.js": {
+      "id": "file::quaternionmedia/wolf/website/src/Patchbay.js",
+      "label": "Patchbay.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Patchbay.js",
+      "line": 0,
+      "meta": {},
+      "x": -1582.5296343330692,
+      "y": -352.2150134635356,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/index.html": {
+      "id": "file::quaternionmedia/wolf/website/src/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/index.html",
+      "line": 0,
+      "meta": {},
+      "x": -1173.3251936987047,
+      "y": -461.8610128707429,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/index.js": {
+      "id": "file::quaternionmedia/wolf/website/src/index.js",
+      "label": "index.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/index.js",
+      "line": 0,
+      "meta": {},
+      "x": -1400.6358440230956,
+      "y": -491.7870277141642,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/website/src/style.css": {
+      "id": "file::quaternionmedia/wolf/website/src/style.css",
+      "label": "style.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
+      "line": 0,
+      "meta": {},
+      "x": -1033.7531794480763,
+      "y": -279.96722256076947,
+      "size": 30
+     },
+     "file::quaternionmedia/wolf/wolf.py": {
+      "id": "file::quaternionmedia/wolf/wolf.py",
+      "label": "wolf.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/wolf.py",
+      "line": 0,
+      "meta": {},
+      "x": 2046.029311300764,
+      "y": 221.63159911383494,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/cyto.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/midihub.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/midistream.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/obsws.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/realbook.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/soup.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "file::quaternionmedia/wolf/wolf.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf",
+      "target": "dir::quaternionmedia/wolf/website",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website",
+      "target": "dir::quaternionmedia/wolf/website/src",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Control.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Lyrics.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Menu.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Mixer.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/Patchbay.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/index.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/wolf/website/src",
+      "target": "file::quaternionmedia/wolf/website/src/style.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/wolf",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "wolf declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile",
+   "remedy": "",
+   "where": "/show/project/wolf/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}
