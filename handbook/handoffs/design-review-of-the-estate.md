@@ -99,7 +99,7 @@ first (`AGENTS.md` item 11).
   repos/quaternionmedia/qm/branches/main/protection` answered 404, "Branch not
   protected"; `uv run qm rulesets` showed six drafted and none applied; every
   owner line in `.github/CODEOWNERS` starts `#=`. Applying a ruleset is a
-  person's act ([`apply-the-main-ruleset.md`](apply-the-main-ruleset.md)): the
+  person's act (`.github/rulesets/README.md`, stage 1): the
   review recommends and never applies.
 - *Neither human gate has been exercised.* `git ls-remote --tags origin` printed
   nothing; `status/documents.yaml` shows none Accepted.
@@ -224,7 +224,6 @@ first (`AGENTS.md` item 11).
 
 - **The semantic review of the records**
   ([`semantic-review-of-the-records.md`](semantic-review-of-the-records.md),
-  [`semantic-review-session.md`](semantic-review-session.md),
   `plans/semantic-review-instrument.md`) has never run, and is scoped to fifteen
   or sixteen records where there are now 39. Do not do its reading. Check
   whether its scope, order and schema still fit, re-scope it in place to the
@@ -237,8 +236,7 @@ first (`AGENTS.md` item 11).
   only when an area needs it.
 - **`plans/first-ratification.md`, `plans/v0.0.1-review-packet.md`,
   `plans/v0.0.1-blockers.md`**: inputs to area 2.
-- **Decisions waiting on a person** ([`hil-review-2026-08-25.md`](hil-review-2026-08-25.md),
-  [`apply-the-main-ruleset.md`](apply-the-main-ruleset.md)): say which are still
+- **Decisions waiting on a person** (`handbook/handoffs/qm-queue.md` §3): say which are still
   live; start no parallel list.
 - **`qm posture` and `qm mutate`**: re-run them rather than invent a yield
   measure.

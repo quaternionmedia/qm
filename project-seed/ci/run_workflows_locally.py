@@ -109,6 +109,67 @@ def resolve_bash() -> str:
     )
     return "bash"
 
+
+def gh_config_hint(env: dict[str, str]) -> str | None:
+    """Name the one reason `gh` reports a signed-in machine as signed out.
+
+    On Windows `gh` finds its config through %APPDATA%. A shell that launches
+    without that variable looks in the wrong place and prints "not logged in",
+    while `hosts.yml` sits untouched in the standard location. A fix names the
+    directory; a signed-out account is something else and gets no hint.
+    """
+    if env.get("GH_CONFIG_DIR") or env.get("APPDATA") or not env.get("USERPROFILE"):
+        return None
+    config = Path(env["USERPROFILE"]) / "AppData" / "Roaming" / "GitHub CLI"
+    if (config / "hosts.yml").is_file():
+        return f"APPDATA is unset but {config} holds a login; set GH_CONFIG_DIR to it"
+    return None
+
+
+def probe(argv: list[str], timeout: float = 20) -> tuple[int | None, str]:
+    """(exit status, output), or (None, reason) when the tool could not be run."""
+    try:
+        proc = subprocess.run(
+            argv, capture_output=True, text=True, encoding="utf-8",
+            errors="replace", timeout=timeout,
+        )
+    except FileNotFoundError:
+        return None, f"{argv[0]} not found on PATH"
+    except subprocess.TimeoutExpired:
+        return None, f"{argv[0]} did not answer within {timeout:g}s"
+    return proc.returncode, (proc.stdout + proc.stderr).strip()
+
+
+def environment_report(env: dict[str, str]) -> list[str]:
+    """What this machine can and cannot supply, before any step runs.
+
+    Information, never a gate: the exit status stays the steps' alone. A step
+    that needs `gh` fails with its own message; this says why before it does.
+    Docker is listed because a daemon that is down is the usual surprise, and
+    it is labelled as unused because no workflow step here calls it.
+    """
+    lines = [f"  - [env ] shell: {resolve_bash()}"]
+
+    code, out = probe(["gh", "auth", "status"])
+    if code == 0:
+        account = re.search(r"account (\S+)", out)
+        lines.append(f"  - [env ] gh: signed in as {account.group(1) if account else '?'}")
+    else:
+        first = out.splitlines()[0] if out else "no output"
+        lines.append(f"  - [env ] gh: NOT signed in ({first}); steps that read pull requests will fail")
+        hint = gh_config_hint(env)
+        if hint:
+            lines.append(f"      {hint}")
+
+    code, out = probe(["docker", "info", "--format", "{{.ServerVersion}}"])
+    if code == 0:
+        lines.append(f"  - [env ] docker: daemon up ({out}); no workflow step uses it")
+    else:
+        why = out.splitlines()[-1] if out else "no output"
+        lines.append(f"  - [env ] docker: daemon not reachable ({why}); no workflow step uses it")
+    return lines
+
+
 try:
     import yaml
 except ImportError:  # pragma: no cover
@@ -264,6 +325,10 @@ def main() -> int:
     args.ref = bare_branch(args.ref)
     args.base_ref = bare_branch(args.base_ref)
 
+    print("environment")
+    for line in environment_report(dict(os.environ)):
+        print(line)
+
     head = subprocess.run(
         ["git", "rev-parse", "HEAD"], capture_output=True, text=True
     ).stdout.strip()
@@ -301,9 +366,14 @@ def main() -> int:
     current = subprocess.run(
         ["git", "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True
     ).stdout.strip()
+    # A pull request runs on its merge ref, `<number>/merge` on the runner, never on
+    # the default branch -- a step comparing GITHUB_REF_NAME with it relies on that.
+    # A local run has no number, so the head branch stands in. A push runs on `--ref`.
+    ref_name = f"{args.head_ref or current}/merge" if args.event == "pull_request" else args.ref
+    ctx["github.ref_name"] = ref_name
     gh_env = {
         "GITHUB_REPOSITORY": slug,
-        "GITHUB_REF_NAME": args.ref,
+        "GITHUB_REF_NAME": ref_name,
         "GITHUB_BASE_REF": args.base_ref,
         "GITHUB_HEAD_REF": args.head_ref or current,
         "GITHUB_SHA": head,
@@ -366,7 +436,10 @@ def main() -> int:
                 out_file = Path(tempfile.mkdtemp()) / "gh_output"
                 out_file.touch()
                 env = {**os.environ, "GITHUB_OUTPUT": str(out_file), **gh_env}
-                for block in (wf.get("env") or {}, step.get("env") or {}):
+                # The workflow's env, then the job's, then the step's, as a runner
+                # exports them: jobs that share their steps and differ only in env
+                # (a shard number, say) run as themselves.
+                for block in (wf.get("env") or {}, job.get("env") or {}, step.get("env") or {}):
                     resolved, dropped = step_env(block, ctx, outputs)
                     env.update(resolved)
                     for key, expr in dropped:

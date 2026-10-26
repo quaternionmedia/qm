@@ -1,38 +1,38 @@
 # Handoff — the voice loop, and the three-process development environment
 
-**Stamped 2026-10-10.** `qm` `main` at `df1cb51`; `vox` `main` at
-`d94fe6b`; `joe` `main` at `2ba994d`; `qmcp` `main` at `ed01fc0`; `dossier`
-`main` at `414be1c`. Nothing has merged on any of them since the previous
-stamp; everything below §0 is open. Every figure here was true at those
-commits and nowhere else. Re-derive before acting on any of it.
+**Stamped 2026-10-18.** `qm` `main` at `157cbf6`; `vox` `main` at
+`1721e6f`; `joe` `main` at `d72b65b`; `qmcp` `main` at `df42315`; `dossier`
+`main` at `414be1c`. The voice set has landed apart from `joe` #33 and #34
+(§1). Every figure here was true at those commits and nowhere else.
+Re-derive before acting on any of it.
 
 `vox` and `joe` carry no `governance/qm` submodule, so the cross-repository
 state is recorded here and nowhere else. `vox` joined the roster on
 2026-09-27, in `core`; `joe` is in `performer-display` and predates this
 work.
-[`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the companion:
-the whole open set reviewed as one, with the demo branches, the demonstration,
-the decisions waiting on a person and the order the set lands in.
-[`voice-set-landing.md`](voice-set-landing.md) is how far that order has got,
-restamped after it, and holds the two decisions still open from the round
-before. Nothing in this page is a decision.
+[`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the review of the
+set, with the decisions it left to a person, and
+[`voice-set-landing.md`](voice-set-landing.md) is how far its landing has got
+and what is left of it. Nothing in this page is a decision.
 
-The why of all of it is in three retrospectives, and not here:
+The why of all of it is in the retrospectives, and not here:
 `perspectives/2026-09-27-the-voice-loop.md`,
-`perspectives/2026-09-28-the-loop-lands-its-remains.md` and
-`perspectives/2026-09-28-the-voice-loop-meets-the-field.md`. The plan the
-open work follows is Phase 10 of `qmcp`'s `docs/ROADMAP.md`, which is itself
-on an open pull request (§1). **Continuity comes from qmcp, not the model**:
-the loop's agent is a runtime qmcp calls -- the local model it stands up first
--- handed the project's earlier work from qmcp's own record.
+`perspectives/2026-09-28-the-loop-lands-its-remains.md`,
+`perspectives/2026-09-28-the-voice-loop-meets-the-field.md` and
+`perspectives/2026-10-15-the-voice-set-landing.md`. Phase 10 of `qmcp`'s
+`docs/ROADMAP.md` is built and on `main`; the work after it follows `qmcp`'s
+`docs/voice-loop-next-phases.md`, cleanup before new capabilities, and §6 is
+that plan's Phase 0 at this stamp. **Continuity comes from qmcp, not the
+model**: the loop's agent is a runtime qmcp calls -- the local model it
+stands up first -- handed the project's earlier work from qmcp's own record.
 
 ---
 
 ## 0. What landed
 
-Two rounds of merges, grouped by what they carry. The first built the loop
-and landed by 2026-09-28; the second made it answerable from a page, and
-ran to 2026-10-03.
+Three rounds of merges, grouped by what they carry. The first built the loop
+and landed by 2026-09-28; the second made it answerable from a page, and ran
+to 2026-10-03; the third is the voice set, landed from 2026-10-12.
 
 | Repository | Merged | What it carries |
 |---|---|---|
@@ -45,6 +45,7 @@ ran to 2026-10-03.
 | `qmcp` | #38–#47 | the HITL queue answered by voice; onboarding followable from a fresh clone; the voice seam a default dependency; the closed-choice dialog — options spoken, an answer naming one taken, noinput told from nomatch; the submodule moved to `vendor/vox`; both servers checked before anything is spoken; only answerable pending requests listed, oldest first, each asked once per run |
 | `qmcp` | #48–#53 | the governance pin bumped; `qmcp cookbook voice`; the dialog's states announced to the engine; `POST /v1/human/requests/{id}/voice` and `GET /v1/human/voice`, loopback-only; `vendor/vox` at the conversation route; `uv run qmcp` as the one declared entry point |
 | `qm` | #122, #124–#133 | this handoff and the three retrospectives; the design-review runbook; the estate reading the slot rule with the gate's exemption; the design-review consent routed through the harness queue; small pull requests — parallel when independent, stacked as drafts when dependent, the stack check, and retarget before delete; `main` propagated into `project/qmcp`; submodule URLs looked up by path |
+| all four | the voice set | Phase 10 of `qmcp`'s roadmap on the local model: an open question answered by voice, the instruction inbox, acting on an instruction behind consent with continuity from `qmcp`'s record, the outcome said back, one standing spoken conversation started by `serve --converse`, its onboarding and cookbook, the vocabulary, declared checks run by voice; `vox`'s pause, hints, confidence and a voice that stops when interrupted; `joe`'s answers by key, live transcript, take confidence, answering over a question and the transcript pane; the durable-text record, its gate and the sweeps of `qm`, `qmcp` and `vox`. `voice-set-landing.md` lists each pull request |
 
 **The full round trip runs.** Text through a real synthesizer, through
 whisper, back out and back in:
@@ -61,10 +62,31 @@ no hardware. **Answering a request by voice from a page is two commands**,
 one per server: `uv run joe dev` in `joe`'s checkout and `uv run qmcp serve`
 in `qmcp`'s; `qmcp`'s `docs/integrations/voice.md` is the page for the rest,
 and `uv run qmcp cookbook voice` is the check, offline on `vox`'s
-deterministic engine or `--live` with a person at the speaker.
+deterministic engine or `--live` with a person at the speaker. **Speaking an
+instruction is two commands as well**: `uv run joe dev` and `uv run qmcp
+serve --converse --runtime local`; `qmcp`'s `docs/voice-loop-demo.md` is its
+onboarding.
 
 ## 1. What remains, and what done looks like
 
+- **`joe` #33 and #34.** #33, the transcript lane, waits on a test by hand;
+  #34 is stacked on it. The README and cookbook pull requests that replace
+  the closed #24 and #25 follow #34. `voice-set-landing.md` §3 says what done
+  is for each.
+- **A person at the microphone.** Every take so far was scripted, which says
+  nothing about a real one. *Done* is tier 3 of `qmcp`'s
+  `docs/voice-loop-demo.md` -- `uv run joe dev`, `uv run qmcp serve --converse
+  --runtime local`, and then speech -- run once and recorded.
+- **`qmcp`'s next phases.** `docs/voice-loop-next-phases.md` orders the work:
+  Phase 0, re-establishing the baseline, is §6; Phase 1 reconciles the
+  onboarding and architecture pages; Phase 2 bounds the transcript's storage
+  and rendering cost; Phase 3 makes the declared checks' boundaries explicit.
+  New capabilities come after.
+- **The steps after the set**, as `voice-set-landing.md` §3 lists them:
+  Phase 10's boxes on the roadmap, the two read-back helpers made one,
+  `vendor/vox` moved to `vox`'s `main`, and the demo branches deleted.
+  `qmcp`'s governance pin bump, which took the REUSE step through `uvx` (§4),
+  landed as `qmcp` #117 on 2026-10-25, pinning `f4786fe`.
 - **`joe` records on one host API, and the other three are a reading of one
   run.** `joe` #20 moved capture to a callback stream, because WDM-KS
   implements no blocking read, and on the hardware that run used the WDM-KS
@@ -74,129 +96,27 @@ deterministic engine or `--live` with a person at the speaker.
   and the ranking of host APIs is exercised by tests, not by that run. *Done*
   is unchanged: one device on each host API recording a non-silent second, or
   the reason established rather than read off a single run.
-- **`joe`'s Playwright specs run in CI, and the red has still not come.**
-  joe #14 widened `e2e.yml` to pushes and pull requests; every run since has
-  concluded `success` (`gh run list -R quaternionmedia/joe --workflow
-  e2e.yml`, read 2026-10-03). What a red looks like there is untested. *Done*
-  is one deliberate break dispatched, seen red, and restored.
 - **`dossier`'s GIF re-encode is still only measured.** Nothing on `dossier`
   `main` has touched `docs/screenshots/first-run.gif` since #59, whose
   scratch-database run left it byte-identical; the re-encode needs the real
   database to reproduce.
-- **The wider loop is built, on open pull requests, and waits on one review.**
-  Speaking an instruction, the local model acting on it, and the answer spoken
-  back is Phase 10 of `qmcp`'s roadmap; all four of its deliverables, a
-  one-command demonstration, the standing conversation that makes it spoken
-  from end to end, and the onboarding and cookbook that set it up and say what
-  to say are open and green, and the review page above takes them as one.
-- **Durable text states what is true now.** `qm` #136 drafts the rule and a
-  gate on added text; `qm` #140 and #141, `qmcp` #83 and #84, `joe` #34 and `vox` #15 sweep the existing text, and `qm` #137 and #142
-  keep the stories it took out. They ride the same demo branches and the same
-  review page.
-
-**The open set at the stamp.** Every row is green on its checks, apart from
-`qm`'s `slot`, red on every `qm` row pushed while `qm` #139, outside this set,
-is marked ready on #138's branch; a draft is one stacked on another open pull
-request, and nothing else.
-
-| Repository | PR | Branch → base | Carries |
-|---|---|---|---|
-| `qmcp` | #54 | `docs/the-spoken-instruction` → `main` | Phase 10 as built, and Phase 11, habits into auto-approvals, which covers only runs that spend nothing |
-| `qmcp` | #55, **draft**, on #54 | `docs/roadmap-current-state` → `docs/the-spoken-instruction` | the roadmap's test counts replaced by the relation to the command, and Phase 9's voice route stated |
-| `qmcp` | #56 | `feat/preflight-command` → `main` | `uv run qmcp preflight`, a dispatcher to the seed workflow runner |
-| `qmcp` | #58 | `feat/free-text-answers-by-voice` → `main` | **deliverable 1.** An open question answered by voice: the transcript read back, recorded on `agree`, a transcript's closing stop not doubled |
-| `qmcp` | #60 | `chore/vox-pause-pin` → `main` | `vendor/vox` at the head of `vox` #10's branch |
-| `qmcp` | #61, **draft**, on #60 | `feat/instruction-inbox` → `chore/vox-pause-pin` | **deliverable 2.** The instruction inbox: recorded against a project by whole-word roster matching, spoken with the long pause, nothing run |
-| `qmcp` | #62, **draft**, on #61 | `feat/act-on-instruction` → `feat/instruction-inbox` | **deliverable 3.** Acting on an instruction: consent asked for every runtime; a brief from qmcp's record carrying the project's earlier work; the clone remembered; `local`, the model on the machine reading the clone with tools that cannot write; a coding assistant's command line behind the same contract, given the same brief and resuming nothing |
-| `qmcp` | #63, **draft**, on #62 | `feat/result-spoken` → `feat/act-on-instruction` | **deliverable 4.** The outcome said back; `qmcp cookbook instruct` runs the loop offline; the README states qmcp as the local model backend |
-| `qmcp` | #64, **draft**, on #63 | `feat/live-model-demo` → `feat/result-spoken` | `qmcp cookbook instruct --runtime local`, continuity on the real local model in one command; `docs/voice-loop-demo.md`, the loop in three tiers |
-| `qmcp` | #65, **draft**, on #64 | `feat/spoken-conversation` → `feat/live-model-demo` | one standing spoken conversation, started by `qmcp serve --converse`: two commands, then nothing typed; waiting questions asked aloud; the clone found by name; a stalled model call recovered once |
-| `qmcp` | #66, **draft**, on #65 | `fix/voice-loop-review` → `feat/spoken-conversation` | the loop's tests and documents reviewed against its code: the branches no test reached tested, `localmodel check` reporting whether the model is served, the documents corrected |
-| `qmcp` | #76, **draft**, on #75 | `feat/declared-checks` → `feat/spoken-iteration` | each core project's declared checks run by voice behind consent |
-| `qmcp` | #77, **draft**, on #55 | `docs/voice-loop-next-phases` → `docs/roadmap-current-state` | the loop's next phases, cleanup before new capabilities |
-| `qmcp` | #78 | `chore/live-anthropic-marker` → `main` | the tests that call the hosted model deselected by default |
-| `qmcp` | #79 | `feat/advisory-council` → `main` | an advisory council declared beside the deciding one |
-| `qmcp` | #80, **draft**, on #76 | `feat/topology-components` → `feat/declared-checks` | reusable components, composed designs, names scoped to a project, the design routes on loopback only |
-| `qmcp` | #81, **draft**, on #76 | `feat/vocabulary-authoring` → `feat/declared-checks` | phrases added by voice to the conversation's commands, behind approval, kept per user |
-| `qmcp` | #82, **draft**, on #80 | `feat/topology-voice` → `feat/topology-components` | saved designs created, composed, listed and run by voice, behind approval; carries #79 and #81 |
-| `qmcp` | #83, **draft**, on #82 | `docs/timeless-topology-text` → `feat/topology-voice` | the topology modules' docstrings reduced to facts, their explanations in `docs/agentframework/topologies.md` |
-| `qmcp` | #84, **draft**, on #83 | `docs/timeless-qmcp-text` → `docs/timeless-topology-text` | the rest of `qmcp` swept; `docs/threads.md` and `docs/self-checks.md` |
-| `qmcp` | #75, **draft**, on #74 | `feat/spoken-iteration` → `feat/spoken-vocabulary` | try again, same in another project, never mind, and how the loop stands |
-| `qmcp` | #74, **draft**, on #73 | `feat/spoken-vocabulary` → `feat/barge-in` | every phrase the loop acts on declared once, with a wider starting set |
-| `qmcp` | #73, **draft**, on #72 | `feat/barge-in` → `feat/plain-speech` | every closed question answerable before it ends, by key or by voice; `vendor/vox` at `vox` #14's branch |
-| `qmcp` | #72, **draft**, on #71 | `feat/plain-speech` → `feat/instruction-vocabulary` | what is said is a few plain words, with no syntax read aloud |
-| `qmcp` | #71, **draft**, on #70 | `feat/instruction-vocabulary` → `feat/tacit-agreement` | an instruction's take hinted with the project names it is likely to carry |
-| `qmcp` | #70, **draft**, on #69 | `feat/tacit-agreement` → `fix/audible-voice` | a confident instruction agreed to tacitly unless interrupted; the read-back's word is `agree` |
-| `qmcp` | #69, **draft**, on #68 | `fix/audible-voice` → `feat/answer-controls` | the voice heard: `vendor/vox` at `vox` #12's branch; the consent said with the clone's folder; setup checks the output |
-| `qmcp` | #68, **draft**, on #67 | `feat/answer-controls` → `docs/voice-dev-loop-guide` | closed questions hint and offer their options to the engine; "repeat" re-asks without spending a retry; prompts leave the turn open so the engine cues the person |
-| `qmcp` | #67, **draft**, on #66 | `docs/voice-dev-loop-guide` → `fix/voice-loop-review` | `docs/voice-loop-demo.md` as the loop's onboarding -- what runs where, the workspace, setup with a done-signal per step, the three tiers -- and its cookbook, what to say |
-| `vox` | #15, **draft**, on #14 | `docs/timeless-vox-text` → `feat/barge-in` | `vox` swept; *The offline engine* in the README |
-| `vox` | #14, **draft**, on #13 | `feat/barge-in` → `feat/listen-confidence` | `watch`, `unwatch` and `control` on the contract; a voice that stops when the person interrupts |
-| `vox` | #13, **draft**, on #12 | `feat/listen-confidence` → `fix/sapi-playback` | `confidence_key` on the contract; a listen keeps how sure the engine was |
-| `vox` | #12, **draft**, on #11 | `fix/sapi-playback` → `feat/answer-hints` | the platform voice played through SAPI on Windows, on an output that can be named |
-| `vox` | #11, **draft**, on #10 | `feat/answer-hints` → `feat/pause-parameter` | `hint_param` on `EngineContract`; `options` on an announcement |
-| `vox` | #10 | `feat/pause-parameter` → `main` | `pause_param` on `EngineContract`, sent only when the contract names it |
-| `vox` | #9 | `docs/handoff-restamp` → `main` | `HANDOFF.md` at the current tips |
-| `joe` | #23 | `feat/instruct-by-voice` → `main` | **Instruct by voice** on the page |
-| `joe` | #24, **draft**, on #23 | `docs/readme-overview` → `feat/instruct-by-voice` | the README's overview: joe's two jobs, and the local model doing the work once a person approves |
-| `joe` | #25, **draft**, on #24 | `docs/cookbook-voice-loop` → `docs/readme-overview` | the cookbook's recipe for joe's half of the voice dev loop |
-| `joe` | #26 | `feat/short-answer-recognition` → `main` | a take transcribed as English, as one utterance, toward its hint, with a beam when short |
-| `joe` | #34, **draft**, on #33 | `docs/timeless-joe-text` → `feat/transcript-lane` | `joe` swept; *Voice* in `docs/modules.md` |
-| `joe` | #33, **draft**, on #32 | `feat/transcript-lane` → `feat/transcript-pane` | a take shown on the visualiser: its recording on the transport, its words on the piano roll |
-| `joe` | #32, **draft**, on #31 | `feat/transcript-pane` → `feat/voice-vocabulary` | the whole transcript in a pane docked beside the piano roll, kept across a reload |
-| `joe` | #31, **draft**, on #30 | `feat/voice-vocabulary` → `feat/barge-in` | joe's own words: start over, a take marked for tuning, the voice's level |
-| `joe` | #30, **draft**, on #29 | `feat/barge-in` → `feat/take-confidence` | a take opened while a question is asked; a key, the held talk key or speech over the question interrupts it |
-| `joe` | #29, **draft**, on #28 | `feat/take-confidence` → `feat/live-transcript` | a listen says how sure it is of its transcript |
-| `joe` | #28, **draft**, on #27 | `feat/live-transcript` → `feat/turn-controls` | the take shown as it is written, its words strikable, every segment kept as a datapoint |
-| `joe` | #27, **draft**, on #26 | `feat/turn-controls` → `feat/short-answer-recognition` | answers by key or button, `~` held to keep a turn open, and tones that let the loop run by ear |
-| `qm` | #134 | `evolve/reuse-lint-runs-locally` → `main` | the REUSE lint through `uvx`; reaches `qmcp` at its next pin bump |
-| `qm` | #135 | `evolve/voice-loop-handoff-2026-10-03` → `main` | this page and its review page |
-| `qm` | #136 | `evolve/durable-text-states-what-is-true` → `main` | the durable-text record, its procedure in the style guide, and `uv run qm timeless` as a gate |
-| `qm` | #137 | `perspective/2026-10-10-what-the-topology-docstrings-remembered` → `main` | a retrospective keeping the topology docstrings' stories |
-| `qm` | #140, **draft**, on #136 | `evolve/timeless-qm-code` → `evolve/durable-text-states-what-is-true` | the corpus's tooling swept, with a tooling reference |
-| `qm` | #141, **draft**, on #136 | `evolve/timeless-qm-prose` → `evolve/durable-text-states-what-is-true` | the corpus's records, handbook and entry documents swept |
-| `qm` | #142, **draft**, on #137 | `perspective/2026-10-10-what-the-sweep-remembered` → `perspective/2026-10-10-what-the-topology-docstrings-remembered` | four retrospectives keeping the sweeps' stories |
-
-`qmcp` #57 (an MCP tool for a coding-assistant session to ask the queue) and
-#59 (recall from a coding assistant's session store) were closed unmerged: the
-loop's agent is a runtime qmcp calls, and its continuity is qmcp's own record.
-
-**Each repository has a demo branch**, `demo/voice-loop-2026-10-04`: its
-`main` with every open pull request above merged in order. It is for testing
-and demonstrating the set together, never for merging; the set lands through
-its own pull requests, in the order the review page gives.
-
-**What remains after the set lands:**
-
-- **A person at the microphone.** Every take so far was scripted, which says
-  nothing about a real one. *Done* is tier 3 of `qmcp`'s
-  `docs/voice-loop-demo.md` -- `uv run joe dev`, `uv run qmcp serve --converse
-  --runtime local`, and then speech -- run once and recorded.
 - **What a standing conversation keeps.** `joe` keeps every take as a file;
   a retention rule is the review page's decision 5.
-- **`qmcp`'s copies of three seed workflows.** `leak-check.yml`,
-  `one-pr-check.yml` and `tag-claims.yml` are copied again when `qmcp`'s pin
-  moves past `qm` #140, which leaves `qmcp/cli.py` the sweep's last findings
-  in `qmcp`.
-- **The pin moves to `vox`'s merge commit.** #60 pins `vendor/vox` at the
-  head of a branch; once `vox` #10 merges, the pin moves to the commit on
-  `vox` `main`, and `uv run qm pins` is the check.
-- **One dialog, written twice.** #58's open question and #61's instruction
-  dialog read back and confirm the same way, each with its own copy of the
-  helper that says back what was heard. Once both are on `main`, one serves
-  both.
-- **The roadmap's boxes, and `qmcp`'s own pages.** #54's lists tick nothing
-  yet. `qmcp`'s `AGENTS.md` (from #56) explains a step that installs with pip
-  red under the local runner; once `qm` #134's pin bump leaves no such step,
-  that paragraph goes in the same change.
 - **The command-line runtime against the real tool.** Its command line and its
   reading of the output are asserted; it has not been run, because the tool is
   not on the workstation the set was built on.
 - **Two bounds nobody has set.** `run_forever` has no bound on an idle queue,
   and a standing worker needs one.
-- **Merged branches in every repository above.** Some remain and some are gone;
-  `handbook/handoffs/README.md` places deletion outside what a handoff
-  authorises, and `uv run qm branches` says what deleting one would cost.
+- **Merged branches in every repository above.** Some remain and some are
+  gone, and `uv run qm branches` says what deleting one would cost. `qmcp`'s
+  were deleted on 2026-10-25 at the person's word. Its remote holds `main` and
+  one Dependabot branch whose pull request is closed. `handbook/handoffs/README.md`
+  now forbids deleting a branch only when another pull request is based on
+  it.
+
+`joe`'s Playwright specs have been seen red: on 2026-10-05 a run on #32's
+branch failed an assertion on the transcript pane's entry count, and the
+commit after it passed.
 
 ## 2. The development environment
 
@@ -271,24 +191,38 @@ overrides it. `joe voice level --every` still exists and only measures.
 - **No test asserts what the synthesizer sounds like**, and none can. That
   whisper cannot read it is measured against a live engine, with a control,
   and recorded as `vox.synth.SPEECH_IS_NOT_TRANSCRIBABLE`.
-- **The local workflow runner cannot run the REUSE step green in a uv
-  virtual environment**, because the pinned seed installs the tool with pip
-  and `uv`'s environment ships none. `qm` #134 moves the step to `uvx`;
-  until that reaches `qmcp`'s pin, the seed runner reports that step red for
-  an environment reason — and so will `uv run qmcp preflight` once #56
-  merges, since it dispatches to the same runner — and the hosted gate is
-  the one to read.
-- **Whether project names transcribe reliably, and what a sentence-length
-  utterance costs in latency, are unmeasured** — named as such in Phase 10's
-  constraints, and resolution confirms rather than trusts so the first does
-  not have to be.
-- **Nothing checks what the local model says.** The tests assert what is sent
-  to it and how its replies are read, over a stand-in transport; its answers
-  are judged by the person who approved the run. On the workstation the set
-  was built on, the model service's runner was seen to stall partway through
-  a reply after reusing a cached prompt, with later calls queued behind it;
-  every call is capped, so a stall is a failed run naming the endpoint, and
-  unloading the model frees it.
+- **`uv run qmcp preflight` reads the REUSE step red in a uv virtual
+  environment**, with *No module named pip*: `qmcp`'s pinned seed installs the
+  tool with pip, and `uv`'s environment ships none. `qm` #134 runs the step
+  through `uvx` on `qm`'s `main`; `qmcp` takes it with the governance pin
+  bump (§1), and until then the hosted gate is the one to read.
+- **Whether project names transcribe reliably is measured on synthesized
+  speech only, and what a sentence-length utterance costs in latency is
+  unmeasured.** Phase 10's constraints name both as unmeasured, and
+  resolution confirms rather than trusts, so the first does not have to be.
+  `perspectives/2026-10-25-what-whisper-heard.md` keeps a benchmark of two
+  synthesized voices, run on 2026-10-11:
+  - `qmcp`, `joe` and `qm` were heard as said.
+  - `vox` was lost to noise.
+  - "pi" was never written as said.
+
+  A person's voice has not been measured.
+- **No workflow checks what the local model says.** In CI, the tests assert
+  what is sent to the model and how its replies are read, over a stand-in
+  transport. At `qmcp` `82b2d58`, `tests/test_local_model.py` runs twelve
+  tests on the model itself with `-m local_model`, deselected by default:
+  - structured output;
+  - follow-ups that must not repeat the earlier answer;
+  - a retrieval floor of 6 of 10 questions;
+  - a second instruction told what the first found after every `qmcp` process
+    restarts.
+
+  Its answers are otherwise judged by the person who approved the run (§6 has
+  one reading). On the
+  workstation the set was built on, the model service's runner was seen to
+  stall partway through a reply after reusing a cached prompt, with later
+  calls queued behind it; every call is capped, so a stall is a failed run
+  naming the endpoint, and unloading the model frees it.
 
 ## 5. Standing constraints
 
@@ -311,20 +245,60 @@ overrides it. `joe voice level --every` still exists and only measures.
 - **`vox` is Apache-2.0 and `joe` is MIT**, decided and merged 2026-09-27
   (`vox` #6, `joe` #12).
 - **`qmcp`'s pinned seed carries the parallel-pull-request rule**, since its
-  governance pin at `235708c` includes the corpus merge that stated it. Several
-  ready pull requests stand open there at once with green slot checks, and the
-  stack check refuses a ready one stacked on another. A fork pinned behind that
-  commit still enforces one open pull request per contributor.
+  governance pin at `235708c` includes the corpus merge that stated it. A
+  project branch of the corpus that took `main` before that merge enforces one
+  open pull request per contributor in its `slot` check until `main` is
+  propagated into it.
 - **The design-review launch waits on the harness queue**, not in a
   terminal: an approval request on the human queue (port 3141,
   `/v1/human/requests`, id `design-review-qm-audit-2026-09-27`,
   re-queued on expiry) states the exact count. **The queue was not read for
   this stamp**: the harness was not running (`curl http://127.0.0.1:3141/health`
-  refused the connection), so whether that request is still pending is
-  established by `uv run qmcp human list` against a running server and not by
-  this page. A session picking it up reads the answer from the queue, launches
-  on approve with the counts the request states, and puts the next phase's
-  count back the same way. Answering by speech is one command:
+  answered nothing), so whether that request is still pending is established
+  by `uv run qmcp human list` against a running server and not by this page.
+  A session picking it up reads the answer from the queue, launches on approve
+  with the counts the request states, and puts the next phase's count back the
+  same way. Answering by speech is one command:
   `uv run qmcp human voice <request-id>`.
 - **Merged branches are not deleted by a handoff**, where
   `handbook/handoffs/README.md` places deletion outside what one authorises.
+
+## 6. The baseline at the stamp
+
+Phase 0 of `qmcp`'s `docs/voice-loop-next-phases.md`, run on 2026-10-18 from
+a worktree of `qmcp` `main` at `df42315`, `vendor/vox` at `c0b9b18` and
+`governance/qm` at `235708c`, on the workstation the set was built on. Nothing
+in it spoke or listened.
+
+| Evidence | Kind | Result |
+|---|---|---|
+| `uv run --frozen --all-extras pytest -q`, `QMCP_DATABASE_URL` at a scratch path | offline, deterministic | 1422 passed, 9 skipped, 2 deselected (the hosted-model tests) |
+| `uv run qmcp cookbook voice`, `cookbook instruct`, `cookbook instruct --runtime scripted`, `cookbook converse` | tier 1: offline, every take scripted, `vox`'s deterministic engine | 5 of 5, 6 of 6, 2 of 2, 1 of 1 `[ok]` |
+| `uv run qmcp localmodel check` | the model service, asked and not generating | `qwen2.5-coder:7b` served on the local GPU |
+| `uv run qmcp cookbook instruct --runtime local` | tier 2: the local model, no network | both cases `[ok]` in 156 s; the second instruction carried the first and what it found |
+| `uv run qmcp preflight` | the seed workflow runner | 9 of 10 steps passed; *Install REUSE* red for the reason in §4 |
+| tier 3, a person at the microphone | live device | not run |
+
+**What tier 2's green asserts.** Continuity: the second instruction is handed
+the first and what it found. Not the answers, which at this run were weak. The
+first named `README.md` and did not quote it as asked; the second searched
+seven times for phrases the model had made up, then quoted a heading where a
+sentence was asked for. That matches what the review page records of the
+model, and it bears on any loop that leans on its reading.
+
+**Where each part is, and what tests it.** The voice seam is
+`qmcp/integrations/voice/` (`adapter.py`, `service.py`, `check.py`,
+`vocabulary.py` with `vocabulary.toml`); the instruction loop is
+`qmcp/instructions/` (`dialog.py`, `spoken.py`, `act.py`, `continuity.py`,
+`converse.py`, `check.py`, `service.py`); the runtimes are
+`qmcp/integrations/agents/`. Their tests, by the modules each exercises:
+`test_voice_integration.py` and `test_voice_route.py` the adapter and the
+route; `test_instructions_spoken.py`, `test_instructions_resolve.py` and
+`test_instructions_route.py` recording and resolution; `test_instructions_act.py`,
+`test_cli_instructions_act.py`, `test_agents_runtime.py` and
+`test_agents_local.py` acting and the runtimes; `test_converse.py`,
+`test_server_converse.py`, `test_spoken_iteration.py` and
+`test_tacit_agreement.py` the standing conversation; `test_vocabulary.py`,
+`test_vocabulary_authoring.py` and `test_declared_checks.py` the vocabulary and
+the checks it declares; `test_cookbook_voice.py` and `test_cookbook_instruct.py`
+the offline checks above.

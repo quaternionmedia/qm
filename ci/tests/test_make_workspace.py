@@ -138,7 +138,26 @@ def test_an_unanswered_phase_is_collected_as_a_question(tmp_path: Path) -> None:
     assert "phase scaffolded" in result.stdout
     page = out.with_suffix(".md").read_text(encoding="utf-8")
     assert "Phases nobody has stated" in page
-    assert "**alfred**" in page
+    assert "**alfred** (`v0.0.1`)" in page
+
+
+def test_the_page_says_the_default_is_read_from_the_branch(tmp_path: Path) -> None:
+    """The default is `v0.0.0` without a branch, not `v0.0.1` for everyone.
+
+    Mutation: say "These carry v0.0.1 because nothing was stated" and this
+    fails.
+    """
+    search = tmp_path / "src"
+    search.mkdir()
+    clone(search, "vox")
+    _, out, _ = generate(
+        tmp_path, [{"name": "vox", "phase": "v0.0.0", "phase_source": "scaffolded", "paths": ["vox"]}]
+    )
+    page = " ".join(out.with_suffix(".md").read_text(encoding="utf-8").split())
+    assert "v0.0.0 until it has a `project/<name>` branch in the corpus" in page
+    assert "v0.0.0 without the branch, v0.0.1 with it" in page
+    assert "**vox** (`v0.0.0`)" in page
+    assert "These carry v0.0.1" not in page
 
 
 def test_an_answered_phase_is_not_collected_as_a_question(tmp_path: Path) -> None:
@@ -432,3 +451,97 @@ def test_folders_are_grouped_by_the_families_as_asked_for(tmp_path: Path) -> Non
     assert result.returncode == 0, result.stdout + result.stderr
     workspace = json.loads(out.read_text(encoding="utf-8"))
     assert [f["name"] for f in workspace["folders"]] == ["hub", "second-hub", "other"]
+
+
+def test_an_included_entry_comes_first_whatever_its_family(tmp_path: Path) -> None:
+    """The corpus beside a family workspace. Mutation: return `selection`
+    unchanged from `include_named` and `qm` is absent."""
+    search = tmp_path / "src"
+    search.mkdir()
+    for name in ("qm", "hub"):
+        clone(search, name)
+    result, out, _ = generate(
+        tmp_path,
+        [
+            {"name": "hub", "family": "room", "paths": ["hub"]},
+            {"name": "qm", "role": "corpus", "family": "core", "paths": ["qm"]},
+        ],
+        "--family", "room", "--include", "qm",
+        "--families", str(families_file(tmp_path, ["room", "core"])),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    workspace = json.loads(out.read_text(encoding="utf-8"))
+    assert [f["name"] for f in workspace["folders"]] == ["qm · constitution", "hub"]
+
+
+def test_an_included_entry_already_selected_is_not_doubled(tmp_path: Path) -> None:
+    """Mutation: drop the `label_of(e) not in names` filter and `hub` appears twice."""
+    search = tmp_path / "src"
+    search.mkdir()
+    for name in ("hub", "other"):
+        clone(search, name)
+    result, out, _ = generate(
+        tmp_path,
+        [
+            {"name": "other", "family": "room", "paths": ["other"]},
+            {"name": "hub", "family": "room", "paths": ["hub"]},
+        ],
+        "--family", "room", "--include", "hub",
+        "--families", str(families_file(tmp_path, ["room"])),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    workspace = json.loads(out.read_text(encoding="utf-8"))
+    assert [f["name"] for f in workspace["folders"]] == ["hub", "other"]
+
+
+def test_an_unrostered_include_is_refused(tmp_path: Path) -> None:
+    """A typo must not silently produce a workspace without the corpus.
+    Mutation: drop the `unknown` check in `include_named` and this passes
+    with a KeyError-free, corpus-less workspace."""
+    search = tmp_path / "src"
+    search.mkdir()
+    clone(search, "hub")
+    result, out, _ = generate(
+        tmp_path,
+        [{"name": "hub", "family": "room", "paths": ["hub"]}],
+        "--family", "room", "--include", "qn",
+        "--families", str(families_file(tmp_path, ["room"])),
+    )
+    assert result.returncode != 0
+    assert "qn" in result.stderr and "hub" in result.stderr
+    assert not out.exists()
+
+
+def test_a_family_selection_includes_the_families_within_it(tmp_path: Path) -> None:
+    """`--family performing` holds whoever is in a family within it, and a
+    repository claiming two families is one folder.
+
+    Mutation: make `families_within` return only the family asked for and
+    this fails on `synth`.
+    """
+    search = tmp_path / "src"
+    search.mkdir()
+    for name in ("editor", "synth", "pedal", "other"):
+        clone(search, name)
+    seam = tmp_path / "families.json"
+    seam.write_text(json.dumps({"schema": 2, "families": [
+        {"name": "performing", "drives": "", "members": ["editor"],
+         "subfamilies": ["instruments"]},
+        {"name": "instruments", "drives": "", "members": ["synth", "pedal"],
+         "within": "performing", "subfamilies": []},
+        {"name": "irl", "drives": "", "members": ["pedal"], "subfamilies": []},
+        {"name": "games", "drives": "", "members": ["other"], "subfamilies": []},
+    ]}), encoding="utf-8")
+    result, out, _ = generate(
+        tmp_path,
+        [
+            {"name": "editor", "family": "performing", "paths": ["editor"]},
+            {"name": "synth", "family": "instruments", "paths": ["synth"]},
+            {"name": "pedal", "family": ["irl", "instruments"], "paths": ["pedal"]},
+            {"name": "other", "family": "games", "paths": ["other"]},
+        ],
+        "--family", "performing", "--family", "irl", "--families", str(seam),
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    workspace = json.loads(out.read_text(encoding="utf-8"))
+    assert [f["name"] for f in workspace["folders"]] == ["editor", "synth", "pedal"]

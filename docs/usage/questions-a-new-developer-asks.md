@@ -1,8 +1,11 @@
+<p class="qm-eyebrow">usage · newcomer questions</p>
+
 # Questions a new developer asks
 
 If you have just been handed several repositories and a login, this page is the
-short version. Every question below is one a newcomer asks in their first week,
-written the way they ask it, with the command or file that settles it.
+short version. Every question below is one a newcomer asks, written the way
+they ask it, with the command or file that settles it.
+{ .qm-lede }
 
 This page is a map rather than the rules themselves. Where it summarises a rule
 it names the document that owns it, and that document wins.
@@ -28,18 +31,21 @@ Some projects mount the corpus somewhere other than `governance/qm`; check
 
 | Repository | Calls itself | Its part in the demo |
 |---|---|---|
-| `qm` | the decisions, and the checks that keep them honest | governance, the gates, the CLI |
-| `qmcp` | a Model Context [Protocol](../ref/glossary.md#protocol){ .glossary-term } server | the harness: it measures work and answers over HTTP |
-| `dossier` | the control panel | draws the harness's answer in a terminal |
-| `codecartographer` | a tool for mapping source code as graphs | draws the same answer in a browser |
-| `looksatwords` | reads natural language and says what was in it | the second act: reads the turns of one thread the harness served, and names what they were about |
+| [`qm`](../projects/qm.md) | the decisions, and the checks that keep them honest | governance, the gates, the CLI |
+| [`qmcp`](../projects/qmcp.md) | a Model Context [Protocol](../ref/glossary.md#protocol){ .glossary-term } server | the harness: it measures work and answers over HTTP |
+| [`dossier`](../projects/dossier.md) | the control panel | draws the harness's answer in a terminal |
+| [`codecartographer`](../projects/codecartographer.md) | a tool for mapping source code as graphs | draws the same answer in a browser |
+| [`looksatwords`](../projects/looksatwords.md) | reads natural language and says what was in it | the second act: reads the turns of one thread the harness served, and names what they were about |
 
 The middle column matters, because each repository's README introduces it on its
-own terms and none of them opens by describing the demo. `dossier` and `qmcp` do
+own terms and none of them opens by describing the demo. Each name opens the
+project's page, with its pictures and a link to the repository. `dossier` and `qmcp` do
 not import each other; what crosses between them is a document.
 
 The roster in `ci/workspace.yaml` is the authority on which repositories are
-active, and it lists others — `rad` among them. `uv run qm inventory` prints it.
+active, and it lists others — [`rad`](../projects/rad.md) among them.
+`uv run qm inventory` prints it, and [the families](../families/index.md) place
+every one of them by what it drives.
 
 ## Getting started
 
@@ -54,8 +60,11 @@ and `uv run qm brief` builds the opening brief for a session. Then read
 which is what actually puts the repositories in front of you. `--family
 <name>`, repeatable, narrows it to one working system — `uv run qm families`
 lists them — so the members of a family open together without the rest of the
-estate; a family the record does not declare is refused rather than resolved
-to an empty window.
+estate. A family brings the families within it: `--family performing` opens
+`instruments`, `performer-display` and `show-control` too, and a repository in
+two of them opens once. A family the record does not declare is refused rather
+than resolved to an empty window. `--include qm` puts the corpus first beside a family, so
+the harness, the handoffs and the estate reader open with it.
 
 **"Will my commits be rejected for anything I have not set up?"**
 
@@ -87,6 +96,19 @@ the derived system monitor, derives the subject's system from its clone. The
 readers are held to the [seam](../ref/glossary.md#seam){ .glossary-term } rather than to a picture — every one must report
 the harness's own turn counts, and `looksatwords` must emit no decision, which
 is the border its adoption record draws.
+
+**"How do I see the performing family play a show together?"**
+
+`uv run qm family-demo --stage` checks out each core member of the performing
+family on the branch its roster entry names, starts them on reserved ports, and
+puts the roster's show on ShowRunner, the hub. It presses GO through the hub's
+programmer for each cue, and the hub delivers the cue's `family` block to the
+members itself; the demo only watches. It then asserts, per member, what the
+member says about itself and what the hub says it delivered, and records a
+picture of the stage after every cue. `--hold --open` keeps it up in your
+browser to play by hand. `uv run qm family-demo` without `--stage` runs each
+member's own check instead, alone and then together. `ci/family-demo.yaml` is
+the roster, and `protocols/local-demo.md` the protocol it follows.
 
 ## Making a change
 

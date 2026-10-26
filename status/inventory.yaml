@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-09-20T01:05:41Z",
+  "generated_at": "2026-10-25T01:20:01Z",
   "generator": {
     "tool": "ci/inventory.py",
     "produced_by": "assistant-2026-08",
@@ -36,48 +36,52 @@
   },
   "roster_problem": null,
   "totals": {
-    "on_host": 115,
-    "in_roster": 43,
-    "on_host_not_in_roster": 72,
-    "in_roster_not_on_host": 0,
-    "cloned_here": 0,
+    "on_host": 120,
+    "in_roster": 49,
+    "on_host_not_in_roster": 73,
+    "in_roster_not_on_host": 2,
+    "cloned_here": 32,
     "private": 38,
     "forks": 10,
     "archived": 2,
     "by_recency": {
-      "live": 12,
-      "quiet": 22,
-      "cold": 76,
+      "live": 13,
+      "quiet": 26,
+      "cold": 75,
       "archived": 2,
-      "unknown": 3
+      "unknown": 4
     },
     "by_attention": {
-      "active": 4,
+      "active": 6,
       "queued": 0,
       "dormant": 0,
       "retired": 0,
       "external": 0,
-      "unstated": 39,
-      "unrostered": 72
+      "unstated": 41,
+      "unrostered": 73
     }
   },
-  "in_roster_not_on_host": [],
+  "in_roster_not_on_host": [
+    "qmcli-godot",
+    "streaming-infrastructure"
+  ],
   "repositories": [
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2025-12-08T00:34:32Z",
+      "updated_at": "2026-10-24T01:10:18Z",
       "created_at": "2023-01-15T06:26:00Z",
-      "default_branch_commit_at": "2025-12-08T00:34:26Z",
+      "default_branch_commit_at": "2026-10-24T01:10:12Z",
       "language": null,
-      "disk_usage_kb": 78,
+      "disk_usage_kb": 89,
       "in_roster": false,
       "roster_phase": null,
       "cloned_here": false,
       "attention": "unrostered",
-      "recency": "quiet",
-      "name": ".github"
+      "recency": "live",
+      "name": ".github",
+      "description": "Quaternion defaults"
     },
     {
       "private": false,
@@ -93,7 +97,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "AsyncServer"
+      "name": "AsyncServer",
+      "description": "AsyncServer for esp32"
     },
     {
       "private": false,
@@ -103,13 +108,14 @@
       "created_at": "2026-04-10T20:32:51Z",
       "default_branch_commit_at": "2026-04-11T06:53:55Z",
       "language": "Python",
-      "disk_usage_kb": 162,
+      "disk_usage_kb": 166,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "quiet",
-      "name": "Cuelist-python"
+      "name": "Cuelist-python",
+      "description": "Python helpers for Cuelist (thecuelist.com) and plugin for ShowRunner"
     },
     {
       "private": false,
@@ -125,7 +131,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "ESP32FastLEDSketches"
+      "name": "ESP32FastLEDSketches",
+      "description": "A FastLED animation engine for running multiple animations simultaneously. Also provides techniques for writing advanced animations."
     },
     {
       "private": false,
@@ -141,7 +148,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "Esp32-Dual-Core-Audio-Sampling-and-FastLED-Demo"
+      "name": "Esp32-Dual-Core-Audio-Sampling-and-FastLED-Demo",
+      "description": "This is a demo sketch for music reactive displays with Fastled and FFT on the esp32. This sketch show a method for sampling audio on one core while using the other core to update the display with FastLED"
     },
     {
       "private": false,
@@ -157,7 +165,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "LaunchChess"
+      "name": "LaunchChess",
+      "description": "Play chess on a Novation Launchpad!"
     },
     {
       "private": false,
@@ -173,7 +182,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "New-Dev-Setup"
+      "name": "New-Dev-Setup",
+      "description": "Steps to get new developers running with QM"
     },
     {
       "private": false,
@@ -189,7 +199,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "OctoPrint-Ira"
+      "name": "OctoPrint-Ira",
+      "description": "OctoPrint plugin for WS2811 control!"
     },
     {
       "private": false,
@@ -199,29 +210,82 @@
       "created_at": "2024-02-24T20:48:47Z",
       "default_branch_commit_at": "2025-04-26T19:40:11Z",
       "language": "Jupyter Notebook",
-      "disk_usage_kb": 461,
+      "disk_usage_kb": 657,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "cold",
-      "name": "QLab-python"
+      "name": "QLab-python",
+      "description": "QLab interface for Python"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-06-03T17:08:54Z",
-      "created_at": "2022-12-31T23:50:36Z",
-      "default_branch_commit_at": "2026-04-21T23:11:40Z",
+      "updated_at": "2026-10-20T22:24:32Z",
+      "created_at": "2026-10-20T20:42:39Z",
+      "default_branch_commit_at": "2026-10-20T22:24:20Z",
       "language": "Python",
-      "disk_usage_kb": 3106,
+      "disk_usage_kb": 128,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "live",
+      "name": "ShowAnimator",
+      "description": "Animation engine for ShowRunner"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-10-20T05:14:03Z",
+      "created_at": "2026-10-19T20:36:49Z",
+      "default_branch_commit_at": null,
+      "language": null,
+      "disk_usage_kb": 0,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "unknown",
+      "name": "ShowEo",
+      "description": "ShowRunner plugin for ETC Eos consoles"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-10-24T21:53:58Z",
+      "created_at": "2026-10-19T21:42:57Z",
+      "default_branch_commit_at": "2026-10-21T20:28:47Z",
+      "language": "Python",
+      "disk_usage_kb": 159,
+      "in_roster": false,
+      "roster_phase": null,
+      "cloned_here": false,
+      "attention": "unrostered",
+      "recency": "live",
+      "name": "ShowEos",
+      "description": "ETC Eos integration for ShowRunner"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-10-23T19:54:30Z",
+      "created_at": "2022-12-31T23:50:36Z",
+      "default_branch_commit_at": "2026-10-23T19:54:25Z",
+      "language": "Python",
+      "disk_usage_kb": 2795,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
-      "recency": "quiet",
-      "name": "ShowRunner"
+      "recency": "live",
+      "name": "ShowRunner",
+      "description": "Show control for live performances"
     },
     {
       "private": false,
@@ -231,29 +295,31 @@
       "created_at": "2020-05-19T00:39:01Z",
       "default_branch_commit_at": "2024-11-21T00:25:34Z",
       "language": "Python",
-      "disk_usage_kb": 33,
+      "disk_usage_kb": 76,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "cold",
-      "name": "ShowStopper"
+      "name": "ShowStopper",
+      "description": "Stopwatch geared towards tracking need for the performing arts"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2025-11-19T07:39:20Z",
+      "updated_at": "2026-10-23T20:33:07Z",
       "created_at": "2025-11-19T00:26:37Z",
-      "default_branch_commit_at": "2025-11-19T07:39:10Z",
+      "default_branch_commit_at": "2026-10-23T20:32:59Z",
       "language": "Python",
-      "disk_usage_kb": 316,
+      "disk_usage_kb": 1626,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
-      "recency": "quiet",
-      "name": "TheatreMix-python"
+      "recency": "live",
+      "name": "TheatreMix-python",
+      "description": "Python components for interacting with TheatreMix"
     },
     {
       "private": false,
@@ -266,10 +332,11 @@
       "disk_usage_kb": 1,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "cold",
-      "name": "aes"
+      "name": "aes",
+      "description": "AES67 scripts"
     },
     {
       "private": false,
@@ -285,7 +352,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "al-admin"
+      "name": "al-admin",
+      "description": "Admin site for Alfred"
     },
     {
       "private": false,
@@ -301,7 +369,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "al-deploy"
+      "name": "al-deploy",
+      "description": "k8s deploymet for alfred"
     },
     {
       "private": false,
@@ -317,7 +386,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "al-web"
+      "name": "al-web",
+      "description": "Alfred website"
     },
     {
       "private": false,
@@ -327,13 +397,15 @@
       "created_at": "2019-09-14T06:59:16Z",
       "default_branch_commit_at": "2024-01-12T01:09:56Z",
       "language": "JavaScript",
-      "disk_usage_kb": 4206,
+      "disk_usage_kb": 9107,
       "in_roster": true,
       "roster_phase": "v0.0.1",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "cold",
-      "name": "alfred"
+      "name": "alfred",
+      "description": "serverless video editing",
+      "pictures_on_default_branch": []
     },
     {
       "private": false,
@@ -349,29 +421,32 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "alfred-docker"
+      "name": "alfred-docker",
+      "description": "Docker images for alfred"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-08-12T00:58:58Z",
+      "updated_at": "2026-10-25T01:05:09Z",
       "created_at": "2018-07-13T07:35:22Z",
-      "default_branch_commit_at": "2026-08-12T00:58:55Z",
+      "default_branch_commit_at": "2026-10-25T01:05:01Z",
       "language": "Python",
-      "disk_usage_kb": 3673,
+      "disk_usage_kb": 109975,
       "in_roster": true,
       "roster_phase": "v0.0.2",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
-      "recency": "quiet",
-      "name": "apothecary"
+      "recency": "live",
+      "name": "apothecary",
+      "description": "OpenSCAD generation toolkit and curated printable parts, composed from Python",
+      "pictures_on_default_branch": []
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-04-06T15:54:47Z",
+      "updated_at": "2026-10-12T17:23:17Z",
       "created_at": "2020-03-14T13:01:57Z",
       "default_branch_commit_at": "2026-04-06T15:54:07Z",
       "language": "JavaScript",
@@ -381,23 +456,30 @@
       "cloned_here": false,
       "attention": "unstated",
       "recency": "quiet",
-      "name": "benchmark"
+      "name": "benchmark",
+      "description": "A place to keep track of benches"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-08-22T02:39:11Z",
+      "updated_at": "2026-10-24T01:13:35Z",
       "created_at": "2025-08-18T23:34:07Z",
       "default_branch_commit_at": "2026-08-22T02:39:00Z",
       "language": "Python",
-      "disk_usage_kb": 27119,
+      "disk_usage_kb": 27222,
       "in_roster": true,
       "roster_phase": "v0.0.1",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
-      "recency": "live",
-      "name": "carlos"
+      "recency": "quiet",
+      "name": "carlos",
+      "description": "Browser workspace for sketching hardware rigs from real gear, patched on the face its sockets are on",
+      "pictures_on_default_branch": [
+        "walkthrough/media/05-in-the-browser-keybed-and-desk.png",
+        "walkthrough/media/05-in-the-browser-menu.png",
+        "walkthrough/media/05-in-the-browser-irl-drum-rig.png"
+      ]
     },
     {
       "private": false,
@@ -410,26 +492,28 @@
       "disk_usage_kb": 60923,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "cold",
-      "name": "cesar"
+      "name": "cesar",
+      "description": "A unified lighting / sound / video controller for theatrical applications"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-20T00:33:56Z",
+      "updated_at": "2026-10-25T00:16:08Z",
       "created_at": "2023-04-26T23:04:28Z",
-      "default_branch_commit_at": "2026-09-20T00:33:49Z",
+      "default_branch_commit_at": "2026-10-25T00:16:02Z",
       "language": "Python",
-      "disk_usage_kb": 9043,
+      "disk_usage_kb": 8875,
       "in_roster": true,
       "roster_phase": "v0.0.2",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "live",
-      "name": "codecartographer"
+      "name": "codecartographer",
+      "description": "Project for mapping code"
     },
     {
       "private": false,
@@ -445,7 +529,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "cookiecutter-pypackage"
+      "name": "cookiecutter-pypackage",
+      "description": "Cookiecutter template for a Python package."
     },
     {
       "private": false,
@@ -461,7 +546,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "dRehmFlight"
+      "name": "dRehmFlight",
+      "description": "Teensy/Arduino flight controller and stabilization for small-scale VTOL vehicles"
     },
     {
       "private": false,
@@ -477,7 +563,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "archived",
-      "name": "dash_smoothie"
+      "name": "dash_smoothie",
+      "description": "Dash component for realtime Smoothie chart!"
     },
     {
       "private": false,
@@ -493,23 +580,25 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "datafactorio_v1"
+      "name": "datafactorio_v1",
+      "description": "Factorio mod for exporting data to visualize in the browser"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-08-11T12:12:17Z",
+      "updated_at": "2026-10-24T01:13:36Z",
       "created_at": "2026-08-08T16:26:08Z",
       "default_branch_commit_at": "2026-08-11T11:53:46Z",
       "language": "Python",
       "disk_usage_kb": 473,
       "in_roster": true,
       "roster_phase": "v0.0.1",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "quiet",
-      "name": "datum"
+      "name": "datum",
+      "description": "A physical switch for devices that lost one: dry contacts in, versioned JSON events out over MQTT"
     },
     {
       "private": false,
@@ -525,23 +614,29 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "archived",
-      "name": "docker-vue"
+      "name": "docker-vue",
+      "description": "Docker image for vue-cli"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-20T00:32:24Z",
+      "updated_at": "2026-09-28T00:51:18Z",
       "created_at": "2026-01-18T01:38:27Z",
-      "default_branch_commit_at": "2026-09-20T00:32:17Z",
+      "default_branch_commit_at": "2026-09-28T00:51:13Z",
       "language": "Python",
-      "disk_usage_kb": 3587,
+      "disk_usage_kb": 3748,
       "in_roster": true,
       "roster_phase": "v0.0.1",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "active",
       "recency": "live",
-      "name": "dossier"
+      "name": "dossier",
+      "description": "Documentation standardization tool that auto-parses project documentation",
+      "pictures_on_default_branch": [
+        "docs/screenshots/rad_ring_top_level.svg",
+        "docs/screenshots/content_viewer_readme.svg"
+      ]
     },
     {
       "private": false,
@@ -551,13 +646,14 @@
       "created_at": "2026-07-05T01:58:50Z",
       "default_branch_commit_at": "2026-07-05T11:59:10Z",
       "language": "Lua",
-      "disk_usage_kb": 167,
+      "disk_usage_kb": 179,
       "in_roster": true,
       "roster_phase": "v0.0.1",
       "cloned_here": false,
       "attention": "unstated",
       "recency": "quiet",
-      "name": "factorio-sysops"
+      "name": "factorio-sysops",
+      "description": "Factorio mod: IT Infrastructure addon (sensors, servers, dashboards, incidents, technical debt) -- monitor and automate your factory's IT layer"
     },
     {
       "private": false,
@@ -573,7 +669,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "fastapi-crudrouter"
+      "name": "fastapi-crudrouter",
+      "description": "A dynamic FastAPI router that automatically creates CRUD routes for your models"
     },
     {
       "private": false,
@@ -589,7 +686,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "fastapi-traefik-cookiecutter"
+      "name": "fastapi-traefik-cookiecutter",
+      "description": "boilerplate code for FastAPI app attached to Traefik reverse proxy"
     },
     {
       "private": false,
@@ -605,7 +703,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "fountain"
+      "name": "fountain",
+      "description": "a python fountain script parser"
     },
     {
       "private": false,
@@ -621,7 +720,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "freewheeling"
+      "name": "freewheeling",
+      "description": "Freewheeling Live Looper"
     },
     {
       "private": false,
@@ -637,7 +737,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "frigate"
+      "name": "frigate",
+      "description": "Configurations for Frigate Video"
     },
     {
       "private": false,
@@ -647,13 +748,14 @@
       "created_at": "2026-09-19T20:01:50Z",
       "default_branch_commit_at": "2026-09-09T16:08:32Z",
       "language": "GDScript",
-      "disk_usage_kb": 1258,
+      "disk_usage_kb": 2508,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
-      "recency": "live",
-      "name": "golfvs"
+      "recency": "quiet",
+      "name": "golfvs",
+      "description": "Golf is the only sport where nobody is trying to stop you. golfVs fixes that. Arcade physics golf with asymmetric defence, built in Godot."
     },
     {
       "private": false,
@@ -669,7 +771,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "haiku"
+      "name": "haiku",
+      "description": "GitHub Action to detect a haiku"
     },
     {
       "private": false,
@@ -679,13 +782,14 @@
       "created_at": "2021-05-10T18:39:31Z",
       "default_branch_commit_at": "2025-05-24T23:22:31Z",
       "language": "Python",
-      "disk_usage_kb": 1231,
+      "disk_usage_kb": 1237,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": false,
       "attention": "unstated",
       "recency": "cold",
-      "name": "holophonor"
+      "name": "holophonor",
+      "description": "Live looping, unlimited!"
     },
     {
       "private": false,
@@ -698,16 +802,17 @@
       "disk_usage_kb": 185,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "cold",
-      "name": "ira"
+      "name": "ira",
+      "description": "LED controller, designed for live theater"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-05T07:32:29Z",
+      "updated_at": "2026-10-24T01:13:37Z",
       "created_at": "2026-08-15T06:29:22Z",
       "default_branch_commit_at": "2026-09-05T07:32:24Z",
       "language": "C#",
@@ -716,24 +821,26 @@
       "roster_phase": null,
       "cloned_here": false,
       "attention": "unrostered",
-      "recency": "live",
-      "name": "janus"
+      "recency": "quiet",
+      "name": "janus",
+      "description": "Air-gapped KVM: one keyboard and mouse shared between two PCs with no network or USB path between them"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2024-12-13T01:34:57Z",
+      "updated_at": "2026-10-15T23:57:29Z",
       "created_at": "2018-10-09T05:03:04Z",
-      "default_branch_commit_at": "2024-12-13T00:58:17Z",
+      "default_branch_commit_at": "2026-10-15T23:57:24Z",
       "language": "Python",
-      "disk_usage_kb": 1577,
+      "disk_usage_kb": 2203,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": false,
       "attention": "unstated",
-      "recency": "cold",
-      "name": "joe"
+      "recency": "live",
+      "name": "joe",
+      "description": "Realtime sheet music visualization"
     },
     {
       "private": false,
@@ -749,7 +856,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "karaoke"
+      "name": "karaoke",
+      "description": "scripts for karaoke!"
     },
     {
       "private": false,
@@ -759,13 +867,14 @@
       "created_at": "2026-06-25T06:05:57Z",
       "default_branch_commit_at": "2026-06-25T06:04:18Z",
       "language": "Python",
-      "disk_usage_kb": 374,
+      "disk_usage_kb": 386,
       "in_roster": false,
       "roster_phase": null,
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "quiet",
-      "name": "karaoke-kiosk"
+      "name": "karaoke-kiosk",
+      "description": "Karaoke Kiosk Manager"
     },
     {
       "private": false,
@@ -781,7 +890,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "kburns-slideshow"
+      "name": "kburns-slideshow",
+      "description": "generate slideshow movie with Ken Burns effect on images"
     },
     {
       "private": false,
@@ -794,10 +904,11 @@
       "disk_usage_kb": 106,
       "in_roster": false,
       "roster_phase": null,
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "kpl"
+      "name": "kpl",
+      "description": "Kerbal Propulsion Laboratory"
     },
     {
       "private": false,
@@ -813,7 +924,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "launchchess-python"
+      "name": "launchchess-python",
+      "description": "Play chess on a Launchpad with python"
     },
     {
       "private": false,
@@ -823,29 +935,35 @@
       "created_at": "2018-08-01T21:54:49Z",
       "default_branch_commit_at": "2025-09-03T04:52:09Z",
       "language": "TypeScript",
-      "disk_usage_kb": 12093,
+      "disk_usage_kb": 12225,
       "in_roster": true,
       "roster_phase": "n/a",
       "cloned_here": false,
       "attention": "unstated",
       "recency": "cold",
-      "name": "leo"
+      "name": "leo",
+      "description": "Web pdf viewer, annotator, collaborator"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-20T00:24:59Z",
+      "updated_at": "2026-09-21T11:36:04Z",
       "created_at": "2024-08-11T11:02:07Z",
-      "default_branch_commit_at": "2026-09-20T00:24:52Z",
+      "default_branch_commit_at": "2026-09-21T11:35:58Z",
       "language": "Python",
-      "disk_usage_kb": 6235,
+      "disk_usage_kb": 6691,
       "in_roster": true,
       "roster_phase": "v0.0.1",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
-      "recency": "live",
-      "name": "looksatwords"
+      "recency": "quiet",
+      "name": "looksatwords",
+      "description": "A python module to make, gather, analyze, and visualize language data.",
+      "pictures_on_default_branch": [
+        "docs/pics/harness-analysed.png",
+        "docs/pics/analytics-panel.png"
+      ]
     },
     {
       "private": false,
@@ -858,10 +976,11 @@
       "disk_usage_kb": 156,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "quiet",
-      "name": "ludwig"
+      "name": "ludwig",
+      "description": "remote mixing"
     },
     {
       "private": false,
@@ -877,7 +996,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "meiosis-cookiecutter"
+      "name": "meiosis-cookiecutter",
+      "description": "Template for a Meiosis pattern application using Mithril"
     },
     {
       "private": false,
@@ -890,10 +1010,11 @@
       "disk_usage_kb": 10708,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "cold",
-      "name": "midiphonor"
+      "name": "midiphonor",
+      "description": "A Holophonor implementation, using Tone.js"
     },
     {
       "private": false,
@@ -909,7 +1030,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "milestones"
+      "name": "milestones",
+      "description": "Create GitHub releases from closed milestones"
     },
     {
       "private": false,
@@ -925,7 +1047,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "mith"
+      "name": "mith",
+      "description": "Front end component architecture, based on Mithriljs"
     },
     {
       "private": false,
@@ -937,11 +1060,12 @@
       "language": "HCL",
       "disk_usage_kb": 363,
       "in_roster": true,
-      "roster_phase": "v0.0.1",
-      "cloned_here": false,
+      "roster_phase": "v0.0.0",
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "quiet",
-      "name": "moat"
+      "name": "moat",
+      "description": "simple reverse proxy with Traefik"
     },
     {
       "private": false,
@@ -954,10 +1078,11 @@
       "disk_usage_kb": 6272,
       "in_roster": false,
       "roster_phase": null,
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "moe"
+      "name": "moe",
+      "description": "meticulous oversight engine"
     },
     {
       "private": false,
@@ -973,7 +1098,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "moviepy"
+      "name": "moviepy",
+      "description": "Video editing with Python"
     },
     {
       "private": false,
@@ -988,8 +1114,9 @@
       "roster_phase": null,
       "cloned_here": false,
       "attention": "unrostered",
-      "recency": "live",
-      "name": "obsidian-templates"
+      "recency": "quiet",
+      "name": "obsidian-templates",
+      "description": "Templates for ObsidianMD"
     },
     {
       "private": false,
@@ -999,51 +1126,54 @@
       "created_at": "2020-05-28T18:54:29Z",
       "default_branch_commit_at": "2023-04-15T17:58:53Z",
       "language": "Python",
-      "disk_usage_kb": 5861,
-      "in_roster": false,
-      "roster_phase": null,
+      "disk_usage_kb": 6043,
+      "in_roster": true,
+      "roster_phase": "v0.0.0",
       "cloned_here": false,
-      "attention": "unrostered",
+      "attention": "active",
       "recency": "cold",
-      "name": "otto"
+      "name": "otto",
+      "description": "automatic video generation"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-20T00:48:33Z",
+      "updated_at": "2026-10-24T19:34:57Z",
       "created_at": "2026-06-10T18:00:26Z",
-      "default_branch_commit_at": "2026-09-20T00:48:28Z",
+      "default_branch_commit_at": "2026-10-24T19:34:52Z",
       "language": "Python",
-      "disk_usage_kb": 2954,
+      "disk_usage_kb": 5793,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "active",
       "recency": "live",
-      "name": "qm"
+      "name": "qm",
+      "description": "The Quaternion Media constitution: the org-level decision records every QM project adopts by reference, the process that keeps them coherent, and the template each new project forks from."
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-20T00:23:50Z",
+      "updated_at": "2026-10-25T00:41:20Z",
       "created_at": "2026-01-19T01:34:00Z",
-      "default_branch_commit_at": "2026-09-20T00:23:46Z",
+      "default_branch_commit_at": "2026-10-25T00:41:15Z",
       "language": "Python",
-      "disk_usage_kb": 1036,
+      "disk_usage_kb": 2482,
       "in_roster": true,
       "roster_phase": "v0.0.1",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "active",
       "recency": "live",
-      "name": "qmcp"
+      "name": "qmcp",
+      "description": "Quaternion MCP"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-08-11T12:03:47Z",
+      "updated_at": "2026-10-24T01:13:34Z",
       "created_at": "2026-06-29T00:25:07Z",
       "default_branch_commit_at": "2026-08-11T12:02:38Z",
       "language": "Kotlin",
@@ -1053,7 +1183,13 @@
       "cloned_here": false,
       "attention": "unstated",
       "recency": "quiet",
-      "name": "qmetronome"
+      "name": "qmetronome",
+      "description": "Metronome and tempo visualizer for Android 13+: tap tempo, set queues, MIDI clock sync, and the Nothing Phone Glyph Matrix",
+      "pictures_on_default_branch": [
+        "docs/images/generated/videos/app-running.gif",
+        "docs/images/generated/screenshots/compact-landscape-layout.png",
+        "docs/images/generated/screenshots/beat-overrides.png"
+      ]
     },
     {
       "private": false,
@@ -1069,29 +1205,52 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "quiet",
-      "name": "qmmv"
+      "name": "qmmv",
+      "description": "Media Vault \u2014 Obsidian schema for a personal media library"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-20T00:34:47Z",
+      "updated_at": "2026-10-24T01:13:37Z",
       "created_at": "2026-08-09T09:50:15Z",
-      "default_branch_commit_at": "2026-09-20T00:34:41Z",
+      "default_branch_commit_at": "2026-09-21T01:27:16Z",
       "language": "JavaScript",
-      "disk_usage_kb": 12884,
+      "disk_usage_kb": 12904,
       "in_roster": true,
       "roster_phase": "v0.0.1",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "active",
-      "recency": "live",
-      "name": "rad"
+      "recency": "quiet",
+      "name": "rad",
+      "description": "QM's default radial menu: an interaction contract, conformance vectors and a single-file web reference",
+      "pictures_on_default_branch": [
+        "docs/media/overview.png",
+        "docs/media/chord-input.png"
+      ]
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2019-09-01T23:24:45Z",
+      "updated_at": "2026-09-20T14:01:13Z",
+      "created_at": "2026-09-20T02:58:56Z",
+      "default_branch_commit_at": "2026-09-20T02:59:31Z",
+      "language": "GDScript",
+      "disk_usage_kb": 10784,
+      "in_roster": true,
+      "roster_phase": "n/a",
+      "cloned_here": true,
+      "attention": "unstated",
+      "recency": "quiet",
+      "name": "rad-godot",
+      "description": "rad, the radial menu, as a Godot addon: the contract's vectors replayed in GDScript."
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-10-24T01:13:38Z",
       "created_at": "2019-09-01T23:22:38Z",
       "default_branch_commit_at": "2019-09-01T23:02:07Z",
       "language": "JavaScript",
@@ -1101,13 +1260,14 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "readysetjazz"
+      "name": "readysetjazz",
+      "description": "Full-stack Python website for readysetjazz.com, keeping its media in step with the files it serves"
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2025-04-02T00:10:53Z",
+      "updated_at": "2026-10-17T14:05:17Z",
       "created_at": "2021-03-19T01:52:12Z",
       "default_branch_commit_at": "2025-04-02T00:09:56Z",
       "language": "OpenSCAD",
@@ -1117,13 +1277,18 @@
       "cloned_here": false,
       "attention": "unstated",
       "recency": "cold",
-      "name": "scad-chess"
+      "name": "scad-chess",
+      "description": "Chess set, designed in openSCAD",
+      "pictures_on_default_branch": [
+        "chess_set.png",
+        "images/chess-set-hex.png"
+      ]
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-04-02T12:51:09Z",
+      "updated_at": "2026-10-24T01:13:39Z",
       "created_at": "2026-02-21T00:49:36Z",
       "default_branch_commit_at": "2026-02-21T01:21:15Z",
       "language": "Python",
@@ -1133,7 +1298,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "quiet",
-      "name": "sqlmodel-ui"
+      "name": "sqlmodel-ui",
+      "description": "Panel dashboards, forms and data views generated from SQLModel classes, mounted on an existing FastAPI app"
     },
     {
       "private": false,
@@ -1146,10 +1312,11 @@
       "disk_usage_kb": 4,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "cold",
-      "name": "stomp"
+      "name": "stomp",
+      "description": "a midi foot controller for Arduino / Teensy"
     },
     {
       "private": false,
@@ -1165,7 +1332,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "quiet",
-      "name": "sv"
+      "name": "sv",
+      "description": "SemVer abstraction layer"
     },
     {
       "private": false,
@@ -1181,7 +1349,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "unknown",
-      "name": "techops"
+      "name": "techops",
+      "description": null
     },
     {
       "private": false,
@@ -1197,7 +1366,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "textual"
+      "name": "textual",
+      "description": "Textual is a TUI (Text User Interface) framework for Python inspired by modern web development."
     },
     {
       "private": false,
@@ -1213,7 +1383,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "tocCATa"
+      "name": "tocCATa",
+      "description": "TocCATa and Fugue for Apartment Building - Halloween 2021 show files"
     },
     {
       "private": false,
@@ -1229,7 +1400,25 @@
       "cloned_here": false,
       "attention": "unstated",
       "recency": "cold",
-      "name": "uPhonor"
+      "name": "uPhonor",
+      "description": "Micro-Holophonor"
+    },
+    {
+      "private": false,
+      "fork": false,
+      "archived": false,
+      "updated_at": "2026-10-24T01:13:40Z",
+      "created_at": "2026-09-21T23:45:58Z",
+      "default_branch_commit_at": "2026-10-12T18:35:35Z",
+      "language": "Python",
+      "disk_usage_kb": 415,
+      "in_roster": true,
+      "roster_phase": "v0.0.0",
+      "cloned_here": true,
+      "attention": "active",
+      "recency": "live",
+      "name": "vox",
+      "description": "The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter"
     },
     {
       "private": false,
@@ -1242,16 +1431,21 @@
       "disk_usage_kb": 1334,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "quiet",
-      "name": "waveofhormuz"
+      "name": "waveofhormuz",
+      "description": "VCV Rack 2 strait-shaping square wave oscillator \u2014 conflict timeline as a default waveform",
+      "pictures_on_default_branch": [
+        "waveofhormuz.png",
+        "woh_vcv.png"
+      ]
     },
     {
       "private": false,
       "fork": false,
       "archived": false,
-      "updated_at": "2025-01-27T00:18:51Z",
+      "updated_at": "2026-10-24T01:13:41Z",
       "created_at": "2025-01-27T00:14:33Z",
       "default_branch_commit_at": "2025-01-27T00:16:58Z",
       "language": null,
@@ -1261,7 +1455,8 @@
       "cloned_here": false,
       "attention": "unrostered",
       "recency": "cold",
-      "name": "william-penn-convocation-slides"
+      "name": "william-penn-convocation-slides",
+      "description": "Convocation slides in Obsidian markdown, for the Advanced Slides plugin"
     },
     {
       "private": false,
@@ -1274,10 +1469,11 @@
       "disk_usage_kb": 274,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "cold",
-      "name": "wolf"
+      "name": "wolf",
+      "description": "remote midi controller"
     },
     {
       "private": false,
@@ -1293,7 +1489,8 @@
       "cloned_here": false,
       "attention": "unstated",
       "recency": "cold",
-      "name": "ztgui"
+      "name": "ztgui",
+      "description": "Zeroteir Gui"
     },
     {
       "private": true,
@@ -1323,7 +1520,7 @@
       "disk_usage_kb": 5431,
       "in_roster": false,
       "roster_phase": null,
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unrostered",
       "recency": "cold",
       "ref": "private-02",
@@ -1830,7 +2027,7 @@
       "created_at": "2025-07-29T17:03:12Z",
       "default_branch_commit_at": "2026-07-14T00:30:20Z",
       "language": "Shell",
-      "disk_usage_kb": 42,
+      "disk_usage_kb": 51,
       "in_roster": true,
       "roster_phase": "v0.0.1",
       "cloned_here": false,
@@ -1847,12 +2044,12 @@
       "created_at": "2025-12-16T23:01:15Z",
       "default_branch_commit_at": "2026-09-20T00:20:37Z",
       "language": "JavaScript",
-      "disk_usage_kb": 1963,
+      "disk_usage_kb": 1941,
       "in_roster": true,
       "roster_phase": "v0.0.1",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
-      "recency": "live",
+      "recency": "quiet",
       "ref": "private-33",
       "label": "quaternionmedia private repo 33"
     },
@@ -1864,7 +2061,7 @@
       "created_at": "2026-08-08T16:26:22Z",
       "default_branch_commit_at": "2026-08-10T13:53:54Z",
       "language": "Python",
-      "disk_usage_kb": 1188,
+      "disk_usage_kb": 1242,
       "in_roster": true,
       "roster_phase": "v0.0.1",
       "cloned_here": false,
@@ -1899,10 +2096,10 @@
       "default_branch_commit_at": "2026-08-18T01:48:19Z",
       "language": "Python",
       "disk_usage_kb": 286,
-      "in_roster": false,
-      "roster_phase": null,
+      "in_roster": true,
+      "roster_phase": "v0.0.1",
       "cloned_here": false,
-      "attention": "unrostered",
+      "attention": "unstated",
       "recency": "quiet",
       "ref": "private-36",
       "label": "quaternionmedia private repo 36"
@@ -1928,14 +2125,14 @@
       "private": true,
       "fork": false,
       "archived": false,
-      "updated_at": "2026-09-20T00:39:43Z",
+      "updated_at": "2026-10-18T20:29:51Z",
       "created_at": "2026-09-19T23:50:28Z",
-      "default_branch_commit_at": "2026-09-20T00:39:39Z",
+      "default_branch_commit_at": "2026-10-18T20:29:43Z",
       "language": "GDScript",
-      "disk_usage_kb": 458,
+      "disk_usage_kb": 1283,
       "in_roster": true,
       "roster_phase": "n/a",
-      "cloned_here": false,
+      "cloned_here": true,
       "attention": "unstated",
       "recency": "live",
       "ref": "private-38",

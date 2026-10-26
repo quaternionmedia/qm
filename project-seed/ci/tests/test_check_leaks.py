@@ -72,6 +72,40 @@ def test_a_shared_conversation_link_is_a_finding(repo: Path):
     assert kinds(repo) == ["shared-conversation"]
 
 
+def test_a_link_to_a_hosted_page_is_a_finding(repo: Path):
+    """Work published to a page an assistant's host keeps is outside every
+    repository, and the link is what a committed file carries of it.
+
+    Mutation: drop the hosted-page pattern and this fails.
+    """
+    links = [
+        # leaks: allow this file is the check's own fixtures
+        "https://claude.ai/artifact/0f3a9c2e-1b7d-4e55",
+        # leaks: allow this file is the check's own fixtures
+        "https://claude.ai/code/artifact/5d1e8b40-9c2a",
+        # leaks: allow this file is the check's own fixtures
+        "https://claude.ai/public/artifacts/7a6b5c4d-3e2f",
+        # leaks: allow this file is the check's own fixtures
+        "https://claude.site/artifacts/1a2b3c4d-5e6f",
+        # leaks: allow this file is the check's own fixtures
+        "https://chatgpt.com/canvas/shared/68a1b2c3d4e5",
+    ]
+    for number, link in enumerate(links):
+        commit(repo, f"notes-{number}.md", f"the demo is at {link}")
+    assert kinds(repo) == ["hosted-page"] * len(links)
+
+
+def test_a_hosted_page_named_in_prose_is_not_a_link(repo: Path):
+    """A page that states the rule names the product without linking a page
+    on it.
+
+    Mutation: match the host alone, without a page's path, and this fails.
+    """
+    commit(repo, "AGENTS.md", "Nothing goes to a chat product's artifact page "
+                              "or canvas, such as those under claude.ai/artifacts.")
+    assert kinds(repo) == []
+
+
 def test_a_path_to_a_conversation_archive_is_a_finding(repo: Path):
     # leaks: allow this file is the check's own fixtures
     commit(repo, "notes.md", r"exported to C:\Users\x\Documents\claude_history\a.json")

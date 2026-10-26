@@ -67,7 +67,7 @@ import yaml
 # what `ci/make_workspace.py` does for the same reason.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from make_workspace import resolve  # noqa: E402
-from roster import ROSTER, load  # noqa: E402
+from roster import ROSTER, families_of, load  # noqa: E402
 from roster import label as roster_label  # noqa: E402
 
 CORPUS = Path(__file__).resolve().parent.parent
@@ -163,7 +163,7 @@ class Repository:
     name: str
     path: str | None = None            # None is MISSING
     candidates: list[str] = field(default_factory=list)
-    family: str | None = None          # the roster's claim; None is unstated
+    family: str | list[str] | None = None  # the roster's claim, verbatim; None is unstated
     branch: str = ""                   # "(detached)" when HEAD is not a branch
     dirty: int = 0
     default: str = ""
@@ -380,10 +380,12 @@ def by_family(found: list[Repository]) -> list[tuple[str, list[Repository]]]:
     that file is generated from the same roster, and a stale copy would file a
     member under a family the roster no longer claims. `qm families --check`
     is what says whether every claim names a declared family; this only sorts.
+    A repository that claims two families is a row under each.
     """
     groups: dict[str, list[Repository]] = {}
     for r in found:
-        groups.setdefault(r.family or UNSTATED, []).append(r)
+        for family in families_of({"family": r.family}) or [UNSTATED]:
+            groups.setdefault(family, []).append(r)
     names = sorted(n for n in groups if n != UNSTATED)
     if UNSTATED in groups:
         names.append(UNSTATED)

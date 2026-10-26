@@ -55,7 +55,7 @@ import yaml
 # only in the second. Putting this file's own directory first makes
 # `roster` resolvable under both, which is what ci/cli.py does for the seed.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from roster import merge_private, redact
+from roster import intent_of, merge_private, redact, version_of
 
 CI_DIR = Path(__file__).resolve().parent
 CORPUS = CI_DIR.parent
@@ -380,11 +380,13 @@ def local_layer(path: Path) -> dict:
     return facts
 
 
-# The seed artifacts a project carries once it has adopted the constitution.
-# Per the phase-ladder record these are a PRECONDITION for v0.0.1 and never a
-# proof of it: a complete set means a human may now assert governance, never
-# that they have. So this layer reports `met` and `incomplete` and no verdict
-# above them, and the word `adopted` appears nowhere in what it emits.
+# The seed artifacts a project carries as it adopts the constitution. Per the
+# phase-ladder record they measure how far a v0.0.1 project's adoption has got
+# and never decide a rung: a project is at v0.0.1 from the day it has a
+# project/<name> branch, whatever share of these it holds. A complete set means
+# a human may now say adoption is complete, never that they have. So this layer
+# reports `complete` and `incomplete` and no verdict above them, and the word
+# `adopted` appears nowhere in what it emits.
 GOVERNANCE_ARTIFACTS = ("submodule", "ide", "workflows", "licensing")
 
 
@@ -399,11 +401,20 @@ def governance_evidence(project: dict | None) -> dict:
     Work sitting in an open pull request is work and is not evidence. That gap
     is the whole reason this corpus opens draft pull requests, and crediting
     the intent here would erase it.
+
+    A project with no `project/<name>` branch is at v0.0.0 and has no adoption
+    to measure, which is `n/a` rather than `unknown`: the branch's absence is
+    a fact the document established.
     """
     if project is None:
-        return unknown(
-            "no project/<name> branch in the corpus, so there is nothing to read"
-        )
+        return {
+            "seed": "n/a",
+            "missing": [],
+            "asserts": (
+                "no project/<name> branch in the corpus: the project is at "
+                "v0.0.0, and the seed measures only a project that has one"
+            ),
+        }
 
     adoption = project.get("adoption") or {}
     if "unknown" in adoption:
@@ -424,7 +435,7 @@ def governance_evidence(project: dict | None) -> dict:
 
     branch = project.get("branch") or {}
     return {
-        "precondition": "met" if not missing else "incomplete",
+        "seed": "complete" if not missing else "incomplete",
         "missing": missing,
         "detail": {
             "submodule": submodule.get("corpus_mounted_at"),
@@ -439,10 +450,29 @@ def governance_evidence(project: dict | None) -> dict:
         "observed_at": project.get("observed_at"),
         "asserted_by": None,
         "asserts": (
-            "a complete artifact set means a human may assert v0.0.1, never "
-            "that they have"
+            "the seed set measures how far adoption has got and never decides "
+            "a rung; a complete set means a human may say adoption is "
+            "complete, never that they have"
         ),
     }
+
+
+def version_layer(entry: dict, project: dict | None, gap: str | None) -> tuple:
+    """(version, intent) for one roster entry, by `roster.version_of`.
+
+    Whether the project has adopted is whether it has a `project/<name>`
+    branch, which status/governance.yaml lists. The corpus has none and is
+    the thing doing the governing, as `ci/cookbook.py` reads it too. Without
+    that document the branch is not known, and neither is the version.
+    """
+    if entry.get("role") == "corpus":
+        adopted = True
+    elif gap:
+        return unknown(gap), None
+    else:
+        adopted = project is not None
+    phase, source = entry.get("phase"), entry.get("phase_source")
+    return version_of(adopted, phase, source), intent_of(adopted, phase, source)
 
 
 def load_governance(path: Path) -> tuple[dict[str, dict], str | None]:
@@ -513,6 +543,17 @@ def build(
     for entry in roster:
         name = entry["name"]
         slug = f"{org}/{name}"
+        # status/governance.yaml keys a private project by its reference, so
+        # with the companion present the real name alone does not find it.
+        project = (governance or {}).get(name) or (governance or {}).get(entry.get("ref"))
+        version, intent = version_layer(
+            entry,
+            project,
+            governance_gap if governance is not None else (
+                "the governance layer was not read, so whether the project has "
+                "a project/<name> branch is not known"
+            ),
+        )
         record = {
             "name": name,
             "slug": slug,
@@ -521,12 +562,17 @@ def build(
             # bordered by records/DRAFT-a-family-is-bordered-by-what-it-drives.md.
             # None is unstated -- nobody has answered -- and a view that turns
             # it into a family has inferred what the record says only a
-            # person may state.
+            # person may state. One name, or a list of names when the
+            # repository is in more than one family.
             "family": entry.get("family"),
             # The claim, carried verbatim with its provenance. A view that
             # loses `phase_source` has turned a default into a finding.
             "phase": entry.get("phase", "unknown"),
             "phase_source": entry.get("phase_source", "unknown"),
+            # The rung, read from the branch and the stated phase. A stated
+            # phase that is not the version is intent, carried beside it.
+            "version": version,
+            "intent": intent,
             "note": entry.get("note"),
             "slots": slot_layer(slug),
         }
@@ -536,9 +582,9 @@ def build(
             record["governance"] = (
                 unknown(governance_gap)
                 if governance_gap
-                else governance_evidence(governance.get(name))
+                else governance_evidence(project)
                 if entry.get("role") != "corpus"
-                else {"precondition": "n/a", "missing": [],
+                else {"seed": "n/a", "missing": [],
                       "asserts": "this repository is the corpus"}
             )
         if want_local:
@@ -576,8 +622,9 @@ def build(
         r
         for r in repositories
         if isinstance(r.get("governance"), dict)
-        and r["governance"].get("precondition") in ("met", "incomplete")
+        and r["governance"].get("seed") in ("complete", "incomplete")
     ]
+    versions = [r["version"] for r in repositories if isinstance(r["version"], str)]
     return {
         "schema": 1,
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -590,6 +637,13 @@ def build(
             "phase_layer_is_a_claim": (
                 "phase and phase_source come from ci/workspace.yaml and record "
                 "what a human stated. They are never derived from artifacts."
+            ),
+            "version_is_the_rung": (
+                "v0.0.0 until a project has a project/<name> branch in the "
+                "corpus, and v0.0.1 from then on, however much of the seed it "
+                "carries; a rung above v0.0.1 is the project's own and counts "
+                "when a human stated it. A stated phase that is not the version "
+                "is intent, carried beside it as `intent`."
             ),
             "family_is_a_claim": (
                 "family comes from ci/workspace.yaml, where a person stated it; "
@@ -607,7 +661,9 @@ def build(
             "stalled_after_hours": STALLED_AFTER_HOURS,
             "governance_layer_is_evidence": (
                 "read from status/governance.yaml, on each project's default "
-                "branch. Work in an open pull request is work, not evidence."
+                "branch. Work in an open pull request is work, not evidence. "
+                "The seed it reports measures how far a v0.0.1 project's "
+                "adoption has got, and never decides a rung."
             ),
             "layers": ["phase", "slots"]
             + (["governance"] if governance is not None else [])
@@ -641,6 +697,8 @@ def build(
                 "quote a figure from this document without its generated_at",
                 "treat a phase as evidence: phase is what a human claimed",
                 "treat the governance layer as a claim: it is what has landed",
+                "read an incomplete seed as a project below v0.0.1: the seed "
+                "measures adoption, and the branch decides the rung",
                 "read a null family as a repository that belongs to none: it "
                 "is one nobody has placed",
                 "regenerate this in CI -- it reads other repositories, so every "
@@ -659,17 +717,18 @@ def build(
             # with no evidence is absent from both numerator and denominator,
             # so neither reads as a project measured and found wanting.
             "governance_readable": len(governed),
-            "governance_precondition_met": sum(
-                1 for r in governed if r["governance"]["precondition"] == "met"
+            "seed_complete": sum(
+                1 for r in governed if r["governance"]["seed"] == "complete"
             ),
+            # Over every version that could be established; one that could not
+            # is counted as unknown and in neither of the other two.
+            "at_v0.0.0": sum(1 for v in versions if v == "v0.0.0"),
+            "past_v0.0.0": sum(1 for v in versions if v != "v0.0.0"),
+            "version_unknown": len(repositories) - len(versions),
             "phase_scaffolded": sum(
                 1 for r in repositories if r.get("phase_source") == "scaffolded"
             ),
-            "phase_stated_above_governance": sum(
-                1
-                for r in repositories
-                if r.get("phase_source") == "stated" and r.get("phase") > "v0.0.1"
-            ),
+            "phase_stated_as_intent": sum(1 for r in repositories if r.get("intent")),
             # Threads by stage, over every repository whose threads could be
             # read. A repository that could not be read contributes to none of
             # these, so no stage count doubles as a claim about it.
@@ -777,11 +836,12 @@ def main(argv: list[str] | None = None) -> int:
         )
         if governance is not None:
             print(
-                f"  governance evidence: "
-                f"{totals['governance_precondition_met']} of "
-                f"{totals['governance_readable']} readable meet the v0.0.1 "
-                f"precondition; {totals['phase_scaffolded']} phases scaffolded, "
-                f"{totals['phase_stated_above_governance']} stated above governance"
+                f"  versions: {totals['at_v0.0.0']} at v0.0.0, "
+                f"{totals['past_v0.0.0']} past it, {totals['version_unknown']} unknown; "
+                f"seed complete in {totals['seed_complete']} of "
+                f"{totals['governance_readable']} readable; "
+                f"{totals['phase_scaffolded']} phases scaffolded, "
+                f"{totals['phase_stated_as_intent']} stated as intent"
             )
         if governance_gap:
             print(f"  governance evidence unreadable: {governance_gap}")
