@@ -97,6 +97,12 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
 ## 3. Blocked on a person
 
 - **`joe` #33's merge**, on a test by hand (`voice-set-landing.md` §4).
+- **A private name in `main`'s history.** Two commit messages that name the
+  private instrument, `444f510` and `f208a2c`, reached `main` on 2026-10-24
+  with the performing family's pull requests. `performing-family-consolidation.md`
+  lists them for Peter, with "a history rewrite of those pull requests" as the
+  remedy; on `main` that remedy now means rewriting `main`. Whether to do so
+  is a person's decision.
 - **qmcp's open adoption decisions**, as
   `adr/DRAFT-constitution-adoption-scope.md` on `project/qmcp` states them:
   - C3: two sessions started in one checkout share one queue, through the
@@ -212,6 +218,18 @@ re-checked and is re-derived before anyone acts on it.
   description of the pull request merged into `project/qmcp` as `6a4819a`.
   Done is a pull request based on `project/qmcp` that restates the four
   rows, then `qmcp`'s governance pin bump (`the-voice-loop.md` §1).
+- **qmcp's governance pin bump, in flight and unpushed.** At 2026-10-25
+  21:04 a session working in a `qmcp` checkout holds the bump on its own
+  machine, unpushed:
+  - `c1fd0a4` merges `main` at `685d086` into `project/qmcp` at `6a4819a`;
+  - `7ae8035` takes the seed's ADR README and template;
+  - `c4e19c7`, on `qmcp`'s `chore/governance-current-2026-10-25`, pins
+    `7ae8035` and copies the seed files again.
+
+  Done is the merge pushed as `propagate/qmcp-<date>` and merged into
+  `project/qmcp`, then a `qmcp` pull request pinning that branch's tip;
+  `check-submodule-refs` refuses a pin nobody pushed. The four rows above can
+  land before or after it, and a second bump then takes them.
 - **qmcp declares no licence where a packager reads one.** At `qmcp`
   `82b2d58` it carries `REUSE.toml` (MIT for `**`), `LICENSES/` and a REUSE
   lint workflow, but no root `LICENSE` and no `license` key in
