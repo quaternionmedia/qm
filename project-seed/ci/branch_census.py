@@ -139,29 +139,39 @@ def default_branch(remote: str, repo: str) -> str:
         return "main"
 
 
-def census(repo: str = ".", remote: str = "origin") -> list[Branch]:
-    """Every branch this clone or its remote knows about."""
-    base = f"{remote}/{default_branch(remote, repo)}"
+def refs(remote: str, repo: str) -> tuple[dict[str, tuple[str, str, str]],
+                                         dict[str, tuple[str, str, str]]]:
+    """Local and remote branches, each name -> (short sha, date, author).
 
-    head = default_branch(remote, repo)
-    prefix = f"{remote}/"
-
-    remote_refs = set()
-    for ref in lines("for-each-ref", "--format=%(refname:short)",
-                     f"refs/remotes/{remote}", repo=repo):
+    One listing for every ref, rather than three reads per branch.
+    """
+    local: dict[str, tuple[str, str, str]] = {}
+    remotes: dict[str, tuple[str, str, str]] = {}
+    heads, tracking = "refs/heads/", f"refs/remotes/{remote}/"
+    for line in lines("for-each-ref", "--format=%(refname)%09%(objectname:short)"
+                      "%09%(authordate:short)%09%(authorname)",
+                      "refs/heads", f"refs/remotes/{remote}", repo=repo):
+        ref, tip, when, who = line.split("\t")
+        if ref.startswith(heads):
+            local[ref[len(heads):]] = (tip, when, who)
         # `origin/HEAD` is a symbolic ref, not a branch. Counting it reports a
         # duplicate of the default branch under a name nobody pushed.
-        if ref.endswith("/HEAD") or not ref.startswith(prefix):
-            continue
-        remote_refs.add(ref[len(prefix):])
-    remote_refs.discard(head)
+        elif ref.startswith(tracking) and ref != f"{tracking}HEAD":
+            remotes[ref[len(tracking):]] = (tip, when, who)
+    return local, remotes
 
-    local_refs = set(lines("for-each-ref", "--format=%(refname:short)",
-                           "refs/heads", repo=repo))
-    local_refs.discard(head)
+
+def census(repo: str = ".", remote: str = "origin") -> list[Branch]:
+    """Every branch this clone or its remote knows about."""
+    head = default_branch(remote, repo)
+    base = f"{remote}/{head}"
+
+    local_refs, remote_refs = refs(remote, repo)
+    local_refs.pop(head, None)
+    remote_refs.pop(head, None)
 
     found = []
-    for name in sorted(remote_refs | local_refs):
+    for name in sorted(remote_refs.keys() | local_refs.keys()):
         here = name in local_refs
         there = name in remote_refs
         # The remote ref is the shared truth; fall back to the local one only
@@ -169,14 +179,10 @@ def census(repo: str = ".", remote: str = "origin") -> list[Branch]:
         # somebody else can see.
         tip_ref = f"{remote}/{name}" if there else name
         branch = Branch(name=name)
-        branch.tip = git("rev-parse", "--short", tip_ref, repo=repo)
-        branch.when = git("log", "-1", "--format=%ad", "--date=short", tip_ref,
-                          repo=repo)
-        branch.who = git("log", "-1", "--format=%an", tip_ref, repo=repo)
-        branch.ahead = int(git("rev-list", "--count", f"{base}..{tip_ref}",
-                               repo=repo))
-        branch.behind = int(git("rev-list", "--count", f"{tip_ref}..{base}",
-                                repo=repo))
+        branch.tip, branch.when, branch.who = (remote_refs if there else local_refs)[name]
+        behind, ahead = git("rev-list", "--left-right", "--count",
+                            f"{base}...{tip_ref}", repo=repo).split()
+        branch.ahead, branch.behind = int(ahead), int(behind)
 
         if here and there:
             branch.unpushed = int(git("rev-list", "--count",
