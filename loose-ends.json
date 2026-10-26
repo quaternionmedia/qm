@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-26T00:24:22Z",
+  "generated_at": "2026-10-26T00:32:54Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-26T00:24:20Z"
+        "generated_at": "2026-10-26T00:32:52Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 279,
+    "loose_ends": 280,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 39,
-      "document-unreviewed": 82,
+      "document-unreviewed": 83,
       "stalled-thread": 138
     },
-    "open": 279,
+    "open": 280,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1102,6 +1102,14 @@
       "title": "perspectives/2026-10-24-the-corpus-read-whole-and-landed.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-24-the-corpus-read-whole-and-landed",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-the-label-was-not-the-content",
+      "title": "perspectives/2026-10-25-the-label-was-not-the-content.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-the-label-was-not-the-content",
       "address_parses": true
     },
     {
