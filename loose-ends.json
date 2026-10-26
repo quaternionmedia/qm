@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-26T00:32:54Z",
+  "generated_at": "2026-10-26T01:39:40Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-26T00:32:52Z"
+        "generated_at": "2026-10-26T01:39:37Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 280,
+    "loose_ends": 281,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 39,
-      "document-unreviewed": 83,
+      "document-unreviewed": 84,
       "stalled-thread": 138
     },
-    "open": 280,
+    "open": 281,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -974,6 +974,14 @@
       "title": "perspectives/2026-09-28-the-voice-loop-meets-the-field.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-09-28-the-voice-loop-meets-the-field",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-09-a-comment-in-someone-elses-voice",
+      "title": "perspectives/2026-10-09-a-comment-in-someone-elses-voice.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-09-a-comment-in-someone-elses-voice",
       "address_parses": true
     },
     {
