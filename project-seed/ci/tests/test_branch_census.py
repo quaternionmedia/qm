@@ -1,6 +1,6 @@
 """What a branch census must tell apart before anybody deletes anything.
 
-Real repositories, never a mock. Everything this tool
+Real repositories with a real remote, never a mock. Everything this tool
 reports is a fact about refs, and the two errors it exists to avoid are beliefs
 about git: that a branch ahead by zero commits holds nothing, and that a branch
 ahead by one holds something. A mock encodes whichever belief its author had.
@@ -12,23 +12,24 @@ those two: `picked` adds the same file with the same content as a commit on
 `main`, under a different message, so the patch is upstream and the sha is not.
 
 Each repository is written once per module with `git fast-import`, its
-tracking refs declared as a last fetch left them, and the census runs once
-against each. The exit status is read from the script run as a subprocess,
-because an entry point's exit status is its contract.
+tracking refs declared as a last fetch left them. The richest has a bare
+remote set to what the host holds now, which is where the two can differ: a
+holder the host deleted, and one it moved. The census runs once online and
+once offline against it. The exit status is read from the script run as a
+subprocess, because an entry point's exit status is its contract.
 
 The mutations, per `a-check-is-evidence-after-it-fails`, quoted as they
 printed.
 
-`uv run qm mutate project-seed/ci/branch_census.py` killed 27 of 37 operator
-mutants against a green baseline. The two that were gaps, a row filed under
-another heading and the newest-first order within one, each have a test now.
-Every other survivor is text inside a message, a comment or a help string.
+`uv run qm mutate project-seed/ci/branch_census.py` killed 42 of 50 operator
+mutants against a green baseline. Every survivor is text inside a message, a
+comment or a help string.
 
 By hand, each run alone against a backup whose presence was checked first:
 
   `unique_commits` counting every cherry line instead of only the `+` ones
 
-    FAILED test_each_branch_is_read_into_its_class[picked]
+    FAILED test_each_branch_is_read_into_its_class[offline-picked]
     FAILED test_the_gate_fires_only_on_work_that_would_be_lost
 
   `origin/HEAD` not skipped
@@ -41,7 +42,7 @@ By hand, each run alone against a backup whose presence was checked first:
 
   the unpushed count ignored, so a stranded branch reads as ordinary
 
-    FAILED test_each_branch_is_read_into_its_class[shared]
+    FAILED test_each_branch_is_read_into_its_class[online-shared]
 
   a branch's tip, date and author read from the local ref when a remote one
   exists
@@ -50,7 +51,7 @@ By hand, each run alone against a backup whose presence was checked first:
 
   ahead and behind read the wrong way round
 
-    FAILED test_each_branch_is_read_into_its_class[landed]
+    FAILED test_each_branch_is_read_into_its_class[online-landed]
 
   each heading listing the rows of every other class
 
@@ -59,6 +60,39 @@ By hand, each run alone against a backup whose presence was checked first:
   the rows within a class sorted oldest first
 
     FAILED test_within_a_class_the_newest_tip_comes_first
+
+  a holder kept online whether or not the host still has it
+
+    FAILED test_each_branch_is_read_into_its_class[online-stale]
+    FAILED test_a_host_that_cannot_be_asked_confirms_no_holder
+
+  a holder the host moved on kept only at the same sha
+
+    FAILED test_each_branch_is_read_into_its_class[online-ff]
+
+  a holder the host moved to an unfetched commit kept
+
+    FAILED test_each_branch_is_read_into_its_class[online-moved]
+
+  every local branch read as local, held or not
+
+    FAILED test_each_branch_is_read_into_its_class[offline-held]
+
+  the host never asked, so online reads as offline
+
+    FAILED test_each_branch_is_read_into_its_class[online-stale]
+
+  a held branch counted as work at risk
+
+    FAILED test_the_gate_fires_only_on_work_that_would_be_lost
+
+  only the first holder kept
+
+    FAILED test_a_branch_only_this_clone_holds_says_what_it_carries[online-held-...]
+
+  a holder the host does not confirm left unsaid
+
+    FAILED test_a_branch_only_this_clone_holds_says_what_it_carries[online-moved-...]
 """
 
 from __future__ import annotations
@@ -66,6 +100,7 @@ from __future__ import annotations
 import subprocess
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -119,15 +154,45 @@ CLASSES = LANDED + (
     commit(f"{O}gone", 7, ":2", "gone.txt"),
     commit(f"{O}ahead", 8, ":2", "ahead.txt"),
     reset(f"{H}ahead", ":8"),
+    # Holders are tracking refs; `refs/push/` is a commit the host has that no
+    # tracking ref points at.
+    commit(f"{O}docs/hold", 9, ":2", "h1.txt"),
+    commit(f"{O}docs/hold", 10, ":9", "h2.txt"),
+    reset(f"{O}docs/hold-copy", ":10"),
+    commit(f"{O}stale-holder", 11, ":2", "s1.txt"),
+    commit(f"{O}moved-holder", 12, ":2", "t1.txt"),
+    commit(f"{O}ff-holder", 13, ":2", "q1.txt"),
+    commit("refs/push/ff-holder", 14, ":13", "q2.txt"),
+    reset(f"{H}held", ":9"),
+    reset(f"{H}stale", ":11"),
+    reset(f"{H}moved", ":12"),
+    reset(f"{H}ff", ":13"),
+    commit(f"{H}part", 15, ":10", "p1.txt"),
 )
+
+# What the host holds now. Pushed by URL, so no tracking ref moves; the host is
+# then given `moved-holder` at a commit the clone never fetched, and never had
+# `stale-holder` at all.
+HOST = tuple(f"{O}{b}:{H}{b}" for b in
+             ("main", "shared", "landed", "gone", "ahead", "docs/hold",
+              "docs/hold-copy")) + (f"refs/push/ff-holder:{H}ff-holder",)
 
 
 @pytest.fixture(scope="module")
 def root(tmp_path_factory) -> Path:
-    """`r` holds every class; `clean` only `picked`; `empty` only `main`."""
+    """`r` holds every class, with a bare `r.git` as its host; `clean` only
+    `picked`; `empty` only `main`. Neither of those two has a remote to ask."""
     top = tmp_path_factory.mktemp("census")
-    r = written(top / "r", *CLASSES)
+    r, host = top / "r", top / "r.git"
+    written(r, *CLASSES)
     git(r, "symbolic-ref", f"{O}HEAD", f"{O}main")
+    subprocess.run(["git", "init", "-q", "--bare", "-b", "main", str(host)],
+                   check=True, env=ENV)
+    git(r, "push", "-q", str(host), *HOST)
+    git(r, "remote", "add", "origin", str(host))
+    subprocess.run(["git", "-C", str(host), "fast-import", "--quiet"],
+                   input=commit(f"{H}moved-holder", 1, f"{H}main", "t2.txt").encode(),
+                   check=True, env=ENV)
     written(top / "clean", *LANDED)
     written(top / "empty", commit(f"{O}main", 1, None, "README.md"),
             reset(f"{H}main", ":1"))
@@ -139,9 +204,27 @@ def found(root) -> dict[str, bc.Branch]:
     return {b.name: b for b in bc.census(str(root / "r"))}
 
 
+@pytest.fixture(scope="module")
+def offline(root) -> SimpleNamespace:
+    """The census with `--offline`, and every git command it ran."""
+    ran: list[tuple[str, ...]] = []
+    real = bc.git
+
+    def watched(*args, repo="."):
+        ran.append(args)
+        return real(*args, repo=repo)
+
+    with pytest.MonkeyPatch.context() as mp:
+        mp.setattr(bc, "git", watched)
+        found = {b.name: b for b in bc.census(str(root / "r"), online=False)}
+    return SimpleNamespace(found=found, ran=ran)
+
+
 # --- the classes -------------------------------------------------------------
 
-# branch: kind, ahead, behind, unpushed, unique
+HELD = (bc.HELD, 1, 0, 0, 0)
+
+# branch: kind, ahead, behind, unpushed, unique -- online and offline alike
 EXPECTED = {
     # Ahead by one and holding nothing: its patch is on `main` already.
     "picked": (bc.LOCAL, 1, 1, 0, 0),
@@ -151,20 +234,56 @@ EXPECTED = {
     "ahead": (bc.AHEAD, 1, 0, 0, 0),
     "gone": (bc.GONE, 1, 0, 0, 0),
     "landed": (bc.MERGED, 0, 1, 0, 0),
+    # Two remote branches contain it.
+    "held": HELD,
+    # The host moved the holder on to a commit this clone has, which still
+    # contains it.
+    "ff": HELD,
+    # Its base is on a remote branch and its tip is not.
+    "part": (bc.LOCAL, 3, 0, 0, 3),
+    # The holders are remote branches like any other.
+    "docs/hold": (bc.GONE, 2, 0, 0, 0),
+    "docs/hold-copy": (bc.GONE, 2, 0, 0, 0),
+    "ff-holder": (bc.GONE, 1, 0, 0, 0),
+    "stale-holder": (bc.GONE, 1, 0, 0, 0),
+    "moved-holder": (bc.GONE, 1, 0, 0, 0),
 }
 
+# Held as of the last fetch, and local once the host is asked: it no longer
+# has `stale-holder`, and has moved `moved-holder` to a commit never fetched.
+UNCONFIRMED = {"stale": (HELD, (bc.LOCAL, 1, 0, 0, 1)),
+               "moved": (HELD, (bc.LOCAL, 1, 0, 0, 1))}
 
-@pytest.mark.parametrize("name", sorted(EXPECTED))
-def test_each_branch_is_read_into_its_class(found, name):
-    b = found[name]
-    assert (b.kind, b.ahead, b.behind, b.unpushed, b.unique) == EXPECTED[name]
+CASES = ([("online", n, e) for n, e in EXPECTED.items()]
+         + [("offline", n, e) for n, e in EXPECTED.items()]
+         + [(mode, n, e) for n, (off, on) in UNCONFIRMED.items()
+            for mode, e in (("offline", off), ("online", on))])
 
 
-def test_the_default_branch_and_the_remote_head_pointer_are_not_branches(found):
+@pytest.mark.parametrize("mode,name,expected", [
+    pytest.param(*case, id=f"{case[0]}-{case[1]}") for case in CASES])
+def test_each_branch_is_read_into_its_class(found, offline, mode, name, expected):
+    b = (found if mode == "online" else offline.found)[name]
+    assert (b.kind, b.ahead, b.behind, b.unpushed, b.unique) == expected
+
+
+def test_the_default_branch_and_the_remote_head_pointer_are_not_branches(found, offline):
     """The default branch is what everything is measured against, and
     `origin/HEAD` is a symbolic ref: counted, it duplicates the default branch
     under a name nobody pushed and nobody can delete."""
-    assert set(found) == set(EXPECTED)
+    assert set(found) == set(offline.found) == set(EXPECTED) | set(UNCONFIRMED)
+
+
+def test_offline_asks_the_host_nothing(offline):
+    assert "ls-remote" not in {args[0] for args in offline.ran}
+
+
+def test_a_host_that_cannot_be_asked_confirms_no_holder(root):
+    r = str(root / "r")
+    assert bc.host_heads("nowhere", r) is None
+    recorded = bc.holders("held", "origin", r)
+    assert [name for name, _ in recorded] == ["docs/hold", "docs/hold-copy"]
+    assert bc.confirmed("held", recorded, {}, r) == []
 
 
 def test_a_branch_carries_its_tip_its_date_and_its_author(root, found):
@@ -176,13 +295,24 @@ def test_a_branch_carries_its_tip_its_date_and_its_author(root, found):
     assert {(b.when, b.who) for b in found.values()} == {(WHEN, "Test")}
 
 
-@pytest.mark.parametrize("name,says", [
-    ("picked", "nothing unique -- every patch is already upstream"),
-    ("mine", "1 carrying work not upstream by patch"),
-    ("shared", "1 commit(s) not on origin; 2 carrying work not upstream by patch"),
+UNCONFIRMED_NOTE = ("origin/{0}-holder held it at the last fetch, and the host "
+                    "does not confirm it; 1 carrying work not upstream by patch")
+
+
+@pytest.mark.parametrize("mode,name,says", [
+    ("online", "picked", "nothing unique -- every patch is already upstream"),
+    ("online", "mine", "1 carrying work not upstream by patch"),
+    ("online", "shared", "1 commit(s) not on origin; 2 carrying work not upstream by patch"),
+    ("online", "held", "all on origin/docs/hold and 1 more"),
+    ("online", "ff", "all on origin/ff-holder"),
+    ("online", "stale", UNCONFIRMED_NOTE.format("stale")),
+    ("online", "moved", UNCONFIRMED_NOTE.format("moved")),
+    ("offline", "stale", "all on origin/stale-holder"),
 ])
-def test_a_branch_only_this_clone_holds_says_what_it_carries(found, name, says):
-    assert "; ".join(found[name].notes) == says
+def test_a_branch_only_this_clone_holds_says_what_it_carries(
+        found, offline, mode, name, says):
+    b = (found if mode == "online" else offline.found)[name]
+    assert "; ".join(b.notes) == says
 
 
 def test_the_patch_comparison_says_nothing_rather_than_zero_when_it_cannot_run(root):
@@ -203,10 +333,12 @@ def test_the_report_sorts_by_what_it_costs_to_be_wrong(found):
     text = bc.render(list(found.values()))
     headings = [l.split(" -- ")[0].strip() for l in text.splitlines()
                 if " -- " in l and not l.startswith("    ")]
-    assert headings == ["STRANDED", "LOCAL", "AHEAD", "GONE", "MERGED"]
+    assert headings == ["STRANDED", "LOCAL", "AHEAD", "HELD", "GONE", "MERGED"]
     assert f"    {WHEN}  {found['mine'].tip}  +1/-0  mine  (1 carrying" in text
-    assert "2 branch(es) hold work this clone alone has: mine, shared" in text
+    assert ("5 branch(es) hold work this clone alone has: "
+            "mine, moved, part, shared, stale") in text
     assert "1 unpushed branch(es) carry nothing upstream does not already have: picked" in text
+    assert "HELD -- every commit is on another remote branch; deleting loses the name" in text
 
 
 def sections(text: str) -> dict[str, list[str]]:
@@ -266,8 +398,9 @@ def run(repo: Path, *args: str) -> subprocess.CompletedProcess:
         env=ENV)
 
 
-def test_the_gate_fires_only_on_work_that_would_be_lost(root):
-    """A branch that is unpushed and patch-equivalent must not fail the gate.
+def test_the_gate_fires_only_on_work_that_would_be_lost(root, capsys):
+    """A branch that is unpushed and patch-equivalent, or held by another
+    remote branch the host confirms, must not fail the gate.
 
     This is the summary line's contract as well as the exit code's: counting
     branches rather than branches with unique work turns every stale local
@@ -280,8 +413,13 @@ def test_the_gate_fires_only_on_work_that_would_be_lost(root):
     at_risk = run(root / "r", "--fail-on-stranded")
     assert at_risk.returncode == 1, at_risk.stdout + at_risk.stderr
     assert at_risk.stderr == ("branch census: work exists only in this clone: "
-                              "mine, shared\n")
-    assert run(root / "r").returncode == 0, "a reading unless asked to be a gate"
+                              "mine, moved, part, shared, stale\n")
+
+    assert bc.main(["--repo", str(root / "r"), "--fail-on-stranded", "--offline"]) == 1
+    assert capsys.readouterr().err == ("branch census: work exists only in this "
+                                       "clone: mine, part, shared\n")
+    assert bc.main(["--repo", str(root / "r"), "--offline"]) == 0, (
+        "a reading unless asked to be a gate")
 
 
 def test_the_census_never_takes_a_delete_flag(capsys):
