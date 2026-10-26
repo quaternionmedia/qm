@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:ebd4ba15e366342af1e74e61e184a8ceabfdc75f3aae843cf81a0d3298e800ae"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -33,7 +33,7 @@
        "color": "#98a7bc",
        "depth": 0,
        "x": 0,
-       "y": 1.4210854715202004e-14,
+       "y": 0,
        "size": 90,
        "label_at": "none"
       }
@@ -54,8 +54,8 @@
        "shape": "square",
        "color": "#98a7bc",
        "depth": 1,
-       "x": 36,
-       "y": -49.549749136962234,
+       "x": 44.67167917422796,
+       "y": -61.48529157249601,
        "size": 30,
        "label_at": "right"
       }
@@ -76,8 +76,8 @@
        "shape": "circle",
        "color": "#98a7bc",
        "depth": 1,
-       "x": 58.24922359499621,
-       "y": 18.92632003628882,
+       "x": 72.28029523843166,
+       "y": 23.485291572496003,
        "size": 30,
        "label_at": "right"
       }
@@ -98,8 +98,8 @@
        "shape": "circle",
        "color": "#98a7bc",
        "depth": 1,
-       "x": 3.750288442705563e-15,
-       "y": 61.24685820134689,
+       "x": 4.653657836759942e-15,
+       "y": 76,
        "size": 30,
        "label_at": "below"
       }
@@ -112,8 +112,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#98a7bc",
        "depth": 1,
-       "x": -58.24922359499621,
-       "y": 18.92632003628883,
+       "x": -72.28029523843166,
+       "y": 23.48529157249601,
        "size": 30,
        "label_at": "left"
       }
@@ -126,8 +126,8 @@
        "click": "<p>A private member. The corpus counts it and does not name it.</p>",
        "color": "#98a7bc",
        "depth": 1,
-       "x": -36.00000000000001,
-       "y": -49.54974913696223,
+       "x": -44.67167917422797,
+       "y": -61.485291572495996,
        "size": 30,
        "label_at": "left"
       }
@@ -223,10 +223,10 @@
     "subject": "family:infra",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

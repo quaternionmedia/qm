@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:08ff3bcfab54e5338030c40fc65e264c7b5e629acba3023a1a58d27dc9c51920"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "ea8028ed94c9d5f52a688127fe0b8dfb3a8e130c"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:QLab-python",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1102.773706284625,
-      "y": -475.1776929937233,
+      "label_at": "none",
+      "x": 149.4927787388899,
+      "y": -43.881888228630245,
       "size": 80
      },
      "dir::quaternionmedia/QLab-python/qlab": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -833.6185654886011,
-      "y": 359.20057263622607,
+      "label_at": "none",
+      "x": -73.3283281255802,
+      "y": 37.218362236285515,
       "size": 90
      },
      "file::quaternionmedia/QLab-python/README.md": {
@@ -244,8 +246,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/QLab-python/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 1297.6294221361236,
-      "y": -362.6776929937233,
+      "label_at": "right",
+      "x": 190.85917866731472,
+      "y": -9.171357305557137,
       "size": 30
      },
      "file::quaternionmedia/QLab-python/characters.py": {
@@ -257,8 +260,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/QLab-python/main/characters.py",
       "line": 0,
       "meta": {},
-      "x": 907.9179904331262,
-      "y": -362.67769299372327,
+      "label_at": "left",
+      "x": 89.5073985584367,
+      "y": -41.27101392937903,
       "size": 30
      },
      "file::quaternionmedia/QLab-python/pyproject.toml": {
@@ -270,8 +274,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/QLab-python/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": 1102.773706284625,
-      "y": -700.1776929937233,
+      "label_at": "right",
+      "x": 195.84174073972338,
+      "y": -90.20573437125202,
       "size": 30
      },
      "file::quaternionmedia/QLab-python/qlab/__init__.py": {
@@ -283,8 +288,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/QLab-python/main/qlab/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -638.7628496371024,
-      "y": 471.70057263622607,
+      "label_at": "right",
+      "x": -31.96192819715539,
+      "y": 71.92889315935862,
       "size": 30
      },
      "file::quaternionmedia/QLab-python/qlab/cues.py": {
@@ -296,8 +302,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/QLab-python/main/qlab/cues.py",
       "line": 0,
       "meta": {},
-      "x": -946.1185654886011,
-      "y": 554.0562884877247,
+      "label_at": "left",
+      "x": -133.3137083060334,
+      "y": 39.82923653553672,
       "size": 30
      },
      "file::quaternionmedia/QLab-python/qlab/osc.py": {
@@ -309,8 +316,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/QLab-python/main/qlab/osc.py",
       "line": 0,
       "meta": {},
-      "x": -1028.4742813400999,
-      "y": 246.70057263622613,
+      "label_at": "right",
+      "x": -26.979366124746758,
+      "y": -9.105483906336243,
       "size": 30
      },
      "file::quaternionmedia/QLab-python/qlab/qlab.py": {
@@ -322,8 +330,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/QLab-python/main/qlab/qlab.py",
       "line": 0,
       "meta": {},
-      "x": -721.1185654886011,
-      "y": 164.34485678472737,
+      "label_at": "below",
+      "x": -76.43616434444391,
+      "y": 107.74161268630887,
       "size": 30
      }
     },

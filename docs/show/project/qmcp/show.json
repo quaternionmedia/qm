@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:d9040bc7306fb0ed94aa174f5542bf084cb32e28e12b07bb82d2371bad42ab22"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "8aece3e1b64817235fe6372ab6511644f85933e5"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -56,10 +56,10 @@
        "click": "<p>The <b>core</b> family drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data.</p><p>7 member(s) in all.</p>",
        "show": "family:core",
        "color": "#74a8f6",
-       "x": 57.591074189580524,
-       "y": 133.21261672557574,
+       "x": 32.879284136636066,
+       "y": 168.82817500246324,
        "size": 11,
-       "label_at": "right"
+       "label_at": "below"
       }
      },
      "phase::v0.0.1": {
@@ -67,8 +67,8 @@
       "metadata": {
        "kind": "claim",
        "hover": "phase v0.0.1, a claim in ci/workspace.yaml",
-       "x": -19.970283849341303,
-       "y": 143.74811596734634,
+       "x": -54.198613500062756,
+       "y": 163.237588485835,
        "size": 11,
        "label_at": "below"
       }
@@ -78,8 +78,8 @@
       "metadata": {
        "kind": "claim",
        "hover": "attention active, a claim in ci/workspace.yaml",
-       "x": -91.72254391808042,
-       "y": 112.46914251642856,
+       "x": -127.32781549695424,
+       "y": 115.63575312494652,
        "size": 11,
        "label_at": "left"
       }
@@ -89,8 +89,8 @@
       "metadata": {
        "kind": "measurement",
        "hover": "recency live, measured from the default branch's last commit",
-       "x": -136.7938991126456,
-       "y": 48.474346274542484,
+       "x": -167.68760089527368,
+       "y": 38.273600640486094,
        "size": 11,
        "label_at": "left"
       }
@@ -101,8 +101,8 @@
        "kind": "branch",
        "depth": 0,
        "hover": "project/qmcp: this project's records in the corpus",
-       "x": 136.7938991126456,
-       "y": -48.47434627454244,
+       "x": 167.68760089527368,
+       "y": -38.27360064048607,
        "size": 70,
        "label_at": "none"
       }
@@ -114,8 +114,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — QM Constitution Adoption Scope for qmcp — Proposed",
-       "x": 196.7938991126456,
-       "y": -48.47434627454244,
+       "x": 243.68760089527368,
+       "y": -38.27360064048607,
        "size": 30,
        "label_at": "right"
       }
@@ -127,8 +127,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — Control Plane and Engine Boundary for qmcp — Proposed",
-       "x": 76.79389911264559,
-       "y": -48.474346274542434,
+       "x": 91.68760089527368,
+       "y": -38.273600640486066,
        "size": 30,
        "label_at": "left"
       }
@@ -139,8 +139,8 @@
        "kind": "capability",
        "phase": "execution",
        "hover": "The governed seam — claims execution",
-       "x": -142.07367359340566,
-       "y": -29.621012016123526,
+       "x": -164.89087072230564,
+       "y": -48.938744900537515,
        "size": 11,
        "label_at": "left"
       }
@@ -151,8 +151,8 @@
        "kind": "capability",
        "phase": "monitoring",
        "hover": "Every declared command resolves — claims monitoring",
-       "x": -106.02604906901371,
-       "y": -99.10000000000004,
+       "x": -119.65739870379964,
+       "y": -123.55608821680917,
        "size": 11,
        "label_at": "left"
       }
@@ -172,8 +172,8 @@
        "show": "project:vox",
        "shape": "circle",
        "color": "#74a8f6",
-       "x": -39.13681452646335,
-       "y": -139.752076299088,
+       "x": -43.62858843243543,
+       "y": -166.37471644271304,
        "size": 11,
        "label_at": "above"
       }
@@ -341,10 +341,10 @@
     "subject": "project:qmcp",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -395,8 +395,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3521.0645166165045,
-      "y": 3233.9631613473657,
+      "label_at": "none",
+      "x": 881.7133543930039,
+      "y": -236.25438126534192,
       "size": 240
      },
      "dir::quaternionmedia/qmcp/.claude": {
@@ -408,8 +409,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5053.675890885274,
-      "y": 291.5420101940761,
+      "label_at": "none",
+      "x": 1549.548536038307,
+      "y": 603.5776560840736,
       "size": 60
      },
      "dir::quaternionmedia/qmcp/.claude/commands": {
@@ -421,8 +423,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 6930.7069583317325,
-      "y": 421.7222261904662,
+      "label_at": "none",
+      "x": 1598.2878740233136,
+      "y": 421.679970396757,
       "size": 100
      },
      "dir::quaternionmedia/qmcp/.github": {
@@ -434,8 +437,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 11.202816965944972,
-      "y": 1001.9923769512525,
+      "label_at": "none",
+      "x": 1883.0823846144835,
+      "y": -155.2409358360419,
       "size": 70
      },
      "dir::quaternionmedia/qmcp/.github/workflows": {
@@ -447,8 +451,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 44.32068748635159,
-      "y": 1109.3102646037896,
+      "label_at": "right",
+      "x": 1924.9094927182791,
+      "y": -220.8767151616001,
       "size": 50
      },
      "dir::quaternionmedia/qmcp/.vscode": {
@@ -460,8 +465,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3252.5712753352673,
-      "y": 469.25789288000345,
+      "label_at": "left",
+      "x": 817.9622498579255,
+      "y": -219.17232428857557,
       "size": 50
      },
      "dir::quaternionmedia/qmcp/LICENSES": {
@@ -473,8 +479,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -88.04280572582466,
-      "y": 1323.4977370812865,
+      "label_at": "left",
+      "x": 804.5710738700975,
+      "y": -295.4975754375437,
       "size": 50
      },
      "dir::quaternionmedia/qmcp/alembic": {
@@ -486,8 +493,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2684.11296009405,
-      "y": 3098.959816343263,
+      "label_at": "none",
+      "x": 1917.7450047569557,
+      "y": -628.9393869453833,
       "size": 70
      },
      "dir::quaternionmedia/qmcp/alembic/versions": {
@@ -499,8 +507,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2806.6054349177416,
-      "y": 3241.1539673915136,
+      "label_at": "none",
+      "x": 1690.9863474558915,
+      "y": -568.1795878447973,
       "size": 110
      },
      "dir::quaternionmedia/qmcp/docker": {
@@ -512,8 +521,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2668.106756655653,
-      "y": 700.1865844414558,
+      "label_at": "none",
+      "x": 1824.5484752610917,
+      "y": 132.70012186580556,
       "size": 60
      },
      "dir::quaternionmedia/qmcp/docs": {
@@ -525,8 +535,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 305.407648578626,
-      "y": 1839.9570586071018,
+      "label_at": "none",
+      "x": 1069.2575882834471,
+      "y": -853.3682962264834,
       "size": 250
      },
      "dir::quaternionmedia/qmcp/docs/adrs": {
@@ -538,8 +549,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2214.9034097235785,
-      "y": -969.747983238331,
+      "label_at": "none",
+      "x": 1260.259193114273,
+      "y": -662.3666913956577,
       "size": 60
      },
      "dir::quaternionmedia/qmcp/docs/agentframework": {
@@ -551,8 +563,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5818.798666819113,
-      "y": 2218.7806731292335,
+      "label_at": "none",
+      "x": 787.7564712239,
+      "y": -777.9402992419188,
       "size": 100
      },
      "dir::quaternionmedia/qmcp/docs/integrations": {
@@ -564,8 +577,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2389.4646733581526,
-      "y": 2798.0646963190106,
+      "label_at": "none",
+      "x": 995.051901917365,
+      "y": -1130.307687955223,
       "size": 90
      },
      "dir::quaternionmedia/qmcp/docs/setup": {
@@ -577,8 +591,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -6827.278327641205,
-      "y": 650.1507741317082,
+      "label_at": "none",
+      "x": 1346.1969800121867,
+      "y": -927.5739825925657,
       "size": 90
      },
      "dir::quaternionmedia/qmcp/examples": {
@@ -590,8 +605,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 6608.710267907347,
-      "y": -4202.122211557103,
+      "label_at": "none",
+      "x": 1210.0727584312513,
+      "y": 400.5674569866023,
       "size": 80
      },
      "dir::quaternionmedia/qmcp/examples/flows": {
@@ -603,8 +619,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 6827.261004841179,
-      "y": -4287.85480643045,
+      "label_at": "none",
+      "x": 958.8638707779157,
+      "y": 467.8786755648343,
       "size": 160
      },
      "dir::quaternionmedia/qmcp/governance": {
@@ -616,8 +633,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3220.7540982766027,
-      "y": -484.85363644635777,
+      "label_at": "above",
+      "x": 881.8114789549655,
+      "y": -356.94143679148505,
       "size": 50
      },
      "dir::quaternionmedia/qmcp/qmcp": {
@@ -629,8 +647,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -7362.222973272838,
-      "y": -5227.366648041003,
+      "label_at": "none",
+      "x": -403.12971887771914,
+      "y": 244.64747368973167,
       "size": 390
      },
      "dir::quaternionmedia/qmcp/qmcp/agentframework": {
@@ -642,8 +661,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2725.5225360886343,
-      "y": -4035.8295024719305,
+      "label_at": "none",
+      "x": -705.752047798475,
+      "y": 325.7348823356739,
       "size": 110
      },
      "dir::quaternionmedia/qmcp/qmcp/agentframework/models": {
@@ -655,8 +675,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2486.302503605407,
-      "y": -3198.7973530190748,
+      "label_at": "none",
+      "x": -1231.9944700214603,
+      "y": 601.181816418848,
       "size": 120
      },
      "dir::quaternionmedia/qmcp/qmcp/agentframework/models/configs": {
@@ -668,8 +689,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 6760.868351045505,
-      "y": -1422.7794843631148,
+      "label_at": "none",
+      "x": -993.5015522637682,
+      "y": 537.2778317051323,
       "size": 100
      },
      "dir::quaternionmedia/qmcp/qmcp/agentframework/models/entities": {
@@ -681,8 +703,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -10516.18848302136,
-      "y": -95.43205221607506,
+      "label_at": "none",
+      "x": -1300.1670333299112,
+      "y": 346.75834646950364,
       "size": 140
      },
      "dir::quaternionmedia/qmcp/qmcp/agentframework/models/schemas": {
@@ -694,8 +717,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4657.719754976719,
-      "y": -4543.988253752164,
+      "label_at": "none",
+      "x": -1489.9716446379016,
+      "y": 670.3065920229863,
       "size": 150
      },
      "dir::quaternionmedia/qmcp/qmcp/client": {
@@ -707,8 +731,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3256.2316093114127,
-      "y": -1729.4050651843993,
+      "label_at": "none",
+      "x": 184.38527007400506,
+      "y": 754.8614206053057,
       "size": 70
      },
      "dir::quaternionmedia/qmcp/qmcp/cookbook": {
@@ -720,8 +745,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2129.222160040547,
-      "y": -4298.564733649321,
+      "label_at": "none",
+      "x": -115.4279971585555,
+      "y": 789.8592037189723,
       "size": 140
      },
      "dir::quaternionmedia/qmcp/qmcp/db": {
@@ -733,8 +759,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2705.6459320748227,
-      "y": -3772.7904419834836,
+      "label_at": "none",
+      "x": 331.95778292913553,
+      "y": 27.856316497981236,
       "size": 120
      },
      "dir::quaternionmedia/qmcp/qmcp/instructions": {
@@ -746,8 +773,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 500.50152267503404,
-      "y": -4451.465695512468,
+      "label_at": "none",
+      "x": -500.16688132982597,
+      "y": 887.0453975863534,
       "size": 130
      },
      "dir::quaternionmedia/qmcp/qmcp/integrations": {
@@ -759,8 +787,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3469.987356855851,
-      "y": 2612.72789749226,
+      "label_at": "none",
+      "x": -47.420866967815854,
+      "y": -481.35794122079113,
       "size": 90
      },
      "dir::quaternionmedia/qmcp/qmcp/integrations/agents": {
@@ -772,8 +801,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5926.553838107277,
-      "y": 3022.5822753653124,
+      "label_at": "none",
+      "x": -269.8874373592735,
+      "y": -421.7482033414784,
       "size": 110
      },
      "dir::quaternionmedia/qmcp/qmcp/integrations/agents/adapters": {
@@ -785,8 +815,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3697.659103037255,
-      "y": 1683.1590188006153,
+      "label_at": "none",
+      "x": -503.4907205376914,
+      "y": -359.1543922645624,
       "size": 80
      },
      "dir::quaternionmedia/qmcp/qmcp/integrations/pydantic_ai": {
@@ -798,8 +829,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 6564.880297725659,
-      "y": -200.04426202557642,
+      "label_at": "none",
+      "x": 170.48397809283426,
+      "y": -422.9705139599611,
       "size": 90
      },
      "dir::quaternionmedia/qmcp/qmcp/integrations/voice": {
@@ -811,8 +843,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4607.224806641013,
-      "y": 2509.0885517333736,
+      "label_at": "none",
+      "x": 13.338932132769997,
+      "y": -708.1165985218555,
       "size": 110
      },
      "dir::quaternionmedia/qmcp/qmcp/schemas": {
@@ -824,8 +857,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4578.685136004211,
-      "y": 870.7856435959924,
+      "label_at": "none",
+      "x": -255.52174802127087,
+      "y": 1057.228949578053,
       "size": 70
      },
      "dir::quaternionmedia/qmcp/qmcp/testing": {
@@ -837,8 +871,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -6836.651507687482,
-      "y": -2318.5457978857985,
+      "label_at": "none",
+      "x": 157.43930978627105,
+      "y": 326.5448773497403,
       "size": 130
      },
      "dir::quaternionmedia/qmcp/qmcp/testing/_netguard_site": {
@@ -850,8 +885,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2627.391104750015,
-      "y": -883.0436317719771,
+      "label_at": "none",
+      "x": -73.38461498217555,
+      "y": 388.3939615852279,
       "size": 60
      },
      "dir::quaternionmedia/qmcp/qmcp/threads": {
@@ -863,8 +899,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 8800.567201466123,
-      "y": -2900.337518306161,
+      "label_at": "none",
+      "x": -377.15592449196987,
+      "y": 577.1036661646873,
       "size": 150
      },
      "dir::quaternionmedia/qmcp/qmcp/tools": {
@@ -876,8 +913,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5000.858629106261,
-      "y": 1847.9244105269138,
+      "label_at": "none",
+      "x": -912.7628776769681,
+      "y": -290.69776228472114,
       "size": 90
      },
      "dir::quaternionmedia/qmcp/tests": {
@@ -889,8 +927,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 29536.557754845206,
-      "y": -3704.8722558645322,
+      "label_at": "none",
+      "x": 1384.6518208345847,
+      "y": -101.49242533977359,
       "size": 1010
      },
      "dir::quaternionmedia/qmcp/vendor": {
@@ -902,8 +941,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3043.5863951701817,
-      "y": -108.10686675417016,
+      "label_at": "below",
+      "x": 856.13259557827,
+      "y": -92.31950092543822,
       "size": 50
      },
      "dir::quaternionmedia/qmcp/walkthrough": {
@@ -915,8 +955,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -9553.72206800413,
-      "y": 2623.1008034696233,
+      "label_at": "none",
+      "x": 404.27548862960316,
+      "y": -1004.2005020352447,
       "size": 160
      },
      "file::quaternionmedia/qmcp/.claude/commands/cowork.md": {
@@ -928,8 +969,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/.claude/commands/cowork.md",
       "line": 0,
       "meta": {},
-      "x": 7143.962352081367,
-      "y": 544.8452851779567,
+      "label_at": "left",
+      "x": 1546.127879403704,
+      "y": 435.6561988322932,
       "size": 30
      },
      "file::quaternionmedia/qmcp/.claude/commands/handoff.md": {
@@ -941,8 +983,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/.claude/commands/handoff.md",
       "line": 0,
       "meta": {},
-      "x": 6879.509511586245,
-      "y": 662.5872756777076,
+      "label_at": "right",
+      "x": 1630.5553716007676,
+      "y": 371.04528761816124,
       "size": 30
      },
      "file::quaternionmedia/qmcp/.claude/commands/preflight.md": {
@@ -954,8 +997,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/.claude/commands/preflight.md",
       "line": 0,
       "meta": {},
-      "x": 6685.809802356175,
-      "y": 447.4619544880164,
+      "label_at": "below",
+      "x": 1609.649474837363,
+      "y": 486.21708395897156,
       "size": 30
      },
      "file::quaternionmedia/qmcp/.claude/commands/reflect.md": {
@@ -967,8 +1011,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/.claude/commands/reflect.md",
       "line": 0,
       "meta": {},
-      "x": 6830.549638936142,
-      "y": 196.76520365229817,
+      "label_at": "left",
+      "x": 1542.3011908704511,
+      "y": 378.6837053317427,
       "size": 30
      },
      "file::quaternionmedia/qmcp/.claude/commands/status.md": {
@@ -980,8 +1025,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/.claude/commands/status.md",
       "line": 0,
       "meta": {},
-      "x": 7113.703486698736,
-      "y": 256.95141195635216,
+      "label_at": "right",
+      "x": 1673.3191684050273,
+      "y": 415.15656151760146,
       "size": 30
      },
      "file::quaternionmedia/qmcp/.github/copilot-instructions.md": {
@@ -993,8 +1039,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/.github/copilot-instructions.md",
       "line": 0,
       "meta": {},
-      "x": 206.05853281744368,
-      "y": 1114.4923769512525,
+      "label_at": "left",
+      "x": 1819.3312800794051,
+      "y": -138.15887885927555,
       "size": 30
      },
      "file::quaternionmedia/qmcp/AGENTS.md": {
@@ -1006,8 +1053,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/AGENTS.md",
       "line": 0,
       "meta": {},
-      "x": 3766.251566059817,
-      "y": 3375.521970345272,
+      "label_at": "right",
+      "x": 923.5404624968,
+      "y": -301.8901605909001,
       "size": 30
      },
      "file::quaternionmedia/qmcp/CLAUDE.md": {
@@ -1019,8 +1067,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/CLAUDE.md",
       "line": 0,
       "meta": {},
-      "x": 3563.261007997001,
-      "y": 3513.9185894690554,
+      "label_at": "below",
+      "x": 896.9857990287052,
+      "y": -149.50256609788025,
       "size": 30
      },
      "file::quaternionmedia/qmcp/README.md": {
@@ -1032,8 +1081,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 3328.495631273111,
-      "y": 3441.503061167198,
+      "label_at": "right",
+      "x": 986.9678439196248,
+      "y": -245.4054705169259,
       "size": 30
      },
      "file::quaternionmedia/qmcp/REUSE.toml": {
@@ -1045,8 +1095,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/REUSE.toml",
       "line": 0,
       "meta": {},
-      "x": 3238.7385529021885,
-      "y": 3212.805755258573,
+      "label_at": "left",
+      "x": 805.0321194515833,
+      "y": -152.68524397256712,
       "size": 30
      },
      "file::quaternionmedia/qmcp/alembic/env.py": {
@@ -1058,8 +1109,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/alembic/env.py",
       "line": 0,
       "meta": {},
-      "x": 2878.9686759455485,
-      "y": 3211.4598163432624,
+      "label_at": "left",
+      "x": 1865.585010137346,
+      "y": -614.9631585098472,
       "size": 30
      },
      "file::quaternionmedia/qmcp/alembic/versions/3dda531e16d2_baseline_the_schema_this_database_.py": {
@@ -1071,8 +1123,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/alembic/versions/3dda531e16d2_baseline_the_schema_this_database_.py",
       "line": 0,
       "meta": {},
-      "x": 3036.4954090084093,
-      "y": 3373.8810058167564,
+      "label_at": "left",
+      "x": 1638.8263528362818,
+      "y": -554.2033594092612,
       "size": 30
      },
      "file::quaternionmedia/qmcp/alembic/versions/626146afaf3f_add_the_columns_an_acted_on_instruction_.py": {
@@ -1084,8 +1137,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/alembic/versions/626146afaf3f_add_the_columns_an_acted_on_instruction_.py",
       "line": 0,
       "meta": {},
-      "x": 2806.6054349177416,
-      "y": 3506.6080442419993,
+      "label_at": "right",
+      "x": 1723.2538450333454,
+      "y": -618.8142706233931,
       "size": 30
      },
      "file::quaternionmedia/qmcp/alembic/versions/adf10cb9cbff_add_the_columns_the_models_gained.py": {
@@ -1097,8 +1151,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/alembic/versions/adf10cb9cbff_add_the_columns_the_models_gained.py",
       "line": 0,
       "meta": {},
-      "x": 2576.715460827074,
-      "y": 3373.8810058167564,
+      "label_at": "below",
+      "x": 1702.3479482699408,
+      "y": -503.6424742825826,
       "size": 30
      },
      "file::quaternionmedia/qmcp/alembic/versions/b7ecf8eefe0a_add_the_instructions_table.py": {
@@ -1110,8 +1165,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/alembic/versions/b7ecf8eefe0a_add_the_instructions_table.py",
       "line": 0,
       "meta": {},
-      "x": 2576.715460827074,
-      "y": 3108.4269289662707,
+      "label_at": "left",
+      "x": 1634.9996643030288,
+      "y": -611.1758529098116,
       "size": 30
      },
      "file::quaternionmedia/qmcp/alembic/versions/d4f87e6c2b91_add_reusable_topology_components.py": {
@@ -1123,8 +1179,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/alembic/versions/d4f87e6c2b91_add_reusable_topology_components.py",
       "line": 0,
       "meta": {},
-      "x": 2806.6054349177416,
-      "y": 2975.699890541028,
+      "label_at": "right",
+      "x": 1766.017641837605,
+      "y": -574.7029967239528,
       "size": 30
      },
      "file::quaternionmedia/qmcp/alembic/versions/e5a1c9d37f02_scope_topology_names_to_a_project.py": {
@@ -1136,8 +1193,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/alembic/versions/e5a1c9d37f02_scope_topology_names_to_a_project.py",
       "line": 0,
       "meta": {},
-      "x": 3036.4954090084093,
-      "y": 3108.4269289662707,
+      "label_at": "left",
+      "x": 1637.0629045441717,
+      "y": -509.41246434409777,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docker/flows.Dockerfile": {
@@ -1149,8 +1207,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docker/flows.Dockerfile",
       "line": 0,
       "meta": {},
-      "x": 2862.9624725071517,
-      "y": 812.6865844414558,
+      "label_at": "left",
+      "x": 1772.388480641482,
+      "y": 146.6763503013417,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/README.md": {
@@ -1162,8 +1221,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/README.md",
       "line": 0,
       "meta": {},
-      "x": 656.1479371113237,
-      "y": 2042.4570586071018,
+      "label_at": "left",
+      "x": 1017.0975936638374,
+      "y": -839.3920677909472,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/ROADMAP.md": {
@@ -1175,8 +1235,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/ROADMAP.md",
       "line": 0,
       "meta": {},
-      "x": 551.9560273271578,
-      "y": 2161.265161425052,
+      "label_at": "right",
+      "x": 1101.525085860901,
+      "y": -904.0029790050789,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/adrs/pydantic-ai-comparison.md": {
@@ -1188,8 +1249,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/adrs/pydantic-ai-comparison.md",
       "line": 0,
       "meta": {},
-      "x": 2409.759125575077,
-      "y": -857.247983238331,
+      "label_at": "left",
+      "x": 1208.0991984946634,
+      "y": -648.3904629601216,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/agentframework/mixins.md": {
@@ -1201,8 +1263,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/agentframework/mixins.md",
       "line": 0,
       "meta": {},
-      "x": 6032.0540605687465,
-      "y": 2341.903732116724,
+      "label_at": "left",
+      "x": 735.5964766042903,
+      "y": -763.9640708063827,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/agentframework/models.md": {
@@ -1214,8 +1277,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/agentframework/models.md",
       "line": 0,
       "meta": {},
-      "x": 5767.601220073625,
-      "y": 2459.645722616475,
+      "label_at": "right",
+      "x": 820.0239688013537,
+      "y": -828.5749820205144,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/agentframework/overview.md": {
@@ -1227,8 +1291,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/agentframework/overview.md",
       "line": 0,
       "meta": {},
-      "x": 5573.901510843555,
-      "y": 2244.5204014267833,
+      "label_at": "below",
+      "x": 799.1180720379493,
+      "y": -713.403185679704,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/agentframework/runners.md": {
@@ -1240,8 +1305,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/agentframework/runners.md",
       "line": 0,
       "meta": {},
-      "x": 5718.641347423521,
-      "y": 1993.8236505910652,
+      "label_at": "left",
+      "x": 731.7697880710373,
+      "y": -820.9365643069331,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/agentframework/topologies.md": {
@@ -1253,8 +1319,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/agentframework/topologies.md",
       "line": 0,
       "meta": {},
-      "x": 6001.795195186116,
-      "y": 2054.009858895119,
+      "label_at": "right",
+      "x": 862.7877656056136,
+      "y": -784.4637081210742,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/architecture.md": {
@@ -1266,8 +1333,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/architecture.md",
       "line": 0,
       "meta": {},
-      "x": 410.229361845147,
-      "y": 2231.1570182541745,
+      "label_at": "below",
+      "x": 1080.6191890974965,
+      "y": -788.8311826642687,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/client.md": {
@@ -1279,8 +1347,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/client.md",
       "line": 0,
       "meta": {},
-      "x": 252.54454072950517,
-      "y": 2241.492227463495,
+      "label_at": "left",
+      "x": 1013.2709051305845,
+      "y": -896.3645612914977,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/contributing.md": {
@@ -1292,8 +1361,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/contributing.md",
       "line": 0,
       "meta": {},
-      "x": 102.9076485786261,
-      "y": 2190.697347139799,
+      "label_at": "right",
+      "x": 1144.2888826651608,
+      "y": -859.8917051056387,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/deployment.md": {
@@ -1305,8 +1375,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/deployment.md",
       "line": 0,
       "meta": {},
-      "x": -15.90045423932418,
-      "y": 2086.5054373556336,
+      "label_at": "left",
+      "x": 1015.3341453717271,
+      "y": -794.6011727257837,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/http-api.md": {
@@ -1318,8 +1389,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/http-api.md",
       "line": 0,
       "meta": {},
-      "x": -85.79231106844661,
-      "y": 1944.7787718736229,
+      "label_at": "above",
+      "x": 1069.3258571990318,
+      "y": -937.3347796550228,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/human_in_loop.md": {
@@ -1331,8 +1403,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/human_in_loop.md",
       "line": 0,
       "meta": {},
-      "x": -96.1275202777672,
-      "y": 1787.093950757981,
+      "label_at": "right",
+      "x": 1128.6304590462273,
+      "y": -788.4506582735651,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/integrations/alfred.md": {
@@ -1344,8 +1417,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/integrations/alfred.md",
       "line": 0,
       "meta": {},
-      "x": -2194.6089575066535,
-      "y": 2910.5646963190106,
+      "label_at": "left",
+      "x": 942.8919072977552,
+      "y": -1116.3314595196866,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/integrations/index.md": {
@@ -1357,8 +1431,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/integrations/index.md",
       "line": 0,
       "meta": {},
-      "x": -2501.9646733581526,
-      "y": 2992.9204121705093,
+      "label_at": "right",
+      "x": 1027.3193994948188,
+      "y": -1180.9423707338187,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/integrations/pydantic-ai.md": {
@@ -1370,8 +1445,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/integrations/pydantic-ai.md",
       "line": 0,
       "meta": {},
-      "x": -2584.3203892096512,
-      "y": 2685.5646963190106,
+      "label_at": "below",
+      "x": 1006.4135027314143,
+      "y": -1065.7705743930082,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/integrations/voice.md": {
@@ -1383,8 +1459,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/integrations/voice.md",
       "line": 0,
       "meta": {},
-      "x": -2276.9646733581526,
-      "y": 2603.208980467512,
+      "label_at": "left",
+      "x": 939.0652187645024,
+      "y": -1173.303953020237,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/overview.md": {
@@ -1396,8 +1473,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/overview.md",
       "line": 0,
       "meta": {},
-      "x": -45.33263995407171,
-      "y": 1637.457058607102,
+      "label_at": "left",
+      "x": 977.8088065106709,
+      "y": -861.4689327616686,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/roles.md": {
@@ -1409,8 +1487,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/roles.md",
       "line": 0,
       "meta": {},
-      "x": 58.85926983009404,
-      "y": 1518.6489557891516,
+      "label_at": "right",
+      "x": 1145.0825036709346,
+      "y": -911.4040154559402,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/self-checks.md": {
@@ -1422,8 +1501,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/self-checks.md",
       "line": 0,
       "meta": {},
-      "x": 200.58593531210516,
-      "y": 1448.7570989600292,
+      "label_at": "below",
+      "x": 1051.9293490711611,
+      "y": -755.8677468649449,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/setup/README.md": {
@@ -1435,8 +1515,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/setup/README.md",
       "line": 0,
       "meta": {},
-      "x": -6632.422611789705,
-      "y": 762.6507741317082,
+      "label_at": "left",
+      "x": 1294.036985392577,
+      "y": -913.5977541570293,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/setup/flows.md": {
@@ -1448,8 +1529,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/setup/flows.md",
       "line": 0,
       "meta": {},
-      "x": -6939.778327641205,
-      "y": 845.006489983207,
+      "label_at": "right",
+      "x": 1378.4644775896402,
+      "y": -978.2086653711613,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/setup/harness.md": {
@@ -1461,8 +1543,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/setup/harness.md",
       "line": 0,
       "meta": {},
-      "x": -7022.134043492703,
-      "y": 537.6507741317083,
+      "label_at": "below",
+      "x": 1357.5585808262358,
+      "y": -863.0368690303509,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/setup/tool-server.md": {
@@ -1474,8 +1557,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/setup/tool-server.md",
       "line": 0,
       "meta": {},
-      "x": -6714.778327641205,
-      "y": 455.29505828020956,
+      "label_at": "left",
+      "x": 1290.2102968593238,
+      "y": -970.5702476575798,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/testing.md": {
@@ -1487,8 +1571,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/testing.md",
       "line": 0,
       "meta": {},
-      "x": 358.27075642774673,
-      "y": 1438.4218897507087,
+      "label_at": "left",
+      "x": 1014.3409237525465,
+      "y": -939.8544075785413,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/threads.md": {
@@ -1500,8 +1585,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/threads.md",
       "line": 0,
       "meta": {},
-      "x": 507.907648578626,
-      "y": 1489.2167700744044,
+      "label_at": "right",
+      "x": 1171.3673060708632,
+      "y": -825.8300404107243,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/tools.md": {
@@ -1513,8 +1599,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/tools.md",
       "line": 0,
       "meta": {},
-      "x": 626.7157513965764,
-      "y": 1593.4086798585702,
+      "label_at": "left",
+      "x": 972.5141709034353,
+      "y": -803.2232696172883,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/voice-loop-demo.md": {
@@ -1526,8 +1613,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/voice-loop-demo.md",
       "line": 0,
       "meta": {},
-      "x": 696.6076082256986,
-      "y": 1735.1353453405811,
+      "label_at": "above",
+      "x": 1107.7923973250015,
+      "y": -958.6201061497857,
       "size": 30
      },
      "file::quaternionmedia/qmcp/docs/voice-loop-next-phases.md": {
@@ -1539,8 +1627,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/docs/voice-loop-next-phases.md",
       "line": 0,
       "meta": {},
-      "x": 706.9428174350192,
-      "y": 1892.8201664562228,
+      "label_at": "right",
+      "x": 1113.0947108218122,
+      "y": -746.9246764667422,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/demo_agent_harness.py": {
@@ -1552,8 +1641,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/demo_agent_harness.py",
       "line": 0,
       "meta": {},
-      "x": 6803.5659837588455,
-      "y": -4089.6222115571027,
+      "label_at": "left",
+      "x": 1157.9127638116418,
+      "y": 414.5436854221384,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/demo_step_as_delta.py": {
@@ -1565,8 +1655,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/demo_step_as_delta.py",
       "line": 0,
       "meta": {},
-      "x": 6413.854552055848,
-      "y": -4314.622211557103,
+      "label_at": "right",
+      "x": 1242.3402560087052,
+      "y": 349.93277420800666,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/alfred_caption_render.py": {
@@ -1578,8 +1669,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/alfred_caption_render.py",
       "line": 0,
       "meta": {},
-      "x": 7124.7374671056905,
-      "y": -4116.106690864456,
+      "label_at": "left",
+      "x": 906.703876158306,
+      "y": 481.8549040003704,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/alfred_render.py": {
@@ -1591,8 +1683,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/alfred_render.py",
       "line": 0,
       "meta": {},
-      "x": 6984.660088059263,
-      "y": -3982.5431797209753,
+      "label_at": "right",
+      "x": 991.1313683553693,
+      "y": 417.2439927862386,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/approved_deploy.py": {
@@ -1604,8 +1697,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/approved_deploy.py",
       "line": 0,
       "meta": {},
-      "x": 6794.609612219874,
-      "y": -3945.913952828883,
+      "label_at": "below",
+      "x": 970.2254715919648,
+      "y": 532.4157891270488,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/change_impact.py": {
@@ -1617,8 +1711,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/change_impact.py",
       "line": 0,
       "meta": {},
-      "x": 6614.925722834032,
-      "y": -4017.848530916668,
+      "label_at": "left",
+      "x": 902.877187625053,
+      "y": 424.8824104998199,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/council_deliberation.py": {
@@ -1630,8 +1725,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/council_deliberation.py",
       "line": 0,
       "meta": {},
-      "x": 6502.656785196049,
-      "y": -4175.508193706901,
+      "label_at": "right",
+      "x": 1033.8951651596292,
+      "y": 461.3552666856787,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/local_agent_chain.py": {
@@ -1643,8 +1739,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/local_agent_chain.py",
       "line": 0,
       "meta": {},
-      "x": 6493.447393751578,
-      "y": -4368.8371122336275,
+      "label_at": "left",
+      "x": 904.9404278661957,
+      "y": 526.6457990655339,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/local_qc_gauntlet.py": {
@@ -1656,8 +1753,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/local_qc_gauntlet.py",
       "line": 0,
       "meta": {},
-      "x": 6590.221465213787,
-      "y": -4536.454720861475,
+      "label_at": "above",
+      "x": 958.9321396935004,
+      "y": 383.91219213629495,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/local_release_notes.py": {
@@ -1669,8 +1767,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/local_release_notes.py",
       "line": 0,
       "meta": {},
-      "x": 6762.25391566634,
-      "y": -4625.14361318053,
+      "label_at": "right",
+      "x": 1018.236741540696,
+      "y": 532.7963135177525,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/plan_council.py": {
@@ -1682,8 +1781,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/plan_council.py",
       "line": 0,
       "meta": {},
-      "x": 6954.92565761376,
-      "y": -4606.745692525263,
+      "label_at": "left",
+      "x": 867.4150890051397,
+      "y": 459.77803902964894,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/qc_release.py": {
@@ -1695,8 +1795,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/qc_release.py",
       "line": 0,
       "meta": {},
-      "x": 7107.064774341219,
-      "y": -4487.102168710224,
+      "label_at": "right",
+      "x": 1034.6887861654031,
+      "y": 409.84295633537727,
       "size": 30
      },
      "file::quaternionmedia/qmcp/examples/flows/simple_plan.py": {
@@ -1708,8 +1809,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/examples/flows/simple_plan.py",
       "line": 0,
       "meta": {},
-      "x": 7170.368171251377,
-      "y": -4304.1990151859445,
+      "label_at": "below",
+      "x": 941.5356315656301,
+      "y": 565.3792249263728,
       "size": 30
      },
      "file::quaternionmedia/qmcp/main.py": {
@@ -1721,8 +1823,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/main.py",
       "line": 0,
       "meta": {},
-      "x": 3604.51489948766,
-      "y": 2963.4236647516177,
+      "label_at": "right",
+      "x": 967.7901811993322,
+      "y": -142.1389341434516,
       "size": 30
      },
      "file::quaternionmedia/qmcp/pyproject.toml": {
@@ -1734,8 +1837,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": 3361.5786836082684,
-      "y": 3000.040407667241,
+      "label_at": "left",
+      "x": 748.1895521611219,
+      "y": -248.08207070754764,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/__init__.py": {
@@ -1747,8 +1851,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -6941.414168261804,
-      "y": -4984.412571190517,
+      "label_at": "left",
+      "x": -455.28971349732893,
+      "y": 258.6237021252678,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/__main__.py": {
@@ -1760,8 +1865,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/__main__.py",
       "line": 0,
       "meta": {},
-      "x": -7018.634022757045,
-      "y": -4883.777697525211,
+      "label_at": "right",
+      "x": -370.86222130026533,
+      "y": 194.012790911136,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/addresses.py": {
@@ -1773,8 +1879,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/addresses.py",
       "line": 0,
       "meta": {},
-      "x": -7119.268896422353,
-      "y": -4806.557843029967,
+      "label_at": "below",
+      "x": -391.76811806366993,
+      "y": 309.18458725194637,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/README.md": {
@@ -1786,8 +1893,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/README.md",
       "line": 0,
       "meta": {},
-      "x": -2512.2671423390007,
-      "y": -3912.70644348444,
+      "label_at": "left",
+      "x": -757.9120424180848,
+      "y": 339.71111077121003,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/__init__.py": {
@@ -1799,8 +1907,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -2776.7199828341218,
-      "y": -3794.964452984689,
+      "label_at": "right",
+      "x": -673.484550221021,
+      "y": 275.1001995570781,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/mixins.py": {
@@ -1812,8 +1921,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/mixins.py",
       "line": 0,
       "meta": {},
-      "x": -2970.419692064192,
-      "y": -4010.08977417438,
+      "label_at": "below",
+      "x": -694.3904469844256,
+      "y": 390.27199589788853,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/__init__.py": {
@@ -1825,8 +1935,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -2291.446787753908,
-      "y": -3086.2973530190748,
+      "label_at": "left",
+      "x": -1284.1544646410698,
+      "y": 615.1580448543842,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/base.py": {
@@ -1838,8 +1949,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/base.py",
       "line": 0,
       "meta": {},
-      "x": -2598.802503605407,
-      "y": -3003.941637167576,
+      "label_at": "right",
+      "x": -1199.7269724440066,
+      "y": 550.5471336402525,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/configs/__init__.py": {
@@ -1851,8 +1963,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/configs/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 6974.123744795139,
-      "y": -1299.656425375624,
+      "label_at": "left",
+      "x": -1045.6615468833775,
+      "y": 551.2540601406682,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/configs/agent.py": {
@@ -1864,8 +1977,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/configs/agent.py",
       "line": 0,
       "meta": {},
-      "x": 6709.670904300017,
-      "y": -1181.9144348758732,
+      "label_at": "right",
+      "x": -961.2340546863143,
+      "y": 486.6431489265365,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/configs/base.py": {
@@ -1877,8 +1991,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/configs/base.py",
       "line": 0,
       "meta": {},
-      "x": 6515.9711950699475,
-      "y": -1397.0397560655645,
+      "label_at": "below",
+      "x": -982.1399514497185,
+      "y": 601.8149452673467,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/configs/model.py": {
@@ -1890,8 +2005,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/configs/model.py",
       "line": 0,
       "meta": {},
-      "x": 6660.711031649915,
-      "y": -1647.7365069012826,
+      "label_at": "left",
+      "x": -1049.4882354166305,
+      "y": 494.2815666401179,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/configs/topology.py": {
@@ -1903,8 +2019,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/configs/topology.py",
       "line": 0,
       "meta": {},
-      "x": 6943.864879412508,
-      "y": -1587.5502985972287,
+      "label_at": "right",
+      "x": -918.4702578820546,
+      "y": 530.7544228259768,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/entities/__init__.py": {
@@ -1916,8 +2033,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/entities/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -10243.390480829263,
-      "y": 62.06794778392493,
+      "label_at": "left",
+      "x": -1352.3270279495207,
+      "y": 360.7345749050398,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/entities/agents.py": {
@@ -1929,8 +2047,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/entities/agents.py",
       "line": 0,
       "meta": {},
-      "x": -10408.452137873775,
-      "y": 200.5711233314861,
+      "label_at": "right",
+      "x": -1267.8995357524575,
+      "y": 296.12366369090796,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/entities/audit.py": {
@@ -1942,8 +2061,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/entities/audit.py",
       "line": 0,
       "meta": {},
-      "x": -10623.924828168947,
-      "y": 200.5711233314861,
+      "label_at": "below",
+      "x": -1288.8054325158623,
+      "y": 411.29546003171845,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/entities/base.py": {
@@ -1955,8 +2075,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/entities/base.py",
       "line": 0,
       "meta": {},
-      "x": -10788.98648521346,
-      "y": 62.06794778392506,
+      "label_at": "left",
+      "x": -1356.153716482774,
+      "y": 303.76208140448944,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/entities/executions.py": {
@@ -1968,8 +2089,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/entities/executions.py",
       "line": 0,
       "meta": {},
-      "x": -10826.402925220207,
-      "y": -150.13122818115804,
+      "label_at": "right",
+      "x": -1225.135738948198,
+      "y": 340.2349375903483,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/entities/messages.py": {
@@ -1981,8 +2103,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/entities/messages.py",
       "line": 0,
       "meta": {},
-      "x": -10718.66658007262,
-      "y": -336.73605179855315,
+      "label_at": "left",
+      "x": -1354.0904762416312,
+      "y": 405.5254699702034,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/entities/resources.py": {
@@ -1994,8 +2117,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/entities/resources.py",
       "line": 0,
       "meta": {},
-      "x": -10516.18848302136,
-      "y": -410.43205221607514,
+      "label_at": "above",
+      "x": -1300.0987644143265,
+      "y": 262.79186304096436,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/entities/topologies.py": {
@@ -2007,8 +2131,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/entities/topologies.py",
       "line": 0,
       "meta": {},
-      "x": -10313.710385970102,
-      "y": -336.7360517985532,
+      "label_at": "right",
+      "x": -1240.7941625671308,
+      "y": 411.67598442242206,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/entities/workflows.py": {
@@ -2020,8 +2145,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/entities/workflows.py",
       "line": 0,
       "meta": {},
-      "x": -10205.974040822515,
-      "y": -150.13122818115815,
+      "label_at": "left",
+      "x": -1391.6158151026875,
+      "y": 338.65770993431846,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/enums.py": {
@@ -2033,8 +2159,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/enums.py",
       "line": 0,
       "meta": {},
-      "x": -2681.1582194569055,
-      "y": -3311.2973530190743,
+      "label_at": "below",
+      "x": -1220.632869207411,
+      "y": 665.7189299810627,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/registry.py": {
@@ -2046,8 +2173,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/registry.py",
       "line": 0,
       "meta": {},
-      "x": -2373.802503605407,
-      "y": -3393.653068870573,
+      "label_at": "left",
+      "x": -1287.981153174323,
+      "y": 558.1855513538338,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/__init__.py": {
@@ -2059,8 +2187,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -4372.273460929095,
-      "y": -4379.185759044588,
+      "label_at": "left",
+      "x": -1542.131639257511,
+      "y": 684.2828204585225,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/agents.py": {
@@ -2072,8 +2201,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/agents.py",
       "line": 0,
       "meta": {},
-      "x": -4523.657328040965,
-      "y": -4242.879112855613,
+      "label_at": "right",
+      "x": -1457.7041470604474,
+      "y": 619.6719092443906,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/audit.py": {
@@ -2085,8 +2215,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/audit.py",
       "line": 0,
       "meta": {},
-      "x": -4726.248485627993,
-      "y": -4221.58592416584,
+      "label_at": "below",
+      "x": -1478.6100438238518,
+      "y": 734.8437055852008,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/base.py": {
@@ -2098,8 +2229,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/base.py",
       "line": 0,
       "meta": {},
-      "x": -4902.663997312122,
-      "y": -4323.439467325898,
+      "label_at": "left",
+      "x": -1545.9583277907639,
+      "y": 627.310326957972,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/common.py": {
@@ -2111,8 +2243,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/common.py",
       "line": 0,
       "meta": {},
-      "x": -4985.519133772717,
-      "y": -4509.535150723247,
+      "label_at": "right",
+      "x": -1414.940350256188,
+      "y": 663.7831831438309,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/executions.py": {
@@ -2124,8 +2257,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/executions.py",
       "line": 0,
       "meta": {},
-      "x": -4943.166049024344,
-      "y": -4708.790748459742,
+      "label_at": "left",
+      "x": -1543.8950875496212,
+      "y": 729.0737155236859,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/messages.py": {
@@ -2137,8 +2271,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/messages.py",
       "line": 0,
       "meta": {},
-      "x": -4791.782181912474,
-      "y": -4845.0973946487165,
+      "label_at": "above",
+      "x": -1489.903375722317,
+      "y": 586.340108594447,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/metrics.py": {
@@ -2150,8 +2285,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/metrics.py",
       "line": 0,
       "meta": {},
-      "x": -4589.191024325445,
-      "y": -4866.39058333849,
+      "label_at": "right",
+      "x": -1430.5987738751207,
+      "y": 735.2242299759046,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/topologies.py": {
@@ -2163,8 +2299,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/topologies.py",
       "line": 0,
       "meta": {},
-      "x": -4412.775512641317,
-      "y": -4764.537040178432,
+      "label_at": "left",
+      "x": -1581.4204264106775,
+      "y": 662.205955487801,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/models/schemas/workflows.py": {
@@ -2176,8 +2313,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/models/schemas/workflows.py",
       "line": 0,
       "meta": {},
-      "x": -4329.92037618072,
-      "y": -4578.4413567810825,
+      "label_at": "right",
+      "x": -1414.1467292504135,
+      "y": 612.2708727935294,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/runners.py": {
@@ -2189,8 +2327,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/runners.py",
       "line": 0,
       "meta": {},
-      "x": -2825.6798554842258,
-      "y": -4260.786525010099,
+      "label_at": "left",
+      "x": -761.7387309513374,
+      "y": 282.7386172706596,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/agentframework/topologies.py": {
@@ -2202,8 +2341,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/agentframework/topologies.py",
       "line": 0,
       "meta": {},
-      "x": -2542.5260077216312,
-      "y": -4200.600316706044,
+      "label_at": "right",
+      "x": -630.7207534167615,
+      "y": 319.21147345651843,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/audit.py": {
@@ -2215,8 +2355,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/audit.py",
       "line": 0,
       "meta": {},
-      "x": -7236.460688924424,
-      "y": -4758.015413176796,
+      "label_at": "left",
+      "x": -459.11640203058187,
+      "y": 201.65120862471738,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cli.py": {
@@ -2228,8 +2369,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cli.py",
       "line": 0,
       "meta": {},
-      "x": -7362.222973272838,
-      "y": -4741.4584943400305,
+      "label_at": "right",
+      "x": -328.0984244960056,
+      "y": 238.1240648105762,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/client/__init__.py": {
@@ -2241,8 +2383,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/client/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -3061.375893459914,
-      "y": -1616.9050651843993,
+      "label_at": "left",
+      "x": 132.2252754543954,
+      "y": 768.8376490408418,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/client/mcp_client.py": {
@@ -2254,8 +2397,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/client/mcp_client.py",
       "line": 0,
       "meta": {},
-      "x": -3451.0873251629114,
-      "y": -1841.9050651843993,
+      "label_at": "right",
+      "x": 216.65276765145887,
+      "y": 704.2267378267101,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/config.py": {
@@ -2267,8 +2411,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/config.py",
       "line": 0,
       "meta": {},
-      "x": -7487.9852576212525,
-      "y": -4758.015413176796,
+      "label_at": "left",
+      "x": -457.0531617894392,
+      "y": 303.41459719043127,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cookbook/__init__.py": {
@@ -2280,8 +2425,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cookbook/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -1856.4241578484489,
-      "y": -4141.06473364932,
+      "label_at": "left",
+      "x": -167.58799177816516,
+      "y": 803.8354321545083,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cookbook/agent_builders.py": {
@@ -2293,8 +2439,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cookbook/agent_builders.py",
       "line": 0,
       "meta": {},
-      "x": -2021.4858148929611,
-      "y": -4002.5615581017596,
+      "label_at": "right",
+      "x": -83.1604995811017,
+      "y": 739.2245209403766,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cookbook/alfred_captions.py": {
@@ -2306,8 +2453,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cookbook/alfred_captions.py",
       "line": 0,
       "meta": {},
-      "x": -2236.9585051881327,
-      "y": -4002.5615581017596,
+      "label_at": "below",
+      "x": -104.0663963445063,
+      "y": 854.3963172811867,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cookbook/alfred_render.py": {
@@ -2319,8 +2467,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cookbook/alfred_render.py",
       "line": 0,
       "meta": {},
-      "x": -2402.020162232645,
-      "y": -4141.06473364932,
+      "label_at": "left",
+      "x": -171.41468031141812,
+      "y": 746.8629386539579,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cookbook/change_impact.py": {
@@ -2332,8 +2481,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cookbook/change_impact.py",
       "line": 0,
       "meta": {},
-      "x": -2439.4366022393924,
-      "y": -4353.263909614404,
+      "label_at": "right",
+      "x": -40.39670277684212,
+      "y": 783.3357948398168,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cookbook/delta.py": {
@@ -2345,8 +2495,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cookbook/delta.py",
       "line": 0,
       "meta": {},
-      "x": -2331.7002570918066,
-      "y": -4539.868733231799,
+      "label_at": "left",
+      "x": -169.35144007027546,
+      "y": 848.6263272196718,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cookbook/mcp_tools.py": {
@@ -2358,8 +2509,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cookbook/mcp_tools.py",
       "line": 0,
       "meta": {},
-      "x": -2129.222160040547,
-      "y": -4613.56473364932,
+      "label_at": "above",
+      "x": -115.35972824297083,
+      "y": 705.892720290433,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cookbook/persistence.py": {
@@ -2371,8 +2523,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cookbook/persistence.py",
       "line": 0,
       "meta": {},
-      "x": -1926.7440629892872,
-      "y": -4539.868733231799,
+      "label_at": "right",
+      "x": -56.05512639577509,
+      "y": 854.7768416718906,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/cookbook/steps.py": {
@@ -2384,8 +2537,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/cookbook/steps.py",
       "line": 0,
       "meta": {},
-      "x": -1819.0077178417014,
-      "y": -4353.263909614404,
+      "label_at": "left",
+      "x": -206.87677893133153,
+      "y": 781.7585671837869,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/dashboard.py": {
@@ -2397,8 +2551,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/dashboard.py",
       "line": 0,
       "meta": {},
-      "x": -7605.177050123325,
-      "y": -4806.557843029967,
+      "label_at": "above",
+      "x": -403.06144996213453,
+      "y": 160.6809902611924,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/db/__init__.py": {
@@ -2410,8 +2565,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/db/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 2950.832981518135,
-      "y": -3631.2316329855767,
+      "label_at": "left",
+      "x": 279.79778830952586,
+      "y": 41.83254493351738,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/db/backup.py": {
@@ -2423,8 +2579,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/db/backup.py",
       "line": 0,
       "meta": {},
-      "x": 2747.842423455319,
-      "y": -3492.835013861793,
+      "label_at": "right",
+      "x": 364.22528050658934,
+      "y": -22.77836628061442,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/db/engine.py": {
@@ -2436,8 +2593,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/db/engine.py",
       "line": 0,
       "meta": {},
-      "x": 2513.0770467314287,
-      "y": -3565.250542163651,
+      "label_at": "below",
+      "x": 343.31938374318486,
+      "y": 92.39343006019591,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/db/models.py": {
@@ -2449,8 +2607,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/db/models.py",
       "line": 0,
       "meta": {},
-      "x": 2423.3199683605067,
-      "y": -3793.9478480722764,
+      "label_at": "left",
+      "x": 275.9710997762729,
+      "y": -15.139948567033002,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/db/paths.py": {
@@ -2462,8 +2621,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/db/paths.py",
       "line": 0,
       "meta": {},
-      "x": 2546.1600990665866,
-      "y": -4006.713195663608,
+      "label_at": "right",
+      "x": 406.9890773108489,
+      "y": 21.332907618825885,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/db/registry.py": {
@@ -2475,8 +2635,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/db/registry.py",
       "line": 0,
       "meta": {},
-      "x": 2789.096314945978,
-      "y": -4043.3299385792316,
+      "label_at": "left",
+      "x": 278.03434001741556,
+      "y": 86.62343999868088,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/db/schema.py": {
@@ -2488,8 +2649,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/db/schema.py",
       "line": 0,
       "meta": {},
-      "x": 2969.192690445803,
-      "y": -3876.224922558248,
+      "label_at": "above",
+      "x": 332.02605184472037,
+      "y": -56.11016693055808,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/feedback.py": {
@@ -2501,8 +2663,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/feedback.py",
       "line": 0,
       "meta": {},
-      "x": -7705.811923788631,
-      "y": -4883.777697525211,
+      "label_at": "right",
+      "x": -343.7568481149388,
+      "y": 309.56511164265,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/governed.py": {
@@ -2514,8 +2677,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/governed.py",
       "line": 0,
       "meta": {},
-      "x": -7783.031778283874,
-      "y": -4984.412571190516,
+      "label_at": "left",
+      "x": -494.5785006504952,
+      "y": 236.54683715454635,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/identity.py": {
@@ -2527,8 +2691,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/identity.py",
       "line": 0,
       "meta": {},
-      "x": -7831.574208137046,
-      "y": -5101.604363692589,
+      "label_at": "right",
+      "x": -327.3048034902318,
+      "y": 186.61175446027482,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/instance.py": {
@@ -2540,8 +2705,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/instance.py",
       "line": 0,
       "meta": {},
-      "x": -7848.13112697381,
-      "y": -5227.366648041003,
+      "label_at": "below",
+      "x": -420.45795809000487,
+      "y": 342.1480230512701,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/instructions/__init__.py": {
@@ -2553,8 +2719,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/instructions/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 759.9267426958198,
-      "y": -4301.686474898889,
+      "label_at": "left",
+      "x": -552.3268759494357,
+      "y": 901.0216260218893,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/instructions/act.py": {
@@ -2566,8 +2733,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/instructions/act.py",
       "line": 0,
       "meta": {},
-      "x": 578.0329523858466,
-      "y": -4162.114460648261,
+      "label_at": "right",
+      "x": -467.89938375237216,
+      "y": 836.4107148077576,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/instructions/check.py": {
@@ -2579,8 +2747,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/instructions/check.py",
       "line": 0,
       "meta": {},
-      "x": 350.72230206145554,
-      "y": -4192.040475491682,
+      "label_at": "below",
+      "x": -488.80528051577653,
+      "y": 951.5825111485678,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/instructions/continuity.py": {
@@ -2592,8 +2761,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/instructions/continuity.py",
       "line": 0,
       "meta": {},
-      "x": 211.150287810827,
-      "y": -4373.934265801656,
+      "label_at": "left",
+      "x": -556.1535644826884,
+      "y": 844.0491325213391,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/instructions/converse.py": {
@@ -2605,8 +2775,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/instructions/converse.py",
       "line": 0,
       "meta": {},
-      "x": 241.07630265424817,
-      "y": -4601.2449161260465,
+      "label_at": "right",
+      "x": -425.1355869481124,
+      "y": 880.5219887071978,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/instructions/dialog.py": {
@@ -2618,8 +2789,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/instructions/dialog.py",
       "line": 0,
       "meta": {},
-      "x": 422.9700929642217,
-      "y": -4740.8169303766745,
+      "label_at": "left",
+      "x": -554.0903242415458,
+      "y": 945.8125210870527,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/instructions/service.py": {
@@ -2631,8 +2803,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/instructions/service.py",
       "line": 0,
       "meta": {},
-      "x": 650.2807432886127,
-      "y": -4710.890915533253,
+      "label_at": "above",
+      "x": -500.09861241424113,
+      "y": 803.0789141578138,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/instructions/spoken.py": {
@@ -2644,8 +2817,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/instructions/spoken.py",
       "line": 0,
       "meta": {},
-      "x": 789.8527575392411,
-      "y": -4528.99712522328,
+      "label_at": "right",
+      "x": -440.7940105670456,
+      "y": 951.9630355392717,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/__init__.py": {
@@ -2657,8 +2831,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 3664.8430727073496,
-      "y": 2725.22789749226,
+      "label_at": "left",
+      "x": -99.58086158742555,
+      "y": -467.38171278525493,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/agents/__init__.py": {
@@ -2670,8 +2845,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/agents/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -5713.298444357644,
-      "y": 3145.7053343528028,
+      "label_at": "left",
+      "x": -322.0474319788832,
+      "y": -407.7719749059423,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/agents/adapters/__init__.py": {
@@ -2683,8 +2859,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/agents/adapters/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -3502.8033871857565,
-      "y": 1795.6590188006153,
+      "label_at": "left",
+      "x": -555.6507151573012,
+      "y": -345.17816382902623,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/agents/adapters/claudecode.py": {
@@ -2696,8 +2873,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/agents/adapters/claudecode.py",
       "line": 0,
       "meta": {},
-      "x": -3892.5148188887542,
-      "y": 1795.6590188006153,
+      "label_at": "right",
+      "x": -471.22322296023765,
+      "y": -409.78907504315805,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/agents/adapters/ollama.py": {
@@ -2709,8 +2887,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/agents/adapters/ollama.py",
       "line": 0,
       "meta": {},
-      "x": -3697.659103037255,
-      "y": 1458.1590188006153,
+      "label_at": "below",
+      "x": -492.1291197236423,
+      "y": -294.61727870234773,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/agents/check.py": {
@@ -2722,8 +2901,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/agents/check.py",
       "line": 0,
       "meta": {},
-      "x": -5977.751284852765,
-      "y": 3263.4473248525537,
+      "label_at": "right",
+      "x": -237.6199397818197,
+      "y": -472.3828861200741,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/agents/crosscheck.py": {
@@ -2735,8 +2915,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/agents/crosscheck.py",
       "line": 0,
       "meta": {},
-      "x": -6171.450994082835,
-      "y": 3048.3220036628622,
+      "label_at": "below",
+      "x": -258.5258365452243,
+      "y": -357.2110897792637,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/agents/scripted.py": {
@@ -2748,8 +2929,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/agents/scripted.py",
       "line": 0,
       "meta": {},
-      "x": -6026.711157502868,
-      "y": 2797.6252528271443,
+      "label_at": "left",
+      "x": -325.87412051213613,
+      "y": -464.7444684064927,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/agents/topology_design.py": {
@@ -2761,8 +2943,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/agents/topology_design.py",
       "line": 0,
       "meta": {},
-      "x": -5743.557309740274,
-      "y": 2857.811461131198,
+      "label_at": "right",
+      "x": -194.85614297755993,
+      "y": -428.2716122206339,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/pydantic_ai/__init__.py": {
@@ -2774,8 +2957,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/pydantic_ai/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 6759.736013577158,
-      "y": -87.54426202557643,
+      "label_at": "left",
+      "x": 118.32398347322459,
+      "y": -408.9942855244249,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/pydantic_ai/agents.py": {
@@ -2787,8 +2971,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/pydantic_ai/agents.py",
       "line": 0,
       "meta": {},
-      "x": 6452.380297725659,
-      "y": -5.188546174077713,
+      "label_at": "right",
+      "x": 202.75147567028807,
+      "y": -473.60519673855686,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/pydantic_ai/models.py": {
@@ -2800,8 +2985,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/pydantic_ai/models.py",
       "line": 0,
       "meta": {},
-      "x": 6370.0245818741605,
-      "y": -312.54426202557636,
+      "label_at": "below",
+      "x": 181.8455789068835,
+      "y": -358.4334003977464,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/pydantic_ai/toolsets.py": {
@@ -2813,8 +2999,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/pydantic_ai/toolsets.py",
       "line": 0,
       "meta": {},
-      "x": 6677.380297725659,
-      "y": -394.89997787707506,
+      "label_at": "left",
+      "x": 114.49729493997165,
+      "y": -465.9667790249753,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/voice/__init__.py": {
@@ -2826,8 +3013,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/voice/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 4837.114780731681,
-      "y": 2641.8155901586165,
+      "label_at": "left",
+      "x": -38.82106248683968,
+      "y": -694.1403700863194,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/voice/adapter.py": {
@@ -2839,8 +3027,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/voice/adapter.py",
       "line": 0,
       "meta": {},
-      "x": 4607.224806641013,
-      "y": 2774.54262858386,
+      "label_at": "right",
+      "x": 45.60642971022381,
+      "y": -758.7512813004512,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/voice/check.py": {
@@ -2852,8 +3041,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/voice/check.py",
       "line": 0,
       "meta": {},
-      "x": 4377.334832550346,
-      "y": 2641.815590158617,
+      "label_at": "below",
+      "x": 24.70053294681918,
+      "y": -643.5794849596409,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/voice/service.py": {
@@ -2865,8 +3055,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/voice/service.py",
       "line": 0,
       "meta": {},
-      "x": 4377.334832550346,
-      "y": 2376.3615133081307,
+      "label_at": "left",
+      "x": -42.64775102009264,
+      "y": -751.1128635868698,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/voice/vocabulary.py": {
@@ -2878,8 +3069,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/voice/vocabulary.py",
       "line": 0,
       "meta": {},
-      "x": 4607.224806641013,
-      "y": 2243.6344748828874,
+      "label_at": "right",
+      "x": 88.37022651448359,
+      "y": -714.6400074010111,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/integrations/voice/vocabulary.toml": {
@@ -2891,8 +3083,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/integrations/voice/vocabulary.toml",
       "line": 0,
       "meta": {},
-      "x": 4837.114780731681,
-      "y": 2376.3615133081307,
+      "label_at": "left",
+      "x": -40.58451077894995,
+      "y": -649.349475021156,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/localmodel.py": {
@@ -2904,8 +3097,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/localmodel.py",
       "line": 0,
       "meta": {},
-      "x": -7831.574208137046,
-      "y": -5353.128932389417,
+      "label_at": "left",
+      "x": -458.0463834086198,
+      "y": 158.161362337674,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/log.py": {
@@ -2917,8 +3111,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/log.py",
       "line": 0,
       "meta": {},
-      "x": -7783.031778283874,
-      "y": -5470.320724891489,
+      "label_at": "right",
+      "x": -301.0200010903029,
+      "y": 272.18572950549066,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/metrics.py": {
@@ -2930,8 +3125,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/metrics.py",
       "line": 0,
       "meta": {},
-      "x": -7705.811923788631,
-      "y": -5570.955598556795,
+      "label_at": "left",
+      "x": -499.8731362577308,
+      "y": 294.7925002989267,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/middleware.py": {
@@ -2943,8 +3139,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/middleware.py",
       "line": 0,
       "meta": {},
-      "x": -7605.177050123325,
-      "y": -5648.175453052038,
+      "label_at": "above",
+      "x": -364.5949098361649,
+      "y": 139.39566376642944,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/orchestration.py": {
@@ -2956,8 +3153,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/orchestration.py",
       "line": 0,
       "meta": {},
-      "x": -7487.9852576212525,
-      "y": -5696.71788290521,
+      "label_at": "right",
+      "x": -359.2925963393542,
+      "y": 351.09109344947285,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/orchestration_service.py": {
@@ -2969,8 +3167,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/orchestration_service.py",
       "line": 0,
       "meta": {},
-      "x": -7362.222973272838,
-      "y": -5713.274801741975,
+      "label_at": "left",
+      "x": -510.0308628361045,
+      "y": 194.51619183509985,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/schemas/__init__.py": {
@@ -2982,8 +3181,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/schemas/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -4383.829420152712,
-      "y": 983.2856435959924,
+      "label_at": "left",
+      "x": -307.68174264088054,
+      "y": 1071.2051780135891,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/schemas/mcp.py": {
@@ -2995,8 +3195,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/schemas/mcp.py",
       "line": 0,
       "meta": {},
-      "x": -4773.54085185571,
-      "y": 758.2856435959925,
+      "label_at": "right",
+      "x": -223.254250443817,
+      "y": 1006.5942667994575,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/selfcheck.py": {
@@ -3008,8 +3209,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/selfcheck.py",
       "line": 0,
       "meta": {},
-      "x": -7236.460688924424,
-      "y": -5696.71788290521,
+      "label_at": "right",
+      "x": -287.6895989550967,
+      "y": 208.5415017148554,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/server.py": {
@@ -3021,8 +3223,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/server.py",
       "line": 0,
       "meta": {},
-      "x": -7119.268896422353,
-      "y": -5648.175453052038,
+      "label_at": "left",
+      "x": -465.2762092474644,
+      "y": 351.68456415244543,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/spend.py": {
@@ -3034,8 +3237,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/spend.py",
       "line": 0,
       "meta": {},
-      "x": -7018.634022757045,
-      "y": -5570.955598556795,
+      "label_at": "above",
+      "x": -430.1962858613892,
+      "y": 121.05302214874013,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/sweep.py": {
@@ -3047,8 +3251,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/sweep.py",
       "line": 0,
       "meta": {},
-      "x": -6941.414168261804,
-      "y": -5470.320724891489,
+      "label_at": "right",
+      "x": -297.4819175228505,
+      "y": 319.0503773217958,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/testing/__init__.py": {
@@ -3060,8 +3265,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/testing/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -6591.46445824417,
-      "y": -2176.986988887892,
+      "label_at": "left",
+      "x": 105.27931516666138,
+      "y": 340.52110578527646,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/testing/_netguard_site/sitecustomize.py": {
@@ -3073,8 +3279,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/testing/_netguard_site/sitecustomize.py",
       "line": 0,
       "meta": {},
-      "x": -2432.5353888985164,
-      "y": -770.5436317719771,
+      "label_at": "left",
+      "x": -125.54460960178527,
+      "y": 402.37019002076397,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/testing/loopback.py": {
@@ -3086,8 +3293,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/testing/loopback.py",
       "line": 0,
       "meta": {},
-      "x": -6794.455016306985,
-      "y": -2038.5903697641083,
+      "label_at": "right",
+      "x": 189.70680736372478,
+      "y": 275.91019457114464,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/testing/netguard.py": {
@@ -3099,8 +3307,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/testing/netguard.py",
       "line": 0,
       "meta": {},
-      "x": -7029.220393030876,
-      "y": -2111.005898065966,
+      "label_at": "below",
+      "x": 168.80091060032026,
+      "y": 391.08199091195496,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/testing/plugin.py": {
@@ -3112,8 +3321,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/testing/plugin.py",
       "line": 0,
       "meta": {},
-      "x": -7118.977471401797,
-      "y": -2339.7032039745914,
+      "label_at": "left",
+      "x": 101.45262663340841,
+      "y": 283.548612284726,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/testing/process.py": {
@@ -3125,8 +3335,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/testing/process.py",
       "line": 0,
       "meta": {},
-      "x": -6996.137340695718,
-      "y": -2552.4685515659235,
+      "label_at": "right",
+      "x": 232.47060416798456,
+      "y": 320.02146847058486,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/testing/server.py": {
@@ -3138,8 +3349,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/testing/server.py",
       "line": 0,
       "meta": {},
-      "x": -6753.201124816325,
-      "y": -2589.085294481547,
+      "label_at": "left",
+      "x": 103.51586687455112,
+      "y": 385.3120008504399,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/testing/settings.py": {
@@ -3151,8 +3363,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/testing/settings.py",
       "line": 0,
       "meta": {},
-      "x": -6573.104749316501,
-      "y": -2421.9802784605627,
+      "label_at": "above",
+      "x": 157.50757870185572,
+      "y": 242.57839392120098,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/__init__.py": {
@@ -3164,8 +3377,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 9086.013495513747,
-      "y": -2735.5350235985843,
+      "label_at": "left",
+      "x": -429.3159191115796,
+      "y": 591.0798946002234,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/base.py": {
@@ -3177,8 +3391,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/base.py",
       "line": 0,
       "meta": {},
-      "x": 8934.629628401877,
-      "y": -2599.22837740961,
+      "label_at": "right",
+      "x": -344.88842691451634,
+      "y": 526.4689833860916,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/cache.py": {
@@ -3190,8 +3405,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/cache.py",
       "line": 0,
       "meta": {},
-      "x": 8732.038470814849,
-      "y": -2577.935188719837,
+      "label_at": "below",
+      "x": -365.7943236779207,
+      "y": 641.6407797269021,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/chatgpt.py": {
@@ -3203,8 +3419,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/chatgpt.py",
       "line": 0,
       "meta": {},
-      "x": 8555.62295913072,
-      "y": -2679.7887318798944,
+      "label_at": "left",
+      "x": -433.1426076448327,
+      "y": 534.1074010996731,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/claude.py": {
@@ -3216,8 +3433,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/claude.py",
       "line": 0,
       "meta": {},
-      "x": 8472.767822670125,
-      "y": -2865.884415277244,
+      "label_at": "right",
+      "x": -302.1246301102565,
+      "y": 570.5802572855318,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/claudecode.py": {
@@ -3229,8 +3447,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/claudecode.py",
       "line": 0,
       "meta": {},
-      "x": 8515.120907418499,
-      "y": -3065.140013013738,
+      "label_at": "left",
+      "x": -431.0793674036901,
+      "y": 635.870789665387,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/consolidate.py": {
@@ -3242,8 +3461,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/consolidate.py",
       "line": 0,
       "meta": {},
-      "x": 8666.504774530367,
-      "y": -3201.4466592027134,
+      "label_at": "above",
+      "x": -377.08765557638526,
+      "y": 493.1371827361479,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/importer.py": {
@@ -3255,8 +3475,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/importer.py",
       "line": 0,
       "meta": {},
-      "x": 8869.095932117398,
-      "y": -3222.739847892486,
+      "label_at": "right",
+      "x": -317.78305372918976,
+      "y": 642.0213041176057,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/index.py": {
@@ -3268,8 +3489,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/index.py",
       "line": 0,
       "meta": {},
-      "x": 9045.511443801526,
-      "y": -3120.8863047324285,
+      "label_at": "left",
+      "x": -468.6047062647459,
+      "y": 569.0030296295021,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/threads/service.py": {
@@ -3281,8 +3503,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/threads/service.py",
       "line": 0,
       "meta": {},
-      "x": 9128.366580262122,
-      "y": -2934.7906213350784,
+      "label_at": "right",
+      "x": -301.33100910448246,
+      "y": 519.0679469352305,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/tools/__init__.py": {
@@ -3294,8 +3517,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/tools/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -4806.0029132547625,
-      "y": 1960.4244105269138,
+      "label_at": "left",
+      "x": -964.9228722965779,
+      "y": -276.721533849185,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/tools/alfred.py": {
@@ -3307,8 +3531,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/tools/alfred.py",
       "line": 0,
       "meta": {},
-      "x": -5113.358629106261,
-      "y": 2042.7801263784127,
+      "label_at": "right",
+      "x": -880.4953800995144,
+      "y": -341.33244506331675,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/tools/builtin.py": {
@@ -3320,8 +3545,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/tools/builtin.py",
       "line": 0,
       "meta": {},
-      "x": -5195.71434495776,
-      "y": 1735.4244105269138,
+      "label_at": "below",
+      "x": -901.401276862919,
+      "y": -226.16064872250647,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/tools/registry.py": {
@@ -3333,8 +3559,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/tools/registry.py",
       "line": 0,
       "meta": {},
-      "x": -4888.358629106261,
-      "y": 1653.0686946754151,
+      "label_at": "left",
+      "x": -968.7495608298308,
+      "y": -333.6940273497353,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/topology_designs.py": {
@@ -3346,8 +3573,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/topology_designs.py",
       "line": 0,
       "meta": {},
-      "x": -6892.871738408631,
-      "y": -5353.128932389417,
+      "label_at": "left",
+      "x": -533.9072765450387,
+      "y": 261.4862061411645,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/topology_service.py": {
@@ -3359,8 +3587,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/topology_service.py",
       "line": 0,
       "meta": {},
-      "x": -6876.314819571867,
-      "y": -5227.366648041003,
+      "label_at": "right",
+      "x": -316.40368797847384,
+      "y": 141.91495418172408,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp/topology_view.py": {
@@ -3372,8 +3601,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp/topology_view.py",
       "line": 0,
       "meta": {},
-      "x": -6892.871738408631,
-      "y": -5101.604363692589,
+      "label_at": "below",
+      "x": -397.5811457145809,
+      "y": 381.5184013400303,
       "size": 30
      },
      "file::quaternionmedia/qmcp/qmcp_mcp.py": {
@@ -3385,8 +3615,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/qmcp_mcp.py",
       "line": 0,
       "meta": {},
-      "x": 3784.6112749874846,
-      "y": 3130.5286807726015,
+      "label_at": "right",
+      "x": 993.0852033592254,
+      "y": -321.4974088854653,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/__init__.py": {
@@ -3398,8 +3629,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 30339.204221696975,
-      "y": -3241.4641021635603,
+      "label_at": "left",
+      "x": 1332.491826214975,
+      "y": -87.51619690423743,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/alfred_stub.py": {
@@ -3411,8 +3643,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/alfred_stub.py",
       "line": 0,
       "meta": {},
-      "x": 30307.177350636375,
-      "y": -3189.960703994867,
+      "label_at": "right",
+      "x": 1416.9193184120381,
+      "y": -152.12710811836914,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/conftest.py": {
@@ -3424,8 +3657,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/conftest.py",
       "line": 0,
       "meta": {},
-      "x": 30271.850568158923,
-      "y": -3140.6622361419395,
+      "label_at": "below",
+      "x": 1396.0134216486338,
+      "y": -36.95531177755885,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_addresses.py": {
@@ -3437,8 +3671,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_addresses.py",
       "line": 0,
       "meta": {},
-      "x": 30233.375148970656,
-      "y": -3093.7798022125617,
+      "label_at": "left",
+      "x": 1328.6651376817217,
+      "y": -144.48869040478772,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_agentframework_mixins.py": {
@@ -3450,8 +3685,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_agentframework_mixins.py",
       "line": 0,
       "meta": {},
-      "x": 30191.91585072339,
-      "y": -3049.514159986342,
+      "label_at": "right",
+      "x": 1459.683115216298,
+      "y": -108.01583421892889,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_agentframework_models.py": {
@@ -3463,8 +3699,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_agentframework_models.py",
       "line": 0,
       "meta": {},
-      "x": 30147.650208497173,
-      "y": -3008.054861739078,
+      "label_at": "left",
+      "x": 1330.7283779228644,
+      "y": -42.725301839073836,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_agents_local.py": {
@@ -3476,8 +3713,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_agents_local.py",
       "line": 0,
       "meta": {},
-      "x": 30100.7677745678,
-      "y": -2969.579442550812,
+      "label_at": "above",
+      "x": 1384.7200897501693,
+      "y": -185.4589087683128,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_agents_runtime.py": {
@@ -3489,8 +3727,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_agents_runtime.py",
       "line": 0,
       "meta": {},
-      "x": 30051.46930671487,
-      "y": -2934.2526600733613,
+      "label_at": "right",
+      "x": 1444.0246915973646,
+      "y": -36.57478738685518,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_alfred_caption_flow.py": {
@@ -3502,8 +3741,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_alfred_caption_flow.py",
       "line": 0,
       "meta": {},
-      "x": 29999.965908546175,
-      "y": -2902.225789012761,
+      "label_at": "left",
+      "x": 1293.2030390618086,
+      "y": -109.59306187495879,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_alfred_caption_tools.py": {
@@ -3515,8 +3755,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_alfred_caption_tools.py",
       "line": 0,
       "meta": {},
-      "x": 29946.47812551962,
-      "y": -2873.635973347748,
+      "label_at": "right",
+      "x": 1460.476736222072,
+      "y": -159.5281445692304,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_alfred_render_flow.py": {
@@ -3528,8 +3769,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_alfred_render_flow.py",
       "line": 0,
       "meta": {},
-      "x": 29891.23500053372,
-      "y": -2848.605639058187,
+      "label_at": "below",
+      "x": 1367.323581622299,
+      "y": -3.9918759782350435,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_alfred_tools.py": {
@@ -3541,8 +3783,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_alfred_tools.py",
       "line": 0,
       "meta": {},
-      "x": 29834.473093130735,
-      "y": -2827.2419698782337,
+      "label_at": "left",
+      "x": 1329.7351563036839,
+      "y": -187.97853669183118,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_answer_controls.py": {
@@ -3554,8 +3797,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_answer_controls.py",
       "line": 0,
       "meta": {},
-      "x": 29776.43546651242,
-      "y": -2809.6364483191264,
+      "label_at": "right",
+      "x": 1486.761538622001,
+      "y": -73.95416952401445,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_answer_over.py": {
@@ -3567,8 +3811,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_answer_over.py",
       "line": 0,
       "meta": {},
-      "x": 29717.370646706047,
-      "y": -2795.86446392703,
+      "label_at": "left",
+      "x": 1287.9084034545729,
+      "y": -51.34739873057851,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_audit.py": {
@@ -3580,8 +3825,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_audit.py",
       "line": 0,
       "meta": {},
-      "x": 29657.531558337832,
-      "y": -2785.984990453425,
+      "label_at": "above",
+      "x": 1423.186629876139,
+      "y": -206.74423526307572,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cli_cookbook.py": {
@@ -3593,8 +3839,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cli_cookbook.py",
       "line": 0,
       "meta": {},
-      "x": 29597.17444157082,
-      "y": -2780.04033332045,
+      "label_at": "right",
+      "x": 1428.4889433729495,
+      "y": 4.951194419967749,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cli_human_voice.py": {
@@ -3606,8 +3853,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cli_human_voice.py",
       "line": 0,
       "meta": {},
-      "x": 29536.557754845206,
-      "y": -2778.0559484625883,
+      "label_at": "left",
+      "x": 1277.7506768761991,
+      "y": -151.62370719440528,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cli_instruct.py": {
@@ -3619,8 +3867,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cli_instruct.py",
       "line": 0,
       "meta": {},
-      "x": 29475.94106811959,
-      "y": -2780.04033332045,
+      "label_at": "right",
+      "x": 1500.0919407572069,
+      "y": -137.59839731464976,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cli_instructions_act.py": {
@@ -3632,8 +3881,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cli_instructions_act.py",
       "line": 0,
       "meta": {},
-      "x": 29415.58395135258,
-      "y": -2785.984990453425,
+      "label_at": "left",
+      "x": 1322.5053304648395,
+      "y": 5.544665122940216,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cli_preflight.py": {
@@ -3645,8 +3895,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cli_preflight.py",
       "line": 0,
       "meta": {},
-      "x": 29355.744862984364,
-      "y": -2795.8644639270296,
+      "label_at": "above",
+      "x": 1357.5852538509146,
+      "y": -225.086876880765,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cli_test_command.py": {
@@ -3658,8 +3909,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cli_test_command.py",
       "line": 0,
       "meta": {},
-      "x": 29296.680043177992,
-      "y": -2809.6364483191264,
+      "label_at": "right",
+      "x": 1490.2996221894532,
+      "y": -27.08952170770931,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_client.py": {
@@ -3671,8 +3923,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_client.py",
       "line": 0,
       "meta": {},
-      "x": 29238.642416559673,
-      "y": -2827.2419698782337,
+      "label_at": "left",
+      "x": 1253.874263167265,
+      "y": -84.65369288834071,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_client_reaches_the_server.py": {
@@ -3684,8 +3937,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_client_reaches_the_server.py",
       "line": 0,
       "meta": {},
-      "x": 29181.88050915669,
-      "y": -2848.605639058187,
+      "label_at": "right",
+      "x": 1471.3778517338296,
+      "y": -204.22494484778105,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_compound_recipes.py": {
@@ -3697,8 +3951,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_compound_recipes.py",
       "line": 0,
       "meta": {},
-      "x": 29126.63738417079,
-      "y": -2873.635973347748,
+      "label_at": "below",
+      "x": 1390.2003939977226,
+      "y": 35.378502310525164,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_consolidate.py": {
@@ -3710,8 +3965,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_consolidate.py",
       "line": 0,
       "meta": {},
-      "x": 29073.149601144236,
-      "y": -2902.225789012761,
+      "label_at": "left",
+      "x": 1286.3488004403073,
+      "y": -200.43693595740368,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_converse.py": {
@@ -3723,8 +3979,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_converse.py",
       "line": 0,
       "meta": {},
-      "x": 29021.646202975542,
-      "y": -2934.2526600733613,
+      "label_at": "right",
+      "x": 1526.4194502141866,
+      "y": -94.82146138485388,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cookbook.py": {
@@ -3736,8 +3993,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cookbook.py",
       "line": 0,
       "meta": {},
-      "x": 28972.34773512261,
-      "y": -2969.579442550812,
+      "label_at": "left",
+      "x": 1273.7611850218566,
+      "y": -9.107946724321323,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cookbook_delta.py": {
@@ -3749,8 +4007,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cookbook_delta.py",
       "line": 0,
       "meta": {},
-      "x": 28925.465301193235,
-      "y": -3008.0548617390778,
+      "label_at": "above",
+      "x": 1404.3319340297141,
+      "y": -246.86567131243135,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cookbook_instruct.py": {
@@ -3762,8 +4021,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cookbook_instruct.py",
       "line": 0,
       "meta": {},
-      "x": 28881.199658967016,
-      "y": -3049.514159986342,
+      "label_at": "right",
+      "x": 1469.6677446382894,
+      "y": 20.908729474234065,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cookbook_steps.py": {
@@ -3775,8 +4035,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cookbook_steps.py",
       "line": 0,
       "meta": {},
-      "x": 28839.740360719752,
-      "y": -3093.7798022125617,
+      "label_at": "left",
+      "x": 1237.0451058208682,
+      "y": -134.82514474367935,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_cookbook_voice.py": {
@@ -3788,8 +4049,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_cookbook_voice.py",
       "line": 0,
       "meta": {},
-      "x": 28801.264941531485,
-      "y": -3140.6622361419386,
+      "label_at": "right",
+      "x": 1517.9700644122881,
+      "y": -177.74280848212925,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_council_topology.py": {
@@ -3801,8 +4063,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_council_topology.py",
       "line": 0,
       "meta": {},
-      "x": 28765.938159054036,
-      "y": -3189.9607039948664,
+      "label_at": "below",
+      "x": 1337.174861543032,
+      "y": 46.90863879532037,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_crosscheck_runtime.py": {
@@ -3814,8 +4077,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_crosscheck_runtime.py",
       "line": 0,
       "meta": {},
-      "x": 28733.911287993436,
-      "y": -3241.4641021635603,
+      "label_at": "left",
+      "x": 1318.4970497948989,
+      "y": -244.98300436392674,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_dashboard.py": {
@@ -3827,8 +4091,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_dashboard.py",
       "line": 0,
       "meta": {},
-      "x": 28705.32147232842,
-      "y": -3294.9518851901153,
+      "label_at": "right",
+      "x": 1532.3558562681233,
+      "y": -39.53614707317695,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_db.py": {
@@ -3840,8 +4105,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_db.py",
       "line": 0,
       "meta": {},
-      "x": 28680.291138038858,
-      "y": -3350.195010176018,
+      "label_at": "left",
+      "x": 1231.8773579935246,
+      "y": -46.682859535749344,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_db_backup.py": {
@@ -3853,8 +4119,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_db_backup.py",
       "line": 0,
       "meta": {},
-      "x": 28658.927468858907,
-      "y": -3406.9569175790007,
+      "label_at": "right",
+      "x": 1461.262309438151,
+      "y": -246.97101667170384,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_db_migrations.py": {
@@ -3866,8 +4133,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_db_migrations.py",
       "line": 0,
       "meta": {},
-      "x": 28641.3219472998,
-      "y": -3464.994544197317,
+      "label_at": "below",
+      "x": 1426.9601221076127,
+      "y": 59.54253249047735,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_db_paths.py": {
@@ -3879,8 +4147,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_db_paths.py",
       "line": 0,
       "meta": {},
-      "x": 28627.549962907706,
-      "y": -3524.0593640036877,
+      "label_at": "left",
+      "x": 1242.9485255435038,
+      "y": -192.7694136974575,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_declared_checks.py": {
@@ -3892,8 +4161,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_declared_checks.py",
       "line": 0,
       "meta": {},
-      "x": 28617.670489434095,
-      "y": -3583.8984523719078,
+      "label_at": "right",
+      "x": 1552.7988280089028,
+      "y": -130.24931978823133,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_declared_commands.py": {
@@ -3905,8 +4175,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_declared_commands.py",
       "line": 0,
       "meta": {},
-      "x": 28611.725832301123,
-      "y": -3644.255569138919,
+      "label_at": "left",
+      "x": 1278.8597518450094,
+      "y": 34.88013655925738,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_demo_agent_harness.py": {
@@ -3918,8 +4189,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_demo_agent_harness.py",
       "line": 0,
       "meta": {},
-      "x": 28609.741447443263,
-      "y": -3704.8722558645322,
+      "label_at": "above",
+      "x": 1370.3789946284987,
+      "y": -275.48893804072065,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_demo_step_as_delta.py": {
@@ -3931,8 +4203,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_demo_step_as_delta.py",
       "line": 0,
       "meta": {},
-      "x": 28611.725832301123,
-      "y": -3765.488942590145,
+      "label_at": "right",
+      "x": 1514.1485929800408,
+      "y": 18.499859845182186,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_entry_points.py": {
@@ -3944,8 +4217,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_entry_points.py",
       "line": 0,
       "meta": {},
-      "x": 28617.670489434095,
-      "y": -3825.846059357157,
+      "label_at": "left",
+      "x": 1206.170468503679,
+      "y": -102.50823542596844,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_examples_smoke.py": {
@@ -3957,8 +4231,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_examples_smoke.py",
       "line": 0,
       "meta": {},
-      "x": 28627.549962907706,
-      "y": -3885.6851477253763,
+      "label_at": "right",
+      "x": 1518.3676848633686,
+      "y": -222.5946763801062,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_feedback_gates.py": {
@@ -3970,8 +4245,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_feedback_gates.py",
       "line": 0,
       "meta": {},
-      "x": 28641.3219472998,
-      "y": -3944.749967531747,
+      "label_at": "below",
+      "x": 1367.6804424462855,
+      "y": 80.01989467074588,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_governed.py": {
@@ -3983,8 +4259,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_governed.py",
       "line": 0,
       "meta": {},
-      "x": 28658.927468858907,
-      "y": -4002.787594150064,
+      "label_at": "left",
+      "x": 1273.4207147211546,
+      "y": -248.29655856763213,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_hitl.py": {
@@ -3996,8 +4273,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_hitl.py",
       "line": 0,
       "meta": {},
-      "x": 28680.291138038858,
-      "y": -4059.549501553046,
+      "label_at": "right",
+      "x": 1567.6657947527642,
+      "y": -68.04455021031401,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_identity.py": {
@@ -4009,8 +4287,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_identity.py",
       "line": 0,
       "meta": {},
-      "x": 28705.32147232842,
-      "y": -4114.79262653895,
+      "label_at": "left",
+      "x": 1225.548870929063,
+      "y": -1.5514986312367682,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_instructions_act.py": {
@@ -4022,8 +4301,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_instructions_act.py",
       "line": 0,
       "meta": {},
-      "x": 28733.911287993436,
-      "y": -4168.280409565505,
+      "label_at": "above",
+      "x": 1434.9440175424472,
+      "y": -284.4178061656655,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_instructions_resolve.py": {
@@ -4035,8 +4315,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_instructions_resolve.py",
       "line": 0,
       "meta": {},
-      "x": 28765.938159054036,
-      "y": -4219.783807734198,
+      "label_at": "right",
+      "x": 1471.9561661816797,
+      "y": 68.97168755063853,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_instructions_route.py": {
@@ -4048,8 +4329,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_instructions_route.py",
       "line": 0,
       "meta": {},
-      "x": 28801.264941531485,
-      "y": -4269.082275587125,
+      "label_at": "left",
+      "x": 1203.4510744987476,
+      "y": -168.83791165723707,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_instructions_spoken.py": {
@@ -4061,8 +4343,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_instructions_spoken.py",
       "line": 0,
       "meta": {},
-      "x": 28839.740360719752,
-      "y": -4315.964709516503,
+      "label_at": "right",
+      "x": 1565.3985633976067,
+      "y": -174.90088910830997,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_integration_alfred_on_a_socket.py": {
@@ -4074,8 +4357,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_integration_alfred_on_a_socket.py",
       "line": 0,
       "meta": {},
-      "x": 28881.199658967016,
-      "y": -4360.230351742723,
+      "label_at": "left",
+      "x": 1300.2072739442744,
+      "y": 76.31749705065499,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_integration_client_and_server.py": {
@@ -4087,8 +4371,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_integration_client_and_server.py",
       "line": 0,
       "meta": {},
-      "x": 28925.465301193235,
-      "y": -4401.689649989987,
+      "label_at": "above",
+      "x": 1326.297673285433,
+      "y": -291.31103866262924,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_integration_migrated_database.py": {
@@ -4100,8 +4385,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_integration_migrated_database.py",
       "line": 0,
       "meta": {},
-      "x": 28972.34773512261,
-      "y": -4440.165069178252,
+      "label_at": "right",
+      "x": 1557.3906058654882,
+      "y": -0.06911861963499177,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_integration_pydantic_ai_toolset.py": {
@@ -4113,8 +4399,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_integration_pydantic_ai_toolset.py",
       "line": 0,
       "meta": {},
-      "x": 29021.646202975542,
-      "y": -4475.491851655704,
+      "label_at": "left",
+      "x": 1187.0943961650182,
+      "y": -59.23723089070464,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_integration_server_process.py": {
@@ -4126,8 +4413,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_integration_server_process.py",
       "line": 0,
       "meta": {},
-      "x": 29073.149601144236,
-      "y": -4507.518722716303,
+      "label_at": "right",
+      "x": 1502.7661449514337,
+      "y": -267.48190223038813,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_isolated_settings.py": {
@@ -4139,8 +4427,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_isolated_settings.py",
       "line": 0,
       "meta": {},
-      "x": 29126.63738417079,
-      "y": -4536.108538381317,
+      "label_at": "below",
+      "x": 1409.889203664336,
+      "y": 102.35957246231952,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_local_model.py": {
@@ -4152,8 +4441,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_local_model.py",
       "line": 0,
       "meta": {},
-      "x": 29181.88050915669,
-      "y": -4561.138872670877,
+      "label_at": "left",
+      "x": 1227.0713104576996,
+      "y": -235.8427426053478,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_localmodel.py": {
@@ -4165,8 +4455,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_localmodel.py",
       "line": 0,
       "meta": {},
-      "x": 29238.642416559673,
-      "y": -4582.502541850831,
+      "label_at": "right",
+      "x": 1593.2552063967114,
+      "y": -108.92983295389955,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_loopback.py": {
@@ -4178,8 +4469,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_loopback.py",
       "line": 0,
       "meta": {},
-      "x": 29296.680043177992,
-      "y": -4600.108063409938,
+      "label_at": "left",
+      "x": 1234.6861154831024,
+      "y": 46.05430359188546,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_metaflow_runner.py": {
@@ -4191,8 +4483,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_metaflow_runner.py",
       "line": 0,
       "meta": {},
-      "x": 29355.744862984364,
-      "y": -4613.880047802034,
+      "label_at": "above",
+      "x": 1395.650108514231,
+      "y": -313.2183098416825,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_metrics.py": {
@@ -4204,8 +4497,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_metrics.py",
       "line": 0,
       "meta": {},
-      "x": 29415.58395135258,
-      "y": -4623.75952127564,
+      "label_at": "right",
+      "x": 1520.5909460063913,
+      "y": 63.30572163865554,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_netguard.py": {
@@ -4217,8 +4511,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_netguard.py",
       "line": 0,
       "meta": {},
-      "x": 29475.94106811959,
-      "y": -4629.704178408615,
+      "label_at": "left",
+      "x": 1171.503881981603,
+      "y": -131.4071986587488,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_orchestration.py": {
@@ -4230,8 +4525,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_orchestration.py",
       "line": 0,
       "meta": {},
-      "x": 29536.557754845206,
-      "y": -4631.688563266476,
+      "label_at": "right",
+      "x": 1563.3418828021033,
+      "y": -224.3169414350723,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_orchestration_service.py": {
@@ -4243,8 +4539,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_orchestration_service.py",
       "line": 0,
       "meta": {},
-      "x": 29597.17444157082,
-      "y": -4629.704178408615,
+      "label_at": "below",
+      "x": 1335.5018410892264,
+      "y": 111.32050187807874,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_pending_means_answerable.py": {
@@ -4256,8 +4553,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_pending_means_answerable.py",
       "line": 0,
       "meta": {},
-      "x": 29657.531558337832,
-      "y": -4623.75952127564,
+      "label_at": "left",
+      "x": 1276.366743936961,
+      "y": -292.98254811710063,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_plain_speech.py": {
@@ -4269,8 +4567,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_plain_speech.py",
       "line": 0,
       "meta": {},
-      "x": 29717.370646706047,
-      "y": -4613.880047802034,
+      "label_at": "right",
+      "x": 1595.3316447366756,
+      "y": -32.95630857945639,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_pydantic_ai_integration.py": {
@@ -4282,8 +4581,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_pydantic_ai_integration.py",
       "line": 0,
       "meta": {},
-      "x": 29776.43546651242,
-      "y": -4600.108063409938,
+      "label_at": "left",
+      "x": 1181.5971187886219,
+      "y": -9.074689071104103,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_qmcp_mcp.py": {
@@ -4295,8 +4595,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_qmcp_mcp.py",
       "line": 0,
       "meta": {},
-      "x": 29834.473093130735,
-      "y": -4582.502541850831,
+      "label_at": "right",
+      "x": 1472.552974427988,
+      "y": -308.2161532883303,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_selfcheck.py": {
@@ -4308,8 +4609,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_selfcheck.py",
       "line": 0,
       "meta": {},
-      "x": 29891.23500053372,
-      "y": -4561.138872670877,
+      "label_at": "below",
+      "x": 1459.985258162659,
+      "y": 111.7568377781493,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_server.py": {
@@ -4321,8 +4623,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_server.py",
       "line": 0,
       "meta": {},
-      "x": 29946.47812551962,
-      "y": -4536.108538381316,
+      "label_at": "left",
+      "x": 1183.715566710301,
+      "y": -208.56277267507147,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_server_converse.py": {
@@ -4334,8 +4637,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_server_converse.py",
       "line": 0,
       "meta": {},
-      "x": 29999.965908546175,
-      "y": -4507.518722716303,
+      "label_at": "right",
+      "x": 1606.6015017207524,
+      "y": -158.64869493925244,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_server_identity.py": {
@@ -4347,8 +4651,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_server_identity.py",
       "line": 0,
       "meta": {},
-      "x": 30051.46930671487,
-      "y": -4475.491851655704,
+      "label_at": "left",
+      "x": 1258.7840141088423,
+      "y": 91.83335599849289,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_spend.py": {
@@ -4360,8 +4665,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_spend.py",
       "line": 0,
       "meta": {},
-      "x": 30100.7677745678,
-      "y": -4440.165069178252,
+      "label_at": "above",
+      "x": 1346.6293422209721,
+      "y": -330.535906190195,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_spoken_iteration.py": {
@@ -4373,8 +4679,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_spoken_iteration.py",
       "line": 0,
       "meta": {},
-      "x": 30147.650208497173,
-      "y": -4401.689649989987,
+      "label_at": "right",
+      "x": 1568.5693760625238,
+      "y": 42.62565256504007,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_sweep.py": {
@@ -4386,8 +4693,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_sweep.py",
       "line": 0,
       "meta": {},
-      "x": 30191.91585072339,
-      "y": -4360.230351742723,
+      "label_at": "left",
+      "x": 1150.220835871135,
+      "y": -83.41306448085737,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_tacit_agreement.py": {
@@ -4399,8 +4707,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_tacit_agreement.py",
       "line": 0,
       "meta": {},
-      "x": 30233.375148970656,
-      "y": -4315.964709516503,
+      "label_at": "right",
+      "x": 1546.2995593050844,
+      "y": -274.24606827494557,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_thread_delta_identity.py": {
@@ -4412,8 +4721,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_thread_delta_identity.py",
       "line": 0,
       "meta": {},
-      "x": 30271.850568158923,
-      "y": -4269.082275587126,
+      "label_at": "below",
+      "x": 1382.135873692618,
+      "y": 136.53392826414745,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_threads.py": {
@@ -4425,8 +4735,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_threads.py",
       "line": 0,
       "meta": {},
-      "x": 30307.177350636375,
-      "y": -4219.783807734198,
+      "label_at": "left",
+      "x": 1224.7590814440605,
+      "y": -279.77941137687594,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_threads_claudecode.py": {
@@ -4438,8 +4749,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_threads_claudecode.py",
       "line": 0,
       "meta": {},
-      "x": 30339.204221696975,
-      "y": -4168.280409565505,
+      "label_at": "right",
+      "x": 1624.4103347065234,
+      "y": -77.89464947171206,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_threads_importer.py": {
@@ -4451,8 +4763,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_threads_importer.py",
       "line": 0,
       "meta": {},
-      "x": 30367.79403736199,
-      "y": -4114.79262653895,
+      "label_at": "left",
+      "x": 1190.7806133747918,
+      "y": 43.91740038765795,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_threads_index.py": {
@@ -4464,8 +4777,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_threads_index.py",
       "line": 0,
       "meta": {},
-      "x": 30392.82437165155,
-      "y": -4059.549501553047,
+      "label_at": "above",
+      "x": 1429.6451361220572,
+      "y": -341.0643906851412,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_threads_service.py": {
@@ -4477,8 +4791,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_threads_service.py",
       "line": 0,
       "meta": {},
-      "x": 30414.188040831505,
-      "y": -4002.7875941500633,
+      "label_at": "right",
+      "x": 1514.0475025809196,
+      "y": 106.75008964072003,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_tools.py": {
@@ -4490,8 +4805,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_tools.py",
       "line": 0,
       "meta": {},
-      "x": 30431.793562390612,
-      "y": -3944.749967531748,
+      "label_at": "left",
+      "x": 1147.22436538019,
+      "y": -168.01650666715102,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_topology_components.py": {
@@ -4503,8 +4819,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_topology_components.py",
       "line": 0,
       "meta": {},
-      "x": 30445.565546782705,
-      "y": -3885.6851477253763,
+      "label_at": "right",
+      "x": 1605.9030565934047,
+      "y": -213.44868097202897,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_topology_designs.py": {
@@ -4516,8 +4833,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_topology_designs.py",
       "line": 0,
       "meta": {},
-      "x": 30455.445020256313,
-      "y": -3825.846059357157,
+      "label_at": "left",
+      "x": 1296.644376687464,
+      "y": 131.81009238065627,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_topology_service.py": {
@@ -4529,8 +4847,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_topology_service.py",
       "line": 0,
       "meta": {},
-      "x": 30461.389677389285,
-      "y": -3765.4889425901465,
+      "label_at": "left",
+      "x": 1291.4399254468262,
+      "y": -334.24976691726613,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_topology_view.py": {
@@ -4542,8 +4861,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_topology_view.py",
       "line": 0,
       "meta": {},
-      "x": 30463.374062247145,
-      "y": -3704.8722558645322,
+      "label_at": "right",
+      "x": 1611.8436880894749,
+      "y": 7.765780087719803,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_topology_voice_commands.py": {
@@ -4555,8 +4875,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_topology_voice_commands.py",
       "line": 0,
       "meta": {},
-      "x": 30461.389677389285,
-      "y": -3644.255569138919,
+      "label_at": "left",
+      "x": 1142.0200148827703,
+      "y": -28.195977673047253,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_topology_voice_end_to_end.py": {
@@ -4568,8 +4889,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_topology_voice_end_to_end.py",
       "line": 0,
       "meta": {},
-      "x": 30455.445020256313,
-      "y": -3583.898452371907,
+      "label_at": "right",
+      "x": 1514.7420322251348,
+      "y": -320.6000744539974,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_vocabulary.py": {
@@ -4581,8 +4903,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_vocabulary.py",
       "line": 0,
       "meta": {},
-      "x": 30445.565546782705,
-      "y": -3524.0593640036886,
+      "label_at": "below",
+      "x": 1437.0080517068443,
+      "y": 149.26545108457856,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_vocabulary_authoring.py": {
@@ -4594,8 +4917,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_vocabulary_authoring.py",
       "line": 0,
       "meta": {},
-      "x": 30431.793562390612,
-      "y": -3464.9945441973173,
+      "label_at": "left",
+      "x": 1175.572284484391,
+      "y": -251.81041321743308,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_voice_integration.py": {
@@ -4607,8 +4931,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_voice_integration.py",
       "line": 0,
       "meta": {},
-      "x": 30414.188040831505,
-      "y": -3406.9569175790007,
+      "label_at": "right",
+      "x": 1641.6840713186098,
+      "y": -132.04131584527636,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_voice_route.py": {
@@ -4620,8 +4945,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_voice_route.py",
       "line": 0,
       "meta": {},
-      "x": 30392.82437165155,
-      "y": -3350.195010176018,
+      "label_at": "left",
+      "x": 1214.8934372914762,
+      "y": 95.66225052877144,
       "size": 30
      },
      "file::quaternionmedia/qmcp/tests/test_vox_is_the_package.py": {
@@ -4633,8 +4959,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/tests/test_vox_is_the_package.py",
       "line": 0,
       "meta": {},
-      "x": 30367.79403736199,
-      "y": -3294.951885190115,
+      "label_at": "above",
+      "x": 1376.6096750235886,
+      "y": -362.858569648394,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/01-the-harness.md": {
@@ -4646,8 +4973,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/01-the-harness.md",
       "line": 0,
       "meta": {},
-      "x": -9256.24560573962,
-      "y": 2794.848919035616,
+      "label_at": "left",
+      "x": 352.11549400999354,
+      "y": -990.2242735997085,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/02-a-run-that-found-something.md": {
@@ -4659,8 +4987,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/02-a-run-that-found-something.md",
       "line": 0,
       "meta": {},
-      "x": -9396.322984786046,
-      "y": 2928.412430179097,
+      "label_at": "right",
+      "x": 436.5429862070569,
+      "y": -1054.8351848138404,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/03-archiving-a-conversation-export.md": {
@@ -4672,8 +5001,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/03-archiving-a-conversation-export.md",
       "line": 0,
       "meta": {},
-      "x": -9586.373460625435,
-      "y": 2965.0416570711895,
+      "label_at": "below",
+      "x": 415.63708944365237,
+      "y": -939.6633884730301,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/04-the-thread-archive.md": {
@@ -4685,8 +5015,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/04-the-thread-archive.md",
       "line": 0,
       "meta": {},
-      "x": -9766.057350011277,
-      "y": 2893.1070789834043,
+      "label_at": "left",
+      "x": 348.2888054767405,
+      "y": -1047.196767100259,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/05-dispatching-a-sweep.md": {
@@ -4698,8 +5029,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/05-dispatching-a-sweep.md",
       "line": 0,
       "meta": {},
-      "x": -9878.32628764926,
-      "y": 2735.447416193172,
+      "label_at": "right",
+      "x": 479.30678301131684,
+      "y": -1010.7239109144002,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/06-what-a-shape-is-waiting-for.md": {
@@ -4711,8 +5043,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/06-what-a-shape-is-waiting-for.md",
       "line": 0,
       "meta": {},
-      "x": -9887.535679093731,
-      "y": 2542.118497666446,
+      "label_at": "left",
+      "x": 350.35204571788324,
+      "y": -945.4333785345451,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/07-saving-a-shape-is-not-running-it.md": {
@@ -4724,8 +5057,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/07-saving-a-shape-is-not-running-it.md",
       "line": 0,
       "meta": {},
-      "x": -9790.761607631523,
-      "y": 2374.5008890385984,
+      "label_at": "above",
+      "x": 404.3437575451879,
+      "y": -1088.166985463784,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/08-an-instruction-is-recorded-not-run.md": {
@@ -4737,8 +5071,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/08-an-instruction-is-recorded-not-run.md",
       "line": 0,
       "meta": {},
-      "x": -9618.72915717897,
-      "y": 2285.8119967195425,
+      "label_at": "right",
+      "x": 463.64835939238367,
+      "y": -939.2828640823262,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/09-nothing-runs-before-consent.md": {
@@ -4750,8 +5085,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/09-nothing-runs-before-consent.md",
       "line": 0,
       "meta": {},
-      "x": -9426.05741523155,
-      "y": 2304.20991737481,
+      "label_at": "left",
+      "x": 312.82670685682706,
+      "y": -1012.30113857043,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/10-a-render-waits-for-a-person.md": {
@@ -4763,8 +5099,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/10-a-render-waits-for-a-person.md",
       "line": 0,
       "meta": {},
-      "x": -9273.91829850409,
-      "y": 2423.853441189849,
+      "label_at": "right",
+      "x": 480.1004040170908,
+      "y": -1062.2362212647017,
       "size": 30
      },
      "file::quaternionmedia/qmcp/walkthrough/11-captions-are-read-before-they-are-burned-in.md": {
@@ -4776,8 +5113,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmcp/main/walkthrough/11-captions-are-read-before-they-are-burned-in.md",
       "line": 0,
       "meta": {},
-      "x": -9210.614901593932,
-      "y": 2606.7565947141284,
+      "label_at": "below",
+      "x": 386.9472494173174,
+      "y": -906.699952673706,
       "size": 30
      }
     },

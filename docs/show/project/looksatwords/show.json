@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:76b442baf35148974f149dd0af8d1228b5fd081242f64c92d8fd8d1f10a9e146"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "01da48156b0955bb6c922ce0683148ee715a9205"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -195,10 +195,10 @@
     "subject": "project:looksatwords",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -244,8 +244,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1155.9818239567976,
-      "y": -509.72846418579667,
+      "label_at": "none",
+      "x": 762.2458031736503,
+      "y": -134.40450103130857,
       "size": 160
      },
      "dir::quaternionmedia/looksatwords/.github": {
@@ -257,8 +258,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -504.964750299721,
-      "y": 421.88265913948663,
+      "label_at": "none",
+      "x": 760.1870539621722,
+      "y": 202.4661861304717,
       "size": 70
      },
      "dir::quaternionmedia/looksatwords/.github/workflows": {
@@ -270,8 +272,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -642.9333992666122,
-      "y": 519.5972598271727,
+      "label_at": "right",
+      "x": 807.5755323896244,
+      "y": 140.72564343500378,
       "size": 50
      },
      "dir::quaternionmedia/looksatwords/.vscode": {
@@ -283,8 +286,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1096.362824700879,
-      "y": -168.45973438411121,
+      "label_at": "left",
+      "x": 697.2484914748446,
+      "y": -122.94372130529119,
       "size": 50
      },
      "dir::quaternionmedia/looksatwords/LICENSES": {
@@ -296,8 +300,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1405.7633615947275,
-      "y": -213.33312814786413,
+      "label_at": "left",
+      "x": 690.5604569088467,
+      "y": -200.14564971989785,
       "size": 50
      },
      "dir::quaternionmedia/looksatwords/docs": {
@@ -309,8 +314,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 804.477734611482,
-      "y": 949.1487449011325,
+      "label_at": "none",
+      "x": 894.466870538241,
+      "y": -497.6788979917106,
       "size": 130
      },
      "dir::quaternionmedia/looksatwords/docs/pics": {
@@ -322,8 +328,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 506.12997231859504,
-      "y": 533.527454870888,
+      "label_at": "above",
+      "x": 905.0831916710289,
+      "y": -617.8981507160788,
       "size": 50
      },
      "dir::quaternionmedia/looksatwords/governance": {
@@ -335,8 +342,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 497.39886994994544,
-      "y": -585.4869970452884,
+      "label_at": "right",
+      "x": 839.7923799687397,
+      "y": -33.14510182628027,
       "size": 50
      },
      "dir::quaternionmedia/looksatwords/looksatwords": {
@@ -348,8 +356,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 674.5283498993358,
-      "y": 110.05290782130581,
+      "label_at": "none",
+      "x": -29.210794405220277,
+      "y": 264.81883402012465,
       "size": 220
      },
      "dir::quaternionmedia/looksatwords/looksatwords/app": {
@@ -361,8 +370,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3009.9315475493368,
-      "y": 791.2316890020915,
+      "label_at": "none",
+      "x": 339.8398437668052,
+      "y": 199.7452492627192,
       "size": 160
      },
      "dir::quaternionmedia/looksatwords/looksatwords/frontend": {
@@ -374,8 +384,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -366.4326606366594,
-      "y": -454.71762478016046,
+      "label_at": "none",
+      "x": -436.34202670501605,
+      "y": 430.67919020078784,
       "size": 120
      },
      "dir::quaternionmedia/looksatwords/looksatwords/frontend/css": {
@@ -387,8 +398,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1019.347311952903,
-      "y": -395.64592929028123,
+      "label_at": "none",
+      "x": -476.33569235603426,
+      "y": 203.86384129429894,
       "size": 60
      },
      "dir::quaternionmedia/looksatwords/looksatwords/frontend/js": {
@@ -400,8 +412,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3951.1381380548464,
-      "y": 588.5830384645669,
+      "label_at": "none",
+      "x": -707.5016979769712,
+      "y": 478.4919563260716,
       "size": 160
      },
      "dir::quaternionmedia/looksatwords/looksatwords/notebooks": {
@@ -413,8 +426,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1330.485327612326,
-      "y": 168.84059930505217,
+      "label_at": "below",
+      "x": -67.23896211294159,
+      "y": 405.97648865065963,
       "size": 50
      },
      "dir::quaternionmedia/looksatwords/looksatwords/tests": {
@@ -426,8 +440,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1841.3163463307153,
-      "y": -1998.9097932802772,
+      "label_at": "none",
+      "x": 13.557556421102559,
+      "y": -301.907355228223,
       "size": 290
      },
      "dir::quaternionmedia/looksatwords/looksatwords/tests/fixtures": {
@@ -439,8 +454,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -833.0311355771862,
-      "y": -883.6947525812535,
+      "label_at": "none",
+      "x": -282.8442329191731,
+      "y": -249.64372263726574,
       "size": 80
      },
      "file::quaternionmedia/looksatwords/.github/copilot-instructions.md": {
@@ -452,8 +468,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/.github/copilot-instructions.md",
       "line": 0,
       "meta": {},
-      "x": -310.10903444822236,
-      "y": 534.3826591394867,
+      "label_at": "left",
+      "x": 695.1897422633664,
+      "y": 213.92696585648912,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/AGENTS.md": {
@@ -465,8 +482,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/AGENTS.md",
       "line": 0,
       "meta": {},
-      "x": 1385.871798047465,
-      "y": -377.0014257605537,
+      "label_at": "right",
+      "x": 809.6342816011025,
+      "y": -196.14504372677646,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/CLAUDE.md": {
@@ -478,8 +496,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/CLAUDE.md",
       "line": 0,
       "meta": {},
-      "x": 1155.9818239567976,
-      "y": -244.27438733531065,
+      "label_at": "below",
+      "x": 769.8992126610078,
+      "y": -46.6517214558511,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/QUICK_REFERENCE.md": {
@@ -491,8 +510,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/QUICK_REFERENCE.md",
       "line": 0,
       "meta": {},
-      "x": 926.0918498661301,
-      "y": -377.00142576055356,
+      "label_at": "right",
+      "x": 867.8973375710951,
+      "y": -134.3472344132826,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/README.md": {
@@ -504,8 +524,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 926.0918498661299,
-      "y": -642.4555026110396,
+      "label_at": "left",
+      "x": 678.5728332503468,
+      "y": -57.83657952227236,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/REUSE.toml": {
@@ -517,8 +538,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/REUSE.toml",
       "line": 0,
       "meta": {},
-      "x": 1155.9818239567976,
-      "y": -775.1825410362827,
+      "label_at": "above",
+      "x": 772.862124306438,
+      "y": -254.62375375567686,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/docs/README.md": {
@@ -530,8 +552,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/docs/README.md",
       "line": 0,
       "meta": {},
-      "x": 1049.6647840547946,
-      "y": 1090.707553899039,
+      "label_at": "left",
+      "x": 829.4695588394354,
+      "y": -486.2181182656931,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/docs/api.md": {
@@ -543,8 +566,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/docs/api.md",
       "line": 0,
       "meta": {},
-      "x": 846.6742259919786,
-      "y": 1229.1041730228228,
+      "label_at": "right",
+      "x": 941.8553489656935,
+      "y": -559.4194406871784,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/docs/cli.md": {
@@ -556,8 +580,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/docs/cli.md",
       "line": 0,
       "meta": {},
-      "x": 611.9088492680885,
-      "y": 1156.6886447209652,
+      "label_at": "below",
+      "x": 902.1202800255986,
+      "y": -409.9261184162531,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/docs/contributing.md": {
@@ -569,8 +594,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/docs/contributing.md",
       "line": 0,
       "meta": {},
-      "x": 522.1517708971662,
-      "y": 927.9913388123399,
+      "label_at": "left",
+      "x": 822.7815242734374,
+      "y": -563.4200466802998,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/docs/getting-started.md": {
@@ -582,8 +608,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/docs/getting-started.md",
       "line": 0,
       "meta": {},
-      "x": 644.9919016032462,
-      "y": 715.2259912210077,
+      "label_at": "right",
+      "x": 1000.1184049356858,
+      "y": -497.6216313736845,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/docs/open-questions.md": {
@@ -595,8 +622,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/docs/open-questions.md",
       "line": 0,
       "meta": {},
-      "x": 887.9281174826378,
-      "y": 678.6092483053845,
+      "label_at": "left",
+      "x": 810.7939006149376,
+      "y": -421.11097648267435,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/docs/testing.md": {
@@ -608,8 +636,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/docs/testing.md",
       "line": 0,
       "meta": {},
-      "x": 1068.0244929824626,
-      "y": 845.7142643263685,
+      "label_at": "right",
+      "x": 972.0134473333306,
+      "y": -396.4194987866822,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/__init__.py": {
@@ -621,8 +650,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 994.5244029975635,
-      "y": 294.8027152171853,
+      "label_at": "left",
+      "x": -94.20810610402603,
+      "y": 276.27961374614205,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/__main__.py": {
@@ -634,8 +664,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/__main__.py",
       "line": 0,
       "meta": {},
-      "x": 872.0132667729176,
-      "y": 422.3503188555519,
+      "label_at": "right",
+      "x": 18.17768402223202,
+      "y": 203.0782913246568,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/analyzer.py": {
@@ -647,8 +678,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/analyzer.py",
       "line": 0,
       "meta": {},
-      "x": 704.2607160437807,
-      "y": 478.3543492177671,
+      "label_at": "below",
+      "x": -21.557384917862734,
+      "y": 352.5716135955821,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/__init__.py": {
@@ -660,8 +692,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -2712.455085284826,
-      "y": 962.9798045680845,
+      "label_at": "left",
+      "x": 286.660225104146,
+      "y": 209.12225085673347,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/analytics_service.py": {
@@ -673,8 +706,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/analytics_service.py",
       "line": 0,
       "meta": {},
-      "x": -2852.5324643312524,
-      "y": 1096.5433157115654,
+      "label_at": "right",
+      "x": 376.3976571605135,
+      "y": 152.11554445709604,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/collection_models.py": {
@@ -686,8 +720,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/collection_models.py",
       "line": 0,
       "meta": {},
-      "x": -3042.582940170643,
-      "y": 1133.1725426036583,
+      "label_at": "below",
+      "x": 345.53343019229123,
+      "y": 265.0270083812932,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/collection_service.py": {
@@ -699,8 +734,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/collection_service.py",
       "line": 0,
       "meta": {},
-      "x": -3222.2668295564845,
-      "y": 1061.2379645158728,
+      "label_at": "left",
+      "x": 287.81357826329753,
+      "y": 152.03303701303912,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/database.py": {
@@ -712,8 +748,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/database.py",
       "line": 0,
       "meta": {},
-      "x": -3334.5357671944666,
-      "y": 903.5783017256405,
+      "label_at": "right",
+      "x": 415.1541739669387,
+      "y": 199.7860721149764,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/main.py": {
@@ -725,8 +762,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/main.py",
       "line": 0,
       "meta": {},
-      "x": -3343.745158638938,
-      "y": 710.2493831989143,
+      "label_at": "left",
+      "x": 280.99970353745005,
+      "y": 253.58900839773702,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/models.py": {
@@ -738,8 +776,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/models.py",
       "line": 0,
       "meta": {},
-      "x": -3246.9710871767293,
-      "y": 542.6317745710668,
+      "label_at": "above",
+      "x": 347.2260141276786,
+      "y": 116.10423368184432,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/news_service.py": {
@@ -751,8 +790,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/news_service.py",
       "line": 0,
       "meta": {},
-      "x": -3074.9386367241764,
-      "y": 453.9428822520108,
+      "label_at": "right",
+      "x": 393.3288378779632,
+      "y": 269.5905426544468,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/topic_service.py": {
@@ -764,8 +804,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/topic_service.py",
       "line": 0,
       "meta": {},
-      "x": -2882.2668947767556,
-      "y": 472.34080290727843,
+      "label_at": "left",
+      "x": 249.44506921176958,
+      "y": 183.7051515964245,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/topics_document.py": {
@@ -777,8 +818,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/topics_document.py",
       "line": 0,
       "meta": {},
-      "x": -2730.1277780492974,
-      "y": 591.9843267223176,
+      "label_at": "right",
+      "x": 420.4343686744134,
+      "y": 148.53895028576795,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/app/visualization_service.py": {
@@ -790,8 +832,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/app/visualization_service.py",
       "line": 0,
       "meta": {},
-      "x": -2666.8243811391385,
-      "y": 774.8874802465966,
+      "label_at": "below",
+      "x": 314.07981093835105,
+      "y": 295.3645240386605,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/dataio.py": {
@@ -803,8 +846,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/dataio.py",
       "line": 0,
       "meta": {},
-      "x": 529.6968385448064,
-      "y": 449.9849578695781,
+      "label_at": "left",
+      "x": -100.89614067002388,
+      "y": 199.07768533153535,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/css/visualizer.css": {
@@ -816,8 +860,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/css/visualizer.css",
       "line": 0,
       "meta": {},
-      "x": 1214.2030278044017,
-      "y": -283.1459292902813,
+      "label_at": "left",
+      "x": -529.5153110186935,
+      "y": 213.2408428883132,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/index.html": {
@@ -829,8 +874,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/index.html",
       "line": 0,
       "meta": {},
-      "x": -153.17726688702584,
-      "y": -331.5945657926699,
+      "label_at": "left",
+      "x": -489.5216453676754,
+      "y": 440.05619179480215,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/analytics-panel.js": {
@@ -842,8 +888,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/analytics-panel.js",
       "line": 0,
       "meta": {},
-      "x": -3653.6616757903353,
-      "y": 760.3311540305599,
+      "label_at": "left",
+      "x": -760.6813166396304,
+      "y": 487.86895792008573,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/animation.js": {
@@ -855,8 +902,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/animation.js",
       "line": 0,
       "meta": {},
-      "x": -3793.7390548367616,
-      "y": 893.894665174041,
+      "label_at": "right",
+      "x": -670.9438845832628,
+      "y": 430.8622515204484,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/api-client.js": {
@@ -868,8 +916,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/api-client.js",
       "line": 0,
       "meta": {},
-      "x": -3983.7895306761516,
-      "y": 930.5238920661336,
+      "label_at": "below",
+      "x": -701.808111551485,
+      "y": 543.7737154446455,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/app.js": {
@@ -881,8 +930,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/app.js",
       "line": 0,
       "meta": {},
-      "x": -4163.473420061993,
-      "y": 858.5893139783485,
+      "label_at": "left",
+      "x": -759.5279634804788,
+      "y": 430.7797440763915,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/config.js": {
@@ -894,8 +944,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/config.js",
       "line": 0,
       "meta": {},
-      "x": -4275.742357699976,
-      "y": 700.9296511881159,
+      "label_at": "right",
+      "x": -632.1873677768378,
+      "y": 478.53277917832884,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/models.js": {
@@ -907,8 +958,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/models.js",
       "line": 0,
       "meta": {},
-      "x": -4284.951749144448,
-      "y": 507.60073266138977,
+      "label_at": "left",
+      "x": -766.3418382063264,
+      "y": 532.3357154610894,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/parser.js": {
@@ -920,8 +972,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/parser.js",
       "line": 0,
       "meta": {},
-      "x": -4188.177677682238,
-      "y": 339.9831240335423,
+      "label_at": "above",
+      "x": -700.1155276160977,
+      "y": 394.8509407451966,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/renderer.js": {
@@ -933,8 +986,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/renderer.js",
       "line": 0,
       "meta": {},
-      "x": -4016.1452272296865,
-      "y": 251.29423171448636,
+      "label_at": "right",
+      "x": -654.0127038658131,
+      "y": 548.3372497177992,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/reporter.js": {
@@ -946,8 +1000,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/reporter.js",
       "line": 0,
       "meta": {},
-      "x": -3823.473485282265,
-      "y": 269.69215236975396,
+      "label_at": "left",
+      "x": -797.8964725320068,
+      "y": 462.451858659777,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/tangent-detector.js": {
@@ -959,8 +1014,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/tangent-detector.js",
       "line": 0,
       "meta": {},
-      "x": -3671.334368554807,
-      "y": 389.3356761847931,
+      "label_at": "right",
+      "x": -626.9071730693628,
+      "y": 427.2856573491203,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/js/thread-analyzer.js": {
@@ -972,8 +1028,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/js/thread-analyzer.js",
       "line": 0,
       "meta": {},
-      "x": -3608.0309716446477,
-      "y": 572.2388297090722,
+      "label_at": "below",
+      "x": -733.2617308054254,
+      "y": 574.1112311020129,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/visualizer.html": {
@@ -985,8 +1042,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/visualizer.html",
       "line": 0,
       "meta": {},
-      "x": -417.6301073821471,
-      "y": -213.852575292919,
+      "label_at": "right",
+      "x": -399.78421331130755,
+      "y": 383.04948539516465,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/visualizer.js": {
@@ -998,8 +1056,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/visualizer.js",
       "line": 0,
       "meta": {},
-      "x": -611.3298166122171,
-      "y": -428.9778964826103,
+      "label_at": "below",
+      "x": -430.64844027952995,
+      "y": 495.9609493193618,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/visualizer_backend.py": {
@@ -1011,8 +1070,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/visualizer_backend.py",
       "line": 0,
       "meta": {},
-      "x": -183.43613226965624,
-      "y": -619.4884390142745,
+      "label_at": "left",
+      "x": -488.3682922085235,
+      "y": 382.96697795110776,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/frontend/vite.config.js": {
@@ -1024,8 +1084,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/frontend/vite.config.js",
       "line": 0,
       "meta": {},
-      "x": -466.58998003225065,
-      "y": -679.6746473183285,
+      "label_at": "right",
+      "x": -361.0276965048825,
+      "y": 430.720013053045,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/gatherer.py": {
@@ -1037,8 +1098,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/gatherer.py",
       "line": 0,
       "meta": {},
-      "x": 388.3121148882323,
-      "y": 343.74123048062705,
+      "label_at": "right",
+      "x": 76.44073999222451,
+      "y": 264.87610063815066,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/generator.py": {
@@ -1050,8 +1112,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/generator.py",
       "line": 0,
       "meta": {},
-      "x": 312.49608139315154,
-      "y": 183.96232462000862,
+      "label_at": "left",
+      "x": -112.8837643285239,
+      "y": 341.3867555291609,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/harness.py": {
@@ -1063,8 +1126,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/harness.py",
       "line": 0,
       "meta": {},
-      "x": 319.6172776510359,
-      "y": 7.251662075836474,
+      "label_at": "above",
+      "x": -18.594473272432545,
+      "y": 144.59958129575634,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/hud.py": {
@@ -1076,8 +1140,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/hud.py",
       "line": 0,
       "meta": {},
-      "x": 408.0443234189223,
-      "y": -145.90847395736134,
+      "label_at": "right",
+      "x": 48.33578238986925,
+      "y": 366.0782332251529,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/llm.py": {
@@ -1089,8 +1154,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/llm.py",
       "line": 0,
       "meta": {},
-      "x": 557.5196481728124,
-      "y": -240.43094209411012,
+      "label_at": "left",
+      "x": -161.1956471993478,
+      "y": 241.39878634911253,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/logs.py": {
@@ -1102,8 +1168,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/logs.py",
       "line": 0,
       "meta": {},
-      "x": 733.8002563845309,
-      "y": -254.66178400350756,
+      "label_at": "right",
+      "x": 89.16667043789545,
+      "y": 189.60687807350067,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/orchestrator.py": {
@@ -1115,8 +1182,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/orchestrator.py",
       "line": 0,
       "meta": {},
-      "x": 896.5023851243982,
-      "y": -185.3408853043471,
+      "label_at": "left",
+      "x": -99.1488529597768,
+      "y": 129.97872327551192,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/README.md": {
@@ -1128,8 +1196,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/README.md",
       "line": 0,
       "meta": {},
-      "x": -1428.547129329102,
-      "y": -1760.597374731205,
+      "label_at": "left",
+      "x": -39.62206224155667,
+      "y": -292.5303536342088,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/__init__.py": {
@@ -1141,8 +1210,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -1508.149652646008,
-      "y": -1658.070843689663,
+      "label_at": "right",
+      "x": 50.115369814810876,
+      "y": -349.53706003384616,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/fixtures/__init__.py": {
@@ -1154,8 +1224,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/fixtures/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -638.1754197256874,
-      "y": -771.1947525812535,
+      "label_at": "left",
+      "x": -336.02385158183233,
+      "y": -240.2667210432515,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/fixtures/make_harness_fixture.py": {
@@ -1167,8 +1238,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/fixtures/make_harness_fixture.py",
       "line": 0,
       "meta": {},
-      "x": -1027.8868514286848,
-      "y": -771.1947525812534,
+      "label_at": "right",
+      "x": -246.2864195254649,
+      "y": -297.2734274428889,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/fixtures/stub_harness.py": {
@@ -1180,8 +1252,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/fixtures/stub_harness.py",
       "line": 0,
       "meta": {},
-      "x": -833.0311355771862,
-      "y": -1108.6947525812536,
+      "label_at": "below",
+      "x": -277.15064649368725,
+      "y": -184.3619635186917,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_analytics_service.py": {
@@ -1193,8 +1266,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_analytics_service.py",
       "line": 0,
       "meta": {},
-      "x": -1612.4616254973014,
-      "y": -1580.822778304814,
+      "label_at": "below",
+      "x": 19.25114284658855,
+      "y": -236.62559610964897,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_analyzer.py": {
@@ -1206,8 +1280,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_analyzer.py",
       "line": 0,
       "meta": {},
-      "x": -1733.7467060521249,
-      "y": -1534.5823141998683,
+      "label_at": "left",
+      "x": -38.46870908240513,
+      "y": -349.6195674779031,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_api.py": {
@@ -1219,8 +1294,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_api.py",
       "line": 0,
       "meta": {},
-      "x": -1863.0097347280514,
-      "y": -1522.7788950614415,
+      "label_at": "right",
+      "x": 88.87188662123607,
+      "y": -301.86653237596585,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_api_reference.py": {
@@ -1232,8 +1308,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_api_reference.py",
       "line": 0,
       "meta": {},
-      "x": -1990.663864027196,
-      "y": -1546.2879264899811,
+      "label_at": "left",
+      "x": -45.28258380825262,
+      "y": -248.06359609320512,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_cli_reference.py": {
@@ -1245,8 +1322,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_cli_reference.py",
       "line": 0,
       "meta": {},
-      "x": -2107.2415711582244,
-      "y": -1603.3658511710953,
+      "label_at": "above",
+      "x": 20.943726781975883,
+      "y": -385.5483708090979,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_database.py": {
@@ -1258,8 +1336,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_database.py",
       "line": 0,
       "meta": {},
-      "x": -2204.096820890752,
-      "y": -1689.7794605453169,
+      "label_at": "right",
+      "x": 67.0465505322606,
+      "y": -232.0620618364954,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_dataio.py": {
@@ -1271,8 +1350,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_dataio.py",
       "line": 0,
       "meta": {},
-      "x": -2274.0463024354026,
-      "y": -1799.1198525213172,
+      "label_at": "left",
+      "x": -76.83721813393313,
+      "y": -317.94745289451777,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_documented_pictures.py": {
@@ -1284,8 +1364,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_documented_pictures.py",
       "line": 0,
       "meta": {},
-      "x": -2311.902182743593,
-      "y": -1923.2777504252474,
+      "label_at": "right",
+      "x": 94.15208132871085,
+      "y": -353.1136542051743,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_e2e.py": {
@@ -1297,8 +1378,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_e2e.py",
       "line": 0,
       "meta": {},
-      "x": -2314.8568643519957,
-      "y": -2053.044930954162,
+      "label_at": "below",
+      "x": -12.202476407351625,
+      "y": -206.28808045228172,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_frontend.py": {
@@ -1310,8 +1392,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_frontend.py",
       "line": 0,
       "meta": {},
-      "x": -2282.691212042483,
-      "y": -2178.7971559735793,
+      "label_at": "left",
+      "x": -33.61237234921843,
+      "y": -392.85066350212975,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_gatherer.py": {
@@ -1323,8 +1406,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_gatherer.py",
       "line": 0,
       "meta": {},
-      "x": -2217.7908050987844,
-      "y": -2291.207958231962,
+      "label_at": "right",
+      "x": 112.87859876497363,
+      "y": -265.5744424943536,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_generator.py": {
@@ -1336,8 +1420,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_generator.py",
       "line": 0,
       "meta": {},
-      "x": -2124.9690098043075,
-      "y": -2381.9403427710063,
+      "label_at": "left",
+      "x": -87.1881500873673,
+      "y": -260.3848899821751,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_harness.py": {
@@ -1349,8 +1434,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_harness.py",
       "line": 0,
       "meta": {},
-      "x": -2011.1099940845854,
-      "y": -2444.2651037024925,
+      "label_at": "right",
+      "x": 61.11902854967772,
+      "y": -403.4001203347209,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_harness_topics.py": {
@@ -1362,8 +1448,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_harness_topics.py",
       "line": 0,
       "meta": {},
-      "x": -1884.6581602652116,
-      "y": -2473.559898624941,
+      "label_at": "below",
+      "x": 47.95069273251033,
+      "y": -192.04812860312376,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_hud.py": {
@@ -1375,8 +1462,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_hud.py",
       "line": 0,
       "meta": {},
-      "x": -1754.991862381922,
-      "y": -2467.6520666137235,
+      "label_at": "left",
+      "x": -88.56756730525088,
+      "y": -361.16492102261753,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_logs.py": {
@@ -1388,8 +1476,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_logs.py",
       "line": 0,
       "meta": {},
-      "x": -1631.7278565648771,
-      "y": -2426.979764542579,
+      "label_at": "right",
+      "x": 131.70523464019084,
+      "y": -327.8146636843089,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_orchestrator.py": {
@@ -1401,8 +1490,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_orchestrator.py",
       "line": 0,
       "meta": {},
-      "x": -1524.0080702302234,
-      "y": -2354.5594709927236,
+      "label_at": "left",
+      "x": -57.68134491107341,
+      "y": -200.69399673743632,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_port.py": {
@@ -1414,8 +1504,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_port.py",
       "line": 0,
       "meta": {},
-      "x": -1439.821587145169,
-      "y": -2255.7622678359508,
+      "label_at": "above",
+      "x": -2.6340478800300247,
+      "y": -427.39049931600687,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_screenshots.py": {
@@ -1427,8 +1518,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_screenshots.py",
       "line": 0,
       "meta": {},
-      "x": -1385.4121336325984,
-      "y": -2137.9154916632683,
+      "label_at": "right",
+      "x": 112.31869566723766,
+      "y": -218.579764510589,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_topic_service.py": {
@@ -1440,8 +1532,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_topic_service.py",
       "line": 0,
       "meta": {},
-      "x": -1364.815009952852,
-      "y": -2009.759298750276,
+      "label_at": "left",
+      "x": -118.18994539020227,
+      "y": -296.5307144107402,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/tests/test_visualizer.py": {
@@ -1453,8 +1546,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/tests/test_visualizer.py",
       "line": 0,
       "meta": {},
-      "x": -1379.5578105436857,
-      "y": -1880.7984476497595,
+      "label_at": "right",
+      "x": 108.90729763153043,
+      "y": -396.69027484512685,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/validator.py": {
@@ -1466,8 +1560,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/validator.py",
       "line": 0,
       "meta": {},
-      "x": 1008.3529374713193,
-      "y": -48.34882848121551,
+      "label_at": "right",
+      "x": 118.60905940693087,
+      "y": 318.8932347930806,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/looksatwords/visualizer.py": {
@@ -1479,8 +1574,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/looksatwords/visualizer.py",
       "line": 0,
       "meta": {},
-      "x": 1043.7282998278943,
-      "y": 124.93115718096293,
+      "label_at": "left",
+      "x": -179.64971292913603,
+      "y": 326.822416927523,
       "size": 30
      },
      "file::quaternionmedia/looksatwords/pyproject.toml": {
@@ -1492,8 +1588,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/looksatwords/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": 1385.8717980474653,
-      "y": -642.4555026110396,
+      "label_at": "left",
+      "x": 630.2609503795228,
+      "y": -157.82454870232073,
       "size": 30
      }
     },

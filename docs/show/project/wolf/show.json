@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:63cbdaf5a1d78de279a80f3b9c604a608e0431ac44810641e5bcd997636e3349"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "d960d108d8915b195c5de3b74fc10ac2144e7670"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:wolf",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1756.6780764365571,
-      "y": 299.1630288246473,
+      "label_at": "none",
+      "x": 242.1132570075814,
+      "y": -112.89926588348462,
       "size": 130
      },
      "dir::quaternionmedia/wolf/website": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 80.9454341022536,
-      "y": -9.104413512257354,
+      "label_at": "none",
+      "x": -10.259934131550764,
+      "y": -106.0908912950033,
       "size": 60
      },
      "dir::quaternionmedia/wolf/website/src": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1323.1044143122833,
-      "y": -202.43579284995712,
+      "label_at": "none",
+      "x": -125.53392665596492,
+      "y": 58.53743135794436,
       "size": 130
      },
      "file::quaternionmedia/wolf/README.md": {
@@ -257,8 +260,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 2016.103296457343,
-      "y": 448.9422494382259,
+      "label_at": "left",
+      "x": 193.1726365076023,
+      "y": -90.07787974948684,
       "size": 30
      },
      "file::quaternionmedia/wolf/cyto.py": {
@@ -270,8 +274,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/cyto.py",
       "line": 0,
       "meta": {},
-      "x": 1834.2095061473697,
-      "y": 588.5142636888544,
+      "label_at": "right",
+      "x": 265.09791840091435,
+      "y": -168.36788620735632,
       "size": 30
      },
      "file::quaternionmedia/wolf/midihub.py": {
@@ -283,8 +288,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/midihub.py",
       "line": 0,
       "meta": {},
-      "x": 1606.8988558229787,
-      "y": 558.5882488454331,
+      "label_at": "below",
+      "x": 264.50900173784925,
+      "y": -51.31553736712504,
       "size": 30
      },
      "file::quaternionmedia/wolf/midistream.py": {
@@ -296,8 +302,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/midistream.py",
       "line": 0,
       "meta": {},
-      "x": 1467.32684157235,
-      "y": 376.69445853545983,
+      "label_at": "left",
+      "x": 179.5109142981803,
+      "y": -145.52033556696819,
       "size": 30
      },
      "file::quaternionmedia/wolf/obsws.py": {
@@ -309,8 +316,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/obsws.py",
       "line": 0,
       "meta": {},
-      "x": 1497.2528564157712,
-      "y": 149.3838082110688,
+      "label_at": "right",
+      "x": 314.87187936919264,
+      "y": -132.3526170611211,
       "size": 30
      },
      "file::quaternionmedia/wolf/realbook.py": {
@@ -322,8 +330,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/realbook.py",
       "line": 0,
       "meta": {},
-      "x": 1679.1466467257446,
-      "y": 9.811793960440252,
+      "label_at": "left",
+      "x": 199.2138362616323,
+      "y": -45.66123944262278,
       "size": 30
      },
      "file::quaternionmedia/wolf/soup.py": {
@@ -335,8 +344,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/soup.py",
       "line": 0,
       "meta": {},
-      "x": 1906.4572970501356,
-      "y": 39.737808803861526,
+      "label_at": "above",
+      "x": 227.5998619324727,
+      "y": -195.60196452986378,
       "size": 30
      },
      "file::quaternionmedia/wolf/website/src/Control.js": {
@@ -348,8 +358,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Control.js",
       "line": 0,
       "meta": {},
-      "x": -1063.6791942914974,
-      "y": -52.656572236378565,
+      "label_at": "left",
+      "x": -174.474547155944,
+      "y": 81.35881749194213,
       "size": 30
      },
      "file::quaternionmedia/wolf/website/src/Lyrics.js": {
@@ -361,8 +372,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Lyrics.js",
       "line": 0,
       "meta": {},
-      "x": -1245.5729846014708,
-      "y": 86.91544201424995,
+      "label_at": "right",
+      "x": -102.54926526263198,
+      "y": 3.0688110340726595,
       "size": 30
      },
      "file::quaternionmedia/wolf/website/src/Menu.js": {
@@ -374,8 +386,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Menu.js",
       "line": 0,
       "meta": {},
-      "x": -1472.8836349258618,
-      "y": 56.98942717082871,
+      "label_at": "below",
+      "x": -103.13818192569701,
+      "y": 120.12115987430391,
       "size": 30
      },
      "file::quaternionmedia/wolf/website/src/Mixer.js": {
@@ -387,8 +400,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Mixer.js",
       "line": 0,
       "meta": {},
-      "x": -1612.4556491764902,
-      "y": -124.90436313914464,
+      "label_at": "left",
+      "x": -188.13626936536605,
+      "y": 25.9163616744608,
       "size": 30
      },
      "file::quaternionmedia/wolf/website/src/Patchbay.js": {
@@ -400,8 +414,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/Patchbay.js",
       "line": 0,
       "meta": {},
-      "x": -1582.5296343330692,
-      "y": -352.2150134635356,
+      "label_at": "right",
+      "x": -52.775304294353695,
+      "y": 39.08408018030789,
       "size": 30
      },
      "file::quaternionmedia/wolf/website/src/index.html": {
@@ -413,8 +428,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/index.html",
       "line": 0,
       "meta": {},
-      "x": -1173.3251936987047,
-      "y": -461.8610128707429,
+      "label_at": "left",
+      "x": -168.43334740191398,
+      "y": 125.77545779880622,
       "size": 30
      },
      "file::quaternionmedia/wolf/website/src/index.js": {
@@ -426,8 +442,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/index.js",
       "line": 0,
       "meta": {},
-      "x": -1400.6358440230956,
-      "y": -491.7870277141642,
+      "label_at": "above",
+      "x": -140.04732173107362,
+      "y": -24.165267288434826,
       "size": 30
      },
      "file::quaternionmedia/wolf/website/src/style.css": {
@@ -439,8 +456,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/website/src/style.css",
       "line": 0,
       "meta": {},
-      "x": -1033.7531794480763,
-      "y": -279.96722256076947,
+      "label_at": "right",
+      "x": -55.79023368122114,
+      "y": 112.15883371040691,
       "size": 30
      },
      "file::quaternionmedia/wolf/wolf.py": {
@@ -452,8 +470,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/wolf/main/wolf.py",
       "line": 0,
       "meta": {},
-      "x": 2046.029311300764,
-      "y": 221.63159911383494,
+      "label_at": "right",
+      "x": 311.85694998232515,
+      "y": -59.277863531022035,
       "size": 30
      }
     },

@@ -44,10 +44,15 @@ Every member here is at `v0.0.0`, so no member has records to start from. Readin
 
 <section class="qm-section" markdown>
 
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
@@ -61,7 +66,7 @@ the graphs codecarto draws
 
 </div>
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11`, on 2026-10-26. [The show document](../show/family/performer-display/show.json) holds each graph as drawn.
+Drawn by codecartographer at `0c64e94` from the corpus at `3b94882`, on 2026-10-26. [The show document](../show/family/performer-display/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

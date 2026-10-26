@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:52c96de6615a43af500db0ae07d927e9cdf2275f4d5f13b62a5322beb4223ce3"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "6dd9485f6bd2a5ddf7679f3dfe4c19f44385a5f3"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:rad-godot",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5650.920593231029,
-      "y": -483.1854374365567,
+      "label_at": "none",
+      "x": -1310.7000100966018,
+      "y": -1310.7000100966018,
       "size": 120
      },
      "dir::quaternionmedia/rad-godot/Scenes": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2481.63573621467,
-      "y": 979.4378145924649,
+      "label_at": "right",
+      "x": -1243.2069566550183,
+      "y": -1367.3022427127414,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 684.5529616641187,
-      "y": 1228.817721477035,
+      "label_at": "none",
+      "x": -1314.628485445907,
+      "y": -164.26957006264593,
       "size": 80
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4": {
@@ -257,8 +260,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1519.9189699565347,
-      "y": 1746.5334402488943,
+      "label_at": "none",
+      "x": 1634.7600284007208,
+      "y": -102.43375691205199,
       "size": 80
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/bin": {
@@ -270,8 +274,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -35.09731900872645,
-      "y": 1471.6681018685197,
+      "label_at": "right",
+      "x": 1681.4290759590328,
+      "y": -55.76470935373982,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src": {
@@ -283,8 +288,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2729.4484071924585,
-      "y": -624.6602835829613,
+      "label_at": "none",
+      "x": 362.0762271960465,
+      "y": -70.90940157327319,
       "size": 200
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts": {
@@ -296,8 +302,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2634.914704736779,
-      "y": -1165.4554643865274,
+      "label_at": "none",
+      "x": 918.1059449658296,
+      "y": -252.60078101698375,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/cmd": {
@@ -309,8 +316,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2967.3624527117754,
-      "y": -1177.505277211591,
+      "label_at": "right",
+      "x": 408.74527475435866,
+      "y": -24.24035401496107,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core": {
@@ -322,8 +330,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -588.9899806688063,
-      "y": -82.32541641620304,
+      "label_at": "none",
+      "x": -227.8907838947248,
+      "y": -34.99851822751326,
       "size": 190
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/assets": {
@@ -335,8 +344,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 445.2206210691911,
-      "y": -1526.5471033318174,
+      "label_at": "right",
+      "x": -181.22173633641268,
+      "y": 11.670529330798871,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/attributes": {
@@ -348,8 +358,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 955.6532301534537,
-      "y": -1598.8564017101298,
+      "label_at": "left",
+      "x": -305.6465902397455,
+      "y": -38.4039667494595,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/command": {
@@ -361,8 +372,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3475.4469248809746,
-      "y": -584.3464263700114,
+      "label_at": "right",
+      "x": -160.39773045314126,
+      "y": -91.60075084365269,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/discovery": {
@@ -374,8 +386,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1043.778800472404,
-      "y": 1462.5225189074827,
+      "label_at": "below",
+      "x": -240.62575478773246,
+      "y": 61.430253497290124,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/event": {
@@ -387,8 +400,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3576.7297757918845,
-      "y": 435.6120817502262,
+      "label_at": "left",
+      "x": -288.4431044222057,
+      "y": -121.57603539413826,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution": {
@@ -400,8 +414,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 294.6185841367954,
-      "y": 882.2118479023014,
+      "label_at": "none",
+      "x": -849.9036750521874,
+      "y": 48.56466768930136,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages": {
@@ -413,8 +428,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 463.76004275440164,
-      "y": 1150.6984889766838,
+      "label_at": "none",
+      "x": -653.9846070995914,
+      "y": 101.06102372905781,
       "size": 70
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/fuzzed": {
@@ -426,8 +442,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2219.863217306847,
-      "y": 1459.473313853973,
+      "label_at": "right",
+      "x": -607.3155595412793,
+      "y": 147.73007128736995,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/single": {
@@ -439,8 +456,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3171.4086392468034,
-      "y": 881.1754432683113,
+      "label_at": "left",
+      "x": -731.7404134446124,
+      "y": 97.65557520711127,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/hooks": {
@@ -452,8 +470,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1859.3018755984936,
-      "y": -1542.8761107071116,
+      "label_at": "right",
+      "x": -117.17717055612205,
+      "y": -10.375189421067482,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parameters": {
@@ -465,8 +484,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2146.5400307098316,
-      "y": -1147.2190338443304,
+      "label_at": "left",
+      "x": -332.4579021692887,
+      "y": 25.260031172164332,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parse": {
@@ -478,8 +498,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3858.974592654664,
-      "y": -175.20720671967257,
+      "label_at": "above",
+      "x": -189.4228292018008,
+      "y": -156.60096047989228,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/report": {
@@ -491,8 +512,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3344.1612913081267,
-      "y": 1037.5009036004271,
+      "label_at": "right",
+      "x": -171.37196230380692,
+      "y": 86.55033123628868,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/runners": {
@@ -504,8 +526,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2773.4299736558223,
-      "y": 1030.7086532632047,
+      "label_at": "left",
+      "x": -357.3993357923607,
+      "y": -88.82785488864326,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates": {
@@ -517,8 +540,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -68.92604435305135,
-      "y": -1404.6792105469158,
+      "label_at": "none",
+      "x": 14.575147983810979,
+      "y": 207.46741365102253,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates/test_suite": {
@@ -530,8 +554,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -78.26437849190148,
-      "y": -1639.2048029575296,
+      "label_at": "right",
+      "x": 61.2441955421231,
+      "y": 254.13646120933464,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/thread": {
@@ -543,8 +568,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3574.598174502267,
-      "y": 447.2200569598134,
+      "label_at": "right",
+      "x": -90.44914162232773,
+      "y": -84.81237141582274,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/writers": {
@@ -556,8 +582,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2185.0094759098765,
-      "y": 1355.1288780371704,
+      "label_at": "left",
+      "x": -298.23051387229503,
+      "y": 99.63249560913015,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet": {
@@ -569,8 +596,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -422.5122032565483,
-      "y": 1589.6652520756638,
+      "label_at": "none",
+      "x": -34.1842204478576,
+      "y": -523.2706335843868,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/doubler": {
@@ -582,8 +610,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3565.458320383488,
-      "y": -870.6995412766914,
+      "label_at": "left",
+      "x": 284.3204208510255,
+      "y": -74.31485009521946,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/extractors": {
@@ -595,8 +624,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3898.365556054615,
-      "y": -469.866093847916,
+      "label_at": "right",
+      "x": 429.5692806376296,
+      "y": -127.5116341894128,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/fuzzers": {
@@ -608,8 +638,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1999.3977681103204,
-      "y": -1373.009745150302,
+      "label_at": "below",
+      "x": 349.3412563030387,
+      "y": 25.519370151530012,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/matchers": {
@@ -621,8 +652,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3226.163978633762,
-      "y": -694.2835627499913,
+      "label_at": "left",
+      "x": 301.5239066685655,
+      "y": -157.48691873989804,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/mocking": {
@@ -634,8 +666,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3255.251403789901,
-      "y": 634.7335619052027,
+      "label_at": "right",
+      "x": 472.7898405346491,
+      "y": -46.28607276682723,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/monitor": {
@@ -647,8 +680,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2541.753854591395,
-      "y": 1257.8582129740855,
+      "label_at": "left",
+      "x": 257.5091089214824,
+      "y": -10.650852173595695,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network": {
@@ -660,8 +694,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 949.3394791389654,
-      "y": -978.5768561160056,
+      "label_at": "none",
+      "x": 636.8560573430177,
+      "y": -232.04595890255922,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network/rpc": {
@@ -673,8 +708,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1513.4350083502525,
-      "y": -1508.759882288743,
+      "label_at": "right",
+      "x": 683.5251049013299,
+      "y": -185.37691134424708,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters": {
@@ -686,8 +722,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1143.1748774213052,
-      "y": -260.7118894403819,
+      "label_at": "none",
+      "x": 1301.407128352338,
+      "y": 390.1889101962997,
       "size": 80
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/console": {
@@ -699,8 +736,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1592.3487787064937,
-      "y": 1334.8458991039445,
+      "label_at": "right",
+      "x": 1348.0761759106504,
+      "y": 436.8579577546118,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html": {
@@ -712,8 +750,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4759.585454815566,
-      "y": 843.943771192814,
+      "label_at": "none",
+      "x": 630.7539234229512,
+      "y": 315.48063761363875,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template": {
@@ -725,8 +764,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5436.53812668442,
-      "y": 1020.8666960937139,
+      "label_at": "none",
+      "x": 998.4640408302939,
+      "y": 513.6764090049029,
       "size": 90
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css": {
@@ -738,8 +778,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4555.787087659996,
-      "y": 889.9396572314635,
+      "label_at": "none",
+      "x": 779.6125397114936,
+      "y": 572.3174919920248,
       "size": 70
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/xml": {
@@ -751,8 +792,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1258.5844460364544,
-      "y": -1653.2105633190688,
+      "label_at": "left",
+      "x": 1223.6513220073175,
+      "y": 386.7834616743535,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/spy": {
@@ -764,8 +806,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3052.3010622315455,
-      "y": -954.9091694306437,
+      "label_at": "above",
+      "x": 400.54418188897023,
+      "y": -192.51184382565222,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui": {
@@ -777,8 +820,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1028.1251554321252,
-      "y": 58.35901470409341,
+      "label_at": "none",
+      "x": 269.3689392637727,
+      "y": -416.89771036843507,
       "size": 100
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/menu": {
@@ -790,8 +834,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3453.263571444025,
-      "y": -425.6379689245545,
+      "label_at": "right",
+      "x": 316.0379868220848,
+      "y": -370.22866281012296,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/parts": {
@@ -803,8 +848,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3491.722072886633,
-      "y": 749.4900650625902,
+      "label_at": "left",
+      "x": 191.61313291875166,
+      "y": -420.3031588903813,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/settings": {
@@ -816,8 +862,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3355.0835756562137,
-      "y": 213.8487649360654,
+      "label_at": "right",
+      "x": 336.8619927053562,
+      "y": -473.4999429845746,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/templates": {
@@ -829,8 +876,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3388.9331034688007,
-      "y": -223.672262069891,
+      "label_at": "below",
+      "x": 256.633968370765,
+      "y": -320.4689386436317,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/utils": {
@@ -842,8 +890,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2727.027824097001,
-      "y": -667.5130307158105,
+      "label_at": "left",
+      "x": 208.816618736292,
+      "y": -503.47522753505996,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update": {
@@ -855,8 +904,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3711.610694356704,
-      "y": 240.73847055055955,
+      "label_at": "none",
+      "x": 594.1968635807351,
+      "y": -535.0578286165227,
       "size": 60
      },
      "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update/assets": {
@@ -868,8 +918,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3945.067290526191,
-      "y": 278.29472103192984,
+      "label_at": "right",
+      "x": 640.8659111390471,
+      "y": -488.38878105821067,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/godot-git-plugin": {
@@ -881,8 +932,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -336.08967114044333,
-      "y": -259.86327790853665,
+      "label_at": "none",
+      "x": -1529.321018430689,
+      "y": -106.74287922838153,
       "size": 90
      },
      "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/linux": {
@@ -894,8 +946,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3077.2390847372462,
-      "y": -949.4197257764105,
+      "label_at": "left",
+      "x": -1607.0768247757098,
+      "y": -110.14832775032765,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/macos": {
@@ -907,8 +960,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1644.1686221272412,
-      "y": 1365.1416934575147,
+      "label_at": "right",
+      "x": -1461.8279649891056,
+      "y": -163.34511184452083,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/win64": {
@@ -920,8 +974,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2577.5360579660273,
-      "y": -1378.4263928664209,
+      "label_at": "below",
+      "x": -1542.0559893236964,
+      "y": -10.31410750357793,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/rad": {
@@ -933,8 +988,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1218.3311353390914,
-      "y": 973.7534444148818,
+      "label_at": "none",
+      "x": -1363.5452216451877,
+      "y": -413.9670458732822,
       "size": 70
      },
      "dir::quaternionmedia/rad-godot/addons/rad/core": {
@@ -946,8 +1002,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2651.6298511827495,
-      "y": 1134.558000916805,
+      "label_at": "right",
+      "x": -1316.8761740868754,
+      "y": -367.2979983149701,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/addons/rad/ui": {
@@ -959,8 +1016,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 586.0434514754818,
-      "y": 1549.8863605832707,
+      "label_at": "left",
+      "x": -1441.3010279902085,
+      "y": -417.3724943952285,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/conformance": {
@@ -972,8 +1030,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2048.424192757356,
-      "y": -1390.6371787960743,
+      "label_at": "below",
+      "x": -1323.4349809896094,
+      "y": -1214.2712383717985,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/docs": {
@@ -985,8 +1044,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 6190.369645675451,
-      "y": -0.19242114730475285,
+      "label_at": "none",
+      "x": -1585.1978965267556,
+      "y": -1384.2514970896116,
       "size": 80
      },
      "dir::quaternionmedia/rad-godot/tests": {
@@ -998,8 +1058,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1252.2360292429776,
-      "y": 1515.5276910349064,
+      "label_at": "left",
+      "x": -1371.2523306240828,
+      "y": -1397.2775272632266,
       "size": 50
      },
      "dir::quaternionmedia/rad-godot/tools": {
@@ -1011,8 +1072,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1376.9556224934977,
-      "y": -3342.01789391493,
+      "label_at": "none",
+      "x": -1515.2258704762203,
+      "y": -1106.1741497169833,
       "size": 90
      },
      "file::quaternionmedia/rad-godot/HANDOFF.md": {
@@ -1024,8 +1086,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/HANDOFF.md",
       "line": 0,
       "meta": {},
-      "x": 5845.776309082527,
-      "y": -370.6854374365567,
+      "label_at": "right",
+      "x": -1264.0309625382897,
+      "y": -1264.0309625382897,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/README.md": {
@@ -1037,8 +1100,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 5456.06487737953,
-      "y": -595.6854374365566,
+      "label_at": "left",
+      "x": -1388.4558164416226,
+      "y": -1314.1054586185478,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/runtest.sh": {
@@ -1050,8 +1114,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/runtest.sh",
       "line": 0,
       "meta": {},
-      "x": -1325.0632541050359,
-      "y": 1859.0334402488943,
+      "label_at": "left",
+      "x": 1557.0042220556995,
+      "y": -105.83920543399836,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts/CLAUDE.md": {
@@ -1063,8 +1128,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/asserts/CLAUDE.md",
       "line": 0,
       "meta": {},
-      "x": 2829.7704205882783,
-      "y": -1052.9554643865274,
+      "label_at": "right",
+      "x": 956.2897111499034,
+      "y": -214.41701483291013,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs": {
@@ -1076,8 +1142,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
       "line": 0,
       "meta": {},
-      "x": -227.65648740504955,
-      "y": 1702.1652520756636,
+      "label_at": "right",
+      "x": 3.999545736215964,
+      "y": -485.0868674003133,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css": {
@@ -1089,8 +1156,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
       "line": 0,
       "meta": {},
-      "x": 4750.642803511495,
-      "y": 1002.4396572314635,
+      "label_at": "right",
+      "x": 817.7963058955671,
+      "y": 610.5012581760984,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css": {
@@ -1102,8 +1170,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 0,
       "meta": {},
-      "x": 4360.931371808498,
-      "y": 777.4396572314635,
+      "label_at": "left",
+      "x": 719.6278693239362,
+      "y": 569.6903607626946,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/folder_report.html": {
@@ -1115,8 +1184,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/folder_report.html",
       "line": 0,
       "meta": {},
-      "x": 5631.393842535918,
-      "y": 1133.366696093714,
+      "label_at": "right",
+      "x": 1036.6478070143673,
+      "y": 551.8601751889765,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/index.html": {
@@ -1128,8 +1198,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/index.html",
       "line": 0,
       "meta": {},
-      "x": 5241.682410832921,
-      "y": 1133.366696093714,
+      "label_at": "left",
+      "x": 938.4793704427362,
+      "y": 511.0492777755729,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/suite_report.html": {
@@ -1141,8 +1212,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/suite_report.html",
       "line": 0,
       "meta": {},
-      "x": 5436.53812668442,
-      "y": 795.8666960937139,
+      "label_at": "right",
+      "x": 1048.6740202550682,
+      "y": 471.5684172911711,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/addons/godot-git-plugin/THIRDPARTY.md": {
@@ -1154,8 +1226,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/godot-git-plugin/THIRDPARTY.md",
       "line": 0,
       "meta": {},
-      "x": -141.23395528894466,
-      "y": -147.36327790853665,
+      "label_at": "right",
+      "x": -1482.6519708723768,
+      "y": -60.07383167006935,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-adoption-and-scope.md": {
@@ -1167,8 +1240,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/docs/DRAFT-rad-godot-adoption-and-scope.md",
       "line": 0,
       "meta": {},
-      "x": 6385.22536152695,
-      "y": 112.30757885269523,
+      "label_at": "right",
+      "x": -1547.014130342682,
+      "y": -1346.067730905538,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-architecture.md": {
@@ -1180,8 +1254,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/docs/DRAFT-rad-godot-architecture.md",
       "line": 0,
       "meta": {},
-      "x": 5995.513929823952,
-      "y": 112.30757885269531,
+      "label_at": "left",
+      "x": -1645.1825669143127,
+      "y": -1386.8786283189415,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/docs/integrations.md": {
@@ -1193,8 +1268,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/docs/integrations.md",
       "line": 0,
       "meta": {},
-      "x": 6190.369645675451,
-      "y": -225.19242114730474,
+      "label_at": "right",
+      "x": -1534.987917101981,
+      "y": -1426.3594888033435,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/tools/check_core_boundary.py": {
@@ -1206,8 +1282,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/check_core_boundary.py",
       "line": 0,
       "meta": {},
-      "x": -1182.099906641999,
-      "y": -3229.51789391493,
+      "label_at": "right",
+      "x": -1477.0421042921466,
+      "y": -1067.9903835329096,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/tools/check_imports.py": {
@@ -1219,8 +1296,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/check_imports.py",
       "line": 0,
       "meta": {},
-      "x": -1489.4556224934977,
-      "y": -3147.1621780634314,
+      "label_at": "left",
+      "x": -1575.2105408637776,
+      "y": -1108.801280946313,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/tools/check_vector_pin.py": {
@@ -1232,8 +1310,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/check_vector_pin.py",
       "line": 0,
       "meta": {},
-      "x": -1571.8113383449963,
-      "y": -3454.51789391493,
+      "label_at": "right",
+      "x": -1465.0158910514458,
+      "y": -1148.2821414307152,
       "size": 30
      },
      "file::quaternionmedia/rad-godot/tools/repo.py": {
@@ -1245,8 +1324,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/repo.py",
       "line": 0,
       "meta": {},
-      "x": -1264.4556224934977,
-      "y": -3536.873609766429,
+      "label_at": "below",
+      "x": -1524.4683867139408,
+      "y": -1036.1901273004667,
       "size": 30
      }
     },

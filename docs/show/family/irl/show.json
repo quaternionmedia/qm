@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:d6a68c1aea9ddf565f6d94f19ee5d2e9309a042a679473d1663bbe99e9dc578a"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -118,8 +118,8 @@
        "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
        "show": "family:show-control",
        "color": "#f0708f",
-       "x": 205.2900288074453,
-       "y": 36.198170949170624,
+       "x": 215.92595253997715,
+       "y": 38.07357126797348,
        "size": 11,
        "label_at": "below"
       }
@@ -160,8 +160,8 @@
        "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
        "show": "family:instruments",
        "color": "#43c6bf",
-       "x": 71.29647879120898,
-       "y": 195.88546556547217,
+       "x": 74.99029633912622,
+       "y": 206.03414586995999,
        "size": 21,
        "label_at": "below"
       }
@@ -443,10 +443,10 @@
     "subject": "family:irl",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

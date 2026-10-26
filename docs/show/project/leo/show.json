@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:203ffd71c8e51170120ecb6bb9df7dd7529f8522c6ff2736d1c5431aa394d58d"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "9305c59e7287eaccc5a3ced59a58d053ec66d30e"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:leo",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -222,8 +222,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3390.3919680135373,
-      "y": 402.7119073799608,
+      "label_at": "none",
+      "x": 577.6623018283931,
+      "y": -350.0836343056171,
       "size": 140
      },
      "dir::quaternionmedia/leo/.github": {
@@ -235,8 +236,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 771.1203256763898,
-      "y": 120.51653050560994,
+      "label_at": "none",
+      "x": 403.0548809339063,
+      "y": -599.4488744184596,
       "size": 60
      },
      "dir::quaternionmedia/leo/.github/workflows": {
@@ -248,8 +250,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1098.4073551090369,
-      "y": 216.02961451905193,
+      "label_at": "right",
+      "x": 462.8711948783252,
+      "y": -571.5560691435735,
       "size": 50
      },
      "dir::quaternionmedia/leo/docs": {
@@ -261,8 +264,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2550.0607051597813,
-      "y": 185.29749656609576,
+      "label_at": "none",
+      "x": 701.0449941591122,
+      "y": -614.6786718799461,
       "size": 80
      },
      "dir::quaternionmedia/leo/leo": {
@@ -274,8 +278,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1544.5327596778643,
-      "y": 1126.478795460132,
+      "label_at": "none",
+      "x": 858.9668796139939,
+      "y": -218.90915541013288,
       "size": 120
      },
      "dir::quaternionmedia/leo/pdf": {
@@ -287,8 +292,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1269.4101397786926,
-      "y": -271.44236887506923,
+      "label_at": "below",
+      "x": 598.6759259803458,
+      "y": -255.11461251429583,
       "size": 50
      },
      "dir::quaternionmedia/leo/src": {
@@ -300,8 +306,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 187.23303105786806,
-      "y": -408.2231054477984,
+      "label_at": "none",
+      "x": -337.31611137099355,
+      "y": -173.90244714448505,
       "size": 250
      },
      "dir::quaternionmedia/leo/src/components": {
@@ -313,8 +320,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1422.5944934378479,
-      "y": 480.74878173802523,
+      "label_at": "none",
+      "x": 156.96015765312393,
+      "y": -23.065809463793286,
       "size": 70
      },
      "dir::quaternionmedia/leo/src/components/debug": {
@@ -326,8 +334,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2180.3071974869868,
-      "y": -250.62242147617977,
+      "label_at": "none",
+      "x": 318.76290031112444,
+      "y": 52.38404854811483,
       "size": 80
      },
      "dir::quaternionmedia/leo/src/components/navigation": {
@@ -339,8 +348,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 17.983734520903777,
-      "y": 806.4824940720898,
+      "label_at": "none",
+      "x": 15.212308155013709,
+      "y": 76.18710327979895,
       "size": 70
      },
      "dir::quaternionmedia/leo/src/fonts": {
@@ -352,8 +362,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1105.2022325559078,
-      "y": 442.9151888928568,
+      "label_at": "below",
+      "x": -357.3673179305007,
+      "y": -23.333072384848165,
       "size": 50
      },
      "dir::quaternionmedia/leo/src/static": {
@@ -365,8 +376,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1009.0277167375654,
-      "y": -494.7847095893265,
+      "label_at": "right",
+      "x": -262.56181102489097,
+      "y": -12.679636786382389,
       "size": 50
      },
      "dir::quaternionmedia/leo/src/styles": {
@@ -378,8 +390,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 51.618740193943836,
-      "y": -1880.4332018145267,
+      "label_at": "none",
+      "x": -681.9875340577674,
+      "y": 245.71080132406684,
       "size": 160
      },
      "dir::quaternionmedia/leo/src/styles/root": {
@@ -391,8 +404,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 121.9894233565731,
-      "y": -892.0634525302193,
+      "label_at": "none",
+      "x": -449.4941185626093,
+      "y": 354.1242614400711,
       "size": 70
      },
      "file::quaternionmedia/leo/METRONOME_INTEGRATION.md": {
@@ -404,8 +418,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/METRONOME_INTEGRATION.md",
       "line": 0,
       "meta": {},
-      "x": -3177.1365742639036,
-      "y": 525.8349663674513,
+      "label_at": "right",
+      "x": 637.478615772812,
+      "y": -322.190829030731,
       "size": 30
      },
      "file::quaternionmedia/leo/README.md": {
@@ -417,8 +432,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/README.md",
       "line": 0,
       "meta": {},
-      "x": -3441.589414759025,
-      "y": 643.5769568672022,
+      "label_at": "left",
+      "x": 503.4310123911546,
+      "y": -326.68965712162935,
       "size": 30
      },
      "file::quaternionmedia/leo/docs/Requirements.md": {
@@ -430,8 +446,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/docs/Requirements.md",
       "line": 0,
       "meta": {},
-      "x": -2355.204989308282,
-      "y": 297.79749656609573,
+      "label_at": "right",
+      "x": 749.9856146590913,
+      "y": -591.8572857459484,
       "size": 30
      },
      "file::quaternionmedia/leo/docs/Technical.md": {
@@ -443,8 +460,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/docs/Technical.md",
       "line": 0,
       "meta": {},
-      "x": -2744.91642101128,
-      "y": 297.7974965660958,
+      "label_at": "left",
+      "x": 643.7793102360589,
+      "y": -596.6314021466883,
       "size": 30
      },
      "file::quaternionmedia/leo/docs/User Stories.md": {
@@ -456,8 +474,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/docs/User Stories.md",
       "line": 0,
       "meta": {},
-      "x": -2550.0607051597813,
-      "y": -39.70250343390425,
+      "label_at": "right",
+      "x": 733.8251599532985,
+      "y": -671.4200653286945,
       "size": 30
      },
      "file::quaternionmedia/leo/leo.sh": {
@@ -469,8 +488,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo.sh",
       "line": 0,
       "meta": {},
-      "x": -3635.289123989095,
-      "y": 428.451635677511,
+      "label_at": "right",
+      "x": 621.725922389833,
+      "y": -426.3563184265882,
       "size": 30
      },
      "file::quaternionmedia/leo/leo/__init__.py": {
@@ -482,8 +502,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -1299.3457102345517,
-      "y": 1268.0376044580385,
+      "label_at": "right",
+      "x": 907.9075001139731,
+      "y": -196.08776927613513,
       "size": 30
      },
      "file::quaternionmedia/leo/leo/api.py": {
@@ -495,8 +516,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/api.py",
       "line": 0,
       "meta": {},
-      "x": -1502.3362682973677,
-      "y": 1406.4342235818222,
+      "label_at": "left",
+      "x": 801.7011956909407,
+      "y": -200.8618856768752,
       "size": 30
      },
      "file::quaternionmedia/leo/leo/config.py": {
@@ -508,8 +530,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/config.py",
       "line": 0,
       "meta": {},
-      "x": -1737.1016450212578,
-      "y": 1334.0186952799645,
+      "label_at": "right",
+      "x": 891.7470454081803,
+      "y": -275.65054885888117,
       "size": 30
      },
      "file::quaternionmedia/leo/leo/db.py": {
@@ -521,8 +544,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/db.py",
       "line": 0,
       "meta": {},
-      "x": -1826.8587233921799,
-      "y": 1105.3213893713394,
+      "label_at": "below",
+      "x": 874.217700685318,
+      "y": -149.9845592441019,
       "size": 30
      },
      "file::quaternionmedia/leo/leo/ireal.py": {
@@ -534,8 +558,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/ireal.py",
       "line": 0,
       "meta": {},
-      "x": -1704.0185926861004,
-      "y": 892.556041780007,
+      "label_at": "left",
+      "x": 797.296407092418,
+      "y": -262.14112065537154,
       "size": 30
      },
      "file::quaternionmedia/leo/leo/main.py": {
@@ -547,8 +572,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/main.py",
       "line": 0,
       "meta": {},
-      "x": -1461.0823768067085,
-      "y": 855.939298864384,
+      "label_at": "right",
+      "x": 938.0494122535289,
+      "y": -229.26606283063737,
       "size": 30
      },
      "file::quaternionmedia/leo/leo/setlist.py": {
@@ -560,8 +586,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/leo/setlist.py",
       "line": 0,
       "meta": {},
-      "x": -1280.986001306884,
-      "y": 1023.0443148853678,
+      "label_at": "left",
+      "x": 804.9419674137574,
+      "y": -154.63097978452322,
       "size": 30
      },
      "file::quaternionmedia/leo/pyproject.toml": {
@@ -573,8 +600,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": -3490.5492874091287,
-      "y": 177.75488484179277,
+      "label_at": "left",
+      "x": 491.15047822714655,
+      "y": -410.7297749675489,
       "size": 30
      },
      "file::quaternionmedia/leo/src/Actions.js": {
@@ -586,8 +614,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Actions.js",
       "line": 0,
       "meta": {},
-      "x": 537.9733195905657,
-      "y": -205.72310544779845,
+      "label_at": "right",
+      "x": -277.4997974265747,
+      "y": -146.00964186959888,
       "size": 30
      },
      "file::quaternionmedia/leo/src/Annotation.js": {
@@ -599,8 +628,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Annotation.js",
       "line": 0,
       "meta": {},
-      "x": 433.78140980639995,
-      "y": -86.91500262984819,
+      "label_at": "left",
+      "x": -411.54740080823194,
+      "y": -150.50846996049722,
       "size": 30
      },
      "file::quaternionmedia/leo/src/Control.js": {
@@ -612,8 +642,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Control.js",
       "line": 0,
       "meta": {},
-      "x": 292.05474432438905,
-      "y": -17.023145800725814,
+      "label_at": "right",
+      "x": -293.2524908095535,
+      "y": -250.1751312654561,
       "size": 30
      },
      "file::quaternionmedia/leo/src/MetronomeService.ts": {
@@ -625,8 +656,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/MetronomeService.ts",
       "line": 0,
       "meta": {},
-      "x": -214.3021377985251,
-      "y": -461.0862132969192,
+      "label_at": "below",
+      "x": -316.30248721904076,
+      "y": -78.93342535316367,
       "size": 30
      },
      "file::quaternionmedia/leo/src/MetronomeView.ts": {
@@ -638,8 +670,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/MetronomeView.ts",
       "line": 0,
       "meta": {},
-      "x": -163.50725747482963,
-      "y": -610.7231054477983,
+      "label_at": "left",
+      "x": -423.82793497224,
+      "y": -234.54858780641686,
       "size": 30
      },
      "file::quaternionmedia/leo/src/Nav.js": {
@@ -651,8 +684,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Nav.js",
       "line": 0,
       "meta": {},
-      "x": 134.36992320874725,
-      "y": -6.687936591405208,
+      "label_at": "right",
+      "x": -224.85767144862842,
+      "y": -188.63037266805435,
       "size": 30
      },
      "file::quaternionmedia/leo/src/Search.ts": {
@@ -664,8 +698,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Search.ts",
       "line": 0,
       "meta": {},
-      "x": -59.31534769066389,
-      "y": -729.5312082657485,
+      "label_at": "left",
+      "x": -414.967423088174,
+      "y": -81.51387215492655,
       "size": 30
      },
      "file::quaternionmedia/leo/src/Setlist.js": {
@@ -677,8 +712,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Setlist.js",
       "line": 0,
       "meta": {},
-      "x": -15.266968942131843,
-      "y": -57.482816915100756,
+      "label_at": "above",
+      "x": -342.75854293723637,
+      "y": -301.32818017610924,
       "size": 30
      },
      "file::quaternionmedia/leo/src/State.ts": {
@@ -690,8 +726,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/State.ts",
       "line": 0,
       "meta": {},
-      "x": 82.4113177913472,
-      "y": -799.423065094871,
+      "label_at": "right",
+      "x": -242.63363687181308,
+      "y": -79.01446569945668,
       "size": 30
      },
      "file::quaternionmedia/leo/src/Viewer.js": {
@@ -703,8 +740,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/Viewer.js",
       "line": 0,
       "meta": {},
-      "x": -134.0750717600821,
-      "y": -161.67472669926644,
+      "label_at": "left",
+      "x": -477.42505935783635,
+      "y": -180.1909441048199,
       "size": 30
      },
      "file::quaternionmedia/leo/src/books.ts": {
@@ -716,8 +754,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/books.ts",
       "line": 0,
       "meta": {},
-      "x": 240.0961389069888,
-      "y": -809.7582743041916,
+      "label_at": "right",
+      "x": -225.200555545995,
+      "y": -267.7199675873726,
       "size": 30
      },
      "file::quaternionmedia/leo/src/components/debug/Debug.js": {
@@ -729,8 +768,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/debug/Debug.js",
       "line": 0,
       "meta": {},
-      "x": 2375.162913338486,
-      "y": -138.1224214761798,
+      "label_at": "right",
+      "x": 367.70352081110354,
+      "y": 75.20543468211261,
       "size": 30
      },
      "file::quaternionmedia/leo/src/components/debug/debug.css": {
@@ -742,8 +782,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/debug/debug.css",
       "line": 0,
       "meta": {},
-      "x": 1985.4514816354883,
-      "y": -138.1224214761797,
+      "label_at": "left",
+      "x": 261.4972163880713,
+      "y": 70.43131828137254,
       "size": 30
      },
      "file::quaternionmedia/leo/src/components/debug/tracer.css": {
@@ -755,8 +796,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/debug/tracer.css",
       "line": 0,
       "meta": {},
-      "x": 2180.3071974869868,
-      "y": -475.62242147617974,
+      "label_at": "right",
+      "x": 351.5430661053108,
+      "y": -4.357344900633478,
       "size": 30
      },
      "file::quaternionmedia/leo/src/components/navigation/nav.css": {
@@ -768,8 +810,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/navigation/nav.css",
       "line": 0,
       "meta": {},
-      "x": 212.8394503724025,
-      "y": 918.9824940720898,
+      "label_at": "right",
+      "x": 64.15292865499276,
+      "y": 99.0084894137967,
       "size": 30
      },
      "file::quaternionmedia/leo/src/components/navigation/nav.js": {
@@ -781,8 +824,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/components/navigation/nav.js",
       "line": 0,
       "meta": {},
-      "x": -176.87198133059496,
-      "y": 693.9824940720899,
+      "label_at": "left",
+      "x": -42.05337576803951,
+      "y": 94.23437301305661,
       "size": 30
      },
      "file::quaternionmedia/leo/src/index.html": {
@@ -794,8 +838,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/index.html",
       "line": 0,
       "meta": {},
-      "x": 588.7681999142612,
-      "y": -355.3599975986777,
+      "label_at": "left",
+      "x": -427.3872447145469,
+      "y": -302.9835880528604,
       "size": 30
      },
      "file::quaternionmedia/leo/src/index.ts": {
@@ -807,8 +852,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/index.ts",
       "line": 0,
       "meta": {},
-      "x": 389.7330310578681,
-      "y": -758.963393980496,
+      "label_at": "right",
+      "x": -178.5199695964807,
+      "y": -138.4045900608694,
       "size": 30
      },
      "file::quaternionmedia/leo/src/ireal.ts": {
@@ -820,8 +866,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/ireal.ts",
       "line": 0,
       "meta": {},
-      "x": 508.5411338758184,
-      "y": -654.7714841963301,
+      "label_at": "left",
+      "x": -482.84841113106654,
+      "y": -90.24705445193796,
       "size": 30
      },
      "file::quaternionmedia/leo/src/pdf.worker.min.js": {
@@ -833,8 +880,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/pdf.worker.min.js",
       "line": 0,
       "meta": {},
-      "x": -203.9669285892045,
-      "y": -303.4013921812774,
+      "label_at": "above",
+      "x": -285.00211695773123,
+      "y": -338.65281433232826,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/.pending.css": {
@@ -846,8 +894,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/.pending.css",
       "line": 0,
       "meta": {},
-      "x": 337.06503424156836,
-      "y": -1715.6307071069496,
+      "label_at": "right",
+      "x": -633.0469135577883,
+      "y": 268.53218745806464,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/control.css": {
@@ -859,8 +908,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/control.css",
       "line": 0,
       "meta": {},
-      "x": 185.68116712969837,
-      "y": -1579.3240609179752,
+      "label_at": "left",
+      "x": -739.2532179808206,
+      "y": 263.7580710573245,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/ireal.css": {
@@ -872,8 +922,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/ireal.css",
       "line": 0,
       "meta": {},
-      "x": -16.90999045733047,
-      "y": -1558.0308722282023,
+      "label_at": "right",
+      "x": -649.2073682635812,
+      "y": 188.96940787531847,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/metronome-popup.css": {
@@ -885,8 +936,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/metronome-popup.css",
       "line": 0,
       "meta": {},
-      "x": -193.32550214145925,
-      "y": -1659.8844153882596,
+      "label_at": "below",
+      "x": -666.7367129864435,
+      "y": 314.6353974900979,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/metronome.css": {
@@ -898,8 +950,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/metronome.css",
       "line": 0,
       "meta": {},
-      "x": -276.18063860205496,
-      "y": -1845.9800987856095,
+      "label_at": "left",
+      "x": -743.6580065793436,
+      "y": 202.478836078828,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/page.css": {
@@ -911,8 +964,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/page.css",
       "line": 0,
       "meta": {},
-      "x": -233.82755385368074,
-      "y": -2045.2356965221036,
+      "label_at": "right",
+      "x": -602.9050014182326,
+      "y": 235.3538939035622,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/root/accessibility.css": {
@@ -924,8 +978,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/root/accessibility.css",
       "line": 0,
       "meta": {},
-      "x": 316.8451392080718,
-      "y": -779.5634525302193,
+      "label_at": "right",
+      "x": -400.5534980626302,
+      "y": 376.94564757406886,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/root/root.css": {
@@ -937,8 +992,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/root/root.css",
       "line": 0,
       "meta": {},
-      "x": -72.86629249492564,
-      "y": -1004.5634525302193,
+      "label_at": "left",
+      "x": -506.7598024856625,
+      "y": 372.1715311733288,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/screens.css": {
@@ -950,8 +1006,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/screens.css",
       "line": 0,
       "meta": {},
-      "x": -82.4436867418106,
-      "y": -2181.542342711078,
+      "label_at": "left",
+      "x": -736.012446258004,
+      "y": 309.98897694967627,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/search.css": {
@@ -963,8 +1020,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/search.css",
       "line": 0,
       "meta": {},
-      "x": 120.14747084521824,
-      "y": -2202.8355314008513,
+      "label_at": "above",
+      "x": -685.741538451364,
+      "y": 157.81685983198858,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/setlist.css": {
@@ -976,8 +1034,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/setlist.css",
       "line": 0,
       "meta": {},
-      "x": 296.562982529347,
-      "y": -2100.9819882407937,
+      "label_at": "right",
+      "x": -617.1406917461234,
+      "y": 310.6983927720406,
       "size": 30
      },
      "file::quaternionmedia/leo/src/styles/test.css": {
@@ -989,8 +1048,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/styles/test.css",
       "line": 0,
       "meta": {},
-      "x": 379.4181189899426,
-      "y": -1914.886304843444,
+      "label_at": "left",
+      "x": -777.3774303802606,
+      "y": 241.42942542559814,
       "size": 30
      },
      "file::quaternionmedia/leo/src/test.ts": {
@@ -1002,8 +1062,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/src/test.ts",
       "line": 0,
       "meta": {},
-      "x": 578.4329907049407,
-      "y": -513.0448187143193,
+      "label_at": "left",
+      "x": -505.70288269284634,
+      "y": -244.1054224646383,
       "size": 30
      },
      "file::quaternionmedia/leo/vite.config.js": {
@@ -1015,8 +1076,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/leo/main/vite.config.js",
       "line": 0,
       "meta": {},
-      "x": -3207.3954396465338,
-      "y": 237.94109314584676,
+      "label_at": "right",
+      "x": 690.120741750758,
+      "y": -364.81155982918654,
       "size": 30
      }
     },

@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:3e08eed7da1dd11fba49df1d7caaa00ae2645fe393ff589d049b85a848aa4769"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "6d30a6f47303e2378587f1e5870d1461d1443244"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -203,10 +203,10 @@
     "subject": "project:stomp",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -252,8 +252,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -977.5044143122827,
-      "y": 421.2000067076384,
+      "label_at": "none",
+      "x": 0,
+      "y": 0,
       "size": 60
      },
      "dir::quaternionmedia/stomp/stomp": {
@@ -265,8 +266,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 977.5044143122835,
-      "y": -421.20000670763835,
+      "label_at": "left",
+      "x": -75.98317100031781,
+      "y": -16.855866181732235,
       "size": 50
      },
      "file::quaternionmedia/stomp/README.md": {
@@ -278,8 +280,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/stomp/main/README.md",
       "line": 0,
       "meta": {},
-      "x": -782.648698460784,
-      "y": 533.7000067076384,
+      "label_at": "right",
+      "x": 37.85604479916904,
+      "y": 54.06403492307346,
       "size": 30
      }
     },

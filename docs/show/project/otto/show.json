@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:6aaa8e3f0badfa15017656e874cb2a30130373318236c2e7455e74737d48da63"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "c57b2ad70afa9af629efd0b58f8c2585db501a78"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:otto",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -222,8 +222,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1550.2565415355432,
-      "y": -77.71119831366643,
+      "label_at": "none",
+      "x": -200.25359983061963,
+      "y": -146.24550929153312,
       "size": 120
      },
      "dir::quaternionmedia/otto/.github": {
@@ -235,8 +236,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -220.09934376628678,
-      "y": -441.8882232142261,
+      "label_at": "none",
+      "x": -436.3873366931412,
+      "y": -311.5881318682987,
       "size": 60
      },
      "dir::quaternionmedia/otto/.github/workflows": {
@@ -248,8 +250,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -445.18382697647655,
-      "y": -463.03413624043924,
+      "label_at": "right",
+      "x": -370.63848661908605,
+      "y": -305.8358528469533,
       "size": 50
      },
      "dir::quaternionmedia/otto/.vscode": {
@@ -261,8 +264,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1214.3173815804523,
-      "y": -319.6313377036458,
+      "label_at": "right",
+      "x": -134.50474975656442,
+      "y": -140.4932302701877,
       "size": 50
      },
      "dir::quaternionmedia/otto/docs": {
@@ -274,8 +278,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2275.858766854336,
-      "y": 411.1480543841018,
+      "label_at": "none",
+      "x": -342.2590412568728,
+      "y": 77.48781195555776,
       "size": 70
      },
      "dir::quaternionmedia/otto/docs/reference": {
@@ -287,8 +292,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2165.6537453648275,
-      "y": 179.0528054768438,
+      "label_at": "none",
+      "x": -471.6531221395498,
+      "y": 262.28171065238115,
       "size": 90
      },
      "dir::quaternionmedia/otto/otto": {
@@ -300,8 +306,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -322.7952377491183,
-      "y": 973.7210825502966,
+      "label_at": "none",
+      "x": 198.2008729613841,
+      "y": -111.38525999103408,
       "size": 230
      },
      "dir::quaternionmedia/otto/otto/examples": {
@@ -313,8 +320,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 644.3043444456342,
-      "y": 621.9090776124475,
+      "label_at": "below",
+      "x": 156.83126200598645,
+      "y": 1.9899149345158733,
       "size": 50
      },
      "dir::quaternionmedia/otto/otto/templates": {
@@ -326,8 +334,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -799.9999713461369,
-      "y": -154.52968077932877,
+      "label_at": "none",
+      "x": 541.5995843068881,
+      "y": -81.34176567889136,
       "size": 60
      },
      "dir::quaternionmedia/otto/tests": {
@@ -339,8 +348,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2103.254620819838,
-      "y": 371.33058345633816,
+      "label_at": "none",
+      "x": -108.4575424294307,
+      "y": -400.489540645152,
       "size": 70
      },
      "file::quaternionmedia/otto/README.md": {
@@ -352,8 +362,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 1745.112257387042,
-      "y": 34.78880168633355,
+      "label_at": "left",
+      "x": -262.00698331679064,
+      "y": -98.87376530833244,
       "size": 30
      },
      "file::quaternionmedia/otto/docs/index.md": {
@@ -365,8 +376,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/index.md",
       "line": 0,
       "meta": {},
-      "x": -2081.0030510028373,
-      "y": 523.6480543841018,
+      "label_at": "right",
+      "x": -288.46452755991857,
+      "y": 82.19422206393129,
       "size": 30
      },
      "file::quaternionmedia/otto/docs/reference/index.md": {
@@ -378,8 +390,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/index.md",
       "line": 0,
       "meta": {},
-      "x": -1970.7980295133286,
-      "y": 291.5528054768438,
+      "label_at": "right",
+      "x": -417.8586084425956,
+      "y": 266.98812076075467,
       "size": 30
      },
      "file::quaternionmedia/otto/docs/reference/main.md": {
@@ -391,8 +404,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/main.md",
       "line": 0,
       "meta": {},
-      "x": -2278.1537453648275,
-      "y": 373.9085213283425,
+      "label_at": "left",
+      "x": -519.2927329654955,
+      "y": 298.82661426906134,
       "size": 30
      },
      "file::quaternionmedia/otto/docs/reference/models.md": {
@@ -404,8 +418,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/models.md",
       "line": 0,
       "meta": {},
-      "x": -2360.509461216326,
-      "y": 66.55280547684386,
+      "label_at": "above",
+      "x": -460.2565417544535,
+      "y": 197.7507649323156,
       "size": 30
      },
      "file::quaternionmedia/otto/docs/reference/templates.md": {
@@ -417,8 +432,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/templates.md",
       "line": 0,
       "meta": {},
-      "x": -2053.1537453648275,
-      "y": -15.80291037465489,
+      "label_at": "right",
+      "x": -433.7484378585307,
+      "y": 321.83355705160085,
       "size": 30
      },
      "file::quaternionmedia/otto/noxfile.py": {
@@ -430,8 +446,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/noxfile.py",
       "line": 0,
       "meta": {},
-      "x": 1355.4008256840445,
-      "y": 34.788801686333635,
+      "label_at": "above",
+      "x": -184.9341350988122,
+      "y": -232.98903354741586,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/__init__.py": {
@@ -443,8 +460,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 27.94505078357932,
-      "y": 1176.2210825502966,
+      "label_at": "right",
+      "x": 263.9497230354393,
+      "y": -105.63298096968863,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/_version.py": {
@@ -456,8 +474,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/_version.py",
       "line": 0,
       "meta": {},
-      "x": -76.24685900058648,
-      "y": 1295.0291853682468,
+      "label_at": "left",
+      "x": 136.44748947521316,
+      "y": -64.01351600783339,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/chartransitions.py": {
@@ -469,8 +488,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/chartransitions.py",
       "line": 0,
       "meta": {},
-      "x": -217.97352448259738,
-      "y": 1364.9210421973692,
+      "label_at": "above",
+      "x": 213.52033769319155,
+      "y": -198.12878424691675,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/cliparse.py": {
@@ -482,8 +502,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/cliparse.py",
       "line": 0,
       "meta": {},
-      "x": -375.6583455982391,
-      "y": 1375.25625140669,
+      "label_at": "right",
+      "x": 250.42853895750898,
+      "y": -29.330653754715946,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/colortransitions.py": {
@@ -495,8 +516,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/colortransitions.py",
       "line": 0,
       "meta": {},
-      "x": -525.2952377491182,
-      "y": 1324.4613710829944,
+      "label_at": "left",
+      "x": 96.16414899121808,
+      "y": -138.7852045427324,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/config.py": {
@@ -508,8 +530,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/config.py",
       "line": 0,
       "meta": {},
-      "x": -644.1033405670686,
-      "y": 1220.2694612988284,
+      "label_at": "right",
+      "x": 298.83999190306497,
+      "y": -163.68803466544506,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/exceptions.py": {
@@ -521,8 +544,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/exceptions.py",
       "line": 0,
       "meta": {},
-      "x": -713.995197396191,
-      "y": 1078.5427958168177,
+      "label_at": "left",
+      "x": 149.504492704599,
+      "y": -229.26485979476007,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/export.sh": {
@@ -534,8 +558,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/export.sh",
       "line": 0,
       "meta": {},
-      "x": 78.73993110727486,
-      "y": 1026.5841903994174,
+      "label_at": "right",
+      "x": 319.62689657972595,
+      "y": -54.603037524509446,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/getdata.py": {
@@ -547,8 +572,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/getdata.py",
       "line": 0,
       "meta": {},
-      "x": -724.3304066055115,
-      "y": 920.857974701176,
+      "label_at": "left",
+      "x": 64.39073580039434,
+      "y": -69.37443170882672,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/log.py": {
@@ -560,8 +586,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/log.py",
       "line": 0,
       "meta": {},
-      "x": -673.535526281816,
-      "y": 771.2210825502968,
+      "label_at": "right",
+      "x": 271.46755165711056,
+      "y": -237.8906701239497,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/main.py": {
@@ -573,8 +600,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/main.py",
       "line": 0,
       "meta": {},
-      "x": -569.3436164976503,
-      "y": 652.4129797323466,
+      "label_at": "below",
+      "x": 230.8566612553085,
+      "y": 36.96158692827996,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/models.py": {
@@ -586,8 +614,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/models.py",
       "line": 0,
       "meta": {},
-      "x": -427.6169510156392,
-      "y": 582.521122903224,
+      "label_at": "left",
+      "x": 69.41334329850018,
+      "y": -201.87571364959297,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/preview.py": {
@@ -599,8 +628,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/preview.py",
       "line": 0,
       "meta": {},
-      "x": -269.93212989999756,
-      "y": 572.1859136939034,
+      "label_at": "right",
+      "x": 359.56141776365916,
+      "y": -132.33966480512976,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/render.py": {
@@ -612,8 +642,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/render.py",
       "line": 0,
       "meta": {},
-      "x": -120.2952377491183,
-      "y": 622.980794017599,
+      "label_at": "left",
+      "x": 90.05707418951077,
+      "y": 17.00007323355416,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/templates.py": {
@@ -625,8 +656,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/templates.py",
       "line": 0,
       "meta": {},
-      "x": -1.4871349311679882,
-      "y": 727.172703801765,
+      "label_at": "above",
+      "x": 191.01200327681926,
+      "y": -284.0924041763814,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/templates/VideoForm.html": {
@@ -638,8 +670,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/templates/VideoForm.html",
       "line": 0,
       "meta": {},
-      "x": -605.1442554946383,
-      "y": -42.029680779328785,
+      "label_at": "right",
+      "x": 595.3940980038424,
+      "y": -76.63535557051783,
       "size": 30
      },
      "file::quaternionmedia/otto/otto/utils.py": {
@@ -651,8 +684,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/utils.py",
       "line": 0,
       "meta": {},
-      "x": 68.4047218979543,
-      "y": 868.8993692837759,
+      "label_at": "right",
+      "x": 323.5883860746754,
+      "y": 14.547148686256783,
       "size": 30
      },
      "file::quaternionmedia/otto/pyproject.toml": {
@@ -664,8 +698,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": 1550.2565415355432,
-      "y": -302.71119831366644,
+      "label_at": "right",
+      "x": -148.02593383449474,
+      "y": -64.190903055215,
       "size": 30
      },
      "file::quaternionmedia/otto/tests/test_otto.py": {
@@ -677,8 +712,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/tests/test_otto.py",
       "line": 0,
       "meta": {},
-      "x": 2298.1103366713364,
-      "y": 483.8305834563381,
+      "label_at": "right",
+      "x": -54.66302873247646,
+      "y": -395.7831305367784,
       "size": 30
      },
      "file::quaternionmedia/otto/tests/test_preview.py": {
@@ -690,8 +726,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/tests/test_preview.py",
       "line": 0,
       "meta": {},
-      "x": 1908.3989049683391,
-      "y": 258.8305834563382,
+      "label_at": "left",
+      "x": -156.09715325537627,
+      "y": -363.9446370284717,
       "size": 30
      }
     },

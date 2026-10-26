@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:629d5dbcccb4acfdf255ce80ff0dccf03246ae4c4260719534df12c7ddb2fc6e"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "f37a60b9196ff7f1583cc3426046cc7c7f0fd910"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:ShowRunner",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1167.16761134849,
-      "y": 1177.536817557443,
+      "label_at": "none",
+      "x": -407.06497739983007,
+      "y": -180.8726550918817,
       "size": 160
      },
      "dir::quaternionmedia/ShowRunner/.github": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1043.0311988466522,
-      "y": 225.31229304529222,
+      "label_at": "none",
+      "x": -78.9139192898298,
+      "y": -721.7127145643276,
       "size": 60
      },
      "dir::quaternionmedia/ShowRunner/.github/workflows": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1232.6058418958658,
-      "y": 270.31531400729165,
+      "label_at": "right",
+      "x": -15.162814754751338,
+      "y": -704.6306575875612,
       "size": 50
      },
      "dir::quaternionmedia/ShowRunner/docs": {
@@ -257,8 +260,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -589.1826014105957,
-      "y": -640.5739315501337,
+      "label_at": "none",
+      "x": -780.8527345247496,
+      "y": 161.8059693959023,
       "size": 100
      },
      "dir::quaternionmedia/ShowRunner/docs/about": {
@@ -270,8 +274,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2358.787879313111,
-      "y": -902.6893530358923,
+      "label_at": "none",
+      "x": -562.9478894640996,
+      "y": 103.41854213507202,
       "size": 90
      },
      "dir::quaternionmedia/ShowRunner/docs/cookbook": {
@@ -283,8 +288,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3913.055795166474,
-      "y": -1130.3090662360626,
+      "label_at": "none",
+      "x": -960.4779423255198,
+      "y": 341.4311771966726,
       "size": 160
      },
      "dir::quaternionmedia/ShowRunner/docs/ref": {
@@ -296,8 +302,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3371.1894642642533,
-      "y": -540.6097306736059,
+      "label_at": "none",
+      "x": -962.1355920379513,
+      "y": 12.649114308469848,
       "size": 110
      },
      "dir::quaternionmedia/ShowRunner/docs/usage": {
@@ -309,8 +316,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1371.3137640355285,
-      "y": 870.028789930819,
+      "label_at": "none",
+      "x": -643.6000812580673,
+      "y": 383.2095201368179,
       "size": 90
      },
      "dir::quaternionmedia/ShowRunner/examples": {
@@ -322,8 +330,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1199.3485867564145,
-      "y": 323.9062668570312,
+      "label_at": "none",
+      "x": -683.2649794971074,
+      "y": -757.6222189347218,
       "size": 60
      },
      "dir::quaternionmedia/ShowRunner/examples/scripts": {
@@ -335,8 +344,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1355.179143220363,
-      "y": 363.51931406050954,
+      "label_at": "right",
+      "x": -619.5138749620289,
+      "y": -740.5401619579553,
       "size": 50
      },
      "dir::quaternionmedia/ShowRunner/plans": {
@@ -348,8 +358,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2679.0745835072726,
-      "y": 112.22875983545266,
+      "label_at": "none",
+      "x": -331.0574849096107,
+      "y": -871.9899011955173,
       "size": 80
      },
      "dir::quaternionmedia/ShowRunner/scripts": {
@@ -361,8 +372,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 115.3303757582443,
-      "y": 775.8977890554436,
+      "label_at": "none",
+      "x": -530.5075517974773,
+      "y": -545.8582397123162,
       "size": 60
      },
      "dir::quaternionmedia/ShowRunner/scripts/midi": {
@@ -374,8 +386,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 184.6157233426814,
-      "y": 949.3108769649053,
+      "label_at": "none",
+      "x": -358.06122602024254,
+      "y": -499.6513859825918,
       "size": 80
      },
      "dir::quaternionmedia/ShowRunner/src": {
@@ -387,8 +400,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -701.6212289868884,
-      "y": -224.4784589240769,
+      "label_at": "none",
+      "x": -225.16729171251325,
+      "y": -132.13331710687498,
       "size": 60
      },
      "dir::quaternionmedia/ShowRunner/src/showrunner": {
@@ -400,8 +414,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -58.22745230974557,
-      "y": -399.3161205848746,
+      "label_at": "none",
+      "x": 220.70679562388605,
+      "y": 2.2047245907873787,
       "size": 230
      },
      "dir::quaternionmedia/ShowRunner/src/showrunner/migrations": {
@@ -413,8 +428,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 913.1116038344968,
-      "y": -1327.4805650855988,
+      "label_at": "none",
+      "x": 734.9249284443509,
+      "y": 15.895944117890478,
       "size": 90
      },
      "dir::quaternionmedia/ShowRunner/src/showrunner/migrations/versions": {
@@ -426,8 +442,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 773.7794225560368,
-      "y": -863.9364709158922,
+      "label_at": "none",
+      "x": 574.7145103126722,
+      "y": 176.10636224956932,
       "size": 70
      },
      "dir::quaternionmedia/ShowRunner/src/showrunner/plugins": {
@@ -439,8 +456,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3047.9060426398005,
-      "y": 2456.2575302068017,
+      "label_at": "none",
+      "x": 133.52238782410566,
+      "y": 327.5813641273722,
       "size": 240
      },
      "dir::quaternionmedia/ShowRunner/src/showrunner/templates": {
@@ -452,8 +470,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 570.4135593887814,
-      "y": -394.01674332134104,
+      "label_at": "none",
+      "x": 247.59107351602765,
+      "y": -351.22482643967595,
       "size": 60
      },
      "dir::quaternionmedia/ShowRunner/src/showrunner/templates/sqladmin": {
@@ -465,8 +484,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 719.3949844869043,
-      "y": -410.97412236191826,
+      "label_at": "none",
+      "x": 408.90068650630207,
+      "y": -308.002045907555,
       "size": 60
      },
      "dir::quaternionmedia/ShowRunner/tests": {
@@ -478,8 +498,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4613.275120074599,
-      "y": -471.44748692929784,
+      "label_at": "none",
+      "x": -806.1191654381307,
+      "y": -437.25342231004987,
       "size": 210
      },
      "file::quaternionmedia/ShowRunner/CONTRIBUTING.md": {
@@ -491,8 +512,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/CONTRIBUTING.md",
       "line": 0,
       "meta": {},
-      "x": -953.9122175988563,
-      "y": 1300.6598765449337,
+      "label_at": "right",
+      "x": -354.9049827802204,
+      "y": -166.8964266563456,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/README.md": {
@@ -504,8 +526,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/README.md",
       "line": 0,
       "meta": {},
-      "x": -1218.3650580939777,
-      "y": 1418.4018670446846,
+      "label_at": "left",
+      "x": -460.32679140775576,
+      "y": -153.15548228177835,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/about/history.md": {
@@ -517,8 +540,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/about/history.md",
       "line": 0,
       "meta": {},
-      "x": -2163.932163461612,
-      "y": -790.1893530358923,
+      "label_at": "right",
+      "x": -510.78789484448987,
+      "y": 117.39477057060815,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/about/overview.md": {
@@ -530,8 +554,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/about/overview.md",
       "line": 0,
       "meta": {},
-      "x": -2471.287879313111,
-      "y": -707.8336371843935,
+      "label_at": "left",
+      "x": -616.2097034720252,
+      "y": 131.1357149451754,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/about/plugin-architecture.md": {
@@ -543,8 +568,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/about/plugin-architecture.md",
       "line": 0,
       "meta": {},
-      "x": -2553.6435951646095,
-      "y": -1015.1893530358923,
+      "label_at": "above",
+      "x": -540.5187676156169,
+      "y": 41.846961896248274,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/about/tools.md": {
@@ -556,8 +582,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/about/tools.md",
       "line": 0,
       "meta": {},
-      "x": -2246.287879313111,
-      "y": -1097.545068887391,
+      "label_at": "right",
+      "x": -535.9601321125974,
+      "y": 168.64774152565508,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/api.md": {
@@ -569,8 +596,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/api.md",
       "line": 0,
       "meta": {},
-      "x": 4210.532257430985,
-      "y": -958.5609506700696,
+      "label_at": "right",
+      "x": -908.3179477059101,
+      "y": 355.4074056322087,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/cues.md": {
@@ -582,8 +610,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/cues.md",
       "line": 0,
       "meta": {},
-      "x": 4070.454878384559,
-      "y": -824.9974395265886,
+      "label_at": "left",
+      "x": -1013.7397563334453,
+      "y": 369.14835000677596,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/index.md": {
@@ -595,8 +624,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/index.md",
       "line": 0,
       "meta": {},
-      "x": 3880.404402545169,
-      "y": -788.3682126344958,
+      "label_at": "above",
+      "x": -938.0488204770369,
+      "y": 279.8595969578488,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/midi-hotplug.md": {
@@ -608,8 +638,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/midi-hotplug.md",
       "line": 0,
       "meta": {},
-      "x": 3700.720513159327,
-      "y": -860.3027907222812,
+      "label_at": "right",
+      "x": -933.4901849740177,
+      "y": 406.6603765872556,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/pdf-export.md": {
@@ -621,8 +652,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/pdf-export.md",
       "line": 0,
       "meta": {},
-      "x": 3588.4515755213442,
-      "y": -1017.9624535125135,
+      "label_at": "left",
+      "x": -1028.7186537784899,
+      "y": 309.5649678144374,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/plugins-create.md": {
@@ -634,8 +666,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/plugins-create.md",
       "line": 0,
       "meta": {},
-      "x": 3579.2421840768734,
-      "y": -1211.2913720392396,
+      "label_at": "right",
+      "x": -884.3953091541005,
+      "y": 317.4990767935891,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/plugins-lifecycle.md": {
@@ -647,8 +680,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/plugins-lifecycle.md",
       "line": 0,
       "meta": {},
-      "x": 3676.016255539082,
-      "y": -1378.9089806670872,
+      "label_at": "left",
+      "x": -1002.5203066549747,
+      "y": 414.1141504544402,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/plugins.md": {
@@ -660,8 +694,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/plugins.md",
       "line": 0,
       "meta": {},
-      "x": 3848.048705991634,
-      "y": -1467.5978729861433,
+      "label_at": "above",
+      "x": -979.4375377252386,
+      "y": 255.52441819437428,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/scripts.md": {
@@ -673,8 +708,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/scripts.md",
       "line": 0,
       "meta": {},
-      "x": 4040.7204479390557,
-      "y": -1449.1999523308757,
+      "label_at": "right",
+      "x": -885.331292432749,
+      "y": 394.17092510935527,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/shows.md": {
@@ -686,8 +722,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/shows.md",
       "line": 0,
       "meta": {},
-      "x": 4192.8595646665135,
-      "y": -1329.5564285158366,
+      "label_at": "left",
+      "x": -1055.162104905618,
+      "y": 353.77912668253947,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/cookbook/tests.md": {
@@ -699,8 +736,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/tests.md",
       "line": 0,
       "meta": {},
-      "x": 4256.162961576672,
-      "y": -1146.6532749915575,
+      "label_at": "right",
+      "x": -896.7209722840573,
+      "y": 265.6573441727844,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/index.md": {
@@ -712,8 +750,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/index.md",
       "line": 0,
       "meta": {},
-      "x": -394.3268855590969,
-      "y": -528.0739315501337,
+      "label_at": "right",
+      "x": -728.6927399051399,
+      "y": 175.78219783143842,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/ref/api.md": {
@@ -725,8 +764,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/api.md",
       "line": 0,
       "meta": {},
-      "x": -3141.2994901735856,
-      "y": -407.88269224836284,
+      "label_at": "right",
+      "x": -909.9755974183416,
+      "y": 26.625342744005962,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/ref/cli.md": {
@@ -738,8 +778,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/cli.md",
       "line": 0,
       "meta": {},
-      "x": -3371.1894642642533,
-      "y": -275.1556538231198,
+      "label_at": "left",
+      "x": -1015.397406045877,
+      "y": 40.36628711857318,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/ref/config.md": {
@@ -751,8 +792,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/config.md",
       "line": 0,
       "meta": {},
-      "x": -3601.079438354921,
-      "y": -407.88269224836273,
+      "label_at": "above",
+      "x": -939.7064701894686,
+      "y": -48.92246593035392,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/ref/index.md": {
@@ -764,8 +806,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/index.md",
       "line": 0,
       "meta": {},
-      "x": -3601.079438354921,
-      "y": -673.3367690988488,
+      "label_at": "right",
+      "x": -935.1478346864491,
+      "y": 77.87831369905291,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/ref/models.md": {
@@ -777,8 +820,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/models.md",
       "line": 0,
       "meta": {},
-      "x": -3371.1894642642533,
-      "y": -806.063807524092,
+      "label_at": "left",
+      "x": -1030.3763034909216,
+      "y": -19.217095073765392,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/ref/plugins.md": {
@@ -790,8 +834,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/plugins.md",
       "line": 0,
       "meta": {},
-      "x": -3141.2994901735856,
-      "y": -673.3367690988488,
+      "label_at": "right",
+      "x": -886.0529588665321,
+      "y": -11.282986094613477,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/usage/config.md": {
@@ -803,8 +848,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/usage/config.md",
       "line": 0,
       "meta": {},
-      "x": 1566.1694798870271,
-      "y": 982.528789930819,
+      "label_at": "right",
+      "x": -591.4400866384578,
+      "y": 397.185748572354,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/usage/first-show.md": {
@@ -816,8 +862,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/usage/first-show.md",
       "line": 0,
       "meta": {},
-      "x": 1258.8137640355285,
-      "y": 1064.8845057823178,
+      "label_at": "left",
+      "x": -696.8618952659931,
+      "y": 410.92669294692115,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/usage/getting-started.md": {
@@ -829,8 +876,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/usage/getting-started.md",
       "line": 0,
       "meta": {},
-      "x": 1176.4580481840298,
-      "y": 757.5287899308191,
+      "label_at": "above",
+      "x": -621.1709594095847,
+      "y": 321.6379398979941,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/docs/usage/migrations.md": {
@@ -842,8 +890,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/usage/migrations.md",
       "line": 0,
       "meta": {},
-      "x": 1483.8137640355285,
-      "y": 675.1730740793203,
+      "label_at": "right",
+      "x": -616.6123239065653,
+      "y": 448.4387195274009,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/plans/layers.md": {
@@ -855,8 +904,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/plans/layers.md",
       "line": 0,
       "meta": {},
-      "x": -2484.218867655774,
-      "y": 224.72875983545265,
+      "label_at": "right",
+      "x": -278.8974902900011,
+      "y": -858.0136727599813,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/plans/midi.md": {
@@ -868,8 +918,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/plans/midi.md",
       "line": 0,
       "meta": {},
-      "x": -2873.930299358771,
-      "y": 224.72875983545273,
+      "label_at": "left",
+      "x": -384.31929891753646,
+      "y": -844.272728385414,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/plans/osc.md": {
@@ -881,8 +932,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/plans/osc.md",
       "line": 0,
       "meta": {},
-      "x": -2679.0745835072726,
-      "y": -112.77124016454734,
+      "label_at": "above",
+      "x": -308.6283630611281,
+      "y": -933.561481434341,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/pyproject.toml": {
@@ -894,8 +946,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": -1412.0647673240476,
-      "y": 1203.2765458549934,
+      "label_at": "above",
+      "x": -384.63585555134733,
+      "y": -242.4442353307055,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/scripts/midi/hotplug.py": {
@@ -907,8 +960,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/scripts/midi/hotplug.py",
       "line": 0,
       "meta": {},
-      "x": 379.4714391941801,
-      "y": 1061.8108769649052,
+      "label_at": "right",
+      "x": -305.90123140063287,
+      "y": -485.6751575470557,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/scripts/midi/tevm.py": {
@@ -920,8 +974,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/scripts/midi/tevm.py",
       "line": 0,
       "meta": {},
-      "x": -10.239992508817242,
-      "y": 1061.8108769649052,
+      "label_at": "left",
+      "x": -411.32304002816824,
+      "y": -471.93421317248834,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/scripts/midi/watch.py": {
@@ -933,8 +988,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/scripts/midi/watch.py",
       "line": 0,
       "meta": {},
-      "x": 184.61572334268138,
-      "y": 724.3108769649053,
+      "label_at": "above",
+      "x": -335.63210417175986,
+      "y": -561.2229662214156,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/show.toml": {
@@ -946,8 +1002,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/show.toml",
       "line": 0,
       "meta": {},
-      "x": -1267.3249307440813,
-      "y": 952.5797950192751,
+      "label_at": "right",
+      "x": -380.0772200483279,
+      "y": -115.64345570129866,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/__init__.py": {
@@ -959,8 +1016,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 282.61286782302585,
-      "y": -202.53187000554087,
+      "label_at": "right",
+      "x": 272.86679024349576,
+      "y": 16.180953026323493,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/app.py": {
@@ -972,8 +1030,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/app.py",
       "line": 0,
       "meta": {},
-      "x": 173.10630843817233,
-      "y": -80.91251469683635,
+      "label_at": "left",
+      "x": 167.4449816159604,
+      "y": 29.92189740089074,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/cli.py": {
@@ -985,8 +1044,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/cli.py",
       "line": 0,
       "meta": {},
-      "x": 23.600040218764317,
-      "y": -14.348035452123975,
+      "label_at": "above",
+      "x": 243.1359174723687,
+      "y": -59.3668556480364,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/config.py": {
@@ -998,8 +1058,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/config.py",
       "line": 0,
       "meta": {},
-      "x": -140.05494483825532,
-      "y": -14.34803545212393,
+      "label_at": "right",
+      "x": 247.69455297538823,
+      "y": 67.43392398137043,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/connection.py": {
@@ -1011,8 +1072,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/connection.py",
       "line": 0,
       "meta": {},
-      "x": -289.56121305766345,
-      "y": -80.91251469683635,
+      "label_at": "left",
+      "x": 152.46608417091588,
+      "y": -29.66148479144783,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/connection_ui.py": {
@@ -1024,8 +1086,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/connection_ui.py",
       "line": 0,
       "meta": {},
-      "x": -399.06777244251685,
-      "y": -202.5318700055407,
+      "label_at": "right",
+      "x": 296.7894287953053,
+      "y": -21.727375812295975,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/database.py": {
@@ -1037,8 +1100,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/database.py",
       "line": 0,
       "meta": {},
-      "x": -449.63994403931406,
-      "y": -358.1770099682053,
+      "label_at": "left",
+      "x": 178.66443129443115,
+      "y": 74.8876978485551,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/hookspecs.py": {
@@ -1050,8 +1114,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/hookspecs.py",
       "line": 0,
       "meta": {},
-      "x": -432.5333399452131,
-      "y": -520.935475893579,
+      "label_at": "above",
+      "x": 201.74720022416716,
+      "y": -83.70203441151088,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/layers.py": {
@@ -1063,8 +1128,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/layers.py",
       "line": 0,
       "meta": {},
-      "x": -350.70584741670325,
-      "y": -662.6648504089208,
+      "label_at": "right",
+      "x": 295.85344551665685,
+      "y": 54.94447250347022,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/migrations/__init__.py": {
@@ -1076,8 +1142,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 1107.9673196859956,
-      "y": -1214.9805650855988,
+      "label_at": "right",
+      "x": 787.0849230639607,
+      "y": 29.872172553426594,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/migrations/cli.py": {
@@ -1089,8 +1156,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/cli.py",
       "line": 0,
       "meta": {},
-      "x": 718.2558879829982,
-      "y": -1214.9805650855988,
+      "label_at": "left",
+      "x": 681.6631144364255,
+      "y": 43.61311692799387,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/migrations/env.py": {
@@ -1102,8 +1170,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/env.py",
       "line": 0,
       "meta": {},
-      "x": 913.1116038344968,
-      "y": -1552.4805650855988,
+      "label_at": "above",
+      "x": 757.3540502928338,
+      "y": -45.67563612093329,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/migrations/versions/2a50c1c7c24c_cue_number_nullable.py": {
@@ -1115,8 +1184,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/versions/2a50c1c7c24c_cue_number_nullable.py",
       "line": 0,
       "meta": {},
-      "x": 968.6351384075355,
-      "y": -751.4364709158922,
+      "label_at": "right",
+      "x": 626.874504932282,
+      "y": 190.08259068510546,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/migrations/versions/b3f1d0a7c921_layers_table.py": {
@@ -1128,8 +1198,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/versions/b3f1d0a7c921_layers_table.py",
       "line": 0,
       "meta": {},
-      "x": 578.9237067045381,
-      "y": -976.4364709158922,
+      "label_at": "left",
+      "x": 521.4526963047466,
+      "y": 203.82353505967274,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/models.py": {
@@ -1141,8 +1212,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/models.py",
       "line": 0,
       "meta": {},
-      "x": -218.30618329139614,
-      "y": -758.858837089582,
+      "label_at": "left",
+      "x": 126.02263304378782,
+      "y": 14.552674076654284,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/pdf_layout.toml": {
@@ -1154,8 +1226,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/pdf_layout.toml",
       "line": 0,
       "meta": {},
-      "x": 333.185039419823,
-      "y": -358.17700996820525,
+      "label_at": "right",
+      "x": 284.46376566534843,
+      "y": -73.56910843310071,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugin.py": {
@@ -1167,8 +1240,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugin.py",
       "line": 0,
       "meta": {},
-      "x": -58.22745230974565,
-      "y": -792.8846217435422,
+      "label_at": "below",
+      "x": 225.02296652272503,
+      "y": 104.56222636164938,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/__init__.py": {
@@ -1180,8 +1254,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -2669.1923498823166,
-      "y": 2674.907982666132,
+      "label_at": "right",
+      "x": 185.68238244371534,
+      "y": 341.5575925629083,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/admin.py": {
@@ -1193,8 +1268,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/admin.py",
       "line": 0,
       "meta": {},
-      "x": -2760.707788216564,
-      "y": 2786.0290330673815,
+      "label_at": "left",
+      "x": 80.26057381618006,
+      "y": 355.2985369374756,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/cmd.py": {
@@ -1206,8 +1282,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/cmd.py",
       "line": 0,
       "meta": {},
-      "x": -2883.345613757639,
-      "y": 2861.4142242016046,
+      "label_at": "above",
+      "x": 155.95150967258843,
+      "y": 266.00978388854844,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/comms.py": {
@@ -1219,8 +1296,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/comms.py",
       "line": 0,
       "meta": {},
-      "x": -3023.816115186238,
-      "y": 2892.894400887647,
+      "label_at": "right",
+      "x": 160.51014517560782,
+      "y": 392.81056351795525,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/dashboard.py": {
@@ -1232,8 +1310,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/dashboard.py",
       "line": 0,
       "meta": {},
-      "x": -3166.8971340481685,
-      "y": 2877.058197516307,
+      "label_at": "left",
+      "x": 65.28167637113546,
+      "y": 295.71515474513694,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/db.py": {
@@ -1245,8 +1324,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/db.py",
       "line": 0,
       "meta": {},
-      "x": -3297.083621818984,
-      "y": 2815.6217124468812,
+      "label_at": "right",
+      "x": 209.60502099552488,
+      "y": 303.64926372428886,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/designer.py": {
@@ -1258,8 +1338,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/designer.py",
       "line": 0,
       "meta": {},
-      "x": -3400.267852497226,
-      "y": 2715.242542121929,
+      "label_at": "left",
+      "x": 91.48002349465077,
+      "y": 400.26433738514,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/lighter.py": {
@@ -1271,8 +1352,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/lighter.py",
       "line": 0,
       "meta": {},
-      "x": -3465.2682136206054,
-      "y": 2586.798327189466,
+      "label_at": "above",
+      "x": 114.56279242438676,
+      "y": 241.67460512507398,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/logger.py": {
@@ -1284,8 +1366,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/logger.py",
       "line": 0,
       "meta": {},
-      "x": -3485.0409074768813,
-      "y": 2444.207991354766,
+      "label_at": "right",
+      "x": 208.6690377168764,
+      "y": 380.321112040055,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/midi.py": {
@@ -1297,8 +1380,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/midi.py",
       "line": 0,
       "meta": {},
-      "x": -3457.4432558817707,
-      "y": 2302.9234100225435,
+      "label_at": "left",
+      "x": 38.83822524400743,
+      "y": 339.9293136132391,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/mixer.py": {
@@ -1310,8 +1394,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/mixer.py",
       "line": 0,
       "meta": {},
-      "x": -3385.4658926072893,
-      "y": 2178.2549598363,
+      "label_at": "right",
+      "x": 197.27935786556804,
+      "y": 251.8075311034841,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/osc.py": {
@@ -1323,8 +1408,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/osc.py",
       "line": 0,
       "meta": {},
-      "x": -3276.9086818080914,
-      "y": 2083.712401804031,
+      "label_at": "below",
+      "x": 137.83855872294464,
+      "y": 429.9388658982342,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/printer.py": {
@@ -1336,8 +1422,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/printer.py",
       "line": 0,
       "meta": {},
-      "x": -3143.5354817129487,
-      "y": 2029.5408890674682,
+      "label_at": "left",
+      "x": 58.86190615482282,
+      "y": 252.6776761213022,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/programmer.py": {
@@ -1349,8 +1436,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/programmer.py",
       "line": 0,
       "meta": {},
-      "x": -2999.799348050597,
-      "y": 2021.6107455892447,
+      "label_at": "right",
+      "x": 242.37715822871417,
+      "y": 332.5262059003685,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/prompter.py": {
@@ -1362,8 +1450,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/prompter.py",
       "line": 0,
       "meta": {},
-      "x": -2861.2763211992624,
-      "y": 2060.7813254640805,
+      "label_at": "left",
+      "x": 47.52435930248612,
+      "y": 399.46470079446584,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/recorder.py": {
@@ -1375,8 +1464,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/recorder.py",
       "line": 0,
       "meta": {},
-      "x": -2742.977520524509,
-      "y": 2142.8078885683663,
+      "label_at": "above",
+      "x": 148.78013595694094,
+      "y": 213.4799240754826,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/scripter.py": {
@@ -1388,8 +1478,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/scripter.py",
       "line": 0,
       "meta": {},
-      "x": -2657.7224566744662,
-      "y": 2258.801584016488,
+      "label_at": "right",
+      "x": 201.03585325836892,
+      "y": 424.446899716954,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/stage_manager.py": {
@@ -1401,8 +1492,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/stage_manager.py",
       "line": 0,
       "meta": {},
-      "x": -2614.749838685902,
-      "y": 2396.1926950790144,
+      "label_at": "left",
+      "x": 15.49532536775449,
+      "y": 301.1299931246328,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/plugins/stopper.py": {
@@ -1414,8 +1506,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/stopper.py",
       "line": 0,
       "meta": {},
-      "x": -2618.716416506747,
-      "y": 2540.092763029581,
+      "label_at": "right",
+      "x": 240.8613724717068,
+      "y": 265.95776982436166,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/scriptformat.py": {
@@ -1427,8 +1520,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/scriptformat.py",
       "line": 0,
       "meta": {},
-      "x": 101.85127867190486,
-      "y": -758.8588370895822,
+      "label_at": "left",
+      "x": 146.04631395460322,
+      "y": -72.69896341528266,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/templates/sqladmin/layout.html": {
@@ -1440,8 +1534,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/templates/sqladmin/layout.html",
       "line": 0,
       "meta": {},
-      "x": 914.2507003384029,
-      "y": -298.47412236191826,
+      "label_at": "right",
+      "x": 461.06068112591174,
+      "y": -294.02581747201884,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/ui.py": {
@@ -1453,8 +1548,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/ui.py",
       "line": 0,
       "meta": {},
-      "x": 234.25094279721205,
-      "y": -662.6648504089208,
+      "label_at": "right",
+      "x": 329.56156602849444,
+      "y": 7.14956636378362,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/src/showrunner/utils.py": {
@@ -1466,8 +1562,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/utils.py",
       "line": 0,
       "meta": {},
-      "x": 316.07843532572195,
-      "y": -520.9354758935788,
+      "label_at": "left",
+      "x": 134.70876710226653,
+      "y": 74.08806125788097,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/conftest.py": {
@@ -1479,8 +1576,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/conftest.py",
       "line": 0,
       "meta": {},
-      "x": 4964.015408607296,
-      "y": -268.94748692929784,
+      "label_at": "right",
+      "x": -753.959170818521,
+      "y": -423.27719387451384,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_api.py": {
@@ -1492,8 +1590,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_api.py",
       "line": 0,
       "meta": {},
-      "x": 4859.823498823131,
-      "y": -150.1393841113476,
+      "label_at": "left",
+      "x": -859.3809794460564,
+      "y": -409.5362494999466,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_config.py": {
@@ -1505,8 +1604,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_config.py",
       "line": 0,
       "meta": {},
-      "x": 4718.096833341119,
-      "y": -80.24752728222522,
+      "label_at": "above",
+      "x": -783.690043589648,
+      "y": -498.8250025488736,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_connection.py": {
@@ -1518,8 +1618,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_connection.py",
       "line": 0,
       "meta": {},
-      "x": 4560.412012225478,
-      "y": -69.91231807290461,
+      "label_at": "right",
+      "x": -779.1314080866285,
+      "y": -372.02422291946687,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_cue_number.py": {
@@ -1531,8 +1632,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_cue_number.py",
       "line": 0,
       "meta": {},
-      "x": 4410.775120074599,
-      "y": -120.70719839660016,
+      "label_at": "left",
+      "x": -874.3598768911006,
+      "y": -469.1196316922851,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_database.py": {
@@ -1544,8 +1646,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_database.py",
       "line": 0,
       "meta": {},
-      "x": 4291.967017256648,
-      "y": -224.89910818076586,
+      "label_at": "right",
+      "x": -730.0365322667114,
+      "y": -461.18552271313325,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_layers.py": {
@@ -1557,8 +1660,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_layers.py",
       "line": 0,
       "meta": {},
-      "x": 4222.075160427526,
-      "y": -366.6257736627768,
+      "label_at": "left",
+      "x": -848.1615297675855,
+      "y": -364.57044905228213,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_midi.py": {
@@ -1570,8 +1674,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_midi.py",
       "line": 0,
       "meta": {},
-      "x": 4211.7399512182055,
-      "y": -524.3105947784186,
+      "label_at": "above",
+      "x": -825.0787608378495,
+      "y": -523.1601813123482,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_migrations.py": {
@@ -1583,8 +1688,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_migrations.py",
       "line": 0,
       "meta": {},
-      "x": 4262.534831541901,
-      "y": -673.9474869292976,
+      "label_at": "right",
+      "x": -730.9725155453599,
+      "y": -384.5136743973671,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_models.py": {
@@ -1596,8 +1702,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_models.py",
       "line": 0,
       "meta": {},
-      "x": 4366.726741326067,
-      "y": -792.7555897472479,
+      "label_at": "left",
+      "x": -900.8033280182287,
+      "y": -424.90547282418294,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_osc.py": {
@@ -1609,8 +1716,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_osc.py",
       "line": 0,
       "meta": {},
-      "x": 4508.4534068080775,
-      "y": -862.6474465763705,
+      "label_at": "right",
+      "x": -742.3621953966683,
+      "y": -513.027255333938,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_osc_live.py": {
@@ -1622,8 +1730,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_osc_live.py",
       "line": 0,
       "meta": {},
-      "x": 4666.13822792372,
-      "y": -872.982655785691,
+      "label_at": "below",
+      "x": -801.8029945392918,
+      "y": -334.8959205391879,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_plugins.py": {
@@ -1635,8 +1744,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_plugins.py",
       "line": 0,
       "meta": {},
-      "x": 4815.775120074599,
-      "y": -822.1877754619953,
+      "label_at": "left",
+      "x": -880.7796471074134,
+      "y": -512.15711031612,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_script_previews.py": {
@@ -1648,8 +1758,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_script_previews.py",
       "line": 0,
       "meta": {},
-      "x": 4934.583222892549,
-      "y": -717.9958656778294,
+      "label_at": "right",
+      "x": -697.2643950335222,
+      "y": -432.3085805370536,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_script_sync.py": {
@@ -1661,8 +1772,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_script_sync.py",
       "line": 0,
       "meta": {},
-      "x": 5004.475079721671,
-      "y": -576.2692001958187,
+      "label_at": "left",
+      "x": -892.1171939597501,
+      "y": -365.37008564295627,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/tests/test_scriptformat.py": {
@@ -1674,8 +1786,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_scriptformat.py",
       "line": 0,
       "meta": {},
-      "x": 5014.810288930992,
-      "y": -418.5843790801771,
+      "label_at": "above",
+      "x": -790.8614173052954,
+      "y": -551.3548623619395,
       "size": 30
      },
      "file::quaternionmedia/ShowRunner/zensical.toml": {
@@ -1687,8 +1800,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/zensical.toml",
       "line": 0,
       "meta": {},
-      "x": -984.1710829814868,
-      "y": 1012.7660033233291,
+      "label_at": "left",
+      "x": -475.3056888528003,
+      "y": -212.73886447411692,
       "size": 30
      }
     },

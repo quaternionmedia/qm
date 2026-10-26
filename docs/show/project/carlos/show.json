@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:1e2b15a15350f3e0fbdf1b101ae93161a84b5e4a411b77bb6c0403ad1759bbe3"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "a5540e7dfb11dea3258cdde8769f26a7dc6d568f"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -56,8 +56,8 @@
        "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
        "show": "family:instruments",
        "color": "#43c6bf",
-       "x": -73.47924907221707,
-       "y": 118.22622363834125,
+       "x": -119.01348546413787,
+       "y": 124.17644816017828,
        "size": 11,
        "label_at": "left"
       }
@@ -67,8 +67,8 @@
       "metadata": {
        "kind": "claim",
        "hover": "phase v0.0.1, a claim in ci/workspace.yaml",
-       "x": -133.93201326499712,
-       "y": 37.93225306760234,
+       "x": -170.60687486452682,
+       "y": 21.847064996463214,
        "size": 11,
        "label_at": "left"
       }
@@ -78,8 +78,8 @@
       "metadata": {
        "kind": "claim",
        "hover": "attention unstated, a claim in ci/workspace.yaml",
-       "x": -124.56176129119353,
-       "y": -62.13700688024583,
+       "x": -146.4630116901296,
+       "y": -90.18085277184375,
        "size": 11,
        "label_at": "left"
       }
@@ -89,10 +89,10 @@
       "metadata": {
        "kind": "measurement",
        "hover": "recency quiet, measured from the default branch's last commit",
-       "x": -50.25350338176084,
-       "y": -129.81226982785313,
+       "x": -57.300044695633915,
+       "y": -162.17492061930648,
        "size": 11,
-       "label_at": "left"
+       "label_at": "above"
       }
      },
      "branch::project/carlos": {
@@ -101,8 +101,8 @@
        "kind": "branch",
        "depth": 0,
        "hover": "project/carlos: this project's records in the corpus",
-       "x": 138.59373026116364,
-       "y": 12.977593470894858,
+       "x": 168.13950109900202,
+       "y": 36.23683443926493,
        "size": 60,
        "label_at": "none"
       }
@@ -114,8 +114,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — Adopt the QM constitution, with its open conflicts named — Proposed",
-       "x": 138.59373026116364,
-       "y": 72.97759347089486,
+       "x": 168.13950109900202,
+       "y": 112.23683443926492,
        "size": 30,
        "label_at": "below"
       }
@@ -222,10 +222,10 @@
     "subject": "project:carlos",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -271,8 +271,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1115.9075305511396,
-      "y": 1006.8775890831871,
+      "label_at": "none",
+      "x": 106.0359321995736,
+      "y": -88.16808865302802,
       "size": 310
      },
      "dir::quaternionmedia/carlos/.github": {
@@ -284,8 +285,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1901.941505982786,
-      "y": 787.517503598763,
+      "label_at": "none",
+      "x": -209.97629860109691,
+      "y": -529.6188715476535,
       "size": 90
      },
      "dir::quaternionmedia/carlos/.github/ISSUE_TEMPLATE": {
@@ -297,8 +299,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 112.71554852724965,
-      "y": 1227.4833897255007,
+      "label_at": "none",
+      "x": -377.8261854188067,
+      "y": -329.5831659161163,
       "size": 70
      },
      "dir::quaternionmedia/carlos/.github/workflows": {
@@ -310,8 +313,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1821.8406708682803,
-      "y": -80.64000378869562,
+      "label_at": "right",
+      "x": -147.70704736573447,
+      "y": -467.31585917596055,
       "size": 50
      },
      "dir::quaternionmedia/carlos/.vscode": {
@@ -323,8 +327,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 866.5350064697789,
-      "y": 773.2152552305843,
+      "label_at": "left",
+      "x": 63.61194996026198,
+      "y": -37.609155407175464,
       "size": 50
      },
      "dir::quaternionmedia/carlos/catalogue": {
@@ -336,8 +341,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1317.7074138075359,
-      "y": -216.6515850919169,
+      "label_at": "none",
+      "x": 397.5470843776451,
+      "y": 156.43881162365565,
       "size": 70
      },
      "dir::quaternionmedia/carlos/catalogue/devices": {
@@ -349,8 +355,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 901.2191093980446,
-      "y": -711.1446559800313,
+      "label_at": "left",
+      "x": 355.1231021383335,
+      "y": 206.9977448695082,
       "size": 50
      },
      "dir::quaternionmedia/carlos/catalogue/examples": {
@@ -362,8 +369,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1843.6767672728517,
-      "y": 256.89912195387967,
+      "label_at": "above",
+      "x": 394.162709084889,
+      "y": 78.68208520157827,
       "size": 50
      },
      "dir::quaternionmedia/carlos/docs": {
@@ -375,8 +383,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1961.2856580461478,
-      "y": 1944.908989421158,
+      "label_at": "none",
+      "x": 711.794641913277,
+      "y": 180.2010810201409,
       "size": 100
      },
      "dir::quaternionmedia/carlos/governance": {
@@ -388,8 +397,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1402.4796687327787,
-      "y": -471.9663839446838,
+      "label_at": "right",
+      "x": 251.63270867737927,
+      "y": 5.003882342931334,
       "size": 50
      },
      "dir::quaternionmedia/carlos/src": {
@@ -401,8 +411,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4559.736532334111,
-      "y": 1545.3168007170368,
+      "label_at": "none",
+      "x": 239.2059639157774,
+      "y": 438.8790587843134,
       "size": 120
      },
      "dir::quaternionmedia/carlos/static": {
@@ -414,8 +425,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5067.880038546951,
-      "y": -80.40181390141512,
+      "label_at": "none",
+      "x": 590.4190273539671,
+      "y": -108.6199546235727,
       "size": 130
      },
      "dir::quaternionmedia/carlos/templates": {
@@ -427,8 +439,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1792.4646541360098,
-      "y": 439.96757691672383,
+      "label_at": "none",
+      "x": 526.5803167204125,
+      "y": 420.4211902132636,
       "size": 60
      },
      "dir::quaternionmedia/carlos/tests": {
@@ -440,8 +453,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -441.23704052319147,
-      "y": -2517.4276876538497,
+      "label_at": "none",
+      "x": -156.72436207792953,
+      "y": 224.97743604329813,
       "size": 230
      },
      "dir::quaternionmedia/carlos/tests/browser": {
@@ -453,8 +467,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -57.624268782993305,
-      "y": -1779.7600457446922,
+      "label_at": "none",
+      "x": -345.95226236844786,
+      "y": 450.4904660335822,
       "size": 100
      },
      "dir::quaternionmedia/carlos/tools": {
@@ -466,8 +481,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1580.3956281634291,
-      "y": 895.9074247235368,
+      "label_at": "none",
+      "x": -532.4171514084505,
+      "y": -48.47816305468763,
       "size": 70
      },
      "dir::quaternionmedia/carlos/vendor": {
@@ -479,8 +495,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1423.9889205003633,
-      "y": -392.69376110871906,
+      "label_at": "none",
+      "x": 107.91700116114636,
+      "y": -651.3552901314554,
       "size": 60
      },
      "dir::quaternionmedia/carlos/vendor/rad": {
@@ -492,8 +509,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1363.975221620396,
-      "y": -468.622385144573,
+      "label_at": "left",
+      "x": 65.49301892183468,
+      "y": -600.7963568856028,
       "size": 50
      },
      "dir::quaternionmedia/carlos/walkthrough": {
@@ -505,8 +523,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2573.9068906412986,
-      "y": -1483.8093919021742,
+      "label_at": "none",
+      "x": 378.1906210598043,
+      "y": -412.5094168435674,
       "size": 120
      },
      "dir::quaternionmedia/carlos/walkthrough/media": {
@@ -518,8 +537,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1236.720732120976,
-      "y": -630.9562001007389,
+      "label_at": "below",
+      "x": 363.31031865625613,
+      "y": -300.07103771802616,
       "size": 50
      },
      "file::quaternionmedia/carlos/.github/ISSUE_TEMPLATE/bug_report.md": {
@@ -531,8 +551,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/.github/ISSUE_TEMPLATE/bug_report.md",
       "line": 0,
       "meta": {},
-      "x": 307.57126437874837,
-      "y": 1339.9833897255007,
+      "label_at": "left",
+      "x": -412.5367163418798,
+      "y": -288.2167659876915,
       "size": 30
      },
      "file::quaternionmedia/carlos/.github/ISSUE_TEMPLATE/feature_request.md": {
@@ -544,8 +565,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/.github/ISSUE_TEMPLATE/feature_request.md",
       "line": 0,
       "meta": {},
-      "x": -82.14016732424909,
-      "y": 1114.9833897255007,
+      "label_at": "above",
+      "x": -380.4370597180579,
+      "y": -389.5685460965695,
       "size": 30
      },
      "file::quaternionmedia/carlos/.github/copilot-instructions.md": {
@@ -557,8 +579,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/.github/copilot-instructions.md",
       "line": 0,
       "meta": {},
-      "x": 2096.7972218342848,
-      "y": 900.0175035987629,
+      "label_at": "left",
+      "x": -252.40028084040844,
+      "y": -479.05993830180086,
       "size": 30
      },
      "file::quaternionmedia/carlos/.github/pull_request_template.md": {
@@ -570,8 +593,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/.github/pull_request_template.md",
       "line": 0,
       "meta": {},
-      "x": 1707.0857901312872,
-      "y": 675.0175035987631,
+      "label_at": "above",
+      "x": -213.36067389385303,
+      "y": -607.3755979697307,
       "size": 30
      },
      "file::quaternionmedia/carlos/AGENTS.md": {
@@ -583,8 +607,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/AGENTS.md",
       "line": 0,
       "meta": {},
-      "x": -775.0672104183684,
-      "y": 1203.6618396625208,
+      "label_at": "above",
+      "x": 102.65155690681745,
+      "y": -165.92481507510539,
       "size": 30
      },
      "file::quaternionmedia/carlos/CLAUDE.md": {
@@ -596,8 +621,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/CLAUDE.md",
       "line": 0,
       "meta": {},
-      "x": -884.5737698032218,
-      "y": 1325.2811949712254,
+      "label_at": "right",
+      "x": 168.30518343493594,
+      "y": -25.86507628133512,
       "size": 30
      },
      "file::quaternionmedia/carlos/CODE_OF_CONDUCT.md": {
@@ -609,8 +635,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/CODE_OF_CONDUCT.md",
       "line": 0,
       "meta": {},
-      "x": -1034.0800380226299,
-      "y": 1391.8456742159378,
+      "label_at": "left",
+      "x": 8.864175216775287,
+      "y": -92.4502779150753,
       "size": 30
      },
      "file::quaternionmedia/carlos/CONTRIBUTING.md": {
@@ -622,8 +649,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/CONTRIBUTING.md",
       "line": 0,
       "meta": {},
-      "x": -1197.7350230796494,
-      "y": 1391.8456742159378,
+      "label_at": "right",
+      "x": 187.0065133042455,
+      "y": -156.0357171335617,
       "size": 30
      },
      "file::quaternionmedia/carlos/DEPLOYING.md": {
@@ -635,8 +663,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/DEPLOYING.md",
       "line": 0,
       "meta": {},
-      "x": -1347.2412912990576,
-      "y": 1325.2811949712254,
+      "label_at": "below",
+      "x": 91.15562979602545,
+      "y": 24.27029047251327,
       "size": 30
      },
      "file::quaternionmedia/carlos/GOVERNANCE.md": {
@@ -648,8 +677,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/GOVERNANCE.md",
       "line": 0,
       "meta": {},
-      "x": -1456.747850683911,
-      "y": 1203.661839662521,
+      "label_at": "left",
+      "x": 36.89305991271348,
+      "y": -187.0854188430557,
       "size": 30
      },
      "file::quaternionmedia/carlos/HANDOFF.md": {
@@ -661,8 +691,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/HANDOFF.md",
       "line": 0,
       "meta": {},
-      "x": -1507.3200222807084,
-      "y": 1048.0166996998564,
+      "label_at": "right",
+      "x": 230.52834360964619,
+      "y": -60.44486731593901,
       "size": 30
      },
      "file::quaternionmedia/carlos/README.md": {
@@ -674,8 +705,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/README.md",
       "line": 0,
       "meta": {},
-      "x": -1490.2134181866072,
-      "y": 885.2582337744827,
+      "label_at": "left",
+      "x": -10.124447320438861,
+      "y": -21.270657986621423,
       "size": 30
      },
      "file::quaternionmedia/carlos/RELEASING.md": {
@@ -687,8 +719,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/RELEASING.md",
       "line": 0,
       "meta": {},
-      "x": -1408.3859256580974,
-      "y": 743.5288592591411,
+      "label_at": "above",
+      "x": 148.37301795037482,
+      "y": -221.8753572293074,
       "size": 30
      },
      "file::quaternionmedia/carlos/RETROSPECTIVE.md": {
@@ -700,8 +733,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/RETROSPECTIVE.md",
       "line": 0,
       "meta": {},
-      "x": -1275.9862615327902,
-      "y": 647.3348725784797,
+      "label_at": "right",
+      "x": 167.6390570539968,
+      "y": 44.40898330200628,
       "size": 30
      },
      "file::quaternionmedia/carlos/REUSE.toml": {
@@ -713,8 +747,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/REUSE.toml",
       "line": 0,
       "meta": {},
-      "x": -823.4291354441821,
-      "y": 743.5288592591409,
+      "label_at": "left",
+      "x": -34.213281394072006,
+      "y": -146.5062887140856,
       "size": 30
      },
      "file::quaternionmedia/carlos/REVIEW.md": {
@@ -726,8 +761,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/REVIEW.md",
       "line": 0,
       "meta": {},
-      "x": -1115.9075305511396,
-      "y": 613.3090879245195,
+      "label_at": "right",
+      "x": 254.030864613112,
+      "y": -141.76146492204288,
       "size": 30
      },
      "file::quaternionmedia/carlos/SECURITY.md": {
@@ -739,8 +775,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/SECURITY.md",
       "line": 0,
       "meta": {},
-      "x": -955.8287995694893,
-      "y": 647.3348725784796,
+      "label_at": "left",
+      "x": 30.648169484546916,
+      "y": 56.02968432846723,
       "size": 30
      },
      "file::quaternionmedia/carlos/conftest.py": {
@@ -752,8 +789,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/conftest.py",
       "line": 0,
       "meta": {},
-      "x": -724.4950388215711,
-      "y": 1048.0166996998564,
+      "label_at": "above",
+      "x": 62.897558744964456,
+      "y": -250.3931044048863,
       "size": 30
      },
      "file::quaternionmedia/carlos/docs/catalogue.md": {
@@ -765,8 +803,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/docs/catalogue.md",
       "line": 0,
       "meta": {},
-      "x": -1748.0302642965144,
-      "y": 2068.0320484086483,
+      "label_at": "left",
+      "x": 677.084110990204,
+      "y": 221.5674809485657,
       "size": 30
      },
      "file::quaternionmedia/carlos/docs/interop.md": {
@@ -778,8 +817,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/docs/interop.md",
       "line": 0,
       "meta": {},
-      "x": -2012.4831047916355,
-      "y": 2185.7740389083992,
+      "label_at": "above",
+      "x": 709.1837676140259,
+      "y": 120.21570083968771,
       "size": 30
      },
      "file::quaternionmedia/carlos/docs/midi-and-display.md": {
@@ -791,8 +831,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/docs/midi-and-display.md",
       "line": 0,
       "meta": {},
-      "x": -2206.182814021706,
-      "y": 1970.6487177187078,
+      "label_at": "right",
+      "x": 758.1184880558986,
+      "y": 226.55004302097427,
       "size": 30
      },
      "file::quaternionmedia/carlos/docs/patch-format.md": {
@@ -804,8 +845,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/docs/patch-format.md",
       "line": 0,
       "meta": {},
-      "x": -2061.442977441739,
-      "y": 1719.9519668829896,
+      "label_at": "left",
+      "x": 641.2713914632537,
+      "y": 177.0932448012772,
       "size": 30
      },
      "file::quaternionmedia/carlos/docs/rad-integration.md": {
@@ -817,8 +859,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/docs/rad-integration.md",
       "line": 0,
       "meta": {},
-      "x": -1778.2891296791447,
-      "y": 1780.1381751870438,
+      "label_at": "right",
+      "x": 769.5150064739399,
+      "y": 131.82123485477814,
       "size": 30
      },
      "file::quaternionmedia/carlos/pyproject.toml": {
@@ -830,8 +873,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": -741.6016429156722,
-      "y": 885.258233774483,
+      "label_at": "left",
+      "x": -69.04118074510772,
+      "y": -57.6885131481867,
       "size": 30
      },
      "file::quaternionmedia/carlos/src/cadence.py": {
@@ -843,8 +887,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/src/cadence.py",
       "line": 0,
       "meta": {},
-      "x": 4804.923581777423,
-      "y": 1686.8756097149437,
+      "label_at": "left",
+      "x": 204.49543299270428,
+      "y": 480.2454587127381,
       "size": 30
      },
      "file::quaternionmedia/carlos/src/catalogue.py": {
@@ -856,8 +901,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/src/catalogue.py",
       "line": 0,
       "meta": {},
-      "x": 4601.933023714607,
-      "y": 1825.2722288387272,
+      "label_at": "above",
+      "x": 236.59508961652617,
+      "y": 378.89367860386005,
       "size": 30
      },
      "file::quaternionmedia/carlos/src/db.py": {
@@ -869,8 +915,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/src/db.py",
       "line": 0,
       "meta": {},
-      "x": 4367.167646990718,
-      "y": 1752.8567005368695,
+      "label_at": "right",
+      "x": 285.52981005839916,
+      "y": 485.2280207851467,
       "size": 30
      },
      "file::quaternionmedia/carlos/src/interop.py": {
@@ -882,8 +929,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/src/interop.py",
       "line": 0,
       "meta": {},
-      "x": 4277.4105686197945,
-      "y": 1524.1593946282442,
+      "label_at": "left",
+      "x": 168.68271346575406,
+      "y": 435.77122256544965,
       "size": 30
      },
      "file::quaternionmedia/carlos/src/main.py": {
@@ -895,8 +943,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/src/main.py",
       "line": 0,
       "meta": {},
-      "x": 4400.250699325875,
-      "y": 1311.394047036912,
+      "label_at": "right",
+      "x": 296.92632847644046,
+      "y": 390.49921261895065,
       "size": 30
      },
      "file::quaternionmedia/carlos/src/midi.py": {
@@ -908,8 +957,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/src/midi.py",
       "line": 0,
       "meta": {},
-      "x": 4643.186915205266,
-      "y": 1274.777304121289,
+      "label_at": "below",
+      "x": 228.74190269167434,
+      "y": 517.9474843579785,
       "size": 30
      },
      "file::quaternionmedia/carlos/src/patch_format.py": {
@@ -921,8 +971,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/src/patch_format.py",
       "line": 0,
       "meta": {},
-      "x": 4823.2832907050915,
-      "y": 1441.8823201422729,
+      "label_at": "left",
+      "x": 191.10069019966926,
+      "y": 370.0585847907529,
       "size": 30
      },
      "file::quaternionmedia/carlos/static/anime-shim.js": {
@@ -934,8 +985,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/static/anime-shim.js",
       "line": 0,
       "meta": {},
-      "x": -4808.454818526166,
-      "y": 69.37740671216343,
+      "label_at": "left",
+      "x": 555.708496430894,
+      "y": -67.2535546951479,
       "size": 30
      },
      "file::quaternionmedia/carlos/static/demo.css": {
@@ -947,8 +999,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/static/demo.css",
       "line": 0,
       "meta": {},
-      "x": -4778.528803682744,
-      "y": -157.9332436122275,
+      "label_at": "above",
+      "x": 587.8081530547158,
+      "y": -168.60533480402594,
       "size": 30
      },
      "file::quaternionmedia/carlos/static/main.js": {
@@ -960,8 +1013,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/static/main.js",
       "line": 0,
       "meta": {},
-      "x": -4990.348608836139,
-      "y": 208.94942096279198,
+      "label_at": "right",
+      "x": 636.7428734965888,
+      "y": -62.27099262273924,
       "size": 30
      },
      "file::quaternionmedia/carlos/static/menus.js": {
@@ -973,8 +1027,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/static/menus.js",
       "line": 0,
       "meta": {},
-      "x": -5217.6592591605295,
-      "y": 179.02340611937072,
+      "label_at": "left",
+      "x": 519.8957769039438,
+      "y": -111.7277908424364,
       "size": 30
      },
      "file::quaternionmedia/carlos/static/midi.js": {
@@ -986,8 +1041,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/static/midi.js",
       "line": 0,
       "meta": {},
-      "x": -5357.231273411158,
-      "y": -2.8703841906026373,
+      "label_at": "right",
+      "x": 648.1393919146301,
+      "y": -156.9998007889353,
       "size": 30
      },
      "file::quaternionmedia/carlos/static/models.js": {
@@ -999,8 +1055,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/static/models.js",
       "line": 0,
       "meta": {},
-      "x": -5327.305258567738,
-      "y": -230.1810345149936,
+      "label_at": "below",
+      "x": 579.954966129864,
+      "y": -29.551529049907572,
       "size": 30
      },
      "file::quaternionmedia/carlos/static/rad-core.js": {
@@ -1012,8 +1069,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/static/rad-core.js",
       "line": 0,
       "meta": {},
-      "x": -5145.411468257764,
-      "y": -369.75304876562217,
+      "label_at": "left",
+      "x": 542.313753637859,
+      "y": -177.44042861713314,
       "size": 30
      },
      "file::quaternionmedia/carlos/static/rad-menu.js": {
@@ -1025,8 +1083,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/static/rad-menu.js",
       "line": 0,
       "meta": {},
-      "x": -4918.100817933373,
-      "y": -339.8270339222009,
+      "label_at": "right",
+      "x": 676.289663247967,
+      "y": -89.49741841207373,
       "size": 30
      },
      "file::quaternionmedia/carlos/templates/demo.html": {
@@ -1038,8 +1097,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/templates/demo.html",
       "line": 0,
       "meta": {},
-      "x": -1597.608938284511,
-      "y": 552.4675769167238,
+      "label_at": "left",
+      "x": 491.86978579733943,
+      "y": 461.7875901416884,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/__init__.py": {
@@ -1051,8 +1111,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -80.9016180684634,
-      "y": -2309.3879345010555,
+      "label_at": "left",
+      "x": -191.43489300100265,
+      "y": 266.3438359717229,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/browser/__init__.py": {
@@ -1064,8 +1125,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/browser/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 155.63112496664027,
-      "y": -1656.6369867572018,
+      "label_at": "left",
+      "x": -380.662793291521,
+      "y": 491.8568659620071,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/browser/conftest.py": {
@@ -1077,8 +1139,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/browser/conftest.py",
       "line": 0,
       "meta": {},
-      "x": -108.82171552848101,
-      "y": -1538.8949962574507,
+      "label_at": "above",
+      "x": -348.56313666769904,
+      "y": 390.505085853129,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/browser/test_arrival.py": {
@@ -1090,8 +1153,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/browser/test_arrival.py",
       "line": 0,
       "meta": {},
-      "x": -302.521424758551,
-      "y": -1754.0203174471421,
+      "label_at": "right",
+      "x": -299.628416225826,
+      "y": 496.8394280344157,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/browser/test_the_rack.py": {
@@ -1103,8 +1167,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/browser/test_the_rack.py",
       "line": 0,
       "meta": {},
-      "x": -157.7815881785846,
-      "y": -2004.7170682828603,
+      "label_at": "left",
+      "x": -416.4755128184712,
+      "y": 447.3826298147185,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/browser/test_without_a_pointer.py": {
@@ -1116,8 +1181,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/browser/test_without_a_pointer.py",
       "line": 0,
       "meta": {},
-      "x": 125.37225958400988,
-      "y": -1944.5308599788063,
+      "label_at": "right",
+      "x": -288.23189780778483,
+      "y": 402.1106198682197,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/cable_tracing.js": {
@@ -1129,8 +1195,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/cable_tracing.js",
       "line": 0,
       "meta": {},
-      "x": -638.0815740878738,
-      "y": -2883.998806501483,
+      "label_at": "above",
+      "x": -159.33523637718073,
+      "y": 164.99205586284486,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/click_layers.js": {
@@ -1142,8 +1209,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/click_layers.js",
       "line": 0,
       "meta": {},
-      "x": -492.3683398337038,
-      "y": -2930.3535233656908,
+      "label_at": "right",
+      "x": -110.40051593530775,
+      "y": 271.32639804413157,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/dom.js": {
@@ -1155,8 +1223,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/dom.js",
       "line": 0,
       "meta": {},
-      "x": -339.7495402793382,
-      "y": -2920.94031801597,
+      "label_at": "left",
+      "x": -227.24761252795287,
+      "y": 221.8695998244344,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/midi_diagnose.js": {
@@ -1168,8 +1237,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/midi_diagnose.js",
       "line": 0,
       "meta": {},
-      "x": -200.8371899945572,
-      "y": -2857.030495995173,
+      "label_at": "right",
+      "x": -99.00399751726644,
+      "y": 176.5975898779355,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/rack_behaviour.js": {
@@ -1181,8 +1251,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/rack_behaviour.js",
       "line": 0,
       "meta": {},
-      "x": -94.39217162522633,
-      "y": -2747.255432903758,
+      "label_at": "below",
+      "x": -167.1884233020326,
+      "y": 304.04586161696324,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/refusal_probe.js": {
@@ -1194,8 +1265,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/refusal_probe.js",
       "line": 0,
       "meta": {},
-      "x": -34.790474734331234,
-      "y": -2606.4408592968425,
+      "label_at": "left",
+      "x": -204.82963579403756,
+      "y": 156.1569620497377,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/test_app.py": {
@@ -1207,8 +1279,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/test_app.py",
       "line": 0,
       "meta": {},
-      "x": -180.38689287555042,
-      "y": -2193.268226832934,
+      "label_at": "right",
+      "x": -70.8537261839296,
+      "y": 244.09997225479708,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/test_cadence.py": {
@@ -1220,8 +1293,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/test_cadence.py",
       "line": 0,
       "meta": {},
-      "x": -315.10142554301706,
-      "y": -2120.928050578258,
+      "label_at": "left",
+      "x": -236.2811528508636,
+      "y": 270.7946494233324,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/test_catalogue.py": {
@@ -1233,8 +1307,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/test_catalogue.py",
       "line": 0,
       "meta": {},
-      "x": -466.85127195512706,
-      "y": -2102.1373473909753,
+      "label_at": "above",
+      "x": -127.90014864693097,
+      "y": 133.94597324013188,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/test_cli.py": {
@@ -1246,8 +1321,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/test_cli.py",
       "line": 0,
       "meta": {},
-      "x": -615.1417744789983,
-      "y": -2139.4339058594096,
+      "label_at": "right",
+      "x": -114.9948070075416,
+      "y": 314.78428006772344,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/test_interop.py": {
@@ -1259,8 +1335,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/test_interop.py",
       "line": 0,
       "meta": {},
-      "x": -739.9454790427408,
-      "y": -2227.7806190950337,
+      "label_at": "left",
+      "x": -251.31585563712258,
+      "y": 185.63106586457457,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/test_midi_and_modes.py": {
@@ -1272,8 +1349,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/test_midi_and_modes.py",
       "line": 0,
       "meta": {},
-      "x": -824.4069537838209,
-      "y": -2355.2457739293386,
+      "label_at": "right",
+      "x": -57.28568337646887,
+      "y": 188.967726545613,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/test_rad.py": {
@@ -1285,8 +1363,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/test_rad.py",
       "line": 0,
       "meta": {},
-      "x": -857.1192085212678,
-      "y": -2504.6144948931465,
+      "label_at": "left",
+      "x": -207.20992453303876,
+      "y": 321.54358168239503,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/test_sides_and_groups.py": {
@@ -1298,8 +1377,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/test_sides_and_groups.py",
       "line": 0,
       "meta": {},
-      "x": -833.6642719879281,
-      "y": -2655.71370853964,
+      "label_at": "above",
+      "x": -185.52845253055963,
+      "y": 116.65754233398582,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/test_walkthrough.py": {
@@ -1311,8 +1391,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/test_walkthrough.py",
       "line": 0,
       "meta": {},
-      "x": -757.2098633309193,
-      "y": -2788.136628796213,
+      "label_at": "right",
+      "x": -59.76154144078271,
+      "y": 287.02700424557077,
       "size": 30
      },
      "file::quaternionmedia/carlos/tests/view_toggle.js": {
@@ -1324,8 +1405,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tests/view_toggle.js",
       "line": 0,
       "meta": {},
-      "x": -30.08163875139127,
-      "y": -2453.604563620529,
+      "label_at": "left",
+      "x": -273.04677468416236,
+      "y": 245.22827122274978,
       "size": 30
      },
      "file::quaternionmedia/carlos/tools/__init__.py": {
@@ -1337,8 +1419,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tools/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -1385.5399123119305,
-      "y": 1008.4074247235368,
+      "label_at": "left",
+      "x": -567.1276823315236,
+      "y": -7.111763126262815,
       "size": 30
      },
      "file::quaternionmedia/carlos/tools/cli.py": {
@@ -1350,8 +1433,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/tools/cli.py",
       "line": 0,
       "meta": {},
-      "x": -1775.251344014928,
-      "y": 783.4074247235368,
+      "label_at": "above",
+      "x": -535.0280257077018,
+      "y": -108.46354323514088,
       "size": 30
      },
      "file::quaternionmedia/carlos/walkthrough/01-onboarding.md": {
@@ -1363,8 +1447,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/walkthrough/01-onboarding.md",
       "line": 0,
       "meta": {},
-      "x": -2344.016916550631,
-      "y": -1351.082353476931,
+      "label_at": "left",
+      "x": 335.7666388204927,
+      "y": -361.9504835977149,
       "size": 30
      },
      "file::quaternionmedia/carlos/walkthrough/02-the-catalogue.md": {
@@ -1376,8 +1461,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/walkthrough/02-the-catalogue.md",
       "line": 0,
       "meta": {},
-      "x": -2573.9068906412986,
-      "y": -1218.355315051688,
+      "label_at": "above",
+      "x": 374.80624576704815,
+      "y": -490.26614326564476,
       "size": 30
      },
      "file::quaternionmedia/carlos/walkthrough/03-a-modular-drum-rig.md": {
@@ -1389,8 +1475,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/walkthrough/03-a-modular-drum-rig.md",
       "line": 0,
       "meta": {},
-      "x": -2803.7968647319663,
-      "y": -1351.082353476931,
+      "label_at": "right",
+      "x": 440.45987229516663,
+      "y": -350.2064044718745,
       "size": 30
      },
      "file::quaternionmedia/carlos/walkthrough/04-cookbook.md": {
@@ -1402,8 +1489,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/walkthrough/04-cookbook.md",
       "line": 0,
       "meta": {},
-      "x": -2803.7968647319663,
-      "y": -1616.536430327417,
+      "label_at": "left",
+      "x": 281.018864077006,
+      "y": -416.7916061056148,
       "size": 30
      },
      "file::quaternionmedia/carlos/walkthrough/05-in-the-browser.md": {
@@ -1415,8 +1503,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/walkthrough/05-in-the-browser.md",
       "line": 0,
       "meta": {},
-      "x": -2573.9068906412986,
-      "y": -1749.2634687526604,
+      "label_at": "right",
+      "x": 459.1612021644762,
+      "y": -480.3770453241011,
       "size": 30
      },
      "file::quaternionmedia/carlos/walkthrough/support.py": {
@@ -1428,8 +1517,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/carlos/they/walkthrough/support.py",
       "line": 0,
       "meta": {},
-      "x": -2344.016916550631,
-      "y": -1616.536430327417,
+      "label_at": "left",
+      "x": 309.0477487729442,
+      "y": -511.4267470335951,
       "size": 30
      }
     },
