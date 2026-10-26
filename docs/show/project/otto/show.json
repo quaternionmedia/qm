@@ -1,0 +1,1006 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "otto"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:6aaa8e3f0badfa15017656e874cb2a30130373318236c2e7455e74737d48da63"
+  },
+  "source": {
+   "repo": "quaternionmedia/otto",
+   "commit": "c57b2ad70afa9af629efd0b58f8c2585db501a78"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::otto": {
+      "label": "otto",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "v0.0.0",
+       "attention": "active",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "otto — v0.0.0 · not adopted",
+       "click": "<p><b>otto</b> — automatic video generation</p><p>not adopted. Phase <b>v0.0.0</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:otto",
+       "shape": "circle",
+       "color": "#f2aa4c",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::performing": {
+      "label": "performing",
+      "metadata": {
+       "kind": "family",
+       "family": "performing",
+       "drives": "a show — what an audience sees and hears, and the video made before and after it",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "performing — drives a show — what an audience sees and hears, and the video made before and after it",
+       "click": "<p>The <b>performing</b> family drives a show — what an audience sees and hears, and the video made before and after it.</p><p>22 member(s) in all.</p>",
+       "show": "family:performing",
+       "color": "#f2aa4c",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::v0.0.0": {
+      "label": "phase: v0.0.0",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase v0.0.0, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::active": {
+      "label": "attention: active",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention active, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::otto",
+      "target": "family::performing",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::otto",
+      "target": "phase::v0.0.0",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::otto",
+      "target": "attention::active",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::otto",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:otto",
+     "measured": 0,
+     "unread": [
+      "otto"
+     ],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:otto",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [
+     "otto"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: otto."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/otto": {
+      "id": "dir::quaternionmedia/otto",
+      "label": "quaternionmedia/otto",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1550.2565415355432,
+      "y": -77.71119831366643,
+      "size": 120
+     },
+     "dir::quaternionmedia/otto/.github": {
+      "id": "dir::quaternionmedia/otto/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -220.09934376628678,
+      "y": -441.8882232142261,
+      "size": 60
+     },
+     "dir::quaternionmedia/otto/.github/workflows": {
+      "id": "dir::quaternionmedia/otto/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -445.18382697647655,
+      "y": -463.03413624043924,
+      "size": 50
+     },
+     "dir::quaternionmedia/otto/.vscode": {
+      "id": "dir::quaternionmedia/otto/.vscode",
+      "label": ".vscode",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1214.3173815804523,
+      "y": -319.6313377036458,
+      "size": 50
+     },
+     "dir::quaternionmedia/otto/docs": {
+      "id": "dir::quaternionmedia/otto/docs",
+      "label": "docs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2275.858766854336,
+      "y": 411.1480543841018,
+      "size": 70
+     },
+     "dir::quaternionmedia/otto/docs/reference": {
+      "id": "dir::quaternionmedia/otto/docs/reference",
+      "label": "reference",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2165.6537453648275,
+      "y": 179.0528054768438,
+      "size": 90
+     },
+     "dir::quaternionmedia/otto/otto": {
+      "id": "dir::quaternionmedia/otto/otto",
+      "label": "otto",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -322.7952377491183,
+      "y": 973.7210825502966,
+      "size": 230
+     },
+     "dir::quaternionmedia/otto/otto/examples": {
+      "id": "dir::quaternionmedia/otto/otto/examples",
+      "label": "examples",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 644.3043444456342,
+      "y": 621.9090776124475,
+      "size": 50
+     },
+     "dir::quaternionmedia/otto/otto/templates": {
+      "id": "dir::quaternionmedia/otto/otto/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -799.9999713461369,
+      "y": -154.52968077932877,
+      "size": 60
+     },
+     "dir::quaternionmedia/otto/tests": {
+      "id": "dir::quaternionmedia/otto/tests",
+      "label": "tests",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 2103.254620819838,
+      "y": 371.33058345633816,
+      "size": 70
+     },
+     "file::quaternionmedia/otto/README.md": {
+      "id": "file::quaternionmedia/otto/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": 1745.112257387042,
+      "y": 34.78880168633355,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/docs/index.md": {
+      "id": "file::quaternionmedia/otto/docs/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/index.md",
+      "line": 0,
+      "meta": {},
+      "x": -2081.0030510028373,
+      "y": 523.6480543841018,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/docs/reference/index.md": {
+      "id": "file::quaternionmedia/otto/docs/reference/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/index.md",
+      "line": 0,
+      "meta": {},
+      "x": -1970.7980295133286,
+      "y": 291.5528054768438,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/docs/reference/main.md": {
+      "id": "file::quaternionmedia/otto/docs/reference/main.md",
+      "label": "main.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/main.md",
+      "line": 0,
+      "meta": {},
+      "x": -2278.1537453648275,
+      "y": 373.9085213283425,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/docs/reference/models.md": {
+      "id": "file::quaternionmedia/otto/docs/reference/models.md",
+      "label": "models.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/models.md",
+      "line": 0,
+      "meta": {},
+      "x": -2360.509461216326,
+      "y": 66.55280547684386,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/docs/reference/templates.md": {
+      "id": "file::quaternionmedia/otto/docs/reference/templates.md",
+      "label": "templates.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/docs/reference/templates.md",
+      "line": 0,
+      "meta": {},
+      "x": -2053.1537453648275,
+      "y": -15.80291037465489,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/noxfile.py": {
+      "id": "file::quaternionmedia/otto/noxfile.py",
+      "label": "noxfile.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/noxfile.py",
+      "line": 0,
+      "meta": {},
+      "x": 1355.4008256840445,
+      "y": 34.788801686333635,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/__init__.py": {
+      "id": "file::quaternionmedia/otto/otto/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": 27.94505078357932,
+      "y": 1176.2210825502966,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/_version.py": {
+      "id": "file::quaternionmedia/otto/otto/_version.py",
+      "label": "_version.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/_version.py",
+      "line": 0,
+      "meta": {},
+      "x": -76.24685900058648,
+      "y": 1295.0291853682468,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/chartransitions.py": {
+      "id": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "label": "chartransitions.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/chartransitions.py",
+      "line": 0,
+      "meta": {},
+      "x": -217.97352448259738,
+      "y": 1364.9210421973692,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/cliparse.py": {
+      "id": "file::quaternionmedia/otto/otto/cliparse.py",
+      "label": "cliparse.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/cliparse.py",
+      "line": 0,
+      "meta": {},
+      "x": -375.6583455982391,
+      "y": 1375.25625140669,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/colortransitions.py": {
+      "id": "file::quaternionmedia/otto/otto/colortransitions.py",
+      "label": "colortransitions.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/colortransitions.py",
+      "line": 0,
+      "meta": {},
+      "x": -525.2952377491182,
+      "y": 1324.4613710829944,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/config.py": {
+      "id": "file::quaternionmedia/otto/otto/config.py",
+      "label": "config.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/config.py",
+      "line": 0,
+      "meta": {},
+      "x": -644.1033405670686,
+      "y": 1220.2694612988284,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/exceptions.py": {
+      "id": "file::quaternionmedia/otto/otto/exceptions.py",
+      "label": "exceptions.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/exceptions.py",
+      "line": 0,
+      "meta": {},
+      "x": -713.995197396191,
+      "y": 1078.5427958168177,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/export.sh": {
+      "id": "file::quaternionmedia/otto/otto/export.sh",
+      "label": "export.sh",
+      "depth": 1,
+      "language": "shell",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/export.sh",
+      "line": 0,
+      "meta": {},
+      "x": 78.73993110727486,
+      "y": 1026.5841903994174,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/getdata.py": {
+      "id": "file::quaternionmedia/otto/otto/getdata.py",
+      "label": "getdata.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/getdata.py",
+      "line": 0,
+      "meta": {},
+      "x": -724.3304066055115,
+      "y": 920.857974701176,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/log.py": {
+      "id": "file::quaternionmedia/otto/otto/log.py",
+      "label": "log.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/log.py",
+      "line": 0,
+      "meta": {},
+      "x": -673.535526281816,
+      "y": 771.2210825502968,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/main.py": {
+      "id": "file::quaternionmedia/otto/otto/main.py",
+      "label": "main.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/main.py",
+      "line": 0,
+      "meta": {},
+      "x": -569.3436164976503,
+      "y": 652.4129797323466,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/models.py": {
+      "id": "file::quaternionmedia/otto/otto/models.py",
+      "label": "models.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/models.py",
+      "line": 0,
+      "meta": {},
+      "x": -427.6169510156392,
+      "y": 582.521122903224,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/preview.py": {
+      "id": "file::quaternionmedia/otto/otto/preview.py",
+      "label": "preview.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/preview.py",
+      "line": 0,
+      "meta": {},
+      "x": -269.93212989999756,
+      "y": 572.1859136939034,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/render.py": {
+      "id": "file::quaternionmedia/otto/otto/render.py",
+      "label": "render.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/render.py",
+      "line": 0,
+      "meta": {},
+      "x": -120.2952377491183,
+      "y": 622.980794017599,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/templates.py": {
+      "id": "file::quaternionmedia/otto/otto/templates.py",
+      "label": "templates.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/templates.py",
+      "line": 0,
+      "meta": {},
+      "x": -1.4871349311679882,
+      "y": 727.172703801765,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/templates/VideoForm.html": {
+      "id": "file::quaternionmedia/otto/otto/templates/VideoForm.html",
+      "label": "VideoForm.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/templates/VideoForm.html",
+      "line": 0,
+      "meta": {},
+      "x": -605.1442554946383,
+      "y": -42.029680779328785,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/otto/utils.py": {
+      "id": "file::quaternionmedia/otto/otto/utils.py",
+      "label": "utils.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/otto/utils.py",
+      "line": 0,
+      "meta": {},
+      "x": 68.4047218979543,
+      "y": 868.8993692837759,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/pyproject.toml": {
+      "id": "file::quaternionmedia/otto/pyproject.toml",
+      "label": "pyproject.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/pyproject.toml",
+      "line": 0,
+      "meta": {},
+      "x": 1550.2565415355432,
+      "y": -302.71119831366644,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/tests/test_otto.py": {
+      "id": "file::quaternionmedia/otto/tests/test_otto.py",
+      "label": "test_otto.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/tests/test_otto.py",
+      "line": 0,
+      "meta": {},
+      "x": 2298.1103366713364,
+      "y": 483.8305834563381,
+      "size": 30
+     },
+     "file::quaternionmedia/otto/tests/test_preview.py": {
+      "id": "file::quaternionmedia/otto/tests/test_preview.py",
+      "label": "test_preview.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/otto/main/tests/test_preview.py",
+      "line": 0,
+      "meta": {},
+      "x": 1908.3989049683391,
+      "y": 258.8305834563382,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/otto",
+      "target": "file::quaternionmedia/otto/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto",
+      "target": "file::quaternionmedia/otto/noxfile.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto",
+      "target": "file::quaternionmedia/otto/pyproject.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto",
+      "target": "dir::quaternionmedia/otto/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto",
+      "target": "dir::quaternionmedia/otto/.vscode",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto",
+      "target": "dir::quaternionmedia/otto/docs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto",
+      "target": "dir::quaternionmedia/otto/otto",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto",
+      "target": "dir::quaternionmedia/otto/tests",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/.github",
+      "target": "dir::quaternionmedia/otto/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/docs",
+      "target": "file::quaternionmedia/otto/docs/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/docs",
+      "target": "dir::quaternionmedia/otto/docs/reference",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/docs/reference",
+      "target": "file::quaternionmedia/otto/docs/reference/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/docs/reference",
+      "target": "file::quaternionmedia/otto/docs/reference/main.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/docs/reference",
+      "target": "file::quaternionmedia/otto/docs/reference/models.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/docs/reference",
+      "target": "file::quaternionmedia/otto/docs/reference/templates.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/_version.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/chartransitions.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/cliparse.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/colortransitions.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/config.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/exceptions.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/getdata.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/log.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/main.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/models.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/preview.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/render.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/templates.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/utils.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "file::quaternionmedia/otto/otto/export.sh",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "dir::quaternionmedia/otto/otto/examples",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto",
+      "target": "dir::quaternionmedia/otto/otto/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/otto/templates",
+      "target": "file::quaternionmedia/otto/otto/templates/VideoForm.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/tests",
+      "target": "file::quaternionmedia/otto/tests/test_otto.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/otto/tests",
+      "target": "file::quaternionmedia/otto/tests/test_preview.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/otto",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "otto's system view is composed from a clone of it, and this export read none",
+   "remedy": "export from a clone of otto at its default branch's head",
+   "where": "/show/project/otto/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

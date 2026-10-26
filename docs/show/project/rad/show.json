@@ -1,0 +1,1896 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "rad"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:b042158354a79ba594f2671555db962847aacc0f7c9d49a5d6473314cd7dad2e"
+  },
+  "source": {
+   "repo": "quaternionmedia/rad",
+   "commit": "3e8794f11eb94b29e94094aa24e8215593864a6f"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::rad": {
+      "label": "rad",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "rad — v0.0.1 · governed",
+       "click": "<p><b>rad</b> — QM's default radial menu: an interaction contract, conformance vectors and a single-file web reference</p><p>governed. Phase <b>v0.0.1</b> (stated); attention <b>active</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:rad",
+       "shape": "square",
+       "color": "#74a8f6",
+       "x": 0,
+       "y": 0,
+       "size": 71,
+       "label_at": "below"
+      }
+     },
+     "family::core": {
+      "label": "core",
+      "metadata": {
+       "kind": "family",
+       "family": "core",
+       "drives": "the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "core — drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "click": "<p>The <b>core</b> family drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data.</p><p>7 member(s) in all.</p>",
+       "show": "family:core",
+       "color": "#74a8f6",
+       "x": 36.00000000000001,
+       "y": -74.75477027660412,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::v0.0.1": {
+      "label": "phase: v0.0.1",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase v0.0.1, a claim in ci/workspace.yaml",
+       "x": 80.89126573382882,
+       "y": -18.46290353890597,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::active": {
+      "label": "attention: active",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention active, a claim in ci/workspace.yaml",
+       "x": 64.86975848897418,
+       "y": 51.73190613818533,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "recency::quiet": {
+      "label": "recency: quiet",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency quiet, measured from the default branch's last commit",
+       "x": 5.0805412596206495e-15,
+       "y": 82.97153535464952,
+       "size": 11,
+       "label_at": "below"
+      }
+     },
+     "branch::project/rad": {
+      "label": "project/rad",
+      "metadata": {
+       "kind": "branch",
+       "depth": 0,
+       "hover": "project/rad: this project's records in the corpus",
+       "x": -64.86975848897417,
+       "y": 51.73190613818534,
+       "size": 50,
+       "label_at": "left"
+      }
+     },
+     "repo::codecartographer": {
+      "label": "codecartographer ↗",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.2",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": true,
+       "also_in": [],
+       "hover": "codecartographer — v0.0.2 · governed",
+       "click": "<p><b>codecartographer</b> — Project for mapping code</p><p>governed. Phase <b>v0.0.2</b> (stated); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:codecartographer",
+       "shape": "square",
+       "color": "#74a8f6",
+       "x": -80.89126573382882,
+       "y": -18.462903538905962,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "repo::dossier": {
+      "label": "dossier ↗",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": true,
+       "also_in": [],
+       "hover": "dossier — v0.0.1 · governed",
+       "click": "<p><b>dossier</b> — Documentation standardization tool that auto-parses project documentation</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:dossier",
+       "shape": "square",
+       "color": "#74a8f6",
+       "x": -36.000000000000014,
+       "y": -74.7547702766041,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::rad",
+      "target": "family::core",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::rad",
+      "target": "phase::v0.0.1",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::rad",
+      "target": "attention::active",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::rad",
+      "target": "recency::quiet",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::rad",
+      "target": "branch::project/rad",
+      "label": "records on",
+      "metadata": {
+       "kind": "governed_by",
+       "basis": "measured",
+       "stated": false,
+       "hover": "records on (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::codecartographer",
+      "target": "repo::rad",
+      "label": "rad-interaction-contract",
+      "metadata": {
+       "kind": "seam",
+       "basis": "declared",
+       "stated": true,
+       "hover": "codecartographer implements rad-interaction-contract, published by rad (declared in ci/interop-registry.yaml)",
+       "style": "solid",
+       "color": "#e0a526",
+       "size": 2.5
+      }
+     },
+     {
+      "source": "repo::dossier",
+      "target": "repo::rad",
+      "label": "rad-interaction-contract",
+      "metadata": {
+       "kind": "seam",
+       "basis": "declared",
+       "stated": true,
+       "hover": "dossier implements rad-interaction-contract, published by rad (declared in ci/interop-registry.yaml)",
+       "style": "solid",
+       "color": "#e0a526",
+       "size": 2.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:rad",
+     "measured": 0,
+     "unread": [],
+     "records": 0,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:rad",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/rad": {
+      "id": "dir::quaternionmedia/rad",
+      "label": "quaternionmedia/rad",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 725.3061878912366,
+      "y": -264.8328969531207,
+      "size": 230
+     },
+     "dir::quaternionmedia/rad/.github": {
+      "id": "dir::quaternionmedia/rad/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -320.6349898109749,
+      "y": 533.5257486471769,
+      "size": 70
+     },
+     "dir::quaternionmedia/rad/.github/workflows": {
+      "id": "dir::quaternionmedia/rad/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -395.94665724781396,
+      "y": 637.0004622291619,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad/.vscode": {
+      "id": "dir::quaternionmedia/rad/.vscode",
+      "label": ".vscode",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1581.6213886198548,
+      "y": -81.22239226663751,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad/LICENSES": {
+      "id": "dir::quaternionmedia/rad/LICENSES",
+      "label": "LICENSES",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1138.0901485468492,
+      "y": 91.73505768326329,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad/adr": {
+      "id": "dir::quaternionmedia/rad/adr",
+      "label": "adr",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -4004.1933604225987,
+      "y": -459.387409377664,
+      "size": 200
+     },
+     "dir::quaternionmedia/rad/conformance": {
+      "id": "dir::quaternionmedia/rad/conformance",
+      "label": "conformance",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -858.8049787392679,
+      "y": -326.1799516843458,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad/docs": {
+      "id": "dir::quaternionmedia/rad/docs",
+      "label": "docs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1349.4294839069707,
+      "y": -535.3906010451813,
+      "size": 70
+     },
+     "dir::quaternionmedia/rad/docs/guide": {
+      "id": "dir::quaternionmedia/rad/docs/guide",
+      "label": "guide",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1870.2970028705965,
+      "y": -1741.3566860650437,
+      "size": 170
+     },
+     "dir::quaternionmedia/rad/docs/media": {
+      "id": "dir::quaternionmedia/rad/docs/media",
+      "label": "media",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1316.5351658076638,
+      "y": 195.17284986831245,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad/governance": {
+      "id": "dir::quaternionmedia/rad/governance",
+      "label": "governance",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 148.31865217638241,
+      "y": -538.3531072869127,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad/messaging": {
+      "id": "dir::quaternionmedia/rad/messaging",
+      "label": "messaging",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1478.2274491826863,
+      "y": 922.1485437426613,
+      "size": 80
+     },
+     "dir::quaternionmedia/rad/perspectives": {
+      "id": "dir::quaternionmedia/rad/perspectives",
+      "label": "perspectives",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1760.836104422379,
+      "y": -496.660549374504,
+      "size": 70
+     },
+     "dir::quaternionmedia/rad/scripts": {
+      "id": "dir::quaternionmedia/rad/scripts",
+      "label": "scripts",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1414.4799008124658,
+      "y": -1105.0045813474253,
+      "size": 90
+     },
+     "dir::quaternionmedia/rad/tests": {
+      "id": "dir::quaternionmedia/rad/tests",
+      "label": "tests",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -3523.692007879989,
+      "y": 1219.150358949653,
+      "size": 190
+     },
+     "dir::quaternionmedia/rad/tests/lib": {
+      "id": "dir::quaternionmedia/rad/tests/lib",
+      "label": "lib",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1107.2332878188763,
+      "y": 344.113271977013,
+      "size": 60
+     },
+     "file::quaternionmedia/rad/.github/copilot-instructions.md": {
+      "id": "file::quaternionmedia/rad/.github/copilot-instructions.md",
+      "label": "copilot-instructions.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/.github/copilot-instructions.md",
+      "line": 0,
+      "meta": {},
+      "x": -125.77927395947621,
+      "y": 646.0257486471769,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/AGENTS.md": {
+      "id": "file::quaternionmedia/rad/AGENTS.md",
+      "label": "AGENTS.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/AGENTS.md",
+      "line": 0,
+      "meta": {},
+      "x": 984.7314079120224,
+      "y": -115.05367633954215,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/CLAUDE.md": {
+      "id": "file::quaternionmedia/rad/CLAUDE.md",
+      "label": "CLAUDE.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/CLAUDE.md",
+      "line": 0,
+      "meta": {},
+      "x": 802.837617602049,
+      "y": 24.518337911086352,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/HANDOFF.md": {
+      "id": "file::quaternionmedia/rad/HANDOFF.md",
+      "label": "HANDOFF.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/HANDOFF.md",
+      "line": 0,
+      "meta": {},
+      "x": 575.5269672776582,
+      "y": -5.407676932334882,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/README.md": {
+      "id": "file::quaternionmedia/rad/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": 435.95495302702966,
+      "y": -187.30146724230823,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/REUSE.toml": {
+      "id": "file::quaternionmedia/rad/REUSE.toml",
+      "label": "REUSE.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/REUSE.toml",
+      "line": 0,
+      "meta": {},
+      "x": 647.7747581804243,
+      "y": -554.1841318173277,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/REVIEW.md": {
+      "id": "file::quaternionmedia/rad/REVIEW.md",
+      "label": "REVIEW.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/REVIEW.md",
+      "line": 0,
+      "meta": {},
+      "x": 465.8809678704507,
+      "y": -414.6121175666992,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-interaction-efficiency-metrics.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-interaction-efficiency-metrics.md",
+      "label": "DRAFT-interaction-efficiency-metrics.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-interaction-efficiency-metrics.md",
+      "line": 0,
+      "meta": {},
+      "x": -3663.3530402898273,
+      "y": -262.6031587983303,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-rad-adoption-and-scope.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-rad-adoption-and-scope.md",
+      "label": "DRAFT-rad-adoption-and-scope.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-adoption-and-scope.md",
+      "line": 0,
+      "meta": {},
+      "x": -3772.8595996746812,
+      "y": -140.98380348962576,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-rad-core-extraction.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-rad-core-extraction.md",
+      "label": "DRAFT-rad-core-extraction.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-core-extraction.md",
+      "line": 0,
+      "meta": {},
+      "x": -3922.365867894089,
+      "y": -74.41932424491338,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-rad-host-integration-standard.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-rad-host-integration-standard.md",
+      "label": "DRAFT-rad-host-integration-standard.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-host-integration-standard.md",
+      "line": 0,
+      "meta": {},
+      "x": -4086.0208529511083,
+      "y": -74.41932424491333,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-rad-interaction-contract.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-rad-interaction-contract.md",
+      "label": "DRAFT-rad-interaction-contract.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-interaction-contract.md",
+      "line": 0,
+      "meta": {},
+      "x": -4235.527121170517,
+      "y": -140.98380348962576,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-rad-platform-plans.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-rad-platform-plans.md",
+      "label": "DRAFT-rad-platform-plans.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-platform-plans.md",
+      "line": 0,
+      "meta": {},
+      "x": -4345.033680555371,
+      "y": -262.6031587983301,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-rad-release-milestones.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-rad-release-milestones.md",
+      "label": "DRAFT-rad-release-milestones.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-release-milestones.md",
+      "line": 0,
+      "meta": {},
+      "x": -4395.605852152167,
+      "y": -418.2482987609947,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-rad-theme-tokens.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-rad-theme-tokens.md",
+      "label": "DRAFT-rad-theme-tokens.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-theme-tokens.md",
+      "line": 0,
+      "meta": {},
+      "x": -4378.499248058066,
+      "y": -581.0067646863685,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-rad-to-rad-messaging.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-rad-to-rad-messaging.md",
+      "label": "DRAFT-rad-to-rad-messaging.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-to-rad-messaging.md",
+      "line": 0,
+      "meta": {},
+      "x": -4296.671755529556,
+      "y": -722.7361392017101,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-tempo-driven-interaction-speed.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-tempo-driven-interaction-speed.md",
+      "label": "DRAFT-tempo-driven-interaction-speed.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-tempo-driven-interaction-speed.md",
+      "line": 0,
+      "meta": {},
+      "x": -4164.272091404249,
+      "y": -818.9301258823715,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-the-menu-addresses-nine-cells.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-the-menu-addresses-nine-cells.md",
+      "label": "DRAFT-the-menu-addresses-nine-cells.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-the-menu-addresses-nine-cells.md",
+      "line": 0,
+      "meta": {},
+      "x": -4004.1933604225987,
+      "y": -852.9559105363315,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-the-ring-has-an-authored-graph-mode.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-the-ring-has-an-authored-graph-mode.md",
+      "label": "DRAFT-the-ring-has-an-authored-graph-mode.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-the-ring-has-an-authored-graph-mode.md",
+      "line": 0,
+      "meta": {},
+      "x": -3844.1146294409486,
+      "y": -818.9301258823715,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/DRAFT-unified-artifact-pipeline.md": {
+      "id": "file::quaternionmedia/rad/adr/DRAFT-unified-artifact-pipeline.md",
+      "label": "DRAFT-unified-artifact-pipeline.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-unified-artifact-pipeline.md",
+      "line": 0,
+      "meta": {},
+      "x": -3711.714965315641,
+      "y": -722.7361392017101,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/README.md": {
+      "id": "file::quaternionmedia/rad/adr/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -3629.8874727871316,
+      "y": -581.0067646863682,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/adr/TEMPLATE.md": {
+      "id": "file::quaternionmedia/rad/adr/TEMPLATE.md",
+      "label": "TEMPLATE.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/TEMPLATE.md",
+      "line": 0,
+      "meta": {},
+      "x": -3612.7808686930302,
+      "y": -418.2482987609947,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/a11y-foundation.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/a11y-foundation.md",
+      "label": "a11y-foundation.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/a11y-foundation.md",
+      "line": 0,
+      "meta": {},
+      "x": -1561.3258597002969,
+      "y": -1562.9721133838448,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/chord-input.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/chord-input.md",
+      "label": "chord-input.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/chord-input.md",
+      "line": 0,
+      "meta": {},
+      "x": -1691.9124301893976,
+      "y": -1432.385542894744,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/conformance.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/conformance.md",
+      "label": "conformance.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/conformance.md",
+      "line": 0,
+      "meta": {},
+      "x": -1870.2970028705965,
+      "y": -1384.5875407026458,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/keyboard-path.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/keyboard-path.md",
+      "label": "keyboard-path.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/keyboard-path.md",
+      "line": 0,
+      "meta": {},
+      "x": -2048.6815755517955,
+      "y": -1432.385542894744,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/overview.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/overview.md",
+      "label": "overview.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/overview.md",
+      "line": 0,
+      "meta": {},
+      "x": -2179.268146040896,
+      "y": -1562.9721133838445,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/quantized-commit.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/quantized-commit.md",
+      "label": "quantized-commit.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/quantized-commit.md",
+      "line": 0,
+      "meta": {},
+      "x": -2227.0661482329947,
+      "y": -1741.3566860650437,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/reduced-motion.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/reduced-motion.md",
+      "label": "reduced-motion.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/reduced-motion.md",
+      "line": 0,
+      "meta": {},
+      "x": -2179.268146040896,
+      "y": -1919.7412587462427,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/release-select.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/release-select.md",
+      "label": "release-select.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/release-select.md",
+      "line": 0,
+      "meta": {},
+      "x": -2048.6815755517955,
+      "y": -2050.3278292353434,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/speed-axes.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/speed-axes.md",
+      "label": "speed-axes.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/speed-axes.md",
+      "line": 0,
+      "meta": {},
+      "x": -1870.2970028705965,
+      "y": -2098.125831427442,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/submenu-drag-through.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/submenu-drag-through.md",
+      "label": "submenu-drag-through.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/submenu-drag-through.md",
+      "line": 0,
+      "meta": {},
+      "x": -1691.9124301893976,
+      "y": -2050.3278292353434,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/themes.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/themes.md",
+      "label": "themes.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/themes.md",
+      "line": 0,
+      "meta": {},
+      "x": -1561.3258597002969,
+      "y": -1919.7412587462427,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/docs/guide/tour.md": {
+      "id": "file::quaternionmedia/rad/docs/guide/tour.md",
+      "label": "tour.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/tour.md",
+      "line": 0,
+      "meta": {},
+      "x": -1513.5278575081986,
+      "y": -1741.3566860650437,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/index.html": {
+      "id": "file::quaternionmedia/rad/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 0,
+      "meta": {},
+      "x": 875.0854085048152,
+      "y": -524.2581169739065,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/messaging/demo.mjs": {
+      "id": "file::quaternionmedia/rad/messaging/demo.mjs",
+      "label": "demo.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/demo.mjs",
+      "line": 0,
+      "meta": {},
+      "x": 1673.0831650341847,
+      "y": 1034.6485437426613,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/messaging/session.mjs": {
+      "id": "file::quaternionmedia/rad/messaging/session.mjs",
+      "label": "session.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.mjs",
+      "line": 0,
+      "meta": {},
+      "x": 1283.3717333311877,
+      "y": 1034.6485437426613,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/messaging/session.test.mjs": {
+      "id": "file::quaternionmedia/rad/messaging/session.test.mjs",
+      "label": "session.test.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.test.mjs",
+      "line": 0,
+      "meta": {},
+      "x": 1478.2274491826863,
+      "y": 697.1485437426613,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/perspectives/2026-08-09-verification-shaped-prose.md": {
+      "id": "file::quaternionmedia/rad/perspectives/2026-08-09-verification-shaped-prose.md",
+      "label": "2026-08-09-verification-shaped-prose.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/perspectives/2026-08-09-verification-shaped-prose.md",
+      "line": 0,
+      "meta": {},
+      "x": 1955.6918202738777,
+      "y": -384.160549374504,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/perspectives/g0-interpretive-governance.md": {
+      "id": "file::quaternionmedia/rad/perspectives/g0-interpretive-governance.md",
+      "label": "g0-interpretive-governance.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/perspectives/g0-interpretive-governance.md",
+      "line": 0,
+      "meta": {},
+      "x": 1565.9803885708805,
+      "y": -609.160549374504,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/playwright.config.mjs": {
+      "id": "file::quaternionmedia/rad/playwright.config.mjs",
+      "label": "playwright.config.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/playwright.config.mjs",
+      "line": 0,
+      "meta": {},
+      "x": 1014.6574227554437,
+      "y": -342.36432666393307,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/scripts/build-docs.mjs": {
+      "id": "file::quaternionmedia/rad/scripts/build-docs.mjs",
+      "label": "build-docs.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/build-docs.mjs",
+      "line": 0,
+      "meta": {},
+      "x": 1609.3356166639644,
+      "y": -992.5045813474252,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/scripts/check-gate.mjs": {
+      "id": "file::quaternionmedia/rad/scripts/check-gate.mjs",
+      "label": "check-gate.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-gate.mjs",
+      "line": 0,
+      "meta": {},
+      "x": 1301.9799008124658,
+      "y": -910.1488654959265,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/scripts/check-palette.mjs": {
+      "id": "file::quaternionmedia/rad/scripts/check-palette.mjs",
+      "label": "check-palette.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-palette.mjs",
+      "line": 0,
+      "meta": {},
+      "x": 1219.624184960967,
+      "y": -1217.5045813474253,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/scripts/sync-vectors.mjs": {
+      "id": "file::quaternionmedia/rad/scripts/sync-vectors.mjs",
+      "label": "sync-vectors.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/sync-vectors.mjs",
+      "line": 0,
+      "meta": {},
+      "x": 1526.9799008124658,
+      "y": -1299.860297198924,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/a11y.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/a11y.spec.mjs",
+      "label": "a11y.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/a11y.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3203.6959547817614,
+      "y": 1403.9001663455326,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/conformance.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/conformance.spec.mjs",
+      "label": "conformance.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/conformance.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3326.2070910064076,
+      "y": 1531.447769983899,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/contract.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "label": "contract.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3493.9596417355438,
+      "y": 1587.4518003461142,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/governance.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/governance.spec.mjs",
+      "label": "governance.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/governance.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3668.523519234518,
+      "y": 1559.0824089979253,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/integration.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "label": "integration.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3809.9082428910924,
+      "y": 1452.8386816089742,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/lib/harness.mjs": {
+      "id": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "label": "harness.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -912.3775719673775,
+      "y": 456.613271977013,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/metrics.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/metrics.spec.mjs",
+      "label": "metrics.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/metrics.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3885.724276386173,
+      "y": 1293.0597757483558,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/pinning.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/pinning.spec.mjs",
+      "label": "pinning.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/pinning.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3878.603080128289,
+      "y": 1116.3491132041838,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/ring.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/ring.spec.mjs",
+      "label": "ring.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/ring.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3790.1760343604024,
+      "y": 963.1889771709859,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/speed.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/speed.spec.mjs",
+      "label": "speed.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/speed.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3640.700709606512,
+      "y": 868.6665090342372,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/theme.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "label": "theme.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3464.420101394794,
+      "y": 854.4356671248398,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/topics.mjs": {
+      "id": "file::quaternionmedia/rad/tests/topics.mjs",
+      "label": "topics.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/topics.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3301.7179726549266,
+      "y": 923.7565658240001,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/topics.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/topics.spec.mjs",
+      "label": "topics.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/topics.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3189.8674203080054,
+      "y": 1060.7486226471317,
+      "size": 30
+     },
+     "file::quaternionmedia/rad/tests/touch.spec.mjs": {
+      "id": "file::quaternionmedia/rad/tests/touch.spec.mjs",
+      "label": "touch.spec.mjs",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/touch.spec.mjs",
+      "line": 0,
+      "meta": {},
+      "x": -3154.4920579514305,
+      "y": 1234.0286083093101,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "file::quaternionmedia/rad/AGENTS.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "file::quaternionmedia/rad/CLAUDE.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "file::quaternionmedia/rad/HANDOFF.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "file::quaternionmedia/rad/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "file::quaternionmedia/rad/REVIEW.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "file::quaternionmedia/rad/REUSE.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "file::quaternionmedia/rad/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "file::quaternionmedia/rad/playwright.config.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/.vscode",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/LICENSES",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/adr",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/conformance",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/docs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/governance",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/messaging",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/perspectives",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/scripts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad",
+      "target": "dir::quaternionmedia/rad/tests",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/.github",
+      "target": "file::quaternionmedia/rad/.github/copilot-instructions.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/.github",
+      "target": "dir::quaternionmedia/rad/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-interaction-efficiency-metrics.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-rad-adoption-and-scope.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-rad-core-extraction.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-rad-host-integration-standard.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-rad-interaction-contract.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-rad-platform-plans.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-rad-release-milestones.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-rad-theme-tokens.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-rad-to-rad-messaging.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-tempo-driven-interaction-speed.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-the-menu-addresses-nine-cells.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-the-ring-has-an-authored-graph-mode.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/DRAFT-unified-artifact-pipeline.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/adr",
+      "target": "file::quaternionmedia/rad/adr/TEMPLATE.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs",
+      "target": "dir::quaternionmedia/rad/docs/guide",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs",
+      "target": "dir::quaternionmedia/rad/docs/media",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/a11y-foundation.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/chord-input.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/conformance.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/keyboard-path.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/overview.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/quantized-commit.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/reduced-motion.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/release-select.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/speed-axes.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/submenu-drag-through.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/themes.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/docs/guide",
+      "target": "file::quaternionmedia/rad/docs/guide/tour.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/messaging",
+      "target": "file::quaternionmedia/rad/messaging/demo.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/messaging",
+      "target": "file::quaternionmedia/rad/messaging/session.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/messaging",
+      "target": "file::quaternionmedia/rad/messaging/session.test.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/perspectives",
+      "target": "file::quaternionmedia/rad/perspectives/2026-08-09-verification-shaped-prose.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/perspectives",
+      "target": "file::quaternionmedia/rad/perspectives/g0-interpretive-governance.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/scripts",
+      "target": "file::quaternionmedia/rad/scripts/build-docs.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/scripts",
+      "target": "file::quaternionmedia/rad/scripts/check-gate.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/scripts",
+      "target": "file::quaternionmedia/rad/scripts/check-palette.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/scripts",
+      "target": "file::quaternionmedia/rad/scripts/sync-vectors.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/a11y.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/conformance.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/governance.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/metrics.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/pinning.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/ring.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/speed.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/topics.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/topics.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "file::quaternionmedia/rad/tests/touch.spec.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests",
+      "target": "dir::quaternionmedia/rad/tests/lib",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad/tests/lib",
+      "target": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/rad",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "rad declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile",
+   "remedy": "",
+   "where": "/show/project/rad/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

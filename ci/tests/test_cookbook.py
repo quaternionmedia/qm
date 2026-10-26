@@ -19,6 +19,13 @@ sys.path.insert(0, str(CI_DIR))
 import cookbook  # noqa: E402
 
 
+@pytest.fixture(autouse=True)
+def _no_show_documents(tmp_path_factory, monkeypatch):
+    """A page is built from the show documents its test gives, never from the
+    ones `docs/show/` holds on this disk, which an export may be writing."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path_factory.mktemp("show"))
+
+
 def family(name="a-family", drives="the thing", members=("one", "two")):
     return {"name": name, "drives": drives, "members": list(members)}
 
@@ -850,3 +857,86 @@ def test_a_resolved_ref_is_read_at_its_commit(monkeypatch):
     found = cookbook.preview_refs("org", {"editor": "feat/x"}, {"editor": ["a.png", "b.png"]})
     assert found == {"editor": {"ref": sha, "label": "feat/x", "held": ["a.png"]}}
     assert asked == {"ref": sha, "wanted": {"editor": ["a.png", "b.png"]}}
+
+
+# The showgraph: what codecartographer drew of a subject, from its show
+# document under docs/show/ (`uv run codecarto show export`).
+
+def _show(root: Path, folder: str, views: dict, files: dict, held=None) -> None:
+    import json
+    where = root / folder
+    where.mkdir(parents=True)
+    (where / "show.json").write_text(json.dumps({
+        "schema": 1,
+        "provenance": {"claims": {"repo": "org/qm", "commit": "c" * 40, "digest": "sha256:x"},
+                       "source": {"repo": "org/synth", "commit": "s" * 40},
+                       "drawn_by": {"graph": "codecartographer@" + "d" * 40},
+                       "drawn_at": "2026-10-26T12:00:00Z"},
+        "views": views, "files": files}), encoding="utf-8")
+    for name in (files.values() if held is None else held):
+        (where / name).write_text("<svg/>", encoding="utf-8")
+
+
+DRAWN = {"graph": {"nodes": {}, "edges": []}}
+
+
+def test_a_project_page_shows_each_view_codecarto_drew_and_says_why_one_is_not(tmp_path, monkeypatch):
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth",
+          {"estate": DRAWN, "code": DRAWN,
+           "system": {"absent": True, "problem": "synth declares no system this window reads",
+                      "remedy": "", "where": "/show/project/synth/views"}},
+          {"estate": "estate.svg", "code": "code.svg"})
+    page = cookbook.project_page(_project("synth"), {"instruments": {}})
+    # Mutation: leave the showgraph off the project page -- this fails.
+    assert "](../show/project/synth/estate.svg)" in page
+    assert "](../show/project/synth/code.svg)" in page
+    assert "**Its system:** not drawn. synth declares no system this window reads.\n" in page
+    assert "codecartographer at `ddddddd`" in page
+    assert "the corpus at `ccccccc`" in page
+    assert "default branch at `sssssss`" in page
+    # Each picture opens at its full size.
+    assert "[![" in page and "](../show/project/synth/estate.svg)" in page
+
+
+def test_a_picture_the_document_names_and_the_folder_lacks_is_said_not_shown(tmp_path, monkeypatch):
+    """A show document naming a file that is not beside it is never a broken image."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth", {"estate": DRAWN, "code": DRAWN},
+          {"estate": "estate.svg", "code": "code.svg"}, held=["estate.svg"])
+    page = cookbook.project_page(_project("synth"), {"instruments": {}})
+    # Mutation: show every file the document names -- the code map is a broken
+    # image, and this fails.
+    assert "](../show/project/synth/code.svg)" not in page
+    assert "its picture, `code.svg`, is not in docs/show" in page
+
+
+def test_a_subject_with_no_show_document_says_none_is_drawn(tmp_path, monkeypatch):
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    page = cookbook.project_page(_project("plain"), {"instruments": {}})
+    assert "No showgraph has been drawn for plain yet." in page
+    assert "../show/" not in page
+
+
+def test_a_detail_page_shows_its_showgraph_too(tmp_path, monkeypatch):
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth", {"estate": DRAWN}, {"estate": "estate.svg"})
+    project = {**_project("synth"), "details": cookbook.detail_block({"lede": "A synth."}, "synth")}
+    page = cookbook.detail_page(project, {"instruments": {}}, {})
+    # Mutation: leave it off the detail page -- this fails.
+    assert "](../show/project/synth/estate.svg)" in page
+
+
+def test_a_family_page_and_the_families_index_show_theirs(tmp_path, monkeypatch):
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "family/instruments", {"estate": DRAWN}, {"estate": "estate.svg"})
+    _show(tmp_path, "index", {"estate": DRAWN}, {"estate": "estate.svg"})
+    page = cookbook.site_page({"name": "instruments", "drives": "the sound", "within": None},
+                              [state("synth", adopted=True)])
+    assert "](../show/family/instruments/estate.svg)" in page
+    families = [{"name": "instruments", "drives": "the sound", "members": ["synth"]}]
+    index = cookbook.site_index({"families": families, "unstated": []},
+                                [{"name": "instruments", "drives": "the sound", "members": 1, "governed": 1}],
+                                {f["name"]: f for f in families})
+    # Mutation: leave the estate's showgraph off the families index -- this fails.
+    assert "](../show/index/estate.svg)" in index

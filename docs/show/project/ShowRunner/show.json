@@ -1,0 +1,2619 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "ShowRunner"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:629d5dbcccb4acfdf255ce80ff0dccf03246ae4c4260719534df12c7ddb2fc6e"
+  },
+  "source": {
+   "repo": "quaternionmedia/ShowRunner",
+   "commit": "f37a60b9196ff7f1583cc3426046cc7c7f0fd910"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::ShowRunner": {
+      "label": "ShowRunner",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "ShowRunner — n/a · not adopted",
+       "click": "<p><b>ShowRunner</b> — Show control for live performances</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:ShowRunner",
+       "shape": "circle",
+       "color": "#f0708f",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::show-control": {
+      "label": "show-control",
+      "metadata": {
+       "kind": "family",
+       "family": "show-control",
+       "drives": "the room — cues, lighting, sound and video playback, audio transport",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
+       "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
+       "show": "family:show-control",
+       "color": "#f0708f",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::live": {
+      "label": "recency: live",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency live, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::ShowRunner",
+      "target": "family::show-control",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ShowRunner",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ShowRunner",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ShowRunner",
+      "target": "recency::live",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:ShowRunner",
+     "measured": 0,
+     "unread": [],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:ShowRunner",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/ShowRunner": {
+      "id": "dir::quaternionmedia/ShowRunner",
+      "label": "quaternionmedia/ShowRunner",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1167.16761134849,
+      "y": 1177.536817557443,
+      "size": 160
+     },
+     "dir::quaternionmedia/ShowRunner/.github": {
+      "id": "dir::quaternionmedia/ShowRunner/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1043.0311988466522,
+      "y": 225.31229304529222,
+      "size": 60
+     },
+     "dir::quaternionmedia/ShowRunner/.github/workflows": {
+      "id": "dir::quaternionmedia/ShowRunner/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1232.6058418958658,
+      "y": 270.31531400729165,
+      "size": 50
+     },
+     "dir::quaternionmedia/ShowRunner/docs": {
+      "id": "dir::quaternionmedia/ShowRunner/docs",
+      "label": "docs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -589.1826014105957,
+      "y": -640.5739315501337,
+      "size": 100
+     },
+     "dir::quaternionmedia/ShowRunner/docs/about": {
+      "id": "dir::quaternionmedia/ShowRunner/docs/about",
+      "label": "about",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2358.787879313111,
+      "y": -902.6893530358923,
+      "size": 90
+     },
+     "dir::quaternionmedia/ShowRunner/docs/cookbook": {
+      "id": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "label": "cookbook",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 3913.055795166474,
+      "y": -1130.3090662360626,
+      "size": 160
+     },
+     "dir::quaternionmedia/ShowRunner/docs/ref": {
+      "id": "dir::quaternionmedia/ShowRunner/docs/ref",
+      "label": "ref",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -3371.1894642642533,
+      "y": -540.6097306736059,
+      "size": 110
+     },
+     "dir::quaternionmedia/ShowRunner/docs/usage": {
+      "id": "dir::quaternionmedia/ShowRunner/docs/usage",
+      "label": "usage",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1371.3137640355285,
+      "y": 870.028789930819,
+      "size": 90
+     },
+     "dir::quaternionmedia/ShowRunner/examples": {
+      "id": "dir::quaternionmedia/ShowRunner/examples",
+      "label": "examples",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1199.3485867564145,
+      "y": 323.9062668570312,
+      "size": 60
+     },
+     "dir::quaternionmedia/ShowRunner/examples/scripts": {
+      "id": "dir::quaternionmedia/ShowRunner/examples/scripts",
+      "label": "scripts",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1355.179143220363,
+      "y": 363.51931406050954,
+      "size": 50
+     },
+     "dir::quaternionmedia/ShowRunner/plans": {
+      "id": "dir::quaternionmedia/ShowRunner/plans",
+      "label": "plans",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2679.0745835072726,
+      "y": 112.22875983545266,
+      "size": 80
+     },
+     "dir::quaternionmedia/ShowRunner/scripts": {
+      "id": "dir::quaternionmedia/ShowRunner/scripts",
+      "label": "scripts",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 115.3303757582443,
+      "y": 775.8977890554436,
+      "size": 60
+     },
+     "dir::quaternionmedia/ShowRunner/scripts/midi": {
+      "id": "dir::quaternionmedia/ShowRunner/scripts/midi",
+      "label": "midi",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 184.6157233426814,
+      "y": 949.3108769649053,
+      "size": 80
+     },
+     "dir::quaternionmedia/ShowRunner/src": {
+      "id": "dir::quaternionmedia/ShowRunner/src",
+      "label": "src",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -701.6212289868884,
+      "y": -224.4784589240769,
+      "size": 60
+     },
+     "dir::quaternionmedia/ShowRunner/src/showrunner": {
+      "id": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "label": "showrunner",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -58.22745230974557,
+      "y": -399.3161205848746,
+      "size": 230
+     },
+     "dir::quaternionmedia/ShowRunner/src/showrunner/migrations": {
+      "id": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations",
+      "label": "migrations",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 913.1116038344968,
+      "y": -1327.4805650855988,
+      "size": 90
+     },
+     "dir::quaternionmedia/ShowRunner/src/showrunner/migrations/versions": {
+      "id": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations/versions",
+      "label": "versions",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 773.7794225560368,
+      "y": -863.9364709158922,
+      "size": 70
+     },
+     "dir::quaternionmedia/ShowRunner/src/showrunner/plugins": {
+      "id": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "label": "plugins",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -3047.9060426398005,
+      "y": 2456.2575302068017,
+      "size": 240
+     },
+     "dir::quaternionmedia/ShowRunner/src/showrunner/templates": {
+      "id": "dir::quaternionmedia/ShowRunner/src/showrunner/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 570.4135593887814,
+      "y": -394.01674332134104,
+      "size": 60
+     },
+     "dir::quaternionmedia/ShowRunner/src/showrunner/templates/sqladmin": {
+      "id": "dir::quaternionmedia/ShowRunner/src/showrunner/templates/sqladmin",
+      "label": "sqladmin",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 719.3949844869043,
+      "y": -410.97412236191826,
+      "size": 60
+     },
+     "dir::quaternionmedia/ShowRunner/tests": {
+      "id": "dir::quaternionmedia/ShowRunner/tests",
+      "label": "tests",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 4613.275120074599,
+      "y": -471.44748692929784,
+      "size": 210
+     },
+     "file::quaternionmedia/ShowRunner/CONTRIBUTING.md": {
+      "id": "file::quaternionmedia/ShowRunner/CONTRIBUTING.md",
+      "label": "CONTRIBUTING.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/CONTRIBUTING.md",
+      "line": 0,
+      "meta": {},
+      "x": -953.9122175988563,
+      "y": 1300.6598765449337,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/README.md": {
+      "id": "file::quaternionmedia/ShowRunner/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -1218.3650580939777,
+      "y": 1418.4018670446846,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/about/history.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/about/history.md",
+      "label": "history.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/about/history.md",
+      "line": 0,
+      "meta": {},
+      "x": -2163.932163461612,
+      "y": -790.1893530358923,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/about/overview.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/about/overview.md",
+      "label": "overview.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/about/overview.md",
+      "line": 0,
+      "meta": {},
+      "x": -2471.287879313111,
+      "y": -707.8336371843935,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/about/plugin-architecture.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/about/plugin-architecture.md",
+      "label": "plugin-architecture.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/about/plugin-architecture.md",
+      "line": 0,
+      "meta": {},
+      "x": -2553.6435951646095,
+      "y": -1015.1893530358923,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/about/tools.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/about/tools.md",
+      "label": "tools.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/about/tools.md",
+      "line": 0,
+      "meta": {},
+      "x": -2246.287879313111,
+      "y": -1097.545068887391,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/api.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/api.md",
+      "label": "api.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/api.md",
+      "line": 0,
+      "meta": {},
+      "x": 4210.532257430985,
+      "y": -958.5609506700696,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/cues.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/cues.md",
+      "label": "cues.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/cues.md",
+      "line": 0,
+      "meta": {},
+      "x": 4070.454878384559,
+      "y": -824.9974395265886,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/index.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/index.md",
+      "line": 0,
+      "meta": {},
+      "x": 3880.404402545169,
+      "y": -788.3682126344958,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/midi-hotplug.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/midi-hotplug.md",
+      "label": "midi-hotplug.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/midi-hotplug.md",
+      "line": 0,
+      "meta": {},
+      "x": 3700.720513159327,
+      "y": -860.3027907222812,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/pdf-export.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/pdf-export.md",
+      "label": "pdf-export.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/pdf-export.md",
+      "line": 0,
+      "meta": {},
+      "x": 3588.4515755213442,
+      "y": -1017.9624535125135,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/plugins-create.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/plugins-create.md",
+      "label": "plugins-create.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/plugins-create.md",
+      "line": 0,
+      "meta": {},
+      "x": 3579.2421840768734,
+      "y": -1211.2913720392396,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/plugins-lifecycle.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/plugins-lifecycle.md",
+      "label": "plugins-lifecycle.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/plugins-lifecycle.md",
+      "line": 0,
+      "meta": {},
+      "x": 3676.016255539082,
+      "y": -1378.9089806670872,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/plugins.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/plugins.md",
+      "label": "plugins.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/plugins.md",
+      "line": 0,
+      "meta": {},
+      "x": 3848.048705991634,
+      "y": -1467.5978729861433,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/scripts.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/scripts.md",
+      "label": "scripts.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/scripts.md",
+      "line": 0,
+      "meta": {},
+      "x": 4040.7204479390557,
+      "y": -1449.1999523308757,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/shows.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/shows.md",
+      "label": "shows.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/shows.md",
+      "line": 0,
+      "meta": {},
+      "x": 4192.8595646665135,
+      "y": -1329.5564285158366,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/cookbook/tests.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/cookbook/tests.md",
+      "label": "tests.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/cookbook/tests.md",
+      "line": 0,
+      "meta": {},
+      "x": 4256.162961576672,
+      "y": -1146.6532749915575,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/index.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/index.md",
+      "line": 0,
+      "meta": {},
+      "x": -394.3268855590969,
+      "y": -528.0739315501337,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/ref/api.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/ref/api.md",
+      "label": "api.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/api.md",
+      "line": 0,
+      "meta": {},
+      "x": -3141.2994901735856,
+      "y": -407.88269224836284,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/ref/cli.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/ref/cli.md",
+      "label": "cli.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/cli.md",
+      "line": 0,
+      "meta": {},
+      "x": -3371.1894642642533,
+      "y": -275.1556538231198,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/ref/config.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/ref/config.md",
+      "label": "config.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/config.md",
+      "line": 0,
+      "meta": {},
+      "x": -3601.079438354921,
+      "y": -407.88269224836273,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/ref/index.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/ref/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/index.md",
+      "line": 0,
+      "meta": {},
+      "x": -3601.079438354921,
+      "y": -673.3367690988488,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/ref/models.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/ref/models.md",
+      "label": "models.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/models.md",
+      "line": 0,
+      "meta": {},
+      "x": -3371.1894642642533,
+      "y": -806.063807524092,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/ref/plugins.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/ref/plugins.md",
+      "label": "plugins.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/ref/plugins.md",
+      "line": 0,
+      "meta": {},
+      "x": -3141.2994901735856,
+      "y": -673.3367690988488,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/usage/config.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/usage/config.md",
+      "label": "config.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/usage/config.md",
+      "line": 0,
+      "meta": {},
+      "x": 1566.1694798870271,
+      "y": 982.528789930819,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/usage/first-show.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/usage/first-show.md",
+      "label": "first-show.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/usage/first-show.md",
+      "line": 0,
+      "meta": {},
+      "x": 1258.8137640355285,
+      "y": 1064.8845057823178,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/usage/getting-started.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/usage/getting-started.md",
+      "label": "getting-started.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/usage/getting-started.md",
+      "line": 0,
+      "meta": {},
+      "x": 1176.4580481840298,
+      "y": 757.5287899308191,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/docs/usage/migrations.md": {
+      "id": "file::quaternionmedia/ShowRunner/docs/usage/migrations.md",
+      "label": "migrations.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/docs/usage/migrations.md",
+      "line": 0,
+      "meta": {},
+      "x": 1483.8137640355285,
+      "y": 675.1730740793203,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/plans/layers.md": {
+      "id": "file::quaternionmedia/ShowRunner/plans/layers.md",
+      "label": "layers.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/plans/layers.md",
+      "line": 0,
+      "meta": {},
+      "x": -2484.218867655774,
+      "y": 224.72875983545265,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/plans/midi.md": {
+      "id": "file::quaternionmedia/ShowRunner/plans/midi.md",
+      "label": "midi.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/plans/midi.md",
+      "line": 0,
+      "meta": {},
+      "x": -2873.930299358771,
+      "y": 224.72875983545273,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/plans/osc.md": {
+      "id": "file::quaternionmedia/ShowRunner/plans/osc.md",
+      "label": "osc.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/plans/osc.md",
+      "line": 0,
+      "meta": {},
+      "x": -2679.0745835072726,
+      "y": -112.77124016454734,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/pyproject.toml": {
+      "id": "file::quaternionmedia/ShowRunner/pyproject.toml",
+      "label": "pyproject.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/pyproject.toml",
+      "line": 0,
+      "meta": {},
+      "x": -1412.0647673240476,
+      "y": 1203.2765458549934,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/scripts/midi/hotplug.py": {
+      "id": "file::quaternionmedia/ShowRunner/scripts/midi/hotplug.py",
+      "label": "hotplug.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/scripts/midi/hotplug.py",
+      "line": 0,
+      "meta": {},
+      "x": 379.4714391941801,
+      "y": 1061.8108769649052,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/scripts/midi/tevm.py": {
+      "id": "file::quaternionmedia/ShowRunner/scripts/midi/tevm.py",
+      "label": "tevm.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/scripts/midi/tevm.py",
+      "line": 0,
+      "meta": {},
+      "x": -10.239992508817242,
+      "y": 1061.8108769649052,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/scripts/midi/watch.py": {
+      "id": "file::quaternionmedia/ShowRunner/scripts/midi/watch.py",
+      "label": "watch.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/scripts/midi/watch.py",
+      "line": 0,
+      "meta": {},
+      "x": 184.61572334268138,
+      "y": 724.3108769649053,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/show.toml": {
+      "id": "file::quaternionmedia/ShowRunner/show.toml",
+      "label": "show.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/show.toml",
+      "line": 0,
+      "meta": {},
+      "x": -1267.3249307440813,
+      "y": 952.5797950192751,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/__init__.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": 282.61286782302585,
+      "y": -202.53187000554087,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/app.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/app.py",
+      "label": "app.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/app.py",
+      "line": 0,
+      "meta": {},
+      "x": 173.10630843817233,
+      "y": -80.91251469683635,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/cli.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/cli.py",
+      "label": "cli.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/cli.py",
+      "line": 0,
+      "meta": {},
+      "x": 23.600040218764317,
+      "y": -14.348035452123975,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/config.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/config.py",
+      "label": "config.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/config.py",
+      "line": 0,
+      "meta": {},
+      "x": -140.05494483825532,
+      "y": -14.34803545212393,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/connection.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/connection.py",
+      "label": "connection.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/connection.py",
+      "line": 0,
+      "meta": {},
+      "x": -289.56121305766345,
+      "y": -80.91251469683635,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/connection_ui.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/connection_ui.py",
+      "label": "connection_ui.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/connection_ui.py",
+      "line": 0,
+      "meta": {},
+      "x": -399.06777244251685,
+      "y": -202.5318700055407,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/database.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/database.py",
+      "label": "database.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/database.py",
+      "line": 0,
+      "meta": {},
+      "x": -449.63994403931406,
+      "y": -358.1770099682053,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/hookspecs.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/hookspecs.py",
+      "label": "hookspecs.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/hookspecs.py",
+      "line": 0,
+      "meta": {},
+      "x": -432.5333399452131,
+      "y": -520.935475893579,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/layers.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/layers.py",
+      "label": "layers.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/layers.py",
+      "line": 0,
+      "meta": {},
+      "x": -350.70584741670325,
+      "y": -662.6648504089208,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/migrations/__init__.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": 1107.9673196859956,
+      "y": -1214.9805650855988,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/migrations/cli.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/cli.py",
+      "label": "cli.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/cli.py",
+      "line": 0,
+      "meta": {},
+      "x": 718.2558879829982,
+      "y": -1214.9805650855988,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/migrations/env.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/env.py",
+      "label": "env.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/env.py",
+      "line": 0,
+      "meta": {},
+      "x": 913.1116038344968,
+      "y": -1552.4805650855988,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/migrations/versions/2a50c1c7c24c_cue_number_nullable.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/versions/2a50c1c7c24c_cue_number_nullable.py",
+      "label": "2a50c1c7c24c_cue_number_nullable.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/versions/2a50c1c7c24c_cue_number_nullable.py",
+      "line": 0,
+      "meta": {},
+      "x": 968.6351384075355,
+      "y": -751.4364709158922,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/migrations/versions/b3f1d0a7c921_layers_table.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/versions/b3f1d0a7c921_layers_table.py",
+      "label": "b3f1d0a7c921_layers_table.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/migrations/versions/b3f1d0a7c921_layers_table.py",
+      "line": 0,
+      "meta": {},
+      "x": 578.9237067045381,
+      "y": -976.4364709158922,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/models.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/models.py",
+      "label": "models.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/models.py",
+      "line": 0,
+      "meta": {},
+      "x": -218.30618329139614,
+      "y": -758.858837089582,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/pdf_layout.toml": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/pdf_layout.toml",
+      "label": "pdf_layout.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/pdf_layout.toml",
+      "line": 0,
+      "meta": {},
+      "x": 333.185039419823,
+      "y": -358.17700996820525,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugin.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugin.py",
+      "label": "plugin.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugin.py",
+      "line": 0,
+      "meta": {},
+      "x": -58.22745230974565,
+      "y": -792.8846217435422,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/__init__.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": -2669.1923498823166,
+      "y": 2674.907982666132,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/admin.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/admin.py",
+      "label": "admin.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/admin.py",
+      "line": 0,
+      "meta": {},
+      "x": -2760.707788216564,
+      "y": 2786.0290330673815,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/cmd.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/cmd.py",
+      "label": "cmd.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/cmd.py",
+      "line": 0,
+      "meta": {},
+      "x": -2883.345613757639,
+      "y": 2861.4142242016046,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/comms.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/comms.py",
+      "label": "comms.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/comms.py",
+      "line": 0,
+      "meta": {},
+      "x": -3023.816115186238,
+      "y": 2892.894400887647,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/dashboard.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/dashboard.py",
+      "label": "dashboard.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/dashboard.py",
+      "line": 0,
+      "meta": {},
+      "x": -3166.8971340481685,
+      "y": 2877.058197516307,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/db.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/db.py",
+      "label": "db.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/db.py",
+      "line": 0,
+      "meta": {},
+      "x": -3297.083621818984,
+      "y": 2815.6217124468812,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/designer.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/designer.py",
+      "label": "designer.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/designer.py",
+      "line": 0,
+      "meta": {},
+      "x": -3400.267852497226,
+      "y": 2715.242542121929,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/lighter.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/lighter.py",
+      "label": "lighter.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/lighter.py",
+      "line": 0,
+      "meta": {},
+      "x": -3465.2682136206054,
+      "y": 2586.798327189466,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/logger.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/logger.py",
+      "label": "logger.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/logger.py",
+      "line": 0,
+      "meta": {},
+      "x": -3485.0409074768813,
+      "y": 2444.207991354766,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/midi.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/midi.py",
+      "label": "midi.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/midi.py",
+      "line": 0,
+      "meta": {},
+      "x": -3457.4432558817707,
+      "y": 2302.9234100225435,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/mixer.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/mixer.py",
+      "label": "mixer.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/mixer.py",
+      "line": 0,
+      "meta": {},
+      "x": -3385.4658926072893,
+      "y": 2178.2549598363,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/osc.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/osc.py",
+      "label": "osc.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/osc.py",
+      "line": 0,
+      "meta": {},
+      "x": -3276.9086818080914,
+      "y": 2083.712401804031,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/printer.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/printer.py",
+      "label": "printer.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/printer.py",
+      "line": 0,
+      "meta": {},
+      "x": -3143.5354817129487,
+      "y": 2029.5408890674682,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/programmer.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/programmer.py",
+      "label": "programmer.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/programmer.py",
+      "line": 0,
+      "meta": {},
+      "x": -2999.799348050597,
+      "y": 2021.6107455892447,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/prompter.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/prompter.py",
+      "label": "prompter.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/prompter.py",
+      "line": 0,
+      "meta": {},
+      "x": -2861.2763211992624,
+      "y": 2060.7813254640805,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/recorder.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/recorder.py",
+      "label": "recorder.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/recorder.py",
+      "line": 0,
+      "meta": {},
+      "x": -2742.977520524509,
+      "y": 2142.8078885683663,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/scripter.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/scripter.py",
+      "label": "scripter.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/scripter.py",
+      "line": 0,
+      "meta": {},
+      "x": -2657.7224566744662,
+      "y": 2258.801584016488,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/stage_manager.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/stage_manager.py",
+      "label": "stage_manager.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/stage_manager.py",
+      "line": 0,
+      "meta": {},
+      "x": -2614.749838685902,
+      "y": 2396.1926950790144,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/plugins/stopper.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/stopper.py",
+      "label": "stopper.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/plugins/stopper.py",
+      "line": 0,
+      "meta": {},
+      "x": -2618.716416506747,
+      "y": 2540.092763029581,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/scriptformat.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/scriptformat.py",
+      "label": "scriptformat.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/scriptformat.py",
+      "line": 0,
+      "meta": {},
+      "x": 101.85127867190486,
+      "y": -758.8588370895822,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/templates/sqladmin/layout.html": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/templates/sqladmin/layout.html",
+      "label": "layout.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/templates/sqladmin/layout.html",
+      "line": 0,
+      "meta": {},
+      "x": 914.2507003384029,
+      "y": -298.47412236191826,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/ui.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/ui.py",
+      "label": "ui.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/ui.py",
+      "line": 0,
+      "meta": {},
+      "x": 234.25094279721205,
+      "y": -662.6648504089208,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/src/showrunner/utils.py": {
+      "id": "file::quaternionmedia/ShowRunner/src/showrunner/utils.py",
+      "label": "utils.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/src/showrunner/utils.py",
+      "line": 0,
+      "meta": {},
+      "x": 316.07843532572195,
+      "y": -520.9354758935788,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/conftest.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/conftest.py",
+      "label": "conftest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/conftest.py",
+      "line": 0,
+      "meta": {},
+      "x": 4964.015408607296,
+      "y": -268.94748692929784,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_api.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_api.py",
+      "label": "test_api.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_api.py",
+      "line": 0,
+      "meta": {},
+      "x": 4859.823498823131,
+      "y": -150.1393841113476,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_config.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_config.py",
+      "label": "test_config.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_config.py",
+      "line": 0,
+      "meta": {},
+      "x": 4718.096833341119,
+      "y": -80.24752728222522,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_connection.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_connection.py",
+      "label": "test_connection.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_connection.py",
+      "line": 0,
+      "meta": {},
+      "x": 4560.412012225478,
+      "y": -69.91231807290461,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_cue_number.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_cue_number.py",
+      "label": "test_cue_number.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_cue_number.py",
+      "line": 0,
+      "meta": {},
+      "x": 4410.775120074599,
+      "y": -120.70719839660016,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_database.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_database.py",
+      "label": "test_database.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_database.py",
+      "line": 0,
+      "meta": {},
+      "x": 4291.967017256648,
+      "y": -224.89910818076586,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_layers.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_layers.py",
+      "label": "test_layers.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_layers.py",
+      "line": 0,
+      "meta": {},
+      "x": 4222.075160427526,
+      "y": -366.6257736627768,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_midi.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_midi.py",
+      "label": "test_midi.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_midi.py",
+      "line": 0,
+      "meta": {},
+      "x": 4211.7399512182055,
+      "y": -524.3105947784186,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_migrations.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_migrations.py",
+      "label": "test_migrations.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_migrations.py",
+      "line": 0,
+      "meta": {},
+      "x": 4262.534831541901,
+      "y": -673.9474869292976,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_models.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_models.py",
+      "label": "test_models.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_models.py",
+      "line": 0,
+      "meta": {},
+      "x": 4366.726741326067,
+      "y": -792.7555897472479,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_osc.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_osc.py",
+      "label": "test_osc.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_osc.py",
+      "line": 0,
+      "meta": {},
+      "x": 4508.4534068080775,
+      "y": -862.6474465763705,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_osc_live.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_osc_live.py",
+      "label": "test_osc_live.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_osc_live.py",
+      "line": 0,
+      "meta": {},
+      "x": 4666.13822792372,
+      "y": -872.982655785691,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_plugins.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_plugins.py",
+      "label": "test_plugins.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_plugins.py",
+      "line": 0,
+      "meta": {},
+      "x": 4815.775120074599,
+      "y": -822.1877754619953,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_script_previews.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_script_previews.py",
+      "label": "test_script_previews.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_script_previews.py",
+      "line": 0,
+      "meta": {},
+      "x": 4934.583222892549,
+      "y": -717.9958656778294,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_script_sync.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_script_sync.py",
+      "label": "test_script_sync.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_script_sync.py",
+      "line": 0,
+      "meta": {},
+      "x": 5004.475079721671,
+      "y": -576.2692001958187,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/tests/test_scriptformat.py": {
+      "id": "file::quaternionmedia/ShowRunner/tests/test_scriptformat.py",
+      "label": "test_scriptformat.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/tests/test_scriptformat.py",
+      "line": 0,
+      "meta": {},
+      "x": 5014.810288930992,
+      "y": -418.5843790801771,
+      "size": 30
+     },
+     "file::quaternionmedia/ShowRunner/zensical.toml": {
+      "id": "file::quaternionmedia/ShowRunner/zensical.toml",
+      "label": "zensical.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowRunner/main/zensical.toml",
+      "line": 0,
+      "meta": {},
+      "x": -984.1710829814868,
+      "y": 1012.7660033233291,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "file::quaternionmedia/ShowRunner/CONTRIBUTING.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "file::quaternionmedia/ShowRunner/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "file::quaternionmedia/ShowRunner/pyproject.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "file::quaternionmedia/ShowRunner/show.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "file::quaternionmedia/ShowRunner/zensical.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "dir::quaternionmedia/ShowRunner/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "dir::quaternionmedia/ShowRunner/docs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "dir::quaternionmedia/ShowRunner/examples",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "dir::quaternionmedia/ShowRunner/plans",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "dir::quaternionmedia/ShowRunner/scripts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "dir::quaternionmedia/ShowRunner/src",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner",
+      "target": "dir::quaternionmedia/ShowRunner/tests",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/.github",
+      "target": "dir::quaternionmedia/ShowRunner/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs",
+      "target": "file::quaternionmedia/ShowRunner/docs/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs",
+      "target": "dir::quaternionmedia/ShowRunner/docs/about",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs",
+      "target": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs",
+      "target": "dir::quaternionmedia/ShowRunner/docs/ref",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs",
+      "target": "dir::quaternionmedia/ShowRunner/docs/usage",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/about",
+      "target": "file::quaternionmedia/ShowRunner/docs/about/history.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/about",
+      "target": "file::quaternionmedia/ShowRunner/docs/about/overview.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/about",
+      "target": "file::quaternionmedia/ShowRunner/docs/about/plugin-architecture.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/about",
+      "target": "file::quaternionmedia/ShowRunner/docs/about/tools.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/api.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/cues.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/midi-hotplug.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/pdf-export.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/plugins-create.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/plugins-lifecycle.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/plugins.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/scripts.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/shows.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/cookbook",
+      "target": "file::quaternionmedia/ShowRunner/docs/cookbook/tests.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/ref",
+      "target": "file::quaternionmedia/ShowRunner/docs/ref/api.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/ref",
+      "target": "file::quaternionmedia/ShowRunner/docs/ref/cli.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/ref",
+      "target": "file::quaternionmedia/ShowRunner/docs/ref/config.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/ref",
+      "target": "file::quaternionmedia/ShowRunner/docs/ref/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/ref",
+      "target": "file::quaternionmedia/ShowRunner/docs/ref/models.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/ref",
+      "target": "file::quaternionmedia/ShowRunner/docs/ref/plugins.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/usage",
+      "target": "file::quaternionmedia/ShowRunner/docs/usage/config.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/usage",
+      "target": "file::quaternionmedia/ShowRunner/docs/usage/first-show.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/usage",
+      "target": "file::quaternionmedia/ShowRunner/docs/usage/getting-started.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/docs/usage",
+      "target": "file::quaternionmedia/ShowRunner/docs/usage/migrations.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/examples",
+      "target": "dir::quaternionmedia/ShowRunner/examples/scripts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/plans",
+      "target": "file::quaternionmedia/ShowRunner/plans/layers.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/plans",
+      "target": "file::quaternionmedia/ShowRunner/plans/midi.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/plans",
+      "target": "file::quaternionmedia/ShowRunner/plans/osc.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/scripts",
+      "target": "dir::quaternionmedia/ShowRunner/scripts/midi",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/scripts/midi",
+      "target": "file::quaternionmedia/ShowRunner/scripts/midi/hotplug.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/scripts/midi",
+      "target": "file::quaternionmedia/ShowRunner/scripts/midi/tevm.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/scripts/midi",
+      "target": "file::quaternionmedia/ShowRunner/scripts/midi/watch.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src",
+      "target": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/app.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/cli.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/config.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/connection.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/connection_ui.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/database.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/hookspecs.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/layers.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/models.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugin.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/scriptformat.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/ui.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/utils.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/pdf_layout.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner",
+      "target": "dir::quaternionmedia/ShowRunner/src/showrunner/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/cli.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/env.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations",
+      "target": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations/versions",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations/versions",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/versions/2a50c1c7c24c_cue_number_nullable.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/migrations/versions",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/migrations/versions/b3f1d0a7c921_layers_table.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/admin.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/cmd.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/comms.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/dashboard.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/db.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/designer.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/lighter.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/logger.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/midi.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/mixer.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/osc.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/printer.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/programmer.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/prompter.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/recorder.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/scripter.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/stage_manager.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/plugins",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/plugins/stopper.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/templates",
+      "target": "dir::quaternionmedia/ShowRunner/src/showrunner/templates/sqladmin",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/src/showrunner/templates/sqladmin",
+      "target": "file::quaternionmedia/ShowRunner/src/showrunner/templates/sqladmin/layout.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/conftest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_api.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_config.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_connection.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_cue_number.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_database.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_layers.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_midi.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_migrations.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_models.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_osc.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_osc_live.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_plugins.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_script_previews.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_script_sync.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ShowRunner/tests",
+      "target": "file::quaternionmedia/ShowRunner/tests/test_scriptformat.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/ShowRunner",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "ShowRunner declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile",
+   "remedy": "",
+   "where": "/show/project/ShowRunner/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}
