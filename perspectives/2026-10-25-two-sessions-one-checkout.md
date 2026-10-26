@@ -68,9 +68,14 @@ made. Two consequences followed.
   session had checked out.
 - **The object store is shared.** This session added and removed worktrees
   in the submodule's repository while the other session's merge existed there
-  only at a detached HEAD. Nothing here moved that HEAD. A checkout, or a
-  garbage collection after one, could have left that merge reachable only
-  from the reflog.
+  only at a detached HEAD. Nothing here moved that HEAD. The checkout then
+  moved anyway: at 21:24 the `qmcp` clone went back to `main`, and the
+  submodule followed to `235708c`. From then on the merge (`c1fd0a4`,
+  `7ae8035`) was on no ref. It was reachable from the reflog, which git
+  expires after 30 days by default. The other session's `qmcp` commit still
+  pinned it, but a gitlink keeps nothing alive. The other session was told
+  directly. This session created no ref for it, because the work was not this
+  session's to name.
 
 **The check:** none detects a second session in a working tree. `qmcp`'s
 run-file identifies a serving process, not a checkout. A session in a
