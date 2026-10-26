@@ -118,6 +118,17 @@ git cherry origin/main <branch>           # "+" is not on main; "-" already is, 
 A branch whose every line is `-` is folded: retire it, open nothing. A branch
 with any `+` is independent and continues.
 
+A folded branch can still be cited: a page naming it, a commit only it holds,
+or a file only it holds that another page links. Ask before retiring it:
+
+```sh
+uv run qm references <branch>             # exit 0: nothing in main or an open pull request points at it
+```
+
+Pass `--base origin/project/<name>` for a branch cut from a project branch.
+Each reference it lists is repaired first, or the branch stays. A ref the
+namespace page names, a stage among them, is never retired here.
+
 *Verify:* `git branch --list 'test' 'wip/*' 'tmp/*'` shows nothing you intend
 to push, and every branch you do intend to push matches a namespace in
 `docs/ref/namespaces.md`.
@@ -371,4 +382,5 @@ Ratification, deleting a branch, force-pushing anything a submodule pins,
 advancing the stage branch, or merging a stage a person has not approved. The
 survey and the census take no `--delete` flag by design; deletion is a person's
 act, repository by repository, after `uv run qm branches` in that repository
-has said what it costs.
+has said what it costs and, in the corpus, `uv run qm references` has said
+what still points at it.
