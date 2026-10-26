@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-25T23:33:56Z",
+  "generated_at": "2026-10-26T01:39:40Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-25T23:33:55Z"
+        "generated_at": "2026-10-26T01:39:37Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-10-18T16:48:17Z"
+        "generated_at": "2026-10-25T01:05:55Z"
       }
     }
   },
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 278,
+    "loose_ends": 281,
     "by_kind": {
       "blind-spot": 20,
-      "document-proposed": 38,
-      "document-unreviewed": 82,
+      "document-proposed": 39,
+      "document-unreviewed": 84,
       "stalled-thread": 138
     },
-    "open": 278,
+    "open": 281,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -116,7 +116,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-leak-check",
       "title": "leak-check cannot see",
-      "detail": "Everything on that line that is not a path or a link: an editor named in prose, a process somebody saw running, a tool narrating its own session, a person's words quoted into a constraint. A pattern for those would fire on every page that legitimately discusses editors or quotes a record, so the reader is the check, at the runbook's Step 3. Nor can it read history -- a path already pushed stays pushed -- or tell a placeholder from a real account beyond the ones it lists.",
+      "detail": "Everything on that line that is not a path or a link: an editor named in prose, a process somebody saw running, a tool narrating its own session, a person's words quoted into a constraint. A pattern for those would fire on every page that legitimately discusses editors or quotes a record, so the reader is the check, at the runbook's Step 3. Nor can it read history -- a path already pushed stays pushed -- or tell a placeholder from a real account beyond the ones it lists. Of a hosted page it sees only a link a file carries: a page never linked, a link in a pull request body, and a host its pattern does not list all pass.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-leak-check",
       "address_parses": true
     },
@@ -518,6 +518,14 @@
       "title": "records/DRAFT-what-is-not-the-organisation.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-what-is-not-the-organisation",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-work-is-delivered-into-a-repository",
+      "title": "records/DRAFT-work-is-delivered-into-a-repository.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-work-is-delivered-into-a-repository",
       "address_parses": true
     },
     {
@@ -1102,6 +1110,22 @@
       "title": "perspectives/2026-10-24-the-corpus-read-whole-and-landed.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-24-the-corpus-read-whole-and-landed",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-the-label-was-not-the-content",
+      "title": "perspectives/2026-10-25-the-label-was-not-the-content.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-the-label-was-not-the-content",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-what-whisper-heard",
+      "title": "perspectives/2026-10-25-what-whisper-heard.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-what-whisper-heard",
       "address_parses": true
     },
     {
