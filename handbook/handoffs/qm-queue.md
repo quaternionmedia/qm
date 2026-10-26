@@ -88,7 +88,6 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 | Pull requests | Into | State at the stamp | Done when |
 |---|---|---|---|
 | #144, #147, #148, #149, #150, #151, #153, #156 | eight project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
-| #237 | `project/apothecary` | a perspective: a retrospective on apothecary's 2026-10-24 remediation spending CI and the maintainer's time without a budget, with the CI shape decided in its place; Unreviewed in the perspectives index | a person reads it and merges it, or says what it should say |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
 
