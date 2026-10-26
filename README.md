@@ -65,6 +65,7 @@ shortest useful thing to read after this.
 | Bring an existing project up to date | [handbook/propagation-runbook.md](handbook/propagation-runbook.md) |
 | Land what exists only on this disk | [handbook/consolidation-runbook.md](handbook/consolidation-runbook.md) |
 | Learn the branch and record rules | [Branch namespaces](docs/ref/namespaces.md) and [Record precedence](docs/ref/precedence.md) |
+| Contribute to a research workspace | [handbook/research-workspaces.md](handbook/research-workspaces.md) — explorations on `math/<slug>`, and both ways a workspace takes changes in |
 | Know how far this corpus has got in governing itself | [handbook/governance-rollout.md](handbook/governance-rollout.md) |
 | See where every project stands | [status/governance.yaml](status/governance.yaml); [handbook/generated-documents.md](handbook/generated-documents.md) explains how to read it |
 | Know which checks actually govern, and what each one misses | [handbook/gates.md](handbook/gates.md) — says plainly whether anything blocks a merge |
@@ -157,7 +158,7 @@ No record is ratified, because ratification requires a second active code owner.
 
 ## Contributing
 
-Work on a branch in one of the five namespaces — [Branch namespaces](docs/ref/namespaces.md) lists them, and a branch outside them is a mistake rather than a variation. Open a pull request, assign the person who asked for the work, request no reviewer, and merge it yourself once every gate is green. See [handbook/async-contract.md](handbook/async-contract.md).
+Work on a branch in one of the namespaces [Branch namespaces](docs/ref/namespaces.md) lists, and a branch outside them is a mistake rather than a variation. Open a pull request, assign the person who asked for the work, request no reviewer, and merge it yourself once every gate is green. See [handbook/async-contract.md](handbook/async-contract.md).
 
 | Page | What it answers |
 |---|---|
