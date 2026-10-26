@@ -68,7 +68,9 @@ uv run qm branches --repo <path>          # one repository, each branch and its 
 reports, per repository, what exists on this disk alone: a branch with one
 copy, marked *folded* when the current HEAD already contains it and
 *independent* when it does not; a branch that is on origin but ahead of its
-remote copy; and a dirty working tree. With the host reachable it also says
+remote copy; and a dirty working tree. A local branch whose every commit is on
+another branch of origin is listed apart as *held*, with the branch that holds
+it. Deleting it loses only the name. With the host reachable it also says
 how many pull requests you hold open in each. It deletes nothing and takes no
 flag that could. `uv run qm branches --repo <path>` is the same reading for one
 repository, sorted by what it would cost to be wrong: stranded first, merged
