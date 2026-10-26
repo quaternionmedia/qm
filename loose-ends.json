@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-26T01:39:40Z",
+  "generated_at": "2026-10-26T10:47:57Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-26T01:39:37Z"
+        "generated_at": "2026-10-26T10:47:56Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 281,
+    "loose_ends": 282,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 39,
-      "document-unreviewed": 84,
+      "document-unreviewed": 85,
       "stalled-thread": 138
     },
-    "open": 281,
+    "open": 282,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1022,6 +1022,14 @@
       "title": "perspectives/2026-10-10-what-the-topology-docstrings-remembered.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-10-what-the-topology-docstrings-remembered",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-11-what-the-harness-was-reading",
+      "title": "perspectives/2026-10-11-what-the-harness-was-reading.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-11-what-the-harness-was-reading",
       "address_parses": true
     },
     {
