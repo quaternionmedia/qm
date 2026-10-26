@@ -104,15 +104,10 @@ above; the drafting discipline is enforced today.
 
 ## The branch model, in one place
 
-`main` carries the constitution and nothing else. Four namespaces hang off
-it, and a branch outside them is a mistake rather than a variation.
-
-| Namespace | Holds | Lifetime |
-|---|---|---|
-| `project/<name>` | one adopting project's `adr/` | permanent — a downstream submodule pins its tip |
-| `perspective/<date>-<slug>` | one perspective, staged for `main` | deleted after merge |
-| `evolve/<slug>` | org-level work in progress | deleted after merge |
-| `workspace/<slug>` | a research workspace that never merges back | permanent, terminal |
+`main` carries the constitution and nothing else. The namespaces that hang
+off it, what each holds and how long it lives are on
+[`docs/ref/namespaces.md`](../docs/ref/namespaces.md), the canonical page; a
+branch outside them is a mistake rather than a variation.
 
 Two properties of this model cause most of the confusion, and both are
 mechanical rather than a matter of care:
