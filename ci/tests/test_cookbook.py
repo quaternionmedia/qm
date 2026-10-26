@@ -11,6 +11,8 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import pytest
+
 CI_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(CI_DIR))
 
@@ -590,3 +592,261 @@ def test_the_front_page_includes_every_showcase_snippet_and_each_is_committed():
     included = set(re.findall(r'--8<-- "includes/([^"]+)"', front))
     written = {p.name for p in (root / "includes").glob("showcase-*.md")}
     assert included and included == written, (included, written)
+
+
+# --- a project's detail page ------------------------------------------------
+
+DETAIL = """\
+details:
+  editor:
+    lede: An editor, in a `browser`.
+    try:
+      run: ./run dev
+      then: Then open `127.0.0.1:8000`.
+    picture: {path: hero.png, caption: The editor.}
+    steps:
+      title: How it goes
+      items:
+        - {name: Source, text: Bring media.}
+        - {name: Render, text: Queue it., picture: {path: render.png, caption: A render queued.}}
+    features:
+      - eyebrow: on a phone
+        title: The same editor on a phone
+        text: One stage at a time.
+        pictures:
+          - {path: phone-a.png, caption: Edit on a phone.}
+          - {path: phone-b.png, caption: Render on a phone.}
+    built:
+      title: A seam and an engine
+      text: The seam calls the engine.
+      parts:
+        - {name: the browser, via: over HTTP, text: Shows frames.}
+        - {name: editor, via: the control plane, text: Holds the state.}
+        - {name: engine, via: vendored, text: Draws the picture.}
+      beside:
+        - {name: tooling, text: Calls the API.}
+"""
+DETAIL_FAMILIES = {"families": [{"name": "performing", "members": ["editor"]},
+                                {"name": "core", "members": ["engine"]}]}
+ALL = ["hero.png", "render.png", "phone-a.png", "phone-b.png"]
+BY_NAME = {"performing": {}, "core": {}}
+
+
+def _detail_site(tmp_path, held, refs=None, showcase=DETAIL):
+    """The projects a site with one detail block builds, `held` being what
+    the inventory found on the editor's default branch."""
+    import json
+    inventory = tmp_path / "inventory.yaml"
+    inventory.write_text(json.dumps({"generator": {"org": "org"}, "repositories": [
+        {"name": "editor", "private": False, "description": "the host's words",
+         "pictures_on_default_branch": held},
+        {"name": "engine", "private": False, "description": "an engine"},
+    ]}), encoding="utf-8")
+    shown = tmp_path / "showcase.yaml"
+    shown.write_text(showcase, encoding="utf-8")
+    return cookbook.site_projects(DETAIL_FAMILIES, set(), {}, inventory, shown, refs=refs)
+
+
+def test_a_detail_block_is_a_page_of_its_own_sections(tmp_path):
+    """What it is and how to try it beside its picture, the steps, a section per
+    feature, and how it is built, each part with a page opening it.
+
+    Mutation: drop the dispatch to `detail_page` in `project_page` and this fails.
+    """
+    projects = _detail_site(tmp_path, ALL)
+    page = cookbook.project_page(projects["editor"], BY_NAME, projects)
+    assert "An editor, in a `browser`.\n{ .qm-lede }" in page
+    assert "the host's words" not in page
+    assert "```sh\n./run dev\n```\n\nThen open `127.0.0.1:8000`." in page
+    assert "[![The editor.](https://github.com/org/editor/raw/HEAD/hero.png)]" in page
+    assert '<div class="grid qm-parts" markdown>' in page
+    assert "**Source**" in page and '<span class="qm-meta">step 2</span>' in page
+    assert "<figcaption><strong>Render.</strong> A render queued.</figcaption>" in page
+    assert "on a phone\n{ .qm-eyebrow }\n\n## The same editor on a phone" in page
+    assert page.count('<figure class="qm-shot" markdown>') == 3
+    assert '<div class="card qm-f-core" markdown>\n\n[engine](engine.md){ .qm-card-link }' in page
+    assert "**editor**" in page and "[editor](editor.md)" not in page
+    assert '<div class="card" markdown>\n\n**the browser**' in page
+    assert "beside it\n{ .qm-eyebrow }" in page and "**tooling**" in page
+    assert "default branch yet" not in page and "A local preview" not in page
+    assert page.count('<section class="qm-section" markdown>') == 3
+
+
+def test_a_detail_picture_the_default_branch_does_not_hold_waits(tmp_path):
+    """A picture still on a pull request is named and not shown: no broken
+    image, and no section dropped for the want of one.
+
+    Mutation: mark every picture held in `_resolved` and this fails.
+    """
+    projects = _detail_site(tmp_path, ["render.png"])
+    page = cookbook.project_page(projects["editor"], BY_NAME, projects)
+    for missing in ("hero.png", "phone-a.png", "phone-b.png"):
+        assert missing not in page, missing
+    assert "raw/HEAD/render.png" in page
+    assert "*Not on editor's default branch yet:* The editor.\n{ .qm-caption }" in page
+    assert "<em>Not on editor's default branch yet.</em> Edit on a phone." in page
+    assert "qm-hero" not in page
+    assert "## The same editor on a phone" in page
+
+
+def test_a_branch_that_could_not_be_read_shows_what_the_block_lists(tmp_path):
+    """As on a plain page: an unread branch is unknown, not empty."""
+    projects = _detail_site(tmp_path, None)
+    page = cookbook.project_page(projects["editor"], BY_NAME, projects)
+    assert "default branch yet" not in page
+    assert all(f"raw/HEAD/{p}" in page for p in ALL)
+
+
+def test_a_project_without_a_detail_block_keeps_its_page(tmp_path):
+    """Only a project a person wrote a block for changes; every other page is
+    the one `project_page` makes from its pictures alone.
+
+    Mutation: give every project the first block in `site_projects` and this fails.
+    """
+    projects = _detail_site(tmp_path, ALL)
+    engine = projects["engine"]
+    assert "details" not in engine and "details" in projects["editor"]
+    assert cookbook.project_page(engine, BY_NAME, projects) == cookbook.project_page(engine, BY_NAME)
+    assert "qm-section" not in cookbook.project_page(engine, BY_NAME, projects)
+
+
+@pytest.mark.parametrize("block, where", [
+    ({"lede": "x", "pictrue": {"path": "a.png", "caption": "A."}}, "details.p: block has no key pictrue"),
+    ({"features": [{"text": "x"}]}, "details.p.features[0]: feature needs title"),
+    ({"picture": {"path": "a.png"}}, "details.p.picture: picture needs caption"),
+    ({"steps": {"title": "t", "items": []}}, "details.p.steps: steps needs items"),
+    ({"steps": {"title": "t", "items": "Source"}}, "details.p.steps.items: a non-empty list"),
+    ({"built": {"title": "t", "parts": [{"name": "n"}]}}, "details.p.built.parts[0]: part needs text"),
+    ({"try": {"then": "open it"}}, "details.p.try: try needs run"),
+])
+def test_a_malformed_detail_block_is_refused_where_it_is_wrong(block, where):
+    """A misspelt or incomplete section would vanish from the page without a
+    word, so the generator stops and says where.
+
+    Mutation: let `_shaped` ignore unknown keys and the first case fails.
+    """
+    with pytest.raises(ValueError) as refused:
+        cookbook.detail_block(block, "details.p")
+    assert str(refused.value).startswith(where), str(refused.value)
+
+
+def _texts(node) -> list[str]:
+    if isinstance(node, str):
+        return [node]
+    if isinstance(node, dict):
+        return [t for key, value in node.items() if key not in ("path", "url") for t in _texts(value)]
+    if isinstance(node, list):
+        return [t for item in node for t in _texts(item)]
+    return []
+
+
+def test_the_committed_details_load_name_pages_that_exist_and_carry_no_date():
+    """Every committed block has the shape, its project has a page, and its
+    text is timeless: a date, a pull request number or a measured count
+    belongs in the project's changelog, where it is true of one commit.
+
+    Mutation: add "on 23 October 2026" to a block's text and this fails.
+    """
+    import re
+    root = CI_DIR.parent
+    blocks = cookbook.details(root / "ci" / "showcase.yaml")
+    assert blocks, "the committed showcase has no detail block"
+    pages = {p.stem for p in (root / "docs" / "projects").glob("*.md")}
+    assert set(blocks) <= pages, set(blocks) - pages
+    dated = re.compile(r"\b20\d\d\b|#\d+\b|\b\d+ (?:passed|tests?|commits?|files?)\b")
+    for name, block in blocks.items():
+        said = [t for t in _texts(block) if dated.search(t)]
+        assert not said, (name, said)
+
+
+def test_the_inventory_asks_about_every_picture_a_detail_block_names():
+    """A picture the inventory never asks about is never found held, and its
+    page waits for ever.
+
+    Mutation: read only `projects:` in `inventory.showcase_paths` and this fails.
+    """
+    import inventory
+    root = CI_DIR.parent
+    asked = inventory.showcase_paths(root / "ci" / "showcase.yaml")
+    for name, block in cookbook.details(root / "ci" / "showcase.yaml").items():
+        named = [p["path"] for p in cookbook.detail_pictures(block)]
+        assert named and set(named) <= set(asked.get(name, [])), name
+
+
+# --- the preview -------------------------------------------------------------
+
+
+def test_a_preview_shows_a_ref_s_pictures_and_says_it_is_one(tmp_path):
+    """A ref's commit stands in for the default branch, for what it holds and
+    no more, and the page says it is a preview.
+
+    Mutation: ignore the ref's `held` in `site_projects` and this fails.
+    """
+    sha = "a" * 40
+    projects = _detail_site(tmp_path, [], refs={
+        "editor": {"ref": sha, "label": "feat/x", "held": ["hero.png", "render.png"]}})
+    page = cookbook.project_page(projects["editor"], BY_NAME, projects)
+    assert f"raw/{sha}/hero.png" in page and f"raw/{sha}/render.png" in page
+    assert "phone-a.png" not in page and "raw/HEAD/" not in page
+    assert "A local preview: editor's pictures are shown from `feat/x` at `aaaaaaa`." in page
+    assert "A local preview" not in cookbook.project_page(projects["engine"], BY_NAME, projects)
+
+
+def test_a_ref_writes_only_into_a_preview(monkeypatch, capsys):
+    """The site's pages are committed, so a ref never reaches them.
+
+    Mutation: drop the refusal in `main` and this fails on the build it reaches.
+    """
+    monkeypatch.setattr(cookbook, "build", lambda *a, **k: pytest.fail("built a committed page"))
+    assert cookbook.main(["docs/families", "--site", "--write", "--ref", "alfred=feat/x"]) == 2
+    assert "--preview" in capsys.readouterr().err
+
+
+def test_a_preview_is_written_beside_the_site_and_reads_its_own_includes(tmp_path):
+    """The copy builds alone: its config reads snippets from the copy, so its
+    front page shows its own showcase. It replaces an earlier preview, and
+    refuses a directory that holds anything else or is the site itself.
+
+    Mutation: drop the check for the preview's mark and the refusal fails.
+    """
+    where = cookbook.prepare_preview(tmp_path / "preview")
+    assert (where / "docs" / "index.md").is_file() and (where / "includes").is_dir()
+    config = (where / "zensical.toml").read_text(encoding="utf-8")
+    assert f'base_path = ["{where.as_posix()}"]' in config
+    assert cookbook.prepare_preview(tmp_path / "preview") == where
+    (tmp_path / "other").mkdir()
+    (tmp_path / "other" / "notes.md").write_text("mine", encoding="utf-8")
+    with pytest.raises(ValueError):
+        cookbook.prepare_preview(tmp_path / "other")
+    assert (tmp_path / "other" / "notes.md").is_file()
+    for own in (cookbook.ROOT, cookbook.ROOT / "docs", cookbook.ROOT / "docs" / "preview"):
+        with pytest.raises(ValueError):
+            cookbook.prepare_preview(own)
+
+
+def test_a_ref_the_host_cannot_resolve_is_refused(monkeypatch):
+    """A preview of nothing would read as a preview of the branch."""
+    import subprocess
+    import inventory
+    monkeypatch.setattr(cookbook.subprocess, "run", lambda cmd, **kw:
+                        subprocess.CompletedProcess(cmd, 1, "", "HTTP 404"))
+    monkeypatch.setattr(inventory, "pictures_on_host", lambda *a, **k: pytest.fail("asked"))
+    with pytest.raises(ValueError):
+        cookbook.preview_refs("org", {"editor": "no/such"}, {"editor": ["a.png"]})
+
+
+def test_a_resolved_ref_is_read_at_its_commit(monkeypatch):
+    """The branch is resolved to one commit, and the pictures are looked for
+    in that commit's tree."""
+    import subprocess
+    import inventory
+    sha = "b" * 40
+    asked = {}
+    monkeypatch.setattr(cookbook.subprocess, "run", lambda cmd, **kw:
+                        subprocess.CompletedProcess(cmd, 0, sha + "\n", ""))
+    monkeypatch.setattr(inventory, "pictures_on_host",
+                        lambda org, wanted, ref="HEAD": asked.update(ref=ref, wanted=wanted)
+                        or {n: ["a.png"] for n in wanted})
+    found = cookbook.preview_refs("org", {"editor": "feat/x"}, {"editor": ["a.png", "b.png"]})
+    assert found == {"editor": {"ref": sha, "label": "feat/x", "held": ["a.png"]}}
+    assert asked == {"ref": sha, "wanted": {"editor": ["a.png", "b.png"]}}

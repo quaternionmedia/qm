@@ -178,18 +178,40 @@ def default_branch_commits(org: str) -> dict:
     return dates
 
 
+def _paths_in(node) -> list[str]:
+    """Every `path` a mapping anywhere under `node` names, in document order.
+
+    Read by shape rather than by section, so a detail block's picture is asked
+    about wherever in the block a person puts it.
+    """
+    if isinstance(node, dict):
+        found = [node["path"]] if isinstance(node.get("path"), str) and node["path"] else []
+        return found + [p for value in node.values() for p in _paths_in(value)]
+    if isinstance(node, list):
+        return [p for item in node for p in _paths_in(item)]
+    return []
+
+
 def showcase_paths(path: Path = SHOWCASE) -> dict[str, list[str]]:
-    """`{project: [path, ...]}`, the pictures a person listed in ci/showcase.yaml."""
+    """`{project: [path, ...]}`, every picture a person listed in
+    ci/showcase.yaml: a project's pictures under `projects:`, then each one its
+    detail block under `details:` names, each path once."""
     if not path.is_file():
         return {}
     document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    return {name: [p["path"] for p in (pictures or []) if isinstance(p, dict) and p.get("path")]
-            for name, pictures in (document.get("projects") or {}).items()}
+    listed = {name: [p["path"] for p in (pictures or []) if isinstance(p, dict) and p.get("path")]
+              for name, pictures in (document.get("projects") or {}).items()}
+    for name, block in (document.get("details") or {}).items():
+        paths = listed.setdefault(name, [])
+        paths += [p for p in dict.fromkeys(_paths_in(block)) if p not in paths]
+    return listed
 
 
-def pictures_on_host(org: str, wanted: dict[str, list[str]]) -> dict[str, list[str] | None]:
+def pictures_on_host(org: str, wanted: dict[str, list[str]],
+                     ref: str = "HEAD") -> dict[str, list[str] | None]:
     """name -> the listed pictures its default branch holds, or None when the
-    branch could not be read.
+    branch could not be read. `ref` reads another branch or commit instead,
+    for a preview.
 
     A picture is listed by a person and shown from the project's default
     branch. A listed file the branch does not hold yet -- one still on a pull
@@ -198,7 +220,7 @@ def pictures_on_host(org: str, wanted: dict[str, list[str]]) -> dict[str, list[s
     found: dict[str, list[str] | None] = {}
     for name, paths in wanted.items():
         proc = subprocess.run(
-            ["gh", "api", f"repos/{org}/{name}/git/trees/HEAD?recursive=1"],
+            ["gh", "api", f"repos/{org}/{name}/git/trees/{ref}?recursive=1"],
             capture_output=True, text=True, encoding="utf-8", errors="replace",
         )
         try:
