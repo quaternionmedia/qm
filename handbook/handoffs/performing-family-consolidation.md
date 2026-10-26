@@ -61,7 +61,7 @@ asked for them after D4.
 |---|---|---|
 | qm | `main` `df1cb51` → `evolve/performing-estate-refresh` `39269ec` → `evolve/performing-family-demo` `4f8df09` | #138 ready, green; #139 draft on it, green |
 | qm | `evolve/preflight-reports-environment` `9b03372`, from `main` | #161 ready, green |
-| qm | `evolve/performing-family-consolidation` (this page) and `perspective/2026-10-09-a-comment-in-someone-elses-voice` `00f1256`, both from `main` | none |
+| qm | `evolve/performing-family-consolidation` (this page) and `perspective/2026-10-09-a-comment-in-someone-elses-voice` `651dcf7`, both from `main` | #255 |
 | ShowStopper | `tests` `0b72bc4` → `feat/family-demo-contract` `d4668f1` → `feat/family-control` `c71b0d2` | #1 → #2 draft → #3 draft |
 | carlos | `they` `a5540e7` → `fix/dials-cable-ends-and-scroll` `3e8800f` → `deps/they-batch-2026-10-09` `7750927` → `feat/family-demo-contract` `137f88c` → `feat/family-control` `91678af` | #17; the three above it have none |
 | joe | #23's tip with `feat/transcript-lane` merged in, `restack/instruct-by-voice` `e15c83f` → `docs/walkthrough` `ed6e612` → `feat/family-demo-contract` `7c2923c` → `feat/family-control` `dad2a86` | none; #23 and #26 to #33 open unchanged |
