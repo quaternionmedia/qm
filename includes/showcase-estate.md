@@ -2,18 +2,6 @@
 
 <div class="grid qm-showcase" markdown>
 
-<div class="card qm-f-irl" markdown>
-
-![The fractal viewer walking a garage layout and what it holds.](https://github.com/quaternionmedia/apothecary/raw/HEAD/docs/assets/fractal-viewer-walkthrough.gif){ .qm-thumb loading=lazy }
-
-[apothecary](projects/apothecary.md){ .qm-card-link }
-
-<span class="qm-meta">irl · v0.0.2</span>
-
-The fractal viewer walking a garage layout and what it holds.
-
-</div>
-
 <div class="card qm-f-core" markdown>
 
 ![The rad menu open over the dashboard, with Go, Reach, Close, Do and Show on its cells.](https://github.com/quaternionmedia/dossier/raw/HEAD/docs/screenshots/rad_ring_top_level.svg){ .qm-thumb loading=lazy }
