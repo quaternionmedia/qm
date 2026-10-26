@@ -1,16 +1,16 @@
 # The org curriculum: what to read, in what order, and what you can do after.
 #
-# NOT A SUMMARY. Each unit names one document and says what a reader can do once
+# Not a summary. Each unit names one document and says what a reader can do once
 # they have read it. A unit that restated its document would be a second copy of
-# a decision, which is the failure `records/DRAFT-the-read-document-governs.md`
-# exists to name -- and the copy is always the one that goes stale.
+# a decision, the failure `records/DRAFT-the-read-document-governs.md` names,
+# and the copy is the one that goes stale.
 #
-# `status_claimed` IS OPTIONAL AND IS CHECKED WHEN PRESENT. Only records carry a
+# `status_claimed` is optional and is checked when present. Only records carry a
 # Status. Naming one here means `uv run qm curriculum --check` reads the
 # document and refuses a mismatch, so a curriculum cannot teach an unratified
 # record as settled. Omitting it on a record is allowed and is a weaker unit.
 #
-# THIS BINDS NOBODY. No gate requires a curriculum, no project has to adopt this
+# This binds nobody. No gate requires a curriculum, no project has to adopt this
 # one, and `ci/protocol-registry.yaml` records the curriculum protocol as
 # `optional: true`. A project fork writes its own with `scope: project`, teaches
 # its `adr/`, and reconciles this one underneath with `qm curriculum --merge`.
@@ -36,8 +36,8 @@ units:
   - id: invariants
     teaches: README.md
     after_this_you_can: >
-      State the three invariants without looking, and say which one a given
-      branch name is about.
+      State the opening points of README.md without looking, and say which
+      one a given branch name is about.
     prerequisites: [charter]
 
   - id: the-read-document
@@ -104,7 +104,8 @@ units:
     teaches: handbook/async-contract.md
     after_this_you_can: >
       Share a clone with another session without either of you losing work, and
-      know why the slot limit is a sequencing rule and not a bandwidth one.
+      know why a stacked pull request stays a draft, and that one active stack
+      per developer is encouraged and never enforced.
     prerequisites: [namespaces]
 
   - id: what-actually-gates

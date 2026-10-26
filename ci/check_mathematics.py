@@ -6,18 +6,14 @@
 the mathematics a layer has is looked for on purpose. This is what stops that
 becoming a habit of naming things after theorems.
 
-**IT CHECKS THE SHAPE OF A CLAIM, NEVER THE MATHEMATICS.** Nothing here knows
-what a knot is. It asks whether an entry claiming to be `earned` names the
-measurement that earned it, whether an entry that decides nothing is honest
-enough to say `decorative`, and whether every entry names what it has *not* got.
-A registry where every mapping is earned and nothing is unearned is a registry
-nobody is being honest in, and that is the failure this is pointed at.
+It checks the shape of a claim, never the mathematics. Nothing here knows what
+a knot is. It asks whether an entry claiming to be `earned` names the
+measurement that earned it, whether an entry that decides nothing says
+`decorative`, and whether every entry names what it has *not* got.
 
-**THE `unearned` FIELD IS THE ONE THAT MATTERS.** An entry with nothing unearned
-is either a finished mapping -- which is rare enough to be worth arguing about --
-or somebody who stopped looking. Requiring it keeps the practice evolving rather
-than congratulating itself, which is why it is mandatory even for `decorative`
-entries.
+The `unearned` field is mandatory, even for `decorative` entries: an entry with
+nothing unearned is either a finished mapping, rare enough to be worth arguing
+about, or somebody who stopped looking.
 """
 
 from __future__ import annotations
@@ -40,11 +36,9 @@ TOO_SHORT = 12
 def _duplicate_keys(raw: str) -> list[str]:
     """Fields stated twice in one entry.
 
-    **YAML TAKES THE LAST AND SAYS NOTHING**, so a second `measured:` silently
+    YAML takes the last and says nothing, so a second `measured:` silently
     replaces the first and the checker reads a value nobody meant to be the
-    answer. Found while mutating this registry to test the guards: an inserted
-    duplicate looked like it had changed the entry and had not, which read as a
-    guard failing to fire.
+    answer.
 
     Text rather than the parsed document, because by the time it is parsed the
     duplicate is gone -- which is exactly the problem.
@@ -138,7 +132,7 @@ def check(path: Path) -> list[str]:
                 f"mapping is earned or it failed; either way it is not still "
                 f"aspirational")
 
-        # THE ONE THAT KEEPS THIS HONEST.
+        # Every entry names what it has not earned.
         if unearned in ("nothing", "none", "n/a"):
             problems.append(
                 f"{where}: nothing unearned. Either this mapping is complete, "

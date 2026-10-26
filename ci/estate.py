@@ -1,18 +1,12 @@
 #!/usr/bin/env python3
 """Every repository the org rosters, and what of it exists on this disk alone.
 
-**A CONSOLIDATION STARTS WITH A QUESTION NOBODY COULD ANSWER FROM ONE PLACE.**
 `project-seed/ci/branch_census.py` says, for one repository, which branches
-hold commits that exist on one disk. Before the estate's branches were brought
-to the host, somebody ran that census by hand in every clone the roster names,
-kept the answers in a scratch file, and then did it again when a session
-elsewhere had moved a branch. It was the single most expensive step of the
-whole cycle, and every one of its answers was a fact git already held.
-
-This module asks the same question of every repository at once. It reads the
-roster `ci/make_workspace.py` reads, resolves each entry to a clone the same
-way, and asks each clone -- with read commands only -- what it holds that the
-host does not:
+hold commits that exist on one disk. This asks the same question of every
+repository the roster names at once: it reads the roster
+`ci/make_workspace.py` reads, resolves each entry to a clone the same way, and
+asks each clone, with read commands only, what it holds that the host does
+not:
 
   one-copy    a local branch ahead of the default branch and not on `origin`
               at all; deleting the clone deletes the work. Each is marked as
@@ -28,7 +22,7 @@ the current user has open, and flags one that is ready while its base is
 another of them: a stacked pull request stays a draft until the one beneath it
 merges (`handbook/async-contract.md` 1).
 
-WHAT IT REFUSES TO DO.
+What it refuses to do:
 
   * **It never writes.** No push, fetch, prune, merge or delete, and no flag
     to ask for one. A survey that can also act is one somebody runs in a
@@ -49,7 +43,7 @@ unstated last. The family is a claim a person made in `ci/workspace.yaml`
 nothing here infers one, and a member with no claim is *unstated*, which is
 not "none" -- nobody has answered the question for it.
 
-WHAT IT CANNOT TELL YOU. Whether a one-copy branch is worth keeping. It says
+What it cannot tell: whether a one-copy branch is worth keeping. It says
 what would be lost and how much, and stops; the deletion is a person's act,
 as it is for the single-repository census. Nor can it see a clone the roster
 does not name: a repository is surveyed because somebody wrote it down.
@@ -73,7 +67,7 @@ import yaml
 # what `ci/make_workspace.py` does for the same reason.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from make_workspace import resolve  # noqa: E402
-from roster import ROSTER, load  # noqa: E402
+from roster import ROSTER, families_of, load  # noqa: E402
 from roster import label as roster_label  # noqa: E402
 
 CORPUS = Path(__file__).resolve().parent.parent
@@ -169,7 +163,7 @@ class Repository:
     name: str
     path: str | None = None            # None is MISSING
     candidates: list[str] = field(default_factory=list)
-    family: str | None = None          # the roster's claim; None is unstated
+    family: str | list[str] | None = None  # the roster's claim, verbatim; None is unstated
     branch: str = ""                   # "(detached)" when HEAD is not a branch
     dirty: int = 0
     default: str = ""
@@ -330,7 +324,7 @@ def host_pull_requests(repo: Repository) -> None:
 
     A failure -- no host remote, not signed in, the host down -- leaves
     `open_prs` as None and says why, because a list that read as empty would
-    report a free slot on a repository nobody asked.
+    report a clear stack on a repository nobody asked.
     """
     done = run_gh(["pr", "list", "--author", "@me", "--state", "open",
                    "--json", "number,headRefName,isDraft,baseRefName"],
@@ -386,10 +380,12 @@ def by_family(found: list[Repository]) -> list[tuple[str, list[Repository]]]:
     that file is generated from the same roster, and a stale copy would file a
     member under a family the roster no longer claims. `qm families --check`
     is what says whether every claim names a declared family; this only sorts.
+    A repository that claims two families is a row under each.
     """
     groups: dict[str, list[Repository]] = {}
     for r in found:
-        groups.setdefault(r.family or UNSTATED, []).append(r)
+        for family in families_of({"family": r.family}) or [UNSTATED]:
+            groups.setdefault(family, []).append(r)
     names = sorted(n for n in groups if n != UNSTATED)
     if UNSTATED in groups:
         names.append(UNSTATED)

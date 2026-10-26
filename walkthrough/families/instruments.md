@@ -4,6 +4,8 @@
 
 **Drives** the sound — looping, synthesis, tempo, remote control surfaces
 
+**Within** [`performing`](./performing.md): a member of this family is a member of `performing` too, without claiming it.
+
 ![the instruments family](./instruments.svg)
 
 ## Who is in it
@@ -11,16 +13,25 @@
 | member | governed |
 |---|---|
 | `carlos` | yes |
+| `private-34` | no |
 | `qmetronome` | yes |
 | `holophonor` | no |
 | `midiphonor` | no |
+| `uPhonor` | no |
+| `stomp` | no |
 | `wolf` | no |
 | `ludwig` | no |
 | `waveofhormuz` | no |
 
+Also in another family, because each drives more than one thing:
+
+- `private-34` — [`performer-display`](./performer-display.md)
+- `uPhonor` — [`irl`](./irl.md)
+- `stomp` — [`irl`](./irl.md)
+
 ## Starting here
 
-2 of 7 members carry governance, so this family has a governed entry point. Begin in `carlos`:
+2 of 10 members carry governance, so this family has a governed entry point. Begin in `carlos`:
 
 ```sh
 cd carlos
@@ -39,4 +50,4 @@ A governed member is one with a `project/<name>` branch in the corpus. Its recor
 
 Whether any of it works. It reports a claim — the family, stated by a person in the roster — and it does not run a member. A family name is never a statement that anybody is working on it.
 
-*Generated 2026-09-27 from `families.json`.*
+*Generated 2026-10-24 from `families.json`.*

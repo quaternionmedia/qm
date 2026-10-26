@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ADR lint — enforces the decision-record-discipline record's four checks.
 
-SEED FILE, run in place: a forking project copies adr-lint.yml into its own
+A seed file, run in place: a forking project copies adr-lint.yml into its own
 .github/workflows/ and leaves this script where it is. The workflow invokes it
 out of the governance submodule the project already vendors, so the logic is
 always the version that project's governance pin points at. Copying this file
@@ -19,10 +19,9 @@ implements all four:
 
 Check 1 scans prose only. Fenced code blocks, inline code spans (including
 ones wrapping across lines), and HTML comments are stripped before matching,
-because a document that *quotes* the banned list -- the discipline record
-itself does, and the template's own drafting-rules comment does -- is
-describing the rule rather than breaking it. Matching those was the single
-false positive this lint produced against the corpus that defines it.
+because a document that *quotes* the banned list (the discipline record does,
+and so does the template's drafting-rules comment) is describing the rule
+rather than breaking it.
 
 Usage:
     adr_lint.py --records-dir adr [--index adr/README.md] [--base-ref origin/main]
@@ -50,16 +49,13 @@ from pathlib import Path
 # Narration a pre-ratification draft must not carry: the document describing
 # its own revision history rather than being rewritten.
 #
-# THESE ARE PROXIES FOR A MEANING, AND A PROXY MATCHES THINGS IT DID NOT MEAN.
-# `corrected` was a bare word here, and it fired on "neither is corrected" in a
-# sentence about two perspectives -- prose that was true, that narrated nothing,
-# and that got reworded to satisfy the check. Editing a correct record to keep a
-# tool quiet is the failure `records/DRAFT-deltas-compose.md` 7 names in another
-# register: the tool ends consistent and the record ends worse.
-#
-# So the words that have innocent uses are matched only in a narrating
-# construction, and every rule here is escapable with a stated reason. The ones
-# with no innocent use in a draft stay bare.
+# These are proxies for a meaning, and a proxy matches things it did not mean:
+# a bare word with an innocent use would fire on true prose that narrates
+# nothing, and editing a correct record to keep a tool quiet leaves the record
+# worse (`records/DRAFT-deltas-compose.md` 7). So the words that have innocent
+# uses are matched only in a narrating construction, and every rule here is
+# escapable with a stated reason. The ones with no innocent use in a draft stay
+# bare.
 BANNED = re.compile(
     # No innocent use inside a pre-ratification draft.
     r"earlier draft|re-review|renumber|retroactive"
@@ -306,20 +302,12 @@ def check_accepted_bodies_untouched(records: Path, base_ref: str) -> list[str]:
 def check_ratified_are_numbered(records: Path) -> list[str]:
     """A ratified record carries a number in its filename.
 
-    **THE CONVERSE OF `check_numbered_are_ratified`, AND IT WAS MISSING.** Both
-    of the other checks key on the *filename*: one asks whether a numbered file
-    is ratified, and the index check compares numbers taken from filenames
-    against numbers in the index. So a record whose Status was flipped to
-    `Accepted` and whose file was never renamed matched neither, and the lint
-    reported clean.
-
-    That state reads as ratified to a person and as nonexistent to every check
-    — the worst of the two. `docs/ref/ratification.md` documents the *other*
-    failure, where the index was updated too, and that one does fire. This is
-    the case where the ratifier stopped one step earlier.
-
-    Found by performing the ratification steps wrongly on purpose rather than by
-    reading the lint, which is the practice charter `a-check-is-evidence-after-it-fails` states.
+    The converse of `check_numbered_are_ratified`. Both other checks key on the
+    filename, so a record whose Status was flipped to `Accepted` and whose file
+    was never renamed would match neither: it reads as ratified to a person and
+    as nonexistent to every check. `docs/ref/ratification.md` documents the
+    other failure, where the index was updated too; this is the case where the
+    ratifier stopped one step earlier.
     """
     failures = []
     for path in sorted(records.glob("*.md")):
@@ -339,10 +327,9 @@ def check_ratified_are_numbered(records: Path) -> list[str]:
 #   `# QM-XXXX --- Title`     the org corpus
 #   `# ADR-XXXX --- Title`    a project following the seed template
 #   `# DRAFT --- Title`       a project that marks the state instead of the slot
-# Only the title travels into an index, so all three prefixes come off. Handling
-# two of the three silently dropped a word from every title in the third, and
-# every one of that project's eleven records then read as unlisted while its
-# index listed all eleven correctly.
+# Only the title travels into an index, so all three prefixes come off; a
+# prefix left on would drop a word from every title of that form, and the
+# record would read as unlisted.
 TITLE_PREFIX = re.compile(r"^(?:DRAFT|(?:ADR|QM)-[0-9X]{4})\s*[-–—]\s*")
 
 
@@ -366,40 +353,28 @@ def _flatten(text: str) -> str:
 def check_index_matches_directory(records: Path, index: Path) -> list[str]:
     """The index lists every record, and every row names a file that exists.
 
-    TWO COMPARISONS, AND ONLY ONE OF THEM CAN FIRE BEFORE A RATIFICATION. The
-    numbered comparison below is the older half: it reads the number out of a
-    filename and out of a row's first cell. Numbers are assigned at
-    ratification, so in a corpus where nothing has been ratified yet *both*
-    sets are empty, and it compares nothing to nothing and reports clean --
-    every run, for the whole life of the check, while the index it guards can
-    be missing records. That is not a hypothetical: it was the state of this
-    corpus's own index when the filename comparison was added, and four records
-    were absent, two of them the records behind charter principles.
+    Two comparisons, and only one of them can fire before a ratification. The
+    numbered comparison reads the number out of a filename and out of a row's
+    first cell; numbers are assigned at ratification, so before one both sets
+    are empty and it compares nothing to nothing. The filename comparison works
+    from the first record: it matches each record file against the link
+    targets in the index's table rows, by basename, so it is indifferent to
+    whether an index links `DRAFT-x.md` from inside the directory or
+    `records/DRAFT-x.md` from the repository root.
 
-    So the filename comparison is the half that works from day one. It matches
-    each record file against the link targets in the index's table rows, by
-    basename, so it is indifferent to whether an index links `DRAFT-x.md` from
-    inside the directory or `records/DRAFT-x.md` from the repository root.
+    A check that cannot fail is not evidence (charter
+    `a-check-is-evidence-after-it-fails`).
 
-    A check that cannot fail is not evidence -- charter `a-check-is-evidence-after-it-fails`.
+    What it cannot see: a record in a subdirectory of the records directory is
+    invisible to both halves, because the scan is `*.md` and a link pointing
+    there lands under a different parent.
 
-    WHAT IT STILL CANNOT SEE, found by trying to walk past it rather than by
-    reading it: a record in a subdirectory of the records directory is invisible
-    to both halves, because the scan is `*.md` and a link pointing there lands
-    under a different parent, so neither set holds it and it passes.
-
-    **TWO CONVENTIONS ARE LISTED, BECAUSE THIS CORPUS HAS TWO.** A record counts
-    as listed if a table row links its file, *or* if its title appears in the
-    index prose -- which is the `Drafts in flight (numberless, by title): ...`
-    line this seed's own `adr/README.md` template ships. The org corpus lists
-    unratified drafts as linked table rows; the seed tells a project to list
-    them by title in that line, and numbers arrive in the table only at
-    ratification.
-
-    Reading only the table was wrong and would have failed every project that
-    followed the template it was given. It was caught on a project branch whose
-    author had listed all three records exactly as the seed prescribes, in a
-    commit whose message says "and put it in the index" -- because they had.
+    Two listing conventions count. A record is listed if a table row links its
+    file, or if its title appears in the index prose, which is the
+    `Drafts in flight (numberless, by title): ...` line this seed's
+    `adr/README.md` template ships. The org corpus lists unratified drafts as
+    linked table rows; the seed tells a project to list them by title, and
+    numbers arrive in the table only at ratification.
     """
     if not index.exists():
         return [f"{index}: index file not found."]
@@ -433,13 +408,12 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
             in_index.add(int(first))
         for target in INDEX_LINK.findall(line):
             # Only links that land *in the records directory* are index rows.
-            # An index page carries other tables -- this corpus's own README
-            # links the handbook and the docs site from the same file -- and
-            # reading those as record rows reported fourteen handbook pages as
-            # missing records the first time this ran. Resolve the target
-            # against the index's own directory, because an index inside the
-            # records directory links `DRAFT-x.md` and one at the repository
-            # root links `records/DRAFT-x.md`, and both are correct.
+            # An index page carries other tables (this corpus's own README
+            # links the handbook and the docs site from the same file), and
+            # those are not record rows. The target is resolved against the
+            # index's own directory, because an index inside the records
+            # directory links `DRAFT-x.md` and one at the repository root
+            # links `records/DRAFT-x.md`, and both are correct.
             landed = (index.parent / target).resolve()
             if landed.parent == records.resolve():
                 in_index_files.add(landed.name)
@@ -448,13 +422,11 @@ def check_index_matches_directory(records: Path, index: Path) -> list[str]:
     # title is the H1 minus its `ADR-XXXX — ` / `QM-XXXX — ` prefix, compared
     # with punctuation and case flattened, because the drafts line is written
     # by a person and a title is quoted the way a sentence quotes it.
-    # A title counts as listed when a whole *segment* of the index equals it --
-    # a bullet item, or one semicolon-separated part of the drafts line. Bare
-    # substring containment was the first implementation, and an adversarial
-    # pass walked straight through it: a record titled "The" passed against an
-    # index whose prose merely contained the word. Equality over segments keeps
-    # both listing conventions working and closes the accidental third one,
-    # "mentioned somewhere".
+    # A title counts as listed when a whole *segment* of the index equals it:
+    # a bullet item, or one semicolon-separated part of the drafts line.
+    # Substring containment would let a record titled "The" pass against any
+    # index whose prose contains the word; equality over segments keeps both
+    # listing conventions and refuses a third, "mentioned somewhere".
     segments = set()
     for line in index_text.splitlines():
         stripped = line.strip()

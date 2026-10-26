@@ -32,7 +32,7 @@ import roster  # noqa: E402
 
 
 def test_a_private_roster_entry_is_counted_as_missing_when_it_is_not_on_disk():
-    """**THE DEFECT, AT THE SMALLEST SCALE THAT SHOWS IT.**
+    """The defect, at the smallest scale that shows it.
 
     An entry with no `name` is unresolved, not absent from the question. The
     old code skipped it, so a roster of one private repository that was nowhere
