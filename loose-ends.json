@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-26T11:28:34Z",
+  "generated_at": "2026-10-26T11:38:02Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-26T11:28:32Z"
+        "generated_at": "2026-10-26T11:38:01Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 282,
+    "loose_ends": 283,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 39,
-      "document-unreviewed": 85,
+      "document-unreviewed": 86,
       "stalled-thread": 138
     },
-    "open": 282,
+    "open": 283,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1126,6 +1126,14 @@
       "title": "perspectives/2026-10-25-the-label-was-not-the-content.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-the-label-was-not-the-content",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-25-two-sessions-one-checkout",
+      "title": "perspectives/2026-10-25-two-sessions-one-checkout.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-two-sessions-one-checkout",
       "address_parses": true
     },
     {
