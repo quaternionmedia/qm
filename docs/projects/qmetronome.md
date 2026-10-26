@@ -33,6 +33,13 @@ hide:
 
 </div>
 
+<section class="qm-section" markdown>
+
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 <div class="grid" markdown>
 
 <figure class="qm-shot" markdown>
@@ -53,12 +60,10 @@ hide:
 
 </div>
 
-<section class="qm-section" markdown>
-
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
@@ -83,7 +88,7 @@ the graphs codecarto draws
 **Its system:** not drawn. qmetronome's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11` and qmetronome's default branch at `1abf5e9`, on 2026-10-26. [The show document](../show/project/qmetronome/show.json) holds each graph as drawn.
+Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and qmetronome's default branch at `1abf5e9`, on 2026-10-26. [The show document](../show/project/qmetronome/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

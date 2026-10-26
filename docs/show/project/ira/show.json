@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:2610d0a3d65db0051fb29e671d61b2178235af7d22e12adb9d42951c6b9c6a95"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "a04467f835d3399d0f450a9a9abc2ccd9d5f7bb5"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -203,10 +203,10 @@
     "subject": "project:ira",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -252,8 +252,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -751.4964858162616,
-      "y": -461.6065574278756,
+      "label_at": "none",
+      "x": 14.021005793301802,
+      "y": -5.940230478359873,
       "size": 200
      },
      "dir::quaternionmedia/ira/assets": {
@@ -265,8 +266,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1604.2996772877118,
-      "y": -420.58020384892296,
+      "label_at": "none",
+      "x": -89.28197808260671,
+      "y": -295.30342098871796,
       "size": 60
      },
      "dir::quaternionmedia/ira/dmx": {
@@ -278,8 +280,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1331.8465295874826,
-      "y": -222.86739206754507,
+      "label_at": "none",
+      "x": 168.37417513518267,
+      "y": -281.98776445172865,
       "size": 60
      },
      "dir::quaternionmedia/ira/examples": {
@@ -291,8 +294,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 711.8536108901117,
-      "y": 360.04688254228137,
+      "label_at": "none",
+      "x": -248.79378553129231,
+      "y": 214.58756399004102,
       "size": 70
      },
      "dir::quaternionmedia/ira/examples/basic": {
@@ -304,8 +308,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 358.46327874970825,
-      "y": 687.6567983995519,
+      "label_at": "right",
+      "x": -186.7740725594224,
+      "y": 237.16089344953514,
       "size": 50
      },
      "dir::quaternionmedia/ira/examples/cobs_demo": {
@@ -317,8 +322,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1489.5044047030844,
-      "y": 232.46247876053886,
+      "label_at": "left",
+      "x": -320.7036830438908,
+      "y": 244.36220319402779,
       "size": 50
      },
      "dir::quaternionmedia/ira/generator": {
@@ -330,8 +336,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1587.3759441635152,
-      "y": -1390.6476860412279,
+      "label_at": "none",
+      "x": 332.9428184547166,
+      "y": -62.17475078701802,
       "size": 90
      },
      "dir::quaternionmedia/ira/ira-teensy": {
@@ -343,8 +350,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1269.6917558823693,
-      "y": 891.8232586275351,
+      "label_at": "none",
+      "x": 215.40133260305927,
+      "y": 234.0554974749646,
       "size": 70
      },
      "dir::quaternionmedia/ira/kicad_ira": {
@@ -356,8 +364,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 566.5879824511364,
-      "y": -693.2638999808246,
+      "label_at": "left",
+      "x": -55.282624364610044,
+      "y": 92.86453583853083,
       "size": 50
      },
      "dir::quaternionmedia/ira/templates": {
@@ -369,8 +378,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2170.7636312595314,
-      "y": 321.2452752478585,
+      "label_at": "none",
+      "x": -280.37733702302285,
+      "y": -113.09246428079926,
       "size": 70
      },
      "file::quaternionmedia/ira/README.md": {
@@ -382,8 +392,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/README.md",
       "line": 0,
       "meta": {},
-      "x": -478.69848362416326,
-      "y": -304.1065574278756,
+      "label_at": "right",
+      "x": 76.04071876517176,
+      "y": 16.63309898113426,
       "size": 30
      },
      "file::quaternionmedia/ira/assets/dashstyle.css": {
@@ -395,8 +406,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
       "line": 0,
       "meta": {},
-      "x": 1799.1553931392104,
-      "y": -308.08020384892296,
+      "label_at": "right",
+      "x": -38.538576560167655,
+      "y": -276.8343332491318,
       "size": 30
      },
      "file::quaternionmedia/ira/controller.py": {
@@ -408,8 +420,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/controller.py",
       "line": 0,
       "meta": {},
-      "x": -643.7601406686758,
-      "y": -165.60338188031443,
+      "label_at": "left",
+      "x": -57.888891719296666,
+      "y": 23.83440872562693,
       "size": 30
      },
      "file::quaternionmedia/ira/dmx/README.md": {
@@ -421,8 +434,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/dmx/README.md",
       "line": 0,
       "meta": {},
-      "x": -1136.9908137359837,
-      "y": -110.36739206754508,
+      "label_at": "right",
+      "x": 219.1175766576217,
+      "y": -263.5186767121425,
       "size": 30
      },
      "file::quaternionmedia/ira/generator/API.h": {
@@ -434,8 +448,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/API.h",
       "line": 0,
       "meta": {},
-      "x": -1392.5202283120166,
-      "y": -1278.1476860412279,
+      "label_at": "right",
+      "x": 383.68621997715564,
+      "y": -43.70566304743191,
       "size": 30
      },
      "file::quaternionmedia/ira/generator/README.md": {
@@ -447,8 +462,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/README.md",
       "line": 0,
       "meta": {},
-      "x": -1782.231660015014,
-      "y": -1503.1476860412279,
+      "label_at": "left",
+      "x": 277.46797094614254,
+      "y": -39.20512314744876,
       "size": 30
      },
      "file::quaternionmedia/ira/generator/generator.h": {
@@ -460,8 +476,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/generator.h",
       "line": 0,
       "meta": {},
-      "x": -1699.8759441635152,
-      "y": -1195.7919701897292,
+      "label_at": "right",
+      "x": 360.65290753089045,
+      "y": -121.55720580018252,
       "size": 30
      },
      "file::quaternionmedia/ira/generator/reupload.sh": {
@@ -473,8 +490,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/reupload.sh",
       "line": 0,
       "meta": {},
-      "x": -1474.8759441635152,
-      "y": -1585.5034018927267,
+      "label_at": "below",
+      "x": 354.14277991994817,
+      "y": 5.158369843713885,
       "size": 30
      },
      "file::quaternionmedia/ira/idash.py": {
@@ -486,8 +504,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/idash.py",
       "line": 0,
       "meta": {},
-      "x": -859.2328309638472,
-      "y": -165.60338188031443,
+      "label_at": "right",
+      "x": 51.26934853941406,
+      "y": -85.76307158708104,
       "size": 30
      },
      "file::quaternionmedia/ira/ira-teensy/fx.h": {
@@ -499,8 +518,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/ira-teensy/fx.h",
       "line": 0,
       "meta": {},
-      "x": -1074.8360400308707,
-      "y": 1004.3232586275351,
+      "label_at": "right",
+      "x": 266.1447341254983,
+      "y": 252.5245852145507,
       "size": 30
      },
      "file::quaternionmedia/ira/ira-teensy/ira.h": {
@@ -512,8 +532,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/ira-teensy/ira.h",
       "line": 0,
       "meta": {},
-      "x": -1464.5474717338682,
-      "y": 779.3232586275352,
+      "label_at": "left",
+      "x": 159.9264850944853,
+      "y": 257.02512511453386,
       "size": 30
      },
      "file::quaternionmedia/ira/ira.py": {
@@ -525,8 +546,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/ira.py",
       "line": 0,
       "meta": {},
-      "x": -1024.2944880083596,
-      "y": -304.1065574278755,
+      "label_at": "below",
+      "x": 43.23176239341103,
+      "y": 86.83594749233029,
       "size": 30
      },
      "file::quaternionmedia/ira/iras.py": {
@@ -538,8 +560,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/iras.py",
       "line": 0,
       "meta": {},
-      "x": -1061.7109280151071,
-      "y": -516.3057333929586,
+      "label_at": "left",
+      "x": -77.44727363467786,
+      "y": -58.81559202308161,
       "size": 30
      },
      "file::quaternionmedia/ira/itest.py": {
@@ -551,8 +574,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/itest.py",
       "line": 0,
       "meta": {},
-      "x": -953.9745828675216,
-      "y": -702.9105570103537,
+      "label_at": "right",
+      "x": 124.7678841114921,
+      "y": -30.4135106585064,
       "size": 30
      },
      "file::quaternionmedia/ira/osc.py": {
@@ -564,8 +588,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/osc.py",
       "line": 0,
       "meta": {},
-      "x": -751.4964858162616,
-      "y": -776.6065574278756,
+      "label_at": "above",
+      "x": -2.506600085252387,
+      "y": -132.40673095940892,
       "size": 30
      },
      "file::quaternionmedia/ira/packet.py": {
@@ -577,8 +602,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/packet.py",
       "line": 0,
       "meta": {},
-      "x": -549.0183887650016,
-      "y": -702.9105570103537,
+      "label_at": "right",
+      "x": 116.61321739225976,
+      "y": 80.334552159643,
       "size": 30
      },
      "file::quaternionmedia/ira/serialports.py": {
@@ -590,8 +616,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/serialports.py",
       "line": 0,
       "meta": {},
-      "x": -441.282043617416,
-      "y": -516.3057333929587,
+      "label_at": "left",
+      "x": -126.10286396974769,
+      "y": 0.006501618174752366,
       "size": 30
      },
      "file::quaternionmedia/ira/templates/home.html": {
@@ -603,8 +630,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/templates/home.html",
       "line": 0,
       "meta": {},
-      "x": -1975.9079154080325,
-      "y": 433.7452752478585,
+      "label_at": "right",
+      "x": -229.6339355005838,
+      "y": -94.62337654121315,
       "size": 30
      },
      "file::quaternionmedia/ira/templates/paper.html": {
@@ -616,8 +644,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/templates/paper.html",
       "line": 0,
       "meta": {},
-      "x": -2365.61934711103,
-      "y": 208.7452752478586,
+      "label_at": "left",
+      "x": -335.8521845315967,
+      "y": -90.12283664122995,
       "size": 30
      }
     },

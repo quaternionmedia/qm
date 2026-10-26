@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:135b3d18a41a9af4dafca5c486339cda0997bd8eb11cda154920841f2019e9b2"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -184,8 +184,8 @@
        "click": "<p>The <b>irl</b> family drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.</p><p>9 member(s) in all.</p>",
        "show": "family:irl",
        "color": "#dd9b63",
-       "x": -182.25605600059626,
-       "y": 75.49293022007723,
+       "x": -192.23395495171818,
+       "y": 79.62591128962019,
        "size": 11,
        "label_at": "below"
       }
@@ -246,8 +246,8 @@
        "click": "<p>The <b>performing</b> family drives a show — what an audience sees and hears, and the video made before and after it.</p><p>22 member(s) in all.</p>",
        "show": "family:performing",
        "color": "#f2aa4c",
-       "x": 106.58680471888464,
-       "y": 165.9991130154745,
+       "x": 112.42206962226055,
+       "y": 175.0869996513998,
        "size": 11,
        "label_at": "below"
       }
@@ -410,10 +410,10 @@
     "subject": "family:show-control",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

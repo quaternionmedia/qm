@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:5957a80ed7dbcd46df7b6bce01f7b205dc36380988795c5e8c6693ececcf5a95"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "1721e6f27d9310fea928bd477005c34d1bcfe732"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:vox",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1144.5466512272008,
-      "y": -340.3610606791265,
+      "label_at": "none",
+      "x": -125.71692388784889,
+      "y": -88.63051065047543,
       "size": 110
      },
      "dir::quaternionmedia/vox/.github": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -563.5805502062226,
-      "y": -81.32022403514144,
+      "label_at": "none",
+      "x": 4.623589422360652,
+      "y": -295.52677184092136,
       "size": 60
      },
      "dir::quaternionmedia/vox/.github/workflows": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -586.4731536049931,
-      "y": -13.047784687697417,
+      "label_at": "right",
+      "x": 61.781266072133626,
+      "y": -262.52677184092136,
       "size": 50
      },
      "dir::quaternionmedia/vox/tests": {
@@ -257,8 +260,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2499.6014346512175,
-      "y": -1111.797828309843,
+      "label_at": "none",
+      "x": -254.8851418703511,
+      "y": 135.09540561835036,
       "size": 140
      },
      "dir::quaternionmedia/vox/vox": {
@@ -270,8 +274,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -721.3789011437945,
-      "y": 498.2433924365357,
+      "label_at": "none",
+      "x": 94.68969921702336,
+      "y": 38.62131253029891,
       "size": 140
      },
      "dir::quaternionmedia/vox/vox/adapters": {
@@ -283,8 +288,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -603.6639807345707,
-      "y": 366.842416018569,
+      "label_at": "none",
+      "x": 315.0963223218956,
+      "y": 165.87313571107327,
       "size": 80
      },
      "dir::quaternionmedia/vox/walkthrough": {
@@ -296,8 +302,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1490.5265192737281,
-      "y": 374.02010617841273,
+      "label_at": "none",
+      "x": -335.15989780354647,
+      "y": -209.55246802057914,
       "size": 100
      },
      "file::quaternionmedia/vox/HANDOFF.md": {
@@ -309,8 +316,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/HANDOFF.md",
       "line": 0,
       "meta": {},
-      "x": 1339.4023670786994,
-      "y": -227.86106067912658,
+      "label_at": "right",
+      "x": -78.95155208348919,
+      "y": -61.63051065047544,
       "size": 30
      },
      "file::quaternionmedia/vox/README.md": {
@@ -322,8 +330,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 949.6909353757021,
-      "y": -227.86106067912647,
+      "label_at": "left",
+      "x": -184.33761779276165,
+      "y": -75.64294944343882,
       "size": 30
      },
      "file::quaternionmedia/vox/pyproject.toml": {
@@ -335,8 +344,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": 1144.5466512272008,
-      "y": -565.3610606791265,
+      "label_at": "right",
+      "x": -88.1161582305494,
+      "y": -142.29900626927258,
       "size": 30
      },
      "file::quaternionmedia/vox/tests/conftest.py": {
@@ -348,8 +358,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/conftest.py",
       "line": 0,
       "meta": {},
-      "x": 2772.3994368433155,
-      "y": -954.297828309843,
+      "label_at": "right",
+      "x": -208.11977006599142,
+      "y": 162.09540561835033,
       "size": 30
      },
      "file::quaternionmedia/vox/tests/test_adapters.py": {
@@ -361,8 +372,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_adapters.py",
       "line": 0,
       "meta": {},
-      "x": 2607.3377797988032,
-      "y": -815.7946527622818,
+      "label_at": "left",
+      "x": -313.5058357752638,
+      "y": 148.08296682538696,
       "size": 30
      },
      "file::quaternionmedia/vox/tests/test_cli.py": {
@@ -374,8 +386,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_cli.py",
       "line": 0,
       "meta": {},
-      "x": 2391.8650895036317,
-      "y": -815.7946527622818,
+      "label_at": "right",
+      "x": -217.2843762130516,
+      "y": 81.42690999955319,
       "size": 30
      },
      "file::quaternionmedia/vox/tests/test_contract.py": {
@@ -387,8 +400,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_contract.py",
       "line": 0,
       "meta": {},
-      "x": 2226.803432459119,
-      "y": -954.2978283098428,
+      "label_at": "below",
+      "x": -245.6995291499851,
+      "y": 205.08691952504802,
       "size": 30
      },
      "file::quaternionmedia/vox/tests/test_engine.py": {
@@ -400,8 +414,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_engine.py",
       "line": 0,
       "meta": {},
-      "x": 2189.3869924523715,
-      "y": -1166.4970042749258,
+      "label_at": "left",
+      "x": -312.55302558376815,
+      "y": 86.65301521473992,
       "size": 30
      },
      "file::quaternionmedia/vox/tests/test_engine_contract.py": {
@@ -413,8 +428,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_engine_contract.py",
       "line": 0,
       "meta": {},
-      "x": 2297.1233375999573,
-      "y": -1353.101827892321,
+      "label_at": "right",
+      "x": -175.20087818437622,
+      "y": 131.67040622798118,
       "size": 30
      },
      "file::quaternionmedia/vox/tests/test_session.py": {
@@ -426,8 +442,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_session.py",
       "line": 0,
       "meta": {},
-      "x": 2499.6014346512175,
-      "y": -1426.797828309843,
+      "label_at": "left",
+      "x": -314.3066851082133,
+      "y": 194.42040202990404,
       "size": 30
      },
      "file::quaternionmedia/vox/tests/test_stt.py": {
@@ -439,8 +456,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_stt.py",
       "line": 0,
       "meta": {},
-      "x": 2702.079531702477,
-      "y": -1353.101827892321,
+      "label_at": "above",
+      "x": -250.9643993901038,
+      "y": 47.208744068354136,
       "size": 30
      },
      "file::quaternionmedia/vox/tests/test_synth.py": {
@@ -452,8 +470,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/tests/test_synth.py",
       "line": 0,
       "meta": {},
-      "x": 2809.815876850063,
-      "y": -1166.497004274926,
+      "label_at": "right",
+      "x": -195.94910317352935,
+      "y": 205.48747436708598,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/__init__.py": {
@@ -465,8 +484,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -461.95368112300866,
-      "y": 648.0226130501143,
+      "label_at": "right",
+      "x": 141.45507102138302,
+      "y": 65.6213125302989,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/adapters/__init__.py": {
@@ -478,8 +498,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/adapters/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -408.80826488307207,
-      "y": 479.34241601856894,
+      "label_at": "right",
+      "x": 361.8616941262554,
+      "y": 192.87313571107327,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/adapters/joe.py": {
@@ -491,8 +512,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/adapters/joe.py",
       "line": 0,
       "meta": {},
-      "x": -798.5196965860695,
-      "y": 479.34241601856905,
+      "label_at": "left",
+      "x": 256.47562841698283,
+      "y": 178.86069691810988,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/adapters/pyttsx3.py": {
@@ -504,8 +526,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/adapters/pyttsx3.py",
       "line": 0,
       "meta": {},
-      "x": -603.6639807345707,
-      "y": 141.842416018569,
+      "label_at": "right",
+      "x": 352.6970879791951,
+      "y": 112.20464009227614,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/cli.py": {
@@ -517,8 +540,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/cli.py",
       "line": 0,
       "meta": {},
-      "x": -643.847471432982,
-      "y": 787.5946273007427,
+      "label_at": "left",
+      "x": 36.06900531211058,
+      "y": 51.60887373733553,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/contract.py": {
@@ -530,8 +554,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/contract.py",
       "line": 0,
       "meta": {},
-      "x": -871.158121757373,
-      "y": 757.6686124573215,
+      "label_at": "right",
+      "x": 132.29046487432285,
+      "y": -15.047183088498208,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/engine.py": {
@@ -543,8 +568,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/engine.py",
       "line": 0,
       "meta": {},
-      "x": -1010.7301360080015,
-      "y": 575.7748221473481,
+      "label_at": "below",
+      "x": 103.8753119373893,
+      "y": 108.61282643699653,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/session.py": {
@@ -556,8 +582,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/session.py",
       "line": 0,
       "meta": {},
-      "x": -980.8041211645805,
-      "y": 348.4641718229572,
+      "label_at": "left",
+      "x": 37.021815503606305,
+      "y": -9.821077873311504,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/stt.py": {
@@ -569,8 +596,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/stt.py",
       "line": 0,
       "meta": {},
-      "x": -798.9103308546069,
-      "y": 208.89215757232864,
+      "label_at": "right",
+      "x": 174.3739629029982,
+      "y": 35.19631313992974,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/synth.py": {
@@ -582,8 +610,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/synth.py",
       "line": 0,
       "meta": {},
-      "x": -571.5996805302159,
-      "y": 238.81817241574993,
+      "label_at": "left",
+      "x": 35.268155979161115,
+      "y": 97.94630894185268,
       "size": 30
      },
      "file::quaternionmedia/vox/vox/tts.py": {
@@ -595,8 +624,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/vox/tts.py",
       "line": 0,
       "meta": {},
-      "x": -432.0276662795875,
-      "y": 420.7119627257233,
+      "label_at": "above",
+      "x": 98.61044169727062,
+      "y": -49.2653490196973,
       "size": 30
      },
      "file::quaternionmedia/vox/walkthrough/check_wheel.py": {
@@ -608,8 +638,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/check_wheel.py",
       "line": 0,
       "meta": {},
-      "x": 1703.7819130233618,
-      "y": 497.1431651659033,
+      "label_at": "right",
+      "x": -288.3945259991868,
+      "y": -182.55246802057914,
       "size": 30
      },
      "file::quaternionmedia/vox/walkthrough/closed-loop.md": {
@@ -621,8 +652,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/closed-loop.md",
       "line": 0,
       "meta": {},
-      "x": 1390.369199878137,
-      "y": 149.0630836402447,
+      "label_at": "left",
+      "x": -393.7805917084592,
+      "y": -196.5649068135425,
       "size": 30
      },
      "file::quaternionmedia/vox/walkthrough/mutate.py": {
@@ -634,8 +666,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/mutate.py",
       "line": 0,
       "meta": {},
-      "x": 1439.3290725282404,
-      "y": 614.8851556656542,
+      "label_at": "right",
+      "x": -297.55913214624695,
+      "y": -263.22096363937624,
       "size": 30
      },
      "file::quaternionmedia/vox/walkthrough/mutations.md": {
@@ -647,8 +680,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/mutations.md",
       "line": 0,
       "meta": {},
-      "x": 1673.5230476407314,
-      "y": 209.2492919442987,
+      "label_at": "below",
+      "x": -325.9742850831805,
+      "y": -139.56095411388148,
       "size": 30
      },
      "file::quaternionmedia/vox/walkthrough/test_closed_loop.py": {
@@ -660,8 +694,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/vox/main/walkthrough/test_closed_loop.py",
       "line": 0,
       "meta": {},
-      "x": 1245.6293632981706,
-      "y": 399.75983447596286,
+      "label_at": "left",
+      "x": -392.8277815169635,
+      "y": -257.99485842418954,
       "size": 30
      }
     },

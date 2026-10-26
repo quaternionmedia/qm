@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:694041d1dfc2b380f231f05f8575b05142ec7a62c57fc1f385eb007c4be79a0c"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "da1e1d0c50fd30b082b4031b3ff835947b2246e0"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -56,8 +56,8 @@
        "click": "<p>The <b>games</b> family drives play — a game somebody plays: its rules, its world, its loop, and the server it is played on.</p><p>7 member(s) in all.</p>",
        "show": "family:games",
        "color": "#73c886",
-       "x": -73.47924907221707,
-       "y": 118.22622363834125,
+       "x": -119.01348546413787,
+       "y": 124.17644816017828,
        "size": 11,
        "label_at": "left"
       }
@@ -67,8 +67,8 @@
       "metadata": {
        "kind": "claim",
        "hover": "phase v0.0.1, a claim in ci/workspace.yaml",
-       "x": -133.93201326499712,
-       "y": 37.93225306760234,
+       "x": -170.60687486452682,
+       "y": 21.847064996463214,
        "size": 11,
        "label_at": "left"
       }
@@ -78,8 +78,8 @@
       "metadata": {
        "kind": "claim",
        "hover": "attention unstated, a claim in ci/workspace.yaml",
-       "x": -124.56176129119353,
-       "y": -62.13700688024583,
+       "x": -146.4630116901296,
+       "y": -90.18085277184375,
        "size": 11,
        "label_at": "left"
       }
@@ -89,10 +89,10 @@
       "metadata": {
        "kind": "measurement",
        "hover": "recency quiet, measured from the default branch's last commit",
-       "x": -50.25350338176084,
-       "y": -129.81226982785313,
+       "x": -57.300044695633915,
+       "y": -162.17492061930648,
        "size": 11,
-       "label_at": "left"
+       "label_at": "above"
       }
      },
      "branch::project/factorio-sysops": {
@@ -101,8 +101,8 @@
        "kind": "branch",
        "depth": 0,
        "hover": "project/factorio-sysops: this project's records in the corpus",
-       "x": 138.59373026116364,
-       "y": 12.977593470894858,
+       "x": 168.13950109900202,
+       "y": 36.23683443926493,
        "size": 60,
        "label_at": "none"
       }
@@ -114,8 +114,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — QM Constitution Adoption Scope for a Factorio Mod — Proposed",
-       "x": 138.59373026116364,
-       "y": 72.97759347089486,
+       "x": 168.13950109900202,
+       "y": 112.23683443926492,
        "size": 30,
        "label_at": "below"
       }
@@ -224,10 +224,10 @@
     "subject": "project:factorio-sysops",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -275,8 +275,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -382.02179599645325,
-      "y": -920.9395804562112,
+      "label_at": "none",
+      "x": -569.5155478185258,
+      "y": -100.42095701336807,
       "size": 90
      },
      "dir::quaternionmedia/factorio-sysops/.github": {
@@ -288,8 +289,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1221.1084912338108,
-      "y": 471.1718665526079,
+      "label_at": "none",
+      "x": -616.1974472146476,
+      "y": 164.32525033708058,
       "size": 60
      },
      "dir::quaternionmedia/factorio-sysops/.github/workflows": {
@@ -301,8 +303,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1357.7314879840023,
-      "y": 560.3438897193755,
+      "label_at": "right",
+      "x": -551.2001355158418,
+      "y": 175.786030063098,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/docs": {
@@ -314,8 +317,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1514.5831243806863,
-      "y": -3088.9704111867845,
+      "label_at": "none",
+      "x": -534.274325455653,
+      "y": -410.20802829094566,
       "size": 230
      },
      "dir::quaternionmedia/factorio-sysops/governance": {
@@ -327,8 +331,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1504.8344333173666,
-      "y": -427.6696632467876,
+      "label_at": "left",
+      "x": -635.1626605687834,
+      "y": -58.61163882286217,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc": {
@@ -340,8 +345,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1305.1322177124985,
-      "y": 336.67392250550284,
+      "label_at": "none",
+      "x": 223.3854036057132,
+      "y": -92.1969266087701,
       "size": 140
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/graphics": {
@@ -353,8 +359,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 426.28583075098544,
-      "y": 71.17974884034076,
+      "label_at": "none",
+      "x": -186.0711363556067,
+      "y": 189.63803353524696,
       "size": 70
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/graphics/entity": {
@@ -366,8 +373,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 439.97294393059565,
-      "y": 634.3015880549469,
+      "label_at": "right",
+      "x": -121.07382465680097,
+      "y": 201.09881326126438,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/graphics/icons": {
@@ -379,8 +387,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 406.07831633865476,
-      "y": -491.87520344155934,
+      "label_at": "none",
+      "x": 67.02445616853078,
+      "y": 234.26561519564805,
       "size": 60
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/graphics/icons/signals": {
@@ -392,8 +401,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 690.5046934948934,
-      "y": -769.9908086691777,
+      "label_at": "right",
+      "x": 132.0217678673365,
+      "y": 245.72639492166545,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/gui": {
@@ -405,8 +415,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -33.37582748375701,
-      "y": 796.6806839265589,
+      "label_at": "none",
+      "x": 399.09448360984084,
+      "y": 237.26352097521263,
       "size": 60
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/locale": {
@@ -418,8 +429,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1236.704973595085,
-      "y": 346.6644455767472,
+      "label_at": "none",
+      "x": 32.18707207585933,
+      "y": -252.6313760771816,
       "size": 60
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/locale/en": {
@@ -431,8 +443,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1428.7083429526667,
-      "y": 422.66974516179994,
+      "label_at": "right",
+      "x": 97.18438377466505,
+      "y": -241.17059635116425,
       "size": 50
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes": {
@@ -444,8 +457,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3507.017103179546,
-      "y": -470.2171042633255,
+      "label_at": "none",
+      "x": 327.26656466539936,
+      "y": -322.8288309412435,
       "size": 100
      },
      "dir::quaternionmedia/factorio-sysops/sysadmin-poc/scripts": {
@@ -457,8 +471,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3702.322048015133,
-      "y": -1808.8610096687623,
+      "label_at": "none",
+      "x": 482.7823458295144,
+      "y": -46.45824698143912,
       "size": 140
      },
      "file::quaternionmedia/factorio-sysops/README.md": {
@@ -470,8 +485,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/README.md",
       "line": 0,
       "meta": {},
-      "x": -187.16608014495452,
-      "y": -808.4395804562112,
+      "label_at": "right",
+      "x": -504.5182361197201,
+      "y": -88.96017728735065,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/01-OVERVIEW.md": {
@@ -483,8 +499,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/01-OVERVIEW.md",
       "line": 0,
       "meta": {},
-      "x": -1144.9308659346575,
-      "y": -2875.551580266417,
+      "label_at": "right",
+      "x": -481.0947067929936,
+      "y": -400.8310266969314,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/02-RESOURCES-RECIPES.md": {
@@ -496,8 +513,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/02-RESOURCES-RECIPES.md",
       "line": 0,
       "meta": {},
-      "x": -1240.2171640018882,
-      "y": -2761.9937922197914,
+      "label_at": "left",
+      "x": -584.9177513979673,
+      "y": -377.9542547314796,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/03-ENTITIES.md": {
@@ -509,8 +527,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/03-ENTITIES.md",
       "line": 0,
       "meta": {},
-      "x": -1368.5960461011246,
-      "y": -2687.8742100815343,
+      "label_at": "above",
+      "x": -517.2968699952025,
+      "y": -473.5001368518747,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/04-TECHNOLOGY-TREE.md": {
@@ -522,8 +541,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/04-TECHNOLOGY-TREE.md",
       "line": 0,
       "meta": {},
-      "x": -1514.5831243806863,
-      "y": -2662.132749346049,
+      "label_at": "right",
+      "x": -501.7041653469786,
+      "y": -347.57918373434126,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/05-MECHANICS.md": {
@@ -535,8 +555,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/05-MECHANICS.md",
       "line": 0,
       "meta": {},
-      "x": -1660.570202660248,
-      "y": -2687.8742100815343,
+      "label_at": "left",
+      "x": -605.0326835463716,
+      "y": -436.00540723349764,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/06-SPACE-AGE.md": {
@@ -548,8 +569,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/06-SPACE-AGE.md",
       "line": 0,
       "meta": {},
-      "x": -1788.9490847594839,
-      "y": -2761.9937922197914,
+      "label_at": "right",
+      "x": -460.5670296595682,
+      "y": -440.6800982309493,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/07-ROADMAP.md": {
@@ -561,8 +583,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/07-ROADMAP.md",
       "line": 0,
       "meta": {},
-      "x": -1884.235382826715,
-      "y": -2875.5515802664167,
+      "label_at": "left",
+      "x": -569.8219673765084,
+      "y": -334.13740220001205,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/ARCHITECTURE.md": {
@@ -574,8 +597,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/ARCHITECTURE.md",
       "line": 0,
       "meta": {},
-      "x": -1934.9361630390458,
-      "y": -3014.8508290485274,
+      "label_at": "above",
+      "x": -560.649041258707,
+      "y": -494.1354485200229,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/DATAFACTORIO-INTEGRATION.md": {
@@ -587,8 +611,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/DATAFACTORIO-INTEGRATION.md",
       "line": 0,
       "meta": {},
-      "x": -1934.9361630390458,
-      "y": -3163.089993325042,
+      "label_at": "right",
+      "x": -454.8170593514638,
+      "y": -364.21843312803844,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/DEMO-LOOP.md": {
@@ -600,8 +625,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/DEMO-LOOP.md",
       "line": 0,
       "meta": {},
-      "x": -1884.235382826715,
-      "y": -3302.3892421071523,
+      "label_at": "left",
+      "x": -627.5219915023523,
+      "y": -389.65479796471186,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/HANDOFF-MULTI-REPO.md": {
@@ -613,8 +639,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/HANDOFF-MULTI-REPO.md",
       "line": 0,
       "meta": {},
-      "x": -1788.9490847594843,
-      "y": -3415.947030153777,
+      "label_at": "right",
+      "x": -477.3640946319879,
+      "y": -491.2503050827359,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/MILESTONES.md": {
@@ -626,8 +653,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/MILESTONES.md",
       "line": 0,
       "meta": {},
-      "x": -1660.5702026602482,
-      "y": -3490.0666122920347,
+      "label_at": "below",
+      "x": -521.0535347975374,
+      "y": -308.61620679741065,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/NEXT-PHASE.md": {
@@ -639,8 +667,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/NEXT-PHASE.md",
       "line": 0,
       "meta": {},
-      "x": -1514.5831243806863,
-      "y": -3515.80807302752,
+      "label_at": "left",
+      "x": -615.1789880142762,
+      "y": -478.3195954163266,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/POC-CHECKLIST.md": {
@@ -652,8 +681,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/POC-CHECKLIST.md",
       "line": 0,
       "meta": {},
-      "x": -1368.5960461011243,
-      "y": -3490.0666122920347,
+      "label_at": "right",
+      "x": -425.40280895909257,
+      "y": -414.76932150002364,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/POC-QUICKSTART.md": {
@@ -665,8 +695,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/POC-QUICKSTART.md",
       "line": 0,
       "meta": {},
-      "x": -1240.2171640018885,
-      "y": -3415.947030153778,
+      "label_at": "left",
+      "x": -613.6800599168325,
+      "y": -331.103007371407,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/README.md": {
@@ -678,8 +709,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/README.md",
       "line": 0,
       "meta": {},
-      "x": -1144.9308659346575,
-      "y": -3302.3892421071528,
+      "label_at": "above",
+      "x": -529.019233417203,
+      "y": -525.2050782864452,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/network-cable-refactor.md": {
@@ -691,8 +723,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/network-cable-refactor.md",
       "line": 0,
       "meta": {},
-      "x": -1094.2300857223265,
-      "y": -3163.089993325042,
+      "label_at": "right",
+      "x": -458.57538143927974,
+      "y": -319.5952815341786,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/docs/sysadmin-gdd.md": {
@@ -704,8 +737,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/docs/sysadmin-gdd.md",
       "line": 0,
       "meta": {},
-      "x": -1094.2300857223265,
-      "y": -3014.8508290485274,
+      "label_at": "left",
+      "x": -654.1576481924509,
+      "y": -426.2720075484249,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/control.lua": {
@@ -717,8 +751,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/control.lua",
       "line": 0,
       "meta": {},
-      "x": -1110.2765018609998,
-      "y": 449.1739225055028,
+      "label_at": "right",
+      "x": 276.56502226837245,
+      "y": -82.81992501475587,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/create_icons.py": {
@@ -730,8 +765,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/create_icons.py",
       "line": 0,
       "meta": {},
-      "x": -1192.6322177124985,
-      "y": 141.81820665400414,
+      "label_at": "left",
+      "x": 172.7419776633987,
+      "y": -59.94315304930405,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/data.lua": {
@@ -743,8 +779,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/data.lua",
       "line": 0,
       "meta": {},
-      "x": -1417.6322177124985,
-      "y": 531.5296383570014,
+      "label_at": "above",
+      "x": 240.36285906616365,
+      "y": -155.48903516969906,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/gui/dashboard.lua": {
@@ -756,8 +793,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/gui/dashboard.lua",
       "line": 0,
       "meta": {},
-      "x": 161.4798883677417,
-      "y": 909.1806839265589,
+      "label_at": "right",
+      "x": 452.27410227250016,
+      "y": 246.64052256922685,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/entities.lua": {
@@ -769,8 +807,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/entities.lua",
       "line": 0,
       "meta": {},
-      "x": -3293.761709429913,
-      "y": -347.09404527583496,
+      "label_at": "right",
+      "x": 380.44618332805857,
+      "y": -313.45182934722925,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/items.lua": {
@@ -782,8 +821,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/items.lua",
       "line": 0,
       "meta": {},
-      "x": -3558.2145499250337,
-      "y": -229.35205477608406,
+      "label_at": "left",
+      "x": 276.623138723085,
+      "y": -290.57505738177747,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/recipes.lua": {
@@ -795,8 +835,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/recipes.lua",
       "line": 0,
       "meta": {},
-      "x": -3751.914259155104,
-      "y": -444.4773759657753,
+      "label_at": "above",
+      "x": 344.24402012584994,
+      "y": -386.1209395021724,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/signals.lua": {
@@ -808,8 +849,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/signals.lua",
       "line": 0,
       "meta": {},
-      "x": -3607.174422575137,
-      "y": -695.1741268014935,
+      "label_at": "right",
+      "x": 359.8367247740737,
+      "y": -260.19998638463915,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/prototypes/technology.lua": {
@@ -821,8 +863,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/prototypes/technology.lua",
       "line": 0,
       "meta": {},
-      "x": -3324.0205748125427,
-      "y": -634.9879184974395,
+      "label_at": "left",
+      "x": 256.5082065746807,
+      "y": -348.62620988379535,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/alerts.lua": {
@@ -834,8 +877,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/alerts.lua",
       "line": 0,
       "meta": {},
-      "x": -3429.5240458230346,
-      "y": -1651.3610096687626,
+      "label_at": "right",
+      "x": 535.9619644921736,
+      "y": -37.08124538742487,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/circuit-control.lua": {
@@ -847,8 +891,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-control.lua",
       "line": 0,
       "meta": {},
-      "x": -3594.5857028675478,
-      "y": -1512.8578341212012,
+      "label_at": "left",
+      "x": 432.1389198871999,
+      "y": -14.204473421973063,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/circuit-interface.lua": {
@@ -860,8 +905,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/circuit-interface.lua",
       "line": 0,
       "meta": {},
-      "x": -3810.0583931627184,
-      "y": -1512.8578341212012,
+      "label_at": "above",
+      "x": 499.7598012899649,
+      "y": -109.75035554236806,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/data-system.lua": {
@@ -873,8 +919,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/data-system.lua",
       "line": 0,
       "meta": {},
-      "x": -3975.1200502072315,
-      "y": -1651.361009668762,
+      "label_at": "right",
+      "x": 515.3525059381888,
+      "y": 16.170597575165303,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-icons.py": {
@@ -886,8 +933,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/generate-icons.py",
       "line": 0,
       "meta": {},
-      "x": -3702.322048015133,
-      "y": -2123.861009668762,
+      "label_at": "left",
+      "x": 412.02398773879565,
+      "y": -72.25562592399103,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/generate-sprites.py": {
@@ -899,8 +947,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/generate-sprites.py",
       "line": 0,
       "meta": {},
-      "x": -3499.843950963873,
-      "y": -2050.1650092512405,
+      "label_at": "right",
+      "x": 556.4896416255991,
+      "y": -76.93031692144271,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/indicators.lua": {
@@ -912,8 +961,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/indicators.lua",
       "line": 0,
       "meta": {},
-      "x": -4012.5364902139786,
-      "y": -1863.5601856338453,
+      "label_at": "left",
+      "x": 447.2347039086589,
+      "y": 29.612379109494537,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/install-mod.py": {
@@ -925,8 +975,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/install-mod.py",
       "line": 0,
       "meta": {},
-      "x": -3392.1076058162876,
-      "y": -1863.5601856338453,
+      "label_at": "above",
+      "x": 456.4076300264604,
+      "y": -130.38566721051637,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/scripts/technical-debt.lua": {
@@ -938,8 +989,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/scripts/technical-debt.lua",
       "line": 0,
       "meta": {},
-      "x": -3904.8001450663933,
-      "y": -2050.1650092512405,
+      "label_at": "right",
+      "x": 562.2396119337034,
+      "y": -0.4686518185319102,
       "size": 30
      },
      "file::quaternionmedia/factorio-sysops/sysadmin-poc/settings.lua": {
@@ -951,8 +1003,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/factorio-sysops/main/sysadmin-poc/settings.lua",
       "line": 0,
       "meta": {},
-      "x": -1499.9879335639973,
-      "y": 224.17392250550287,
+      "label_at": "right",
+      "x": 255.9555637143875,
+      "y": -29.568082052165696,
       "size": 30
      }
     },

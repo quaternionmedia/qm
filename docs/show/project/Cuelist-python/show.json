@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:afd5f969768a82856d2c371b08a570d8605d4ed9328098bd0a785f1ffc873225"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "e891a76ff342f2ffa5c5deb19144013ec13f942c"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:Cuelist-python",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -975.7662849399989,
-      "y": -538.8296495008589,
+      "label_at": "none",
+      "x": -201.4303171744499,
+      "y": -116.29584784362032,
       "size": 70
      },
      "dir::quaternionmedia/Cuelist-python/src": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5.636443031449689,
-      "y": -44.96623080596658,
+      "label_at": "none",
+      "x": -51.571399708489494,
+      "y": -29.77476150418219,
       "size": 60
      },
      "dir::quaternionmedia/Cuelist-python/src/cuelist": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 791.0733924066078,
-      "y": 484.9187973259028,
+      "label_at": "none",
+      "x": 107.42367268052293,
+      "y": 62.02108633943815,
       "size": 90
      },
      "file::quaternionmedia/Cuelist-python/README.md": {
@@ -257,8 +260,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/README.md",
       "line": 0,
       "meta": {},
-      "x": -780.9105690885001,
-      "y": -426.3296495008588,
+      "label_at": "right",
+      "x": -154.6649453700902,
+      "y": -89.29584784362032,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/pyproject.toml": {
@@ -270,8 +274,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": -1170.6220007914976,
-      "y": -651.3296495008587,
+      "label_at": "left",
+      "x": -260.05101107936264,
+      "y": -103.30828663658369,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/src/cuelist/__init__.py": {
@@ -283,8 +288,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/src/cuelist/__init__.py",
       "line": 0,
       "meta": {},
-      "x": 985.9291082581067,
-      "y": 597.4187973259028,
+      "label_at": "right",
+      "x": 154.18904448488263,
+      "y": 89.02108633943814,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/src/cuelist/cues.py": {
@@ -296,8 +302,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/src/cuelist/cues.py",
       "line": 0,
       "meta": {},
-      "x": 678.5733924066079,
-      "y": 679.7745131774014,
+      "label_at": "left",
+      "x": 48.80297877561013,
+      "y": 75.00864754647475,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/src/cuelist/models.py": {
@@ -309,8 +316,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/src/cuelist/models.py",
       "line": 0,
       "meta": {},
-      "x": 596.217676555109,
-      "y": 372.41879732590286,
+      "label_at": "right",
+      "x": 145.0244383378224,
+      "y": 8.352590720641011,
       "size": 30
      },
      "file::quaternionmedia/Cuelist-python/src/cuelist/plugin.py": {
@@ -322,8 +330,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/Cuelist-python/main/src/cuelist/plugin.py",
       "line": 0,
       "meta": {},
-      "x": 903.5733924066079,
-      "y": 290.06308147440404,
+      "label_at": "below",
+      "x": 116.60928540088888,
+      "y": 132.01260024613578,
       "size": 30
      }
     },

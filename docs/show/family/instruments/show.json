@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:31f568e83dbb18e359699d1f6b98e80b0a50bfdedf475f87538ef77189571e3a"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -86,8 +86,8 @@
        "click": "<p>The <b>performer-display</b> family drives the performer — what a player reads while playing.</p><p>Within <b>performing</b>.</p><p>3 member(s) in all.</p>",
        "show": "family:performer-display",
        "color": "#a693f3",
-       "x": 177.7397774144908,
-       "y": -129.1355072098343,
+       "x": 186.47716095374022,
+       "y": -135.483587934593,
        "size": 11,
        "label_at": "below"
       }
@@ -194,8 +194,8 @@
        "click": "<p>The <b>irl</b> family drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.</p><p>9 member(s) in all.</p>",
        "show": "family:irl",
        "color": "#dd9b63",
-       "x": -129.13550720983432,
-       "y": 177.7397774144908,
+       "x": -135.483587934593,
+       "y": 186.4771609537402,
        "size": 21,
        "label_at": "below"
       }
@@ -302,8 +302,8 @@
        "click": "<p>The <b>performing</b> family drives a show — what an audience sees and hears, and the video made before and after it.</p><p>22 member(s) in all.</p>",
        "show": "family:performing",
        "color": "#f2aa4c",
-       "x": -66.96835191186491,
-       "y": 214.0611871084737,
+       "x": -73.31643263662362,
+       "y": 222.79857064772312,
        "size": 11,
        "label_at": "below"
       }
@@ -526,10 +526,10 @@
     "subject": "family:instruments",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

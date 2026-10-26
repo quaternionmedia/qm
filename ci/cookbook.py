@@ -988,7 +988,7 @@ def site_page(family: dict, states: list[dict], inner: list[dict] = (),
         lines += [f"{private} private "
                   f"{'repository is' if private == 1 else 'repositories are'} "
                   "counted here and not named.", ""]
-    lines += [*entry_point(states, projects), "", *showgraph("family", family["name"]),
+    lines += [*entry_point(states, projects), "", *showcase_section("family", family["name"]),
               SITE_NOTE, "{ .qm-caption }", ""]
     return "\n".join(lines)
 
@@ -1000,26 +1000,40 @@ SHOW_SAYS = {
                 "code": "its default branch, by directory and file",
                 "system": "the system its own declarations describe"},
     "family": {"estate": "its members, the families within it and the seams between them"},
-    "index": {"estate": "every family at once, each member drawn once, and the seams between them"},
+    "index": {"estate": "every family at once, each member drawn once, and the seams between them",
+              "code": "every family, with each project's code in it"},
 }
+# A view named for what it is where its name alone would mislead: the index is
+# every family, not where one subject sits, and its code view is the whole
+# corpus, not one project's code.
+SHOW_TITLES = {"index": {"estate": "Every family", "code": "The whole corpus"}}
+
+
+def showcase_section(kind: str, name: str, pictures: list[str] | None = None) -> list[str]:
+    """The page's Showcase: what its subject looks like. A project's pictures
+    past the first, which opens its page, and then its showgraph, each view
+    codecartographer drew of it, as a subsection."""
+    return _section("what it looks like", "Showcase", [*(pictures or []), *showgraph(kind, name)])
 
 
 def showgraph(kind: str, name: str) -> list[str]:
-    """The subject's showgraph: each view codecartographer drew of it, from
-    its show document in docs/show/, and the window's reason for a view it did
-    not draw. A subject with no document, and a picture a document names and
-    its folder does not hold, are said so, never shown as a broken image."""
+    """The subject's showgraph, a subsection of its showcase: each view
+    codecartographer drew of it, from its show document in docs/show/, and the
+    window's reason for a view it did not draw. A subject with no document, and
+    a picture a document names and its folder does not hold, are said so, never
+    shown as a broken image."""
+    heading = ["the graphs codecarto draws", "{ .qm-eyebrow }", "", "### Showgraph", ""]
     folder = "index" if kind == "index" else f"{kind}/{name}"
     path = SHOW / folder / "show.json"
     if not path.is_file():
-        return [f"No showgraph has been drawn for {name or 'the estate'} yet.",
+        return [*heading, f"No showgraph has been drawn for {name or 'the estate'} yet.",
                 "{ .qm-caption }", ""]
     document = json.loads(path.read_text(encoding="utf-8"))
     files = document.get("files", {})
     shots: list[str] = []
     notes: list[str] = []
     for view, drawn in document.get("views", {}).items():
-        title = SHOW_VIEWS.get(view, view)
+        title = SHOW_TITLES.get(kind, {}).get(view) or SHOW_VIEWS.get(view, view)
         if drawn.get("absent"):
             # The window's sentence, as it wrote it, with its full stop.
             problem = str(drawn.get("problem", "")).strip().rstrip(".")
@@ -1050,7 +1064,7 @@ def showgraph(kind: str, name: str) -> list[str]:
     body += [f"{said}{f', on {drawn_at}' if drawn_at else ''}. "
              f"[The show document](../show/{folder}/show.json) holds each graph as drawn.",
              "{ .qm-caption }", ""]
-    return _section("the graphs codecarto draws", "Showgraph", body)
+    return [*heading, *body]
 
 
 def _project_title(project: dict, by_name: dict[str, dict]) -> list[str]:
@@ -1112,15 +1126,16 @@ def project_page(project: dict, by_name: dict[str, dict],
     elif not project["pictures"]:
         lines += [f"No pictures are listed for {name} yet. A project's own screenshots "
                   "are picked in the corpus's `ci/showcase.yaml`.", "{ .qm-caption }", ""]
+    further: list[str] = []
     if len(project["pictures"]) > 1:
-        lines += ['<div class="grid" markdown>', ""]
+        further += ['<div class="grid" markdown>', ""]
         for picture in project["pictures"][1:]:
-            lines += ['<figure class="qm-shot" markdown>', "",
-                      f"![{picture['caption']}]({picture['url']})", "",
-                      f"<figcaption>{_esc(picture['caption'])}</figcaption>", "",
-                      "</figure>", ""]
-        lines += ["</div>", ""]
-    lines += showgraph("project", name)
+            further += ['<figure class="qm-shot" markdown>', "",
+                        f"![{picture['caption']}]({picture['url']})", "",
+                        f"<figcaption>{_esc(picture['caption'])}</figcaption>", "",
+                        "</figure>", ""]
+        further += ["</div>", ""]
+    lines += showcase_section("project", name, further)
     lines += [SITE_NOTE, "{ .qm-caption }", ""]
     return "\n".join(lines)
 
@@ -1239,7 +1254,7 @@ def detail_page(project: dict, by_name: dict[str, dict], projects: dict[str, dic
             body += ["</div>", ""]
         lines += _section(built["eyebrow"] or "how it is built", built["title"], body)
 
-    lines += showgraph("project", name)
+    lines += showcase_section("project", name)
     lines += [SITE_NOTE, "{ .qm-caption }", ""]
     return "\n".join(lines)
 
@@ -1399,7 +1414,7 @@ def site_index(document: dict, summaries: list[dict], by_name: dict[str, dict]) 
         "</div>", "",
         f"{unstated} rostered {verb} no family yet. That is *unstated*, not *none*: "
         "nobody has answered the question.", "",
-        *showgraph("index", ""),
+        *showcase_section("index", ""),
         SITE_NOTE, "{ .qm-caption }", "",
     ]
     return "\n".join(lines)

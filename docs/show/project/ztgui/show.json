@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:22e64d98a378a7ec39ef5da63b8b725109a15b6a9c3bc87edcf2c009267baa02"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "c698ae0dbfaedef15797ab44e5f5afedb5fdba24"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:ztgui",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -222,8 +222,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1128.7248734744878,
-      "y": 486.35987451065444,
+      "label_at": "none",
+      "x": 132.054603197972,
+      "y": -48.06394486189628,
       "size": 80
      },
      "dir::quaternionmedia/ztgui/website": {
@@ -235,8 +236,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 798.1290121277389,
-      "y": -343.90836536352197,
+      "label_at": "none",
+      "x": -86.00966477946253,
+      "y": 31.30495783893853,
       "size": 80
      },
      "file::quaternionmedia/ztgui/README.md": {
@@ -248,8 +250,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/README.md",
       "line": 0,
       "meta": {},
-      "x": -933.8691576229892,
-      "y": 598.8598745106544,
+      "label_at": "left",
+      "x": 81.31120167553294,
+      "y": -29.594857122310163,
       "size": 30
      },
      "file::quaternionmedia/ztgui/config.py": {
@@ -261,8 +264,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/config.py",
       "line": 0,
       "meta": {},
-      "x": -1323.5805893259865,
-      "y": 598.8598745106545,
+      "label_at": "right",
+      "x": 159.78620981895915,
+      "y": -101.31824510346195,
       "size": 30
      },
      "file::quaternionmedia/ztgui/website/index.html": {
@@ -274,8 +278,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/index.html",
       "line": 0,
       "meta": {},
-      "x": 992.9847279792376,
-      "y": -231.408365363522,
+      "label_at": "left",
+      "x": -136.75306630190158,
+      "y": 49.77404557852465,
       "size": 30
      },
      "file::quaternionmedia/ztgui/website/script.js": {
@@ -287,8 +292,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
       "line": 0,
       "meta": {},
-      "x": 603.2732962762402,
-      "y": -231.4083653635219,
+      "label_at": "right",
+      "x": -58.278058158475375,
+      "y": -21.949342402627142,
       "size": 30
      },
      "file::quaternionmedia/ztgui/website/style.css": {
@@ -300,8 +306,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/style.css",
       "line": 0,
       "meta": {},
-      "x": 798.1290121277389,
-      "y": -568.9083653635219,
+      "label_at": "below",
+      "x": -69.06651821936701,
+      "y": 94.60625944201081,
       "size": 30
      },
      "file::quaternionmedia/ztgui/zt.py": {
@@ -313,8 +320,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/zt.py",
       "line": 0,
       "meta": {},
-      "x": -1128.7248734744878,
-      "y": 261.35987451065444,
+      "label_at": "below",
+      "x": 148.9977497580675,
+      "y": 15.237356741176,
       "size": 30
      }
     },
