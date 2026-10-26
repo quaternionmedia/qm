@@ -263,8 +263,8 @@ re-checked and is re-derived before anyone acts on it.
 - *Carried.* **Branches across the estate**: each repository's leftover
   one-copy branches landed or retired, and merged branches pruned, until
   `uv run qm estate` reports none. `qmcp`'s were pruned on 2026-10-25 at the
-  person's word. Its remote holds `main` and the one Dependabot branch above,
-  and its clone holds `main` and no stash.
+  person's word, and its remote holds `main` and the one Dependabot branch
+  above.
 - *Carried.* **A guard for dossier's threaded UI workers**: a test that fails
   when a worker that can reach the network is missing from
   `tests/ui/conftest.py`'s stub list.
