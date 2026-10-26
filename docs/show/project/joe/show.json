@@ -1,0 +1,1951 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "joe"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:4a6c39b7131748d19ac2cc7380aaf80e6a0739557b66b0d355ab5bd7df6a2633"
+  },
+  "source": {
+   "repo": "quaternionmedia/joe",
+   "commit": "d72b65b78d53d2f960a7d36b193357ca7218ba20"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::joe": {
+      "label": "joe",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "joe — n/a · not adopted",
+       "click": "<p><b>joe</b> — Realtime sheet music visualization</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:joe",
+       "shape": "circle",
+       "color": "#a693f3",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::performer-display": {
+      "label": "performer-display",
+      "metadata": {
+       "kind": "family",
+       "family": "performer-display",
+       "drives": "the performer — what a player reads while playing",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "performer-display — drives the performer — what a player reads while playing",
+       "click": "<p>The <b>performer-display</b> family drives the performer — what a player reads while playing.</p><p>Within <b>performing</b>.</p><p>3 member(s) in all.</p>",
+       "show": "family:performer-display",
+       "color": "#a693f3",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::live": {
+      "label": "recency: live",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency live, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::joe",
+      "target": "family::performer-display",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::joe",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::joe",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::joe",
+      "target": "recency::live",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:joe",
+     "measured": 0,
+     "unread": [
+      "joe"
+     ],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:joe",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [
+     "joe"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: joe."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/joe": {
+      "id": "dir::quaternionmedia/joe",
+      "label": "quaternionmedia/joe",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -497.5686237716666,
+      "y": -713.8365824664397,
+      "size": 190
+     },
+     "dir::quaternionmedia/joe/.github": {
+      "id": "dir::quaternionmedia/joe/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 818.1561478868642,
+      "y": 82.26871998376807,
+      "size": 60
+     },
+     "dir::quaternionmedia/joe/.github/workflows": {
+      "id": "dir::quaternionmedia/joe/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 955.0389933344276,
+      "y": 132.3928516214355,
+      "size": 50
+     },
+     "dir::quaternionmedia/joe/.vscode": {
+      "id": "dir::quaternionmedia/joe/.vscode",
+      "label": ".vscode",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -1129.9324857444337,
+      "y": 87.56571249880412,
+      "size": 50
+     },
+     "dir::quaternionmedia/joe/Modules": {
+      "id": "dir::quaternionmedia/joe/Modules",
+      "label": "Modules",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 307.2368232508003,
+      "y": -1973.7612340184785,
+      "size": 200
+     },
+     "dir::quaternionmedia/joe/docs": {
+      "id": "dir::quaternionmedia/joe/docs",
+      "label": "docs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2107.6706177340466,
+      "y": -407.28271986869214,
+      "size": 100
+     },
+     "dir::quaternionmedia/joe/notebooks": {
+      "id": "dir::quaternionmedia/joe/notebooks",
+      "label": "notebooks",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1001.0165342262752,
+      "y": -240.27847592576387,
+      "size": 50
+     },
+     "dir::quaternionmedia/joe/src": {
+      "id": "dir::quaternionmedia/joe/src",
+      "label": "src",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2959.305501552248,
+      "y": -169.15588929751982,
+      "size": 110
+     },
+     "dir::quaternionmedia/joe/src/components": {
+      "id": "dir::quaternionmedia/joe/src/components",
+      "label": "components",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -2298.6020893459363,
+      "y": -1500.0675305725042,
+      "size": 170
+     },
+     "dir::quaternionmedia/joe/src/config": {
+      "id": "dir::quaternionmedia/joe/src/config",
+      "label": "config",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": -768.5066726836508,
+      "y": 351.05142741524395,
+      "size": 60
+     },
+     "dir::quaternionmedia/joe/tests": {
+      "id": "dir::quaternionmedia/joe/tests",
+      "label": "tests",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1399.6852376164525,
+      "y": 1236.2556596656427,
+      "size": 210
+     },
+     "dir::quaternionmedia/joe/tests/e2e": {
+      "id": "dir::quaternionmedia/joe/tests/e2e",
+      "label": "e2e",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 1520.5193742028341,
+      "y": 945.721302035557,
+      "size": 150
+     },
+     "dir::quaternionmedia/joe/tests/e2e/fixtures": {
+      "id": "dir::quaternionmedia/joe/tests/e2e/fixtures",
+      "label": "fixtures",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "x": 636.1153875467736,
+      "y": 271.1693809370399,
+      "size": 50
+     },
+     "file::quaternionmedia/joe/Modules/Audio.py": {
+      "id": "file::quaternionmedia/joe/Modules/Audio.py",
+      "label": "Audio.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Audio.py",
+      "line": 0,
+      "meta": {},
+      "x": 648.0771433835716,
+      "y": -1776.9769834391448,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/Chroma.py": {
+      "id": "file::quaternionmedia/joe/Modules/Chroma.py",
+      "label": "Chroma.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Chroma.py",
+      "line": 0,
+      "meta": {},
+      "x": 538.5705839987181,
+      "y": -1655.3576281304402,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/Control.py": {
+      "id": "file::quaternionmedia/joe/Modules/Control.py",
+      "label": "Control.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Control.py",
+      "line": 0,
+      "meta": {},
+      "x": 389.0643157793102,
+      "y": -1588.793148885728,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/Conversation.py": {
+      "id": "file::quaternionmedia/joe/Modules/Conversation.py",
+      "label": "Conversation.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Conversation.py",
+      "line": 0,
+      "meta": {},
+      "x": 225.40933072229055,
+      "y": -1588.7931488857278,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/Cue.py": {
+      "id": "file::quaternionmedia/joe/Modules/Cue.py",
+      "label": "Cue.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Cue.py",
+      "line": 0,
+      "meta": {},
+      "x": 75.90306250288243,
+      "y": -1655.3576281304402,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/History.py": {
+      "id": "file::quaternionmedia/joe/Modules/History.py",
+      "label": "History.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/History.py",
+      "line": 0,
+      "meta": {},
+      "x": -33.603496881971,
+      "y": -1776.9769834391448,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/MIDI.py": {
+      "id": "file::quaternionmedia/joe/Modules/MIDI.py",
+      "label": "MIDI.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/MIDI.py",
+      "line": 0,
+      "meta": {},
+      "x": -84.17566847876823,
+      "y": -1932.6221234018092,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/Note.py": {
+      "id": "file::quaternionmedia/joe/Modules/Note.py",
+      "label": "Note.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Note.py",
+      "line": 0,
+      "meta": {},
+      "x": -67.0690643846672,
+      "y": -2095.380589327183,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/Transcript.py": {
+      "id": "file::quaternionmedia/joe/Modules/Transcript.py",
+      "label": "Transcript.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Transcript.py",
+      "line": 0,
+      "meta": {},
+      "x": 14.758428143842606,
+      "y": -2237.1099638425244,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/Vocabulary.py": {
+      "id": "file::quaternionmedia/joe/Modules/Vocabulary.py",
+      "label": "Vocabulary.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Vocabulary.py",
+      "line": 0,
+      "meta": {},
+      "x": 147.15809226914973,
+      "y": -2333.303950523186,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/Voice.py": {
+      "id": "file::quaternionmedia/joe/Modules/Voice.py",
+      "label": "Voice.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Voice.py",
+      "line": 0,
+      "meta": {},
+      "x": 307.2368232508002,
+      "y": -2367.329735177146,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/Watch.py": {
+      "id": "file::quaternionmedia/joe/Modules/Watch.py",
+      "label": "Watch.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/Watch.py",
+      "line": 0,
+      "meta": {},
+      "x": 467.3155542324507,
+      "y": -2333.303950523186,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/__init__.py": {
+      "id": "file::quaternionmedia/joe/Modules/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": 599.715218357758,
+      "y": -2237.1099638425244,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/utilities.py": {
+      "id": "file::quaternionmedia/joe/Modules/utilities.py",
+      "label": "utilities.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/utilities.py",
+      "line": 0,
+      "meta": {},
+      "x": 681.5427108862679,
+      "y": -2095.380589327183,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/Modules/vocabulary.toml": {
+      "id": "file::quaternionmedia/joe/Modules/vocabulary.toml",
+      "label": "vocabulary.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/Modules/vocabulary.toml",
+      "line": 0,
+      "meta": {},
+      "x": 698.6493149803689,
+      "y": -1932.6221234018092,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/README.md": {
+      "id": "file::quaternionmedia/joe/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/README.md",
+      "line": 0,
+      "meta": {},
+      "x": -238.14340375088074,
+      "y": -564.0573618528612,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/api.py": {
+      "id": "file::quaternionmedia/joe/api.py",
+      "label": "api.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/api.py",
+      "line": 0,
+      "meta": {},
+      "x": -420.03719406085406,
+      "y": -424.48534760223265,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/capture.py": {
+      "id": "file::quaternionmedia/joe/capture.py",
+      "label": "capture.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/capture.py",
+      "line": 0,
+      "meta": {},
+      "x": -647.3478443852451,
+      "y": -454.41136244565394,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/cli.py": {
+      "id": "file::quaternionmedia/joe/cli.py",
+      "label": "cli.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/cli.py",
+      "line": 0,
+      "meta": {},
+      "x": -786.9198586358737,
+      "y": -636.3051527556273,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/docs/api.md": {
+      "id": "file::quaternionmedia/joe/docs/api.md",
+      "label": "api.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/docs/api.md",
+      "line": 0,
+      "meta": {},
+      "x": -1894.415223984413,
+      "y": -284.1596608812016,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/docs/contributing.md": {
+      "id": "file::quaternionmedia/joe/docs/contributing.md",
+      "label": "contributing.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/docs/contributing.md",
+      "line": 0,
+      "meta": {},
+      "x": -2158.868064479534,
+      "y": -166.4176703814507,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/docs/cookbook.md": {
+      "id": "file::quaternionmedia/joe/docs/cookbook.md",
+      "label": "cookbook.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/docs/cookbook.md",
+      "line": 0,
+      "meta": {},
+      "x": -2352.5677737096044,
+      "y": -381.542991571142,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/docs/modules.md": {
+      "id": "file::quaternionmedia/joe/docs/modules.md",
+      "label": "modules.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/docs/modules.md",
+      "line": 0,
+      "meta": {},
+      "x": -2207.827937129638,
+      "y": -632.2397424068602,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/docs/revamp-audit.md": {
+      "id": "file::quaternionmedia/joe/docs/revamp-audit.md",
+      "label": "revamp-audit.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/docs/revamp-audit.md",
+      "line": 0,
+      "meta": {},
+      "x": -1924.6740893670435,
+      "y": -572.0535341028062,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/main.py": {
+      "id": "file::quaternionmedia/joe/main.py",
+      "label": "main.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/main.py",
+      "line": 0,
+      "meta": {},
+      "x": -756.9938437924524,
+      "y": -863.6158030800182,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/playwright.config.js": {
+      "id": "file::quaternionmedia/joe/playwright.config.js",
+      "label": "playwright.config.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/playwright.config.js",
+      "line": 0,
+      "meta": {},
+      "x": -575.1000534824789,
+      "y": -1003.1878173306469,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/pyproject.toml": {
+      "id": "file::quaternionmedia/joe/pyproject.toml",
+      "label": "pyproject.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/pyproject.toml",
+      "line": 0,
+      "meta": {},
+      "x": -208.21738890745948,
+      "y": -791.3680121772521,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/CapturePanel.js": {
+      "id": "file::quaternionmedia/joe/src/components/CapturePanel.js",
+      "label": "CapturePanel.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/CapturePanel.js",
+      "line": 0,
+      "meta": {},
+      "x": -1989.6309461756364,
+      "y": -1321.6829578913053,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/EraPanel.js": {
+      "id": "file::quaternionmedia/joe/src/components/EraPanel.js",
+      "label": "EraPanel.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/EraPanel.js",
+      "line": 0,
+      "meta": {},
+      "x": -2120.217516664737,
+      "y": -1191.0963874022045,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/LiveAnalysis.js": {
+      "id": "file::quaternionmedia/joe/src/components/LiveAnalysis.js",
+      "label": "LiveAnalysis.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/LiveAnalysis.js",
+      "line": 0,
+      "meta": {},
+      "x": -2298.6020893459363,
+      "y": -1143.2983852101063,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/MainCanvas.js": {
+      "id": "file::quaternionmedia/joe/src/components/MainCanvas.js",
+      "label": "MainCanvas.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/MainCanvas.js",
+      "line": 0,
+      "meta": {},
+      "x": -2476.986662027135,
+      "y": -1191.0963874022045,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/ResultsPanel.js": {
+      "id": "file::quaternionmedia/joe/src/components/ResultsPanel.js",
+      "label": "ResultsPanel.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/ResultsPanel.js",
+      "line": 0,
+      "meta": {},
+      "x": -2607.5732325162357,
+      "y": -1321.6829578913053,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/TranscriptPane.js": {
+      "id": "file::quaternionmedia/joe/src/components/TranscriptPane.js",
+      "label": "TranscriptPane.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/TranscriptPane.js",
+      "line": 0,
+      "meta": {},
+      "x": -2655.371234708334,
+      "y": -1500.0675305725042,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/Transport.js": {
+      "id": "file::quaternionmedia/joe/src/components/Transport.js",
+      "label": "Transport.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/Transport.js",
+      "line": 0,
+      "meta": {},
+      "x": -2607.5732325162357,
+      "y": -1678.4521032537032,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/VoiceInstruct.js": {
+      "id": "file::quaternionmedia/joe/src/components/VoiceInstruct.js",
+      "label": "VoiceInstruct.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/VoiceInstruct.js",
+      "line": 0,
+      "meta": {},
+      "x": -2476.986662027135,
+      "y": -1809.0386737428041,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/VoiceKeys.js": {
+      "id": "file::quaternionmedia/joe/src/components/VoiceKeys.js",
+      "label": "VoiceKeys.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/VoiceKeys.js",
+      "line": 0,
+      "meta": {},
+      "x": -2298.6020893459363,
+      "y": -1856.8366759349021,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/VoicePanel.js": {
+      "id": "file::quaternionmedia/joe/src/components/VoicePanel.js",
+      "label": "VoicePanel.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/VoicePanel.js",
+      "line": 0,
+      "meta": {},
+      "x": -2120.217516664737,
+      "y": -1809.0386737428041,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/VoiceQueue.js": {
+      "id": "file::quaternionmedia/joe/src/components/VoiceQueue.js",
+      "label": "VoiceQueue.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/VoiceQueue.js",
+      "line": 0,
+      "meta": {},
+      "x": -1989.6309461756364,
+      "y": -1678.4521032537032,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/components/VoiceTranscript.js": {
+      "id": "file::quaternionmedia/joe/src/components/VoiceTranscript.js",
+      "label": "VoiceTranscript.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/components/VoiceTranscript.js",
+      "line": 0,
+      "meta": {},
+      "x": -1941.8329439835381,
+      "y": -1500.0675305725042,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/config/setlists.js": {
+      "id": "file::quaternionmedia/joe/src/config/setlists.js",
+      "label": "setlists.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/config/setlists.js",
+      "line": 0,
+      "meta": {},
+      "x": -573.650956832152,
+      "y": 463.5514274152439,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/index.html": {
+      "id": "file::quaternionmedia/joe/src/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/index.html",
+      "line": 0,
+      "meta": {},
+      "x": -2764.4497857007495,
+      "y": -56.655889297519856,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/index.js": {
+      "id": "file::quaternionmedia/joe/src/index.js",
+      "label": "index.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/index.js",
+      "line": 0,
+      "meta": {},
+      "x": -3071.805501552248,
+      "y": 25.699826553978866,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/sketch.js": {
+      "id": "file::quaternionmedia/joe/src/sketch.js",
+      "label": "sketch.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/sketch.js",
+      "line": 0,
+      "meta": {},
+      "x": -3154.161217403747,
+      "y": -281.65588929751976,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/src/style.css": {
+      "id": "file::quaternionmedia/joe/src/style.css",
+      "label": "style.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/src/style.css",
+      "line": 0,
+      "meta": {},
+      "x": -2846.805501552248,
+      "y": -364.0116051490185,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/__init__.py": {
+      "id": "file::quaternionmedia/joe/tests/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/__init__.py",
+      "line": 0,
+      "meta": {},
+      "x": 1740.5255577492242,
+      "y": 1433.0399102449765,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/conftest.py": {
+      "id": "file::quaternionmedia/joe/tests/conftest.py",
+      "label": "conftest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/conftest.py",
+      "line": 0,
+      "meta": {},
+      "x": 1631.0189983643706,
+      "y": 1554.6592655536808,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/e2e/app.spec.js": {
+      "id": "file::quaternionmedia/joe/tests/e2e/app.spec.js",
+      "label": "app.spec.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/e2e/app.spec.js",
+      "line": 0,
+      "meta": {},
+      "x": 1793.3173763949324,
+      "y": 1103.2213020355568,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/e2e/process.spec.js": {
+      "id": "file::quaternionmedia/joe/tests/e2e/process.spec.js",
+      "label": "process.spec.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/e2e/process.spec.js",
+      "line": 0,
+      "meta": {},
+      "x": 1628.2557193504197,
+      "y": 1241.7244775831182,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/e2e/results.spec.js": {
+      "id": "file::quaternionmedia/joe/tests/e2e/results.spec.js",
+      "label": "results.spec.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/e2e/results.spec.js",
+      "line": 0,
+      "meta": {},
+      "x": 1412.7830290552486,
+      "y": 1241.7244775831182,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/e2e/transcript-pane.spec.js": {
+      "id": "file::quaternionmedia/joe/tests/e2e/transcript-pane.spec.js",
+      "label": "transcript-pane.spec.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/e2e/transcript-pane.spec.js",
+      "line": 0,
+      "meta": {},
+      "x": 1247.7213720107359,
+      "y": 1103.221302035557,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/e2e/voice-instruct.spec.js": {
+      "id": "file::quaternionmedia/joe/tests/e2e/voice-instruct.spec.js",
+      "label": "voice-instruct.spec.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/e2e/voice-instruct.spec.js",
+      "line": 0,
+      "meta": {},
+      "x": 1210.3049320039884,
+      "y": 891.022126070474,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/e2e/voice-keys.spec.js": {
+      "id": "file::quaternionmedia/joe/tests/e2e/voice-keys.spec.js",
+      "label": "voice-keys.spec.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/e2e/voice-keys.spec.js",
+      "line": 0,
+      "meta": {},
+      "x": 1318.0412771515741,
+      "y": 704.4173024530788,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/e2e/voice-queue.spec.js": {
+      "id": "file::quaternionmedia/joe/tests/e2e/voice-queue.spec.js",
+      "label": "voice-queue.spec.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/e2e/voice-queue.spec.js",
+      "line": 0,
+      "meta": {},
+      "x": 1520.5193742028341,
+      "y": 630.7213020355568,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/e2e/voice-transcript.spec.js": {
+      "id": "file::quaternionmedia/joe/tests/e2e/voice-transcript.spec.js",
+      "label": "voice-transcript.spec.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/e2e/voice-transcript.spec.js",
+      "line": 0,
+      "meta": {},
+      "x": 1722.997471254094,
+      "y": 704.4173024530788,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/e2e/voice.spec.js": {
+      "id": "file::quaternionmedia/joe/tests/e2e/voice.spec.js",
+      "label": "voice.spec.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/e2e/voice.spec.js",
+      "line": 0,
+      "meta": {},
+      "x": 1830.7338164016799,
+      "y": 891.0221260704737,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_api.py": {
+      "id": "file::quaternionmedia/joe/tests/test_api.py",
+      "label": "test_api.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_api.py",
+      "line": 0,
+      "meta": {},
+      "x": 1481.5127301449625,
+      "y": 1621.2237447983935,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_api_voice.py": {
+      "id": "file::quaternionmedia/joe/tests/test_api_voice.py",
+      "label": "test_api_voice.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_api_voice.py",
+      "line": 0,
+      "meta": {},
+      "x": 1317.857745087943,
+      "y": 1621.2237447983935,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_cli_voice_devices.py": {
+      "id": "file::quaternionmedia/joe/tests/test_cli_voice_devices.py",
+      "label": "test_cli_voice_devices.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_cli_voice_devices.py",
+      "line": 0,
+      "meta": {},
+      "x": 1168.3514768685347,
+      "y": 1554.6592655536808,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_cli_voice_setup.py": {
+      "id": "file::quaternionmedia/joe/tests/test_cli_voice_setup.py",
+      "label": "test_cli_voice_setup.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_cli_voice_setup.py",
+      "line": 0,
+      "meta": {},
+      "x": 1058.8449174836812,
+      "y": 1433.0399102449767,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_control.py": {
+      "id": "file::quaternionmedia/joe/tests/test_control.py",
+      "label": "test_control.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_control.py",
+      "line": 0,
+      "meta": {},
+      "x": 1008.272745886884,
+      "y": 1277.394770282312,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_conversation.py": {
+      "id": "file::quaternionmedia/joe/tests/test_conversation.py",
+      "label": "test_conversation.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_conversation.py",
+      "line": 0,
+      "meta": {},
+      "x": 1025.3793499809851,
+      "y": 1114.6363043569384,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_history.py": {
+      "id": "file::quaternionmedia/joe/tests/test_history.py",
+      "label": "test_history.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_history.py",
+      "line": 0,
+      "meta": {},
+      "x": 1107.206842509495,
+      "y": 972.9069298415967,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_main.py": {
+      "id": "file::quaternionmedia/joe/tests/test_main.py",
+      "label": "test_main.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_main.py",
+      "line": 0,
+      "meta": {},
+      "x": 1239.6065066348021,
+      "y": 876.7129431609352,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_transcript.py": {
+      "id": "file::quaternionmedia/joe/tests/test_transcript.py",
+      "label": "test_transcript.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_transcript.py",
+      "line": 0,
+      "meta": {},
+      "x": 1399.6852376164525,
+      "y": 842.6871585069752,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_voice.py": {
+      "id": "file::quaternionmedia/joe/tests/test_voice.py",
+      "label": "test_voice.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_voice.py",
+      "line": 0,
+      "meta": {},
+      "x": 1559.763968598103,
+      "y": 876.7129431609352,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_voice_devices.py": {
+      "id": "file::quaternionmedia/joe/tests/test_voice_devices.py",
+      "label": "test_voice_devices.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_voice_devices.py",
+      "line": 0,
+      "meta": {},
+      "x": 1692.16363272341,
+      "y": 972.9069298415965,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_voice_vocabulary.py": {
+      "id": "file::quaternionmedia/joe/tests/test_voice_vocabulary.py",
+      "label": "test_voice_vocabulary.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_voice_vocabulary.py",
+      "line": 0,
+      "meta": {},
+      "x": 1773.99112525192,
+      "y": 1114.6363043569386,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/tests/test_watch.py": {
+      "id": "file::quaternionmedia/joe/tests/test_watch.py",
+      "label": "test_watch.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/tests/test_watch.py",
+      "line": 0,
+      "meta": {},
+      "x": 1791.097729346021,
+      "y": 1277.394770282312,
+      "size": 30
+     },
+     "file::quaternionmedia/joe/vite.config.js": {
+      "id": "file::quaternionmedia/joe/vite.config.js",
+      "label": "vite.config.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/joe/main/vite.config.js",
+      "line": 0,
+      "meta": {},
+      "x": -347.7894031580879,
+      "y": -973.2618024872256,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "file::quaternionmedia/joe/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "file::quaternionmedia/joe/api.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "file::quaternionmedia/joe/capture.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "file::quaternionmedia/joe/cli.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "file::quaternionmedia/joe/main.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "file::quaternionmedia/joe/playwright.config.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "file::quaternionmedia/joe/vite.config.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "file::quaternionmedia/joe/pyproject.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "dir::quaternionmedia/joe/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "dir::quaternionmedia/joe/.vscode",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "dir::quaternionmedia/joe/Modules",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "dir::quaternionmedia/joe/docs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "dir::quaternionmedia/joe/notebooks",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "dir::quaternionmedia/joe/src",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe",
+      "target": "dir::quaternionmedia/joe/tests",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/.github",
+      "target": "dir::quaternionmedia/joe/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Audio.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Chroma.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Control.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Conversation.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Cue.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/History.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/MIDI.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Note.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Transcript.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Vocabulary.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Voice.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/Watch.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/utilities.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/Modules",
+      "target": "file::quaternionmedia/joe/Modules/vocabulary.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/docs",
+      "target": "file::quaternionmedia/joe/docs/api.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/docs",
+      "target": "file::quaternionmedia/joe/docs/contributing.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/docs",
+      "target": "file::quaternionmedia/joe/docs/cookbook.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/docs",
+      "target": "file::quaternionmedia/joe/docs/modules.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/docs",
+      "target": "file::quaternionmedia/joe/docs/revamp-audit.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src",
+      "target": "file::quaternionmedia/joe/src/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src",
+      "target": "file::quaternionmedia/joe/src/index.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src",
+      "target": "file::quaternionmedia/joe/src/sketch.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src",
+      "target": "file::quaternionmedia/joe/src/style.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src",
+      "target": "dir::quaternionmedia/joe/src/components",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src",
+      "target": "dir::quaternionmedia/joe/src/config",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/CapturePanel.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/EraPanel.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/LiveAnalysis.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/MainCanvas.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/ResultsPanel.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/TranscriptPane.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/Transport.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/VoiceInstruct.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/VoiceKeys.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/VoicePanel.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/VoiceQueue.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/components",
+      "target": "file::quaternionmedia/joe/src/components/VoiceTranscript.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/src/config",
+      "target": "file::quaternionmedia/joe/src/config/setlists.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/conftest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_api.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_api_voice.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_cli_voice_devices.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_cli_voice_setup.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_control.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_conversation.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_history.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_main.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_transcript.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_voice.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_voice_devices.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_voice_vocabulary.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "file::quaternionmedia/joe/tests/test_watch.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests",
+      "target": "dir::quaternionmedia/joe/tests/e2e",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "file::quaternionmedia/joe/tests/e2e/app.spec.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "file::quaternionmedia/joe/tests/e2e/process.spec.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "file::quaternionmedia/joe/tests/e2e/results.spec.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "file::quaternionmedia/joe/tests/e2e/transcript-pane.spec.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "file::quaternionmedia/joe/tests/e2e/voice-instruct.spec.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "file::quaternionmedia/joe/tests/e2e/voice-keys.spec.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "file::quaternionmedia/joe/tests/e2e/voice-queue.spec.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "file::quaternionmedia/joe/tests/e2e/voice-transcript.spec.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "file::quaternionmedia/joe/tests/e2e/voice.spec.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/joe/tests/e2e",
+      "target": "dir::quaternionmedia/joe/tests/e2e/fixtures",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/joe",
+    "depth": 1,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "joe's system view is composed from a clone of it, and this export read none",
+   "remedy": "export from a clone of joe at its default branch's head",
+   "where": "/show/project/joe/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

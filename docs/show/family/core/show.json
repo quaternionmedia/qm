@@ -1,0 +1,404 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "family",
+  "name": "core"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "digest": "sha256:ca7106a051fa4a13f21331619dfdac07021a744f32ccfbaffee9ae04fbe6e92b"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+  },
+  "drawn_at": "2026-10-26T17:30:10Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "family::core": {
+      "label": "core",
+      "metadata": {
+       "kind": "family",
+       "family": "core",
+       "drives": "the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "core — drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data",
+       "click": "<p>The <b>core</b> family drives the corpus and its tooling — governance, the archive, the deltas, the maps, the language data.</p><p>7 member(s) in all.</p>",
+       "show": "family:core",
+       "color": "#74a8f6",
+       "depth": 0,
+       "x": 0,
+       "y": 0,
+       "size": 110,
+       "label_at": "none"
+      }
+     },
+     "repo::qm": {
+      "label": "qm",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "n/a",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "qm — n/a · governed",
+       "click": "<p><b>qm</b> — The Quaternion Media constitution: the org-level decision records every QM project adopts by reference, the process that keeps them coherent, and the template each new project forks from.</p><p>governed. Phase <b>n/a</b> (n/a); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:qm",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 36.00000000000001,
+       "y": -74.75477027660412,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::dossier": {
+      "label": "dossier",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "dossier — v0.0.1 · governed",
+       "click": "<p><b>dossier</b> — Documentation standardization tool that auto-parses project documentation</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:dossier",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 80.89126573382882,
+       "y": -18.46290353890597,
+       "size": 40,
+       "label_at": "right"
+      }
+     },
+     "repo::qmcp": {
+      "label": "qmcp",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "qmcp — v0.0.1 · governed",
+       "click": "<p><b>qmcp</b> — Quaternion MCP</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:qmcp",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 64.86975848897418,
+       "y": 51.73190613818533,
+       "size": 40,
+       "label_at": "right"
+      }
+     },
+     "repo::vox": {
+      "label": "vox",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "v0.0.0",
+       "attention": "active",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "vox — v0.0.0 · not adopted",
+       "click": "<p><b>vox</b> — The voice-interaction seam: speech-to-text and text-to-speech in one small vendored adapter</p><p>not adopted. Phase <b>v0.0.0</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:vox",
+       "shape": "circle",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": 5.0805412596206495e-15,
+       "y": 82.97153535464952,
+       "size": 40,
+       "label_at": "below"
+      }
+     },
+     "repo::rad": {
+      "label": "rad",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "active",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "rad — v0.0.1 · governed",
+       "click": "<p><b>rad</b> — QM's default radial menu: an interaction contract, conformance vectors and a single-file web reference</p><p>governed. Phase <b>v0.0.1</b> (stated); attention <b>active</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:rad",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": -64.86975848897417,
+       "y": 51.73190613818534,
+       "size": 50,
+       "label_at": "left"
+      }
+     },
+     "repo::codecartographer": {
+      "label": "codecartographer",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.2",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "codecartographer — v0.0.2 · governed",
+       "click": "<p><b>codecartographer</b> — Project for mapping code</p><p>governed. Phase <b>v0.0.2</b> (stated); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:codecartographer",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": -80.89126573382882,
+       "y": -18.462903538905962,
+       "size": 40,
+       "label_at": "left"
+      }
+     },
+     "repo::looksatwords": {
+      "label": "looksatwords",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "looksatwords — v0.0.1 · governed",
+       "click": "<p><b>looksatwords</b> — A python module to make, gather, analyze, and visualize language data.</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:looksatwords",
+       "shape": "square",
+       "color": "#74a8f6",
+       "depth": 1,
+       "x": -36.000000000000014,
+       "y": -74.7547702766041,
+       "size": 30,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "family::core",
+      "target": "repo::qm",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::dossier",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::qmcp",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::vox",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::rad",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::codecartographer",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::core",
+      "target": "repo::looksatwords",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::dossier",
+      "target": "repo::rad",
+      "label": "rad-interaction-contract",
+      "metadata": {
+       "kind": "seam",
+       "basis": "declared",
+       "stated": true,
+       "hover": "dossier implements rad-interaction-contract, published by rad (declared in ci/interop-registry.yaml)",
+       "style": "solid",
+       "color": "#e0a526",
+       "size": 2.5
+      }
+     },
+     {
+      "source": "repo::qmcp",
+      "target": "repo::vox",
+      "label": "measured from .gitmodules",
+      "metadata": {
+       "kind": "depends_on",
+       "basis": "measured",
+       "stated": false,
+       "hover": "qmcp's .gitmodules names vox",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::codecartographer",
+      "target": "repo::rad",
+      "label": "rad-interaction-contract",
+      "metadata": {
+       "kind": "seam",
+       "basis": "declared",
+       "stated": true,
+       "hover": "codecartographer implements rad-interaction-contract, published by rad (declared in ci/interop-registry.yaml)",
+       "style": "solid",
+       "color": "#e0a526",
+       "size": 2.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "family:core",
+     "declared": 2,
+     "measured": 1,
+     "unread": [],
+     "undeclared": [
+      {
+       "source": "qmcp",
+       "target": "vox"
+      }
+     ]
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "family:core",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "2c4cb11",
+    "provenance": {
+     "source": "families.json",
+     "commit": "2c4cb11",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": 2,
+    "measured": 1,
+    "unread": [],
+    "undeclared": [
+     {
+      "source": "qmcp",
+      "target": "vox"
+     }
+    ],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 measured link(s) have no declared seam: qmcp → vox. Each is a seam nobody has stated, not a fault."
+   }
+  }
+ },
+ "files": {
+  "estate": "estate.svg"
+ }
+}
