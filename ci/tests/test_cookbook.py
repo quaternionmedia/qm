@@ -676,7 +676,8 @@ def test_a_detail_block_is_a_page_of_its_own_sections(tmp_path):
     assert '<div class="card" markdown>\n\n**the browser**' in page
     assert "beside it\n{ .qm-eyebrow }" in page and "**tooling**" in page
     assert "default branch yet" not in page and "A local preview" not in page
-    assert page.count('<section class="qm-section" markdown>') == 3
+    # Its steps, its feature and how it is built, then its Showcase.
+    assert page.count('<section class="qm-section" markdown>') == 4
 
 
 def test_a_detail_picture_the_default_branch_does_not_hold_waits(tmp_path):
@@ -714,7 +715,9 @@ def test_a_project_without_a_detail_block_keeps_its_page(tmp_path):
     engine = projects["engine"]
     assert "details" not in engine and "details" in projects["editor"]
     assert cookbook.project_page(engine, BY_NAME, projects) == cookbook.project_page(engine, BY_NAME)
-    assert "qm-section" not in cookbook.project_page(engine, BY_NAME, projects)
+    # No section a block would give it: only the Showcase every page has.
+    plain = cookbook.project_page(engine, BY_NAME, projects)
+    assert plain.count('<section class="qm-section" markdown>') == 1 and "## Showcase" in plain
 
 
 @pytest.mark.parametrize("block, where", [
@@ -925,6 +928,65 @@ def test_a_detail_page_shows_its_showgraph_too(tmp_path, monkeypatch):
     page = cookbook.detail_page(project, {"instruments": {}}, {})
     # Mutation: leave it off the detail page -- this fails.
     assert "](../show/project/synth/estate.svg)" in page
+
+
+def test_the_families_index_shows_the_whole_corpus_beside_every_family(tmp_path, monkeypatch):
+    """The index's code view is the whole corpus: every family, with each
+    project's code in it. It is named for what it is, not as one project's code.
+
+    Mutation: title every view by its name alone -- the whole corpus is
+    captioned "Its code", and this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "index", {"estate": DRAWN, "code": DRAWN}, {"estate": "estate.svg", "code": "code.svg"})
+    families = [{"name": "instruments", "drives": "the sound", "members": ["synth"]}]
+    index = cookbook.site_index({"families": families, "unstated": []},
+                                [{"name": "instruments", "drives": "the sound", "members": 1, "governed": 1}],
+                                {f["name"]: f for f in families})
+    assert "](../show/index/code.svg)" in index
+    assert "<figcaption><strong>The whole corpus.</strong> Every family, with each project's code in it.</figcaption>" in index
+    assert "<figcaption><strong>Every family.</strong>" in index
+    assert "Its code" not in index and "Where it sits" not in index
+
+
+def _under_showcase(page: str) -> list[str]:
+    """The headings from the page's Showcase section to its next section."""
+    headings = [line for line in page.splitlines() if line.startswith("#")]
+    assert "## Showcase" in headings, "the page has no Showcase section"
+    start = headings.index("## Showcase")
+    after = next((i for i, h in enumerate(headings[start + 1:], start + 1) if h.startswith("## ")),
+                 len(headings))
+    return headings[start:after]
+
+
+def test_the_showgraph_is_a_subsection_of_the_showcase(tmp_path, monkeypatch):
+    """A page's showcase is what its subject looks like: its pictures and the
+    graphs codecarto draws of it. A Showgraph section of its own read as a
+    second, unrelated heading beside the pictures.
+
+    Mutation: give the showgraph a section of its own -- the pages have a
+    `## Showgraph` and no Showcase holding it, and this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth", {"estate": DRAWN}, {"estate": "estate.svg"})
+    _show(tmp_path, "family/instruments", {"estate": DRAWN}, {"estate": "estate.svg"})
+    _show(tmp_path, "index", {"estate": DRAWN}, {"estate": "estate.svg"})
+    project = _project("synth", pictures=["a.png", "b.png", "c.png"])
+    detail = {**_project("synth"), "details": cookbook.detail_block({"lede": "A synth."}, "synth")}
+    families = [{"name": "instruments", "drives": "the sound", "members": ["synth"]}]
+    pages = {
+        "project": cookbook.project_page(project, {"instruments": {}}),
+        "detail": cookbook.detail_page(detail, {"instruments": {}}, {}),
+        "family": cookbook.site_page({"name": "instruments", "drives": "the sound", "within": None},
+                                     [state("synth", adopted=True)]),
+        "index": cookbook.site_index({"families": families, "unstated": []},
+                                     [{"name": "instruments", "drives": "the sound", "members": 1, "governed": 1}],
+                                     {f["name"]: f for f in families}),
+    }
+    for kind, page in pages.items():
+        assert "## Showgraph" not in page.splitlines(), f"the {kind} page gave the showgraph a section of its own"
+        assert "### Showgraph" in _under_showcase(page), f"the {kind} page's showgraph is not in its showcase"
+    # A project's further pictures are its showcase too, before the graphs.
+    showcase = pages["project"].split("## Showcase", 1)[1].split("### Showgraph", 1)[0]
+    assert "raw/HEAD/b.png" in showcase and "raw/HEAD/c.png" in showcase
 
 
 def test_a_family_page_and_the_families_index_show_theirs(tmp_path, monkeypatch):
