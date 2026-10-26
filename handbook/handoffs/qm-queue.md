@@ -190,6 +190,21 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   on the site shows each as waiting. Done is alfred's stack merged, then
   `uv run qm inventory --write` and `uv run qm cookbook docs/families --site
   --write` in a pull request here.
+- **The namespaces are declared by hand, in several places.**
+  `docs/ref/namespaces.md` is canonical; `AGENTS.md` item 3, `README.md` and
+  `.github/rulesets/E-naming.json` each restate it, and
+  `project-seed/ci/check_pr_base.py` carries its own prefixes. A copy in
+  `handbook/governance-rollout.md` had drifted before it became a pointer.
+  Done is one declaration from which the table and the ruleset are generated
+  and which the base check reads. The design is in
+  `handbook/handoffs/exploration-namespace.md`'s "Decisions taken, 2026-08-15"
+  on `evolve/exploration-branch-namespace` at `22d7319`.
+- **Nothing checks that `AGENTS.md`'s verification discipline reaches a
+  project.** `project-seed/ide/AGENTS.md` is a real file in adapted wording, so
+  a rule added to the root page reaches forks only when someone copies it.
+  Done is a check that fails when a discipline rule in the root page has no
+  counterpart in the seed's. `ci/check_discipline_parity.py` on
+  `evolve/exploration-branch-namespace` at `22d7319` is a draft of one.
 
 ### Carried from retired pages
 
