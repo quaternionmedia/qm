@@ -130,6 +130,10 @@ scanner does not look for, because none of them is a credential.
   Placeholder accounts are listed in `PLACEHOLDERS`, and a new one is added
   there rather than by widening a pattern.
 - **A shared-conversation link**, which anybody holding it can read.
+- **A link to a hosted page**, one an assistant's host keeps outside every
+  repository, such as a chat product's shareable artifact or canvas.
+  [Work is delivered into a repository](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-work-is-delivered-into-a-repository.md),
+  and a link to such a page points its reader at the copy that record rules out.
 - **A path to a thread archive.** The archive's filename alone names an export
   format and is allowed; a directory in front of it is somebody's disk.
 - **A personal directory used as a path** (the Documents or Desktop folder, an
