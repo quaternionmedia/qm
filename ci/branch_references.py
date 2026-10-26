@@ -15,13 +15,16 @@ half of deciding to retire it. It reads four kinds of reference:
   * file      a file the branch adds that its base lacks, by its path, or by
               its basename where no file in the base shares it;
   * named     the branch's name in backticks in `docs/ref/namespaces.md`,
-              which names the stage refs and every other documented ref.
+              which names the stage refs and every other documented ref, or
+              a line of that page calling the branch's namespace permanent.
 
 It searches `main`, the base when that is another branch, and the head of
-every open pull request into the corpus except the branch's own. A line a head
-carries unchanged from `main` is reported once, as `main`'s. Generated
-documents are skipped: each names what was true at its last run, and the next
-run drops a retired branch.
+every open pull request into the corpus except the branch's own. A pull
+request into a branch other than `main` is searched only in the files it
+changes: the rest of its tree is `main` as that branch last took it, an older
+copy with no reference of its own. A line a head carries unchanged from `main`
+is reported once, as `main`'s. Generated documents are skipped: each names what
+was true at its last run, and the next run drops a retired branch.
 
 Exit 0: nothing refers to the branch. Exit 1: something does; each reference is
 listed with its ref, file and line. Exit 2: the branch, the base, the namespace
@@ -36,10 +39,11 @@ as a shortened branch name or a commit abbreviated below seven characters.
 
 It runs five git commands however many refs it searches: one listing of every
 ref, one rev-list, one diff, one tree listing and one grep across every
-searched ref, which also reads the namespace page. A `--main` or `--base` that
-is not a branch costs a rev-parse, and a base other than main a look at main's
-namespace page. The reading of their output is pure, so each rule is tested
-without git.
+searched ref, which also reads the namespace page. Each open pull request into
+another branch adds one diff, and those run together. A `--main` or `--base`
+that is not a branch costs a rev-parse, and a base other than main a look at
+main's namespace page. The reading of their output is pure, so each rule is
+tested without git.
 """
 
 from __future__ import annotations
@@ -48,6 +52,7 @@ import argparse
 import re
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
@@ -62,6 +67,10 @@ from merge_review import DEFAULT_ORG, HostUnavailable  # noqa: E402
 NAMESPACES = "docs/ref/namespaces.md"
 GENERATED = tuple(step[2] for step in generate_docs.STEPS)
 LINE_WIDTH = 160
+# Reported in this order: a documented ref settles the question before any
+# citation is read.
+KINDS = ("named", "name", "commit", "file")
+DIFF_WORKERS = 16
 
 
 class Unreadable(RuntimeError):
@@ -118,23 +127,48 @@ def file_patterns(added: list[str], listing: set[str]) -> dict[str, str]:
 
 
 def searched_refs(name: str, remote: str, main: str, base: str,
-                  heads: list[str], present: set[str]) -> list[str]:
-    """main, the base when it differs, and every fetched open head but this one."""
+                  heads: list[tuple[str, str]], present: set[str]
+                  ) -> tuple[list[str], dict[str, str]]:
+    """main, the base when it differs, and every open head but this one; and,
+    for each head of a pull request into a branch other than main, that branch.
+    """
     refs = [main] + ([base] if base != main else [])
-    unfetched = []
-    for head in heads:
+    into_main = short_name(main, remote)
+    scoped: dict[str, str] = {}
+    unfetched: list[str] = []
+    for head, into in heads:
         if head == name:
             continue
         ref = f"{remote}/{head}"
-        if f"refs/remotes/{ref}" not in present:
-            unfetched.append(head)
+        needed = [ref] + ([f"{remote}/{into}"] if into != into_main else [])
+        missing = [r for r in needed if f"refs/remotes/{r}" not in present]
+        if missing:
+            unfetched += missing
         elif ref not in refs:
             refs.append(ref)
+            if into != into_main:
+                scoped[ref] = f"{remote}/{into}"
     if unfetched:
         raise Unreadable(
-            f"{len(unfetched)} open pull request head(s) not fetched, so not "
-            f"searched: {', '.join(unfetched[:5])}; run `git fetch {remote}`")
-    return refs
+            f"{len(unfetched)} ref(s) an open pull request needs are not fetched, "
+            f"so not searched: {', '.join(unfetched[:5])}; run `git fetch {remote}`")
+    return refs, scoped
+
+
+def within(found: list[Reference], refs: list[str],
+           changed: dict[str, set[str]]) -> list[Reference]:
+    """Drop a reference a scoped head holds in a file it does not change.
+
+    A pull request into another branch carries main's pages as they were when
+    that branch last took main: an older copy, and no reference of its own.
+    """
+    kept = []
+    for reference in found:
+        parsed = split_line(reference.where, refs)
+        if parsed and parsed[0] in changed and parsed[1] not in changed[parsed[0]]:
+            continue
+        kept.append(reference)
+    return kept
 
 
 def split_line(line: str, refs: list[str]) -> tuple[str, str, str] | None:
@@ -190,11 +224,26 @@ def classify(lines: list[str], refs: list[str], said: str, commits: list[str],
     return found
 
 
+def namespace_of(name: str) -> str | None:
+    """How the namespace page writes the branch's namespace: `project/<`."""
+    return f"`{name.split('/', 1)[0]}/<" if "/" in name else None
+
+
 def named(lines: list[str], name: str, main: str) -> list[Reference]:
-    """Each line of main's namespace page naming the branch in backticks."""
+    """Each line of main's namespace page naming the branch in backticks, or
+    calling the branch's namespace permanent."""
     page = f"{main}:{NAMESPACES}:"
-    return [Reference("named", f"`{name}`", line) for line in lines
-            if line.startswith(page) and f"`{name}`" in line[len(page):]]
+    space = namespace_of(name)
+    found = []
+    for line in lines:
+        if not line.startswith(page):
+            continue
+        text = line[len(page):]
+        if f"`{name}`" in text:
+            found.append(Reference("named", f"`{name}`", line))
+        elif space and space in text and "permanent" in text:
+            found.append(Reference("named", f"{name.split('/', 1)[0]}/*", line))
+    return found
 
 
 def known(refs: dict[str, str], ref: str) -> bool:
@@ -242,12 +291,30 @@ class Git:
         return done.stdout.splitlines()
 
 
-def open_heads(repository: str) -> list[str]:
+def changed_files(git: Git, scoped: dict[str, str]) -> dict[str, set[str]]:
+    """The files each scoped head changes against the branch its PR is into.
+
+    One diff per head, run together: each is mostly waiting on git.
+    """
+    def one(pair: tuple[str, str]) -> tuple[str, set[str]]:
+        head, into = pair
+        out = git.out("diff", "--name-only", "-z", f"{into}...{head}")
+        return head, {path for path in out.split("\0") if path}
+
+    if not scoped:
+        return {}
+    with ThreadPoolExecutor(min(DIFF_WORKERS, len(scoped))) as pool:
+        return dict(pool.map(one, scoped.items()))
+
+
+def open_heads(repository: str) -> list[tuple[str, str]]:
+    """Each open pull request's head, with the branch it is into."""
     reply = host.gh_json("pr", "list", "--repo", repository, "--state", "open",
-                         "--limit", "500", "--json", "headRefName")
+                         "--limit", "500", "--json", "headRefName,baseRefName")
     if not isinstance(reply, list):
         raise Unreadable(f"the host did not list {repository}'s open pull requests")
-    return sorted({pr["headRefName"] for pr in reply if pr.get("headRefName")})
+    return sorted({(pr["headRefName"], pr.get("baseRefName") or "")
+                   for pr in reply if pr.get("headRefName")})
 
 
 def report(git: Git, branch: str, remote: str, main: str, base: str,
@@ -263,7 +330,7 @@ def report(git: Git, branch: str, remote: str, main: str, base: str,
     if unknown:
         git.out("rev-parse", "-q", *(f"{r}^{{commit}}" for r in unknown))
     heads = open_heads(repository) if repository else []
-    searched = searched_refs(name, remote, main, base, heads, set(refs))
+    searched, scoped = searched_refs(name, remote, main, base, heads, set(refs))
 
     rest = others(refs, name, remote)
     commits = [sha[:7] for sha in git.out("rev-list", tip, "--not", *rest).split()]
@@ -278,10 +345,14 @@ def report(git: Git, branch: str, remote: str, main: str, base: str,
     patterns = file_patterns([p for p in added if p], listing)
     said = spoken(name)
     # The name as said matches every line naming it in backticks too, so the
-    # one grep serves the namespace page.
-    lines = git.grep(searched, list(dict.fromkeys([said, *commits, *patterns])))
-    found = distinct(classify(lines, searched, said, commits, patterns)
-                     + named(lines, name, main), searched)
+    # one grep serves the namespace page, with its namespace for the
+    # permanent ones.
+    space = namespace_of(name)
+    lines = git.grep(searched, list(dict.fromkeys(
+        [said, *([space] if space else []), *commits, *patterns])))
+    found = classify(lines, searched, said, commits, patterns) + named(lines, name, main)
+    found = distinct(within(found, searched, changed_files(git, scoped)), searched)
+    found.sort(key=lambda reference: KINDS.index(reference.kind))
 
     out.write(f"references to {name} ({short_name(ref, '')} @ {tip[:7]})\n")
     heads_searched = len(searched) - (2 if base != main else 1)

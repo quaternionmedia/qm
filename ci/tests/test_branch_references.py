@@ -13,25 +13,34 @@ The mutations, per `a-check-is-evidence-after-it-fails`.
 `uv run qm mutate ci/branch_references.py` kills every textual mutant but five,
 each equivalent: `frozen=True` on `Reference`, which nothing mutates, and four
 argparse help and description strings. The `__main__` guard gives no verdict.
-Six more, which no textual operator expresses, were each run alone against a
+Nine more, which no textual operator expresses, were each run alone against a
 green baseline and restored, quoted as they printed:
 
   the generated documents not excluded from the grep
     FAILED test_offline[args4-0-expected4]
   the exit status always 0
-    FAILED test_offline[args0-1-expected0], and five more cases that expect 1
+    FAILED test_offline[args0-1-expected0], and seven more cases that expect 1
   a commit matched inside a longer word
     FAILED test_each_kind_of_reference_is_read_from_a_line[at abc1234f-kinds2]
     FAILED test_each_kind_of_reference_is_read_from_a_line[at fabc1234-kinds3]
   any page's backticked name counted as named
     FAILED test_only_main_s_namespace_page_names_a_ref[lines2-dev-found2]
     FAILED test_only_main_s_namespace_page_names_a_ref[lines3-dev-found3]
+    FAILED test_only_main_s_namespace_page_names_a_ref[lines6-project/p-found6]
   a file the base already holds counted as the branch's
     FAILED test_a_file_is_cited_by_path_and_by_a_basename_the_base_does_not_share[added2-listing2-patterns2]
   every head's inherited copy of main's line reported again
     FAILED test_a_line_a_head_inherits_from_main_is_main_s_reference[wheres0-kept0]
     FAILED test_a_line_a_head_inherits_from_main_is_main_s_reference[wheres3-kept3]
     FAILED test_a_head_carrying_main_s_lines_adds_no_reference_of_its_own
+  a pull request into a project branch searched in every file it carries
+    FAILED test_a_scoped_head_counts_only_in_the_files_it_changes[wheres0-kept0]
+    FAILED test_a_pull_request_into_a_project_branch_counts_only_in_what_it_changes
+  a namespace the page calls permanent not reported
+    FAILED test_only_main_s_namespace_page_names_a_ref[lines4-project/p-found4]
+    FAILED test_offline[args6-1-expected6]
+  the references listed in the order found
+    FAILED test_a_documented_ref_is_listed_before_its_citations
 """
 
 from __future__ import annotations
@@ -96,26 +105,56 @@ def test_a_file_is_cited_by_path_and_by_a_basename_the_base_does_not_share(
     assert br.file_patterns(added, listing) == patterns
 
 
-@pytest.mark.parametrize("heads, present, searched", [
-    ([], set(), ["origin/main"]),
-    (["x"], set(), ["origin/main"]),
-    (["y"], {"refs/remotes/origin/y"}, ["origin/main", "origin/y"]),
-    (["y", "y"], {"refs/remotes/origin/y"}, ["origin/main", "origin/y"]),
+Y = "refs/remotes/origin/y"
+P = "refs/remotes/origin/project/p"
+
+
+@pytest.mark.parametrize("heads, present, searched, scoped", [
+    ([], set(), ["origin/main"], {}),
+    ([("x", "main")], set(), ["origin/main"], {}),
+    ([("y", "main")], {Y}, ["origin/main", "origin/y"], {}),
+    ([("y", "main"), ("y", "main")], {Y}, ["origin/main", "origin/y"], {}),
+    ([("y", "project/p")], {Y, P}, ["origin/main", "origin/y"],
+     {"origin/y": "origin/project/p"}),
 ])
-def test_main_and_every_fetched_open_head_but_the_branch_s_own_are_searched(
-        heads, present, searched):
+def test_every_open_head_but_the_branch_s_own_is_searched_and_scoped_by_its_base(
+        heads, present, searched, scoped):
     assert br.searched_refs("x", "origin", "origin/main", "origin/main",
-                            heads, present) == searched
+                            heads, present) == (searched, scoped)
 
 
 def test_a_base_other_than_main_is_searched_too():
     assert br.searched_refs("x", "origin", "origin/main", "origin/project/p", [],
-                            set()) == ["origin/main", "origin/project/p"]
+                            set()) == (["origin/main", "origin/project/p"], {})
 
 
-def test_an_open_head_not_fetched_is_no_pass():
-    with pytest.raises(br.Unreadable, match="not fetched.*never"):
-        br.searched_refs("x", "origin", "origin/main", "origin/main", ["never"], set())
+@pytest.mark.parametrize("heads, present, missing", [
+    ([("never", "main")], set(), "origin/never"),
+    ([("y", "project/p")], {Y}, "origin/project/p"),
+])
+def test_a_ref_an_open_pull_request_needs_not_fetched_is_no_pass(heads, present, missing):
+    with pytest.raises(br.Unreadable, match=f"not fetched, so not searched: {missing}"):
+        br.searched_refs("x", "origin", "origin/main", "origin/main", heads, present)
+
+
+@pytest.mark.parametrize("wheres, kept", [
+    (["origin/y:copy.md:1:x", "origin/y:new.md:1:x"], ["origin/y:new.md:1:x"]),
+    (["origin/main:copy.md:1:x"], ["origin/main:copy.md:1:x"]),
+    (["origin/z:copy.md:1:x"], ["origin/z:copy.md:1:x"]),
+])
+def test_a_scoped_head_counts_only_in_the_files_it_changes(wheres, kept):
+    found = [Reference("name", "x", where) for where in wheres]
+    refs = ["origin/main", "origin/y", "origin/z"]
+    assert [r.where for r in br.within(found, refs, {"origin/y": {"new.md"}})] == kept
+
+
+@pytest.mark.parametrize("name, space", [
+    ("project/p", "`project/<"),
+    ("workspace/math-experiments", "`workspace/<"),
+    ("dev", None),
+])
+def test_a_branch_s_namespace_is_written_as_the_namespace_page_writes_it(name, space):
+    assert br.namespace_of(name) == space
 
 
 @pytest.mark.parametrize("line, parsed", [
@@ -166,6 +205,8 @@ def test_a_line_from_a_ref_not_searched_is_ignored():
 
 
 PAGE_LINE = "origin/main:docs/ref/namespaces.md:3:`test`, `dev` and `main` are stages."
+ROW = "origin/main:docs/ref/namespaces.md:9:| `project/<name>` | records | permanent |"
+SHORT_ROW = "origin/main:docs/ref/namespaces.md:9:| `evolve/<slug>` | work | deleted after merge |"
 
 
 @pytest.mark.parametrize("lines, name, found", [
@@ -173,6 +214,9 @@ PAGE_LINE = "origin/main:docs/ref/namespaces.md:3:`test`, `dev` and `main` are s
     ([PAGE_LINE], "evolve/x", []),
     (["origin/main:other.md:3:`dev` is named here"], "dev", []),
     (["origin/x:docs/ref/namespaces.md:3:`dev`"], "dev", []),
+    ([ROW], "project/p", [Reference("named", "project/*", ROW)]),
+    ([SHORT_ROW], "evolve/x", []),
+    (["origin/main:other.md:9:| `project/<name>` | permanent |"], "project/p", []),
 ])
 def test_only_main_s_namespace_page_names_a_ref(lines, name, found):
     assert br.named(lines, name, "origin/main") == found
@@ -230,7 +274,9 @@ def repo(tmp_path_factory) -> tuple[Path, dict[str, str]]:
     fast_import(root, "".join([
         commit(f"{R}main", 1, None,
                ("docs/ref/namespaces.md", "# Branch namespaces\n\n"
-                "`test`, `dev`, `prod` and `main` are stages.\n"),
+                "`test`, `dev`, `prod` and `main` are stages.\n"
+                "| `project/<name>` | one project's records | permanent |\n"
+                "| `evolve/<slug>` | work in progress | deleted after merge |\n"),
                ("README.md", "# qm\n")),
         commit(f"{R}evolve/workspaces", 2, ":1",
                ("handbook/research-workspaces.md", "# Workspaces\n")),
@@ -241,6 +287,8 @@ def repo(tmp_path_factory) -> tuple[Path, dict[str, str]]:
         commit(f"{R}evolve/target", 8, ":1", ("self.md", "this is evolve/target\n")),
         commit(f"{R}evolve/other", 9, ":1", ("other.md", "builds on evolve/target\n")),
         commit(f"{R}bare", 11, None, ("README.md", "# no namespace page\n")),
+        commit(f"{R}project/p", 13, ":1", ("copy.md", "an old page cites evolve/workspaces\n")),
+        commit(f"{R}evolve/proj", 14, ":13", ("new.md", "a record cites evolve/workspaces\n")),
         "reset refs/heads/dev\nfrom :1\n\n",
     ]), marks)
     sha = dict(line.split() for line in marks.read_text().splitlines())
@@ -276,6 +324,7 @@ OFFLINE = [
                             "them; pull request bodies, comments and issues."]),
     (["evolve/quiet"], 0, ["Nothing searched refers to it."]),
     (["dev"], 1, ["named   `dev`", "docs/ref/namespaces.md:3:", "(dev @"]),
+    (["project/p"], 1, ["named   project/*", "docs/ref/namespaces.md:4:"]),
     (["evolve/nowhere"], 2, ["no branch 'evolve/nowhere', locally or on origin"]),
     (["evolve/quiet", "--base", "no-such-ref"], 2, ["git rev-parse"]),
     (["evolve/quiet", "--main", "origin/bare", "--base", "origin/bare"], 2,
@@ -306,13 +355,20 @@ def test_offline(repo, offline, args, code, expected):
         assert text.format(**repo[1]) in out, out
 
 
-def fake_host(monkeypatch, heads: list[str] | None) -> list[tuple]:
+def test_a_documented_ref_is_listed_before_its_citations(offline):
+    _, out = offline[("dev",)]
+    assert out.index("named   `dev`") < out.index("name    `dev`"), out
+
+
+def fake_host(monkeypatch, heads: list[str | tuple[str, str]] | None) -> list[tuple]:
+    """The host's open pull requests: a head alone is into main."""
     calls: list[tuple] = []
+    pairs = [(h, "main") if isinstance(h, str) else h for h in heads or []]
 
     def gh(*args):
         calls.append(args)
         body = "not json" if heads is None else json.dumps(
-            [{"headRefName": head} for head in heads])
+            [{"headRefName": head, "baseRefName": into} for head, into in pairs])
         return subprocess.CompletedProcess(("gh", *args), 0, body, "")
 
     monkeypatch.setattr(merge_review, "gh", gh)
@@ -327,6 +383,22 @@ def test_an_open_head_is_searched_and_the_branch_s_own_is_not(repo, monkeypatch)
     assert "self.md" not in out
     assert "and 1 open pull request head(s)" in out
     assert calls[0][:2] == ("pr", "list")
+
+
+def test_a_pull_request_into_a_project_branch_counts_only_in_what_it_changes(
+        repo, monkeypatch):
+    fake_host(monkeypatch, [("evolve/proj", "project/p")])
+    code, out = run(repo[0], "evolve/workspaces")
+    assert code == 1, out
+    assert "origin/evolve/proj:new.md:1:" in out
+    assert "copy.md" not in out
+
+
+def test_a_pull_request_into_a_branch_not_fetched_is_no_pass(repo, monkeypatch):
+    fake_host(monkeypatch, [("evolve/proj", "project/missing")])
+    code, out = run(repo[0], "evolve/workspaces")
+    assert code == 2, out
+    assert "origin/project/missing" in out
 
 
 def test_a_head_carrying_main_s_lines_adds_no_reference_of_its_own(repo, monkeypatch):

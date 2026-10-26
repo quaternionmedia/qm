@@ -185,11 +185,13 @@ reads four kinds of reference:
 | name | The branch's name as written when it holds a slash, in backticks when it does not |
 | commit | A commit no other branch holds, by its first seven characters |
 | file | A file the branch adds that its base lacks, by path, or by a basename the base does not share |
-| named | The branch's name in backticks on `docs/ref/namespaces.md`, where the stage refs are named |
+| named | The branch's name in backticks on `docs/ref/namespaces.md`, where the stage refs are named, or a line there calling its namespace permanent |
 
 It searches `main`, `--base` when that is another branch, and the head of every
 open pull request but the branch's own, and skips the generated documents. A
-line a head carries unchanged from `main` is reported once, as `main`'s.
+pull request into a branch other than `main` is searched only in the files it
+changes, since the rest of its tree is an older copy of `main`. A line a head
+carries unchanged from `main` is reported once, as `main`'s.
 Exit 0 is nothing found and 1 is a list of references. Exit 2 is a search that
 could not run, an open pull request whose head is not fetched among them. It
 cannot see another repository, a submodule pin there included, or a pull
