@@ -1,14 +1,17 @@
-# Handoff — landing the voice set, paused at joe #33 for manual testing
+# Handoff — the voice set, landed, and the steps after it
 
 **Stamped 2026-10-18.** `vox` `main` at `1721e6f`; `qmcp` `main` at
 `df42315`; `joe` `main` at `d72b65b`; `qm` `main` at `03670b8`. Every figure
 on this page was true at those commits and nowhere else. Re-derive each one
-with `gh` before acting on it.
+with `gh` before acting on it. Entries naming `joe` #33 and #34 were
+re-derived on 2026-10-26, at `joe` `main` `474307f`.
 
 [`hil-review-2026-10-04.md`](hil-review-2026-10-04.md) is the review of the
 set and §5 there is the order it lands in;
-[`the-voice-loop.md`](the-voice-loop.md) is the loop itself. This page is how
-far that order has got, what is left, and how each step was done. Delete it
+[`the-voice-loop.md`](the-voice-loop.md) is the loop itself;
+[`joe-open-set.md`](joe-open-set.md) is `joe`'s pull requests opened after the
+set. This page is how far that order has got, what is left, and how each step
+was done. Delete it
 when the set and the steps after it have landed.
 
 ---
@@ -30,7 +33,8 @@ when the set and the steps after it have landed.
    or documents make, the claim is made true in code on that pull request --
    one commit, its tests, each mutation seen red -- and the overview says so.
    Applied on #68, #73 and #74.
-5. **The landing pauses at `joe` #33** until a person has tested it by hand.
+5. **`joe` #33 merges on a test by hand.** Peter tested it on 2026-10-26, on
+   the demo, by step 4 of `joe`'s `docs/paths/voice-loop.md` §4.
 6. **Decided 2026-10-17, while `qm`'s part landed**, each asked on its own:
    - a finding in a pull request's own text is fixed on that pull request,
      one commit, before its merge is asked;
@@ -48,7 +52,7 @@ when the set and the steps after it have landed.
 |---|---|---|
 | `vox` | #10, #11, #12, #13, #14, #15, #9 | `1721e6f` |
 | `qmcp` | #54, #55, #56, #58, #60, #61 to #76, #77, #78, #79, #80, #81, #82, #83, #84 | `df42315` |
-| `joe` | #23, #26, #27, #28, #29, #30, #31, #32 | `d72b65b` |
+| `joe` | #23, #26, #27, #28, #29, #30, #31, #32, #33, #34 | `474307f` |
 | `qm` | #134, #135, #136, #140, #141, #137, #142 | `a715693` |
 
 `vox`'s merge commits, which `qmcp`'s pins name: #10 `eec9a2d`, #11
@@ -85,22 +89,18 @@ each stated in its pull request's body:
 
 ## 3. What is left, in order
 
-### `joe` — paused here
+### `joe` — the set landed; two documentation rows left
 
-| Pull request | State at the stamp | Done when |
+#33 merged as `c7dccf4` and #34 as `474307f`, both on 2026-10-26.
+
+| Pull request | State on 2026-10-26 | Done when |
 |---|---|---|
-| #33, the transcript lane | ready, base `main`, head `c51f8f3`, five checks green, `CLEAN` | tested by hand, then merged by `qm merge` |
-| #34, `joe`'s timeless text | draft, stacked on #33's branch | `main` merged in, its body's Branch block and stacking line rewritten, checks green, ready, merged |
-| README | not opened | one pull request from `joe`'s `main` after #34, carrying the demo branch's README content as facts |
-| cookbook | not opened | the same, for the cookbook |
+| README | not opened; #56 states `main`'s README as its code is | one pull request from `joe`'s `main` carrying the demo branch's README content as facts, or Peter's word that #56 stands for it |
+| cookbook | not opened; #52 folds the cookbook's recipes into three lane pages and deletes it | the same, for the cookbook, or Peter's word that #52 stands for it |
 
-The host refused to merge `main` into #27 and #32 and they were merged by
-hand (§6, step 3); #34 may need the same.
-
-What `main` holds to test: the whole loop except #33's transcript lane on the
-visualiser and #34's documentation. `qmcp`'s `docs/voice-loop-demo.md` is the
-onboarding and the three tiers -- nothing real, the local model, a person at
-the microphone.
+`main` holds the whole loop, #33's transcript lane included. `qmcp`'s
+`docs/voice-loop-demo.md` is the onboarding and the three tiers -- nothing
+real, the local model, a person at the microphone.
 
 ### `qm` — landed
 
@@ -133,12 +133,13 @@ together having landed. Nothing of the set is left in `qm`.
   `vox`, `qmcp`, `joe` and `qm`, and `joe`'s branches that share commits with
   the set and carry no open pull request (`check_pr_base.py --base main
   --head <branch>` lists them). `qmcp`'s was deleted on 2026-10-25; at that
-  date the branch remains in `vox`, `joe` and `qm`.
+  date the branch remains in `vox`, `joe` and `qm`. `joe`'s demo branch carries
+  no open pull request since #34 merged.
 - `qmcp`'s `vendor/vox` can move to `vox`'s `main` to take #15 and #9.
 
 ## 4. Blocked on a person
 
-- **`joe` #33's merge**, on the manual test.
+- **Whether `joe` #56 and #52 stand for §3's README and cookbook rows.**
 - **Two decisions carried from the 2026-09-27 review page**, which this page
   retires:
   - whether `joe` carries the corpus -- at the stamp it has no
@@ -161,10 +162,12 @@ together having landed. Nothing of the set is left in `qm`.
   not run on any `main` during the landing.
 - Pull requests with no commit made by hand during the landing were checked
   by the hosted workflows only: `vox` #10 to #15; `qmcp` #54 to #56, #58,
-  #61 to #67, #71, #75 to #81, #83, #84; `joe` #23, #26, #28 to #31, #33.
+  #61 to #67, #71, #75 to #81, #83, #84; `joe` #23, #26, #28 to #31.
   Those with a commit made by hand during the landing -- a merge of `main`, a
   pin move, a restamp -- were also run locally (§6, step 5): `qmcp` #60, #68,
-  #69, #70, #72, #73, #74, #82; `joe` #27, #32; `vox` #9. Every `qm` pull
+  #69, #70, #72, #73, #74, #82; `joe` #27, #32, #33, #34; `vox` #9. `joe`
+  #34's browser suite ran on the hosted runner only: no page file differs from
+  `main`'s. Every `qm` pull
   request of the set was also run locally, against `main`, at the head it
   merged at.
 - `uv run qm docs check` runs in no workflow and in no preflight step. #135
@@ -224,5 +227,6 @@ Nothing is unpushed.
 - `qmcp`: the clone on `demo/voice-loop-2026-10-04`, and
   `qmcp.worktrees/integration` detached at `72b6f82`; neither was made by the
   landing.
-- `joe`: the clone on `demo/voice-loop-2026-10-04`.
+- `joe`: the clone on `demo/voice-loop-2026-10-04`; `joe-open-set.md` §8 has
+  its worktrees.
 - `qm`: the clone on `main`, clean; `qm.worktrees/demo` on the demo branch.

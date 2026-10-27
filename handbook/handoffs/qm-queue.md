@@ -9,8 +9,10 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. The rest of the
 page holds at the stamp, which those entries do not move.
 
-[`voice-set-landing.md`](voice-set-landing.md) is the voice set, landed but
-for `joe` #33 and #34; [`the-voice-loop.md`](the-voice-loop.md) is the loop;
+[`voice-set-landing.md`](voice-set-landing.md) is the voice set, landed, and
+the steps after it; [`joe-open-set.md`](joe-open-set.md) is `joe`'s pull
+requests opened after it, #35 to #58, which a person merges one at a time;
+[`the-voice-loop.md`](the-voice-loop.md) is the loop;
 [`apothecary-merge-queue.md`](apothecary-merge-queue.md) is apothecary's stack,
 landed on its `main`, and how it keeps landing. This page is everything else open in `qm`.
 
@@ -98,7 +100,6 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
 
 ## 3. Blocked on a person
 
-- **`joe` #33's merge**, on a test by hand (`voice-set-landing.md` §4).
 - **A private name in `main`'s history.** Two commit messages that name the
   private instrument, `444f510` and `f208a2c`, reached `main` on 2026-10-24
   with the performing family's pull requests. `performing-family-consolidation.md`
