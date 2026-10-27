@@ -288,7 +288,7 @@ the graphs codecarto draws
 **Its system:** not drawn. alfred's system view is composed from a clone of it, and the clone this export read was not at its default branch's head, 7fff7ae.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and alfred's default branch at `7fff7ae`, on 2026-10-26. [The show document](../show/project/alfred/show.json) holds each graph as drawn.
+Drawn by codecartographer at `99602ff` from the corpus at `e1d1306` and alfred's default branch at `7fff7ae`, on 2026-10-27. [The show document](../show/project/alfred/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

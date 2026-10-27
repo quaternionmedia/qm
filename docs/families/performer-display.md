@@ -66,7 +66,7 @@ the graphs codecarto draws
 
 </div>
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882`, on 2026-10-26. [The show document](../show/family/performer-display/show.json) holds each graph as drawn.
+Drawn by codecartographer at `99602ff` from the corpus at `e1d1306`, on 2026-10-27. [The show document](../show/family/performer-display/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

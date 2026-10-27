@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. benchmark's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and benchmark's default branch at `dfae9d2`, on 2026-10-26. [The show document](../show/project/benchmark/show.json) holds each graph as drawn.
+Drawn by codecartographer at `99602ff` from the corpus at `e1d1306` and benchmark's default branch at `dfae9d2`, on 2026-10-27. [The show document](../show/project/benchmark/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

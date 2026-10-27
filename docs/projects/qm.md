@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. qm declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and qm's default branch at `3b94882`, on 2026-10-26. [The show document](../show/project/qm/show.json) holds each graph as drawn.
+Drawn by codecartographer at `99602ff` from the corpus at `e1d1306` and qm's default branch at `1e165bb`, on 2026-10-27. [The show document](../show/project/qm/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. holophonor's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and holophonor's default branch at `dd8d9db`, on 2026-10-26. [The show document](../show/project/holophonor/show.json) holds each graph as drawn.
+Drawn by codecartographer at `99602ff` from the corpus at `e1d1306` and holophonor's default branch at `dd8d9db`, on 2026-10-27. [The show document](../show/project/holophonor/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

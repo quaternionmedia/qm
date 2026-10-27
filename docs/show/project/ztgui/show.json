@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "e1d1306f7b5f9bbaad858c15bbc6afa287f36a11",
    "digest": "sha256:22e64d98a378a7ec39ef5da63b8b725109a15b6a9c3bc87edcf2c009267baa02"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "c698ae0dbfaedef15797ab44e5f5afedb5fdba24"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@99602ff1e6c85d9b64ab3ef0cef9402d4b09252e"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T11:32:40Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:ztgui",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "e1d1306",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "e1d1306",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
