@@ -34,19 +34,19 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/TheatreMix-python/estate.svg)](../show/project/TheatreMix-python/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← stomp](stomp.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [uPhonor →](uPhonor.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/TheatreMix-python/code.svg)](../show/project/TheatreMix-python/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/TheatreMix-python/code.svg)](../show/project/TheatreMix-python/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← stomp](stomp.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [uPhonor →](uPhonor.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. TheatreMix-python declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `e430930` from the corpus at `ba587c3` and TheatreMix-python's default branch at `5d3fc15`, on 2026-10-27. [The show document](../show/project/TheatreMix-python/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and TheatreMix-python's default branch at `5d3fc15`, on 2026-10-27. [The show document](../show/project/TheatreMix-python/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

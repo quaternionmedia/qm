@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "ba587c36ef88c410b1f2ae1e94bd1a60ccbe140f",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:b042158354a79ba594f2671555db962847aacc0f7c9d49a5d6473314cd7dad2e"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "3e8794f11eb94b29e94094aa24e8215593864a6f"
   },
   "drawn_by": {
-   "graph": "codecartographer@e4309302dc82884a25752380a0cbbfe6d23c2ddd"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-27T15:45:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -265,10 +265,10 @@
     "subject": "project:rad",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "ba587c3",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "ba587c3",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -315,8 +315,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -161.09715035677192,
-      "y": -65.66794512605755,
+      "x": 218.6896375291961,
+      "y": -9.489771881133972,
       "size": 230
      },
      "dir::quaternionmedia/rad/.github": {
@@ -329,8 +329,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -432.8352940873532,
-      "y": -293.68332130718693,
+      "x": 948.885233900273,
+      "y": -276.5244689054823,
       "size": 70
      },
      "dir::quaternionmedia/rad/.github/workflows": {
@@ -342,9 +342,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -510.5920205094306,
-      "y": -290.29894601443084,
+      "label_at": "right",
+      "x": 1001.474427716603,
+      "y": -333.8998921609885,
       "size": 50
      },
      "dir::quaternionmedia/rad/.vscode": {
@@ -356,9 +356,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -110.53821711091936,
-      "y": -23.243962886745948,
+      "label_at": "left",
+      "x": 152.9407874551409,
+      "y": -3.737492859788531,
       "size": 50
      },
      "dir::quaternionmedia/rad/LICENSES": {
@@ -370,9 +370,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -228.96477883730563,
-      "y": -146.63852623072947,
+      "label_at": "right",
+      "x": 323.9341448265596,
+      "y": -0.22458522703977124,
       "size": 50
      },
      "dir::quaternionmedia/rad/adr": {
@@ -385,8 +385,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -515.3451442025722,
-      "y": 63.26778018233071,
+      "x": -111.1242613925433,
+      "y": -584.9099880676968,
       "size": 200
      },
      "dir::quaternionmedia/rad/conformance": {
@@ -399,8 +399,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": -94.19971969036531,
-      "y": 50.492434393954866,
+      "x": 287.11578803973276,
+      "y": 98.14293423698508,
       "size": 50
      },
      "dir::quaternionmedia/rad/docs": {
@@ -413,8 +413,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 101.57842383237666,
-      "y": 154.74303229533723,
+      "x": 877.7633609080983,
+      "y": 136.78618463735052,
       "size": 70
      },
      "dir::quaternionmedia/rad/docs/guide": {
@@ -427,8 +427,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 317.1804546722243,
-      "y": 335.65461685412595,
+      "x": 597.3858946269279,
+      "y": 161.31603444507496,
       "size": 170
      },
      "dir::quaternionmedia/rad/docs/media": {
@@ -440,9 +440,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 152.13735707822917,
-      "y": 197.16701453464884,
+      "label_at": "left",
+      "x": 812.0145108340431,
+      "y": 142.53846365869597,
       "size": 50
      },
      "dir::quaternionmedia/rad/governance": {
@@ -455,8 +455,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": -294.80441893305124,
-      "y": -108.00503087685875,
+      "x": 89.24821859721936,
+      "y": -44.32393707676471,
       "size": 50
      },
      "dir::quaternionmedia/rad/messaging": {
@@ -469,8 +469,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -199.9489886277577,
-      "y": -491.18939244905874,
+      "x": 248.57976427203948,
+      "y": 574.2112362476579,
       "size": 80
      },
      "dir::quaternionmedia/rad/perspectives": {
@@ -483,8 +483,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -490.3876583264106,
-      "y": 384.42590993920726,
+      "x": -240.04950021861887,
+      "y": 712.5516753271213,
       "size": 70
      },
      "dir::quaternionmedia/rad/scripts": {
@@ -497,8 +497,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -238.46069335606964,
-      "y": 260.7805606738032,
+      "x": 491.1387692298411,
+      "y": -471.86860956422373,
       "size": 90
      },
      "dir::quaternionmedia/rad/tests": {
@@ -511,8 +511,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 135.29075788703753,
-      "y": -454.31230175087796,
+      "x": -479.2362852576379,
+      "y": 90.19690210273501,
       "size": 190
      },
      "dir::quaternionmedia/rad/tests/lib": {
@@ -525,8 +525,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 335.04295825648137,
-      "y": -286.70030409402756,
+      "x": -666.8340335992743,
+      "y": 106.6095783856174,
       "size": 60
      },
      "file::quaternionmedia/rad/.github/copilot-instructions.md": {
@@ -538,9 +538,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/.github/copilot-instructions.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -382.27636084150066,
-      "y": -251.25933906787537,
+      "label_at": "left",
+      "x": 883.1363838262178,
+      "y": -270.7721898841369,
       "size": 30
      },
      "file::quaternionmedia/rad/AGENTS.md": {
@@ -552,9 +552,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/AGENTS.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -238.85387677884927,
-      "y": -62.2835698333014,
+      "label_at": "right",
+      "x": 271.27883134552616,
+      "y": -66.86519513664014,
       "size": 30
      },
      "file::quaternionmedia/rad/CLAUDE.md": {
@@ -566,9 +566,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/CLAUDE.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -98.794137985079,
-      "y": -127.93719636141991,
+      "label_at": "below",
+      "x": 218.66576480075625,
+      "y": 78.59612046317301,
       "size": 30
      },
      "file::quaternionmedia/rad/HANDOFF.md": {
@@ -580,9 +580,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/HANDOFF.md",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -165.37933961881922,
-      "y": 31.503811856740754,
+      "label_at": "left",
+      "x": 153.00679429236607,
+      "y": -81.22854524899975,
       "size": 30
      },
      "file::quaternionmedia/rad/README.md": {
@@ -594,9 +594,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -48.65877123123063,
-      "y": -50.78764272250943,
+      "label_at": "left",
+      "x": 128.66173444824656,
+      "y": 59.494205728504866,
       "size": 30
      },
      "file::quaternionmedia/rad/REUSE.toml": {
@@ -608,9 +608,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/REUSE.toml",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -260.0144805467996,
-      "y": 3.4749271608025794,
+      "label_at": "none",
+      "x": 66.324559332642,
+      "y": -824.5943237119905,
       "size": 30
      },
      "file::quaternionmedia/rad/REVIEW.md": {
@@ -623,8 +623,8 @@
       "line": 0,
       "meta": {},
       "label_at": "above",
-      "x": -133.37392901968292,
-      "y": -190.1603565361301,
+      "x": 239.74335861867934,
+      "y": -128.32628070012555,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-interaction-efficiency-metrics.md": {
@@ -636,9 +636,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-interaction-efficiency-metrics.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -473.97874427414746,
-      "y": 97.97831110540383,
+      "label_at": "left",
+      "x": -164.91877508949756,
+      "y": -580.2035779593232,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-rad-adoption-and-scope.md": {
@@ -650,9 +650,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-adoption-and-scope.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -575.3305243830255,
-      "y": 65.87865448158192,
+      "label_at": "right",
+      "x": -70.5543592167179,
+      "y": -629.1722240871745,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-rad-core-extraction.md": {
@@ -664,9 +664,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-core-extraction.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -468.99618220173875,
-      "y": 16.94393403970892,
+      "label_at": "below",
+      "x": -111.14202098620008,
+      "y": -519.3804169978595,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-rad-host-integration-standard.md": {
@@ -678,9 +678,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-host-integration-standard.md",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -518.452980421436,
-      "y": 133.79103063235405,
+      "label_at": "left",
+      "x": -158.79415795189635,
+      "y": -636.9750287574011,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-rad-interaction-contract.md": {
@@ -692,9 +692,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-interaction-contract.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -563.7249903679349,
-      "y": 5.54741562166771,
+      "label_at": "right",
+      "x": -36.10008290284884,
+      "y": -578.305244170582,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-rad-platform-plans.md": {
@@ -706,9 +706,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-platform-plans.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -436.27671862890713,
-      "y": 73.73184140643377,
+      "label_at": "left",
+      "x": -174.43328994374022,
+      "y": -536.3993768171287,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-rad-release-milestones.md": {
@@ -720,9 +720,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-release-milestones.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -584.1656181961326,
-      "y": 111.37305389843877,
+      "label_at": "above",
+      "x": -96.47640280271929,
+      "y": -667.5889771685107,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-rad-theme-tokens.md": {
@@ -734,9 +734,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-theme-tokens.md",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": -496.22260799107335,
-      "y": -22.602855711669207,
+      "label_at": "right",
+      "x": -63.92622747573121,
+      "y": -510.6686040936122,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-rad-to-rad-messaging.md": {
@@ -748,9 +748,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-rad-to-rad-messaging.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -469.52793082253794,
-      "y": 142.8245709552648,
+      "label_at": "left",
+      "x": -199.77706991361757,
+      "y": -608.7674720365845,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-tempo-driven-interaction-speed.md": {
@@ -762,9 +762,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-tempo-driven-interaction-speed.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -606.3766070057385,
-      "y": 34.443566751332185,
+      "label_at": "right",
+      "x": -26.373499963666024,
+      "y": -628.897155937719,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-the-menu-addresses-nine-cells.md": {
@@ -776,9 +776,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-the-menu-addresses-nine-cells.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -425.5383001781469,
-      "y": 21.53822511194278,
+      "label_at": "below",
+      "x": -145.12003843300823,
+      "y": -491.89970829489414,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-the-ring-has-an-authored-graph-mode.md": {
@@ -791,8 +791,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": -554.6915143812957,
-      "y": 157.85927374152374,
+      "x": -150.18846276236076,
+      "y": -679.6183597744174,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/DRAFT-unified-artifact-pipeline.md": {
@@ -804,9 +804,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/DRAFT-unified-artifact-pipeline.md",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": -551.3548537002573,
-      "y": -36.170898519129906,
+      "label_at": "right",
+      "x": -15.34778759613937,
+      "y": -540.0589338200342,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/README.md": {
@@ -818,9 +818,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -418.7789985634754,
-      "y": 113.75334263743994,
+      "label_at": "left",
+      "x": -215.10552137102113,
+      "y": -552.3260952172683,
       "size": 30
      },
      "file::quaternionmedia/rad/adr/TEMPLATE.md": {
@@ -832,9 +832,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/adr/TEMPLATE.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -623.6650379118846,
-      "y": 92.07187063496082,
+      "label_at": "right",
+      "x": -54.89809769824798,
+      "y": -681.8712871319228,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/a11y-foundation.md": {
@@ -846,9 +846,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/a11y-foundation.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 358.5468546006491,
-      "y": 370.3651477771991,
+      "label_at": "left",
+      "x": 543.5913809299736,
+      "y": 166.0224445534485,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/chord-input.md": {
@@ -860,9 +860,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/chord-input.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 257.1950744917711,
-      "y": 338.2654911533772,
+      "label_at": "right",
+      "x": 637.9557968027533,
+      "y": 117.05379842559715,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/conformance.md": {
@@ -874,9 +874,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/conformance.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 363.52941667305777,
-      "y": 289.3307707115042,
+      "label_at": "below",
+      "x": 597.3681350332711,
+      "y": 226.84560551491205,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/keyboard-path.md": {
@@ -888,9 +888,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/keyboard-path.md",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 314.07261845336063,
-      "y": 406.1778673041493,
+      "label_at": "left",
+      "x": 549.7159980675748,
+      "y": 109.2509937553705,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/overview.md": {
@@ -902,9 +902,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/overview.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 268.80060850686175,
-      "y": 277.934252293463,
+      "label_at": "right",
+      "x": 672.4100731166224,
+      "y": 167.9207783421896,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/quantized-commit.md": {
@@ -916,9 +916,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/quantized-commit.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 396.2488802458895,
-      "y": 346.11867807822904,
+      "label_at": "left",
+      "x": 534.0768660757309,
+      "y": 209.82664569564292,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/reduced-motion.md": {
@@ -930,9 +930,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/reduced-motion.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 248.35998067866393,
-      "y": 383.759890570234,
+      "label_at": "above",
+      "x": 612.0337532167518,
+      "y": 78.63704534426095,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/release-select.md": {
@@ -944,9 +944,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/release-select.md",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": 336.30299088372334,
-      "y": 249.78398096012612,
+      "label_at": "right",
+      "x": 644.58392854374,
+      "y": 235.55741841915946,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/speed-axes.md": {
@@ -958,9 +958,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/speed-axes.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 362.99766805225863,
-      "y": 415.21140762706005,
+      "label_at": "left",
+      "x": 508.73308610585354,
+      "y": 137.45855047618718,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/submenu-drag-through.md": {
@@ -972,9 +972,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/submenu-drag-through.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 226.14899186905814,
-      "y": 306.83040342312745,
+      "label_at": "right",
+      "x": 682.1366560558051,
+      "y": 117.32886657505254,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/themes.md": {
@@ -986,9 +986,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/docs/guide/themes.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 406.98729869664965,
-      "y": 293.92506178373804,
+      "label_at": "below",
+      "x": 563.3901175864628,
+      "y": 254.3263142178775,
       "size": 30
      },
      "file::quaternionmedia/rad/docs/guide/tour.md": {
@@ -1001,8 +1001,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": 277.8340844935008,
-      "y": 430.246110413319,
+      "x": 558.3216932571103,
+      "y": 66.60766273835438,
       "size": 30
      },
      "file::quaternionmedia/rad/index.html": {
@@ -1014,9 +1014,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -28.520078401737642,
-      "y": -127.27106998048076,
+      "label_at": "none",
+      "x": 690.1926795574788,
+      "y": 644.8598624446396,
       "size": 30
      },
      "file::quaternionmedia/rad/messaging/demo.mjs": {
@@ -1028,9 +1028,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/demo.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -158.5825886993329,
-      "y": -456.4788615259856,
+      "label_at": "none",
+      "x": 308.88050857823885,
+      "y": 444.8958727711358,
       "size": 30
      },
      "file::quaternionmedia/rad/messaging/session.mjs": {
@@ -1042,9 +1042,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -259.93436880821093,
-      "y": -488.57851814980745,
+      "label_at": "none",
+      "x": 97.12373991955161,
+      "y": 587.4619214012068,
       "size": 30
      },
      "file::quaternionmedia/rad/messaging/session.test.mjs": {
@@ -1056,9 +1056,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.test.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -153.6000266269242,
-      "y": -537.5132385916804,
+      "label_at": "none",
+      "x": 273.109106891909,
+      "y": 711.0297706303833,
       "size": 30
      },
      "file::quaternionmedia/rad/perspectives/2026-08-09-verification-shaped-prose.md": {
@@ -1070,9 +1070,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/perspectives/2026-08-09-verification-shaped-prose.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -449.0212583979857,
-      "y": 419.13644086228044,
+      "label_at": "left",
+      "x": -293.84401391557316,
+      "y": 717.2580854354949,
       "size": 30
      },
      "file::quaternionmedia/rad/perspectives/g0-interpretive-governance.md": {
@@ -1084,9 +1084,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/perspectives/g0-interpretive-governance.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -550.3730385068637,
-      "y": 387.03678423845844,
+      "label_at": "right",
+      "x": -199.47959804279347,
+      "y": 668.2894393076435,
       "size": 30
      },
      "file::quaternionmedia/rad/playwright.config.mjs": {
@@ -1098,9 +1098,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/playwright.config.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -219.4353504178295,
-      "y": 74.58126846758803,
+      "label_at": "right",
+      "x": 343.1717942634822,
+      "y": -74.0982477552842,
       "size": 30
      },
      "file::quaternionmedia/rad/scripts/build-docs.mjs": {
@@ -1112,9 +1112,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/build-docs.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -197.09429342764486,
-      "y": 295.49109159687634,
+      "label_at": "none",
+      "x": 575.3871243207205,
+      "y": -652.5397900981618,
       "size": 30
      },
      "file::quaternionmedia/rad/scripts/check-gate.mjs": {
@@ -1126,9 +1126,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-gate.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -298.44607353652293,
-      "y": 263.39143497305446,
+      "label_at": "none",
+      "x": 655.1804786834747,
+      "y": -395.3747041891572,
       "size": 30
      },
      "file::quaternionmedia/rad/scripts/check-palette.mjs": {
@@ -1140,9 +1140,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-palette.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -192.1117313552362,
-      "y": 214.4567145311815,
+      "label_at": "none",
+      "x": 292.5487596102864,
+      "y": -454.4942350330086,
       "size": 30
      },
      "file::quaternionmedia/rad/scripts/sync-vectors.mjs": {
@@ -1154,9 +1154,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/sync-vectors.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -241.56852957493336,
-      "y": 331.30381112382656,
+      "label_at": "left",
+      "x": 437.3442555328868,
+      "y": -467.1621994558502,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/a11y.spec.mjs": {
@@ -1168,9 +1168,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/a11y.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 176.65715781546234,
-      "y": -419.6017708278049,
+      "label_at": "left",
+      "x": -533.0307989545922,
+      "y": 94.90331221110856,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/conformance.spec.mjs": {
@@ -1182,9 +1182,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/conformance.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 75.30537770658432,
-      "y": -451.7014274516268,
+      "label_at": "none",
+      "x": -281.7964256311067,
+      "y": 407.25591412811167,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/contract.spec.mjs": {
@@ -1196,9 +1196,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 181.63971988787102,
-      "y": -500.6361478934998,
+      "label_at": "none",
+      "x": -277.0144654636429,
+      "y": 184.4944853187149,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/governance.spec.mjs": {
@@ -1210,9 +1210,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/governance.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 132.18292166817383,
-      "y": -383.7890513008547,
+      "label_at": "none",
+      "x": -614.717451176381,
+      "y": -149.65562376967767,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/integration.spec.mjs": {
@@ -1224,9 +1224,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 86.91091172167486,
-      "y": -512.0326663115411,
+      "label_at": "none",
+      "x": -381.1728460182338,
+      "y": -120.10082199513579,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/lib/harness.mjs": {
@@ -1238,9 +1238,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 376.4093581849062,
-      "y": -251.98977317095444,
+      "label_at": "none",
+      "x": -838.9174770808769,
+      "y": 121.66492887076168,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/metrics.spec.mjs": {
@@ -1253,8 +1253,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 214.3591834607027,
-      "y": -443.848240526775,
+      "x": -438.6663830818125,
+      "y": 45.934666083257206,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/pinning.spec.mjs": {
@@ -1266,9 +1266,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/pinning.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 66.47028389347719,
-      "y": -406.2070280347699,
+      "label_at": "none",
+      "x": -680.609012988258,
+      "y": 417.7735616754324,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/ring.spec.mjs": {
@@ -1280,9 +1280,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/ring.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": 154.41329409853648,
-      "y": -540.1829376448779,
+      "label_at": "none",
+      "x": -170.3687983776933,
+      "y": -15.323809226245967,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/speed.spec.mjs": {
@@ -1294,9 +1294,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/speed.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 181.10797126707183,
-      "y": -374.7555109779439,
+      "label_at": "none",
+      "x": -498.9458308960959,
+      "y": -319.6636330798043,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/theme.spec.mjs": {
@@ -1308,9 +1308,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 44.25929508387131,
-      "y": -483.1365151818766,
+      "label_at": "none",
+      "x": -483.81985964464656,
+      "y": 313.2769089321423,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/topics.mjs": {
@@ -1322,9 +1322,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/topics.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 225.09760191146287,
-      "y": -496.041856821266,
+      "label_at": "below",
+      "x": -479.2540448512947,
+      "y": 155.7264731725721,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/topics.spec.mjs": {
@@ -1337,8 +1337,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": 95.94438770831401,
-      "y": -359.720808191685,
+      "x": -526.9061818169911,
+      "y": 38.13186141303058,
       "size": 30
      },
      "file::quaternionmedia/rad/tests/touch.spec.mjs": {
@@ -1350,10 +1350,1401 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/touch.spec.mjs",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": 99.28104838935246,
-      "y": -553.7509804523386,
+      "label_at": "right",
+      "x": -404.2121067679435,
+      "y": 96.80164599984964,
       "size": 30
+     },
+     "html::index.html::anchor::aps-link::482": {
+      "id": "html::index.html::anchor::aps-link::482",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "aps-link",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 482,
+      "meta": {},
+      "x": 656.3220598223594,
+      "y": 647.82315769806,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::aps-out::479": {
+      "id": "html::index.html::anchor::aps-out::479",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "aps-out",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 479,
+      "meta": {},
+      "x": 715.6551941468249,
+      "y": 617.0799623226569,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::aps-range::477": {
+      "id": "html::index.html::anchor::aps-range::477",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "aps-range",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 477,
+      "meta": {},
+      "x": 690.1815575586501,
+      "y": 685.8979529984305,
+      "label_at": "below"
+     },
+     "html::index.html::anchor::bpm-out::462": {
+      "id": "html::index.html::anchor::bpm-out::462",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "bpm-out",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 462,
+      "meta": {},
+      "x": 660.3865234609495,
+      "y": 612.3055914690926,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::bpm-range::460": {
+      "id": "html::index.html::anchor::bpm-range::460",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "bpm-range",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 460,
+      "meta": {},
+      "x": 737.046031754275,
+      "y": 648.9845912748748,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::clock-chip::418": {
+      "id": "html::index.html::anchor::clock-chip::418",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "clock-chip",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 418,
+      "meta": {},
+      "x": 650.6928693361577,
+      "y": 675.1266345302063,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::conf-btn::422": {
+      "id": "html::index.html::anchor::conf-btn::422",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "conf-btn",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 422,
+      "meta": {},
+      "x": 699.3248293919387,
+      "y": 593.3139718285977,
+      "label_at": "above"
+     },
+     "html::index.html::anchor::div-hint::473": {
+      "id": "html::index.html::anchor::div-hint::473",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "div-hint",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 473,
+      "meta": {},
+      "x": 719.5996846192522,
+      "y": 691.1163814803044,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::div-select::466": {
+      "id": "html::index.html::anchor::div-select::466",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "div-select",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 466,
+      "meta": {},
+      "x": 634.9860037263977,
+      "y": 630.0031150320351,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::edges::427": {
+      "id": "html::index.html::anchor::edges::427",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "edges",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 427,
+      "meta": {},
+      "x": 742.9459223630896,
+      "y": 617.479981628751,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::finger::489": {
+      "id": "html::index.html::anchor::finger::489",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "finger",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 489,
+      "meta": {},
+      "x": 669.0400657853563,
+      "y": 702.7320658812413,
+      "label_at": "below"
+     },
+     "html::index.html::anchor::hint::433": {
+      "id": "html::index.html::anchor::hint::433",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "hint",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 433,
+      "meta": {},
+      "x": 665.8945250932932,
+      "y": 585.9507189299477,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::hud::416": {
+      "id": "html::index.html::anchor::hud::416",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "hud",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 416,
+      "meta": {},
+      "x": 749.7487735455455,
+      "y": 672.749316883272,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::log::438": {
+      "id": "html::index.html::anchor::log::438",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "log",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 438,
+      "meta": {},
+      "x": 625.5513711195432,
+      "y": 665.116065036233,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::menu-layer::430": {
+      "id": "html::index.html::anchor::menu-layer::430",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "menu-layer",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 430,
+      "meta": {},
+      "x": 725.1383587604556,
+      "y": 584.5964862942559,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::midi-chip::420": {
+      "id": "html::index.html::anchor::midi-chip::420",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "midi-chip",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 420,
+      "meta": {},
+      "x": 705.5332206171165,
+      "y": 714.7283481874805,
+      "label_at": "below"
+     },
+     "html::index.html::anchor::nodes::428": {
+      "id": "html::index.html::anchor::nodes::428",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "nodes",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 428,
+      "meta": {},
+      "x": 630.1949008435639,
+      "y": 602.6548088444355,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::play-chip::454": {
+      "id": "html::index.html::anchor::play-chip::454",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "play-chip",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 454,
+      "meta": {},
+      "x": 764.7059257915278,
+      "y": 635.2245816669983,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::q-chip::419": {
+      "id": "html::index.html::anchor::q-chip::419",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "q-chip",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 419,
+      "meta": {},
+      "x": 640.637574703412,
+      "y": 703.6256397550985,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::rate-read::456": {
+      "id": "html::index.html::anchor::rate-read::456",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "rate-read",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 456,
+      "meta": {},
+      "x": 686.9676286463347,
+      "y": 566.3564450246284,
+      "label_at": "above"
+     },
+     "html::index.html::anchor::sr-live::439": {
+      "id": "html::index.html::anchor::sr-live::439",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "sr-live",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 439,
+      "meta": {},
+      "x": 746.7716427640039,
+      "y": 701.7463364298909,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::stage::425": {
+      "id": "html::index.html::anchor::stage::425",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "stage",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 425,
+      "meta": {},
+      "x": 608.4195412230878,
+      "y": 641.0563973212841,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::stop-chip::455": {
+      "id": "html::index.html::anchor::stop-chip::455",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "stop-chip",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 455,
+      "meta": {},
+      "x": 754.2854915130285,
+      "y": 591.4044000892309,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::subtitle::413": {
+      "id": "html::index.html::anchor::subtitle::413",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "subtitle",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 413,
+      "meta": {},
+      "x": 678.8318681185476,
+      "y": 729.1235525101065,
+      "label_at": "below"
+     },
+     "html::index.html::anchor::theme-chip::421": {
+      "id": "html::index.html::anchor::theme-chip::421",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "theme-chip",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 421,
+      "meta": {},
+      "x": 640.7719079610862,
+      "y": 573.7888603775715,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::tour-body::487": {
+      "id": "html::index.html::anchor::tour-body::487",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "tour-body",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 487,
+      "meta": {},
+      "x": 776.1168539554886,
+      "y": 664.2144162762414,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::tour-chip::417": {
+      "id": "html::index.html::anchor::tour-chip::417",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "tour-chip",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 417,
+      "meta": {},
+      "x": 612.4710976964425,
+      "y": 689.3680719460144,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::tour-close::445": {
+      "id": "html::index.html::anchor::tour-close::445",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "tour-close",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 445,
+      "meta": {},
+      "x": 717.8820910745168,
+      "y": 558.1477872195585,
+      "label_at": "above"
+     },
+     "html::index.html::anchor::tour-panel::441": {
+      "id": "html::index.html::anchor::tour-panel::441",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "tour-panel",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 441,
+      "meta": {},
+      "x": 728.9517740020794,
+      "y": 728.8091483131597,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::tour-prog::444": {
+      "id": "html::index.html::anchor::tour-prog::444",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "tour-prog",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 444,
+      "meta": {},
+      "x": 603.5989603040389,
+      "y": 608.5922420945748,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::viewport::426": {
+      "id": "html::index.html::anchor::viewport::426",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "viewport",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/index.html",
+      "line": 426,
+      "meta": {},
+      "x": 779.8563370394854,
+      "y": 612.6371448846729,
+      "label_at": "right"
+     },
+     "javascript::build-docs.mjs::function::die::35": {
+      "id": "javascript::build-docs.mjs::function::die::35",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "die",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/build-docs.mjs",
+      "line": 35,
+      "meta": {},
+      "x": 541.5165045856012,
+      "y": -649.5764948447414,
+      "label_at": "left"
+     },
+     "javascript::build-docs.mjs::function::fail::34": {
+      "id": "javascript::build-docs.mjs::function::fail::34",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "fail",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/build-docs.mjs",
+      "line": 34,
+      "meta": {},
+      "x": 600.8496389100667,
+      "y": -680.3196902201445,
+      "label_at": "right"
+     },
+     "javascript::build-docs.mjs::function::findVideo::136": {
+      "id": "javascript::build-docs.mjs::function::findVideo::136",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "findVideo",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/build-docs.mjs",
+      "line": 136,
+      "meta": {},
+      "x": 575.3760023218917,
+      "y": -611.5016995443708,
+      "label_at": "below"
+     },
+     "javascript::build-docs.mjs::function::maskMeasurements::339": {
+      "id": "javascript::build-docs.mjs::function::maskMeasurements::339",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "maskMeasurements",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/build-docs.mjs",
+      "line": 339,
+      "meta": {},
+      "x": 545.5809682241913,
+      "y": -685.0940610737086,
+      "label_at": "left"
+     },
+     "javascript::build-docs.mjs::function::p95::59": {
+      "id": "javascript::build-docs.mjs::function::p95::59",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "p95",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/build-docs.mjs",
+      "line": 59,
+      "meta": {},
+      "x": 622.2404765175168,
+      "y": -648.4150612679265,
+      "label_at": "right"
+     },
+     "javascript::build-docs.mjs::function::percentile::64": {
+      "id": "javascript::build-docs.mjs::function::percentile::64",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "percentile",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/build-docs.mjs",
+      "line": 64,
+      "meta": {},
+      "x": 535.8873140993996,
+      "y": -622.273018012595,
+      "label_at": "left"
+     },
+     "javascript::build-docs.mjs::function::resolveFfmpeg::106": {
+      "id": "javascript::build-docs.mjs::function::resolveFfmpeg::106",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "resolveFfmpeg",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/build-docs.mjs",
+      "line": 106,
+      "meta": {},
+      "x": 584.5192741551806,
+      "y": -704.0856807142038,
+      "label_at": "above"
+     },
+     "javascript::check-gate.mjs::function::walk::32": {
+      "id": "javascript::check-gate.mjs::function::walk::32",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "walk",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-gate.mjs",
+      "line": 32,
+      "meta": {},
+      "x": 621.3098589483553,
+      "y": -392.4114089357368,
+      "label_at": "left"
+     },
+     "javascript::check-palette.mjs::function::L::9": {
+      "id": "javascript::check-palette.mjs::function::L::9",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "L",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-palette.mjs",
+      "line": 9,
+      "meta": {},
+      "x": 258.6781398751671,
+      "y": -451.53093977958815,
+      "label_at": "left"
+     },
+     "javascript::check-palette.mjs::function::lin::8": {
+      "id": "javascript::check-palette.mjs::function::lin::8",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "lin",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-palette.mjs",
+      "line": 8,
+      "meta": {},
+      "x": 318.0112741996325,
+      "y": -482.27413515499114,
+      "label_at": "right"
+     },
+     "javascript::check-palette.mjs::function::ratio::10": {
+      "id": "javascript::check-palette.mjs::function::ratio::10",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "ratio",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-palette.mjs",
+      "line": 10,
+      "meta": {},
+      "x": 292.5376376114577,
+      "y": -413.45614447921764,
+      "label_at": "below"
+     },
+     "javascript::check-palette.mjs::function::report::55": {
+      "id": "javascript::check-palette.mjs::function::report::55",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "report",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-palette.mjs",
+      "line": 55,
+      "meta": {},
+      "x": 262.7426035137572,
+      "y": -487.04850600855536,
+      "label_at": "left"
+     },
+     "javascript::check-palette.mjs::function::roles::13": {
+      "id": "javascript::check-palette.mjs::function::roles::13",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "roles",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-palette.mjs",
+      "line": 13,
+      "meta": {},
+      "x": 339.4021118070826,
+      "y": -450.3695062027734,
+      "label_at": "right"
+     },
+     "javascript::check-palette.mjs::function::textMin::52": {
+      "id": "javascript::check-palette.mjs::function::textMin::52",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "textMin",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-palette.mjs",
+      "line": 52,
+      "meta": {},
+      "x": 253.04894938896553,
+      "y": -424.22746294744195,
+      "label_at": "left"
+     },
+     "javascript::check-palette.mjs::function::uiMin::53": {
+      "id": "javascript::check-palette.mjs::function::uiMin::53",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "uiMin",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/scripts/check-palette.mjs",
+      "line": 53,
+      "meta": {},
+      "x": 301.6809094447464,
+      "y": -506.0401256490506,
+      "label_at": "above"
+     },
+     "javascript::conformance.spec.mjs::function::walk::111": {
+      "id": "javascript::conformance.spec.mjs::function::walk::111",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "walk",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/conformance.spec.mjs",
+      "line": 111,
+      "meta": {},
+      "x": -315.667045366226,
+      "y": 410.21920938153204,
+      "label_at": "left"
+     },
+     "javascript::contract.spec.mjs::function::attempt::15": {
+      "id": "javascript::contract.spec.mjs::function::attempt::15",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "attempt",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
+      "line": 15,
+      "meta": {},
+      "x": -310.8850851987622,
+      "y": 187.45778057213528,
+      "label_at": "left"
+     },
+     "javascript::contract.spec.mjs::function::idle::66": {
+      "id": "javascript::contract.spec.mjs::function::idle::66",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "idle",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
+      "line": 66,
+      "meta": {},
+      "x": -251.55195087429672,
+      "y": 156.71458519673217,
+      "label_at": "right"
+     },
+     "javascript::contract.spec.mjs::function::mk::14": {
+      "id": "javascript::contract.spec.mjs::function::mk::14",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "mk",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
+      "line": 14,
+      "meta": {},
+      "x": -277.02558746247155,
+      "y": 225.53257587250576,
+      "label_at": "below"
+     },
+     "javascript::contract.spec.mjs::function::rMid::179": {
+      "id": "javascript::contract.spec.mjs::function::rMid::179",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "rMid",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
+      "line": 179,
+      "meta": {},
+      "x": -306.82062156017196,
+      "y": 151.94021434316795,
+      "label_at": "left"
+     },
+     "javascript::contract.spec.mjs::function::run::63": {
+      "id": "javascript::contract.spec.mjs::function::run::63",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "run",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
+      "line": 63,
+      "meta": {},
+      "x": -230.16111326684668,
+      "y": 188.61921414895005,
+      "label_at": "right"
+     },
+     "javascript::contract.spec.mjs::function::spec::62": {
+      "id": "javascript::contract.spec.mjs::function::spec::62",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "spec",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
+      "line": 62,
+      "meta": {},
+      "x": -316.51427568496376,
+      "y": 214.7612574042815,
+      "label_at": "left"
+     },
+     "javascript::contract.spec.mjs::function::track::64": {
+      "id": "javascript::contract.spec.mjs::function::track::64",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "track",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
+      "line": 64,
+      "meta": {},
+      "x": -267.8823156291829,
+      "y": 132.94859470267284,
+      "label_at": "above"
+     },
+     "javascript::contract.spec.mjs::function::walk::26": {
+      "id": "javascript::contract.spec.mjs::function::walk::26",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "walk",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/contract.spec.mjs",
+      "line": 26,
+      "meta": {},
+      "x": -247.6074604018694,
+      "y": 230.75100435437977,
+      "label_at": "right"
+     },
+     "javascript::demo.mjs::function::line::14": {
+      "id": "javascript::demo.mjs::function::line::14",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "line",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/demo.mjs",
+      "line": 14,
+      "meta": {},
+      "x": 275.00988884311954,
+      "y": 447.8591680245561,
+      "label_at": "left"
+     },
+     "javascript::demo.mjs::function::rule::15": {
+      "id": "javascript::demo.mjs::function::rule::15",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "rule",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/demo.mjs",
+      "line": 15,
+      "meta": {},
+      "x": 334.3430231675851,
+      "y": 417.11597264915315,
+      "label_at": "right"
+     },
+     "javascript::governance.spec.mjs::function::proseOnly::27": {
+      "id": "javascript::governance.spec.mjs::function::proseOnly::27",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "proseOnly",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/governance.spec.mjs",
+      "line": 27,
+      "meta": {},
+      "x": -648.5880709115004,
+      "y": -146.6923285162573,
+      "label_at": "left"
+     },
+     "javascript::governance.spec.mjs::function::status::107": {
+      "id": "javascript::governance.spec.mjs::function::status::107",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "status",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/governance.spec.mjs",
+      "line": 107,
+      "meta": {},
+      "x": -589.254936587035,
+      "y": -177.43552389166035,
+      "label_at": "right"
+     },
+     "javascript::harness.mjs::function::L::82": {
+      "id": "javascript::harness.mjs::function::L::82",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "L",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 82,
+      "meta": {},
+      "x": -872.7880968159961,
+      "y": 124.62822412418207,
+      "label_at": "left"
+     },
+     "javascript::harness.mjs::function::bootPage::21": {
+      "id": "javascript::harness.mjs::function::bootPage::21",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "bootPage",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 21,
+      "meta": {},
+      "x": -813.4549624915306,
+      "y": 93.885028748779,
+      "label_at": "right"
+     },
+     "javascript::harness.mjs::function::ensureStaging::15": {
+      "id": "javascript::harness.mjs::function::ensureStaging::15",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "ensureStaging",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 15,
+      "meta": {},
+      "x": -838.9285990797056,
+      "y": 162.7030194245526,
+      "label_at": "below"
+     },
+     "javascript::harness.mjs::function::lin::73": {
+      "id": "javascript::harness.mjs::function::lin::73",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "lin",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 73,
+      "meta": {},
+      "x": -868.7236331774061,
+      "y": 89.11065789521476,
+      "label_at": "left"
+     },
+     "javascript::harness.mjs::function::nodeCenter::46": {
+      "id": "javascript::harness.mjs::function::nodeCenter::46",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "nodeCenter",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 46,
+      "meta": {},
+      "x": -792.0641248840806,
+      "y": 125.78965770099686,
+      "label_at": "right"
+     },
+     "javascript::harness.mjs::function::p95::129": {
+      "id": "javascript::harness.mjs::function::p95::129",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "p95",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 129,
+      "meta": {},
+      "x": -878.4172873021978,
+      "y": 151.9317009563283,
+      "label_at": "left"
+     },
+     "javascript::harness.mjs::function::parse::74": {
+      "id": "javascript::harness.mjs::function::parse::74",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "parse",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 74,
+      "meta": {},
+      "x": -829.7853272464171,
+      "y": 70.11903825471964,
+      "label_at": "above"
+     },
+     "javascript::harness.mjs::function::setTempo::36": {
+      "id": "javascript::harness.mjs::function::setTempo::36",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "setTempo",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 36,
+      "meta": {},
+      "x": -809.5104720191032,
+      "y": 167.92144790642655,
+      "label_at": "right"
+     },
+     "javascript::harness.mjs::function::snapshot::110": {
+      "id": "javascript::harness.mjs::function::snapshot::110",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "snapshot",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 110,
+      "meta": {},
+      "x": -894.1241529119578,
+      "y": 106.80818145815711,
+      "label_at": "left"
+     },
+     "javascript::harness.mjs::function::tokenContrast::93": {
+      "id": "javascript::harness.mjs::function::tokenContrast::93",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "tokenContrast",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 93,
+      "meta": {},
+      "x": -786.1642342752659,
+      "y": 94.28504805487319,
+      "label_at": "right"
+     },
+     "javascript::harness.mjs::function::tokenValue::87": {
+      "id": "javascript::harness.mjs::function::tokenValue::87",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "tokenValue",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 87,
+      "meta": {},
+      "x": -860.0700908529994,
+      "y": 179.53713230736344,
+      "label_at": "below"
+     },
+     "javascript::harness.mjs::function::touch::54": {
+      "id": "javascript::harness.mjs::function::touch::54",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "touch",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 54,
+      "meta": {},
+      "x": -863.2156315450626,
+      "y": 62.75578535606973,
+      "label_at": "left"
+     },
+     "javascript::harness.mjs::function::v::96": {
+      "id": "javascript::harness.mjs::function::v::96",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "v",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 96,
+      "meta": {},
+      "x": -779.36138309281,
+      "y": 149.55438330939398,
+      "label_at": "right"
+     },
+     "javascript::harness.mjs::function::writeArtifact::102": {
+      "id": "javascript::harness.mjs::function::writeArtifact::102",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "writeArtifact",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/lib/harness.mjs",
+      "line": 102,
+      "meta": {},
+      "x": -903.5587855188124,
+      "y": 141.9211314623551,
+      "label_at": "left"
+     },
+     "javascript::integration.spec.mjs::function::at::84": {
+      "id": "javascript::integration.spec.mjs::function::at::84",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "at",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 84,
+      "meta": {},
+      "x": -415.04346575335325,
+      "y": -117.13752674171538,
+      "label_at": "left"
+     },
+     "javascript::integration.spec.mjs::function::attempt::172": {
+      "id": "javascript::integration.spec.mjs::function::attempt::172",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "attempt",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 172,
+      "meta": {},
+      "x": -355.7103314288876,
+      "y": -147.88072211711847,
+      "label_at": "right"
+     },
+     "javascript::integration.spec.mjs::function::attempt::186": {
+      "id": "javascript::integration.spec.mjs::function::attempt::186",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "attempt",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 186,
+      "meta": {},
+      "x": -381.18396801706257,
+      "y": -79.06273144134485,
+      "label_at": "below"
+     },
+     "javascript::integration.spec.mjs::function::mk::168": {
+      "id": "javascript::integration.spec.mjs::function::mk::168",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "mk",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 168,
+      "meta": {},
+      "x": -410.97900211476286,
+      "y": -152.65509297068272,
+      "label_at": "left"
+     },
+     "javascript::integration.spec.mjs::function::onIntent::50": {
+      "id": "javascript::integration.spec.mjs::function::onIntent::50",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "onIntent",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 50,
+      "meta": {},
+      "x": -334.3194938214377,
+      "y": -115.97609316490059,
+      "label_at": "right"
+     },
+     "javascript::integration.spec.mjs::function::open::224": {
+      "id": "javascript::integration.spec.mjs::function::open::224",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "open",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 224,
+      "meta": {},
+      "x": -420.67265623955467,
+      "y": -89.83404990956913,
+      "label_at": "left"
+     },
+     "javascript::integration.spec.mjs::function::resolve::36": {
+      "id": "javascript::integration.spec.mjs::function::resolve::36",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "resolve",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 36,
+      "meta": {},
+      "x": -372.04069618377383,
+      "y": -171.6467126111778,
+      "label_at": "above"
+     },
+     "javascript::integration.spec.mjs::function::snapshot::261": {
+      "id": "javascript::integration.spec.mjs::function::snapshot::261",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "snapshot",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 261,
+      "meta": {},
+      "x": -436.37952184931487,
+      "y": -134.95756940774035,
+      "label_at": "left"
+     },
+     "javascript::integration.spec.mjs::function::snapshot::28": {
+      "id": "javascript::integration.spec.mjs::function::snapshot::28",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "snapshot",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 28,
+      "meta": {},
+      "x": -351.7658409564603,
+      "y": -73.8443029594709,
+      "label_at": "right"
+     },
+     "javascript::integration.spec.mjs::function::toPolar::29": {
+      "id": "javascript::integration.spec.mjs::function::toPolar::29",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "toPolar",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 29,
+      "meta": {},
+      "x": -328.41960321262286,
+      "y": -147.4807028110243,
+      "label_at": "right"
+     },
+     "javascript::integration.spec.mjs::function::wx::31": {
+      "id": "javascript::integration.spec.mjs::function::wx::31",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "wx",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 31,
+      "meta": {},
+      "x": -402.32545979035626,
+      "y": -62.22861855853403,
+      "label_at": "below"
+     },
+     "javascript::integration.spec.mjs::function::wy::32": {
+      "id": "javascript::integration.spec.mjs::function::wy::32",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "wy",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/integration.spec.mjs",
+      "line": 32,
+      "meta": {},
+      "x": -405.4710004824194,
+      "y": -179.00996550982777,
+      "label_at": "left"
+     },
+     "javascript::pinning.spec.mjs::function::perturb::48": {
+      "id": "javascript::pinning.spec.mjs::function::perturb::48",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "perturb",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/pinning.spec.mjs",
+      "line": 48,
+      "meta": {},
+      "x": -714.4796327233774,
+      "y": 420.73685692885283,
+      "label_at": "left"
+     },
+     "javascript::ring.spec.mjs::function::attempt::96": {
+      "id": "javascript::ring.spec.mjs::function::attempt::96",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "attempt",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/ring.spec.mjs",
+      "line": 96,
+      "meta": {},
+      "x": -204.23941811281264,
+      "y": -12.360513972825586,
+      "label_at": "left"
+     },
+     "javascript::ring.spec.mjs::function::run::57": {
+      "id": "javascript::ring.spec.mjs::function::run::57",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "run",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/ring.spec.mjs",
+      "line": 57,
+      "meta": {},
+      "x": -144.90628378834708,
+      "y": -43.103709348228655,
+      "label_at": "right"
+     },
+     "javascript::session.mjs::class::BlindRelay::124": {
+      "id": "javascript::session.mjs::class::BlindRelay::124",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "class",
+      "label": "BlindRelay",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.mjs",
+      "line": 124,
+      "meta": {},
+      "x": 63.253120184432255,
+      "y": 590.4252166546272,
+      "label_at": "left"
+     },
+     "javascript::session.mjs::class::Session::62": {
+      "id": "javascript::session.mjs::class::Session::62",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "class",
+      "label": "Session",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.mjs",
+      "line": 62,
+      "meta": {},
+      "x": 122.58625450889778,
+      "y": 559.6820212792242,
+      "label_at": "right"
+     },
+     "javascript::session.mjs::function::kdf::54": {
+      "id": "javascript::session.mjs::function::kdf::54",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "kdf",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.mjs",
+      "line": 54,
+      "meta": {},
+      "x": 97.1126179207229,
+      "y": 628.5000119549977,
+      "label_at": "below"
+     },
+     "javascript::session.mjs::function::newDevice::35": {
+      "id": "javascript::session.mjs::function::newDevice::35",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "newDevice",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.mjs",
+      "line": 35,
+      "meta": {},
+      "x": 67.31758382302245,
+      "y": 554.9076504256599,
+      "label_at": "left"
+     },
+     "javascript::session.mjs::function::sharedSecret::45": {
+      "id": "javascript::session.mjs::function::sharedSecret::45",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "sharedSecret",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.mjs",
+      "line": 45,
+      "meta": {},
+      "x": 143.97709211634782,
+      "y": 591.586650231442,
+      "label_at": "right"
+     },
+     "javascript::session.test.mjs::function::pair::17": {
+      "id": "javascript::session.test.mjs::function::pair::17",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "pair",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/messaging/session.test.mjs",
+      "line": 17,
+      "meta": {},
+      "x": 239.2384871567897,
+      "y": 713.9930658838036,
+      "label_at": "left"
+     },
+     "javascript::speed.spec.mjs::function::read::124": {
+      "id": "javascript::speed.spec.mjs::function::read::124",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "read",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/speed.spec.mjs",
+      "line": 124,
+      "meta": {},
+      "x": -532.8164506312153,
+      "y": -316.70033782638393,
+      "label_at": "left"
+     },
+     "javascript::theme.spec.mjs::function::threshold::43": {
+      "id": "javascript::theme.spec.mjs::function::threshold::43",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "threshold",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
+      "line": 43,
+      "meta": {},
+      "x": -517.690479379766,
+      "y": 316.2402041855627,
+      "label_at": "left"
+     },
+     "javascript::theme.spec.mjs::function::v::107": {
+      "id": "javascript::theme.spec.mjs::function::v::107",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "v",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
+      "line": 107,
+      "meta": {},
+      "x": -436.96650744785035,
+      "y": 317.4016377623774,
+      "label_at": "right"
+     },
+     "javascript::theme.spec.mjs::function::v::228": {
+      "id": "javascript::theme.spec.mjs::function::v::228",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "v",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
+      "line": 228,
+      "meta": {},
+      "x": -523.3196698659675,
+      "y": 343.5436810177089,
+      "label_at": "left"
+     },
+     "javascript::theme.spec.mjs::function::v::55": {
+      "id": "javascript::theme.spec.mjs::function::v::55",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "v",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
+      "line": 55,
+      "meta": {},
+      "x": -458.3573450553003,
+      "y": 285.49700881015957,
+      "label_at": "right"
+     },
+     "javascript::theme.spec.mjs::function::v::70": {
+      "id": "javascript::theme.spec.mjs::function::v::70",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "v",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
+      "line": 70,
+      "meta": {},
+      "x": -483.83098164347535,
+      "y": 354.3149994859332,
+      "label_at": "below"
+     },
+     "javascript::theme.spec.mjs::function::v::84": {
+      "id": "javascript::theme.spec.mjs::function::v::84",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "v",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
+      "line": 84,
+      "meta": {},
+      "x": -513.6260157411757,
+      "y": 280.72263795659535,
+      "label_at": "left"
+     },
+     "javascript::theme.spec.mjs::function::walk::121": {
+      "id": "javascript::theme.spec.mjs::function::walk::121",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "walk",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
+      "line": 121,
+      "meta": {},
+      "x": -474.6877098101867,
+      "y": 261.73101831610023,
+      "label_at": "above"
+     },
+     "javascript::theme.spec.mjs::function::walk::145": {
+      "id": "javascript::theme.spec.mjs::function::walk::145",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "walk",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/tests/theme.spec.mjs",
+      "line": 145,
+      "meta": {},
+      "x": -454.41285458287314,
+      "y": 359.53342796780714,
+      "label_at": "right"
+     },
+     "toml::REUSE.toml::array_section::annotations::19": {
+      "id": "toml::REUSE.toml::array_section::annotations::19",
+      "depth": 2,
+      "language": "toml",
+      "kind": "array_section",
+      "label": "annotations",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/REUSE.toml",
+      "line": 19,
+      "meta": {},
+      "x": 32.45393959752265,
+      "y": -821.6310284585701,
+      "label_at": "left"
+     },
+     "toml::REUSE.toml::array_section::annotations::28": {
+      "id": "toml::REUSE.toml::array_section::annotations::28",
+      "depth": 2,
+      "language": "toml",
+      "kind": "array_section",
+      "label": "annotations",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/REUSE.toml",
+      "line": 28,
+      "meta": {},
+      "x": 91.78707392198818,
+      "y": -852.374223833973,
+      "label_at": "right"
+     },
+     "toml::REUSE.toml::array_section::annotations::46": {
+      "id": "toml::REUSE.toml::array_section::annotations::46",
+      "depth": 2,
+      "language": "toml",
+      "kind": "array_section",
+      "label": "annotations",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/REUSE.toml",
+      "line": 46,
+      "meta": {},
+      "x": 66.31343733381324,
+      "y": -783.5562331581995,
+      "label_at": "below"
+     },
+     "toml::REUSE.toml::array_section::annotations::62": {
+      "id": "toml::REUSE.toml::array_section::annotations::62",
+      "depth": 2,
+      "language": "toml",
+      "kind": "array_section",
+      "label": "annotations",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad/main/REUSE.toml",
+      "line": 62,
+      "meta": {},
+      "x": 36.518403236112846,
+      "y": -857.1485946875374,
+      "label_at": "left"
      }
     },
     "edges": [
@@ -1948,12 +3339,548 @@
        "kind": "contains",
        "weight": 1
       }
+     },
+     {
+      "source": "file::quaternionmedia/rad/REUSE.toml",
+      "target": "toml::REUSE.toml::array_section::annotations::19",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/REUSE.toml",
+      "target": "toml::REUSE.toml::array_section::annotations::28",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/REUSE.toml",
+      "target": "toml::REUSE.toml::array_section::annotations::46",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/REUSE.toml",
+      "target": "toml::REUSE.toml::array_section::annotations::62",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::subtitle::413",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::hud::416",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::tour-chip::417",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::clock-chip::418",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::q-chip::419",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::midi-chip::420",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::theme-chip::421",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::conf-btn::422",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::stage::425",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::viewport::426",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::edges::427",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::nodes::428",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::menu-layer::430",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::hint::433",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::log::438",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::sr-live::439",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::tour-panel::441",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::tour-prog::444",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::tour-close::445",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::play-chip::454",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::stop-chip::455",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::rate-read::456",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::bpm-range::460",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::bpm-out::462",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::div-select::466",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::div-hint::473",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::aps-range::477",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::aps-out::479",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::aps-link::482",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::tour-body::487",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/index.html",
+      "target": "html::index.html::anchor::finger::489",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/messaging/demo.mjs",
+      "target": "javascript::demo.mjs::function::line::14",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/messaging/demo.mjs",
+      "target": "javascript::demo.mjs::function::rule::15",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/messaging/session.mjs",
+      "target": "javascript::session.mjs::function::newDevice::35",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/messaging/session.mjs",
+      "target": "javascript::session.mjs::function::sharedSecret::45",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/messaging/session.mjs",
+      "target": "javascript::session.mjs::function::kdf::54",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/messaging/session.mjs",
+      "target": "javascript::session.mjs::class::Session::62",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/messaging/session.mjs",
+      "target": "javascript::session.mjs::class::BlindRelay::124",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/messaging/session.test.mjs",
+      "target": "javascript::session.test.mjs::function::pair::17",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/check-gate.mjs",
+      "target": "javascript::check-gate.mjs::function::walk::32",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/check-palette.mjs",
+      "target": "javascript::check-palette.mjs::function::lin::8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/check-palette.mjs",
+      "target": "javascript::check-palette.mjs::function::L::9",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/check-palette.mjs",
+      "target": "javascript::check-palette.mjs::function::ratio::10",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/check-palette.mjs",
+      "target": "javascript::check-palette.mjs::function::roles::13",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/check-palette.mjs",
+      "target": "javascript::check-palette.mjs::function::textMin::52",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/check-palette.mjs",
+      "target": "javascript::check-palette.mjs::function::uiMin::53",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/check-palette.mjs",
+      "target": "javascript::check-palette.mjs::function::report::55",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "target": "javascript::contract.spec.mjs::function::mk::14",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "target": "javascript::contract.spec.mjs::function::attempt::15",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "target": "javascript::contract.spec.mjs::function::walk::26",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "target": "javascript::contract.spec.mjs::function::spec::62",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "target": "javascript::contract.spec.mjs::function::run::63",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "target": "javascript::contract.spec.mjs::function::track::64",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "target": "javascript::contract.spec.mjs::function::idle::66",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/contract.spec.mjs",
+      "target": "javascript::contract.spec.mjs::function::rMid::179",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/conformance.spec.mjs",
+      "target": "javascript::conformance.spec.mjs::function::walk::111",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/build-docs.mjs",
+      "target": "javascript::build-docs.mjs::function::fail::34",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/build-docs.mjs",
+      "target": "javascript::build-docs.mjs::function::die::35",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/build-docs.mjs",
+      "target": "javascript::build-docs.mjs::function::p95::59",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/build-docs.mjs",
+      "target": "javascript::build-docs.mjs::function::percentile::64",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/build-docs.mjs",
+      "target": "javascript::build-docs.mjs::function::resolveFfmpeg::106",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/build-docs.mjs",
+      "target": "javascript::build-docs.mjs::function::findVideo::136",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/scripts/build-docs.mjs",
+      "target": "javascript::build-docs.mjs::function::maskMeasurements::339",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/governance.spec.mjs",
+      "target": "javascript::governance.spec.mjs::function::proseOnly::27",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/governance.spec.mjs",
+      "target": "javascript::governance.spec.mjs::function::status::107",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/pinning.spec.mjs",
+      "target": "javascript::pinning.spec.mjs::function::perturb::48",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/ring.spec.mjs",
+      "target": "javascript::ring.spec.mjs::function::run::57",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/ring.spec.mjs",
+      "target": "javascript::ring.spec.mjs::function::attempt::96",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/speed.spec.mjs",
+      "target": "javascript::speed.spec.mjs::function::read::124",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::snapshot::28",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::toPolar::29",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::wx::31",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::wy::32",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::resolve::36",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::onIntent::50",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::at::84",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::mk::168",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::attempt::172",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::attempt::186",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::open::224",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/integration.spec.mjs",
+      "target": "javascript::integration.spec.mjs::function::snapshot::261",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "target": "javascript::theme.spec.mjs::function::threshold::43",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "target": "javascript::theme.spec.mjs::function::v::55",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "target": "javascript::theme.spec.mjs::function::v::70",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "target": "javascript::theme.spec.mjs::function::v::84",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "target": "javascript::theme.spec.mjs::function::v::107",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "target": "javascript::theme.spec.mjs::function::walk::121",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "target": "javascript::theme.spec.mjs::function::walk::145",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/theme.spec.mjs",
+      "target": "javascript::theme.spec.mjs::function::v::228",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::ensureStaging::15",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::bootPage::21",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::setTempo::36",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::nodeCenter::46",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::touch::54",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::lin::73",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::parse::74",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::L::82",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::tokenValue::87",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::tokenContrast::93",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::v::96",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::writeArtifact::102",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::snapshot::110",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad/tests/lib/harness.mjs",
+      "target": "javascript::harness.mjs::function::p95::129",
+      "kind": "contains"
      }
     ]
    },
    "metadata": {
     "url": "https://github.com/quaternionmedia/rad",
-    "depth": 1,
+    "depth": 2,
+    "floor": 100,
     "truncated": 0
    }
   },

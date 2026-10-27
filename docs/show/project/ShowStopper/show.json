@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "ba587c36ef88c410b1f2ae1e94bd1a60ccbe140f",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:929ac91051a251c0d7de20adb45fc976a3e3c52263a63f9a092ca61d74c6cabd"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "51f8b13c14d3aeeb026981f42798c6abe83adde5"
   },
   "drawn_by": {
-   "graph": "codecartographer@e4309302dc82884a25752380a0cbbfe6d23c2ddd"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-27T15:45:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:ShowStopper",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "ba587c3",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "ba587c3",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -219,7 +219,7 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 0,
+      "x": -359.75412770826017,
       "y": 0,
       "size": 70
      },
@@ -233,8 +233,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 27,
-      "y": 46.76537180435968,
+      "x": -305.75412770826017,
+      "y": 0,
       "size": 30
      },
      "file::quaternionmedia/ShowStopper/pyproject.toml": {
@@ -246,9 +246,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -57.26079071264436,
-      "y": -18.062789013957385,
+      "label_at": "none",
+      "x": -359.75412770826017,
+      "y": 194.03456176047567,
       "size": 30
      },
      "file::quaternionmedia/ShowStopper/stopwatch.py": {
@@ -260,10 +260,1748 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/stopwatch.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 59.397466070365404,
-      "y": -27.677897760122427,
+      "label_at": "none",
+      "x": 84.41343199301338,
+      "y": -3.040201702777864,
       "size": 30
+     },
+     "stopwatch.App": {
+      "id": "stopwatch.App",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "App",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 229.0362366833707,
+      "y": 149.9617865879205,
+      "label_at": "none"
+     },
+     "stopwatch.Digits": {
+      "id": "stopwatch.Digits",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Digits",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 140.20437306970786,
+      "y": -220.99373507414808,
+      "label_at": "none"
+     },
+     "stopwatch.HorizontalGroup": {
+      "id": "stopwatch.HorizontalGroup",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "HorizontalGroup",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -64.8181383042608,
+      "y": 182.91088820253466,
+      "label_at": "none"
+     },
+     "stopwatch.Stopwatch": {
+      "id": "stopwatch.Stopwatch",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Stopwatch",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 56.62663213043584,
+      "y": 22.41478314100197,
+      "label_at": "left"
+     },
+     "stopwatch.StopwatchApp": {
+      "id": "stopwatch.StopwatchApp",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "StopwatchApp",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -47.270714080698326,
+      "y": 72.98767548088558,
+      "label_at": "none"
+     },
+     "stopwatch.TimeDisplay": {
+      "id": "stopwatch.TimeDisplay",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "TimeDisplay",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -38.70032286777439,
+      "y": -74.11996121259922,
+      "label_at": "none"
+     },
+     "stopwatch.action_add_stopwatch": {
+      "id": "stopwatch.action_add_stopwatch",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "action_add_stopwatch",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 84.41343199301338,
+      "y": -141.16953668208077,
+      "label_at": "none"
+     },
+     "stopwatch.action_remove_stopwatch": {
+      "id": "stopwatch.action_remove_stopwatch",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "action_remove_stopwatch",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 186.9058802962968,
+      "y": -138.09318933246024,
+      "label_at": "none"
+     },
+     "stopwatch.action_toggle_dark": {
+      "id": "stopwatch.action_toggle_dark",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "action_toggle_dark",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -122.67300114426702,
+      "y": -12.54647860448474,
+      "label_at": "none"
+     },
+     "stopwatch.compose": {
+      "id": "stopwatch.compose",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "compose",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 126.40085651281503,
+      "y": -29.749164284539827,
+      "label_at": "right"
+     },
+     "stopwatch.monotonic": {
+      "id": "stopwatch.monotonic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "monotonic",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 70.82351236351423,
+      "y": 47.51362193563502,
+      "label_at": "below"
+     },
+     "stopwatch.on_button_pressed": {
+      "id": "stopwatch.on_button_pressed",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "on_button_pressed",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 43.413431993013376,
+      "y": 186.9878224209126,
+      "label_at": "none"
+     },
+     "stopwatch.on_mount": {
+      "id": "stopwatch.on_mount",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "on_mount",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -11.592634155904136,
+      "y": -177.18343864821662,
+      "label_at": "none"
+     },
+     "stopwatch.reactive": {
+      "id": "stopwatch.reactive",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "reactive",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 59.149850737192025,
+      "y": -51.683690086430126,
+      "label_at": "left"
+     },
+     "stopwatch.reset": {
+      "id": "stopwatch.reset",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "reset",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -103.40798578540489,
+      "y": -152.21400800480896,
+      "label_at": "none"
+     },
+     "stopwatch.start": {
+      "id": "stopwatch.start",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "start",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 53.82813797091234,
+      "y": -246.27507226500097,
+      "label_at": "none"
+     },
+     "stopwatch.stop": {
+      "id": "stopwatch.stop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stop",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 277.4956039955697,
+      "y": -167.19702450231767,
+      "label_at": "none"
+     },
+     "stopwatch.textual.app.App": {
+      "id": "stopwatch.textual.app.App",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "textual.app.App",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -158.5856764220906,
+      "y": 72.92481957415674,
+      "label_at": "none"
+     },
+     "stopwatch.textual.app.ComposeResult": {
+      "id": "stopwatch.textual.app.ComposeResult",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "textual.app.ComposeResult",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 138.11517889964614,
+      "y": 16.57159013723414,
+      "label_at": "right"
+     },
+     "stopwatch.textual.containers.HorizontalGroup": {
+      "id": "stopwatch.textual.containers.HorizontalGroup",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "textual.containers.HorizontalGroup",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -170.34968100579619,
+      "y": -92.05746687235813,
+      "label_at": "none"
+     },
+     "stopwatch.textual.containers.VerticalScroll": {
+      "id": "stopwatch.textual.containers.VerticalScroll",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "textual.containers.VerticalScroll",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 29.47461735406614,
+      "y": 19.637742341323577,
+      "label_at": "left"
+     },
+     "stopwatch.textual.reactive.reactive": {
+      "id": "stopwatch.textual.reactive.reactive",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "textual.reactive.reactive",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 227.68146805995082,
+      "y": -242.15402458228138,
+      "label_at": "none"
+     },
+     "stopwatch.textual.widgets.Button": {
+      "id": "stopwatch.textual.widgets.Button",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "textual.widgets.Button",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 224.03841655592575,
+      "y": 239.82291163080936,
+      "label_at": "none"
+     },
+     "stopwatch.textual.widgets.Digits": {
+      "id": "stopwatch.textual.widgets.Digits",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "textual.widgets.Digits",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 110.52944855854474,
+      "y": -58.84861216884374,
+      "label_at": "right"
+     },
+     "stopwatch.textual.widgets.Footer": {
+      "id": "stopwatch.textual.widgets.Footer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "textual.widgets.Footer",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 103.48485448599799,
+      "y": 57.76249843540745,
+      "label_at": "below"
+     },
+     "stopwatch.textual.widgets.Header": {
+      "id": "stopwatch.textual.widgets.Header",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "textual.widgets.Header",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 27.51469303947346,
+      "y": -36.01418395389396,
+      "label_at": "left"
+     },
+     "stopwatch.time.monotonic": {
+      "id": "stopwatch.time.monotonic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "time.monotonic",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 318.5777799706493,
+      "y": 159.0343841064056,
+      "label_at": "none"
+     },
+     "stopwatch.update_time": {
+      "id": "stopwatch.update_time",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "update_time",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 150.57420511871538,
+      "y": -17.585462078906744,
+      "label_at": "right"
+     },
+     "stopwatch.watch_time": {
+      "id": "stopwatch.watch_time",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "watch_time",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 222.54276697231626,
+      "y": -3.040201702777864,
+      "label_at": "none"
+     },
+     "toml::pyproject.toml::section::build-system::11": {
+      "id": "toml::pyproject.toml::section::build-system::11",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "build-system",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
+      "line": 11,
+      "meta": {},
+      "x": -325.75412770826017,
+      "y": 194.03456176047567,
+      "label_at": "right"
+     },
+     "toml::pyproject.toml::section::dependency-groups::19": {
+      "id": "toml::pyproject.toml::section::dependency-groups::19",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "dependency-groups",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
+      "line": 19,
+      "meta": {},
+      "x": -387.5409275708377,
+      "y": 219.4895466042555,
+      "label_at": "left"
+     },
+     "toml::pyproject.toml::section::project::1": {
+      "id": "toml::pyproject.toml::section::project::1",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "project",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
+      "line": 1,
+      "meta": {},
+      "x": -356.1663427688335,
+      "y": 153.15360287704897,
+      "label_at": "above"
+     },
+     "toml::pyproject.toml::section::tool.pdm.scripts::22": {
+      "id": "toml::pyproject.toml::section::tool.pdm.scripts::22",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "tool.pdm.scripts",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
+      "line": 22,
+      "meta": {},
+      "x": -406.06969494970195,
+      "y": 185.84199005779982,
+      "label_at": "left"
+     },
+     "toml::pyproject.toml::section::tool.pdm::16": {
+      "id": "toml::pyproject.toml::section::tool.pdm::16",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "tool.pdm",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ShowStopper/main/pyproject.toml",
+      "line": 16,
+      "meta": {},
+      "x": -332.8986847008852,
+      "y": 229.06273157960317,
+      "label_at": "right"
+     },
+     "stopwatch.BINDINGS": {
+      "id": "stopwatch.BINDINGS",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "BINDINGS",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": -25.270714080698326,
+      "y": 72.98767548088558,
+      "label_at": "right"
+     },
+     "stopwatch.CSS_PATH": {
+      "id": "stopwatch.CSS_PATH",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "CSS_PATH",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": -65.49077677333884,
+      "y": 89.67874541292561,
+      "label_at": "left"
+     },
+     "stopwatch.Const: ':'": {
+      "id": "stopwatch.Const: ':'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: ':'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": 365.15778521914456,
+      "y": -3.040201702777864,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'Add'": {
+      "id": "stopwatch.Const: 'Add'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'Add'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -44.89710162951087,
+      "y": 45.941585857216,
+      "label_at": "above"
+     },
+     "stopwatch.Const: 'Remove'": {
+      "id": "stopwatch.Const: 'Remove'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'Remove'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -29.3895716827642,
+      "y": 96.31045933154977,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'Stopwatch'": {
+      "id": "stopwatch.Const: 'Stopwatch'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'Stopwatch'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": 208.90588029629683,
+      "y": -138.09318933246024,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'Toggle dark mode'": {
+      "id": "stopwatch.Const: 'Toggle dark mode'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'Toggle dark mode'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -78.257912354219,
+      "y": 67.50647641886266,
+      "label_at": "left"
+     },
+     "stopwatch.Const: '__main__'": {
+      "id": "stopwatch.Const: '__main__'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: '__main__'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": 118.41343199301338,
+      "y": -3.040201702777864,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'a'": {
+      "id": "stopwatch.Const: 'a'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'a'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -19.07347126030504,
+      "y": 55.05089769534736,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'add_stopwatch'": {
+      "id": "stopwatch.Const: 'add_stopwatch'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'add_stopwatch'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -56.42475723312771,
+      "y": 107.0402597288316,
+      "label_at": "below"
+     },
+     "stopwatch.Const: 'd'": {
+      "id": "stopwatch.Const: 'd'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'd'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -64.33011218948104,
+      "y": 40.14084251077931,
+      "label_at": "left"
+     },
+     "stopwatch.Const: 'r'": {
+      "id": "stopwatch.Const: 'r'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'r'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -10.933424544328375,
+      "y": 86.257995339503,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'remove_stopwatch'": {
+      "id": "stopwatch.Const: 'remove_stopwatch'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'remove_stopwatch'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -84.51005444309493,
+      "y": 88.35953383872838,
+      "label_at": "left"
+     },
+     "stopwatch.Const: 'reset'": {
+      "id": "stopwatch.Const: 'reset'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'reset'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": 65.41343199301338,
+      "y": 186.9878224209126,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'start'": {
+      "id": "stopwatch.Const: 'start'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'start'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": 25.193369300372918,
+      "y": 203.67889235295263,
+      "label_at": "left"
+     },
+     "stopwatch.Const: 'started'": {
+      "id": "stopwatch.Const: 'started'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'started'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": 156.7006818371018,
+      "y": 186.9878224209126,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'stop'": {
+      "id": "stopwatch.Const: 'stop'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'stop'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": 45.78704444420089,
+      "y": 159.94173279724302,
+      "label_at": "above"
+     },
+     "stopwatch.Const: 'stopwatch.tcss'": {
+      "id": "stopwatch.Const: 'stopwatch.tcss'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'stopwatch.tcss'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -29.541863832544944,
+      "y": 35.1021522711086,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'textual-dark'": {
+      "id": "stopwatch.Const: 'textual-dark'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'textual-dark'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -100.673001144267,
+      "y": -12.54647860448474,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 'textual-light'": {
+      "id": "stopwatch.Const: 'textual-light'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'textual-light'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -140.89306383690752,
+      "y": 4.144591327555283,
+      "label_at": "left"
+     },
+     "stopwatch.Const: 'toggle_dark'": {
+      "id": "stopwatch.Const: 'toggle_dark'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'toggle_dark'",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -34.307239451691316,
+      "y": 114.31727535244363,
+      "label_at": "below"
+     },
+     "stopwatch.Const: 0": {
+      "id": "stopwatch.Const: 0",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 0",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -81.40798578540489,
+      "y": -152.21400800480896,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 0.0": {
+      "id": "stopwatch.Const: 0.0",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 0.0",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -16.70032286777439,
+      "y": -74.11996121259922,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 1": {
+      "id": "stopwatch.Const: 1",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 1",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": 10.407365844095864,
+      "y": -177.18343864821662,
+      "label_at": "right"
+     },
+     "stopwatch.Const: 60": {
+      "id": "stopwatch.Const: 60",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 60",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -29.812696848544647,
+      "y": -160.4923687161766,
+      "label_at": "left"
+     },
+     "stopwatch.Const: True": {
+      "id": "stopwatch.Const: True",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: True",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Constant"
+      },
+      "x": -9.219021704716624,
+      "y": -204.22952827188624,
+      "label_at": "above"
+     },
+     "stopwatch.FormattedValue": {
+      "id": "stopwatch.FormattedValue",
+      "depth": 3,
+      "language": "python",
+      "kind": "string",
+      "label": "FormattedValue",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "FormattedValue"
+      },
+      "x": 331.5060560320421,
+      "y": 11.29806435186094,
+      "label_at": "left"
+     },
+     "stopwatch.JoinedStr": {
+      "id": "stopwatch.JoinedStr",
+      "depth": 3,
+      "language": "python",
+      "kind": "string",
+      "label": "JoinedStr",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "JoinedStr"
+      },
+      "x": 347.15778521914456,
+      "y": -3.040201702777864,
+      "label_at": "none"
+     },
+     "stopwatch.__name__": {
+      "id": "stopwatch.__name__",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "__name__",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 88.00121693244006,
+      "y": -43.92116058620455,
+      "label_at": "above"
+     },
+     "stopwatch.app": {
+      "id": "stopwatch.app",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "app",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 111.26887500038833,
+      "y": 31.98796811634963,
+      "label_at": "right"
+     },
+     "stopwatch.app.run": {
+      "id": "stopwatch.app.run",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "app.run",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 38.09786475157159,
+      "y": -11.232773405453706,
+      "label_at": "left"
+     },
+     "stopwatch.button_id": {
+      "id": "stopwatch.button_id",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "button_id",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 61.294574390947496,
+      "y": 210.3106062715768,
+      "label_at": "right"
+     },
+     "stopwatch.divmod": {
+      "id": "stopwatch.divmod",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "divmod",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 244.54276697231626,
+      "y": -3.040201702777864,
+      "label_at": "right"
+     },
+     "stopwatch.event": {
+      "id": "stopwatch.event",
+      "depth": 3,
+      "language": "python",
+      "kind": "argument",
+      "label": "event",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Argument"
+      },
+      "x": 12.426233719492757,
+      "y": 181.50662335888967,
+      "label_at": "left"
+     },
+     "stopwatch.hours": {
+      "id": "stopwatch.hours",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "hours",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 204.3227042796758,
+      "y": 13.650868229262159,
+      "label_at": "left"
+     },
+     "stopwatch.minutes": {
+      "id": "stopwatch.minutes",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "minutes",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 224.91637942350386,
+      "y": -30.086291326447444,
+      "label_at": "above"
+     },
+     "stopwatch.mount": {
+      "id": "stopwatch.mount",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "mount",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 106.41343199301339,
+      "y": -141.16953668208077,
+      "label_at": "right"
+     },
+     "stopwatch.new_stopwatch": {
+      "id": "stopwatch.new_stopwatch",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "new_stopwatch",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 66.19336930037286,
+      "y": -124.47846675004075,
+      "label_at": "left"
+     },
+     "stopwatch.new_stopwatch.scroll_visible": {
+      "id": "stopwatch.new_stopwatch.scroll_visible",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "new_stopwatch.scroll_visible",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 86.78704444420083,
+      "y": -168.21562630575036,
+      "label_at": "above"
+     },
+     "stopwatch.pause": {
+      "id": "stopwatch.pause",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "pause",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 299.4956039955697,
+      "y": -167.19702450231767,
+      "label_at": "right"
+     },
+     "stopwatch.remove": {
+      "id": "stopwatch.remove",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "remove",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 168.68581760365635,
+      "y": -121.40211940042023,
+      "label_at": "left"
+     },
+     "stopwatch.resume": {
+      "id": "stopwatch.resume",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "resume",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 75.82813797091234,
+      "y": -246.27507226500097,
+      "label_at": "right"
+     },
+     "stopwatch.seconds": {
+      "id": "stopwatch.seconds",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "seconds",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 240.42390937025039,
+      "y": 20.28258214788632,
+      "label_at": "right"
+     },
+     "stopwatch.self": {
+      "id": "stopwatch.self",
+      "depth": 3,
+      "language": "python",
+      "kind": "argument",
+      "label": "self",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Argument"
+      },
+      "x": 102.29457439094752,
+      "y": -117.8467528314166,
+      "label_at": "right"
+     },
+     "stopwatch.self.add_class": {
+      "id": "stopwatch.self.add_class",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "self.add_class",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 138.7006818371018,
+      "y": 186.9878224209126,
+      "label_at": "none"
+     },
+     "stopwatch.self.remove_class": {
+      "id": "stopwatch.self.remove_class",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "self.remove_class",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 71.61067481340672,
+      "y": 169.05104463537438,
+      "label_at": "right"
+     },
+     "stopwatch.self.update": {
+      "id": "stopwatch.self.update",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "self.update",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 288.9313276720171,
+      "y": -3.040201702777864,
+      "label_at": "none"
+     },
+     "stopwatch.start_time": {
+      "id": "stopwatch.start_time",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "start_time",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": -56.92038556041484,
+      "y": -57.4288912805592,
+      "label_at": "left"
+     },
+     "stopwatch.time": {
+      "id": "stopwatch.time",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "time",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": -20.819180469840262,
+      "y": -50.79717736193504,
+      "label_at": "right"
+     },
+     "stopwatch.time_display": {
+      "id": "stopwatch.time_display",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "time_display",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 34.25938884058405,
+      "y": 221.04040666885862,
+      "label_at": "below"
+     },
+     "stopwatch.time_display.reset": {
+      "id": "stopwatch.time_display.reset",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "time_display.reset",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 26.35403388423066,
+      "y": 154.14098945080633,
+      "label_at": "left"
+     },
+     "stopwatch.time_display.start": {
+      "id": "stopwatch.time_display.start",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "time_display.start",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 79.75072152938338,
+      "y": 200.25814227953003,
+      "label_at": "right"
+     },
+     "stopwatch.time_display.stop": {
+      "id": "stopwatch.time_display.stop",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "time_display.stop",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 6.174091630616829,
+      "y": 202.3596807787554,
+      "label_at": "left"
+     },
+     "stopwatch.timers": {
+      "id": "stopwatch.timers",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "timers",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": 189.27949274748437,
+      "y": -165.13927895612983,
+      "label_at": "above"
+     },
+     "stopwatch.total": {
+      "id": "stopwatch.total",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "total",
+      "file": "stopwatch.py",
+      "line": 0,
+      "meta": {
+       "module": "stopwatch",
+       "ast_type": "Name"
+      },
+      "x": -10.503080047381104,
+      "y": -92.05673899813745,
+      "label_at": "right"
+     },
+     "textual.app.App": {
+      "id": "textual.app.App",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "textual.app.App",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 251.0362366833707,
+      "y": 149.9617865879205,
+      "label_at": "right"
+     },
+     "textual.app.textual.app": {
+      "id": "textual.app.textual.app",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "textual.app.textual.app",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": -136.5856764220906,
+      "y": 72.92481957415674,
+      "label_at": "right"
+     },
+     "textual.containers.HorizontalGroup": {
+      "id": "textual.containers.HorizontalGroup",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "textual.containers.HorizontalGroup",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": -42.8181383042608,
+      "y": 182.91088820253466,
+      "label_at": "right"
+     },
+     "textual.containers.textual.containers": {
+      "id": "textual.containers.textual.containers",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "textual.containers.textual.containers",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": -148.34968100579616,
+      "y": -92.05746687235813,
+      "label_at": "right"
+     },
+     "textual.reactive.reactive": {
+      "id": "textual.reactive.reactive",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "textual.reactive.reactive",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": -36.32671041658688,
+      "y": -101.16605083626882,
+      "label_at": "above"
+     },
+     "textual.reactive.textual.reactive": {
+      "id": "textual.reactive.textual.reactive",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "textual.reactive.textual.reactive",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 249.6814680599508,
+      "y": -242.15402458228138,
+      "label_at": "right"
+     },
+     "textual.widgets.Digits": {
+      "id": "textual.widgets.Digits",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "textual.widgets.Digits",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 162.2043730697078,
+      "y": -220.99373507414808,
+      "label_at": "right"
+     },
+     "textual.widgets.textual.widgets": {
+      "id": "textual.widgets.textual.widgets",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "textual.widgets.textual.widgets",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 246.03841655592578,
+      "y": 239.82291163080936,
+      "label_at": "right"
+     },
+     "time.monotonic": {
+      "id": "time.monotonic",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "time.monotonic",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": -69.68752114129501,
+      "y": -79.60116027462215,
+      "label_at": "left"
+     },
+     "time.time": {
+      "id": "time.time",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "time.time",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 340.5777799706493,
+      "y": 159.0343841064056,
+      "label_at": "right"
      }
     },
     "edges": [
@@ -290,12 +2028,833 @@
        "kind": "contains",
        "weight": 1
       }
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project::1",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::build-system::11",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.pdm::16",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::dependency-groups::19",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.pdm.scripts::22",
+      "kind": "contains"
+     },
+     {
+      "source": "stopwatch.time.monotonic",
+      "target": "time.time",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.textual.app.App",
+      "target": "textual.app.textual.app",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.textual.app.ComposeResult",
+      "target": "textual.app.textual.app",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.textual.containers.HorizontalGroup",
+      "target": "textual.containers.textual.containers",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.textual.containers.VerticalScroll",
+      "target": "textual.containers.textual.containers",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.textual.reactive.reactive",
+      "target": "textual.reactive.textual.reactive",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.textual.widgets.Button",
+      "target": "textual.widgets.textual.widgets",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.textual.widgets.Digits",
+      "target": "textual.widgets.textual.widgets",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.textual.widgets.Footer",
+      "target": "textual.widgets.textual.widgets",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.textual.widgets.Header",
+      "target": "textual.widgets.textual.widgets",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "textual.widgets.Digits",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.start_time",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "textual.reactive.reactive",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "time.monotonic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.time",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.Const: 0.0",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.total",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.on_mount",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.update_time",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.watch_time",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.start",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.stop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.TimeDisplay",
+      "target": "stopwatch.reset",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_mount",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_mount",
+      "target": "stopwatch.Const: 1",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_mount",
+      "target": "stopwatch.Const: 60",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_mount",
+      "target": "stopwatch.Const: True",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.update_time",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.update_time",
+      "target": "time.monotonic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.watch_time",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.watch_time",
+      "target": "stopwatch.time",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.watch_time",
+      "target": "stopwatch.minutes",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.watch_time",
+      "target": "stopwatch.seconds",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.watch_time",
+      "target": "stopwatch.divmod",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.watch_time",
+      "target": "stopwatch.Const: 60",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.watch_time",
+      "target": "stopwatch.hours",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.watch_time",
+      "target": "stopwatch.self.update",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.self.update",
+      "target": "stopwatch.JoinedStr",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.JoinedStr",
+      "target": "stopwatch.FormattedValue",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.JoinedStr",
+      "target": "stopwatch.Const: ':'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.FormattedValue",
+      "target": "stopwatch.hours",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.FormattedValue",
+      "target": "stopwatch.minutes",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.FormattedValue",
+      "target": "stopwatch.seconds",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.start",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.start",
+      "target": "time.monotonic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.start",
+      "target": "stopwatch.resume",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.stop",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.stop",
+      "target": "stopwatch.pause",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.stop",
+      "target": "time.monotonic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.reset",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.reset",
+      "target": "stopwatch.Const: 0",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.Stopwatch",
+      "target": "textual.containers.HorizontalGroup",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.Stopwatch",
+      "target": "stopwatch.on_button_pressed",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.Stopwatch",
+      "target": "stopwatch.compose",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.event",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.button_id",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.time_display",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.TimeDisplay",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.Const: 'start'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.time_display.start",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.self.add_class",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.Const: 'stop'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.time_display.stop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.self.remove_class",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.Const: 'reset'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.on_button_pressed",
+      "target": "stopwatch.time_display.reset",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.self.add_class",
+      "target": "stopwatch.Const: 'started'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.self.remove_class",
+      "target": "stopwatch.Const: 'started'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.compose",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "textual.app.App",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.CSS_PATH",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'stopwatch.tcss'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.BINDINGS",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'd'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'toggle_dark'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'Toggle dark mode'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'a'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'add_stopwatch'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'Add'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'r'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'remove_stopwatch'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.Const: 'Remove'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.compose",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.action_add_stopwatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.action_remove_stopwatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.StopwatchApp",
+      "target": "stopwatch.action_toggle_dark",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_add_stopwatch",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_add_stopwatch",
+      "target": "stopwatch.new_stopwatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_add_stopwatch",
+      "target": "stopwatch.Stopwatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_add_stopwatch",
+      "target": "stopwatch.mount",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_add_stopwatch",
+      "target": "stopwatch.new_stopwatch.scroll_visible",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.mount",
+      "target": "stopwatch.new_stopwatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_remove_stopwatch",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_remove_stopwatch",
+      "target": "stopwatch.timers",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_remove_stopwatch",
+      "target": "stopwatch.Const: 'Stopwatch'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_remove_stopwatch",
+      "target": "stopwatch.remove",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_toggle_dark",
+      "target": "stopwatch.self",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_toggle_dark",
+      "target": "stopwatch.Const: 'textual-light'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.action_toggle_dark",
+      "target": "stopwatch.Const: 'textual-dark'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.monotonic",
+      "target": "time.monotonic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.App",
+      "target": "textual.app.App",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.HorizontalGroup",
+      "target": "textual.containers.HorizontalGroup",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.reactive",
+      "target": "textual.reactive.reactive",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "stopwatch.Digits",
+      "target": "textual.widgets.Digits",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.time.monotonic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.textual.app.App",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.textual.app.ComposeResult",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.textual.containers.HorizontalGroup",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.textual.containers.VerticalScroll",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.textual.reactive.reactive",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.textual.widgets.Button",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.textual.widgets.Digits",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.textual.widgets.Footer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.textual.widgets.Header",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.TimeDisplay",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.on_mount",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.update_time",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.watch_time",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.start",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.stop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.reset",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.Stopwatch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.on_button_pressed",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.compose",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.StopwatchApp",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.action_add_stopwatch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.action_remove_stopwatch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.action_toggle_dark",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.__name__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.Const: '__main__'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.app",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.app.run",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.monotonic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.App",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.HorizontalGroup",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.reactive",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ShowStopper/stopwatch.py",
+      "target": "stopwatch.Digits",
+      "kind": "contains"
      }
     ]
    },
    "metadata": {
     "url": "https://github.com/quaternionmedia/ShowStopper",
-    "depth": 1,
+    "depth": 3,
+    "floor": 100,
     "truncated": 0
    }
   },

@@ -148,7 +148,7 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its members, the families within it and the seams between them](../show/family/instruments/estate.svg)](../show/family/instruments/estate.svg)
 
@@ -158,7 +158,7 @@ the graphs codecarto draws
 
 </div>
 
-Drawn by codecartographer at `e430930` from the corpus at `ba587c3`, on 2026-10-27. [The show document](../show/family/instruments/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee`, on 2026-10-27. [The show document](../show/family/instruments/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

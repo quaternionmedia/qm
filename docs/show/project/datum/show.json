@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "ba587c36ef88c410b1f2ae1e94bd1a60ccbe140f",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:db99432d3400874a160f47918befc3af11ac91f3a2cc0ec282bbb424bab779cc"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "72b04348b3f914fefd09a6801c147d38f5e25d21"
   },
   "drawn_by": {
-   "graph": "codecartographer@e4309302dc82884a25752380a0cbbfe6d23c2ddd"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-27T15:45:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -438,10 +438,10 @@
     "subject": "project:datum",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "ba587c3",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "ba587c3",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -488,8 +488,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -289.85074742920415,
-      "y": -202.95567830564738,
+      "x": 905.2939974668316,
+      "y": -79.20296193641435,
       "size": 180
      },
      "dir::quaternionmedia/datum/.github": {
@@ -502,8 +502,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -606.1709409016944,
-      "y": -55.45314966035423,
+      "x": 876.5001587030378,
+      "y": -408.31804500385596,
       "size": 70
      },
      "dir::quaternionmedia/datum/.github/workflows": {
@@ -515,9 +515,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -683.3368117619613,
-      "y": -45.30470769241532,
+      "label_at": "right",
+      "x": 929.0893525193677,
+      "y": -465.69346825936213,
       "size": 50
      },
      "dir::quaternionmedia/datum/.vscode": {
@@ -529,9 +529,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -235.78671250613067,
-      "y": -165.09963350647834,
+      "label_at": "left",
+      "x": 839.5451473927765,
+      "y": -73.45068291506891,
       "size": 50
      },
      "dir::quaternionmedia/datum/LICENSES": {
@@ -543,9 +543,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -364.5171702304594,
-      "y": -277.7030883347862,
+      "label_at": "right",
+      "x": 1010.5385047641953,
+      "y": -69.93777528232015,
       "size": 50
      },
      "dir::quaternionmedia/datum/docs": {
@@ -558,8 +558,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -567.5008657933723,
-      "y": -397.36838416905607,
+      "x": 1167.6681854886226,
+      "y": -262.9193462209239,
       "size": 110
      },
      "dir::quaternionmedia/datum/governance": {
@@ -571,9 +571,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -426.739139635605,
-      "y": -233.4783023597249,
+      "label_at": "right",
+      "x": 973.7201479773682,
+      "y": 28.42974418170471,
       "size": 50
      },
      "dir::quaternionmedia/datum/schema": {
@@ -586,8 +586,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 364.4963837007667,
-      "y": 97.87914624204127,
+      "x": -638.3366647233863,
+      "y": 565.6685018129499,
       "size": 80
      },
      "dir::quaternionmedia/datum/schema/projections": {
@@ -600,8 +600,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 379.0513927396256,
-      "y": -68.48536833928014,
+      "x": -828.8737542442502,
+      "y": 557.168173547914,
       "size": 60
      },
      "dir::quaternionmedia/datum/schema/src": {
@@ -614,8 +614,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -92.16610391984344,
-      "y": 223.39587275637896,
+      "x": -585.5093820057989,
+      "y": 452.3800284333686,
       "size": 60
      },
      "dir::quaternionmedia/datum/schema/src/datum": {
@@ -628,8 +628,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 108.04320194223745,
-      "y": 240.91191735170528,
+      "x": -372.7228531631589,
+      "y": -192.17019549106854,
       "size": 130
      },
      "dir::quaternionmedia/datum/schema/vectors": {
@@ -642,8 +642,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 539.0461306736669,
-      "y": 220.10019486506343,
+      "x": -619.765005225126,
+      "y": 777.9435412271383,
       "size": 80
      },
      "dir::quaternionmedia/datum/schema/vectors/captured": {
@@ -655,9 +655,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 593.1101655967403,
-      "y": 257.9562396642325,
+      "label_at": "left",
+      "x": -685.5138552991812,
+      "y": 783.6958202484838,
       "size": 50
      },
      "dir::quaternionmedia/datum/schema/vectors/invalid": {
@@ -669,9 +669,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 461.88025981339996,
-      "y": 230.2486368330024,
+      "label_at": "right",
+      "x": -567.175811408796,
+      "y": 720.5681179716322,
       "size": 50
      },
      "dir::quaternionmedia/datum/schema/vectors/valid": {
@@ -683,9 +683,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 595.6849384317331,
-      "y": 152.63783161158108,
+      "label_at": "below",
+      "x": -619.7888779535659,
+      "y": 866.0294335714455,
       "size": 50
      },
      "file::quaternionmedia/datum/.github/copilot-instructions.md": {
@@ -697,9 +697,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/.github/copilot-instructions.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -552.106905978621,
-      "y": -17.597104861185215,
+      "label_at": "left",
+      "x": 810.7513086289825,
+      "y": -402.5657659825105,
       "size": 30
      },
      "file::quaternionmedia/datum/AGENTS.md": {
@@ -711,9 +711,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/AGENTS.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -367.016618289471,
-      "y": -192.80723633770842,
+      "label_at": "right",
+      "x": 957.8831912831618,
+      "y": -136.57838519192052,
       "size": 30
      },
      "file::quaternionmedia/datum/CLAUDE.md": {
@@ -725,9 +725,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/CLAUDE.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -233.2119396711378,
-      "y": -270.41804155912973,
+      "label_at": "below",
+      "x": 905.2701247383918,
+      "y": 8.882930407892616,
       "size": 30
      },
      "file::quaternionmedia/datum/HANDOFF.md": {
@@ -739,9 +739,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/HANDOFF.md",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -285.64756501435033,
-      "y": -105.78047180940442,
+      "label_at": "left",
+      "x": 839.6111542300017,
+      "y": -150.94173530428014,
       "size": 30
      },
      "file::quaternionmedia/datum/PLAN.md": {
@@ -753,9 +753,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/PLAN.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -176.54332647401932,
-      "y": -197.93165039126023,
+      "label_at": "left",
+      "x": 815.2660943858822,
+      "y": -10.218984326775512,
       "size": 30
      },
      "file::quaternionmedia/datum/README.md": {
@@ -767,9 +767,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -382.3654689240325,
-      "y": -125.45470213931547,
+      "label_at": "above",
+      "x": 926.3477185563149,
+      "y": -198.03947075540592,
       "size": 30
      },
      "file::quaternionmedia/datum/REUSE.toml": {
@@ -781,9 +781,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/REUSE.toml",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": -273.08324990206404,
-      "y": -329.39059645200973,
+      "label_at": "none",
+      "x": 807.9669164784757,
+      "y": 342.58630097064406,
       "size": 30
      },
      "file::quaternionmedia/datum/conftest.py": {
@@ -795,9 +795,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/conftest.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -213.08383752845322,
-      "y": -93.06781935712665,
+      "label_at": "none",
+      "x": 1163.4924725099736,
+      "y": 41.19696430014484,
       "size": 30
      },
      "file::quaternionmedia/datum/docs/cli.md": {
@@ -809,9 +809,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/docs/cli.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -523.2666554017668,
-      "y": -366.39525660609957,
+      "label_at": "left",
+      "x": 1113.8736717916684,
+      "y": -258.2129361125504,
       "size": 30
      },
      "file::quaternionmedia/datum/docs/conformance.md": {
@@ -823,9 +823,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/docs/conformance.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -627.0304308033856,
-      "y": -389.53937467112996,
+      "label_at": "right",
+      "x": 1208.2380876644477,
+      "y": -307.1815822404017,
       "size": 30
      },
      "file::quaternionmedia/datum/docs/cookbook.md": {
@@ -837,9 +837,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/docs/cookbook.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -525.3656648035749,
-      "y": -447.5555323003193,
+      "label_at": "below",
+      "x": 1167.6504258949656,
+      "y": -197.38977515108684,
       "size": 30
      },
      "file::quaternionmedia/datum/docs/envelope.md": {
@@ -851,9 +851,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/docs/envelope.md",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -564.4503694831909,
-      "y": -326.8426302045534,
+      "label_at": "left",
+      "x": 1119.9982889292694,
+      "y": -314.98438691062836,
       "size": 30
      },
      "file::quaternionmedia/datum/docs/topic-contract.md": {
@@ -865,9 +865,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/docs/topic-contract.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -620.7272732827512,
-      "y": -450.65252388975176,
+      "label_at": "right",
+      "x": 1242.6923639783167,
+      "y": -256.3146023238093,
       "size": 30
      },
      "file::quaternionmedia/datum/docs/wire.md": {
@@ -879,9 +879,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/docs/wire.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -487.82131642228165,
-      "y": -393.83540921585785,
+      "label_at": "left",
+      "x": 1104.3591569374253,
+      "y": -214.40873497035597,
       "size": 30
      },
      "file::quaternionmedia/datum/pyproject.toml": {
@@ -893,9 +893,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -163.1472373613351,
-      "y": -275.87923784905837,
+      "label_at": "none",
+      "x": 981.2654875527064,
+      "y": 195.37112177598675,
       "size": 30
      },
      "file::quaternionmedia/datum/schema/projections/README.md": {
@@ -907,9 +907,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/schema/projections/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 423.2856031312312,
-      "y": -37.512240776323665,
+      "label_at": "left",
+      "x": -882.6682679412047,
+      "y": 561.8745836562875,
       "size": 30
      },
      "file::quaternionmedia/datum/schema/src/datum/__init__.py": {
@@ -921,9 +921,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/schema/src/datum/__init__.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 152.27741233384302,
-      "y": 271.88504491466176,
+      "label_at": "none",
+      "x": -261.1257998831447,
+      "y": -32.7930862909229,
       "size": 30
      },
      "file::quaternionmedia/datum/schema/src/datum/bus.py": {
@@ -935,9 +935,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/schema/src/datum/bus.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 48.51363693222429,
-      "y": 248.74092684963136,
+      "label_at": "none",
+      "x": 6.736995478375631,
+      "y": 51.23834968281975,
       "size": 30
      },
      "file::quaternionmedia/datum/schema/src/datum/cli.py": {
@@ -949,9 +949,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/schema/src/datum/cli.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 150.17840293203506,
-      "y": 190.72476922044203,
+      "label_at": "none",
+      "x": -508.4537129690414,
+      "y": 131.4923112927238,
       "size": 30
      },
      "file::quaternionmedia/datum/schema/src/datum/conformance.py": {
@@ -963,9 +963,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/schema/src/datum/conformance.py",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 111.09369825241886,
-      "y": 311.4376713162079,
+      "label_at": "none",
+      "x": -564.7171019266516,
+      "y": -479.8762792833138,
       "size": 30
      },
      "file::quaternionmedia/datum/schema/src/datum/envelope.py": {
@@ -977,9 +977,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/schema/src/datum/envelope.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 54.816794452858744,
-      "y": 187.62777763100962,
+      "label_at": "none",
+      "x": -21.646053942489402,
+      "y": -217.00464252800805,
       "size": 30
      },
      "file::quaternionmedia/datum/schema/src/datum/harness.py": {
@@ -991,9 +991,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/schema/src/datum/harness.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 187.72275131332813,
-      "y": 244.44489230490342,
+      "label_at": "none",
+      "x": -287.50031748462067,
+      "y": -374.93051303706665,
       "size": 30
      },
      "file::quaternionmedia/datum/schema/src/datum/retrofit.py": {
@@ -1005,9 +1005,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/schema/src/datum/retrofit.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 43.67726149049855,
-      "y": 294.83223550509894,
+      "label_at": "none",
+      "x": -583.941438343979,
+      "y": -173.69096376176205,
       "size": 30
      },
      "file::quaternionmedia/datum/schema/src/datum/topics.py": {
@@ -1019,10 +1019,3752 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/schema/src/datum/topics.py",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": 119.6088520786448,
-      "y": 153.7014063056036,
+      "label_at": "none",
+      "x": -273.82469084141684,
+      "y": 242.82664086767878,
       "size": 30
+     },
+     "__init__.bus.Bus": {
+      "id": "__init__.bus.Bus",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "bus.Bus",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -294.996419618264,
+      "y": -29.829791037502517,
+      "label_at": "left"
+     },
+     "__init__.conformance.accepts": {
+      "id": "__init__.conformance.accepts",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "conformance.accepts",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -235.6632852937985,
+      "y": -60.57298641290555,
+      "label_at": "right"
+     },
+     "__init__.conformance.closed_objects": {
+      "id": "__init__.conformance.closed_objects",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "conformance.closed_objects",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -261.1369218819734,
+      "y": 8.24500426286805,
+      "label_at": "below"
+     },
+     "__init__.conformance.load": {
+      "id": "__init__.conformance.load",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "conformance.load",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -290.93195597967383,
+      "y": -65.34735726646981,
+      "label_at": "left"
+     },
+     "__init__.conformance.report": {
+      "id": "__init__.conformance.report",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "conformance.report",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -214.27244768634836,
+      "y": -28.668357460687698,
+      "label_at": "right"
+     },
+     "__init__.conformance.vectors_dir": {
+      "id": "__init__.conformance.vectors_dir",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "conformance.vectors_dir",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -300.6256101044655,
+      "y": -2.526314205356261,
+      "label_at": "left"
+     },
+     "__init__.envelope.Action": {
+      "id": "__init__.envelope.Action",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Action",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -251.9936500486848,
+      "y": -84.33897690696489,
+      "label_at": "above"
+     },
+     "__init__.envelope.Announce": {
+      "id": "__init__.envelope.Announce",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Announce",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -231.7187948213712,
+      "y": 13.463432744742033,
+      "label_at": "right"
+     },
+     "__init__.envelope.Color": {
+      "id": "__init__.envelope.Color",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Color",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -316.33247571422567,
+      "y": -47.64983370352744,
+      "label_at": "left"
+     },
+     "__init__.envelope.Event": {
+      "id": "__init__.envelope.Event",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Event",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -208.37255707753374,
+      "y": -60.17296710681137,
+      "label_at": "right"
+     },
+     "__init__.envelope.SCHEMA_VERSION": {
+      "id": "__init__.envelope.SCHEMA_VERSION",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.SCHEMA_VERSION",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -282.2784136552671,
+      "y": 25.079117145678854,
+      "label_at": "below"
+     },
+     "__init__.envelope.announce_json_schema": {
+      "id": "__init__.envelope.announce_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.announce_json_schema",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -285.42395434733044,
+      "y": -91.70222980561483,
+      "label_at": "left"
+     },
+     "__init__.envelope.event_json_schema": {
+      "id": "__init__.envelope.event_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.event_json_schema",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -201.56970589507765,
+      "y": -4.903631852290587,
+      "label_at": "right"
+     },
+     "__init__.envelope.is_monotonic": {
+      "id": "__init__.envelope.is_monotonic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.is_monotonic",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -325.76710832108023,
+      "y": -12.536883699329469,
+      "label_at": "left"
+     },
+     "__init__.retrofit.Contact": {
+      "id": "__init__.retrofit.Contact",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "retrofit.Contact",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -226.18012068016768,
+      "y": -93.05646244130645,
+      "label_at": "right"
+     },
+     "__init__.retrofit.Lamp": {
+      "id": "__init__.retrofit.Lamp",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "retrofit.Lamp",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -245.78525882350678,
+      "y": 37.075399451918,
+      "label_at": "below"
+     },
+     "__init__.topics.ARMED": {
+      "id": "__init__.topics.ARMED",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.ARMED",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -321.1235785970596,
+      "y": -74.99813989112693,
+      "label_at": "left"
+     },
+     "__init__.topics.DETAINED": {
+      "id": "__init__.topics.DETAINED",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.DETAINED",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -186.6125536490958,
+      "y": -42.42836706856416,
+      "label_at": "right"
+     },
+     "__init__.topics.OFFLINE": {
+      "id": "__init__.topics.OFFLINE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.OFFLINE",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -310.6809047372114,
+      "y": 25.97269101953606,
+      "label_at": "left"
+     },
+     "__init__.topics.ONLINE": {
+      "id": "__init__.topics.ONLINE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.ONLINE",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -264.3508507942888,
+      "y": -111.29650371093418,
+      "label_at": "above"
+     },
+     "__init__.topics.TOPIC_ROOT": {
+      "id": "__init__.topics.TOPIC_ROOT",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.TOPIC_ROOT",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -204.54683667661945,
+      "y": 24.09338769432843,
+      "label_at": "right"
+     },
+     "__init__.topics.announce_topic": {
+      "id": "__init__.topics.announce_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.announce_topic",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -342.89893821753554,
+      "y": -36.59655141427837,
+      "label_at": "left"
+     },
+     "__init__.topics.detained_topic": {
+      "id": "__init__.topics.detained_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.detained_topic",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -197.0329879275946,
+      "y": -86.24854864633163,
+      "label_at": "right"
+     },
+     "__init__.topics.detent_topic": {
+      "id": "__init__.topics.detent_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.detent_topic",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -272.4866113220756,
+      "y": 51.47060377454395,
+      "label_at": "below"
+     },
+     "__init__.topics.event_topic": {
+      "id": "__init__.topics.event_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.event_topic",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -310.5465714795371,
+      "y": -103.86408835799097,
+      "label_at": "left"
+     },
+     "__init__.topics.is_retained": {
+      "id": "__init__.topics.is_retained",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.is_retained",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -175.20162548513488,
+      "y": -13.438532459321017,
+      "label_at": "right"
+     },
+     "__init__.topics.status_topic": {
+      "id": "__init__.topics.status_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.status_topic",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -338.84738174418084,
+      "y": 11.71512321045185,
+      "label_at": "left"
+     },
+     "bus.Bus": {
+      "id": "bus.Bus",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Bus",
+      "file": "bus.py",
+      "line": 0,
+      "meta": {
+       "module": "bus",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -27.133624256743722,
+      "y": 54.201644936240136,
+      "label_at": "left"
+     },
+     "bus.Callable": {
+      "id": "bus.Callable",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Callable",
+      "file": "bus.py",
+      "line": 0,
+      "meta": {
+       "module": "bus",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 32.19951006772175,
+      "y": 23.45844956083704,
+      "label_at": "right"
+     },
+     "bus.__future__.annotations": {
+      "id": "bus.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "bus.py",
+      "line": 0,
+      "meta": {
+       "module": "bus",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 6.725873479546875,
+      "y": 92.27644023661058,
+      "label_at": "below"
+     },
+     "bus.__init__": {
+      "id": "bus.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "bus.py",
+      "line": 0,
+      "meta": {
+       "module": "bus",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -23.069160618153568,
+      "y": 18.684078707272782,
+      "label_at": "left"
+     },
+     "bus.collections.abc.Callable": {
+      "id": "bus.collections.abc.Callable",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "collections.abc.Callable",
+      "file": "bus.py",
+      "line": 0,
+      "meta": {
+       "module": "bus",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 53.59034767517177,
+      "y": 55.36307851305485,
+      "label_at": "right"
+     },
+     "bus.is_retained": {
+      "id": "bus.is_retained",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "is_retained",
+      "file": "bus.py",
+      "line": 0,
+      "meta": {
+       "module": "bus",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -32.762814742945324,
+      "y": 81.5051217683864,
+      "label_at": "left"
+     },
+     "bus.publish": {
+      "id": "bus.publish",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "publish",
+      "file": "bus.py",
+      "line": 0,
+      "meta": {
+       "module": "bus",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 15.869145312835508,
+      "y": -0.3075409332223582,
+      "label_at": "above"
+     },
+     "bus.subscribe": {
+      "id": "bus.subscribe",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "subscribe",
+      "file": "bus.py",
+      "line": 0,
+      "meta": {
+       "module": "bus",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 36.14400054014904,
+      "y": 97.49486871848457,
+      "label_at": "right"
+     },
+     "bus.topics.is_retained": {
+      "id": "bus.topics.is_retained",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.is_retained",
+      "file": "bus.py",
+      "line": 0,
+      "meta": {
+       "module": "bus",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -48.469680352705495,
+      "y": 36.381602270215105,
+      "label_at": "left"
+     },
+     "cli.Event": {
+      "id": "cli.Event",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Event",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -542.3243327041606,
+      "y": 134.45560654614417,
+      "label_at": "left"
+     },
+     "cli.SCHEMA_VERSION": {
+      "id": "cli.SCHEMA_VERSION",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "SCHEMA_VERSION",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -482.9911983796952,
+      "y": 103.71241117074112,
+      "label_at": "right"
+     },
+     "cli.__future__.annotations": {
+      "id": "cli.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -508.46483496787005,
+      "y": 172.53040184651462,
+      "label_at": "below"
+     },
+     "cli.accepts": {
+      "id": "cli.accepts",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "accepts",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -538.2598690655706,
+      "y": 98.93804031717687,
+      "label_at": "left"
+     },
+     "cli.announce_json_schema": {
+      "id": "cli.announce_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "announce_json_schema",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -461.6003607722451,
+      "y": 135.61704012295888,
+      "label_at": "right"
+     },
+     "cli.conformance.accepts": {
+      "id": "cli.conformance.accepts",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "conformance.accepts",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -547.9535231903623,
+      "y": 161.75908337829043,
+      "label_at": "left"
+     },
+     "cli.emit": {
+      "id": "cli.emit",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "emit",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -499.3215631345812,
+      "y": 79.94642067668167,
+      "label_at": "above"
+     },
+     "cli.envelope.Event": {
+      "id": "cli.envelope.Event",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Event",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -479.04670790726766,
+      "y": 177.74883032838858,
+      "label_at": "right"
+     },
+     "cli.envelope.SCHEMA_VERSION": {
+      "id": "cli.envelope.SCHEMA_VERSION",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.SCHEMA_VERSION",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -563.6603888001223,
+      "y": 116.63556388011914,
+      "label_at": "left"
+     },
+     "cli.envelope.announce_json_schema": {
+      "id": "cli.envelope.announce_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.announce_json_schema",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -455.70047016343017,
+      "y": 104.1124304768353,
+      "label_at": "right"
+     },
+     "cli.envelope.event_json_schema": {
+      "id": "cli.envelope.event_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.event_json_schema",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -529.6063267411637,
+      "y": 189.36451472932552,
+      "label_at": "below"
+     },
+     "cli.envelope.is_monotonic": {
+      "id": "cli.envelope.is_monotonic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.is_monotonic",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -532.7518674332268,
+      "y": 72.58316777803176,
+      "label_at": "left"
+     },
+     "cli.event_json_schema": {
+      "id": "cli.event_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "event_json_schema",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -448.8976189809744,
+      "y": 159.3817657313561,
+      "label_at": "right"
+     },
+     "cli.is_monotonic": {
+      "id": "cli.is_monotonic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "is_monotonic",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -573.095021406977,
+      "y": 151.74851388431722,
+      "label_at": "left"
+     },
+     "cli.pathlib.Path": {
+      "id": "cli.pathlib.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pathlib.Path",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -473.50803376606444,
+      "y": 71.22893514234012,
+      "label_at": "right"
+     },
+     "cli.validate": {
+      "id": "cli.validate",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "validate",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -493.1131719094035,
+      "y": 201.3607970355647,
+      "label_at": "below"
+     },
+     "cli.version": {
+      "id": "cli.version",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "version",
+      "file": "cli.py",
+      "line": 0,
+      "meta": {
+       "module": "cli",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -568.4514916829562,
+      "y": 89.28725769251976,
+      "label_at": "left"
+     },
+     "conformance.Draft202012Validator": {
+      "id": "conformance.Draft202012Validator",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Draft202012Validator",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -598.587721661771,
+      "y": -476.9129840298934,
+      "label_at": "left"
+     },
+     "conformance.Path": {
+      "id": "conformance.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Path",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -539.2545873373053,
+      "y": -507.6561794052962,
+      "label_at": "right"
+     },
+     "conformance.__future__.annotations": {
+      "id": "conformance.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -564.7282239254803,
+      "y": -438.83818872952276,
+      "label_at": "below"
+     },
+     "conformance.accepts": {
+      "id": "conformance.accepts",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "accepts",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -594.5232580231807,
+      "y": -512.4305502588606,
+      "label_at": "left"
+     },
+     "conformance.closed_objects": {
+      "id": "conformance.closed_objects",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "closed_objects",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -517.8637497298555,
+      "y": -475.7515504530783,
+      "label_at": "right"
+     },
+     "conformance.envelope.event_json_schema": {
+      "id": "conformance.envelope.event_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.event_json_schema",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -604.2169121479726,
+      "y": -449.60950719774706,
+      "label_at": "left"
+     },
+     "conformance.event_json_schema": {
+      "id": "conformance.event_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "event_json_schema",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -555.5849520921917,
+      "y": -531.4221698993557,
+      "label_at": "above"
+     },
+     "conformance.jsonschema.Draft202012Validator": {
+      "id": "conformance.jsonschema.Draft202012Validator",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "jsonschema.Draft202012Validator",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -535.3100968648781,
+      "y": -433.61976024764874,
+      "label_at": "right"
+     },
+     "conformance.load": {
+      "id": "conformance.load",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "load",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -619.9237777577328,
+      "y": -494.73302669591817,
+      "label_at": "left"
+     },
+     "conformance.pathlib.Path": {
+      "id": "conformance.pathlib.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pathlib.Path",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -511.9638591210407,
+      "y": -507.25616009920225,
+      "label_at": "right"
+     },
+     "conformance.report": {
+      "id": "conformance.report",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "report",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -585.869715698774,
+      "y": -422.00407584671194,
+      "label_at": "below"
+     },
+     "conformance.typing.Any": {
+      "id": "conformance.typing.Any",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "typing.Any",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -589.0152563908373,
+      "y": -538.7854227980056,
+      "label_at": "left"
+     },
+     "conformance.vectors_dir": {
+      "id": "conformance.vectors_dir",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "vectors_dir",
+      "file": "conformance.py",
+      "line": 0,
+      "meta": {
+       "module": "conformance",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -505.1610079385848,
+      "y": -451.9868248446814,
+      "label_at": "right"
+     },
+     "conftest.Path": {
+      "id": "conftest.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Path",
+      "file": "conftest.py",
+      "line": 0,
+      "meta": {
+       "module": "conftest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1129.6218527748542,
+      "y": 44.16025955356521,
+      "label_at": "left"
+     },
+     "conftest.broker_address": {
+      "id": "conftest.broker_address",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "broker_address",
+      "file": "conftest.py",
+      "line": 0,
+      "meta": {
+       "module": "conftest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1188.9549870993196,
+      "y": 13.417064178162164,
+      "label_at": "right"
+     },
+     "conftest.broker_reachable": {
+      "id": "conftest.broker_reachable",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "broker_reachable",
+      "file": "conftest.py",
+      "line": 0,
+      "meta": {
+       "module": "conftest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1163.4813505111447,
+      "y": 82.23505485393576,
+      "label_at": "below"
+     },
+     "conftest.datum.harness.broker_address": {
+      "id": "conftest.datum.harness.broker_address",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "datum.harness.broker_address",
+      "file": "conftest.py",
+      "line": 0,
+      "meta": {
+       "module": "conftest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1133.6863164134445,
+      "y": 8.6426933245979,
+      "label_at": "left"
+     },
+     "conftest.datum.harness.broker_reachable": {
+      "id": "conftest.datum.harness.broker_reachable",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "datum.harness.broker_reachable",
+      "file": "conftest.py",
+      "line": 0,
+      "meta": {
+       "module": "conftest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1210.3458247067697,
+      "y": 45.32169313038003,
+      "label_at": "right"
+     },
+     "conftest.pathlib.Path": {
+      "id": "conftest.pathlib.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pathlib.Path",
+      "file": "conftest.py",
+      "line": 0,
+      "meta": {
+       "module": "conftest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1123.9926622886524,
+      "y": 71.46373638571151,
+      "label_at": "left"
+     },
+     "conftest.pytest_collection_modifyitems": {
+      "id": "conftest.pytest_collection_modifyitems",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "pytest_collection_modifyitems",
+      "file": "conftest.py",
+      "line": 0,
+      "meta": {
+       "module": "conftest",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 1172.6246223444336,
+      "y": -10.348926315897202,
+      "label_at": "above"
+     },
+     "envelope.Action": {
+      "id": "envelope.Action",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Action",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -55.51667367760875,
+      "y": -214.04134727458774,
+      "label_at": "left"
+     },
+     "envelope.Announce": {
+      "id": "envelope.Announce",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Announce",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 3.8164606468568287,
+      "y": -244.78454264999075,
+      "label_at": "right"
+     },
+     "envelope.BaseModel": {
+      "id": "envelope.BaseModel",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "BaseModel",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -21.657175941318158,
+      "y": -175.96655197421725,
+      "label_at": "below"
+     },
+     "envelope.Color": {
+      "id": "envelope.Color",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Color",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -51.45221003901849,
+      "y": -249.558913503555,
+      "label_at": "left"
+     },
+     "envelope.ConfigDict": {
+      "id": "envelope.ConfigDict",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ConfigDict",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 25.207298254306842,
+      "y": -212.879913697773,
+      "label_at": "right"
+     },
+     "envelope.Enum": {
+      "id": "envelope.Enum",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Enum",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -61.145864163810245,
+      "y": -186.73787044244145,
+      "label_at": "left"
+     },
+     "envelope.Event": {
+      "id": "envelope.Event",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Event",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -12.5139041080293,
+      "y": -268.55053314405023,
+      "label_at": "above"
+     },
+     "envelope.Field": {
+      "id": "envelope.Field",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Field",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 7.76095111928423,
+      "y": -170.74812349234327,
+      "label_at": "right"
+     },
+     "envelope._Envelope": {
+      "id": "envelope._Envelope",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "_Envelope",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -76.85272977357042,
+      "y": -231.86138994061275,
+      "label_at": "left"
+     },
+     "envelope.__future__.annotations": {
+      "id": "envelope.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 31.107188863121575,
+      "y": -244.38452334389655,
+      "label_at": "right"
+     },
+     "envelope.announce_json_schema": {
+      "id": "envelope.announce_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "announce_json_schema",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -42.79866771461168,
+      "y": -159.13243909140635,
+      "label_at": "below"
+     },
+     "envelope.enum.Enum": {
+      "id": "envelope.enum.Enum",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "enum.Enum",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -45.944208406674946,
+      "y": -275.91378604270017,
+      "label_at": "left"
+     },
+     "envelope.event_json_schema": {
+      "id": "envelope.event_json_schema",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "event_json_schema",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 37.91004004557756,
+      "y": -189.1151880893759,
+      "label_at": "right"
+     },
+     "envelope.is_monotonic": {
+      "id": "envelope.is_monotonic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "is_monotonic",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -86.28736238042501,
+      "y": -196.74843993641477,
+      "label_at": "left"
+     },
+     "envelope.pydantic.BaseModel": {
+      "id": "envelope.pydantic.BaseModel",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pydantic.BaseModel",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 13.299625260487623,
+      "y": -277.26801867839174,
+      "label_at": "right"
+     },
+     "envelope.pydantic.ConfigDict": {
+      "id": "envelope.pydantic.ConfigDict",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pydantic.ConfigDict",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -6.305512882851537,
+      "y": -147.13615678516717,
+      "label_at": "below"
+     },
+     "envelope.pydantic.Field": {
+      "id": "envelope.pydantic.Field",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pydantic.Field",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -81.64383265640433,
+      "y": -259.2096961282123,
+      "label_at": "left"
+     },
+     "envelope.typing.Any": {
+      "id": "envelope.typing.Any",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "typing.Any",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 52.86719229155968,
+      "y": -226.63992330564935,
+      "label_at": "right"
+     },
+     "envelope.wire": {
+      "id": "envelope.wire",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "wire",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -71.20115879655611,
+      "y": -158.23886521754915,
+      "label_at": "left"
+     },
+     "envelope.wire_json": {
+      "id": "envelope.wire_json",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "wire_json",
+      "file": "envelope.py",
+      "line": 0,
+      "meta": {
+       "module": "envelope",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -24.871104853633344,
+      "y": -295.5080599480195,
+      "label_at": "above"
+     },
+     "harness.Captured": {
+      "id": "harness.Captured",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Captured",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -321.37093721974003,
+      "y": -371.9672177836463,
+      "label_at": "left"
+     },
+     "harness.Event": {
+      "id": "harness.Event",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Event",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -262.0378028952745,
+      "y": -402.7104131590494,
+      "label_at": "right"
+     },
+     "harness.Roundtrip": {
+      "id": "harness.Roundtrip",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Roundtrip",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -287.5114394834494,
+      "y": -333.8924224832758,
+      "label_at": "below"
+     },
+     "harness.__future__.annotations": {
+      "id": "harness.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -317.3064735811499,
+      "y": -407.4847840126136,
+      "label_at": "left"
+     },
+     "harness._clear_retained": {
+      "id": "harness._clear_retained",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "_clear_retained",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -240.6469652878244,
+      "y": -370.8057842068314,
+      "label_at": "right"
+     },
+     "harness._client": {
+      "id": "harness._client",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "_client",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -327.0001277059415,
+      "y": -344.6637409515,
+      "label_at": "left"
+     },
+     "harness._wait_for": {
+      "id": "harness._wait_for",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "_wait_for",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -278.3681676501608,
+      "y": -426.4764036531088,
+      "label_at": "above"
+     },
+     "harness.accepts": {
+      "id": "harness.accepts",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "accepts",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -258.093312422847,
+      "y": -328.67399400140187,
+      "label_at": "right"
+     },
+     "harness.announce_topic": {
+      "id": "harness.announce_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "announce_topic",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -342.70699331570165,
+      "y": -389.7872604496713,
+      "label_at": "left"
+     },
+     "harness.broker_address": {
+      "id": "harness.broker_address",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "broker_address",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -234.7470746790098,
+      "y": -402.31039385295514,
+      "label_at": "right"
+     },
+     "harness.broker_reachable": {
+      "id": "harness.broker_reachable",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "broker_reachable",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -308.6529312567432,
+      "y": -317.0583096004649,
+      "label_at": "below"
+     },
+     "harness.client": {
+      "id": "harness.client",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "client",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -311.7984719488064,
+      "y": -433.8396565517587,
+      "label_at": "left"
+     },
+     "harness.closing": {
+      "id": "harness.closing",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "closing",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -227.94422349655372,
+      "y": -347.04105859843446,
+      "label_at": "right"
+     },
+     "harness.conformance.accepts": {
+      "id": "harness.conformance.accepts",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "conformance.accepts",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -352.1416259225563,
+      "y": -354.67431044547317,
+      "label_at": "left"
+     },
+     "harness.contextlib.closing": {
+      "id": "harness.contextlib.closing",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "contextlib.closing",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -252.55463828164375,
+      "y": -435.1938891874503,
+      "label_at": "right"
+     },
+     "harness.dataclasses.dataclass": {
+      "id": "harness.dataclasses.dataclass",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "dataclasses.dataclass",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -272.1597764249828,
+      "y": -305.0620272942257,
+      "label_at": "below"
+     },
+     "harness.dataclasses.field": {
+      "id": "harness.dataclasses.field",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "dataclasses.field",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -347.49809619853556,
+      "y": -417.13556663727064,
+      "label_at": "left"
+     },
+     "harness.envelope.Announce": {
+      "id": "harness.envelope.Announce",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Announce",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -212.98707125057183,
+      "y": -384.56579381470794,
+      "label_at": "right"
+     },
+     "harness.envelope.Event": {
+      "id": "harness.envelope.Event",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Event",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -337.0554223386874,
+      "y": -316.1647357266077,
+      "label_at": "left"
+     },
+     "harness.event_topic": {
+      "id": "harness.event_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "event_topic",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -290.7253683957648,
+      "y": -453.43393045707796,
+      "label_at": "above"
+     },
+     "harness.field": {
+      "id": "harness.field",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "field",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -230.92135427809546,
+      "y": -318.04403905181533,
+      "label_at": "right"
+     },
+     "harness.ok": {
+      "id": "harness.ok",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "ok",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -369.2734558190116,
+      "y": -378.7339781604222,
+      "label_at": "left"
+     },
+     "harness.paho.mqtt.client": {
+      "id": "harness.paho.mqtt.client",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "paho.mqtt.client",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -223.40750552907065,
+      "y": -428.38597539247536,
+      "label_at": "right"
+     },
+     "harness.roundtrip": {
+      "id": "harness.roundtrip",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "roundtrip",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -298.8611289235516,
+      "y": -290.6668229715999,
+      "label_at": "below"
+     },
+     "harness.status_topic": {
+      "id": "harness.status_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "status_topic",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -336.92108908101306,
+      "y": -446.0015151041348,
+      "label_at": "left"
+     },
+     "harness.topics.ONLINE": {
+      "id": "harness.topics.ONLINE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.ONLINE",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -201.57614308661093,
+      "y": -355.57595920546476,
+      "label_at": "right"
+     },
+     "harness.topics.announce_topic": {
+      "id": "harness.topics.announce_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.announce_topic",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -365.22189934565694,
+      "y": -330.422303535692,
+      "label_at": "left"
+     },
+     "harness.topics.event_topic": {
+      "id": "harness.topics.event_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.event_topic",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -259.81090596758276,
+      "y": -461.6425882621478,
+      "label_at": "above"
+     },
+     "harness.topics.is_retained": {
+      "id": "harness.topics.is_retained",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.is_retained",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -248.74122304002003,
+      "y": -290.98122716854647,
+      "label_at": "right"
+     },
+     "harness.topics.status_topic": {
+      "id": "harness.topics.status_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.status_topic",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -374.0940367380606,
+      "y": -411.1981333871316,
+      "label_at": "left"
+     },
+     "harness.typing.Any": {
+      "id": "harness.typing.Any",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "typing.Any",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -197.83666000261417,
+      "y": -407.15323059703337,
+      "label_at": "right"
+     },
+     "harness.verdict": {
+      "id": "harness.verdict",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "verdict",
+      "file": "harness.py",
+      "line": 0,
+      "meta": {
+       "module": "harness",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -332.4897768990214,
+      "y": -289.3858694782792,
+      "label_at": "left"
+     },
+     "retrofit.ARMED": {
+      "id": "retrofit.ARMED",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ARMED",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -617.8120580790984,
+      "y": -170.72766850834168,
+      "label_at": "left"
+     },
+     "retrofit.Action": {
+      "id": "retrofit.Action",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Action",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -558.4789237546329,
+      "y": -201.4708638837448,
+      "label_at": "right"
+     },
+     "retrofit.Announce": {
+      "id": "retrofit.Announce",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Announce",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -583.9525603428078,
+      "y": -132.6528732079712,
+      "label_at": "below"
+     },
+     "retrofit.Bus": {
+      "id": "retrofit.Bus",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Bus",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -613.7475944405082,
+      "y": -206.24523473730906,
+      "label_at": "left"
+     },
+     "retrofit.Contact": {
+      "id": "retrofit.Contact",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Contact",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -537.0880861471828,
+      "y": -169.56623493152696,
+      "label_at": "right"
+     },
+     "retrofit.DETAINED": {
+      "id": "retrofit.DETAINED",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "DETAINED",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -623.4412485652999,
+      "y": -143.42419167619542,
+      "label_at": "left"
+     },
+     "retrofit.Event": {
+      "id": "retrofit.Event",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Event",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -574.8092885095189,
+      "y": -225.23685437780415,
+      "label_at": "above"
+     },
+     "retrofit.Lamp": {
+      "id": "retrofit.Lamp",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Lamp",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -554.5344332822054,
+      "y": -127.43444472609727,
+      "label_at": "right"
+     },
+     "retrofit.OFFLINE": {
+      "id": "retrofit.OFFLINE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "OFFLINE",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -639.1481141750601,
+      "y": -188.54771117436673,
+      "label_at": "left"
+     },
+     "retrofit.ONLINE": {
+      "id": "retrofit.ONLINE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ONLINE",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -531.188195538368,
+      "y": -201.07084457765058,
+      "label_at": "right"
+     },
+     "retrofit.__future__.annotations": {
+      "id": "retrofit.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -605.0940521161014,
+      "y": -115.81876032516033,
+      "label_at": "below"
+     },
+     "retrofit.__init__": {
+      "id": "retrofit.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -608.2395928081646,
+      "y": -232.60010727645403,
+      "label_at": "left"
+     },
+     "retrofit.__repr__": {
+      "id": "retrofit.__repr__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__repr__",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -524.3853443559121,
+      "y": -145.80150932312975,
+      "label_at": "right"
+     },
+     "retrofit.announce": {
+      "id": "retrofit.announce",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "announce",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -648.5827467819146,
+      "y": -153.43476117016874,
+      "label_at": "left"
+     },
+     "retrofit.announce_topic": {
+      "id": "retrofit.announce_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "announce_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -548.9957591410022,
+      "y": -233.95433991214577,
+      "label_at": "right"
+     },
+     "retrofit.arm": {
+      "id": "retrofit.arm",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "arm",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -568.6008972843412,
+      "y": -103.82247801892115,
+      "label_at": "below"
+     },
+     "retrofit.attach": {
+      "id": "retrofit.attach",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "attach",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -643.939217057894,
+      "y": -215.8960173619662,
+      "label_at": "left"
+     },
+     "retrofit.bus.Bus": {
+      "id": "retrofit.bus.Bus",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "bus.Bus",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -509.42819210992997,
+      "y": -183.32624453940332,
+      "label_at": "right"
+     },
+     "retrofit.detach": {
+      "id": "retrofit.detach",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "detach",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -633.4965431980457,
+      "y": -114.92518645130309,
+      "label_at": "left"
+     },
+     "retrofit.detain": {
+      "id": "retrofit.detain",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "detain",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -587.166489255123,
+      "y": -252.19438118177334,
+      "label_at": "above"
+     },
+     "retrofit.detained": {
+      "id": "retrofit.detained",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "detained",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -527.3624751374539,
+      "y": -116.8044897765107,
+      "label_at": "right"
+     },
+     "retrofit.detained_topic": {
+      "id": "retrofit.detained_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "detained_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -665.7145766783698,
+      "y": -177.49442888511769,
+      "label_at": "left"
+     },
+     "retrofit.detent_topic": {
+      "id": "retrofit.detent_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "detent_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -519.848626388429,
+      "y": -227.14642611717082,
+      "label_at": "right"
+     },
+     "retrofit.emit": {
+      "id": "retrofit.emit",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "emit",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -595.3022497829099,
+      "y": -89.42727369629522,
+      "label_at": "below"
+     },
+     "retrofit.envelope.Action": {
+      "id": "retrofit.envelope.Action",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Action",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -633.3622099403715,
+      "y": -244.76196582883026,
+      "label_at": "left"
+     },
+     "retrofit.envelope.Announce": {
+      "id": "retrofit.envelope.Announce",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Announce",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -498.01726394596903,
+      "y": -154.3364099301602,
+      "label_at": "right"
+     },
+     "retrofit.envelope.Event": {
+      "id": "retrofit.envelope.Event",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "envelope.Event",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -661.6630202050151,
+      "y": -129.1827542603873,
+      "label_at": "left"
+     },
+     "retrofit.event_topic": {
+      "id": "retrofit.event_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "event_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -556.2520268269411,
+      "y": -260.40303898684317,
+      "label_at": "above"
+     },
+     "retrofit.handle": {
+      "id": "retrofit.handle",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "handle",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -545.1823438993785,
+      "y": -89.74167789324189,
+      "label_at": "right"
+     },
+     "retrofit.press": {
+      "id": "retrofit.press",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "press",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -670.535157597419,
+      "y": -209.9585841118268,
+      "label_at": "left"
+     },
+     "retrofit.status_topic": {
+      "id": "retrofit.status_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "status_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -494.27778086197236,
+      "y": -205.91368132172877,
+      "label_at": "right"
+     },
+     "retrofit.topics.ARMED": {
+      "id": "retrofit.topics.ARMED",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.ARMED",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -628.9308977583796,
+      "y": -88.14632020297464,
+      "label_at": "left"
+     },
+     "retrofit.topics.DETAINED": {
+      "id": "retrofit.topics.DETAINED",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.DETAINED",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -608.8975918182375,
+      "y": -268.47065780942853,
+      "label_at": "above"
+     },
+     "retrofit.topics.OFFLINE": {
+      "id": "retrofit.topics.OFFLINE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.OFFLINE",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -500.39156524183966,
+      "y": -119.9370689762082,
+      "label_at": "right"
+     },
+     "retrofit.topics.ONLINE": {
+      "id": "retrofit.topics.ONLINE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.ONLINE",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -683.15993737105,
+      "y": -156.66702617919643,
+      "label_at": "left"
+     },
+     "retrofit.topics.announce_topic": {
+      "id": "retrofit.topics.announce_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.announce_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -521.4821309621942,
+      "y": -254.2950729708322,
+      "label_at": "right"
+     },
+     "retrofit.topics.detained_topic": {
+      "id": "retrofit.topics.detained_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.detained_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -575.443807954866,
+      "y": -70.78304240596937,
+      "label_at": "below"
+     },
+     "retrofit.topics.detent_topic": {
+      "id": "retrofit.topics.detent_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.detent_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -660.6532675012577,
+      "y": -244.69524368448586,
+      "label_at": "left"
+     },
+     "retrofit.topics.event_topic": {
+      "id": "retrofit.topics.event_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.event_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -478.1582719842872,
+      "y": -173.14624831515943,
+      "label_at": "right"
+     },
+     "retrofit.topics.status_topic": {
+      "id": "retrofit.topics.status_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "topics.status_topic",
+      "file": "retrofit.py",
+      "line": 0,
+      "meta": {
+       "module": "retrofit",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -663.2298615266342,
+      "y": -101.80366690614096,
+      "label_at": "left"
+     },
+     "toml::REUSE.toml::array_section::annotations::18": {
+      "id": "toml::REUSE.toml::array_section::annotations::18",
+      "depth": 2,
+      "language": "toml",
+      "kind": "array_section",
+      "label": "annotations",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/REUSE.toml",
+      "line": 18,
+      "meta": {},
+      "x": 774.0962967433563,
+      "y": 345.54959622406443,
+      "label_at": "left"
+     },
+     "toml::REUSE.toml::array_section::annotations::25": {
+      "id": "toml::REUSE.toml::array_section::annotations::25",
+      "depth": 2,
+      "language": "toml",
+      "kind": "array_section",
+      "label": "annotations",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/REUSE.toml",
+      "line": 25,
+      "meta": {},
+      "x": 833.429431067822,
+      "y": 314.8064008486614,
+      "label_at": "right"
+     },
+     "toml::REUSE.toml::array_section::annotations::32": {
+      "id": "toml::REUSE.toml::array_section::annotations::32",
+      "depth": 2,
+      "language": "toml",
+      "kind": "array_section",
+      "label": "annotations",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/REUSE.toml",
+      "line": 32,
+      "meta": {},
+      "x": 807.955794479647,
+      "y": 383.62439152443494,
+      "label_at": "below"
+     },
+     "toml::pyproject.toml::section::build-system::29": {
+      "id": "toml::pyproject.toml::section::build-system::29",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "build-system",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/pyproject.toml",
+      "line": 29,
+      "meta": {},
+      "x": 947.394867817587,
+      "y": 198.33441702940712,
+      "label_at": "left"
+     },
+     "toml::pyproject.toml::section::dependency-groups::15": {
+      "id": "toml::pyproject.toml::section::dependency-groups::15",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "dependency-groups",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/pyproject.toml",
+      "line": 15,
+      "meta": {},
+      "x": 1006.7280021420526,
+      "y": 167.59122165400404,
+      "label_at": "right"
+     },
+     "toml::pyproject.toml::section::project.scripts::12": {
+      "id": "toml::pyproject.toml::section::project.scripts::12",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "project.scripts",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/pyproject.toml",
+      "line": 12,
+      "meta": {},
+      "x": 951.4593314561773,
+      "y": 162.8168508004398,
+      "label_at": "left"
+     },
+     "toml::pyproject.toml::section::project::1": {
+      "id": "toml::pyproject.toml::section::project::1",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "project",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/pyproject.toml",
+      "line": 1,
+      "meta": {},
+      "x": 981.2543655538778,
+      "y": 236.40921232977763,
+      "label_at": "below"
+     },
+     "toml::pyproject.toml::section::tool.hatch.build.targets.wheel::33": {
+      "id": "toml::pyproject.toml::section::tool.hatch.build.targets.wheel::33",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "tool.hatch.build.targets.wheel",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/pyproject.toml",
+      "line": 33,
+      "meta": {},
+      "x": 1028.1188397495027,
+      "y": 199.4958506062219,
+      "label_at": "right"
+     },
+     "toml::pyproject.toml::section::tool.pytest.ini_options::40": {
+      "id": "toml::pyproject.toml::section::tool.pytest.ini_options::40",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "tool.pytest.ini_options",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/pyproject.toml",
+      "line": 40,
+      "meta": {},
+      "x": 941.7656773313855,
+      "y": 225.6378938615534,
+      "label_at": "left"
+     },
+     "toml::pyproject.toml::section::tool.uv::26": {
+      "id": "toml::pyproject.toml::section::tool.uv::26",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "tool.uv",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/datum/main/pyproject.toml",
+      "line": 26,
+      "meta": {},
+      "x": 990.3976373871665,
+      "y": 143.82523115994468,
+      "label_at": "above"
+     },
+     "topics.__future__.annotations": {
+      "id": "topics.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "topics.py",
+      "line": 0,
+      "meta": {
+       "module": "topics",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -307.6953105765362,
+      "y": 245.78993612109917,
+      "label_at": "left"
+     },
+     "topics.announce_topic": {
+      "id": "topics.announce_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "announce_topic",
+      "file": "topics.py",
+      "line": 0,
+      "meta": {
+       "module": "topics",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -248.3621762520707,
+      "y": 215.04674074569613,
+      "label_at": "right"
+     },
+     "topics.detained_topic": {
+      "id": "topics.detained_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "detained_topic",
+      "file": "topics.py",
+      "line": 0,
+      "meta": {
+       "module": "topics",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -273.8358128402456,
+      "y": 283.86473142146974,
+      "label_at": "below"
+     },
+     "topics.detent_topic": {
+      "id": "topics.detent_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "detent_topic",
+      "file": "topics.py",
+      "line": 0,
+      "meta": {
+       "module": "topics",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -303.630846937946,
+      "y": 210.27236989213188,
+      "label_at": "left"
+     },
+     "topics.event_topic": {
+      "id": "topics.event_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "event_topic",
+      "file": "topics.py",
+      "line": 0,
+      "meta": {
+       "module": "topics",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -226.97133864462054,
+      "y": 246.95136969791403,
+      "label_at": "right"
+     },
+     "topics.is_retained": {
+      "id": "topics.is_retained",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "is_retained",
+      "file": "topics.py",
+      "line": 0,
+      "meta": {
+       "module": "topics",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -313.3245010627377,
+      "y": 273.09341295324543,
+      "label_at": "left"
+     },
+     "topics.status_topic": {
+      "id": "topics.status_topic",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "status_topic",
+      "file": "topics.py",
+      "line": 0,
+      "meta": {
+       "module": "topics",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -264.69254100695696,
+      "y": 191.2807502516368,
+      "label_at": "above"
      }
     },
     "edges": [
@@ -1329,12 +5071,1390 @@
        "kind": "contains",
        "weight": 1
       }
+     },
+     {
+      "source": "file::quaternionmedia/datum/REUSE.toml",
+      "target": "toml::REUSE.toml::array_section::annotations::18",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/REUSE.toml",
+      "target": "toml::REUSE.toml::array_section::annotations::25",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/REUSE.toml",
+      "target": "toml::REUSE.toml::array_section::annotations::32",
+      "kind": "contains"
+     },
+     {
+      "source": "conftest.pytest_collection_modifyitems",
+      "target": "conftest.datum.harness.broker_address",
+      "kind": "imports",
+      "weight": 1
+     },
+     {
+      "source": "conftest.pytest_collection_modifyitems",
+      "target": "conftest.datum.harness.broker_reachable",
+      "kind": "imports",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/datum/conftest.py",
+      "target": "conftest.pathlib.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/conftest.py",
+      "target": "conftest.pytest_collection_modifyitems",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/conftest.py",
+      "target": "conftest.datum.harness.broker_address",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/conftest.py",
+      "target": "conftest.datum.harness.broker_reachable",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/conftest.py",
+      "target": "conftest.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/conftest.py",
+      "target": "conftest.broker_address",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/conftest.py",
+      "target": "conftest.broker_reachable",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project::1",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project.scripts::12",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/pyproject.toml",
+      "target": "toml::pyproject.toml::section::dependency-groups::15",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.uv::26",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/pyproject.toml",
+      "target": "toml::pyproject.toml::section::build-system::29",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.hatch.build.targets.wheel::33",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.pytest.ini_options::40",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.bus.Bus",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.conformance.accepts",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.conformance.closed_objects",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.conformance.load",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.conformance.report",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.conformance.vectors_dir",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.envelope.SCHEMA_VERSION",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.envelope.Action",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.envelope.Announce",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.envelope.Color",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.envelope.Event",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.envelope.announce_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.envelope.event_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.envelope.is_monotonic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.retrofit.Contact",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.retrofit.Lamp",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.ARMED",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.DETAINED",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.OFFLINE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.ONLINE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.TOPIC_ROOT",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.announce_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.detained_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.detent_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.event_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.is_retained",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/__init__.py",
+      "target": "__init__.topics.status_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "cli.validate",
+      "target": "conformance.accepts",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cli.validate",
+      "target": "envelope.Event",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cli.validate",
+      "target": "envelope.is_monotonic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cli.accepts",
+      "target": "conformance.accepts",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cli.Event",
+      "target": "envelope.Event",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cli.announce_json_schema",
+      "target": "envelope.announce_json_schema",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cli.event_json_schema",
+      "target": "envelope.event_json_schema",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "cli.is_monotonic",
+      "target": "envelope.is_monotonic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.pathlib.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.conformance.accepts",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.envelope.SCHEMA_VERSION",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.envelope.Event",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.envelope.announce_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.envelope.event_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.envelope.is_monotonic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.emit",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.validate",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.version",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.accepts",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.SCHEMA_VERSION",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.Event",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.announce_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.event_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/cli.py",
+      "target": "cli.is_monotonic",
+      "kind": "contains"
+     },
+     {
+      "source": "harness.broker_reachable",
+      "target": "harness.broker_address",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.Roundtrip",
+      "target": "envelope.Event",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.Roundtrip",
+      "target": "harness.Captured",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.Roundtrip",
+      "target": "harness.ok",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.Roundtrip",
+      "target": "harness.verdict",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness._client",
+      "target": "harness.paho.mqtt.client",
+      "kind": "imports",
+      "weight": 1
+     },
+     {
+      "source": "harness.roundtrip",
+      "target": "harness.conformance.accepts",
+      "kind": "imports",
+      "weight": 1
+     },
+     {
+      "source": "harness.roundtrip",
+      "target": "harness.broker_address",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.roundtrip",
+      "target": "harness.Roundtrip",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.roundtrip",
+      "target": "topics.event_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.roundtrip",
+      "target": "topics.announce_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.roundtrip",
+      "target": "topics.status_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.roundtrip",
+      "target": "harness._client",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.roundtrip",
+      "target": "harness.Captured",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.roundtrip",
+      "target": "conformance.accepts",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.Event",
+      "target": "envelope.Event",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.announce_topic",
+      "target": "topics.announce_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.event_topic",
+      "target": "topics.event_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.status_topic",
+      "target": "topics.status_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "harness.accepts",
+      "target": "conformance.accepts",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.contextlib.closing",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.dataclasses.dataclass",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.dataclasses.field",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.typing.Any",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.envelope.Announce",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.envelope.Event",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.topics.ONLINE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.topics.announce_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.topics.event_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.topics.is_retained",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.topics.status_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.broker_address",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.broker_reachable",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.Captured",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.Roundtrip",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.ok",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.verdict",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness._client",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.paho.mqtt.client",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.roundtrip",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.conformance.accepts",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness._wait_for",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness._clear_retained",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.closing",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.field",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.Event",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.announce_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.event_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.status_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.client",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "target": "harness.accepts",
+      "kind": "contains"
+     },
+     {
+      "source": "bus.Bus",
+      "target": "bus.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "bus.Bus",
+      "target": "bus.publish",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "bus.Bus",
+      "target": "bus.subscribe",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "bus.publish",
+      "target": "topics.is_retained",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "bus.is_retained",
+      "target": "topics.is_retained",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/bus.py",
+      "target": "bus.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/bus.py",
+      "target": "bus.collections.abc.Callable",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/bus.py",
+      "target": "bus.topics.is_retained",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/bus.py",
+      "target": "bus.Bus",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/bus.py",
+      "target": "bus.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/bus.py",
+      "target": "bus.publish",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/bus.py",
+      "target": "bus.subscribe",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/bus.py",
+      "target": "bus.Callable",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/bus.py",
+      "target": "bus.is_retained",
+      "kind": "contains"
+     },
+     {
+      "source": "conformance.load",
+      "target": "conformance.vectors_dir",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "conformance.accepts",
+      "target": "conformance.jsonschema.Draft202012Validator",
+      "kind": "imports",
+      "weight": 1
+     },
+     {
+      "source": "conformance.accepts",
+      "target": "envelope.event_json_schema",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "conformance.report",
+      "target": "envelope.event_json_schema",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "conformance.report",
+      "target": "conformance.load",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "conformance.event_json_schema",
+      "target": "envelope.event_json_schema",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.pathlib.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.typing.Any",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.envelope.event_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.vectors_dir",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.load",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.accepts",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.jsonschema.Draft202012Validator",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.closed_objects",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.report",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.event_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/conformance.py",
+      "target": "conformance.Draft202012Validator",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/topics.py",
+      "target": "topics.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/topics.py",
+      "target": "topics.event_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/topics.py",
+      "target": "topics.announce_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/topics.py",
+      "target": "topics.status_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/topics.py",
+      "target": "topics.detent_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/topics.py",
+      "target": "topics.detained_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/topics.py",
+      "target": "topics.is_retained",
+      "kind": "contains"
+     },
+     {
+      "source": "envelope._Envelope",
+      "target": "envelope.wire",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "envelope._Envelope",
+      "target": "envelope.wire_json",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "envelope.Event",
+      "target": "envelope.Action",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "envelope.Event",
+      "target": "envelope.Color",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "envelope.event_json_schema",
+      "target": "envelope.Event",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "envelope.announce_json_schema",
+      "target": "envelope.Announce",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.enum.Enum",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.typing.Any",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.pydantic.BaseModel",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.pydantic.ConfigDict",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.pydantic.Field",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.Action",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope._Envelope",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.wire",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.wire_json",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.Color",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.Event",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.Announce",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.event_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.announce_json_schema",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.is_monotonic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.Enum",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.BaseModel",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.ConfigDict",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/envelope.py",
+      "target": "envelope.Field",
+      "kind": "contains"
+     },
+     {
+      "source": "retrofit.Lamp",
+      "target": "retrofit.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Lamp",
+      "target": "retrofit.__repr__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Lamp",
+      "target": "retrofit.handle",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.__init__",
+      "target": "bus.Bus",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.handle",
+      "target": "envelope.Event",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.handle",
+      "target": "envelope.Action",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Contact",
+      "target": "retrofit.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Contact",
+      "target": "retrofit.announce",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Contact",
+      "target": "retrofit.attach",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Contact",
+      "target": "retrofit.detained",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Contact",
+      "target": "retrofit.detain",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Contact",
+      "target": "retrofit.arm",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Contact",
+      "target": "retrofit.detach",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Contact",
+      "target": "retrofit.emit",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Contact",
+      "target": "retrofit.press",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.announce",
+      "target": "envelope.Announce",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.emit",
+      "target": "envelope.Event",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.emit",
+      "target": "envelope.Action",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.emit",
+      "target": "topics.detained_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.emit",
+      "target": "topics.event_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.press",
+      "target": "envelope.Action",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Bus",
+      "target": "bus.Bus",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Action",
+      "target": "envelope.Action",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Announce",
+      "target": "envelope.Announce",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.Event",
+      "target": "envelope.Event",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.announce_topic",
+      "target": "topics.announce_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.detained_topic",
+      "target": "topics.detained_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.detent_topic",
+      "target": "topics.detent_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.event_topic",
+      "target": "topics.event_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "retrofit.status_topic",
+      "target": "topics.status_topic",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.bus.Bus",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.envelope.Action",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.envelope.Announce",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.envelope.Event",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.topics.ARMED",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.topics.DETAINED",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.topics.OFFLINE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.topics.ONLINE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.topics.announce_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.topics.detained_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.topics.detent_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.topics.event_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.topics.status_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.Lamp",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.__repr__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.handle",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.Contact",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.announce",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.attach",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.detained",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.detain",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.arm",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.detach",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.emit",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.press",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.Bus",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.Action",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.Announce",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.Event",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.ARMED",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.DETAINED",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.OFFLINE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.ONLINE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.announce_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.detained_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.detent_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.event_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/schema/src/datum/retrofit.py",
+      "target": "retrofit.status_topic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/datum/conftest.py",
+      "target": "file::quaternionmedia/datum/schema/src/datum/harness.py",
+      "kind": "depends_on"
      }
     ]
    },
    "metadata": {
     "url": "https://github.com/quaternionmedia/datum",
-    "depth": 1,
+    "depth": 2,
+    "floor": 100,
     "truncated": 0
    }
   },

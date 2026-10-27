@@ -142,7 +142,7 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Every family: every family at once, each member drawn once, and the seams between them](../show/index/estate.svg)](../show/index/estate.svg)
 
@@ -150,7 +150,7 @@ the graphs codecarto draws
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
 [![The whole corpus: every family, with each project's code in it](../show/index/code.svg)](../show/index/code.svg)
 
@@ -158,9 +158,17 @@ the graphs codecarto draws
 
 </figure>
 
+<figure class="qm-shot" id="showgraph-full" markdown>
+
+[![Every node: the whole corpus again, every node drawn and nothing written on it](../show/index/full.svg)](../show/index/full.svg)
+
+<figcaption><strong>Every node.</strong> The whole corpus again, every node drawn and nothing written on it.</figcaption>
+
+</figure>
+
 </div>
 
-Drawn by codecartographer at `e430930` from the corpus at `ba587c3`, on 2026-10-27. [The show document](../show/index/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee`, on 2026-10-27. [The show document](../show/index/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "ba587c36ef88c410b1f2ae1e94bd1a60ccbe140f",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:3e397243f771c3302cbbfbc61734bbe2a20493ee8deb5cb2dbb52d6a6f4f8e09"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "fe7ee650185685313450f4ffe7e157d503c8cdf3"
   },
   "drawn_by": {
-   "graph": "codecartographer@e4309302dc82884a25752380a0cbbfe6d23c2ddd"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-27T15:45:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:ludwig",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "ba587c3",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "ba587c3",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -219,8 +219,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 206.56374831945564,
-      "y": 2.681387493005822,
+      "x": 802.887061974046,
+      "y": -140.71315840234826,
       "size": 80
      },
      "dir::quaternionmedia/ludwig/.github": {
@@ -233,8 +233,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 292.3672025465407,
-      "y": -233.06166550711856,
+      "x": 795.9780394682936,
+      "y": -385.4459982857546,
       "size": 70
      },
      "dir::quaternionmedia/ludwig/.github/ISSUE_TEMPLATE": {
@@ -246,9 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 227.36989084773498,
-      "y": -221.60088578110114,
+      "label_at": "right",
+      "x": 842.6470870266056,
+      "y": -338.77695072744245,
       "size": 50
      },
      "dir::quaternionmedia/ludwig/.github/workflows": {
@@ -260,9 +260,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 339.7556809739929,
-      "y": -294.8022082025865,
+      "label_at": "left",
+      "x": 718.2222331232729,
+      "y": -388.8514468077008,
       "size": 50
      },
      "dir::quaternionmedia/ludwig/ludwig": {
@@ -275,8 +275,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -26.201979086229173,
-      "y": 43.724265418859815,
+      "x": -349.32522253461684,
+      "y": -146.00659847861567,
       "size": 110
      },
      "dir::quaternionmedia/ludwig/ludwig/boards": {
@@ -289,8 +289,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -278.38384518270016,
-      "y": 88.19073245707693,
+      "x": 85.38269321168985,
+      "y": 357.25073355312884,
       "size": 110
      },
      "file::quaternionmedia/ludwig/README.md": {
@@ -302,9 +302,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 153.38412965679643,
-      "y": 12.05838908702006,
+      "label_at": "right",
+      "x": 841.0708281581198,
+      "y": -102.52939221827472,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/__init__.py": {
@@ -316,9 +316,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/__init__.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -79.38159774888841,
-      "y": 53.101267012874054,
+      "label_at": "none",
+      "x": -54.871475875155454,
+      "y": -384.8218852706154,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/__init__.py": {
@@ -330,9 +330,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/__init__.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -331.5634638453594,
-      "y": 97.56773405109118,
+      "label_at": "none",
+      "x": 342.9217570364879,
+      "y": 141.7092969416508,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/command8.py": {
@@ -344,9 +344,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/command8.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -241.82603178899188,
-      "y": 40.56102765145378,
+      "label_at": "none",
+      "x": -93.53813798962832,
+      "y": 405.1924257826275,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/generic.py": {
@@ -358,9 +358,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/generic.py",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -272.6902587572142,
-      "y": 153.47249157565093,
+      "label_at": "none",
+      "x": -191.8047579200396,
+      "y": 147.4396931129565,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/gld.py": {
@@ -372,9 +372,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/gld.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -330.41011068620793,
-      "y": 40.47852020739684,
+      "label_at": "none",
+      "x": 277.48786376031956,
+      "y": 408.725158863477,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/qu24.py": {
@@ -386,9 +386,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/qu24.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -203.06951498256666,
-      "y": 88.23155530933414,
+      "label_at": "none",
+      "x": 78.71445314419742,
+      "y": 641.9668334815608,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/xair.py": {
@@ -400,9 +400,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/xair.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -337.22398541205536,
-      "y": 142.0344915920948,
+      "label_at": "none",
+      "x": 83.15066717326141,
+      "y": 169.62784317087798,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/main.py": {
@@ -414,9 +414,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/main.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 10.355834307479112,
-      "y": -3.9054393867633457,
+      "label_at": "none",
+      "x": -573.4634031181397,
+      "y": -377.86728059825276,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/midi.py": {
@@ -428,9 +428,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/midi.py",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": -20.50839266074324,
-      "y": 109.00602453743382,
+      "label_at": "none",
+      "x": -302.7032081808244,
+      "y": -320.002324798175,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/mixer.py": {
@@ -442,9 +442,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/mixer.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -78.22824458973686,
-      "y": -3.9879468308202846,
+      "label_at": "none",
+      "x": -529.8196144966626,
+      "y": -97.6432719140389,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/types.py": {
@@ -456,9 +456,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/types.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 49.11235111390428,
-      "y": 43.76508827111703,
+      "label_at": "none",
+      "x": -579.1220423245142,
+      "y": 151.06231740291426,
       "size": 30
      },
      "file::quaternionmedia/ludwig/setup.py": {
@@ -470,10 +470,3601 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/setup.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 243.12156171316394,
-      "y": -44.94831731261734,
+      "label_at": "none",
+      "x": 933.4781703867656,
+      "y": -10.12204998962875,
       "size": 30
+     },
+     "__init__.HookimplMarker": {
+      "id": "__init__.HookimplMarker",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "HookimplMarker",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -30.829845314812843,
+      "y": -360.78025471027274,
+      "label_at": "right"
+     },
+     "__init__.command8.Command8": {
+      "id": "__init__.command8.Command8",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "command8.Command8",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 366.9633875968305,
+      "y": 165.75092750199343,
+      "label_at": "right"
+     },
+     "__init__.generic.Generic": {
+      "id": "__init__.generic.Generic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "generic.Generic",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 305.2741300281484,
+      "y": 140.06045472938635,
+      "label_at": "left"
+     },
+     "__init__.gld.Gld": {
+      "id": "__init__.gld.Gld",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "gld.Gld",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 374.36590734447486,
+      "y": 115.33904075387895,
+      "label_at": "right"
+     },
+     "__init__.midi.Midi": {
+      "id": "__init__.midi.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "midi.Midi",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -92.51910288349492,
+      "y": -386.47072748287985,
+      "label_at": "left"
+     },
+     "__init__.midi.MidiInput": {
+      "id": "__init__.midi.MidiInput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "midi.MidiInput",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -23.427325567168452,
+      "y": -411.19214145838725,
+      "label_at": "right"
+     },
+     "__init__.mixer.Mixer": {
+      "id": "__init__.mixer.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "mixer.Mixer",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -60.65046642453075,
+      "y": -341.06356299667266,
+      "label_at": "below"
+     },
+     "__init__.pluggy.HookimplMarker": {
+      "id": "__init__.pluggy.HookimplMarker",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pluggy.HookimplMarker",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -81.82850453976133,
+      "y": -423.36495994785946,
+      "label_at": "left"
+     },
+     "__init__.qu24.Qu24": {
+      "id": "__init__.qu24.Qu24",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "qu24.Qu24",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 337.1427664871126,
+      "y": 185.46761921559352,
+      "label_at": "below"
+     },
+     "__init__.xair.XAir": {
+      "id": "__init__.xair.XAir",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "xair.XAir",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 315.96472837188196,
+      "y": 103.1662222644068,
+      "label_at": "left"
+     },
+     "command8.CONTROL_CHANGE": {
+      "id": "command8.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "CONTROL_CHANGE",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -69.49650742928571,
+      "y": 429.23405634297006,
+      "label_at": "right"
+     },
+     "command8.Command8": {
+      "id": "command8.Command8",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Command8",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -131.18576499796785,
+      "y": 403.54358357036284,
+      "label_at": "left"
+     },
+     "command8.Midi": {
+      "id": "command8.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Midi",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -62.09398768164135,
+      "y": 378.82216959485544,
+      "label_at": "right"
+     },
+     "command8.Mixer": {
+      "id": "command8.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Mixer",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -99.31712853900368,
+      "y": 448.9507480565701,
+      "label_at": "below"
+     },
+     "command8.__call__": {
+      "id": "command8.__call__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__call__",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -120.49516665423425,
+      "y": 366.64935110538323,
+      "label_at": "left"
+     },
+     "command8.fader": {
+      "id": "command8.fader",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "fader",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -44.96245682709659,
+      "y": 415.9959298251157,
+      "label_at": "right"
+     },
+     "command8.ludwig.Midi": {
+      "id": "command8.ludwig.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.Midi",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -138.894613825058,
+      "y": 431.32985296645893,
+      "label_at": "left"
+     },
+     "command8.ludwig.Mixer": {
+      "id": "command8.ludwig.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.Mixer",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -77.00604711602736,
+      "y": 352.9322356629292,
+      "label_at": "above"
+     },
+     "command8.ludwig.mixer": {
+      "id": "command8.ludwig.mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.mixer",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -69.43289959167615,
+      "y": 457.03292618316266,
+      "label_at": "right"
+     },
+     "command8.ludwig.types.uint1": {
+      "id": "command8.ludwig.types.uint1",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint1",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -148.4214743881319,
+      "y": 382.3805454180302,
+      "label_at": "left"
+     },
+     "command8.ludwig.types.uint2": {
+      "id": "command8.ludwig.types.uint2",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint2",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -35.6088200907634,
+      "y": 384.1967327058974,
+      "label_at": "right"
+     },
+     "command8.ludwig.types.uint3": {
+      "id": "command8.ludwig.types.uint3",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint3",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -123.04660740012841,
+      "y": 461.6719595364535,
+      "label_at": "left"
+     },
+     "command8.ludwig.types.uint4": {
+      "id": "command8.ludwig.types.uint4",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint4",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -110.45549569215056,
+      "y": 341.642815175127,
+      "label_at": "above"
+     },
+     "command8.ludwig.types.uint5": {
+      "id": "command8.ludwig.types.uint5",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint5",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -36.470354417814974,
+      "y": 441.69010486227126,
+      "label_at": "right"
+     },
+     "command8.ludwig.types.uint7": {
+      "id": "command8.ludwig.types.uint7",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint7",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -162.16521201697273,
+      "y": 417.15903392551434,
+      "label_at": "left"
+     },
+     "command8.ludwig.types.uint8": {
+      "id": "command8.ludwig.types.uint8",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint8",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -49.87648245621034,
+      "y": 348.53029260639454,
+      "label_at": "right"
+     },
+     "command8.mute": {
+      "id": "command8.mute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mute",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -87.30325600558396,
+      "y": 478.28227628627144,
+      "label_at": "below"
+     },
+     "command8.pan": {
+      "id": "command8.pan",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "pan",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -148.81538272400041,
+      "y": 354.3054066659966,
+      "label_at": "left"
+     },
+     "command8.rtmidi.midiconstants.CONTROL_CHANGE": {
+      "id": "command8.rtmidi.midiconstants.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -16.66753343847256,
+      "y": 405.3799249555022,
+      "label_at": "right"
+     },
+     "command8.rtmidi.midiconstants.NOTE_ON": {
+      "id": "command8.rtmidi.midiconstants.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_ON",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -151.6022219037859,
+      "y": 458.12398214751863,
+      "label_at": "left"
+     },
+     "command8.unmute": {
+      "id": "command8.unmute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "unmute",
+      "file": "command8.py",
+      "line": 0,
+      "meta": {
+       "module": "command8",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -86.32882722265917,
+      "y": 325.28450478436037,
+      "label_at": "above"
+     },
+     "generic.CONTROL_CHANGE": {
+      "id": "generic.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "CONTROL_CHANGE",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -167.763127359697,
+      "y": 171.4813236732991,
+      "label_at": "right"
+     },
+     "generic.Generic": {
+      "id": "generic.Generic",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Generic",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -229.45238492837902,
+      "y": 145.79085090069202,
+      "label_at": "left"
+     },
+     "generic.Hook": {
+      "id": "generic.Hook",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Hook",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -160.36060761205258,
+      "y": 121.06943692518459,
+      "label_at": "right"
+     },
+     "generic.MidiInput": {
+      "id": "generic.MidiInput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "MidiInput",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -197.58374846941493,
+      "y": 191.1980153868992,
+      "label_at": "below"
+     },
+     "generic.__call__": {
+      "id": "generic.__call__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__call__",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -218.76178658464548,
+      "y": 108.8966184357123,
+      "label_at": "left"
+     },
+     "generic.__init__": {
+      "id": "generic.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -143.2290767575079,
+      "y": 158.2431971554449,
+      "label_at": "right"
+     },
+     "generic.ludwig.MidiInput": {
+      "id": "generic.ludwig.MidiInput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.MidiInput",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -237.16123375546917,
+      "y": 173.57712029678794,
+      "label_at": "left"
+     },
+     "generic.ludwig.Mixer": {
+      "id": "generic.ludwig.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.Mixer",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -175.27266704643864,
+      "y": 95.17950299325827,
+      "label_at": "above"
+     },
+     "generic.ludwig.mixer": {
+      "id": "generic.ludwig.mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.mixer",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -167.69951952208731,
+      "y": 199.28019351349167,
+      "label_at": "right"
+     },
+     "generic.rtmidi.midiconstants.CONTROL_CHANGE": {
+      "id": "generic.rtmidi.midiconstants.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -246.68809431854314,
+      "y": 124.62781274835936,
+      "label_at": "left"
+     },
+     "generic.rtmidi.midiconstants.NOTE_ON": {
+      "id": "generic.rtmidi.midiconstants.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_ON",
+      "file": "generic.py",
+      "line": 0,
+      "meta": {
+       "module": "generic",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -133.8754400211747,
+      "y": 126.44400003622644,
+      "label_at": "right"
+     },
+     "gld.Gld": {
+      "id": "gld.Gld",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Gld",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 301.52949432066225,
+      "y": 432.76678942381983,
+      "label_at": "right"
+     },
+     "gld.Midi": {
+      "id": "gld.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Midi",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 239.84023675197997,
+      "y": 407.07631665121255,
+      "label_at": "left"
+     },
+     "gld.Mixer": {
+      "id": "gld.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Mixer",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 308.93201406830656,
+      "y": 382.35490267570526,
+      "label_at": "right"
+     },
+     "gld.NOTE_ON": {
+      "id": "gld.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "NOTE_ON",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 271.70887321094415,
+      "y": 452.48348113741974,
+      "label_at": "below"
+     },
+     "gld.__init__": {
+      "id": "gld.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 250.5308350957137,
+      "y": 370.182084186233,
+      "label_at": "left"
+     },
+     "gld.allCall": {
+      "id": "gld.allCall",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "allCall",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 326.0635449228513,
+      "y": 419.5286629059655,
+      "label_at": "right"
+     },
+     "gld.aux_send_level": {
+      "id": "gld.aux_send_level",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "aux_send_level",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 232.13138792489002,
+      "y": 434.8625860473087,
+      "label_at": "left"
+     },
+     "gld.channel_assign_to_main_mix": {
+      "id": "gld.channel_assign_to_main_mix",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "channel_assign_to_main_mix",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 294.0199546339205,
+      "y": 356.46496874377885,
+      "label_at": "above"
+     },
+     "gld.channel_color": {
+      "id": "gld.channel_color",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "channel_color",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 301.5931021582718,
+      "y": 460.5656592640123,
+      "label_at": "right"
+     },
+     "gld.channel_name": {
+      "id": "gld.channel_name",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "channel_name",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 222.60452736181594,
+      "y": 385.9132784988799,
+      "label_at": "left"
+     },
+     "gld.compressor": {
+      "id": "gld.compressor",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "compressor",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 335.41718165918445,
+      "y": 387.7294657867471,
+      "label_at": "right"
+     },
+     "gld.dca_assign": {
+      "id": "gld.dca_assign",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "dca_assign",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 247.9793943498196,
+      "y": 465.2046926173033,
+      "label_at": "left"
+     },
+     "gld.fader": {
+      "id": "gld.fader",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "fader",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 260.5705060577974,
+      "y": 345.17554825597676,
+      "label_at": "above"
+     },
+     "gld.ludwig.Midi": {
+      "id": "gld.ludwig.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.Midi",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 334.55564733213293,
+      "y": 445.22283794312096,
+      "label_at": "right"
+     },
+     "gld.ludwig.Mixer": {
+      "id": "gld.ludwig.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.Mixer",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 208.8607897329752,
+      "y": 420.6917670063641,
+      "label_at": "left"
+     },
+     "gld.ludwig.mixer": {
+      "id": "gld.ludwig.mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.mixer",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 321.1495192937375,
+      "y": 352.06302568724425,
+      "label_at": "right"
+     },
+     "gld.ludwig.types.uint1": {
+      "id": "gld.ludwig.types.uint1",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint1",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 283.722745744364,
+      "y": 481.8150093671212,
+      "label_at": "below"
+     },
+     "gld.ludwig.types.uint2": {
+      "id": "gld.ludwig.types.uint2",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint2",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 222.21061902594747,
+      "y": 357.8381397468465,
+      "label_at": "left"
+     },
+     "gld.ludwig.types.uint3": {
+      "id": "gld.ludwig.types.uint3",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint3",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 354.35846831147535,
+      "y": 408.9126580363519,
+      "label_at": "right"
+     },
+     "gld.ludwig.types.uint4": {
+      "id": "gld.ludwig.types.uint4",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint4",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 219.423779846162,
+      "y": 461.6567152283685,
+      "label_at": "left"
+     },
+     "gld.ludwig.types.uint7": {
+      "id": "gld.ludwig.types.uint7",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint7",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 284.69717452728867,
+      "y": 328.81723786521025,
+      "label_at": "above"
+     },
+     "gld.ludwig.types.uint8": {
+      "id": "gld.ludwig.types.uint8",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint8",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 327.1370005645059,
+      "y": 473.81183733610453,
+      "label_at": "right"
+     },
+     "gld.meters": {
+      "id": "gld.meters",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "meters",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 195.34053847360622,
+      "y": 393.98772529318046,
+      "label_at": "left"
+     },
+     "gld.mix_select": {
+      "id": "gld.mix_select",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mix_select",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 349.34018412060027,
+      "y": 363.264389415044,
+      "label_at": "right"
+     },
+     "gld.mute": {
+      "id": "gld.mute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mute",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 254.8113772032541,
+      "y": 492.2672258562637,
+      "label_at": "below"
+     },
+     "gld.pan": {
+      "id": "gld.pan",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "pan",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 237.08331749647914,
+      "y": 330.46255514233087,
+      "label_at": "left"
+     },
+     "gld.pydantic.conint": {
+      "id": "gld.pydantic.conint",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pydantic.conint",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 361.541600147535,
+      "y": 439.6540191617242,
+      "label_at": "right"
+     },
+     "gld.rtmidi.midiconstants.NOTE_ON": {
+      "id": "gld.rtmidi.midiconstants.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_ON",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 193.2641497401676,
+      "y": 443.2512866025049,
+      "label_at": "left"
+     },
+     "gld.scene_recall": {
+      "id": "gld.scene_recall",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "scene_recall",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 316.8828820320463,
+      "y": 325.0724091455491,
+      "label_at": "right"
+     },
+     "gld.unmute": {
+      "id": "gld.unmute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "unmute",
+      "file": "gld.py",
+      "line": 0,
+      "meta": {
+       "module": "gld",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 305.36662453878955,
+      "y": 498.37217330041665,
+      "label_at": "below"
+     },
+     "main.ArgumentParser": {
+      "id": "main.ArgumentParser",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ArgumentParser",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -549.4217725577971,
+      "y": -353.8256500379102,
+      "label_at": "right"
+     },
+     "main.ArgumentTypeError": {
+      "id": "main.ArgumentTypeError",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ArgumentTypeError",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -611.1110301264792,
+      "y": -379.51612281051723,
+      "label_at": "left"
+     },
+     "main.Command8": {
+      "id": "main.Command8",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Command8",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -542.0192528101526,
+      "y": -404.2375367860245,
+      "label_at": "right"
+     },
+     "main.Generic": {
+      "id": "main.Generic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Generic",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -579.2423936675151,
+      "y": -334.1089583243101,
+      "label_at": "below"
+     },
+     "main.Mixer": {
+      "id": "main.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Mixer",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -600.4204317827455,
+      "y": -416.4103552754968,
+      "label_at": "left"
+     },
+     "main.PluginManager": {
+      "id": "main.PluginManager",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "PluginManager",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -524.887721955608,
+      "y": -367.0637765557642,
+      "label_at": "right"
+     },
+     "main.argparse.ArgumentParser": {
+      "id": "main.argparse.ArgumentParser",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "argparse.ArgumentParser",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -618.8198789535693,
+      "y": -351.7298534144212,
+      "label_at": "left"
+     },
+     "main.argparse.ArgumentTypeError": {
+      "id": "main.argparse.ArgumentTypeError",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "argparse.ArgumentTypeError",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -556.9313122445386,
+      "y": -430.1274707179507,
+      "label_at": "above"
+     },
+     "main.boards.Command8": {
+      "id": "main.boards.Command8",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "boards.Command8",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -549.3581647201873,
+      "y": -326.02678019771747,
+      "label_at": "right"
+     },
+     "main.boards.Generic": {
+      "id": "main.boards.Generic",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "boards.Generic",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -628.3467395166432,
+      "y": -400.6791609628498,
+      "label_at": "left"
+     },
+     "main.channel": {
+      "id": "main.channel",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "channel",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -515.5340852192747,
+      "y": -398.86297367498275,
+      "label_at": "right"
+     },
+     "main.mixer.Mixer": {
+      "id": "main.mixer.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "mixer.Mixer",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -602.9718725286397,
+      "y": -321.3877468444265,
+      "label_at": "left"
+     },
+     "main.mute": {
+      "id": "main.mute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mute",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -590.3807608206617,
+      "y": -441.4168912057529,
+      "label_at": "above"
+     },
+     "main.pluggy.PluginManager": {
+      "id": "main.pluggy.PluginManager",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pluggy.PluginManager",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -516.3956195463263,
+      "y": -341.36960151860876,
+      "label_at": "right"
+     },
+     "midi.API_UNIX_JACK": {
+      "id": "midi.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "API_UNIX_JACK",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -278.66157762048175,
+      "y": -295.96069423783234,
+      "label_at": "right"
+     },
+     "midi.CONTROL_CHANGE": {
+      "id": "midi.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "CONTROL_CHANGE",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -340.3508351891639,
+      "y": -321.65116701043945,
+      "label_at": "left"
+     },
+     "midi.Midi": {
+      "id": "midi.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Midi",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -271.25905787283733,
+      "y": -346.37258098594685,
+      "label_at": "right"
+     },
+     "midi.MidiInput": {
+      "id": "midi.MidiInput",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "MidiInput",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -308.4821987301997,
+      "y": -276.2440025242322,
+      "label_at": "below"
+     },
+     "midi.__call__": {
+      "id": "midi.__call__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__call__",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -329.66023684543023,
+      "y": -358.54539947541906,
+      "label_at": "left"
+     },
+     "midi.__init__": {
+      "id": "midi.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -254.12752701829274,
+      "y": -309.19882075568654,
+      "label_at": "right"
+     },
+     "midi.ludwig.types.uint4": {
+      "id": "midi.ludwig.types.uint4",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint4",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -348.059684016254,
+      "y": -293.8648976143435,
+      "label_at": "left"
+     },
+     "midi.ludwig.types.uint7": {
+      "id": "midi.ludwig.types.uint7",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint7",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -286.17111730722337,
+      "y": -372.26251491787315,
+      "label_at": "above"
+     },
+     "midi.ludwig.types.uint8": {
+      "id": "midi.ludwig.types.uint8",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint8",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -278.5979697828722,
+      "y": -268.1618243976398,
+      "label_at": "right"
+     },
+     "midi.nrpn": {
+      "id": "midi.nrpn",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "nrpn",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -357.58654457932795,
+      "y": -342.8142051627721,
+      "label_at": "left"
+     },
+     "midi.open_midiinput": {
+      "id": "midi.open_midiinput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "open_midiinput",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -244.77389028195944,
+      "y": -340.9980178749049,
+      "label_at": "right"
+     },
+     "midi.open_midioutput": {
+      "id": "midi.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "open_midioutput",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -332.21167759132436,
+      "y": -263.52279104434876,
+      "label_at": "left"
+     },
+     "midi.rtmidi.API_UNIX_JACK": {
+      "id": "midi.rtmidi.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.API_UNIX_JACK",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -319.62056588334656,
+      "y": -383.5519354056753,
+      "label_at": "above"
+     },
+     "midi.rtmidi.midiconstants.CONTROL_CHANGE": {
+      "id": "midi.rtmidi.midiconstants.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -245.63542460901107,
+      "y": -283.5046457185311,
+      "label_at": "right"
+     },
+     "midi.rtmidi.midiutil.open_midiinput": {
+      "id": "midi.rtmidi.midiutil.open_midiinput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiutil.open_midiinput",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -371.3302822081686,
+      "y": -308.035716655288,
+      "label_at": "left"
+     },
+     "midi.rtmidi.midiutil.open_midioutput": {
+      "id": "midi.rtmidi.midiutil.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiutil.open_midioutput",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -259.0415526474063,
+      "y": -376.6644579744079,
+      "label_at": "right"
+     },
+     "midi.send": {
+      "id": "midi.send",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "send",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -296.46832619678,
+      "y": -246.91247429453097,
+      "label_at": "below"
+     },
+     "midi.sysex": {
+      "id": "midi.sysex",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "sysex",
+      "file": "midi.py",
+      "line": 0,
+      "meta": {
+       "module": "midi",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -357.98045291519657,
+      "y": -370.88934391480564,
+      "label_at": "left"
+     },
+     "mixer.HookspecMarker": {
+      "id": "mixer.HookspecMarker",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "HookspecMarker",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -505.77798393631997,
+      "y": -73.60164135369632,
+      "label_at": "right"
+     },
+     "mixer.Mixer": {
+      "id": "mixer.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Mixer",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -567.4672415050021,
+      "y": -99.29211412630343,
+      "label_at": "left"
+     },
+     "mixer.allCall": {
+      "id": "mixer.allCall",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "allCall",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -498.37546418867555,
+      "y": -124.01352810181083,
+      "label_at": "right"
+     },
+     "mixer.aux_send_level": {
+      "id": "mixer.aux_send_level",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "aux_send_level",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -535.598605046038,
+      "y": -53.884949640096266,
+      "label_at": "below"
+     },
+     "mixer.channel_assign_to_main_mix": {
+      "id": "mixer.channel_assign_to_main_mix",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "channel_assign_to_main_mix",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -556.7766431612683,
+      "y": -136.18634659128298,
+      "label_at": "left"
+     },
+     "mixer.channel_color": {
+      "id": "mixer.channel_color",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "channel_color",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -481.24393333413093,
+      "y": -86.83976787155052,
+      "label_at": "right"
+     },
+     "mixer.channel_name": {
+      "id": "mixer.channel_name",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "channel_name",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -575.1760903320921,
+      "y": -71.50584473020743,
+      "label_at": "left"
+     },
+     "mixer.close": {
+      "id": "mixer.close",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "close",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -513.2875236230617,
+      "y": -149.90346203373704,
+      "label_at": "above"
+     },
+     "mixer.compressor": {
+      "id": "mixer.compressor",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "compressor",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -505.7143760987104,
+      "y": -45.80277151350376,
+      "label_at": "right"
+     },
+     "mixer.dca_assign": {
+      "id": "mixer.dca_assign",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "dca_assign",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -584.7029508951662,
+      "y": -120.4551522786361,
+      "label_at": "left"
+     },
+     "mixer.fader": {
+      "id": "mixer.fader",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "fader",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -471.8902965977976,
+      "y": -118.63896499076894,
+      "label_at": "right"
+     },
+     "mixer.ludwig.types.uint3": {
+      "id": "mixer.ludwig.types.uint3",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint3",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -559.3280839071625,
+      "y": -41.1637381602128,
+      "label_at": "left"
+     },
+     "mixer.ludwig.types.uint7": {
+      "id": "mixer.ludwig.types.uint7",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint7",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -546.7369721991847,
+      "y": -161.19288252153922,
+      "label_at": "above"
+     },
+     "mixer.ludwig.types.uint8": {
+      "id": "mixer.ludwig.types.uint8",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint8",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -472.75183092484923,
+      "y": -61.1455928343951,
+      "label_at": "right"
+     },
+     "mixer.meters": {
+      "id": "mixer.meters",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "meters",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -598.446688524007,
+      "y": -85.67666377115205,
+      "label_at": "left"
+     },
+     "mixer.mix_select": {
+      "id": "mixer.mix_select",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mix_select",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -486.1579589632446,
+      "y": -154.30540509027176,
+      "label_at": "right"
+     },
+     "mixer.mute": {
+      "id": "mixer.mute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mute",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -523.5847325126182,
+      "y": -24.55342141039486,
+      "label_at": "below"
+     },
+     "mixer.pan": {
+      "id": "mixer.pan",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "pan",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -585.0968592310347,
+      "y": -148.53029103066964,
+      "label_at": "left"
+     },
+     "mixer.pluggy.HookspecMarker": {
+      "id": "mixer.pluggy.HookspecMarker",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pluggy.HookspecMarker",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -452.94900994550676,
+      "y": -97.45577274116417,
+      "label_at": "right"
+     },
+     "mixer.pydantic.conint": {
+      "id": "mixer.pydantic.conint",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pydantic.conint",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -587.8836984108202,
+      "y": -44.71171554914753,
+      "label_at": "left"
+     },
+     "mixer.scene_recall": {
+      "id": "mixer.scene_recall",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "scene_recall",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -522.6103037296934,
+      "y": -177.55119291230577,
+      "label_at": "above"
+     },
+     "mixer.unmute": {
+      "id": "mixer.unmute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "unmute",
+      "file": "mixer.py",
+      "line": 0,
+      "meta": {
+       "module": "mixer",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -480.1704776924762,
+      "y": -32.55659344141148,
+      "label_at": "right"
+     },
+     "qu24.Midi": {
+      "id": "qu24.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Midi",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 102.75608370454012,
+      "y": 666.0084640419034,
+      "label_at": "right"
+     },
+     "qu24.Mixer": {
+      "id": "qu24.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Mixer",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 41.06682613585804,
+      "y": 640.317991269296,
+      "label_at": "left"
+     },
+     "qu24.NOTE_ON": {
+      "id": "qu24.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "NOTE_ON",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 110.15860345218435,
+      "y": 615.5965772937888,
+      "label_at": "right"
+     },
+     "qu24.Qu24": {
+      "id": "qu24.Qu24",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Qu24",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 72.93546259482201,
+      "y": 685.7251557555035,
+      "label_at": "below"
+     },
+     "qu24.__init__": {
+      "id": "qu24.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 51.75742447959152,
+      "y": 603.4237588043165,
+      "label_at": "left"
+     },
+     "qu24.allCall": {
+      "id": "qu24.allCall",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "allCall",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 127.29013430672926,
+      "y": 652.7703375240492,
+      "label_at": "right"
+     },
+     "qu24.compressor": {
+      "id": "qu24.compressor",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "compressor",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 33.357977308768,
+      "y": 668.1042606653922,
+      "label_at": "left"
+     },
+     "qu24.fader": {
+      "id": "qu24.fader",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "fader",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 95.24654401779839,
+      "y": 589.7066433618625,
+      "label_at": "above"
+     },
+     "qu24.ludwig.Midi": {
+      "id": "qu24.ludwig.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.Midi",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 102.81969154214976,
+      "y": 693.8073338820959,
+      "label_at": "right"
+     },
+     "qu24.ludwig.Mixer": {
+      "id": "qu24.ludwig.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.Mixer",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 23.831116745693805,
+      "y": 619.1549531169635,
+      "label_at": "left"
+     },
+     "qu24.ludwig.mixer": {
+      "id": "qu24.ludwig.mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.mixer",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 136.64377104306243,
+      "y": 620.9711404048306,
+      "label_at": "right"
+     },
+     "qu24.ludwig.types.uint1": {
+      "id": "qu24.ludwig.types.uint1",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint1",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 49.20598373369751,
+      "y": 698.4463672353868,
+      "label_at": "left"
+     },
+     "qu24.ludwig.types.uint2": {
+      "id": "qu24.ludwig.types.uint2",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint2",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 61.79709544167531,
+      "y": 578.4172228740604,
+      "label_at": "above"
+     },
+     "qu24.ludwig.types.uint7": {
+      "id": "qu24.ludwig.types.uint7",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint7",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 135.78223671601063,
+      "y": 678.4645125612045,
+      "label_at": "right"
+     },
+     "qu24.ludwig.types.uint8": {
+      "id": "qu24.ludwig.types.uint8",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint8",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 10.087379116853242,
+      "y": 653.9334416244476,
+      "label_at": "left"
+     },
+     "qu24.meters": {
+      "id": "qu24.meters",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "meters",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 122.37610867761548,
+      "y": 585.3047003053277,
+      "label_at": "right"
+     },
+     "qu24.mute": {
+      "id": "qu24.mute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mute",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 84.94933512824207,
+      "y": 715.0566839852047,
+      "label_at": "below"
+     },
+     "qu24.pan": {
+      "id": "qu24.pan",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "pan",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 23.437208409825416,
+      "y": 591.07981436493,
+      "label_at": "left"
+     },
+     "qu24.rtmidi.midiconstants.NOTE_ON": {
+      "id": "qu24.rtmidi.midiconstants.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_ON",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 155.58505769535333,
+      "y": 642.1543326544354,
+      "label_at": "right"
+     },
+     "qu24.unmute": {
+      "id": "qu24.unmute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "unmute",
+      "file": "qu24.py",
+      "line": 0,
+      "meta": {
+       "module": "qu24",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 20.650369230039985,
+      "y": 694.8983898464521,
+      "label_at": "left"
+     },
+     "setup.setuptools.find_packages": {
+      "id": "setup.setuptools.find_packages",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "setuptools.find_packages",
+      "file": "setup.py",
+      "line": 0,
+      "meta": {
+       "module": "setup",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 957.5198009471083,
+      "y": 13.91958057071389,
+      "label_at": "right"
+     },
+     "setup.setuptools.setup": {
+      "id": "setup.setuptools.setup",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "setuptools.setup",
+      "file": "setup.py",
+      "line": 0,
+      "meta": {
+       "module": "setup",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 895.8305433784261,
+      "y": -11.770892201893275,
+      "label_at": "left"
+     },
+     "types.conint": {
+      "id": "types.conint",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "conint",
+      "file": "types.py",
+      "line": 0,
+      "meta": {
+       "module": "types",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -555.0804117641715,
+      "y": 175.10394796325687,
+      "label_at": "right"
+     },
+     "types.pydantic.conint": {
+      "id": "types.pydantic.conint",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pydantic.conint",
+      "file": "types.py",
+      "line": 0,
+      "meta": {
+       "module": "types",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -616.7696693328535,
+      "y": 149.41347519064956,
+      "label_at": "left"
+     },
+     "xair.CONTROL_CHANGE": {
+      "id": "xair.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "CONTROL_CHANGE",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 107.19229773360406,
+      "y": 193.6694737312206,
+      "label_at": "right"
+     },
+     "xair.Midi": {
+      "id": "xair.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Midi",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 45.50304016492186,
+      "y": 167.97900095861343,
+      "label_at": "left"
+     },
+     "xair.Mixer": {
+      "id": "xair.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Mixer",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 114.59481748124838,
+      "y": 143.257586983106,
+      "label_at": "right"
+     },
+     "xair.XAir": {
+      "id": "xair.XAir",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "XAir",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 77.37167662388606,
+      "y": 213.38616544482062,
+      "label_at": "below"
+     },
+     "xair.fader": {
+      "id": "xair.fader",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "fader",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 56.19363850865551,
+      "y": 131.0847684936338,
+      "label_at": "left"
+     },
+     "xair.ludwig.Midi": {
+      "id": "xair.ludwig.Midi",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.Midi",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 131.72634833579315,
+      "y": 180.43134721336628,
+      "label_at": "right"
+     },
+     "xair.ludwig.Mixer": {
+      "id": "xair.ludwig.Mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.Mixer",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 37.79419133783189,
+      "y": 195.76527035470946,
+      "label_at": "left"
+     },
+     "xair.ludwig.mixer": {
+      "id": "xair.ludwig.mixer",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.mixer",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 99.68275804686238,
+      "y": 117.36765305117973,
+      "label_at": "above"
+     },
+     "xair.ludwig.types.uint1": {
+      "id": "xair.ludwig.types.uint1",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint1",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 107.25590557121365,
+      "y": 221.46834357141313,
+      "label_at": "right"
+     },
+     "xair.ludwig.types.uint2": {
+      "id": "xair.ludwig.types.uint2",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint2",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 28.267330774757816,
+      "y": 146.81596280628077,
+      "label_at": "left"
+     },
+     "xair.ludwig.types.uint3": {
+      "id": "xair.ludwig.types.uint3",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint3",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 141.07998507212633,
+      "y": 148.63215009414793,
+      "label_at": "right"
+     },
+     "xair.ludwig.types.uint4": {
+      "id": "xair.ludwig.types.uint4",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint4",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 53.64219776276145,
+      "y": 226.10737692470414,
+      "label_at": "left"
+     },
+     "xair.ludwig.types.uint5": {
+      "id": "xair.ludwig.types.uint5",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint5",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 66.23330947073924,
+      "y": 106.07823256337765,
+      "label_at": "above"
+     },
+     "xair.ludwig.types.uint7": {
+      "id": "xair.ludwig.types.uint7",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint7",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 140.21845074507473,
+      "y": 206.12552225052184,
+      "label_at": "right"
+     },
+     "xair.ludwig.types.uint8": {
+      "id": "xair.ludwig.types.uint8",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ludwig.types.uint8",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 14.523593145917147,
+      "y": 181.59445131376486,
+      "label_at": "left"
+     },
+     "xair.mute": {
+      "id": "xair.mute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "mute",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 126.8123227066794,
+      "y": 112.9657099946451,
+      "label_at": "right"
+     },
+     "xair.pan": {
+      "id": "xair.pan",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "pan",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 89.38554915730579,
+      "y": 242.71769367452202,
+      "label_at": "below"
+     },
+     "xair.pydantic.conint": {
+      "id": "xair.pydantic.conint",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pydantic.conint",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 27.873422438889378,
+      "y": 118.74082405424721,
+      "label_at": "left"
+     },
+     "xair.rtmidi.midiconstants.CONTROL_CHANGE": {
+      "id": "xair.rtmidi.midiconstants.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 160.02127172441718,
+      "y": 169.8153423437527,
+      "label_at": "right"
+     },
+     "xair.rtmidi.midiconstants.NOTE_ON": {
+      "id": "xair.rtmidi.midiconstants.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_ON",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 25.086583259103946,
+      "y": 222.55939953576927,
+      "label_at": "left"
+     },
+     "xair.unmute": {
+      "id": "xair.unmute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "unmute",
+      "file": "xair.py",
+      "line": 0,
+      "meta": {
+       "module": "xair",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 90.35997794023062,
+      "y": 89.71992217261096,
+      "label_at": "above"
      }
     },
     "edges": [
@@ -620,12 +4211,1312 @@
        "kind": "contains",
        "weight": 1
       }
+     },
+     {
+      "source": "main.mute",
+      "target": "main.argparse.ArgumentParser",
+      "kind": "imports",
+      "weight": 1
+     },
+     {
+      "source": "main.Mixer",
+      "target": "mixer.Mixer",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.pluggy.PluginManager",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.argparse.ArgumentTypeError",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.mixer.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.boards.Generic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.boards.Command8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.channel",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.mute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.argparse.ArgumentParser",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.PluginManager",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.ArgumentTypeError",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.Generic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.Command8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/main.py",
+      "target": "main.ArgumentParser",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/types.py",
+      "target": "types.pydantic.conint",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/types.py",
+      "target": "types.conint",
+      "kind": "contains"
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.mute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.unmute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.fader",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.channel_assign_to_main_mix",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.aux_send_level",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.dca_assign",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.channel_name",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.channel_color",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.scene_recall",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.mix_select",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.compressor",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.meters",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.allCall",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.Mixer",
+      "target": "mixer.close",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "mixer.pan",
+      "target": "mixer.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.pluggy.HookspecMarker",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.ludwig.types.uint3",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.ludwig.types.uint7",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.ludwig.types.uint8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.pydantic.conint",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.mute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.unmute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.fader",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.channel_assign_to_main_mix",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.aux_send_level",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.dca_assign",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.channel_name",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.channel_color",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.scene_recall",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.mix_select",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.pan",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.compressor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.meters",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.allCall",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.close",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "mixer.HookspecMarker",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/setup.py",
+      "target": "setup.setuptools.setup",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/setup.py",
+      "target": "setup.setuptools.find_packages",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/__init__.py",
+      "target": "__init__.pluggy.HookimplMarker",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/__init__.py",
+      "target": "__init__.mixer.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/__init__.py",
+      "target": "__init__.midi.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/__init__.py",
+      "target": "__init__.midi.MidiInput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/__init__.py",
+      "target": "__init__.HookimplMarker",
+      "kind": "contains"
+     },
+     {
+      "source": "midi.Midi",
+      "target": "midi.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midi.Midi",
+      "target": "midi.send",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midi.Midi",
+      "target": "midi.nrpn",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midi.Midi",
+      "target": "midi.sysex",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midi.Midi",
+      "target": "midi.__call__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "midi.MidiInput",
+      "target": "midi.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.rtmidi.midiutil.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.rtmidi.midiutil.open_midiinput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.rtmidi.midiconstants.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.ludwig.types.uint4",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.ludwig.types.uint7",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.ludwig.types.uint8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.rtmidi.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.send",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.nrpn",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.sysex",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.__call__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.MidiInput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.open_midiinput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "midi.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/__init__.py",
+      "target": "__init__.qu24.Qu24",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/__init__.py",
+      "target": "__init__.gld.Gld",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/__init__.py",
+      "target": "__init__.xair.XAir",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/__init__.py",
+      "target": "__init__.command8.Command8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/__init__.py",
+      "target": "__init__.generic.Generic",
+      "kind": "contains"
+     },
+     {
+      "source": "qu24.Qu24",
+      "target": "qu24.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qu24.Qu24",
+      "target": "qu24.allCall",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qu24.Qu24",
+      "target": "qu24.meters",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qu24.Qu24",
+      "target": "qu24.fader",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qu24.Qu24",
+      "target": "qu24.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qu24.Qu24",
+      "target": "qu24.mute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qu24.Qu24",
+      "target": "qu24.unmute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qu24.Qu24",
+      "target": "qu24.compressor",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qu24.__init__",
+      "target": "qu24.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qu24.pan",
+      "target": "qu24.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.ludwig.mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.ludwig.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.ludwig.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.rtmidi.midiconstants.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.ludwig.types.uint1",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.ludwig.types.uint2",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.ludwig.types.uint7",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.ludwig.types.uint8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.Qu24",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.allCall",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.meters",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.fader",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.pan",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.mute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.unmute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.compressor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "qu24.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "command8.Command8",
+      "target": "command8.fader",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "command8.Command8",
+      "target": "command8.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "command8.Command8",
+      "target": "command8.mute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "command8.Command8",
+      "target": "command8.unmute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "command8.Command8",
+      "target": "command8.__call__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "command8.pan",
+      "target": "command8.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "command8.__call__",
+      "target": "command8.fader",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "command8.__call__",
+      "target": "command8.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "command8.__call__",
+      "target": "command8.mute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "command8.__call__",
+      "target": "command8.unmute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.rtmidi.midiconstants.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.rtmidi.midiconstants.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.types.uint1",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.types.uint2",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.types.uint3",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.types.uint4",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.types.uint5",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.types.uint7",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.ludwig.types.uint8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.Command8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.fader",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.pan",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.mute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.unmute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.__call__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "command8.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "xair.XAir",
+      "target": "xair.fader",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "xair.XAir",
+      "target": "xair.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "xair.XAir",
+      "target": "xair.mute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "xair.XAir",
+      "target": "xair.unmute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "xair.pan",
+      "target": "xair.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.rtmidi.midiconstants.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.rtmidi.midiconstants.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.types.uint1",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.types.uint2",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.types.uint3",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.types.uint4",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.types.uint5",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.types.uint7",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.ludwig.types.uint8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.pydantic.conint",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.XAir",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.fader",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.pan",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.mute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.unmute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "xair.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.allCall",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.meters",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.fader",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.channel_assign_to_main_mix",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.aux_send_level",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.dca_assign",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.channel_name",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.channel_color",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.scene_recall",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.mix_select",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.mute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.unmute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.Gld",
+      "target": "gld.compressor",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.__init__",
+      "target": "gld.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "gld.pan",
+      "target": "gld.pan",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.ludwig.mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.ludwig.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.ludwig.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.rtmidi.midiconstants.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.ludwig.types.uint1",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.ludwig.types.uint2",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.ludwig.types.uint3",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.ludwig.types.uint4",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.ludwig.types.uint7",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.ludwig.types.uint8",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.pydantic.conint",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.Gld",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.allCall",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.meters",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.fader",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.channel_assign_to_main_mix",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.aux_send_level",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.dca_assign",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.channel_name",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.channel_color",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.scene_recall",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.mix_select",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.pan",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.mute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.unmute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.compressor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.Midi",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "gld.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "generic.Hook",
+      "target": "generic.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "generic.__init__",
+      "target": "generic.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "generic.Generic",
+      "target": "generic.__call__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.ludwig.mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.ludwig.Mixer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.ludwig.MidiInput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.rtmidi.midiconstants.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.rtmidi.midiconstants.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.Hook",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.Generic",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.__call__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.MidiInput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/generic.py",
+      "target": "generic.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/mixer.py",
+      "target": "file::quaternionmedia/ludwig/ludwig/types.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/midi.py",
+      "target": "file::quaternionmedia/ludwig/ludwig/types.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/qu24.py",
+      "target": "file::quaternionmedia/ludwig/ludwig/types.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/command8.py",
+      "target": "file::quaternionmedia/ludwig/ludwig/types.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/xair.py",
+      "target": "file::quaternionmedia/ludwig/ludwig/types.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ludwig/ludwig/boards/gld.py",
+      "target": "file::quaternionmedia/ludwig/ludwig/types.py",
+      "kind": "depends_on"
      }
     ]
    },
    "metadata": {
     "url": "https://github.com/quaternionmedia/ludwig",
-    "depth": 1,
+    "depth": 2,
+    "floor": 100,
     "truncated": 0
    }
   },

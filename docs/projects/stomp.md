@@ -34,19 +34,19 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/stomp/estate.svg)](../show/project/stomp/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← ShowStopper](ShowStopper.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [TheatreMix-python →](TheatreMix-python.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
 [![Its code: its default branch, by directory and file](../show/project/stomp/code.svg)](../show/project/stomp/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← ShowStopper](ShowStopper.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [TheatreMix-python →](TheatreMix-python.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. stomp declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `e430930` from the corpus at `ba587c3` and stomp's default branch at `6d30a6f`, on 2026-10-27. [The show document](../show/project/stomp/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and stomp's default branch at `6d30a6f`, on 2026-10-27. [The show document](../show/project/stomp/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
