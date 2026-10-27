@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-26T11:39:26Z",
+  "generated_at": "2026-10-27T01:58:51Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-26T11:39:24Z"
+        "generated_at": "2026-10-27T01:58:50Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 284,
+    "loose_ends": 286,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 39,
-      "document-unreviewed": 87,
+      "document-unreviewed": 89,
       "stalled-thread": 138
     },
-    "open": 284,
+    "open": 286,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1154,6 +1154,14 @@
     },
     {
       "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-26-landing-what-was-held-local",
+      "title": "perspectives/2026-10-26-landing-what-was-held-local.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-landing-what-was-held-local",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
       "address": "quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09",
       "title": "perspectives/claude-fable-5-2026-06-09.md",
       "detail": "written, and no maintainer has looked at it",
@@ -1174,6 +1182,14 @@
       "title": "perspectives/claude-fable-5-2026-06-09_philosophy.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-fable-5-2026-06-09_philosophy",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective",
+      "title": "perspectives/claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-claude-opus-5-5-2026-10-24-ci-spent-without-a-budget-retrospective",
       "address_parses": true
     },
     {
