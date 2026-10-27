@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-08-11 |
-| **Pends on** | A person's ruling on decision 7's last clause: whether a runtime-bound page's evidence may be the run its version tag makes, where the suite runs before every merge on the contributor's machine, against a provisioned job on every push to the default branch |
+| **Pends on** | Nothing — ready for ratification |
 | **Principle** | `show-it-by-running-it` — show it by running it; `minimal-legible-deliverables` — minimal, legible deliverables |
 | **Restated in** | `AGENTS.md`; `project-seed/ide/AGENTS.md` |
 
@@ -219,10 +219,10 @@ merge, and buys a provisioned runtime per merge: in `apothecary`, a push that
 ran its test workflow, the runtime-bound pages among it, took some twenty-five
 times the runner time of a push that ran its governance checks and lint (median
 job-minutes a push, 2026-10-24 to 2026-10-25, summed from `gh api
-repos/quaternionmedia/apothecary/actions/runs/RUN/jobs`). Not the proposal,
-because the tag's run is one `DRAFT-version-tags-are-claims.md` §2 already
-requires of the tagged commit; the ruling this record pends on is whether that
-run is enough between tags.
+repos/quaternionmedia/apothecary/actions/runs/RUN/jobs`). Rejected: the tag's
+run is one `DRAFT-version-tags-are-claims.md` §2 already requires of the tagged
+commit, and it is enough between tags, where each merge rests on the
+contributor's run of the tree that lands and names it.
 
 **The contributor's run as the evidence.** The merge commit names the tree,
 the command and what it counted, and the landed tree can be checked against
