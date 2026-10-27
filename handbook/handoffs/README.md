@@ -145,6 +145,4 @@ tells you to open a draft and wait, read it as: open it, run the gates, merge it
 The rest of what those pages say about their own subject stands.
 
 *Stamped 2026-08-14. `qm` `main` at `104361a`, `dossier` `main` at `604efb8`,
-`qmcp` `main` at `85013c5`. Two branches are pushed with no pull request —
-`evolve/two-gate-reconciliation` and `evolve/governance-loop-poc` — because the
-slot holds #56 and #57.*
+`qmcp` `main` at `85013c5`.*
