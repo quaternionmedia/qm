@@ -109,8 +109,8 @@ onboarding.
   and a standing worker needs one.
 - **Merged branches in every repository above.** Some remain and some are
   gone, and `uv run qm branches` says what deleting one would cost. `qmcp`'s
-  were deleted on 2026-10-25 at the person's word. Its remote holds `main` and
-  one Dependabot branch whose pull request is closed. `handbook/handoffs/README.md`
+  were deleted on 2026-10-25 at the person's word, and its last Dependabot
+  branch on 2026-10-27; its remote holds `main` alone. `handbook/handoffs/README.md`
   now forbids deleting a branch only when another pull request is based on
   it.
 

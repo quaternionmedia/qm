@@ -8,8 +8,9 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `7072174` and `qmcp` `82b2d58`, and every `qmcp` entry was read again at `qm`
 `222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. Entries that name
 2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
-`474307f`. The rest of the page holds at the stamp, which those entries do
-not move.
+`474307f`, and those that name 2026-10-27 from `qmcp`'s remote branches that
+day. The rest of the page holds at the stamp, which those entries do not
+move.
 
 [`voice-set-landing.md`](voice-set-landing.md) is the voice set, whose last
 two `joe` pull requests merged on 2026-10-26, and the steps after it;
@@ -106,9 +107,6 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
 
 ## 3. Blocked on a person
 
-- **qmcp's leftover Dependabot branch**, `dependabot/uv/protobuf-6.33.5`
-  (§4). Deleting it was asked on 2026-10-26 and not answered; at that date
-  `qmcp`'s remote holds it and `main` only.
 - **A private name in `main`'s history.** Two commit messages that name the
   private instrument, `444f510` and `f208a2c`, reached `main` on 2026-10-24
   with the performing family's pull requests. `performing-family-consolidation.md`
@@ -169,9 +167,9 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   125 of the org's 312 open pull requests. Done is every repository's
   `dependabot.yml` carrying `groups:`, and no ungrouped Dependabot pull request
   open. At `qmcp` `82b2d58`, `qmcp` has no `dependabot.yml`, no open
-  Dependabot pull request and no open alert. Its one Dependabot branch,
-  `dependabot/uv/protobuf-6.33.5`, outlived its pull request. That pull request
-  was closed on 2026-10-25 because `main` already locks the version it set.
+  Dependabot pull request and no open alert. Its one leftover Dependabot
+  branch, whose pull request was closed on 2026-10-25 because `main` already
+  locks the version it set, was deleted on 2026-10-27 at the person's word.
 - **The signature gate reads an SSH signature as none.** `check_signatures`
   runs `git` with no allowed-signers file, so a commit the host verifies by an
   SSH key reads `N` and fails the gate; #198's and #202's did, and landed as
@@ -385,8 +383,8 @@ re-checked and is re-derived before anyone acts on it.
   (one branch, 60 commits), each checked out by a session at work that day.
   alfred's seven feature branches are *held*, every commit on a pushed
   branch, so deleting them loses only the names. `qmcp`'s were pruned on
-  2026-10-25 at the person's word, and its remote holds `main` and the one
-  Dependabot branch above.
+  2026-10-25 at the person's word, and the one Dependabot branch above on
+  2026-10-27; its remote holds `main` alone.
 - *Carried.* **A guard for dossier's threaded UI workers**: a test that fails
   when a worker that can reach the network is missing from
   `tests/ui/conftest.py`'s stub list.
