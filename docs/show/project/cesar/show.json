@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "e1d1306f7b5f9bbaad858c15bbc6afa287f36a11",
+   "commit": "ba587c36ef88c410b1f2ae1e94bd1a60ccbe140f",
    "digest": "sha256:25b0031a9fb713cd7978c242043d6d45f2d5e2540c49eb14a42dbaa5c6bf3698"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "25926322d8f04ab1736ab3d9993772d804fe9da3"
   },
   "drawn_by": {
-   "graph": "codecartographer@99602ff1e6c85d9b64ab3ef0cef9402d4b09252e"
+   "graph": "codecartographer@e4309302dc82884a25752380a0cbbfe6d23c2ddd"
   },
-  "drawn_at": "2026-10-27T11:32:40Z"
+  "drawn_at": "2026-10-27T15:45:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:cesar",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "e1d1306",
+    "commit": "ba587c3",
     "provenance": {
      "source": "families.json",
-     "commit": "e1d1306",
+     "commit": "ba587c3",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

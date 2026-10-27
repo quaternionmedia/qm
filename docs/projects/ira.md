@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. ira declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `99602ff` from the corpus at `e1d1306` and ira's default branch at `a04467f`, on 2026-10-27. [The show document](../show/project/ira/show.json) holds each graph as drawn.
+Drawn by codecartographer at `e430930` from the corpus at `ba587c3` and ira's default branch at `a04467f`, on 2026-10-27. [The show document](../show/project/ira/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
