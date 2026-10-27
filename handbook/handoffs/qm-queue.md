@@ -6,11 +6,14 @@ on this page was true at those commits and nowhere else. Re-derive each one
 with `gh` and the tree before acting on it: the queue moves under other
 sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 `7072174` and `qmcp` `82b2d58`, and every `qmcp` entry was read again at `qm`
-`222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. The rest of the
-page holds at the stamp, which those entries do not move.
+`222ad7a`, `project/qmcp` `f4786fe` and `qmcp` `8aece3e`. Entries that name
+2026-10-26 were re-derived at `qm` `fa376e0`, `qmcp` `8aece3e` and `joe`
+`474307f`. The rest of the page holds at the stamp, which those entries do
+not move.
 
-[`voice-set-landing.md`](voice-set-landing.md) is the voice set, landed but
-for `joe` #33 and #34; [`the-voice-loop.md`](the-voice-loop.md) is the loop;
+[`voice-set-landing.md`](voice-set-landing.md) is the voice set, whose last
+two `joe` pull requests merged on 2026-10-26, and the steps after it;
+[`the-voice-loop.md`](the-voice-loop.md) is the loop;
 [`apothecary-merge-queue.md`](apothecary-merge-queue.md) is apothecary's stack,
 landed on its `main`, and how it keeps landing. This page is everything else open in `qm`.
 
@@ -98,7 +101,9 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
 
 ## 3. Blocked on a person
 
-- **`joe` #33's merge**, on a test by hand (`voice-set-landing.md` §4).
+- **qmcp's leftover Dependabot branch**, `dependabot/uv/protobuf-6.33.5`
+  (§4). Deleting it was asked on 2026-10-26 and not answered; at that date
+  `qmcp`'s remote holds it and `main` only.
 - **A private name in `main`'s history.** Two commit messages that name the
   private instrument, `444f510` and `f208a2c`, reached `main` on 2026-10-24
   with the performing family's pull requests. `performing-family-consolidation.md`
@@ -257,6 +262,28 @@ re-checked and is re-derived before anyone acts on it.
   `signature-check.yml` reports a signed commit the host has not seen as
   unverifiable, where `check_signatures.py --source git` reports it good.
   Done is the runner saying which source answered. (2026-10-25)
+- **The local runner says nothing of an uncommitted tree.** It runs in the
+  checkout, and on 2026-10-25 a run over edits not yet committed measured the
+  commit before them; the same run after the commit measured the edits. The
+  inference is that the steps reading what a change adds read `git diff`
+  against the base, which sees commits only, while the steps reading files
+  see the tree. Done is the runner refusing, or naming the dirty paths, when
+  the tree has uncommitted changes, seen to fire. (2026-10-26)
+- **`qm branches` read landed work as held by this clone alone.** On
+  2026-10-25 it listed `adr/qmcp-control-plane`,
+  `fix/qmcp-seed-refresh-2026-10-25` and `propagate/qmcp-2026-10-25` so, and
+  `git merge-base --is-ancestor` then found each tip in `project/qmcp`. Which
+  path through `project-seed/ci/branch_census.py` produced it was not traced:
+  its patch comparison reads the default branch alone, which fits, and its
+  holder search reads every remote branch, which should have found
+  `project/qmcp`. Done is the case reproduced in a test and the census
+  reading it as held. (2026-10-26)
+- **`qm docs generate` has no mode for a page's own indexes.** A pull request
+  that adds a page needs `status/documents.yaml`, `handbook/document-states.md`
+  and `loose-ends.json` regenerated; the full generator also rewrites the
+  host-sourced documents, and on 2026-10-26 ran past five minutes. Done is
+  that mode, or `handbook/consolidation-runbook.md` Step 8 naming
+  `ci/doc_status.py`, `ci/doc_dashboard.py` and `ci/loose_ends.py` for it.
 - **qmcp's pages that predate its roles.** `docs/architecture.md` draws three
   planes, and the instruction loop appears in it only as a departure it names;
   the archive and speech do not appear. `qmcp tools list` lists the built-in
@@ -355,6 +382,9 @@ re-checked and is re-derived before anyone acts on it.
   tests and the preflight passed.
 - The figures in `perspectives/2026-10-25-what-whisper-heard.md` on a
   person's voice: they come from synthesized speech only.
+- That `joe`'s transcript lane was tested by hand before it merged on
+  2026-10-26 (`joe` `c7dccf4`), as `voice-set-landing.md` decision 5 asked:
+  its pull request carries no comment or review saying so.
 
 ## 6. Standing constraints
 
