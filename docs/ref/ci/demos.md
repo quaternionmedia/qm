@@ -116,7 +116,9 @@ anything: both read the same harness, and a figure that differs between them is
 a defect rather than a point of view, which is why there are two. `looksatwords`
 reads the conversations the harness archived and reports their topics; it is
 listed because it is one more server on the same workstation, and a port
-collision between any two surfaces is what the table prevents.
+collision between any two surfaces is what the table prevents. `apothecary`'s
+viewer is listed for the same reason, started as its demo, which touches no
+real board.
 
 - **Reporting is the default.** Nothing starts unless `--start` names it.
 - **Servers detach; the terminal front end does not.** `--start` backs a server
@@ -130,4 +132,5 @@ collision between any two surfaces is what the table prevents.
   process from an earlier session.
 - **The ports are defaults, each overridable**, chosen as a memory aid: pi
   (3141) for the harness, e (2718) for the web front end, phi for the terminal
-  one, and root two for the prose reader.
+  one, root two for the prose reader, and tau for apothecary's viewer. Each is
+  its constant's first four digits, and no two surfaces share one.
