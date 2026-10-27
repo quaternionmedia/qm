@@ -228,6 +228,11 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   deep and the second is absent, and on 2026-10-26 it found 22 of the 39
   clones a run from the clone finds. Done is a run from a worktree finding the
   same clones as a run from the clone.
+- **The private-name check fails on `main`.** At `fa376e0`, `uv run qm
+  private-names --source host --strict` finds 25 occurrences, most of them in
+  `docs/show/`, where a file path or a word in a public repository equals a
+  private repository's name. Done is the check clean, by redaction in the
+  show generator or by an allowance with a stated reason. (2026-10-26)
 
 ### Carried from retired pages
 
