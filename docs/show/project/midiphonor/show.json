@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "e1d1306f7b5f9bbaad858c15bbc6afa287f36a11",
    "digest": "sha256:50fb8e971ced1a44922044e96af67a88e7b7e19121074552fed0a2a8079178dd"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "407e6c31db235288e05eabf53d7f2074b149b701"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@99602ff1e6c85d9b64ab3ef0cef9402d4b09252e"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T11:32:40Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:midiphonor",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "e1d1306",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "e1d1306",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

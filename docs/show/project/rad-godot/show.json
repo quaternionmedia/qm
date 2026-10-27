@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "e1d1306f7b5f9bbaad858c15bbc6afa287f36a11",
    "digest": "sha256:52c96de6615a43af500db0ae07d927e9cdf2275f4d5f13b62a5322beb4223ce3"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "6dd9485f6bd2a5ddf7679f3dfe4c19f44385a5f3"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@99602ff1e6c85d9b64ab3ef0cef9402d4b09252e"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T11:32:40Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:rad-godot",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "e1d1306",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "e1d1306",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

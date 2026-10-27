@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "e1d1306f7b5f9bbaad858c15bbc6afa287f36a11",
    "digest": "sha256:afd5f969768a82856d2c371b08a570d8605d4ed9328098bd0a785f1ffc873225"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "e891a76ff342f2ffa5c5deb19144013ec13f942c"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@99602ff1e6c85d9b64ab3ef0cef9402d4b09252e"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T11:32:40Z"
  },
  "views": {
   "estate": {
@@ -37,7 +37,7 @@
        "click": "<p><b>Cuelist-python</b> — Python helpers for Cuelist (thecuelist.com) and plugin for ShowRunner</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
        "show": "project:Cuelist-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "x": 0,
        "y": 0,
        "size": 41,
@@ -55,7 +55,7 @@
        "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
        "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
        "show": "family:show-control",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "x": 42.42640687119285,
        "y": -42.42640687119285,
        "size": 11,
@@ -169,10 +169,10 @@
     "subject": "project:Cuelist-python",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "e1d1306",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "e1d1306",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
