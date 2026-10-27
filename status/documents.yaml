@@ -1,5 +1,5 @@
 schema: 1
-generated_at: '2026-10-27T01:58:50Z'
+generated_at: '2026-10-27T02:07:06Z'
 generator:
   tool: ci/doc_status.py
   signals:
@@ -121,14 +121,14 @@ readiness:
     the claim and the measurements side by side; the judgement is a human's, and one
     of the five requirements cannot be measured at all.
 totals:
-  documents: 291
+  documents: 292
   by_state:
     draft: 3
     generated: 7
     proposed: 39
     standing: 131
     transient: 22
-    unreviewed: 89
+    unreviewed: 90
   disagreements: 0
   unknown: 0
 documents:
@@ -1831,6 +1831,14 @@ documents:
   indexed_status: Unreviewed
   state: unreviewed
 - path: perspectives/2026-10-25-what-whisper-heard.md
+  class: perspective
+  class_reason: dated, attributed, non-binding opinion
+  declared_status: null
+  state_from_status_row: null
+  state_from_filename: null
+  indexed_status: Unreviewed
+  state: unreviewed
+- path: perspectives/2026-10-26-a-branch-name-is-not-its-commits.md
   class: perspective
   class_reason: dated, attributed, non-binding opinion
   declared_status: null

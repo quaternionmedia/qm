@@ -45,11 +45,16 @@ pick up alone; that page is then listed in the index and named here.
 
 ## 1. Decisions in force
 
-1. **Mechanical or minor reversible items in `qm` are closed without a
-   question per pull request**: a green pull request brought level with its
-   base, generated documents re-run rather than hand-merged, a propagation of
-   `main` into a project branch. Anything that changes what a page, a record
-   or a check says is asked, one question at a time. (2026-10-18)
+1. **A question to a person concerns what a change says or does**: what a
+   page, a record, a check or a tool should state, and which of two readings
+   of a rule is meant, one question at a time. How the change is delivered
+   follows the corpus rules without a question: its branch and base, one pull
+   request or two, landing it once every gate is green (`AGENTS.md` item 3),
+   generated documents re-run rather than hand-merged, a propagation of `main`
+   into a project branch, and deleting a branch whose every commit another
+   branch holds. A step that would destroy work nothing else holds, such as
+   unpushed commits or a ref `docs/ref/namespaces.md` names, is asked first,
+   in terms of the work. (2026-10-18; widened 2026-10-26)
 2. **A finding in a pull request's own text is fixed on that pull request**,
    one commit, before its merge is asked. (2026-10-17)
 3. **Unsigned commits are rebuilt signed as new pull requests**, cut from the
@@ -211,6 +216,27 @@ it. The codecartographer propagation (#174) showed both. #222, a draft into
   Done is a check that fails when a discipline rule in the root page has no
   counterpart in the seed's. `ci/check_discipline_parity.py` on
   `evolve/exploration-branch-namespace` at `22d7319` is a draft of one.
+- **`qm references` overstates what retiring a merged branch loses.** For a
+  branch whose tip is on `main`, it says a reference left behind points at
+  nothing; the cited commit and pull request survive, and only the name stops
+  resolving. Done is the report saying so when the tip is an ancestor of the
+  base. (2026-10-26)
+- **A pushed branch ahead of its copy is not checked for a holder.** `qm
+  estate`'s *ahead* and the census's *stranded* count unpushed commits against
+  the branch's own remote copy only, so commits another remote branch holds
+  read as on this disk alone. Done is the held reading, confirmed by the host,
+  applied to those classes too, with a fixture case for each. (2026-10-26)
+- **`qm estate` run from a worktree surveys a different estate.** Its default
+  search root is two directories above the module, and the private companion
+  is read beside the module; from a sibling worktree the first is a level too
+  deep and the second is absent, and on 2026-10-26 it found 22 of the 39
+  clones a run from the clone finds. Done is a run from a worktree finding the
+  same clones as a run from the clone.
+- **The private-name check fails on `main`.** At `fa376e0`, `uv run qm
+  private-names --source host --strict` finds 25 occurrences, most of them in
+  `docs/show/`, where a file path or a word in a public repository equals a
+  private repository's name. Done is the check clean, by redaction in the
+  show generator or by an allowance with a stated reason. (2026-10-26)
 
 ### Carried from retired pages
 
@@ -352,11 +378,15 @@ re-checked and is re-derived before anyone acts on it.
   topology runtime execution, a CI pipeline, the human-in-the-loop API, an
   async runner, authentication, webhooks, storage backends, Kubernetes
   manifests, and the cookbook and runner.
-- *Carried.* **Branches across the estate**: each repository's leftover
-  one-copy branches landed or retired, and merged branches pruned, until
-  `uv run qm estate` reports none. `qmcp`'s were pruned on 2026-10-25 at the
-  person's word, and its remote holds `main` and the one Dependabot branch
-  above.
+- **Branches across the estate**: each repository's leftover one-copy
+  branches landed or retired, and merged branches pruned, until `uv run qm
+  estate` reports none. On 2026-10-26 `uv run qm estate --offline` reports
+  one-copy work in codecartographer (one branch, one commit) and `private-38`
+  (one branch, 60 commits), each checked out by a session at work that day.
+  alfred's seven feature branches are *held*, every commit on a pushed
+  branch, so deleting them loses only the names. `qmcp`'s were pruned on
+  2026-10-25 at the person's word, and its remote holds `main` and the one
+  Dependabot branch above.
 - *Carried.* **A guard for dossier's threaded UI workers**: a test that fails
   when a worker that can reach the network is missing from
   `tests/ui/conftest.py`'s stub list.
@@ -382,6 +412,9 @@ re-checked and is re-derived before anyone acts on it.
   tests and the preflight passed.
 - The figures in `perspectives/2026-10-25-what-whisper-heard.md` on a
   person's voice: they come from synthesized speech only.
+- A holder the host has deleted or moved, as `qm estate` and the branch census
+  read it online: exercised against a local bare remote only. Against the
+  host, only holders whose tip equals the tracking ref have been read.
 - That `joe`'s transcript lane was tested by hand before it merged on
   2026-10-26 (`joe` `c7dccf4`), as `voice-set-landing.md` decision 5 asked:
   its pull request carries no comment or review saying so.
