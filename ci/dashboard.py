@@ -9,14 +9,16 @@
 `qmcp` holds the work and answers over HTTP. `codecartographer` is its front end
 on the web and `dossier` its front end in a terminal; neither owns anything,
 and a figure that differs between them is a defect. `looksatwords` reads the
-conversations the harness archived and reports their topics.
+conversations the harness archived and reports their topics. `apothecary`
+serves its parts and the bench that makes them, in the browser.
 
 Reporting is the default: nothing starts unless `--start` names it. `--start`
 detaches a server into its own process and records its pid; the terminal front
 end draws where it is run, so for it this prints the command instead.
 
 The ports are defaults, each overridable: pi for the harness, e for the web
-front end, phi for the terminal one, and root two for the prose reader.
+front end, phi for the terminal one, root two for the prose reader, and tau
+for apothecary's viewer. Each is its constant's first four digits.
 `docs/ref/ci/demos.md` describes the surfaces.
 """
 
@@ -56,10 +58,10 @@ class Surface:
     for a terminal front end, which draws where it was run and nowhere else."""
 
     dataview: str = ""
-    """Where this surface shows the topology, relative to its own root. **The
-    point of running it.** A status table that said a server was up and left a
-    reader to guess the path has reported a process rather than a place to
-    look."""
+    """Where this surface shows what it is for, relative to its own root: the
+    topology, for the harness and its front ends. **The point of running it.**
+    A status table that said a server was up and left a reader to guess the
+    path has reported a process rather than a place to look."""
 
     also: dict[str, str] = field(default_factory=dict)
     """Other places worth knowing, path -> what it is. The application is the
@@ -106,6 +108,16 @@ SURFACES: tuple[Surface, ...] = (
               "/docs": "every route this reader serves"},
         note="reads the harness's thread archive on loopback, so it has "
              "nothing to list until the harness is up"),
+    Surface(
+        name="parts", repo="apothecary",
+        role="parts and the bench that makes them", port=6283, constant="tau",
+        command=("apothecary", "serve", "--demo", "--port", "6283"),
+        detachable=True,
+        dataview="/viewer",
+        also={"/docs": "its guides, and the walkthrough at /walkthrough",
+              "/openapi.json": "every route this server serves"},
+        note="the demo touches no real board; `apothecary serve` without "
+             "--demo drives the boards plugged into this machine"),
 )
 
 BY_NAME = {s.name: s for s in SURFACES}
@@ -234,7 +246,7 @@ def report() -> int:
             if s.dataview and repo_of(s) is not None and listening(s.port)]
     if live:
         print()
-        print("THE TOPOLOGY, IN EACH ONE THAT IS UP")
+        print("WHERE TO LOOK, IN EACH ONE THAT IS UP")
         print("-" * 74)
         for surface in live:
             print(f"  {surface.name:<10} http://127.0.0.1:{surface.port}"
