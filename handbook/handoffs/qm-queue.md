@@ -10,8 +10,9 @@ sessions. Entries that name 2026-10-25 were re-derived later, at `qm`
 page holds at the stamp, which those entries do not move.
 
 [`voice-set-landing.md`](voice-set-landing.md) is the voice set, landed but
-for `joe` #33 and #34; [`the-voice-loop.md`](the-voice-loop.md) is the loop.
-This page is everything else open in `qm`.
+for `joe` #33 and #34; [`the-voice-loop.md`](the-voice-loop.md) is the loop;
+[`apothecary-merge-queue.md`](apothecary-merge-queue.md) is apothecary's stack,
+landed on its `main`, and how it keeps landing. This page is everything else open in `qm`.
 
 ## How this page is kept
 
