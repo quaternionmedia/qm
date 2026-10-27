@@ -1,7 +1,7 @@
 # Handoff — joe's open set, #35 to #58, landed one merge at a time
 
 **Stamped 2026-10-26.** `joe` `main` at `474307f`; `joe`'s
-`integrate/open-prs` at `6ff1f67`; `qm` `main` at `c684759`. Every figure on
+`integrate/open-prs` at `6ff1f67`; `qm` `main` at `1e165bb`. Every figure on
 this page was true at those commits and nowhere else. Re-derive each one with
 `gh` before acting on it: an assistant session's Auto-fix watches #35 to #50
 and merges `main` into one the host reports conflicting (`0a469eb` on #47).
