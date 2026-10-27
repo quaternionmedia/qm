@@ -4,6 +4,7 @@
 |---|---|
 | **Status** | Proposed |
 | **Date** | 2026-06-30 |
+| **Pends on** | Nothing — ready to be argued |
 
 ## Context
 
@@ -11,23 +12,21 @@ The compound hierarchical layout (dirs → files → symbols → sub-symbols)
 produces a correct four-tier grouping but has three interaction and
 visual gaps:
 
-1. **Drag**: directory and file nodes are visually presented as cluster
-   containers (translucent bounding circles) but dragging one moved only
-   that node — its children stayed behind, breaking the spatial grouping
-   the layout is meant to communicate.
+1. **Drag**: directory and file nodes are drawn as cluster containers
+   (translucent bounding circles), so dragging one has to take its children
+   with it, or the spatial grouping the layout communicates breaks.
 
-2. **Label granularity**: the only label toggle was a single
-   `showNodeLabels` global boolean. At depth=2 (thousands of symbols in a
-   large repo) labels are noise; at depth=0 (a handful of dir nodes) labels
-   are navigation. Users had to choose either all or none.
+2. **Label granularity**: a single global `showNodeLabels` boolean makes a
+   reader choose all labels or none. At depth 2 (thousands of symbols in a
+   large repo) labels are noise; at depth 0 (a handful of dir nodes) they are
+   navigation.
 
-3. **Spread scaling and axis**: `file_orbit_r` grew as `sqrt(n_files)`
-   — the number of *direct* file children — but not as a function of how
-   large those files' symbol clusters are. A dir with 2 files each carrying
-   50 symbols got the same file orbit radius as a dir with 2 empty files,
-   causing symbol clusters to overlap. Additionally, the dir spring layout
-   was isotropic (no directional bias), so the dir-layer axis and the
-   file/symbol cluster axes were indistinguishable.
+3. **Spread scaling and axis**: a file orbit sized only by
+   `sqrt(n_files)` — the number of *direct* file children — ignores how large
+   those files' symbol clusters are, so a dir whose files carry many symbols
+   gets the same orbit as one whose files are empty, and the symbol clusters
+   overlap. An isotropic dir spring layout (no directional bias) makes the
+   dir-layer axis and the file/symbol cluster axes indistinguishable.
 
 ## Decision
 
@@ -36,32 +35,32 @@ visual gaps:
 Map from parent nodeId to all transitive descendant nodeIds (dir → [files
 + their symbols + their sub-symbols]; file → [its symbols + their
 sub-symbols]; symbol → [its sub-symbols]), resolved from the real
-`kind === "contains"` edges the backend already sends (the unified
-schema's edge-kind field, arriving flat as `edge.kind` or, for gJGF
+containment edges the backend already sends — `kind` of `contains` or
+`field_of` (the unified schema's edge-kind field, arriving flat as `edge.kind` or, for gJGF
 payloads, nested at `edge.metadata.kind`), with nearest-neighbor-by-position
 as a fallback only for orphan nodes with no
 matching edge — the same parent-chain helper `computeGroupBounds` uses.
-Store this map in both `StreamingGraphRenderer._childrenMap` and
-`GraphRenderer._childrenMap` (computed when compound backgrounds are
-drawn). In each renderer's drag handler, compute the frame-by-frame delta
-`(dx, dy)` before updating the dragged node's position, then propagate the
-same delta to every descendant node's `x/y/fx/fy` and its SVG element.
-Redraw compound background circles on drag end so they follow the moved
-cluster.
+`StreamingGraphRenderer` stores this map as `_childrenMap`, computed when
+the compound backgrounds are drawn. Its drag handler computes the
+frame-by-frame delta `(dx, dy)` before updating the dragged node's
+position, then applies the same delta to every descendant's `x`/`y`, its
+SVG element, its edges and its label. There is no simulation on this
+canvas, so there are no `fx`/`fy` to pin. Compound background circles are
+redrawn on drag end so they follow the moved cluster.
 
 **§2 — Per-depth labels:** add `showLabelsByDepth?: Partial<Record<number,
-boolean>>` to `GraphStylingOptions` (both in `state/types.ts` and
-`control_panel.ts`'s local copy). When a depth has an entry, it overrides
-`showNodeLabels` for that depth; absent entries fall back to the global
-flag. Both renderers check this in label `display` style; `StreamingGraph
-Renderer.updateStyling()` re-evaluates all labels per-node when either
-`showNodeLabels` or `showLabelsByDepth` changes. The control panel's Graph
-Settings tab gains 4 per-depth chip-checkboxes (Dir / File / Sym / Sub).
+boolean>>` to `GraphStylingOptions` in `state/types.ts`, which
+`control_panel.ts` re-exports rather than copying. When a depth has an
+entry, it overrides `showNodeLabels` for that depth; absent entries fall back
+to the global flag. The streaming renderer applies this to each label's
+`display` style, and `StreamingGraphRenderer.updateStyling()` re-evaluates
+every label when either `showNodeLabels` or `showLabelsByDepth` changes.
+Graph Settings carries one chip-checkbox per depth: Dir, File, Sym, Sub.
 
 **§3 — Compound layout spread:** in `compound_layout.py`:
-- `file_orbit_r(n_files, max_child_sym_r)` now adds `max_child_sym_r`
-  (the largest symbol-cluster radius among the dir's files) to the base
-  orbit radius, so file-cluster bounding circles don't overlap.
+- `file_orbit_r(n_files, max_child_sym_r)` adds `max_child_sym_r` (the
+  largest symbol-cluster radius among the dir's files) to the base orbit
+  radius, so file-cluster bounding circles don't overlap.
 - A per-dir `max_child_sym_r` is computed before pass 1, giving each
   directory's pass-2 orbit its own appropriate size.
 - The directory spring layout is stretched by `(x_stretch=1.6,
@@ -73,14 +72,17 @@ Settings tab gains 4 per-depth chip-checkboxes (Dir / File / Sym / Sub).
 - `computeChildrenMap` and `computeGroupBounds` share one
   `_buildParentChain`/`_assignParents` helper, so they cannot assign a
   node to a different parent from each other. Both key off the same
-  `contains` edges `compound_layout.py`'s own passes already produced, so
-  drag groups and bounding circles stay structurally tied to the
-  backend's parent structure rather than to a second, independently
-  re-derived one.
+  containment edges `compound_layout.py` reads, so drag groups and
+  bounding circles stay tied to the backend's parent structure rather than
+  to a second, independently re-derived one. The one place they part is
+  a sub-symbol whose edge comes from its file or from another sub-symbol:
+  the backend orbits it around its file or its traced depth-2 ancestor, and
+  the frontend groups it with the nearest depth-2 symbol by position (see
+  *Code-map navigation*, §3).
 - `showLabelsByDepth` is not persisted in the saved GL layout (it is part
   of `graphStyling` in Meiosis state, not `LayoutManager.toConfig()`).
-  Saved layouts remember panel arrangement but not graph styling — this is
-  consistent with current behavior for all other styling options.
+  Saved layouts remember panel arrangement but not graph styling, as for
+  every other styling option.
 - The x/y axis-stretch values (1.6, 0.7) were tuned empirically on a 2-dir
   25-node test graph; they are not derived from first principles. A repo
   with a very different dir/file/symbol count ratio may look noticeably
