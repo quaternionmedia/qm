@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "ba587c36ef88c410b1f2ae1e94bd1a60ccbe140f",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:43b6dedb852a191e700b8294c4cf320cb47927f1e2bd2c2cf7254d16a77e5665"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "16a595a3598c02ba521fc42617fc130030f9b57f"
   },
   "drawn_by": {
-   "graph": "codecartographer@e4309302dc82884a25752380a0cbbfe6d23c2ddd"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-27T15:45:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:moat",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "ba587c3",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "ba587c3",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -219,8 +219,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -344.0809467537398,
-      "y": -120.56356586979426,
+      "x": -265.1421541150274,
+      "y": -142.47196496124553,
       "size": 160
      },
      "dir::quaternionmedia/moat/.github": {
@@ -233,8 +233,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -448.1982907296832,
-      "y": 165.49648567770006,
+      "x": -480.39871546445534,
+      "y": -357.7285263106734,
       "size": 60
      },
      "dir::quaternionmedia/moat/.github/workflows": {
@@ -247,8 +247,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": -405.77430849037165,
-      "y": 216.05541892355262,
+      "x": -433.7296679061432,
+      "y": -311.05947875236126,
       "size": 50
      },
      "dir::quaternionmedia/moat/authentik": {
@@ -261,8 +261,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": -421.24406438517894,
-      "y": -130.7329206869248,
+      "x": -342.8979604600482,
+      "y": -145.8774134831918,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts": {
@@ -275,8 +275,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 388.5316022376496,
-      "y": 12.152212610535798,
+      "x": 476.24952519346084,
+      "y": -74.11260093962176,
       "size": 200
      },
      "dir::quaternionmedia/moat/charts/akri": {
@@ -289,8 +289,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 430.95558447696123,
-      "y": 62.71114585638835,
+      "x": 522.918572751773,
+      "y": -27.443553381309616,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/argo-cd": {
@@ -303,8 +303,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": 311.3684846062105,
-      "y": 1.982857793405202,
+      "x": 398.49371884844,
+      "y": -77.51804946156801,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/cert-manager": {
@@ -317,8 +317,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 56.46390919794576,
-      "y": 70.7047063150522,
+      "x": 150.5486360582953,
+      "y": 13.158689278244523,
       "size": 60
      },
      "dir::quaternionmedia/moat/charts/cert-manager/templates": {
@@ -331,8 +331,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 98.88789143725735,
-      "y": 121.26363956090475,
+      "x": 197.21768361660745,
+      "y": 59.827736836556674,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/cilium": {
@@ -345,8 +345,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 460.70103385901325,
-      "y": -38.3522242188094,
+      "x": 543.7425786350442,
+      "y": -130.71483355576115,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/cook": {
@@ -359,8 +359,8 @@
       "line": 0,
       "meta": {},
       "label_at": "below",
-      "x": 367.44077053176306,
-      "y": 107.10411789923428,
+      "x": 463.51455430045314,
+      "y": 22.31617078518164,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/csi": {
@@ -373,8 +373,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 152.98672438210784,
-      "y": -194.26198243831556,
+      "x": 223.61078422795967,
+      "y": -259.21223887825676,
       "size": 60
      },
      "dir::quaternionmedia/moat/charts/frigate": {
@@ -387,8 +387,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": 335.7554293849266,
-      "y": -79.37333343546983,
+      "x": 415.69720466598,
+      "y": -160.69011810624664,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/groot": {
@@ -401,8 +401,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 605.2733957605411,
-      "y": 270.4550237067542,
+      "x": 714.6791241107601,
+      "y": 164.31699797767754,
       "size": 60
      },
      "dir::quaternionmedia/moat/charts/groot/templates": {
@@ -415,8 +415,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 647.6973779998527,
-      "y": 321.0139569526068,
+      "x": 761.3481716690723,
+      "y": 210.98604553598966,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/home-assistant": {
@@ -429,8 +429,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 496.67785234109976,
-      "y": 46.33116941968987,
+      "x": 586.9631385320638,
+      "y": -49.489272133175916,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/jellyfin": {
@@ -443,8 +443,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": 279.1105147879713,
-      "y": 63.06783517699229,
+      "x": 371.68240691889696,
+      "y": -13.854051539944209,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/metallb": {
@@ -457,8 +457,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 273.20570272083734,
-      "y": 329.00751741127056,
+      "x": 388.97823497559466,
+      "y": 251.58828819554378,
       "size": 60
      },
      "dir::quaternionmedia/moat/charts/metallb/templates": {
@@ -471,8 +471,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 315.62968496014895,
-      "y": 379.56645065712314,
+      "x": 435.6472825339067,
+      "y": 298.2573357538559,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/metrics-server": {
@@ -484,9 +484,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 437.4515259236092,
-      "y": -105.6347924730467,
+      "label_at": "above",
+      "x": 514.7174798863848,
+      "y": -195.71504319200065,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/monitoring": {
@@ -498,9 +498,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 434.24167239377425,
-      "y": 138.16447188050586,
+      "label_at": "right",
+      "x": 532.7683467843788,
+      "y": 47.43624852418026,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/traefik": {
@@ -513,8 +513,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": 264.2074052979993,
-      "y": -52.75970120588966,
+      "x": 346.7409732958246,
+      "y": -127.94193760075181,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/whoami": {
@@ -527,8 +527,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 529.7918009401837,
-      "y": -25.493255410470027,
+      "x": 613.6911674658578,
+      "y": -123.92645412793127,
       "size": 50
      },
      "dir::quaternionmedia/moat/influxdb": {
@@ -541,8 +541,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -630.1409983012342,
-      "y": -224.68090984573777,
+      "x": -124.9538554798574,
+      "y": -412.69042349754983,
       "size": 60
      },
      "dir::quaternionmedia/moat/influxdb/templates": {
@@ -555,8 +555,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": -587.7170160619225,
-      "y": -174.12197659988516,
+      "x": -78.28480792154528,
+      "y": -366.0213759392377,
       "size": 50
      },
      "dir::quaternionmedia/moat/loki": {
@@ -569,8 +569,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": -271.91151513237617,
-      "y": -171.06800269913947,
+      "x": -197.64910067344394,
+      "y": -199.07419757738498,
       "size": 50
      },
      "dir::quaternionmedia/moat/openebs": {
@@ -583,8 +583,8 @@
       "line": 0,
       "meta": {},
       "label_at": "below",
-      "x": -365.17177845962635,
-      "y": -25.611660581095748,
+      "x": -277.877125008035,
+      "y": -46.04319323644208,
       "size": 50
      },
      "dir::quaternionmedia/moat/technitium": {
@@ -597,8 +597,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -180.8750164610223,
-      "y": -377.53554629810606,
+      "x": -340.509479981169,
+      "y": -629.8810603718166,
       "size": 60
      },
      "dir::quaternionmedia/moat/technitium/templates": {
@@ -611,8 +611,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": -138.45103422171076,
-      "y": -326.97661305225347,
+      "x": -293.84043242285685,
+      "y": -583.2120128135043,
       "size": 50
      },
      "dir::quaternionmedia/moat/tempo": {
@@ -625,8 +625,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": -396.8571196064629,
-      "y": -212.0891119157999,
+      "x": -325.6944746425082,
+      "y": -229.0494821278704,
       "size": 50
      },
      "dir::quaternionmedia/moat/tofu": {
@@ -639,8 +639,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -467.7448463044759,
-      "y": -484.03296751377655,
+      "x": -757.480690242077,
+      "y": -227.87638249574286,
       "size": 60
      },
      "dir::quaternionmedia/moat/tofu/moat": {
@@ -653,8 +653,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": -425.3208640651643,
-      "y": -433.4740342679241,
+      "x": -710.8116426837648,
+      "y": -181.2073349374307,
       "size": 50
      },
      "dir::quaternionmedia/moat/tower": {
@@ -667,8 +667,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -704.2784599736069,
-      "y": 47.39929299301616,
+      "x": -381.03996189346117,
+      "y": 124.21865655697859,
       "size": 60
      },
      "dir::quaternionmedia/moat/victoria-logs": {
@@ -681,8 +681,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": -235.9346966502897,
-      "y": -86.3846090606402,
+      "x": -154.42854077642457,
+      "y": -117.84863615479966,
       "size": 50
      },
      "file::quaternionmedia/moat/README.md": {
@@ -695,8 +695,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": -301.65696451442824,
-      "y": -70.0046326239417,
+      "x": -218.47310655671527,
+      "y": -95.80291740293337,
       "size": 30
      },
      "file::quaternionmedia/moat/charts/csi/README.md": {
@@ -709,8 +709,8 @@
       "line": 0,
       "meta": {},
       "label_at": "right",
-      "x": 187.69725530518096,
-      "y": -152.89558250989074,
+      "x": 261.79455041203323,
+      "y": -221.02847269418317,
       "size": 30
      },
      "file::quaternionmedia/moat/tower/main.py": {
@@ -722,10 +722,169 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/moat/main/tower/main.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -669.5679290505338,
-      "y": 88.76569292144092,
+      "label_at": "none",
+      "x": -576.0428681742551,
+      "y": 135.56324110779246,
       "size": 30
+     },
+     "main.FastAPI": {
+      "id": "main.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "FastAPI",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -665.8331058200143,
+      "y": 159.62246277317226,
+      "label_at": "none"
+     },
+     "main.fastapi.FastAPI": {
+      "id": "main.fastapi.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.FastAPI",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -510.31185219387555,
+      "y": 201.294257088172,
+      "label_at": "none"
+     },
+     "main.uvicorn.run": {
+      "id": "main.uvicorn.run",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "uvicorn.run",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -600.1020898396349,
+      "y": 225.35347875355174,
+      "label_at": "none"
+     },
+     "fastapi.FastAPI": {
+      "id": "fastapi.FastAPI",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "fastapi.FastAPI",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": -650.2767566339103,
+      "y": 175.17881195927635,
+      "label_at": "right"
+     },
+     "fastapi.fastapi": {
+      "id": "fastapi.fastapi",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "fastapi.fastapi",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": -494.7555030077716,
+      "y": 216.850606274276,
+      "label_at": "right"
+     },
+     "main.Const: '/'": {
+      "id": "main.Const: '/'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: '/'",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Constant"
+      },
+      "x": -554.8296647386587,
+      "y": 156.7764445433889,
+      "label_at": "right"
+     },
+     "main.Const: 'sup!'": {
+      "id": "main.Const: 'sup!'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'sup!'",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Constant"
+      },
+      "x": -608.0521975497496,
+      "y": 134.16133778334384,
+      "label_at": "left"
+     },
+     "main.app": {
+      "id": "main.app",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "app",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Name"
+      },
+      "x": -550.0238504993779,
+      "y": 113.74270675974248,
+      "label_at": "right"
+     },
+     "uvicorn.uvicorn": {
+      "id": "uvicorn.uvicorn",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "uvicorn.uvicorn",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": -584.5457406535309,
+      "y": 240.9098279396558,
+      "label_at": "right"
      }
     },
     "edges": [
@@ -1016,12 +1175,61 @@
        "kind": "contains",
        "weight": 1
       }
+     },
+     {
+      "source": "main.fastapi.FastAPI",
+      "target": "fastapi.fastapi",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "main.uvicorn.run",
+      "target": "uvicorn.uvicorn",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "main.FastAPI",
+      "target": "fastapi.FastAPI",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/moat/tower/main.py",
+      "target": "main.fastapi.FastAPI",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/moat/tower/main.py",
+      "target": "main.uvicorn.run",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/moat/tower/main.py",
+      "target": "main.app",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/moat/tower/main.py",
+      "target": "main.Const: 'sup!'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/moat/tower/main.py",
+      "target": "main.Const: '/'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/moat/tower/main.py",
+      "target": "main.FastAPI",
+      "kind": "contains"
      }
     ]
    },
    "metadata": {
     "url": "https://github.com/quaternionmedia/moat",
-    "depth": 1,
+    "depth": 3,
+    "floor": 100,
     "truncated": 0
    }
   },

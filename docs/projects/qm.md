@@ -34,19 +34,19 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/qm/estate.svg)](../show/project/qm/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← QLab-python](QLab-python.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [qmcp →](qmcp.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
 [![Its code: its default branch, by directory and file](../show/project/qm/code.svg)](../show/project/qm/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← QLab-python](QLab-python.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [qmcp →](qmcp.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. qm declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `e430930` from the corpus at `ba587c3` and qm's default branch at `ba587c3`, on 2026-10-27. [The show document](../show/project/qm/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and qm's default branch at `6054c41`, on 2026-10-27. [The show document](../show/project/qm/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

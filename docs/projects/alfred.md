@@ -267,19 +267,19 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/alfred/estate.svg)](../show/project/alfred/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← aes](aes.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [apothecary →](apothecary.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
 [![Its code: its default branch, by directory and file](../show/project/alfred/code.svg)](../show/project/alfred/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← aes](aes.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [apothecary →](apothecary.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -288,7 +288,7 @@ the graphs codecarto draws
 **Its system:** not drawn. alfred's system view is composed from a clone of it, and the clone this export read was not at its default branch's head, 7fff7ae.
 { .qm-caption }
 
-Drawn by codecartographer at `e430930` from the corpus at `ba587c3` and alfred's default branch at `7fff7ae`, on 2026-10-27. [The show document](../show/project/alfred/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and alfred's default branch at `7fff7ae`, on 2026-10-27. [The show document](../show/project/alfred/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
