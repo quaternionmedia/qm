@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "e1d1306f7b5f9bbaad858c15bbc6afa287f36a11",
+   "commit": "ba587c36ef88c410b1f2ae1e94bd1a60ccbe140f",
    "digest": "sha256:3e08eed7da1dd11fba49df1d7caaa00ae2645fe393ff589d049b85a848aa4769"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "6d30a6f47303e2378587f1e5870d1461d1443244"
   },
   "drawn_by": {
-   "graph": "codecartographer@99602ff1e6c85d9b64ab3ef0cef9402d4b09252e"
+   "graph": "codecartographer@e4309302dc82884a25752380a0cbbfe6d23c2ddd"
   },
-  "drawn_at": "2026-10-27T11:32:40Z"
+  "drawn_at": "2026-10-27T15:45:31Z"
  },
  "views": {
   "estate": {
@@ -203,10 +203,10 @@
     "subject": "project:stomp",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "e1d1306",
+    "commit": "ba587c3",
     "provenance": {
      "source": "families.json",
-     "commit": "e1d1306",
+     "commit": "ba587c3",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

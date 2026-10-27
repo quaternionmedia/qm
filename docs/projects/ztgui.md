@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. ztgui's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `99602ff` from the corpus at `e1d1306` and ztgui's default branch at `c698ae0`, on 2026-10-27. [The show document](../show/project/ztgui/show.json) holds each graph as drawn.
+Drawn by codecartographer at `e430930` from the corpus at `ba587c3` and ztgui's default branch at `c698ae0`, on 2026-10-27. [The show document](../show/project/ztgui/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
