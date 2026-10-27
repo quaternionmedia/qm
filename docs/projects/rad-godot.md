@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. rad-godot declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and rad-godot's default branch at `6dd9485`, on 2026-10-26. [The show document](../show/project/rad-godot/show.json) holds each graph as drawn.
+Drawn by codecartographer at `99602ff` from the corpus at `e1d1306` and rad-godot's default branch at `6dd9485`, on 2026-10-27. [The show document](../show/project/rad-godot/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

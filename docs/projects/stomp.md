@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. stomp declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and stomp's default branch at `6d30a6f`, on 2026-10-26. [The show document](../show/project/stomp/show.json) holds each graph as drawn.
+Drawn by codecartographer at `99602ff` from the corpus at `e1d1306` and stomp's default branch at `6d30a6f`, on 2026-10-27. [The show document](../show/project/stomp/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
