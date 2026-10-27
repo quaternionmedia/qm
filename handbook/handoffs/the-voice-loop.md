@@ -2,7 +2,7 @@
 
 **Stamped 2026-10-18.** `qm` `main` at `157cbf6`; `vox` `main` at
 `1721e6f`; `joe` `main` at `d72b65b`; `qmcp` `main` at `df42315`; `dossier`
-`main` at `414be1c`. The voice set has landed; `joe` #33 and #34 merged on
+`main` at `414be1c`. The voice set has landed, `joe` #33 and #34 last, on
 2026-10-26 (§1). Every figure here was true at those commits and nowhere else.
 Re-derive before acting on any of it.
 
@@ -69,10 +69,11 @@ onboarding.
 
 ## 1. What remains, and what done looks like
 
-- **`joe`'s README and cookbook.** #33 and #34 merged on 2026-10-26, at
-  `joe` `main` `474307f`. The README and cookbook pull requests that replace
-  the closed #24 and #25 are `voice-set-landing.md` §3's; `joe`'s pull
-  requests opened after the set are [`joe-open-set.md`](joe-open-set.md)'s.
+- **`joe`'s README and cookbook.** `joe` #33, the transcript lane, and #34
+  merged on 2026-10-26, re-derived at `joe` `474307f`. The README and cookbook
+  pull requests that replace the closed #24 and #25 follow them.
+  `voice-set-landing.md` §3 says what done is for each; `joe`'s pull requests
+  opened after the set are [`joe-open-set.md`](joe-open-set.md)'s.
 - **A person at the microphone.** Every take so far was scripted, which says
   nothing about a real one. *Done* is tier 3 of `qmcp`'s
   `docs/voice-loop-demo.md` -- `uv run joe dev`, `uv run qmcp serve --converse

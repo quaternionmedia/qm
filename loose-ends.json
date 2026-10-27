@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-27T02:05:12Z",
+  "generated_at": "2026-10-27T02:11:49Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-27T02:05:10Z"
+        "generated_at": "2026-10-27T02:11:48Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 285,
+    "loose_ends": 286,
     "by_kind": {
       "blind-spot": 20,
       "document-proposed": 39,
-      "document-unreviewed": 88,
+      "document-unreviewed": 89,
       "stalled-thread": 138
     },
-    "open": 285,
+    "open": 286,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -1150,6 +1150,14 @@
       "title": "perspectives/2026-10-25-what-whisper-heard.md",
       "detail": "written, and no maintainer has looked at it",
       "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-25-what-whisper-heard",
+      "address_parses": true
+    },
+    {
+      "kind": "document-unreviewed",
+      "address": "quaternionmedia/qm/doc/perspectives-2026-10-26-landing-what-was-held-local",
+      "title": "perspectives/2026-10-26-landing-what-was-held-local.md",
+      "detail": "written, and no maintainer has looked at it",
+      "key": "document-unreviewed:quaternionmedia/qm/doc/perspectives-2026-10-26-landing-what-was-held-local",
       "address_parses": true
     },
     {
