@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:ca0939e09591fe97ffaaab3c9c74ad9d6d63059fd0a9b76399590f01a2f69595"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "1abf5e9f196e33b51567fb866dd3423d4f3a43b9"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -56,8 +56,8 @@
        "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
        "show": "family:instruments",
        "color": "#43c6bf",
-       "x": -143.22277044156428,
-       "y": 116.23944051563677,
+       "x": -164.4257477863582,
+       "y": 116.05402522825085,
        "size": 11,
        "label_at": "left"
       }
@@ -67,8 +67,8 @@
       "metadata": {
        "kind": "claim",
        "hover": "phase v0.0.3, a claim in ci/workspace.yaml",
-       "x": -184.3225170797076,
-       "y": 7.041250013042693,
+       "x": -201.24732076286722,
+       "y": -1.9695665894273306,
        "size": 11,
        "label_at": "left"
       }
@@ -78,8 +78,8 @@
       "metadata": {
        "kind": "claim",
        "hover": "attention unstated, a claim in ci/workspace.yaml",
-       "x": -151.67328748831738,
-       "y": -104.97420333982774,
+       "x": -162.1228762330925,
+       "y": -119.24989018314409,
        "size": 11,
        "label_at": "left"
       }
@@ -89,8 +89,8 @@
       "metadata": {
        "kind": "measurement",
        "hover": "recency quiet, measured from the default branch's last commit",
-       "x": -58.33831070308877,
-       "y": -174.9886025107211,
+       "x": -61.81706168609601,
+       "y": -191.52810287600082,
        "size": 11,
        "label_at": "above"
       }
@@ -101,8 +101,8 @@
        "kind": "branch",
        "depth": 0,
        "hover": "project/qmetronome: this project's records in the corpus",
-       "x": 177.08800247134442,
-       "y": 51.61597509545271,
+       "x": 190.9139690849844,
+       "y": 63.68845825579533,
        "size": 140,
        "label_at": "none"
       }
@@ -114,8 +114,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — Android/Kotlin Platform Stack — Proposed",
-       "x": 213.08800247134445,
-       "y": -47.293212004913684,
+       "x": 226.9139690849844,
+       "y": -35.22072884457106,
        "size": 30,
        "label_at": "above"
       }
@@ -127,8 +127,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — QM Constitution Adoption Scope for a Sideloaded Mobile App — Proposed",
-       "x": 268.24320237591087,
-       "y": -1.0125041074828616,
+       "x": 282.0691689895508,
+       "y": 11.05997905285976,
        "size": 30,
        "label_at": "right"
       }
@@ -140,8 +140,8 @@
        "depth": 1,
        "status": "Draft",
        "hover": "ADR-XXXX — Enforced upper time bound on all automated test runs — Draft",
-       "x": 280.74587116792986,
-       "y": 69.89365410939612,
+       "x": 294.5718377815698,
+       "y": 81.96613726973874,
        "size": 30,
        "label_at": "right"
       }
@@ -153,8 +153,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — Glyph Matrix SDK Dependency — Proposed",
-       "x": 244.7458711679298,
-       "y": 132.24748318187574,
+       "x": 258.5718377815698,
+       "y": 144.31996634221835,
        "size": 30,
        "label_at": "right"
       }
@@ -166,8 +166,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — Home Screen Widget via Jetpack Glance, Scoped to Glanceable State — Proposed",
-       "x": 177.08800247134442,
-       "y": 156.87293350132387,
+       "x": 190.9139690849844,
+       "y": 168.94541666166648,
        "size": 30,
        "label_at": "below"
       }
@@ -179,8 +179,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — MIDI Clock as an Open-Standard Seam — Proposed",
-       "x": 109.43013377475901,
-       "y": 132.2474831818757,
+       "x": 123.25610038839898,
+       "y": 144.31996634221832,
        "size": 30,
        "label_at": "left"
       }
@@ -192,8 +192,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — Per-Beat and Per-Phrase MIDI Action Overrides, and Manual Triggering — Proposed",
-       "x": 73.43013377475901,
-       "y": 69.89365410939611,
+       "x": 87.25610038839898,
+       "y": 81.96613726973874,
        "size": 30,
        "label_at": "left"
       }
@@ -205,8 +205,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — Per-Beat-Type MIDI Action Routing — Proposed",
-       "x": 85.93280256677797,
-       "y": -1.0125041074827905,
+       "x": 99.75876918041793,
+       "y": 11.05997905285983,
        "size": 30,
        "label_at": "left"
       }
@@ -218,8 +218,8 @@
        "depth": 1,
        "status": "Proposed",
        "hover": "ADR-XXXX — Persistent Playback via a Foreground Service — Proposed",
-       "x": 141.08800247134445,
-       "y": -47.2932120049137,
+       "x": 154.91396908498442,
+       "y": -35.22072884457108,
        "size": 30,
        "label_at": "above"
       }
@@ -440,10 +440,10 @@
     "subject": "project:qmetronome",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -491,8 +491,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5353.626104978555,
-      "y": -4181.295415024025,
+      "label_at": "none",
+      "x": -2398.6666434967433,
+      "y": 0,
       "size": 210
      },
      "dir::quaternionmedia/qmetronome/.github": {
@@ -504,8 +505,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1011.8341130521918,
-      "y": -990.2964635776531,
+      "label_at": "none",
+      "x": -2786.647549429653,
+      "y": -86.24216864394809,
       "size": 70
      },
      "dir::quaternionmedia/qmetronome/.github/workflows": {
@@ -517,8 +519,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1104.2014925265835,
-      "y": -1083.0766229048777,
+      "label_at": "left",
+      "x": -2844.037223115695,
+      "y": -33.668526443605806,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/.idea": {
@@ -530,8 +533,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1628.9945729396968,
-      "y": -721.4796725941727,
+      "label_at": "none",
+      "x": -3092.273313366923,
+      "y": 0.98752928459131,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/.idea/codeStyles": {
@@ -543,8 +547,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1916.831335479061,
-      "y": -870.7657709094235,
+      "label_at": "right",
+      "x": -3026.273313366923,
+      "y": 0.98752928459131,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/.vscode": {
@@ -556,8 +561,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2638.2709620516844,
-      "y": -190.13206222745765,
+      "label_at": "right",
+      "x": -2332.6666434967433,
+      "y": 0,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/app": {
@@ -569,8 +575,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -7230.149289072793,
-      "y": 5181.423809016646,
+      "label_at": "none",
+      "x": 1866.0313274227715,
+      "y": -2264.1469923647724,
       "size": 80
      },
      "dir::quaternionmedia/qmetronome/app/libs": {
@@ -582,8 +589,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1034.500602985263,
-      "y": 903.6396739568855,
+      "label_at": "left",
+      "x": 1808.6416537367293,
+      "y": -2211.57335016443,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/app/src": {
@@ -595,8 +603,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2876.18060686039,
-      "y": 241.26758235002447,
+      "label_at": "none",
+      "x": 162.42718538461895,
+      "y": -204.27013328132625,
       "size": 80
      },
      "dir::quaternionmedia/qmetronome/app/src/androidTest": {
@@ -608,8 +617,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -547.8537541355007,
-      "y": 56.01908971540396,
+      "label_at": "none",
+      "x": -399.0691368304351,
+      "y": 1034.2832522769372,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/androidTest/java": {
@@ -621,8 +631,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -608.0527367875762,
-      "y": 178.93035825292685,
+      "label_at": "none",
+      "x": -274.0691368304351,
+      "y": 1034.2832522769372,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/androidTest/java/media": {
@@ -634,8 +645,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -780.9655574703945,
-      "y": 283.017808914644,
+      "label_at": "none",
+      "x": -149.06913683043558,
+      "y": 1034.2832522769372,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/androidTest/java/media/quaternion": {
@@ -647,8 +659,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1020.64093324794,
-      "y": 388.3866606661406,
+      "label_at": "none",
+      "x": -24.069136830435582,
+      "y": 1034.2832522769372,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/androidTest/java/media/quaternion/qmetronome": {
@@ -660,8 +673,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1307.8829691364306,
-      "y": 502.4712219691281,
+      "label_at": "none",
+      "x": 100.93086316956442,
+      "y": 1034.2832522769372,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/androidTest/java/media/quaternion/qmetronome/benchmark": {
@@ -673,8 +687,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2045.4387328769285,
-      "y": 772.9415415736589,
+      "label_at": "none",
+      "x": 267.9308631695644,
+      "y": 1034.2832522769372,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/main": {
@@ -686,8 +701,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -7212.951186493966,
-      "y": -1659.4585847373833,
+      "label_at": "none",
+      "x": 604.9902000085426,
+      "y": -204.27013328132625,
       "size": 80
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java": {
@@ -699,8 +715,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4719.19103853429,
-      "y": -73.30887764411037,
+      "label_at": "none",
+      "x": 795.9902000085426,
+      "y": -204.27013328132625,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media": {
@@ -712,8 +729,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3072.116231913132,
-      "y": 171.8360730149164,
+      "label_at": "none",
+      "x": 2312.464680266004,
+      "y": -1007.6382990284669,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion": {
@@ -725,8 +743,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1662.634595003804,
-      "y": 355.5064397702808,
+      "label_at": "none",
+      "x": 1045.9902000085426,
+      "y": -204.27013328132625,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome": {
@@ -738,8 +757,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -919.9040278909598,
-      "y": -40.638996212216206,
+      "label_at": "none",
+      "x": 1941.2071222858362,
+      "y": -249.11283506343992,
       "size": 140
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine": {
@@ -751,8 +771,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 11065.717312598184,
-      "y": 73.98502878975367,
+      "label_at": "none",
+      "x": 2226.0197478199884,
+      "y": -249.11283506343992,
       "size": 240
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/glyph": {
@@ -764,8 +785,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1419.9996595344012,
-      "y": 1508.3137091115175,
+      "label_at": "none",
+      "x": 1521.5500632336393,
+      "y": -319.94417099768543,
       "size": 70
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/midi": {
@@ -777,8 +799,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5949.308415503575,
-      "y": 1284.7282577002318,
+      "label_at": "none",
+      "x": 2137.6841003737513,
+      "y": -595.7719598943513,
       "size": 120
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/tutorial": {
@@ -790,8 +813,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2492.3334648954624,
-      "y": -415.1004142665825,
+      "label_at": "none",
+      "x": 1923.96711316535,
+      "y": -788.7739312330737,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui": {
@@ -803,8 +827,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -391.3315363510176,
-      "y": 109.93756670279924,
+      "label_at": "none",
+      "x": 1580.1874554093897,
+      "y": 17.066166620183594,
       "size": 190
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/icons": {
@@ -816,8 +841,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1569.0821181176857,
-      "y": 853.3511107421899,
+      "label_at": "none",
+      "x": 1580.1874554093897,
+      "y": 274.5146292733639,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/theme": {
@@ -829,8 +855,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1915.2644923295818,
-      "y": -1129.2617687681793,
+      "label_at": "none",
+      "x": 1843.6780907414454,
+      "y": 17.066166620183594,
       "size": 70
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers": {
@@ -842,8 +869,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -10550.59785073705,
-      "y": 581.9829283379052,
+      "label_at": "none",
+      "x": 1801.650029983935,
+      "y": -490.8328094869125,
       "size": 220
      },
      "dir::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/widget": {
@@ -855,8 +883,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -596.138156624796,
-      "y": -1681.9616871018975,
+      "label_at": "none",
+      "x": 2213.0576879938494,
+      "y": 84.4480349004507,
       "size": 70
      },
      "dir::quaternionmedia/qmetronome/app/src/main/keepRules": {
@@ -868,8 +897,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2086.7980987019782,
-      "y": -749.5656648960792,
+      "label_at": "right",
+      "x": 670.9902000085426,
+      "y": -204.27013328132625,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/app/src/main/res": {
@@ -881,8 +911,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 259.5916138481875,
-      "y": 301.34786750354164,
+      "label_at": "none",
+      "x": 460.8571672530174,
+      "y": 45.37560250023262,
       "size": 90
      },
      "dir::quaternionmedia/qmetronome/app/src/main/res/drawable": {
@@ -894,8 +925,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2557.0355633180807,
-      "y": 421.3099457431612,
+      "label_at": "right",
+      "x": 526.8571672530175,
+      "y": 45.37560250023262,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/app/src/main/res/mipmap-anydpi-v26": {
@@ -907,8 +939,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1008.2488426443135,
-      "y": 1018.7899814240703,
+      "label_at": "left",
+      "x": 403.46749356697507,
+      "y": 97.94924470057504,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/app/src/main/res/values": {
@@ -920,8 +953,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2011.1440837170278,
-      "y": -599.2985650144059,
+      "label_at": "above",
+      "x": 468.5581405113767,
+      "y": -42.3730157844675,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/app/src/main/res/xml": {
@@ -933,8 +967,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 447.0489682492425,
-      "y": 1021.3587037448942,
+      "label_at": "right",
+      "x": 520.0376213644563,
+      "y": 122.5660251649897,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/app/src/test": {
@@ -946,8 +981,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3603.0771635643205,
-      "y": 1858.3098203280952,
+      "label_at": "none",
+      "x": -417.88024085745155,
+      "y": -992.8857285960112,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/test/java": {
@@ -959,8 +995,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2339.7656560326523,
-      "y": 2485.742789734327,
+      "label_at": "none",
+      "x": -480.38024085745155,
+      "y": -884.6325531229563,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/test/java/media": {
@@ -972,8 +1009,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 904.8402300427964,
-      "y": 1968.9745447946152,
+      "label_at": "none",
+      "x": -1533.8025195836622,
+      "y": -204.27013328132625,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/test/java/media/quaternion": {
@@ -985,8 +1023,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1237.464287714386,
-      "y": 1359.4083865691398,
+      "label_at": "none",
+      "x": -1408.8025195836617,
+      "y": -204.27013328132625,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome": {
@@ -998,8 +1037,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 154.74215027327293,
-      "y": 1134.5456558416822,
+      "label_at": "none",
+      "x": -831.7659930875581,
+      "y": -280.0902065564221,
       "size": 100
      },
      "dir::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/engine": {
@@ -1011,8 +1051,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2801.741404121082,
-      "y": -2952.3515213812607,
+      "label_at": "none",
+      "x": -930.2492486783294,
+      "y": -109.51220417841523,
       "size": 120
      },
      "dir::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/midi": {
@@ -1024,8 +1065,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5405.537935139414,
-      "y": -294.18596834564516,
+      "label_at": "none",
+      "x": -904.888198891843,
+      "y": -453.62819704822914,
       "size": 100
      },
      "dir::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/tools": {
@@ -1037,8 +1079,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -141.3539180215244,
-      "y": 1102.1782322414292,
+      "label_at": "none",
+      "x": -702.2606333460722,
+      "y": 66.40227174937536,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui": {
@@ -1050,8 +1093,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 12048.581982364725,
-      "y": 4600.463723235213,
+      "label_at": "none",
+      "x": -540.2817500855494,
+      "y": -280.0902065564221,
       "size": 480
      },
      "dir::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/visualizers": {
@@ -1063,8 +1107,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4609.4144133237605,
-      "y": 1282.604658840028,
+      "label_at": "none",
+      "x": -1161.9861314282616,
+      "y": -307.1323411697458,
       "size": 90
      },
      "dir::quaternionmedia/qmetronome/docs": {
@@ -1076,8 +1121,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 8524.29345927645,
-      "y": 355.4956728955725,
+      "label_at": "none",
+      "x": -2998.9557231306426,
+      "y": 499.47010226756225,
       "size": 200
      },
      "dir::quaternionmedia/qmetronome/docs/images": {
@@ -1089,8 +1135,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 182.65400398618135,
-      "y": -107.83323933972238,
+      "label_at": "none",
+      "x": -2749.343340970831,
+      "y": 600.8852744372957,
       "size": 60
      },
      "dir::quaternionmedia/qmetronome/docs/images/generated": {
@@ -1102,8 +1149,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 53.016528799915974,
-      "y": -41.437703510514005,
+      "label_at": "none",
+      "x": -2573.6871101145075,
+      "y": 499.47010226756225,
       "size": 70
      },
      "dir::quaternionmedia/qmetronome/docs/images/generated/screenshots": {
@@ -1115,8 +1163,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1588.899089920652,
-      "y": -964.5948614424634,
+      "label_at": "right",
+      "x": -2507.6871101145075,
+      "y": 499.47010226756225,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/docs/images/generated/videos": {
@@ -1128,8 +1177,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1685.1740401477155,
-      "y": 885.9199273746968,
+      "label_at": "left",
+      "x": -2631.0767838005495,
+      "y": 552.0437444679045,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/docs/user-guide": {
@@ -1141,8 +1191,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 12868.081422858242,
-      "y": 1117.273437493334,
+      "label_at": "none",
+      "x": -2998.9557231306426,
+      "y": 845.703885043296,
       "size": 300
      },
      "dir::quaternionmedia/qmetronome/governance": {
@@ -1154,8 +1205,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2209.494786270847,
-      "y": 205.34920039688393,
+      "label_at": "right",
+      "x": -2272.753785783855,
+      "y": 45.98317368966657,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/gradle": {
@@ -1167,8 +1219,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1679.7147102816748,
-      "y": -253.23302399993514,
+      "label_at": "none",
+      "x": -2982.023047125862,
+      "y": -351.7691626769986,
       "size": 70
      },
      "dir::quaternionmedia/qmetronome/gradle/wrapper": {
@@ -1180,8 +1233,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2085.7654610637696,
-      "y": -330.5241596215121,
+      "label_at": "left",
+      "x": -3039.412720811904,
+      "y": -299.19552047665627,
       "size": 50
      },
      "dir::quaternionmedia/qmetronome/readme": {
@@ -1193,8 +1247,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1599.0929507354228,
-      "y": -4237.797197557517,
+      "label_at": "none",
+      "x": -2664.328394279668,
+      "y": -494.7585998623941,
       "size": 170
      },
      "dir::quaternionmedia/qmetronome/readme/using-qmetronome": {
@@ -1206,8 +1261,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1035.9065482558617,
-      "y": -2937.543390115165,
+      "label_at": "none",
+      "x": -2384.5421526581686,
+      "y": -494.7585998623941,
       "size": 110
      },
      "dir::quaternionmedia/qmetronome/scripts": {
@@ -1219,8 +1275,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3354.1537123412495,
-      "y": -907.1330885965448,
+      "label_at": "none",
+      "x": -2946.8021181817294,
+      "y": -649.5660945403556,
       "size": 70
      },
      "file::quaternionmedia/qmetronome/.github/copilot-instructions.md": {
@@ -1232,8 +1289,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/.github/copilot-instructions.md",
       "line": 0,
       "meta": {},
-      "x": 1206.6898289036906,
-      "y": -877.7964635776531,
+      "label_at": "right",
+      "x": -2720.647549429653,
+      "y": -86.24216864394809,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/AGENTS.md": {
@@ -1245,8 +1303,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/AGENTS.md",
       "line": 0,
       "meta": {},
-      "x": 5613.051324999341,
-      "y": -4031.516194410446,
+      "label_at": "left",
+      "x": -2456.0563171827853,
+      "y": 52.573642200342285,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/CHANGELOG.md": {
@@ -1258,8 +1317,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/CHANGELOG.md",
       "line": 0,
       "meta": {},
-      "x": 5431.157534689368,
-      "y": -3891.9441801598177,
+      "label_at": "above",
+      "x": -2390.965670238384,
+      "y": -87.74861828470029,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/CLAUDE.md": {
@@ -1271,8 +1331,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/CLAUDE.md",
       "line": 0,
       "meta": {},
-      "x": 5203.846884364977,
-      "y": -3921.870195003238,
+      "label_at": "right",
+      "x": -2339.486189385304,
+      "y": 77.19042266475712,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/CONTRIBUTING.md": {
@@ -1284,8 +1345,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/CONTRIBUTING.md",
       "line": 0,
       "meta": {},
-      "x": 5064.274870114348,
-      "y": -4103.763985313212,
+      "label_at": "left",
+      "x": -2502.7031494451217,
+      "y": -18.402593025252088,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/PRIVACY.md": {
@@ -1297,8 +1359,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/PRIVACY.md",
       "line": 0,
       "meta": {},
-      "x": 5094.200884957769,
-      "y": -4331.074635637603,
+      "label_at": "right",
+      "x": -2302.968973960928,
+      "y": -60.87502398696755,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/README.md": {
@@ -1310,8 +1373,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 5276.094675267743,
-      "y": -4470.646649888231,
+      "label_at": "below",
+      "x": -2429.997533012847,
+      "y": 116.54934732605639,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/build.gradle.kts": {
@@ -1323,8 +1387,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/build.gradle.kts",
       "line": 0,
       "meta": {},
-      "x": -7035.2935732212945,
-      "y": 5293.923809016646,
+      "label_at": "right",
+      "x": 1932.0313274227715,
+      "y": -2264.1469923647724,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/androidTest/java/media/quaternion/qmetronome/benchmark/FirstBeatTimingBenchmarkTest.kt": {
@@ -1336,8 +1401,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/androidTest/java/media/quaternion/qmetronome/benchmark/FirstBeatTimingBenchmarkTest.kt",
       "line": 0,
       "meta": {},
-      "x": -1850.5830170254299,
-      "y": 885.4415415736589,
+      "label_at": "right",
+      "x": 321.9308631695644,
+      "y": 1034.2832522769372,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/MainActivity.kt": {
@@ -1349,8 +1415,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/MainActivity.kt",
       "line": 0,
       "meta": {},
-      "x": -725.048312039461,
-      "y": 71.86100378778377,
+      "label_at": "right",
+      "x": 1995.207122285836,
+      "y": -249.11283506343992,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/QMetronomeApp.kt": {
@@ -1362,8 +1429,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/QMetronomeApp.kt",
       "line": 0,
       "meta": {},
-      "x": -1114.7597437424586,
-      "y": -153.13899621221614,
+      "label_at": "left",
+      "x": 1896.9338927802287,
+      "y": -208.55493017248455,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/BeatAccent.kt": {
@@ -1375,8 +1443,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/BeatAccent.kt",
       "line": 0,
       "meta": {},
-      "x": 11444.431005355667,
-      "y": 292.63548124908397,
+      "label_at": "right",
+      "x": 2280.0197478199884,
+      "y": -249.11283506343992,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/BeatPhase.kt": {
@@ -1388,8 +1457,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/BeatPhase.kt",
       "line": 0,
       "meta": {},
-      "x": 11352.91556702142,
-      "y": 403.7565316503336,
+      "label_at": "left",
+      "x": 2181.746518314381,
+      "y": -208.55493017248455,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/ClickPlayer.kt": {
@@ -1401,8 +1471,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/ClickPlayer.kt",
       "line": 0,
       "meta": {},
-      "x": 11230.277741480346,
-      "y": 479.1417227845569,
+      "label_at": "above",
+      "x": 2231.7487182715563,
+      "y": -314.39149848086186,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/ClickSound.kt": {
@@ -1414,8 +1485,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/ClickSound.kt",
       "line": 0,
       "meta": {},
-      "x": 11089.807240051747,
-      "y": 510.6218994705993,
+      "label_at": "right",
+      "x": 2268.9704787384994,
+      "y": -193.0912123310909,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/ClickSpec.kt": {
@@ -1427,8 +1499,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/ClickSpec.kt",
       "line": 0,
       "meta": {},
-      "x": 10946.726221189816,
-      "y": 494.7856960992589,
+      "label_at": "left",
+      "x": 2151.856700339877,
+      "y": -262.23123391630156,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/ClickSynth.kt": {
@@ -1440,8 +1513,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/ClickSynth.kt",
       "line": 0,
       "meta": {},
-      "x": 10816.539733419,
-      "y": 433.34921102983327,
+      "label_at": "right",
+      "x": 2293.315844758716,
+      "y": -291.9211033864333,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/ClickWaveform.kt": {
@@ -1453,8 +1527,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/ClickWaveform.kt",
       "line": 0,
       "meta": {},
-      "x": 10713.355502740758,
-      "y": 332.97004070488106,
+      "label_at": "below",
+      "x": 2204.2216800497013,
+      "y": -168.02510947268274,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/ClockSource.kt": {
@@ -1466,8 +1541,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/ClockSource.kt",
       "line": 0,
       "meta": {},
-      "x": 10648.35514161738,
-      "y": 204.5258257724178,
+      "label_at": "left",
+      "x": 2185.471879634581,
+      "y": -327.18528785966555,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/ClockTimingMode.kt": {
@@ -1479,8 +1555,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/ClockTimingMode.kt",
       "line": 0,
       "meta": {},
-      "x": 10628.582447761102,
-      "y": 61.93548993771799,
+      "label_at": "right",
+      "x": 2312.255888904226,
+      "y": -217.61953465050513,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/LeadMarginCalibrator.kt": {
@@ -1492,8 +1569,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/LeadMarginCalibrator.kt",
       "line": 0,
       "meta": {},
-      "x": 10656.180099356214,
-      "y": -79.34909139450451,
+      "label_at": "left",
+      "x": 2137.7577543382245,
+      "y": -212.6795672080157,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/MetronomeEngine.kt": {
@@ -1505,8 +1583,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/MetronomeEngine.kt",
       "line": 0,
       "meta": {},
-      "x": 10728.157462630696,
-      "y": -204.01754158074806,
+      "label_at": "right",
+      "x": 2267.9925406819743,
+      "y": -338.80625544289023,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/MetronomeSettings.kt": {
@@ -1518,8 +1597,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/MetronomeSettings.kt",
       "line": 0,
       "meta": {},
-      "x": 10836.714673429893,
-      "y": -298.56009961301714,
+      "label_at": "below",
+      "x": 2256.6809196292684,
+      "y": -151.36018781907205,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/MidiBeatAction.kt": {
@@ -1531,8 +1611,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/MidiBeatAction.kt",
       "line": 0,
       "meta": {},
-      "x": 10970.087873525035,
-      "y": -352.73161234957956,
+      "label_at": "left",
+      "x": 2134.5167593680585,
+      "y": -302.14068722026377,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/PersistentPlaybackService.kt": {
@@ -1544,8 +1625,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/PersistentPlaybackService.kt",
       "line": 0,
       "meta": {},
-      "x": 11113.824007187388,
-      "y": -360.6617558278029,
+      "label_at": "right",
+      "x": 2332.4452010944365,
+      "y": -272.5101724189649,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/Phrase.kt": {
@@ -1557,8 +1639,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/Phrase.kt",
       "line": 0,
       "meta": {},
-      "x": 11252.347034038721,
-      "y": -321.4911759529676,
+      "label_at": "left",
+      "x": 2161.556807615972,
+      "y": -157.42093607419747,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/StreamingClickEngine.kt": {
@@ -1570,8 +1653,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/StreamingClickEngine.kt",
       "line": 0,
       "meta": {},
-      "x": 11370.645834713476,
-      "y": -239.46461284868187,
+      "label_at": "above",
+      "x": 2211.2259750334547,
+      "y": -363.27535862848936,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/TempoStabilizer.kt": {
@@ -1583,8 +1667,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/TempoStabilizer.kt",
       "line": 0,
       "meta": {},
-      "x": 11455.90089856352,
-      "y": -123.47091740056011,
+      "label_at": "right",
+      "x": 2316.3033931298573,
+      "y": -173.0216832153983,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/TimeSignature.kt": {
@@ -1596,8 +1681,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/TimeSignature.kt",
       "line": 0,
       "meta": {},
-      "x": 11498.873516552083,
-      "y": 13.920193661966573,
+      "label_at": "left",
+      "x": 2105.1682414077836,
+      "y": -244.1152458545314,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/engine/TimingDispatcher.kt": {
@@ -1609,8 +1695,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/engine/TimingDispatcher.kt",
       "line": 0,
       "meta": {},
-      "x": 11494.906938731237,
-      "y": 157.82026161253276,
+      "label_at": "right",
+      "x": 2313.7518854254618,
+      "y": -336.4180298182441,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/glyph/GlyphMatrixToyService.kt": {
@@ -1622,8 +1709,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/glyph/GlyphMatrixToyService.kt",
       "line": 0,
       "meta": {},
-      "x": -1225.1439436829023,
-      "y": 1620.8137091115173,
+      "label_at": "right",
+      "x": 1575.5500632336393,
+      "y": -319.94417099768543,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/glyph/MetronomeGlyphService.kt": {
@@ -1635,8 +1723,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/glyph/MetronomeGlyphService.kt",
       "line": 0,
       "meta": {},
-      "x": -1614.8553753858998,
-      "y": 1395.8137091115175,
+      "label_at": "left",
+      "x": 1477.2768337280318,
+      "y": -279.3862661067301,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/midi/MidiActionSender.kt": {
@@ -1648,8 +1737,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/midi/MidiActionSender.kt",
       "line": 0,
       "meta": {},
-      "x": -5704.1213660602625,
-      "y": 1426.2870666981382,
+      "label_at": "right",
+      "x": 2191.6841003737513,
+      "y": -595.7719598943513,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/midi/MidiClockSender.kt": {
@@ -1661,8 +1751,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/midi/MidiClockSender.kt",
       "line": 0,
       "meta": {},
-      "x": -5907.111924123079,
-      "y": 1564.6836858219222,
+      "label_at": "left",
+      "x": 2093.410870868144,
+      "y": -555.214055003396,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/midi/MidiClockSource.kt": {
@@ -1674,8 +1765,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/midi/MidiClockSource.kt",
       "line": 0,
       "meta": {},
-      "x": -6141.877300846969,
-      "y": 1492.2681575200645,
+      "label_at": "above",
+      "x": 2143.41307082532,
+      "y": -661.0506233117733,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/midi/MidiReceiverRegistry.kt": {
@@ -1687,8 +1779,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/midi/MidiReceiverRegistry.kt",
       "line": 0,
       "meta": {},
-      "x": -6231.634379217891,
-      "y": 1263.5708516114391,
+      "label_at": "right",
+      "x": 2180.6348312922632,
+      "y": -539.7503371620023,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/midi/StarredMidiDevices.kt": {
@@ -1700,8 +1793,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/midi/StarredMidiDevices.kt",
       "line": 0,
       "meta": {},
-      "x": -6108.794248511811,
-      "y": 1050.805504020107,
+      "label_at": "left",
+      "x": 2063.52105289364,
+      "y": -608.890358747213,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/midi/UsbMidiConnector.kt": {
@@ -1713,8 +1807,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/midi/UsbMidiConnector.kt",
       "line": 0,
       "meta": {},
-      "x": -5865.85803263242,
-      "y": 1014.1887611044839,
+      "label_at": "right",
+      "x": 2204.980197312479,
+      "y": -638.5802282173447,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/midi/VirtualMidiClockService.kt": {
@@ -1726,8 +1821,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/midi/VirtualMidiClockService.kt",
       "line": 0,
       "meta": {},
-      "x": -5685.761657132595,
-      "y": 1181.2937771254678,
+      "label_at": "below",
+      "x": 2115.886032603464,
+      "y": -514.6842343035942,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/tutorial/TutorialTopic.kt": {
@@ -1739,8 +1835,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/tutorial/TutorialTopic.kt",
       "line": 0,
       "meta": {},
-      "x": 2687.1891807469615,
-      "y": -302.6004142665825,
+      "label_at": "right",
+      "x": 1977.9671131653502,
+      "y": -788.7739312330737,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/BpmUnit.kt": {
@@ -1752,8 +1849,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/BpmUnit.kt",
       "line": 0,
       "meta": {},
-      "x": -82.3603931807178,
-      "y": 288.3221393839982,
+      "label_at": "right",
+      "x": 1634.18745540939,
+      "y": 17.066166620183594,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/BpmUnitEntryDialog.kt": {
@@ -1765,8 +1863,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/BpmUnitEntryDialog.kt",
       "line": 0,
       "meta": {},
-      "x": -212.94696366981856,
-      "y": 418.9087098730989,
+      "label_at": "left",
+      "x": 1535.9142259037817,
+      "y": 57.6240715111394,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/BrandMarks.kt": {
@@ -1778,8 +1877,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/BrandMarks.kt",
       "line": 0,
       "meta": {},
-      "x": -391.3315363510176,
-      "y": 466.70671206519717,
+      "label_at": "above",
+      "x": 1585.9164258609576,
+      "y": -48.212496797238146,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/HelpScreen.kt": {
@@ -1791,8 +1891,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/HelpScreen.kt",
       "line": 0,
       "meta": {},
-      "x": -569.7161090322164,
-      "y": 418.90870987309904,
+      "label_at": "right",
+      "x": 1623.1381863279007,
+      "y": 73.08778935253258,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/HoldButton.kt": {
@@ -1804,8 +1905,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/HoldButton.kt",
       "line": 0,
       "meta": {},
-      "x": -700.3026795213171,
-      "y": 288.3221393839983,
+      "label_at": "left",
+      "x": 1506.0244079292784,
+      "y": 3.9477677673221483,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/HoldRepeatButton.kt": {
@@ -1817,8 +1919,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/HoldRepeatButton.kt",
       "line": 0,
       "meta": {},
-      "x": -748.1006817134155,
-      "y": 109.93756670279929,
+      "label_at": "right",
+      "x": 1647.4835523481167,
+      "y": -25.742101702809578,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/MainScreen.kt": {
@@ -1830,8 +1933,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/MainScreen.kt",
       "line": 0,
       "meta": {},
-      "x": -700.3026795213174,
-      "y": -68.44700597839963,
+      "label_at": "below",
+      "x": 1558.389387639102,
+      "y": 98.1538922109412,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/MatrixPreview.kt": {
@@ -1843,8 +1947,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/MatrixPreview.kt",
       "line": 0,
       "meta": {},
-      "x": -569.7161090322167,
-      "y": -199.03357646750044,
+      "label_at": "left",
+      "x": 1539.6395872239823,
+      "y": -61.00628617604161,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/NumericEntryDialog.kt": {
@@ -1856,8 +1961,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/NumericEntryDialog.kt",
       "line": 0,
       "meta": {},
-      "x": -391.33153635101763,
-      "y": -246.8315786595987,
+      "label_at": "right",
+      "x": 1666.4235964936274,
+      "y": 48.559467033118835,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/SettingsSheet.kt": {
@@ -1869,8 +1975,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/SettingsSheet.kt",
       "line": 0,
       "meta": {},
-      "x": -212.94696366981856,
-      "y": -199.0335764675005,
+      "label_at": "left",
+      "x": 1491.9254619276257,
+      "y": 53.49943447560827,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/SteppedSlider.kt": {
@@ -1882,8 +1989,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/SteppedSlider.kt",
       "line": 0,
       "meta": {},
-      "x": -82.36039318071775,
-      "y": -68.44700597839962,
+      "label_at": "right",
+      "x": 1622.1602482713756,
+      "y": -72.6272537592663,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/TimeSignatureEntryDialog.kt": {
@@ -1895,8 +2003,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/TimeSignatureEntryDialog.kt",
       "line": 0,
       "meta": {},
-      "x": -34.56239098861964,
-      "y": 109.93756670279915,
+      "label_at": "below",
+      "x": 1610.8486272186697,
+      "y": 114.81881386455144,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/icons/ExtraIcons.kt": {
@@ -1908,8 +2017,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/icons/ExtraIcons.kt",
       "line": 0,
       "meta": {},
-      "x": -1374.2264022661868,
-      "y": 965.8511107421899,
+      "label_at": "right",
+      "x": 1634.18745540939,
+      "y": 274.5146292733639,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/theme/Theme.kt": {
@@ -1921,8 +2031,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/theme/Theme.kt",
       "line": 0,
       "meta": {},
-      "x": 2110.12020818108,
-      "y": -1016.7617687681794,
+      "label_at": "right",
+      "x": 1897.6780907414454,
+      "y": 17.066166620183594,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/ui/theme/Type.kt": {
@@ -1934,8 +2045,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/ui/theme/Type.kt",
       "line": 0,
       "meta": {},
-      "x": 1720.408776478083,
-      "y": -1241.7617687681793,
+      "label_at": "left",
+      "x": 1799.404861235838,
+      "y": 57.6240715111394,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/BounceVisualizer.kt": {
@@ -1947,8 +2059,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/BounceVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10190.262428282322,
-      "y": 790.0226814906998,
+      "label_at": "right",
+      "x": 1855.650029983935,
+      "y": -490.8328094869125,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/ChaosVisualizer.kt": {
@@ -1960,8 +2073,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/ChaosVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10289.74770308941,
-      "y": 906.1423891588211,
+      "label_at": "left",
+      "x": 1757.3768004783265,
+      "y": -450.2749045959572,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/DoublePendulumVisualizer.kt": {
@@ -1973,8 +2087,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/DoublePendulumVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10424.462235756875,
-      "y": 978.4825654134974,
+      "label_at": "above",
+      "x": 1807.3790004355028,
+      "y": -556.1114729043345,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/FireworkVisualizer.kt": {
@@ -1986,8 +2101,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/FireworkVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10576.212082168986,
-      "y": 997.2732686007798,
+      "label_at": "right",
+      "x": 1844.600760902446,
+      "y": -434.81118675456355,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/GlyphCanvas.kt": {
@@ -1999,8 +2115,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/GlyphCanvas.kt",
       "line": 0,
       "meta": {},
-      "x": -10724.502584692857,
-      "y": 959.9767101323456,
+      "label_at": "left",
+      "x": 1727.4869825038238,
+      "y": -503.9512083397744,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/GlyphVisualizer.kt": {
@@ -2012,8 +2129,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/GlyphVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10849.3062892566,
-      "y": 871.6299968967215,
+      "label_at": "right",
+      "x": 1868.9461269226626,
+      "y": -533.6410778099059,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/LinearWipeVisualizer.kt": {
@@ -2025,8 +2143,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/LinearWipeVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10933.76776399768,
-      "y": 744.1648420624164,
+      "label_at": "below",
+      "x": 1779.8519622136478,
+      "y": -409.7450838961554,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/MetronomeVisualizer.kt": {
@@ -2038,8 +2157,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/MetronomeVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10966.480018735127,
-      "y": 594.7961210986084,
+      "label_at": "left",
+      "x": 1761.1021617985277,
+      "y": -568.9052622831382,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/PendulumVisualizer.kt": {
@@ -2051,8 +2171,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/PendulumVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10943.025082201786,
-      "y": 443.6969074521152,
+      "label_at": "right",
+      "x": 1887.8861710681726,
+      "y": -459.33950907397775,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/PulseVisualizer.kt": {
@@ -2064,8 +2185,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/PulseVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10866.570673544778,
-      "y": 311.27398719554236,
+      "label_at": "left",
+      "x": 1713.388036502171,
+      "y": -454.39954163148826,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/QueueOverlay.kt": {
@@ -2077,8 +2199,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/QueueOverlay.kt",
       "line": 0,
       "meta": {},
-      "x": -10747.442384301732,
-      "y": 215.4118094902717,
+      "label_at": "right",
+      "x": 1843.6228228459206,
+      "y": -580.5262298663629,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/RingExpandVisualizer.kt": {
@@ -2090,8 +2213,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/RingExpandVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10601.729150047562,
-      "y": 169.05709262606462,
+      "label_at": "below",
+      "x": 1832.311201793215,
+      "y": -393.0801622425447,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/SpiralVisualizer.kt": {
@@ -2103,8 +2227,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/SpiralVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10449.110350493196,
-      "y": 178.47029797578503,
+      "label_at": "left",
+      "x": 1710.147041532005,
+      "y": -543.8606616437364,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/SplashVisualizer.kt": {
@@ -2116,8 +2241,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/SplashVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10310.198000208416,
-      "y": 242.3801199965821,
+      "label_at": "right",
+      "x": 1908.0754832583827,
+      "y": -514.2301468424375,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/StrobeVisualizer.kt": {
@@ -2129,8 +2255,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/StrobeVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10203.752981839085,
-      "y": 352.15518308799744,
+      "label_at": "left",
+      "x": 1737.1870897799183,
+      "y": -399.1409104976701,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/SweepVisualizer.kt": {
@@ -2142,8 +2269,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/SweepVisualizer.kt",
       "line": 0,
       "meta": {},
-      "x": -10144.15128494819,
-      "y": 492.96975669491286,
+      "label_at": "above",
+      "x": 1786.856257197401,
+      "y": -604.995333051962,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/visualizers/VisualizerRegistry.kt": {
@@ -2155,8 +2283,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/visualizers/VisualizerRegistry.kt",
       "line": 0,
       "meta": {},
-      "x": -10139.44244896525,
-      "y": 645.806052371226,
+      "label_at": "right",
+      "x": 1891.9336752938036,
+      "y": -414.741657638871,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/widget/MetronomeWidget.kt": {
@@ -2168,8 +2297,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/widget/MetronomeWidget.kt",
       "line": 0,
       "meta": {},
-      "x": -401.2824407732973,
-      "y": -1569.4616871018975,
+      "label_at": "right",
+      "x": 2267.0576879938494,
+      "y": 84.4480349004507,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/main/java/media/quaternion/qmetronome/widget/MetronomeWidgetReceiver.kt": {
@@ -2181,8 +2311,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/main/java/media/quaternion/qmetronome/widget/MetronomeWidgetReceiver.kt",
       "line": 0,
       "meta": {},
-      "x": -790.9938724762947,
-      "y": -1794.4616871018975,
+      "label_at": "left",
+      "x": 2168.784458488242,
+      "y": 125.00593979140604,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/engine/ClickSynthTest.kt": {
@@ -2194,8 +2325,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/engine/ClickSynthTest.kt",
       "line": 0,
       "meta": {},
-      "x": -2556.554354677769,
-      "y": -2810.792712383354,
+      "label_at": "right",
+      "x": -876.2492486783294,
+      "y": -109.51220417841523,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/engine/LeadMarginCalibratorTest.kt": {
@@ -2207,8 +2339,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/engine/LeadMarginCalibratorTest.kt",
       "line": 0,
       "meta": {},
-      "x": -2759.544912740585,
-      "y": -2672.39609325957,
+      "label_at": "left",
+      "x": -974.5224781839371,
+      "y": -68.95429928745989,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/engine/MetronomeEngineTest.kt": {
@@ -2220,8 +2353,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/engine/MetronomeEngineTest.kt",
       "line": 0,
       "meta": {},
-      "x": -2994.3102894644753,
-      "y": -2744.8116215614277,
+      "label_at": "above",
+      "x": -924.5202782267606,
+      "y": -174.79086759583697,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/engine/MetronomeSettingsTest.kt": {
@@ -2233,8 +2367,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/engine/MetronomeSettingsTest.kt",
       "line": 0,
       "meta": {},
-      "x": -3084.0673678353974,
-      "y": -2973.508927470053,
+      "label_at": "right",
+      "x": -887.2985177598174,
+      "y": -53.490581446066244,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/engine/StreamingClickEngineTest.kt": {
@@ -2246,8 +2381,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/engine/StreamingClickEngineTest.kt",
       "line": 0,
       "meta": {},
-      "x": -2961.2272371293175,
-      "y": -3186.274275061385,
+      "label_at": "left",
+      "x": -1004.4122961584403,
+      "y": -122.63060303127669,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/engine/TempoStabilizerTest.kt": {
@@ -2259,8 +2395,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/engine/TempoStabilizerTest.kt",
       "line": 0,
       "meta": {},
-      "x": -2718.291021249926,
-      "y": -3222.8910179770082,
+      "label_at": "right",
+      "x": -862.9531517396017,
+      "y": -152.3204725014084,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/engine/TimeSignatureTest.kt": {
@@ -2272,8 +2409,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/engine/TimeSignatureTest.kt",
       "line": 0,
       "meta": {},
-      "x": -2538.1946457501012,
-      "y": -3055.7860019560244,
+      "label_at": "below",
+      "x": -952.0473164486166,
+      "y": -28.42447858765763,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/midi/MidiActionSenderTest.kt": {
@@ -2285,8 +2423,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/midi/MidiActionSenderTest.kt",
       "line": 0,
       "meta": {},
-      "x": -5192.282541389781,
-      "y": -171.06290935815466,
+      "label_at": "right",
+      "x": -850.8881988918429,
+      "y": -453.62819704822914,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/midi/MidiClockSenderTest.kt": {
@@ -2298,8 +2437,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/midi/MidiClockSenderTest.kt",
       "line": 0,
       "meta": {},
-      "x": -5456.735381884902,
-      "y": -53.32091885840376,
+      "label_at": "left",
+      "x": -949.1614283974504,
+      "y": -413.07029215727357,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/midi/MidiClockSourceTest.kt": {
@@ -2311,8 +2451,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/midi/MidiClockSourceTest.kt",
       "line": 0,
       "meta": {},
-      "x": -5650.435091114972,
-      "y": -268.44624004809504,
+      "label_at": "above",
+      "x": -899.1592284402745,
+      "y": -518.9068604656509,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/midi/StarredMidiDevicesTest.kt": {
@@ -2324,8 +2465,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/midi/StarredMidiDevicesTest.kt",
       "line": 0,
       "meta": {},
-      "x": -5505.695254535006,
-      "y": -519.1429908838132,
+      "label_at": "right",
+      "x": -861.9374679733319,
+      "y": -397.6065743158799,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/midi/UsbMidiConnectorTest.kt": {
@@ -2337,8 +2479,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/midi/UsbMidiConnectorTest.kt",
       "line": 0,
       "meta": {},
-      "x": -5222.541406772411,
-      "y": -458.95678257975925,
+      "label_at": "left",
+      "x": -979.0512463719542,
+      "y": -466.74659590109064,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/tools/GenerateUserGuideTest.kt": {
@@ -2350,8 +2493,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/tools/GenerateUserGuideTest.kt",
       "line": 0,
       "meta": {},
-      "x": 53.50179782997429,
-      "y": 1214.6782322414292,
+      "label_at": "right",
+      "x": -648.2606333460722,
+      "y": 66.40227174937536,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/AppRunningHeroVideoTest.kt": {
@@ -2363,8 +2507,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/AppRunningHeroVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12598.65487665705,
-      "y": 4918.048456828803,
+      "label_at": "right",
+      "x": -486.28175008554945,
+      "y": -280.0902065564221,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/BarQueueManagementVideoTest.kt": {
@@ -2376,8 +2521,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/BarQueueManagementVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12546.55224422468,
-      "y": 4994.755328966268,
+      "label_at": "left",
+      "x": -584.5549795911575,
+      "y": -239.53230166546678,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/BarQueueModeCyclingVideoTest.kt": {
@@ -2389,8 +2535,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/BarQueueModeCyclingVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12483.836240211947,
-      "y": 5063.058560077035,
+      "label_at": "above",
+      "x": -534.5527796339811,
+      "y": -345.3688699738441,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/BarQueueScreenshotTest.kt": {
@@ -2402,8 +2549,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/BarQueueScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12411.843547359975,
-      "y": 5121.502385374645,
+      "label_at": "right",
+      "x": -497.3310191670384,
+      "y": -224.0685838240731,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/BpmDragBoundaryScreenshotTest.kt": {
@@ -2415,8 +2563,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/BpmDragBoundaryScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12332.108564926775,
-      "y": 5168.841176190142,
+      "label_at": "left",
+      "x": -614.4447975656608,
+      "y": -293.2086054092838,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/BpmDragBoundaryVideoTest.kt": {
@@ -2428,8 +2577,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/BpmDragBoundaryVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12246.330705631004,
-      "y": 5204.065988384545,
+      "label_at": "right",
+      "x": -472.9856531468222,
+      "y": -322.8984748794155,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/BpmDragScreenshotTest.kt": {
@@ -2441,8 +2591,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/BpmDragScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12156.338175620302,
-      "y": 5226.4260662414945,
+      "label_at": "below",
+      "x": -562.0798178558371,
+      "y": -199.00248096566474,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/BpmDragVideoTest.kt": {
@@ -2454,8 +2605,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/BpmDragVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12064.049009431295,
-      "y": 5235.444843521926,
+      "label_at": "left",
+      "x": -580.8296182709569,
+      "y": -358.16265935264755,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/BpmUnitEntryDialogScreenshotTest.kt": {
@@ -2467,8 +2619,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/BpmUnitEntryDialogScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11971.430190413448,
-      "y": 5230.930100646057,
+      "label_at": "right",
+      "x": -454.0456090013112,
+      "y": -248.59690614348708,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/BpmUnitEntryDialogVideoTest.kt": {
@@ -2480,8 +2633,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/BpmUnitEntryDialogVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11880.455727893941,
-      "y": 5212.978061520017,
+      "label_at": "left",
+      "x": -628.5437435673134,
+      "y": -243.65693870099764,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/ComposeTestSupport.kt": {
@@ -2493,8 +2647,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/ComposeTestSupport.kt",
       "line": 0,
       "meta": {},
-      "x": 11793.064584596046,
-      "y": 5181.97134269034,
+      "label_at": "right",
+      "x": -498.3089572235631,
+      "y": -369.78362693587246,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/HelpScreenTest.kt": {
@@ -2506,8 +2661,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/HelpScreenTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11711.119351015002,
-      "y": 5138.570798536558,
+      "label_at": "below",
+      "x": -509.6205782762695,
+      "y": -182.33755931205405,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/HoldButtonScreenshotTest.kt": {
@@ -2519,8 +2675,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/HoldButtonScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11636.366547535357,
-      "y": 5083.701436307445,
+      "label_at": "left",
+      "x": -631.7847385374798,
+      "y": -333.1180587132458,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/HoldLatchVideoTest.kt": {
@@ -2532,8 +2689,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/HoldLatchVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11570.399400381182,
-      "y": 5018.53270119746,
+      "label_at": "right",
+      "x": -433.8562968111014,
+      "y": -303.4875439119469,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/HoldMomentaryVideoTest.kt": {
@@ -2545,8 +2703,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/HoldMomentaryVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11514.623884765191,
-      "y": 4944.453551652758,
+      "label_at": "left",
+      "x": -604.7446902895654,
+      "y": -188.39830756717947,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/LayoutToggleScreenshotTest.kt": {
@@ -2558,8 +2717,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/LayoutToggleScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11470.228758968065,
-      "y": 4863.042856133352,
+      "label_at": "above",
+      "x": -555.0755228720827,
+      "y": -394.25273012147136,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/LayoutToggleVideoTest.kt": {
@@ -2571,8 +2731,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/LayoutToggleVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11438.160228019564,
-      "y": 4776.035742273042,
+      "label_at": "right",
+      "x": -449.9981047756806,
+      "y": -203.9990547083803,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/MainScreenFormattingTest.kt": {
@@ -2584,8 +2745,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/MainScreenFormattingTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11419.101776981064,
-      "y": 4685.28661564634,
+      "label_at": "left",
+      "x": -661.1332564977538,
+      "y": -275.0926173475136,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/MainScreenTriggerButtonScreenshotTest.kt": {
@@ -2597,8 +2759,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/MainScreenTriggerButtonScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11413.459603648122,
-      "y": 4592.729636333179,
+      "label_at": "right",
+      "x": -452.5496124800761,
+      "y": -367.3954013112261,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/MainScreenTriggerButtonVideoTest.kt": {
@@ -2610,8 +2773,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/MainScreenTriggerButtonVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11421.353961149665,
-      "y": 4500.337495654797,
+      "label_at": "below",
+      "x": -546.1260519348489,
+      "y": -153.70179080602884,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/PhraseQueueManagementVideoTest.kt": {
@@ -2623,8 +2787,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/PhraseQueueManagementVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11442.61659496134,
-      "y": 4410.0793716831195,
+      "label_at": "left",
+      "x": -623.0728014339688,
+      "y": -379.3015557893775,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/PhraseQueueModeCyclingVideoTest.kt": {
@@ -2636,8 +2801,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/PhraseQueueModeCyclingVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11476.794328958578,
-      "y": 4323.878959628942,
+      "label_at": "right",
+      "x": -409.6021449818613,
+      "y": -262.5074505169373,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/PhraseQueueScreenshotTest.kt": {
@@ -2649,8 +2815,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/PhraseQueueScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11523.158724078907,
-      "y": 4243.573471618333,
+      "label_at": "left",
+      "x": -650.6417957427129,
+      "y": -203.30456126676654,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/PreviewDoubleTapVideoTest.kt": {
@@ -2662,8 +2829,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/PreviewDoubleTapVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11580.721603735892,
-      "y": 4170.874479705849,
+      "label_at": "above",
+      "x": -510.2164574061326,
+      "y": -413.73344684975314,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/PreviewGestureScreenshotTest.kt": {
@@ -2675,8 +2843,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/PreviewGestureScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11648.256115087454,
-      "y": 4107.331436687733,
+      "label_at": "right",
+      "x": -470.9370476406876,
+      "y": -159.07445451217973,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/PreviewLongPressSettingsVideoTest.kt": {
@@ -2688,8 +2857,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/PreviewLongPressSettingsVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11724.322877274186,
-      "y": 4054.2986522056503,
+      "label_at": "left",
+      "x": -675.4921921143582,
+      "y": -323.2260253891991,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/PreviewSwipeVideoTest.kt": {
@@ -2701,8 +2871,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/PreviewSwipeVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11807.300659323406,
-      "y": 4012.906427987953,
+      "label_at": "right",
+      "x": -409.2587585228748,
+      "y": -340.6261519274758,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/SettingsBeatOverridesScreenshotTest.kt": {
@@ -2714,8 +2885,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/SettingsBeatOverridesScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11895.420933872629,
-      "y": 3984.0369674307235,
+      "label_at": "left",
+      "x": -596.9166443911149,
+      "y": -144.76402192463183,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/SettingsBeatOverridesVideoTest.kt": {
@@ -2727,8 +2899,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/SettingsBeatOverridesVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 11986.805570259874,
-      "y": 3968.3055729640187,
+      "label_at": "above",
+      "x": -590.7210765249642,
+      "y": -420.32438337626223,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/SettingsClockFeelScreenshotTest.kt": {
@@ -2740,8 +2913,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/SettingsClockFeelScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12079.506863618002,
-      "y": 3966.047531948833,
+      "label_at": "right",
+      "x": -406.33175452689966,
+      "y": -209.68984299317296,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/SettingsClockFeelVideoTest.kt": {
@@ -2753,8 +2927,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/SettingsClockFeelVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12171.549046822458,
-      "y": 3977.3109706091054,
+      "label_at": "left",
+      "x": -688.7923360263562,
+      "y": -240.94329271231075,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/SettingsJumpToUnitScreenshotTest.kt": {
@@ -2766,8 +2941,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/SettingsJumpToUnitScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12260.97040053729,
-      "y": 4001.855828304815,
+      "label_at": "right",
+      "x": -456.013507240521,
+      "y": -411.1466857850787,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/SettingsJumpToUnitVideoTest.kt": {
@@ -2779,8 +2955,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/SettingsJumpToUnitVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12345.865063856974,
-      "y": 4039.158974007738,
+      "label_at": "below",
+      "x": -513.519242850316,
+      "y": -124.36683577835265,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/SettingsMidiActionsScreenshotTest.kt": {
@@ -2792,8 +2969,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/SettingsMidiActionsScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12424.423654422739,
-      "y": 4088.425355931079,
+      "label_at": "left",
+      "x": -666.9174277788538,
+      "y": -378.16399324357735,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/SettingsPhraseActionsScreenshotTest.kt": {
@@ -2805,8 +2983,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/SettingsPhraseActionsScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12494.97183226619,
-      "y": 4148.604946677985,
+      "label_at": "right",
+      "x": -378.5271913460492,
+      "y": -293.4912411056455,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/SettingsPhraseActionsVideoTest.kt": {
@@ -2818,8 +2997,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/SettingsPhraseActionsVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12556.005985458825,
-      "y": 4218.415122752493,
+      "label_at": "left",
+      "x": -651.9344296837489,
+      "y": -159.3969315219706,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/TapTempoScreenshotTest.kt": {
@@ -2831,8 +3011,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/TapTempoScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12606.225276989806,
-      "y": 4296.368001452528,
+      "label_at": "above",
+      "x": -539.469516937836,
+      "y": -446.58822539542734,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/TapTempoVideoTest.kt": {
@@ -2844,8 +3025,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/TapTempoVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12644.559369848383,
-      "y": 4380.802152506507,
+      "label_at": "right",
+      "x": -427.03110046019856,
+      "y": -155.24789458073064,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/TimeSignatureDragScreenshotTest.kt": {
@@ -2857,8 +3039,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/TimeSignatureDragScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12670.191239399017,
-      "y": 4469.918008575083,
+      "label_at": "left",
+      "x": -710.1421188897007,
+      "y": -295.83282735849184,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/TimeSignatureDragVideoTest.kt": {
@@ -2870,8 +3053,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/TimeSignatureDragVideoTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12682.574586843013,
-      "y": 4561.816219904669,
+      "label_at": "right",
+      "x": -402.7986421830729,
+      "y": -384.4349838165988,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/TimeSignatureEntryDialogScreenshotTest.kt": {
@@ -2883,8 +3067,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/TimeSignatureEntryDialogScreenshotTest.kt",
       "line": 0,
       "meta": {},
-      "x": 12681.445482628957,
-      "y": 4654.5381356698745,
+      "label_at": "below",
+      "x": -571.528869907384,
+      "y": -108.32840200476994,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/TouchIndicatorOverlay.kt": {
@@ -2896,8 +3081,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/TouchIndicatorOverlay.kt",
       "line": 0,
       "meta": {},
-      "x": 12666.827991652872,
-      "y": 4746.107549215338,
+      "label_at": "left",
+      "x": -634.309738050677,
+      "y": -429.51008468255986,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/ui/VideoTestSupport.kt": {
@@ -2909,8 +3095,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/ui/VideoTestSupport.kt",
       "line": 0,
       "meta": {},
-      "x": 12639.033660356756,
-      "y": 4834.572817469596,
+      "label_at": "right",
+      "x": -368.1449133546439,
+      "y": -232.91463618066993,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/visualizers/GlyphCanvasTest.kt": {
@@ -2922,8 +3109,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/visualizers/GlyphCanvasTest.kt",
       "line": 0,
       "meta": {},
-      "x": 4804.270129175259,
-      "y": 1395.104658840028,
+      "label_at": "right",
+      "x": -1107.9861314282616,
+      "y": -307.1323411697458,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/visualizers/QueueOverlayTest.kt": {
@@ -2935,8 +3123,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/visualizers/QueueOverlayTest.kt",
       "line": 0,
       "meta": {},
-      "x": 4496.9144133237605,
-      "y": 1477.4603746915266,
+      "label_at": "left",
+      "x": -1206.2593609338692,
+      "y": -266.5744362787905,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/visualizers/VisualizerRegistryTest.kt": {
@@ -2948,8 +3137,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/visualizers/VisualizerRegistryTest.kt",
       "line": 0,
       "meta": {},
-      "x": 4414.558697472262,
-      "y": 1170.104658840028,
+      "label_at": "above",
+      "x": -1156.2571609766928,
+      "y": -372.41100458716755,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/app/src/test/java/media/quaternion/qmetronome/visualizers/VisualizerRenderTest.kt": {
@@ -2961,8 +3151,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/app/src/test/java/media/quaternion/qmetronome/visualizers/VisualizerRenderTest.kt",
       "line": 0,
       "meta": {},
-      "x": 4721.9144133237605,
-      "y": 1087.7489429885293,
+      "label_at": "right",
+      "x": -1119.0354005097502,
+      "y": -251.1107184373968,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/build.gradle.kts": {
@@ -2974,8 +3165,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/build.gradle.kts",
       "line": 0,
       "meta": {},
-      "x": 5503.4053255921335,
-      "y": -4440.72063504481,
+      "label_at": "left",
+      "x": -2457.451603400503,
+      "y": -113.18686314724606,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/README.md": {
@@ -2987,8 +3179,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/README.md",
       "line": 0,
       "meta": {},
-      "x": 8844.289512374678,
-      "y": 540.2454802914519,
+      "label_at": "right",
+      "x": -2944.9557231306426,
+      "y": 499.47010226756225,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/app-store-checklist.md": {
@@ -3000,8 +3193,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/app-store-checklist.md",
       "line": 0,
       "meta": {},
-      "x": 8721.778376150032,
-      "y": 667.7930839298185,
+      "label_at": "left",
+      "x": -3043.22895263625,
+      "y": 540.0280071585175,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/cookbook.md": {
@@ -3013,8 +3207,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/cookbook.md",
       "line": 0,
       "meta": {},
-      "x": 8554.025825420895,
-      "y": 723.7971142920337,
+      "label_at": "above",
+      "x": -2993.2267526790743,
+      "y": 434.1914388501403,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/external-midi-clock.md": {
@@ -3026,8 +3221,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/external-midi-clock.md",
       "line": 0,
       "meta": {},
-      "x": 8379.46194792192,
-      "y": 695.4277229438449,
+      "label_at": "right",
+      "x": -2956.004992212131,
+      "y": 555.4917249999112,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/google-play-setup.md": {
@@ -3039,8 +3235,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/google-play-setup.md",
       "line": 0,
       "meta": {},
-      "x": 8238.077224265346,
-      "y": 589.1839955548937,
+      "label_at": "left",
+      "x": -3073.118770610754,
+      "y": 486.3517034147006,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/governance-next-steps.md": {
@@ -3052,8 +3249,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/governance-next-steps.md",
       "line": 0,
       "meta": {},
-      "x": 8162.261190770267,
-      "y": 429.4050896942753,
+      "label_at": "right",
+      "x": -2931.659626191915,
+      "y": 456.66183394456885,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/governance-perspective.md": {
@@ -3065,8 +3263,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/governance-perspective.md",
       "line": 0,
       "meta": {},
-      "x": 8169.38238702815,
-      "y": 252.69442715010317,
+      "label_at": "below",
+      "x": -3020.7537909009297,
+      "y": 580.5578278583196,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/home-screen-widget.md": {
@@ -3078,8 +3277,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/home-screen-widget.md",
       "line": 0,
       "meta": {},
-      "x": 8257.809432796035,
-      "y": 99.53429111690535,
+      "label_at": "left",
+      "x": -3039.5035913160496,
+      "y": 421.39764947133676,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/onboarding.md": {
@@ -3091,8 +3291,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/onboarding.md",
       "line": 0,
       "meta": {},
-      "x": 8407.284757549927,
-      "y": 5.011822980156566,
+      "label_at": "right",
+      "x": -2912.7195820464044,
+      "y": 530.9634026804972,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/publication_checklist.md": {
@@ -3104,8 +3305,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/publication_checklist.md",
       "line": 0,
       "meta": {},
-      "x": 8583.565365761644,
-      "y": -9.219018929240885,
+      "label_at": "left",
+      "x": -3087.217716612406,
+      "y": 535.9033701229866,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/realtime-audio-roadmap.md": {
@@ -3117,8 +3319,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/realtime-audio-roadmap.md",
       "line": 0,
       "meta": {},
-      "x": 8746.267494501513,
-      "y": 60.101879769919584,
+      "label_at": "right",
+      "x": -2956.982930268656,
+      "y": 409.77668188811197,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/timing-accuracy-benchmark.md": {
@@ -3130,8 +3333,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/timing-accuracy-benchmark.md",
       "line": 0,
       "meta": {},
-      "x": 8858.118046848433,
-      "y": 197.09393659305115,
+      "label_at": "below",
+      "x": -2968.2945513213626,
+      "y": 597.22274951193,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/usb-midi-test-plan.md": {
@@ -3143,8 +3347,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/usb-midi-test-plan.md",
       "line": 0,
       "meta": {},
-      "x": 8893.493409205008,
-      "y": 370.37392225522956,
+      "label_at": "left",
+      "x": -3090.4587115825725,
+      "y": 446.44225011073837,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/README.md": {
@@ -3156,8 +3361,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/README.md",
       "line": 0,
       "meta": {},
-      "x": 13296.76399773154,
-      "y": 1364.773437493334,
+      "label_at": "right",
+      "x": -2944.9557231306426,
+      "y": 845.703885043296,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/bar-queue-management.md": {
@@ -3169,8 +3375,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/bar-queue-management.md",
       "line": 0,
       "meta": {},
-      "x": 13221.74539927648,
-      "y": 1463.60679104745,
+      "label_at": "left",
+      "x": -3043.22895263625,
+      "y": 886.2617899342515,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/bar-queue-mode-cycling.md": {
@@ -3182,8 +3389,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/bar-queue-mode-cycling.md",
       "line": 0,
       "meta": {},
-      "x": 13124.50479249794,
-      "y": 1540.6787462727848,
+      "label_at": "above",
+      "x": -2993.2267526790743,
+      "y": 780.4252216258742,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/beat-overrides.md": {
@@ -3195,8 +3403,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/beat-overrides.md",
       "line": 0,
       "meta": {},
-      "x": 13011.152162345756,
-      "y": 1591.1465887717075,
+      "label_at": "right",
+      "x": -2956.004992212131,
+      "y": 901.725507775645,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/bpm-drag-scrub-boundary.md": {
@@ -3208,8 +3417,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/bpm-drag-scrub-boundary.md",
       "line": 0,
       "meta": {},
-      "x": 12888.809871454197,
-      "y": 1611.839238392269,
+      "label_at": "left",
+      "x": -3073.118770610754,
+      "y": 832.5854861904345,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/bpm-drag-scrub.md": {
@@ -3221,8 +3431,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/bpm-drag-scrub.md",
       "line": 0,
       "meta": {},
-      "x": 12765.165135903451,
-      "y": 1601.4564998565681,
+      "label_at": "right",
+      "x": -2931.659626191915,
+      "y": 802.8956167203028,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/bpm-unit-entry-dialog.md": {
@@ -3234,8 +3445,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/bpm-unit-entry-dialog.md",
       "line": 0,
       "meta": {},
-      "x": 12647.987009161703,
-      "y": 1560.6507588118436,
+      "label_at": "below",
+      "x": -3020.7537909009297,
+      "y": 926.7916106340534,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/compact-landscape-layout.md": {
@@ -3247,8 +3459,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/compact-landscape-layout.md",
       "line": 0,
       "meta": {},
-      "x": 12544.638223883141,
-      "y": 1491.9859900409535,
+      "label_at": "left",
+      "x": -3039.5035913160496,
+      "y": 767.6314322470706,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/hold-momentary-staging.md": {
@@ -3260,8 +3473,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/hold-momentary-staging.md",
       "line": 0,
       "meta": {},
-      "x": 12461.612564337058,
-      "y": 1399.7766534971279,
+      "label_at": "right",
+      "x": -2912.7195820464044,
+      "y": 877.197185456231,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/hold-sticky-latch.md": {
@@ -3273,8 +3487,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/hold-sticky-latch.md",
       "line": 0,
       "meta": {},
-      "x": 12404.126838059756,
-      "y": 1289.8166009176327,
+      "label_at": "left",
+      "x": -3087.217716612406,
+      "y": 882.1371528987207,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/marking-beat-accents.md": {
@@ -3286,8 +3501,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/marking-beat-accents.md",
       "line": 0,
       "meta": {},
-      "x": 12375.793084650946,
-      "y": 1169.0150268108227,
+      "label_at": "right",
+      "x": -2956.982930268656,
+      "y": 756.0104646638458,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/midi-actions.md": {
@@ -3299,8 +3515,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/midi-actions.md",
       "line": 0,
       "meta": {},
-      "x": 12378.391618041564,
-      "y": 1044.9623383549406,
+      "label_at": "below",
+      "x": -2968.2945513213626,
+      "y": 943.4565322876639,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/phrase-actions.md": {
@@ -3312,8 +3529,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/phrase-actions.md",
       "line": 0,
       "meta": {},
-      "x": 12411.759162821934,
-      "y": 925.4532221995432,
+      "label_at": "left",
+      "x": -3090.4587115825725,
+      "y": 792.6760328864723,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/phrase-queue-management.md": {
@@ -3325,8 +3543,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/phrase-queue-management.md",
       "line": 0,
       "meta": {},
-      "x": 12473.799113436264,
-      "y": 817.9968756364588,
+      "label_at": "right",
+      "x": -2892.530269856194,
+      "y": 822.3065476877713,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/phrase-queue-mode-cycling.md": {
@@ -3338,8 +3557,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/phrase-queue-mode-cycling.md",
       "line": 0,
       "meta": {},
-      "x": 12560.613271620477,
-      "y": 729.3451761170435,
+      "label_at": "left",
+      "x": -3063.4186633346585,
+      "y": 937.3957840325385,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/preview-double-tap-play.md": {
@@ -3351,8 +3571,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/preview-double-tap-play.md",
       "line": 0,
       "meta": {},
-      "x": 12666.74678453572,
-      "y": 665.0684359602469,
+      "label_at": "above",
+      "x": -3013.749495917176,
+      "y": 731.5413614782468,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/preview-long-press-settings.md": {
@@ -3364,8 +3585,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/preview-long-press-settings.md",
       "line": 0,
       "meta": {},
-      "x": 12785.530893233772,
-      "y": 629.2053991434342,
+      "label_at": "right",
+      "x": -2908.6720778207737,
+      "y": 921.7950368913378,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/preview-swipe-visualizer.md": {
@@ -3377,8 +3599,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/preview-swipe-visualizer.md",
       "line": 0,
       "meta": {},
-      "x": 12909.501955307738,
-      "y": 624.0094721648295,
+      "label_at": "left",
+      "x": -3119.8072295428465,
+      "y": 850.7014742522048,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/settings-clock-feel.md": {
@@ -3390,8 +3613,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/settings-clock-feel.md",
       "line": 0,
       "meta": {},
-      "x": 13030.870412993841,
-      "y": 649.807134225781,
+      "label_at": "right",
+      "x": -2911.2235855251693,
+      "y": 758.3986902884919,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/settings-jump-to-unit.md": {
@@ -3403,8 +3627,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/settings-jump-to-unit.md",
       "line": 0,
       "meta": {},
-      "x": 13142.010239733696,
-      "y": 704.9774233418348,
+      "label_at": "below",
+      "x": -3004.8000249799416,
+      "y": 972.0923007936894,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/symbol-only-controls.md": {
@@ -3416,8 +3641,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/symbol-only-controls.md",
       "line": 0,
       "meta": {},
-      "x": 13235.938111469552,
-      "y": 786.0537873456993,
+      "label_at": "left",
+      "x": -3081.7467744790615,
+      "y": 746.4925358103407,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/tap-tempo.md": {
@@ -3429,8 +3655,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/tap-tempo.md",
       "line": 0,
       "meta": {},
-      "x": 13306.752194577695,
-      "y": 887.9419001090027,
+      "label_at": "right",
+      "x": -2868.276118026954,
+      "y": 863.2866410827808,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/time-signature-drag-scrub.md": {
@@ -3442,8 +3669,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/time-signature-drag-scrub.md",
       "line": 0,
       "meta": {},
-      "x": 13350.002979780456,
-      "y": 1004.2397567885594,
+      "label_at": "left",
+      "x": -3109.3157687878056,
+      "y": 922.4895303329516,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/trigger-button.md": {
@@ -3455,8 +3683,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/trigger-button.md",
       "line": 0,
       "meta": {},
-      "x": 13362.97286117829,
-      "y": 1127.6399353355955,
+      "label_at": "above",
+      "x": -2968.8904304512253,
+      "y": 712.0606447499651,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/docs/user-guide/unit-symbols.md": {
@@ -3468,8 +3697,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/docs/user-guide/unit-symbols.md",
       "line": 0,
       "meta": {},
-      "x": 13344.846893423082,
-      "y": 1250.3887486978906,
+      "label_at": "right",
+      "x": -2929.61102068578,
+      "y": 966.7196370875384,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/gradle/libs.versions.toml": {
@@ -3481,8 +3711,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/gradle/libs.versions.toml",
       "line": 0,
       "meta": {},
-      "x": -1484.8589944301762,
-      "y": -140.73302399993517,
+      "label_at": "right",
+      "x": -2916.023047125862,
+      "y": -351.7691626769986,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/README.md": {
@@ -3494,8 +3725,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/README.md",
       "line": 0,
       "meta": {},
-      "x": 1896.5694129999338,
-      "y": -4066.049081991524,
+      "label_at": "right",
+      "x": -2610.328394279668,
+      "y": -494.7585998623941,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/adding-a-new-visualizer.md": {
@@ -3507,8 +3739,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/adding-a-new-visualizer.md",
       "line": 0,
       "meta": {},
-      "x": 1756.4920339535074,
-      "y": -3932.4855708480427,
+      "label_at": "left",
+      "x": -2708.601623785276,
+      "y": -454.2006949714387,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/ci.md": {
@@ -3520,8 +3753,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/ci.md",
       "line": 0,
       "meta": {},
-      "x": 1566.441558114117,
-      "y": -3895.8563439559507,
+      "label_at": "above",
+      "x": -2658.5994238281,
+      "y": -560.037263279816,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/glossary.md": {
@@ -3533,8 +3767,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/glossary.md",
       "line": 0,
       "meta": {},
-      "x": 1386.7576687282756,
-      "y": -3967.790922043736,
+      "label_at": "right",
+      "x": -2621.377663361157,
+      "y": -438.7369771300451,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/inspired-by.md": {
@@ -3546,8 +3781,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/inspired-by.md",
       "line": 0,
       "meta": {},
-      "x": 1274.488731090293,
-      "y": -4125.450584833969,
+      "label_at": "left",
+      "x": -2738.4914417597793,
+      "y": -507.87699871525575,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/known-limitations.md": {
@@ -3559,8 +3795,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/known-limitations.md",
       "line": 0,
       "meta": {},
-      "x": 1265.2793396458217,
-      "y": -4318.779503360694,
+      "label_at": "right",
+      "x": -2597.0322973409407,
+      "y": -537.5668681853874,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/license.md": {
@@ -3572,8 +3809,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/license.md",
       "line": 0,
       "meta": {},
-      "x": 1362.0534111080308,
-      "y": -4486.397111988542,
+      "label_at": "below",
+      "x": -2686.1264620499555,
+      "y": -413.6708742716368,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/project-governance.md": {
@@ -3585,8 +3823,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/project-governance.md",
       "line": 0,
       "meta": {},
-      "x": 1534.0858615605832,
-      "y": -4575.086004307597,
+      "label_at": "left",
+      "x": -2704.8762624650753,
+      "y": -572.8310526586195,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/requirements.md": {
@@ -3598,8 +3837,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/requirements.md",
       "line": 0,
       "meta": {},
-      "x": 1726.757603508004,
-      "y": -4556.6880836523305,
+      "label_at": "right",
+      "x": -2578.09225319543,
+      "y": -463.26529944945906,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/setup-notes.md": {
@@ -3611,8 +3851,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/setup-notes.md",
       "line": 0,
       "meta": {},
-      "x": 1878.8967202354622,
-      "y": -4437.044559837291,
+      "label_at": "left",
+      "x": -2752.590387761432,
+      "y": -458.32533200696963,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/testing.md": {
@@ -3624,8 +3865,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/testing.md",
       "line": 0,
       "meta": {},
-      "x": 1942.2001171456213,
-      "y": -4254.141406313012,
+      "label_at": "right",
+      "x": -2622.355601417682,
+      "y": -584.4520202418444,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/using-qmetronome/README.md": {
@@ -3637,8 +3879,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/using-qmetronome/README.md",
       "line": 0,
       "meta": {},
-      "x": 1265.7965223465294,
-      "y": -2804.8163516899217,
+      "label_at": "right",
+      "x": -2330.5421526581686,
+      "y": -494.7585998623941,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/using-qmetronome/a-widget-for-the-home-screen.md": {
@@ -3650,8 +3893,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/using-qmetronome/a-widget-for-the-home-screen.md",
       "line": 0,
       "meta": {},
-      "x": 1035.9065482558617,
-      "y": -2672.089313264679,
+      "label_at": "left",
+      "x": -2428.815382163776,
+      "y": -454.2006949714387,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/using-qmetronome/dialing-in-a-tempo.md": {
@@ -3663,8 +3907,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/using-qmetronome/dialing-in-a-tempo.md",
       "line": 0,
       "meta": {},
-      "x": 806.0165741651942,
-      "y": -2804.8163516899217,
+      "label_at": "above",
+      "x": -2378.8131822066002,
+      "y": -560.037263279816,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/using-qmetronome/living-on-the-glyph-matrix.md": {
@@ -3676,8 +3921,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/using-qmetronome/living-on-the-glyph-matrix.md",
       "line": 0,
       "meta": {},
-      "x": 806.0165741651941,
-      "y": -3070.270428540408,
+      "label_at": "right",
+      "x": -2341.591421739657,
+      "y": -438.7369771300451,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/using-qmetronome/planning-a-set-with-the-bar-queue.md": {
@@ -3689,8 +3935,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/using-qmetronome/planning-a-set-with-the-bar-queue.md",
       "line": 0,
       "meta": {},
-      "x": 1035.9065482558617,
-      "y": -3202.9974669656513,
+      "label_at": "left",
+      "x": -2458.70520013828,
+      "y": -507.87699871525575,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/readme/using-qmetronome/staying-in-sync-with-other-gear.md": {
@@ -3702,8 +3949,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/readme/using-qmetronome/staying-in-sync-with-other-gear.md",
       "line": 0,
       "meta": {},
-      "x": 1265.7965223465294,
-      "y": -3070.270428540408,
+      "label_at": "right",
+      "x": -2317.246055719441,
+      "y": -537.5668681853874,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/scripts/check-submodule-refs.sh": {
@@ -3715,8 +3963,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/scripts/check-submodule-refs.sh",
       "line": 0,
       "meta": {},
-      "x": 3549.009428192748,
-      "y": -794.6330885965448,
+      "label_at": "right",
+      "x": -2892.8021181817294,
+      "y": -649.5660945403556,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/scripts/generate-changelog.sh": {
@@ -3728,8 +3977,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/scripts/generate-changelog.sh",
       "line": 0,
       "meta": {},
-      "x": 3159.297996489751,
-      "y": -1019.6330885965448,
+      "label_at": "left",
+      "x": -2991.0753476873374,
+      "y": -609.0081896494003,
       "size": 30
      },
      "file::quaternionmedia/qmetronome/settings.gradle.kts": {
@@ -3741,8 +3991,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/qmetronome/main/settings.gradle.kts",
       "line": 0,
       "meta": {},
-      "x": 5642.977339842762,
-      "y": -4258.826844734837,
+      "label_at": "left",
+      "x": -2528.30610774507,
+      "y": 53.513286288609805,
       "size": 30
      }
     },

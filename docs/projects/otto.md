@@ -22,10 +22,15 @@ No pictures are listed for otto yet. A project's own screenshots are picked in t
 
 <section class="qm-section" markdown>
 
+what it looks like
+{ .qm-eyebrow }
+
+## Showcase
+
 the graphs codecarto draws
 { .qm-eyebrow }
 
-## Showgraph
+### Showgraph
 
 <div class="grid" markdown>
 
@@ -50,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. otto's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `8b1ab65` from the corpus at `2c4cb11` and otto's default branch at `c57b2ad`, on 2026-10-26. [The show document](../show/project/otto/show.json) holds each graph as drawn.
+Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and otto's default branch at `c57b2ad`, on 2026-10-26. [The show document](../show/project/otto/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

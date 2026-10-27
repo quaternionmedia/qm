@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:25b0031a9fb713cd7978c242043d6d45f2d5e2540c49eb14a42dbaa5c6bf3698"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "25926322d8f04ab1736ab3d9993772d804fe9da3"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:cesar",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 229.26777971020954,
-      "y": 1215.2497861851132,
+      "label_at": "none",
+      "x": -151.62883341598726,
+      "y": -87.54294778962914,
       "size": 190
      },
      "dir::quaternionmedia/cesar/Cesar": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -17.951055683287194,
-      "y": 35.55550987411898,
+      "label_at": "none",
+      "x": 116.8848721747857,
+      "y": 67.4835124143075,
       "size": 80
      },
      "dir::quaternionmedia/cesar/Cesar/configs": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -44.62363172444269,
-      "y": -328.953988686813,
+      "label_at": "right",
+      "x": 174.04254882455865,
+      "y": 100.48351241430751,
       "size": 50
      },
      "file::quaternionmedia/cesar/Cesar/cr.py": {
@@ -257,8 +260,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/Cesar/cr.py",
       "line": 0,
       "meta": {},
-      "x": 176.9046601682115,
-      "y": 148.05550987411897,
+      "label_at": "left",
+      "x": 40.89713574760279,
+      "y": 84.3187852862565,
       "size": 30
      },
      "file::quaternionmedia/cesar/Cesar/osc.py": {
@@ -270,8 +274,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/Cesar/osc.py",
       "line": 0,
       "meta": {},
-      "x": -212.80677153478592,
-      "y": -76.94449012588095,
+      "label_at": "right",
+      "x": 167.42841979273945,
+      "y": -4.658533538047095,
       "size": 30
      },
      "file::quaternionmedia/cesar/README.md": {
@@ -283,8 +288,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/README.md",
       "line": 0,
       "meta": {},
-      "x": 559.872254308863,
-      "y": 1406.1243685899403,
+      "label_at": "right",
+      "x": -104.86346161162756,
+      "y": -60.54294778962914,
       "size": 30
      },
      "file::quaternionmedia/cesar/core.py": {
@@ -296,8 +302,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/core.py",
       "line": 0,
       "meta": {},
-      "x": 444.3147413965235,
-      "y": 1530.665748213597,
+      "label_at": "left",
+      "x": -210.2495273209,
+      "y": -74.55538658259252,
       "size": 30
      },
      "file::quaternionmedia/cesar/dmx.py": {
@@ -309,8 +316,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/dmx.py",
       "line": 0,
       "meta": {},
-      "x": 286.16454034430245,
-      "y": 1592.7351282345967,
+      "label_at": "right",
+      "x": -114.0280677586878,
+      "y": -141.21144340842628,
       "size": 30
      },
      "file::quaternionmedia/cesar/dmxftdi.py": {
@@ -322,8 +330,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/dmxftdi.py",
       "line": 0,
       "meta": {},
-      "x": 116.74523805552282,
-      "y": 1580.0389067087908,
+      "label_at": "below",
+      "x": -142.44322069562128,
+      "y": -17.55143388293149,
       "size": 30
      },
      "file::quaternionmedia/cesar/dmxpy.py": {
@@ -335,8 +344,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/dmxpy.py",
       "line": 0,
       "meta": {},
-      "x": -30.387594860135223,
-      "y": 1495.0917260183035,
+      "label_at": "left",
+      "x": -209.29671712940433,
+      "y": -135.98533819323958,
       "size": 30
      },
      "file::quaternionmedia/cesar/editor.py": {
@@ -348,8 +358,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/editor.py",
       "line": 0,
       "meta": {},
-      "x": -126.09249637794791,
-      "y": 1354.7184171076883,
+      "label_at": "right",
+      "x": -71.94456973001239,
+      "y": -90.9679471799983,
       "size": 30
      },
      "file::quaternionmedia/cesar/gcore.py": {
@@ -361,8 +372,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/gcore.py",
       "line": 0,
       "meta": {},
-      "x": -151.4139370087223,
-      "y": 1186.7216353723486,
+      "label_at": "left",
+      "x": -211.05037665384944,
+      "y": -28.21795137807537,
       "size": 30
      },
      "file::quaternionmedia/cesar/glog.py": {
@@ -374,8 +386,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/glog.py",
       "line": 0,
       "meta": {},
-      "x": -101.33669488844399,
-      "y": 1024.3752037802858,
+      "label_at": "above",
+      "x": -147.70809093573996,
+      "y": -175.42960933962536,
       "size": 30
      },
      "file::quaternionmedia/cesar/k.py": {
@@ -387,8 +400,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/k.py",
       "line": 0,
       "meta": {},
-      "x": 14.220818023895632,
-      "y": 899.8338241566292,
+      "label_at": "right",
+      "x": -92.69279471916555,
+      "y": -17.150879040893432,
       "size": 30
      },
      "file::quaternionmedia/cesar/opencv.sh": {
@@ -400,8 +414,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/opencv.sh",
       "line": 0,
       "meta": {},
-      "x": 609.9494964291414,
-      "y": 1243.7779369978782,
+      "label_at": "left",
+      "x": -246.28259588756342,
+      "y": -100.12180902483034,
       "size": 30
      },
      "file::quaternionmedia/cesar/q.py": {
@@ -413,8 +428,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/q.py",
       "line": 0,
       "meta": {},
-      "x": 172.37101907611674,
-      "y": 837.7644441356296,
+      "label_at": "right",
+      "x": -70.43261833999975,
+      "y": -144.23333195955678,
       "size": 30
      },
      "file::quaternionmedia/cesar/text.py": {
@@ -426,8 +442,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/text.py",
       "line": 0,
       "meta": {},
-      "x": 341.7903213648964,
-      "y": 850.4606656614354,
+      "label_at": "below",
+      "x": -173.95180334153548,
+      "y": 12.443913915812288,
       "size": 30
      },
      "file::quaternionmedia/cesar/tktest.py": {
@@ -439,8 +456,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/tktest.py",
       "line": 0,
       "meta": {},
-      "x": 488.9231542805542,
-      "y": 935.4078463519226,
+      "label_at": "left",
+      "x": -204.35881985914094,
+      "y": -179.21790909152895,
       "size": 30
      },
      "file::quaternionmedia/cesar/video.py": {
@@ -452,8 +470,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/cesar/master/video.py",
       "line": 0,
       "meta": {},
-      "x": 584.628055798367,
-      "y": 1075.781155262538,
+      "label_at": "right",
+      "x": -47.763018593278915,
+      "y": -54.59290968320411,
       "size": 30
      }
     },

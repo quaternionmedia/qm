@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:3e397243f771c3302cbbfbc61734bbe2a20493ee8deb5cb2dbb52d6a6f4f8e09"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "fe7ee650185685313450f4ffe7e157d503c8cdf3"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:ludwig",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -68.98339678003103,
-      "y": 0.09504444398378376,
+      "label_at": "none",
+      "x": 206.56374831945564,
+      "y": 2.681387493005822,
       "size": 80
      },
      "dir::quaternionmedia/ludwig/.github": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 248.6117404256728,
-      "y": 77.85817994570517,
+      "label_at": "none",
+      "x": 292.3672025465407,
+      "y": -233.06166550711856,
       "size": 70
      },
      "dir::quaternionmedia/ludwig/.github/ISSUE_TEMPLATE": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -343.02306177095556,
-      "y": 266.49295293322257,
+      "label_at": "left",
+      "x": 227.36989084773498,
+      "y": -221.60088578110114,
       "size": 50
      },
      "dir::quaternionmedia/ludwig/.github/workflows": {
@@ -257,8 +260,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 830.1022921731485,
-      "y": -114.64946197763746,
+      "label_at": "right",
+      "x": 339.7556809739929,
+      "y": -294.8022082025865,
       "size": 50
      },
      "dir::quaternionmedia/ludwig/ludwig": {
@@ -270,8 +274,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -962.3999807950929,
-      "y": -257.9785396682101,
+      "label_at": "none",
+      "x": -26.201979086229173,
+      "y": 43.724265418859815,
       "size": 110
      },
      "dir::quaternionmedia/ludwig/ludwig/boards": {
@@ -283,8 +288,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1044.423006026973,
-      "y": -372.1866782269699,
+      "label_at": "none",
+      "x": -278.38384518270016,
+      "y": 88.19073245707693,
       "size": 110
      },
      "file::quaternionmedia/ludwig/README.md": {
@@ -296,8 +302,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 125.87231907146767,
-      "y": 112.59504444398377,
+      "label_at": "left",
+      "x": 153.38412965679643,
+      "y": 12.05838908702006,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/__init__.py": {
@@ -309,8 +316,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -749.1445870454593,
-      "y": -134.85548068071952,
+      "label_at": "left",
+      "x": -79.38159774888841,
+      "y": 53.101267012874054,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/__init__.py": {
@@ -322,8 +330,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -814.5330319363054,
-      "y": -239.4596398017269,
+      "label_at": "left",
+      "x": -331.5634638453594,
+      "y": 97.56773405109118,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/command8.py": {
@@ -335,8 +344,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/command8.py",
       "line": 0,
       "meta": {},
-      "x": -1044.423006026973,
-      "y": -106.73260137648386,
+      "label_at": "right",
+      "x": -241.82603178899188,
+      "y": 40.56102765145378,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/generic.py": {
@@ -348,8 +358,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/generic.py",
       "line": 0,
       "meta": {},
-      "x": -1274.3129801176406,
-      "y": -239.4596398017268,
+      "label_at": "below",
+      "x": -272.6902587572142,
+      "y": 153.47249157565093,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/gld.py": {
@@ -361,8 +372,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/gld.py",
       "line": 0,
       "meta": {},
-      "x": -1274.3129801176408,
-      "y": -504.9137166522128,
+      "label_at": "left",
+      "x": -330.41011068620793,
+      "y": 40.47852020739684,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/qu24.py": {
@@ -374,8 +386,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/qu24.py",
       "line": 0,
       "meta": {},
-      "x": -1044.423006026973,
-      "y": -637.640755077456,
+      "label_at": "right",
+      "x": -203.06951498256666,
+      "y": 88.23155530933414,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/boards/xair.py": {
@@ -387,8 +400,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/boards/xair.py",
       "line": 0,
       "meta": {},
-      "x": -814.5330319363054,
-      "y": -504.9137166522128,
+      "label_at": "left",
+      "x": -337.22398541205536,
+      "y": 142.0344915920948,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/main.py": {
@@ -400,8 +414,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/main.py",
       "line": 0,
       "meta": {},
-      "x": -1013.5974275405806,
-      "y": -17.11349018096864,
+      "label_at": "right",
+      "x": 10.355834307479112,
+      "y": -3.9054393867633457,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/midi.py": {
@@ -413,8 +428,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/midi.py",
       "line": 0,
       "meta": {},
-      "x": -1207.2971367706507,
-      "y": -232.23881137065993,
+      "label_at": "below",
+      "x": -20.50839266074324,
+      "y": 109.00602453743382,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/mixer.py": {
@@ -426,8 +442,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/mixer.py",
       "line": 0,
       "meta": {},
-      "x": -1062.5573001906841,
-      "y": -482.93556220637817,
+      "label_at": "left",
+      "x": -78.22824458973686,
+      "y": -3.9879468308202846,
       "size": 30
      },
      "file::quaternionmedia/ludwig/ludwig/types.py": {
@@ -439,8 +456,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/ludwig/types.py",
       "line": 0,
       "meta": {},
-      "x": -779.4034524280897,
-      "y": -422.7493539023241,
+      "label_at": "right",
+      "x": 49.11235111390428,
+      "y": 43.76508827111703,
       "size": 30
      },
      "file::quaternionmedia/ludwig/setup.py": {
@@ -452,8 +470,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ludwig/main/setup.py",
       "line": 0,
       "meta": {},
-      "x": -263.83911263152976,
-      "y": -112.40495555601615,
+      "label_at": "right",
+      "x": 243.12156171316394,
+      "y": -44.94831731261734,
       "size": 30
      }
     },

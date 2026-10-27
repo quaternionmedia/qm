@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:bce47e18d33133d7f0e98d312122baa89cea4ce0cb967720a65b635a20ad80f0"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "5d3fc153aeb2bedb559da92d243247b62bed2289"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:TheatreMix-python",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 932.9090277462022,
-      "y": -252.22624825945385,
+      "label_at": "none",
+      "x": -90.95082083055236,
+      "y": -89.75905957970713,
       "size": 110
      },
      "dir::quaternionmedia/TheatreMix-python/.github": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -99.32936154361411,
-      "y": 195.14713174515535,
+      "label_at": "none",
+      "x": 63.6480309292404,
+      "y": -279.21593419529813,
       "size": 60
      },
      "dir::quaternionmedia/TheatreMix-python/.github/workflows": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -217.76537899170313,
-      "y": 245.69560132106517,
+      "label_at": "right",
+      "x": 117.71206585231386,
+      "y": -241.35988939612912,
       "size": 50
      },
      "dir::quaternionmedia/TheatreMix-python/docs": {
@@ -257,8 +260,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 9.665227282716685,
-      "y": -453.39980520820006,
+      "label_at": "none",
+      "x": -276.5475298717803,
+      "y": -219.71527431728907,
       "size": 70
      },
      "dir::quaternionmedia/TheatreMix-python/src": {
@@ -270,8 +274,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -872.971174951928,
-      "y": -78.37609062839172,
+      "label_at": "none",
+      "x": 55.29204424868931,
+      "y": 12.64129695816342,
       "size": 60
      },
      "dir::quaternionmedia/TheatreMix-python/src/theatremix": {
@@ -283,8 +288,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1579.704667440756,
-      "y": -61.972555316497036,
+      "label_at": "none",
+      "x": 228.97554566482654,
+      "y": 134.2557939123995,
       "size": 160
      },
      "dir::quaternionmedia/TheatreMix-python/tests": {
@@ -296,8 +302,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2886.2315577356494,
-      "y": -97.45233035167156,
+      "label_at": "none",
+      "x": -243.2686197787782,
+      "y": 127.7733013795478,
       "size": 160
      },
      "file::quaternionmedia/TheatreMix-python/PLAN.md": {
@@ -309,8 +316,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/PLAN.md",
       "line": 0,
       "meta": {},
-      "x": 1127.764743597701,
-      "y": -139.72624825945388,
+      "label_at": "right",
+      "x": -46.71661043894681,
+      "y": -58.78593201675063,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/README.md": {
@@ -322,8 +330,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 738.0533118947035,
-      "y": -139.7262482594538,
+      "label_at": "left",
+      "x": -150.48038584056553,
+      "y": -81.930050081781,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/docs/roadmap.md": {
@@ -335,8 +344,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/docs/roadmap.md",
       "line": 0,
       "meta": {},
-      "x": 204.52094313421537,
-      "y": -340.89980520820006,
+      "label_at": "right",
+      "x": -232.31331948017478,
+      "y": -188.7421467543326,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/docs/theme.md": {
@@ -348,8 +358,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/docs/theme.md",
       "line": 0,
       "meta": {},
-      "x": -185.19048856878206,
-      "y": -565.8998052082,
+      "label_at": "left",
+      "x": -336.0770948817934,
+      "y": -211.88626481936294,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/pyproject.toml": {
@@ -361,8 +372,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "x": 932.9090277462022,
-      "y": -477.2262482594538,
+      "label_at": "right",
+      "x": -48.815619840754735,
+      "y": -139.94620771097033,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/__init__.py": {
@@ -374,8 +386,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/__init__.py",
       "line": 0,
       "meta": {},
-      "x": -1282.228205176245,
-      "y": 109.77556024949595,
+      "label_at": "right",
+      "x": 273.2097560564321,
+      "y": 165.228921475356,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/_version.py": {
@@ -387,8 +400,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/_version.py",
       "line": 0,
       "meta": {},
-      "x": -1422.3055842226715,
-      "y": 243.33907139297705,
+      "label_at": "left",
+      "x": 169.44598065481335,
+      "y": 142.0848034103256,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/db.py": {
@@ -400,8 +414,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/db.py",
       "line": 0,
       "meta": {},
-      "x": -1612.3560600620617,
-      "y": 279.96829828506975,
+      "label_at": "right",
+      "x": 271.11074665462417,
+      "y": 84.06864578113631,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/dca.py": {
@@ -413,8 +428,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/dca.py",
       "line": 0,
       "meta": {},
-      "x": -1792.0399494479032,
-      "y": 208.03372019728448,
+      "label_at": "below",
+      "x": 232.02604197500793,
+      "y": 204.7815478769022,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/models.py": {
@@ -426,8 +442,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/models.py",
       "line": 0,
       "meta": {},
-      "x": -1904.308887085886,
-      "y": 50.37405740705201,
+      "label_at": "left",
+      "x": 175.74913817544785,
+      "y": 80.9716541917039,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/script.py": {
@@ -439,8 +456,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/script.py",
       "line": 0,
       "meta": {},
-      "x": -1913.518278530357,
-      "y": -142.9548611196742,
+      "label_at": "right",
+      "x": 308.6550950359172,
+      "y": 137.7887688655977,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/showrunner.py": {
@@ -452,8 +470,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/showrunner.py",
       "line": 0,
       "meta": {},
-      "x": -1816.7442070681482,
-      "y": -310.57246974752167,
+      "label_at": "left",
+      "x": 164.60960521308763,
+      "y": 188.1761120657932,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/sync.py": {
@@ -465,8 +484,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/sync.py",
       "line": 0,
       "meta": {},
-      "x": -1644.7117566155957,
-      "y": -399.2613620665776,
+      "label_at": "above",
+      "x": 240.54119580123395,
+      "y": 47.04528286629788,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/theatremix.py": {
@@ -478,8 +498,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/theatremix.py",
       "line": 0,
       "meta": {},
-      "x": -1452.0400146681745,
-      "y": -380.86344141130996,
+      "label_at": "right",
+      "x": 281.55224190579,
+      "y": 209.51661381482594,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/theme.py": {
@@ -491,8 +512,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/theme.py",
       "line": 0,
       "meta": {},
-      "x": -1299.9008979407165,
-      "y": -261.2199175962709,
+      "label_at": "left",
+      "x": 135.7782893300807,
+      "y": 113.47518006978967,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/src/theatremix/ui.py": {
@@ -504,8 +526,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/src/theatremix/ui.py",
       "line": 0,
       "meta": {},
-      "x": -1236.5975010305579,
-      "y": -78.3167640719918,
+      "label_at": "right",
+      "x": 314.8036771676225,
+      "y": 84.85785020277964,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/conftest.py": {
@@ -517,8 +540,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/conftest.py",
       "line": 0,
       "meta": {},
-      "x": 3183.7080200001606,
-      "y": 74.29578521432143,
+      "label_at": "right",
+      "x": -199.03440938717267,
+      "y": 158.74642894250428,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_cell_state.py": {
@@ -530,8 +554,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_cell_state.py",
       "line": 0,
       "meta": {},
-      "x": 3043.630640953734,
-      "y": 207.8592963578025,
+      "label_at": "left",
+      "x": -302.7981847887914,
+      "y": 135.602310877474,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_db_cues.py": {
@@ -543,8 +568,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_db_cues.py",
       "line": 0,
       "meta": {},
-      "x": 2853.580165114344,
-      "y": 244.4885232498952,
+      "label_at": "right",
+      "x": -201.13341878898058,
+      "y": 77.5861532482846,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_db_tables.py": {
@@ -556,8 +582,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_db_tables.py",
       "line": 0,
       "meta": {},
-      "x": 2673.896275728502,
-      "y": 172.55394516210993,
+      "label_at": "below",
+      "x": -240.21812346859681,
+      "y": 198.29905534405052,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_dca.py": {
@@ -569,8 +596,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_dca.py",
       "line": 0,
       "meta": {},
-      "x": 2561.6273380905195,
-      "y": 14.894282371877487,
+      "label_at": "left",
+      "x": -296.49502726815695,
+      "y": 74.48916165885223,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_grid.py": {
@@ -582,8 +610,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_grid.py",
       "line": 0,
       "meta": {},
-      "x": 2552.417946646048,
-      "y": -178.4346361548487,
+      "label_at": "right",
+      "x": -163.58907040768756,
+      "y": 131.306276332746,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_import.py": {
@@ -595,8 +624,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_import.py",
       "line": 0,
       "meta": {},
-      "x": 2649.1920181082573,
-      "y": -346.0522447826962,
+      "label_at": "left",
+      "x": -307.6345602305171,
+      "y": 181.69361953294157,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_mirror.py": {
@@ -608,8 +638,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_mirror.py",
       "line": 0,
       "meta": {},
-      "x": 2821.22446856081,
-      "y": -434.7411371017522,
+      "label_at": "above",
+      "x": -231.70296964237082,
+      "y": 40.56279033344619,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_script.py": {
@@ -621,8 +652,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_script.py",
       "line": 0,
       "meta": {},
-      "x": 3013.8962105082305,
-      "y": -416.3432164464846,
+      "label_at": "right",
+      "x": -190.6919235378148,
+      "y": 203.03412128197428,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_showrunner.py": {
@@ -634,8 +666,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_showrunner.py",
       "line": 0,
       "meta": {},
-      "x": 3166.035327235689,
-      "y": -296.6996926314454,
+      "label_at": "left",
+      "x": -336.46587611352413,
+      "y": 106.992687536938,
       "size": 30
      },
      "file::quaternionmedia/TheatreMix-python/tests/test_sync.py": {
@@ -647,8 +680,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/TheatreMix-python/main/tests/test_sync.py",
       "line": 0,
       "meta": {},
-      "x": 3229.3387241458477,
-      "y": -113.79653910716631,
+      "label_at": "right",
+      "x": -157.44048827598232,
+      "y": 78.37535766992796,
       "size": 30
      }
     },

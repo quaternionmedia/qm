@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:67fbbcda3a73978b4bb44cb847dde115e242d446cbb34a12702931e5c13ad3c7"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "d602645755ff6d57c94cf9c289d0a505ce1d69e2"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:aes",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,6 +218,7 @@
       "file": "",
       "line": 0,
       "meta": {},
+      "label_at": "none",
       "x": 0,
       "y": 0,
       "size": 70
@@ -231,8 +232,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/aes/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 194.8557158514987,
-      "y": 112.49999999999997,
+      "label_at": "right",
+      "x": 27,
+      "y": 46.76537180435968,
       "size": 30
      },
      "file::quaternionmedia/aes/recv.sh": {
@@ -244,8 +246,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/aes/main/recv.sh",
       "line": 0,
       "meta": {},
-      "x": -194.85571585149864,
-      "y": 112.50000000000007,
+      "label_at": "left",
+      "x": -57.26079071264436,
+      "y": -18.062789013957385,
       "size": 30
      },
      "file::quaternionmedia/aes/send.sh": {
@@ -257,8 +260,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/aes/main/send.sh",
       "line": 0,
       "meta": {},
-      "x": -4.133182947122317e-14,
-      "y": -225,
+      "label_at": "right",
+      "x": 59.397466070365404,
+      "y": -27.677897760122427,
       "size": 30
      }
     },

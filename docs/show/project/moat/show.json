@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:43b6dedb852a191e700b8294c4cf320cb47927f1e2bd2c2cf7254d16a77e5665"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "16a595a3598c02ba521fc42617fc130030f9b57f"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:moat",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -139.3046612888967,
-      "y": 431.3214562392555,
+      "label_at": "none",
+      "x": -344.0809467537398,
+      "y": -120.56356586979426,
       "size": 160
      },
      "dir::quaternionmedia/moat/.github": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1424.6623740221185,
-      "y": -1001.2764134757457,
+      "label_at": "none",
+      "x": -448.1982907296832,
+      "y": 165.49648567770006,
       "size": 60
      },
      "dir::quaternionmedia/moat/.github/workflows": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1935.1384533923892,
-      "y": -1334.7530422870025,
+      "label_at": "right",
+      "x": -405.77430849037165,
+      "y": 216.05541892355262,
       "size": 50
      },
      "dir::quaternionmedia/moat/authentik": {
@@ -257,8 +260,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3423.6895307807936,
-      "y": 630.4279688347442,
+      "label_at": "left",
+      "x": -421.24406438517894,
+      "y": -130.7329206869248,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts": {
@@ -270,8 +274,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 287.8925781088826,
-      "y": 203.47749336613697,
+      "label_at": "none",
+      "x": 388.5316022376496,
+      "y": 12.152212610535798,
       "size": 200
      },
      "dir::quaternionmedia/moat/charts/akri": {
@@ -283,8 +288,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2008.9883540604064,
-      "y": 1533.3623955798894,
+      "label_at": "right",
+      "x": 430.95558447696123,
+      "y": 62.71114585638835,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/argo-cd": {
@@ -296,8 +302,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3680.9563363102493,
-      "y": -635.0659250706276,
+      "label_at": "left",
+      "x": 311.3684846062105,
+      "y": 1.982857793405202,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/cert-manager": {
@@ -309,8 +316,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2384.6786820871885,
-      "y": 650.0525647152701,
+      "label_at": "none",
+      "x": 56.46390919794576,
+      "y": 70.7047063150522,
       "size": 60
      },
      "dir::quaternionmedia/moat/charts/cert-manager/templates": {
@@ -322,8 +330,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2595.9150770744272,
-      "y": 735.0577370630683,
+      "label_at": "right",
+      "x": 98.88789143725735,
+      "y": 121.26363956090475,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/cilium": {
@@ -335,8 +344,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3087.465889532588,
-      "y": 378.08105756662957,
+      "label_at": "right",
+      "x": 460.70103385901325,
+      "y": -38.3522242188094,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/cook": {
@@ -348,8 +358,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2484.653239900861,
-      "y": -1228.1749468047553,
+      "label_at": "below",
+      "x": 367.44077053176306,
+      "y": 107.10411789923428,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/csi": {
@@ -361,8 +372,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2922.0766403298258,
-      "y": -569.2736563198375,
+      "label_at": "none",
+      "x": 152.98672438210784,
+      "y": -194.26198243831556,
       "size": 60
      },
      "dir::quaternionmedia/moat/charts/frigate": {
@@ -374,8 +386,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1671.3823216988085,
-      "y": 1463.2073298743785,
+      "label_at": "left",
+      "x": 335.7554293849266,
+      "y": -79.37333343546983,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/groot": {
@@ -387,8 +400,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 979.3570520596891,
-      "y": -1224.216372744033,
+      "label_at": "none",
+      "x": 605.2733957605411,
+      "y": 270.4550237067542,
       "size": 60
      },
      "dir::quaternionmedia/moat/charts/groot/templates": {
@@ -400,8 +414,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1581.2610480351366,
-      "y": -1510.6046385705636,
+      "label_at": "right",
+      "x": 647.6973779998527,
+      "y": 321.0139569526068,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/home-assistant": {
@@ -413,8 +428,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3068.350206137608,
-      "y": -909.8563138734683,
+      "label_at": "right",
+      "x": 496.67785234109976,
+      "y": 46.33116941968987,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/jellyfin": {
@@ -426,8 +442,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -141.79474164808116,
-      "y": 1713.6,
+      "label_at": "left",
+      "x": 279.1105147879713,
+      "y": 63.06783517699229,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/metallb": {
@@ -439,8 +456,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -485.4800213461936,
-      "y": -1046.2697305847003,
+      "label_at": "none",
+      "x": 273.20570272083734,
+      "y": 329.00751741127056,
       "size": 60
      },
      "dir::quaternionmedia/moat/charts/metallb/templates": {
@@ -452,8 +470,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -851.8728364588779,
-      "y": -1540.2935980677855,
+      "label_at": "right",
+      "x": 315.62968496014895,
+      "y": 379.56645065712314,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/metrics-server": {
@@ -465,8 +484,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3367.996801867352,
-      "y": 617.8624879091889,
+      "label_at": "right",
+      "x": 437.4515259236092,
+      "y": -105.6347924730467,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/monitoring": {
@@ -478,8 +498,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3461.1855529400136,
-      "y": 100.69937217413826,
+      "label_at": "below",
+      "x": 434.24167239377425,
+      "y": 138.16447188050586,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/traefik": {
@@ -491,8 +512,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2890.071771815574,
-      "y": 1150.457071659481,
+      "label_at": "left",
+      "x": 264.2074052979993,
+      "y": -52.75970120588966,
       "size": 50
      },
      "dir::quaternionmedia/moat/charts/whoami": {
@@ -504,8 +526,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 684.2281278339333,
-      "y": 1478.6929741510914,
+      "label_at": "right",
+      "x": 529.7918009401837,
+      "y": -25.493255410470027,
       "size": 50
      },
      "dir::quaternionmedia/moat/influxdb": {
@@ -517,8 +540,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 617.9976004818822,
-      "y": -1262.3807933693415,
+      "label_at": "none",
+      "x": -630.1409983012342,
+      "y": -224.68090984573777,
       "size": 60
      },
      "dir::quaternionmedia/moat/influxdb/templates": {
@@ -530,8 +554,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 232.72941024675652,
-      "y": -1540.1799701635643,
+      "label_at": "right",
+      "x": -587.7170160619225,
+      "y": -174.12197659988516,
       "size": 50
      },
      "dir::quaternionmedia/moat/loki": {
@@ -543,8 +568,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3656.2637469250567,
-      "y": 863.0462551965207,
+      "label_at": "right",
+      "x": -271.91151513237617,
+      "y": -171.06800269913947,
       "size": 50
      },
      "dir::quaternionmedia/moat/openebs": {
@@ -556,8 +582,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2894.1716135909937,
-      "y": 1359.3964487088779,
+      "label_at": "below",
+      "x": -365.17177845962635,
+      "y": -25.611660581095748,
       "size": 50
      },
      "dir::quaternionmedia/moat/technitium": {
@@ -569,8 +596,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1948.8894105040674,
-      "y": -669.5669960011062,
+      "label_at": "none",
+      "x": -180.8750164610223,
+      "y": -377.53554629810606,
       "size": 60
      },
      "dir::quaternionmedia/moat/technitium/templates": {
@@ -582,8 +610,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2819.603425934379,
-      "y": -993.2041965547734,
+      "label_at": "right",
+      "x": -138.45103422171076,
+      "y": -326.97661305225347,
       "size": 50
      },
      "dir::quaternionmedia/moat/tempo": {
@@ -595,8 +624,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3488.6070884371447,
-      "y": -345.9041262211637,
+      "label_at": "left",
+      "x": -396.8571196064629,
+      "y": -212.0891119157999,
       "size": 50
      },
      "dir::quaternionmedia/moat/tofu": {
@@ -608,8 +638,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3283.724898973072,
-      "y": -76.4192949711735,
+      "label_at": "none",
+      "x": -467.7448463044759,
+      "y": -484.03296751377655,
       "size": 60
      },
      "dir::quaternionmedia/moat/tofu/moat": {
@@ -621,8 +652,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3906.045193999076,
-      "y": -77.13032231861652,
+      "label_at": "right",
+      "x": -425.3208640651643,
+      "y": -433.4740342679241,
       "size": 50
      },
      "dir::quaternionmedia/moat/tower": {
@@ -634,8 +666,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1663.3723956447607,
-      "y": 1259.636817278097,
+      "label_at": "none",
+      "x": -704.2784599736069,
+      "y": 47.39929299301616,
       "size": 60
      },
      "dir::quaternionmedia/moat/victoria-logs": {
@@ -647,8 +680,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -958.02212553119,
-      "y": 1578.4888044537518,
+      "label_at": "right",
+      "x": -235.9346966502897,
+      "y": -86.3846090606402,
       "size": 50
      },
      "file::quaternionmedia/moat/README.md": {
@@ -660,8 +694,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/moat/main/README.md",
       "line": 0,
       "meta": {},
-      "x": 55.55105456260199,
-      "y": 543.8214562392556,
+      "label_at": "right",
+      "x": -301.65696451442824,
+      "y": -70.0046326239417,
       "size": 30
      },
      "file::quaternionmedia/moat/charts/csi/README.md": {
@@ -673,8 +708,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/moat/main/charts/csi/README.md",
       "line": 0,
       "meta": {},
-      "x": -2727.220924478327,
-      "y": -456.7736563198375,
+      "label_at": "right",
+      "x": 187.69725530518096,
+      "y": -152.89558250989074,
       "size": 30
      },
      "file::quaternionmedia/moat/tower/main.py": {
@@ -686,8 +722,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/moat/main/tower/main.py",
       "line": 0,
       "meta": {},
-      "x": -1468.516679793262,
-      "y": 1372.136817278097,
+      "label_at": "right",
+      "x": -669.5679290505338,
+      "y": 88.76569292144092,
       "size": 30
      }
     },

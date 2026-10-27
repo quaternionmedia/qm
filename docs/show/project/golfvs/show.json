@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "2c4cb112b24658e447a2864b7aed107ab2829276",
+   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
    "digest": "sha256:286919d70d0eb367085ccc78ea14e0dcd13ebd281c5bc282d488a9457c9ca18b"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "e90481932f225b86940e61b2cd062b66a906d8a8"
   },
   "drawn_by": {
-   "graph": "codecartographer@8b1ab6507e6ca37ed72f9b1bd88e31f33a7a1f9b"
+   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
   },
-  "drawn_at": "2026-10-26T17:30:10Z"
+  "drawn_at": "2026-10-26T23:13:31Z"
  },
  "views": {
   "estate": {
@@ -169,10 +169,10 @@
     "subject": "project:golfvs",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "2c4cb11",
+    "commit": "3b94882",
     "provenance": {
      "source": "families.json",
-     "commit": "2c4cb11",
+     "commit": "3b94882",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -218,8 +218,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2458.2419309866923,
-      "y": -447.58282111257535,
+      "label_at": "none",
+      "x": -1411.9484007104988,
+      "y": 0,
       "size": 200
      },
      "dir::quaternionmedia/golfvs/.github": {
@@ -231,8 +232,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2346.0545121273935,
-      "y": -1427.5919711644783,
+      "label_at": "none",
+      "x": -2021.4450541693254,
+      "y": 80.81571203378823,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/.github/workflows": {
@@ -244,8 +246,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3177.559512988968,
-      "y": -1880.52224935377,
+      "label_at": "right",
+      "x": -1955.4450541693252,
+      "y": 80.81571203378823,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons": {
@@ -257,8 +260,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5690.775398251923,
-      "y": 3362.7832817322037,
+      "label_at": "none",
+      "x": -948.3043074377229,
+      "y": 813.4265898659057,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4": {
@@ -270,8 +274,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5960.2231920605145,
-      "y": 3101.8375741246637,
+      "label_at": "none",
+      "x": 1180.9528338559103,
+      "y": -1228.381505829789,
       "size": 80
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/bin": {
@@ -283,8 +288,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3281.015525846935,
-      "y": 2140.766934102176,
+      "label_at": "right",
+      "x": 1246.9528338559103,
+      "y": -1228.381505829789,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src": {
@@ -296,8 +302,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2475.009109969227,
-      "y": 151.71724555701869,
+      "label_at": "none",
+      "x": 303.3205731503981,
+      "y": -306.16707425910704,
       "size": 200
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/asserts": {
@@ -309,8 +316,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3682.5921563027423,
-      "y": -1643.7091058794688,
+      "label_at": "none",
+      "x": 568.0177506388679,
+      "y": -827.8146647231486,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/cmd": {
@@ -322,8 +330,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3013.5919081295174,
-      "y": 1685.1487821665614,
+      "label_at": "right",
+      "x": 369.3205731503981,
+      "y": -306.16707425910704,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core": {
@@ -335,8 +344,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 140.09165242240763,
-      "y": 390.80469771040174,
+      "label_at": "none",
+      "x": -88.45627193605947,
+      "y": 136.39542909172235,
       "size": 190
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/assets": {
@@ -348,8 +358,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3044.771535544155,
-      "y": -1993.4424110784582,
+      "label_at": "right",
+      "x": -22.456271936059466,
+      "y": 136.39542909172235,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/attributes": {
@@ -361,8 +372,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4120.200639885874,
-      "y": -1097.0224373615526,
+      "label_at": "left",
+      "x": -145.84594562210145,
+      "y": 188.96907129206454,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/command": {
@@ -374,8 +386,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 687.6209113709276,
-      "y": 2354.4191421249357,
+      "label_at": "above",
+      "x": -80.75529867770024,
+      "y": 48.64681080702201,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/discovery": {
@@ -387,8 +400,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4719.076061432486,
-      "y": 684.5153626082479,
+      "label_at": "right",
+      "x": -29.275817824620386,
+      "y": 213.58585175647943,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/event": {
@@ -400,8 +414,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2342.2915032798664,
-      "y": -2219.4919933442507,
+      "label_at": "left",
+      "x": -192.49277788443783,
+      "y": 117.9928360664702,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/execution": {
@@ -413,8 +428,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2311.8271702366173,
-      "y": -538.296113614135,
+      "label_at": "none",
+      "x": -469.1977098396194,
+      "y": 635.3130578339459,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/execution/stages": {
@@ -426,8 +442,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2086.112003553344,
-      "y": -487.1410870999957,
+      "label_at": "none",
+      "x": -293.5414789832955,
+      "y": 533.8978856642124,
       "size": 70
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/execution/stages/fuzzed": {
@@ -439,8 +456,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5345.891116090437,
-      "y": 1311.03833820421,
+      "label_at": "right",
+      "x": -227.54147898329552,
+      "y": 533.8978856642124,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/execution/stages/single": {
@@ -452,8 +470,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1163.8952358013978,
-      "y": -2286.1886579958496,
+      "label_at": "left",
+      "x": -350.93115266933796,
+      "y": 586.4715278645546,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/hooks": {
@@ -465,8 +484,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5168.424691299751,
-      "y": -621.8660629176583,
+      "label_at": "right",
+      "x": 7.241397599755828,
+      "y": 75.52040510475479,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/parameters": {
@@ -478,8 +498,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5032.289820348128,
-      "y": 463.69137447084057,
+      "label_at": "below",
+      "x": -119.78716145216278,
+      "y": 252.94477641777883,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/parse": {
@@ -491,8 +512,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4078.6723259891573,
-      "y": 1772.5814119757213,
+      "label_at": "left",
+      "x": -147.24123183981874,
+      "y": 23.208565944476163,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/report": {
@@ -504,8 +526,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1913.719032016757,
-      "y": 2056.057615513289,
+      "label_at": "right",
+      "x": 37.45658577682843,
+      "y": 182.37860278138885,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/runners": {
@@ -517,8 +540,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3493.185192292733,
-      "y": 1262.916260782216,
+      "label_at": "left",
+      "x": -218.0957361843864,
+      "y": 189.90871538033196,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/templates": {
@@ -530,8 +554,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4645.333710043059,
-      "y": 698.8155219996827,
+      "label_at": "none",
+      "x": 254.44233733999678,
+      "y": 136.39542909172235,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/templates/test_suite": {
@@ -543,8 +568,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5749.047434197768,
-      "y": 863.6983847512712,
+      "label_at": "right",
+      "x": 320.4423373399968,
+      "y": 136.39542909172235,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/thread": {
@@ -556,8 +582,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4648.242850011904,
-      "y": 1776.1906019450785,
+      "label_at": "right",
+      "x": -26.494068054316582,
+      "y": 3.9857984370099757,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/core/writers": {
@@ -569,8 +596,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1241.6798548472475,
-      "y": 2450.388792302033,
+      "label_at": "below",
+      "x": -42.99546914811958,
+      "y": 281.3316319876034,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/dotnet": {
@@ -582,8 +610,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4530.232140902599,
-      "y": -1250.240667593093,
+      "label_at": "none",
+      "x": -296.7455711955829,
+      "y": -345.8363193150451,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/doubler": {
@@ -595,8 +624,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5239.950712420594,
-      "y": -328.4811492885547,
+      "label_at": "left",
+      "x": 245.93089946435586,
+      "y": -253.59343205876462,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/extractors": {
@@ -608,8 +638,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -195.10399178151602,
-      "y": -2188.7111289245404,
+      "label_at": "above",
+      "x": 311.0215464087571,
+      "y": -393.91569254380715,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/fuzzers": {
@@ -621,8 +652,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5626.582787579554,
-      "y": -349.04206666824894,
+      "label_at": "right",
+      "x": 362.50102726183695,
+      "y": -228.97665159434996,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/matchers": {
@@ -634,8 +666,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4377.42148542305,
-      "y": 957.4319483909717,
+      "label_at": "left",
+      "x": 199.28406720201974,
+      "y": -324.56966728435896,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/mocking": {
@@ -647,8 +680,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2722.3375589929697,
-      "y": 2087.455381611285,
+      "label_at": "right",
+      "x": 399.0182426862134,
+      "y": -367.0420982460744,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/monitor": {
@@ -660,8 +694,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1822.4838874574687,
-      "y": 2440.9798550711953,
+      "label_at": "below",
+      "x": 271.9896836342946,
+      "y": -189.61772693305045,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/network": {
@@ -673,8 +708,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3269.1308111057324,
-      "y": 851.6491751118417,
+      "label_at": "none",
+      "x": 383.67850199601617,
+      "y": -614.4065078739111,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/network/rpc": {
@@ -686,8 +722,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4890.5953104402715,
-      "y": 1197.4760557968275,
+      "label_at": "right",
+      "x": 449.67850199601617,
+      "y": -614.4065078739111,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/reporters": {
@@ -699,8 +736,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2122.6068421386576,
-      "y": -3997.5476712877376,
+      "label_at": "none",
+      "x": 1293.5735661820163,
+      "y": -644.3285811988576,
       "size": 80
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/console": {
@@ -712,8 +750,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4255.164675345159,
-      "y": -1709.0696982855445,
+      "label_at": "right",
+      "x": 1359.5735661820163,
+      "y": -644.3285811988576,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/html": {
@@ -725,8 +764,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2226.98734281243,
-      "y": -4181.1457533480025,
+      "label_at": "none",
+      "x": 766.5234109980229,
+      "y": -222.9318783227293,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/html/template": {
@@ -738,8 +778,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1791.4849897820482,
-      "y": -4142.5074053148865,
+      "label_at": "none",
+      "x": 1166.679302480918,
+      "y": -342.7966218991012,
       "size": 90
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/html/template/css": {
@@ -751,8 +792,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1605.1825190750487,
-      "y": -3276.0939497246072,
+      "label_at": "none",
+      "x": 1053.3934294032756,
+      "y": -146.57973394882526,
       "size": 70
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/xml": {
@@ -764,8 +806,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2360.227664662469,
-      "y": -1885.656691476384,
+      "label_at": "left",
+      "x": 1236.1838924959743,
+      "y": -591.7549389985154,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/spy": {
@@ -777,8 +820,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4431.281172257936,
-      "y": 1474.2090241071742,
+      "label_at": "left",
+      "x": 244.5356132466386,
+      "y": -419.353937406353,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/ui": {
@@ -790,8 +834,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 776.8014921764433,
-      "y": -107.99014957164086,
+      "label_at": "none",
+      "x": -6.88405817225066,
+      "y": -485.2638016571066,
       "size": 100
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/ui/menu": {
@@ -803,8 +848,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4333.995486852031,
-      "y": 1360.8094213942418,
+      "label_at": "right",
+      "x": 59.11594182774934,
+      "y": -485.2638016571066,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/ui/parts": {
@@ -816,8 +862,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5423.469789367873,
-      "y": 567.3052258663373,
+      "label_at": "left",
+      "x": -64.27373185829288,
+      "y": -432.69015945676415,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/ui/settings": {
@@ -829,8 +876,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5567.300194257793,
-      "y": -31.32066414280526,
+      "label_at": "above",
+      "x": 0.8169150861085654,
+      "y": -573.0124199418069,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/ui/templates": {
@@ -842,8 +890,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4512.6246925417245,
-      "y": -988.0587351544742,
+      "label_at": "right",
+      "x": 52.296395939188415,
+      "y": -408.0733789923495,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/ui/utils": {
@@ -855,8 +904,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4218.38335283951,
-      "y": -1586.7930152006265,
+      "label_at": "left",
+      "x": -110.92056412062881,
+      "y": -503.6663946823587,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/update": {
@@ -868,8 +918,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1465.3477894501395,
-      "y": -1607.736705336056,
+      "label_at": "none",
+      "x": 139.25214895199701,
+      "y": -798.5036505394085,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/addons/gdUnit4/src/update/assets": {
@@ -881,8 +932,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1283.477290179596,
-      "y": -1691.081291075129,
+      "label_at": "right",
+      "x": 205.25214895199676,
+      "y": -798.5036505394085,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/art": {
@@ -894,8 +946,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5498.748997774109,
-      "y": -826.6631272763556,
+      "label_at": "left",
+      "x": -1469.3380743965408,
+      "y": 52.573642200342285,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/async": {
@@ -907,8 +960,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -46.41798636921277,
-      "y": 2319.4368597366547,
+      "label_at": "above",
+      "x": -1404.2474274521398,
+      "y": -87.74861828470029,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/audio": {
@@ -920,8 +974,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -2392.708912956206,
-      "y": -2126.9663299395247,
+      "label_at": "right",
+      "x": -1352.7679465990598,
+      "y": 77.19042266475712,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/clubs": {
@@ -933,8 +988,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1665.857110528495,
-      "y": -2157.592904266574,
+      "label_at": "left",
+      "x": -1515.9849066588772,
+      "y": -18.402593025252088,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/core": {
@@ -946,8 +1002,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1966.737702454529,
-      "y": 2340.4475747933598,
+      "label_at": "none",
+      "x": -1475.9903604861936,
+      "y": -628.8027784917484,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/core/stroke": {
@@ -959,8 +1016,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1721.86445790351,
-      "y": 2364.612960285076,
+      "label_at": "right",
+      "x": -1409.9903604861936,
+      "y": -628.8027784917484,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/defenders": {
@@ -972,8 +1030,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2765.2611022822875,
-      "y": -111.87143381909601,
+      "label_at": "none",
+      "x": -1735.8343761378603,
+      "y": -80.63674373090655,
       "size": 80
      },
      "dir::quaternionmedia/golfvs/defenders/_base": {
@@ -985,8 +1044,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5783.525012343612,
-      "y": 263.6250984533603,
+      "label_at": "right",
+      "x": -1669.8343761378603,
+      "y": -80.63674373090655,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/defenders/archery": {
@@ -998,8 +1058,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3542.723513567504,
-      "y": 2093.212722387218,
+      "label_at": "left",
+      "x": -1793.224049823902,
+      "y": -28.06310153056426,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/defenders/skeet": {
@@ -1011,8 +1072,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 370.81968228766107,
-      "y": -2331.0504857645965,
+      "label_at": "above",
+      "x": -1728.1334028795009,
+      "y": -168.38536201560683,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/docs": {
@@ -1024,8 +1086,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -12774.810924305708,
-      "y": -1083.510692571351,
+      "label_at": "none",
+      "x": -1701.1627556477904,
+      "y": -412.8849780306176,
       "size": 120
      },
      "dir::quaternionmedia/golfvs/holes": {
@@ -1037,8 +1100,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -3790.029230333108,
-      "y": 194.8933560436065,
+      "label_at": "none",
+      "x": -1988.0868668955345,
+      "y": -290.42005046572126,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/holes/range": {
@@ -1050,8 +1114,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5327.650028649969,
-      "y": 231.05328718125503,
+      "label_at": "right",
+      "x": -1922.0868668955343,
+      "y": -290.42005046572126,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/records": {
@@ -1063,8 +1128,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1968.0448134909639,
-      "y": -2075.9032853244616,
+      "label_at": "right",
+      "x": -1316.2507311746836,
+      "y": -60.87502398696755,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/replay": {
@@ -1076,8 +1142,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4922.011468842605,
-      "y": -687.4960422494948,
+      "label_at": "below",
+      "x": -1443.2792902266021,
+      "y": 116.54934732605639,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/tests": {
@@ -1089,8 +1156,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1078.5251266077876,
-      "y": -73.01122665289672,
+      "label_at": "none",
+      "x": -1821.0013226436797,
+      "y": 443.49667021473635,
       "size": 120
      },
      "dir::quaternionmedia/golfvs/tests/core": {
@@ -1102,8 +1170,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 2668.1857336658136,
-      "y": 1997.636477235416,
+      "label_at": "right",
+      "x": -1755.0013226436797,
+      "y": 443.49667021473635,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/tests/defenders": {
@@ -1115,8 +1184,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -325.0095853052844,
-      "y": 2508.3305553992445,
+      "label_at": "left",
+      "x": -1878.3909963297215,
+      "y": 496.0703124150786,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/tests/fixtures": {
@@ -1128,8 +1198,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3812.549282171704,
-      "y": -1619.168949186689,
+      "label_at": "none",
+      "x": -1516.5825741935223,
+      "y": 443.49667021473635,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/tests/fixtures/records": {
@@ -1141,8 +1212,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3608.07775583351,
-      "y": -1528.8457280917405,
+      "label_at": "right",
+      "x": -1450.5825741935223,
+      "y": 443.49667021473635,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/tests/holes": {
@@ -1154,8 +1226,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -558.970595054313,
-      "y": -2386.354544370796,
+      "label_at": "above",
+      "x": -1813.3003493853203,
+      "y": 355.74805193003607,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/tests/records": {
@@ -1167,8 +1240,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 4619.524724854858,
-      "y": 1105.9179003548666,
+      "label_at": "right",
+      "x": -1761.8208685322402,
+      "y": 520.6870928794934,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/tests/stroke": {
@@ -1180,8 +1254,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -4871.706457729097,
-      "y": -948.7039002453719,
+      "label_at": "left",
+      "x": -1925.0378285920576,
+      "y": 425.0940771894843,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/tests/ui": {
@@ -1193,8 +1268,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 5013.466971206491,
-      "y": -1305.0579831526004,
+      "label_at": "right",
+      "x": -1725.3036531078642,
+      "y": 382.6216462277688,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/tools": {
@@ -1206,8 +1282,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -5071.628567492097,
-      "y": -17.082213086872862,
+      "label_at": "none",
+      "x": -1250.2881861148867,
+      "y": 684.8337465778469,
       "size": 60
      },
      "dir::quaternionmedia/golfvs/ui": {
@@ -1219,8 +1296,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 1188.563325663029,
-      "y": 1776.0130350339675,
+      "label_at": "none",
+      "x": -1390.15478875357,
+      "y": -322.78254646733177,
       "size": 70
      },
      "dir::quaternionmedia/golfvs/ui/menu": {
@@ -1232,8 +1310,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": 3758.4250586629437,
-      "y": 1808.7764060944141,
+      "label_at": "right",
+      "x": -1324.15478875357,
+      "y": -322.78254646733177,
       "size": 50
      },
      "dir::quaternionmedia/golfvs/ui/signals": {
@@ -1245,8 +1324,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "x": -1069.1311991611851,
-      "y": 2264.8244125826754,
+      "label_at": "left",
+      "x": -1447.5444624396123,
+      "y": -270.20890426698946,
       "size": 50
      },
      "file::quaternionmedia/golfvs/README.md": {
@@ -1258,8 +1338,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/README.md",
       "line": 0,
       "meta": {},
-      "x": -2263.386215135193,
-      "y": -335.08282111257535,
+      "label_at": "right",
+      "x": -1345.9484007104988,
+      "y": 0,
       "size": 30
      },
      "file::quaternionmedia/golfvs/addons/gdUnit4/runtest.sh": {
@@ -1271,8 +1352,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/addons/gdUnit4/runtest.sh",
       "line": 0,
       "meta": {},
-      "x": -5765.367476209016,
-      "y": 3214.3375741246637,
+      "label_at": "left",
+      "x": 1123.5631601698678,
+      "y": -1175.8078636294465,
       "size": 30
      },
      "file::quaternionmedia/golfvs/addons/gdUnit4/src/asserts/CLAUDE.md": {
@@ -1284,8 +1366,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/addons/gdUnit4/src/asserts/CLAUDE.md",
       "line": 0,
       "meta": {},
-      "x": -3487.7364404512437,
-      "y": -1531.2091058794688,
+      "label_at": "right",
+      "x": 622.0177506388679,
+      "y": -827.8146647231486,
       "size": 30
      },
      "file::quaternionmedia/golfvs/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs": {
@@ -1297,8 +1380,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
       "line": 0,
       "meta": {},
-      "x": -4335.376425051099,
-      "y": -1137.740667593093,
+      "label_at": "right",
+      "x": -242.7455711955829,
+      "y": -345.8363193150451,
       "size": 30
      },
      "file::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css": {
@@ -1310,8 +1394,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
       "line": 0,
       "meta": {},
-      "x": 1800.0382349265476,
-      "y": -3163.5939497246072,
+      "label_at": "right",
+      "x": 1107.393429403276,
+      "y": -146.57973394882526,
       "size": 30
      },
      "file::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/html/template/css/styles.css": {
@@ -1323,8 +1408,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
       "line": 0,
       "meta": {},
-      "x": 1410.32680322355,
-      "y": -3388.5939497246072,
+      "label_at": "left",
+      "x": 1009.120199897668,
+      "y": -106.02182905786992,
       "size": 30
      },
      "file::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/html/template/folder_report.html": {
@@ -1336,8 +1422,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/addons/gdUnit4/src/reporters/html/template/folder_report.html",
       "line": 0,
       "meta": {},
-      "x": 1986.3407056335468,
-      "y": -4030.007405314887,
+      "label_at": "right",
+      "x": 1220.679302480918,
+      "y": -342.7966218991012,
       "size": 30
      },
      "file::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/html/template/index.html": {
@@ -1349,8 +1436,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/addons/gdUnit4/src/reporters/html/template/index.html",
       "line": 0,
       "meta": {},
-      "x": 1596.6292739305495,
-      "y": -4030.007405314887,
+      "label_at": "left",
+      "x": 1122.40607297531,
+      "y": -302.2387170081456,
       "size": 30
      },
      "file::quaternionmedia/golfvs/addons/gdUnit4/src/reporters/html/template/suite_report.html": {
@@ -1362,8 +1450,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/addons/gdUnit4/src/reporters/html/template/suite_report.html",
       "line": 0,
       "meta": {},
-      "x": 1791.4849897820482,
-      "y": -4367.5074053148865,
+      "label_at": "above",
+      "x": 1172.4082729324864,
+      "y": -408.0752853165229,
       "size": 30
      },
      "file::quaternionmedia/golfvs/docs/ART_PIPELINE.md": {
@@ -1375,8 +1464,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/docs/ART_PIPELINE.md",
       "line": 0,
       "meta": {},
-      "x": -12529.623874862395,
-      "y": -941.9518835734445,
+      "label_at": "right",
+      "x": -1647.1627556477906,
+      "y": -412.8849780306176,
       "size": 30
      },
      "file::quaternionmedia/golfvs/docs/CONTRIBUTING.md": {
@@ -1388,8 +1478,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/docs/CONTRIBUTING.md",
       "line": 0,
       "meta": {},
-      "x": -12732.614432925211,
-      "y": -803.5552644496609,
+      "label_at": "left",
+      "x": -1745.4359851533984,
+      "y": -372.3270731396622,
       "size": 30
      },
      "file::quaternionmedia/golfvs/docs/DECISIONS.md": {
@@ -1401,8 +1492,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/docs/DECISIONS.md",
       "line": 0,
       "meta": {},
-      "x": -12967.3798096491,
-      "y": -875.9707927515184,
+      "label_at": "above",
+      "x": -1695.4337851962223,
+      "y": -478.1636414480396,
       "size": 30
      },
      "file::quaternionmedia/golfvs/docs/DESIGN.md": {
@@ -1414,8 +1506,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/docs/DESIGN.md",
       "line": 0,
       "meta": {},
-      "x": -13057.136888020023,
-      "y": -1104.6680986601436,
+      "label_at": "right",
+      "x": -1658.2120247292792,
+      "y": -356.86335529826863,
       "size": 30
      },
      "file::quaternionmedia/golfvs/docs/HANDOFF.md": {
@@ -1427,8 +1520,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/docs/HANDOFF.md",
       "line": 0,
       "meta": {},
-      "x": -12934.296757313941,
-      "y": -1317.433446251476,
+      "label_at": "left",
+      "x": -1775.3258031279017,
+      "y": -426.00337688347923,
       "size": 30
      },
      "file::quaternionmedia/golfvs/docs/LANES.md": {
@@ -1440,8 +1534,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/docs/LANES.md",
       "line": 0,
       "meta": {},
-      "x": -12691.360541434551,
-      "y": -1354.050189167099,
+      "label_at": "right",
+      "x": -1633.866658709063,
+      "y": -455.69324635361096,
       "size": 30
      },
      "file::quaternionmedia/golfvs/docs/RECORD_SCHEMA.md": {
@@ -1453,8 +1548,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/docs/RECORD_SCHEMA.md",
       "line": 0,
       "meta": {},
-      "x": -12511.264165934726,
-      "y": -1186.9451731461152,
+      "label_at": "below",
+      "x": -1722.9608234180778,
+      "y": -331.79725243986024,
       "size": 30
      },
      "file::quaternionmedia/golfvs/tools/check_docs_consistency.py": {
@@ -1466,8 +1562,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/golfvs/main/tools/check_docs_consistency.py",
       "line": 0,
       "meta": {},
-      "x": -4876.772851640599,
-      "y": 95.41778691312712,
+      "label_at": "right",
+      "x": -1196.2881861148867,
+      "y": 684.8337465778469,
       "size": 30
      }
     },
