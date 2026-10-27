@@ -5,10 +5,10 @@ CI kept to the governance checks, lint and the walkthrough's hermetic pages, eac
 priced and authorised, and the whole suite run on the contributor's machine on the
 tree that lands, every test inside its time bound.
 
-**Stamped 2026-10-26.** apothecary `main` at `0efed96`, tree `231e026`: the stack of
-2026-09-19 to 2026-10-24 landed, #21 to #98 with #99 and #100, then #101 to #103. Open
-in apothecary: #104, ready on `main`, and #105, a draft stacked on it.
-apothecary pins `qm` at `baec440`, #211's head. `qm` `main` at `3b94882`. Every figure
+**Stamped 2026-10-26.** apothecary `main` at `a067786`, tree `88a14d7`: the stack of
+2026-09-19 to 2026-10-24 landed, #21 to #98 with #99 and #100, then #101 to #103, #104
+and #105, and #106. Nothing is open in apothecary. apothecary pins `qm` at `baec440`,
+#211's head. `qm` `main` at `a3fe2be`. Every figure
 here was true at those commits. Re-derive each with `gh` and the tree before acting on
 it.
 
@@ -21,7 +21,9 @@ it.
    holds which workflow runs when. (2026-10-24; the walkthrough 2026-10-25, #103)
 2. **A merge skips no CI.** Its push to `main` runs the same checks again: the default
    branch's run the walkthrough record counts (`records/DRAFT-one-executable-walkthrough.md`,
-   decision 7). (2026-10-25)
+   decision 7) for a hermetic page. A runtime-bound page's evidence is the run its
+   version tag makes; between tags it has the merge's claim. (2026-10-25; the tag
+   2026-10-26, qm #252)
 3. **The whole suite runs on the machine before a merge, on the tree that lands.**
    `apothecary test all` -- the unit tests, the walkthrough and every browser test --
    on the pull request's head merged onto `main`'s tip: before it is marked ready,
@@ -54,14 +56,18 @@ it.
    -- and made once a person has authorised that number, for that push. A pushed
    level costs about a minute and a half of runner time, seven to eleven minutes
    under GitHub's per-job rounding; a push that ran the test workflow cost some
-   twenty-five. Dependabot opens grouped security updates alone (#105). The
-   spending record says this as drafted (qm #273). (2026-10-25)
+   twenty-five. A bot's push or pull request starts no job until a person re-runs
+   it: every job a pull request or a push to a branch other than `main` can start
+   runs only when the run's triggering actor is not a bot (#106). Dependabot opens
+   grouped security updates alone (#105). The spending record says this (qm #273).
+   (2026-10-25; the bot 2026-10-26)
 
 ## 2. How the stack landed
 
 - #21 to #40 one level at a time, each tested on its own landing tree; #42 to #98 as
   one run on the final tree (decision 4); #101 to #103 the same way, their merges the
-  first since 2026-08-12 to run CI on `main`, each push run passing.
+  first since 2026-08-12 to run CI on `main`, each push run passing; #104 and #105 the
+  same way, then #106, each landed tree the one the suite passed on.
 - #100 put the lock's fixed `pillow` and `certifi` on `main` first: `pip-audit` found
   advisories against the lock every level below #66 carried.
 - #50's branch marks each line of the timeless sweep's plan that quotes a flagged
@@ -82,12 +88,6 @@ it.
   into `project/apothecary`. Kept, and landed by other sessions; this page takes it as
   landing. apothecary pins `baec440`, #211's head, which no other ref carries: #211's
   branch stays until the pin moves to `project/apothecary`'s tip, after the chain lands.
-- **qm #252**: the walkthrough record's decision 7, a runtime-bound page's evidence the
-  run its version tag makes. It pends on a person's ruling.
-- **qm #273**: the spending record, a cloud CI runner's time as a paid service. It
-  pends on a mechanism by which a bot's pull request starts no job until a person
-  starts it.
-- **The retrospective**, qm #237, a perspective staged for `main`.
 - **The review cycle at ten times the requests**: drafted, not on origin. Its merge
   queue is unattended spend under decision 7: a batch bisected on what it finds is a
   count nobody stated before it ran.
@@ -115,6 +115,9 @@ it.
   the recorded caps are CI's alone.
 - **xdist's loadfile scheduler waits forever on a crashed worker's file** when a
   worker is started in its place; `--max-worker-restart 0` ends the run instead.
+- **`apothecary preflight` fails `signature-check.yml` before a push**: the workflow
+  asks the host (`--source host`) about commits it has not received.
+  `check_signatures.py --source git` is the check on the machine.
 - **A commit message carrying the skip marker**, even quoted inside its body, starts
   no workflow on that head. #103's first head ran none.
 - **A pushed head reaches its pull request a moment later**, and a fetch that moves
@@ -129,6 +132,6 @@ it.
 
 The final trees' runs passed on the machine that landed them: the unit and walkthrough
 tests, and every browser test but the doc-capture ones. In CI, `main`'s tree has run
-the governance checks, lint and the walkthrough's hermetic pages (#103's push). Its
-runtime-bound pages have not run in CI; a version tag is where they do, and qm #252
-asks whether that is their evidence.
+the governance checks, lint and the walkthrough's hermetic pages (each merge's push
+since #103). Its runtime-bound pages have not run in CI: a version tag is where they
+do and is their evidence (qm #252), and none has been cut since.
