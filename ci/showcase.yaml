@@ -87,8 +87,12 @@ projects:
     - path: docs/media/chord-input.png
       caption: The demo after chord input, with its latency readouts filled in.
   apothecary:
-    - path: docs/assets/fractal-viewer-walkthrough.gif
-      caption: The fractal viewer walking a garage layout and what it holds.
+    - path: walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png
+      caption: The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.
+    - path: walkthrough/screenshots/04-03-apply-draws-the-variant-marked-as-not-saved.png
+      caption: A calibration cube's size moved and applied, drawn as a variant not yet saved, its SCAD beside it.
+    - path: walkthrough/screenshots/03-10-turned-by-its-ring-the-camera-takes-a-second-pictu.png
+      caption: A camera over the bench, its picture on the workbench with the shapes found in it.
 details:
   alfred:
     lede: >-
@@ -183,3 +187,102 @@ details:
           text: The Golden Layout panel shell alfred's editor shares.
         - name: the org's .github workflows
           text: The reusable CI workflows alfred's own CI calls.
+  apothecary:
+    lede: >-
+      Parts written as OpenSCAD from Python, and a viewer in the browser that
+      zooms from a site down to any part in it. The printer, the boards, the
+      slicer and the camera that make a part real work from the same page, on
+      this machine.
+    try:
+      run:
+        - git clone --recurse-submodules https://github.com/quaternionmedia/apothecary.git
+        - cd apothecary && uv sync
+        - uv run apothecary serve --demo
+      then: Then open `127.0.0.1:6283/viewer`. The demo's printer and devkit are simulated, so nothing real is touched.
+    picture:
+      path: walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png
+      caption: The garage, the world on the left with the workbench, printer_1 and a board, and the site's tree, Selected and Pictures as windows beside it.
+    steps:
+      eyebrow: four loops, each round twice
+      title: How a part gets made
+      items:
+        - name: Design
+          text: Move a part's sizes in Parameters; each is checked once the slider rests, and Apply draws the variant.
+          picture:
+            path: walkthrough/screenshots/04-02-a-size-dragged-is-checked-once-the-slider-rests.png
+            caption: A size dragged in Parameters and checked once the slider rests, the part's SCAD beside it.
+        - name: Edit its SCAD
+          text: Change the part's OpenSCAD in its SCAD window; a failing line is marked once typing stops, and Save keeps the change as a variant in git.
+          picture:
+            path: walkthrough/screenshots/06-02-a-failing-line-is-checked-once-typing-stops-and-ma.png
+            caption: A failing assertion marked on its line in the SCAD window, the part not drawn again until it reads.
+        - name: A picture to a print
+          text: Stand a camera over the bench and take its picture, find the shapes in it, make one a piece, then slice it for printer_1 and print it.
+          picture:
+            path: walkthrough/screenshots/03-07-slice-in-printer-1-s-machine-slices-the-piece-and-.png
+            caption: The Print card in printer_1's Machine, the piece sliced by OrcaSlicer and ready to stream.
+        - name: Firmware
+          text: Choose a sketch on the Bench, build and flash it to an ESP32 devkit, and hear it say hello in the board's Machine, in Arduino or in Rust.
+          picture:
+            path: walkthrough/screenshots/05-04-the-board-s-machine-hears-it-say-hello.png
+            caption: esp32_blink flashed to the devkit, its hello heard in the board's Machine.
+    features:
+      - eyebrow: the workspace
+        title: Windows, and a ring for every verb
+        text: >-
+          Every section of the page is a window docked with Golden Layout, the
+          shell alfred's editor and codecartographer use: a tab drags to move
+          it, ⊞ Windows opens a closed one, and a view lays several out
+          together. On anything in the world, `m` or Ctrl and right-click opens
+          the ring, which holds every verb of what it opens on, each at an
+          address the digits reach.
+        pictures:
+          - path: walkthrough/screenshots/06-01-part-edit-and-the-part-view-lays-the-part-out.png
+            caption: Part view, Selected and Parameters beside the part's SCAD, with the world on the left.
+      - eyebrow: photographs
+        title: Photographs into pieces
+        text: >-
+          `apothecary photo view` finds the shapes in a photograph and stands
+          them in the viewer as named pieces, sized from the picture's width in
+          the world.
+        pictures:
+          - path: walkthrough/screenshots/01-12-the-arrangement-opens-in-the-viewer.png
+            caption: Four shapes found in a photograph, standing in the viewer as named pieces.
+      - eyebrow: on this machine
+        title: Personal data stays on the device
+        text: >-
+          The server answers this machine only, and the process connects to
+          nothing but a tool's publisher, when that tool is installed. A
+          lighting console's levels may arrive, each on one UDP port, and are
+          never answered. Under `serve --demo` the printer and the devkit are
+          simulated and no real serial port is opened.
+    built:
+      title: A library, a server and a page
+      text: >-
+        apothecary describes parts and scenes as Pydantic models and writes
+        them as OpenSCAD; a part may also be OpenSCAD of its own, its
+        customizer's parameters read as its parameters. The server renders,
+        slices and drives the boards, and the page draws all of it.
+      parts:
+        - name: the browser
+          via: over HTTP, to apothecary
+          text: A three.js world and Golden Layout windows, with the ring for every verb.
+        - name: apothecary
+          via: the server and the command line
+          text: FastAPI and Click over the parts library and the scene models, with each site's state kept on this machine.
+        - name: OpenSCAD
+          via: run by apothecary, a snapshot with Manifold
+          text: Every part's STL, and every check of its SCAD.
+        - name: OrcaSlicer
+          via: run by apothecary, at a pinned release
+          text: Slices a part or a made piece for the printer it is pinned to.
+        - name: the printer and the boards
+          via: over serial, or simulated under the demo
+          text: An Ender 3 on Marlin, streamed G-code a line at a time; an ESP32 devkit, flashed with arduino-cli or espflash.
+      beside:
+        - name: datum
+          text: A project whose parts library extends apothecary's.
+        - name: codecartographer
+          text: Draws apothecary's estate and code on this page.
+        - name: qm
+          text: The constitution apothecary is governed by, pinned as its governance submodule.
