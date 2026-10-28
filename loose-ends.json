@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-28T17:02:23Z",
+  "generated_at": "2026-10-28T17:03:20Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -29,7 +29,7 @@
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-10-25T01:05:55Z"
+        "generated_at": "2026-10-28T17:02:24Z"
       }
     }
   },
@@ -84,7 +84,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-docs-audit",
       "title": "docs-audit cannot see",
-      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest.",
+      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest. Of the generated pages it sees only whether they match their sources: not whether a showcase caption describes its picture, nor whether a showgraph was drawn from the commits its project is at.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-audit",
       "address_parses": true
     },
