@@ -1687,8 +1687,12 @@ def main(argv: list[str] | None = None) -> int:
         for problem in stale:
             print(f"  {problem}", file=sys.stderr)
         if stale:
+            # The command that wrote these pages, so a site page is not sent to
+            # the walkthrough's default directory.
+            again = " ".join(["uv run qm cookbook", out.as_posix(),
+                              *(["--site"] if args.site else []), "--write"])
             print(f"\ncookbook: {len(stale)} page(s) no longer describe this disk. "
-                  f"Regenerate with `uv run qm cookbook --write`.", file=sys.stderr)
+                  f"Regenerate with `{again}`.", file=sys.stderr)
             return 1
         print(f"cookbook: {len(files)} page(s) still describe this disk.")
         return 0

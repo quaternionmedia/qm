@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-27T02:07:07Z",
+  "generated_at": "2026-10-28T17:02:23Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,7 +25,7 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-27T02:07:06Z"
+        "generated_at": "2026-10-28T17:02:22Z"
       },
       "gates": {
         "document": "status/gates.yaml",
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 287,
+    "loose_ends": 288,
     "by_kind": {
       "blind-spot": 20,
-      "document-proposed": 39,
+      "document-proposed": 40,
       "document-unreviewed": 90,
       "stalled-thread": 138
     },
-    "open": 287,
+    "open": 288,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -262,6 +262,14 @@
       "title": "records/DRAFT-a-principle-is-addressed-by-its-name.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-principle-is-addressed-by-its-name",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn",
+      "title": "records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn",
       "address_parses": true
     },
     {

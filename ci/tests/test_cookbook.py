@@ -1086,3 +1086,16 @@ def test_the_families_index_shows_the_whole_corpus_with_every_node_and_no_name(t
     assert "](../show/index/full.svg)" in index
     assert ("<figcaption><strong>Every node.</strong> The whole corpus again, every node drawn and "
             "nothing written on it.</figcaption>") in index
+
+
+def test_a_stale_page_names_the_command_that_writes_it(tmp_path, monkeypatch, capsys):
+    """The remedy is the command that wrote the page. A site page sent to the
+    walkthrough's default directory is regenerated somewhere nobody reads."""
+    monkeypatch.setattr(cookbook, "build", lambda out, site=False: {"a.md": "fresh\n"})
+    (tmp_path / "a.md").write_text("old\n", encoding="utf-8")
+
+    assert cookbook.main([str(tmp_path), "--site", "--check"]) == 1
+    assert f"`uv run qm cookbook {tmp_path.as_posix()} --site --write`" in capsys.readouterr().err
+
+    assert cookbook.main([str(tmp_path), "--check"]) == 1
+    assert f"`uv run qm cookbook {tmp_path.as_posix()} --write`" in capsys.readouterr().err
