@@ -72,7 +72,8 @@ onboarding.
 - **`joe`'s README and cookbook.** `joe` #33, the transcript lane, and #34
   merged on 2026-10-26, re-derived at `joe` `474307f`. The README and cookbook
   pull requests that replace the closed #24 and #25 follow them.
-  `voice-set-landing.md` §3 says what done is for each.
+  `voice-set-landing.md` §3 says what done is for each; `joe`'s pull requests
+  opened after the set are [`joe-open-set.md`](joe-open-set.md)'s.
 - **A person at the microphone.** Every take so far was scripted, which says
   nothing about a real one. *Done* is tier 3 of `qmcp`'s
   `docs/voice-loop-demo.md` -- `uv run joe dev`, `uv run qmcp serve --converse
