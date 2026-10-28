@@ -34,19 +34,19 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/Cuelist-python/estate.svg)](../show/project/Cuelist-python/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← codecartographer](codecartographer.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [datum →](datum.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/Cuelist-python/code.svg)](../show/project/Cuelist-python/code.svg)
+[![Its code: its default branch, by directory, file, symbol and member](../show/project/Cuelist-python/code.svg)](../show/project/Cuelist-python/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file, symbol and member.<br>[← codecartographer](codecartographer.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [datum →](datum.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. Cuelist-python declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and Cuelist-python's default branch at `e891a76`, on 2026-10-26. [The show document](../show/project/Cuelist-python/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and Cuelist-python's default branch at `e891a76`, on 2026-10-27. [The show document](../show/project/Cuelist-python/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

@@ -34,19 +34,19 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/leo/estate.svg)](../show/project/leo/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← joe](joe.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [looksatwords →](looksatwords.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/leo/code.svg)](../show/project/leo/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/leo/code.svg)](../show/project/leo/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← joe](joe.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [looksatwords →](looksatwords.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. leo's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and leo's default branch at `9305c59`, on 2026-10-26. [The show document](../show/project/leo/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and leo's default branch at `9305c59`, on 2026-10-27. [The show document](../show/project/leo/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

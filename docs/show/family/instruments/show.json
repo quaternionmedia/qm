@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:31f568e83dbb18e359699d1f6b98e80b0a50bfdedf475f87538ef77189571e3a"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -526,10 +526,10 @@
     "subject": "family:instruments",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

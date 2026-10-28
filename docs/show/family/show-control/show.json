@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:135b3d18a41a9af4dafca5c486339cda0997bd8eb11cda154920841f2019e9b2"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -30,7 +30,7 @@
        "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
        "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
        "show": "family:show-control",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 0,
        "x": 0,
        "y": 0,
@@ -52,7 +52,7 @@
        "click": "<p><b>ShowRunner</b> — Show control for live performances</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
        "show": "project:ShowRunner",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": 36.00000000000001,
        "y": -86.91168824543142,
@@ -74,7 +74,7 @@
        "click": "<p><b>Cuelist-python</b> — Python helpers for Cuelist (thecuelist.com) and plugin for ShowRunner</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
        "show": "project:Cuelist-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": 86.91168824543142,
        "y": -36,
@@ -96,7 +96,7 @@
        "click": "<p><b>QLab-python</b> — QLab interface for Python</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:QLab-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": 86.91168824543142,
        "y": 36,
@@ -118,7 +118,7 @@
        "click": "<p><b>TheatreMix-python</b> — Python components for interacting with TheatreMix</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
        "show": "project:TheatreMix-python",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": 36.00000000000001,
        "y": 86.91168824543142,
@@ -140,7 +140,7 @@
        "click": "<p><b>cesar</b> — A unified lighting / sound / video controller for theatrical applications</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:cesar",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": -35.99999999999999,
        "y": 86.91168824543142,
@@ -164,7 +164,7 @@
        "click": "<p><b>ira</b> — LED controller, designed for live theater</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in irl.</p>",
        "show": "project:ira",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": -86.91168824543142,
        "y": 35.99999999999997,
@@ -204,7 +204,7 @@
        "click": "<p><b>ShowStopper</b> — Stopwatch geared towards tracking need for the performing arts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:ShowStopper",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": -86.9116882454314,
        "y": -36.00000000000003,
@@ -226,7 +226,7 @@
        "click": "<p><b>aes</b> — AES67 scripts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:aes",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "depth": 1,
        "x": -36.00000000000005,
        "y": -86.91168824543139,
@@ -410,10 +410,10 @@
     "subject": "family:show-control",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

@@ -34,23 +34,23 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/moat/estate.svg)](../show/project/moat/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← midiphonor](midiphonor.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [otto →](otto.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/moat/code.svg)](../show/project/moat/code.svg)
+[![Its code: its default branch, by directory, file, symbol and member](../show/project/moat/code.svg)](../show/project/moat/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file, symbol and member.<br>[← midiphonor](midiphonor.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [otto →](otto.md#showgraph-code)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-system" markdown>
 
 [![Its system: the system its own declarations describe](../show/project/moat/system.png)](../show/project/moat/system.png)
 
@@ -60,7 +60,7 @@ the graphs codecarto draws
 
 </div>
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and moat's default branch at `16a595a`, on 2026-10-26. [The show document](../show/project/moat/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and moat's default branch at `16a595a`, on 2026-10-27. [The show document](../show/project/moat/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

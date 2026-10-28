@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:6c21c4a588c1ff56634b4cb0c5021a72e8f3328c26699ebdbe91b2e80ed6fd42"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "414be1c9dad7a4e314e1334c37e59ed713f1a75d"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -309,10 +309,10 @@
     "subject": "project:dossier",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -5650,6 +5650,7 @@
    "metadata": {
     "url": "https://github.com/quaternionmedia/dossier",
     "depth": 1,
+    "floor": 100,
     "truncated": 0
    }
   },

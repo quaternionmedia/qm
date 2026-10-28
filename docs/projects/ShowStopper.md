@@ -34,19 +34,19 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/ShowStopper/estate.svg)](../show/project/ShowStopper/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← ShowRunner](ShowRunner.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [stomp →](stomp.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/ShowStopper/code.svg)](../show/project/ShowStopper/code.svg)
+[![Its code: its default branch, by directory, file, symbol and member](../show/project/ShowStopper/code.svg)](../show/project/ShowStopper/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file, symbol and member.<br>[← ShowRunner](ShowRunner.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [stomp →](stomp.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. ShowStopper declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and ShowStopper's default branch at `51f8b13`, on 2026-10-26. [The show document](../show/project/ShowStopper/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and ShowStopper's default branch at `51f8b13`, on 2026-10-27. [The show document](../show/project/ShowStopper/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

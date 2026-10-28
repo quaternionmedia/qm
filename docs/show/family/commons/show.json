@@ -7,13 +7,13 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:35d8a3b49438dc5d39e2f3725df15b83cb91ca0226fd7a4d49de1a65d5fc3212"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -30,7 +30,7 @@
        "hover": "commons — drives the public — open information a community reads and adds to: maps, records, public data",
        "click": "<p>The <b>commons</b> family drives the public — open information a community reads and adds to: maps, records, public data.</p><p>1 member(s) in all.</p>",
        "show": "family:commons",
-       "color": "#cf8ce0",
+       "color": "#e0bd4f",
        "depth": 0,
        "x": 0,
        "y": 0,
@@ -52,7 +52,7 @@
        "click": "<p><b>benchmark</b> — A place to keep track of benches</p><p>not adopted. Phase <b>v0.0.2</b> (stated); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
        "show": "project:benchmark",
        "shape": "circle",
-       "color": "#cf8ce0",
+       "color": "#e0bd4f",
        "depth": 1,
        "x": 4.653657836759942e-15,
        "y": 76,
@@ -94,10 +94,10 @@
     "subject": "family:commons",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true

@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:173afb001a222f7b1b0745447b9c65d7262540dd70ec137f9befec1ad86af988"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "dd8d9dbf1c7e9571adc99616330ba56de05f5029"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -171,10 +171,10 @@
     "subject": "project:holophonor",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -223,8 +223,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -94.79076985033257,
-      "y": -150.5037215290143,
+      "x": 531.8215193360245,
+      "y": 221.96474402491702,
       "size": 80
      },
      "dir::quaternionmedia/holophonor/.github": {
@@ -237,8 +237,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -176.54800801084104,
-      "y": 74.12244419395662,
+      "x": 572.2815447324193,
+      "y": 451.42495047676147,
       "size": 60
      },
      "dir::quaternionmedia/holophonor/.github/workflows": {
@@ -250,9 +250,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -114.52829503897112,
-      "y": 96.69577365345074,
+      "label_at": "below",
+      "x": 583.7423244584368,
+      "y": 516.4222621755672,
       "size": 50
      },
      "dir::quaternionmedia/holophonor/holophonor": {
@@ -265,8 +265,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 149.5956328930096,
-      "y": -61.5543452710456,
+      "x": -219.59911872655744,
+      "y": -26.641965494932457,
       "size": 160
      },
      "file::quaternionmedia/holophonor/README.md": {
@@ -278,9 +278,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -44.0473683278935,
-      "y": -132.0346337894282,
+      "label_at": "below",
+      "x": 541.1985209300387,
+      "y": 275.14436268757623,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/__init__.py": {
@@ -292,9 +292,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/__init__.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 200.33903441544868,
-      "y": -43.08525753145948,
+      "label_at": "none",
+      "x": 111.57785601477053,
+      "y": 202.94526146338114,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/_version.py": {
@@ -306,9 +306,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/_version.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 94.12078538443564,
-      "y": -38.58471763147632,
+      "label_at": "below",
+      "x": -210.22211713254316,
+      "y": 26.53765316772677,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/constants.py": {
@@ -320,9 +320,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/constants.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 177.30572196918354,
-      "y": -120.93680028421008,
+      "label_at": "left",
+      "x": -267.22882353218057,
+      "y": -63.199778888640765,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/daw.py": {
@@ -334,9 +334,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/daw.py",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 170.7955943582412,
-      "y": 5.778775359686293,
+      "label_at": "none",
+      "x": -553.4689253265016,
+      "y": -262.0008001310814,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/freewheeling.py": {
@@ -348,9 +348,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/freewheeling.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 84.39192109681306,
-      "y": -99.24686399822201,
+      "label_at": "none",
+      "x": -262.71944388340387,
+      "y": -271.18948161295987,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/holospecs.py": {
@@ -362,9 +362,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/holospecs.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 227.47456866137884,
-      "y": -78.7643384025439,
+      "label_at": "none",
+      "x": -465.5015488962715,
+      "y": 16.717267565767393,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py": {
@@ -376,9 +376,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadMK2.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 101.3785139333762,
-      "y": 7.187813839885461,
+      "label_at": "none",
+      "x": 226.39145072746297,
+      "y": -173.77058522447464,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/launchpadS.py": {
@@ -390,9 +390,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadS.py",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": 138.19545186573433,
-      "y": -148.78664073863806,
+      "label_at": "none",
+      "x": 13.594983294075593,
+      "y": -32.77155787503143,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/launchpadX.py": {
@@ -404,9 +404,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/launchpadX.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 219.85975519389035,
-      "y": -2.4658259353330862,
+      "label_at": "none",
+      "x": -173.60086995622902,
+      "y": 234.22706649048357,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/main.py": {
@@ -418,9 +418,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/main.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 54.19557742860758,
-      "y": -57.50565197702879,
+      "label_at": "none",
+      "x": 29.44054129831757,
+      "y": -312.3181367638848,
       "size": 30
      },
      "file::quaternionmedia/holophonor/holophonor/qsynth.py": {
@@ -432,9 +432,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/holophonor/qsynth.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 219.71411311274264,
-      "y": -131.48304990422827,
+      "label_at": "none",
+      "x": -471.85866793084904,
+      "y": 308.9185810711369,
       "size": 30
      },
      "file::quaternionmedia/holophonor/pyproject.toml": {
@@ -446,10 +446,3624 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -150.26561735890652,
-      "y": -127.53409388944506,
+      "label_at": "none",
+      "x": 725.5555690097663,
+      "y": 232.75961107328737,
       "size": 30
+     },
+     "__init__.HookimplMarker": {
+      "id": "__init__.HookimplMarker",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "HookimplMarker",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 117.48189405544616,
+      "y": 236.4287250657962,
+      "label_at": "below"
+     },
+     "__init__._version.__version__": {
+      "id": "__init__._version.__version__",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "_version.__version__",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 81.68446242847563,
+      "y": 180.00081725797793,
+      "label_at": "left"
+     },
+     "__init__.pluggy.HookimplMarker": {
+      "id": "__init__.pluggy.HookimplMarker",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pluggy.HookimplMarker",
+      "file": "__init__.py",
+      "line": 0,
+      "meta": {
+       "module": "__init__",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 152.46075359033472,
+      "y": 199.37963587648522,
+      "label_at": "right"
+     },
+     "daw.API_UNIX_JACK": {
+      "id": "daw.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "API_UNIX_JACK",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -547.5648872858259,
+      "y": -228.5173365286663,
+      "label_at": "below"
+     },
+     "daw.Bitwig": {
+      "id": "daw.Bitwig",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Bitwig",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -583.3623189127965,
+      "y": -284.9452443364845,
+      "label_at": "left"
+     },
+     "daw.CONTROL_CHANGE": {
+      "id": "daw.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "CONTROL_CHANGE",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -512.5860277509374,
+      "y": -265.5664257179773,
+      "label_at": "right"
+     },
+     "daw.__init__": {
+      "id": "daw.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -583.3015397995379,
+      "y": -229.47077379074173,
+      "label_at": "left"
+     },
+     "daw.holophonor.holoimpl": {
+      "id": "daw.holophonor.holoimpl",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holoimpl",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -553.4434310456846,
+      "y": -309.03535498218685,
+      "label_at": "above"
+     },
+     "daw.holophonor.holospecs.Holophonor": {
+      "id": "daw.holophonor.holospecs.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holospecs.Holophonor",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -519.8746921482782,
+      "y": -225.28922161466306,
+      "label_at": "right"
+     },
+     "daw.open_midioutput": {
+      "id": "daw.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "open_midioutput",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -605.6145875683252,
+      "y": -266.60567899611914,
+      "label_at": "left"
+     },
+     "daw.rtmidi.API_UNIX_JACK": {
+      "id": "daw.rtmidi.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.API_UNIX_JACK",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -509.95141567913544,
+      "y": -295.32742393385183,
+      "label_at": "right"
+     },
+     "daw.rtmidi.midiconstants.CONTROL_CHANGE": {
+      "id": "daw.rtmidi.midiconstants.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -563.4575594931396,
+      "y": -205.70935151332884,
+      "label_at": "below"
+     },
+     "daw.rtmidi.midiutil.open_midioutput": {
+      "id": "daw.rtmidi.midiutil.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiutil.open_midioutput",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -585.3423654887441,
+      "y": -312.1669870723263,
+      "label_at": "left"
+     },
+     "daw.toggleFX": {
+      "id": "daw.toggleFX",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleFX",
+      "file": "daw.py",
+      "line": 0,
+      "meta": {
+       "module": "daw",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -493.97337133170834,
+      "y": -245.97257331547127,
+      "label_at": "right"
+     },
+     "freewheeling.CONTROL_CHANGE": {
+      "id": "freewheeling.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "CONTROL_CHANGE",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -256.81540584272824,
+      "y": -237.7060180105448,
+      "label_at": "below"
+     },
+     "freewheeling.Fweelin": {
+      "id": "freewheeling.Fweelin",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Fweelin",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -292.6128374696989,
+      "y": -294.1339258183631,
+      "label_at": "left"
+     },
+     "freewheeling.Holophonor": {
+      "id": "freewheeling.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Holophonor",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -221.83654630783977,
+      "y": -274.75510719985573,
+      "label_at": "right"
+     },
+     "freewheeling.NOTE_ON": {
+      "id": "freewheeling.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "NOTE_ON",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -292.55205835644017,
+      "y": -238.65945527262028,
+      "label_at": "left"
+     },
+     "freewheeling.NUMBER_LOOPS": {
+      "id": "freewheeling.NUMBER_LOOPS",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "NUMBER_LOOPS",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -262.69394960258694,
+      "y": -318.2240364640653,
+      "label_at": "above"
+     },
+     "freewheeling.NUMBER_SCENES": {
+      "id": "freewheeling.NUMBER_SCENES",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "NUMBER_SCENES",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -229.1252107051804,
+      "y": -234.4779030965415,
+      "label_at": "right"
+     },
+     "freewheeling.deletePulse": {
+      "id": "freewheeling.deletePulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "deletePulse",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -314.8651061252274,
+      "y": -275.7943604779977,
+      "label_at": "left"
+     },
+     "freewheeling.eraseLoop": {
+      "id": "freewheeling.eraseLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -219.20193423603774,
+      "y": -304.51610541573046,
+      "label_at": "right"
+     },
+     "freewheeling.eraseScene": {
+      "id": "freewheeling.eraseScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseScene",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -272.7080780500419,
+      "y": -214.8980329952073,
+      "label_at": "below"
+     },
+     "freewheeling.holophonor.constants.NUMBER_LOOPS": {
+      "id": "freewheeling.holophonor.constants.NUMBER_LOOPS",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.constants.NUMBER_LOOPS",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -294.5928840456466,
+      "y": -321.3556685542049,
+      "label_at": "left"
+     },
+     "freewheeling.holophonor.constants.NUMBER_SCENES": {
+      "id": "freewheeling.holophonor.constants.NUMBER_SCENES",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.constants.NUMBER_SCENES",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -203.22388988861064,
+      "y": -255.16125479734967,
+      "label_at": "right"
+     },
+     "freewheeling.holophonor.holoimpl": {
+      "id": "freewheeling.holophonor.holoimpl",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holoimpl",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -319.28669662214236,
+      "y": -241.84951880467258,
+      "label_at": "left"
+     },
+     "freewheeling.holophonor.holospecs.Holophonor": {
+      "id": "freewheeling.holophonor.holospecs.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holospecs.Holophonor",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -240.12677284564637,
+      "y": -332.9496727993518,
+      "label_at": "above"
+     },
+     "freewheeling.overdubLoop": {
+      "id": "freewheeling.overdubLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "overdubLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -236.90646100909757,
+      "y": -208.55959725149256,
+      "label_at": "right"
+     },
+     "freewheeling.playLoop": {
+      "id": "freewheeling.playLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -325.79921632028146,
+      "y": -300.74988264731235,
+      "label_at": "left"
+     },
+     "freewheeling.recallScene": {
+      "id": "freewheeling.recallScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recallScene",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -194.45384507289074,
+      "y": -292.5610870520013,
+      "label_at": "right"
+     },
+     "freewheeling.recordLoop": {
+      "id": "freewheeling.recordLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recordLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -299.53474354558426,
+      "y": -207.74159976664546,
+      "label_at": "left"
+     },
+     "freewheeling.rtmidi.midiconstants.CONTROL_CHANGE": {
+      "id": "freewheeling.rtmidi.midiconstants.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -278.81231682878314,
+      "y": -344.5794123961667,
+      "label_at": "above"
+     },
+     "freewheeling.rtmidi.midiconstants.NOTE_OFF": {
+      "id": "freewheeling.rtmidi.midiconstants.NOTE_OFF",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_OFF",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -199.8582761269902,
+      "y": -226.94472386359462,
+      "label_at": "right"
+     },
+     "freewheeling.rtmidi.midiconstants.NOTE_ON": {
+      "id": "freewheeling.rtmidi.midiconstants.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_ON",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -340.6430503917425,
+      "y": -261.1346793407318,
+      "label_at": "left"
+     },
+     "freewheeling.rtmidi.midiconstants.POLY_AFTERTOUCH": {
+      "id": "freewheeling.rtmidi.midiconstants.POLY_AFTERTOUCH",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.POLY_AFTERTOUCH",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -210.9806216683196,
+      "y": -332.5111276753081,
+      "label_at": "right"
+     },
+     "freewheeling.rtmidi.midiconstants.PROGRAM_CHANGE": {
+      "id": "freewheeling.rtmidi.midiconstants.PROGRAM_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.PROGRAM_CHANGE",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -259.3814370653268,
+      "y": -189.39602093007608,
+      "label_at": "below"
+     },
+     "freewheeling.stopAllLoops": {
+      "id": "freewheeling.stopAllLoops",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopAllLoops",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -321.5575486966769,
+      "y": -330.37945054336484,
+      "label_at": "left"
+     },
+     "freewheeling.stopLoop": {
+      "id": "freewheeling.stopLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopLoop",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -177.7862426393636,
+      "y": -267.215965985791,
+      "label_at": "right"
+     },
+     "freewheeling.storeScene": {
+      "id": "freewheeling.storeScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "storeScene",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -329.21269527503875,
+      "y": -215.7625250000549,
+      "label_at": "left"
+     },
+     "freewheeling.tapPulse": {
+      "id": "freewheeling.tapPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "tapPulse",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -250.92732521206872,
+      "y": -358.4735491009107,
+      "label_at": "above"
+     },
+     "freewheeling.time.sleep": {
+      "id": "freewheeling.time.sleep",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "time.sleep",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -211.60671936195624,
+      "y": -197.64279989315287,
+      "label_at": "right"
+     },
+     "freewheeling.toggleCut": {
+      "id": "freewheeling.toggleCut",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleCut",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -351.5148447101753,
+      "y": -291.21607123808076,
+      "label_at": "left"
+     },
+     "freewheeling.toggleMute": {
+      "id": "freewheeling.toggleMute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleMute",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -182.4676880571416,
+      "y": -317.11774836451457,
+      "label_at": "right"
+     },
+     "freewheeling.toggleOverdub": {
+      "id": "freewheeling.toggleOverdub",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleOverdub",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -291.301915069727,
+      "y": -181.76434621533795,
+      "label_at": "below"
+     },
+     "freewheeling.toggleShift": {
+      "id": "freewheeling.toggleShift",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleShift",
+      "file": "freewheeling.py",
+      "line": 0,
+      "meta": {
+       "module": "freewheeling",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -302.6342469400665,
+      "y": -357.70354692576234,
+      "label_at": "left"
+     },
+     "holospecs.API_UNIX_JACK": {
+      "id": "holospecs.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "API_UNIX_JACK",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -459.5975108555959,
+      "y": 50.200731168182465,
+      "label_at": "below"
+     },
+     "holospecs.Holophonor": {
+      "id": "holospecs.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Holophonor",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -495.3949424825665,
+      "y": -6.227176639635815,
+      "label_at": "left"
+     },
+     "holospecs.HookspecMarker": {
+      "id": "holospecs.HookspecMarker",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "HookspecMarker",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -424.6186513207074,
+      "y": 13.15164197887149,
+      "label_at": "right"
+     },
+     "holospecs.__init__": {
+      "id": "holospecs.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -495.33416336930765,
+      "y": 49.24729390610706,
+      "label_at": "left"
+     },
+     "holospecs.clearLoop": {
+      "id": "holospecs.clearLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -465.4760546154544,
+      "y": -30.31728728533805,
+      "label_at": "above"
+     },
+     "holospecs.clearNote": {
+      "id": "holospecs.clearNote",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearNote",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -431.90731571804804,
+      "y": 53.42884608218576,
+      "label_at": "right"
+     },
+     "holospecs.clearPulse": {
+      "id": "holospecs.clearPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearPulse",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -517.6472111380949,
+      "y": 12.11238870072961,
+      "label_at": "left"
+     },
+     "holospecs.clearScene": {
+      "id": "holospecs.clearScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearScene",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -421.98403924890533,
+      "y": -16.60935623700307,
+      "label_at": "right"
+     },
+     "holospecs.close": {
+      "id": "holospecs.close",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "close",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -475.49018306290935,
+      "y": 73.00871618351995,
+      "label_at": "below"
+     },
+     "holospecs.deletePulse": {
+      "id": "holospecs.deletePulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "deletePulse",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -497.3749890585141,
+      "y": -33.4489193754776,
+      "label_at": "left"
+     },
+     "holospecs.eraseLoop": {
+      "id": "holospecs.eraseLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -406.0059949014783,
+      "y": 32.74549438137761,
+      "label_at": "right"
+     },
+     "holospecs.eraseScene": {
+      "id": "holospecs.eraseScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseScene",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -522.06880163501,
+      "y": 46.0572303740548,
+      "label_at": "left"
+     },
+     "holospecs.open_midioutput": {
+      "id": "holospecs.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "open_midioutput",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -442.9088778585141,
+      "y": -45.042923620624464,
+      "label_at": "above"
+     },
+     "holospecs.overdubLoop": {
+      "id": "holospecs.overdubLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "overdubLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -439.68856602196513,
+      "y": 79.34715192723466,
+      "label_at": "right"
+     },
+     "holospecs.playLoop": {
+      "id": "holospecs.playLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -528.581321333149,
+      "y": -12.843133468584995,
+      "label_at": "left"
+     },
+     "holospecs.playNote": {
+      "id": "holospecs.playNote",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playNote",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -397.23595008575836,
+      "y": -4.654337873273988,
+      "label_at": "right"
+     },
+     "holospecs.pluggy.HookspecMarker": {
+      "id": "holospecs.pluggy.HookspecMarker",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pluggy.HookspecMarker",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -502.31684855845174,
+      "y": 80.16514941208173,
+      "label_at": "left"
+     },
+     "holospecs.recallScene": {
+      "id": "holospecs.recallScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recallScene",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -481.5944218416507,
+      "y": -56.67266321743934,
+      "label_at": "above"
+     },
+     "holospecs.recordLoop": {
+      "id": "holospecs.recordLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recordLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -402.64038113985777,
+      "y": 60.96202531513265,
+      "label_at": "right"
+     },
+     "holospecs.rtmidi.API_UNIX_JACK": {
+      "id": "holospecs.rtmidi.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.API_UNIX_JACK",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -543.4251554046102,
+      "y": 26.772069837995588,
+      "label_at": "left"
+     },
+     "holospecs.rtmidi.midiutil.open_midioutput": {
+      "id": "holospecs.rtmidi.midiutil.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiutil.open_midioutput",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -413.7627266811873,
+      "y": -44.60437849658078,
+      "label_at": "right"
+     },
+     "holospecs.setDrumBank": {
+      "id": "holospecs.setDrumBank",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumBank",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -462.1635420781945,
+      "y": 98.51072824865126,
+      "label_at": "below"
+     },
+     "holospecs.setDrumPatch": {
+      "id": "holospecs.setDrumPatch",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumPatch",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -524.3396537095445,
+      "y": -42.472701364637516,
+      "label_at": "left"
+     },
+     "holospecs.stopAllLoops": {
+      "id": "holospecs.stopAllLoops",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopAllLoops",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -380.56834765223124,
+      "y": 20.690783192936323,
+      "label_at": "right"
+     },
+     "holospecs.stopLoop": {
+      "id": "holospecs.stopLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopLoop",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -531.9948002879064,
+      "y": 72.14422417867246,
+      "label_at": "left"
+     },
+     "holospecs.storeScene": {
+      "id": "holospecs.storeScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "storeScene",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -453.7094302249363,
+      "y": -70.5667999221834,
+      "label_at": "above"
+     },
+     "holospecs.tapPulse": {
+      "id": "holospecs.tapPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "tapPulse",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -414.3888243748238,
+      "y": 90.26394928557447,
+      "label_at": "right"
+     },
+     "holospecs.toggleCut": {
+      "id": "holospecs.toggleCut",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleCut",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -554.296949723043,
+      "y": -3.3093220593535055,
+      "label_at": "left"
+     },
+     "holospecs.toggleFX": {
+      "id": "holospecs.toggleFX",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleFX",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -385.2497930700091,
+      "y": -29.210999185787372,
+      "label_at": "right"
+     },
+     "holospecs.toggleMute": {
+      "id": "holospecs.toggleMute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleMute",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -494.0840200825946,
+      "y": 106.14240296338929,
+      "label_at": "below"
+     },
+     "holospecs.toggleOverdub": {
+      "id": "holospecs.toggleOverdub",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleOverdub",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -505.41635195293406,
+      "y": -69.79679774703496,
+      "label_at": "left"
+     },
+     "holospecs.toggleShift": {
+      "id": "holospecs.toggleShift",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleShift",
+      "file": "holospecs.py",
+      "line": 0,
+      "meta": {
+       "module": "holospecs",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -376.36133878178157,
+      "y": 54.07982155695738,
+      "label_at": "right"
+     },
+     "launchpadMK2.LaunchpadMK2": {
+      "id": "launchpadMK2.LaunchpadMK2",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "LaunchpadMK2",
+      "file": "launchpadMK2.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadMK2",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 232.29548876813863,
+      "y": -140.28712162205957,
+      "label_at": "below"
+     },
+     "launchpadMK2.LaunchpadX": {
+      "id": "launchpadMK2.LaunchpadX",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "LaunchpadX",
+      "file": "launchpadMK2.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadMK2",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 196.49805714116806,
+      "y": -196.71502942987792,
+      "label_at": "left"
+     },
+     "launchpadMK2.holophonor.launchpadX.LaunchpadX": {
+      "id": "launchpadMK2.holophonor.launchpadX.LaunchpadX",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.launchpadX.LaunchpadX",
+      "file": "launchpadMK2.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadMK2",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 267.2743483030271,
+      "y": -177.33621081137062,
+      "label_at": "right"
+     },
+     "launchpadS.API_UNIX_JACK": {
+      "id": "launchpadS.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "API_UNIX_JACK",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 19.49902133475123,
+      "y": 0.7119057273836442,
+      "label_at": "below"
+     },
+     "launchpadS.CONTROL_CHANGE": {
+      "id": "launchpadS.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "CONTROL_CHANGE",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -16.298410292219316,
+      "y": -55.71600208043465,
+      "label_at": "left"
+     },
+     "launchpadS.LaunchpadS": {
+      "id": "launchpadS.LaunchpadS",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "LaunchpadS",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": 54.47788086963978,
+      "y": -36.337183461927346,
+      "label_at": "right"
+     },
+     "launchpadS.LaunchpadX": {
+      "id": "launchpadS.LaunchpadX",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "LaunchpadX",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -16.2376311789606,
+      "y": -0.2415315346918239,
+      "label_at": "left"
+     },
+     "launchpadS.NOTE_ON": {
+      "id": "launchpadS.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "NOTE_ON",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 13.620477574892679,
+      "y": -79.80611272613686,
+      "label_at": "above"
+     },
+     "launchpadS.__init__": {
+      "id": "launchpadS.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 47.18921647229907,
+      "y": 3.9400206413868806,
+      "label_at": "right"
+     },
+     "launchpadS.chain": {
+      "id": "launchpadS.chain",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "chain",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -38.55067894774777,
+      "y": -37.3764367400692,
+      "label_at": "left"
+     },
+     "launchpadS.close": {
+      "id": "launchpadS.close",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "close",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 57.112492941441815,
+      "y": -66.0981816778019,
+      "label_at": "right"
+     },
+     "launchpadS.holophonor.holoimpl": {
+      "id": "launchpadS.holophonor.holoimpl",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holoimpl",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 3.6063491274376887,
+      "y": 23.51989074272108,
+      "label_at": "below"
+     },
+     "launchpadS.holophonor.holospecs.Holophonor": {
+      "id": "launchpadS.holophonor.holospecs.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holospecs.Holophonor",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -18.27845686816698,
+      "y": -82.93774481627642,
+      "label_at": "left"
+     },
+     "launchpadS.holophonor.launchpadX.LaunchpadX": {
+      "id": "launchpadS.holophonor.launchpadX.LaunchpadX",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.launchpadX.LaunchpadX",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 73.09053728886882,
+      "y": -16.743331059421266,
+      "label_at": "right"
+     },
+     "launchpadS.itertools.chain": {
+      "id": "launchpadS.itertools.chain",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "itertools.chain",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -42.972269444662835,
+      "y": -3.4315950667440367,
+      "label_at": "left"
+     },
+     "launchpadS.open_midiinput": {
+      "id": "launchpadS.open_midiinput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "open_midiinput",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 36.1876543318331,
+      "y": -94.5317490614233,
+      "label_at": "above"
+     },
+     "launchpadS.playLoop": {
+      "id": "launchpadS.playLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playLoop",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 39.40796616838198,
+      "y": 29.85832648643585,
+      "label_at": "right"
+     },
+     "launchpadS.recallScene": {
+      "id": "launchpadS.recallScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recallScene",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -49.4847891428019,
+      "y": -62.33195890938388,
+      "label_at": "left"
+     },
+     "launchpadS.recordLoop": {
+      "id": "launchpadS.recordLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recordLoop",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 81.86058210458873,
+      "y": -54.14316331407281,
+      "label_at": "right"
+     },
+     "launchpadS.rtmidi.API_UNIX_JACK": {
+      "id": "launchpadS.rtmidi.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.API_UNIX_JACK",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -23.2203163681047,
+      "y": 30.67632397128291,
+      "label_at": "left"
+     },
+     "launchpadS.rtmidi.midiconstants.CONTROL_CHANGE": {
+      "id": "launchpadS.rtmidi.midiconstants.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -2.4978896513036357,
+      "y": -106.16148865823818,
+      "label_at": "above"
+     },
+     "launchpadS.rtmidi.midiconstants.NOTE_ON": {
+      "id": "launchpadS.rtmidi.midiconstants.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_ON",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 76.45615105048928,
+      "y": 11.473199874333824,
+      "label_at": "right"
+     },
+     "launchpadS.rtmidi.midiutil.open_midiinput": {
+      "id": "launchpadS.rtmidi.midiutil.open_midiinput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiutil.open_midiinput",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -64.32862321426305,
+      "y": -22.716755602803246,
+      "label_at": "left"
+     },
+     "launchpadS.setLayout": {
+      "id": "launchpadS.setLayout",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setLayout",
+      "file": "launchpadS.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadS",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 65.33380550915986,
+      "y": -94.0932039373796,
+      "label_at": "right"
+     },
+     "launchpadX.API_UNIX_JACK": {
+      "id": "launchpadX.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "API_UNIX_JACK",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -167.6968319155534,
+      "y": 267.71053009289864,
+      "label_at": "below"
+     },
+     "launchpadX.CONTROL_CHANGE": {
+      "id": "launchpadX.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "CONTROL_CHANGE",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -203.49426354252392,
+      "y": 211.28262228508038,
+      "label_at": "left"
+     },
+     "launchpadX.Holophonor": {
+      "id": "launchpadX.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Holophonor",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -132.71797238066478,
+      "y": 230.66144090358765,
+      "label_at": "right"
+     },
+     "launchpadX.LaunchpadX": {
+      "id": "launchpadX.LaunchpadX",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "LaunchpadX",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -203.4334844292652,
+      "y": 266.7570928308232,
+      "label_at": "left"
+     },
+     "launchpadX.NOTE_OFF": {
+      "id": "launchpadX.NOTE_OFF",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "NOTE_OFF",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -173.57537567541192,
+      "y": 187.1925116393781,
+      "label_at": "above"
+     },
+     "launchpadX.NOTE_ON": {
+      "id": "launchpadX.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "NOTE_ON",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -140.00663677800554,
+      "y": 270.9386450069019,
+      "label_at": "right"
+     },
+     "launchpadX.__call__": {
+      "id": "launchpadX.__call__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__call__",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -225.7465321980524,
+      "y": 229.6221876254458,
+      "label_at": "left"
+     },
+     "launchpadX.__init__": {
+      "id": "launchpadX.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -130.08336030886275,
+      "y": 200.9004426877131,
+      "label_at": "right"
+     },
+     "launchpadX.clear": {
+      "id": "launchpadX.clear",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clear",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -183.58950412286688,
+      "y": 290.51851510823604,
+      "label_at": "below"
+     },
+     "launchpadX.clearLoop": {
+      "id": "launchpadX.clearLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -205.47431011847158,
+      "y": 184.06087954923856,
+      "label_at": "left"
+     },
+     "launchpadX.clearPulse": {
+      "id": "launchpadX.clearPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearPulse",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -114.10531596143578,
+      "y": 250.25529330609376,
+      "label_at": "right"
+     },
+     "launchpadX.clearScene": {
+      "id": "launchpadX.clearScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "clearScene",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -230.16812269496745,
+      "y": 263.5670292987709,
+      "label_at": "left"
+     },
+     "launchpadX.close": {
+      "id": "launchpadX.close",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "close",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -151.00819891847152,
+      "y": 172.4668753040917,
+      "label_at": "above"
+     },
+     "launchpadX.deletePulse": {
+      "id": "launchpadX.deletePulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "deletePulse",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -147.78788708192263,
+      "y": 296.85695085195084,
+      "label_at": "right"
+     },
+     "launchpadX.eraseLoop": {
+      "id": "launchpadX.eraseLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -236.6806423931065,
+      "y": 204.6666654561311,
+      "label_at": "left"
+     },
+     "launchpadX.eraseScene": {
+      "id": "launchpadX.eraseScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "eraseScene",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -105.33527114571588,
+      "y": 212.8554610514422,
+      "label_at": "right"
+     },
+     "launchpadX.holophonor.constants.*": {
+      "id": "launchpadX.holophonor.constants.*",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.constants.*",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -210.4161696184093,
+      "y": 297.6749483367979,
+      "label_at": "left"
+     },
+     "launchpadX.holophonor.holoimpl": {
+      "id": "launchpadX.holophonor.holoimpl",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holoimpl",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -189.69374290160826,
+      "y": 160.8371357072768,
+      "label_at": "above"
+     },
+     "launchpadX.holophonor.holospecs.Holophonor": {
+      "id": "launchpadX.holophonor.holospecs.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holospecs.Holophonor",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -110.73970219981535,
+      "y": 278.47182423984884,
+      "label_at": "right"
+     },
+     "launchpadX.lightButton": {
+      "id": "launchpadX.lightButton",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "lightButton",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -251.52447646456767,
+      "y": 244.2818687627117,
+      "label_at": "left"
+     },
+     "launchpadX.lightDrums": {
+      "id": "launchpadX.lightDrums",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "lightDrums",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -121.86204774114475,
+      "y": 172.90542042813536,
+      "label_at": "right"
+     },
+     "launchpadX.loguru.logger": {
+      "id": "launchpadX.loguru.logger",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "loguru.logger",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -170.26286313815189,
+      "y": 316.02052717336744,
+      "label_at": "below"
+     },
+     "launchpadX.open_midiinput": {
+      "id": "launchpadX.open_midiinput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "open_midiinput",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -232.438974769502,
+      "y": 175.03709756007862,
+      "label_at": "left"
+     },
+     "launchpadX.overdubLoop": {
+      "id": "launchpadX.overdubLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "overdubLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -88.66766871218871,
+      "y": 238.2005821176525,
+      "label_at": "right"
+     },
+     "launchpadX.playLoop": {
+      "id": "launchpadX.playLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -240.09412134786382,
+      "y": 289.6540231033886,
+      "label_at": "left"
+     },
+     "launchpadX.recallScene": {
+      "id": "launchpadX.recallScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recallScene",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -161.80875128489384,
+      "y": 146.94299900253276,
+      "label_at": "above"
+     },
+     "launchpadX.recordLoop": {
+      "id": "launchpadX.recordLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "recordLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -122.48814543478134,
+      "y": 307.77374821029065,
+      "label_at": "right"
+     },
+     "launchpadX.rtmidi.API_UNIX_JACK": {
+      "id": "launchpadX.rtmidi.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.API_UNIX_JACK",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -262.39627078300043,
+      "y": 214.20047686536265,
+      "label_at": "left"
+     },
+     "launchpadX.rtmidi.midiconstants.CONTROL_CHANGE": {
+      "id": "launchpadX.rtmidi.midiconstants.CONTROL_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.CONTROL_CHANGE",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -93.34911412996674,
+      "y": 188.29879973892884,
+      "label_at": "right"
+     },
+     "launchpadX.rtmidi.midiconstants.NOTE_OFF": {
+      "id": "launchpadX.rtmidi.midiconstants.NOTE_OFF",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_OFF",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -202.1833411425521,
+      "y": 323.6522018881054,
+      "label_at": "below"
+     },
+     "launchpadX.rtmidi.midiconstants.NOTE_ON": {
+      "id": "launchpadX.rtmidi.midiconstants.NOTE_ON",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.NOTE_ON",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -213.51567301289157,
+      "y": 147.71300117768115,
+      "label_at": "left"
+     },
+     "launchpadX.rtmidi.midiutil.open_midiinput": {
+      "id": "launchpadX.rtmidi.midiutil.open_midiinput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiutil.open_midiinput",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -84.46065984173907,
+      "y": 271.58962048167353,
+      "label_at": "right"
+     },
+     "launchpadX.setDrumBank": {
+      "id": "launchpadX.setDrumBank",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumBank",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -265.8448265610986,
+      "y": 267.34884889842397,
+      "label_at": "left"
+     },
+     "launchpadX.setDrumPatch": {
+      "id": "launchpadX.setDrumPatch",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumPatch",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -127.3333762157682,
+      "y": 146.31016525427972,
+      "label_at": "right"
+     },
+     "launchpadX.stopAllLoops": {
+      "id": "launchpadX.stopAllLoops",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopAllLoops",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -147.99425161882002,
+      "y": 331.5842752493745,
+      "label_at": "below"
+     },
+     "launchpadX.stopLoop": {
+      "id": "launchpadX.stopLoop",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "stopLoop",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -259.3419435210765,
+      "y": 179.03054663689664,
+      "label_at": "left"
+     },
+     "launchpadX.storeScene": {
+      "id": "launchpadX.storeScene",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "storeScene",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -71.82516159810424,
+      "y": 216.79275583012418,
+      "label_at": "right"
+     },
+     "launchpadX.tapPulse": {
+      "id": "launchpadX.tapPulse",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "tapPulse",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -237.64908070933456,
+      "y": 316.8354147328119,
+      "label_at": "left"
+     },
+     "launchpadX.toggleCut": {
+      "id": "launchpadX.toggleCut",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleCut",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -182.27783775063284,
+      "y": 128.79896193626672,
+      "label_at": "above"
+     },
+     "launchpadX.toggleFX": {
+      "id": "launchpadX.toggleFX",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleFX",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -95.0766845547369,
+      "y": 306.94838253352617,
+      "label_at": "right"
+     },
+     "launchpadX.toggleLive": {
+      "id": "launchpadX.toggleLive",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleLive",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -281.85130050584144,
+      "y": 233.64030774660475,
+      "label_at": "left"
+     },
+     "launchpadX.toggleMute": {
+      "id": "launchpadX.toggleMute",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleMute",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -92.48526074276627,
+      "y": 160.7231860355797,
+      "label_at": "right"
+     },
+     "launchpadX.toggleOverdub": {
+      "id": "launchpadX.toggleOverdub",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleOverdub",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -183.87318756166383,
+      "y": 344.41374667921184,
+      "label_at": "below"
+     },
+     "launchpadX.toggleShift": {
+      "id": "launchpadX.toggleShift",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "toggleShift",
+      "file": "launchpadX.py",
+      "line": 0,
+      "meta": {
+       "module": "launchpadX",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -241.1733434178543,
+      "y": 145.0943097156707,
+      "label_at": "left"
+     },
+     "main.Fweelin": {
+      "id": "main.Fweelin",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Fweelin",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 35.344579338993206,
+      "y": -278.83467316146977,
+      "label_at": "below"
+     },
+     "main.Holophonor": {
+      "id": "main.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Holophonor",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -0.4528522879773292,
+      "y": -335.262580969288,
+      "label_at": "left"
+     },
+     "main.LaunchpadX": {
+      "id": "main.LaunchpadX",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "LaunchpadX",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 70.32343887388174,
+      "y": -315.8837623507807,
+      "label_at": "right"
+     },
+     "main.PluginManager": {
+      "id": "main.PluginManager",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "PluginManager",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -0.39207317471861813,
+      "y": -279.78811042354516,
+      "label_at": "left"
+     },
+     "main.Qsynth": {
+      "id": "main.Qsynth",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Qsynth",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 29.466035579134616,
+      "y": -359.35269161499025,
+      "label_at": "above"
+     },
+     "main.holophonor.freewheeling.Fweelin": {
+      "id": "main.holophonor.freewheeling.Fweelin",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.freewheeling.Fweelin",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 63.03477447654108,
+      "y": -275.6065582474664,
+      "label_at": "right"
+     },
+     "main.holophonor.holospecs.Holophonor": {
+      "id": "main.holophonor.holospecs.Holophonor",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holospecs.Holophonor",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -22.705120943505854,
+      "y": -316.9230156289226,
+      "label_at": "left"
+     },
+     "main.holophonor.launchpadMK2.LaunchpadMK2": {
+      "id": "main.holophonor.launchpadMK2.LaunchpadMK2",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.launchpadMK2.LaunchpadMK2",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 72.9580509456838,
+      "y": -345.64476056665535,
+      "label_at": "right"
+     },
+     "main.holophonor.launchpadX.LaunchpadX": {
+      "id": "main.holophonor.launchpadX.LaunchpadX",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.launchpadX.LaunchpadX",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 19.451907131679683,
+      "y": -256.0266881461322,
+      "label_at": "below"
+     },
+     "main.holophonor.qsynth.Qsynth": {
+      "id": "main.holophonor.qsynth.Qsynth",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.qsynth.Qsynth",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -2.4328988639250113,
+      "y": -362.4843237051299,
+      "label_at": "left"
+     },
+     "main.loguru.logger": {
+      "id": "main.loguru.logger",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "loguru.logger",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 88.93609529311081,
+      "y": -296.2899099482747,
+      "label_at": "right"
+     },
+     "main.pluggy.PluginManager": {
+      "id": "main.pluggy.PluginManager",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pluggy.PluginManager",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -27.126711440420863,
+      "y": -282.97817395559747,
+      "label_at": "left"
+     },
+     "main.sys.stderr": {
+      "id": "main.sys.stderr",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "sys.stderr",
+      "file": "main.py",
+      "line": 0,
+      "meta": {
+       "module": "main",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 52.03321233607509,
+      "y": -374.07832795027673,
+      "label_at": "above"
+     },
+     "qsynth.API_UNIX_JACK": {
+      "id": "qsynth.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "API_UNIX_JACK",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -465.9546298901734,
+      "y": 342.4020446735519,
+      "label_at": "below"
+     },
+     "qsynth.PROGRAM_CHANGE": {
+      "id": "qsynth.PROGRAM_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "PROGRAM_CHANGE",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -501.752061517144,
+      "y": 285.97413686573367,
+      "label_at": "left"
+     },
+     "qsynth.Qsynth": {
+      "id": "qsynth.Qsynth",
+      "depth": 2,
+      "language": "python",
+      "kind": "class",
+      "label": "Qsynth",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Class"
+      },
+      "shape": "square",
+      "color": "#00d4ff",
+      "construct": "type.class",
+      "construct_color": "#4a9eff",
+      "construct_name": "Class",
+      "x": -430.97577035528485,
+      "y": 305.3529554842409,
+      "label_at": "right"
+     },
+     "qsynth.__init__": {
+      "id": "qsynth.__init__",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "__init__",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -501.69128240388517,
+      "y": 341.4486074114765,
+      "label_at": "left"
+     },
+     "qsynth.holophonor.holoimpl": {
+      "id": "qsynth.holophonor.holoimpl",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "holophonor.holoimpl",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -471.8331736500319,
+      "y": 261.8840262200314,
+      "label_at": "above"
+     },
+     "qsynth.open_midioutput": {
+      "id": "qsynth.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "open_midioutput",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -438.2644347526254,
+      "y": 345.63015958755517,
+      "label_at": "right"
+     },
+     "qsynth.playNote": {
+      "id": "qsynth.playNote",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "playNote",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -524.0043301726723,
+      "y": 304.31370220609904,
+      "label_at": "left"
+     },
+     "qsynth.rtmidi.API_UNIX_JACK": {
+      "id": "qsynth.rtmidi.API_UNIX_JACK",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.API_UNIX_JACK",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -428.34115828348274,
+      "y": 275.5919572683664,
+      "label_at": "right"
+     },
+     "qsynth.rtmidi.midiconstants.PROGRAM_CHANGE": {
+      "id": "qsynth.rtmidi.midiconstants.PROGRAM_CHANGE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiconstants.PROGRAM_CHANGE",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -481.8473020974868,
+      "y": 365.21002968888934,
+      "label_at": "below"
+     },
+     "qsynth.rtmidi.midiutil.open_midioutput": {
+      "id": "qsynth.rtmidi.midiutil.open_midioutput",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "rtmidi.midiutil.open_midioutput",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -503.73210809309165,
+      "y": 258.75239412989185,
+      "label_at": "left"
+     },
+     "qsynth.setDrumPatch": {
+      "id": "qsynth.setDrumPatch",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "setDrumPatch",
+      "file": "qsynth.py",
+      "line": 0,
+      "meta": {
+       "module": "qsynth",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -412.36311393605575,
+      "y": 324.946807886747,
+      "label_at": "right"
+     },
+     "toml::pyproject.toml::section::build-system::17": {
+      "id": "toml::pyproject.toml::section::build-system::17",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "build-system",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 17,
+      "meta": {},
+      "x": 731.459607050442,
+      "y": 266.2430746757025,
+      "label_at": "below"
+     },
+     "toml::pyproject.toml::section::project.scripts::14": {
+      "id": "toml::pyproject.toml::section::project.scripts::14",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "project.scripts",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 14,
+      "meta": {},
+      "x": 766.4384665853305,
+      "y": 229.19398548639145,
+      "label_at": "right"
+     },
+     "toml::pyproject.toml::section::project::1": {
+      "id": "toml::pyproject.toml::section::project::1",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "project",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 1,
+      "meta": {},
+      "x": 695.6621754234714,
+      "y": 209.81516686788422,
+      "label_at": "left"
+     },
+     "toml::pyproject.toml::section::tool.pdm::11": {
+      "id": "toml::pyproject.toml::section::tool.pdm::11",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "tool.pdm",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 11,
+      "meta": {},
+      "x": 695.7229545367301,
+      "y": 265.28963741362696,
+      "label_at": "left"
+     },
+     "toml::pyproject.toml::section::tool.ruff::21": {
+      "id": "toml::pyproject.toml::section::tool.ruff::21",
+      "depth": 2,
+      "language": "toml",
+      "kind": "section",
+      "label": "tool.ruff",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/holophonor/main/pyproject.toml",
+      "line": 21,
+      "meta": {},
+      "x": 725.5810632905834,
+      "y": 185.72505622218196,
+      "label_at": "above"
      }
     },
     "edges": [
@@ -580,12 +4194,1530 @@
        "kind": "contains",
        "weight": 1
       }
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project::1",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.pdm::11",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::project.scripts::14",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::build-system::17",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/pyproject.toml",
+      "target": "toml::pyproject.toml::section::tool.ruff::21",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/__init__.py",
+      "target": "__init__._version.__version__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/__init__.py",
+      "target": "__init__.pluggy.HookimplMarker",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/__init__.py",
+      "target": "__init__.HookimplMarker",
+      "kind": "contains"
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.playLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.stopLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.recordLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.eraseLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.clearLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.overdubLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.recallScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.storeScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.eraseScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.clearScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleShift",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleCut",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleOverdub",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.deletePulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.clearPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.stopAllLoops",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.tapPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleMute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.toggleFX",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.setDrumPatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.setDrumBank",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.playNote",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.clearNote",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "holospecs.Holophonor",
+      "target": "holospecs.close",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.pluggy.HookspecMarker",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.rtmidi.midiutil.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.rtmidi.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.playLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.stopLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.recordLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.eraseLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.clearLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.overdubLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.recallScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.storeScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.eraseScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.clearScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleShift",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleCut",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleOverdub",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.deletePulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.clearPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.stopAllLoops",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.tapPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleMute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.toggleFX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.setDrumPatch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.setDrumBank",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.playNote",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.clearNote",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.close",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.HookspecMarker",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "target": "holospecs.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.playLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.stopLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.recordLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.eraseLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.overdubLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.recallScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.storeScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.eraseScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.toggleShift",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.toggleCut",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.toggleOverdub",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.deletePulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.tapPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.stopAllLoops",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "freewheeling.Fweelin",
+      "target": "freewheeling.toggleMute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.holophonor.holoimpl",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.holophonor.holospecs.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.holophonor.constants.NUMBER_LOOPS",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.holophonor.constants.NUMBER_SCENES",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.rtmidi.midiconstants.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.rtmidi.midiconstants.NOTE_OFF",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.rtmidi.midiconstants.POLY_AFTERTOUCH",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.rtmidi.midiconstants.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.rtmidi.midiconstants.PROGRAM_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.time.sleep",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.Fweelin",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.playLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.stopLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.recordLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.eraseLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.overdubLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.recallScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.storeScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.eraseScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.toggleShift",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.toggleCut",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.toggleOverdub",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.deletePulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.tapPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.stopAllLoops",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.toggleMute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.NUMBER_LOOPS",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.NUMBER_SCENES",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "freewheeling.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "daw.Bitwig",
+      "target": "daw.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "daw.Bitwig",
+      "target": "daw.toggleFX",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.holophonor.holospecs.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.holophonor.holoimpl",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.rtmidi.midiutil.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.rtmidi.midiconstants.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.rtmidi.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.Bitwig",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.toggleFX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "daw.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "target": "launchpadMK2.holophonor.launchpadX.LaunchpadX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "target": "launchpadMK2.LaunchpadMK2",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "target": "launchpadMK2.LaunchpadX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.holophonor.holospecs.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.holophonor.freewheeling.Fweelin",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.holophonor.qsynth.Qsynth",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.holophonor.launchpadX.LaunchpadX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.holophonor.launchpadMK2.LaunchpadMK2",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.pluggy.PluginManager",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.loguru.logger",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.sys.stderr",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.Fweelin",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.Qsynth",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.LaunchpadX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "main.PluginManager",
+      "kind": "contains"
+     },
+     {
+      "source": "qsynth.Qsynth",
+      "target": "qsynth.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qsynth.Qsynth",
+      "target": "qsynth.playNote",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "qsynth.Qsynth",
+      "target": "qsynth.setDrumPatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.holophonor.holoimpl",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.rtmidi.midiutil.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.rtmidi.midiconstants.PROGRAM_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.rtmidi.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.Qsynth",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.playNote",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.setDrumPatch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.open_midioutput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.PROGRAM_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "target": "qsynth.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleLive",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.clear",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.lightDrums",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.lightButton",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.close",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.recordLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.playLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.stopLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.eraseLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.clearLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.overdubLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.recallScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.storeScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.eraseScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.clearScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleShift",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleCut",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleOverdub",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.deletePulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.clearPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.stopAllLoops",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.tapPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleMute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.toggleFX",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.setDrumPatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.setDrumBank",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.LaunchpadX",
+      "target": "launchpadX.__call__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__init__",
+      "target": "launchpadX.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.recordLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.playLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.overdubLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.stopLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.eraseLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.clearLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleFX",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.setDrumPatch",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.toggleMute",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.eraseScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.storeScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.recallScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.clearScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.deletePulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.clearPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.stopAllLoops",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadX.__call__",
+      "target": "launchpadX.tapPulse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.holophonor.holoimpl",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.holophonor.holospecs.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.holophonor.constants.*",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.rtmidi.midiutil.open_midiinput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.rtmidi.midiconstants.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.rtmidi.midiconstants.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.rtmidi.midiconstants.NOTE_OFF",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.rtmidi.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.loguru.logger",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.LaunchpadX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleLive",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.clear",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.lightDrums",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.lightButton",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.close",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.recordLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.playLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.stopLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.eraseLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.clearLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.overdubLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.recallScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.storeScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.eraseScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.clearScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleShift",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleCut",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleOverdub",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.deletePulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.clearPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.stopAllLoops",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.tapPulse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleMute",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.toggleFX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.setDrumPatch",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.setDrumBank",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.__call__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.open_midiinput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.NOTE_OFF",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "launchpadX.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.__init__",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.setLayout",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.recordLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.playLoop",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.recallScene",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "launchpadS.LaunchpadS",
+      "target": "launchpadS.close",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.holophonor.holoimpl",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.holophonor.holospecs.Holophonor",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.holophonor.launchpadX.LaunchpadX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.itertools.chain",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.rtmidi.midiutil.open_midiinput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.rtmidi.midiconstants.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.rtmidi.midiconstants.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.rtmidi.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.LaunchpadS",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.__init__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.setLayout",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.recordLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.playLoop",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.recallScene",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.close",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.LaunchpadX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.chain",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.open_midiinput",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.NOTE_ON",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.CONTROL_CHANGE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "launchpadS.API_UNIX_JACK",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/constants.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/daw.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/freewheeling.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/qsynth.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/main.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadMK2.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/constants.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/holospecs.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/holophonor/holophonor/launchpadS.py",
+      "target": "file::quaternionmedia/holophonor/holophonor/launchpadX.py",
+      "kind": "depends_on"
      }
     ]
    },
    "metadata": {
     "url": "https://github.com/quaternionmedia/holophonor",
-    "depth": 1,
+    "depth": 2,
+    "floor": 100,
     "truncated": 0
    }
   },

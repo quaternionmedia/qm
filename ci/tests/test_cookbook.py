@@ -1002,3 +1002,100 @@ def test_a_family_page_and_the_families_index_show_theirs(tmp_path, monkeypatch)
                                 {f["name"]: f for f in families})
     # Mutation: leave the estate's showgraph off the families index -- this fails.
     assert "](../show/index/estate.svg)" in index
+
+
+def _code(depth: int, nodes: int) -> dict:
+    return {"graph": {"nodes": {f"n{i}": {} for i in range(nodes)}, "edges": []}, "metadata": {"depth": depth}}
+
+
+def test_a_project_page_steps_to_the_same_graph_of_the_projects_beside_it(tmp_path, monkeypatch):
+    """A reader looks at one project's code map, then the next one's: each view
+    links to that view of the projects before and after it, alphabetically and
+    round, and to every project's on the drawer's page. A project whose view
+    was not drawn is stepped over.
+
+    Mutation: leave the links off -- a page links to no other project's
+    graph, and this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    for name in ("alpha", "beta", "codecartographer", "delta"):
+        _show(tmp_path, f"project/{name}", {"estate": DRAWN, "code": _code(1, 120)},
+              {"estate": "estate.svg", "code": "code.svg"})
+    _show(tmp_path, "project/gamma",
+          {"estate": DRAWN, "code": {"absent": True, "problem": "no default branch", "remedy": "", "where": ""}},
+          {"estate": "estate.svg"})
+    projects = {n: _project(n) for n in ("delta", "alpha", "gamma", "codecartographer", "beta")}
+    beta = cookbook.project_page(projects["beta"], {"instruments": {}}, projects)
+    assert "[← alpha](alpha.md#showgraph-code)" in beta
+    assert "[codecartographer →](codecartographer.md#showgraph-code)" in beta
+    assert "[every project's code](codecartographer.md#every-projects-code)" in beta
+    assert '<figure class="qm-shot" id="showgraph-code" markdown>' in beta
+    # Round from the first to the last, and over gamma, whose code is not drawn.
+    alpha = cookbook.project_page(projects["alpha"], {"instruments": {}}, projects)
+    assert "[← delta](delta.md#showgraph-code)" in alpha
+    delta = cookbook.project_page(projects["delta"], {"instruments": {}}, projects)
+    assert "[alpha →](alpha.md#showgraph-code)" in delta and "gamma.md#showgraph-code" not in delta
+    # Its estate steps through every project, gamma's among them.
+    assert "[gamma →](gamma.md#showgraph-estate)" in delta
+
+
+def test_the_drawer_s_page_shows_every_showgraph_and_no_other_page_does(tmp_path, monkeypatch):
+    """The page of the project that draws the showgraphs is their showcase:
+    the whole corpus with every node and no name, then each view of every
+    project and every family, each opening its page.
+
+    Mutation: give every project page the galleries, or none -- and this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    for name, depth, nodes in (("alpha", 3, 104), ("codecartographer", 1, 521)):
+        _show(tmp_path, f"project/{name}", {"estate": DRAWN, "code": _code(depth, nodes)},
+              {"estate": "estate.svg", "code": "code.svg"})
+    _show(tmp_path, "family/instruments", {"estate": DRAWN}, {"estate": "estate.svg"})
+    _show(tmp_path, "index", {"estate": DRAWN, "code": _code(1, 4030), "full": {"graph": "the code view's"}},
+          {"estate": "estate.svg", "code": "code.svg", "full": "full.svg"})
+    projects = {n: _project(n) for n in ("alpha", "codecartographer")}
+    drawer = cookbook.project_page(projects["codecartographer"], {"instruments": {}}, projects)
+    showcase = _under_showcase(drawer)
+    assert "### Every showgraph { #every-showgraph }" in showcase
+    assert "#### The whole corpus, every node { #the-whole-corpus-every-node }" in showcase
+    assert "](../show/index/full.svg)" in drawer and "4,030 nodes" in drawer
+    assert "](../show/project/alpha/code.svg){ loading=lazy }](alpha.md#showgraph-code)" in drawer
+    assert "[alpha](alpha.md#showgraph-code), 104 nodes, to its members" in drawer
+    assert "](../families/instruments.md#showgraph-estate)" in drawer
+    other = cookbook.project_page(projects["alpha"], {"instruments": {}}, projects)
+    assert "Every showgraph" not in other
+
+
+def test_a_code_map_says_how_deep_it_was_drawn(tmp_path, monkeypatch):
+    """codecarto holds a code map to a floor of nodes, so a small project's is
+    drawn to its symbols or its members. Mutation: say "by directory and file"
+    of every code map -- and this fails."""
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "project/synth", {"code": _code(2, 281)}, {"code": "code.svg"})
+    page = cookbook.project_page(_project("synth"), {"instruments": {}})
+    assert "<strong>Its code.</strong> Its default branch, by directory, file and symbol." in page
+
+
+def test_the_families_index_shows_the_whole_corpus_with_every_node_and_no_name(tmp_path, monkeypatch):
+    monkeypatch.setattr(cookbook, "SHOW", tmp_path)
+    _show(tmp_path, "index", {"estate": DRAWN, "code": DRAWN, "full": {"graph": "the code view's"}},
+          {"estate": "estate.svg", "code": "code.svg", "full": "full.svg"})
+    families = [{"name": "instruments", "drives": "the sound", "members": ["synth"]}]
+    index = cookbook.site_index({"families": families, "unstated": []},
+                                [{"name": "instruments", "drives": "the sound", "members": 1, "governed": 1}],
+                                {f["name"]: f for f in families})
+    # Mutation: give the full view no title of its own -- it is captioned "full", and this fails.
+    assert "](../show/index/full.svg)" in index
+    assert ("<figcaption><strong>Every node.</strong> The whole corpus again, every node drawn and "
+            "nothing written on it.</figcaption>") in index
+
+
+def test_a_stale_page_names_the_command_that_writes_it(tmp_path, monkeypatch, capsys):
+    """The remedy is the command that wrote the page. A site page sent to the
+    walkthrough's default directory is regenerated somewhere nobody reads."""
+    monkeypatch.setattr(cookbook, "build", lambda out, site=False: {"a.md": "fresh\n"})
+    (tmp_path / "a.md").write_text("old\n", encoding="utf-8")
+
+    assert cookbook.main([str(tmp_path), "--site", "--check"]) == 1
+    assert f"`uv run qm cookbook {tmp_path.as_posix()} --site --write`" in capsys.readouterr().err
+
+    assert cookbook.main([str(tmp_path), "--check"]) == 1
+    assert f"`uv run qm cookbook {tmp_path.as_posix()} --write`" in capsys.readouterr().err

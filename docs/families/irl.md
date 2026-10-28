@@ -20,9 +20,9 @@ Drives matter — a thing somebody builds, holds or installs: parts, boards, enc
 
 <figure class="qm-hero-shot" markdown>
 
-[![The chess set, modelled in OpenSCAD.](https://github.com/quaternionmedia/scad-chess/raw/HEAD/chess_set.png)](../projects/scad-chess.md)
+[![The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.](https://github.com/quaternionmedia/apothecary/raw/HEAD/walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png)](../projects/apothecary.md)
 
-<figcaption><strong>scad-chess.</strong> The chess set, modelled in OpenSCAD.</figcaption>
+<figcaption><strong>apothecary.</strong> The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.</figcaption>
 
 </figure>
 
@@ -33,6 +33,8 @@ Drives matter — a thing somebody builds, holds or installs: parts, boards, enc
 <div class="grid" markdown>
 
 <div class="card qm-f-irl" markdown>
+
+![The garage, an Ender 3 and its boards on the workbench, with the site's tree beside the world.](https://github.com/quaternionmedia/apothecary/raw/HEAD/walkthrough/screenshots/02-05-the-bench-at-the-garage-s-root-an-ender-3-at-one-e.png){ .qm-thumb loading=lazy }
 
 [apothecary](../projects/apothecary.md){ .qm-card-link }
 
@@ -114,7 +116,7 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its members, the families within it and the seams between them](../show/family/irl/estate.svg)](../show/family/irl/estate.svg)
 
@@ -124,7 +126,7 @@ the graphs codecarto draws
 
 </div>
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882`, on 2026-10-26. [The show document](../show/family/irl/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee`, on 2026-10-27. [The show document](../show/family/irl/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

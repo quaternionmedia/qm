@@ -79,6 +79,7 @@ disagree, they are repaired together.**
 | `handbook/` | `handbook` | Policy on QM's own conduct, and procedure with its verification | QM's conduct, not a project's design |
 | `handbook/handoffs/` | `handoff` | Working instructions for the next session. Deleted when the work lands | Nobody. It is a note, and a stale one is a cost |
 | `docs/` | `reference` | Contracts, interfaces, procedures, how to use the thing | Nobody. It describes rather than decides |
+| `docs/families/`, `docs/projects/`, and the files `GENERATED` names | `generated` | What a tool writes from its sources; `refresh` in `status/documents.yaml` names the command | Nobody. It has an age, not a lifecycle, and it is changed through its sources |
 | `perspectives/` | `perspective` | Every why: rationale, incidents, what was learned | Nobody. Dated, attributed, non-binding |
 | `protocols/` | `protocol` | A procedure run deliberately, and the record of its runs | Nobody. A protocol page owns the procedure, never the decision behind it |
 | `curriculum/` | `curriculum` | A reading order, citing documents it does not restate | Nobody |

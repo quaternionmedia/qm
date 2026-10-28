@@ -44,7 +44,7 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its members, the families within it and the seams between them](../show/family/commons/estate.svg)](../show/family/commons/estate.svg)
 
@@ -54,7 +54,7 @@ the graphs codecarto draws
 
 </div>
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882`, on 2026-10-26. [The show document](../show/family/commons/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee`, on 2026-10-27. [The show document](../show/family/commons/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

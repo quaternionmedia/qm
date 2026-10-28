@@ -263,6 +263,32 @@ def test_a_terminal_front_end_is_never_detached():
     assert "run it" in detail or "yourself" in detail
 
 
+def test_each_surface_sits_on_its_own_constant():
+    """The table exists so that no two servers on one workstation collide, and
+    its ports are a memory aid: each is its constant's first four digits, read
+    from the constant rather than typed, and no two surfaces share one.
+
+    Mutation: give apothecary's surface 2718 and this fails, those being e's
+    digits rather than tau's; name its constant e as well and it fails again,
+    the port shared with the web front end.
+    """
+    import math
+
+    sys.path.insert(0, str(CORPUS))
+    from ci import dashboard
+
+    constants = {"pi": math.pi, "e": math.e, "phi": (1 + math.sqrt(5)) / 2,
+                 "root two": math.sqrt(2), "tau": math.tau}
+    for surface in dashboard.SURFACES:
+        assert surface.constant in constants, (
+            f"{surface.name}: name its constant's value here, beside the others")
+        digits = f"{constants[surface.constant]:.10f}".replace(".", "")[:4]
+        assert surface.port == int(digits), (
+            f"{surface.name}: {surface.port} is not {surface.constant}'s {digits}")
+    ports = [surface.port for surface in dashboard.SURFACES]
+    assert len(ports) == len(set(ports)), f"two surfaces share a port: {ports}"
+
+
 def test_stopping_acts_on_a_recorded_pid_rather_than_a_port():
     """Stopping whatever holds a port would let this kill a process it never
     started and knows nothing about.

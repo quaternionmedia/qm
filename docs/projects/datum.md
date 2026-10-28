@@ -34,19 +34,19 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/datum/estate.svg)](../show/project/datum/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← Cuelist-python](Cuelist-python.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [dossier →](dossier.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/datum/code.svg)](../show/project/datum/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/datum/code.svg)](../show/project/datum/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← Cuelist-python](Cuelist-python.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [dossier →](dossier.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. datum declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and datum's default branch at `72b0434`, on 2026-10-26. [The show document](../show/project/datum/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and datum's default branch at `72b0434`, on 2026-10-27. [The show document](../show/project/datum/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

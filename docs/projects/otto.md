@@ -34,19 +34,19 @@ the graphs codecarto draws
 
 <div class="grid" markdown>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-estate" markdown>
 
 [![Where it sits: its families, its phase, its records and the seams it is on](../show/project/otto/estate.svg)](../show/project/otto/estate.svg)
 
-<figcaption><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.</figcaption>
+<figcaption markdown="span"><strong>Where it sits.</strong> Its families, its phase, its records and the seams it is on.<br>[← moat](moat.md#showgraph-estate) · [every project's estate](codecartographer.md#every-projects-estate) · [QLab-python →](QLab-python.md#showgraph-estate)</figcaption>
 
 </figure>
 
-<figure class="qm-shot" markdown>
+<figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/otto/code.svg)](../show/project/otto/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/otto/code.svg)](../show/project/otto/code.svg)
 
-<figcaption><strong>Its code.</strong> Its default branch, by directory and file.</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← moat](moat.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [QLab-python →](QLab-python.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. otto's system view is composed from a clone of it, and this export read none.
 { .qm-caption }
 
-Drawn by codecartographer at `0c64e94` from the corpus at `3b94882` and otto's default branch at `c57b2ad`, on 2026-10-26. [The show document](../show/project/otto/show.json) holds each graph as drawn.
+Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and otto's default branch at `c57b2ad`, on 2026-10-27. [The show document](../show/project/otto/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>

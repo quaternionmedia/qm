@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:2610d0a3d65db0051fb29e671d61b2178235af7d22e12adb9d42951c6b9c6a95"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "a04467f835d3399d0f450a9a9abc2ccd9d5f7bb5"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -75,7 +75,7 @@
        "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
        "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
        "show": "family:show-control",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "x": 58.24922359499621,
        "y": 18.926320036288807,
        "size": 11,
@@ -203,10 +203,10 @@
     "subject": "project:ira",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -253,8 +253,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 14.021005793301802,
-      "y": -5.940230478359873,
+      "x": -21.218627542324427,
+      "y": -21.781570119097392,
       "size": 200
      },
      "dir::quaternionmedia/ira/assets": {
@@ -267,8 +267,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -89.28197808260671,
-      "y": -295.30342098871796,
+      "x": 377.68348099050917,
+      "y": -443.07089703687075,
       "size": 60
      },
      "dir::quaternionmedia/ira/dmx": {
@@ -281,8 +281,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 168.37417513518267,
-      "y": -281.98776445172865,
+      "x": 166.43094826166416,
+      "y": -647.1217463691087,
       "size": 60
      },
      "dir::quaternionmedia/ira/examples": {
@@ -295,8 +295,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -248.79378553129231,
-      "y": 214.58756399004102,
+      "x": -6.479284020678165,
+      "y": 470.8455089371125,
       "size": 70
      },
      "dir::quaternionmedia/ira/examples/basic": {
@@ -308,9 +308,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -186.7740725594224,
-      "y": 237.16089344953514,
+      "label_at": "left",
+      "x": -39.479284020678136,
+      "y": 528.0031855868856,
       "size": 50
      },
      "dir::quaternionmedia/ira/examples/cobs_demo": {
@@ -322,9 +322,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -320.7036830438908,
-      "y": 244.36220319402779,
+      "label_at": "above",
+      "x": -23.314556892627166,
+      "y": 394.85777250992965,
       "size": 50
      },
      "dir::quaternionmedia/ira/generator": {
@@ -337,8 +337,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 332.9428184547166,
-      "y": -62.17475078701802,
+      "x": -372.7849515962574,
+      "y": 58.70692268136446,
       "size": 90
      },
      "dir::quaternionmedia/ira/ira-teensy": {
@@ -351,8 +351,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": 215.40133260305927,
-      "y": 234.0554974749646,
+      "x": -174.33916628787102,
+      "y": -479.15825239537304,
       "size": 70
      },
      "dir::quaternionmedia/ira/kicad_ira": {
@@ -364,9 +364,9 @@
       "file": "",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -55.282624364610044,
-      "y": 92.86453583853083,
+      "label_at": "above",
+      "x": -38.05390041427343,
+      "y": -97.76930654628028,
       "size": 50
      },
      "dir::quaternionmedia/ira/templates": {
@@ -379,8 +379,8 @@
       "line": 0,
       "meta": {},
       "label_at": "none",
-      "x": -280.37733702302285,
-      "y": -113.09246428079926,
+      "x": 386.5545133083618,
+      "y": 169.2669292202159,
       "size": 70
      },
      "file::quaternionmedia/ira/README.md": {
@@ -392,9 +392,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 76.04071876517176,
-      "y": 16.63309898113426,
+      "label_at": "left",
+      "x": -54.21862754232441,
+      "y": 35.376106530675564,
       "size": 30
      },
      "file::quaternionmedia/ira/assets/dashstyle.css": {
@@ -406,9 +406,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -38.538576560167655,
-      "y": -276.8343332491318,
+      "label_at": "none",
+      "x": 290.35219117804314,
+      "y": -291.80866599115717,
       "size": 30
      },
      "file::quaternionmedia/ira/controller.py": {
@@ -420,9 +420,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/controller.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -57.888891719296666,
-      "y": 23.83440872562693,
+      "label_at": "none",
+      "x": 639.5238397743825,
+      "y": -356.52986263074934,
       "size": 30
      },
      "file::quaternionmedia/ira/dmx/README.md": {
@@ -434,9 +434,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/dmx/README.md",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 219.1175766576217,
-      "y": -263.5186767121425,
+      "label_at": "left",
+      "x": 139.4309482616642,
+      "y": -600.356374564749,
       "size": 30
      },
      "file::quaternionmedia/ira/generator/API.h": {
@@ -448,9 +448,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/API.h",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 383.68621997715564,
-      "y": -43.70566304743191,
+      "label_at": "none",
+      "x": -468.147896256997,
+      "y": 223.88038799314475,
       "size": 30
      },
      "file::quaternionmedia/ira/generator/README.md": {
@@ -463,8 +463,8 @@
       "line": 0,
       "meta": {},
       "label_at": "left",
-      "x": 277.46797094614254,
-      "y": -39.20512314744876,
+      "x": -399.7849515962574,
+      "y": 105.47229448572415,
       "size": 30
      },
      "file::quaternionmedia/ira/generator/generator.h": {
@@ -476,9 +476,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/generator.h",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 360.65290753089045,
-      "y": -121.55720580018252,
+      "label_at": "none",
+      "x": -259.1254324499782,
+      "y": 211.86657325848532,
       "size": 30
      },
      "file::quaternionmedia/ira/generator/reupload.sh": {
@@ -490,9 +490,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/generator/reupload.sh",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 354.14277991994817,
-      "y": 5.158369843713885,
+      "label_at": "above",
+      "x": -385.77251280329403,
+      "y": 0.08622877645169069,
       "size": 30
      },
      "file::quaternionmedia/ira/idash.py": {
@@ -504,9 +504,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/idash.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 51.26934853941406,
-      "y": -85.76307158708104,
+      "label_at": "none",
+      "x": -624.9004795578134,
+      "y": -114.60493435390066,
       "size": 30
      },
      "file::quaternionmedia/ira/ira-teensy/fx.h": {
@@ -518,9 +518,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/ira-teensy/fx.h",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 266.1447341254983,
-      "y": 252.5245852145507,
+      "label_at": "none",
+      "x": -274.47810781683444,
+      "y": -305.71251785103925,
       "size": 30
      },
      "file::quaternionmedia/ira/ira-teensy/ira.h": {
@@ -532,9 +532,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/ira-teensy/ira.h",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": 159.9264850944853,
-      "y": 257.02512511453386,
+      "label_at": "none",
+      "x": -248.90830480753246,
+      "y": -608.3157889880679,
       "size": 30
      },
      "file::quaternionmedia/ira/ira.py": {
@@ -546,9 +546,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/ira.py",
       "line": 0,
       "meta": {},
-      "label_at": "below",
-      "x": 43.23176239341103,
-      "y": 86.83594749233029,
+      "label_at": "none",
+      "x": 600.3708830594333,
+      "y": -118.93329122659307,
       "size": 30
      },
      "file::quaternionmedia/ira/iras.py": {
@@ -560,9 +560,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/iras.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -77.44727363467786,
-      "y": -58.81559202308161,
+      "label_at": "none",
+      "x": 696.3743665137212,
+      "y": 105.27884467548441,
       "size": 30
      },
      "file::quaternionmedia/ira/itest.py": {
@@ -574,9 +574,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/itest.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 124.7678841114921,
-      "y": -30.4135106585064,
+      "label_at": "none",
+      "x": 266.9554057943522,
+      "y": 571.1908291596906,
       "size": 30
      },
      "file::quaternionmedia/ira/osc.py": {
@@ -588,9 +588,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/osc.py",
       "line": 0,
       "meta": {},
-      "label_at": "above",
-      "x": -2.506600085252387,
-      "y": -132.40673095940892,
+      "label_at": "none",
+      "x": -737.3859920733412,
+      "y": 115.37056229349525,
       "size": 30
      },
      "file::quaternionmedia/ira/packet.py": {
@@ -602,9 +602,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/packet.py",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": 116.61321739225976,
-      "y": 80.334552159643,
+      "label_at": "none",
+      "x": -272.8659448362716,
+      "y": 588.6328589554041,
       "size": 30
      },
      "file::quaternionmedia/ira/serialports.py": {
@@ -616,9 +616,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/serialports.py",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -126.10286396974769,
-      "y": 0.006501618174752366,
+      "label_at": "none",
+      "x": 485.65499367715057,
+      "y": 508.76218924671673,
       "size": 30
      },
      "file::quaternionmedia/ira/templates/home.html": {
@@ -630,9 +630,9 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/templates/home.html",
       "line": 0,
       "meta": {},
-      "label_at": "right",
-      "x": -229.6339355005838,
-      "y": -94.62337654121315,
+      "label_at": "none",
+      "x": 315.21265498706026,
+      "y": 292.83465253909065,
       "size": 30
      },
      "file::quaternionmedia/ira/templates/paper.html": {
@@ -644,10 +644,2466 @@
       "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/templates/paper.html",
       "line": 0,
       "meta": {},
-      "label_at": "left",
-      "x": -335.8521845315967,
-      "y": -90.12283664122995,
+      "label_at": "none",
+      "x": 317.0545133083617,
+      "y": 48.889398094178944,
       "size": 30
+     },
+     "API::initServer": {
+      "id": "API::initServer",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "initServer",
+      "file": "API",
+      "line": 17,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -485.14789625699694,
+      "y": 253.32525172181573,
+      "label_at": "left"
+     },
+     "API::server": {
+      "id": "API::server",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "server",
+      "file": "API",
+      "line": 12,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int ()",
+       "param_count": 0,
+       "is_definition": false
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -476.2991598533695,
+      "y": 187.08882100038878,
+      "label_at": "above"
+     },
+     "controller.datetime": {
+      "id": "controller.datetime",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "datetime",
+      "file": "controller.py",
+      "line": 0,
+      "meta": {
+       "module": "controller",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 622.5238397743825,
+      "y": -327.0849989020784,
+      "label_at": "left"
+     },
+     "controller.datetime.datetime": {
+      "id": "controller.datetime.datetime",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "datetime.datetime",
+      "file": "controller.py",
+      "line": 0,
+      "meta": {
+       "module": "controller",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 631.37257617801,
+      "y": -393.3214296235052,
+      "label_at": "above"
+     },
+     "controller.time.sleep": {
+      "id": "controller.time.sleep",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "time.sleep",
+      "file": "controller.py",
+      "line": 0,
+      "meta": {
+       "module": "controller",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 673.1338962287838,
+      "y": -332.9822702881773,
+      "label_at": "right"
+     },
+     "css::dashstyle.css::class::Select-menu-outer::28": {
+      "id": "css::dashstyle.css::class::Select-menu-outer::28",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "Select-menu-outer",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 28,
+      "meta": {},
+      "x": 273.35219117804314,
+      "y": -262.3638022624862,
+      "label_at": "left"
+     },
+     "css::dashstyle.css::class::button::134": {
+      "id": "css::dashstyle.css::class::button::134",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "button",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 134,
+      "meta": {},
+      "x": 282.2009275816707,
+      "y": -328.60023298391314,
+      "label_at": "above"
+     },
+     "css::dashstyle.css::class::button::156": {
+      "id": "css::dashstyle.css::class::button::156",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "button",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 156,
+      "meta": {},
+      "x": 323.9622476324445,
+      "y": -268.2610736485851,
+      "label_at": "right"
+     },
+     "css::dashstyle.css::class::button::161": {
+      "id": "css::dashstyle.css::class::button::161",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "button",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 161,
+      "meta": {},
+      "x": 246.5891847629159,
+      "y": -286.065255026449,
+      "label_at": "left"
+     },
+     "css::dashstyle.css::class::button::296": {
+      "id": "css::dashstyle.css::class::button::296",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "button",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 296,
+      "meta": {},
+      "x": 320.60495001560685,
+      "y": -327.82283796159425,
+      "label_at": "right"
+     },
+     "css::dashstyle.css::class::column::42": {
+      "id": "css::dashstyle.css::class::column::42",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "column",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 42,
+      "meta": {},
+      "x": 292.48911902267616,
+      "y": -242.09200842664634,
+      "label_at": "below"
+     },
+     "css::dashstyle.css::class::column::59": {
+      "id": "css::dashstyle.css::class::column::59",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "column",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 59,
+      "meta": {},
+      "x": 253.36625546348887,
+      "y": -328.85479344489863,
+      "label_at": "left"
+     },
+     "css::dashstyle.css::class::columns::43": {
+      "id": "css::dashstyle.css::class::columns::43",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "columns",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 43,
+      "meta": {},
+      "x": 345.11047847488993,
+      "y": -289.3658249574447,
+      "label_at": "right"
+     },
+     "css::dashstyle.css::class::columns::60": {
+      "id": "css::dashstyle.css::class::columns::60",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "columns",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 60,
+      "meta": {},
+      "x": 246.517007777544,
+      "y": -255.10748486241675,
+      "label_at": "left"
+     },
+     "css::dashstyle.css::class::container::328": {
+      "id": "css::dashstyle.css::class::container::328",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "container",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 328,
+      "meta": {},
+      "x": 347.35786694821684,
+      "y": -324.5974282426639,
+      "label_at": "right"
+     },
+     "css::dashstyle.css::class::container::35": {
+      "id": "css::dashstyle.css::class::container::35",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "container",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 35,
+      "meta": {},
+      "x": 298.18192284972287,
+      "y": -350.7260471443406,
+      "label_at": "above"
+     },
+     "css::dashstyle.css::class::container::50": {
+      "id": "css::dashstyle.css::class::container::50",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "container",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 50,
+      "meta": {},
+      "x": 325.62568410371983,
+      "y": -241.2873269667188,
+      "label_at": "right"
+     },
+     "css::dashstyle.css::class::container::57": {
+      "id": "css::dashstyle.css::class::container::57",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "container",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 57,
+      "meta": {},
+      "x": 228.1597969931948,
+      "y": -305.69367969501917,
+      "label_at": "left"
+     },
+     "css::dashstyle.css::class::row::329": {
+      "id": "css::dashstyle.css::class::row::329",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "row",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 329,
+      "meta": {},
+      "x": 269.86836960557895,
+      "y": -227.23912554221596,
+      "label_at": "below"
+     },
+     "css::dashstyle.css::class::u-cf::330": {
+      "id": "css::dashstyle.css::class::u-cf::330",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "u-cf",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/assets/dashstyle.css",
+      "line": 330,
+      "meta": {},
+      "x": 261.0313415518103,
+      "y": -355.0001430841627,
+      "label_at": "left"
+     },
+     "fx::ARG": {
+      "id": "fx::ARG",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "ARG",
+      "file": "fx",
+      "line": 35,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -291.47810781683444,
+      "y": -276.26765412236836,
+      "label_at": "left"
+     },
+     "fx::EYESIZE": {
+      "id": "fx::EYESIZE",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "EYESIZE",
+      "file": "fx",
+      "line": 34,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -282.62937141320697,
+      "y": -342.50408484379534,
+      "label_at": "above"
+     },
+     "fx::HUE_SPEED": {
+      "id": "fx::HUE_SPEED",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "HUE_SPEED",
+      "file": "fx",
+      "line": 33,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -240.86805136243314,
+      "y": -282.16492550846726,
+      "label_at": "right"
+     },
+     "fx::SPEED": {
+      "id": "fx::SPEED",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "SPEED",
+      "file": "fx",
+      "line": 32,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -318.2411142319617,
+      "y": -299.96910688633113,
+      "label_at": "left"
+     },
+     "fx::black": {
+      "id": "fx::black",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "black",
+      "file": "fx",
+      "line": 20,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -244.22534897927076,
+      "y": -341.72668982147627,
+      "label_at": "right"
+     },
+     "fx::chaser": {
+      "id": "fx::chaser",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "chaser",
+      "file": "fx",
+      "line": 226,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -272.3411799722014,
+      "y": -255.99586028652848,
+      "label_at": "below"
+     },
+     "fx::color": {
+      "id": "fx::color",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "color",
+      "file": "fx",
+      "line": 19,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -311.4640435313887,
+      "y": -342.75864530478077,
+      "label_at": "left"
+     },
+     "fx::colorHSV": {
+      "id": "fx::colorHSV",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "colorHSV",
+      "file": "fx",
+      "line": 21,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -219.71982051998768,
+      "y": -303.2696768173268,
+      "label_at": "right"
+     },
+     "fx::delta": {
+      "id": "fx::delta",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "delta",
+      "file": "fx",
+      "line": 28,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -318.3132912173336,
+      "y": -269.01133672229895,
+      "label_at": "left"
+     },
+     "fx::fadeall": {
+      "id": "fx::fadeall",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "fadeall",
+      "file": "fx",
+      "line": 70,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -266.64837614515477,
+      "y": -364.6298990042227,
+      "label_at": "above"
+     },
+     "fx::glitter": {
+      "id": "fx::glitter",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "glitter",
+      "file": "fx",
+      "line": 204,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -239.20461489115777,
+      "y": -255.19117882660095,
+      "label_at": "right"
+     },
+     "fx::glitterRandom": {
+      "id": "fx::glitterRandom",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "glitterRandom",
+      "file": "fx",
+      "line": 218,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -336.6705020016829,
+      "y": -319.59753155490125,
+      "label_at": "left"
+     },
+     "fx::hue": {
+      "id": "fx::hue",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "hue",
+      "file": "fx",
+      "line": 26,
+      "meta": {
+       "qualifiers": [
+        "volatile"
+       ],
+       "type_str": "volatile int",
+       "facets": [
+        "memory.volatile"
+       ]
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -217.47243204666077,
+      "y": -338.50128010254605,
+      "label_at": "right"
+     },
+     "fx::hueCycle": {
+      "id": "fx::hueCycle",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "hueCycle",
+      "file": "fx",
+      "line": 235,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -294.9619293892987,
+      "y": -241.14297740209813,
+      "label_at": "below"
+     },
+     "fx::hueFract": {
+      "id": "fx::hueFract",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "hueFract",
+      "file": "fx",
+      "line": 27,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -303.7989574430673,
+      "y": -368.9039949440448,
+      "label_at": "left"
+     },
+     "fx::hueIncrement": {
+      "id": "fx::hueIncrement",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "hueIncrement",
+      "file": "fx",
+      "line": 56,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -208.44622201652606,
+      "y": -278.2038363549183,
+      "label_at": "right"
+     },
+     "fx::lastUpdate": {
+      "id": "fx::lastUpdate",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "lastUpdate",
+      "file": "fx",
+      "line": 29,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -343.46377585647406,
+      "y": -280.77303900474726,
+      "label_at": "left"
+     },
+     "fx::lpos": {
+      "id": "fx::lpos",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "lpos",
+      "file": "fx",
+      "line": 23,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -239.63182552726389,
+      "y": -372.27676584195075,
+      "label_at": "right"
+     },
+     "fx::lposFract": {
+      "id": "fx::lposFract",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "lposFract",
+      "file": "fx",
+      "line": 25,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -254.7636416439383,
+      "y": -231.41268727574297,
+      "label_at": "below"
+     },
+     "fx::marquee": {
+      "id": "fx::marquee",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "marquee",
+      "file": "fx",
+      "line": 105,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -340.6341558887734,
+      "y": -348.0984212093882,
+      "label_at": "left"
+     },
+     "fx::max": {
+      "id": "fx::max",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "max",
+      "file": "fx",
+      "line": 6,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int (int, int)",
+       "param_count": 2,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -195.42707627098764,
+      "y": -319.430550200379,
+      "label_at": "right"
+     },
+     "fx::min": {
+      "id": "fx::min",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "min",
+      "file": "fx",
+      "line": 9,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int (int, int)",
+       "param_count": 2,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -324.4968693230941,
+      "y": -240.9094623877363,
+      "label_at": "left"
+     },
+     "fx::newCylon": {
+      "id": "fx::newCylon",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "newCylon",
+      "file": "fx",
+      "line": 79,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -281.50413240649874,
+      "y": -388.87506938997075,
+      "label_at": "above"
+     },
+     "fx::newRainbow": {
+      "id": "fx::newRainbow",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "newRainbow",
+      "file": "fx",
+      "line": 178,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -211.96962757957155,
+      "y": -248.07461887451768,
+      "label_at": "right"
+     },
+     "fx::pos": {
+      "id": "fx::pos",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "pos",
+      "file": "fx",
+      "line": 22,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -361.0426545037183,
+      "y": -305.99404386104175,
+      "label_at": "left"
+     },
+     "fx::posFract": {
+      "id": "fx::posFract",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "posFract",
+      "file": "fx",
+      "line": 24,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -209.33970373176024,
+      "y": -364.99616494911834,
+      "label_at": "right"
+     },
+     "fx::positionIncrement": {
+      "id": "fx::positionIncrement",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "positionIncrement",
+      "file": "fx",
+      "line": 37,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -282.59838496755987,
+      "y": -216.51786499003305,
+      "label_at": "below"
+     },
+     "fx::rainbow": {
+      "id": "fx::rainbow",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "rainbow",
+      "file": "fx",
+      "line": 162,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -329.6264875194003,
+      "y": -378.13035899658587,
+      "label_at": "left"
+     },
+     "fx::wash": {
+      "id": "fx::wash",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "wash",
+      "file": "fx",
+      "line": 73,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -183.4795754133075,
+      "y": -289.31077707744294,
+      "label_at": "right"
+     },
+     "fx::waves": {
+      "id": "fx::waves",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "waves",
+      "file": "fx",
+      "line": 149,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -353.85492006785813,
+      "y": -255.58134813731982,
+      "label_at": "left"
+     },
+     "fx::wipe": {
+      "id": "fx::wipe",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "wipe",
+      "file": "fx",
+      "line": 137,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void ()",
+       "param_count": 0,
+       "is_definition": true
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -249.44445164989787,
+      "y": -397.642877683445,
+      "label_at": "above"
+     },
+     "generator::DMX": {
+      "id": "generator::DMX",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "DMX",
+      "file": "generator",
+      "line": 6,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "uint8_t[8]"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -276.1254324499782,
+      "y": 241.3114369871563,
+      "label_at": "left"
+     },
+     "generator::apiCounter": {
+      "id": "generator::apiCounter",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "apiCounter",
+      "file": "generator",
+      "line": 7,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -267.2766960463506,
+      "y": 175.07500626572934,
+      "label_at": "above"
+     },
+     "html::home.html::anchor::result::28": {
+      "id": "html::home.html::anchor::result::28",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "result",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/templates/home.html",
+      "line": 28,
+      "meta": {},
+      "x": 298.21265498706026,
+      "y": 322.27951626776155,
+      "label_at": "left"
+     },
+     "html::home.html::anchor::viz::29": {
+      "id": "html::home.html::anchor::viz::29",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "viz",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/templates/home.html",
+      "line": 29,
+      "meta": {},
+      "x": 307.06139139068785,
+      "y": 256.0430855463346,
+      "label_at": "above"
+     },
+     "html::paper.html::anchor::myCanvas::94": {
+      "id": "html::paper.html::anchor::myCanvas::94",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "myCanvas",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ira/master/templates/paper.html",
+      "line": 94,
+      "meta": {},
+      "x": 300.0545133083617,
+      "y": 78.33426182284987,
+      "label_at": "left"
+     },
+     "idash.Dash": {
+      "id": "idash.Dash",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Dash",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -641.9004795578134,
+      "y": -85.16007062522974,
+      "label_at": "left"
+     },
+     "idash.PreventUpdate": {
+      "id": "idash.PreventUpdate",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "PreventUpdate",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -633.0517431541857,
+      "y": -151.39650134665666,
+      "label_at": "above"
+     },
+     "idash.createApp": {
+      "id": "idash.createApp",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "createApp",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -591.2904231034121,
+      "y": -91.05734201132861,
+      "label_at": "right"
+     },
+     "idash.dash.Dash": {
+      "id": "idash.dash.Dash",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "dash.Dash",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -668.6634859729406,
+      "y": -108.86152338919248,
+      "label_at": "left"
+     },
+     "idash.dash.dependencies.Input": {
+      "id": "idash.dash.dependencies.Input",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "dash.dependencies.Input",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -594.6477207202497,
+      "y": -150.61910632433768,
+      "label_at": "right"
+     },
+     "idash.dash.dependencies.Output": {
+      "id": "idash.dash.dependencies.Output",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "dash.dependencies.Output",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -622.7635517131803,
+      "y": -64.88827678938983,
+      "label_at": "below"
+     },
+     "idash.dash.dependencies.State": {
+      "id": "idash.dash.dependencies.State",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "dash.dependencies.State",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -661.8864152723676,
+      "y": -151.6510618076421,
+      "label_at": "left"
+     },
+     "idash.dash.exceptions.PreventUpdate": {
+      "id": "idash.dash.exceptions.PreventUpdate",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "dash.exceptions.PreventUpdate",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -570.1421922609666,
+      "y": -112.16209332018813,
+      "label_at": "right"
+     },
+     "idash.run": {
+      "id": "idash.run",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "run",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -668.7356629583124,
+      "y": -77.9037532251603,
+      "label_at": "left"
+     },
+     "idash.subprocess.PIPE": {
+      "id": "idash.subprocess.PIPE",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "subprocess.PIPE",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -617.0707478861336,
+      "y": -173.5223155070841,
+      "label_at": "above"
+     },
+     "idash.subprocess.run": {
+      "id": "idash.subprocess.run",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "subprocess.run",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -589.6269866321367,
+      "y": -64.0835953294623,
+      "label_at": "right"
+     },
+     "idash.time": {
+      "id": "idash.time",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "time",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -687.0928737426617,
+      "y": -128.4899480577626,
+      "label_at": "left"
+     },
+     "idash.time.time": {
+      "id": "idash.time.time",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "time.time",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -567.8948037876396,
+      "y": -147.39369660540737,
+      "label_at": "right"
+     },
+     "idash.updateRange": {
+      "id": "idash.updateRange",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "updateRange",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -645.3843011302774,
+      "y": -50.035393904959506,
+      "label_at": "below"
+     },
+     "idash.upload": {
+      "id": "idash.upload",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "upload",
+      "file": "idash.py",
+      "line": 0,
+      "meta": {
+       "module": "idash",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -654.2213291840462,
+      "y": -177.7964114469061,
+      "label_at": "left"
+     },
+     "ira.FastAPI": {
+      "id": "ira.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "FastAPI",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 583.3708830594333,
+      "y": -89.48842749792217,
+      "label_at": "left"
+     },
+     "ira.HTMLResponse": {
+      "id": "ira.HTMLResponse",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "HTMLResponse",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 592.2196194630609,
+      "y": -155.72485821934907,
+      "label_at": "above"
+     },
+     "ira.Jinja2Templates": {
+      "id": "ira.Jinja2Templates",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Jinja2Templates",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 633.9809395138345,
+      "y": -95.385698884021,
+      "label_at": "right"
+     },
+     "ira.Query": {
+      "id": "ira.Query",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Query",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 556.6078766443061,
+      "y": -113.18988026188492,
+      "label_at": "left"
+     },
+     "ira.fastapi.FastAPI": {
+      "id": "ira.fastapi.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.FastAPI",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 630.623641896997,
+      "y": -154.94746319703012,
+      "label_at": "right"
+     },
+     "ira.fastapi.Query": {
+      "id": "ira.fastapi.Query",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.Query",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 602.5078109040663,
+      "y": -69.2166336620823,
+      "label_at": "below"
+     },
+     "ira.json.dumps": {
+      "id": "ira.json.dumps",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "json.dumps",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 563.384947344879,
+      "y": -155.9794186803346,
+      "label_at": "left"
+     },
+     "ira.requests.post": {
+      "id": "ira.requests.post",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "requests.post",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 655.12917035628,
+      "y": -116.49045019288057,
+      "label_at": "right"
+     },
+     "ira.starlette.responses.HTMLResponse": {
+      "id": "ira.starlette.responses.HTMLResponse",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "starlette.responses.HTMLResponse",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 556.5356996589342,
+      "y": -82.23211009785271,
+      "label_at": "left"
+     },
+     "ira.starlette.staticfiles.StaticFiles": {
+      "id": "ira.starlette.staticfiles.StaticFiles",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "starlette.staticfiles.StaticFiles",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 608.2006147311131,
+      "y": -177.85067237977648,
+      "label_at": "above"
+     },
+     "ira.starlette.templating.Jinja2Templates": {
+      "id": "ira.starlette.templating.Jinja2Templates",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "starlette.templating.Jinja2Templates",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 635.64437598511,
+      "y": -68.4119522021548,
+      "label_at": "right"
+     },
+     "ira.typing.List": {
+      "id": "ira.typing.List",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "typing.List",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 538.1784888745849,
+      "y": -132.81830493045513,
+      "label_at": "left"
+     },
+     "ira.typing.Tuple": {
+      "id": "ira.typing.Tuple",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "typing.Tuple",
+      "file": "ira.py",
+      "line": 0,
+      "meta": {
+       "module": "ira",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 657.3765588296069,
+      "y": -151.72205347809984,
+      "label_at": "right"
+     },
+     "ira::DMX": {
+      "id": "ira::DMX",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "DMX",
+      "file": "ira",
+      "line": 15,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int[8]"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -265.90830480753243,
+      "y": -578.8709252593969,
+      "label_at": "left"
+     },
+     "ira::NEWS": {
+      "id": "ira::NEWS",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "NEWS",
+      "file": "ira",
+      "line": 18,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -257.0595684039048,
+      "y": -645.107355980824,
+      "label_at": "above"
+     },
+     "ira::fx": {
+      "id": "ira::fx",
+      "depth": 2,
+      "language": "c",
+      "kind": "variable",
+      "label": "fx",
+      "file": "ira",
+      "line": 17,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "int"
+      },
+      "shape": "circle",
+      "color": "#607090",
+      "has_parse_warning": true,
+      "construct": "storage.static",
+      "construct_color": "#607090",
+      "construct_name": "Static storage",
+      "x": -215.29824835313113,
+      "y": -584.7681966454959,
+      "label_at": "right"
+     },
+     "ira::wait": {
+      "id": "ira::wait",
+      "depth": 2,
+      "language": "c",
+      "kind": "function",
+      "label": "wait",
+      "file": "ira",
+      "line": 22,
+      "meta": {
+       "qualifiers": [],
+       "type_str": "void (int)",
+       "param_count": 1,
+       "is_definition": false
+      },
+      "shape": "diamond",
+      "color": "#ff9d3d",
+      "has_parse_warning": true,
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -292.6713112226597,
+      "y": -602.5723780233598,
+      "label_at": "left"
+     },
+     "iras.argv": {
+      "id": "iras.argv",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "argv",
+      "file": "iras.py",
+      "line": 0,
+      "meta": {
+       "module": "iras",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 679.3743665137212,
+      "y": 134.72370840415533,
+      "label_at": "left"
+     },
+     "iras.get": {
+      "id": "iras.get",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "get",
+      "file": "iras.py",
+      "line": 0,
+      "meta": {
+       "module": "iras",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 688.2231029173488,
+      "y": 68.48727768272846,
+      "label_at": "above"
+     },
+     "iras.requests.get": {
+      "id": "iras.requests.get",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "requests.get",
+      "file": "iras.py",
+      "line": 0,
+      "meta": {
+       "module": "iras",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 729.9844229681225,
+      "y": 128.82643701805648,
+      "label_at": "right"
+     },
+     "iras.sys.argv": {
+      "id": "iras.sys.argv",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "sys.argv",
+      "file": "iras.py",
+      "line": 0,
+      "meta": {
+       "module": "iras",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 652.611360098594,
+      "y": 111.02225564019261,
+      "label_at": "left"
+     },
+     "itest.FastAPI": {
+      "id": "itest.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "FastAPI",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 249.95540579435217,
+      "y": 600.6356928883615,
+      "label_at": "left"
+     },
+     "itest.WSGIMiddleware": {
+      "id": "itest.WSGIMiddleware",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "WSGIMiddleware",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 258.8041421979798,
+      "y": 534.3992621669346,
+      "label_at": "above"
+     },
+     "itest.createApp": {
+      "id": "itest.createApp",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "createApp",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 300.56546224875353,
+      "y": 594.7384215022627,
+      "label_at": "right"
+     },
+     "itest.fastapi.FastAPI": {
+      "id": "itest.fastapi.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.FastAPI",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 223.19239937922495,
+      "y": 576.9342401243987,
+      "label_at": "left"
+     },
+     "itest.idash.createApp": {
+      "id": "itest.idash.createApp",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "idash.createApp",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 297.2081646319159,
+      "y": 535.1766571892535,
+      "label_at": "right"
+     },
+     "itest.starlette.middleware.wsgi.WSGIMiddleware": {
+      "id": "itest.starlette.middleware.wsgi.WSGIMiddleware",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "starlette.middleware.wsgi.WSGIMiddleware",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 269.0923336389852,
+      "y": 620.9074867242014,
+      "label_at": "below"
+     },
+     "itest.starlette.routing.Mount": {
+      "id": "itest.starlette.routing.Mount",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "starlette.routing.Mount",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 229.96947007979793,
+      "y": 534.144701705949,
+      "label_at": "left"
+     },
+     "itest.starlette.routing.Route": {
+      "id": "itest.starlette.routing.Route",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "starlette.routing.Route",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 321.71369309119905,
+      "y": 573.6336701934031,
+      "label_at": "right"
+     },
+     "itest.starlette.routing.Router": {
+      "id": "itest.starlette.routing.Router",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "starlette.routing.Router",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 223.12022239385308,
+      "y": 607.892010288431,
+      "label_at": "left"
+     },
+     "itest.uvicorn.run": {
+      "id": "itest.uvicorn.run",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "uvicorn.run",
+      "file": "itest.py",
+      "line": 0,
+      "meta": {
+       "module": "itest",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 274.7851374660319,
+      "y": 512.2734480065071,
+      "label_at": "above"
+     },
+     "osc.dispatcher": {
+      "id": "osc.dispatcher",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "dispatcher",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -754.3859920733412,
+      "y": 144.81542602216615,
+      "label_at": "left"
+     },
+     "osc.ira": {
+      "id": "osc.ira",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "ira",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -745.5372556697137,
+      "y": 78.57899530073922,
+      "label_at": "above"
+     },
+     "osc.osc_server": {
+      "id": "osc.osc_server",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "osc_server",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -703.7759356189399,
+      "y": 138.91815463606736,
+      "label_at": "right"
+     },
+     "osc.print_compute_handler": {
+      "id": "osc.print_compute_handler",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "print_compute_handler",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -781.1489984884686,
+      "y": 121.11397325820337,
+      "label_at": "left"
+     },
+     "osc.print_volume_handler": {
+      "id": "osc.print_volume_handler",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "print_volume_handler",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -707.1332332357775,
+      "y": 79.35639032305824,
+      "label_at": "right"
+     },
+     "osc.pythonosc.dispatcher": {
+      "id": "osc.pythonosc.dispatcher",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pythonosc.dispatcher",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -735.2490642287082,
+      "y": 165.08721985800605,
+      "label_at": "below"
+     },
+     "osc.pythonosc.osc_server": {
+      "id": "osc.pythonosc.osc_server",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pythonosc.osc_server",
+      "file": "osc.py",
+      "line": 0,
+      "meta": {
+       "module": "osc",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -774.3719277878954,
+      "y": 78.32443483975374,
+      "label_at": "left"
+     },
+     "packet.Serial": {
+      "id": "packet.Serial",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Serial",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -289.8659448362716,
+      "y": 618.0777226840751,
+      "label_at": "left"
+     },
+     "packet.cobs": {
+      "id": "packet.cobs",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "cobs",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -281.0172084326441,
+      "y": 551.8412919626481,
+      "label_at": "above"
+     },
+     "packet.cobs.cobs": {
+      "id": "packet.cobs.cobs",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "cobs.cobs",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -239.25588838187028,
+      "y": 612.1804512979762,
+      "label_at": "right"
+     },
+     "packet.pack": {
+      "id": "packet.pack",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pack",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -316.62895125139886,
+      "y": 594.3762699201123,
+      "label_at": "left"
+     },
+     "packet.send": {
+      "id": "packet.send",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "send",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": -242.6131859987079,
+      "y": 552.6186869849671,
+      "label_at": "right"
+     },
+     "packet.serial.Serial": {
+      "id": "packet.serial.Serial",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "serial.Serial",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -270.72901699163856,
+      "y": 638.349516519915,
+      "label_at": "below"
+     },
+     "packet.serial_ports": {
+      "id": "packet.serial_ports",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "serial_ports",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -309.8518805508259,
+      "y": 551.5867315016627,
+      "label_at": "left"
+     },
+     "packet.serialports.serial_ports": {
+      "id": "packet.serialports.serial_ports",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "serialports.serial_ports",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -218.10765753942488,
+      "y": 591.0756999891166,
+      "label_at": "right"
+     },
+     "packet.struct.pack": {
+      "id": "packet.struct.pack",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "struct.pack",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -316.70112823677067,
+      "y": 625.3340400841446,
+      "label_at": "left"
+     },
+     "packet.time.sleep": {
+      "id": "packet.time.sleep",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "time.sleep",
+      "file": "packet.py",
+      "line": 0,
+      "meta": {
+       "module": "packet",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": -265.03621316459186,
+      "y": 529.7154778022207,
+      "label_at": "above"
+     },
+     "serialports.serial_ports": {
+      "id": "serialports.serial_ports",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "serial_ports",
+      "file": "serialports.py",
+      "line": 0,
+      "meta": {
+       "module": "serialports",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 468.6549936771506,
+      "y": 538.2070529753876,
+      "label_at": "left"
      }
     },
     "edges": [
@@ -874,12 +3330,703 @@
        "kind": "contains",
        "weight": 1
       }
+     },
+     {
+      "source": "idash.createApp",
+      "target": "idash.updateRange",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "idash.createApp",
+      "target": "idash.upload",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.dash.Dash",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.dash.dependencies.Input",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.dash.dependencies.Output",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.dash.dependencies.State",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.dash.exceptions.PreventUpdate",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.time.time",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.subprocess.run",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.subprocess.PIPE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.createApp",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.updateRange",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.upload",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.Dash",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.PreventUpdate",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.time",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "idash.run",
+      "kind": "contains"
+     },
+     {
+      "source": "packet.serial_ports",
+      "target": "serialports.serial_ports",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.serial.Serial",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.cobs.cobs",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.struct.pack",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.serialports.serial_ports",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.time.sleep",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.send",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.Serial",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.cobs",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.pack",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "packet.serial_ports",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/controller.py",
+      "target": "controller.time.sleep",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/controller.py",
+      "target": "controller.datetime.datetime",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/controller.py",
+      "target": "controller.datetime",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/osc.py",
+      "target": "osc.pythonosc.dispatcher",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/osc.py",
+      "target": "osc.pythonosc.osc_server",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/osc.py",
+      "target": "osc.print_volume_handler",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/osc.py",
+      "target": "osc.print_compute_handler",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/osc.py",
+      "target": "osc.ira",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/osc.py",
+      "target": "osc.dispatcher",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/osc.py",
+      "target": "osc.osc_server",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/iras.py",
+      "target": "iras.sys.argv",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/iras.py",
+      "target": "iras.requests.get",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/iras.py",
+      "target": "iras.argv",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/iras.py",
+      "target": "iras.get",
+      "kind": "contains"
+     },
+     {
+      "source": "itest.createApp",
+      "target": "idash.createApp",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.fastapi.FastAPI",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.idash.createApp",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.uvicorn.run",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.starlette.middleware.wsgi.WSGIMiddleware",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.starlette.routing.Mount",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.starlette.routing.Route",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.starlette.routing.Router",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.FastAPI",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.createApp",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "itest.WSGIMiddleware",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.fastapi.FastAPI",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.fastapi.Query",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.starlette.responses.HTMLResponse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.starlette.staticfiles.StaticFiles",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.starlette.templating.Jinja2Templates",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.typing.List",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.typing.Tuple",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.requests.post",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.json.dumps",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.FastAPI",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.Query",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.HTMLResponse",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "ira.Jinja2Templates",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/templates/home.html",
+      "target": "html::home.html::anchor::result::28",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/templates/home.html",
+      "target": "html::home.html::anchor::viz::29",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::Select-menu-outer::28",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::container::35",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::column::42",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::columns::43",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::container::50",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::container::57",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::column::59",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::columns::60",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::button::134",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::button::156",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::button::161",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::button::296",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::container::328",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::row::329",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/assets/dashstyle.css",
+      "target": "css::dashstyle.css::class::u-cf::330",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/serialports.py",
+      "target": "serialports.serial_ports",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/templates/paper.html",
+      "target": "html::paper.html::anchor::myCanvas::94",
+      "kind": "contains"
+     },
+     {
+      "source": "fx::newCylon",
+      "target": "fx::fadeall",
+      "kind": "calls",
+      "weight": 0.9
+     },
+     {
+      "source": "fx::marquee",
+      "target": "fx::fadeall",
+      "kind": "calls",
+      "weight": 0.9
+     },
+     {
+      "source": "fx::wipe",
+      "target": "fx::fadeall",
+      "kind": "calls",
+      "weight": 0.9
+     },
+     {
+      "source": "fx::glitter",
+      "target": "fx::fadeall",
+      "kind": "calls",
+      "weight": 0.9
+     },
+     {
+      "source": "fx::glitterRandom",
+      "target": "fx::fadeall",
+      "kind": "calls",
+      "weight": 0.9
+     },
+     {
+      "source": "fx::hueCycle",
+      "target": "fx::fadeall",
+      "kind": "calls",
+      "weight": 0.9
+     },
+     {
+      "source": "file::quaternionmedia/ira/generator/generator.h",
+      "target": "generator::DMX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/generator/generator.h",
+      "target": "generator::apiCounter",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/generator/API.h",
+      "target": "API::server",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/generator/API.h",
+      "target": "API::initServer",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::max",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::min",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/ira.h",
+      "target": "ira::DMX",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/ira.h",
+      "target": "ira::fx",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/ira.h",
+      "target": "ira::NEWS",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/ira.h",
+      "target": "ira::wait",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::color",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::black",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::colorHSV",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::pos",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::lpos",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::posFract",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::lposFract",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::hue",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::hueFract",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::delta",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::lastUpdate",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::SPEED",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::HUE_SPEED",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::EYESIZE",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::ARG",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::positionIncrement",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::hueIncrement",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::fadeall",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::wash",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::newCylon",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::marquee",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::wipe",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::waves",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::rainbow",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::newRainbow",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::glitter",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::glitterRandom",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::chaser",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira-teensy/fx.h",
+      "target": "fx::hueCycle",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ira/idash.py",
+      "target": "file::quaternionmedia/ira/packet.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ira/packet.py",
+      "target": "file::quaternionmedia/ira/serialports.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ira/controller.py",
+      "target": "file::quaternionmedia/ira/packet.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ira/osc.py",
+      "target": "file::quaternionmedia/ira/packet.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ira/itest.py",
+      "target": "file::quaternionmedia/ira/idash.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/ira/ira.py",
+      "target": "file::quaternionmedia/ira/packet.py",
+      "kind": "depends_on"
      }
     ]
    },
    "metadata": {
     "url": "https://github.com/quaternionmedia/ira",
-    "depth": 1,
+    "depth": 2,
+    "floor": 100,
     "truncated": 0
    }
   },

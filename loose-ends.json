@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-27T02:18:30Z",
+  "generated_at": "2026-10-28T19:19:01Z",
   "generator": {
     "tool": "ci/loose_ends.py",
     "joins": [
@@ -25,11 +25,11 @@
       },
       "docs": {
         "document": "status/documents.yaml",
-        "generated_at": "2026-10-27T02:18:28Z"
+        "generated_at": "2026-10-28T19:18:59Z"
       },
       "gates": {
         "document": "status/gates.yaml",
-        "generated_at": "2026-10-25T01:05:55Z"
+        "generated_at": "2026-10-28T17:02:24Z"
       }
     }
   },
@@ -44,14 +44,14 @@
     ]
   },
   "totals": {
-    "loose_ends": 287,
+    "loose_ends": 288,
     "by_kind": {
       "blind-spot": 20,
-      "document-proposed": 39,
+      "document-proposed": 40,
       "document-unreviewed": 90,
       "stalled-thread": 138
     },
-    "open": 287,
+    "open": 288,
     "claimed": 0,
     "sources_unreadable": 0
   },
@@ -84,7 +84,7 @@
       "kind": "blind-spot",
       "address": "quaternionmedia/qm/doc/gate-docs-audit",
       "title": "docs-audit cannot see",
-      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest.",
+      "detail": "Whether a page is true. It builds the site and reads what the build reads, so it finds a page nobody can reach and not a page that is wrong. `uv run qm prose` reads the openings; a person reads the rest. Of the generated pages it sees only whether they match their sources: not whether a showcase caption describes its picture, nor whether a showgraph was drawn from the commits its project is at.",
       "key": "blind-spot:quaternionmedia/qm/doc/gate-docs-audit",
       "address_parses": true
     },
@@ -262,6 +262,14 @@
       "title": "records/DRAFT-a-principle-is-addressed-by-its-name.md",
       "detail": "awaiting a human's ratification",
       "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-principle-is-addressed-by-its-name",
+      "address_parses": true
+    },
+    {
+      "kind": "document-proposed",
+      "address": "quaternionmedia/qm/doc/records-DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn",
+      "title": "records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md",
+      "detail": "awaiting a human's ratification",
+      "key": "document-proposed:quaternionmedia/qm/doc/records-DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn",
       "address_parses": true
     },
     {

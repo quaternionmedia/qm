@@ -7,7 +7,7 @@
  "provenance": {
   "claims": {
    "repo": "quaternionmedia/qm",
-   "commit": "3b948821f05d48f0e1e043ead76f586e9b171d0a",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
    "digest": "sha256:67fbbcda3a73978b4bb44cb847dde115e242d446cbb34a12702931e5c13ad3c7"
   },
   "source": {
@@ -15,9 +15,9 @@
    "commit": "d602645755ff6d57c94cf9c289d0a505ce1d69e2"
   },
   "drawn_by": {
-   "graph": "codecartographer@0c64e94d26618b864a3ed7568c85e1020de06c53"
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
   },
-  "drawn_at": "2026-10-26T23:13:31Z"
+  "drawn_at": "2026-10-27T19:21:23Z"
  },
  "views": {
   "estate": {
@@ -37,7 +37,7 @@
        "click": "<p><b>aes</b> — AES67 scripts</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
        "show": "project:aes",
        "shape": "circle",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "x": 0,
        "y": 0,
        "size": 41,
@@ -55,7 +55,7 @@
        "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
        "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
        "show": "family:show-control",
-       "color": "#f0708f",
+       "color": "#a9d05c",
        "x": 42.42640687119285,
        "y": -42.42640687119285,
        "size": 11,
@@ -169,10 +169,10 @@
     "subject": "project:aes",
     "source": "families.json",
     "generated_at": "2026-10-24T14:49:28Z",
-    "commit": "3b94882",
+    "commit": "6906aee",
     "provenance": {
      "source": "families.json",
-     "commit": "3b94882",
+     "commit": "6906aee",
      "schema": 2,
      "generated_at": "2026-10-24T14:49:28Z",
      "overridden": true
@@ -296,6 +296,7 @@
    "metadata": {
     "url": "https://github.com/quaternionmedia/aes",
     "depth": 1,
+    "floor": 100,
     "truncated": 0
    }
   },
