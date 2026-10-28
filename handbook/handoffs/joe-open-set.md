@@ -1,7 +1,7 @@
 # Handoff — joe's open set, #35 to #58, landed one merge at a time
 
-**Stamped 2026-10-26.** `joe` `main` at `474307f`; `joe`'s
-`integrate/open-prs` at `6ff1f67`; `qm` `main` at `1e165bb`. Every figure on
+**Stamped 2026-10-28.** `joe` `main` at `474307f`; `joe`'s
+`integrate/open-prs` at `6ff1f67`; `qm` `main` at `bb2ed17`. Every figure on
 this page was true at those commits and nowhere else. Re-derive each one with
 `gh` before acting on it: an assistant session's Auto-fix watches #35 to #50
 and merges `main` into one the host reports conflicting (`0a469eb` on #47).
@@ -60,9 +60,9 @@ opened #39 to #58:
 | #55, `joe run` choosing its recordings | `feat/run-chooses-files`, `main` | ready |
 | #56, `main`'s docs say what its code does | `docs/main-says-what-is-true`, `main` | ready |
 | #57, `docs/revamp-audit.md` deleted | `docs/drop-revamp-audit`, `main` | ready |
-| #58, `main`'s specs and tests check what they say | `test/main-checks-what-it-says`, `main` | ready, **conflicts with `main`** |
+| #58, `main`'s specs and tests check what they say | `test/main-checks-what-it-says`, `main` | ready; `main` merged in (`909bd7b`) |
 | #36, #37, #38, #35, the media stack | `feat/video-audio-engine` on `main`, then `docs/media-engine`, `fix/security-defaults`, `docs/tighten-language` | #36 ready, the rest drafts; §4 |
-| #51, the dock; #52, the lanes | `feat/golden-layout` on `integrate/open-prs`, `docs/user-paths` on it | drafts; **`playwright` fails on the hosted runner** (§6) |
+| #51, the dock; #52, the lanes | `feat/golden-layout` on `integrate/open-prs`, `docs/user-paths` on it | drafts; every check passes on the hosted runner at `be17637` and `d28d142` |
 
 An order that keeps the conflicts small, not decided: #50; #39 to #41; #42 to
 #49; #53 to #58; #36, #37, #38, #35; then #51 and #52. #4 (`p5`) and #7
@@ -95,10 +95,9 @@ An order that keeps the conflicts small, not decided: #50; #39 to #41; #42 to
 - **#54, with #36 and #55.** Its `MACHINE_SETTINGS` lists `JOE_AUDIO_FILE`,
   which #55 stops reading, and lacks #36's `JOE_MEDIA_*`. Whichever of the
   three lands last carries the change.
-- **#58.** `main` merged in, its conflict resolved.
 - **#51 and #52.** Retargeted onto `main` once everything under them has
   landed, `main` merged in with `integrate/open-prs`'s merges as the reference
-  resolution, and the failure in §6 found and fixed.
+  resolution.
 
 ## 5. Blocked on a person
 
@@ -115,24 +114,24 @@ An order that keeps the conflicts small, not decided: #50; #39 to #41; #42 to
 
 ## 6. Open failures, and what was not verified
 
-- **#51 and #52 fail `playwright` on the hosted runner** at
-  `tests/e2e/voice.spec.js:170`, "every state looks different from every
-  other": runs `40263211370` and `40263296474`, 126 passed and 1 failed each,
-  nine of the ten voice states reading `rgb(85, 85, 85)`. The same 127 specs
-  passed locally at both heads, and the spec is `main`'s and passes there. A
-  colour read while its transition runs, or read from a Voice window that is
-  parked, would each give that output; neither is ruled out.
 - A take once shown plays from the browser's cache after its recording is
-  deleted: `GET /api/voice/takes/{take}/audio` sends no `Cache-Control`. Seen
-  on the demo on 2026-10-26; nothing is filed.
-- The transport's groups are checked side by side at 1024 and 1280 pixels
-  only.
+  deleted: `GET /api/voice/takes/{take}/audio` sends no `Cache-Control`. Left
+  as it is: `joe` deletes no take's recording -- what `Modules/Media.py` and
+  `api.py` remove is a media job's folder and an upload cut short -- so only a
+  hand in `Data/Voice/` makes one stale.
+- Below 1024 pixels, with a take and its note showing, the transport's
+  playback group runs under the window buttons: at 900 pixels by 67, its parts
+  that do not shrink -- Play, Stop, the scrubber's 60 pixels, the time, Eject
+  -- needing about 306 pixels of the 224 it gets, and the take's name and note
+  shrunk to nothing. The specs hold the bar at 1024 and 1280 pixels; how it
+  narrows below that is a choice of design, not made.
 - A panel told it is shown a frame after its window opens (#51) has no spec
   that fails without it.
 - No test drives joe's mic, a live recording, `GET /api/results/latest` or
   `POST /api/voice/transcribe`; the lane pages say so.
 - `LABEL_W` is defined in three files, and `capture.py` has no test; #57's
-  body names both.
+  body names both. One `LABEL_W` changes `src/index.js`'s imports, which most
+  of the open set changes too, so it waits until the set has landed.
 - On the integration under load, two `qmcp` specs timed out once; they passed
   51 repeats after it, and the whole suite passed.
 - Auto-fix watches #35 to #50, not #51 to #58.
@@ -166,24 +165,24 @@ An order that keeps the conflicts small, not decided: #50; #39 to #41; #42 to
 
 ## 8. Local state at the stamp
 
-Nothing is unpushed but `joe.worktrees/review`. No server the session started
-is running.
+Nothing is unpushed but `joe.worktrees/review`. The demo runs: its page on
+`:3000` and its API on `127.0.0.1:8020`, without `qmcp`, so the page's proxy
+answers `/v1/human/requests` with a 500.
 
 - The `joe` clone: `demo/voice-loop-2026-10-04` at `f3faa67`, clean. Its
   untracked `.claude/launch.json` starts the demo: `joe-demo-api` (uvicorn on
   `127.0.0.1:8020`, every `JOE_ALLOW_*` set, `tighten`'s venv, `PYTHONPATH`
   the demo) and `joe-demo-page` (`npm run dev` on `:3000` with
   `JOE_API_URL=http://127.0.0.1:8020`).
-- `joe.worktrees/demo`: detached at `70ede34`, #52's head, with a `Data/` of
+- `joe.worktrees/demo`: detached at `d28d142`, #52's head, with a `Data/` of
   its own whose takes point into it.
-- `joe.worktrees/paths` (#52), `topics` (#58), `panel-keys` (#47, its
-  `node_modules` a junction to `transcript-lane`'s), `security` (#38) and
-  `tighten` (#35): level with origin.
+- `joe.worktrees/golden-layout` (#51), `paths` (#52), `topics` (#58),
+  `panel-keys` (#47), `security` (#38) and `tighten` (#35): level with origin.
+  `golden-layout`'s `node_modules` is a junction to `paths`', and
+  `panel-keys`' to `transcript-lane`'s.
 - `joe.worktrees/transcript-lane` and `timeless`: #33's and #34's branches,
   merged and deleted on origin.
 - `joe.worktrees/review`: detached at `422fe96`, a review build of 2026-10-24
   that `integrate/open-prs` replaces.
 - alfred's Docker containers hold `127.0.0.1:8000` and `:8001`, so the demo's
-  API is on `8020`. A `joe` API on `127.0.0.1:8010` from `tighten`'s venv,
-  started 2026-10-26 at 10:22 UTC and not by the session that wrote this page,
-  is left running.
+  API is on `8020`.
