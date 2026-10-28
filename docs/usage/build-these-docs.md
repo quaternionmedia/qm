@@ -54,12 +54,12 @@ uv run qm cookbook docs/families --site --write
 
 It reads four sources, and a page is changed by changing one of them, never the page:
 
-- `families.json`, the families and their members, generated from the family record;
+- `families.json`, the families and their members, generated from the family [record](../ref/glossary.md#record){ .glossary-term };
 - `status/inventory.yaml`, the org's public repositories as the host describes them, and which listed pictures each default branch holds;
 - `ci/showcase.yaml`, the **showcase**: pictures a person picked, each a file on the project's own default branch, with a one-sentence caption. A picture the default branch does not hold yet is held back; preview it as above;
 - `docs/show/`, the **showgraphs**: graphs a tool drew, written with `uv run codecarto show export` in codecartographer. Each subject's `show.json` says what was drawn, from which commits, by which tool at which commit, and when, and the page prints that beneath the pictures.
 
-A project's version on its page comes from whether the corpus has a `project/<name>` branch, so run the command in a clone that has fetched every branch.
+A project's version on its page comes from whether the [corpus](../ref/glossary.md#corpus){ .glossary-term } has a `project/<name>` branch, so run the command in a clone that has fetched every branch.
 
 `--check` in place of `--write` lists the pages that no longer match their sources. The `docs-audit` workflow runs it on every pull request that touches the pages or their sources, and fails on any. The rules behind the pages are in [the project-page record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-project-page-shows-what-was-picked-and-what-was-drawn.md).
 
