@@ -1,6 +1,6 @@
 # Handbook — Document States
 
-**Generated `2026-10-28T17:02:22Z`.** Quotable for 168h. **Do not edit by hand.**
+**Generated `2026-10-28T19:52:39Z`.** Quotable for 168h. **Do not edit by hand.**
 
 ## Where this corpus stands
 
@@ -28,7 +28,7 @@ Working toward **alpha** (`v0.1.0`) — Developers and power users outside QM, o
 
 *This layer does not say whether the milestone is met. It puts the claim and the measurements side by side; the judgement is a human's, and one of the five requirements cannot be measured at all.* milestone, target_version and requires are what a human stated in ci/workspace.yaml. Nothing here is derived from the repository.
 
-Every governed document in this corpus: **293**, unfiltered.
+Every governed document in this corpus: **294**, unfiltered.
 
 | | |
 |---|---|
@@ -62,7 +62,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [D] `draft` | 3 |
 | [-] `unreviewed` | 90 |
 | [G] `generated` | 55 |
-| [S] `standing` | 83 |
+| [S] `standing` | 84 |
 | [T] `transient` | 22 |
 
 ## Documents
@@ -317,6 +317,7 @@ A state says whether a page binds you. It never says the content is right — St
 | [S] | `standing` | `plans/hil-testing-session.md` | other | — |
 | [S] | `standing` | `plans/moat-remediation.md` | other | — |
 | [S] | `standing` | `plans/open-work.md` | other | — |
+| [S] | `standing` | `plans/org-standards.md` | other | — |
 | [S] | `standing` | `plans/qmpm-standardisations.md` | other | — |
 | [S] | `standing` | `plans/readme-onramp.md` | other | — |
 | [S] | `standing` | `plans/semantic-review-instrument.md` | other | — |
