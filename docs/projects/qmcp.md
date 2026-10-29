@@ -44,9 +44,9 @@ the graphs codecarto draws
 
 <figure class="qm-shot" id="showgraph-code" markdown>
 
-[![Its code: its default branch, by directory and file](../show/project/qmcp/code.svg)](../show/project/qmcp/code.svg)
+[![Its code: its default branch, by directory, file and symbol](../show/project/qmcp/code.svg)](../show/project/qmcp/code.svg)
 
-<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory and file.<br>[← qm](qm.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [qmetronome →](qmetronome.md#showgraph-code)</figcaption>
+<figcaption markdown="span"><strong>Its code.</strong> Its default branch, by directory, file and symbol.<br>[← qm](qm.md#showgraph-code) · [every project's code](codecartographer.md#every-projects-code) · [qmetronome →](qmetronome.md#showgraph-code)</figcaption>
 
 </figure>
 
@@ -55,7 +55,7 @@ the graphs codecarto draws
 **Its system:** not drawn. qmcp declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile.
 { .qm-caption }
 
-Drawn by codecartographer at `ada6a1b` from the corpus at `6906aee` and qmcp's default branch at `8aece3e`, on 2026-10-27. [The show document](../show/project/qmcp/show.json) holds each graph as drawn.
+Drawn by codecartographer at `92c5a4c` from the corpus at `bb2ed17` and qmcp's default branch at `8aece3e`, on 2026-10-29. [The show document](../show/project/qmcp/show.json) holds each graph as drawn.
 { .qm-caption }
 
 </section>
