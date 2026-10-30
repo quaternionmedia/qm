@@ -251,11 +251,12 @@ re-checked and is re-derived before anyone acts on it.
   in §2 and a copy in each project. alfred's copy is the seed's file
   verbatim, and passes on its stack as it stands on 2026-10-29: every stacked
   pull request is a draft, and alfred #117, the bottom one, is ready on
-  `main`. It waits on a pin at or past #287, since at alfred's pin,
-  `e76827d`, neither script the workflow runs exists; and on #288, since the
-  voice step refuses every Dependabot body, as on codecartographer #145.
-  alfred #133's body quotes a test's "you" outside a code span, which the
-  same step refuses.
+  `main`. It waits on a pin at or past #287: alfred's `main` has no
+  governance submodule yet, and its stack pins `e76827d`, where neither
+  script the workflow runs exists. It waits on #288 too, since the voice step
+  refuses every Dependabot body, as on codecartographer #145. alfred #133's
+  body quotes a test's "you" outside a code span, which the same step
+  refuses.
 - **Unsubstituted placeholders.** Seven project branches' `adr/README.md`
   still reads `project/<name>`: alfred, apothecary, factorio-sysops,
   qmetronome, `private-32`, `private-33` and `private-34`.
