@@ -84,8 +84,7 @@ pick up alone; that page is then listed in the index and named here.
 
 ## 2. `qm`'s open pull requests, and what clears each
 
-No pull request into `main` is this page's but #288, which the
-`one-pr-check.yml` entry in §4 waits on; every other one it names is into a
+No pull request into `main` is this page's; every one it names is into a
 project branch. `uv run qm stacks --repo
 quaternionmedia/qm` lists them. Two causes account for most of the red: a
 project branch that took `main` before the stack rule carries the old `slot`
@@ -98,7 +97,7 @@ ask the host: `gh api repos/<owner>/<repo>/commits/<sha> --jq
 | Pull requests | Into | State at the stamp | Done when |
 |---|---|---|---|
 | #147, #148, #149, #150, #151, #153, #156 | seven project branches | `slot` red, their branches on the old rule; otherwise green and conflict-free | `main` propagated into each branch (`propagate/<name>-<date>`, a merge, never a rebase), each pull request brought level, merged |
-| #287, then #144 | `project/alfred` | #287 propagates `main` and brings `adr/README.md` and `adr/TEMPLATE.md` to the seed's, which `main`'s ADR lint asks of the propagation itself; #144 `slot` red on the old rule (2026-10-29) | #287 merged, carrying `main`'s tip when it lands (§6); #144 brought level, merged |
+| #144 | `project/alfred` | `slot` red on the old rule; `project/alfred` carries `main` since its propagation of 2026-10-29 | brought level with `project/alfred`, merged |
 | #121, #145, #171, then #172 on #171, and #154 on #121 | `project/apothecary` | `slot` red; #121 has 33 of its 34 commits unsigned and #171 its one; #172 is the propagation, stacked on #171; #154 conflicts in `adr/README.md` | #171 and #172 closed; a propagation of current `main` straight onto the branch; #171 and #121 rebuilt signed per decision 3; #154 restacked on #121's rebuild |
 | #146, #155, then #163 to #185 in order | `project/codecartographer` | the branch has the stack rule since #174; #155 `CLEAN`, its record stating its constraint and choices as its own; each later one carries the ones before it | each brought level and merged in order |
 
@@ -251,18 +250,18 @@ re-checked and is re-derived before anyone acts on it.
   in §2 and a copy in each project. alfred's copy is the seed's file
   verbatim, and passes on its stack as it stands on 2026-10-29: every stacked
   pull request is a draft, and alfred #117, the bottom one, is ready on
-  `main`. It waits on a pin at or past #287: alfred's `main` has no
-  governance submodule yet, and its stack pins `e76827d`, where neither
-  script the workflow runs exists. It waits on #288 too, since the voice step
-  refuses every Dependabot body, as on codecartographer #145. alfred #133's
-  body quotes a test's "you" outside a code span, which the same step
-  refuses.
-- **Unsubstituted placeholders.** Seven project branches' `adr/README.md`
-  still reads `project/<name>`: alfred, apothecary, factorio-sysops,
-  qmetronome, `private-32`, `private-33` and `private-34`.
+  `main`. alfred's `main` has no governance submodule yet, and its stack
+  pins `e76827d`, where neither script the workflow runs exists;
+  `project/alfred` carries both since its propagation of 2026-10-29, voice
+  step exempting automation accounts included. The copy
+  goes onto alfred's stack with a pin bump, and reaches its `main` when the
+  stack lands.
+- **Unsubstituted placeholders.** Six project branches' `adr/README.md`
+  still reads `project/<name>`: apothecary, factorio-sysops, qmetronome,
+  `private-32`, `private-33` and `private-34`.
   `project-seed/ci/check_placeholders.py` refuses it at each branch's next
-  propagation, so the propagation substitutes it; #287 does for alfred
-  (2026-10-29). Done is that check clean on every project branch.
+  propagation, so the propagation substitutes it, as alfred's did on
+  2026-10-29. Done is that check clean on every project branch.
 - **`handbook/async-contract.md` names an adapter's command** (`/cowork`), where
   a governance page names no tool. Done is the page stating the rule and
   pointing at `adapters/` for any mechanism.
@@ -468,4 +467,4 @@ re-checked and is re-derived before anyone acts on it.
 - A propagation pull request goes red on `namespace` once `main` moves past
   the commit it merged: the guard compares every file the merge brings with
   `main`'s tip. Merging `main` into the `propagate/*` branch again clears it;
-  #287 took it so on 2026-10-29.
+  alfred's propagation took it so on 2026-10-29.
