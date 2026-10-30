@@ -7,6 +7,7 @@ status, or run somewhere that is not the corpus.
 
 from __future__ import annotations
 
+import os
 import re
 import subprocess
 import sys
@@ -130,6 +131,23 @@ def test_outside_the_corpus_it_refuses_rather_than_writing_somewhere_else(tmp_pa
     result = run("docs", "check", cwd=tmp_path)
     assert result.returncode == 2
     assert "not inside the QM corpus" in result.stderr
+
+
+def test_a_machine_scoped_command_runs_from_another_repository_and_stays_there(tmp_path: Path):
+    """`qm instances run` is called from the checkout of the repository it serves,
+    and starts its command there. Mutation: drop `instances` from `ANYWHERE`,
+    and it is refused; route it through the corpus `chdir`, and the command
+    runs in the corpus."""
+    seen = tmp_path / "cwd.txt"
+    env = {**os.environ, "QM_RUN_DIR": str(tmp_path / "run"), "QMCP_RUN_DIR": str(tmp_path / "qmcp")}
+    child = f"import os, pathlib; pathlib.Path({str(seen)!r}).write_text(os.getcwd())"
+    result = subprocess.run(
+        [sys.executable, str(CI_DIR / "cli.py"), "instances", "run", "--repo", "probe",
+         "--port", "4321", "--", sys.executable, "-c", child],
+        capture_output=True, text=True, encoding="utf-8", errors="replace",
+        cwd=str(tmp_path), env=env)
+    assert result.returncode == 0, result.stderr
+    assert Path(seen.read_text()).resolve() == tmp_path.resolve()
 
 
 def test_a_directory_with_only_one_marker_is_not_the_corpus(tmp_path: Path):

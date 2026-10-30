@@ -33,6 +33,9 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import instances  # noqa: E402
+
 HERE = Path(__file__).resolve().parent.parent
 SIBLINGS = HERE.parent
 
@@ -71,12 +74,18 @@ class Surface:
 
     note: str = ""
 
+    declares_itself: bool = False
+    """Whether the server writes its own run-file (`ci/instances.py`). One that
+    does is not declared again here, so `qm instances` reads one declaration of
+    it rather than two."""
+
 
 SURFACES: tuple[Surface, ...] = (
     Surface(
         name="harness", repo="qmcp", role="the work, and the only source of it",
         port=3141, constant="pi",
         command=("qmcp", "serve", "--port", "3141"), detachable=True,
+        declares_itself=True,
         dataview="/v1/topology",
         also={"/v1/topology/relations/codecartographer":
               "what the archive says about one project",
@@ -188,6 +197,11 @@ def start(surface: Surface, repo: Path) -> tuple[bool, str]:
     found[surface.name] = {"pid": child.pid, "port": surface.port,
                            "repo": str(repo), "log": str(log)}
     _remember(found)
+    if not surface.declares_itself:
+        # So `qm instances` finds it by its declaration, not by its port.
+        instances.declare(surface.repo, child.pid, surface.port,
+                          ["uv", "run", "--no-sync", *surface.command],
+                          session="dashboard", checkout=repo)
     return True, f"started as pid {child.pid}; output goes to {log}"
 
 
@@ -211,6 +225,7 @@ def stop(name: str) -> tuple[bool, str]:
         return False, f"could not stop pid {pid}: {error}"
     found.pop(name)
     _remember(found)
+    instances.withdraw(BY_NAME[name].repo if name in BY_NAME else name, pid)
     return True, f"stopped pid {pid}"
 
 

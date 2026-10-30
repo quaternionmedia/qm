@@ -308,6 +308,24 @@ re-checked and is re-derived before anyone acts on it.
   host-sourced documents, and on 2026-10-26 ran past five minutes. Done is
   that mode, or `handbook/consolidation-runbook.md` Step 8 naming
   `ci/doc_status.py`, `ci/doc_dashboard.py` and `ci/loose_ends.py` for it.
+- **Only qmcp says which server it is.** `qm instances` identifies a server
+  whose health answer names its pid and port; on 2026-10-29 qmcp's did, and
+  codecartographer's checkout served no health route, and looksatwords'
+  health named no pid. Every other server reads as `answering`, attributed by
+  its run-file alone. Done is each serving repository's health route naming
+  its pid and port, as `qmcp/instance.py` does, and `qm instances` reading it
+  as `identified`. (2026-10-29)
+- **`qm dashboard --start` says "started" of a server that exits at once.** On
+  2026-10-29 apothecary's clone was on a branch whose `serve` has no
+  `--demo`, the surface's command exited, and the dashboard had already
+  printed its pid; `qm instances` read the run-file as `stale`. `--stop`
+  ends the process tree outright, so qmcp's own run-file outlives it. Done is
+  `--start` waiting for the port to answer, or saying it did not, and `--stop`
+  withdrawing the run-files of the tree it ended. (2026-10-29)
+- **The family demo declares nothing.** `qm family-demo` keeps its members in
+  a manifest, so while it runs every member reads as a listener nobody
+  declared in its range. Done is the demo writing a run-file for each member
+  it starts, with the run's name as its session. (2026-10-29)
 - **qmcp's pages that predate its roles.** `docs/architecture.md` draws three
   planes, and the instruction loop appears in it only as a departure it names;
   the archive and speech do not appear. `qmcp tools list` lists the built-in
