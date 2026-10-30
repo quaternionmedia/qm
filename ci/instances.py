@@ -115,7 +115,9 @@ def tilde(path: str | Path | None) -> str | None:
 def alive(pid: int) -> bool:
     """Whether the operating system holds a running process with this pid.
 
-    Never `os.kill(pid, 0)` on Windows: there it terminates the process."""
+    A zombie, a process that has exited and whose parent has not yet collected
+    it, holds its pid without running, so it is not alive. Never
+    `os.kill(pid, 0)` on Windows: there it terminates the process."""
     if pid <= 0:
         return False
     if sys.platform == "win32":
@@ -132,8 +134,12 @@ def alive(pid: int) -> bool:
     except ProcessLookupError:
         return False
     except PermissionError:
+        pass
+    try:                                            # field 3 of /proc/<pid>/stat
+        state = Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[0]
+    except (OSError, IndexError):                   # no /proc, as on macOS
         return True
-    return True
+    return state not in ("Z", "X")
 
 
 def listening(port: int, host: str = HOST) -> bool:

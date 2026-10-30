@@ -268,3 +268,16 @@ def test_a_process_start_time_is_its_own_and_stays_put():
     here = instances.created(os.getpid())
     assert here is not None and here == instances.created(os.getpid())
     assert instances.created(0) is None
+
+
+def test_a_process_that_exited_is_not_alive_before_its_parent_collects_it():
+    import subprocess
+    import time
+    child = subprocess.Popen([sys.executable, "-c", "pass"])
+    try:
+        deadline = time.monotonic() + 10
+        while instances.alive(child.pid) and time.monotonic() < deadline:
+            time.sleep(0.05)
+        assert not instances.alive(child.pid)
+    finally:
+        child.wait()
