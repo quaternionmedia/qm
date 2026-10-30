@@ -138,7 +138,7 @@ Say them in the session; write the third person where a person must be named.
 
 **Mechanical.** `project-seed/ci/check_pr_voice.py`, a step in
 `one-pr-check.yml`: it refuses the second person and the handling phrases it
-lists, leaves code and quotations alone, and cannot see the third person.
+lists, leaves code, quotes and bots alone, and cannot see the third person.
 
 ## 4. Concurrent sessions share one workstation
 
