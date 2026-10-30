@@ -13,6 +13,7 @@ renderer can only be honest about what the document admits.
 from __future__ import annotations
 
 import json
+import yaml
 import re
 import subprocess
 import sys
@@ -33,14 +34,13 @@ def document(**overrides) -> dict:
         "generator": {
             "tool": "ci/harness_status.py",
             "org": "example",
-            "rule": "one open pull request per repository, per contributor",
+            "rule": "no pull request is ready while stacked on another open one",
             "rule_source": "handbook/async-contract.md",
-            "corpus_exemption": ["project/*"],
             "layers": ["slots", "local"],
             "local_layer_scope": "one machine, one set of clones",
         },
         "reading": {
-            "refresh": "python ci/harness_status.py --no-local --write harness-status.json",
+            "refresh": "python ci/harness_status.py --no-local --write status/harness.yaml",
             "staleness_budget_hours": 24,
             "unknown_convention": "it is not zero, not empty, and not compliant",
             "do_not": [
@@ -55,9 +55,12 @@ def document(**overrides) -> dict:
             "compliant": 1,
             "over_limit": 1,
             "governance_readable": 2,
-            "governance_precondition_met": 1,
+            "seed_complete": 1,
+            "at_v0.0.0": 0,
+            "past_v0.0.0": 2,
+            "version_unknown": 1,
             "phase_scaffolded": 1,
-            "phase_stated_above_governance": 1,
+            "phase_stated_as_intent": 0,
         },
         "repositories": [
             {
@@ -66,7 +69,9 @@ def document(**overrides) -> dict:
                 "role": "project",
                 "phase": "v0.0.1",
                 "phase_source": "scaffolded",
-                "governance": {"precondition": "met", "missing": [],
+                "version": "v0.0.1",
+                "intent": None,
+                "governance": {"seed": "complete", "missing": [],
                                "behind_corpus": 0},
                 "slots": {"open_prs": [], "violations": [], "compliant": True},
                 "local": {"branch": "main", "dirty": 0, "upstream": "origin/main", "ahead": 0},
@@ -77,18 +82,21 @@ def document(**overrides) -> dict:
                 "role": "project",
                 "phase": "v0.0.2",
                 "phase_source": "stated",
+                "version": "v0.0.2",
+                "intent": None,
                 "note": "nobody has placed this on the ladder",
-                "governance": {"precondition": "incomplete",
+                "governance": {"seed": "incomplete",
                                "missing": ["ide", "workflows"],
                                "behind_corpus": 62},
                 "slots": {
                     "open_prs": [
                         {"number": 8, "author": "ada", "bot": False, "base": "main",
-                         "draft": False, "title": "One"},
-                        {"number": 9, "author": "ada", "bot": False, "base": "main",
-                         "draft": True, "title": "Two"},
+                         "head": "feat/a", "draft": False, "title": "One"},
+                        {"number": 9, "author": "ada", "bot": False, "base": "feat/a",
+                         "head": "feat/b", "draft": False, "title": "Two"},
                     ],
-                    "violations": [{"author": "ada", "base": "", "numbers": [8, 9]}],
+                    "violations": [{"author": "ada", "base": "feat/a", "numbers": [9],
+                                    "parent": 8}],
                     "compliant": False,
                 },
                 "local": {"branch": "wip", "dirty": 3, "upstream": None, "ahead": None},
@@ -99,7 +107,9 @@ def document(**overrides) -> dict:
                 "role": "project",
                 "phase": "unknown",
                 "phase_source": "unknown",
-                "governance": {"unknown": "no project/<name> branch in the corpus"},
+                "version": {"unknown": "status/governance.yaml did not parse"},
+                "intent": None,
+                "governance": {"unknown": "status/governance.yaml did not parse"},
                 "slots": {"unknown": "gh api repos/example/private-repo: HTTP 404"},
                 "local": {"unknown": "not found on this machine"},
             },
@@ -175,7 +185,7 @@ def test_a_violation_is_distinguished_in_form_and_not_only_in_words() -> None:
     assert 'class="over"' not in row_for(page, "clean-repo")
 
 
-def test_the_pull_requests_that_hold_the_slots_are_named() -> None:
+def test_the_ready_stacked_pull_request_and_its_parent_are_named() -> None:
     """A count without numbers cannot be acted on."""
     page = hd.render(DOC)
     assert "#8" in page and "#9" in page
@@ -185,7 +195,7 @@ def test_the_pull_requests_that_hold_the_slots_are_named() -> None:
 def test_a_compliant_repository_is_not_described_as_over() -> None:
     row = row_for(hd.render(DOC), "clean-repo")
     assert "p-ok" in row
-    assert "over limit" not in row
+    assert "ready while stacked" not in row
 
 
 def test_an_unanswered_phase_is_carried_into_the_question_list() -> None:
@@ -242,7 +252,7 @@ def test_zero_violations_says_so_rather_than_showing_an_empty_section() -> None:
     doc = document()
     doc["repositories"] = [doc["repositories"][0]]
     page = hd.render(doc)
-    assert "Every contributor holds at most one slot" in page
+    assert "No stacked pull request is marked ready" in page
 
 
 @pytest.mark.parametrize(
@@ -329,7 +339,7 @@ def test_both_views_share_one_stylesheet() -> None:
 
 def test_the_collector_reports_an_unparseable_check_as_unknown(monkeypatch) -> None:
     monkeypatch.setattr(hs, "run", lambda *a, **k: (0, "not json at all", ""))
-    result = hs.slot_layer("example/thing", [])
+    result = hs.slot_layer("example/thing")
     assert "unknown" in result
     assert "not JSON" in result["unknown"]
 
@@ -337,7 +347,7 @@ def test_the_collector_reports_an_unparseable_check_as_unknown(monkeypatch) -> N
 def test_the_collector_reports_a_silent_check_as_unknown(monkeypatch) -> None:
     """Empty output must never become an empty, therefore clean, PR list."""
     monkeypatch.setattr(hs, "run", lambda *a, **k: (1, "", "gh: Not Found (HTTP 404)"))
-    result = hs.slot_layer("example/thing", [])
+    result = hs.slot_layer("example/thing")
     assert "unknown" in result
     assert "404" in result["unknown"]
 
@@ -345,10 +355,11 @@ def test_the_collector_reports_a_silent_check_as_unknown(monkeypatch) -> None:
 def test_the_collector_records_the_checks_exit_status(monkeypatch) -> None:
     payload = json.dumps(
         {"repository": "example/thing", "open_prs": [],
-         "violations": [{"author": "ada", "base": "", "numbers": [1, 2]}]}
+         "violations": [{"author": "ada", "base": "feat/a", "numbers": [2],
+                         "parent": 1}]}
     )
     monkeypatch.setattr(hs, "run", lambda *a, **k: (1, payload, ""))
-    result = hs.slot_layer("example/thing", [])
+    result = hs.slot_layer("example/thing")
     assert result["exit_status"] == 1
     assert result["compliant"] is False
 
@@ -362,7 +373,7 @@ def test_the_collector_marks_a_missing_clone_unknown(tmp_path: Path) -> None:
 def test_the_totals_never_count_an_unknown_as_compliant(monkeypatch) -> None:
     """The arithmetic behind the summary cards, which is where a lie compounds."""
     monkeypatch.setattr(
-        hs, "slot_layer", lambda slug, per_base: {"unknown": "could not read"}
+        hs, "slot_layer", lambda slug: {"unknown": "could not read"}
     )
     built = hs.build([{"name": "a", "paths": []}], "example", [], False)
     totals = built["totals"]
@@ -389,12 +400,26 @@ def test_a_stated_phase_is_not_marked_as_scaffolded() -> None:
     assert "nobody decided this" not in row
 
 
-def test_a_met_precondition_never_says_the_claim_has_been_made() -> None:
-    """A complete artifact set means a human MAY assert v0.0.1, not that they did."""
+def test_a_complete_seed_never_says_the_claim_has_been_made() -> None:
+    """A complete seed means a human MAY say adoption is complete, not that they did."""
     page = hd.render(DOC)
     row = row_for(page, "clean-repo")
-    assert "precondition met" in row
+    assert "seed complete" in row
     assert not re.search(r"\badopted\b", page, re.I)
+
+
+def test_the_version_stands_in_its_own_column_beside_the_claim() -> None:
+    """The rung is read from the branch; the phase beside it is what was said."""
+    row = row_for(hd.render(DOC), "busy-repo")
+    assert '<td><span class="mono">v0.0.2</span></td>' in row
+    assert "stated" in row
+
+
+def test_a_version_nobody_could_establish_is_unknown_not_v000() -> None:
+    """No branch found and no document read are two facts, and only one is v0.0.0."""
+    row = row_for(hd.render(DOC), "private-repo")
+    assert "v0.0.0" not in row
+    assert 'title="status/governance.yaml did not parse">unknown</td>' in row
 
 
 def test_incomplete_governance_names_what_is_missing() -> None:
@@ -411,34 +436,59 @@ def test_governance_that_could_not_be_read_is_unknown_not_incomplete() -> None:
     assert "incomplete" not in row
 
 
-def test_a_rung_stated_above_unevidenced_governance_is_surfaced() -> None:
-    page = hd.render(DOC)
-    section = page.split("Claimed above the evidence")[1].split("<h2>")[0]
+def intent_section(doc: dict) -> str:
+    return hd.render(doc).split("Stated as intent")[1].split("<h2>")[0]
+
+
+def without_a_branch(doc: dict) -> dict:
+    """busy-repo as a project with no `project/<name>` branch: `v0.0.0`, with
+    its stated `v0.0.2` carried beside it as intent."""
+    doc["repositories"][1].update(
+        version="v0.0.0", intent="v0.0.2",
+        governance={"seed": "n/a", "missing": [], "asserts": "no project/<name> branch"},
+    )
+    return doc
+
+
+def test_a_phase_stated_without_a_branch_is_listed_as_intent() -> None:
+    """Mutation: drop the `intent` case from `stated_as_intent` and this fails."""
+    section = intent_section(without_a_branch(document()))
     assert "busy-repo" in section
     assert "v0.0.2" in section
-    assert "ide" in section
+    assert "stands at v0.0.0" in section
 
 
-def test_a_scaffolded_v001_is_not_surfaced_as_claimed_above_the_evidence() -> None:
-    """The floor is not a claim above anything; listing it would bury the real ones."""
-    section = hd.render(DOC).split("Claimed above the evidence")[1].split("<h2>")[0]
-    assert "clean-repo" not in section
+def test_a_scaffolded_phase_is_not_listed_as_intent() -> None:
+    """The default is not a claim above anything; listing it would bury the real ones."""
+    assert "clean-repo" not in intent_section(document())
 
 
-def test_a_stated_rung_with_met_governance_is_not_surfaced() -> None:
-    doc = document()
-    doc["repositories"][1]["governance"] = {"precondition": "met", "missing": []}
-    section = hd.render(doc).split("Claimed above the evidence")[1].split("<h2>")[0]
+def test_a_stated_rung_with_its_branch_is_not_intent_however_short_its_seed() -> None:
+    """busy-repo has its branch and an incomplete seed. The seed measures how far
+    adoption has got and never decides a rung, so `v0.0.2` is its version.
+
+    Mutation: list a stated rung whose seed is incomplete and this fails.
+    """
+    section = intent_section(document())
     assert "busy-repo" not in section
-    assert "No project claims a rung above governance" in section
+    assert "Every stated phase is its project's version" in section
 
 
 def test_the_page_says_the_phase_column_is_a_claim() -> None:
     """Two columns side by side are read as one fact unless the page says otherwise."""
     page = hd.render(DOC)
     assert "Phase <span class=\"s-muted\">(claimed)</span>" in page
-    assert "(evidence)" in page
+    assert "Seed <span class=\"s-muted\">(evidence)</span>" in page
     assert "work sitting in an open pull request is work, and it is" in page
+    assert "measures how far adoption has got" in page
+
+
+def test_a_project_with_no_branch_has_no_seed_to_measure_on_the_page() -> None:
+    """Not unknown: the branch's absence was established, and it is v0.0.0."""
+    row = row_for(hd.render(without_a_branch(document())), "busy-repo")
+    assert "s-unknown" not in row
+    assert "incomplete" not in row
+    assert '<td><span class="mono">v0.0.0</span></td>' in row
 
 
 # --- the collector reads evidence from the document, never from the roster --
@@ -457,10 +507,14 @@ def test_evidence_cannot_read_the_claim_it_is_evidence_for() -> None:
     assert list(inspect.signature(hs.governance_evidence).parameters) == ["project"]
 
 
-def test_a_project_with_no_branch_is_unknown_rather_than_incomplete() -> None:
+def test_a_project_with_no_branch_has_no_seed_to_measure() -> None:
+    """Neither unknown nor incomplete: the project is at v0.0.0, and the seed
+    measures only a project that has its branch."""
     result = hs.governance_evidence(None)
-    assert "unknown" in result
-    assert "no project/<name> branch" in result["unknown"]
+    assert "unknown" not in result
+    assert result["seed"] == "n/a"
+    assert "no project/<name> branch" in result["asserts"]
+    assert "v0.0.0" in result["asserts"]
 
 
 def test_an_unreadable_adoption_block_carries_its_reason() -> None:
@@ -468,7 +522,7 @@ def test_an_unreadable_adoption_block_carries_its_reason() -> None:
     assert result == {"unknown": "HTTP 404"}
 
 
-def test_the_full_artifact_set_meets_the_precondition() -> None:
+def test_the_full_artifact_set_is_a_complete_seed() -> None:
     result = hs.governance_evidence(
         {
             "adoption": {
@@ -482,7 +536,7 @@ def test_the_full_artifact_set_meets_the_precondition() -> None:
             "branch": {"behind_corpus": 0},
         }
     )
-    assert result["precondition"] == "met"
+    assert result["seed"] == "complete"
     assert result["missing"] == []
 
 
@@ -501,7 +555,7 @@ def test_a_submodule_mounted_without_its_own_branch_is_incomplete() -> None:
             "branch": {},
         }
     )
-    assert result["precondition"] == "incomplete"
+    assert result["seed"] == "incomplete"
     assert "submodule branch" in result["missing"]
 
 
@@ -536,12 +590,13 @@ def test_a_missing_status_document_makes_evidence_unknown_not_absent(tmp_path: P
 
 def test_the_totals_count_governance_over_what_was_readable(monkeypatch) -> None:
     """A project with no evidence sits in neither numerator nor denominator."""
-    monkeypatch.setattr(hs, "slot_layer", lambda slug, per_base: {"open_prs": [], "violations": [], "compliant": True})
+    monkeypatch.setattr(hs, "slot_layer", lambda slug: {"open_prs": [], "violations": [], "compliant": True})
     built = hs.build(
         [
             {"name": "met", "paths": [], "phase": "v0.0.1", "phase_source": "scaffolded"},
             {"name": "short", "paths": [], "phase": "v0.0.2", "phase_source": "stated"},
             {"name": "absent", "paths": [], "phase": "v0.0.1", "phase_source": "scaffolded"},
+            {"name": "bench", "paths": [], "phase": "v0.0.2", "phase_source": "stated"},
         ],
         "example",
         [],
@@ -572,24 +627,86 @@ def test_the_totals_count_governance_over_what_was_readable(monkeypatch) -> None
     )
     totals = built["totals"]
     assert totals["governance_readable"] == 2
-    assert totals["governance_precondition_met"] == 1
+    assert totals["seed_complete"] == 1
+    assert totals["at_v0.0.0"] == 2
+    assert totals["past_v0.0.0"] == 2
+    assert totals["version_unknown"] == 0
     assert totals["phase_scaffolded"] == 2
-    assert totals["phase_stated_above_governance"] == 1
+    assert totals["phase_stated_as_intent"] == 1
+    versions = {r["name"]: (r["version"], r["intent"]) for r in built["repositories"]}
+    # `short` has its branch and an incomplete seed, and `v0.0.2` is its version.
+    assert versions == {
+        "met": ("v0.0.1", None),
+        "short": ("v0.0.2", None),
+        "absent": ("v0.0.0", None),
+        "bench": ("v0.0.0", "v0.0.2"),
+    }
 
 
-def test_a_stated_v001_is_not_surfaced_as_claimed_above_the_evidence() -> None:
-    """The floor is not a claim above anything, even when a human stated it.
+@pytest.fixture
+def offline(monkeypatch):
+    """`build` with the host's two layers stubbed, so a test reads only the roster
+    and the governance document it is handed."""
+    monkeypatch.setattr(hs, "slot_layer", lambda slug: {"open_prs": [], "violations": [], "compliant": True})
+    monkeypatch.setattr(hs, "release_layer", lambda slug: {"unknown": "not read in a test"})
 
-    This is a real shape: `rad` states v0.0.1 and has no project branch, so its
-    governance is unknown. Listing it beside a project claiming v0.0.3 would
-    bury the distinction the section exists to draw. The scaffolded case does
-    not test this — it is already excluded for having no stated claim at all.
+
+def test_a_project_with_no_branch_reports_v000_whatever_its_scaffolded_phase(offline) -> None:
+    """The scaffolded default never moves the version; the branch does.
+
+    Mutation: read the version from the roster's phase alone and this fails.
     """
+    built = hs.build([{"name": "vox", "paths": [], "role": "project", "phase": "v0.0.1",
+                       "phase_source": "scaffolded"}], "example", [], False, {}, None)
+    record = built["repositories"][0]
+    assert record["version"] == "v0.0.0"
+    assert record["intent"] is None
+    assert record["governance"]["seed"] == "n/a"
+
+
+def test_a_private_project_is_found_by_its_reference(offline) -> None:
+    """status/governance.yaml names a private project by its reference, and with
+    the companion present the roster entry carries the real name as well.
+
+    Mutation: look the project up by `name` alone and this fails, reporting a
+    project that has its branch as `v0.0.0`.
+    """
+    built = hs.build(
+        [{"name": "secret-name", "ref": "private-01", "paths": [], "role": "project",
+          "phase": "v0.0.1", "phase_source": "scaffolded"}],
+        "example", [], False,
+        {"private-01": {"adoption": {"unknown": "not read"}, "branch": {}}},
+        None,
+    )
+    record = built["repositories"][0]
+    assert record["version"] == "v0.0.1"
+    assert record["name"] == "private-01"
+    assert "secret-name" not in json.dumps(record)
+
+
+def test_without_the_governance_document_the_version_is_unknown(offline) -> None:
+    """Whether a branch exists is not known, so neither is the rung."""
+    for governance, gap in ((None, None), ({}, "status/governance.yaml did not parse")):
+        built = hs.build([{"name": "a", "paths": [], "role": "project", "phase": "v0.0.2",
+                           "phase_source": "stated"}], "example", [], False, governance, gap)
+        record = built["repositories"][0]
+        assert "unknown" in record["version"], governance
+        assert built["totals"]["version_unknown"] == 1
+        assert built["totals"]["at_v0.0.0"] == 0
+
+
+def test_the_corpus_is_past_v000_without_a_branch(offline) -> None:
+    """It is the thing doing the governing, read as `ci/cookbook.py` reads it."""
+    built = hs.build([{"name": "qm", "paths": [], "role": "corpus", "phase": "n/a",
+                       "phase_source": "n/a"}], "example", [], False, {}, None)
+    assert built["repositories"][0]["version"] == "v0.0.1"
+
+
+def test_a_stated_v001_with_its_branch_is_not_intent() -> None:
+    """A stated v0.0.1 on a project with its branch is the version itself."""
     doc = document()
-    doc["repositories"][1]["phase"] = "v0.0.1"
-    doc["repositories"][1]["phase_source"] = "stated"
-    section = hd.render(doc).split("Claimed above the evidence")[1].split("<h2>")[0]
-    assert "busy-repo" not in section
+    doc["repositories"][1].update(phase="v0.0.1", version="v0.0.1")
+    assert "busy-repo" not in intent_section(doc)
 
 
 # --- the agent view, and the committed document ---------------------------
@@ -599,7 +716,7 @@ def test_the_markdown_view_states_unknown_in_words() -> None:
     """An agent parsing HTML loses the distinction the page spends colour on."""
     text = hd.render_markdown(DOC)
     assert "unknown (gh api repos/example/private-repo: HTTP 404)" in text
-    assert "unknown (no project/<name> branch in the corpus)" in text
+    assert "unknown (status/governance.yaml did not parse)" in text
 
 
 def test_the_markdown_view_never_leaves_a_state_implied_by_an_empty_cell() -> None:
@@ -633,8 +750,17 @@ def test_the_markdown_view_collects_what_needs_a_human() -> None:
     text = hd.render_markdown(DOC)
     section = text.split("## What needs a human")[1].split("## ")[0]
     assert "busy-repo" in section
-    assert "Close the pull request FIRST" in section
+    assert "Mark it draft until the pull request beneath it merges" in section
     assert "clean-repo" in section  # scaffolded phase
+
+
+def test_the_markdown_view_lists_a_phase_stated_as_intent() -> None:
+    """The agent view carries the same gap the page draws, in words."""
+    text = hd.render_markdown(without_a_branch(document()))
+    section = text.split("## What needs a human")[1].split("## ")[0]
+    assert "**busy-repo**: `v0.0.2` stated as intent" in section
+    assert "stands at v0.0.0" in section
+    assert "| busy-repo | unstated | v0.0.0 | v0.0.2 | stated | n/a |" in text
 
 
 def test_the_markdown_view_lists_every_gap_with_its_reason() -> None:
@@ -664,16 +790,16 @@ def test_the_markdown_view_runs_nothing() -> None:
 
 def test_the_committed_document_exists_and_parses() -> None:
     """The path AGENTS.md sends the next agent to. If it is absent, they get nothing."""
-    committed = CI_DIR.parent / "harness-status.json"
-    assert committed.exists(), "harness-status.json is not committed"
-    doc = json.loads(committed.read_text(encoding="utf-8"))
+    committed = CI_DIR.parent / "status/harness.yaml"
+    assert committed.exists(), "status/harness.yaml is not committed"
+    doc = yaml.safe_load(committed.read_text(encoding="utf-8"))
     assert doc["schema"] == 1
     assert doc["repositories"]
 
 
 def test_the_committed_document_carries_its_own_reading_instructions() -> None:
     """A convention that lives only in a handbook page is one the reader lacks."""
-    doc = json.loads((CI_DIR.parent / "harness-status.json").read_text(encoding="utf-8"))
+    doc = yaml.safe_load((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
     reading = doc["reading"]
     assert reading["refresh"]
     assert reading["staleness_budget_hours"] == hs.STALENESS_BUDGET_HOURS
@@ -683,7 +809,7 @@ def test_the_committed_document_carries_its_own_reading_instructions() -> None:
 
 def test_the_committed_document_omits_the_machine_layer() -> None:
     """One machine's branch names must not become an organisation fact."""
-    doc = json.loads((CI_DIR.parent / "harness-status.json").read_text(encoding="utf-8"))
+    doc = yaml.safe_load((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
     assert "local" not in doc["generator"]["layers"]
     for repo in doc["repositories"]:
         assert "local" not in repo, repo["name"]
@@ -691,15 +817,15 @@ def test_the_committed_document_omits_the_machine_layer() -> None:
 
 def test_the_committed_document_renders_in_both_formats() -> None:
     """A document nobody can render is a document nobody will read."""
-    doc = json.loads((CI_DIR.parent / "harness-status.json").read_text(encoding="utf-8"))
+    doc = yaml.safe_load((CI_DIR.parent / "status/harness.yaml").read_text(encoding="utf-8"))
     assert "<table>" in hd.render(doc)
     assert "| Repository |" in hd.render_markdown(doc)
 
 
 def test_inside_corpus_recognises_a_path_that_would_be_committed(tmp_path: Path) -> None:
-    assert hs.inside_corpus(CI_DIR.parent / "harness-status.json")
+    assert hs.inside_corpus(CI_DIR.parent / "status/harness.yaml")
     assert hs.inside_corpus(CI_DIR / "nested" / "thing.json")
-    assert not hs.inside_corpus(tmp_path / "harness-status.json")
+    assert not hs.inside_corpus(tmp_path / "status/harness.yaml")
 
 
 def test_writing_the_machine_layer_into_the_repository_is_refused() -> None:
@@ -711,12 +837,12 @@ def test_writing_the_machine_layer_into_the_repository_is_refused() -> None:
     run with the guard disabled wrote one machine's branch names into the
     committed document — so the file is restored before anything is asserted.
     """
-    committed = CI_DIR.parent / "harness-status.json"
+    committed = CI_DIR.parent / "status/harness.yaml"
     before = committed.read_bytes()
     try:
         result = subprocess.run(
             [sys.executable, str(CI_DIR / "harness_status.py"),
-             "--write", "harness-status.json"],
+             "--write", "status/harness.yaml"],
             capture_output=True, text=True, encoding="utf-8", errors="replace",
             cwd=str(CI_DIR.parent),
         )
@@ -985,3 +1111,142 @@ def test_the_release_column_reaches_the_rendered_page() -> None:
     assert "| Release |" in page
     assert "v0.2.0" in page and "lightweight" in page and "37" in page
     assert "`main` is readiness" in page
+
+
+# --- the family column, and the rollup per family --------------------------
+#
+# Mutations run against these, each restored from a checked backup before the
+# next, quoted as they printed:
+#
+#   `family_of` returning `str(repo.get("family"))`     -> 1 failed (unstated)
+#   the rollup counting unreadable members as measured  -> 1 failed (adds_up)
+#   the rollup keeping insertion order                  -> 1 PASSED, until the
+#       fixture was reordered so insertion and name order differ; then
+#       AssertionError: assert ['unstated', 'irl', 'core'] == ['core', 'irl', 'unstated']
+#   `family_cell` dropped from the HTML repositories row -> 1 failed (both_views)
+#   thread rows given family None                        -> 1 failed (thread_row)
+#   the generator defaulting a silent entry to "core"    -> 1 failed (verbatim)
+
+
+def families() -> dict:
+    """Three families' worth of the base document: one clean, one over the
+    slot with a stalled thread, one unreadable and unplaced."""
+    doc = document()
+    clean, busy, private = doc["repositories"]
+    clean["family"] = "core"
+    busy["family"] = "irl"
+    busy["threads"] = [{"name": "wip", "base": "main", "stage": "draft",
+                        "stalled": True, "idle_hours": 300, "pr": 9,
+                        "delta": {"commits": 3, "files": 2,
+                                  "insertions": 10, "deletions": 1}}]
+    private["family"] = None
+    # Unplaced first and the families out of name order, so a rollup that
+    # kept insertion order would fail the order assertion rather than pass
+    # it by coincidence.
+    doc["repositories"] = [private, busy, clean]
+    return doc
+
+
+def test_the_family_claim_is_a_column_in_both_views() -> None:
+    doc = families()
+    page = hd.render(doc)
+    md = hd.render_markdown(doc)
+
+    assert '<th scope="col">Family' in page
+    assert '<span class="mono">core</span>' in row_for(page, "clean-repo")
+    assert "| Family (claimed) |" in md
+    assert "| clean-repo | core |" in md
+    assert "| busy-repo | irl |" in md
+
+
+def test_an_unstated_family_is_a_word_never_an_empty_cell() -> None:
+    """An older document has no `family` key at all; a newer one carries
+    null for a repository nobody placed. Both read as unstated, in words.
+
+    Mutation: `family_of` returning `str(repo.get("family"))`, and the
+    older document prints `None` while the cell test fails on `unstated`.
+    """
+    doc = families()
+    md = hd.render_markdown(doc)
+    assert "| private-repo | unstated |" in md
+    assert "| private-repo |  |" not in md
+    assert "| private-repo | None |" not in md
+
+    older = document()
+    for repo in older["repositories"]:
+        repo.pop("family", None)
+    assert hd.family_of(older["repositories"][0]) == hd.UNSTATED
+    assert "| clean-repo | unstated |" in hd.render_markdown(older)
+
+
+def test_the_rollup_adds_up_per_family_with_unstated_last() -> None:
+    """Mutation: count `over` from every member rather than the measured
+    ones, and the unstated row's over/unreadable split fails; drop the sort,
+    and the order fails.
+    """
+    rows = hd.by_family(families())
+
+    assert [r["family"] for r in rows] == ["core", "irl", hd.UNSTATED]
+    core, irl, unstated = rows
+    assert core == {"family": "core", "repositories": 1, "within": 1, "over": 0,
+                    "unreadable": 0, "threads": 0, "stalled": 0}
+    assert irl == {"family": "irl", "repositories": 1, "within": 0, "over": 1,
+                   "unreadable": 0, "threads": 1, "stalled": 1}
+    assert unstated == {"family": hd.UNSTATED, "repositories": 1, "within": 0,
+                        "over": 0, "unreadable": 1, "threads": 0, "stalled": 0}
+
+
+def test_the_rollup_reaches_both_rendered_views() -> None:
+    """A helper nothing calls is a check that enforces nothing."""
+    doc = families()
+    page = hd.render(doc)
+    md = hd.render_markdown(doc)
+
+    assert "<h2>By family</h2>" in page
+    assert "## By family" in md
+    assert "| irl | 1 | 0 | 1 | 0 | 1 | 1 |" in md
+    assert f"| {hd.UNSTATED} | 1 | 0 | 0 | 1 | 0 | 0 |" in md
+    assert "<th scope=\"row\"><span class=\"mono\">irl</span></th>" in page
+
+
+def test_a_thread_row_carries_its_repository_s_family() -> None:
+    doc = families()
+    md = hd.render_markdown(doc)
+    assert "| busy-repo | irl | wip | draft STALLED |" in md
+    row = [t for t in hd.thread_rows(doc) if t["name"] == "wip"][0]
+    assert row["family"] == "irl"
+
+
+def test_the_generator_carries_the_family_claim_verbatim(monkeypatch, tmp_path: Path) -> None:
+    """The record says a family is stated by a person and never inferred; the
+    generator copies the roster's claim and invents nothing for a silent
+    entry.
+
+    Mutation: default the missing claim to any string, and the second
+    assertion fails.
+    """
+    roster = [
+        {"name": "one", "role": "project", "family": "games", "paths": ["one"]},
+        {"name": "two", "role": "project", "paths": ["two"]},
+    ]
+    monkeypatch.setattr(hs, "slot_layer", lambda slug: {
+        "open_prs": [], "violations": [], "compliant": True})
+    monkeypatch.setattr(hs, "release_layer", lambda slug: {"state": "none"})
+    monkeypatch.setattr(hs, "org_threads", lambda slug, slots, detail: [])
+    doc = hs.build(roster, "example", [tmp_path], False, want_pr_detail=False)
+    by_name = {r["name"]: r for r in doc["repositories"]}
+    assert by_name["one"]["family"] == "games"
+    assert by_name["two"]["family"] is None
+    assert "family_is_a_claim" in doc["generator"]
+    assert any("family" in w for w in doc["reading"]["do_not"])
+
+
+def test_a_repository_in_two_families_counts_in_each_row() -> None:
+    """Mutation: group on `family_of`, the printed form, and the rollup gains
+    a row named `irl, core` instead of counting in both."""
+    doc = families()
+    doc["repositories"][1]["family"] = ["irl", "core"]
+    rows = {r["family"]: r for r in hd.by_family(doc)}
+    assert rows["core"]["repositories"] == 2
+    assert rows["irl"]["repositories"] == 1
+    assert hd.family_of(doc["repositories"][1]) == "irl, core"

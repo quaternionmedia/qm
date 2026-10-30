@@ -1,0 +1,68 @@
+<p class="qm-eyebrow">usage · after adoption</p>
+
+# Next steps
+
+What happens after a project has adopted the corpus.
+{ .qm-lede }
+
+## Propagation: staying in sync
+
+When the org changes `main` — a ratified [record](../ref/glossary.md#record){ .glossary-term }, an updated procedure — the change reaches your project through a **[propagation](../ref/glossary.md#propagation){ .glossary-term } merge**:
+
+1. Someone cuts a `propagate/<name>-<date>` branch from your `project/<name>` branch.
+2. They merge `main` into it and open a pull request whose base is `project/<name>`.
+3. Its author merges it once every [gate](../ref/glossary.md#gate){ .glossary-term } is green. The merge commit is the new submodule pin.
+
+The merge is never a rebase: your submodule pins the branch tip by ancestry, and a rebase would break the pin.
+
+See [Propagate a change](propagate-a-change.md) for the commands, and [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) for the full procedure.
+
+## Adoption audits
+
+The org audits adopted projects to confirm each one has:
+
+- the `governance/qm` submodule on the right branch,
+- the four [seed](../ref/glossary.md#seed){ .glossary-term } CI workflows,
+- the seed files (`AGENTS.md`, editor config) in place,
+- records seeded on its branch.
+
+See [handbook/adoption-audit-queue.md](https://github.com/quaternionmedia/qm/blob/main/handbook/adoption-audit-queue.md) for how audits run.
+
+## The status documents
+
+Two generated files on `main` track the state of the [corpus](../ref/glossary.md#corpus){ .glossary-term } and its projects:
+
+| Document | Holds | May be stale after |
+|---|---|---|
+| `status/governance.yaml` | Where every project stands: branches, records, adoption artifacts | 168 hours |
+| `status/harness.yaml` | Open pull requests, phases claimed, work in flight | 24 hours |
+
+Both are refreshed by a person running a command, not by CI. Check the `generated_at` timestamp before quoting a number from either. See [Read status documents](read-status-documents.md).
+
+## The project phase ladder
+
+Each project reports a phase as a version number, and the version is all a page shows of its governance. The first two rungs are defined org-wide:
+
+- **`v0.0.0` — not adopted.** The project has no `project/<name>` branch in the corpus yet.
+- **`v0.0.1` — adopted, however far along.** The project has its branch, and its records live there. How much of the seed it carries yet is a share within this rung, not a rung of its own.
+- **Rungs above `v0.0.1`** are defined by each project in its own records. A rung a project has not defined is not yet meaningful for it.
+- A project that states no phase is at `v0.0.0` until it has its branch, and at `v0.0.1` after. A phase stated without a branch is intent, shown beside the version.
+
+See [records/DRAFT-project-phase-ladder.md](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-project-phase-ladder.md) for the full model.
+
+## The project's page
+
+Every project sits in a family by what its output drives, and a public one gets a page of its own on this site, listed on [the projects page](../projects/index.md):
+
+- **Its family** is the `family:` of its entry in `ci/workspace.yaml`: one name, or a list when the project drives two things. [The family record](https://github.com/quaternionmedia/qm/blob/main/records/DRAFT-a-family-is-bordered-by-what-it-drives.md) decides which.
+- **Its page** appears once the repository is public on the host and a family claims it. It shows the repository's own description, its families, its version, and a button to the repository.
+- **Its pictures** are the ones listed under its name in `ci/showcase.yaml`: files in the project's own repository, each with a one-sentence caption. A person picks them; nothing infers a picture. A listed picture shows once the project's default branch holds it, so one still on a pull request waits, and a page with none says so.
+- **Its detail page**, where a person has written one, comes from a block under its name in `details:` in the same file: what the project is and the command to try it beside a picture, the steps a user goes through, a section per feature with its pictures, and how it is built, each part with a page linking to it. The block's pictures are the project's own and wait for its default branch like the others; its text is timeless, with no dates, pull request numbers or measured counts. A project with no block keeps the page its pictures make. The file's header lists every key.
+
+`uv run qm inventory --write` refreshes what the host says is public and which listed pictures each default branch holds, and `uv run qm cookbook docs/families --site --write` regenerates the family and project pages from it. To see a page with pictures its default branch does not hold yet, [preview it from a branch](build-these-docs.md#preview-a-projects-pictures-from-a-branch).
+
+## Related
+
+- [handbook/propagation-runbook.md](https://github.com/quaternionmedia/qm/blob/main/handbook/propagation-runbook.md) — propagation in full
+- [handbook/generated-documents.md](https://github.com/quaternionmedia/qm/blob/main/handbook/generated-documents.md) — the status documents in full
+- [Architecture](../about/architecture.md) — the model behind all of this

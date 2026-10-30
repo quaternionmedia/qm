@@ -1,0 +1,3817 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "rad-godot"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "digest": "sha256:52c96de6615a43af500db0ae07d927e9cdf2275f4d5f13b62a5322beb4223ce3"
+  },
+  "source": {
+   "repo": "quaternionmedia/rad-godot",
+   "commit": "6dd9485f6bd2a5ddf7679f3dfe4c19f44385a5f3"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+  },
+  "drawn_at": "2026-10-27T19:21:23Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::rad-godot": {
+      "label": "rad-godot",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "rad-godot — n/a · not adopted",
+       "click": "<p><b>rad-godot</b> — rad, the radial menu, as a Godot addon: the contract's vectors replayed in GDScript.</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:rad-godot",
+       "shape": "circle",
+       "color": "#73c886",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::games": {
+      "label": "games",
+      "metadata": {
+       "kind": "family",
+       "family": "games",
+       "drives": "play — a game somebody plays: its rules, its world, its loop, and the server it is played on",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "games — drives play — a game somebody plays: its rules, its world, its loop, and the server it is played on",
+       "click": "<p>The <b>games</b> family drives play — a game somebody plays: its rules, its world, its loop, and the server it is played on.</p><p>7 member(s) in all.</p>",
+       "show": "family:games",
+       "color": "#73c886",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::quiet": {
+      "label": "recency: quiet",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency quiet, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::rad-godot",
+      "target": "family::games",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::rad-godot",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::rad-godot",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::rad-godot",
+      "target": "recency::quiet",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:rad-godot",
+     "measured": 0,
+     "unread": [],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:rad-godot",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "6906aee",
+    "provenance": {
+     "source": "families.json",
+     "commit": "6906aee",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/rad-godot": {
+      "id": "dir::quaternionmedia/rad-godot",
+      "label": "quaternionmedia/rad-godot",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1792.740932650509,
+      "y": -480.3634851419221,
+      "size": 120
+     },
+     "dir::quaternionmedia/rad-godot/Scenes": {
+      "id": "dir::quaternionmedia/rad-godot/Scenes",
+      "label": "Scenes",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 1808.0133772862102,
+      "y": -393.61166997446037,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons": {
+      "id": "dir::quaternionmedia/rad-godot/addons",
+      "label": "addons",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1239.5587217599611,
+      "y": -332.1387584665367,
+      "size": 80
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4",
+      "label": "gdUnit4",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1043.6396538073652,
+      "y": -279.6424024267803,
+      "size": 80
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/bin": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/bin",
+      "label": "bin",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 979.8885492722866,
+      "y": -262.56034545001387,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "label": "src",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -167.79778980702795,
+      "y": 241.50009543998698,
+      "size": 200
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts",
+      "label": "asserts",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -233.88706110906102,
+      "y": 891.1374369668273,
+      "size": 60
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/cmd": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/cmd",
+      "label": "cmd",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -231.54889434210645,
+      "y": 258.5821524167534,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "label": "core",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 96.08597848858999,
+      "y": -287.3817652322765,
+      "size": 190
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/assets": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/assets",
+      "label": "assets",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 32.334873953511476,
+      "y": -270.29970825551015,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/attributes": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/attributes",
+      "label": "attributes",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 137.9130865923859,
+      "y": -353.0175445578346,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/command": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/command",
+      "label": "command",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 111.35842312429105,
+      "y": -200.62995006481478,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/discovery": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/discovery",
+      "label": "discovery",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 18.943697965683455,
+      "y": -346.62495940447826,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/event": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/event",
+      "label": "event",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 201.34046801521072,
+      "y": -296.53285448386043,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution",
+      "label": "execution",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 334.7245822421976,
+      "y": -867.8423234144516,
+      "size": 60
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages",
+      "label": "stages",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 191.30187032935788,
+      "y": -724.4196115016119,
+      "size": 70
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/fuzzed": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/fuzzed",
+      "label": "fuzzed",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 127.55076579427936,
+      "y": -707.3375545248455,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/single": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/single",
+      "label": "single",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 233.1289784331543,
+      "y": -790.0553908271701,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/hooks": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/hooks",
+      "label": "hooks",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 19.404743547169403,
+      "y": -203.8126279395017,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parameters": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parameters",
+      "label": "parameters",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 96.18410305055157,
+      "y": -408.0688207584195,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parse": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parse",
+      "label": "parse",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 182.16280529491834,
+      "y": -193.26631811038612,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/report": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/report",
+      "label": "report",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -37.43782374329201,
+      "y": -299.2094546744822,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/runners": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/runners",
+      "label": "runners",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 207.4578274548117,
+      "y": -372.6247928523998,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -235.12864400975698,
+      "y": -198.63307461246518,
+      "size": 60
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates/test_suite": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates/test_suite",
+      "label": "test_suite",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -298.87974854483554,
+      "y": -181.55101763569877,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/thread": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/thread",
+      "label": "thread",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 70.5052196738559,
+      "y": -143.44688489237276,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/writers": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/writers",
+      "label": "writers",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 14.661965357587547,
+      "y": -415.613265206512,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet",
+      "label": "dotnet",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 284.85252502447923,
+      "y": 306.8627501089748,
+      "size": 60
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/doubler": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/doubler",
+      "label": "doubler",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -125.97068170323182,
+      "y": 175.86431611442882,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/extractors": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/extractors",
+      "label": "extractors",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -152.52534517132688,
+      "y": 328.25191060744874,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/fuzzers": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/fuzzers",
+      "label": "fuzzers",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -244.9400703299342,
+      "y": 182.25690126778522,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/matchers": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/matchers",
+      "label": "matchers",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -62.54330028040697,
+      "y": 232.349006188403,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/mocking": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/mocking",
+      "label": "mocking",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -244.47902474844852,
+      "y": 325.0692327327618,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/monitor": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/monitor",
+      "label": "monitor",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -167.69966524506611,
+      "y": 120.81303991384385,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network",
+      "label": "network",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 229.4062195540374,
+      "y": 679.4092772341814,
+      "size": 60
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network/rpc": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network/rpc",
+      "label": "rpc",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 165.6551150189589,
+      "y": 696.4913342109478,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters",
+      "label": "reporters",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -705.0827174897752,
+      "y": -33.72552867061415,
+      "size": 80
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/console": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/console",
+      "label": "console",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -768.8338220248536,
+      "y": -16.643471693847772,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html",
+      "label": "html",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -691.4064421480671,
+      "y": 381.8006109847171,
+      "size": 60
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template",
+      "label": "template",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1400.6932030865426,
+      "y": 753.5904137567288,
+      "size": 90
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css",
+      "label": "css",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1207.5502614233064,
+      "y": 401.0519129334482,
+      "size": 70
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/xml": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/xml",
+      "label": "xml",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -663.2556093859791,
+      "y": -99.36130799617231,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/spy": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/spy",
+      "label": "spy",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -81.72096300069958,
+      "y": 335.61554256187736,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui",
+      "label": "ui",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -106.02822520652242,
+      "y": 595.9902912139524,
+      "size": 100
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/menu": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/menu",
+      "label": "menu",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -169.77932974160095,
+      "y": 613.0723481907188,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/parts": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/parts",
+      "label": "parts",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -64.2011171027265,
+      "y": 530.3545118883942,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/settings": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/settings",
+      "label": "settings",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -90.75578057082134,
+      "y": 682.7421063814141,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/templates": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/templates",
+      "label": "templates",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -183.17050572942873,
+      "y": 536.7470970417505,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/utils": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/utils",
+      "label": "utils",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -0.7737356799016482,
+      "y": 586.8392019623685,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update",
+      "label": "update",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 460.7896018359103,
+      "y": 128.51009923138284,
+      "size": 60
+     },
+     "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update/assets": {
+      "id": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update/assets",
+      "label": "assets",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 397.03849730083175,
+      "y": 145.59215620814922,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/godot-git-plugin": {
+      "id": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin",
+      "label": "godot-git-plugin",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1396.7245639104783,
+      "y": -489.30460061705406,
+      "size": 90
+     },
+     "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/linux": {
+      "id": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/linux",
+      "label": "linux",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1438.5516720142743,
+      "y": -554.9403799426123,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/macos": {
+      "id": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/macos",
+      "label": "macos",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 1411.9970085461796,
+      "y": -402.5527854495923,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/win64": {
+      "id": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/win64",
+      "label": "win64",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1319.5822833875716,
+      "y": -548.5477947892557,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/rad": {
+      "id": "dir::quaternionmedia/rad-godot/addons/rad",
+      "label": "rad",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1408.7339103511708,
+      "y": -140.41482007226995,
+      "size": 70
+     },
+     "dir::quaternionmedia/rad-godot/addons/rad/core": {
+      "id": "dir::quaternionmedia/rad-godot/addons/rad/core",
+      "label": "core",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1344.9828058160924,
+      "y": -123.33276309550358,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/addons/rad/ui": {
+      "id": "dir::quaternionmedia/rad-godot/addons/rad/ui",
+      "label": "ui",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1450.5610184549666,
+      "y": -206.05059939782805,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/conformance": {
+      "id": "dir::quaternionmedia/rad-godot/conformance",
+      "label": "conformance",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1715.5986521276025,
+      "y": -539.6066793141238,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/docs": {
+      "id": "dir::quaternionmedia/rad-godot/docs",
+      "label": "docs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 2067.238819080663,
+      "y": -406.8119981489125,
+      "size": 80
+     },
+     "dir::quaternionmedia/rad-godot/tests": {
+      "id": "dir::quaternionmedia/rad-godot/tests",
+      "label": "tests",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1897.9954221771297,
+      "y": -489.51457439350605,
+      "size": 50
+     },
+     "dir::quaternionmedia/rad-godot/tools": {
+      "id": "dir::quaternionmedia/rad-godot/tools",
+      "label": "tools",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1891.0632257381917,
+      "y": -987.4035294348384,
+      "size": 90
+     },
+     "file::quaternionmedia/rad-godot/HANDOFF.md": {
+      "id": "file::quaternionmedia/rad-godot/HANDOFF.md",
+      "label": "HANDOFF.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/HANDOFF.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1728.9898281154303,
+      "y": -463.2814281651557,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/README.md": {
+      "id": "file::quaternionmedia/rad-godot/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/README.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1834.5680407543045,
+      "y": -545.9992644674802,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/addons/gdUnit4/runtest.sh": {
+      "id": "file::quaternionmedia/rad-godot/addons/gdUnit4/runtest.sh",
+      "label": "runtest.sh",
+      "depth": 1,
+      "language": "shell",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/runtest.sh",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1085.466761911161,
+      "y": -345.27818175233836,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts/CLAUDE.md": {
+      "id": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts/CLAUDE.md",
+      "label": "CLAUDE.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/asserts/CLAUDE.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -286.04705572867067,
+      "y": 905.1136654023633,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs": {
+      "id": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "label": "GdUnit4CSharpApi.cs",
+      "depth": 1,
+      "language": "csharp",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 143.79056028086265,
+      "y": 344.6601896447744,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css": {
+      "id": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
+      "label": "breadcrumb.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1171.5744141540563,
+      "y": 266.7882230792677,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css": {
+      "id": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "label": "styles.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1396.8965977537075,
+      "y": 451.787110842971,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/folder_report.html": {
+      "id": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/folder_report.html",
+      "label": "folder_report.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/folder_report.html",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1461.715123032848,
+      "y": 981.3273193717409,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/index.html": {
+      "id": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/index.html",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1538.5150899825442,
+      "y": 790.519677049846,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/suite_report.html": {
+      "id": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/suite_report.html",
+      "label": "suite_report.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/suite_report.html",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1299.800579483658,
+      "y": 854.4830373596133,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/addons/godot-git-plugin/THIRDPARTY.md": {
+      "id": "file::quaternionmedia/rad-godot/addons/godot-git-plugin/THIRDPARTY.md",
+      "label": "THIRDPARTY.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/godot-git-plugin/THIRDPARTY.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1332.9734593754,
+      "y": -472.22254364028765,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-adoption-and-scope.md": {
+      "id": "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-adoption-and-scope.md",
+      "label": "DRAFT-rad-godot-adoption-and-scope.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/docs/DRAFT-rad-godot-adoption-and-scope.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 2015.078824461053,
+      "y": -392.8357697133764,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-architecture.md": {
+      "id": "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-architecture.md",
+      "label": "DRAFT-rad-godot-architecture.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/docs/DRAFT-rad-godot-architecture.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 2099.5063166581162,
+      "y": -457.44668092750817,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/docs/integrations.md": {
+      "id": "file::quaternionmedia/rad-godot/docs/integrations.md",
+      "label": "integrations.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/docs/integrations.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 2078.6004198947116,
+      "y": -342.27488458669785,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/tools/check_core_boundary.py": {
+      "id": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "label": "check_core_boundary.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/check_core_boundary.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1960.859975504144,
+      "y": -841.021218216175,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/tools/check_imports.py": {
+      "id": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "label": "check_imports.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/check_imports.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1934.732087083908,
+      "y": -1150.3779386857348,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/tools/check_vector_pin.py": {
+      "id": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "label": "check_vector_pin.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/check_vector_pin.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1730.1237950464952,
+      "y": -944.2799389506739,
+      "size": 30
+     },
+     "file::quaternionmedia/rad-godot/tools/repo.py": {
+      "id": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "label": "repo.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/tools/repo.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 2145.5256088697474,
+      "y": -1007.0698583998659,
+      "size": 30
+     },
+     "check_core_boundary.ROOT": {
+      "id": "check_core_boundary.ROOT",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ROOT",
+      "file": "check_core_boundary.py",
+      "line": 0,
+      "meta": {
+       "module": "check_core_boundary",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1928.0184974103158,
+      "y": -832.2213706826892,
+      "label_at": "left"
+     },
+     "check_core_boundary.__future__.annotations": {
+      "id": "check_core_boundary.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "check_core_boundary.py",
+      "line": 0,
+      "meta": {
+       "module": "check_core_boundary",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1981.111728250967,
+      "y": -872.8005984914657,
+      "label_at": "right"
+     },
+     "check_core_boundary.main": {
+      "id": "check_core_boundary.main",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "main",
+      "file": "check_core_boundary.py",
+      "line": 0,
+      "meta": {
+       "module": "check_core_boundary",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 1967.9752121130643,
+      "y": -800.6046571551558,
+      "label_at": "below"
+     },
+     "check_core_boundary.repo.ROOT": {
+      "id": "check_core_boundary.repo.ROOT",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.ROOT",
+      "file": "check_core_boundary.py",
+      "line": 0,
+      "meta": {
+       "module": "check_core_boundary",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1925.8536520626108,
+      "y": -867.9051319771354,
+      "label_at": "left"
+     },
+     "check_core_boundary.repo.fail": {
+      "id": "check_core_boundary.repo.fail",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.fail",
+      "file": "check_core_boundary.py",
+      "line": 0,
+      "meta": {
+       "module": "check_core_boundary",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 2007.7177716469005,
+      "y": -845.0951525116468,
+      "label_at": "right"
+     },
+     "check_core_boundary.repo.tracked": {
+      "id": "check_core_boundary.repo.tracked",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.tracked",
+      "file": "check_core_boundary.py",
+      "line": 0,
+      "meta": {
+       "module": "check_core_boundary",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1927.2160259721954,
+      "y": -804.3551963445333,
+      "label_at": "left"
+     },
+     "check_core_boundary.repo.verdict": {
+      "id": "check_core_boundary.repo.verdict",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.verdict",
+      "file": "check_core_boundary.py",
+      "line": 0,
+      "meta": {
+       "module": "check_core_boundary",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1960.902537491095,
+      "y": -893.3697921077078,
+      "label_at": "above"
+     },
+     "check_core_boundary.tracked": {
+      "id": "check_core_boundary.tracked",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "tracked",
+      "file": "check_core_boundary.py",
+      "line": 0,
+      "meta": {
+       "module": "check_core_boundary",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1997.8525823176064,
+      "y": -800.5739124821146,
+      "label_at": "right"
+     },
+     "check_core_boundary.verdict": {
+      "id": "check_core_boundary.verdict",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "verdict",
+      "file": "check_core_boundary.py",
+      "line": 0,
+      "meta": {
+       "module": "check_core_boundary",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1903.9121660134067,
+      "y": -846.0657195995357,
+      "label_at": "left"
+     },
+     "check_imports.Path": {
+      "id": "check_imports.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Path",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1901.8906089900795,
+      "y": -1141.5780911522493,
+      "label_at": "left"
+     },
+     "check_imports.ROOT": {
+      "id": "check_imports.ROOT",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "ROOT",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1954.983839830731,
+      "y": -1182.1573189610258,
+      "label_at": "right"
+     },
+     "check_imports.__future__.annotations": {
+      "id": "check_imports.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1941.8473236928294,
+      "y": -1109.9613776247159,
+      "label_at": "below"
+     },
+     "check_imports.main": {
+      "id": "check_imports.main",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "main",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 1899.7257636423751,
+      "y": -1177.2618524466952,
+      "label_at": "left"
+     },
+     "check_imports.pathlib.Path": {
+      "id": "check_imports.pathlib.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pathlib.Path",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1981.5898832266655,
+      "y": -1154.4518729812066,
+      "label_at": "right"
+     },
+     "check_imports.repo.ROOT": {
+      "id": "check_imports.repo.ROOT",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.ROOT",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1901.0881375519596,
+      "y": -1113.7119168140935,
+      "label_at": "left"
+     },
+     "check_imports.repo.fail": {
+      "id": "check_imports.repo.fail",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.fail",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1934.7746490708594,
+      "y": -1202.7265125772678,
+      "label_at": "above"
+     },
+     "check_imports.repo.tracked": {
+      "id": "check_imports.repo.tracked",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.tracked",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1971.7246938973708,
+      "y": -1109.9306329516744,
+      "label_at": "right"
+     },
+     "check_imports.repo.verdict": {
+      "id": "check_imports.repo.verdict",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.verdict",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1877.7842775931713,
+      "y": -1155.4224400690957,
+      "label_at": "left"
+     },
+     "check_imports.res_to_path": {
+      "id": "check_imports.res_to_path",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "res_to_path",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 1981.9294231869926,
+      "y": -1186.5023620689876,
+      "label_at": "right"
+     },
+     "check_imports.tracked": {
+      "id": "check_imports.tracked",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "tracked",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1923.950231708985,
+      "y": -1089.7118312230482,
+      "label_at": "below"
+     },
+     "check_imports.verdict": {
+      "id": "check_imports.verdict",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "verdict",
+      "file": "check_imports.py",
+      "line": 0,
+      "meta": {
+       "module": "check_imports",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1900.573610764444,
+      "y": -1204.1727896989369,
+      "label_at": "left"
+     },
+     "check_vector_pin.Path": {
+      "id": "check_vector_pin.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Path",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1697.282316952667,
+      "y": -935.4800914171881,
+      "label_at": "left"
+     },
+     "check_vector_pin.__future__.annotations": {
+      "id": "check_vector_pin.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1750.375547793318,
+      "y": -976.0593192259646,
+      "label_at": "right"
+     },
+     "check_vector_pin.main": {
+      "id": "check_vector_pin.main",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "main",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 1737.239031655416,
+      "y": -903.8633778896548,
+      "label_at": "below"
+     },
+     "check_vector_pin.pathlib.Path": {
+      "id": "check_vector_pin.pathlib.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pathlib.Path",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1695.1174716049618,
+      "y": -971.1638527116343,
+      "label_at": "left"
+     },
+     "check_vector_pin.read_json": {
+      "id": "check_vector_pin.read_json",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "read_json",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1776.9815911892522,
+      "y": -948.3538732461457,
+      "label_at": "right"
+     },
+     "check_vector_pin.repo.fail": {
+      "id": "check_vector_pin.repo.fail",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.fail",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1696.4798455145467,
+      "y": -907.6139170790321,
+      "label_at": "left"
+     },
+     "check_vector_pin.repo.read_json": {
+      "id": "check_vector_pin.repo.read_json",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.read_json",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1730.1663570334458,
+      "y": -996.6285128422065,
+      "label_at": "above"
+     },
+     "check_vector_pin.repo.sha256_of": {
+      "id": "check_vector_pin.repo.sha256_of",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.sha256_of",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1767.116401859958,
+      "y": -903.8326332166132,
+      "label_at": "right"
+     },
+     "check_vector_pin.repo.verdict": {
+      "id": "check_vector_pin.repo.verdict",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "repo.verdict",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1673.175985555758,
+      "y": -949.3244403340345,
+      "label_at": "left"
+     },
+     "check_vector_pin.sha256_of": {
+      "id": "check_vector_pin.sha256_of",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "sha256_of",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1777.3211311495795,
+      "y": -980.4043623339264,
+      "label_at": "right"
+     },
+     "check_vector_pin.verdict": {
+      "id": "check_vector_pin.verdict",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "verdict",
+      "file": "check_vector_pin.py",
+      "line": 0,
+      "meta": {
+       "module": "check_vector_pin",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 1719.341939671572,
+      "y": -883.6138314879871,
+      "label_at": "below"
+     },
+     "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::208": {
+      "id": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::208",
+      "depth": 2,
+      "language": "csharp",
+      "kind": "class",
+      "label": "GdUnit4CSharpApi",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "line": 208,
+      "meta": {},
+      "x": 164.04231302768554,
+      "y": 312.88080936948353,
+      "label_at": "right"
+     },
+     "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::24": {
+      "id": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::24",
+      "depth": 2,
+      "language": "csharp",
+      "kind": "class",
+      "label": "GdUnit4CSharpApi",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "line": 24,
+      "meta": {},
+      "x": 110.94908218703435,
+      "y": 353.4600371782601,
+      "label_at": "left"
+     },
+     "csharp::GdUnit4CSharpApi.cs::namespace::gdUnit4.addons.gdUnit4.src.dotnet::4": {
+      "id": "csharp::GdUnit4CSharpApi.cs::namespace::gdUnit4.addons.gdUnit4.src.dotnet::4",
+      "depth": 2,
+      "language": "csharp",
+      "kind": "namespace",
+      "label": "gdUnit4.addons.gdUnit4.src.dotnet",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "line": 4,
+      "meta": {},
+      "x": 150.90579688978318,
+      "y": 385.0767507057935,
+      "label_at": "below"
+     },
+     "css::breadcrumb.css::class::breadcrumb::1": {
+      "id": "css::breadcrumb.css::class::breadcrumb::1",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "breadcrumb",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
+      "line": 1,
+      "meta": {},
+      "x": -1204.4158922478846,
+      "y": 275.5880706127534,
+      "label_at": "left"
+     },
+     "css::styles.css::class::check-icon::94": {
+      "id": "css::styles.css::class::check-icon::94",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "check-icon",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 94,
+      "meta": {},
+      "x": -1429.7380758475358,
+      "y": 460.5869583764568,
+      "label_at": "left"
+     },
+     "css::styles.css::class::grid-item::292": {
+      "id": "css::styles.css::class::grid-item::292",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "grid-item",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 292,
+      "meta": {},
+      "x": -1376.6448450068851,
+      "y": 420.00773056768026,
+      "label_at": "right"
+     },
+     "css::styles.css::class::group-bg-1::284": {
+      "id": "css::styles.css::class::group-bg-1::284",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "group-bg-1",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 284,
+      "meta": {},
+      "x": -1389.7813611447875,
+      "y": 492.2036719039902,
+      "label_at": "below"
+     },
+     "css::styles.css::class::group-bg-2::288": {
+      "id": "css::styles.css::class::group-bg-2::288",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "group-bg-2",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 288,
+      "meta": {},
+      "x": -1431.9029211952413,
+      "y": 424.9031970820106,
+      "label_at": "left"
+     },
+     "css::styles.css::class::label::74": {
+      "id": "css::styles.css::class::label::74",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "label",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 74,
+      "meta": {},
+      "x": -1350.038801610951,
+      "y": 447.7131765474992,
+      "label_at": "right"
+     },
+     "css::styles.css::class::logging-container::372": {
+      "id": "css::styles.css::class::logging-container::372",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "logging-container",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 372,
+      "meta": {},
+      "x": -1430.5405472856562,
+      "y": 488.4531327146124,
+      "label_at": "left"
+     },
+     "css::styles.css::class::logo::26": {
+      "id": "css::styles.css::class::logo::26",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "logo",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 26,
+      "meta": {},
+      "x": -1396.8540357667575,
+      "y": 399.4385369514384,
+      "label_at": "above"
+     },
+     "css::styles.css::class::percentage::111": {
+      "id": "css::styles.css::class::percentage::111",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "percentage",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 111,
+      "meta": {},
+      "x": -1359.9039909402452,
+      "y": 492.2344165770315,
+      "label_at": "right"
+     },
+     "css::styles.css::class::rate-text::106": {
+      "id": "css::styles.css::class::rate-text::106",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "rate-text",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 106,
+      "meta": {},
+      "x": -1453.844407244445,
+      "y": 446.7426094596103,
+      "label_at": "left"
+     },
+     "css::styles.css::class::report-container::47": {
+      "id": "css::styles.css::class::report-container::47",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "report-container",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 47,
+      "meta": {},
+      "x": -1349.699261650624,
+      "y": 415.6626874597185,
+      "label_at": "right"
+     },
+     "css::styles.css::class::status-bar-column::324": {
+      "id": "css::styles.css::class::status-bar-column::324",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-bar-column",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 324,
+      "meta": {},
+      "x": -1333.4023417157425,
+      "y": 468.91105461142877,
+      "label_at": "right"
+     },
+     "css::styles.css::class::status-bar::315": {
+      "id": "css::styles.css::class::status-bar::315",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-bar",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 315,
+      "meta": {},
+      "x": -1431.0550740731724,
+      "y": 397.9922598297691,
+      "label_at": "left"
+     },
+     "css::styles.css::class::status-box::433": {
+      "id": "css::styles.css::class::status-box::433",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-box",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 433,
+      "meta": {},
+      "x": -1457.0384068017584,
+      "y": 482.9604216140119,
+      "label_at": "left"
+     },
+     "css::styles.css::class::status-error::341": {
+      "id": "css::styles.css::class::status-error::341",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-error",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 341,
+      "meta": {},
+      "x": -1372.9464473889093,
+      "y": 386.3710172764522,
+      "label_at": "above"
+     },
+     "css::styles.css::class::status-failed::345": {
+      "id": "css::styles.css::class::status-failed::345",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-failed",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 345,
+      "meta": {},
+      "x": -1369.6565787571817,
+      "y": 517.9302802943128,
+      "label_at": "right"
+     },
+     "css::styles.css::class::status-flaky::349": {
+      "id": "css::styles.css::class::status-flaky::349",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-flaky",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 349,
+      "meta": {},
+      "x": -1463.3117060406928,
+      "y": 420.6417517789294,
+      "label_at": "left"
+     },
+     "css::styles.css::class::status-legend-item::427": {
+      "id": "css::styles.css::class::status-legend-item::427",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-legend-item",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 427,
+      "meta": {},
+      "x": -1325.1885241086554,
+      "y": 429.3591222101106,
+      "label_at": "right"
+     },
+     "css::styles.css::class::status-passed::337": {
+      "id": "css::styles.css::class::status-passed::337",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-passed",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 337,
+      "meta": {},
+      "x": -1435.494279076184,
+      "y": 518.2652576021025,
+      "label_at": "left"
+     },
+     "css::styles.css::class::status-skipped::333": {
+      "id": "css::styles.css::class::status-skipped::333",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-skipped",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 333,
+      "meta": {},
+      "x": -1413.7046282704728,
+      "y": 375.03636094339356,
+      "label_at": "above"
+     },
+     "css::styles.css::class::status-warning::353": {
+      "id": "css::styles.css::class::status-warning::353",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status-warning",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 353,
+      "meta": {},
+      "x": -1331.2989635890929,
+      "y": 497.98451761007635,
+      "label_at": "right"
+     },
+     "css::styles.css::class::status::305": {
+      "id": "css::styles.css::class::status::305",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "status",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 305,
+      "meta": {},
+      "x": -1407.6784531286314,
+      "y": 512.4532183056577,
+      "label_at": "below"
+     },
+     "css::styles.css::class::success-rate::86": {
+      "id": "css::styles.css::class::success-rate::86",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "success-rate",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 86,
+      "meta": {},
+      "x": -1478.087883161046,
+      "y": 462.2411853550517,
+      "label_at": "left"
+     },
+     "css::styles.css::class::summary-item::69": {
+      "id": "css::styles.css::class::summary-item::69",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "summary-item",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 69,
+      "meta": {},
+      "x": -1457.9079067755902,
+      "y": 390.37766391958303,
+      "label_at": "left"
+     },
+     "css::styles.css::class::summary::463": {
+      "id": "css::styles.css::class::summary::463",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "summary",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 463,
+      "meta": {},
+      "x": -1393.4525767159178,
+      "y": 536.7434303200487,
+      "label_at": "below"
+     },
+     "css::styles.css::class::summary::60": {
+      "id": "css::styles.css::class::summary::60",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "summary",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 60,
+      "meta": {},
+      "x": -1343.0599432518889,
+      "y": 388.0141570768819,
+      "label_at": "right"
+     },
+     "css::styles.css::class::tab-report-grid::226": {
+      "id": "css::styles.css::class::tab-report-grid::226",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "tab-report-grid",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 226,
+      "meta": {},
+      "x": -1465.708644675698,
+      "y": 509.1153516881767,
+      "label_at": "left"
+     },
+     "css::styles.css::class::tab-report::220": {
+      "id": "css::styles.css::class::tab-report::220",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "tab-report",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 220,
+      "meta": {},
+      "x": -1308.9169216329603,
+      "y": 455.9270492106747,
+      "label_at": "right"
+     },
+     "css::styles.css::class::value::79": {
+      "id": "css::styles.css::class::value::79",
+      "depth": 2,
+      "language": "css",
+      "kind": "class",
+      "label": "value",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "line": 79,
+      "meta": {},
+      "x": -1384.6852444599367,
+      "y": 361.58417103093007,
+      "label_at": "above"
+     },
+     "html::folder_report.html::anchor::report-table::74": {
+      "id": "html::folder_report.html::anchor::report-table::74",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "report-table",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/folder_report.html",
+      "line": 74,
+      "meta": {},
+      "x": -1494.5566011266762,
+      "y": 990.1271669052268,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::content::66": {
+      "id": "html::index.html::anchor::content::66",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "content",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/index.html",
+      "line": 66,
+      "meta": {},
+      "x": -1571.3565680763725,
+      "y": 799.3195245833317,
+      "label_at": "left"
+     },
+     "html::index.html::anchor::logging_content::154": {
+      "id": "html::index.html::anchor::logging_content::154",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "logging_content",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/index.html",
+      "line": 154,
+      "meta": {},
+      "x": -1518.2633372357209,
+      "y": 758.740296774555,
+      "label_at": "right"
+     },
+     "html::suite_report.html::anchor::report-table::83": {
+      "id": "html::suite_report.html::anchor::report-table::83",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "report-table",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/suite_report.html",
+      "line": 83,
+      "meta": {},
+      "x": -1332.6420575774864,
+      "y": 863.282884893099,
+      "label_at": "left"
+     },
+     "html::suite_report.html::anchor::report_area::99": {
+      "id": "html::suite_report.html::anchor::report_area::99",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "report_area",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/rad-godot/main/addons/gdUnit4/src/reporters/html/template/suite_report.html",
+      "line": 99,
+      "meta": {},
+      "x": -1279.5488267368348,
+      "y": 822.7036570843221,
+      "label_at": "right"
+     },
+     "repo.Path": {
+      "id": "repo.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "Path",
+      "file": "repo.py",
+      "line": 0,
+      "meta": {
+       "module": "repo",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 2112.684130775919,
+      "y": -998.2700108663803,
+      "label_at": "left"
+     },
+     "repo.__future__.annotations": {
+      "id": "repo.__future__.annotations",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "__future__.annotations",
+      "file": "repo.py",
+      "line": 0,
+      "meta": {
+       "module": "repo",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 2165.7773616165705,
+      "y": -1038.8492386751568,
+      "label_at": "right"
+     },
+     "repo.fail": {
+      "id": "repo.fail",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "fail",
+      "file": "repo.py",
+      "line": 0,
+      "meta": {
+       "module": "repo",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 2152.640845478669,
+      "y": -966.6532973388471,
+      "label_at": "below"
+     },
+     "repo.ok": {
+      "id": "repo.ok",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "ok",
+      "file": "repo.py",
+      "line": 0,
+      "meta": {
+       "module": "repo",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 2110.5192854282145,
+      "y": -1033.9537721608265,
+      "label_at": "left"
+     },
+     "repo.pathlib.Path": {
+      "id": "repo.pathlib.Path",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "pathlib.Path",
+      "file": "repo.py",
+      "line": 0,
+      "meta": {
+       "module": "repo",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 2192.383405012505,
+      "y": -1011.1437926953379,
+      "label_at": "right"
+     },
+     "repo.read_json": {
+      "id": "repo.read_json",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "read_json",
+      "file": "repo.py",
+      "line": 0,
+      "meta": {
+       "module": "repo",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 2111.881659337799,
+      "y": -970.4038365282245,
+      "label_at": "left"
+     },
+     "repo.sha256_of": {
+      "id": "repo.sha256_of",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "sha256_of",
+      "file": "repo.py",
+      "line": 0,
+      "meta": {
+       "module": "repo",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 2145.5681708566985,
+      "y": -1059.4184322913989,
+      "label_at": "above"
+     },
+     "repo.tracked": {
+      "id": "repo.tracked",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "tracked",
+      "file": "repo.py",
+      "line": 0,
+      "meta": {
+       "module": "repo",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 2182.5182156832107,
+      "y": -966.6225526658056,
+      "label_at": "right"
+     },
+     "repo.verdict": {
+      "id": "repo.verdict",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "verdict",
+      "file": "repo.py",
+      "line": 0,
+      "meta": {
+       "module": "repo",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 2088.5777993790107,
+      "y": -1012.1143597832269,
+      "label_at": "left"
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/rad-godot",
+      "target": "file::quaternionmedia/rad-godot/HANDOFF.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot",
+      "target": "file::quaternionmedia/rad-godot/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot",
+      "target": "dir::quaternionmedia/rad-godot/Scenes",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot",
+      "target": "dir::quaternionmedia/rad-godot/addons",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot",
+      "target": "dir::quaternionmedia/rad-godot/conformance",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot",
+      "target": "dir::quaternionmedia/rad-godot/docs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot",
+      "target": "dir::quaternionmedia/rad-godot/tests",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot",
+      "target": "dir::quaternionmedia/rad-godot/tools",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons",
+      "target": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons",
+      "target": "dir::quaternionmedia/rad-godot/addons/rad",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4",
+      "target": "file::quaternionmedia/rad-godot/addons/gdUnit4/runtest.sh",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/bin",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/cmd",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/doubler",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/extractors",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/fuzzers",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/matchers",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/mocking",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/monitor",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/spy",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts",
+      "target": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/asserts/CLAUDE.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/assets",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/attributes",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/command",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/discovery",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/event",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/hooks",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parameters",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/parse",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/report",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/runners",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/thread",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/writers",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/fuzzed",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/execution/stages/single",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/core/templates/test_suite",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet",
+      "target": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/network/rpc",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/console",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/xml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template",
+      "target": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/folder_report.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template",
+      "target": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template",
+      "target": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/suite_report.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css",
+      "target": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css",
+      "target": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/menu",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/parts",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/settings",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/templates",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/ui/utils",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update",
+      "target": "dir::quaternionmedia/rad-godot/addons/gdUnit4/src/update/assets",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin",
+      "target": "file::quaternionmedia/rad-godot/addons/godot-git-plugin/THIRDPARTY.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin",
+      "target": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/linux",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin",
+      "target": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/macos",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin",
+      "target": "dir::quaternionmedia/rad-godot/addons/godot-git-plugin/win64",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/rad",
+      "target": "dir::quaternionmedia/rad-godot/addons/rad/core",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/addons/rad",
+      "target": "dir::quaternionmedia/rad-godot/addons/rad/ui",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/docs",
+      "target": "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-adoption-and-scope.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/docs",
+      "target": "file::quaternionmedia/rad-godot/docs/DRAFT-rad-godot-architecture.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/docs",
+      "target": "file::quaternionmedia/rad-godot/docs/integrations.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/tools",
+      "target": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/tools",
+      "target": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/tools",
+      "target": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/rad-godot/tools",
+      "target": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/suite_report.html",
+      "target": "html::suite_report.html::anchor::report-table::83",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/suite_report.html",
+      "target": "html::suite_report.html::anchor::report_area::99",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "target": "csharp::GdUnit4CSharpApi.cs::namespace::gdUnit4.addons.gdUnit4.src.dotnet::4",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "target": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::24",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/dotnet/GdUnit4CSharpApi.cs",
+      "target": "csharp::GdUnit4CSharpApi.cs::class::GdUnit4CSharpApi::208",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/index.html",
+      "target": "html::index.html::anchor::content::66",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/index.html",
+      "target": "html::index.html::anchor::logging_content::154",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/folder_report.html",
+      "target": "html::folder_report.html::anchor::report-table::74",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/breadcrumb.css",
+      "target": "css::breadcrumb.css::class::breadcrumb::1",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::logo::26",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::report-container::47",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::summary::60",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::summary-item::69",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::label::74",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::value::79",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::success-rate::86",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::check-icon::94",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::rate-text::106",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::percentage::111",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::tab-report::220",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::tab-report-grid::226",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::group-bg-1::284",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::group-bg-2::288",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::grid-item::292",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status::305",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-bar::315",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-bar-column::324",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-skipped::333",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-passed::337",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-error::341",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-failed::345",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-flaky::349",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-warning::353",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::logging-container::372",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-legend-item::427",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::status-box::433",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/addons/gdUnit4/src/reporters/html/template/css/styles.css",
+      "target": "css::styles.css::class::summary::463",
+      "kind": "contains"
+     },
+     {
+      "source": "check_core_boundary.main",
+      "target": "repo.tracked",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_core_boundary.main",
+      "target": "repo.verdict",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_core_boundary.tracked",
+      "target": "repo.tracked",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_core_boundary.verdict",
+      "target": "repo.verdict",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.repo.ROOT",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.repo.fail",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.repo.tracked",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.repo.verdict",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.main",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.ROOT",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.tracked",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "check_core_boundary.verdict",
+      "kind": "contains"
+     },
+     {
+      "source": "check_imports.main",
+      "target": "repo.tracked",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_imports.main",
+      "target": "repo.verdict",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_imports.tracked",
+      "target": "repo.tracked",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_imports.verdict",
+      "target": "repo.verdict",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.pathlib.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.repo.ROOT",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.repo.fail",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.repo.tracked",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.repo.verdict",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.res_to_path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.main",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.ROOT",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.tracked",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "check_imports.verdict",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "target": "repo.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "target": "repo.pathlib.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "target": "repo.tracked",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "target": "repo.sha256_of",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "target": "repo.read_json",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "target": "repo.fail",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "target": "repo.ok",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "target": "repo.verdict",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "target": "repo.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "check_vector_pin.main",
+      "target": "repo.read_json",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_vector_pin.main",
+      "target": "repo.sha256_of",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_vector_pin.main",
+      "target": "repo.verdict",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_vector_pin.read_json",
+      "target": "repo.read_json",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_vector_pin.sha256_of",
+      "target": "repo.sha256_of",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "check_vector_pin.verdict",
+      "target": "repo.verdict",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.__future__.annotations",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.pathlib.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.repo.fail",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.repo.read_json",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.repo.sha256_of",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.repo.verdict",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.main",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.Path",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.read_json",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.sha256_of",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "check_vector_pin.verdict",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_core_boundary.py",
+      "target": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_imports.py",
+      "target": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "kind": "depends_on"
+     },
+     {
+      "source": "file::quaternionmedia/rad-godot/tools/check_vector_pin.py",
+      "target": "file::quaternionmedia/rad-godot/tools/repo.py",
+      "kind": "depends_on"
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/rad-godot",
+    "depth": 2,
+    "floor": 100,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "rad-godot declares no system this window reads: no Helm chart, ArgoCD Application, Terraform or Dockerfile",
+   "remedy": "",
+   "where": "/show/project/rad-godot/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

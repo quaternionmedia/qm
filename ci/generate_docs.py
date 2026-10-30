@@ -1,0 +1,262 @@
+#!/usr/bin/env python3
+"""Regenerate every generated document, in order, and say what moved.
+
+Org-level tooling, copied nowhere. One command a human runs before a pull
+request, so drift shows up as an uncommitted diff rather than as staleness
+nobody sees -- charter `show-it-by-running-it`, and `records/DRAFT-one-executable-walkthrough.md`.
+
+Each generated artifact at this repository's root and in `handbook/` carries
+its own refresh command in its own `reading:` block. Nobody runs those from
+memory, so this runs them all: an artifact riding a command people already run
+stays current, and one needing a remembered command goes stale.
+
+Three of these read other repositories or the host:
+
+    status/governance.yaml   reads every project's refs
+    status/harness.yaml      reads pull requests across the org
+    status/gates.yaml         reads this repository's rulesets
+
+`--offline` skips exactly those and says so in the report. It never writes a
+network-derived fact it did not fetch, and it never leaves a stale one looking
+fresh: a document skipped is reported skipped, with its age.
+
+**Do not wire the online half into CI.** It reads other repositories, so an
+unrelated pull request would go red for a reason its author cannot fix. The
+`--check` mode is the CI-safe half: it verifies the offline documents still
+describe the repository and never fetches anything.
+
+Usage:
+    python ci/generate_docs.py               # the manual dev regeneration
+    python ci/generate_docs.py --offline     # skip anything that reaches a network
+    python ci/generate_docs.py --check       # CI-safe: has anything drifted?
+"""
+
+from __future__ import annotations
+
+import argparse
+import subprocess
+import sys
+from pathlib import Path
+
+def _corpus_root() -> Path:
+    """The corpus this run belongs to.
+
+    Resolved from the working directory first, because `uv run qm` installs this
+    package into a venv -- where `__file__`'s parent is site-packages and every
+    relative path below would write into it. Falls back to the source layout so
+    `python ci/generate_docs.py` still works from anywhere.
+    """
+    current = Path.cwd().resolve()
+    for candidate in (current, *current.parents):
+        if (candidate / "PRINCIPLES.md").exists() and (candidate / "records").is_dir():
+            return candidate
+    return Path(__file__).resolve().parent.parent
+
+
+ROOT = _corpus_root()
+
+# (label, argv, output path, reaches_network, check_argv or None)
+#
+# Order matters twice: a renderer must run after the document it reads, and
+# status/documents.yaml runs after every file it reports on, with the loose-ends
+# join after that because the state page is one of its sources. Getting that
+# backwards produces a document describing the previous run, which is the kind
+# of confidently-wrong artifact this corpus keeps finding.
+STEPS: list[tuple[str, list[str], str, bool, list[str] | None]] = [
+    (
+        "governance status",
+        ["ci/governance_status.py", "--write", "status/governance.yaml"],
+        "status/governance.yaml",
+        True,
+        ["ci/governance_status.py", "--check", "status/governance.yaml"],
+    ),
+    (
+        "harness status",
+        ["ci/harness_status.py", "--no-local", "--write", "status/harness.yaml"],
+        "status/harness.yaml",
+        True,
+        None,
+    ),
+    (
+        "gate status",
+        ["ci/gate_status.py", "--write", "status/gates.yaml"],
+        "status/gates.yaml",
+        True,
+        ["ci/gate_status.py", "--check", "status/gates.yaml"],
+    ),
+    (
+        "gate view",
+        ["ci/gate_dashboard.py", "status/gates.yaml", "--format", "md",
+         "--out", "handbook/gates.md"],
+        "handbook/gates.md",
+        False,
+        ["ci/gate_dashboard.py", "status/gates.yaml", "--format", "md",
+         "--check", "handbook/gates.md"],
+    ),
+    (
+        "site palette",
+        ["ci/palette.py", "--write", "docs/stylesheets/palette.css"],
+        "docs/stylesheets/palette.css",
+        False,
+        ["ci/palette.py", "--check", "docs/stylesheets/palette.css"],
+    ),
+    (
+        "families",
+        ["ci/families.py", "--write", "families.json"],
+        "families.json",
+        False,
+        None,
+    ),
+    (
+        "family cookbook",
+        ["ci/cookbook.py", "walkthrough/families", "--write"],
+        "walkthrough/families/README.md",
+        False,
+        ["ci/cookbook.py", "walkthrough/families", "--check"],
+    ),
+    (
+        "family site pages",
+        ["ci/cookbook.py", "docs/families", "--site", "--write"],
+        "docs/families/index.md",
+        False,
+        ["ci/cookbook.py", "docs/families", "--site", "--check"],
+    ),
+    (
+        "rollout",
+        # A write reads the host by default. Offline it is skipped, not written from
+        # this disk: the committed document describes the org, and a local one would
+        # replace it with a description of whichever clones one machine happens to hold.
+        ["ci/rollout.py", "--write", "status/rollout.yaml"],
+        "status/rollout.yaml",
+        True,
+        ["ci/rollout.py", "--check"],
+    ),
+    (
+        "document states",
+        ["ci/doc_status.py", "--write", "status/documents.yaml"],
+        "status/documents.yaml",
+        False,
+        ["ci/doc_status.py", "--check", "status/documents.yaml"],
+    ),
+    (
+        "document states view",
+        ["ci/doc_dashboard.py", "status/documents.yaml", "--out", "handbook/document-states.md"],
+        "handbook/document-states.md",
+        False,
+        ["ci/doc_dashboard.py", "status/documents.yaml", "--check", "handbook/document-states.md"],
+    ),
+    (
+        # Last, because it reads the state page. The join takes the harness,
+        # gate and document-state documents as its three sources, so it can
+        # only run once every one of them has been written -- running it
+        # earlier reports the previous run, the confidently-wrong artifact this
+        # ordering exists to prevent.
+        "loose ends",
+        ["ci/loose_ends.py", "--write", "loose-ends.json"],
+        "loose-ends.json",
+        False,
+        ["ci/loose_ends.py", "--check", "loose-ends.json"],
+    ),
+]
+
+# status/gates.yaml reaches the host only for its enforcement layer, and writes
+# `unknown` instead when told not to. The others have no offline mode.
+OFFLINE_FLAG = {"gate status": "--no-host"}
+
+
+def run(argv: list[str]) -> tuple[int, str]:
+    proc = subprocess.run(
+        [sys.executable, *argv],
+        cwd=str(ROOT), capture_output=True, text=True,
+        encoding="utf-8", errors="replace",
+    )
+    return proc.returncode, (proc.stdout + proc.stderr).strip()
+
+
+def digest(path: Path) -> bytes | None:
+    """Bytes, so a line-ending translation cannot read as a content change."""
+    return path.read_bytes() if path.is_file() else None
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--offline", action="store_true",
+                        help="skip anything that reaches another repository or the host")
+    parser.add_argument("--check", action="store_true",
+                        help="CI-safe: verify the offline documents, write nothing")
+    args = parser.parse_args(argv)
+
+    if args.check:
+        print("Checking generated documents. Nothing is fetched and nothing is written.\n")
+        failed = []
+        for label, _, out, network, check_argv in STEPS:
+            if check_argv is None:
+                print(f"  skip   {label:<22} no check mode; its freshness is a "
+                      f"staleness budget, not a gate")
+                continue
+            code, output = run(check_argv)
+            print(f"  {'ok  ' if code == 0 else 'FAIL'}   {label:<22} {out}")
+            if code != 0:
+                failed.append((label, output))
+        if failed:
+            print()
+            for label, output in failed:
+                print(f"--- {label}\n{output}\n")
+            print(f"{len(failed)} document(s) have drifted. "
+                  f"Run: python ci/generate_docs.py")
+            return 1
+        print("\nEvery checkable document still describes the repository.")
+        return 0
+
+    print("Regenerating documents." + (" Offline: network steps are skipped.\n"
+                                       if args.offline else "\n"))
+    skipped, wrote, unchanged, failed = [], [], [], []
+
+    for label, step_argv, out, network, _ in STEPS:
+        path = ROOT / out
+        if args.offline and network and label not in OFFLINE_FLAG:
+            age = "absent" if not path.is_file() else "left as it was"
+            skipped.append((label, out, age))
+            print(f"  skip   {label:<22} {out}  ({age})")
+            continue
+
+        run_argv = list(step_argv)
+        if args.offline and label in OFFLINE_FLAG:
+            run_argv.insert(1, OFFLINE_FLAG[label])
+
+        before = digest(path)
+        code, output = run(run_argv)
+        after = digest(path)
+
+        if code != 0:
+            failed.append((label, output))
+            print(f"  FAIL   {label:<22} {out}")
+        elif before != after:
+            wrote.append(out)
+            print(f"  wrote  {label:<22} {out}")
+        else:
+            unchanged.append(out)
+            print(f"  same   {label:<22} {out}")
+
+    print()
+    if failed:
+        for label, output in failed:
+            print(f"--- {label}\n{output}\n")
+        print(f"{len(failed)} generator(s) failed. Nothing above is trustworthy "
+              f"until they do.")
+        return 1
+
+    print(f"{len(wrote)} changed, {len(unchanged)} unchanged"
+          + (f", {len(skipped)} skipped" if skipped else "") + ".")
+    if wrote:
+        print("\nChanged files are an uncommitted diff. Read it before committing: "
+              "a generator that rewrote a document you did not expect it to touch "
+              "is a finding, not noise.")
+    if skipped:
+        print("\nSkipped documents were NOT refreshed and may be stale. Each one "
+              "carries its own generated_at -- check it before quoting a figure.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

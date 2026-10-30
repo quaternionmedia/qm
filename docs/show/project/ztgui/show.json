@@ -1,0 +1,1524 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "ztgui"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "digest": "sha256:22e64d98a378a7ec39ef5da63b8b725109a15b6a9c3bc87edcf2c009267baa02"
+  },
+  "source": {
+   "repo": "quaternionmedia/ztgui",
+   "commit": "c698ae0dbfaedef15797ab44e5f5afedb5fdba24"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+  },
+  "drawn_at": "2026-10-27T19:21:23Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::ztgui": {
+      "label": "ztgui",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "ztgui — n/a · not adopted",
+       "click": "<p><b>ztgui</b> — Zeroteir Gui</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:ztgui",
+       "shape": "circle",
+       "color": "#98a7bc",
+       "x": 0,
+       "y": 0,
+       "size": 41,
+       "label_at": "below"
+      }
+     },
+     "family::infra": {
+      "label": "infra",
+      "metadata": {
+       "kind": "family",
+       "family": "infra",
+       "drives": "where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "infra — drives where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path",
+       "click": "<p>The <b>infra</b> family drives where a thing runs, and how it is reached — ingress, identity, storage, DNS, observability, the network path.</p><p>5 member(s) in all.</p>",
+       "show": "family:infra",
+       "color": "#98a7bc",
+       "x": 42.42640687119285,
+       "y": -42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "phase::n/a": {
+      "label": "phase: n/a",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase n/a, a claim in ci/workspace.yaml",
+       "x": 42.42640687119285,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "right"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -42.426406871192846,
+       "y": 42.42640687119285,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -42.42640687119286,
+       "y": -42.426406871192846,
+       "size": 11,
+       "label_at": "left"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::ztgui",
+      "target": "family::infra",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ztgui",
+      "target": "phase::n/a",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ztgui",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ztgui",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:ztgui",
+     "measured": 0,
+     "unread": [
+      "ztgui"
+     ],
+     "records": null,
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:ztgui",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "6906aee",
+    "provenance": {
+     "source": "families.json",
+     "commit": "6906aee",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 0,
+    "unread": [
+     "ztgui"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 member(s) had no clone this export could read, so nothing was measured for them: ztgui."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/ztgui": {
+      "id": "dir::quaternionmedia/ztgui",
+      "label": "quaternionmedia/ztgui",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -81.40244189002955,
+      "y": -170.2322378309352,
+      "size": 80
+     },
+     "dir::quaternionmedia/ztgui/website": {
+      "id": "dir::quaternionmedia/ztgui/website",
+      "label": "website",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -394.228362789744,
+      "y": 43.63602004114566,
+      "size": 80
+     },
+     "file::quaternionmedia/ztgui/README.md": {
+      "id": "file::quaternionmedia/ztgui/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/README.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -27.607928193075303,
+      "y": -165.52582772256164,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/config.py": {
+      "id": "file::quaternionmedia/ztgui/config.py",
+      "label": "config.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/config.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -224.78682722731662,
+      "y": -270.6310653056693,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/website/index.html": {
+      "id": "file::quaternionmedia/ztgui/website/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/index.html",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -410.32460928712806,
+      "y": 227.61695938438513,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/website/script.js": {
+      "id": "file::quaternionmedia/ztgui/website/script.js",
+      "label": "script.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -198.2145425111621,
+      "y": 60.785007209929454,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/website/style.css": {
+      "id": "file::quaternionmedia/ztgui/website/style.css",
+      "label": "style.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/style.css",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -340.4338490927897,
+      "y": 48.3424301495192,
+      "size": 30
+     },
+     "file::quaternionmedia/ztgui/zt.py": {
+      "id": "file::quaternionmedia/ztgui/zt.py",
+      "label": "zt.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/zt.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 262.5897005854138,
+      "y": -115.07318321873254,
+      "size": 30
+     },
+     "html::index.html::anchor::cy::20": {
+      "id": "html::index.html::anchor::cy::20",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "cy",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/index.html",
+      "line": 20,
+      "meta": {},
+      "x": -376.45398955200875,
+      "y": 230.58025463780552,
+      "label_at": "right"
+     },
+     "html::index.html::anchor::ztgui::13": {
+      "id": "html::index.html::anchor::ztgui::13",
+      "depth": 2,
+      "language": "html",
+      "kind": "anchor",
+      "label": "ztgui",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/index.html",
+      "line": 13,
+      "meta": {},
+      "x": -440.22422009785424,
+      "y": 250.55330114516093,
+      "label_at": "left"
+     },
+     "javascript::script.js::function::addEdge::119": {
+      "id": "javascript::script.js::function::addEdge::119",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "addEdge",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
+      "line": 119,
+      "meta": {},
+      "x": -164.34392277604275,
+      "y": 63.74830246334982,
+      "label_at": "right"
+     },
+     "javascript::script.js::function::addNode::101": {
+      "id": "javascript::script.js::function::addNode::101",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "addNode",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
+      "line": 101,
+      "meta": {},
+      "x": -228.11415332188832,
+      "y": 83.72134897070517,
+      "label_at": "left"
+     },
+     "javascript::script.js::function::orderDisplay::126": {
+      "id": "javascript::script.js::function::orderDisplay::126",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "orderDisplay",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
+      "line": 126,
+      "meta": {},
+      "x": -191.07739984089034,
+      "y": 20.372308778567742,
+      "label_at": "above"
+     },
+     "javascript::script.js::function::orderMenu::148": {
+      "id": "javascript::script.js::function::orderMenu::148",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "orderMenu",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
+      "line": 148,
+      "meta": {},
+      "x": -174.51419872998727,
+      "y": 98.0204903497267,
+      "label_at": "right"
+     },
+     "javascript::script.js::function::ztData::201": {
+      "id": "javascript::script.js::function::ztData::201",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "ztData",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
+      "line": 201,
+      "meta": {},
+      "x": -243.63983536443797,
+      "y": 48.58694305228033,
+      "label_at": "left"
+     },
+     "javascript::script.js::function::ztReq::163": {
+      "id": "javascript::script.js::function::ztReq::163",
+      "depth": 2,
+      "language": "javascript",
+      "kind": "function",
+      "label": "ztReq",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/ztgui/main/website/script.js",
+      "line": 163,
+      "meta": {},
+      "x": -154.0590533461755,
+      "y": 37.8371254645319,
+      "label_at": "right"
+     },
+     "zt.FastAPI": {
+      "id": "zt.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "FastAPI",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 165.48944581498577,
+      "y": -69.79459081048053,
+      "label_at": "none"
+     },
+     "zt.HTTPException": {
+      "id": "zt.HTTPException",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "HTTPException",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 174.82716192705232,
+      "y": -176.52517435973834,
+      "label_at": "none"
+     },
+     "zt.StaticFiles": {
+      "id": "zt.StaticFiles",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "StaticFiles",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 271.92741669748034,
+      "y": -221.8037667679904,
+      "label_at": "none"
+     },
+     "zt.fastapi.FastAPI": {
+      "id": "zt.fastapi.FastAPI",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.FastAPI",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 361.05053602931054,
+      "y": -234.33650791126573,
+      "label_at": "none"
+     },
+     "zt.fastapi.HTTPException": {
+      "id": "zt.fastapi.HTTPException",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "fastapi.HTTPException",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 269.7268432556856,
+      "y": -155.48588165009429,
+      "label_at": "above"
+     },
+     "zt.get": {
+      "id": "zt.get",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "get",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 340.9392480185509,
+      "y": 21.028122487889597,
+      "label_at": "none"
+     },
+     "zt.getZT": {
+      "id": "zt.getZT",
+      "depth": 2,
+      "language": "python",
+      "kind": "function",
+      "label": "getZT",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Function"
+      },
+      "shape": "hexagon",
+      "color": "#00ff41",
+      "construct": "callable.function",
+      "construct_color": "#ff9d3d",
+      "construct_name": "Function",
+      "x": 382.5313429754416,
+      "y": -104.57964922492471,
+      "label_at": "none"
+     },
+     "zt.requests.get": {
+      "id": "zt.requests.get",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "requests.get",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 192.8130545246692,
+      "y": -264.7096835859453,
+      "label_at": "none"
+     },
+     "zt.starlette.staticfiles.StaticFiles": {
+      "id": "zt.starlette.staticfiles.StaticFiles",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "starlette.staticfiles.StaticFiles",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 98.11236690363573,
+      "y": -129.46308532285877,
+      "label_at": "none"
+     },
+     "zt.urljoin": {
+      "id": "zt.urljoin",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "urljoin",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 286.2900443665887,
+      "y": -77.8377000789353,
+      "label_at": "right"
+     },
+     "zt.urllib.parse.urljoin": {
+      "id": "zt.urllib.parse.urljoin",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "urllib.parse.urljoin",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 164.9596186354905,
+      "y": 20.20384963800653,
+      "label_at": "none"
+     },
+     "zt.uvicorn.run": {
+      "id": "zt.uvicorn.run",
+      "depth": 2,
+      "language": "python",
+      "kind": "import",
+      "label": "uvicorn.run",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Import"
+      },
+      "shape": "triangle",
+      "color": "#facc15",
+      "construct": "namespace.import",
+      "construct_color": "#64748b",
+      "construct_name": "Import",
+      "x": 305.63530415426465,
+      "y": -305.25302274550506,
+      "label_at": "none"
+     },
+     "config.Const: ''": {
+      "id": "config.Const: ''",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: ''",
+      "file": "config.py",
+      "line": 0,
+      "meta": {
+       "module": "config",
+       "ast_type": "Constant"
+      },
+      "x": -194.90098628456425,
+      "y": -268.0163930232396,
+      "label_at": "right"
+     },
+     "config.ZT_AUTHTOKEN": {
+      "id": "config.ZT_AUTHTOKEN",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "ZT_AUTHTOKEN",
+      "file": "config.py",
+      "line": 0,
+      "meta": {
+       "module": "config",
+       "ast_type": "Name"
+      },
+      "x": -250.20852221031328,
+      "y": -251.1297852402099,
+      "label_at": "left"
+     },
+     "fastapi.FastAPI": {
+      "id": "fastapi.FastAPI",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "fastapi.FastAPI",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 187.40572917300415,
+      "y": -67.87716447003204,
+      "label_at": "right"
+     },
+     "fastapi.HTTPException": {
+      "id": "fastapi.HTTPException",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "fastapi.HTTPException",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 196.7434452850707,
+      "y": -174.60774801928986,
+      "label_at": "right"
+     },
+     "fastapi.fastapi": {
+      "id": "fastapi.fastapi",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "fastapi.fastapi",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 382.96681938732894,
+      "y": -232.41908157081724,
+      "label_at": "right"
+     },
+     "requests.get": {
+      "id": "requests.get",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "requests.get",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 362.85553137656933,
+      "y": 22.945548828338076,
+      "label_at": "right"
+     },
+     "requests.requests": {
+      "id": "requests.requests",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "requests.requests",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 214.7293378826876,
+      "y": -262.79225724549684,
+      "label_at": "right"
+     },
+     "starlette.staticfiles.StaticFiles": {
+      "id": "starlette.staticfiles.StaticFiles",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "starlette.staticfiles.StaticFiles",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 293.84370005549874,
+      "y": -219.88634042754197,
+      "label_at": "right"
+     },
+     "starlette.staticfiles.starlette.staticfiles": {
+      "id": "starlette.staticfiles.starlette.staticfiles",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "starlette.staticfiles.starlette.staticfiles",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 120.02865026165415,
+      "y": -127.54565898241029,
+      "label_at": "right"
+     },
+     "urllib.parse.urljoin": {
+      "id": "urllib.parse.urljoin",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "urllib.parse.urljoin",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 370.4442554482814,
+      "y": -71.45447277089251,
+      "label_at": "below"
+     },
+     "urllib.parse.urllib.parse": {
+      "id": "urllib.parse.urllib.parse",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "urllib.parse.urllib.parse",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 186.8759019935089,
+      "y": 22.12127597845501,
+      "label_at": "right"
+     },
+     "uvicorn.uvicorn": {
+      "id": "uvicorn.uvicorn",
+      "depth": 3,
+      "language": "python",
+      "kind": "symbol",
+      "label": "uvicorn.uvicorn",
+      "file": "",
+      "line": 0,
+      "meta": {
+       "module": "",
+       "ast_type": ""
+      },
+      "x": 327.55158751228305,
+      "y": -303.3355964050566,
+      "label_at": "right"
+     },
+     "zt.": {
+      "id": "zt.",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 478.4498986816391,
+      "y": -96.18786297885259,
+      "label_at": "none"
+     },
+     "zt.Const: '/'": {
+      "id": "zt.Const: '/'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: '/'",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Constant"
+      },
+      "x": 271.00713583722813,
+      "y": -4.758069980020636,
+      "label_at": "right"
+     },
+     "zt.Const: 'X-ZT1-Auth'": {
+      "id": "zt.Const: 'X-ZT1-Auth'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'X-ZT1-Auth'",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Constant"
+      },
+      "x": 404.44762633346,
+      "y": -102.66222288447624,
+      "label_at": "right"
+     },
+     "zt.Const: '__main__'": {
+      "id": "zt.Const: '__main__'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: '__main__'",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Constant"
+      },
+      "x": 296.4603203205331,
+      "y": -112.10988796531218,
+      "label_at": "right"
+     },
+     "zt.Const: 'calling endpoint'": {
+      "id": "zt.Const: 'calling endpoint'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'calling endpoint'",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Constant"
+      },
+      "x": 496.38140324729056,
+      "y": -94.61905960939475,
+      "label_at": "right"
+     },
+     "zt.Const: 'error processing request'": {
+      "id": "zt.Const: 'error processing request'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'error processing request'",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Constant"
+      },
+      "x": 461.60806682177446,
+      "y": -83.26829643797967,
+      "label_at": "left"
+     },
+     "zt.Const: 'http://127.0.0.1:9993/'": {
+      "id": "zt.Const: 'http://127.0.0.1:9993/'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'http://127.0.0.1:9993/'",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Constant"
+      },
+      "x": 362.9258905249539,
+      "y": -89.54007695003388,
+      "label_at": "left"
+     },
+     "zt.Const: 'website'": {
+      "id": "zt.Const: 'website'",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 'website'",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Constant"
+      },
+      "x": 236.233799411712,
+      "y": 6.592693191394414,
+      "label_at": "left"
+     },
+     "zt.Const: 200": {
+      "id": "zt.Const: 200",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: 200",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Constant"
+      },
+      "x": 387.2531451442097,
+      "y": -131.3159463559602,
+      "label_at": "above"
+     },
+     "zt.Const: True": {
+      "id": "zt.Const: True",
+      "depth": 3,
+      "language": "python",
+      "kind": "constant",
+      "label": "Const: True",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Constant"
+      },
+      "x": 257.2536671075243,
+      "y": -29.98419814653741,
+      "label_at": "above"
+     },
+     "zt.__name__": {
+      "id": "zt.__name__",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "__name__",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Name"
+      },
+      "x": 232.6900897746876,
+      "y": -92.13684145795682,
+      "label_at": "left"
+     },
+     "zt.app": {
+      "id": "zt.app",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "app",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Name"
+      },
+      "x": 482.6279345175866,
+      "y": -119.84518777591151,
+      "label_at": "above"
+     },
+     "zt.app.mount": {
+      "id": "zt.app.mount",
+      "depth": 3,
+      "language": "python",
+      "kind": "call",
+      "label": "app.mount",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Call"
+      },
+      "shape": "hexagon",
+      "color": "#00aa2a",
+      "x": 253.07563127157678,
+      "y": -6.3268733494784835,
+      "label_at": "none"
+     },
+     "zt.config": {
+      "id": "zt.config",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "config",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Name"
+      },
+      "x": 398.3117276786394,
+      "y": -79.78717136128469,
+      "label_at": "right"
+     },
+     "zt.endpoint": {
+      "id": "zt.endpoint",
+      "depth": 3,
+      "language": "python",
+      "kind": "argument",
+      "label": "endpoint",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Argument"
+      },
+      "x": 352.13977832204114,
+      "y": -112.74070295089504,
+      "label_at": "left"
+     },
+     "zt.res": {
+      "id": "zt.res",
+      "depth": 3,
+      "language": "python",
+      "kind": "name",
+      "label": "res",
+      "file": "zt.py",
+      "line": 0,
+      "meta": {
+       "module": "zt",
+       "ast_type": "Name"
+      },
+      "x": 412.1845799643212,
+      "y": -119.99062051428027,
+      "label_at": "right"
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/ztgui",
+      "target": "file::quaternionmedia/ztgui/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui",
+      "target": "file::quaternionmedia/ztgui/config.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui",
+      "target": "file::quaternionmedia/ztgui/zt.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui",
+      "target": "dir::quaternionmedia/ztgui/website",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui/website",
+      "target": "file::quaternionmedia/ztgui/website/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui/website",
+      "target": "file::quaternionmedia/ztgui/website/script.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/ztgui/website",
+      "target": "file::quaternionmedia/ztgui/website/style.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "zt.fastapi.FastAPI",
+      "target": "fastapi.fastapi",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.fastapi.HTTPException",
+      "target": "fastapi.fastapi",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.starlette.staticfiles.StaticFiles",
+      "target": "starlette.staticfiles.starlette.staticfiles",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.requests.get",
+      "target": "requests.requests",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.urllib.parse.urljoin",
+      "target": "urllib.parse.urllib.parse",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "zt.endpoint",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "zt.",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "zt.res",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "requests.get",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "urllib.parse.urljoin",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "zt.Const: 'http://127.0.0.1:9993/'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "zt.Const: 'X-ZT1-Auth'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "zt.config",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "zt.Const: 200",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.getZT",
+      "target": "fastapi.HTTPException",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.",
+      "target": "zt.Const: 'calling endpoint'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.",
+      "target": "zt.endpoint",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.",
+      "target": "zt.Const: 'error processing request'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.",
+      "target": "zt.res",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.",
+      "target": "zt.app",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.app.mount",
+      "target": "zt.Const: '/'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.app.mount",
+      "target": "starlette.staticfiles.StaticFiles",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.app.mount",
+      "target": "zt.Const: 'website'",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.app.mount",
+      "target": "zt.Const: True",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.uvicorn.run",
+      "target": "uvicorn.uvicorn",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.FastAPI",
+      "target": "fastapi.FastAPI",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.HTTPException",
+      "target": "fastapi.HTTPException",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.StaticFiles",
+      "target": "starlette.staticfiles.StaticFiles",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.get",
+      "target": "requests.get",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "zt.urljoin",
+      "target": "urllib.parse.urljoin",
+      "kind": "contains",
+      "weight": 1
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.fastapi.FastAPI",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.fastapi.HTTPException",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.starlette.staticfiles.StaticFiles",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.requests.get",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.urllib.parse.urljoin",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.getZT",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.app.mount",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.__name__",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.Const: '__main__'",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.uvicorn.run",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.FastAPI",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.HTTPException",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.StaticFiles",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.get",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "zt.urljoin",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/website/index.html",
+      "target": "html::index.html::anchor::ztgui::13",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/website/index.html",
+      "target": "html::index.html::anchor::cy::20",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/config.py",
+      "target": "config.ZT_AUTHTOKEN",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/config.py",
+      "target": "config.Const: ''",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/website/script.js",
+      "target": "javascript::script.js::function::addNode::101",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/website/script.js",
+      "target": "javascript::script.js::function::addEdge::119",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/website/script.js",
+      "target": "javascript::script.js::function::orderDisplay::126",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/website/script.js",
+      "target": "javascript::script.js::function::orderMenu::148",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/website/script.js",
+      "target": "javascript::script.js::function::ztReq::163",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/website/script.js",
+      "target": "javascript::script.js::function::ztData::201",
+      "kind": "contains"
+     },
+     {
+      "source": "file::quaternionmedia/ztgui/zt.py",
+      "target": "file::quaternionmedia/ztgui/config.py",
+      "kind": "depends_on"
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/ztgui",
+    "depth": 3,
+    "floor": 100,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "ztgui's system view is composed from a clone of it, and this export read none",
+   "remedy": "export from a clone of ztgui at its default branch's head",
+   "where": "/show/project/ztgui/views"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

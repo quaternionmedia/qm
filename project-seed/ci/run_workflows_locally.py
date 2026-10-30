@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run this repository's GitHub Actions workflows locally, before opening a PR.
 
-SEED FILE, run in place: a forking project runs it out of the governance
+A seed file, run in place: a forking project runs it out of the governance
 submodule. Nothing copies it, and it is not a gate -- it is the thing you do
 before claiming a gate passes.
 
@@ -50,10 +50,125 @@ import argparse
 import fnmatch
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
+
+# Windows ships an `bash.exe` App Execution Alias that launches WSL. It is on
+# PATH for every account, and it is not a POSIX shell this can run a workflow
+# step in: with no WSL distribution installed it dies with
+# `execvpe(/bin/bash) failed`, and with one installed it would run the step in
+# a different filesystem. Either way the failure is reported against the step.
+WSL_ALIAS_DIR = "windowsapps"
+
+
+def resolve_bash() -> str:
+    """An absolute path to a POSIX bash, never the name `bash`.
+
+    Passing the bare name leaves the choice to PATH ordering, and that ordering
+    is not stable: the same repository resolves to Git's bash under a plain
+    interpreter and to the WSL alias under `uv run`, which prepends a venv and
+    shifts everything after it. The symptom is four workflow steps failing with
+    a WSL relay error that names no step and no workflow.
+
+    `QM_BASH` overrides, for a machine whose shell is somewhere unusual.
+    """
+    override = os.environ.get("QM_BASH")
+    if override:
+        return override
+
+    candidates = [shutil.which("bash")]
+    # Git for Windows, in the two places its installer puts it. Listed after
+    # PATH so a deliberate `bash` on PATH still wins.
+    for base in (os.environ.get("PROGRAMFILES", r"C:\Program Files"),
+                 os.environ.get("LOCALAPPDATA", "")):
+        if base:
+            candidates.append(str(Path(base) / "Programs" / "Git" / "usr" / "bin" / "bash.exe"))
+            candidates.append(str(Path(base) / "Git" / "usr" / "bin" / "bash.exe"))
+
+    for candidate in candidates:
+        if not candidate:
+            continue
+        # The alias is a zero-byte reparse point under WindowsApps. Rejecting it
+        # by directory is cruder than probing it and does not need a subprocess
+        # per run.
+        if WSL_ALIAS_DIR in candidate.replace("/", "\\").lower():
+            continue
+        if Path(candidate).is_file():
+            return candidate
+
+    # Naming the name is the last resort and is reported as such: a runner that
+    # silently fell back here would produce exactly the confusing failure this
+    # function exists to remove.
+    print(
+        "  - [env ] no POSIX bash found; falling back to `bash` on PATH. If steps "
+        "fail with a WSL relay error, set QM_BASH to your shell.",
+        file=sys.stderr,
+    )
+    return "bash"
+
+
+def gh_config_hint(env: dict[str, str]) -> str | None:
+    """Name the one reason `gh` reports a signed-in machine as signed out.
+
+    On Windows `gh` finds its config through %APPDATA%. A shell that launches
+    without that variable looks in the wrong place and prints "not logged in",
+    while `hosts.yml` sits untouched in the standard location. A fix names the
+    directory; a signed-out account is something else and gets no hint.
+    """
+    if env.get("GH_CONFIG_DIR") or env.get("APPDATA") or not env.get("USERPROFILE"):
+        return None
+    config = Path(env["USERPROFILE"]) / "AppData" / "Roaming" / "GitHub CLI"
+    if (config / "hosts.yml").is_file():
+        return f"APPDATA is unset but {config} holds a login; set GH_CONFIG_DIR to it"
+    return None
+
+
+def probe(argv: list[str], timeout: float = 20) -> tuple[int | None, str]:
+    """(exit status, output), or (None, reason) when the tool could not be run."""
+    try:
+        proc = subprocess.run(
+            argv, capture_output=True, text=True, encoding="utf-8",
+            errors="replace", timeout=timeout,
+        )
+    except FileNotFoundError:
+        return None, f"{argv[0]} not found on PATH"
+    except subprocess.TimeoutExpired:
+        return None, f"{argv[0]} did not answer within {timeout:g}s"
+    return proc.returncode, (proc.stdout + proc.stderr).strip()
+
+
+def environment_report(env: dict[str, str]) -> list[str]:
+    """What this machine can and cannot supply, before any step runs.
+
+    Information, never a gate: the exit status stays the steps' alone. A step
+    that needs `gh` fails with its own message; this says why before it does.
+    Docker is listed because a daemon that is down is the usual surprise, and
+    it is labelled as unused because no workflow step here calls it.
+    """
+    lines = [f"  - [env ] shell: {resolve_bash()}"]
+
+    code, out = probe(["gh", "auth", "status"])
+    if code == 0:
+        account = re.search(r"account (\S+)", out)
+        lines.append(f"  - [env ] gh: signed in as {account.group(1) if account else '?'}")
+    else:
+        first = out.splitlines()[0] if out else "no output"
+        lines.append(f"  - [env ] gh: NOT signed in ({first}); steps that read pull requests will fail")
+        hint = gh_config_hint(env)
+        if hint:
+            lines.append(f"      {hint}")
+
+    code, out = probe(["docker", "info", "--format", "{{.ServerVersion}}"])
+    if code == 0:
+        lines.append(f"  - [env ] docker: daemon up ({out}); no workflow step uses it")
+    else:
+        why = out.splitlines()[-1] if out else "no output"
+        lines.append(f"  - [env ] docker: daemon not reachable ({why}); no workflow step uses it")
+    return lines
+
 
 try:
     import yaml
@@ -210,6 +325,10 @@ def main() -> int:
     args.ref = bare_branch(args.ref)
     args.base_ref = bare_branch(args.base_ref)
 
+    print("environment")
+    for line in environment_report(dict(os.environ)):
+        print(line)
+
     head = subprocess.run(
         ["git", "rev-parse", "HEAD"], capture_output=True, text=True
     ).stdout.strip()
@@ -247,9 +366,14 @@ def main() -> int:
     current = subprocess.run(
         ["git", "rev-parse", "--abbrev-ref", "HEAD"], capture_output=True, text=True
     ).stdout.strip()
+    # A pull request runs on its merge ref, `<number>/merge` on the runner, never on
+    # the default branch -- a step comparing GITHUB_REF_NAME with it relies on that.
+    # A local run has no number, so the head branch stands in. A push runs on `--ref`.
+    ref_name = f"{args.head_ref or current}/merge" if args.event == "pull_request" else args.ref
+    ctx["github.ref_name"] = ref_name
     gh_env = {
         "GITHUB_REPOSITORY": slug,
-        "GITHUB_REF_NAME": args.ref,
+        "GITHUB_REF_NAME": ref_name,
         "GITHUB_BASE_REF": args.base_ref,
         "GITHUB_HEAD_REF": args.head_ref or current,
         "GITHUB_SHA": head,
@@ -279,8 +403,27 @@ def main() -> int:
         print(f"\n=== {f.name} ({name})")
         for job_id, job in wf.get("jobs", {}).items():
             outputs: dict[str, str] = {}
+            job_failed = False
             for step in job.get("steps", []):
                 label = step.get("name") or step.get("uses", "<step>")
+                # Actions halts a job at its first failed step. Running on past
+                # one produces the result this script's own shell handling calls
+                # the one it must never produce: a downstream step reporting
+                # PASS against inputs a real job would never have made. Observed
+                # here -- a site build failed for want of the generator, and the
+                # two steps after it went green against a leftover `site/`, one
+                # of them stamping a draft banner across 24 stale pages.
+                #
+                # `if:` naming always() or failure() runs anyway, as it does on
+                # the runner. No other `if:` expression is evaluated, so a step
+                # carrying one is reported rather than guessed at.
+                condition = str(step.get("if") or "")
+                runs_regardless = "always()" in condition or "failure()" in condition
+                if job_failed and not runs_regardless:
+                    print(f"  - [skip] {label}")
+                    print(f"      a previous step in this job failed, so the runner "
+                          f"would not reach this one")
+                    continue
                 if "run" not in step:
                     print(f"  - [env ] {label}")
                     continue
@@ -293,7 +436,10 @@ def main() -> int:
                 out_file = Path(tempfile.mkdtemp()) / "gh_output"
                 out_file.touch()
                 env = {**os.environ, "GITHUB_OUTPUT": str(out_file), **gh_env}
-                for block in (wf.get("env") or {}, step.get("env") or {}):
+                # The workflow's env, then the job's, then the step's, as a runner
+                # exports them: jobs that share their steps and differ only in env
+                # (a shard number, say) run as themselves.
+                for block in (wf.get("env") or {}, job.get("env") or {}, step.get("env") or {}):
                     resolved, dropped = step_env(block, ctx, outputs)
                     env.update(resolved)
                     for key, expr in dropped:
@@ -306,10 +452,11 @@ def main() -> int:
                 # Plain `bash` has neither, so a failing command mid-step is
                 # masked by whatever succeeds after it -- a false local pass,
                 # which is the one result this script must never produce.
+                shell = resolve_bash()
                 if (step.get("shell") or "").strip() == "bash":
-                    argv = ["bash", "--noprofile", "--norc", "-eo", "pipefail", path]
+                    argv = [shell, "--noprofile", "--norc", "-eo", "pipefail", path]
                 else:
-                    argv = ["bash", "-e", path]
+                    argv = [shell, "-e", path]
                 # `working-directory` decides where the step runs, and ignoring
                 # it silently runs the command somewhere else. That is not a
                 # near miss: `npm ci` in a repository root whose lockfile lives
@@ -337,6 +484,7 @@ def main() -> int:
                         print(f"      working-directory does not exist: {where}")
                         failures.append(f"{f.name} :: {job_id} :: {label}")
                         ran += 1
+                        job_failed = job_failed or not step.get("continue-on-error")
                         os.unlink(path)
                         continue
                     cwd = str(resolved)
@@ -356,6 +504,9 @@ def main() -> int:
                         print(f"      {line}")
                 if proc.returncode != 0:
                     failures.append(f"{f.name} :: {job_id} :: {label}")
+                    # `continue-on-error` records the failure and lets the job
+                    # carry on, which is what the runner does.
+                    job_failed = job_failed or not step.get("continue-on-error")
                 os.unlink(path)
 
     print(f"\n{'=' * 60}")

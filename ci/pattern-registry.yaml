@@ -1,0 +1,76 @@
+# Pattern registry — the governance loop's pattern vocabulary.
+#
+# Every pattern_id used in a session artifact must appear here. An artifact
+# that names a slug not in this file is written with {"unknown": "slug not in
+# pattern-registry.yaml"} and does not count toward the frequency tally for
+# any known pattern.
+#
+# Fields per entry:
+#   clause       the AGENTS.md or handbook clause this pattern violates
+#   description  one sentence: what the session did wrong
+#   threshold    count at which check_pattern_coverage gates on it (default 3)
+#   check_exists false until a mechanical check is written; then set to true
+#                and populate check_file. A deferred response from the HITL
+#                gate is written "deferred-YYYY-MM-DD-reason" here.
+#   check_file   path to the check script once check_exists is true
+
+patterns:
+  exit-code-trap:
+    clause: "async-contract §8"
+    description: "Exit status of a command shadowed by a filter (tail, head, grep, pipe)"
+    threshold: 3
+    check_exists: false
+    check_file: null
+    # Counted in
+    # perspectives/2026-08-13-thirteen-breaks-and-the-five-that-became-yours.md
+
+  uv-pip-install-bypass:
+    clause: "AGENTS.md §12"
+    description: "Dependency installed with uv pip install, bypassing uv.lock"
+    threshold: 1
+    # The thirteen-breaks perspective records the cost of one instance.
+    check_exists: false
+    check_file: null
+
+  bind-past-localhost:
+    clause: "async-contract §4"
+    description: "Server bound to 0.0.0.0 rather than 127.0.0.1 on a shared workstation"
+    threshold: 3
+    check_exists: false
+    check_file: null
+
+  act-without-asking:
+    clause: "AGENTS.md standing list"
+    description: "Destructive or environment-mutating act taken without explicit authorisation"
+    threshold: 3
+    check_exists: false
+    check_file: null
+
+  read-working-tree-not-origin:
+    clause: "AGENTS.md §10"
+    description: "Repository state asserted from working tree or branch instead of origin/main"
+    threshold: 3
+    check_exists: false
+    check_file: null
+    # Named in perspectives/2026-08-08-reading-the-proxy-instead-of-the-thing.md.
+
+  improvised-tool-invocation:
+    clause: "records/DRAFT-governance-arrives-as-a-mechanism.md 1"
+    description: "A declared entry point exists and the session typed its own invocation instead"
+    threshold: 1
+    check_exists: true
+    check_file: ci/run_tests.py
+    # Improvised pytest invocations can each collect a different set of tests.
+    # `uv run qm test` is the only way; the check is that it exists and runs
+    # CI's own arguments.
+
+  git-config-override-on-the-command-line:
+    clause: "records/DRAFT-human-only-contributorship.md"
+    description: "Passing -c to git to set config the repository already sets, or to unset it"
+    threshold: 1
+    check_exists: true
+    check_file: project-seed/ci/check_signatures.py
+    # Overriding repository config from the command line, in either direction,
+    # is the act; the repository configures signing itself. The check does not
+    # read the flag; it reads the result, which is the only thing that
+    # survives.

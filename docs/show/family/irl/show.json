@@ -1,0 +1,490 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "family",
+  "name": "irl"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "digest": "sha256:d6a68c1aea9ddf565f6d94f19ee5d2e9309a042a679473d1663bbe99e9dc578a"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+  },
+  "drawn_at": "2026-10-27T19:21:23Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "family::irl": {
+      "label": "irl",
+      "metadata": {
+       "kind": "family",
+       "family": "irl",
+       "drives": "matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "irl — drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work",
+       "click": "<p>The <b>irl</b> family drives matter — a thing somebody builds, holds or installs: parts, boards, enclosures, and the firmware that makes one work.</p><p>9 member(s) in all.</p>",
+       "show": "family:irl",
+       "color": "#dd9b63",
+       "depth": 0,
+       "x": 0,
+       "y": 0,
+       "size": 130,
+       "label_at": "none"
+      }
+     },
+     "repo::apothecary": {
+      "label": "apothecary",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.2",
+       "attention": "unstated",
+       "recency": "live",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "apothecary — v0.0.2 · governed",
+       "click": "<p><b>apothecary</b> — OpenSCAD generation toolkit and curated printable parts, composed from Python</p><p>governed. Phase <b>v0.0.2</b> (stated); attention <b>unstated</b> (claims) beside recency <b>live</b> (measured).</p>",
+       "show": "project:apothecary",
+       "shape": "square",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 36.000000000000014,
+       "y": -98.9091871003664,
+       "size": 30,
+       "label_at": "above"
+      }
+     },
+     "repo::datum": {
+      "label": "datum",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "unstated",
+       "recency": "quiet",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "datum — v0.0.1 · governed",
+       "click": "<p><b>datum</b> — A physical switch for devices that lost one: dry contacts in, versioned JSON events out over MQTT</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>quiet</b> (measured).</p>",
+       "show": "project:datum",
+       "shape": "square",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 91.15519990456642,
+       "y": -52.62847920293557,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "repo::ira": {
+      "label": "ira",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [
+        "show-control"
+       ],
+       "hover": "ira — n/a · not adopted · also in show-control",
+       "click": "<p><b>ira</b> — LED controller, designed for live theater</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in show-control.</p>",
+       "show": "project:ira",
+       "shape": "circle",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 103.65786869658541,
+       "y": 18.277679013943413,
+       "size": 40,
+       "label_at": "right"
+      }
+     },
+     "family::show-control": {
+      "label": "show-control ↗",
+      "metadata": {
+       "kind": "family",
+       "family": "show-control",
+       "drives": "the room — cues, lighting, sound and video playback, audio transport",
+       "elsewhere": true,
+       "shape": "hexagon",
+       "hover": "show-control — drives the room — cues, lighting, sound and video playback, audio transport",
+       "click": "<p>The <b>show-control</b> family drives the room — cues, lighting, sound and video playback, audio transport.</p><p>Within <b>performing</b>.</p><p>8 member(s) in all.</p>",
+       "show": "family:show-control",
+       "color": "#a9d05c",
+       "x": 215.92595253997715,
+       "y": 38.07357126797348,
+       "size": 11,
+       "label_at": "below"
+      }
+     },
+     "repo::uPhonor": {
+      "label": "uPhonor",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [
+        "instruments"
+       ],
+       "hover": "uPhonor — n/a · not adopted · also in instruments",
+       "click": "<p><b>uPhonor</b> — Micro-Holophonor</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in instruments.</p>",
+       "show": "project:uPhonor",
+       "shape": "circle",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 67.65786869658538,
+       "y": 80.63150808642301,
+       "size": 40,
+       "label_at": "right"
+      }
+     },
+     "family::instruments": {
+      "label": "instruments ↗",
+      "metadata": {
+       "kind": "family",
+       "family": "instruments",
+       "drives": "the sound — looping, synthesis, tempo, remote control surfaces",
+       "elsewhere": true,
+       "shape": "hexagon",
+       "hover": "instruments — drives the sound — looping, synthesis, tempo, remote control surfaces",
+       "click": "<p>The <b>instruments</b> family drives the sound — looping, synthesis, tempo, remote control surfaces.</p><p>Within <b>performing</b>.</p><p>10 member(s) in all.</p>",
+       "show": "family:instruments",
+       "color": "#43c6bf",
+       "x": 74.99029633912622,
+       "y": 206.03414586995999,
+       "size": 21,
+       "label_at": "below"
+      }
+     },
+     "repo::stomp": {
+      "label": "stomp",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [
+        "instruments"
+       ],
+       "hover": "stomp — n/a · not adopted · also in instruments",
+       "click": "<p><b>stomp</b> — a midi foot controller for Arduino / Teensy</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p><p>Also in instruments.</p>",
+       "show": "project:stomp",
+       "shape": "circle",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": 6.445129859986809e-15,
+       "y": 105.25695840587115,
+       "size": 40,
+       "label_at": "below"
+      }
+     },
+     "repo::scad-chess": {
+      "label": "scad-chess",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "n/a",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "scad-chess — n/a · not adopted",
+       "click": "<p><b>scad-chess</b> — Chess set, designed in openSCAD</p><p>not adopted. Phase <b>n/a</b> (n/a); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:scad-chess",
+       "shape": "circle",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": -67.65786869658541,
+       "y": 80.631508086423,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-03": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": -103.65786869658541,
+       "y": 18.277679013943402,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-05": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": -91.15519990456646,
+       "y": -52.6284792029355,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::private-07": {
+      "label": "a private member",
+      "metadata": {
+       "kind": "private",
+       "hover": "a private member, counted and not named",
+       "click": "<p>A private member. The corpus counts it and does not name it.</p>",
+       "color": "#dd9b63",
+       "depth": 1,
+       "x": -35.99999999999998,
+       "y": -98.90918710036641,
+       "size": 30,
+       "label_at": "above"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "family::irl",
+      "target": "repo::apothecary",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::datum",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::ira",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::uPhonor",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::stomp",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::scad-chess",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::private-03",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::private-05",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "family::irl",
+      "target": "repo::private-07",
+      "label": "member",
+      "metadata": {
+       "kind": "contains",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::ira",
+      "target": "family::show-control",
+      "label": "also in",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "also in (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::uPhonor",
+      "target": "family::instruments",
+      "label": "also in",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "also in (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::stomp",
+      "target": "family::instruments",
+      "label": "also in",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "also in (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "family:irl",
+     "declared": 0,
+     "measured": 0,
+     "unread": [
+      "scad-chess",
+      "uPhonor"
+     ],
+     "undeclared": []
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "family:irl",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "6906aee",
+    "provenance": {
+     "source": "families.json",
+     "commit": "6906aee",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": 0,
+    "measured": 0,
+    "unread": [
+     "scad-chess",
+     "uPhonor"
+    ],
+    "undeclared": [],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 2 member(s) had no clone this export could read, so nothing was measured for them: scad-chess, uPhonor."
+   }
+  }
+ },
+ "files": {
+  "estate": "estate.svg"
+ }
+}

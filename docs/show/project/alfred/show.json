@@ -1,0 +1,3771 @@
+{
+ "schema": 1,
+ "subject": {
+  "kind": "project",
+  "name": "alfred"
+ },
+ "provenance": {
+  "claims": {
+   "repo": "quaternionmedia/qm",
+   "commit": "6906aee0d8c208812425a022a1a339c6e7b7b933",
+   "digest": "sha256:d9bc22e940b25625cc5fc213882e455b54051bd58cb1e170215bf03ee8c4e6cb"
+  },
+  "source": {
+   "repo": "quaternionmedia/alfred",
+   "commit": "7fff7ae01bce8f29d05ccf569237fcdf3416b5c0"
+  },
+  "drawn_by": {
+   "graph": "codecartographer@ada6a1b27549d533aeb54d9e9c959c51a71fe9d5"
+  },
+  "drawn_at": "2026-10-27T19:21:23Z"
+ },
+ "views": {
+  "estate": {
+   "graph": {
+    "nodes": {
+     "repo::alfred": {
+      "label": "alfred",
+      "metadata": {
+       "kind": "project",
+       "governed": true,
+       "phase": "v0.0.1",
+       "attention": "unstated",
+       "recency": "cold",
+       "elsewhere": false,
+       "also_in": [],
+       "hover": "alfred — v0.0.1 · governed",
+       "click": "<p><b>alfred</b> — serverless video editing</p><p>governed. Phase <b>v0.0.1</b> (scaffolded); attention <b>unstated</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:alfred",
+       "shape": "square",
+       "color": "#f2aa4c",
+       "x": 0,
+       "y": 0,
+       "size": 61,
+       "label_at": "below"
+      }
+     },
+     "family::performing": {
+      "label": "performing",
+      "metadata": {
+       "kind": "family",
+       "family": "performing",
+       "drives": "a show — what an audience sees and hears, and the video made before and after it",
+       "elsewhere": false,
+       "shape": "hexagon",
+       "hover": "performing — drives a show — what an audience sees and hears, and the video made before and after it",
+       "click": "<p>The <b>performing</b> family drives a show — what an audience sees and hears, and the video made before and after it.</p><p>22 member(s) in all.</p>",
+       "show": "family:performing",
+       "color": "#f2aa4c",
+       "x": -64.29653635661215,
+       "y": 159.53042158956032,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "phase::v0.0.1": {
+      "label": "phase: v0.0.1",
+      "metadata": {
+       "kind": "claim",
+       "hover": "phase v0.0.1, a claim in ci/workspace.yaml",
+       "x": -144.37085329469542,
+       "y": 93.49361860020998,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "attention::unstated": {
+      "label": "attention: unstated",
+      "metadata": {
+       "kind": "claim",
+       "hover": "attention unstated, a claim in ci/workspace.yaml",
+       "x": -171.8737831407393,
+       "y": -6.588070194686074,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "recency::cold": {
+      "label": "recency: cold",
+      "metadata": {
+       "kind": "measurement",
+       "hover": "recency cold, measured from the default branch's last commit",
+       "x": -136.7903738590293,
+       "y": -104.2707706862618,
+       "size": 11,
+       "label_at": "left"
+      }
+     },
+     "branch::project/alfred": {
+      "label": "project/alfred",
+      "metadata": {
+       "kind": "branch",
+       "depth": 0,
+       "hover": "project/alfred: this project's records in the corpus",
+       "x": 171.8737831407393,
+       "y": 6.588070194686095,
+       "size": 90,
+       "label_at": "none"
+      }
+     },
+     "record::adr/DRAFT-constitution-adoption-and-scope.md": {
+      "label": "ADR-XXXX — Constitution Adoption and Scope",
+      "metadata": {
+       "kind": "record",
+       "depth": 1,
+       "status": "Proposed",
+       "hover": "ADR-XXXX — Constitution Adoption and Scope — Proposed",
+       "x": 225.61389851091693,
+       "y": -47.152045175491516,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "record::adr/DRAFT-control-plane-and-engine-boundary.md": {
+      "label": "ADR-XXXX — Control Plane and Engine Boundary",
+      "metadata": {
+       "kind": "record",
+       "depth": 1,
+       "status": "Proposed",
+       "hover": "ADR-XXXX — Control Plane and Engine Boundary — Proposed",
+       "x": 225.61389851091693,
+       "y": 60.32818556486371,
+       "size": 30,
+       "label_at": "right"
+      }
+     },
+     "record::adr/DRAFT-datastore-and-task-queue.md": {
+      "label": "ADR-XXXX — Datastore and Task Queue",
+      "metadata": {
+       "kind": "record",
+       "depth": 1,
+       "status": "Proposed",
+       "hover": "ADR-XXXX — Datastore and Task Queue — Proposed",
+       "x": 118.1336677705617,
+       "y": 60.32818556486371,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "record::adr/DRAFT-object-storage-seam.md": {
+      "label": "ADR-XXXX — Object Storage Seam",
+      "metadata": {
+       "kind": "record",
+       "depth": 1,
+       "status": "Proposed",
+       "hover": "ADR-XXXX — Object Storage Seam — Proposed",
+       "x": 118.13366777056169,
+       "y": -47.15204517549151,
+       "size": 30,
+       "label_at": "left"
+      }
+     },
+     "repo::otto": {
+      "label": "otto ↗",
+      "metadata": {
+       "kind": "repository",
+       "governed": false,
+       "phase": "v0.0.0",
+       "attention": "active",
+       "recency": "cold",
+       "elsewhere": true,
+       "also_in": [],
+       "hover": "otto — v0.0.0 · not adopted",
+       "click": "<p><b>otto</b> — automatic video generation</p><p>not adopted. Phase <b>v0.0.0</b> (scaffolded); attention <b>active</b> (claims) beside recency <b>cold</b> (measured).</p>",
+       "show": "project:otto",
+       "shape": "circle",
+       "color": "#f2aa4c",
+       "x": -51.89594295837308,
+       "y": -163.98417943344805,
+       "size": 11,
+       "label_at": "above"
+      }
+     }
+    },
+    "edges": [
+     {
+      "source": "repo::alfred",
+      "target": "family::performing",
+      "label": "member of",
+      "metadata": {
+       "kind": "member_of",
+       "basis": "claim",
+       "stated": true,
+       "hover": "member of (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::alfred",
+      "target": "phase::v0.0.1",
+      "label": "phase",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "phase (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::alfred",
+      "target": "attention::unstated",
+      "label": "attention",
+      "metadata": {
+       "kind": "claims",
+       "basis": "claim",
+       "stated": true,
+       "hover": "attention (claim)",
+       "style": "solid",
+       "color": "#8a93a6",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::alfred",
+      "target": "recency::cold",
+      "label": "recency",
+      "metadata": {
+       "kind": "measured",
+       "basis": "measured",
+       "stated": false,
+       "hover": "recency (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::alfred",
+      "target": "branch::project/alfred",
+      "label": "records on",
+      "metadata": {
+       "kind": "governed_by",
+       "basis": "measured",
+       "stated": false,
+       "hover": "records on (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "repo::alfred",
+      "target": "repo::otto",
+      "label": "measured from .gitmodules",
+      "metadata": {
+       "kind": "depends_on",
+       "basis": "measured",
+       "stated": false,
+       "hover": "alfred's .gitmodules names otto",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "branch::project/alfred",
+      "target": "record::adr/DRAFT-constitution-adoption-and-scope.md",
+      "label": "Proposed",
+      "metadata": {
+       "kind": "contains",
+       "basis": "measured",
+       "stated": false,
+       "hover": "Proposed (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "branch::project/alfred",
+      "target": "record::adr/DRAFT-control-plane-and-engine-boundary.md",
+      "label": "Proposed",
+      "metadata": {
+       "kind": "contains",
+       "basis": "measured",
+       "stated": false,
+       "hover": "Proposed (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "branch::project/alfred",
+      "target": "record::adr/DRAFT-datastore-and-task-queue.md",
+      "label": "Proposed",
+      "metadata": {
+       "kind": "contains",
+       "basis": "measured",
+       "stated": false,
+       "hover": "Proposed (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     },
+     {
+      "source": "branch::project/alfred",
+      "target": "record::adr/DRAFT-object-storage-seam.md",
+      "label": "Proposed",
+      "metadata": {
+       "kind": "contains",
+       "basis": "measured",
+       "stated": false,
+       "hover": "Proposed (measured)",
+       "style": "dashed",
+       "color": "#4fb3ad",
+       "size": 1.5
+      }
+     }
+    ],
+    "directed": true,
+    "metadata": {
+     "kind": "show",
+     "subject": "project:alfred",
+     "measured": 1,
+     "unread": [],
+     "records": 4,
+     "undeclared": [
+      {
+       "source": "alfred",
+       "target": "otto"
+      }
+     ]
+    }
+   },
+   "metadata": {
+    "kind": "show",
+    "subject": "project:alfred",
+    "source": "families.json",
+    "generated_at": "2026-10-24T14:49:28Z",
+    "commit": "6906aee",
+    "provenance": {
+     "source": "families.json",
+     "commit": "6906aee",
+     "schema": 2,
+     "generated_at": "2026-10-24T14:49:28Z",
+     "overridden": true
+    },
+    "layout": "Compound",
+    "type": "d3",
+    "palette_id": "0",
+    "bases": {
+     "claim": {
+      "style": "solid",
+      "color": "#8a93a6",
+      "size": 1.5
+     },
+     "declared": {
+      "style": "solid",
+      "color": "#e0a526",
+      "size": 2.5
+     },
+     "measured": {
+      "style": "dashed",
+      "color": "#4fb3ad",
+      "size": 1.5
+     }
+    },
+    "declared": null,
+    "measured": 1,
+    "unread": [],
+    "undeclared": [
+     {
+      "source": "alfred",
+      "target": "otto"
+     }
+    ],
+    "unstated": 1,
+    "notes": [],
+    "caveat": "Membership is a claim a person made in the roster; this draws it and cannot tell whether a repository drives what its family drives. Solid grey edges are claims, gold edges are seams declared in the interop registry, and dashed edges are measured from a member's own manifests and never place it. 1 measured link(s) have no declared seam: alfred → otto. Each is a seam nobody has stated, not a fault."
+   }
+  },
+  "code": {
+   "graph": {
+    "nodes": {
+     "dir::quaternionmedia/alfred": {
+      "id": "dir::quaternionmedia/alfred",
+      "label": "quaternionmedia/alfred",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 504.41440437748815,
+      "y": -276.0179530336512,
+      "size": 150
+     },
+     "dir::quaternionmedia/alfred/.github": {
+      "id": "dir::quaternionmedia/alfred/.github",
+      "label": ".github",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 29.053068265640604,
+      "y": -968.0645393305861,
+      "size": 60
+     },
+     "dir::quaternionmedia/alfred/.github/workflows": {
+      "id": "dir::quaternionmedia/alfred/.github/workflows",
+      "label": "workflows",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 75.72211582395278,
+      "y": -921.395491772274,
+      "size": 50
+     },
+     "dir::quaternionmedia/alfred/.vscode": {
+      "id": "dir::quaternionmedia/alfred/.vscode",
+      "label": ".vscode",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 551.0834519358003,
+      "y": -229.34890547533908,
+      "size": 50
+     },
+     "dir::quaternionmedia/alfred/alfred": {
+      "id": "dir::quaternionmedia/alfred/alfred",
+      "label": "alfred",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 720.913943910929,
+      "y": -59.51841350021033,
+      "size": 120
+     },
+     "dir::quaternionmedia/alfred/alfred/core": {
+      "id": "dir::quaternionmedia/alfred/alfred/core",
+      "label": "core",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1186.3620930854315,
+      "y": 310.020661457726,
+      "size": 100
+     },
+     "dir::quaternionmedia/alfred/alfred/core/models": {
+      "id": "dir::quaternionmedia/alfred/alfred/core/models",
+      "label": "models",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1404.2669381460814,
+      "y": 368.408088718556,
+      "size": 90
+     },
+     "dir::quaternionmedia/alfred/alfred/core/responses": {
+      "id": "dir::quaternionmedia/alfred/alfred/core/responses",
+      "label": "responses",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1193.6139766438355,
+      "y": 553.8284163109329,
+      "size": 70
+     },
+     "dir::quaternionmedia/alfred/alfred/core/routes": {
+      "id": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "label": "routes",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 940.9894960695204,
+      "y": 375.76805067286676,
+      "size": 160
+     },
+     "dir::quaternionmedia/alfred/alfred/core/utils": {
+      "id": "dir::quaternionmedia/alfred/alfred/core/utils",
+      "label": "utils",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1103.94496075208,
+      "y": 90.20560704681446,
+      "size": 110
+     },
+     "dir::quaternionmedia/alfred/data": {
+      "id": "dir::quaternionmedia/alfred/data",
+      "label": "data",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 571.9074578190716,
+      "y": -332.62018564979076,
+      "size": 50
+     },
+     "dir::quaternionmedia/alfred/docs": {
+      "id": "dir::quaternionmedia/alfred/docs",
+      "label": "docs",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 667.497484376436,
+      "y": -944.4301146958527,
+      "size": 110
+     },
+     "dir::quaternionmedia/alfred/docs/about": {
+      "id": "dir::quaternionmedia/alfred/docs/about",
+      "label": "about",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 473.1867643887906,
+      "y": -750.1193947082072,
+      "size": 120
+     },
+     "dir::quaternionmedia/alfred/docs/api": {
+      "id": "dir::quaternionmedia/alfred/docs/api",
+      "label": "api",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 482.64418712192975,
+      "y": -1129.2834119503586,
+      "size": 90
+     },
+     "dir::quaternionmedia/alfred/docs/assets": {
+      "id": "dir::quaternionmedia/alfred/docs/assets",
+      "label": "assets",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 714.1665319347481,
+      "y": -897.7610671375404,
+      "size": 50
+     },
+     "dir::quaternionmedia/alfred/docs/examples": {
+      "id": "dir::quaternionmedia/alfred/docs/examples",
+      "label": "examples",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 877.2170986221205,
+      "y": -734.710500450168,
+      "size": 180
+     },
+     "dir::quaternionmedia/alfred/docs/models": {
+      "id": "dir::quaternionmedia/alfred/docs/models",
+      "label": "models",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 840.6186810991104,
+      "y": -1117.551311418527,
+      "size": 60
+     },
+     "dir::quaternionmedia/alfred/flower": {
+      "id": "dir::quaternionmedia/alfred/flower",
+      "label": "flower",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 491.67943348448057,
+      "y": -179.5891813088478,
+      "size": 50
+     },
+     "dir::quaternionmedia/alfred/tests": {
+      "id": "dir::quaternionmedia/alfred/tests",
+      "label": "tests",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1267.2415275625808,
+      "y": -659.5498182092763,
+      "size": 90
+     },
+     "dir::quaternionmedia/alfred/tests/dist": {
+      "id": "dir::quaternionmedia/alfred/tests/dist",
+      "label": "dist",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": 1423.1794844199262,
+      "y": -503.61186135193094,
+      "size": 60
+     },
+     "dir::quaternionmedia/alfred/website": {
+      "id": "dir::quaternionmedia/alfred/website",
+      "label": "website",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -730.368304970515,
+      "y": -95.95698257200104,
+      "size": 70
+     },
+     "dir::quaternionmedia/alfred/website/cypress": {
+      "id": "dir::quaternionmedia/alfred/website/cypress",
+      "label": "cypress",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1168.2878906798796,
+      "y": -325.5216022281774,
+      "size": 90
+     },
+     "dir::quaternionmedia/alfred/website/cypress/fixtures": {
+      "id": "dir::quaternionmedia/alfred/website/cypress/fixtures",
+      "label": "fixtures",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -1121.6188431215676,
+      "y": -278.85255466986524,
+      "size": 50
+     },
+     "dir::quaternionmedia/alfred/website/cypress/integration": {
+      "id": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "label": "integration",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -979.5087133418054,
+      "y": -136.742424890103,
+      "size": 130
+     },
+     "dir::quaternionmedia/alfred/website/cypress/plugins": {
+      "id": "dir::quaternionmedia/alfred/website/cypress/plugins",
+      "label": "plugins",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1333.0437706963453,
+      "y": -490.2774822446429,
+      "size": 60
+     },
+     "dir::quaternionmedia/alfred/website/cypress/support": {
+      "id": "dir::quaternionmedia/alfred/website/cypress/support",
+      "label": "support",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -1337.316231970679,
+      "y": -156.4932609373783,
+      "size": 70
+     },
+     "dir::quaternionmedia/alfred/website/src": {
+      "id": "dir::quaternionmedia/alfred/website/src",
+      "label": "src",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -188.07413223366288,
+      "y": 260.9819837840372,
+      "size": 490
+     },
+     "dir::quaternionmedia/alfred/website/src/assets": {
+      "id": "dir::quaternionmedia/alfred/website/src/assets",
+      "label": "assets",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -328.0261845237147,
+      "y": 459.02092707500384,
+      "size": 50
+     },
+     "dir::quaternionmedia/alfred/website/src/styles": {
+      "id": "dir::quaternionmedia/alfred/website/src/styles",
+      "label": "styles",
+      "depth": 0,
+      "language": "unknown",
+      "kind": "directory",
+      "file": "",
+      "line": 0,
+      "meta": {},
+      "label_at": "none",
+      "x": -648.1748761946205,
+      "y": 384.2656065653348,
+      "size": 130
+     },
+     "file::quaternionmedia/alfred/README.md": {
+      "id": "file::quaternionmedia/alfred/README.md",
+      "label": "README.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/README.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 426.6585980324674,
+      "y": -279.4234015555975,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/__init__.py": {
+      "id": "file::quaternionmedia/alfred/alfred/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 759.0977100950026,
+      "y": -21.33464731613674,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/_version.py": {
+      "id": "file::quaternionmedia/alfred/alfred/_version.py",
+      "label": "_version.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/_version.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 660.9292735233719,
+      "y": -62.14554472954029,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/config.py": {
+      "id": "file::quaternionmedia/alfred/alfred/config.py",
+      "label": "config.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/config.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 771.1239233357036,
+      "y": -101.62640521394223,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/__init__.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1224.545859269505,
+      "y": 348.20442764179955,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/models/__init__.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/models/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/models/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1442.450704330155,
+      "y": 406.5918549026296,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/models/project.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/models/project.py",
+      "label": "project.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/models/project.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1344.2822677585243,
+      "y": 365.78095748922607,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/models/render.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/models/render.py",
+      "label": "render.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/models/render.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1454.4769175708561,
+      "y": 326.3000970048241,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/models/users.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/models/users.py",
+      "label": "users.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/models/users.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 1395.024421908361,
+      "y": 438.3921111350724,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/responses/__init__.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/responses/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/responses/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1231.7977428279091,
+      "y": 592.0121824950063,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/responses/partial.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/responses/partial.py",
+      "label": "partial.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/responses/partial.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1133.6293062562781,
+      "y": 551.2012850816028,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/__init__.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 979.1732622535942,
+      "y": 413.95181685694024,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/admin.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/admin.py",
+      "label": "admin.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/admin.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 881.0048256819634,
+      "y": 373.14091944353663,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/auth.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/auth.py",
+      "label": "auth.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/auth.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 991.199475494295,
+      "y": 333.6600589591348,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/fonts.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/fonts.py",
+      "label": "fonts.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/fonts.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 931.7469798318003,
+      "y": 445.7520730893832,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/invoicer.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/invoicer.py",
+      "label": "invoicer.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/invoicer.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 897.8244110700423,
+      "y": 314.0507480990518,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/issue.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/issue.py",
+      "label": "issue.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/issue.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1018.8450393843239,
+      "y": 393.0835603435864,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/preview.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/preview.py",
+      "label": "preview.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/preview.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 868.2382538961681,
+      "y": 417.69216977195106,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/project.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/project.py",
+      "label": "project.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/project.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 967.5233843090385,
+      "y": 291.8908173202293,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/render.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/render.py",
+      "label": "render.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/render.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 979.6985299296139,
+      "y": 459.01533710082276,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/users.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/users.py",
+      "label": "users.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/users.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 852.8166311961661,
+      "y": 339.11960732222536,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/routes/video.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/routes/video.py",
+      "label": "video.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/routes/video.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1034.0915683056944,
+      "y": 342.0244713527905,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/utils/__init__.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/utils/__init__.py",
+      "label": "__init__.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/utils/__init__.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1142.1287269361537,
+      "y": 128.389373230888,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/utils/bucket.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/utils/bucket.py",
+      "label": "bucket.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/utils/bucket.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1043.960290364523,
+      "y": 87.5784758174845,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/utils/db.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/utils/db.py",
+      "label": "db.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/utils/db.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1154.1549401768548,
+      "y": 48.09761533308256,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/utils/email.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/utils/email.py",
+      "label": "email.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/utils/email.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 1094.7024445143597,
+      "y": 160.1896294633309,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/utils/logger.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/utils/logger.py",
+      "label": "logger.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/utils/logger.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1060.779875752602,
+      "y": 28.48830447299963,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/core/utils/tasks.py": {
+      "id": "file::quaternionmedia/alfred/alfred/core/utils/tasks.py",
+      "label": "tasks.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/core/utils/tasks.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1181.8005040668836,
+      "y": 107.52111671753404,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/docs.py": {
+      "id": "file::quaternionmedia/alfred/alfred/docs.py",
+      "label": "docs.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/docs.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 711.6714276732087,
+      "y": 10.46560891630611,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/main.py": {
+      "id": "file::quaternionmedia/alfred/alfred/main.py",
+      "label": "main.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/main.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 677.7488589114507,
+      "y": -121.2357160740251,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/alfred/seed.py": {
+      "id": "file::quaternionmedia/alfred/alfred/seed.py",
+      "label": "seed.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/alfred/seed.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 798.7694872257324,
+      "y": -42.20290382949065,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/about/clip.md": {
+      "id": "file::quaternionmedia/alfred/docs/about/clip.md",
+      "label": "clip.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/about/clip.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 511.3705305728642,
+      "y": -711.9356285241336,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/about/concepts.md": {
+      "id": "file::quaternionmedia/alfred/docs/about/concepts.md",
+      "label": "concepts.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/about/concepts.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 413.20209400123355,
+      "y": -752.7465259375372,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/about/edl.md": {
+      "id": "file::quaternionmedia/alfred/docs/about/edl.md",
+      "label": "edl.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/about/edl.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 523.3967438135651,
+      "y": -792.2273864219392,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/about/index.md": {
+      "id": "file::quaternionmedia/alfred/docs/about/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/about/index.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 463.9442481510702,
+      "y": -680.1353722916908,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/about/project.md": {
+      "id": "file::quaternionmedia/alfred/docs/about/project.md",
+      "label": "project.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/about/project.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 430.02167938931234,
+      "y": -811.8366972820219,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/about/render.md": {
+      "id": "file::quaternionmedia/alfred/docs/about/render.md",
+      "label": "render.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/about/render.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 551.0423077035939,
+      "y": -732.8038850374876,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/about/template.md": {
+      "id": "file::quaternionmedia/alfred/docs/about/template.md",
+      "label": "template.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/about/template.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 400.43552221543814,
+      "y": -708.1952756091227,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/api/auth.md": {
+      "id": "file::quaternionmedia/alfred/docs/api/auth.md",
+      "label": "auth.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/api/auth.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 520.8279533060033,
+      "y": -1091.099645766285,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/api/index.md": {
+      "id": "file::quaternionmedia/alfred/docs/api/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/api/index.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 422.65951673437263,
+      "y": -1131.9105431796886,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/api/otto.md": {
+      "id": "file::quaternionmedia/alfred/docs/api/otto.md",
+      "label": "otto.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/api/otto.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 532.8541665467045,
+      "y": -1171.3914036640908,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/api/render.md": {
+      "id": "file::quaternionmedia/alfred/docs/api/render.md",
+      "label": "render.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/api/render.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 473.4016708842094,
+      "y": -1059.299389533842,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/adjust.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/adjust.md",
+      "label": "adjust.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/adjust.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 915.4008648061941,
+      "y": -696.5267342660944,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/advanced.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/advanced.md",
+      "label": "advanced.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/advanced.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 817.2324282345635,
+      "y": -737.3376316794978,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/animation.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/animation.md",
+      "label": "animation.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/animation.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 927.4270780468953,
+      "y": -776.8184921638999,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/combine.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/combine.md",
+      "label": "combine.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/combine.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": 867.9745823843999,
+      "y": -664.7264780336513,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/fade.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/fade.md",
+      "label": "fade.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/fade.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 834.0520136226423,
+      "y": -796.4278030239828,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/index.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/index.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 955.0726419369241,
+      "y": -717.3949907794484,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/login.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/login.md",
+      "label": "login.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/login.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 804.4658564487681,
+      "y": -692.7863813510835,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/media.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/media.md",
+      "label": "media.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/media.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 903.7509868616386,
+      "y": -818.5877338028054,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/preview.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/preview.md",
+      "label": "preview.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/preview.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 915.9261324822138,
+      "y": -651.4632140222119,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/project.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/project.md",
+      "label": "project.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/project.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 789.0442337487661,
+      "y": -771.3589438008094,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/render.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/render.md",
+      "label": "render.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/render.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 970.3191708582943,
+      "y": -768.454079770244,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/text.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/text.md",
+      "label": "text.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/text.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 829.7762613821593,
+      "y": -643.9082181992713,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/examples/trim.md": {
+      "id": "file::quaternionmedia/alfred/docs/examples/trim.md",
+      "label": "trim.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/examples/trim.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": 850.0110688407742,
+      "y": -836.9092379352096,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/index.md": {
+      "id": "file::quaternionmedia/alfred/docs/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/index.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 589.7416780314153,
+      "y": -947.8355632177988,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/docs/models/index.md": {
+      "id": "file::quaternionmedia/alfred/docs/models/index.md",
+      "label": "index.md",
+      "depth": 1,
+      "language": "markdown",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/docs/models/index.md",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 878.8024472831839,
+      "y": -1079.3675452344535,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/pyproject.toml": {
+      "id": "file::quaternionmedia/alfred/pyproject.toml",
+      "label": "pyproject.toml",
+      "depth": 1,
+      "language": "toml",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/pyproject.toml",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 443.8620838500073,
+      "y": -362.5954702002761,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/record.sh": {
+      "id": "file::quaternionmedia/alfred/record.sh",
+      "label": "record.sh",
+      "depth": 1,
+      "language": "shell",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/record.sh",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 615.128017716091,
+      "y": -251.39462422720538,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/tests/conftest.py": {
+      "id": "file::quaternionmedia/alfred/tests/conftest.py",
+      "label": "conftest.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/tests/conftest.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1305.4252937466545,
+      "y": -621.3660520252026,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/tests/dist/index.html": {
+      "id": "file::quaternionmedia/alfred/tests/dist/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/tests/dist/index.html",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1461.3632506039999,
+      "y": -465.42809516785735,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/tests/noxfile.py": {
+      "id": "file::quaternionmedia/alfred/tests/noxfile.py",
+      "label": "noxfile.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/tests/noxfile.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": 1207.2568571750237,
+      "y": -662.1769494386062,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/tests/test_alfred.py": {
+      "id": "file::quaternionmedia/alfred/tests/test_alfred.py",
+      "label": "test_alfred.py",
+      "depth": 1,
+      "language": "python",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/tests/test_alfred.py",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 1317.4515069873555,
+      "y": -701.6578099230082,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/integration/auth.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/integration/auth.js",
+      "label": "auth.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/integration/auth.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -941.3249471577317,
+      "y": -98.55865870602946,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/integration/dnd.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/integration/dnd.js",
+      "label": "dnd.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/integration/dnd.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1039.4933837293624,
+      "y": -139.36955611943296,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/integration/login.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/integration/login.js",
+      "label": "login.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/integration/login.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -929.2987339170306,
+      "y": -178.8504166038349,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/integration/otto.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/integration/otto.js",
+      "label": "otto.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/integration/otto.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -988.7512295795256,
+      "y": -66.75840247358656,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/integration/performance.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/integration/performance.js",
+      "label": "performance.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/integration/performance.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1022.6737983412836,
+      "y": -198.45972746391794,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/integration/project.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/integration/project.js",
+      "label": "project.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/integration/project.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -901.6531700270018,
+      "y": -119.42691521938342,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/integration/render.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/integration/render.js",
+      "label": "render.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/integration/render.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1052.2599555151578,
+      "y": -94.81830579101853,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/integration/window.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/integration/window.js",
+      "label": "window.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/integration/window.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -952.9748251022874,
+      "y": -220.61965824274031,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/plugins/index.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/plugins/index.js",
+      "label": "index.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/plugins/index.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -1294.8600045122716,
+      "y": -452.0937160605694,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/support/commands.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/support/commands.js",
+      "label": "commands.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/support/commands.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -1299.1324657866053,
+      "y": -118.30949475330476,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/cypress/support/index.js": {
+      "id": "file::quaternionmedia/alfred/website/cypress/support/index.js",
+      "label": "index.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/cypress/support/index.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -1397.3009023582358,
+      "y": -159.12039216670814,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Bin.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Bin.js",
+      "label": "Bin.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Bin.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -141.40508467535074,
+      "y": 307.65103134234937,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/CSVToArray.js": {
+      "id": "file::quaternionmedia/alfred/website/src/CSVToArray.js",
+      "label": "CSVToArray.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/CSVToArray.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -265.8299385786837,
+      "y": 257.57653526209094,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Clip.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Clip.js",
+      "label": "Clip.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Clip.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -120.58107879207947,
+      "y": 204.37975116789778,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Components.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Components.js",
+      "label": "Components.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Components.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -200.8091031266706,
+      "y": 357.4107555088407,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Documents.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Documents.js",
+      "label": "Documents.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Documents.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -248.62645276114375,
+      "y": 174.40446661741242,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Footer.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Footer.js",
+      "label": "Footer.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Footer.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -77.3605188950601,
+      "y": 285.605312590483,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Form.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Form.js",
+      "label": "Form.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Form.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -292.6412505082267,
+      "y": 321.2405331837148,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Globals.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Globals.js",
+      "label": "Globals.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Globals.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -149.6061775407389,
+      "y": 139.3795415316583,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Head.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Head.js",
+      "label": "Head.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Head.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -131.55531064274504,
+      "y": 382.5308332478392,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Home.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Home.js",
+      "label": "Home.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Home.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -317.5826841312991,
+      "y": 207.1526471229072,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Import.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Import.js",
+      "label": "Import.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Import.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -50.63248996126594,
+      "y": 211.16813059572777,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Input.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Input.js",
+      "label": "Input.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Input.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -258.41386221123315,
+      "y": 395.6129976206807,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Login.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Login.js",
+      "label": "Login.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Login.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -228.5649612683001,
+      "y": 108.8792462541434,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Magnussens.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Magnussens.js",
+      "label": "Magnussens.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Magnussens.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -50.995551766372415,
+      "y": 348.6505373085058,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Menu.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Menu.js",
+      "label": "Menu.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Menu.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -353.4415898028763,
+      "y": 289.8173609637168,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Monitor.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Monitor.js",
+      "label": "Monitor.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Monitor.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -82.56711352114236,
+      "y": 124.05971933301434,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Otto.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Otto.js",
+      "label": "Otto.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Otto.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -172.9695165324623,
+      "y": 438.0493454984962,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/OttoTimeline.js": {
+      "id": "file::quaternionmedia/alfred/website/src/OttoTimeline.js",
+      "label": "OttoTimeline.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/OttoTimeline.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -322.295107001885,
+      "y": 137.42109825682724,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Preview.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Preview.js",
+      "label": "Preview.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Preview.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -1.0342518222579713,
+      "y": 261.438202686913,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Project.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Project.js",
+      "label": "Project.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Project.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -329.6212972763618,
+      "y": 390.0172021097909,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Projects.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Projects.js",
+      "label": "Projects.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Projects.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -170.4690904826077,
+      "y": 65.84789525785581,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Renders.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Renders.js",
+      "label": "Renders.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Renders.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -66.63927603272055,
+      "y": 420.1749113890552,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Resolution.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Resolution.js",
+      "label": "Resolution.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Resolution.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -389.28864904638505,
+      "y": 224.8836012188479,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Scale.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Scale.js",
+      "label": "Scale.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Scale.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -11.83882440204799,
+      "y": 149.47837947684025,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Slider.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Slider.js",
+      "label": "Slider.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Slider.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -243.76338610906708,
+      "y": 466.1458378197832,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/TemplateEditor.js": {
+      "id": "file::quaternionmedia/alfred/website/src/TemplateEditor.js",
+      "label": "TemplateEditor.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/TemplateEditor.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -287.4157325730883,
+      "y": 68.55976848132873,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Timecode.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Timecode.js",
+      "label": "Timecode.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Timecode.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 18.81081852678696,
+      "y": 337.10847161085235,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Timeline.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Timeline.js",
+      "label": "Timeline.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Timeline.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -395.5875969481144,
+      "y": 346.04871912873045,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/TimelineTools.js": {
+      "id": "file::quaternionmedia/alfred/website/src/TimelineTools.js",
+      "label": "TimelineTools.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/TimelineTools.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -90.9191165660521,
+      "y": 54.67964998573446,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Tools.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Tools.js",
+      "label": "Tools.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Tools.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -119.25899001100098,
+      "y": 482.2641310550605,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/User.js": {
+      "id": "file::quaternionmedia/alfred/website/src/User.js",
+      "label": "User.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/User.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -391.43747415484506,
+      "y": 142.46520791391686,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/Video.js": {
+      "id": "file::quaternionmedia/alfred/website/src/Video.js",
+      "label": "Video.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/Video.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 45.44199332805374,
+      "y": 210.24090966607446,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/index.html": {
+      "id": "file::quaternionmedia/alfred/website/src/index.html",
+      "label": "index.html",
+      "depth": 1,
+      "language": "html",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/index.html",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -219.09045091420515,
+      "y": 16.9624139223004,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/index.js": {
+      "id": "file::quaternionmedia/alfred/website/src/index.js",
+      "label": "index.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/index.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 2.250136450293809,
+      "y": 422.1830934263629,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/json.css": {
+      "id": "file::quaternionmedia/alfred/website/src/json.css",
+      "label": "json.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/json.css",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -440.68860815629216,
+      "y": 270.8112286347521,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/logic.js": {
+      "id": "file::quaternionmedia/alfred/website/src/logic.js",
+      "label": "logic.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/logic.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -6.068099552624602,
+      "y": 80.7431032179706,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/material-icons.css": {
+      "id": "file::quaternionmedia/alfred/website/src/material-icons.css",
+      "label": "material-icons.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/material-icons.css",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -200.6905822145737,
+      "y": 520.124102494754,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/menu.css": {
+      "id": "file::quaternionmedia/alfred/website/src/menu.css",
+      "label": "menu.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/menu.css",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -355.90092296184025,
+      "y": 58.86928424766321,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/resizable.js": {
+      "id": "file::quaternionmedia/alfred/website/src/resizable.js",
+      "label": "resizable.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/resizable.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": 75.39027415124994,
+      "y": 297.08522558093875,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/sortable.js": {
+      "id": "file::quaternionmedia/alfred/website/src/sortable.js",
+      "label": "sortable.js",
+      "depth": 1,
+      "language": "javascript",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/sortable.js",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -409.34696721736776,
+      "y": 414.13821936807767,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/style.css": {
+      "id": "file::quaternionmedia/alfred/website/src/style.css",
+      "label": "style.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/style.css",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -127.67264167077421,
+      "y": -4.483122092010532,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/styles/documents.scss": {
+      "id": "file::quaternionmedia/alfred/website/src/styles/documents.scss",
+      "label": "documents.scss",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/styles/documents.scss",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -609.991110010547,
+      "y": 422.4493727494083,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/styles/footer.scss": {
+      "id": "file::quaternionmedia/alfred/website/src/styles/footer.scss",
+      "label": "footer.scss",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/styles/footer.scss",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -708.1595465821778,
+      "y": 381.6384753360047,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/styles/home.scss": {
+      "id": "file::quaternionmedia/alfred/website/src/styles/home.scss",
+      "label": "home.scss",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/styles/home.scss",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -597.964896769846,
+      "y": 342.15761485160266,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/styles/menu.scss": {
+      "id": "file::quaternionmedia/alfred/website/src/styles/menu.scss",
+      "label": "menu.scss",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/styles/menu.scss",
+      "line": 0,
+      "meta": {},
+      "label_at": "below",
+      "x": -657.4173924323409,
+      "y": 454.2496289818511,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/styles/projects.scss": {
+      "id": "file::quaternionmedia/alfred/website/src/styles/projects.scss",
+      "label": "projects.scss",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/styles/projects.scss",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -691.3399611940988,
+      "y": 322.5483039915198,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/styles/renders.scss": {
+      "id": "file::quaternionmedia/alfred/website/src/styles/renders.scss",
+      "label": "renders.scss",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/styles/renders.scss",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -570.3193328798171,
+      "y": 401.5811162360543,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/styles/tables.scss": {
+      "id": "file::quaternionmedia/alfred/website/src/styles/tables.scss",
+      "label": "tables.scss",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/styles/tables.scss",
+      "line": 0,
+      "meta": {},
+      "label_at": "left",
+      "x": -720.9261183679731,
+      "y": 426.18972566441914,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/styles/text.scss": {
+      "id": "file::quaternionmedia/alfred/website/src/styles/text.scss",
+      "label": "text.scss",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/styles/text.scss",
+      "line": 0,
+      "meta": {},
+      "label_at": "above",
+      "x": -621.6409879551026,
+      "y": 300.3883732126974,
+      "size": 30
+     },
+     "file::quaternionmedia/alfred/website/src/timerange.css": {
+      "id": "file::quaternionmedia/alfred/website/src/timerange.css",
+      "label": "timerange.css",
+      "depth": 1,
+      "language": "css",
+      "kind": "file",
+      "file": "https://raw.githubusercontent.com/quaternionmedia/alfred/main/website/src/timerange.css",
+      "line": 0,
+      "meta": {},
+      "label_at": "right",
+      "x": -51.754915454064786,
+      "y": 500.2280833062594,
+      "size": 30
+     }
+    },
+    "edges": [
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "file::quaternionmedia/alfred/README.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "file::quaternionmedia/alfred/pyproject.toml",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "file::quaternionmedia/alfred/record.sh",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "dir::quaternionmedia/alfred/.github",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "dir::quaternionmedia/alfred/.vscode",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "dir::quaternionmedia/alfred/alfred",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "dir::quaternionmedia/alfred/data",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "dir::quaternionmedia/alfred/docs",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "dir::quaternionmedia/alfred/flower",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "dir::quaternionmedia/alfred/tests",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred",
+      "target": "dir::quaternionmedia/alfred/website",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/.github",
+      "target": "dir::quaternionmedia/alfred/.github/workflows",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred",
+      "target": "file::quaternionmedia/alfred/alfred/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred",
+      "target": "file::quaternionmedia/alfred/alfred/_version.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred",
+      "target": "file::quaternionmedia/alfred/alfred/config.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred",
+      "target": "file::quaternionmedia/alfred/alfred/docs.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred",
+      "target": "file::quaternionmedia/alfred/alfred/main.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred",
+      "target": "file::quaternionmedia/alfred/alfred/seed.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred",
+      "target": "dir::quaternionmedia/alfred/alfred/core",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core",
+      "target": "file::quaternionmedia/alfred/alfred/core/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core",
+      "target": "dir::quaternionmedia/alfred/alfred/core/models",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core",
+      "target": "dir::quaternionmedia/alfred/alfred/core/responses",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core",
+      "target": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core",
+      "target": "dir::quaternionmedia/alfred/alfred/core/utils",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/models",
+      "target": "file::quaternionmedia/alfred/alfred/core/models/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/models",
+      "target": "file::quaternionmedia/alfred/alfred/core/models/project.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/models",
+      "target": "file::quaternionmedia/alfred/alfred/core/models/render.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/models",
+      "target": "file::quaternionmedia/alfred/alfred/core/models/users.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/responses",
+      "target": "file::quaternionmedia/alfred/alfred/core/responses/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/responses",
+      "target": "file::quaternionmedia/alfred/alfred/core/responses/partial.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/admin.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/auth.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/fonts.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/invoicer.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/issue.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/preview.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/project.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/render.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/users.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/routes",
+      "target": "file::quaternionmedia/alfred/alfred/core/routes/video.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/utils",
+      "target": "file::quaternionmedia/alfred/alfred/core/utils/__init__.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/utils",
+      "target": "file::quaternionmedia/alfred/alfred/core/utils/bucket.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/utils",
+      "target": "file::quaternionmedia/alfred/alfred/core/utils/db.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/utils",
+      "target": "file::quaternionmedia/alfred/alfred/core/utils/email.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/utils",
+      "target": "file::quaternionmedia/alfred/alfred/core/utils/logger.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/alfred/core/utils",
+      "target": "file::quaternionmedia/alfred/alfred/core/utils/tasks.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs",
+      "target": "file::quaternionmedia/alfred/docs/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs",
+      "target": "dir::quaternionmedia/alfred/docs/about",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs",
+      "target": "dir::quaternionmedia/alfred/docs/api",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs",
+      "target": "dir::quaternionmedia/alfred/docs/assets",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs",
+      "target": "dir::quaternionmedia/alfred/docs/examples",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs",
+      "target": "dir::quaternionmedia/alfred/docs/models",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/about",
+      "target": "file::quaternionmedia/alfred/docs/about/clip.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/about",
+      "target": "file::quaternionmedia/alfred/docs/about/concepts.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/about",
+      "target": "file::quaternionmedia/alfred/docs/about/edl.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/about",
+      "target": "file::quaternionmedia/alfred/docs/about/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/about",
+      "target": "file::quaternionmedia/alfred/docs/about/project.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/about",
+      "target": "file::quaternionmedia/alfred/docs/about/render.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/about",
+      "target": "file::quaternionmedia/alfred/docs/about/template.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/api",
+      "target": "file::quaternionmedia/alfred/docs/api/auth.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/api",
+      "target": "file::quaternionmedia/alfred/docs/api/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/api",
+      "target": "file::quaternionmedia/alfred/docs/api/otto.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/api",
+      "target": "file::quaternionmedia/alfred/docs/api/render.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/adjust.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/advanced.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/animation.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/combine.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/fade.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/login.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/media.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/preview.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/project.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/render.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/text.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/examples",
+      "target": "file::quaternionmedia/alfred/docs/examples/trim.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/docs/models",
+      "target": "file::quaternionmedia/alfred/docs/models/index.md",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/tests",
+      "target": "file::quaternionmedia/alfred/tests/conftest.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/tests",
+      "target": "file::quaternionmedia/alfred/tests/noxfile.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/tests",
+      "target": "file::quaternionmedia/alfred/tests/test_alfred.py",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/tests",
+      "target": "dir::quaternionmedia/alfred/tests/dist",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/tests/dist",
+      "target": "file::quaternionmedia/alfred/tests/dist/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website",
+      "target": "dir::quaternionmedia/alfred/website/cypress",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website",
+      "target": "dir::quaternionmedia/alfred/website/src",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress",
+      "target": "dir::quaternionmedia/alfred/website/cypress/fixtures",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress",
+      "target": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress",
+      "target": "dir::quaternionmedia/alfred/website/cypress/plugins",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress",
+      "target": "dir::quaternionmedia/alfred/website/cypress/support",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "target": "file::quaternionmedia/alfred/website/cypress/integration/auth.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "target": "file::quaternionmedia/alfred/website/cypress/integration/dnd.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "target": "file::quaternionmedia/alfred/website/cypress/integration/login.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "target": "file::quaternionmedia/alfred/website/cypress/integration/otto.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "target": "file::quaternionmedia/alfred/website/cypress/integration/performance.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "target": "file::quaternionmedia/alfred/website/cypress/integration/project.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "target": "file::quaternionmedia/alfred/website/cypress/integration/render.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/integration",
+      "target": "file::quaternionmedia/alfred/website/cypress/integration/window.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/plugins",
+      "target": "file::quaternionmedia/alfred/website/cypress/plugins/index.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/support",
+      "target": "file::quaternionmedia/alfred/website/cypress/support/commands.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/cypress/support",
+      "target": "file::quaternionmedia/alfred/website/cypress/support/index.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Bin.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/CSVToArray.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Clip.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Components.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Documents.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Footer.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Form.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Globals.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Head.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Home.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Import.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Input.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Login.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Magnussens.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Menu.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Monitor.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Otto.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/OttoTimeline.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Preview.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Project.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Projects.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Renders.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Resolution.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Scale.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Slider.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/TemplateEditor.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Timecode.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Timeline.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/TimelineTools.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Tools.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/User.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/Video.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/index.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/logic.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/resizable.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/sortable.js",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/index.html",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/json.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/material-icons.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/menu.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/style.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "file::quaternionmedia/alfred/website/src/timerange.css",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "dir::quaternionmedia/alfred/website/src/assets",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src",
+      "target": "dir::quaternionmedia/alfred/website/src/styles",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src/styles",
+      "target": "file::quaternionmedia/alfred/website/src/styles/documents.scss",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src/styles",
+      "target": "file::quaternionmedia/alfred/website/src/styles/footer.scss",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src/styles",
+      "target": "file::quaternionmedia/alfred/website/src/styles/home.scss",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src/styles",
+      "target": "file::quaternionmedia/alfred/website/src/styles/menu.scss",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src/styles",
+      "target": "file::quaternionmedia/alfred/website/src/styles/projects.scss",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src/styles",
+      "target": "file::quaternionmedia/alfred/website/src/styles/renders.scss",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src/styles",
+      "target": "file::quaternionmedia/alfred/website/src/styles/tables.scss",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     },
+     {
+      "source": "dir::quaternionmedia/alfred/website/src/styles",
+      "target": "file::quaternionmedia/alfred/website/src/styles/text.scss",
+      "metadata": {
+       "kind": "contains",
+       "weight": 1
+      }
+     }
+    ]
+   },
+   "metadata": {
+    "url": "https://github.com/quaternionmedia/alfred",
+    "depth": 1,
+    "floor": 100,
+    "truncated": 0
+   }
+  },
+  "system": {
+   "absent": true,
+   "problem": "alfred's system view is composed from a clone of it, and the clone this export read was not at its default branch's head, 7fff7ae",
+   "remedy": "export from a clone of alfred at its default branch's head",
+   "where": "/system/compose?repo=alfred"
+  }
+ },
+ "files": {
+  "estate": "estate.svg",
+  "code": "code.svg"
+ }
+}

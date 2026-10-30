@@ -3,11 +3,9 @@
 
 Org-level tooling: it lives in ci/, is copied nowhere, and every caller is
 inside this repository. It reads a document and writes a page. That is the whole
-contract. (It described itself as a SEED FILE, which it never was -- nothing
-under project-seed/ is this file, and a forker copying it would be copying a
-tool that reads a document only the corpus generates.)
+contract.
 
-WHAT THIS MAY NOT DO, and why the list matters more than the features:
+What this may not do, and why the list matters more than the features:
 
   - It may not run git or gh. If a fact is not in the document, this renderer
     does not have it, and the fix is a change to governance_status.py where the
@@ -27,7 +25,7 @@ file changes nothing about what governance means -- that is the point of it
 being a separate file.
 
 Usage:
-    governance_render.py governance-status.yaml --out status.html
+    governance_render.py status/governance.yaml --out status.html
 """
 
 from __future__ import annotations
@@ -284,7 +282,7 @@ the corpus, not gaps in the measurement.</p>
 {undefined}
 
 <footer>
-Rendered from <code>governance-status.yaml</code> by
+Rendered from <code>status/governance.yaml</code> by
 <code>project-seed/ci/governance_render.py</code>. This page derives no governance
 fact of its own; every value above is read from that document. Figures in the
 github layer are observations at the moment stamped, not continuously verified.

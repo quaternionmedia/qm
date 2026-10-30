@@ -5,7 +5,7 @@ Org-level tooling, copied nowhere. It reads a document and writes a view. That
 is the whole contract, and it is the same contract ci/harness_dashboard.py and
 ci/governance_render.py have.
 
-WHAT THIS MAY NOT DO, and why the list matters more than the features:
+What this may not do, and why the list matters more than the features:
 
   - It may not stat a file, walk a directory, or ask the operating system how
     much space is left. If a fact is not in the document, this renderer does not
@@ -24,8 +24,8 @@ WHAT THIS MAY NOT DO, and why the list matters more than the features:
     first is an absence of evidence and the second reads as nothing to do.
 
 Usage:
-    python ci/disk_dashboard.py disk-status.json --out disk.html
-    python ci/disk_dashboard.py disk-status.json --format md
+    python ci/disk_dashboard.py status/disk.yaml --out disk.html
+    python ci/disk_dashboard.py status/disk.yaml --format md
 """
 
 from __future__ import annotations

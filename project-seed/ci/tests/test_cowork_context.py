@@ -96,9 +96,9 @@ def test_an_uninitialised_submodule_is_named_as_such(repo: Path, tmp_path: Path)
     git(repo, "submodule", "deinit", "-f", "governance/qm")
     text = brief(repo)
     # The remediation command, not the phrase: the handoffs section says "the
-    # submodule is not initialised" too, when it cannot find the directory. An
-    # assertion on the phrase alone passes against a tool that dropped this
-    # check entirely, which is what it did before this line named the remedy.
+    # submodule is not initialised" too, when it cannot find the directory, so
+    # an assertion on the phrase alone would pass against a tool that dropped
+    # this check.
     assert "git submodule update --init --recursive" in text
     assert "**the submodule is not initialised**" in text
 
@@ -163,6 +163,49 @@ def test_a_sibling_branch_is_reported(repo: Path) -> None:
     assert "1 commit(s) not on main" in text
 
 
+def test_pushed_work_with_no_local_branch_is_reported(repo: Path) -> None:
+    """A fresh clone has one local branch, and pushed work must still show.
+
+    This is the case a `refs/heads` scan cannot see: work that was pushed and
+    has no pull request is invisible to the slot check too, so a brief that
+    misses it reports a clean repository over a branch full of waiting work.
+    """
+    upstream = repo.parent / "upstream.git"
+    git(repo, "clone", "--bare", "-q", str(repo), str(upstream))
+    git(repo, "remote", "set-url", "origin", str(upstream))
+
+    git(repo, "checkout", "-q", "-b", "evolve/pushed-elsewhere")
+    write(repo / "theirs.md", "their work\n")
+    commit_all(repo, "their commit")
+    git(repo, "push", "-q", "origin", "evolve/pushed-elsewhere")
+
+    # The state a clone that never made the branch is in: the remote-tracking
+    # ref exists, the local branch does not.
+    git(repo, "checkout", "-q", "main")
+    git(repo, "branch", "-q", "-D", "evolve/pushed-elsewhere")
+
+    text = brief(repo)
+    assert "origin/evolve/pushed-elsewhere" in text
+    assert "1 commit(s) not on main" in text
+
+
+def test_a_branch_and_its_remote_ref_are_reported_once(repo: Path) -> None:
+    """The ordinary case: `foo` and `origin/foo` are one piece of work."""
+    upstream = repo.parent / "upstream2.git"
+    git(repo, "clone", "--bare", "-q", str(repo), str(upstream))
+    git(repo, "remote", "set-url", "origin", str(upstream))
+
+    git(repo, "checkout", "-q", "-b", "other/session")
+    write(repo / "theirs.md", "their work\n")
+    commit_all(repo, "their commit")
+    git(repo, "push", "-q", "origin", "other/session")
+    git(repo, "checkout", "-q", "main")
+
+    text = brief(repo)
+    assert text.count("other/session:") == 1
+    assert "origin/other/session:" not in text
+
+
 def test_a_long_branch_list_says_how_many_it_left_off(repo: Path) -> None:
     """A list that silently stops reads as a complete one."""
     for index in range(12):
@@ -175,32 +218,61 @@ def test_a_long_branch_list_says_how_many_it_left_off(repo: Path) -> None:
     assert "…and 4 more, not listed" in text
 
 
-def test_offline_reports_the_slot_as_unread_not_as_free(repo: Path) -> None:
+def test_offline_reports_the_pull_requests_as_unread_not_as_clean(repo: Path) -> None:
     """The whole point: 'nothing was read' must never render as 'nothing wrong'."""
     text = brief(repo)
     assert "`--offline` was passed, so no pull request was read" in text
-    assert "Your slot is free" not in text
+    assert "None of yours is ready while stacked" not in text
 
 
 def test_out_writes_the_same_text_it_printed(repo: Path) -> None:
+    write(repo / ".gitignore", ".harness/\n")
+    commit_all(repo, "ignore the brief")
     result = run_tool(
         "cowork_context.py", "--offline", "--out", ".harness/session-brief.md", cwd=repo
     )
     assert result.returncode == 0, result.stdout + result.stderr
     written = (repo / ".harness" / "session-brief.md").read_text(encoding="utf-8")
     assert written == result.stdout
+    assert git(repo, "status", "--porcelain") == ""
+
+
+def test_out_refuses_a_path_git_would_track(repo: Path) -> None:
+    """Written there, the brief is the dirty tree the next brief reports."""
+    result = run_tool(
+        "cowork_context.py", "--offline", "--out", ".harness/session-brief.md", cwd=repo
+    )
+    assert result.returncode == 2
+    assert "not written" in result.stderr
+    assert not (repo / ".harness").exists()
+    assert git(repo, "status", "--porcelain") == ""
+
+
+def test_out_refuses_to_overwrite_a_tracked_file(repo: Path) -> None:
+    write(repo / "notes.md", "kept\n")
+    commit_all(repo, "a tracked file")
+    result = run_tool("cowork_context.py", "--offline", "--out", "notes.md", cwd=repo)
+    assert result.returncode == 2
+    assert (repo / "notes.md").read_text(encoding="utf-8") == "kept\n"
+
+
+def test_out_writes_a_path_outside_the_repository(repo: Path) -> None:
+    target = repo.parent / "outside" / "session-brief.md"
+    result = run_tool("cowork_context.py", "--offline", "--out", str(target), cwd=repo)
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert target.read_text(encoding="utf-8") == result.stdout
 
 
 def test_a_generated_document_is_reported_with_its_age(repo: Path) -> None:
     """A session that cannot see the age quotes the number anyway."""
     write(repo / "PRINCIPLES.md", "# Charter\n")
     write(
-        repo / "harness-status.json",
+        repo / "status/harness.yaml",
         '{"schema": 1, "generated_at": "2026-01-01T00:00:00Z", "repositories": []}\n',
     )
     commit_all(repo, "documents")
     text = brief(repo)
-    assert "harness-status.json" in text
+    assert "status/harness.yaml" in text
     assert "past its 24h budget" in text
     assert "re-derive any figure you act on" in text
 
@@ -211,7 +283,7 @@ def test_a_fresh_document_is_not_reported_as_stale(repo: Path) -> None:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     write(repo / "PRINCIPLES.md", "# Charter\n")
     write(
-        repo / "harness-status.json",
+        repo / "status/harness.yaml",
         f'{{"schema": 1, "generated_at": "{now}", "repositories": []}}\n',
     )
     commit_all(repo, "documents")
@@ -225,15 +297,75 @@ def test_an_absent_document_is_named_rather_than_omitted(repo: Path) -> None:
     write(repo / "PRINCIPLES.md", "# Charter\n")
     commit_all(repo, "charter")
     text = brief(repo)
-    assert "`harness-status.json` — **absent**" in text
+    assert "`status/harness.yaml` — **absent**" in text
     assert "do not assume clean" in text
 
 
 def test_a_document_without_a_stamp_is_age_unknown_not_age_zero(repo: Path) -> None:
     """mtime would say 'minutes old' in every fresh clone, which is every session."""
     write(repo / "PRINCIPLES.md", "# Charter\n")
-    write(repo / "harness-status.json", '{"schema": 1, "repositories": []}\n')
+    write(repo / "status/harness.yaml", '{"schema": 1, "repositories": []}\n')
     commit_all(repo, "documents")
     text = brief(repo)
     assert "**Age unknown**" in text
     assert "treat every figure in it as unverified" in text
+
+
+REGISTRY = (
+    "schema: 1\n"
+    "exceptions:\n"
+    "  - id: an-exemption\n"
+    "    rule: some rule\n"
+    "    scope: a named case\n"
+)
+
+
+def test_the_brief_names_the_rules_that_do_not_apply(repo: Path) -> None:
+    """A blind session learns the rules from AGENTS.md and nothing about their
+    holes, so the brief names the exemptions.
+    """
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    write(repo / "ci" / "exception-registry.yaml", REGISTRY)
+    commit_all(repo, "registry")
+
+    text = brief(repo)
+    assert "Rules that do not apply everywhere" in text
+    assert "an-exemption" in text
+    assert "a named case" in text
+
+
+def test_a_corpus_with_no_registry_says_so_rather_than_nothing(repo: Path) -> None:
+    """Silence would read as a corpus that enforces everything."""
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    commit_all(repo, "charter")
+    text = brief(repo)
+    assert "Rules that do not apply everywhere" in text
+    assert "records no exemptions" in text
+
+
+def test_a_malformed_registry_is_reported_not_crashed(repo: Path) -> None:
+    """A registry nobody can parse is a fact about the corpus, not a traceback."""
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    write(repo / "ci" / "exception-registry.yaml", "exceptions: [unclosed\n")
+    commit_all(repo, "broken registry")
+    assert "did not parse" in brief(repo)
+
+
+def test_a_stamp_the_yaml_writer_single_quotes_is_still_an_age(repo: Path) -> None:
+    """`yaml.safe_dump` writes `generated_at: '2026-...'`, which is what
+    `status/harness.yaml` carries. The brief read that as no stamp at all and
+    told a session to treat every figure as unverified, thirteen hours into a
+    24h budget.
+
+    Mutation: admit only a double quote before the timestamp, and this fails
+    on the budget line.
+    """
+    write(repo / "PRINCIPLES.md", "# Charter\n")
+    write(
+        repo / "status/harness.yaml",
+        "schema: 1\ngenerated_at: '2026-01-01T00:00:00Z'\nrepositories: []\n",
+    )
+    commit_all(repo, "documents")
+    text = brief(repo)
+    assert "past its 24h budget" in text
+    assert "Age unknown" not in text

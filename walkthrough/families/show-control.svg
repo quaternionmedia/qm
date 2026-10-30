@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="314" viewBox="0 0 560 314" role="img" aria-label="the show-control family and its members">
+<style>text{font-family:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}.mono{font-family:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace}text{fill:#141922}.muted{fill:#536075}.panel{fill:#f3f4f7;stroke:#d5d9e2}.card{fill:#ffffff;stroke:#d5d9e2}.track{fill:#e8eaf0}.c-show-control{fill:#b3305a}.s-show-control{stroke:#b3305a}@media (prefers-color-scheme: dark){text{fill:#e7eaf1}.muted{fill:#9ba5b7}.panel{fill:#0d1118;stroke:#283143}.card{fill:#151b25;stroke:#283143}.track{fill:#1c2331}.c-show-control{fill:#f0708f}.s-show-control{stroke:#f0708f}}</style>
+<rect class="panel" x="0.5" y="0.5" width="559" height="313" rx="10"/>
+<rect class="c-show-control" x="0.5" y="0.5" width="559" height="5" rx="2"/>
+<text class="mono muted" x="16" y="30" font-size="12">show-control · within performing</text>
+<text class="c-show-control" x="16" y="56" font-size="20" font-weight="700">the room</text>
+<circle class="s-show-control" cx="22" cy="76" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="80" font-size="13">ShowRunner</text>
+<text class="mono muted" x="276" y="80" font-size="12">not adopted</text>
+<circle class="s-show-control" cx="22" cy="102" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="106" font-size="13">Cuelist-python</text>
+<text class="mono muted" x="276" y="106" font-size="12">not adopted</text>
+<circle class="s-show-control" cx="22" cy="128" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="132" font-size="13">QLab-python</text>
+<text class="mono muted" x="276" y="132" font-size="12">not adopted</text>
+<circle class="s-show-control" cx="22" cy="154" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="158" font-size="13">TheatreMix-python</text>
+<text class="mono muted" x="276" y="158" font-size="12">not adopted</text>
+<circle class="s-show-control" cx="22" cy="180" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="184" font-size="13">cesar</text>
+<text class="mono muted" x="276" y="184" font-size="12">not adopted</text>
+<circle class="s-show-control" cx="22" cy="206" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="210" font-size="13">ira</text>
+<text class="mono muted" x="276" y="210" font-size="12">not adopted</text>
+<circle class="s-show-control" cx="22" cy="232" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="236" font-size="13">ShowStopper</text>
+<text class="mono muted" x="276" y="236" font-size="12">not adopted</text>
+<circle class="s-show-control" cx="22" cy="258" r="4.5" fill="none" stroke-width="1.5"/>
+<text class="mono" x="36" y="262" font-size="13">aes</text>
+<text class="mono muted" x="276" y="262" font-size="12">not adopted</text>
+<text class="mono muted" x="16" y="302" font-size="11">● governed   ○ not adopted</text>
+</svg>

@@ -14,25 +14,52 @@ opening a repository and wondering whether these numbers can be believed.
 Two documents are committed at the corpus root. **Read them instead of
 re-deriving what they hold**, and check the age before you quote anything.
 
+**One command regenerates all of them**, and it is the one to run before a pull
+request so drift arrives as an uncommitted diff rather than as staleness nobody
+sees:
+
+```sh
+uv run qm docs generate            # all six
+uv run qm docs generate --offline  # skip the three that read other repositories
+uv run qm docs check               # CI-safe: has anything drifted?
+```
+
+The per-document commands below still work and are what CI and a fork invoke —
+a workflow that shelled out to `uv run` would need a venv built before any gate
+could report, and a fork runs the seed scripts in place without installing
+anything. One definition, two entry points; see `pyproject.toml`'s header.
+
 | Document | Holds | Quotable for | Refresh |
 |---|---|---|---|
-| `governance-status.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `python ci/governance_status.py --write governance-status.yaml` |
-| `harness-status.json` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `python ci/harness_status.py --no-local --write harness-status.json` |
+| `status/governance.yaml` | where every project stands: branches, records, adoption artifacts | 168h | `uv run qm docs generate` |
+| `status/harness.yaml` | pull request slots, phases claimed, governance evidence, **threads in flight** | 24h | `uv run qm docs generate` |
+| `status/gates.yaml` | every automated check, what it refuses, **what it cannot see**, and whether anything blocks a merge | 168h | `uv run qm docs generate` |
+| `status/rollout.yaml` | a phased push-through, family by family: for every member of every phase, what a person **claimed** beside what the host **shows**, and the states where they disagree | 168h | `uv run qm rollout --write status/rollout.yaml --source host` |
+| `status/inventory.yaml` | every repository the org has, against the roster and this disk, with each one's **activity on three axes** — attention claimed, recency measured, risk machine-scoped and in the gitignored companion | 168h | `uv run qm inventory --write` |
+| `loose-ends.json` | what the org started and has not finished, **joined from three of the documents above** — stalled threads, records waiting on a person, and each gate's declared blind spot | 24h | `uv run qm docs generate` |
 
-`harness-status.json` carries its own refresh command, staleness budget and
-`do_not` list in a `reading:` block **inside the file**, so you do not need this
-page to read that one correctly. **`governance-status.yaml` has no `reading:`
-block** — its top-level keys are `schema`, `generated_at`, `generator`, `corpus`,
-`projects`, `org` — so the refresh command and the 168h budget in the table above
-are the only statement of them anywhere, and this page is load-bearing for it.
-Giving that document a `reading:` block of its own is the fix; until then, do not
-read the sentence above as covering both. `/cowork` prints both with their
-current age.
+`status/harness.yaml` and `status/governance.yaml` each carry their own refresh
+command, staleness budget and `do_not` list in a `reading:` block **inside the
+file**, so you do not need this page to read either correctly. `/cowork` prints
+both with their current age.
+
+`loose-ends.json` is the only one here that **measures nothing**. It is a join
+over documents this corpus already generates, so it reaches no network, runs in
+a fraction of a second, and can hold no fact its sources do not. It also carries
+the one thing the others do not: a **claim** layer, read from
+`registers/loose-end-claims.yaml` and never written back — because a person's
+decision written into a regenerated document survives until the next `qm docs
+generate`, which is no time at all.
+
+Its conformance vectors are `project-seed/loose-end-vectors.json`, run by
+`python ci/loose_ends.py --vectors`. A consumer that renders an unclaimed item
+the same as a dismissed one fails the first case, which is the one the file
+exists for.
 
 To read the harness document as prose rather than JSON:
 
 ```
-python ci/harness_dashboard.py harness-status.json --format md
+uv run qm harness
 ```
 
 `/status` runs both commands and reports what needs a person.
@@ -44,9 +71,9 @@ dashboard is broken. All of these are run **from the corpus root**, in this
 repository:
 
 ```
-python ci/harness_dashboard.py harness-status.json --format md    # agent view
-python ci/harness_dashboard.py harness-status.json --out status.html
-python ci/governance_render.py governance-status.yaml --out status.html
+uv run qm harness                                                 # agent view
+python ci/harness_dashboard.py status/harness.yaml --out status.html
+python ci/governance_render.py status/governance.yaml --out status.html
 ```
 
 In **`quaternionmedia/dossier`** — one command does refresh, load and launch:
@@ -57,13 +84,9 @@ diff it leaves in this repository is theirs to review. Its refresh path is
 deliberately outside its renderer, so the no-commands-in-a-view rule holds
 there too.
 Its `docs/governance.md` carries the prep. **Both documents are on `main`**, and
-on nine of the twelve `project/*` branches — so for most projects the vendored
-path now resolves. The three that do not carry them are `project/dossier`,
-`project/loopwall` and `project/streaming-infrastructure`, each of which is tens
-of commits behind; a reader pinned to one of those still needs pointing at a
-corpus checkout, and a propagation fixes it. This paragraph said *neither*
-document was on `main`, which was true only until the change adding them landed
-on 2026-08-10.
+on every `project/*` branch that has taken a propagation since; a reader pinned
+to a branch that is behind still needs pointing at a corpus checkout, and a
+propagation fixes it.
 
 In **every other project** — nothing. The documents describe all of them and
 are generated and stored only here. Looking for a dashboard in `alfred` or
@@ -71,7 +94,7 @@ are generated and stored only here. Looking for a dashboard in `alfred` or
 something is misconfigured.
 
 The budgets differ because the things differ. Pull request slots turn over in
-hours — six sessions produced eight in a day — so a figure from yesterday
+hours, so a figure from yesterday
 describes an organisation that no longer exists. Adoption artifacts move when
 somebody merges a propagation, which is weekly at best.
 
@@ -91,7 +114,7 @@ Three artifacts, and the separation is the whole design:
 
 `ci/harness_status.py` → `ci/harness_dashboard.py --format html|md` is the
 worked example; `ci/governance_status.py` → `ci/governance_render.py` is the
-one it copied. `ci/disk_status.py` → `ci/disk_dashboard.py` is the third, and
+second. `ci/disk_status.py` → `ci/disk_dashboard.py` is the third, and
 it carries a fourth artifact the other two do not — see below.
 
 **A renderer may not run a command.** A view that can shell out is a second
@@ -135,7 +158,7 @@ is ready to build on and nothing more. A `v` tag asserts what the version-tags
 record's §2 requires: a human reviewed it, a human manually tested it against
 its real runtime, and its automated validation passed and is deterministic.
 
-So `harness-status.json` carries a `release` layer per repository, and the gap
+So `status/harness.yaml` carries a `release` layer per repository, and the gap
 between the two is the fact worth reading — commits carried on the default
 branch that no tag has asserted. Three states that must not be collapsed:
 
@@ -166,7 +189,7 @@ than trusting anyone to remember.
 
 ## The document that is never committed, and the policy that is
 
-`disk-status.json` is the exception this page needs, because it breaks the rule
+`status/disk.yaml` is the exception this page needs, because it breaks the rule
 above and is right to.
 
 The other two documents are mostly organisation facts with a machine-scoped
@@ -190,8 +213,8 @@ change.
 command a human runs), `destructive` (nothing comes back). An entry with no tier
 is a policy error and both tools refuse the file rather than assuming one. The
 tiers are a **ratchet**: `--allow rebuilt` permits refetched too, so there is no
-invocation that empties the recycle bin while sparing a download cache — which
-is the shape every cleanup script grows into, one urgent afternoon at a time.
+invocation that empties the recycle bin while sparing a download cache, which
+is the shape a cleanup script otherwise grows into.
 
 **A third tool acts, and it is the smallest.** `ci/disk_reclaim.py` is a dry run
 unless `--apply` is passed, and no policy key, environment variable or config
@@ -231,14 +254,13 @@ matches its schema, and renders. Refreshing is a human or agent action.
 ## The failure this convention is written against
 
 A governance dashboard does not report the wrong answer. It draws a reassuring
-picture of one, and the picture stops people checking. Every rule above is one
-of the four ways that has happened here: an absent document rendered as an empty
-page, an unknown rendered as a blank cell, a stale document rendered as a
-current one, and a repository with drift rendered identically to one without.
+picture of one, and the picture stops people checking. Each rule above answers
+one way it does so: an absent document rendered as an empty page, an unknown
+rendered as a blank cell, a stale document rendered as a current one, and a
+repository with drift rendered identically to one without.
 
 So: **every signal needs a fixture in which it reports bad**, and after writing
 that fixture, break the renderer in the way it names and confirm the test
-fails. Six inert tests were found that way while these two dashboards were
-built — including one that matched a phrase a *different section of the same
-page* also produces, and would have passed against a renderer with the check
-removed entirely.
+fails. A test that matches a phrase a *different section of the same page* also
+produces passes against a renderer with the check removed entirely, and only
+breaking the renderer shows it.
