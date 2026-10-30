@@ -102,6 +102,16 @@ changes a submodule's path and keeps its name. SSH URLs are tried over https,
 because a runner has no SSH key, and a filesystem path is reported as
 resolvable nowhere else.
 
+The governance submodule is the exception to that translation. The seed
+workflows that run a corpus script clone it on a runner with
+`git submodule update`, by the URL `.gitmodules` records and with no SSH key,
+so any URL but HTTPS fails each of them at the clone, and a local run, which
+has a key, passes. A checkout with `submodules: true` rewrites a GitHub SSH URL
+to HTTPS; the seed's checkouts do not. So the governance URL's form is judged
+before any fetch: anything but `https://` is `not-https`, a hard failure, and
+the local run goes red as the runner does. The path is `$QM_SUBMODULE`, else
+`governance/qm`, and `--governance` names another.
+
 Locally it also lists branches inside each submodule's clone that are on no
 remote: work committed inside a submodule is invisible to every check the
 parent runs. That list is empty in CI, where submodules are cloned fresh, and
