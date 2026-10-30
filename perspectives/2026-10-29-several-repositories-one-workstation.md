@@ -73,9 +73,11 @@ server on a port in the family demo's range that nothing declared.
 The alfred session announced one shared alfred and joe for both its demo and
 this one, by the person's choice, and asked that no second be started. This
 session started none, and looked at both ports with `--port` at every reading
-after the announcement. The stack was not up while the readings were taken, so
-how the collector reads a running container stack is not shown here; by
-construction it is `undeclared`.
+after the announcement. The stack was not up while the readings were taken:
+Docker Desktop's backend crashed at startup on this machine, on a stale socket
+the alfred session could not move, and the fix waits on the person. So how the
+collector reads a running container stack is not shown here; by construction it
+is `undeclared`.
 
 ## A run-file outlives its server, and a port check cannot tell
 
